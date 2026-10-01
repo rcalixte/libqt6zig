@@ -76,7 +76,7 @@ void KSelectionOwner_GetAtoms(KSelectionOwner* self);
 libqt_string KSelectionOwner_Tr2(const char* s, const char* c);
 libqt_string KSelectionOwner_Tr3(const char* s, const char* c, int n);
 void KSelectionOwner_Claim2(KSelectionOwner* self, bool force, bool force_kill);
-void KSelectionOwner_OnMetaObject(const KSelectionOwner* self, intptr_t slot);
+void KSelectionOwner_OnMetaObject(KSelectionOwner* self, intptr_t slot);
 QMetaObject* KSelectionOwner_SuperMetaObject(const KSelectionOwner* self);
 void KSelectionOwner_OnMetacast(KSelectionOwner* self, intptr_t slot);
 void* KSelectionOwner_SuperMetacast(KSelectionOwner* self, const char* param1);
@@ -117,20 +117,10 @@ void KSelectionOwner_DisconnectNotify(KSelectionOwner* self, const QMetaMethod* 
 void KSelectionOwner_OnDisconnectNotify(KSelectionOwner* self, intptr_t slot);
 void KSelectionOwner_SuperDisconnectNotify(KSelectionOwner* self, const QMetaMethod* signal);
 void KSelectionOwner_SetData(KSelectionOwner* self, uint32_t extra1, uint32_t extra2);
-void KSelectionOwner_OnSetData(KSelectionOwner* self, intptr_t slot);
-void KSelectionOwner_SuperSetData(KSelectionOwner* self, uint32_t extra1, uint32_t extra2);
 QObject* KSelectionOwner_Sender(const KSelectionOwner* self);
-void KSelectionOwner_OnSender(const KSelectionOwner* self, intptr_t slot);
-QObject* KSelectionOwner_SuperSender(const KSelectionOwner* self);
 int KSelectionOwner_SenderSignalIndex(const KSelectionOwner* self);
-void KSelectionOwner_OnSenderSignalIndex(const KSelectionOwner* self, intptr_t slot);
-int KSelectionOwner_SuperSenderSignalIndex(const KSelectionOwner* self);
 int KSelectionOwner_Receivers(const KSelectionOwner* self, const char* signal);
-void KSelectionOwner_OnReceivers(const KSelectionOwner* self, intptr_t slot);
-int KSelectionOwner_SuperReceivers(const KSelectionOwner* self, const char* signal);
 bool KSelectionOwner_IsSignalConnected(const KSelectionOwner* self, const QMetaMethod* signal);
-void KSelectionOwner_OnIsSignalConnected(const KSelectionOwner* self, intptr_t slot);
-bool KSelectionOwner_SuperIsSignalConnected(const KSelectionOwner* self, const QMetaMethod* signal);
 void KSelectionOwner_Delete(KSelectionOwner* self);
 
 #ifdef __cplusplus

@@ -42,7 +42,7 @@ libqt_list /* of QKeySequence* */ KGlobalShortcutInfo_Keys(const KGlobalShortcut
 libqt_string KGlobalShortcutInfo_UniqueName(const KGlobalShortcutInfo* self);
 libqt_string KGlobalShortcutInfo_Tr2(const char* s, const char* c);
 libqt_string KGlobalShortcutInfo_Tr3(const char* s, const char* c, int n);
-void KGlobalShortcutInfo_OnMetaObject(const KGlobalShortcutInfo* self, intptr_t slot);
+void KGlobalShortcutInfo_OnMetaObject(KGlobalShortcutInfo* self, intptr_t slot);
 QMetaObject* KGlobalShortcutInfo_SuperMetaObject(const KGlobalShortcutInfo* self);
 void KGlobalShortcutInfo_OnMetacast(KGlobalShortcutInfo* self, intptr_t slot);
 void* KGlobalShortcutInfo_SuperMetacast(KGlobalShortcutInfo* self, const char* param1);
@@ -70,17 +70,9 @@ void KGlobalShortcutInfo_DisconnectNotify(KGlobalShortcutInfo* self, const QMeta
 void KGlobalShortcutInfo_OnDisconnectNotify(KGlobalShortcutInfo* self, intptr_t slot);
 void KGlobalShortcutInfo_SuperDisconnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal);
 QObject* KGlobalShortcutInfo_Sender(const KGlobalShortcutInfo* self);
-void KGlobalShortcutInfo_OnSender(const KGlobalShortcutInfo* self, intptr_t slot);
-QObject* KGlobalShortcutInfo_SuperSender(const KGlobalShortcutInfo* self);
 int KGlobalShortcutInfo_SenderSignalIndex(const KGlobalShortcutInfo* self);
-void KGlobalShortcutInfo_OnSenderSignalIndex(const KGlobalShortcutInfo* self, intptr_t slot);
-int KGlobalShortcutInfo_SuperSenderSignalIndex(const KGlobalShortcutInfo* self);
 int KGlobalShortcutInfo_Receivers(const KGlobalShortcutInfo* self, const char* signal);
-void KGlobalShortcutInfo_OnReceivers(const KGlobalShortcutInfo* self, intptr_t slot);
-int KGlobalShortcutInfo_SuperReceivers(const KGlobalShortcutInfo* self, const char* signal);
 bool KGlobalShortcutInfo_IsSignalConnected(const KGlobalShortcutInfo* self, const QMetaMethod* signal);
-void KGlobalShortcutInfo_OnIsSignalConnected(const KGlobalShortcutInfo* self, intptr_t slot);
-bool KGlobalShortcutInfo_SuperIsSignalConnected(const KGlobalShortcutInfo* self, const QMetaMethod* signal);
 void KGlobalShortcutInfo_Delete(KGlobalShortcutInfo* self);
 
 #ifdef __cplusplus

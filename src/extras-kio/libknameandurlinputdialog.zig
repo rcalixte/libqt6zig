@@ -137,9 +137,9 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     /// ` self: KNameAndUrlInputDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KNameAndUrlInputDialog) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog) callconv(.c) QMetaObject) void {
         qtc.KNameAndUrlInputDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6935,11 +6935,11 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     /// ` self: KNameAndUrlInputDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KNameAndUrlInputDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog) callconv(.c) QSize) void {
         qtc.KNameAndUrlInputDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6993,11 +6993,11 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     /// ` self: KNameAndUrlInputDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KNameAndUrlInputDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog) callconv(.c) QSize) void {
         qtc.KNameAndUrlInputDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7051,9 +7051,9 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     /// ` self: KNameAndUrlInputDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KNameAndUrlInputDialog) callconv(.c) void `
     ///
-    pub fn onOpen(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog) callconv(.c) void) void {
         qtc.KNameAndUrlInputDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7107,9 +7107,9 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     /// ` self: KNameAndUrlInputDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KNameAndUrlInputDialog) callconv(.c) i32 `
     ///
-    pub fn onExec(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog) callconv(.c) i32) void {
         qtc.KNameAndUrlInputDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7223,9 +7223,9 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     /// ` self: KNameAndUrlInputDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KNameAndUrlInputDialog) callconv(.c) void `
     ///
-    pub fn onAccept(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog) callconv(.c) void) void {
         qtc.KNameAndUrlInputDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7279,9 +7279,9 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     /// ` self: KNameAndUrlInputDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KNameAndUrlInputDialog) callconv(.c) void `
     ///
-    pub fn onReject(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog) callconv(.c) void) void {
         qtc.KNameAndUrlInputDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7713,9 +7713,9 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     /// ` self: KNameAndUrlInputDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KNameAndUrlInputDialog) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog) callconv(.c) i32) void {
         qtc.KNameAndUrlInputDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7829,9 +7829,9 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     /// ` self: KNameAndUrlInputDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KNameAndUrlInputDialog) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog) callconv(.c) bool) void {
         qtc.KNameAndUrlInputDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7885,9 +7885,9 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     /// ` self: KNameAndUrlInputDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KNameAndUrlInputDialog) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog) callconv(.c) QPaintEngine) void {
         qtc.KNameAndUrlInputDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9503,9 +9503,9 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     /// ` self: KNameAndUrlInputDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KNameAndUrlInputDialog) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog) callconv(.c) QPainter) void {
         qtc.KNameAndUrlInputDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10024,47 +10024,6 @@ pub const KNameAndUrlInputDialog = extern struct {
         qtc.KNameAndUrlInputDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAdjustPosition` instead
-    ///
-    pub const SuperAdjustPosition = superAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNameAndUrlInputDialog `
-    ///
-    /// ` param1: QWidget `
-    ///
-    pub fn superAdjustPosition(self: KNameAndUrlInputDialog, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWidget;
-        qtc.KNameAndUrlInputDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAdjustPosition` instead
-    ///
-    pub const OnAdjustPosition = onAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNameAndUrlInputDialog`
-    ///
-    /// ` callback: *const fn (self: KNameAndUrlInputDialog, param1: QWidget) callconv(.c) void `
-    ///
-    pub fn onAdjustPosition(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog, QWidget) callconv(.c) void) void {
-        qtc.KNameAndUrlInputDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -10081,44 +10040,6 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     pub fn updateMicroFocus(self: KNameAndUrlInputDialog) void {
         qtc.KNameAndUrlInputDialog_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNameAndUrlInputDialog `
-    ///
-    pub fn superUpdateMicroFocus(self: KNameAndUrlInputDialog) void {
-        qtc.KNameAndUrlInputDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNameAndUrlInputDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KNameAndUrlInputDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -10139,44 +10060,6 @@ pub const KNameAndUrlInputDialog = extern struct {
         qtc.KNameAndUrlInputDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNameAndUrlInputDialog `
-    ///
-    pub fn superCreate(self: KNameAndUrlInputDialog) void {
-        qtc.KNameAndUrlInputDialog_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNameAndUrlInputDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KNameAndUrlInputDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10193,44 +10076,6 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     pub fn destroy(self: KNameAndUrlInputDialog) void {
         qtc.KNameAndUrlInputDialog_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNameAndUrlInputDialog `
-    ///
-    pub fn superDestroy(self: KNameAndUrlInputDialog) void {
-        qtc.KNameAndUrlInputDialog_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNameAndUrlInputDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KNameAndUrlInputDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10251,44 +10096,6 @@ pub const KNameAndUrlInputDialog = extern struct {
         return qtc.KNameAndUrlInputDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNameAndUrlInputDialog `
-    ///
-    pub fn superFocusNextChild(self: KNameAndUrlInputDialog) bool {
-        return qtc.KNameAndUrlInputDialog_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNameAndUrlInputDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.KNameAndUrlInputDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10305,44 +10112,6 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     pub fn focusPreviousChild(self: KNameAndUrlInputDialog) bool {
         return qtc.KNameAndUrlInputDialog_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNameAndUrlInputDialog `
-    ///
-    pub fn superFocusPreviousChild(self: KNameAndUrlInputDialog) bool {
-        return qtc.KNameAndUrlInputDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNameAndUrlInputDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.KNameAndUrlInputDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10363,44 +10132,6 @@ pub const KNameAndUrlInputDialog = extern struct {
         return .{ .ptr = qtc.KNameAndUrlInputDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNameAndUrlInputDialog `
-    ///
-    pub fn superSender(self: KNameAndUrlInputDialog) QObject {
-        return .{ .ptr = qtc.KNameAndUrlInputDialog_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNameAndUrlInputDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KNameAndUrlInputDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10417,44 +10148,6 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     pub fn senderSignalIndex(self: KNameAndUrlInputDialog) i32 {
         return qtc.KNameAndUrlInputDialog_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNameAndUrlInputDialog `
-    ///
-    pub fn superSenderSignalIndex(self: KNameAndUrlInputDialog) i32 {
-        return qtc.KNameAndUrlInputDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNameAndUrlInputDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) i32) void {
-        qtc.KNameAndUrlInputDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10478,47 +10171,6 @@ pub const KNameAndUrlInputDialog = extern struct {
         return qtc.KNameAndUrlInputDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNameAndUrlInputDialog `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KNameAndUrlInputDialog, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KNameAndUrlInputDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNameAndUrlInputDialog`
-    ///
-    /// ` callback: *const fn (self: KNameAndUrlInputDialog, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KNameAndUrlInputDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10538,47 +10190,6 @@ pub const KNameAndUrlInputDialog = extern struct {
     pub fn isSignalConnected(self: KNameAndUrlInputDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KNameAndUrlInputDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNameAndUrlInputDialog `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KNameAndUrlInputDialog, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KNameAndUrlInputDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNameAndUrlInputDialog`
-    ///
-    /// ` callback: *const fn (self: KNameAndUrlInputDialog, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog, QMetaMethod) callconv(.c) bool) void {
-        qtc.KNameAndUrlInputDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10601,48 +10212,6 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     pub fn getDecodedMetricF(self: KNameAndUrlInputDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KNameAndUrlInputDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNameAndUrlInputDialog `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KNameAndUrlInputDialog, metricA: i32, metricB: i32) f64 {
-        return qtc.KNameAndUrlInputDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNameAndUrlInputDialog`
-    ///
-    /// ` callback: *const fn (self: KNameAndUrlInputDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog, i32, i32) callconv(.c) f64) void {
-        qtc.KNameAndUrlInputDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

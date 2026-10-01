@@ -93,7 +93,7 @@ void QApplication_SetPalette2(const QPalette* param1, const char* className);
 void QApplication_SetFont2(const QFont* param1, const char* className);
 void QApplication_Alert2(QWidget* widget, int duration);
 void QApplication_SetEffectEnabled2(int param1, bool enable);
-void QApplication_OnMetaObject(const QApplication* self, intptr_t slot);
+void QApplication_OnMetaObject(QApplication* self, intptr_t slot);
 QMetaObject* QApplication_SuperMetaObject(const QApplication* self);
 void QApplication_OnMetacast(QApplication* self, intptr_t slot);
 void* QApplication_SuperMetacast(QApplication* self, const char* param1);
@@ -122,20 +122,10 @@ void QApplication_DisconnectNotify(QApplication* self, const QMetaMethod* signal
 void QApplication_OnDisconnectNotify(QApplication* self, intptr_t slot);
 void QApplication_SuperDisconnectNotify(QApplication* self, const QMetaMethod* signal);
 void* QApplication_ResolveInterface(const QApplication* self, const char* name, int revision);
-void QApplication_OnResolveInterface(const QApplication* self, intptr_t slot);
-void* QApplication_SuperResolveInterface(const QApplication* self, const char* name, int revision);
 QObject* QApplication_Sender(const QApplication* self);
-void QApplication_OnSender(const QApplication* self, intptr_t slot);
-QObject* QApplication_SuperSender(const QApplication* self);
 int QApplication_SenderSignalIndex(const QApplication* self);
-void QApplication_OnSenderSignalIndex(const QApplication* self, intptr_t slot);
-int QApplication_SuperSenderSignalIndex(const QApplication* self);
 int QApplication_Receivers(const QApplication* self, const char* signal);
-void QApplication_OnReceivers(const QApplication* self, intptr_t slot);
-int QApplication_SuperReceivers(const QApplication* self, const char* signal);
 bool QApplication_IsSignalConnected(const QApplication* self, const QMetaMethod* signal);
-void QApplication_OnIsSignalConnected(const QApplication* self, intptr_t slot);
-bool QApplication_SuperIsSignalConnected(const QApplication* self, const QMetaMethod* signal);
 void QApplication_Delete(QApplication* self);
 
 #ifdef __cplusplus

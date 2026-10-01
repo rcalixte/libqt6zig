@@ -77,9 +77,9 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin) callconv(.c) QMetaObject) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -230,6 +230,8 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
+    /// This method must be implemented with `onTranslate` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
@@ -250,26 +252,10 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin) callconv(.c) void `
     ///
-    pub fn onTranslate(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) void) void {
+    pub fn onTranslate(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnTranslate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTranslate` instead
-    ///
-    pub const SuperTranslate = superTranslate;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin `
-    ///
-    pub fn superTranslate(self: TextTranslator__TranslatorEnginePlugin) void {
-        qtc.TextTranslator__TranslatorEnginePlugin_SuperTranslate(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `resultTranslate` instead
@@ -622,46 +608,6 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
         qtc.TextTranslator__TranslatorEnginePlugin_AppendResult(@ptrCast(self.ptr), result_str);
     }
 
-    /// ### DEPRECATED: Use `onAppendResult` instead
-    ///
-    pub const OnAppendResult = onAppendResult;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin `
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, result: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onAppendResult(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, [*:0]const u8) callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorEnginePlugin_OnAppendResult(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAppendResult` instead
-    ///
-    pub const SuperAppendResult = superAppendResult;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin `
-    ///
-    /// ` _result: []const u8 `
-    ///
-    pub fn superAppendResult(self: TextTranslator__TranslatorEnginePlugin, _result: []const u8) void {
-        const result_str = qtc.libqt_string{
-            .len = _result.len,
-            .data = _result.ptr,
-        };
-        qtc.TextTranslator__TranslatorEnginePlugin_SuperAppendResult(@ptrCast(self.ptr), result_str);
-    }
-
     /// ### DEPRECATED: Use `slotError` instead
     ///
     pub const SlotError = slotError;
@@ -678,42 +624,6 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
         qtc.TextTranslator__TranslatorEnginePlugin_SlotError(@ptrCast(self.ptr), @bitCast(errorVal));
     }
 
-    /// ### DEPRECATED: Use `onSlotError` instead
-    ///
-    pub const OnSlotError = onSlotError;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin `
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, errorVal: qnetworkreply_enums.NetworkError) callconv(.c) void `
-    ///
-    pub fn onSlotError(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, i32) callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorEnginePlugin_OnSlotError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSlotError` instead
-    ///
-    pub const SuperSlotError = superSlotError;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin `
-    ///
-    /// ` errorVal: qnetworkreply_enums.NetworkError `
-    ///
-    pub fn superSlotError(self: TextTranslator__TranslatorEnginePlugin, errorVal: i32) void {
-        qtc.TextTranslator__TranslatorEnginePlugin_SuperSlotError(@ptrCast(self.ptr), @bitCast(errorVal));
-    }
-
     /// ### DEPRECATED: Use `verifyFromAndToLanguage` instead
     ///
     pub const VerifyFromAndToLanguage = verifyFromAndToLanguage;
@@ -728,40 +638,6 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
         return qtc.TextTranslator__TranslatorEnginePlugin_VerifyFromAndToLanguage(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onVerifyFromAndToLanguage` instead
-    ///
-    pub const OnVerifyFromAndToLanguage = onVerifyFromAndToLanguage;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onVerifyFromAndToLanguage(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorEnginePlugin_OnVerifyFromAndToLanguage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superVerifyFromAndToLanguage` instead
-    ///
-    pub const SuperVerifyFromAndToLanguage = superVerifyFromAndToLanguage;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin `
-    ///
-    pub fn superVerifyFromAndToLanguage(self: TextTranslator__TranslatorEnginePlugin) bool {
-        return qtc.TextTranslator__TranslatorEnginePlugin_SuperVerifyFromAndToLanguage(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `hasDebug` instead
     ///
     pub const HasDebug = hasDebug;
@@ -774,40 +650,6 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     pub fn hasDebug(self: TextTranslator__TranslatorEnginePlugin) bool {
         return qtc.TextTranslator__TranslatorEnginePlugin_HasDebug(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onHasDebug` instead
-    ///
-    pub const OnHasDebug = onHasDebug;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onHasDebug(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorEnginePlugin_OnHasDebug(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHasDebug` instead
-    ///
-    pub const SuperHasDebug = superHasDebug;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin `
-    ///
-    pub fn superHasDebug(self: TextTranslator__TranslatorEnginePlugin) bool {
-        return qtc.TextTranslator__TranslatorEnginePlugin_SuperHasDebug(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `languageCode` instead
@@ -2359,44 +2201,6 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
         return .{ .ptr = qtc.TextTranslator__TranslatorEnginePlugin_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin `
-    ///
-    pub fn superSender(self: TextTranslator__TranslatorEnginePlugin) QObject {
-        return .{ .ptr = qtc.TextTranslator__TranslatorEnginePlugin_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextTranslator__TranslatorEnginePlugin_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2413,44 +2217,6 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     pub fn senderSignalIndex(self: TextTranslator__TranslatorEnginePlugin) i32 {
         return qtc.TextTranslator__TranslatorEnginePlugin_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin `
-    ///
-    pub fn superSenderSignalIndex(self: TextTranslator__TranslatorEnginePlugin) i32 {
-        return qtc.TextTranslator__TranslatorEnginePlugin_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextTranslator__TranslatorEnginePlugin_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2474,47 +2240,6 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
         return qtc.TextTranslator__TranslatorEnginePlugin_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextTranslator__TranslatorEnginePlugin, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextTranslator__TranslatorEnginePlugin_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextTranslator__TranslatorEnginePlugin_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2534,47 +2259,6 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     pub fn isSignalConnected(self: TextTranslator__TranslatorEnginePlugin, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextTranslator__TranslatorEnginePlugin_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextTranslator__TranslatorEnginePlugin, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextTranslator__TranslatorEnginePlugin_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorEnginePlugin_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -240,9 +240,9 @@ pub const KSelectionWatcher = extern struct {
     ///
     /// ` self: KSelectionWatcher `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KSelectionWatcher) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KSelectionWatcher, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KSelectionWatcher, callback: *const fn (KSelectionWatcher) callconv(.c) QMetaObject) void {
         qtc.KSelectionWatcher_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1963,44 +1963,6 @@ pub const KSelectionWatcher = extern struct {
         return .{ .ptr = qtc.KSelectionWatcher_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelectionWatcher `
-    ///
-    pub fn superSender(self: KSelectionWatcher) QObject {
-        return .{ .ptr = qtc.KSelectionWatcher_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelectionWatcher`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KSelectionWatcher, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KSelectionWatcher_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2017,44 +1979,6 @@ pub const KSelectionWatcher = extern struct {
     ///
     pub fn senderSignalIndex(self: KSelectionWatcher) i32 {
         return qtc.KSelectionWatcher_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelectionWatcher `
-    ///
-    pub fn superSenderSignalIndex(self: KSelectionWatcher) i32 {
-        return qtc.KSelectionWatcher_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelectionWatcher`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KSelectionWatcher, callback: *const fn () callconv(.c) i32) void {
-        qtc.KSelectionWatcher_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2078,47 +2002,6 @@ pub const KSelectionWatcher = extern struct {
         return qtc.KSelectionWatcher_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelectionWatcher `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KSelectionWatcher, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KSelectionWatcher_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelectionWatcher`
-    ///
-    /// ` callback: *const fn (self: KSelectionWatcher, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KSelectionWatcher, callback: *const fn (KSelectionWatcher, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KSelectionWatcher_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2138,47 +2021,6 @@ pub const KSelectionWatcher = extern struct {
     pub fn isSignalConnected(self: KSelectionWatcher, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KSelectionWatcher_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelectionWatcher `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KSelectionWatcher, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KSelectionWatcher_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelectionWatcher`
-    ///
-    /// ` callback: *const fn (self: KSelectionWatcher, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KSelectionWatcher, callback: *const fn (KSelectionWatcher, QMetaMethod) callconv(.c) bool) void {
-        qtc.KSelectionWatcher_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -68,9 +68,9 @@ pub const QAmbientSound = extern struct {
     ///
     /// ` self: QAmbientSound `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QAmbientSound) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QAmbientSound, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAmbientSound, callback: *const fn (QAmbientSound) callconv(.c) QMetaObject) void {
         qtc.QAmbientSound_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1989,44 +1989,6 @@ pub const QAmbientSound = extern struct {
         return .{ .ptr = qtc.QAmbientSound_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAmbientSound `
-    ///
-    pub fn superSender(self: QAmbientSound) QObject {
-        return .{ .ptr = qtc.QAmbientSound_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAmbientSound`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QAmbientSound, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAmbientSound_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2043,44 +2005,6 @@ pub const QAmbientSound = extern struct {
     ///
     pub fn senderSignalIndex(self: QAmbientSound) i32 {
         return qtc.QAmbientSound_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAmbientSound `
-    ///
-    pub fn superSenderSignalIndex(self: QAmbientSound) i32 {
-        return qtc.QAmbientSound_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAmbientSound`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QAmbientSound, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAmbientSound_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2104,47 +2028,6 @@ pub const QAmbientSound = extern struct {
         return qtc.QAmbientSound_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAmbientSound `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QAmbientSound, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QAmbientSound_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAmbientSound`
-    ///
-    /// ` callback: *const fn (self: QAmbientSound, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QAmbientSound, callback: *const fn (QAmbientSound, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAmbientSound_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2164,47 +2047,6 @@ pub const QAmbientSound = extern struct {
     pub fn isSignalConnected(self: QAmbientSound, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAmbientSound_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAmbientSound `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QAmbientSound, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QAmbientSound_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAmbientSound`
-    ///
-    /// ` callback: *const fn (self: QAmbientSound, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QAmbientSound, callback: *const fn (QAmbientSound, QMetaMethod) callconv(.c) bool) void {
-        qtc.QAmbientSound_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

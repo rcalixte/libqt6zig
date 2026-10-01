@@ -66,7 +66,7 @@ libqt_string KXMLGUIFactory_ReadConfigFile2(const libqt_string filename, const l
 bool KXMLGUIFactory_SaveConfigFile3(const QDomDocument* doc, const libqt_string filename, const libqt_string componentName);
 QWidget* KXMLGUIFactory_Container3(KXMLGUIFactory* self, const libqt_string containerName, KXMLGUIClient* client, bool useTagName);
 void KXMLGUIFactory_ResetContainer2(KXMLGUIFactory* self, const libqt_string containerName, bool useTagName);
-void KXMLGUIFactory_OnMetaObject(const KXMLGUIFactory* self, intptr_t slot);
+void KXMLGUIFactory_OnMetaObject(KXMLGUIFactory* self, intptr_t slot);
 QMetaObject* KXMLGUIFactory_SuperMetaObject(const KXMLGUIFactory* self);
 void KXMLGUIFactory_OnMetacast(KXMLGUIFactory* self, intptr_t slot);
 void* KXMLGUIFactory_SuperMetacast(KXMLGUIFactory* self, const char* param1);
@@ -94,17 +94,9 @@ void KXMLGUIFactory_DisconnectNotify(KXMLGUIFactory* self, const QMetaMethod* si
 void KXMLGUIFactory_OnDisconnectNotify(KXMLGUIFactory* self, intptr_t slot);
 void KXMLGUIFactory_SuperDisconnectNotify(KXMLGUIFactory* self, const QMetaMethod* signal);
 QObject* KXMLGUIFactory_Sender(const KXMLGUIFactory* self);
-void KXMLGUIFactory_OnSender(const KXMLGUIFactory* self, intptr_t slot);
-QObject* KXMLGUIFactory_SuperSender(const KXMLGUIFactory* self);
 int KXMLGUIFactory_SenderSignalIndex(const KXMLGUIFactory* self);
-void KXMLGUIFactory_OnSenderSignalIndex(const KXMLGUIFactory* self, intptr_t slot);
-int KXMLGUIFactory_SuperSenderSignalIndex(const KXMLGUIFactory* self);
 int KXMLGUIFactory_Receivers(const KXMLGUIFactory* self, const char* signal);
-void KXMLGUIFactory_OnReceivers(const KXMLGUIFactory* self, intptr_t slot);
-int KXMLGUIFactory_SuperReceivers(const KXMLGUIFactory* self, const char* signal);
 bool KXMLGUIFactory_IsSignalConnected(const KXMLGUIFactory* self, const QMetaMethod* signal);
-void KXMLGUIFactory_OnIsSignalConnected(const KXMLGUIFactory* self, intptr_t slot);
-bool KXMLGUIFactory_SuperIsSignalConnected(const KXMLGUIFactory* self, const QMetaMethod* signal);
 void KXMLGUIFactory_Delete(KXMLGUIFactory* self);
 
 #ifdef __cplusplus

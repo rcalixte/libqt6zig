@@ -67,7 +67,7 @@ libqt_list /* of QVariant* */ QVirtualKeyboardTrace_Points1(const QVirtualKeyboa
 libqt_list /* of QVariant* */ QVirtualKeyboardTrace_Points2(const QVirtualKeyboardTrace* self, int pos, int count);
 libqt_list /* of QVariant* */ QVirtualKeyboardTrace_ChannelData2(const QVirtualKeyboardTrace* self, const libqt_string channel, int pos);
 libqt_list /* of QVariant* */ QVirtualKeyboardTrace_ChannelData3(const QVirtualKeyboardTrace* self, const libqt_string channel, int pos, int count);
-void QVirtualKeyboardTrace_OnMetaObject(const QVirtualKeyboardTrace* self, intptr_t slot);
+void QVirtualKeyboardTrace_OnMetaObject(QVirtualKeyboardTrace* self, intptr_t slot);
 QMetaObject* QVirtualKeyboardTrace_SuperMetaObject(const QVirtualKeyboardTrace* self);
 void QVirtualKeyboardTrace_OnMetacast(QVirtualKeyboardTrace* self, intptr_t slot);
 void* QVirtualKeyboardTrace_SuperMetacast(QVirtualKeyboardTrace* self, const char* param1);
@@ -94,17 +94,9 @@ void QVirtualKeyboardTrace_DisconnectNotify(QVirtualKeyboardTrace* self, const Q
 void QVirtualKeyboardTrace_OnDisconnectNotify(QVirtualKeyboardTrace* self, intptr_t slot);
 void QVirtualKeyboardTrace_SuperDisconnectNotify(QVirtualKeyboardTrace* self, const QMetaMethod* signal);
 QObject* QVirtualKeyboardTrace_Sender(const QVirtualKeyboardTrace* self);
-void QVirtualKeyboardTrace_OnSender(const QVirtualKeyboardTrace* self, intptr_t slot);
-QObject* QVirtualKeyboardTrace_SuperSender(const QVirtualKeyboardTrace* self);
 int QVirtualKeyboardTrace_SenderSignalIndex(const QVirtualKeyboardTrace* self);
-void QVirtualKeyboardTrace_OnSenderSignalIndex(const QVirtualKeyboardTrace* self, intptr_t slot);
-int QVirtualKeyboardTrace_SuperSenderSignalIndex(const QVirtualKeyboardTrace* self);
 int QVirtualKeyboardTrace_Receivers(const QVirtualKeyboardTrace* self, const char* signal);
-void QVirtualKeyboardTrace_OnReceivers(const QVirtualKeyboardTrace* self, intptr_t slot);
-int QVirtualKeyboardTrace_SuperReceivers(const QVirtualKeyboardTrace* self, const char* signal);
 bool QVirtualKeyboardTrace_IsSignalConnected(const QVirtualKeyboardTrace* self, const QMetaMethod* signal);
-void QVirtualKeyboardTrace_OnIsSignalConnected(const QVirtualKeyboardTrace* self, intptr_t slot);
-bool QVirtualKeyboardTrace_SuperIsSignalConnected(const QVirtualKeyboardTrace* self, const QMetaMethod* signal);
 void QVirtualKeyboardTrace_Delete(QVirtualKeyboardTrace* self);
 
 #ifdef __cplusplus

@@ -258,42 +258,42 @@ void QPdfView_Connect_CurrentSearchResultIndexChanged(QPdfView* self, intptr_t s
 
 void QPdfView_PaintEvent(QPdfView* self, QPaintEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->paintEvent(event);
     }
 }
 
 void QPdfView_ResizeEvent(QPdfView* self, QResizeEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->resizeEvent(event);
     }
 }
 
 void QPdfView_ScrollContentsBy(QPdfView* self, int dx, int dy) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     }
 }
 
 void QPdfView_MousePressEvent(QPdfView* self, QMouseEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->mousePressEvent(event);
     }
 }
 
 void QPdfView_MouseMoveEvent(QPdfView* self, QMouseEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->mouseMoveEvent(event);
     }
 }
 
 void QPdfView_MouseReleaseEvent(QPdfView* self, QMouseEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->mouseReleaseEvent(event);
     }
 }
@@ -324,1814 +324,1250 @@ libqt_string QPdfView_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QPdfView_SuperMetaObject(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_MetaObject_IsBase(true);
-        return (QMetaObject*)vqpdfview->metaObject();
-    } else {
-        return (QMetaObject*)self->QPdfView::metaObject();
-    }
+    return (QMetaObject*)self->QPdfView::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfView_OnMetaObject(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_MetaObject_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_MetaObject_Callback>(slot));
+void QPdfView_OnMetaObject(QPdfView* self, intptr_t slot) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
+        vqpdfview->qpdfview_metaobject_callback = reinterpret_cast<VirtualQPdfView::QPdfView_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPdfView_SuperMetacast(QPdfView* self, const char* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_Metacast_IsBase(true);
-        return vqpdfview->qt_metacast(param1);
-    } else {
-        return self->QPdfView::qt_metacast(param1);
-    }
+    return self->QPdfView::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnMetacast(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_Metacast_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_Metacast_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_metacast_callback = reinterpret_cast<VirtualQPdfView::QPdfView_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPdfView_SuperMetacall(QPdfView* self, int param1, int param2, void** param3) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_Metacall_IsBase(true);
-        return vqpdfview->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPdfView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPdfView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnMetacall(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_Metacall_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_Metacall_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_metacall_callback = reinterpret_cast<VirtualQPdfView::QPdfView_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QPdfView_SuperPaintEvent(QPdfView* self, QPaintEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_PaintEvent_IsBase(true);
-        vqpdfview->paintEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->paintEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnPaintEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_PaintEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_PaintEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_paintevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QPdfView_SuperResizeEvent(QPdfView* self, QResizeEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_ResizeEvent_IsBase(true);
-        vqpdfview->resizeEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->resizeEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnResizeEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_ResizeEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_ResizeEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_resizeevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QPdfView_SuperScrollContentsBy(QPdfView* self, int dx, int dy) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_ScrollContentsBy_IsBase(true);
-        vqpdfview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQPdfView*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected virtual method QPdfView::scrollContentsBy called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnScrollContentsBy(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_ScrollContentsBy_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_scrollcontentsby_callback = reinterpret_cast<VirtualQPdfView::QPdfView_ScrollContentsBy_Callback>(slot);
 }
 
 // Base class handler implementation
 void QPdfView_SuperMousePressEvent(QPdfView* self, QMouseEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_MousePressEvent_IsBase(true);
-        vqpdfview->mousePressEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->mousePressEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnMousePressEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_MousePressEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_MousePressEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_mousepressevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QPdfView_SuperMouseMoveEvent(QPdfView* self, QMouseEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_MouseMoveEvent_IsBase(true);
-        vqpdfview->mouseMoveEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnMouseMoveEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_MouseMoveEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_mousemoveevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QPdfView_SuperMouseReleaseEvent(QPdfView* self, QMouseEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_MouseReleaseEvent_IsBase(true);
-        vqpdfview->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnMouseReleaseEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_mousereleaseevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QPdfView_MinimumSizeHint(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return new QSize(vqpdfview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQPdfView*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QPdfView_SuperMinimumSizeHint(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_MinimumSizeHint_IsBase(true);
-        return new QSize(vqpdfview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQPdfView*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QPdfView::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfView_OnMinimumSizeHint(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_MinimumSizeHint_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_MinimumSizeHint_Callback>(slot));
+void QPdfView_OnMinimumSizeHint(QPdfView* self, intptr_t slot) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
+        vqpdfview->qpdfview_minimumsizehint_callback = reinterpret_cast<VirtualQPdfView::QPdfView_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QPdfView_SizeHint(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return new QSize(vqpdfview->sizeHint());
-    } else {
-        return new QSize(((VirtualQPdfView*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QPdfView_SuperSizeHint(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_SizeHint_IsBase(true);
-        return new QSize(vqpdfview->sizeHint());
-    } else {
-        return new QSize(((VirtualQPdfView*)self)->sizeHint());
-    }
+    return new QSize(self->QPdfView::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfView_OnSizeHint(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_SizeHint_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_SizeHint_Callback>(slot));
+void QPdfView_OnSizeHint(QPdfView* self, intptr_t slot) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
+        vqpdfview->qpdfview_sizehint_callback = reinterpret_cast<VirtualQPdfView::QPdfView_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_SetupViewport(QPdfView* self, QWidget* viewport) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setupViewport(viewport);
-    } else {
-        self->QPdfView::setupViewport(viewport);
-    }
+    self->setupViewport(viewport);
 }
 
 // Base class handler implementation
 void QPdfView_SuperSetupViewport(QPdfView* self, QWidget* viewport) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_SetupViewport_IsBase(true);
-        vqpdfview->setupViewport(viewport);
-    } else {
-        self->QPdfView::setupViewport(viewport);
-    }
+    self->QPdfView::setupViewport(viewport);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnSetupViewport(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_SetupViewport_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_SetupViewport_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_setupviewport_callback = reinterpret_cast<VirtualQPdfView::QPdfView_SetupViewport_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfView_EventFilter(QPdfView* self, QObject* param1, QEvent* param2) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         return vqpdfview->eventFilter(param1, param2);
     } else {
-        return ((VirtualQPdfView*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method QPdfView::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPdfView_SuperEventFilter(QPdfView* self, QObject* param1, QEvent* param2) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_EventFilter_IsBase(true);
-        return vqpdfview->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQPdfView*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        return vqpdfview->QPdfView::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnEventFilter(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_EventFilter_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_EventFilter_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_eventfilter_callback = reinterpret_cast<VirtualQPdfView::QPdfView_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfView_Event(QPdfView* self, QEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         return vqpdfview->event(param1);
     } else {
-        return ((VirtualQPdfView*)self)->event(param1);
+        qFatal("Error: Protected virtual method QPdfView::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPdfView_SuperEvent(QPdfView* self, QEvent* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_Event_IsBase(true);
-        return vqpdfview->event(param1);
-    } else {
-        return ((VirtualQPdfView*)self)->event(param1);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        return vqpdfview->QPdfView::event(param1);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_Event_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_Event_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_event_callback = reinterpret_cast<VirtualQPdfView::QPdfView_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfView_ViewportEvent(QPdfView* self, QEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         return vqpdfview->viewportEvent(param1);
     } else {
-        return ((VirtualQPdfView*)self)->viewportEvent(param1);
+        qFatal("Error: Protected virtual method QPdfView::viewportEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPdfView_SuperViewportEvent(QPdfView* self, QEvent* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_ViewportEvent_IsBase(true);
-        return vqpdfview->viewportEvent(param1);
-    } else {
-        return ((VirtualQPdfView*)self)->viewportEvent(param1);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        return vqpdfview->QPdfView::viewportEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::viewportEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnViewportEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_ViewportEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_ViewportEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_viewportevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_ViewportEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_MouseDoubleClickEvent(QPdfView* self, QMouseEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->mouseDoubleClickEvent(param1);
     } else {
-        ((VirtualQPdfView*)self)->mouseDoubleClickEvent(param1);
+        qFatal("Error: Protected virtual method QPdfView::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperMouseDoubleClickEvent(QPdfView* self, QMouseEvent* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_MouseDoubleClickEvent_IsBase(true);
-        vqpdfview->mouseDoubleClickEvent(param1);
-    } else {
-        ((VirtualQPdfView*)self)->mouseDoubleClickEvent(param1);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::mouseDoubleClickEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnMouseDoubleClickEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_mousedoubleclickevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_WheelEvent(QPdfView* self, QWheelEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->wheelEvent(param1);
     } else {
-        ((VirtualQPdfView*)self)->wheelEvent(param1);
+        qFatal("Error: Protected virtual method QPdfView::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperWheelEvent(QPdfView* self, QWheelEvent* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_WheelEvent_IsBase(true);
-        vqpdfview->wheelEvent(param1);
-    } else {
-        ((VirtualQPdfView*)self)->wheelEvent(param1);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::wheelEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnWheelEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_WheelEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_WheelEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_wheelevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_ContextMenuEvent(QPdfView* self, QContextMenuEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->contextMenuEvent(param1);
     } else {
-        ((VirtualQPdfView*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method QPdfView::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperContextMenuEvent(QPdfView* self, QContextMenuEvent* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_ContextMenuEvent_IsBase(true);
-        vqpdfview->contextMenuEvent(param1);
-    } else {
-        ((VirtualQPdfView*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnContextMenuEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_ContextMenuEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_ContextMenuEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_contextmenuevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_DragEnterEvent(QPdfView* self, QDragEnterEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->dragEnterEvent(param1);
     } else {
-        ((VirtualQPdfView*)self)->dragEnterEvent(param1);
+        qFatal("Error: Protected virtual method QPdfView::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperDragEnterEvent(QPdfView* self, QDragEnterEvent* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_DragEnterEvent_IsBase(true);
-        vqpdfview->dragEnterEvent(param1);
-    } else {
-        ((VirtualQPdfView*)self)->dragEnterEvent(param1);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::dragEnterEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnDragEnterEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_DragEnterEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_DragEnterEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_dragenterevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_DragMoveEvent(QPdfView* self, QDragMoveEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->dragMoveEvent(param1);
     } else {
-        ((VirtualQPdfView*)self)->dragMoveEvent(param1);
+        qFatal("Error: Protected virtual method QPdfView::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperDragMoveEvent(QPdfView* self, QDragMoveEvent* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_DragMoveEvent_IsBase(true);
-        vqpdfview->dragMoveEvent(param1);
-    } else {
-        ((VirtualQPdfView*)self)->dragMoveEvent(param1);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::dragMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnDragMoveEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_DragMoveEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_DragMoveEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_dragmoveevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_DragLeaveEvent(QPdfView* self, QDragLeaveEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->dragLeaveEvent(param1);
     } else {
-        ((VirtualQPdfView*)self)->dragLeaveEvent(param1);
+        qFatal("Error: Protected virtual method QPdfView::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperDragLeaveEvent(QPdfView* self, QDragLeaveEvent* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_DragLeaveEvent_IsBase(true);
-        vqpdfview->dragLeaveEvent(param1);
-    } else {
-        ((VirtualQPdfView*)self)->dragLeaveEvent(param1);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::dragLeaveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnDragLeaveEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_DragLeaveEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_DragLeaveEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_dragleaveevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_DropEvent(QPdfView* self, QDropEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->dropEvent(param1);
     } else {
-        ((VirtualQPdfView*)self)->dropEvent(param1);
+        qFatal("Error: Protected virtual method QPdfView::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperDropEvent(QPdfView* self, QDropEvent* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_DropEvent_IsBase(true);
-        vqpdfview->dropEvent(param1);
-    } else {
-        ((VirtualQPdfView*)self)->dropEvent(param1);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::dropEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnDropEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_DropEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_DropEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_dropevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_KeyPressEvent(QPdfView* self, QKeyEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->keyPressEvent(param1);
     } else {
-        ((VirtualQPdfView*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method QPdfView::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperKeyPressEvent(QPdfView* self, QKeyEvent* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_KeyPressEvent_IsBase(true);
-        vqpdfview->keyPressEvent(param1);
-    } else {
-        ((VirtualQPdfView*)self)->keyPressEvent(param1);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnKeyPressEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_KeyPressEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_KeyPressEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_keypressevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QPdfView_ViewportSizeHint(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return new QSize(vqpdfview->viewportSizeHint());
-    }
-    return {};
+    return new QSize((self->*&VirtualQPdfView::Base::viewportSizeHint)());
 }
 
 // Base class handler implementation
 QSize* QPdfView_SuperViewportSizeHint(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_ViewportSizeHint_IsBase(true);
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
         return new QSize(vqpdfview->viewportSizeHint());
-    }
-    return {};
+    qFatal("Error: Protected virtual method QPdfView::viewportSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfView_OnViewportSizeHint(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_ViewportSizeHint_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_ViewportSizeHint_Callback>(slot));
+void QPdfView_OnViewportSizeHint(QPdfView* self, intptr_t slot) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
+        vqpdfview->qpdfview_viewportsizehint_callback = reinterpret_cast<VirtualQPdfView::QPdfView_ViewportSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_ChangeEvent(QPdfView* self, QEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->changeEvent(param1);
     } else {
-        ((VirtualQPdfView*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QPdfView::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperChangeEvent(QPdfView* self, QEvent* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_ChangeEvent_IsBase(true);
-        vqpdfview->changeEvent(param1);
-    } else {
-        ((VirtualQPdfView*)self)->changeEvent(param1);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnChangeEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_ChangeEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_ChangeEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_changeevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_InitStyleOption(const QPdfView* self, QStyleOptionFrame* option) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->initStyleOption(option);
     } else {
-        ((VirtualQPdfView*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method QPdfView::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperInitStyleOption(const QPdfView* self, QStyleOptionFrame* option) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_InitStyleOption_IsBase(true);
-        vqpdfview->initStyleOption(option);
-    } else {
-        ((VirtualQPdfView*)self)->initStyleOption(option);
-    }
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self))) {
+        vqpdfview->QPdfView::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfView_OnInitStyleOption(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_InitStyleOption_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_InitStyleOption_Callback>(slot));
+void QPdfView_OnInitStyleOption(QPdfView* self, intptr_t slot) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
+        vqpdfview->qpdfview_initstyleoption_callback = reinterpret_cast<VirtualQPdfView::QPdfView_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPdfView_DevType(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return vqpdfview->devType();
-    } else {
-        return self->QPdfView::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QPdfView_SuperDevType(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_DevType_IsBase(true);
-        return vqpdfview->devType();
-    } else {
-        return self->QPdfView::devType();
-    }
+    return self->QPdfView::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfView_OnDevType(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_DevType_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_DevType_Callback>(slot));
+void QPdfView_OnDevType(QPdfView* self, intptr_t slot) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
+        vqpdfview->qpdfview_devtype_callback = reinterpret_cast<VirtualQPdfView::QPdfView_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_SetVisible(QPdfView* self, bool visible) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setVisible(visible);
-    } else {
-        self->QPdfView::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QPdfView_SuperSetVisible(QPdfView* self, bool visible) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_SetVisible_IsBase(true);
-        vqpdfview->setVisible(visible);
-    } else {
-        self->QPdfView::setVisible(visible);
-    }
+    self->QPdfView::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnSetVisible(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_SetVisible_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_SetVisible_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_setvisible_callback = reinterpret_cast<VirtualQPdfView::QPdfView_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPdfView_HeightForWidth(const QPdfView* self, int param1) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return vqpdfview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QPdfView::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QPdfView_SuperHeightForWidth(const QPdfView* self, int param1) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_HeightForWidth_IsBase(true);
-        return vqpdfview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QPdfView::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QPdfView::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfView_OnHeightForWidth(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_HeightForWidth_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_HeightForWidth_Callback>(slot));
+void QPdfView_OnHeightForWidth(QPdfView* self, intptr_t slot) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
+        vqpdfview->qpdfview_heightforwidth_callback = reinterpret_cast<VirtualQPdfView::QPdfView_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfView_HasHeightForWidth(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return vqpdfview->hasHeightForWidth();
-    } else {
-        return self->QPdfView::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QPdfView_SuperHasHeightForWidth(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_HasHeightForWidth_IsBase(true);
-        return vqpdfview->hasHeightForWidth();
-    } else {
-        return self->QPdfView::hasHeightForWidth();
-    }
+    return self->QPdfView::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfView_OnHasHeightForWidth(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_HasHeightForWidth_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_HasHeightForWidth_Callback>(slot));
+void QPdfView_OnHasHeightForWidth(QPdfView* self, intptr_t slot) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
+        vqpdfview->qpdfview_hasheightforwidth_callback = reinterpret_cast<VirtualQPdfView::QPdfView_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QPdfView_PaintEngine(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return vqpdfview->paintEngine();
-    } else {
-        return self->QPdfView::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QPdfView_SuperPaintEngine(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_PaintEngine_IsBase(true);
-        return vqpdfview->paintEngine();
-    } else {
-        return self->QPdfView::paintEngine();
-    }
+    return self->QPdfView::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfView_OnPaintEngine(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_PaintEngine_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_PaintEngine_Callback>(slot));
+void QPdfView_OnPaintEngine(QPdfView* self, intptr_t slot) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
+        vqpdfview->qpdfview_paintengine_callback = reinterpret_cast<VirtualQPdfView::QPdfView_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_KeyReleaseEvent(QPdfView* self, QKeyEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->keyReleaseEvent(event);
     } else {
-        ((VirtualQPdfView*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QPdfView::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperKeyReleaseEvent(QPdfView* self, QKeyEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_KeyReleaseEvent_IsBase(true);
-        vqpdfview->keyReleaseEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnKeyReleaseEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_keyreleaseevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_FocusInEvent(QPdfView* self, QFocusEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->focusInEvent(event);
     } else {
-        ((VirtualQPdfView*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QPdfView::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperFocusInEvent(QPdfView* self, QFocusEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_FocusInEvent_IsBase(true);
-        vqpdfview->focusInEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->focusInEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnFocusInEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_FocusInEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_FocusInEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_focusinevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_FocusOutEvent(QPdfView* self, QFocusEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->focusOutEvent(event);
     } else {
-        ((VirtualQPdfView*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QPdfView::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperFocusOutEvent(QPdfView* self, QFocusEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_FocusOutEvent_IsBase(true);
-        vqpdfview->focusOutEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->focusOutEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnFocusOutEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_FocusOutEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_FocusOutEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_focusoutevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_EnterEvent(QPdfView* self, QEnterEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->enterEvent(event);
     } else {
-        ((VirtualQPdfView*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QPdfView::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperEnterEvent(QPdfView* self, QEnterEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_EnterEvent_IsBase(true);
-        vqpdfview->enterEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->enterEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnEnterEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_EnterEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_EnterEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_enterevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_LeaveEvent(QPdfView* self, QEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->leaveEvent(event);
     } else {
-        ((VirtualQPdfView*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QPdfView::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperLeaveEvent(QPdfView* self, QEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_LeaveEvent_IsBase(true);
-        vqpdfview->leaveEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->leaveEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnLeaveEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_LeaveEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_LeaveEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_leaveevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_MoveEvent(QPdfView* self, QMoveEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->moveEvent(event);
     } else {
-        ((VirtualQPdfView*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QPdfView::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperMoveEvent(QPdfView* self, QMoveEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_MoveEvent_IsBase(true);
-        vqpdfview->moveEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->moveEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnMoveEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_MoveEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_MoveEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_moveevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_CloseEvent(QPdfView* self, QCloseEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->closeEvent(event);
     } else {
-        ((VirtualQPdfView*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QPdfView::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperCloseEvent(QPdfView* self, QCloseEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_CloseEvent_IsBase(true);
-        vqpdfview->closeEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->closeEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnCloseEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_CloseEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_CloseEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_closeevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_TabletEvent(QPdfView* self, QTabletEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->tabletEvent(event);
     } else {
-        ((VirtualQPdfView*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QPdfView::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperTabletEvent(QPdfView* self, QTabletEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_TabletEvent_IsBase(true);
-        vqpdfview->tabletEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->tabletEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnTabletEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_TabletEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_TabletEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_tabletevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_ActionEvent(QPdfView* self, QActionEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->actionEvent(event);
     } else {
-        ((VirtualQPdfView*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QPdfView::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperActionEvent(QPdfView* self, QActionEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_ActionEvent_IsBase(true);
-        vqpdfview->actionEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->actionEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnActionEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_ActionEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_ActionEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_actionevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_ShowEvent(QPdfView* self, QShowEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->showEvent(event);
     } else {
-        ((VirtualQPdfView*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QPdfView::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperShowEvent(QPdfView* self, QShowEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_ShowEvent_IsBase(true);
-        vqpdfview->showEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->showEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnShowEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_ShowEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_ShowEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_showevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_HideEvent(QPdfView* self, QHideEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->hideEvent(event);
     } else {
-        ((VirtualQPdfView*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QPdfView::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperHideEvent(QPdfView* self, QHideEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_HideEvent_IsBase(true);
-        vqpdfview->hideEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->hideEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnHideEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_HideEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_HideEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_hideevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfView_NativeEvent(QPdfView* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
+    if (vqpdfview) {
         return vqpdfview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQPdfView*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QPdfView::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPdfView_SuperNativeEvent(QPdfView* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_NativeEvent_IsBase(true);
-        return vqpdfview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQPdfView*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        return vqpdfview->QPdfView::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QPdfView::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnNativeEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_NativeEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_NativeEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_nativeevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPdfView_Metric(const QPdfView* self, int param1) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         return vqpdfview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQPdfView*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QPdfView::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QPdfView_SuperMetric(const QPdfView* self, int param1) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_Metric_IsBase(true);
-        return vqpdfview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQPdfView*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self))) {
+        return vqpdfview->QPdfView::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QPdfView::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfView_OnMetric(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_Metric_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_Metric_Callback>(slot));
+void QPdfView_OnMetric(QPdfView* self, intptr_t slot) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
+        vqpdfview->qpdfview_metric_callback = reinterpret_cast<VirtualQPdfView::QPdfView_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_InitPainter(const QPdfView* self, QPainter* painter) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->initPainter(painter);
     } else {
-        ((VirtualQPdfView*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QPdfView::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperInitPainter(const QPdfView* self, QPainter* painter) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_InitPainter_IsBase(true);
-        vqpdfview->initPainter(painter);
-    } else {
-        ((VirtualQPdfView*)self)->initPainter(painter);
-    }
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self))) {
+        vqpdfview->QPdfView::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfView_OnInitPainter(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_InitPainter_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_InitPainter_Callback>(slot));
+void QPdfView_OnInitPainter(QPdfView* self, intptr_t slot) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
+        vqpdfview->qpdfview_initpainter_callback = reinterpret_cast<VirtualQPdfView::QPdfView_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QPdfView_Redirected(const QPdfView* self, QPoint* offset) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         return vqpdfview->redirected(offset);
     } else {
-        return ((VirtualQPdfView*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QPdfView::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QPdfView_SuperRedirected(const QPdfView* self, QPoint* offset) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_Redirected_IsBase(true);
-        return vqpdfview->redirected(offset);
-    } else {
-        return ((VirtualQPdfView*)self)->redirected(offset);
-    }
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self))) {
+        return vqpdfview->QPdfView::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfView_OnRedirected(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_Redirected_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_Redirected_Callback>(slot));
+void QPdfView_OnRedirected(QPdfView* self, intptr_t slot) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
+        vqpdfview->qpdfview_redirected_callback = reinterpret_cast<VirtualQPdfView::QPdfView_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QPdfView_SharedPainter(const QPdfView* self) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         return vqpdfview->sharedPainter();
     } else {
-        return ((VirtualQPdfView*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QPdfView::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QPdfView_SuperSharedPainter(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_SharedPainter_IsBase(true);
-        return vqpdfview->sharedPainter();
-    } else {
-        return ((VirtualQPdfView*)self)->sharedPainter();
-    }
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self))) {
+        return vqpdfview->QPdfView::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QPdfView::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfView_OnSharedPainter(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_SharedPainter_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_SharedPainter_Callback>(slot));
+void QPdfView_OnSharedPainter(QPdfView* self, intptr_t slot) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
+        vqpdfview->qpdfview_sharedpainter_callback = reinterpret_cast<VirtualQPdfView::QPdfView_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_InputMethodEvent(QPdfView* self, QInputMethodEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->inputMethodEvent(param1);
     } else {
-        ((VirtualQPdfView*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QPdfView::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperInputMethodEvent(QPdfView* self, QInputMethodEvent* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_InputMethodEvent_IsBase(true);
-        vqpdfview->inputMethodEvent(param1);
-    } else {
-        ((VirtualQPdfView*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnInputMethodEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_InputMethodEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_InputMethodEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_inputmethodevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QPdfView_InputMethodQuery(const QPdfView* self, int param1) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return new QVariant(vqpdfview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQPdfView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QPdfView_SuperInputMethodQuery(const QPdfView* self, int param1) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_InputMethodQuery_IsBase(true);
-        return new QVariant(vqpdfview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQPdfView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QPdfView::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfView_OnInputMethodQuery(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_InputMethodQuery_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_InputMethodQuery_Callback>(slot));
+void QPdfView_OnInputMethodQuery(QPdfView* self, intptr_t slot) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
+        vqpdfview->qpdfview_inputmethodquery_callback = reinterpret_cast<VirtualQPdfView::QPdfView_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfView_FocusNextPrevChild(QPdfView* self, bool next) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         return vqpdfview->focusNextPrevChild(next);
     } else {
-        return ((VirtualQPdfView*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QPdfView::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPdfView_SuperFocusNextPrevChild(QPdfView* self, bool next) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_FocusNextPrevChild_IsBase(true);
-        return vqpdfview->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQPdfView*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        return vqpdfview->QPdfView::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnFocusNextPrevChild(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_focusnextprevchild_callback = reinterpret_cast<VirtualQPdfView::QPdfView_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_TimerEvent(QPdfView* self, QTimerEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->timerEvent(event);
     } else {
-        ((VirtualQPdfView*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPdfView::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperTimerEvent(QPdfView* self, QTimerEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_TimerEvent_IsBase(true);
-        vqpdfview->timerEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->timerEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnTimerEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_TimerEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_TimerEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_timerevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_ChildEvent(QPdfView* self, QChildEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->childEvent(event);
     } else {
-        ((VirtualQPdfView*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPdfView::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperChildEvent(QPdfView* self, QChildEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_ChildEvent_IsBase(true);
-        vqpdfview->childEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->childEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnChildEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_ChildEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_ChildEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_childevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_CustomEvent(QPdfView* self, QEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->customEvent(event);
     } else {
-        ((VirtualQPdfView*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPdfView::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperCustomEvent(QPdfView* self, QEvent* event) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_CustomEvent_IsBase(true);
-        vqpdfview->customEvent(event);
-    } else {
-        ((VirtualQPdfView*)self)->customEvent(event);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnCustomEvent(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_CustomEvent_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_CustomEvent_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_customevent_callback = reinterpret_cast<VirtualQPdfView::QPdfView_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_ConnectNotify(QPdfView* self, const QMetaMethod* signal) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->connectNotify(*signal);
     } else {
-        ((VirtualQPdfView*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPdfView::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperConnectNotify(QPdfView* self, const QMetaMethod* signal) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_ConnectNotify_IsBase(true);
-        vqpdfview->connectNotify(*signal);
-    } else {
-        ((VirtualQPdfView*)self)->connectNotify(*signal);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnConnectNotify(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_ConnectNotify_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_ConnectNotify_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_connectnotify_callback = reinterpret_cast<VirtualQPdfView::QPdfView_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfView_DisconnectNotify(QPdfView* self, const QMetaMethod* signal) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (vqpdfview) {
         vqpdfview->disconnectNotify(*signal);
     } else {
-        ((VirtualQPdfView*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPdfView::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfView_SuperDisconnectNotify(QPdfView* self, const QMetaMethod* signal) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_DisconnectNotify_IsBase(true);
-        vqpdfview->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPdfView*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->QPdfView::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPdfView::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfView_OnDisconnectNotify(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_DisconnectNotify_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_DisconnectNotify_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self))
+        vqpdfview->qpdfview_disconnectnotify_callback = reinterpret_cast<VirtualQPdfView::QPdfView_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfView_SetViewportMargins(QPdfView* self, int left, int top, int right, int bottom) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQPdfView*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Base class handler implementation
-void QPdfView_SuperSetViewportMargins(QPdfView* self, int left, int top, int right, int bottom) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_SetViewportMargins_IsBase(true);
-        vqpdfview->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQPdfView*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfView_OnSetViewportMargins(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_SetViewportMargins_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_SetViewportMargins_Callback>(slot));
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->VirtualQPdfView::setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+    } else
+        qFatal("Error: Protected method QPdfView::setViewportMargins called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMargins* QPdfView_ViewportMargins(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self)))
         return new QMargins(vqpdfview->viewportMargins());
-    }
-    return {};
+    qFatal("Error: Protected method QPdfView::viewportMargins called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMargins* QPdfView_SuperViewportMargins(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_ViewportMargins_IsBase(true);
-        return new QMargins(vqpdfview->viewportMargins());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfView_OnViewportMargins(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_ViewportMargins_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_ViewportMargins_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfView_DrawFrame(QPdfView* self, QPainter* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->drawFrame(param1);
-    } else {
-        ((VirtualQPdfView*)self)->drawFrame(param1);
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->VirtualQPdfView::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method QPdfView::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfView_SuperDrawFrame(QPdfView* self, QPainter* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_DrawFrame_IsBase(true);
-        vqpdfview->drawFrame(param1);
-    } else {
-        ((VirtualQPdfView*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfView_OnDrawFrame(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_DrawFrame_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfView_UpdateMicroFocus(QPdfView* self) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->updateMicroFocus();
-    } else {
-        ((VirtualQPdfView*)self)->updateMicroFocus();
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->VirtualQPdfView::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QPdfView::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfView_SuperUpdateMicroFocus(QPdfView* self) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_UpdateMicroFocus_IsBase(true);
-        vqpdfview->updateMicroFocus();
-    } else {
-        ((VirtualQPdfView*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfView_OnUpdateMicroFocus(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfView_Create(QPdfView* self) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->create();
-    } else {
-        ((VirtualQPdfView*)self)->create();
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->VirtualQPdfView::create();
+    } else
+        qFatal("Error: Protected method QPdfView::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfView_SuperCreate(QPdfView* self) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_Create_IsBase(true);
-        vqpdfview->create();
-    } else {
-        ((VirtualQPdfView*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfView_OnCreate(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_Create_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfView_Destroy(QPdfView* self) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->destroy();
-    } else {
-        ((VirtualQPdfView*)self)->destroy();
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        vqpdfview->VirtualQPdfView::destroy();
+    } else
+        qFatal("Error: Protected method QPdfView::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfView_SuperDestroy(QPdfView* self) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_Destroy_IsBase(true);
-        vqpdfview->destroy();
-    } else {
-        ((VirtualQPdfView*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfView_OnDestroy(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_Destroy_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPdfView_FocusNextChild(QPdfView* self) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return vqpdfview->focusNextChild();
-    } else {
-        return ((VirtualQPdfView*)self)->focusNextChild();
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        return vqpdfview->VirtualQPdfView::focusNextChild();
+    } else
+        qFatal("Error: Protected method QPdfView::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPdfView_SuperFocusNextChild(QPdfView* self) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_FocusNextChild_IsBase(true);
-        return vqpdfview->focusNextChild();
-    } else {
-        return ((VirtualQPdfView*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfView_OnFocusNextChild(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_FocusNextChild_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPdfView_FocusPreviousChild(QPdfView* self) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return vqpdfview->focusPreviousChild();
-    } else {
-        return ((VirtualQPdfView*)self)->focusPreviousChild();
-    }
+    if (auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self)) {
+        return vqpdfview->VirtualQPdfView::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QPdfView::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPdfView_SuperFocusPreviousChild(QPdfView* self) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_FocusPreviousChild_IsBase(true);
-        return vqpdfview->focusPreviousChild();
-    } else {
-        return ((VirtualQPdfView*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfView_OnFocusPreviousChild(QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_FocusPreviousChild_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPdfView_Sender(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return vqpdfview->sender();
-    } else {
-        return ((VirtualQPdfView*)self)->sender();
-    }
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self))) {
+        return vqpdfview->VirtualQPdfView::sender();
+    } else
+        qFatal("Error: Protected method QPdfView::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPdfView_SuperSender(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_Sender_IsBase(true);
-        return vqpdfview->sender();
-    } else {
-        return ((VirtualQPdfView*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfView_OnSender(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_Sender_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPdfView_SenderSignalIndex(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return vqpdfview->senderSignalIndex();
-    } else {
-        return ((VirtualQPdfView*)self)->senderSignalIndex();
-    }
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self))) {
+        return vqpdfview->VirtualQPdfView::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPdfView::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPdfView_SuperSenderSignalIndex(const QPdfView* self) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_SenderSignalIndex_IsBase(true);
-        return vqpdfview->senderSignalIndex();
-    } else {
-        return ((VirtualQPdfView*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfView_OnSenderSignalIndex(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPdfView_Receivers(const QPdfView* self, const char* signal) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return vqpdfview->receivers(signal);
-    } else {
-        return ((VirtualQPdfView*)self)->receivers(signal);
-    }
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self))) {
+        return vqpdfview->VirtualQPdfView::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPdfView::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPdfView_SuperReceivers(const QPdfView* self, const char* signal) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_Receivers_IsBase(true);
-        return vqpdfview->receivers(signal);
-    } else {
-        return ((VirtualQPdfView*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfView_OnReceivers(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_Receivers_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPdfView_IsSignalConnected(const QPdfView* self, const QMetaMethod* signal) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return vqpdfview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPdfView*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self))) {
+        return vqpdfview->VirtualQPdfView::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPdfView::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPdfView_SuperIsSignalConnected(const QPdfView* self, const QMetaMethod* signal) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_IsSignalConnected_IsBase(true);
-        return vqpdfview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPdfView*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfView_OnIsSignalConnected(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_IsSignalConnected_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QPdfView_GetDecodedMetricF(const QPdfView* self, int metricA, int metricB) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return vqpdfview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQPdfView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QPdfView_SuperGetDecodedMetricF(const QPdfView* self, int metricA, int metricB) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        vqpdfview->setQPdfView_GetDecodedMetricF_IsBase(true);
-        return vqpdfview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQPdfView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfView_OnGetDecodedMetricF(const QPdfView* self, intptr_t slot) {
-    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
-    if (vqpdfview && vqpdfview->isVirtualQPdfView)
-        vqpdfview->setQPdfView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self))) {
+        return vqpdfview->VirtualQPdfView::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QPdfView::getDecodedMetricF called without a directly constructed type");
 }
 
 void QPdfView_Delete(QPdfView* self) {

@@ -9,22 +9,18 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KParts::MainWindow so that we can call protected methods
+// This class is a subclass of KParts::MainWindow
 class VirtualKPartsMainWindow final : public KParts::MainWindow {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKPartsMainWindow = true;
-
-    // Virtual class public types (including callbacks)
-    using KParts__MainWindow_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KParts__MainWindow_MetaObject_Callback = QMetaObject* (*)(const KParts__MainWindow*);
     using KParts__MainWindow_Metacast_Callback = void* (*)(KParts__MainWindow*, const char*);
     using KParts__MainWindow_Metacall_Callback = int (*)(KParts__MainWindow*, int, int, void**);
-    using KParts__MainWindow_ConfigureToolbars_Callback = void (*)();
+    using KParts__MainWindow_ConfigureToolbars_Callback = void (*)(KParts__MainWindow*);
     using KParts__MainWindow_SlotSetStatusBarText_Callback = void (*)(KParts__MainWindow*, const char*);
-    using KParts__MainWindow_SaveNewToolbarConfig_Callback = void (*)();
+    using KParts__MainWindow_SaveNewToolbarConfig_Callback = void (*)(KParts__MainWindow*);
     using KParts__MainWindow_CreateShellGUI_Callback = void (*)(KParts__MainWindow*, bool);
-    using KParts__MainWindow_GuiFactory_Callback = KXMLGUIFactory* (*)();
+    using KParts__MainWindow_GuiFactory_Callback = KXMLGUIFactory* (*)(KParts__MainWindow*);
     using KParts__MainWindow_ApplyMainWindowSettings_Callback = void (*)(KParts__MainWindow*, KConfigGroup*);
     using KParts__MainWindow_SlotStateChanged_Callback = void (*)(KParts__MainWindow*, const char*);
     using KParts__MainWindow_Event_Callback = bool (*)(KParts__MainWindow*, QEvent*);
@@ -32,20 +28,20 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
     using KParts__MainWindow_SetPlainCaption_Callback = void (*)(KParts__MainWindow*, const char*);
     using KParts__MainWindow_KeyPressEvent_Callback = void (*)(KParts__MainWindow*, QKeyEvent*);
     using KParts__MainWindow_CloseEvent_Callback = void (*)(KParts__MainWindow*, QCloseEvent*);
-    using KParts__MainWindow_QueryClose_Callback = bool (*)();
+    using KParts__MainWindow_QueryClose_Callback = bool (*)(KParts__MainWindow*);
     using KParts__MainWindow_SaveProperties_Callback = void (*)(KParts__MainWindow*, KConfigGroup*);
     using KParts__MainWindow_ReadProperties_Callback = void (*)(KParts__MainWindow*, KConfigGroup*);
     using KParts__MainWindow_SaveGlobalProperties_Callback = void (*)(KParts__MainWindow*, KConfig*);
     using KParts__MainWindow_ReadGlobalProperties_Callback = void (*)(KParts__MainWindow*, KConfig*);
-    using KParts__MainWindow_CreatePopupMenu_Callback = QMenu* (*)();
+    using KParts__MainWindow_CreatePopupMenu_Callback = QMenu* (*)(KParts__MainWindow*);
     using KParts__MainWindow_ContextMenuEvent_Callback = void (*)(KParts__MainWindow*, QContextMenuEvent*);
-    using KParts__MainWindow_DevType_Callback = int (*)();
+    using KParts__MainWindow_DevType_Callback = int (*)(const KParts__MainWindow*);
     using KParts__MainWindow_SetVisible_Callback = void (*)(KParts__MainWindow*, bool);
-    using KParts__MainWindow_SizeHint_Callback = QSize* (*)();
-    using KParts__MainWindow_MinimumSizeHint_Callback = QSize* (*)();
+    using KParts__MainWindow_SizeHint_Callback = QSize* (*)(const KParts__MainWindow*);
+    using KParts__MainWindow_MinimumSizeHint_Callback = QSize* (*)(const KParts__MainWindow*);
     using KParts__MainWindow_HeightForWidth_Callback = int (*)(const KParts__MainWindow*, int);
-    using KParts__MainWindow_HasHeightForWidth_Callback = bool (*)();
-    using KParts__MainWindow_PaintEngine_Callback = QPaintEngine* (*)();
+    using KParts__MainWindow_HasHeightForWidth_Callback = bool (*)(const KParts__MainWindow*);
+    using KParts__MainWindow_PaintEngine_Callback = QPaintEngine* (*)(const KParts__MainWindow*);
     using KParts__MainWindow_MousePressEvent_Callback = void (*)(KParts__MainWindow*, QMouseEvent*);
     using KParts__MainWindow_MouseReleaseEvent_Callback = void (*)(KParts__MainWindow*, QMouseEvent*);
     using KParts__MainWindow_MouseDoubleClickEvent_Callback = void (*)(KParts__MainWindow*, QMouseEvent*);
@@ -72,7 +68,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
     using KParts__MainWindow_Metric_Callback = int (*)(const KParts__MainWindow*, int);
     using KParts__MainWindow_InitPainter_Callback = void (*)(const KParts__MainWindow*, QPainter*);
     using KParts__MainWindow_Redirected_Callback = QPaintDevice* (*)(const KParts__MainWindow*, QPoint*);
-    using KParts__MainWindow_SharedPainter_Callback = QPainter* (*)();
+    using KParts__MainWindow_SharedPainter_Callback = QPainter* (*)(const KParts__MainWindow*);
     using KParts__MainWindow_InputMethodEvent_Callback = void (*)(KParts__MainWindow*, QInputMethodEvent*);
     using KParts__MainWindow_InputMethodQuery_Callback = QVariant* (*)(const KParts__MainWindow*, int);
     using KParts__MainWindow_FocusNextPrevChild_Callback = bool (*)(KParts__MainWindow*, bool);
@@ -82,45 +78,44 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
     using KParts__MainWindow_CustomEvent_Callback = void (*)(KParts__MainWindow*, QEvent*);
     using KParts__MainWindow_ConnectNotify_Callback = void (*)(KParts__MainWindow*, QMetaMethod*);
     using KParts__MainWindow_DisconnectNotify_Callback = void (*)(KParts__MainWindow*, QMetaMethod*);
-    using KParts__MainWindow_ContainerTags_Callback = const char** (*)();
+    using KParts__MainWindow_ContainerTags_Callback = const char** (*)(const KParts__MainWindow*);
     using KParts__MainWindow_CreateContainer_Callback = QWidget* (*)(KParts__MainWindow*, QWidget*, int, QDomElement*, QAction**);
     using KParts__MainWindow_RemoveContainer_Callback = void (*)(KParts__MainWindow*, QWidget*, QWidget*, QDomElement*, QAction*);
-    using KParts__MainWindow_CustomTags_Callback = const char** (*)();
+    using KParts__MainWindow_CustomTags_Callback = const char** (*)(const KParts__MainWindow*);
     using KParts__MainWindow_CreateCustomElement_Callback = QAction* (*)(KParts__MainWindow*, QWidget*, int, QDomElement*);
     using KParts__MainWindow_FinalizeGUI_Callback = void (*)(KParts__MainWindow*, KXMLGUIClient*);
     using KParts__MainWindow_Action2_Callback = QAction* (*)(const KParts__MainWindow*, QDomElement*);
-    using KParts__MainWindow_ActionCollection_Callback = KActionCollection* (*)();
-    using KParts__MainWindow_ComponentName_Callback = const char* (*)();
-    using KParts__MainWindow_DomDocument_Callback = QDomDocument* (*)();
-    using KParts__MainWindow_XmlFile_Callback = const char* (*)();
-    using KParts__MainWindow_LocalXMLFile_Callback = const char* (*)();
+    using KParts__MainWindow_ActionCollection_Callback = KActionCollection* (*)(const KParts__MainWindow*);
+    using KParts__MainWindow_ComponentName_Callback = const char* (*)(const KParts__MainWindow*);
+    using KParts__MainWindow_DomDocument_Callback = QDomDocument* (*)(const KParts__MainWindow*);
+    using KParts__MainWindow_XmlFile_Callback = const char* (*)(const KParts__MainWindow*);
+    using KParts__MainWindow_LocalXMLFile_Callback = const char* (*)(const KParts__MainWindow*);
     using KParts__MainWindow_SetComponentName_Callback = void (*)(KParts__MainWindow*, const char*, const char*);
     using KParts__MainWindow_SetXMLFile_Callback = void (*)(KParts__MainWindow*, const char*, bool, bool);
     using KParts__MainWindow_SetLocalXMLFile_Callback = void (*)(KParts__MainWindow*, const char*);
     using KParts__MainWindow_SetXML_Callback = void (*)(KParts__MainWindow*, const char*, bool);
     using KParts__MainWindow_SetDOMDocument_Callback = void (*)(KParts__MainWindow*, QDomDocument*, bool);
     using KParts__MainWindow_StateChanged_Callback = void (*)(KParts__MainWindow*, const char*, int);
-    using KParts__MainWindow_CreateGUI_Callback = void (*)(KParts__MainWindow*, KParts__Part*);
-    using KParts__MainWindow_SetWindowTitleHandling_Callback = void (*)(KParts__MainWindow*, bool);
-    using KParts__MainWindow_CheckAmbiguousShortcuts_Callback = void (*)();
-    using KParts__MainWindow_SavePropertiesInternal_Callback = void (*)(KParts__MainWindow*, KConfig*, int);
-    using KParts__MainWindow_ReadPropertiesInternal_Callback = bool (*)(KParts__MainWindow*, KConfig*, int);
-    using KParts__MainWindow_SettingsDirty_Callback = bool (*)();
-    using KParts__MainWindow_SaveAutoSaveSettings_Callback = void (*)();
-    using KParts__MainWindow_UpdateMicroFocus_Callback = void (*)();
-    using KParts__MainWindow_Create_Callback = void (*)();
-    using KParts__MainWindow_Destroy_Callback = void (*)();
-    using KParts__MainWindow_FocusNextChild_Callback = bool (*)();
-    using KParts__MainWindow_FocusPreviousChild_Callback = bool (*)();
-    using KParts__MainWindow_Sender_Callback = QObject* (*)();
-    using KParts__MainWindow_SenderSignalIndex_Callback = int (*)();
-    using KParts__MainWindow_Receivers_Callback = int (*)(const KParts__MainWindow*, const char*);
-    using KParts__MainWindow_IsSignalConnected_Callback = bool (*)(const KParts__MainWindow*, QMetaMethod*);
-    using KParts__MainWindow_GetDecodedMetricF_Callback = double (*)(const KParts__MainWindow*, int, int);
-    using KParts__MainWindow_StandardsXmlFileLocation_Callback = const char* (*)();
-    using KParts__MainWindow_LoadStandardsXmlFile_Callback = void (*)();
+    using KParts::MainWindow::checkAmbiguousShortcuts;
+    using KParts::MainWindow::create;
+    using KParts::MainWindow::createGUI;
+    using KParts::MainWindow::destroy;
+    using KParts::MainWindow::focusNextChild;
+    using KParts::MainWindow::focusPreviousChild;
+    using KParts::MainWindow::getDecodedMetricF;
+    using KParts::MainWindow::isSignalConnected;
+    using KParts::MainWindow::loadStandardsXmlFile;
+    using KParts::MainWindow::readPropertiesInternal;
+    using KParts::MainWindow::receivers;
+    using KParts::MainWindow::saveAutoSaveSettings;
+    using KParts::MainWindow::savePropertiesInternal;
+    using KParts::MainWindow::sender;
+    using KParts::MainWindow::senderSignalIndex;
+    using KParts::MainWindow::settingsDirty;
+    using KParts::MainWindow::setWindowTitleHandling;
+    using KParts::MainWindow::standardsXmlFileLocation;
+    using KParts::MainWindow::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     KParts__MainWindow_MetaObject_Callback kparts__mainwindow_metaobject_callback = nullptr;
     KParts__MainWindow_Metacast_Callback kparts__mainwindow_metacast_callback = nullptr;
@@ -205,352 +200,71 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
     KParts__MainWindow_SetXML_Callback kparts__mainwindow_setxml_callback = nullptr;
     KParts__MainWindow_SetDOMDocument_Callback kparts__mainwindow_setdomdocument_callback = nullptr;
     KParts__MainWindow_StateChanged_Callback kparts__mainwindow_statechanged_callback = nullptr;
-    KParts__MainWindow_CreateGUI_Callback kparts__mainwindow_creategui_callback = nullptr;
-    KParts__MainWindow_SetWindowTitleHandling_Callback kparts__mainwindow_setwindowtitlehandling_callback = nullptr;
-    KParts__MainWindow_CheckAmbiguousShortcuts_Callback kparts__mainwindow_checkambiguousshortcuts_callback = nullptr;
-    KParts__MainWindow_SavePropertiesInternal_Callback kparts__mainwindow_savepropertiesinternal_callback = nullptr;
-    KParts__MainWindow_ReadPropertiesInternal_Callback kparts__mainwindow_readpropertiesinternal_callback = nullptr;
-    KParts__MainWindow_SettingsDirty_Callback kparts__mainwindow_settingsdirty_callback = nullptr;
-    KParts__MainWindow_SaveAutoSaveSettings_Callback kparts__mainwindow_saveautosavesettings_callback = nullptr;
-    KParts__MainWindow_UpdateMicroFocus_Callback kparts__mainwindow_updatemicrofocus_callback = nullptr;
-    KParts__MainWindow_Create_Callback kparts__mainwindow_create_callback = nullptr;
-    KParts__MainWindow_Destroy_Callback kparts__mainwindow_destroy_callback = nullptr;
-    KParts__MainWindow_FocusNextChild_Callback kparts__mainwindow_focusnextchild_callback = nullptr;
-    KParts__MainWindow_FocusPreviousChild_Callback kparts__mainwindow_focuspreviouschild_callback = nullptr;
-    KParts__MainWindow_Sender_Callback kparts__mainwindow_sender_callback = nullptr;
-    KParts__MainWindow_SenderSignalIndex_Callback kparts__mainwindow_sendersignalindex_callback = nullptr;
-    KParts__MainWindow_Receivers_Callback kparts__mainwindow_receivers_callback = nullptr;
-    KParts__MainWindow_IsSignalConnected_Callback kparts__mainwindow_issignalconnected_callback = nullptr;
-    KParts__MainWindow_GetDecodedMetricF_Callback kparts__mainwindow_getdecodedmetricf_callback = nullptr;
-    KParts__MainWindow_StandardsXmlFileLocation_Callback kparts__mainwindow_standardsxmlfilelocation_callback = nullptr;
-    KParts__MainWindow_LoadStandardsXmlFile_Callback kparts__mainwindow_loadstandardsxmlfile_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kparts__mainwindow_metaobject_isbase = false;
-    mutable bool kparts__mainwindow_metacast_isbase = false;
-    mutable bool kparts__mainwindow_metacall_isbase = false;
-    mutable bool kparts__mainwindow_configuretoolbars_isbase = false;
-    mutable bool kparts__mainwindow_slotsetstatusbartext_isbase = false;
-    mutable bool kparts__mainwindow_savenewtoolbarconfig_isbase = false;
-    mutable bool kparts__mainwindow_createshellgui_isbase = false;
-    mutable bool kparts__mainwindow_guifactory_isbase = false;
-    mutable bool kparts__mainwindow_applymainwindowsettings_isbase = false;
-    mutable bool kparts__mainwindow_slotstatechanged_isbase = false;
-    mutable bool kparts__mainwindow_event_isbase = false;
-    mutable bool kparts__mainwindow_setcaption_isbase = false;
-    mutable bool kparts__mainwindow_setplaincaption_isbase = false;
-    mutable bool kparts__mainwindow_keypressevent_isbase = false;
-    mutable bool kparts__mainwindow_closeevent_isbase = false;
-    mutable bool kparts__mainwindow_queryclose_isbase = false;
-    mutable bool kparts__mainwindow_saveproperties_isbase = false;
-    mutable bool kparts__mainwindow_readproperties_isbase = false;
-    mutable bool kparts__mainwindow_saveglobalproperties_isbase = false;
-    mutable bool kparts__mainwindow_readglobalproperties_isbase = false;
-    mutable bool kparts__mainwindow_createpopupmenu_isbase = false;
-    mutable bool kparts__mainwindow_contextmenuevent_isbase = false;
-    mutable bool kparts__mainwindow_devtype_isbase = false;
-    mutable bool kparts__mainwindow_setvisible_isbase = false;
-    mutable bool kparts__mainwindow_sizehint_isbase = false;
-    mutable bool kparts__mainwindow_minimumsizehint_isbase = false;
-    mutable bool kparts__mainwindow_heightforwidth_isbase = false;
-    mutable bool kparts__mainwindow_hasheightforwidth_isbase = false;
-    mutable bool kparts__mainwindow_paintengine_isbase = false;
-    mutable bool kparts__mainwindow_mousepressevent_isbase = false;
-    mutable bool kparts__mainwindow_mousereleaseevent_isbase = false;
-    mutable bool kparts__mainwindow_mousedoubleclickevent_isbase = false;
-    mutable bool kparts__mainwindow_mousemoveevent_isbase = false;
-    mutable bool kparts__mainwindow_wheelevent_isbase = false;
-    mutable bool kparts__mainwindow_keyreleaseevent_isbase = false;
-    mutable bool kparts__mainwindow_focusinevent_isbase = false;
-    mutable bool kparts__mainwindow_focusoutevent_isbase = false;
-    mutable bool kparts__mainwindow_enterevent_isbase = false;
-    mutable bool kparts__mainwindow_leaveevent_isbase = false;
-    mutable bool kparts__mainwindow_paintevent_isbase = false;
-    mutable bool kparts__mainwindow_moveevent_isbase = false;
-    mutable bool kparts__mainwindow_resizeevent_isbase = false;
-    mutable bool kparts__mainwindow_tabletevent_isbase = false;
-    mutable bool kparts__mainwindow_actionevent_isbase = false;
-    mutable bool kparts__mainwindow_dragenterevent_isbase = false;
-    mutable bool kparts__mainwindow_dragmoveevent_isbase = false;
-    mutable bool kparts__mainwindow_dragleaveevent_isbase = false;
-    mutable bool kparts__mainwindow_dropevent_isbase = false;
-    mutable bool kparts__mainwindow_showevent_isbase = false;
-    mutable bool kparts__mainwindow_hideevent_isbase = false;
-    mutable bool kparts__mainwindow_nativeevent_isbase = false;
-    mutable bool kparts__mainwindow_changeevent_isbase = false;
-    mutable bool kparts__mainwindow_metric_isbase = false;
-    mutable bool kparts__mainwindow_initpainter_isbase = false;
-    mutable bool kparts__mainwindow_redirected_isbase = false;
-    mutable bool kparts__mainwindow_sharedpainter_isbase = false;
-    mutable bool kparts__mainwindow_inputmethodevent_isbase = false;
-    mutable bool kparts__mainwindow_inputmethodquery_isbase = false;
-    mutable bool kparts__mainwindow_focusnextprevchild_isbase = false;
-    mutable bool kparts__mainwindow_eventfilter_isbase = false;
-    mutable bool kparts__mainwindow_timerevent_isbase = false;
-    mutable bool kparts__mainwindow_childevent_isbase = false;
-    mutable bool kparts__mainwindow_customevent_isbase = false;
-    mutable bool kparts__mainwindow_connectnotify_isbase = false;
-    mutable bool kparts__mainwindow_disconnectnotify_isbase = false;
-    mutable bool kparts__mainwindow_containertags_isbase = false;
-    mutable bool kparts__mainwindow_createcontainer_isbase = false;
-    mutable bool kparts__mainwindow_removecontainer_isbase = false;
-    mutable bool kparts__mainwindow_customtags_isbase = false;
-    mutable bool kparts__mainwindow_createcustomelement_isbase = false;
-    mutable bool kparts__mainwindow_finalizegui_isbase = false;
-    mutable bool kparts__mainwindow_action2_isbase = false;
-    mutable bool kparts__mainwindow_actioncollection_isbase = false;
-    mutable bool kparts__mainwindow_componentname_isbase = false;
-    mutable bool kparts__mainwindow_domdocument_isbase = false;
-    mutable bool kparts__mainwindow_xmlfile_isbase = false;
-    mutable bool kparts__mainwindow_localxmlfile_isbase = false;
-    mutable bool kparts__mainwindow_setcomponentname_isbase = false;
-    mutable bool kparts__mainwindow_setxmlfile_isbase = false;
-    mutable bool kparts__mainwindow_setlocalxmlfile_isbase = false;
-    mutable bool kparts__mainwindow_setxml_isbase = false;
-    mutable bool kparts__mainwindow_setdomdocument_isbase = false;
-    mutable bool kparts__mainwindow_statechanged_isbase = false;
-    mutable bool kparts__mainwindow_creategui_isbase = false;
-    mutable bool kparts__mainwindow_setwindowtitlehandling_isbase = false;
-    mutable bool kparts__mainwindow_checkambiguousshortcuts_isbase = false;
-    mutable bool kparts__mainwindow_savepropertiesinternal_isbase = false;
-    mutable bool kparts__mainwindow_readpropertiesinternal_isbase = false;
-    mutable bool kparts__mainwindow_settingsdirty_isbase = false;
-    mutable bool kparts__mainwindow_saveautosavesettings_isbase = false;
-    mutable bool kparts__mainwindow_updatemicrofocus_isbase = false;
-    mutable bool kparts__mainwindow_create_isbase = false;
-    mutable bool kparts__mainwindow_destroy_isbase = false;
-    mutable bool kparts__mainwindow_focusnextchild_isbase = false;
-    mutable bool kparts__mainwindow_focuspreviouschild_isbase = false;
-    mutable bool kparts__mainwindow_sender_isbase = false;
-    mutable bool kparts__mainwindow_sendersignalindex_isbase = false;
-    mutable bool kparts__mainwindow_receivers_isbase = false;
-    mutable bool kparts__mainwindow_issignalconnected_isbase = false;
-    mutable bool kparts__mainwindow_getdecodedmetricf_isbase = false;
-    mutable bool kparts__mainwindow_standardsxmlfilelocation_isbase = false;
-    mutable bool kparts__mainwindow_loadstandardsxmlfile_isbase = false;
+    // Access struct
+    struct Base : KParts::MainWindow {
+        using KParts::MainWindow::actionEvent;
+        using KParts::MainWindow::changeEvent;
+        using KParts::MainWindow::childEvent;
+        using KParts::MainWindow::closeEvent;
+        using KParts::MainWindow::connectNotify;
+        using KParts::MainWindow::contextMenuEvent;
+        using KParts::MainWindow::createShellGUI;
+        using KParts::MainWindow::customEvent;
+        using KParts::MainWindow::disconnectNotify;
+        using KParts::MainWindow::dragEnterEvent;
+        using KParts::MainWindow::dragLeaveEvent;
+        using KParts::MainWindow::dragMoveEvent;
+        using KParts::MainWindow::dropEvent;
+        using KParts::MainWindow::enterEvent;
+        using KParts::MainWindow::event;
+        using KParts::MainWindow::focusInEvent;
+        using KParts::MainWindow::focusNextPrevChild;
+        using KParts::MainWindow::focusOutEvent;
+        using KParts::MainWindow::hideEvent;
+        using KParts::MainWindow::initPainter;
+        using KParts::MainWindow::inputMethodEvent;
+        using KParts::MainWindow::keyPressEvent;
+        using KParts::MainWindow::keyReleaseEvent;
+        using KParts::MainWindow::leaveEvent;
+        using KParts::MainWindow::metric;
+        using KParts::MainWindow::mouseDoubleClickEvent;
+        using KParts::MainWindow::mouseMoveEvent;
+        using KParts::MainWindow::mousePressEvent;
+        using KParts::MainWindow::mouseReleaseEvent;
+        using KParts::MainWindow::moveEvent;
+        using KParts::MainWindow::nativeEvent;
+        using KParts::MainWindow::paintEvent;
+        using KParts::MainWindow::queryClose;
+        using KParts::MainWindow::readGlobalProperties;
+        using KParts::MainWindow::readProperties;
+        using KParts::MainWindow::redirected;
+        using KParts::MainWindow::resizeEvent;
+        using KParts::MainWindow::saveGlobalProperties;
+        using KParts::MainWindow::saveNewToolbarConfig;
+        using KParts::MainWindow::saveProperties;
+        using KParts::MainWindow::setComponentName;
+        using KParts::MainWindow::setDOMDocument;
+        using KParts::MainWindow::setLocalXMLFile;
+        using KParts::MainWindow::setXML;
+        using KParts::MainWindow::setXMLFile;
+        using KParts::MainWindow::sharedPainter;
+        using KParts::MainWindow::showEvent;
+        using KParts::MainWindow::slotSetStatusBarText;
+        using KParts::MainWindow::stateChanged;
+        using KParts::MainWindow::tabletEvent;
+        using KParts::MainWindow::timerEvent;
+        using KParts::MainWindow::wheelEvent;
+    };
 
-  public:
     VirtualKPartsMainWindow(QWidget* parent) : KParts::MainWindow(parent) {};
     VirtualKPartsMainWindow() : KParts::MainWindow() {};
     VirtualKPartsMainWindow(QWidget* parent, Qt::WindowFlags f) : KParts::MainWindow(parent, f) {};
 
-    // Callback setters
-    inline void setKParts__MainWindow_MetaObject_Callback(KParts__MainWindow_MetaObject_Callback cb) { kparts__mainwindow_metaobject_callback = cb; }
-    inline void setKParts__MainWindow_Metacast_Callback(KParts__MainWindow_Metacast_Callback cb) { kparts__mainwindow_metacast_callback = cb; }
-    inline void setKParts__MainWindow_Metacall_Callback(KParts__MainWindow_Metacall_Callback cb) { kparts__mainwindow_metacall_callback = cb; }
-    inline void setKParts__MainWindow_ConfigureToolbars_Callback(KParts__MainWindow_ConfigureToolbars_Callback cb) { kparts__mainwindow_configuretoolbars_callback = cb; }
-    inline void setKParts__MainWindow_SlotSetStatusBarText_Callback(KParts__MainWindow_SlotSetStatusBarText_Callback cb) { kparts__mainwindow_slotsetstatusbartext_callback = cb; }
-    inline void setKParts__MainWindow_SaveNewToolbarConfig_Callback(KParts__MainWindow_SaveNewToolbarConfig_Callback cb) { kparts__mainwindow_savenewtoolbarconfig_callback = cb; }
-    inline void setKParts__MainWindow_CreateShellGUI_Callback(KParts__MainWindow_CreateShellGUI_Callback cb) { kparts__mainwindow_createshellgui_callback = cb; }
-    inline void setKParts__MainWindow_GuiFactory_Callback(KParts__MainWindow_GuiFactory_Callback cb) { kparts__mainwindow_guifactory_callback = cb; }
-    inline void setKParts__MainWindow_ApplyMainWindowSettings_Callback(KParts__MainWindow_ApplyMainWindowSettings_Callback cb) { kparts__mainwindow_applymainwindowsettings_callback = cb; }
-    inline void setKParts__MainWindow_SlotStateChanged_Callback(KParts__MainWindow_SlotStateChanged_Callback cb) { kparts__mainwindow_slotstatechanged_callback = cb; }
-    inline void setKParts__MainWindow_Event_Callback(KParts__MainWindow_Event_Callback cb) { kparts__mainwindow_event_callback = cb; }
-    inline void setKParts__MainWindow_SetCaption_Callback(KParts__MainWindow_SetCaption_Callback cb) { kparts__mainwindow_setcaption_callback = cb; }
-    inline void setKParts__MainWindow_SetPlainCaption_Callback(KParts__MainWindow_SetPlainCaption_Callback cb) { kparts__mainwindow_setplaincaption_callback = cb; }
-    inline void setKParts__MainWindow_KeyPressEvent_Callback(KParts__MainWindow_KeyPressEvent_Callback cb) { kparts__mainwindow_keypressevent_callback = cb; }
-    inline void setKParts__MainWindow_CloseEvent_Callback(KParts__MainWindow_CloseEvent_Callback cb) { kparts__mainwindow_closeevent_callback = cb; }
-    inline void setKParts__MainWindow_QueryClose_Callback(KParts__MainWindow_QueryClose_Callback cb) { kparts__mainwindow_queryclose_callback = cb; }
-    inline void setKParts__MainWindow_SaveProperties_Callback(KParts__MainWindow_SaveProperties_Callback cb) { kparts__mainwindow_saveproperties_callback = cb; }
-    inline void setKParts__MainWindow_ReadProperties_Callback(KParts__MainWindow_ReadProperties_Callback cb) { kparts__mainwindow_readproperties_callback = cb; }
-    inline void setKParts__MainWindow_SaveGlobalProperties_Callback(KParts__MainWindow_SaveGlobalProperties_Callback cb) { kparts__mainwindow_saveglobalproperties_callback = cb; }
-    inline void setKParts__MainWindow_ReadGlobalProperties_Callback(KParts__MainWindow_ReadGlobalProperties_Callback cb) { kparts__mainwindow_readglobalproperties_callback = cb; }
-    inline void setKParts__MainWindow_CreatePopupMenu_Callback(KParts__MainWindow_CreatePopupMenu_Callback cb) { kparts__mainwindow_createpopupmenu_callback = cb; }
-    inline void setKParts__MainWindow_ContextMenuEvent_Callback(KParts__MainWindow_ContextMenuEvent_Callback cb) { kparts__mainwindow_contextmenuevent_callback = cb; }
-    inline void setKParts__MainWindow_DevType_Callback(KParts__MainWindow_DevType_Callback cb) { kparts__mainwindow_devtype_callback = cb; }
-    inline void setKParts__MainWindow_SetVisible_Callback(KParts__MainWindow_SetVisible_Callback cb) { kparts__mainwindow_setvisible_callback = cb; }
-    inline void setKParts__MainWindow_SizeHint_Callback(KParts__MainWindow_SizeHint_Callback cb) { kparts__mainwindow_sizehint_callback = cb; }
-    inline void setKParts__MainWindow_MinimumSizeHint_Callback(KParts__MainWindow_MinimumSizeHint_Callback cb) { kparts__mainwindow_minimumsizehint_callback = cb; }
-    inline void setKParts__MainWindow_HeightForWidth_Callback(KParts__MainWindow_HeightForWidth_Callback cb) { kparts__mainwindow_heightforwidth_callback = cb; }
-    inline void setKParts__MainWindow_HasHeightForWidth_Callback(KParts__MainWindow_HasHeightForWidth_Callback cb) { kparts__mainwindow_hasheightforwidth_callback = cb; }
-    inline void setKParts__MainWindow_PaintEngine_Callback(KParts__MainWindow_PaintEngine_Callback cb) { kparts__mainwindow_paintengine_callback = cb; }
-    inline void setKParts__MainWindow_MousePressEvent_Callback(KParts__MainWindow_MousePressEvent_Callback cb) { kparts__mainwindow_mousepressevent_callback = cb; }
-    inline void setKParts__MainWindow_MouseReleaseEvent_Callback(KParts__MainWindow_MouseReleaseEvent_Callback cb) { kparts__mainwindow_mousereleaseevent_callback = cb; }
-    inline void setKParts__MainWindow_MouseDoubleClickEvent_Callback(KParts__MainWindow_MouseDoubleClickEvent_Callback cb) { kparts__mainwindow_mousedoubleclickevent_callback = cb; }
-    inline void setKParts__MainWindow_MouseMoveEvent_Callback(KParts__MainWindow_MouseMoveEvent_Callback cb) { kparts__mainwindow_mousemoveevent_callback = cb; }
-    inline void setKParts__MainWindow_WheelEvent_Callback(KParts__MainWindow_WheelEvent_Callback cb) { kparts__mainwindow_wheelevent_callback = cb; }
-    inline void setKParts__MainWindow_KeyReleaseEvent_Callback(KParts__MainWindow_KeyReleaseEvent_Callback cb) { kparts__mainwindow_keyreleaseevent_callback = cb; }
-    inline void setKParts__MainWindow_FocusInEvent_Callback(KParts__MainWindow_FocusInEvent_Callback cb) { kparts__mainwindow_focusinevent_callback = cb; }
-    inline void setKParts__MainWindow_FocusOutEvent_Callback(KParts__MainWindow_FocusOutEvent_Callback cb) { kparts__mainwindow_focusoutevent_callback = cb; }
-    inline void setKParts__MainWindow_EnterEvent_Callback(KParts__MainWindow_EnterEvent_Callback cb) { kparts__mainwindow_enterevent_callback = cb; }
-    inline void setKParts__MainWindow_LeaveEvent_Callback(KParts__MainWindow_LeaveEvent_Callback cb) { kparts__mainwindow_leaveevent_callback = cb; }
-    inline void setKParts__MainWindow_PaintEvent_Callback(KParts__MainWindow_PaintEvent_Callback cb) { kparts__mainwindow_paintevent_callback = cb; }
-    inline void setKParts__MainWindow_MoveEvent_Callback(KParts__MainWindow_MoveEvent_Callback cb) { kparts__mainwindow_moveevent_callback = cb; }
-    inline void setKParts__MainWindow_ResizeEvent_Callback(KParts__MainWindow_ResizeEvent_Callback cb) { kparts__mainwindow_resizeevent_callback = cb; }
-    inline void setKParts__MainWindow_TabletEvent_Callback(KParts__MainWindow_TabletEvent_Callback cb) { kparts__mainwindow_tabletevent_callback = cb; }
-    inline void setKParts__MainWindow_ActionEvent_Callback(KParts__MainWindow_ActionEvent_Callback cb) { kparts__mainwindow_actionevent_callback = cb; }
-    inline void setKParts__MainWindow_DragEnterEvent_Callback(KParts__MainWindow_DragEnterEvent_Callback cb) { kparts__mainwindow_dragenterevent_callback = cb; }
-    inline void setKParts__MainWindow_DragMoveEvent_Callback(KParts__MainWindow_DragMoveEvent_Callback cb) { kparts__mainwindow_dragmoveevent_callback = cb; }
-    inline void setKParts__MainWindow_DragLeaveEvent_Callback(KParts__MainWindow_DragLeaveEvent_Callback cb) { kparts__mainwindow_dragleaveevent_callback = cb; }
-    inline void setKParts__MainWindow_DropEvent_Callback(KParts__MainWindow_DropEvent_Callback cb) { kparts__mainwindow_dropevent_callback = cb; }
-    inline void setKParts__MainWindow_ShowEvent_Callback(KParts__MainWindow_ShowEvent_Callback cb) { kparts__mainwindow_showevent_callback = cb; }
-    inline void setKParts__MainWindow_HideEvent_Callback(KParts__MainWindow_HideEvent_Callback cb) { kparts__mainwindow_hideevent_callback = cb; }
-    inline void setKParts__MainWindow_NativeEvent_Callback(KParts__MainWindow_NativeEvent_Callback cb) { kparts__mainwindow_nativeevent_callback = cb; }
-    inline void setKParts__MainWindow_ChangeEvent_Callback(KParts__MainWindow_ChangeEvent_Callback cb) { kparts__mainwindow_changeevent_callback = cb; }
-    inline void setKParts__MainWindow_Metric_Callback(KParts__MainWindow_Metric_Callback cb) { kparts__mainwindow_metric_callback = cb; }
-    inline void setKParts__MainWindow_InitPainter_Callback(KParts__MainWindow_InitPainter_Callback cb) { kparts__mainwindow_initpainter_callback = cb; }
-    inline void setKParts__MainWindow_Redirected_Callback(KParts__MainWindow_Redirected_Callback cb) { kparts__mainwindow_redirected_callback = cb; }
-    inline void setKParts__MainWindow_SharedPainter_Callback(KParts__MainWindow_SharedPainter_Callback cb) { kparts__mainwindow_sharedpainter_callback = cb; }
-    inline void setKParts__MainWindow_InputMethodEvent_Callback(KParts__MainWindow_InputMethodEvent_Callback cb) { kparts__mainwindow_inputmethodevent_callback = cb; }
-    inline void setKParts__MainWindow_InputMethodQuery_Callback(KParts__MainWindow_InputMethodQuery_Callback cb) { kparts__mainwindow_inputmethodquery_callback = cb; }
-    inline void setKParts__MainWindow_FocusNextPrevChild_Callback(KParts__MainWindow_FocusNextPrevChild_Callback cb) { kparts__mainwindow_focusnextprevchild_callback = cb; }
-    inline void setKParts__MainWindow_EventFilter_Callback(KParts__MainWindow_EventFilter_Callback cb) { kparts__mainwindow_eventfilter_callback = cb; }
-    inline void setKParts__MainWindow_TimerEvent_Callback(KParts__MainWindow_TimerEvent_Callback cb) { kparts__mainwindow_timerevent_callback = cb; }
-    inline void setKParts__MainWindow_ChildEvent_Callback(KParts__MainWindow_ChildEvent_Callback cb) { kparts__mainwindow_childevent_callback = cb; }
-    inline void setKParts__MainWindow_CustomEvent_Callback(KParts__MainWindow_CustomEvent_Callback cb) { kparts__mainwindow_customevent_callback = cb; }
-    inline void setKParts__MainWindow_ConnectNotify_Callback(KParts__MainWindow_ConnectNotify_Callback cb) { kparts__mainwindow_connectnotify_callback = cb; }
-    inline void setKParts__MainWindow_DisconnectNotify_Callback(KParts__MainWindow_DisconnectNotify_Callback cb) { kparts__mainwindow_disconnectnotify_callback = cb; }
-    inline void setKParts__MainWindow_ContainerTags_Callback(KParts__MainWindow_ContainerTags_Callback cb) { kparts__mainwindow_containertags_callback = cb; }
-    inline void setKParts__MainWindow_CreateContainer_Callback(KParts__MainWindow_CreateContainer_Callback cb) { kparts__mainwindow_createcontainer_callback = cb; }
-    inline void setKParts__MainWindow_RemoveContainer_Callback(KParts__MainWindow_RemoveContainer_Callback cb) { kparts__mainwindow_removecontainer_callback = cb; }
-    inline void setKParts__MainWindow_CustomTags_Callback(KParts__MainWindow_CustomTags_Callback cb) { kparts__mainwindow_customtags_callback = cb; }
-    inline void setKParts__MainWindow_CreateCustomElement_Callback(KParts__MainWindow_CreateCustomElement_Callback cb) { kparts__mainwindow_createcustomelement_callback = cb; }
-    inline void setKParts__MainWindow_FinalizeGUI_Callback(KParts__MainWindow_FinalizeGUI_Callback cb) { kparts__mainwindow_finalizegui_callback = cb; }
-    inline void setKParts__MainWindow_Action2_Callback(KParts__MainWindow_Action2_Callback cb) { kparts__mainwindow_action2_callback = cb; }
-    inline void setKParts__MainWindow_ActionCollection_Callback(KParts__MainWindow_ActionCollection_Callback cb) { kparts__mainwindow_actioncollection_callback = cb; }
-    inline void setKParts__MainWindow_ComponentName_Callback(KParts__MainWindow_ComponentName_Callback cb) { kparts__mainwindow_componentname_callback = cb; }
-    inline void setKParts__MainWindow_DomDocument_Callback(KParts__MainWindow_DomDocument_Callback cb) { kparts__mainwindow_domdocument_callback = cb; }
-    inline void setKParts__MainWindow_XmlFile_Callback(KParts__MainWindow_XmlFile_Callback cb) { kparts__mainwindow_xmlfile_callback = cb; }
-    inline void setKParts__MainWindow_LocalXMLFile_Callback(KParts__MainWindow_LocalXMLFile_Callback cb) { kparts__mainwindow_localxmlfile_callback = cb; }
-    inline void setKParts__MainWindow_SetComponentName_Callback(KParts__MainWindow_SetComponentName_Callback cb) { kparts__mainwindow_setcomponentname_callback = cb; }
-    inline void setKParts__MainWindow_SetXMLFile_Callback(KParts__MainWindow_SetXMLFile_Callback cb) { kparts__mainwindow_setxmlfile_callback = cb; }
-    inline void setKParts__MainWindow_SetLocalXMLFile_Callback(KParts__MainWindow_SetLocalXMLFile_Callback cb) { kparts__mainwindow_setlocalxmlfile_callback = cb; }
-    inline void setKParts__MainWindow_SetXML_Callback(KParts__MainWindow_SetXML_Callback cb) { kparts__mainwindow_setxml_callback = cb; }
-    inline void setKParts__MainWindow_SetDOMDocument_Callback(KParts__MainWindow_SetDOMDocument_Callback cb) { kparts__mainwindow_setdomdocument_callback = cb; }
-    inline void setKParts__MainWindow_StateChanged_Callback(KParts__MainWindow_StateChanged_Callback cb) { kparts__mainwindow_statechanged_callback = cb; }
-    inline void setKParts__MainWindow_CreateGUI_Callback(KParts__MainWindow_CreateGUI_Callback cb) { kparts__mainwindow_creategui_callback = cb; }
-    inline void setKParts__MainWindow_SetWindowTitleHandling_Callback(KParts__MainWindow_SetWindowTitleHandling_Callback cb) { kparts__mainwindow_setwindowtitlehandling_callback = cb; }
-    inline void setKParts__MainWindow_CheckAmbiguousShortcuts_Callback(KParts__MainWindow_CheckAmbiguousShortcuts_Callback cb) { kparts__mainwindow_checkambiguousshortcuts_callback = cb; }
-    inline void setKParts__MainWindow_SavePropertiesInternal_Callback(KParts__MainWindow_SavePropertiesInternal_Callback cb) { kparts__mainwindow_savepropertiesinternal_callback = cb; }
-    inline void setKParts__MainWindow_ReadPropertiesInternal_Callback(KParts__MainWindow_ReadPropertiesInternal_Callback cb) { kparts__mainwindow_readpropertiesinternal_callback = cb; }
-    inline void setKParts__MainWindow_SettingsDirty_Callback(KParts__MainWindow_SettingsDirty_Callback cb) { kparts__mainwindow_settingsdirty_callback = cb; }
-    inline void setKParts__MainWindow_SaveAutoSaveSettings_Callback(KParts__MainWindow_SaveAutoSaveSettings_Callback cb) { kparts__mainwindow_saveautosavesettings_callback = cb; }
-    inline void setKParts__MainWindow_UpdateMicroFocus_Callback(KParts__MainWindow_UpdateMicroFocus_Callback cb) { kparts__mainwindow_updatemicrofocus_callback = cb; }
-    inline void setKParts__MainWindow_Create_Callback(KParts__MainWindow_Create_Callback cb) { kparts__mainwindow_create_callback = cb; }
-    inline void setKParts__MainWindow_Destroy_Callback(KParts__MainWindow_Destroy_Callback cb) { kparts__mainwindow_destroy_callback = cb; }
-    inline void setKParts__MainWindow_FocusNextChild_Callback(KParts__MainWindow_FocusNextChild_Callback cb) { kparts__mainwindow_focusnextchild_callback = cb; }
-    inline void setKParts__MainWindow_FocusPreviousChild_Callback(KParts__MainWindow_FocusPreviousChild_Callback cb) { kparts__mainwindow_focuspreviouschild_callback = cb; }
-    inline void setKParts__MainWindow_Sender_Callback(KParts__MainWindow_Sender_Callback cb) { kparts__mainwindow_sender_callback = cb; }
-    inline void setKParts__MainWindow_SenderSignalIndex_Callback(KParts__MainWindow_SenderSignalIndex_Callback cb) { kparts__mainwindow_sendersignalindex_callback = cb; }
-    inline void setKParts__MainWindow_Receivers_Callback(KParts__MainWindow_Receivers_Callback cb) { kparts__mainwindow_receivers_callback = cb; }
-    inline void setKParts__MainWindow_IsSignalConnected_Callback(KParts__MainWindow_IsSignalConnected_Callback cb) { kparts__mainwindow_issignalconnected_callback = cb; }
-    inline void setKParts__MainWindow_GetDecodedMetricF_Callback(KParts__MainWindow_GetDecodedMetricF_Callback cb) { kparts__mainwindow_getdecodedmetricf_callback = cb; }
-    inline void setKParts__MainWindow_StandardsXmlFileLocation_Callback(KParts__MainWindow_StandardsXmlFileLocation_Callback cb) { kparts__mainwindow_standardsxmlfilelocation_callback = cb; }
-    inline void setKParts__MainWindow_LoadStandardsXmlFile_Callback(KParts__MainWindow_LoadStandardsXmlFile_Callback cb) { kparts__mainwindow_loadstandardsxmlfile_callback = cb; }
-
-    // Base flag setters
-    inline void setKParts__MainWindow_MetaObject_IsBase(bool value) const { kparts__mainwindow_metaobject_isbase = value; }
-    inline void setKParts__MainWindow_Metacast_IsBase(bool value) const { kparts__mainwindow_metacast_isbase = value; }
-    inline void setKParts__MainWindow_Metacall_IsBase(bool value) const { kparts__mainwindow_metacall_isbase = value; }
-    inline void setKParts__MainWindow_ConfigureToolbars_IsBase(bool value) const { kparts__mainwindow_configuretoolbars_isbase = value; }
-    inline void setKParts__MainWindow_SlotSetStatusBarText_IsBase(bool value) const { kparts__mainwindow_slotsetstatusbartext_isbase = value; }
-    inline void setKParts__MainWindow_SaveNewToolbarConfig_IsBase(bool value) const { kparts__mainwindow_savenewtoolbarconfig_isbase = value; }
-    inline void setKParts__MainWindow_CreateShellGUI_IsBase(bool value) const { kparts__mainwindow_createshellgui_isbase = value; }
-    inline void setKParts__MainWindow_GuiFactory_IsBase(bool value) const { kparts__mainwindow_guifactory_isbase = value; }
-    inline void setKParts__MainWindow_ApplyMainWindowSettings_IsBase(bool value) const { kparts__mainwindow_applymainwindowsettings_isbase = value; }
-    inline void setKParts__MainWindow_SlotStateChanged_IsBase(bool value) const { kparts__mainwindow_slotstatechanged_isbase = value; }
-    inline void setKParts__MainWindow_Event_IsBase(bool value) const { kparts__mainwindow_event_isbase = value; }
-    inline void setKParts__MainWindow_SetCaption_IsBase(bool value) const { kparts__mainwindow_setcaption_isbase = value; }
-    inline void setKParts__MainWindow_SetPlainCaption_IsBase(bool value) const { kparts__mainwindow_setplaincaption_isbase = value; }
-    inline void setKParts__MainWindow_KeyPressEvent_IsBase(bool value) const { kparts__mainwindow_keypressevent_isbase = value; }
-    inline void setKParts__MainWindow_CloseEvent_IsBase(bool value) const { kparts__mainwindow_closeevent_isbase = value; }
-    inline void setKParts__MainWindow_QueryClose_IsBase(bool value) const { kparts__mainwindow_queryclose_isbase = value; }
-    inline void setKParts__MainWindow_SaveProperties_IsBase(bool value) const { kparts__mainwindow_saveproperties_isbase = value; }
-    inline void setKParts__MainWindow_ReadProperties_IsBase(bool value) const { kparts__mainwindow_readproperties_isbase = value; }
-    inline void setKParts__MainWindow_SaveGlobalProperties_IsBase(bool value) const { kparts__mainwindow_saveglobalproperties_isbase = value; }
-    inline void setKParts__MainWindow_ReadGlobalProperties_IsBase(bool value) const { kparts__mainwindow_readglobalproperties_isbase = value; }
-    inline void setKParts__MainWindow_CreatePopupMenu_IsBase(bool value) const { kparts__mainwindow_createpopupmenu_isbase = value; }
-    inline void setKParts__MainWindow_ContextMenuEvent_IsBase(bool value) const { kparts__mainwindow_contextmenuevent_isbase = value; }
-    inline void setKParts__MainWindow_DevType_IsBase(bool value) const { kparts__mainwindow_devtype_isbase = value; }
-    inline void setKParts__MainWindow_SetVisible_IsBase(bool value) const { kparts__mainwindow_setvisible_isbase = value; }
-    inline void setKParts__MainWindow_SizeHint_IsBase(bool value) const { kparts__mainwindow_sizehint_isbase = value; }
-    inline void setKParts__MainWindow_MinimumSizeHint_IsBase(bool value) const { kparts__mainwindow_minimumsizehint_isbase = value; }
-    inline void setKParts__MainWindow_HeightForWidth_IsBase(bool value) const { kparts__mainwindow_heightforwidth_isbase = value; }
-    inline void setKParts__MainWindow_HasHeightForWidth_IsBase(bool value) const { kparts__mainwindow_hasheightforwidth_isbase = value; }
-    inline void setKParts__MainWindow_PaintEngine_IsBase(bool value) const { kparts__mainwindow_paintengine_isbase = value; }
-    inline void setKParts__MainWindow_MousePressEvent_IsBase(bool value) const { kparts__mainwindow_mousepressevent_isbase = value; }
-    inline void setKParts__MainWindow_MouseReleaseEvent_IsBase(bool value) const { kparts__mainwindow_mousereleaseevent_isbase = value; }
-    inline void setKParts__MainWindow_MouseDoubleClickEvent_IsBase(bool value) const { kparts__mainwindow_mousedoubleclickevent_isbase = value; }
-    inline void setKParts__MainWindow_MouseMoveEvent_IsBase(bool value) const { kparts__mainwindow_mousemoveevent_isbase = value; }
-    inline void setKParts__MainWindow_WheelEvent_IsBase(bool value) const { kparts__mainwindow_wheelevent_isbase = value; }
-    inline void setKParts__MainWindow_KeyReleaseEvent_IsBase(bool value) const { kparts__mainwindow_keyreleaseevent_isbase = value; }
-    inline void setKParts__MainWindow_FocusInEvent_IsBase(bool value) const { kparts__mainwindow_focusinevent_isbase = value; }
-    inline void setKParts__MainWindow_FocusOutEvent_IsBase(bool value) const { kparts__mainwindow_focusoutevent_isbase = value; }
-    inline void setKParts__MainWindow_EnterEvent_IsBase(bool value) const { kparts__mainwindow_enterevent_isbase = value; }
-    inline void setKParts__MainWindow_LeaveEvent_IsBase(bool value) const { kparts__mainwindow_leaveevent_isbase = value; }
-    inline void setKParts__MainWindow_PaintEvent_IsBase(bool value) const { kparts__mainwindow_paintevent_isbase = value; }
-    inline void setKParts__MainWindow_MoveEvent_IsBase(bool value) const { kparts__mainwindow_moveevent_isbase = value; }
-    inline void setKParts__MainWindow_ResizeEvent_IsBase(bool value) const { kparts__mainwindow_resizeevent_isbase = value; }
-    inline void setKParts__MainWindow_TabletEvent_IsBase(bool value) const { kparts__mainwindow_tabletevent_isbase = value; }
-    inline void setKParts__MainWindow_ActionEvent_IsBase(bool value) const { kparts__mainwindow_actionevent_isbase = value; }
-    inline void setKParts__MainWindow_DragEnterEvent_IsBase(bool value) const { kparts__mainwindow_dragenterevent_isbase = value; }
-    inline void setKParts__MainWindow_DragMoveEvent_IsBase(bool value) const { kparts__mainwindow_dragmoveevent_isbase = value; }
-    inline void setKParts__MainWindow_DragLeaveEvent_IsBase(bool value) const { kparts__mainwindow_dragleaveevent_isbase = value; }
-    inline void setKParts__MainWindow_DropEvent_IsBase(bool value) const { kparts__mainwindow_dropevent_isbase = value; }
-    inline void setKParts__MainWindow_ShowEvent_IsBase(bool value) const { kparts__mainwindow_showevent_isbase = value; }
-    inline void setKParts__MainWindow_HideEvent_IsBase(bool value) const { kparts__mainwindow_hideevent_isbase = value; }
-    inline void setKParts__MainWindow_NativeEvent_IsBase(bool value) const { kparts__mainwindow_nativeevent_isbase = value; }
-    inline void setKParts__MainWindow_ChangeEvent_IsBase(bool value) const { kparts__mainwindow_changeevent_isbase = value; }
-    inline void setKParts__MainWindow_Metric_IsBase(bool value) const { kparts__mainwindow_metric_isbase = value; }
-    inline void setKParts__MainWindow_InitPainter_IsBase(bool value) const { kparts__mainwindow_initpainter_isbase = value; }
-    inline void setKParts__MainWindow_Redirected_IsBase(bool value) const { kparts__mainwindow_redirected_isbase = value; }
-    inline void setKParts__MainWindow_SharedPainter_IsBase(bool value) const { kparts__mainwindow_sharedpainter_isbase = value; }
-    inline void setKParts__MainWindow_InputMethodEvent_IsBase(bool value) const { kparts__mainwindow_inputmethodevent_isbase = value; }
-    inline void setKParts__MainWindow_InputMethodQuery_IsBase(bool value) const { kparts__mainwindow_inputmethodquery_isbase = value; }
-    inline void setKParts__MainWindow_FocusNextPrevChild_IsBase(bool value) const { kparts__mainwindow_focusnextprevchild_isbase = value; }
-    inline void setKParts__MainWindow_EventFilter_IsBase(bool value) const { kparts__mainwindow_eventfilter_isbase = value; }
-    inline void setKParts__MainWindow_TimerEvent_IsBase(bool value) const { kparts__mainwindow_timerevent_isbase = value; }
-    inline void setKParts__MainWindow_ChildEvent_IsBase(bool value) const { kparts__mainwindow_childevent_isbase = value; }
-    inline void setKParts__MainWindow_CustomEvent_IsBase(bool value) const { kparts__mainwindow_customevent_isbase = value; }
-    inline void setKParts__MainWindow_ConnectNotify_IsBase(bool value) const { kparts__mainwindow_connectnotify_isbase = value; }
-    inline void setKParts__MainWindow_DisconnectNotify_IsBase(bool value) const { kparts__mainwindow_disconnectnotify_isbase = value; }
-    inline void setKParts__MainWindow_ContainerTags_IsBase(bool value) const { kparts__mainwindow_containertags_isbase = value; }
-    inline void setKParts__MainWindow_CreateContainer_IsBase(bool value) const { kparts__mainwindow_createcontainer_isbase = value; }
-    inline void setKParts__MainWindow_RemoveContainer_IsBase(bool value) const { kparts__mainwindow_removecontainer_isbase = value; }
-    inline void setKParts__MainWindow_CustomTags_IsBase(bool value) const { kparts__mainwindow_customtags_isbase = value; }
-    inline void setKParts__MainWindow_CreateCustomElement_IsBase(bool value) const { kparts__mainwindow_createcustomelement_isbase = value; }
-    inline void setKParts__MainWindow_FinalizeGUI_IsBase(bool value) const { kparts__mainwindow_finalizegui_isbase = value; }
-    inline void setKParts__MainWindow_Action2_IsBase(bool value) const { kparts__mainwindow_action2_isbase = value; }
-    inline void setKParts__MainWindow_ActionCollection_IsBase(bool value) const { kparts__mainwindow_actioncollection_isbase = value; }
-    inline void setKParts__MainWindow_ComponentName_IsBase(bool value) const { kparts__mainwindow_componentname_isbase = value; }
-    inline void setKParts__MainWindow_DomDocument_IsBase(bool value) const { kparts__mainwindow_domdocument_isbase = value; }
-    inline void setKParts__MainWindow_XmlFile_IsBase(bool value) const { kparts__mainwindow_xmlfile_isbase = value; }
-    inline void setKParts__MainWindow_LocalXMLFile_IsBase(bool value) const { kparts__mainwindow_localxmlfile_isbase = value; }
-    inline void setKParts__MainWindow_SetComponentName_IsBase(bool value) const { kparts__mainwindow_setcomponentname_isbase = value; }
-    inline void setKParts__MainWindow_SetXMLFile_IsBase(bool value) const { kparts__mainwindow_setxmlfile_isbase = value; }
-    inline void setKParts__MainWindow_SetLocalXMLFile_IsBase(bool value) const { kparts__mainwindow_setlocalxmlfile_isbase = value; }
-    inline void setKParts__MainWindow_SetXML_IsBase(bool value) const { kparts__mainwindow_setxml_isbase = value; }
-    inline void setKParts__MainWindow_SetDOMDocument_IsBase(bool value) const { kparts__mainwindow_setdomdocument_isbase = value; }
-    inline void setKParts__MainWindow_StateChanged_IsBase(bool value) const { kparts__mainwindow_statechanged_isbase = value; }
-    inline void setKParts__MainWindow_CreateGUI_IsBase(bool value) const { kparts__mainwindow_creategui_isbase = value; }
-    inline void setKParts__MainWindow_SetWindowTitleHandling_IsBase(bool value) const { kparts__mainwindow_setwindowtitlehandling_isbase = value; }
-    inline void setKParts__MainWindow_CheckAmbiguousShortcuts_IsBase(bool value) const { kparts__mainwindow_checkambiguousshortcuts_isbase = value; }
-    inline void setKParts__MainWindow_SavePropertiesInternal_IsBase(bool value) const { kparts__mainwindow_savepropertiesinternal_isbase = value; }
-    inline void setKParts__MainWindow_ReadPropertiesInternal_IsBase(bool value) const { kparts__mainwindow_readpropertiesinternal_isbase = value; }
-    inline void setKParts__MainWindow_SettingsDirty_IsBase(bool value) const { kparts__mainwindow_settingsdirty_isbase = value; }
-    inline void setKParts__MainWindow_SaveAutoSaveSettings_IsBase(bool value) const { kparts__mainwindow_saveautosavesettings_isbase = value; }
-    inline void setKParts__MainWindow_UpdateMicroFocus_IsBase(bool value) const { kparts__mainwindow_updatemicrofocus_isbase = value; }
-    inline void setKParts__MainWindow_Create_IsBase(bool value) const { kparts__mainwindow_create_isbase = value; }
-    inline void setKParts__MainWindow_Destroy_IsBase(bool value) const { kparts__mainwindow_destroy_isbase = value; }
-    inline void setKParts__MainWindow_FocusNextChild_IsBase(bool value) const { kparts__mainwindow_focusnextchild_isbase = value; }
-    inline void setKParts__MainWindow_FocusPreviousChild_IsBase(bool value) const { kparts__mainwindow_focuspreviouschild_isbase = value; }
-    inline void setKParts__MainWindow_Sender_IsBase(bool value) const { kparts__mainwindow_sender_isbase = value; }
-    inline void setKParts__MainWindow_SenderSignalIndex_IsBase(bool value) const { kparts__mainwindow_sendersignalindex_isbase = value; }
-    inline void setKParts__MainWindow_Receivers_IsBase(bool value) const { kparts__mainwindow_receivers_isbase = value; }
-    inline void setKParts__MainWindow_IsSignalConnected_IsBase(bool value) const { kparts__mainwindow_issignalconnected_isbase = value; }
-    inline void setKParts__MainWindow_GetDecodedMetricF_IsBase(bool value) const { kparts__mainwindow_getdecodedmetricf_isbase = value; }
-    inline void setKParts__MainWindow_StandardsXmlFileLocation_IsBase(bool value) const { kparts__mainwindow_standardsxmlfilelocation_isbase = value; }
-    inline void setKParts__MainWindow_LoadStandardsXmlFile_IsBase(bool value) const { kparts__mainwindow_loadstandardsxmlfile_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kparts__mainwindow_metaobject_isbase) {
-            kparts__mainwindow_metaobject_isbase = false;
-            return KParts__MainWindow::metaObject();
-        }
-        auto metaobject_cb = kparts__mainwindow_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kparts__mainwindow_metaobject_callback) {
+            QMetaObject* callback_ret = kparts__mainwindow_metaobject_callback(this);
             return callback_ret;
         }
         return KParts__MainWindow::metaObject();
@@ -558,14 +272,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kparts__mainwindow_metacast_isbase) {
-            kparts__mainwindow_metacast_isbase = false;
-            return KParts__MainWindow::qt_metacast(param1);
-        }
-        auto metacast_cb = kparts__mainwindow_metacast_callback;
-        if (metacast_cb) {
+        if (kparts__mainwindow_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kparts__mainwindow_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KParts__MainWindow::qt_metacast(param1);
@@ -573,16 +282,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kparts__mainwindow_metacall_isbase) {
-            kparts__mainwindow_metacall_isbase = false;
-            return KParts__MainWindow::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kparts__mainwindow_metacall_callback;
-        if (metacall_cb) {
+        if (kparts__mainwindow_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kparts__mainwindow_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KParts__MainWindow::qt_metacall(param1, param2, param3);
@@ -590,14 +294,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void configureToolbars() override {
-        if (kparts__mainwindow_configuretoolbars_isbase) {
-            kparts__mainwindow_configuretoolbars_isbase = false;
-            KParts__MainWindow::configureToolbars();
-            return;
-        }
-        auto configuretoolbars_cb = kparts__mainwindow_configuretoolbars_callback;
-        if (configuretoolbars_cb) {
-            configuretoolbars_cb();
+        if (kparts__mainwindow_configuretoolbars_callback) {
+            kparts__mainwindow_configuretoolbars_callback(this);
             return;
         }
         KParts__MainWindow::configureToolbars();
@@ -605,13 +303,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void slotSetStatusBarText(const QString& param1) override {
-        if (kparts__mainwindow_slotsetstatusbartext_isbase) {
-            kparts__mainwindow_slotsetstatusbartext_isbase = false;
-            KParts__MainWindow::slotSetStatusBarText(param1);
-            return;
-        }
-        auto slotsetstatusbartext_cb = kparts__mainwindow_slotsetstatusbartext_callback;
-        if (slotsetstatusbartext_cb) {
+        if (kparts__mainwindow_slotsetstatusbartext_callback) {
             const auto param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
@@ -620,7 +312,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             memcpy((void*)param1_str, param1_b.data(), param1_str_len);
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
-            slotsetstatusbartext_cb(this, cbval1);
+            kparts__mainwindow_slotsetstatusbartext_callback(this, cbval1);
             libqt_free(param1_str);
             return;
         }
@@ -629,14 +321,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void saveNewToolbarConfig() override {
-        if (kparts__mainwindow_savenewtoolbarconfig_isbase) {
-            kparts__mainwindow_savenewtoolbarconfig_isbase = false;
-            KParts__MainWindow::saveNewToolbarConfig();
-            return;
-        }
-        auto savenewtoolbarconfig_cb = kparts__mainwindow_savenewtoolbarconfig_callback;
-        if (savenewtoolbarconfig_cb) {
-            savenewtoolbarconfig_cb();
+        if (kparts__mainwindow_savenewtoolbarconfig_callback) {
+            kparts__mainwindow_savenewtoolbarconfig_callback(this);
             return;
         }
         KParts__MainWindow::saveNewToolbarConfig();
@@ -644,15 +330,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void createShellGUI(bool create) override {
-        if (kparts__mainwindow_createshellgui_isbase) {
-            kparts__mainwindow_createshellgui_isbase = false;
-            KParts__MainWindow::createShellGUI(create);
-            return;
-        }
-        auto createshellgui_cb = kparts__mainwindow_createshellgui_callback;
-        if (createshellgui_cb) {
+        if (kparts__mainwindow_createshellgui_callback) {
             bool cbval1 = create;
-            createshellgui_cb(this, cbval1);
+            kparts__mainwindow_createshellgui_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::createShellGUI(create);
@@ -660,13 +340,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual KXMLGUIFactory* guiFactory() override {
-        if (kparts__mainwindow_guifactory_isbase) {
-            kparts__mainwindow_guifactory_isbase = false;
-            return KParts__MainWindow::guiFactory();
-        }
-        auto guifactory_cb = kparts__mainwindow_guifactory_callback;
-        if (guifactory_cb) {
-            KXMLGUIFactory* callback_ret = guifactory_cb();
+        if (kparts__mainwindow_guifactory_callback) {
+            KXMLGUIFactory* callback_ret = kparts__mainwindow_guifactory_callback(this);
             return callback_ret;
         }
         return KParts__MainWindow::guiFactory();
@@ -674,17 +349,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void applyMainWindowSettings(const KConfigGroup& config) override {
-        if (kparts__mainwindow_applymainwindowsettings_isbase) {
-            kparts__mainwindow_applymainwindowsettings_isbase = false;
-            KParts__MainWindow::applyMainWindowSettings(config);
-            return;
-        }
-        auto applymainwindowsettings_cb = kparts__mainwindow_applymainwindowsettings_callback;
-        if (applymainwindowsettings_cb) {
+        if (kparts__mainwindow_applymainwindowsettings_callback) {
             const KConfigGroup& config_ret = config;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&config_ret);
-            applymainwindowsettings_cb(this, cbval1);
+            kparts__mainwindow_applymainwindowsettings_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::applyMainWindowSettings(config);
@@ -692,13 +361,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void slotStateChanged(const QString& newstate) override {
-        if (kparts__mainwindow_slotstatechanged_isbase) {
-            kparts__mainwindow_slotstatechanged_isbase = false;
-            KParts__MainWindow::slotStateChanged(newstate);
-            return;
-        }
-        auto slotstatechanged_cb = kparts__mainwindow_slotstatechanged_callback;
-        if (slotstatechanged_cb) {
+        if (kparts__mainwindow_slotstatechanged_callback) {
             const auto newstate_ret = newstate;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
@@ -707,7 +370,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             memcpy((void*)newstate_str, newstate_b.data(), newstate_str_len);
             ((char*)newstate_str)[newstate_str_len] = '\0';
             const char* cbval1 = newstate_str;
-            slotstatechanged_cb(this, cbval1);
+            kparts__mainwindow_slotstatechanged_callback(this, cbval1);
             libqt_free(newstate_str);
             return;
         }
@@ -716,14 +379,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kparts__mainwindow_event_isbase) {
-            kparts__mainwindow_event_isbase = false;
-            return KParts__MainWindow::event(event);
-        }
-        auto event_cb = kparts__mainwindow_event_callback;
-        if (event_cb) {
+        if (kparts__mainwindow_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kparts__mainwindow_event_callback(this, cbval1);
             return callback_ret;
         }
         return KParts__MainWindow::event(event);
@@ -731,13 +389,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void setCaption(const QString& caption) override {
-        if (kparts__mainwindow_setcaption_isbase) {
-            kparts__mainwindow_setcaption_isbase = false;
-            KParts__MainWindow::setCaption(caption);
-            return;
-        }
-        auto setcaption_cb = kparts__mainwindow_setcaption_callback;
-        if (setcaption_cb) {
+        if (kparts__mainwindow_setcaption_callback) {
             const auto caption_ret = caption;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
@@ -746,7 +398,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             memcpy((void*)caption_str, caption_b.data(), caption_str_len);
             ((char*)caption_str)[caption_str_len] = '\0';
             const char* cbval1 = caption_str;
-            setcaption_cb(this, cbval1);
+            kparts__mainwindow_setcaption_callback(this, cbval1);
             libqt_free(caption_str);
             return;
         }
@@ -755,13 +407,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void setPlainCaption(const QString& caption) override {
-        if (kparts__mainwindow_setplaincaption_isbase) {
-            kparts__mainwindow_setplaincaption_isbase = false;
-            KParts__MainWindow::setPlainCaption(caption);
-            return;
-        }
-        auto setplaincaption_cb = kparts__mainwindow_setplaincaption_callback;
-        if (setplaincaption_cb) {
+        if (kparts__mainwindow_setplaincaption_callback) {
             const auto caption_ret = caption;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
@@ -770,7 +416,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             memcpy((void*)caption_str, caption_b.data(), caption_str_len);
             ((char*)caption_str)[caption_str_len] = '\0';
             const char* cbval1 = caption_str;
-            setplaincaption_cb(this, cbval1);
+            kparts__mainwindow_setplaincaption_callback(this, cbval1);
             libqt_free(caption_str);
             return;
         }
@@ -779,15 +425,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* keyEvent) override {
-        if (kparts__mainwindow_keypressevent_isbase) {
-            kparts__mainwindow_keypressevent_isbase = false;
-            KParts__MainWindow::keyPressEvent(keyEvent);
-            return;
-        }
-        auto keypressevent_cb = kparts__mainwindow_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (kparts__mainwindow_keypressevent_callback) {
             QKeyEvent* cbval1 = keyEvent;
-            keypressevent_cb(this, cbval1);
+            kparts__mainwindow_keypressevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::keyPressEvent(keyEvent);
@@ -795,15 +435,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* param1) override {
-        if (kparts__mainwindow_closeevent_isbase) {
-            kparts__mainwindow_closeevent_isbase = false;
-            KParts__MainWindow::closeEvent(param1);
-            return;
-        }
-        auto closeevent_cb = kparts__mainwindow_closeevent_callback;
-        if (closeevent_cb) {
+        if (kparts__mainwindow_closeevent_callback) {
             QCloseEvent* cbval1 = param1;
-            closeevent_cb(this, cbval1);
+            kparts__mainwindow_closeevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::closeEvent(param1);
@@ -811,13 +445,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual bool queryClose() override {
-        if (kparts__mainwindow_queryclose_isbase) {
-            kparts__mainwindow_queryclose_isbase = false;
-            return KParts__MainWindow::queryClose();
-        }
-        auto queryclose_cb = kparts__mainwindow_queryclose_callback;
-        if (queryclose_cb) {
-            bool callback_ret = queryclose_cb();
+        if (kparts__mainwindow_queryclose_callback) {
+            bool callback_ret = kparts__mainwindow_queryclose_callback(this);
             return callback_ret;
         }
         return KParts__MainWindow::queryClose();
@@ -825,17 +454,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void saveProperties(KConfigGroup& param1) override {
-        if (kparts__mainwindow_saveproperties_isbase) {
-            kparts__mainwindow_saveproperties_isbase = false;
-            KParts__MainWindow::saveProperties(param1);
-            return;
-        }
-        auto saveproperties_cb = kparts__mainwindow_saveproperties_callback;
-        if (saveproperties_cb) {
+        if (kparts__mainwindow_saveproperties_callback) {
             KConfigGroup& param1_ret = param1;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = &param1_ret;
-            saveproperties_cb(this, cbval1);
+            kparts__mainwindow_saveproperties_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::saveProperties(param1);
@@ -843,17 +466,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void readProperties(const KConfigGroup& param1) override {
-        if (kparts__mainwindow_readproperties_isbase) {
-            kparts__mainwindow_readproperties_isbase = false;
-            KParts__MainWindow::readProperties(param1);
-            return;
-        }
-        auto readproperties_cb = kparts__mainwindow_readproperties_callback;
-        if (readproperties_cb) {
+        if (kparts__mainwindow_readproperties_callback) {
             const KConfigGroup& param1_ret = param1;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&param1_ret);
-            readproperties_cb(this, cbval1);
+            kparts__mainwindow_readproperties_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::readProperties(param1);
@@ -861,15 +478,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void saveGlobalProperties(KConfig* sessionConfig) override {
-        if (kparts__mainwindow_saveglobalproperties_isbase) {
-            kparts__mainwindow_saveglobalproperties_isbase = false;
-            KParts__MainWindow::saveGlobalProperties(sessionConfig);
-            return;
-        }
-        auto saveglobalproperties_cb = kparts__mainwindow_saveglobalproperties_callback;
-        if (saveglobalproperties_cb) {
+        if (kparts__mainwindow_saveglobalproperties_callback) {
             KConfig* cbval1 = sessionConfig;
-            saveglobalproperties_cb(this, cbval1);
+            kparts__mainwindow_saveglobalproperties_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::saveGlobalProperties(sessionConfig);
@@ -877,15 +488,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void readGlobalProperties(KConfig* sessionConfig) override {
-        if (kparts__mainwindow_readglobalproperties_isbase) {
-            kparts__mainwindow_readglobalproperties_isbase = false;
-            KParts__MainWindow::readGlobalProperties(sessionConfig);
-            return;
-        }
-        auto readglobalproperties_cb = kparts__mainwindow_readglobalproperties_callback;
-        if (readglobalproperties_cb) {
+        if (kparts__mainwindow_readglobalproperties_callback) {
             KConfig* cbval1 = sessionConfig;
-            readglobalproperties_cb(this, cbval1);
+            kparts__mainwindow_readglobalproperties_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::readGlobalProperties(sessionConfig);
@@ -893,13 +498,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QMenu* createPopupMenu() override {
-        if (kparts__mainwindow_createpopupmenu_isbase) {
-            kparts__mainwindow_createpopupmenu_isbase = false;
-            return KParts__MainWindow::createPopupMenu();
-        }
-        auto createpopupmenu_cb = kparts__mainwindow_createpopupmenu_callback;
-        if (createpopupmenu_cb) {
-            QMenu* callback_ret = createpopupmenu_cb();
+        if (kparts__mainwindow_createpopupmenu_callback) {
+            QMenu* callback_ret = kparts__mainwindow_createpopupmenu_callback(this);
             return callback_ret;
         }
         return KParts__MainWindow::createPopupMenu();
@@ -907,15 +507,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (kparts__mainwindow_contextmenuevent_isbase) {
-            kparts__mainwindow_contextmenuevent_isbase = false;
-            KParts__MainWindow::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = kparts__mainwindow_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (kparts__mainwindow_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            kparts__mainwindow_contextmenuevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::contextMenuEvent(event);
@@ -923,13 +517,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (kparts__mainwindow_devtype_isbase) {
-            kparts__mainwindow_devtype_isbase = false;
-            return KParts__MainWindow::devType();
-        }
-        auto devtype_cb = kparts__mainwindow_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (kparts__mainwindow_devtype_callback) {
+            int callback_ret = kparts__mainwindow_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KParts__MainWindow::devType();
@@ -937,15 +526,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (kparts__mainwindow_setvisible_isbase) {
-            kparts__mainwindow_setvisible_isbase = false;
-            KParts__MainWindow::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = kparts__mainwindow_setvisible_callback;
-        if (setvisible_cb) {
+        if (kparts__mainwindow_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            kparts__mainwindow_setvisible_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::setVisible(visible);
@@ -953,13 +536,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (kparts__mainwindow_sizehint_isbase) {
-            kparts__mainwindow_sizehint_isbase = false;
-            return KParts__MainWindow::sizeHint();
-        }
-        auto sizehint_cb = kparts__mainwindow_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (kparts__mainwindow_sizehint_callback) {
+            QSize* callback_ret = kparts__mainwindow_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -969,13 +547,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (kparts__mainwindow_minimumsizehint_isbase) {
-            kparts__mainwindow_minimumsizehint_isbase = false;
-            return KParts__MainWindow::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = kparts__mainwindow_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (kparts__mainwindow_minimumsizehint_callback) {
+            QSize* callback_ret = kparts__mainwindow_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -985,14 +558,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (kparts__mainwindow_heightforwidth_isbase) {
-            kparts__mainwindow_heightforwidth_isbase = false;
-            return KParts__MainWindow::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = kparts__mainwindow_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (kparts__mainwindow_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = kparts__mainwindow_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KParts__MainWindow::heightForWidth(param1);
@@ -1000,13 +568,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (kparts__mainwindow_hasheightforwidth_isbase) {
-            kparts__mainwindow_hasheightforwidth_isbase = false;
-            return KParts__MainWindow::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = kparts__mainwindow_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (kparts__mainwindow_hasheightforwidth_callback) {
+            bool callback_ret = kparts__mainwindow_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KParts__MainWindow::hasHeightForWidth();
@@ -1014,13 +577,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (kparts__mainwindow_paintengine_isbase) {
-            kparts__mainwindow_paintengine_isbase = false;
-            return KParts__MainWindow::paintEngine();
-        }
-        auto paintengine_cb = kparts__mainwindow_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (kparts__mainwindow_paintengine_callback) {
+            QPaintEngine* callback_ret = kparts__mainwindow_paintengine_callback(this);
             return callback_ret;
         }
         return KParts__MainWindow::paintEngine();
@@ -1028,15 +586,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (kparts__mainwindow_mousepressevent_isbase) {
-            kparts__mainwindow_mousepressevent_isbase = false;
-            KParts__MainWindow::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = kparts__mainwindow_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (kparts__mainwindow_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            kparts__mainwindow_mousepressevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::mousePressEvent(event);
@@ -1044,15 +596,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (kparts__mainwindow_mousereleaseevent_isbase) {
-            kparts__mainwindow_mousereleaseevent_isbase = false;
-            KParts__MainWindow::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = kparts__mainwindow_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (kparts__mainwindow_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            kparts__mainwindow_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::mouseReleaseEvent(event);
@@ -1060,15 +606,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (kparts__mainwindow_mousedoubleclickevent_isbase) {
-            kparts__mainwindow_mousedoubleclickevent_isbase = false;
-            KParts__MainWindow::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = kparts__mainwindow_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (kparts__mainwindow_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            kparts__mainwindow_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::mouseDoubleClickEvent(event);
@@ -1076,15 +616,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (kparts__mainwindow_mousemoveevent_isbase) {
-            kparts__mainwindow_mousemoveevent_isbase = false;
-            KParts__MainWindow::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = kparts__mainwindow_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (kparts__mainwindow_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            kparts__mainwindow_mousemoveevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::mouseMoveEvent(event);
@@ -1092,15 +626,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (kparts__mainwindow_wheelevent_isbase) {
-            kparts__mainwindow_wheelevent_isbase = false;
-            KParts__MainWindow::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = kparts__mainwindow_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (kparts__mainwindow_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            kparts__mainwindow_wheelevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::wheelEvent(event);
@@ -1108,15 +636,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (kparts__mainwindow_keyreleaseevent_isbase) {
-            kparts__mainwindow_keyreleaseevent_isbase = false;
-            KParts__MainWindow::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = kparts__mainwindow_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (kparts__mainwindow_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            kparts__mainwindow_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::keyReleaseEvent(event);
@@ -1124,15 +646,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (kparts__mainwindow_focusinevent_isbase) {
-            kparts__mainwindow_focusinevent_isbase = false;
-            KParts__MainWindow::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = kparts__mainwindow_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (kparts__mainwindow_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            kparts__mainwindow_focusinevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::focusInEvent(event);
@@ -1140,15 +656,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (kparts__mainwindow_focusoutevent_isbase) {
-            kparts__mainwindow_focusoutevent_isbase = false;
-            KParts__MainWindow::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = kparts__mainwindow_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (kparts__mainwindow_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            kparts__mainwindow_focusoutevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::focusOutEvent(event);
@@ -1156,15 +666,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (kparts__mainwindow_enterevent_isbase) {
-            kparts__mainwindow_enterevent_isbase = false;
-            KParts__MainWindow::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = kparts__mainwindow_enterevent_callback;
-        if (enterevent_cb) {
+        if (kparts__mainwindow_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            kparts__mainwindow_enterevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::enterEvent(event);
@@ -1172,15 +676,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (kparts__mainwindow_leaveevent_isbase) {
-            kparts__mainwindow_leaveevent_isbase = false;
-            KParts__MainWindow::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = kparts__mainwindow_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (kparts__mainwindow_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            kparts__mainwindow_leaveevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::leaveEvent(event);
@@ -1188,15 +686,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (kparts__mainwindow_paintevent_isbase) {
-            kparts__mainwindow_paintevent_isbase = false;
-            KParts__MainWindow::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = kparts__mainwindow_paintevent_callback;
-        if (paintevent_cb) {
+        if (kparts__mainwindow_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            kparts__mainwindow_paintevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::paintEvent(event);
@@ -1204,15 +696,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (kparts__mainwindow_moveevent_isbase) {
-            kparts__mainwindow_moveevent_isbase = false;
-            KParts__MainWindow::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = kparts__mainwindow_moveevent_callback;
-        if (moveevent_cb) {
+        if (kparts__mainwindow_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            kparts__mainwindow_moveevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::moveEvent(event);
@@ -1220,15 +706,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (kparts__mainwindow_resizeevent_isbase) {
-            kparts__mainwindow_resizeevent_isbase = false;
-            KParts__MainWindow::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = kparts__mainwindow_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (kparts__mainwindow_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            kparts__mainwindow_resizeevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::resizeEvent(event);
@@ -1236,15 +716,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (kparts__mainwindow_tabletevent_isbase) {
-            kparts__mainwindow_tabletevent_isbase = false;
-            KParts__MainWindow::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = kparts__mainwindow_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (kparts__mainwindow_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            kparts__mainwindow_tabletevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::tabletEvent(event);
@@ -1252,15 +726,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (kparts__mainwindow_actionevent_isbase) {
-            kparts__mainwindow_actionevent_isbase = false;
-            KParts__MainWindow::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = kparts__mainwindow_actionevent_callback;
-        if (actionevent_cb) {
+        if (kparts__mainwindow_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            kparts__mainwindow_actionevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::actionEvent(event);
@@ -1268,15 +736,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (kparts__mainwindow_dragenterevent_isbase) {
-            kparts__mainwindow_dragenterevent_isbase = false;
-            KParts__MainWindow::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = kparts__mainwindow_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (kparts__mainwindow_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            kparts__mainwindow_dragenterevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::dragEnterEvent(event);
@@ -1284,15 +746,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (kparts__mainwindow_dragmoveevent_isbase) {
-            kparts__mainwindow_dragmoveevent_isbase = false;
-            KParts__MainWindow::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = kparts__mainwindow_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (kparts__mainwindow_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            kparts__mainwindow_dragmoveevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::dragMoveEvent(event);
@@ -1300,15 +756,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (kparts__mainwindow_dragleaveevent_isbase) {
-            kparts__mainwindow_dragleaveevent_isbase = false;
-            KParts__MainWindow::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = kparts__mainwindow_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (kparts__mainwindow_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            kparts__mainwindow_dragleaveevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::dragLeaveEvent(event);
@@ -1316,15 +766,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (kparts__mainwindow_dropevent_isbase) {
-            kparts__mainwindow_dropevent_isbase = false;
-            KParts__MainWindow::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = kparts__mainwindow_dropevent_callback;
-        if (dropevent_cb) {
+        if (kparts__mainwindow_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            kparts__mainwindow_dropevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::dropEvent(event);
@@ -1332,15 +776,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (kparts__mainwindow_showevent_isbase) {
-            kparts__mainwindow_showevent_isbase = false;
-            KParts__MainWindow::showEvent(event);
-            return;
-        }
-        auto showevent_cb = kparts__mainwindow_showevent_callback;
-        if (showevent_cb) {
+        if (kparts__mainwindow_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            kparts__mainwindow_showevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::showEvent(event);
@@ -1348,15 +786,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (kparts__mainwindow_hideevent_isbase) {
-            kparts__mainwindow_hideevent_isbase = false;
-            KParts__MainWindow::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = kparts__mainwindow_hideevent_callback;
-        if (hideevent_cb) {
+        if (kparts__mainwindow_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            kparts__mainwindow_hideevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::hideEvent(event);
@@ -1364,12 +796,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (kparts__mainwindow_nativeevent_isbase) {
-            kparts__mainwindow_nativeevent_isbase = false;
-            return KParts__MainWindow::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = kparts__mainwindow_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (kparts__mainwindow_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1379,7 +806,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kparts__mainwindow_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1388,15 +815,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (kparts__mainwindow_changeevent_isbase) {
-            kparts__mainwindow_changeevent_isbase = false;
-            KParts__MainWindow::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = kparts__mainwindow_changeevent_callback;
-        if (changeevent_cb) {
+        if (kparts__mainwindow_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            kparts__mainwindow_changeevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::changeEvent(param1);
@@ -1404,14 +825,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (kparts__mainwindow_metric_isbase) {
-            kparts__mainwindow_metric_isbase = false;
-            return KParts__MainWindow::metric(param1);
-        }
-        auto metric_cb = kparts__mainwindow_metric_callback;
-        if (metric_cb) {
+        if (kparts__mainwindow_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = kparts__mainwindow_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KParts__MainWindow::metric(param1);
@@ -1419,15 +835,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (kparts__mainwindow_initpainter_isbase) {
-            kparts__mainwindow_initpainter_isbase = false;
-            KParts__MainWindow::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = kparts__mainwindow_initpainter_callback;
-        if (initpainter_cb) {
+        if (kparts__mainwindow_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            kparts__mainwindow_initpainter_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::initPainter(painter);
@@ -1435,14 +845,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (kparts__mainwindow_redirected_isbase) {
-            kparts__mainwindow_redirected_isbase = false;
-            return KParts__MainWindow::redirected(offset);
-        }
-        auto redirected_cb = kparts__mainwindow_redirected_callback;
-        if (redirected_cb) {
+        if (kparts__mainwindow_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = kparts__mainwindow_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KParts__MainWindow::redirected(offset);
@@ -1450,13 +855,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (kparts__mainwindow_sharedpainter_isbase) {
-            kparts__mainwindow_sharedpainter_isbase = false;
-            return KParts__MainWindow::sharedPainter();
-        }
-        auto sharedpainter_cb = kparts__mainwindow_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (kparts__mainwindow_sharedpainter_callback) {
+            QPainter* callback_ret = kparts__mainwindow_sharedpainter_callback(this);
             return callback_ret;
         }
         return KParts__MainWindow::sharedPainter();
@@ -1464,15 +864,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (kparts__mainwindow_inputmethodevent_isbase) {
-            kparts__mainwindow_inputmethodevent_isbase = false;
-            KParts__MainWindow::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = kparts__mainwindow_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (kparts__mainwindow_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            kparts__mainwindow_inputmethodevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::inputMethodEvent(param1);
@@ -1480,14 +874,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (kparts__mainwindow_inputmethodquery_isbase) {
-            kparts__mainwindow_inputmethodquery_isbase = false;
-            return KParts__MainWindow::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = kparts__mainwindow_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (kparts__mainwindow_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = kparts__mainwindow_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1497,14 +886,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (kparts__mainwindow_focusnextprevchild_isbase) {
-            kparts__mainwindow_focusnextprevchild_isbase = false;
-            return KParts__MainWindow::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = kparts__mainwindow_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (kparts__mainwindow_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = kparts__mainwindow_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KParts__MainWindow::focusNextPrevChild(next);
@@ -1512,15 +896,10 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kparts__mainwindow_eventfilter_isbase) {
-            kparts__mainwindow_eventfilter_isbase = false;
-            return KParts__MainWindow::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kparts__mainwindow_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kparts__mainwindow_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kparts__mainwindow_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KParts__MainWindow::eventFilter(watched, event);
@@ -1528,15 +907,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kparts__mainwindow_timerevent_isbase) {
-            kparts__mainwindow_timerevent_isbase = false;
-            KParts__MainWindow::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kparts__mainwindow_timerevent_callback;
-        if (timerevent_cb) {
+        if (kparts__mainwindow_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kparts__mainwindow_timerevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::timerEvent(event);
@@ -1544,15 +917,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kparts__mainwindow_childevent_isbase) {
-            kparts__mainwindow_childevent_isbase = false;
-            KParts__MainWindow::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kparts__mainwindow_childevent_callback;
-        if (childevent_cb) {
+        if (kparts__mainwindow_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kparts__mainwindow_childevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::childEvent(event);
@@ -1560,15 +927,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kparts__mainwindow_customevent_isbase) {
-            kparts__mainwindow_customevent_isbase = false;
-            KParts__MainWindow::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kparts__mainwindow_customevent_callback;
-        if (customevent_cb) {
+        if (kparts__mainwindow_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kparts__mainwindow_customevent_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::customEvent(event);
@@ -1576,17 +937,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kparts__mainwindow_connectnotify_isbase) {
-            kparts__mainwindow_connectnotify_isbase = false;
-            KParts__MainWindow::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kparts__mainwindow_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kparts__mainwindow_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kparts__mainwindow_connectnotify_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::connectNotify(signal);
@@ -1594,17 +949,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kparts__mainwindow_disconnectnotify_isbase) {
-            kparts__mainwindow_disconnectnotify_isbase = false;
-            KParts__MainWindow::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kparts__mainwindow_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kparts__mainwindow_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kparts__mainwindow_disconnectnotify_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::disconnectNotify(signal);
@@ -1612,13 +961,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QString> containerTags() const override {
-        if (kparts__mainwindow_containertags_isbase) {
-            kparts__mainwindow_containertags_isbase = false;
-            return KParts__MainWindow::containerTags();
-        }
-        auto containertags_cb = kparts__mainwindow_containertags_callback;
-        if (containertags_cb) {
-            const char** callback_ret = containertags_cb();
+        if (kparts__mainwindow_containertags_callback) {
+            const char** callback_ret = kparts__mainwindow_containertags_callback(this);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1635,12 +979,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QWidget* createContainer(QWidget* parent, int index, const QDomElement& element, QAction*& containerAction) override {
-        if (kparts__mainwindow_createcontainer_isbase) {
-            kparts__mainwindow_createcontainer_isbase = false;
-            return KParts__MainWindow::createContainer(parent, index, element, containerAction);
-        }
-        auto createcontainer_cb = kparts__mainwindow_createcontainer_callback;
-        if (createcontainer_cb) {
+        if (kparts__mainwindow_createcontainer_callback) {
             QWidget* cbval1 = parent;
             int cbval2 = index;
             const QDomElement& element_ret = element;
@@ -1649,7 +988,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             QAction*& containerAction_ret = containerAction;
             // Cast returned reference into pointer
             QAction** cbval4 = &containerAction_ret;
-            QWidget* callback_ret = createcontainer_cb(this, cbval1, cbval2, cbval3, cbval4);
+            QWidget* callback_ret = kparts__mainwindow_createcontainer_callback(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
         return KParts__MainWindow::createContainer(parent, index, element, containerAction);
@@ -1657,20 +996,14 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void removeContainer(QWidget* container, QWidget* parent, QDomElement& element, QAction* containerAction) override {
-        if (kparts__mainwindow_removecontainer_isbase) {
-            kparts__mainwindow_removecontainer_isbase = false;
-            KParts__MainWindow::removeContainer(container, parent, element, containerAction);
-            return;
-        }
-        auto removecontainer_cb = kparts__mainwindow_removecontainer_callback;
-        if (removecontainer_cb) {
+        if (kparts__mainwindow_removecontainer_callback) {
             QWidget* cbval1 = container;
             QWidget* cbval2 = parent;
             QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval3 = &element_ret;
             QAction* cbval4 = containerAction;
-            removecontainer_cb(this, cbval1, cbval2, cbval3, cbval4);
+            kparts__mainwindow_removecontainer_callback(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
         KParts__MainWindow::removeContainer(container, parent, element, containerAction);
@@ -1678,13 +1011,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QString> customTags() const override {
-        if (kparts__mainwindow_customtags_isbase) {
-            kparts__mainwindow_customtags_isbase = false;
-            return KParts__MainWindow::customTags();
-        }
-        auto customtags_cb = kparts__mainwindow_customtags_callback;
-        if (customtags_cb) {
-            const char** callback_ret = customtags_cb();
+        if (kparts__mainwindow_customtags_callback) {
+            const char** callback_ret = kparts__mainwindow_customtags_callback(this);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1701,18 +1029,13 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QAction* createCustomElement(QWidget* parent, int index, const QDomElement& element) override {
-        if (kparts__mainwindow_createcustomelement_isbase) {
-            kparts__mainwindow_createcustomelement_isbase = false;
-            return KParts__MainWindow::createCustomElement(parent, index, element);
-        }
-        auto createcustomelement_cb = kparts__mainwindow_createcustomelement_callback;
-        if (createcustomelement_cb) {
+        if (kparts__mainwindow_createcustomelement_callback) {
             QWidget* cbval1 = parent;
             int cbval2 = index;
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval3 = const_cast<QDomElement*>(&element_ret);
-            QAction* callback_ret = createcustomelement_cb(this, cbval1, cbval2, cbval3);
+            QAction* callback_ret = kparts__mainwindow_createcustomelement_callback(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
         return KParts__MainWindow::createCustomElement(parent, index, element);
@@ -1720,15 +1043,9 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void finalizeGUI(KXMLGUIClient* client) override {
-        if (kparts__mainwindow_finalizegui_isbase) {
-            kparts__mainwindow_finalizegui_isbase = false;
-            KParts__MainWindow::finalizeGUI(client);
-            return;
-        }
-        auto finalizegui_cb = kparts__mainwindow_finalizegui_callback;
-        if (finalizegui_cb) {
+        if (kparts__mainwindow_finalizegui_callback) {
             KXMLGUIClient* cbval1 = client;
-            finalizegui_cb(this, cbval1);
+            kparts__mainwindow_finalizegui_callback(this, cbval1);
             return;
         }
         KParts__MainWindow::finalizeGUI(client);
@@ -1736,16 +1053,11 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QAction* action(const QDomElement& element) const override {
-        if (kparts__mainwindow_action2_isbase) {
-            kparts__mainwindow_action2_isbase = false;
-            return KParts__MainWindow::action(element);
-        }
-        auto action2_cb = kparts__mainwindow_action2_callback;
-        if (action2_cb) {
+        if (kparts__mainwindow_action2_callback) {
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval1 = const_cast<QDomElement*>(&element_ret);
-            QAction* callback_ret = action2_cb(this, cbval1);
+            QAction* callback_ret = kparts__mainwindow_action2_callback(this, cbval1);
             return callback_ret;
         }
         return KParts__MainWindow::action(element);
@@ -1753,13 +1065,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual KActionCollection* actionCollection() const override {
-        if (kparts__mainwindow_actioncollection_isbase) {
-            kparts__mainwindow_actioncollection_isbase = false;
-            return KParts__MainWindow::actionCollection();
-        }
-        auto actioncollection_cb = kparts__mainwindow_actioncollection_callback;
-        if (actioncollection_cb) {
-            KActionCollection* callback_ret = actioncollection_cb();
+        if (kparts__mainwindow_actioncollection_callback) {
+            KActionCollection* callback_ret = kparts__mainwindow_actioncollection_callback(this);
             return callback_ret;
         }
         return KParts__MainWindow::actionCollection();
@@ -1767,13 +1074,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QString componentName() const override {
-        if (kparts__mainwindow_componentname_isbase) {
-            kparts__mainwindow_componentname_isbase = false;
-            return KParts__MainWindow::componentName();
-        }
-        auto componentname_cb = kparts__mainwindow_componentname_callback;
-        if (componentname_cb) {
-            const char* callback_ret = componentname_cb();
+        if (kparts__mainwindow_componentname_callback) {
+            const char* callback_ret = kparts__mainwindow_componentname_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -1782,13 +1084,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QDomDocument domDocument() const override {
-        if (kparts__mainwindow_domdocument_isbase) {
-            kparts__mainwindow_domdocument_isbase = false;
-            return KParts__MainWindow::domDocument();
-        }
-        auto domdocument_cb = kparts__mainwindow_domdocument_callback;
-        if (domdocument_cb) {
-            QDomDocument* callback_ret = domdocument_cb();
+        if (kparts__mainwindow_domdocument_callback) {
+            QDomDocument* callback_ret = kparts__mainwindow_domdocument_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1798,13 +1095,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QString xmlFile() const override {
-        if (kparts__mainwindow_xmlfile_isbase) {
-            kparts__mainwindow_xmlfile_isbase = false;
-            return KParts__MainWindow::xmlFile();
-        }
-        auto xmlfile_cb = kparts__mainwindow_xmlfile_callback;
-        if (xmlfile_cb) {
-            const char* callback_ret = xmlfile_cb();
+        if (kparts__mainwindow_xmlfile_callback) {
+            const char* callback_ret = kparts__mainwindow_xmlfile_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -1813,13 +1105,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual QString localXMLFile() const override {
-        if (kparts__mainwindow_localxmlfile_isbase) {
-            kparts__mainwindow_localxmlfile_isbase = false;
-            return KParts__MainWindow::localXMLFile();
-        }
-        auto localxmlfile_cb = kparts__mainwindow_localxmlfile_callback;
-        if (localxmlfile_cb) {
-            const char* callback_ret = localxmlfile_cb();
+        if (kparts__mainwindow_localxmlfile_callback) {
+            const char* callback_ret = kparts__mainwindow_localxmlfile_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -1828,13 +1115,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void setComponentName(const QString& componentName, const QString& componentDisplayName) override {
-        if (kparts__mainwindow_setcomponentname_isbase) {
-            kparts__mainwindow_setcomponentname_isbase = false;
-            KParts__MainWindow::setComponentName(componentName, componentDisplayName);
-            return;
-        }
-        auto setcomponentname_cb = kparts__mainwindow_setcomponentname_callback;
-        if (setcomponentname_cb) {
+        if (kparts__mainwindow_setcomponentname_callback) {
             const auto componentName_ret = componentName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentName_b = componentName_ret.toUtf8();
@@ -1851,7 +1132,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             memcpy((void*)componentDisplayName_str, componentDisplayName_b.data(), componentDisplayName_str_len);
             ((char*)componentDisplayName_str)[componentDisplayName_str_len] = '\0';
             const char* cbval2 = componentDisplayName_str;
-            setcomponentname_cb(this, cbval1, cbval2);
+            kparts__mainwindow_setcomponentname_callback(this, cbval1, cbval2);
             libqt_free(componentName_str);
             libqt_free(componentDisplayName_str);
             return;
@@ -1861,13 +1142,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void setXMLFile(const QString& file, bool merge, bool setXMLDoc) override {
-        if (kparts__mainwindow_setxmlfile_isbase) {
-            kparts__mainwindow_setxmlfile_isbase = false;
-            KParts__MainWindow::setXMLFile(file, merge, setXMLDoc);
-            return;
-        }
-        auto setxmlfile_cb = kparts__mainwindow_setxmlfile_callback;
-        if (setxmlfile_cb) {
+        if (kparts__mainwindow_setxmlfile_callback) {
             const auto file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -1878,7 +1153,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             const char* cbval1 = file_str;
             bool cbval2 = merge;
             bool cbval3 = setXMLDoc;
-            setxmlfile_cb(this, cbval1, cbval2, cbval3);
+            kparts__mainwindow_setxmlfile_callback(this, cbval1, cbval2, cbval3);
             libqt_free(file_str);
             return;
         }
@@ -1887,13 +1162,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void setLocalXMLFile(const QString& file) override {
-        if (kparts__mainwindow_setlocalxmlfile_isbase) {
-            kparts__mainwindow_setlocalxmlfile_isbase = false;
-            KParts__MainWindow::setLocalXMLFile(file);
-            return;
-        }
-        auto setlocalxmlfile_cb = kparts__mainwindow_setlocalxmlfile_callback;
-        if (setlocalxmlfile_cb) {
+        if (kparts__mainwindow_setlocalxmlfile_callback) {
             const auto file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -1902,7 +1171,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             memcpy((void*)file_str, file_b.data(), file_str_len);
             ((char*)file_str)[file_str_len] = '\0';
             const char* cbval1 = file_str;
-            setlocalxmlfile_cb(this, cbval1);
+            kparts__mainwindow_setlocalxmlfile_callback(this, cbval1);
             libqt_free(file_str);
             return;
         }
@@ -1911,13 +1180,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void setXML(const QString& document, bool merge) override {
-        if (kparts__mainwindow_setxml_isbase) {
-            kparts__mainwindow_setxml_isbase = false;
-            KParts__MainWindow::setXML(document, merge);
-            return;
-        }
-        auto setxml_cb = kparts__mainwindow_setxml_callback;
-        if (setxml_cb) {
+        if (kparts__mainwindow_setxml_callback) {
             const auto document_ret = document;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray document_b = document_ret.toUtf8();
@@ -1927,7 +1190,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             ((char*)document_str)[document_str_len] = '\0';
             const char* cbval1 = document_str;
             bool cbval2 = merge;
-            setxml_cb(this, cbval1, cbval2);
+            kparts__mainwindow_setxml_callback(this, cbval1, cbval2);
             libqt_free(document_str);
             return;
         }
@@ -1936,18 +1199,12 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void setDOMDocument(const QDomDocument& document, bool merge) override {
-        if (kparts__mainwindow_setdomdocument_isbase) {
-            kparts__mainwindow_setdomdocument_isbase = false;
-            KParts__MainWindow::setDOMDocument(document, merge);
-            return;
-        }
-        auto setdomdocument_cb = kparts__mainwindow_setdomdocument_callback;
-        if (setdomdocument_cb) {
+        if (kparts__mainwindow_setdomdocument_callback) {
             const QDomDocument& document_ret = document;
             // Cast returned reference into pointer
             QDomDocument* cbval1 = const_cast<QDomDocument*>(&document_ret);
             bool cbval2 = merge;
-            setdomdocument_cb(this, cbval1, cbval2);
+            kparts__mainwindow_setdomdocument_callback(this, cbval1, cbval2);
             return;
         }
         KParts__MainWindow::setDOMDocument(document, merge);
@@ -1955,13 +1212,7 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
     // Virtual method for C ABI access and custom callback
     virtual void stateChanged(const QString& newstate, KXMLGUIClient::ReverseStateChange reverse) override {
-        if (kparts__mainwindow_statechanged_isbase) {
-            kparts__mainwindow_statechanged_isbase = false;
-            KParts__MainWindow::stateChanged(newstate, reverse);
-            return;
-        }
-        auto statechanged_cb = kparts__mainwindow_statechanged_callback;
-        if (statechanged_cb) {
+        if (kparts__mainwindow_statechanged_callback) {
             const auto newstate_ret = newstate;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
@@ -1971,444 +1222,66 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
             ((char*)newstate_str)[newstate_str_len] = '\0';
             const char* cbval1 = newstate_str;
             int cbval2 = static_cast<int>(reverse);
-            statechanged_cb(this, cbval1, cbval2);
+            kparts__mainwindow_statechanged_callback(this, cbval1, cbval2);
             libqt_free(newstate_str);
             return;
         }
         KParts__MainWindow::stateChanged(newstate, reverse);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void createGUI(KParts::Part* part) {
-        if (kparts__mainwindow_creategui_isbase) {
-            kparts__mainwindow_creategui_isbase = false;
-            KParts__MainWindow::createGUI(part);
-            return;
-        }
-        auto creategui_cb = kparts__mainwindow_creategui_callback;
-        if (creategui_cb) {
-            KParts__Part* cbval1 = part;
-            creategui_cb(this, cbval1);
-            return;
-        }
-        KParts__MainWindow::createGUI(part);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setWindowTitleHandling(bool enabled) {
-        if (kparts__mainwindow_setwindowtitlehandling_isbase) {
-            kparts__mainwindow_setwindowtitlehandling_isbase = false;
-            KParts__MainWindow::setWindowTitleHandling(enabled);
-            return;
-        }
-        auto setwindowtitlehandling_cb = kparts__mainwindow_setwindowtitlehandling_callback;
-        if (setwindowtitlehandling_cb) {
-            bool cbval1 = enabled;
-            setwindowtitlehandling_cb(this, cbval1);
-            return;
-        }
-        KParts__MainWindow::setWindowTitleHandling(enabled);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void checkAmbiguousShortcuts() {
-        if (kparts__mainwindow_checkambiguousshortcuts_isbase) {
-            kparts__mainwindow_checkambiguousshortcuts_isbase = false;
-            KParts__MainWindow::checkAmbiguousShortcuts();
-            return;
-        }
-        auto checkambiguousshortcuts_cb = kparts__mainwindow_checkambiguousshortcuts_callback;
-        if (checkambiguousshortcuts_cb) {
-            checkambiguousshortcuts_cb();
-            return;
-        }
-        KParts__MainWindow::checkAmbiguousShortcuts();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void savePropertiesInternal(KConfig* param1, int param2) {
-        if (kparts__mainwindow_savepropertiesinternal_isbase) {
-            kparts__mainwindow_savepropertiesinternal_isbase = false;
-            KParts__MainWindow::savePropertiesInternal(param1, param2);
-            return;
-        }
-        auto savepropertiesinternal_cb = kparts__mainwindow_savepropertiesinternal_callback;
-        if (savepropertiesinternal_cb) {
-            KConfig* cbval1 = param1;
-            int cbval2 = param2;
-            savepropertiesinternal_cb(this, cbval1, cbval2);
-            return;
-        }
-        KParts__MainWindow::savePropertiesInternal(param1, param2);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool readPropertiesInternal(KConfig* param1, int param2) {
-        if (kparts__mainwindow_readpropertiesinternal_isbase) {
-            kparts__mainwindow_readpropertiesinternal_isbase = false;
-            return KParts__MainWindow::readPropertiesInternal(param1, param2);
-        }
-        auto readpropertiesinternal_cb = kparts__mainwindow_readpropertiesinternal_callback;
-        if (readpropertiesinternal_cb) {
-            KConfig* cbval1 = param1;
-            int cbval2 = param2;
-            bool callback_ret = readpropertiesinternal_cb(this, cbval1, cbval2);
-            return callback_ret;
-        }
-        return KParts__MainWindow::readPropertiesInternal(param1, param2);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool settingsDirty() const {
-        if (kparts__mainwindow_settingsdirty_isbase) {
-            kparts__mainwindow_settingsdirty_isbase = false;
-            return KParts__MainWindow::settingsDirty();
-        }
-        auto settingsdirty_cb = kparts__mainwindow_settingsdirty_callback;
-        if (settingsdirty_cb) {
-            bool callback_ret = settingsdirty_cb();
-            return callback_ret;
-        }
-        return KParts__MainWindow::settingsDirty();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void saveAutoSaveSettings() {
-        if (kparts__mainwindow_saveautosavesettings_isbase) {
-            kparts__mainwindow_saveautosavesettings_isbase = false;
-            KParts__MainWindow::saveAutoSaveSettings();
-            return;
-        }
-        auto saveautosavesettings_cb = kparts__mainwindow_saveautosavesettings_callback;
-        if (saveautosavesettings_cb) {
-            saveautosavesettings_cb();
-            return;
-        }
-        KParts__MainWindow::saveAutoSaveSettings();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (kparts__mainwindow_updatemicrofocus_isbase) {
-            kparts__mainwindow_updatemicrofocus_isbase = false;
-            KParts__MainWindow::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = kparts__mainwindow_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KParts__MainWindow::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (kparts__mainwindow_create_isbase) {
-            kparts__mainwindow_create_isbase = false;
-            KParts__MainWindow::create();
-            return;
-        }
-        auto create_cb = kparts__mainwindow_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KParts__MainWindow::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (kparts__mainwindow_destroy_isbase) {
-            kparts__mainwindow_destroy_isbase = false;
-            KParts__MainWindow::destroy();
-            return;
-        }
-        auto destroy_cb = kparts__mainwindow_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KParts__MainWindow::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (kparts__mainwindow_focusnextchild_isbase) {
-            kparts__mainwindow_focusnextchild_isbase = false;
-            return KParts__MainWindow::focusNextChild();
-        }
-        auto focusnextchild_cb = kparts__mainwindow_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KParts__MainWindow::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (kparts__mainwindow_focuspreviouschild_isbase) {
-            kparts__mainwindow_focuspreviouschild_isbase = false;
-            return KParts__MainWindow::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = kparts__mainwindow_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KParts__MainWindow::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kparts__mainwindow_sender_isbase) {
-            kparts__mainwindow_sender_isbase = false;
-            return KParts__MainWindow::sender();
-        }
-        auto sender_cb = kparts__mainwindow_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KParts__MainWindow::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kparts__mainwindow_sendersignalindex_isbase) {
-            kparts__mainwindow_sendersignalindex_isbase = false;
-            return KParts__MainWindow::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kparts__mainwindow_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KParts__MainWindow::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kparts__mainwindow_receivers_isbase) {
-            kparts__mainwindow_receivers_isbase = false;
-            return KParts__MainWindow::receivers(signal);
-        }
-        auto receivers_cb = kparts__mainwindow_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KParts__MainWindow::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kparts__mainwindow_issignalconnected_isbase) {
-            kparts__mainwindow_issignalconnected_isbase = false;
-            return KParts__MainWindow::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kparts__mainwindow_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KParts__MainWindow::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (kparts__mainwindow_getdecodedmetricf_isbase) {
-            kparts__mainwindow_getdecodedmetricf_isbase = false;
-            return KParts__MainWindow::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = kparts__mainwindow_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KParts__MainWindow::getDecodedMetricF(metricA, metricB);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QString standardsXmlFileLocation() {
-        if (kparts__mainwindow_standardsxmlfilelocation_isbase) {
-            kparts__mainwindow_standardsxmlfilelocation_isbase = false;
-            return KParts__MainWindow::standardsXmlFileLocation();
-        }
-        auto standardsxmlfilelocation_cb = kparts__mainwindow_standardsxmlfilelocation_callback;
-        if (standardsxmlfilelocation_cb) {
-            const char* callback_ret = standardsxmlfilelocation_cb();
-            QString callback_ret_QString = QString::fromUtf8(callback_ret);
-            return callback_ret_QString;
-        }
-        return KParts__MainWindow::standardsXmlFileLocation();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void loadStandardsXmlFile() {
-        if (kparts__mainwindow_loadstandardsxmlfile_isbase) {
-            kparts__mainwindow_loadstandardsxmlfile_isbase = false;
-            KParts__MainWindow::loadStandardsXmlFile();
-            return;
-        }
-        auto loadstandardsxmlfile_cb = kparts__mainwindow_loadstandardsxmlfile_callback;
-        if (loadstandardsxmlfile_cb) {
-            loadstandardsxmlfile_cb();
-            return;
-        }
-        KParts__MainWindow::loadStandardsXmlFile();
-    }
-
     // Friend functions
-    friend void KParts__MainWindow_SlotSetStatusBarText(KParts::MainWindow* self, const libqt_string param1);
     friend void KParts__MainWindow_SuperSlotSetStatusBarText(KParts::MainWindow* self, const libqt_string param1);
-    friend void KParts__MainWindow_SaveNewToolbarConfig(KParts::MainWindow* self);
     friend void KParts__MainWindow_SuperSaveNewToolbarConfig(KParts::MainWindow* self);
-    friend void KParts__MainWindow_CreateShellGUI(KParts::MainWindow* self, bool create);
     friend void KParts__MainWindow_SuperCreateShellGUI(KParts::MainWindow* self, bool create);
-    friend bool KParts__MainWindow_Event(KParts::MainWindow* self, QEvent* event);
     friend bool KParts__MainWindow_SuperEvent(KParts::MainWindow* self, QEvent* event);
-    friend void KParts__MainWindow_KeyPressEvent(KParts::MainWindow* self, QKeyEvent* keyEvent);
     friend void KParts__MainWindow_SuperKeyPressEvent(KParts::MainWindow* self, QKeyEvent* keyEvent);
-    friend void KParts__MainWindow_CloseEvent(KParts::MainWindow* self, QCloseEvent* param1);
     friend void KParts__MainWindow_SuperCloseEvent(KParts::MainWindow* self, QCloseEvent* param1);
-    friend bool KParts__MainWindow_QueryClose(KParts::MainWindow* self);
     friend bool KParts__MainWindow_SuperQueryClose(KParts::MainWindow* self);
-    friend void KParts__MainWindow_SaveProperties(KParts::MainWindow* self, KConfigGroup* param1);
     friend void KParts__MainWindow_SuperSaveProperties(KParts::MainWindow* self, KConfigGroup* param1);
-    friend void KParts__MainWindow_ReadProperties(KParts::MainWindow* self, const KConfigGroup* param1);
     friend void KParts__MainWindow_SuperReadProperties(KParts::MainWindow* self, const KConfigGroup* param1);
-    friend void KParts__MainWindow_SaveGlobalProperties(KParts::MainWindow* self, KConfig* sessionConfig);
     friend void KParts__MainWindow_SuperSaveGlobalProperties(KParts::MainWindow* self, KConfig* sessionConfig);
-    friend void KParts__MainWindow_ReadGlobalProperties(KParts::MainWindow* self, KConfig* sessionConfig);
     friend void KParts__MainWindow_SuperReadGlobalProperties(KParts::MainWindow* self, KConfig* sessionConfig);
-    friend void KParts__MainWindow_ContextMenuEvent(KParts::MainWindow* self, QContextMenuEvent* event);
     friend void KParts__MainWindow_SuperContextMenuEvent(KParts::MainWindow* self, QContextMenuEvent* event);
-    friend void KParts__MainWindow_MousePressEvent(KParts::MainWindow* self, QMouseEvent* event);
     friend void KParts__MainWindow_SuperMousePressEvent(KParts::MainWindow* self, QMouseEvent* event);
-    friend void KParts__MainWindow_MouseReleaseEvent(KParts::MainWindow* self, QMouseEvent* event);
     friend void KParts__MainWindow_SuperMouseReleaseEvent(KParts::MainWindow* self, QMouseEvent* event);
-    friend void KParts__MainWindow_MouseDoubleClickEvent(KParts::MainWindow* self, QMouseEvent* event);
     friend void KParts__MainWindow_SuperMouseDoubleClickEvent(KParts::MainWindow* self, QMouseEvent* event);
-    friend void KParts__MainWindow_MouseMoveEvent(KParts::MainWindow* self, QMouseEvent* event);
     friend void KParts__MainWindow_SuperMouseMoveEvent(KParts::MainWindow* self, QMouseEvent* event);
-    friend void KParts__MainWindow_WheelEvent(KParts::MainWindow* self, QWheelEvent* event);
     friend void KParts__MainWindow_SuperWheelEvent(KParts::MainWindow* self, QWheelEvent* event);
-    friend void KParts__MainWindow_KeyReleaseEvent(KParts::MainWindow* self, QKeyEvent* event);
     friend void KParts__MainWindow_SuperKeyReleaseEvent(KParts::MainWindow* self, QKeyEvent* event);
-    friend void KParts__MainWindow_FocusInEvent(KParts::MainWindow* self, QFocusEvent* event);
     friend void KParts__MainWindow_SuperFocusInEvent(KParts::MainWindow* self, QFocusEvent* event);
-    friend void KParts__MainWindow_FocusOutEvent(KParts::MainWindow* self, QFocusEvent* event);
     friend void KParts__MainWindow_SuperFocusOutEvent(KParts::MainWindow* self, QFocusEvent* event);
-    friend void KParts__MainWindow_EnterEvent(KParts::MainWindow* self, QEnterEvent* event);
     friend void KParts__MainWindow_SuperEnterEvent(KParts::MainWindow* self, QEnterEvent* event);
-    friend void KParts__MainWindow_LeaveEvent(KParts::MainWindow* self, QEvent* event);
     friend void KParts__MainWindow_SuperLeaveEvent(KParts::MainWindow* self, QEvent* event);
-    friend void KParts__MainWindow_PaintEvent(KParts::MainWindow* self, QPaintEvent* event);
     friend void KParts__MainWindow_SuperPaintEvent(KParts::MainWindow* self, QPaintEvent* event);
-    friend void KParts__MainWindow_MoveEvent(KParts::MainWindow* self, QMoveEvent* event);
     friend void KParts__MainWindow_SuperMoveEvent(KParts::MainWindow* self, QMoveEvent* event);
-    friend void KParts__MainWindow_ResizeEvent(KParts::MainWindow* self, QResizeEvent* event);
     friend void KParts__MainWindow_SuperResizeEvent(KParts::MainWindow* self, QResizeEvent* event);
-    friend void KParts__MainWindow_TabletEvent(KParts::MainWindow* self, QTabletEvent* event);
     friend void KParts__MainWindow_SuperTabletEvent(KParts::MainWindow* self, QTabletEvent* event);
-    friend void KParts__MainWindow_ActionEvent(KParts::MainWindow* self, QActionEvent* event);
     friend void KParts__MainWindow_SuperActionEvent(KParts::MainWindow* self, QActionEvent* event);
-    friend void KParts__MainWindow_DragEnterEvent(KParts::MainWindow* self, QDragEnterEvent* event);
     friend void KParts__MainWindow_SuperDragEnterEvent(KParts::MainWindow* self, QDragEnterEvent* event);
-    friend void KParts__MainWindow_DragMoveEvent(KParts::MainWindow* self, QDragMoveEvent* event);
     friend void KParts__MainWindow_SuperDragMoveEvent(KParts::MainWindow* self, QDragMoveEvent* event);
-    friend void KParts__MainWindow_DragLeaveEvent(KParts::MainWindow* self, QDragLeaveEvent* event);
     friend void KParts__MainWindow_SuperDragLeaveEvent(KParts::MainWindow* self, QDragLeaveEvent* event);
-    friend void KParts__MainWindow_DropEvent(KParts::MainWindow* self, QDropEvent* event);
     friend void KParts__MainWindow_SuperDropEvent(KParts::MainWindow* self, QDropEvent* event);
-    friend void KParts__MainWindow_ShowEvent(KParts::MainWindow* self, QShowEvent* event);
     friend void KParts__MainWindow_SuperShowEvent(KParts::MainWindow* self, QShowEvent* event);
-    friend void KParts__MainWindow_HideEvent(KParts::MainWindow* self, QHideEvent* event);
     friend void KParts__MainWindow_SuperHideEvent(KParts::MainWindow* self, QHideEvent* event);
-    friend bool KParts__MainWindow_NativeEvent(KParts::MainWindow* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KParts__MainWindow_SuperNativeEvent(KParts::MainWindow* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void KParts__MainWindow_ChangeEvent(KParts::MainWindow* self, QEvent* param1);
     friend void KParts__MainWindow_SuperChangeEvent(KParts::MainWindow* self, QEvent* param1);
-    friend int KParts__MainWindow_Metric(const KParts::MainWindow* self, int param1);
     friend int KParts__MainWindow_SuperMetric(const KParts::MainWindow* self, int param1);
-    friend void KParts__MainWindow_InitPainter(const KParts::MainWindow* self, QPainter* painter);
     friend void KParts__MainWindow_SuperInitPainter(const KParts::MainWindow* self, QPainter* painter);
-    friend QPaintDevice* KParts__MainWindow_Redirected(const KParts::MainWindow* self, QPoint* offset);
     friend QPaintDevice* KParts__MainWindow_SuperRedirected(const KParts::MainWindow* self, QPoint* offset);
-    friend QPainter* KParts__MainWindow_SharedPainter(const KParts::MainWindow* self);
     friend QPainter* KParts__MainWindow_SuperSharedPainter(const KParts::MainWindow* self);
-    friend void KParts__MainWindow_InputMethodEvent(KParts::MainWindow* self, QInputMethodEvent* param1);
     friend void KParts__MainWindow_SuperInputMethodEvent(KParts::MainWindow* self, QInputMethodEvent* param1);
-    friend bool KParts__MainWindow_FocusNextPrevChild(KParts::MainWindow* self, bool next);
     friend bool KParts__MainWindow_SuperFocusNextPrevChild(KParts::MainWindow* self, bool next);
-    friend void KParts__MainWindow_TimerEvent(KParts::MainWindow* self, QTimerEvent* event);
     friend void KParts__MainWindow_SuperTimerEvent(KParts::MainWindow* self, QTimerEvent* event);
-    friend void KParts__MainWindow_ChildEvent(KParts::MainWindow* self, QChildEvent* event);
     friend void KParts__MainWindow_SuperChildEvent(KParts::MainWindow* self, QChildEvent* event);
-    friend void KParts__MainWindow_CustomEvent(KParts::MainWindow* self, QEvent* event);
     friend void KParts__MainWindow_SuperCustomEvent(KParts::MainWindow* self, QEvent* event);
-    friend void KParts__MainWindow_ConnectNotify(KParts::MainWindow* self, const QMetaMethod* signal);
     friend void KParts__MainWindow_SuperConnectNotify(KParts::MainWindow* self, const QMetaMethod* signal);
-    friend void KParts__MainWindow_DisconnectNotify(KParts::MainWindow* self, const QMetaMethod* signal);
     friend void KParts__MainWindow_SuperDisconnectNotify(KParts::MainWindow* self, const QMetaMethod* signal);
-    friend void KParts__MainWindow_SetComponentName(KParts::MainWindow* self, const libqt_string componentName, const libqt_string componentDisplayName);
     friend void KParts__MainWindow_SuperSetComponentName(KParts::MainWindow* self, const libqt_string componentName, const libqt_string componentDisplayName);
-    friend void KParts__MainWindow_SetXMLFile(KParts::MainWindow* self, const libqt_string file, bool merge, bool setXMLDoc);
     friend void KParts__MainWindow_SuperSetXMLFile(KParts::MainWindow* self, const libqt_string file, bool merge, bool setXMLDoc);
-    friend void KParts__MainWindow_SetLocalXMLFile(KParts::MainWindow* self, const libqt_string file);
     friend void KParts__MainWindow_SuperSetLocalXMLFile(KParts::MainWindow* self, const libqt_string file);
-    friend void KParts__MainWindow_SetXML(KParts::MainWindow* self, const libqt_string document, bool merge);
     friend void KParts__MainWindow_SuperSetXML(KParts::MainWindow* self, const libqt_string document, bool merge);
-    friend void KParts__MainWindow_SetDOMDocument(KParts::MainWindow* self, const QDomDocument* document, bool merge);
     friend void KParts__MainWindow_SuperSetDOMDocument(KParts::MainWindow* self, const QDomDocument* document, bool merge);
-    friend void KParts__MainWindow_StateChanged(KParts::MainWindow* self, const libqt_string newstate, int reverse);
     friend void KParts__MainWindow_SuperStateChanged(KParts::MainWindow* self, const libqt_string newstate, int reverse);
-    friend void KParts__MainWindow_CreateGUI(KParts::MainWindow* self, KParts__Part* part);
-    friend void KParts__MainWindow_SuperCreateGUI(KParts::MainWindow* self, KParts__Part* part);
-    friend void KParts__MainWindow_SetWindowTitleHandling(KParts::MainWindow* self, bool enabled);
-    friend void KParts__MainWindow_SuperSetWindowTitleHandling(KParts::MainWindow* self, bool enabled);
-    friend void KParts__MainWindow_CheckAmbiguousShortcuts(KParts::MainWindow* self);
-    friend void KParts__MainWindow_SuperCheckAmbiguousShortcuts(KParts::MainWindow* self);
-    friend void KParts__MainWindow_SavePropertiesInternal(KParts::MainWindow* self, KConfig* param1, int param2);
-    friend void KParts__MainWindow_SuperSavePropertiesInternal(KParts::MainWindow* self, KConfig* param1, int param2);
-    friend bool KParts__MainWindow_ReadPropertiesInternal(KParts::MainWindow* self, KConfig* param1, int param2);
-    friend bool KParts__MainWindow_SuperReadPropertiesInternal(KParts::MainWindow* self, KConfig* param1, int param2);
-    friend bool KParts__MainWindow_SettingsDirty(const KParts::MainWindow* self);
-    friend bool KParts__MainWindow_SuperSettingsDirty(const KParts::MainWindow* self);
-    friend void KParts__MainWindow_SaveAutoSaveSettings(KParts::MainWindow* self);
-    friend void KParts__MainWindow_SuperSaveAutoSaveSettings(KParts::MainWindow* self);
-    friend void KParts__MainWindow_UpdateMicroFocus(KParts::MainWindow* self);
-    friend void KParts__MainWindow_SuperUpdateMicroFocus(KParts::MainWindow* self);
-    friend void KParts__MainWindow_Create(KParts::MainWindow* self);
-    friend void KParts__MainWindow_SuperCreate(KParts::MainWindow* self);
-    friend void KParts__MainWindow_Destroy(KParts::MainWindow* self);
-    friend void KParts__MainWindow_SuperDestroy(KParts::MainWindow* self);
-    friend bool KParts__MainWindow_FocusNextChild(KParts::MainWindow* self);
-    friend bool KParts__MainWindow_SuperFocusNextChild(KParts::MainWindow* self);
-    friend bool KParts__MainWindow_FocusPreviousChild(KParts::MainWindow* self);
-    friend bool KParts__MainWindow_SuperFocusPreviousChild(KParts::MainWindow* self);
-    friend QObject* KParts__MainWindow_Sender(const KParts::MainWindow* self);
-    friend QObject* KParts__MainWindow_SuperSender(const KParts::MainWindow* self);
-    friend int KParts__MainWindow_SenderSignalIndex(const KParts::MainWindow* self);
-    friend int KParts__MainWindow_SuperSenderSignalIndex(const KParts::MainWindow* self);
-    friend int KParts__MainWindow_Receivers(const KParts::MainWindow* self, const char* signal);
-    friend int KParts__MainWindow_SuperReceivers(const KParts::MainWindow* self, const char* signal);
-    friend bool KParts__MainWindow_IsSignalConnected(const KParts::MainWindow* self, const QMetaMethod* signal);
-    friend bool KParts__MainWindow_SuperIsSignalConnected(const KParts::MainWindow* self, const QMetaMethod* signal);
-    friend double KParts__MainWindow_GetDecodedMetricF(const KParts::MainWindow* self, int metricA, int metricB);
-    friend double KParts__MainWindow_SuperGetDecodedMetricF(const KParts::MainWindow* self, int metricA, int metricB);
-    friend libqt_string KParts__MainWindow_StandardsXmlFileLocation(KParts::MainWindow* self);
-    friend libqt_string KParts__MainWindow_SuperStandardsXmlFileLocation(KParts::MainWindow* self);
-    friend void KParts__MainWindow_LoadStandardsXmlFile(KParts::MainWindow* self);
-    friend void KParts__MainWindow_SuperLoadStandardsXmlFile(KParts::MainWindow* self);
 };
 
 #endif

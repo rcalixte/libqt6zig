@@ -40,16 +40,14 @@ libqt_list /* of libqt_string */ KFileMetaData__WriterPlugin_WriteMimetypes(cons
 void KFileMetaData__WriterPlugin_Write(KFileMetaData__WriterPlugin* self, const KFileMetaData__WriteData* data);
 libqt_string KFileMetaData__WriterPlugin_Tr2(const char* s, const char* c);
 libqt_string KFileMetaData__WriterPlugin_Tr3(const char* s, const char* c, int n);
-void KFileMetaData__WriterPlugin_OnMetaObject(const KFileMetaData__WriterPlugin* self, intptr_t slot);
+void KFileMetaData__WriterPlugin_OnMetaObject(KFileMetaData__WriterPlugin* self, intptr_t slot);
 QMetaObject* KFileMetaData__WriterPlugin_SuperMetaObject(const KFileMetaData__WriterPlugin* self);
 void KFileMetaData__WriterPlugin_OnMetacast(KFileMetaData__WriterPlugin* self, intptr_t slot);
 void* KFileMetaData__WriterPlugin_SuperMetacast(KFileMetaData__WriterPlugin* self, const char* param1);
 void KFileMetaData__WriterPlugin_OnMetacall(KFileMetaData__WriterPlugin* self, intptr_t slot);
 int KFileMetaData__WriterPlugin_SuperMetacall(KFileMetaData__WriterPlugin* self, int param1, int param2, void** param3);
-void KFileMetaData__WriterPlugin_OnWriteMimetypes(const KFileMetaData__WriterPlugin* self, intptr_t slot);
-libqt_list /* of libqt_string */ KFileMetaData__WriterPlugin_SuperWriteMimetypes(const KFileMetaData__WriterPlugin* self);
+void KFileMetaData__WriterPlugin_OnWriteMimetypes(KFileMetaData__WriterPlugin* self, intptr_t slot);
 void KFileMetaData__WriterPlugin_OnWrite(KFileMetaData__WriterPlugin* self, intptr_t slot);
-void KFileMetaData__WriterPlugin_SuperWrite(KFileMetaData__WriterPlugin* self, const KFileMetaData__WriteData* data);
 bool KFileMetaData__WriterPlugin_Event(KFileMetaData__WriterPlugin* self, QEvent* event);
 void KFileMetaData__WriterPlugin_OnEvent(KFileMetaData__WriterPlugin* self, intptr_t slot);
 bool KFileMetaData__WriterPlugin_SuperEvent(KFileMetaData__WriterPlugin* self, QEvent* event);
@@ -72,17 +70,9 @@ void KFileMetaData__WriterPlugin_DisconnectNotify(KFileMetaData__WriterPlugin* s
 void KFileMetaData__WriterPlugin_OnDisconnectNotify(KFileMetaData__WriterPlugin* self, intptr_t slot);
 void KFileMetaData__WriterPlugin_SuperDisconnectNotify(KFileMetaData__WriterPlugin* self, const QMetaMethod* signal);
 QObject* KFileMetaData__WriterPlugin_Sender(const KFileMetaData__WriterPlugin* self);
-void KFileMetaData__WriterPlugin_OnSender(const KFileMetaData__WriterPlugin* self, intptr_t slot);
-QObject* KFileMetaData__WriterPlugin_SuperSender(const KFileMetaData__WriterPlugin* self);
 int KFileMetaData__WriterPlugin_SenderSignalIndex(const KFileMetaData__WriterPlugin* self);
-void KFileMetaData__WriterPlugin_OnSenderSignalIndex(const KFileMetaData__WriterPlugin* self, intptr_t slot);
-int KFileMetaData__WriterPlugin_SuperSenderSignalIndex(const KFileMetaData__WriterPlugin* self);
 int KFileMetaData__WriterPlugin_Receivers(const KFileMetaData__WriterPlugin* self, const char* signal);
-void KFileMetaData__WriterPlugin_OnReceivers(const KFileMetaData__WriterPlugin* self, intptr_t slot);
-int KFileMetaData__WriterPlugin_SuperReceivers(const KFileMetaData__WriterPlugin* self, const char* signal);
 bool KFileMetaData__WriterPlugin_IsSignalConnected(const KFileMetaData__WriterPlugin* self, const QMetaMethod* signal);
-void KFileMetaData__WriterPlugin_OnIsSignalConnected(const KFileMetaData__WriterPlugin* self, intptr_t slot);
-bool KFileMetaData__WriterPlugin_SuperIsSignalConnected(const KFileMetaData__WriterPlugin* self, const QMetaMethod* signal);
 void KFileMetaData__WriterPlugin_Delete(KFileMetaData__WriterPlugin* self);
 
 #ifdef __cplusplus

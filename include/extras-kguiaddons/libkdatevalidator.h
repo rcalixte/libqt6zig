@@ -37,15 +37,15 @@ void KDateValidator_Fixup(const KDateValidator* self, libqt_string input);
 int KDateValidator_Date(const KDateValidator* self, const libqt_string text, QDate* date);
 libqt_string KDateValidator_Tr2(const char* s, const char* c);
 libqt_string KDateValidator_Tr3(const char* s, const char* c, int n);
-void KDateValidator_OnMetaObject(const KDateValidator* self, intptr_t slot);
+void KDateValidator_OnMetaObject(KDateValidator* self, intptr_t slot);
 QMetaObject* KDateValidator_SuperMetaObject(const KDateValidator* self);
 void KDateValidator_OnMetacast(KDateValidator* self, intptr_t slot);
 void* KDateValidator_SuperMetacast(KDateValidator* self, const char* param1);
 void KDateValidator_OnMetacall(KDateValidator* self, intptr_t slot);
 int KDateValidator_SuperMetacall(KDateValidator* self, int param1, int param2, void** param3);
-void KDateValidator_OnValidate(const KDateValidator* self, intptr_t slot);
+void KDateValidator_OnValidate(KDateValidator* self, intptr_t slot);
 int KDateValidator_SuperValidate(const KDateValidator* self, libqt_string text, int* e);
-void KDateValidator_OnFixup(const KDateValidator* self, intptr_t slot);
+void KDateValidator_OnFixup(KDateValidator* self, intptr_t slot);
 void KDateValidator_SuperFixup(const KDateValidator* self, libqt_string input);
 bool KDateValidator_Event(KDateValidator* self, QEvent* event);
 void KDateValidator_OnEvent(KDateValidator* self, intptr_t slot);
@@ -69,17 +69,9 @@ void KDateValidator_DisconnectNotify(KDateValidator* self, const QMetaMethod* si
 void KDateValidator_OnDisconnectNotify(KDateValidator* self, intptr_t slot);
 void KDateValidator_SuperDisconnectNotify(KDateValidator* self, const QMetaMethod* signal);
 QObject* KDateValidator_Sender(const KDateValidator* self);
-void KDateValidator_OnSender(const KDateValidator* self, intptr_t slot);
-QObject* KDateValidator_SuperSender(const KDateValidator* self);
 int KDateValidator_SenderSignalIndex(const KDateValidator* self);
-void KDateValidator_OnSenderSignalIndex(const KDateValidator* self, intptr_t slot);
-int KDateValidator_SuperSenderSignalIndex(const KDateValidator* self);
 int KDateValidator_Receivers(const KDateValidator* self, const char* signal);
-void KDateValidator_OnReceivers(const KDateValidator* self, intptr_t slot);
-int KDateValidator_SuperReceivers(const KDateValidator* self, const char* signal);
 bool KDateValidator_IsSignalConnected(const KDateValidator* self, const QMetaMethod* signal);
-void KDateValidator_OnIsSignalConnected(const KDateValidator* self, intptr_t slot);
-bool KDateValidator_SuperIsSignalConnected(const KDateValidator* self, const QMetaMethod* signal);
 void KDateValidator_Delete(KDateValidator* self);
 
 #ifdef __cplusplus

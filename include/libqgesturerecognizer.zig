@@ -86,6 +86,8 @@ pub const QGestureRecognizer = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
     ///
+    /// This method must be implemented with `onRecognize` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QGestureRecognizer `
@@ -123,35 +125,6 @@ pub const QGestureRecognizer = extern struct {
     ///
     pub fn onRecognize(self: QGestureRecognizer, callback: *const fn (QGestureRecognizer, QGesture, QObject, QEvent) callconv(.c) i32) void {
         qtc.QGestureRecognizer_OnRecognize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRecognize` instead
-    ///
-    pub const SuperRecognize = superRecognize;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGestureRecognizer `
-    ///
-    /// ` state: QGesture `
-    ///
-    /// ` watched: QObject `
-    ///
-    /// ` event: QEvent `
-    ///
-    /// ## Returns:
-    ///
-    /// ` flag of qgesturerecognizer_enums.ResultFlag `
-    ///
-    pub fn superRecognize(self: QGestureRecognizer, state: anytype, watched: anytype, event: anytype) i32 {
-        comptime _ = @TypeOf(state)._is_QGesture;
-        comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGestureRecognizer_SuperRecognize(@ptrCast(self.ptr), @ptrCast(state.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `reset` instead

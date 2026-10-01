@@ -98,7 +98,7 @@ void QChronoTimer_Stop(QChronoTimer* self) {
 
 void QChronoTimer_TimerEvent(QChronoTimer* self, QTimerEvent* param1) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+    if (vqchronotimer) {
         vqchronotimer->timerEvent(param1);
     }
 }
@@ -129,354 +129,209 @@ libqt_string QChronoTimer_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QChronoTimer_SuperMetaObject(const QChronoTimer* self) {
-    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_MetaObject_IsBase(true);
-        return (QMetaObject*)vqchronotimer->metaObject();
-    } else {
-        return (QMetaObject*)self->QChronoTimer::metaObject();
-    }
+    return (QMetaObject*)self->QChronoTimer::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QChronoTimer_OnMetaObject(const QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer)
-        vqchronotimer->setQChronoTimer_MetaObject_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_MetaObject_Callback>(slot));
+void QChronoTimer_OnMetaObject(QChronoTimer* self, intptr_t slot) {
+    if (auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self)))
+        vqchronotimer->qchronotimer_metaobject_callback = reinterpret_cast<VirtualQChronoTimer::QChronoTimer_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QChronoTimer_SuperMetacast(QChronoTimer* self, const char* param1) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_Metacast_IsBase(true);
-        return vqchronotimer->qt_metacast(param1);
-    } else {
-        return self->QChronoTimer::qt_metacast(param1);
-    }
+    return self->QChronoTimer::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QChronoTimer_OnMetacast(QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer)
-        vqchronotimer->setQChronoTimer_Metacast_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_Metacast_Callback>(slot));
+    if (auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self))
+        vqchronotimer->qchronotimer_metacast_callback = reinterpret_cast<VirtualQChronoTimer::QChronoTimer_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QChronoTimer_SuperMetacall(QChronoTimer* self, int param1, int param2, void** param3) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_Metacall_IsBase(true);
-        return vqchronotimer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QChronoTimer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QChronoTimer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QChronoTimer_OnMetacall(QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer)
-        vqchronotimer->setQChronoTimer_Metacall_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_Metacall_Callback>(slot));
+    if (auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self))
+        vqchronotimer->qchronotimer_metacall_callback = reinterpret_cast<VirtualQChronoTimer::QChronoTimer_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QChronoTimer_SuperTimerEvent(QChronoTimer* self, QTimerEvent* param1) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_TimerEvent_IsBase(true);
-        vqchronotimer->timerEvent(param1);
-    } else {
-        ((VirtualQChronoTimer*)self)->timerEvent(param1);
-    }
+    if (auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self)) {
+        vqchronotimer->QChronoTimer::timerEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QChronoTimer::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QChronoTimer_OnTimerEvent(QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer)
-        vqchronotimer->setQChronoTimer_TimerEvent_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_TimerEvent_Callback>(slot));
+    if (auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self))
+        vqchronotimer->qchronotimer_timerevent_callback = reinterpret_cast<VirtualQChronoTimer::QChronoTimer_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QChronoTimer_Event(QChronoTimer* self, QEvent* event) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        return vqchronotimer->event(event);
-    } else {
-        return self->QChronoTimer::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QChronoTimer_SuperEvent(QChronoTimer* self, QEvent* event) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_Event_IsBase(true);
-        return vqchronotimer->event(event);
-    } else {
-        return self->QChronoTimer::event(event);
-    }
+    return self->QChronoTimer::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QChronoTimer_OnEvent(QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer)
-        vqchronotimer->setQChronoTimer_Event_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_Event_Callback>(slot));
+    if (auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self))
+        vqchronotimer->qchronotimer_event_callback = reinterpret_cast<VirtualQChronoTimer::QChronoTimer_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QChronoTimer_EventFilter(QChronoTimer* self, QObject* watched, QEvent* event) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        return vqchronotimer->eventFilter(watched, event);
-    } else {
-        return self->QChronoTimer::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QChronoTimer_SuperEventFilter(QChronoTimer* self, QObject* watched, QEvent* event) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_EventFilter_IsBase(true);
-        return vqchronotimer->eventFilter(watched, event);
-    } else {
-        return self->QChronoTimer::eventFilter(watched, event);
-    }
+    return self->QChronoTimer::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QChronoTimer_OnEventFilter(QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer)
-        vqchronotimer->setQChronoTimer_EventFilter_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_EventFilter_Callback>(slot));
+    if (auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self))
+        vqchronotimer->qchronotimer_eventfilter_callback = reinterpret_cast<VirtualQChronoTimer::QChronoTimer_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QChronoTimer_ChildEvent(QChronoTimer* self, QChildEvent* event) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+    if (vqchronotimer) {
         vqchronotimer->childEvent(event);
     } else {
-        ((VirtualQChronoTimer*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QChronoTimer::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QChronoTimer_SuperChildEvent(QChronoTimer* self, QChildEvent* event) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_ChildEvent_IsBase(true);
-        vqchronotimer->childEvent(event);
-    } else {
-        ((VirtualQChronoTimer*)self)->childEvent(event);
-    }
+    if (auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self)) {
+        vqchronotimer->QChronoTimer::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QChronoTimer::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QChronoTimer_OnChildEvent(QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer)
-        vqchronotimer->setQChronoTimer_ChildEvent_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_ChildEvent_Callback>(slot));
+    if (auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self))
+        vqchronotimer->qchronotimer_childevent_callback = reinterpret_cast<VirtualQChronoTimer::QChronoTimer_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QChronoTimer_CustomEvent(QChronoTimer* self, QEvent* event) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+    if (vqchronotimer) {
         vqchronotimer->customEvent(event);
     } else {
-        ((VirtualQChronoTimer*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QChronoTimer::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QChronoTimer_SuperCustomEvent(QChronoTimer* self, QEvent* event) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_CustomEvent_IsBase(true);
-        vqchronotimer->customEvent(event);
-    } else {
-        ((VirtualQChronoTimer*)self)->customEvent(event);
-    }
+    if (auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self)) {
+        vqchronotimer->QChronoTimer::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QChronoTimer::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QChronoTimer_OnCustomEvent(QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer)
-        vqchronotimer->setQChronoTimer_CustomEvent_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_CustomEvent_Callback>(slot));
+    if (auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self))
+        vqchronotimer->qchronotimer_customevent_callback = reinterpret_cast<VirtualQChronoTimer::QChronoTimer_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QChronoTimer_ConnectNotify(QChronoTimer* self, const QMetaMethod* signal) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+    if (vqchronotimer) {
         vqchronotimer->connectNotify(*signal);
     } else {
-        ((VirtualQChronoTimer*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QChronoTimer::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QChronoTimer_SuperConnectNotify(QChronoTimer* self, const QMetaMethod* signal) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_ConnectNotify_IsBase(true);
-        vqchronotimer->connectNotify(*signal);
-    } else {
-        ((VirtualQChronoTimer*)self)->connectNotify(*signal);
-    }
+    if (auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self)) {
+        vqchronotimer->QChronoTimer::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QChronoTimer::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QChronoTimer_OnConnectNotify(QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer)
-        vqchronotimer->setQChronoTimer_ConnectNotify_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_ConnectNotify_Callback>(slot));
+    if (auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self))
+        vqchronotimer->qchronotimer_connectnotify_callback = reinterpret_cast<VirtualQChronoTimer::QChronoTimer_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QChronoTimer_DisconnectNotify(QChronoTimer* self, const QMetaMethod* signal) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+    if (vqchronotimer) {
         vqchronotimer->disconnectNotify(*signal);
     } else {
-        ((VirtualQChronoTimer*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QChronoTimer::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QChronoTimer_SuperDisconnectNotify(QChronoTimer* self, const QMetaMethod* signal) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_DisconnectNotify_IsBase(true);
-        vqchronotimer->disconnectNotify(*signal);
-    } else {
-        ((VirtualQChronoTimer*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self)) {
+        vqchronotimer->QChronoTimer::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QChronoTimer::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QChronoTimer_OnDisconnectNotify(QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer)
-        vqchronotimer->setQChronoTimer_DisconnectNotify_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_DisconnectNotify_Callback>(slot));
+    if (auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self))
+        vqchronotimer->qchronotimer_disconnectnotify_callback = reinterpret_cast<VirtualQChronoTimer::QChronoTimer_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QChronoTimer_Sender(const QChronoTimer* self) {
-    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        return vqchronotimer->sender();
-    } else {
-        return ((VirtualQChronoTimer*)self)->sender();
-    }
+    if (auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self))) {
+        return vqchronotimer->VirtualQChronoTimer::sender();
+    } else
+        qFatal("Error: Protected method QChronoTimer::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QChronoTimer_SuperSender(const QChronoTimer* self) {
-    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_Sender_IsBase(true);
-        return vqchronotimer->sender();
-    } else {
-        return ((VirtualQChronoTimer*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QChronoTimer_OnSender(const QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer)
-        vqchronotimer->setQChronoTimer_Sender_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QChronoTimer_SenderSignalIndex(const QChronoTimer* self) {
-    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        return vqchronotimer->senderSignalIndex();
-    } else {
-        return ((VirtualQChronoTimer*)self)->senderSignalIndex();
-    }
+    if (auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self))) {
+        return vqchronotimer->VirtualQChronoTimer::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QChronoTimer::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QChronoTimer_SuperSenderSignalIndex(const QChronoTimer* self) {
-    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_SenderSignalIndex_IsBase(true);
-        return vqchronotimer->senderSignalIndex();
-    } else {
-        return ((VirtualQChronoTimer*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QChronoTimer_OnSenderSignalIndex(const QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer)
-        vqchronotimer->setQChronoTimer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QChronoTimer_Receivers(const QChronoTimer* self, const char* signal) {
-    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        return vqchronotimer->receivers(signal);
-    } else {
-        return ((VirtualQChronoTimer*)self)->receivers(signal);
-    }
+    if (auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self))) {
+        return vqchronotimer->VirtualQChronoTimer::receivers(signal);
+    } else
+        qFatal("Error: Protected method QChronoTimer::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QChronoTimer_SuperReceivers(const QChronoTimer* self, const char* signal) {
-    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_Receivers_IsBase(true);
-        return vqchronotimer->receivers(signal);
-    } else {
-        return ((VirtualQChronoTimer*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QChronoTimer_OnReceivers(const QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer)
-        vqchronotimer->setQChronoTimer_Receivers_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QChronoTimer_IsSignalConnected(const QChronoTimer* self, const QMetaMethod* signal) {
-    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        return vqchronotimer->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQChronoTimer*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QChronoTimer_SuperIsSignalConnected(const QChronoTimer* self, const QMetaMethod* signal) {
-    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        vqchronotimer->setQChronoTimer_IsSignalConnected_IsBase(true);
-        return vqchronotimer->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQChronoTimer*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QChronoTimer_OnIsSignalConnected(const QChronoTimer* self, intptr_t slot) {
-    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer)
-        vqchronotimer->setQChronoTimer_IsSignalConnected_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_IsSignalConnected_Callback>(slot));
+    if (auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self))) {
+        return vqchronotimer->VirtualQChronoTimer::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QChronoTimer::isSignalConnected called without a directly constructed type");
 }
 
 void QChronoTimer_Connect_Timeout(QChronoTimer* self, intptr_t slot) {

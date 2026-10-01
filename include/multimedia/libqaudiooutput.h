@@ -47,7 +47,7 @@ void QAudioOutput_MutedChanged(QAudioOutput* self, bool muted);
 void QAudioOutput_Connect_MutedChanged(QAudioOutput* self, intptr_t slot);
 libqt_string QAudioOutput_Tr2(const char* s, const char* c);
 libqt_string QAudioOutput_Tr3(const char* s, const char* c, int n);
-void QAudioOutput_OnMetaObject(const QAudioOutput* self, intptr_t slot);
+void QAudioOutput_OnMetaObject(QAudioOutput* self, intptr_t slot);
 QMetaObject* QAudioOutput_SuperMetaObject(const QAudioOutput* self);
 void QAudioOutput_OnMetacast(QAudioOutput* self, intptr_t slot);
 void* QAudioOutput_SuperMetacast(QAudioOutput* self, const char* param1);
@@ -75,17 +75,9 @@ void QAudioOutput_DisconnectNotify(QAudioOutput* self, const QMetaMethod* signal
 void QAudioOutput_OnDisconnectNotify(QAudioOutput* self, intptr_t slot);
 void QAudioOutput_SuperDisconnectNotify(QAudioOutput* self, const QMetaMethod* signal);
 QObject* QAudioOutput_Sender(const QAudioOutput* self);
-void QAudioOutput_OnSender(const QAudioOutput* self, intptr_t slot);
-QObject* QAudioOutput_SuperSender(const QAudioOutput* self);
 int QAudioOutput_SenderSignalIndex(const QAudioOutput* self);
-void QAudioOutput_OnSenderSignalIndex(const QAudioOutput* self, intptr_t slot);
-int QAudioOutput_SuperSenderSignalIndex(const QAudioOutput* self);
 int QAudioOutput_Receivers(const QAudioOutput* self, const char* signal);
-void QAudioOutput_OnReceivers(const QAudioOutput* self, intptr_t slot);
-int QAudioOutput_SuperReceivers(const QAudioOutput* self, const char* signal);
 bool QAudioOutput_IsSignalConnected(const QAudioOutput* self, const QMetaMethod* signal);
-void QAudioOutput_OnIsSignalConnected(const QAudioOutput* self, intptr_t slot);
-bool QAudioOutput_SuperIsSignalConnected(const QAudioOutput* self, const QMetaMethod* signal);
 void QAudioOutput_Delete(QAudioOutput* self);
 
 #ifdef __cplusplus

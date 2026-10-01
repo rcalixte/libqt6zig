@@ -403,24 +403,6 @@ pub const Poppler__Annotation = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `subType` instead
-    ///
-    pub const SubType = subType;
-
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__Annotation `
-    ///
-    /// ## Returns:
-    ///
-    /// ` poppler_annotation_enums.SubType `
-    ///
-    pub fn subType(self: Poppler__Annotation) i32 {
-        return qtc.Poppler__Annotation_SubType(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `annotationAppearance` instead
     ///
     pub const AnnotationAppearance = annotationAppearance;
@@ -524,9 +506,9 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__TextAnnotation) callconv(.c) i32 `
     ///
-    pub fn onSubType(self: Poppler__TextAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__TextAnnotation, callback: *const fn (Poppler__TextAnnotation) callconv(.c) i32) void {
         qtc.Poppler__TextAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1312,9 +1294,9 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__LineAnnotation) callconv(.c) i32 `
     ///
-    pub fn onSubType(self: Poppler__LineAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__LineAnnotation, callback: *const fn (Poppler__LineAnnotation) callconv(.c) i32) void {
         qtc.Poppler__LineAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2163,9 +2145,9 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` self: Poppler__GeomAnnotation `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__GeomAnnotation) callconv(.c) i32 `
     ///
-    pub fn onSubType(self: Poppler__GeomAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__GeomAnnotation, callback: *const fn (Poppler__GeomAnnotation) callconv(.c) i32) void {
         qtc.Poppler__GeomAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2766,9 +2748,9 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` self: Poppler__HighlightAnnotation `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__HighlightAnnotation) callconv(.c) i32 `
     ///
-    pub fn onSubType(self: Poppler__HighlightAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__HighlightAnnotation, callback: *const fn (Poppler__HighlightAnnotation) callconv(.c) i32) void {
         qtc.Poppler__HighlightAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3380,9 +3362,9 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` self: Poppler__StampAnnotation `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__StampAnnotation) callconv(.c) i32 `
     ///
-    pub fn onSubType(self: Poppler__StampAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__StampAnnotation, callback: *const fn (Poppler__StampAnnotation) callconv(.c) i32) void {
         qtc.Poppler__StampAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3975,9 +3957,9 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__SignatureAnnotation) callconv(.c) i32 `
     ///
-    pub fn onSubType(self: Poppler__SignatureAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__SignatureAnnotation, callback: *const fn (Poppler__SignatureAnnotation) callconv(.c) i32) void {
         qtc.Poppler__SignatureAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4843,9 +4825,9 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` self: Poppler__InkAnnotation `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__InkAnnotation) callconv(.c) i32 `
     ///
-    pub fn onSubType(self: Poppler__InkAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__InkAnnotation, callback: *const fn (Poppler__InkAnnotation) callconv(.c) i32) void {
         qtc.Poppler__InkAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6013,9 +5995,9 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` self: Poppler__CaretAnnotation `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__CaretAnnotation) callconv(.c) i32 `
     ///
-    pub fn onSubType(self: Poppler__CaretAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__CaretAnnotation, callback: *const fn (Poppler__CaretAnnotation) callconv(.c) i32) void {
         qtc.Poppler__CaretAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

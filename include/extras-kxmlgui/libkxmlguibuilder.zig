@@ -121,9 +121,9 @@ pub const KXMLGUIBuilder = extern struct {
     ///
     /// ` self: KXMLGUIBuilder `
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: KXMLGUIBuilder) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onContainerTags(self: KXMLGUIBuilder, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onContainerTags(self: KXMLGUIBuilder, callback: *const fn (KXMLGUIBuilder) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KXMLGUIBuilder_OnContainerTags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -345,9 +345,9 @@ pub const KXMLGUIBuilder = extern struct {
     ///
     /// ` self: KXMLGUIBuilder `
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: KXMLGUIBuilder) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onCustomTags(self: KXMLGUIBuilder, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onCustomTags(self: KXMLGUIBuilder, callback: *const fn (KXMLGUIBuilder) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KXMLGUIBuilder_OnCustomTags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

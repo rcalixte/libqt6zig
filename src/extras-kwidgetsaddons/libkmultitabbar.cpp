@@ -134,14 +134,14 @@ int KMultiTabBar_TabStyle(const KMultiTabBar* self) {
 
 void KMultiTabBar_FontChange(KMultiTabBar* self, const QFont* param1) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->fontChange(*param1);
     }
 }
 
 void KMultiTabBar_PaintEvent(KMultiTabBar* self, QPaintEvent* param1) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->paintEvent(param1);
     }
 }
@@ -194,1690 +194,1185 @@ int KMultiTabBar_AppendTab3(KMultiTabBar* self, const QIcon* icon, int id, const
 
 // Base class handler implementation
 QMetaObject* KMultiTabBar_SuperMetaObject(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_MetaObject_IsBase(true);
-        return (QMetaObject*)vkmultitabbar->metaObject();
-    } else {
-        return (QMetaObject*)self->KMultiTabBar::metaObject();
-    }
+    return (QMetaObject*)self->KMultiTabBar::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnMetaObject(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_MetaObject_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MetaObject_Callback>(slot));
+void KMultiTabBar_OnMetaObject(KMultiTabBar* self, intptr_t slot) {
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self)))
+        vkmultitabbar->kmultitabbar_metaobject_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KMultiTabBar_SuperMetacast(KMultiTabBar* self, const char* param1) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_Metacast_IsBase(true);
-        return vkmultitabbar->qt_metacast(param1);
-    } else {
-        return self->KMultiTabBar::qt_metacast(param1);
-    }
+    return self->KMultiTabBar::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMetacast(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_Metacast_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Metacast_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_metacast_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KMultiTabBar_SuperMetacall(KMultiTabBar* self, int param1, int param2, void** param3) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_Metacall_IsBase(true);
-        return vkmultitabbar->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KMultiTabBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KMultiTabBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMetacall(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_Metacall_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Metacall_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_metacall_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperFontChange(KMultiTabBar* self, const QFont* param1) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_FontChange_IsBase(true);
-        vkmultitabbar->fontChange(*param1);
-    } else {
-        ((VirtualKMultiTabBar*)self)->fontChange(*param1);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::fontChange(*param1);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::fontChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnFontChange(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_FontChange_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FontChange_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_fontchange_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FontChange_Callback>(slot);
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperPaintEvent(KMultiTabBar* self, QPaintEvent* param1) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_PaintEvent_IsBase(true);
-        vkmultitabbar->paintEvent(param1);
-    } else {
-        ((VirtualKMultiTabBar*)self)->paintEvent(param1);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnPaintEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_PaintEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_PaintEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_paintevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KMultiTabBar_DevType(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return vkmultitabbar->devType();
-    } else {
-        return self->KMultiTabBar::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KMultiTabBar_SuperDevType(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_DevType_IsBase(true);
-        return vkmultitabbar->devType();
-    } else {
-        return self->KMultiTabBar::devType();
-    }
+    return self->KMultiTabBar::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnDevType(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_DevType_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DevType_Callback>(slot));
+void KMultiTabBar_OnDevType(KMultiTabBar* self, intptr_t slot) {
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self)))
+        vkmultitabbar->kmultitabbar_devtype_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_SetVisible(KMultiTabBar* self, bool visible) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setVisible(visible);
-    } else {
-        self->KMultiTabBar::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperSetVisible(KMultiTabBar* self, bool visible) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_SetVisible_IsBase(true);
-        vkmultitabbar->setVisible(visible);
-    } else {
-        self->KMultiTabBar::setVisible(visible);
-    }
+    self->KMultiTabBar::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnSetVisible(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_SetVisible_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_SetVisible_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_setvisible_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KMultiTabBar_SizeHint(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return new QSize(vkmultitabbar->sizeHint());
-    } else {
-        return new QSize(((VirtualKMultiTabBar*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KMultiTabBar_SuperSizeHint(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_SizeHint_IsBase(true);
-        return new QSize(vkmultitabbar->sizeHint());
-    } else {
-        return new QSize(((VirtualKMultiTabBar*)self)->sizeHint());
-    }
+    return new QSize(self->KMultiTabBar::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnSizeHint(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_SizeHint_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_SizeHint_Callback>(slot));
+void KMultiTabBar_OnSizeHint(KMultiTabBar* self, intptr_t slot) {
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self)))
+        vkmultitabbar->kmultitabbar_sizehint_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KMultiTabBar_MinimumSizeHint(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return new QSize(vkmultitabbar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKMultiTabBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KMultiTabBar_SuperMinimumSizeHint(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_MinimumSizeHint_IsBase(true);
-        return new QSize(vkmultitabbar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKMultiTabBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KMultiTabBar::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnMinimumSizeHint(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MinimumSizeHint_Callback>(slot));
+void KMultiTabBar_OnMinimumSizeHint(KMultiTabBar* self, intptr_t slot) {
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self)))
+        vkmultitabbar->kmultitabbar_minimumsizehint_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KMultiTabBar_HeightForWidth(const KMultiTabBar* self, int param1) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return vkmultitabbar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KMultiTabBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KMultiTabBar_SuperHeightForWidth(const KMultiTabBar* self, int param1) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_HeightForWidth_IsBase(true);
-        return vkmultitabbar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KMultiTabBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KMultiTabBar::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnHeightForWidth(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_HeightForWidth_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_HeightForWidth_Callback>(slot));
+void KMultiTabBar_OnHeightForWidth(KMultiTabBar* self, intptr_t slot) {
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self)))
+        vkmultitabbar->kmultitabbar_heightforwidth_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMultiTabBar_HasHeightForWidth(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return vkmultitabbar->hasHeightForWidth();
-    } else {
-        return self->KMultiTabBar::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KMultiTabBar_SuperHasHeightForWidth(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_HasHeightForWidth_IsBase(true);
-        return vkmultitabbar->hasHeightForWidth();
-    } else {
-        return self->KMultiTabBar::hasHeightForWidth();
-    }
+    return self->KMultiTabBar::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnHasHeightForWidth(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_HasHeightForWidth_Callback>(slot));
+void KMultiTabBar_OnHasHeightForWidth(KMultiTabBar* self, intptr_t slot) {
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self)))
+        vkmultitabbar->kmultitabbar_hasheightforwidth_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KMultiTabBar_PaintEngine(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return vkmultitabbar->paintEngine();
-    } else {
-        return self->KMultiTabBar::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KMultiTabBar_SuperPaintEngine(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_PaintEngine_IsBase(true);
-        return vkmultitabbar->paintEngine();
-    } else {
-        return self->KMultiTabBar::paintEngine();
-    }
+    return self->KMultiTabBar::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnPaintEngine(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_PaintEngine_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_PaintEngine_Callback>(slot));
+void KMultiTabBar_OnPaintEngine(KMultiTabBar* self, intptr_t slot) {
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self)))
+        vkmultitabbar->kmultitabbar_paintengine_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMultiTabBar_Event(KMultiTabBar* self, QEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         return vkmultitabbar->event(event);
     } else {
-        return ((VirtualKMultiTabBar*)self)->event(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KMultiTabBar_SuperEvent(KMultiTabBar* self, QEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_Event_IsBase(true);
-        return vkmultitabbar->event(event);
-    } else {
-        return ((VirtualKMultiTabBar*)self)->event(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        return vkmultitabbar->KMultiTabBar::event(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_Event_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Event_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_event_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_MousePressEvent(KMultiTabBar* self, QMouseEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->mousePressEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperMousePressEvent(KMultiTabBar* self, QMouseEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_MousePressEvent_IsBase(true);
-        vkmultitabbar->mousePressEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->mousePressEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMousePressEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_MousePressEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MousePressEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_mousepressevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_MouseReleaseEvent(KMultiTabBar* self, QMouseEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->mouseReleaseEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperMouseReleaseEvent(KMultiTabBar* self, QMouseEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_MouseReleaseEvent_IsBase(true);
-        vkmultitabbar->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMouseReleaseEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_mousereleaseevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_MouseDoubleClickEvent(KMultiTabBar* self, QMouseEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperMouseDoubleClickEvent(KMultiTabBar* self, QMouseEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_MouseDoubleClickEvent_IsBase(true);
-        vkmultitabbar->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMouseDoubleClickEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_mousedoubleclickevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_MouseMoveEvent(KMultiTabBar* self, QMouseEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->mouseMoveEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperMouseMoveEvent(KMultiTabBar* self, QMouseEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_MouseMoveEvent_IsBase(true);
-        vkmultitabbar->mouseMoveEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMouseMoveEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MouseMoveEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_mousemoveevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_WheelEvent(KMultiTabBar* self, QWheelEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->wheelEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperWheelEvent(KMultiTabBar* self, QWheelEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_WheelEvent_IsBase(true);
-        vkmultitabbar->wheelEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->wheelEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnWheelEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_WheelEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_WheelEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_wheelevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_KeyPressEvent(KMultiTabBar* self, QKeyEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->keyPressEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperKeyPressEvent(KMultiTabBar* self, QKeyEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_KeyPressEvent_IsBase(true);
-        vkmultitabbar->keyPressEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->keyPressEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnKeyPressEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_KeyPressEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_KeyPressEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_keypressevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_KeyReleaseEvent(KMultiTabBar* self, QKeyEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->keyReleaseEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperKeyReleaseEvent(KMultiTabBar* self, QKeyEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_KeyReleaseEvent_IsBase(true);
-        vkmultitabbar->keyReleaseEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnKeyReleaseEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_keyreleaseevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_FocusInEvent(KMultiTabBar* self, QFocusEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->focusInEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperFocusInEvent(KMultiTabBar* self, QFocusEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_FocusInEvent_IsBase(true);
-        vkmultitabbar->focusInEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->focusInEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnFocusInEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_FocusInEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FocusInEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_focusinevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_FocusOutEvent(KMultiTabBar* self, QFocusEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->focusOutEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperFocusOutEvent(KMultiTabBar* self, QFocusEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_FocusOutEvent_IsBase(true);
-        vkmultitabbar->focusOutEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->focusOutEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnFocusOutEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_FocusOutEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FocusOutEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_focusoutevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_EnterEvent(KMultiTabBar* self, QEnterEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->enterEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperEnterEvent(KMultiTabBar* self, QEnterEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_EnterEvent_IsBase(true);
-        vkmultitabbar->enterEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->enterEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnEnterEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_EnterEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_EnterEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_enterevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_LeaveEvent(KMultiTabBar* self, QEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->leaveEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperLeaveEvent(KMultiTabBar* self, QEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_LeaveEvent_IsBase(true);
-        vkmultitabbar->leaveEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->leaveEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnLeaveEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_LeaveEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_LeaveEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_leaveevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_MoveEvent(KMultiTabBar* self, QMoveEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->moveEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperMoveEvent(KMultiTabBar* self, QMoveEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_MoveEvent_IsBase(true);
-        vkmultitabbar->moveEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->moveEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMoveEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_MoveEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MoveEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_moveevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_ResizeEvent(KMultiTabBar* self, QResizeEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->resizeEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperResizeEvent(KMultiTabBar* self, QResizeEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_ResizeEvent_IsBase(true);
-        vkmultitabbar->resizeEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->resizeEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnResizeEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_ResizeEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ResizeEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_resizeevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_CloseEvent(KMultiTabBar* self, QCloseEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->closeEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperCloseEvent(KMultiTabBar* self, QCloseEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_CloseEvent_IsBase(true);
-        vkmultitabbar->closeEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->closeEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnCloseEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_CloseEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_CloseEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_closeevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_ContextMenuEvent(KMultiTabBar* self, QContextMenuEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->contextMenuEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperContextMenuEvent(KMultiTabBar* self, QContextMenuEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_ContextMenuEvent_IsBase(true);
-        vkmultitabbar->contextMenuEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnContextMenuEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ContextMenuEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_contextmenuevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_TabletEvent(KMultiTabBar* self, QTabletEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->tabletEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperTabletEvent(KMultiTabBar* self, QTabletEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_TabletEvent_IsBase(true);
-        vkmultitabbar->tabletEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->tabletEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnTabletEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_TabletEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_TabletEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_tabletevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_ActionEvent(KMultiTabBar* self, QActionEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->actionEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperActionEvent(KMultiTabBar* self, QActionEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_ActionEvent_IsBase(true);
-        vkmultitabbar->actionEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->actionEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnActionEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_ActionEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ActionEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_actionevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_DragEnterEvent(KMultiTabBar* self, QDragEnterEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->dragEnterEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperDragEnterEvent(KMultiTabBar* self, QDragEnterEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_DragEnterEvent_IsBase(true);
-        vkmultitabbar->dragEnterEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnDragEnterEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_DragEnterEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DragEnterEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_dragenterevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_DragMoveEvent(KMultiTabBar* self, QDragMoveEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->dragMoveEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperDragMoveEvent(KMultiTabBar* self, QDragMoveEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_DragMoveEvent_IsBase(true);
-        vkmultitabbar->dragMoveEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnDragMoveEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_DragMoveEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DragMoveEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_dragmoveevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_DragLeaveEvent(KMultiTabBar* self, QDragLeaveEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->dragLeaveEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperDragLeaveEvent(KMultiTabBar* self, QDragLeaveEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_DragLeaveEvent_IsBase(true);
-        vkmultitabbar->dragLeaveEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnDragLeaveEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DragLeaveEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_dragleaveevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_DropEvent(KMultiTabBar* self, QDropEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->dropEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperDropEvent(KMultiTabBar* self, QDropEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_DropEvent_IsBase(true);
-        vkmultitabbar->dropEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->dropEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnDropEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_DropEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DropEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_dropevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_ShowEvent(KMultiTabBar* self, QShowEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->showEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperShowEvent(KMultiTabBar* self, QShowEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_ShowEvent_IsBase(true);
-        vkmultitabbar->showEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->showEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnShowEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_ShowEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ShowEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_showevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_HideEvent(KMultiTabBar* self, QHideEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->hideEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperHideEvent(KMultiTabBar* self, QHideEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_HideEvent_IsBase(true);
-        vkmultitabbar->hideEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->hideEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnHideEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_HideEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_HideEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_hideevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMultiTabBar_NativeEvent(KMultiTabBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
+    if (vkmultitabbar) {
         return vkmultitabbar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKMultiTabBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KMultiTabBar::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KMultiTabBar_SuperNativeEvent(KMultiTabBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_NativeEvent_IsBase(true);
-        return vkmultitabbar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKMultiTabBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        return vkmultitabbar->KMultiTabBar::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnNativeEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_NativeEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_NativeEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_nativeevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_ChangeEvent(KMultiTabBar* self, QEvent* param1) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->changeEvent(param1);
     } else {
-        ((VirtualKMultiTabBar*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KMultiTabBar::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperChangeEvent(KMultiTabBar* self, QEvent* param1) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_ChangeEvent_IsBase(true);
-        vkmultitabbar->changeEvent(param1);
-    } else {
-        ((VirtualKMultiTabBar*)self)->changeEvent(param1);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnChangeEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_ChangeEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ChangeEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_changeevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KMultiTabBar_Metric(const KMultiTabBar* self, int param1) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         return vkmultitabbar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKMultiTabBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KMultiTabBar::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KMultiTabBar_SuperMetric(const KMultiTabBar* self, int param1) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_Metric_IsBase(true);
-        return vkmultitabbar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKMultiTabBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self))) {
+        return vkmultitabbar->KMultiTabBar::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnMetric(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_Metric_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Metric_Callback>(slot));
+void KMultiTabBar_OnMetric(KMultiTabBar* self, intptr_t slot) {
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self)))
+        vkmultitabbar->kmultitabbar_metric_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_InitPainter(const KMultiTabBar* self, QPainter* painter) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->initPainter(painter);
     } else {
-        ((VirtualKMultiTabBar*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KMultiTabBar::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperInitPainter(const KMultiTabBar* self, QPainter* painter) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_InitPainter_IsBase(true);
-        vkmultitabbar->initPainter(painter);
-    } else {
-        ((VirtualKMultiTabBar*)self)->initPainter(painter);
-    }
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self))) {
+        vkmultitabbar->KMultiTabBar::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnInitPainter(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_InitPainter_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_InitPainter_Callback>(slot));
+void KMultiTabBar_OnInitPainter(KMultiTabBar* self, intptr_t slot) {
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self)))
+        vkmultitabbar->kmultitabbar_initpainter_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KMultiTabBar_Redirected(const KMultiTabBar* self, QPoint* offset) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         return vkmultitabbar->redirected(offset);
     } else {
-        return ((VirtualKMultiTabBar*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KMultiTabBar::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KMultiTabBar_SuperRedirected(const KMultiTabBar* self, QPoint* offset) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_Redirected_IsBase(true);
-        return vkmultitabbar->redirected(offset);
-    } else {
-        return ((VirtualKMultiTabBar*)self)->redirected(offset);
-    }
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self))) {
+        return vkmultitabbar->KMultiTabBar::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnRedirected(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_Redirected_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Redirected_Callback>(slot));
+void KMultiTabBar_OnRedirected(KMultiTabBar* self, intptr_t slot) {
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self)))
+        vkmultitabbar->kmultitabbar_redirected_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KMultiTabBar_SharedPainter(const KMultiTabBar* self) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         return vkmultitabbar->sharedPainter();
     } else {
-        return ((VirtualKMultiTabBar*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KMultiTabBar::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KMultiTabBar_SuperSharedPainter(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_SharedPainter_IsBase(true);
-        return vkmultitabbar->sharedPainter();
-    } else {
-        return ((VirtualKMultiTabBar*)self)->sharedPainter();
-    }
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self))) {
+        return vkmultitabbar->KMultiTabBar::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnSharedPainter(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_SharedPainter_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_SharedPainter_Callback>(slot));
+void KMultiTabBar_OnSharedPainter(KMultiTabBar* self, intptr_t slot) {
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self)))
+        vkmultitabbar->kmultitabbar_sharedpainter_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_InputMethodEvent(KMultiTabBar* self, QInputMethodEvent* param1) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->inputMethodEvent(param1);
     } else {
-        ((VirtualKMultiTabBar*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KMultiTabBar::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperInputMethodEvent(KMultiTabBar* self, QInputMethodEvent* param1) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_InputMethodEvent_IsBase(true);
-        vkmultitabbar->inputMethodEvent(param1);
-    } else {
-        ((VirtualKMultiTabBar*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnInputMethodEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_InputMethodEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_InputMethodEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_inputmethodevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KMultiTabBar_InputMethodQuery(const KMultiTabBar* self, int param1) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return new QVariant(vkmultitabbar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKMultiTabBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KMultiTabBar_SuperInputMethodQuery(const KMultiTabBar* self, int param1) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_InputMethodQuery_IsBase(true);
-        return new QVariant(vkmultitabbar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKMultiTabBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KMultiTabBar::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnInputMethodQuery(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_InputMethodQuery_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_InputMethodQuery_Callback>(slot));
+void KMultiTabBar_OnInputMethodQuery(KMultiTabBar* self, intptr_t slot) {
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self)))
+        vkmultitabbar->kmultitabbar_inputmethodquery_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMultiTabBar_FocusNextPrevChild(KMultiTabBar* self, bool next) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         return vkmultitabbar->focusNextPrevChild(next);
     } else {
-        return ((VirtualKMultiTabBar*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KMultiTabBar::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KMultiTabBar_SuperFocusNextPrevChild(KMultiTabBar* self, bool next) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_FocusNextPrevChild_IsBase(true);
-        return vkmultitabbar->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKMultiTabBar*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        return vkmultitabbar->KMultiTabBar::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnFocusNextPrevChild(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_focusnextprevchild_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMultiTabBar_EventFilter(KMultiTabBar* self, QObject* watched, QEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return vkmultitabbar->eventFilter(watched, event);
-    } else {
-        return self->KMultiTabBar::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KMultiTabBar_SuperEventFilter(KMultiTabBar* self, QObject* watched, QEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_EventFilter_IsBase(true);
-        return vkmultitabbar->eventFilter(watched, event);
-    } else {
-        return self->KMultiTabBar::eventFilter(watched, event);
-    }
+    return self->KMultiTabBar::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnEventFilter(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_EventFilter_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_EventFilter_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_eventfilter_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_TimerEvent(KMultiTabBar* self, QTimerEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->timerEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperTimerEvent(KMultiTabBar* self, QTimerEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_TimerEvent_IsBase(true);
-        vkmultitabbar->timerEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->timerEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnTimerEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_TimerEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_TimerEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_timerevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_ChildEvent(KMultiTabBar* self, QChildEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->childEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperChildEvent(KMultiTabBar* self, QChildEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_ChildEvent_IsBase(true);
-        vkmultitabbar->childEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->childEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnChildEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_ChildEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ChildEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_childevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_CustomEvent(KMultiTabBar* self, QEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->customEvent(event);
     } else {
-        ((VirtualKMultiTabBar*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KMultiTabBar::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperCustomEvent(KMultiTabBar* self, QEvent* event) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_CustomEvent_IsBase(true);
-        vkmultitabbar->customEvent(event);
-    } else {
-        ((VirtualKMultiTabBar*)self)->customEvent(event);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnCustomEvent(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_CustomEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_CustomEvent_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_customevent_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_ConnectNotify(KMultiTabBar* self, const QMetaMethod* signal) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->connectNotify(*signal);
     } else {
-        ((VirtualKMultiTabBar*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KMultiTabBar::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperConnectNotify(KMultiTabBar* self, const QMetaMethod* signal) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_ConnectNotify_IsBase(true);
-        vkmultitabbar->connectNotify(*signal);
-    } else {
-        ((VirtualKMultiTabBar*)self)->connectNotify(*signal);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnConnectNotify(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_ConnectNotify_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ConnectNotify_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_connectnotify_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMultiTabBar_DisconnectNotify(KMultiTabBar* self, const QMetaMethod* signal) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar) {
         vkmultitabbar->disconnectNotify(*signal);
     } else {
-        ((VirtualKMultiTabBar*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KMultiTabBar::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMultiTabBar_SuperDisconnectNotify(KMultiTabBar* self, const QMetaMethod* signal) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_DisconnectNotify_IsBase(true);
-        vkmultitabbar->disconnectNotify(*signal);
-    } else {
-        ((VirtualKMultiTabBar*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->KMultiTabBar::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KMultiTabBar::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnDisconnectNotify(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_DisconnectNotify_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DisconnectNotify_Callback>(slot));
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self))
+        vkmultitabbar->kmultitabbar_disconnectnotify_callback = reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMultiTabBar_UpdateSeparator(KMultiTabBar* self) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->updateSeparator();
-    } else {
-        ((VirtualKMultiTabBar*)self)->updateSeparator();
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->VirtualKMultiTabBar::updateSeparator();
+    } else
+        qFatal("Error: Protected method KMultiTabBar::updateSeparator called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMultiTabBar_SuperUpdateSeparator(KMultiTabBar* self) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_UpdateSeparator_IsBase(true);
-        vkmultitabbar->updateSeparator();
-    } else {
-        ((VirtualKMultiTabBar*)self)->updateSeparator();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnUpdateSeparator(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_UpdateSeparator_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_UpdateSeparator_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMultiTabBar_UpdateMicroFocus(KMultiTabBar* self) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->updateMicroFocus();
-    } else {
-        ((VirtualKMultiTabBar*)self)->updateMicroFocus();
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->VirtualKMultiTabBar::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KMultiTabBar::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMultiTabBar_SuperUpdateMicroFocus(KMultiTabBar* self) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_UpdateMicroFocus_IsBase(true);
-        vkmultitabbar->updateMicroFocus();
-    } else {
-        ((VirtualKMultiTabBar*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnUpdateMicroFocus(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMultiTabBar_Create(KMultiTabBar* self) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->create();
-    } else {
-        ((VirtualKMultiTabBar*)self)->create();
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->VirtualKMultiTabBar::create();
+    } else
+        qFatal("Error: Protected method KMultiTabBar::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMultiTabBar_SuperCreate(KMultiTabBar* self) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_Create_IsBase(true);
-        vkmultitabbar->create();
-    } else {
-        ((VirtualKMultiTabBar*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnCreate(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_Create_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMultiTabBar_Destroy(KMultiTabBar* self) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->destroy();
-    } else {
-        ((VirtualKMultiTabBar*)self)->destroy();
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        vkmultitabbar->VirtualKMultiTabBar::destroy();
+    } else
+        qFatal("Error: Protected method KMultiTabBar::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMultiTabBar_SuperDestroy(KMultiTabBar* self) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_Destroy_IsBase(true);
-        vkmultitabbar->destroy();
-    } else {
-        ((VirtualKMultiTabBar*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnDestroy(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_Destroy_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KMultiTabBar_FocusNextChild(KMultiTabBar* self) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return vkmultitabbar->focusNextChild();
-    } else {
-        return ((VirtualKMultiTabBar*)self)->focusNextChild();
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        return vkmultitabbar->VirtualKMultiTabBar::focusNextChild();
+    } else
+        qFatal("Error: Protected method KMultiTabBar::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KMultiTabBar_SuperFocusNextChild(KMultiTabBar* self) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_FocusNextChild_IsBase(true);
-        return vkmultitabbar->focusNextChild();
-    } else {
-        return ((VirtualKMultiTabBar*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnFocusNextChild(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_FocusNextChild_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KMultiTabBar_FocusPreviousChild(KMultiTabBar* self) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return vkmultitabbar->focusPreviousChild();
-    } else {
-        return ((VirtualKMultiTabBar*)self)->focusPreviousChild();
-    }
+    if (auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self)) {
+        return vkmultitabbar->VirtualKMultiTabBar::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KMultiTabBar::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KMultiTabBar_SuperFocusPreviousChild(KMultiTabBar* self) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_FocusPreviousChild_IsBase(true);
-        return vkmultitabbar->focusPreviousChild();
-    } else {
-        return ((VirtualKMultiTabBar*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnFocusPreviousChild(KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KMultiTabBar_Sender(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return vkmultitabbar->sender();
-    } else {
-        return ((VirtualKMultiTabBar*)self)->sender();
-    }
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self))) {
+        return vkmultitabbar->VirtualKMultiTabBar::sender();
+    } else
+        qFatal("Error: Protected method KMultiTabBar::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KMultiTabBar_SuperSender(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_Sender_IsBase(true);
-        return vkmultitabbar->sender();
-    } else {
-        return ((VirtualKMultiTabBar*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnSender(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_Sender_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KMultiTabBar_SenderSignalIndex(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return vkmultitabbar->senderSignalIndex();
-    } else {
-        return ((VirtualKMultiTabBar*)self)->senderSignalIndex();
-    }
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self))) {
+        return vkmultitabbar->VirtualKMultiTabBar::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KMultiTabBar::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KMultiTabBar_SuperSenderSignalIndex(const KMultiTabBar* self) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_SenderSignalIndex_IsBase(true);
-        return vkmultitabbar->senderSignalIndex();
-    } else {
-        return ((VirtualKMultiTabBar*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnSenderSignalIndex(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KMultiTabBar_Receivers(const KMultiTabBar* self, const char* signal) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return vkmultitabbar->receivers(signal);
-    } else {
-        return ((VirtualKMultiTabBar*)self)->receivers(signal);
-    }
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self))) {
+        return vkmultitabbar->VirtualKMultiTabBar::receivers(signal);
+    } else
+        qFatal("Error: Protected method KMultiTabBar::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KMultiTabBar_SuperReceivers(const KMultiTabBar* self, const char* signal) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_Receivers_IsBase(true);
-        return vkmultitabbar->receivers(signal);
-    } else {
-        return ((VirtualKMultiTabBar*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnReceivers(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_Receivers_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KMultiTabBar_IsSignalConnected(const KMultiTabBar* self, const QMetaMethod* signal) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return vkmultitabbar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKMultiTabBar*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self))) {
+        return vkmultitabbar->VirtualKMultiTabBar::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KMultiTabBar::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KMultiTabBar_SuperIsSignalConnected(const KMultiTabBar* self, const QMetaMethod* signal) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_IsSignalConnected_IsBase(true);
-        return vkmultitabbar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKMultiTabBar*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnIsSignalConnected(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_IsSignalConnected_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KMultiTabBar_GetDecodedMetricF(const KMultiTabBar* self, int metricA, int metricB) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return vkmultitabbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKMultiTabBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KMultiTabBar_SuperGetDecodedMetricF(const KMultiTabBar* self, int metricA, int metricB) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        vkmultitabbar->setKMultiTabBar_GetDecodedMetricF_IsBase(true);
-        return vkmultitabbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKMultiTabBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMultiTabBar_OnGetDecodedMetricF(const KMultiTabBar* self, intptr_t slot) {
-    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
-        vkmultitabbar->setKMultiTabBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self))) {
+        return vkmultitabbar->VirtualKMultiTabBar::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KMultiTabBar::getDecodedMetricF called without a directly constructed type");
 }
 
 void KMultiTabBar_Delete(KMultiTabBar* self) {

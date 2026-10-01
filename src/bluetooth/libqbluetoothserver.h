@@ -57,7 +57,7 @@ libqt_string QBluetoothServer_Tr3(const char* s, const char* c, int n);
 bool QBluetoothServer_Listen1(QBluetoothServer* self, const QBluetoothAddress* address);
 bool QBluetoothServer_Listen22(QBluetoothServer* self, const QBluetoothAddress* address, uint16_t port);
 QBluetoothServiceInfo* QBluetoothServer_Listen23(QBluetoothServer* self, const QBluetoothUuid* uuid, const libqt_string serviceName);
-void QBluetoothServer_OnMetaObject(const QBluetoothServer* self, intptr_t slot);
+void QBluetoothServer_OnMetaObject(QBluetoothServer* self, intptr_t slot);
 QMetaObject* QBluetoothServer_SuperMetaObject(const QBluetoothServer* self);
 void QBluetoothServer_OnMetacast(QBluetoothServer* self, intptr_t slot);
 void* QBluetoothServer_SuperMetacast(QBluetoothServer* self, const char* param1);
@@ -85,17 +85,9 @@ void QBluetoothServer_DisconnectNotify(QBluetoothServer* self, const QMetaMethod
 void QBluetoothServer_OnDisconnectNotify(QBluetoothServer* self, intptr_t slot);
 void QBluetoothServer_SuperDisconnectNotify(QBluetoothServer* self, const QMetaMethod* signal);
 QObject* QBluetoothServer_Sender(const QBluetoothServer* self);
-void QBluetoothServer_OnSender(const QBluetoothServer* self, intptr_t slot);
-QObject* QBluetoothServer_SuperSender(const QBluetoothServer* self);
 int QBluetoothServer_SenderSignalIndex(const QBluetoothServer* self);
-void QBluetoothServer_OnSenderSignalIndex(const QBluetoothServer* self, intptr_t slot);
-int QBluetoothServer_SuperSenderSignalIndex(const QBluetoothServer* self);
 int QBluetoothServer_Receivers(const QBluetoothServer* self, const char* signal);
-void QBluetoothServer_OnReceivers(const QBluetoothServer* self, intptr_t slot);
-int QBluetoothServer_SuperReceivers(const QBluetoothServer* self, const char* signal);
 bool QBluetoothServer_IsSignalConnected(const QBluetoothServer* self, const QMetaMethod* signal);
-void QBluetoothServer_OnIsSignalConnected(const QBluetoothServer* self, intptr_t slot);
-bool QBluetoothServer_SuperIsSignalConnected(const QBluetoothServer* self, const QMetaMethod* signal);
 void QBluetoothServer_Delete(QBluetoothServer* self);
 
 #ifdef __cplusplus

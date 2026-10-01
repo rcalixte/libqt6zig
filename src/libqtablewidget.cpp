@@ -336,110 +336,68 @@ int QTableWidgetItem_Type(const QTableWidgetItem* self) {
 
 // Base class handler implementation
 QTableWidgetItem* QTableWidgetItem_SuperClone(const QTableWidgetItem* self) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->setQTableWidgetItem_Clone_IsBase(true);
-        return vqtablewidgetitem->clone();
-    } else {
-        return self->QTableWidgetItem::clone();
-    }
+    return self->QTableWidgetItem::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidgetItem_OnClone(const QTableWidgetItem* self, intptr_t slot) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem)
-        vqtablewidgetitem->setQTableWidgetItem_Clone_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Clone_Callback>(slot));
+void QTableWidgetItem_OnClone(QTableWidgetItem* self, intptr_t slot) {
+    if (auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self)))
+        vqtablewidgetitem->qtablewidgetitem_clone_callback = reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Clone_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QTableWidgetItem_SuperData(const QTableWidgetItem* self, int role) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->setQTableWidgetItem_Data_IsBase(true);
-        return new QVariant(vqtablewidgetitem->data(static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQTableWidgetItem*)self)->data(static_cast<int>(role)));
-    }
+    return new QVariant(self->QTableWidgetItem::data(static_cast<int>(role)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidgetItem_OnData(const QTableWidgetItem* self, intptr_t slot) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem)
-        vqtablewidgetitem->setQTableWidgetItem_Data_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Data_Callback>(slot));
+void QTableWidgetItem_OnData(QTableWidgetItem* self, intptr_t slot) {
+    if (auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self)))
+        vqtablewidgetitem->qtablewidgetitem_data_callback = reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Data_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTableWidgetItem_SuperSetData(QTableWidgetItem* self, int role, const QVariant* value) {
-    auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->setQTableWidgetItem_SetData_IsBase(true);
-        vqtablewidgetitem->setData(static_cast<int>(role), *value);
-    } else {
-        self->QTableWidgetItem::setData(static_cast<int>(role), *value);
-    }
+    self->QTableWidgetItem::setData(static_cast<int>(role), *value);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidgetItem_OnSetData(QTableWidgetItem* self, intptr_t slot) {
-    auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem)
-        vqtablewidgetitem->setQTableWidgetItem_SetData_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_SetData_Callback>(slot));
+    if (auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self))
+        vqtablewidgetitem->qtablewidgetitem_setdata_callback = reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_SetData_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QTableWidgetItem_SuperOperatorLesser(const QTableWidgetItem* self, const QTableWidgetItem* other) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->setQTableWidgetItem_OperatorLesser_IsBase(true);
-        return vqtablewidgetitem->operator<(*other);
-    } else {
-        return self->QTableWidgetItem::operator<(*other);
-    }
+    return self->QTableWidgetItem::operator<(*other);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidgetItem_OnOperatorLesser(const QTableWidgetItem* self, intptr_t slot) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem)
-        vqtablewidgetitem->setQTableWidgetItem_OperatorLesser_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_OperatorLesser_Callback>(slot));
+void QTableWidgetItem_OnOperatorLesser(QTableWidgetItem* self, intptr_t slot) {
+    if (auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self)))
+        vqtablewidgetitem->qtablewidgetitem_operatorlesser_callback = reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_OperatorLesser_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTableWidgetItem_SuperRead(QTableWidgetItem* self, QDataStream* in) {
-    auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->setQTableWidgetItem_Read_IsBase(true);
-        vqtablewidgetitem->read(*in);
-    } else {
-        self->QTableWidgetItem::read(*in);
-    }
+    self->QTableWidgetItem::read(*in);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidgetItem_OnRead(QTableWidgetItem* self, intptr_t slot) {
-    auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem)
-        vqtablewidgetitem->setQTableWidgetItem_Read_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Read_Callback>(slot));
+    if (auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self))
+        vqtablewidgetitem->qtablewidgetitem_read_callback = reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Read_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTableWidgetItem_SuperWrite(const QTableWidgetItem* self, QDataStream* out) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        vqtablewidgetitem->setQTableWidgetItem_Write_IsBase(true);
-        vqtablewidgetitem->write(*out);
-    } else {
-        self->QTableWidgetItem::write(*out);
-    }
+    self->QTableWidgetItem::write(*out);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidgetItem_OnWrite(const QTableWidgetItem* self, intptr_t slot) {
-    auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem)
-        vqtablewidgetitem->setQTableWidgetItem_Write_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Write_Callback>(slot));
+void QTableWidgetItem_OnWrite(QTableWidgetItem* self, intptr_t slot) {
+    if (auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self)))
+        vqtablewidgetitem->qtablewidgetitem_write_callback = reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Write_Callback>(slot);
 }
 
 void QTableWidgetItem_Delete(QTableWidgetItem* self) {
@@ -978,15 +936,15 @@ void QTableWidget_Connect_CurrentCellChanged(QTableWidget* self, intptr_t slot) 
 
 bool QTableWidget_Event(QTableWidget* self, QEvent* e) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QTableWidget::event called without a directly constructed type");
 }
 
 libqt_list /* of libqt_string */ QTableWidget_MimeTypes(const QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<const VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         QList<QString> _ret = vqtablewidget->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
@@ -1006,7 +964,7 @@ libqt_list /* of libqt_string */ QTableWidget_MimeTypes(const QTableWidget* self
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
-    return {};
+    qFatal("Error: Protected method QTableWidget::mimeTypes called without a directly constructed type");
 }
 
 QMimeData* QTableWidget_MimeData(const QTableWidget* self, const libqt_list /* of QTableWidgetItem* */ items) {
@@ -1017,31 +975,31 @@ QMimeData* QTableWidget_MimeData(const QTableWidget* self, const libqt_list /* o
         items_QList.push_back(items_arr[i]);
     }
     auto* vqtablewidget = dynamic_cast<const VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->mimeData(items_QList);
     }
-    return {};
+    qFatal("Error: Protected method QTableWidget::mimeData called without a directly constructed type");
 }
 
 bool QTableWidget_DropMimeData(QTableWidget* self, int row, int column, const QMimeData* data, int action) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->dropMimeData(static_cast<int>(row), static_cast<int>(column), data, static_cast<Qt::DropAction>(action));
     }
-    return {};
+    qFatal("Error: Protected method QTableWidget::dropMimeData called without a directly constructed type");
 }
 
 int QTableWidget_SupportedDropActions(const QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<const VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return static_cast<int>(vqtablewidget->supportedDropActions());
     }
-    return {};
+    qFatal("Error: Protected method QTableWidget::supportedDropActions called without a directly constructed type");
 }
 
 void QTableWidget_DropEvent(QTableWidget* self, QDropEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->dropEvent(event);
     }
 }
@@ -1080,82 +1038,55 @@ void QTableWidget_ScrollToItem2(QTableWidget* self, const QTableWidgetItem* item
 
 // Base class handler implementation
 QMetaObject* QTableWidget_SuperMetaObject(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vqtablewidget->metaObject();
-    } else {
-        return (QMetaObject*)self->QTableWidget::metaObject();
-    }
+    return (QMetaObject*)self->QTableWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnMetaObject(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_MetaObject_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MetaObject_Callback>(slot));
+void QTableWidget_OnMetaObject(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_metaobject_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QTableWidget_SuperMetacast(QTableWidget* self, const char* param1) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_Metacast_IsBase(true);
-        return vqtablewidget->qt_metacast(param1);
-    } else {
-        return self->QTableWidget::qt_metacast(param1);
-    }
+    return self->QTableWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMetacast(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_Metacast_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Metacast_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_metacast_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QTableWidget_SuperMetacall(QTableWidget* self, int param1, int param2, void** param3) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_Metacall_IsBase(true);
-        return vqtablewidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QTableWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QTableWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMetacall(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_Metacall_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Metacall_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_metacall_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QTableWidget_SuperEvent(QTableWidget* self, QEvent* e) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_Event_IsBase(true);
-        return vqtablewidget->event(e);
-    } else {
-        return ((VirtualQTableWidget*)self)->event(e);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        return vqtablewidget->QTableWidget::event(e);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_Event_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Event_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_event_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QTableWidget_SuperMimeTypes(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_MimeTypes_IsBase(true);
-        QList<QString> _ret = vqtablewidget->mimeTypes();
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        QList<QString> _ret = vqtablewidget->QTableWidget::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -1173,533 +1104,382 @@ libqt_list /* of libqt_string */ QTableWidget_SuperMimeTypes(const QTableWidget*
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQTableWidget*)self)->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::mimeTypes called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnMimeTypes(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_MimeTypes_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MimeTypes_Callback>(slot));
+void QTableWidget_OnMimeTypes(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_mimetypes_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_MimeTypes_Callback>(slot);
 }
 
 // Base class handler implementation
 QMimeData* QTableWidget_SuperMimeData(const QTableWidget* self, const libqt_list /* of QTableWidgetItem* */ items) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     QList<QTableWidgetItem*> items_QList;
     items_QList.reserve(items.len);
     QTableWidgetItem** items_arr = static_cast<QTableWidgetItem**>(items.data);
     for (size_t i = 0; i < items.len; ++i) {
         items_QList.push_back(items_arr[i]);
     }
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_MimeData_IsBase(true);
-        return vqtablewidget->mimeData(items_QList);
-    } else {
-        return ((VirtualQTableWidget*)self)->mimeData(items_QList);
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return vqtablewidget->QTableWidget::mimeData(items_QList);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::mimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnMimeData(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_MimeData_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MimeData_Callback>(slot));
+void QTableWidget_OnMimeData(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_mimedata_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_MimeData_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QTableWidget_SuperDropMimeData(QTableWidget* self, int row, int column, const QMimeData* data, int action) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DropMimeData_IsBase(true);
-        return vqtablewidget->dropMimeData(static_cast<int>(row), static_cast<int>(column), data, static_cast<Qt::DropAction>(action));
-    } else {
-        return ((VirtualQTableWidget*)self)->dropMimeData(static_cast<int>(row), static_cast<int>(column), data, static_cast<Qt::DropAction>(action));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        return vqtablewidget->QTableWidget::dropMimeData(static_cast<int>(row), static_cast<int>(column), data, static_cast<Qt::DropAction>(action));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::dropMimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDropMimeData(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_DropMimeData_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DropMimeData_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_dropmimedata_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_DropMimeData_Callback>(slot);
 }
 
 // Base class handler implementation
 int QTableWidget_SuperSupportedDropActions(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SupportedDropActions_IsBase(true);
-        return static_cast<int>(vqtablewidget->supportedDropActions());
-    } else {
-        return static_cast<int>(((VirtualQTableWidget*)self)->supportedDropActions());
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return static_cast<int>(vqtablewidget->QTableWidget::supportedDropActions());
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::supportedDropActions called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnSupportedDropActions(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SupportedDropActions_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SupportedDropActions_Callback>(slot));
+void QTableWidget_OnSupportedDropActions(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_supporteddropactions_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_SupportedDropActions_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTableWidget_SuperDropEvent(QTableWidget* self, QDropEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DropEvent_IsBase(true);
-        vqtablewidget->dropEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->dropEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDropEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_DropEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DropEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_dropevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_SetRootIndex(QTableWidget* self, const QModelIndex* index) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setRootIndex(*index);
-    } else {
-        self->QTableWidget::setRootIndex(*index);
-    }
+    self->setRootIndex(*index);
 }
 
 // Base class handler implementation
 void QTableWidget_SuperSetRootIndex(QTableWidget* self, const QModelIndex* index) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SetRootIndex_IsBase(true);
-        vqtablewidget->setRootIndex(*index);
-    } else {
-        self->QTableWidget::setRootIndex(*index);
-    }
+    self->QTableWidget::setRootIndex(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSetRootIndex(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SetRootIndex_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetRootIndex_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_setrootindex_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_SetRootIndex_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_SetSelectionModel(QTableWidget* self, QItemSelectionModel* selectionModel) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setSelectionModel(selectionModel);
-    } else {
-        self->QTableWidget::setSelectionModel(selectionModel);
-    }
+    self->setSelectionModel(selectionModel);
 }
 
 // Base class handler implementation
 void QTableWidget_SuperSetSelectionModel(QTableWidget* self, QItemSelectionModel* selectionModel) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SetSelectionModel_IsBase(true);
-        vqtablewidget->setSelectionModel(selectionModel);
-    } else {
-        self->QTableWidget::setSelectionModel(selectionModel);
-    }
+    self->QTableWidget::setSelectionModel(selectionModel);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSetSelectionModel(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SetSelectionModel_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetSelectionModel_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_setselectionmodel_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_SetSelectionModel_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_DoItemsLayout(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->doItemsLayout();
-    } else {
-        self->QTableWidget::doItemsLayout();
-    }
+    self->doItemsLayout();
 }
 
 // Base class handler implementation
 void QTableWidget_SuperDoItemsLayout(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DoItemsLayout_IsBase(true);
-        vqtablewidget->doItemsLayout();
-    } else {
-        self->QTableWidget::doItemsLayout();
-    }
+    self->QTableWidget::doItemsLayout();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDoItemsLayout(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_DoItemsLayout_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DoItemsLayout_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_doitemslayout_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_DoItemsLayout_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRect* QTableWidget_VisualRect(const QTableWidget* self, const QModelIndex* index) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return new QRect(vqtablewidget->visualRect(*index));
-    } else {
-        return new QRect(((VirtualQTableWidget*)self)->visualRect(*index));
-    }
+    return new QRect(self->visualRect(*index));
 }
 
 // Base class handler implementation
 QRect* QTableWidget_SuperVisualRect(const QTableWidget* self, const QModelIndex* index) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_VisualRect_IsBase(true);
-        return new QRect(vqtablewidget->visualRect(*index));
-    } else {
-        return new QRect(((VirtualQTableWidget*)self)->visualRect(*index));
-    }
+    return new QRect(self->QTableWidget::visualRect(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnVisualRect(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_VisualRect_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_VisualRect_Callback>(slot));
+void QTableWidget_OnVisualRect(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_visualrect_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_VisualRect_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_ScrollTo(QTableWidget* self, const QModelIndex* index, int hint) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        self->QTableWidget::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    self->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
 }
 
 // Base class handler implementation
 void QTableWidget_SuperScrollTo(QTableWidget* self, const QModelIndex* index, int hint) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ScrollTo_IsBase(true);
-        vqtablewidget->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        self->QTableWidget::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    self->QTableWidget::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnScrollTo(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ScrollTo_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ScrollTo_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_scrollto_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_ScrollTo_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* QTableWidget_IndexAt(const QTableWidget* self, const QPoint* p) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return new QModelIndex(vqtablewidget->indexAt(*p));
-    } else {
-        return new QModelIndex(((VirtualQTableWidget*)self)->indexAt(*p));
-    }
+    return new QModelIndex(self->indexAt(*p));
 }
 
 // Base class handler implementation
 QModelIndex* QTableWidget_SuperIndexAt(const QTableWidget* self, const QPoint* p) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_IndexAt_IsBase(true);
-        return new QModelIndex(vqtablewidget->indexAt(*p));
-    } else {
-        return new QModelIndex(((VirtualQTableWidget*)self)->indexAt(*p));
-    }
+    return new QModelIndex(self->QTableWidget::indexAt(*p));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnIndexAt(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_IndexAt_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_IndexAt_Callback>(slot));
+void QTableWidget_OnIndexAt(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_indexat_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_IndexAt_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_ScrollContentsBy(QTableWidget* self, int dx, int dy) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     } else {
-        ((VirtualQTableWidget*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+        qFatal("Error: Protected virtual method QTableWidget::scrollContentsBy called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperScrollContentsBy(QTableWidget* self, int dx, int dy) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ScrollContentsBy_IsBase(true);
-        vqtablewidget->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQTableWidget*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::scrollContentsBy called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnScrollContentsBy(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ScrollContentsBy_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ScrollContentsBy_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_scrollcontentsby_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_ScrollContentsBy_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_InitViewItemOption(const QTableWidget* self, QStyleOptionViewItem* option) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->initViewItemOption(option);
     } else {
-        ((VirtualQTableWidget*)self)->initViewItemOption(option);
+        qFatal("Error: Protected virtual method QTableWidget::initViewItemOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperInitViewItemOption(const QTableWidget* self, QStyleOptionViewItem* option) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_InitViewItemOption_IsBase(true);
-        vqtablewidget->initViewItemOption(option);
-    } else {
-        ((VirtualQTableWidget*)self)->initViewItemOption(option);
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        vqtablewidget->QTableWidget::initViewItemOption(option);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::initViewItemOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnInitViewItemOption(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_InitViewItemOption_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_InitViewItemOption_Callback>(slot));
+void QTableWidget_OnInitViewItemOption(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_initviewitemoption_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_InitViewItemOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_PaintEvent(QTableWidget* self, QPaintEvent* e) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->paintEvent(e);
     } else {
-        ((VirtualQTableWidget*)self)->paintEvent(e);
+        qFatal("Error: Protected virtual method QTableWidget::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperPaintEvent(QTableWidget* self, QPaintEvent* e) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_PaintEvent_IsBase(true);
-        vqtablewidget->paintEvent(e);
-    } else {
-        ((VirtualQTableWidget*)self)->paintEvent(e);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnPaintEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_PaintEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_PaintEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_paintevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_TimerEvent(QTableWidget* self, QTimerEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->timerEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperTimerEvent(QTableWidget* self, QTimerEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_TimerEvent_IsBase(true);
-        vqtablewidget->timerEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->timerEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnTimerEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_TimerEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_TimerEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_timerevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTableWidget_HorizontalOffset(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->horizontalOffset();
     } else {
-        return ((VirtualQTableWidget*)self)->horizontalOffset();
+        qFatal("Error: Protected virtual method QTableWidget::horizontalOffset called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QTableWidget_SuperHorizontalOffset(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_HorizontalOffset_IsBase(true);
-        return vqtablewidget->horizontalOffset();
-    } else {
-        return ((VirtualQTableWidget*)self)->horizontalOffset();
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return vqtablewidget->QTableWidget::horizontalOffset();
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::horizontalOffset called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnHorizontalOffset(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_HorizontalOffset_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_HorizontalOffset_Callback>(slot));
+void QTableWidget_OnHorizontalOffset(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_horizontaloffset_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_HorizontalOffset_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTableWidget_VerticalOffset(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->verticalOffset();
     } else {
-        return ((VirtualQTableWidget*)self)->verticalOffset();
+        qFatal("Error: Protected virtual method QTableWidget::verticalOffset called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QTableWidget_SuperVerticalOffset(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_VerticalOffset_IsBase(true);
-        return vqtablewidget->verticalOffset();
-    } else {
-        return ((VirtualQTableWidget*)self)->verticalOffset();
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return vqtablewidget->QTableWidget::verticalOffset();
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::verticalOffset called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnVerticalOffset(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_VerticalOffset_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_VerticalOffset_Callback>(slot));
+void QTableWidget_OnVerticalOffset(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_verticaloffset_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_VerticalOffset_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* QTableWidget_MoveCursor(QTableWidget* self, int cursorAction, int modifiers) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return new QModelIndex(vqtablewidget->moveCursor(static_cast<VirtualQTableWidget::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
-    }
-    return {};
+    return new QModelIndex((self->*&VirtualQTableWidget::Base::moveCursor)(static_cast<VirtualQTableWidget::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
 }
 
 // Base class handler implementation
 QModelIndex* QTableWidget_SuperMoveCursor(QTableWidget* self, int cursorAction, int modifiers) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_MoveCursor_IsBase(true);
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
         return new QModelIndex(vqtablewidget->moveCursor(static_cast<VirtualQTableWidget::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QTableWidget::moveCursor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMoveCursor(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_MoveCursor_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MoveCursor_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_movecursor_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_MoveCursor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_SetSelection(QTableWidget* self, const QRect* rect, int command) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
     } else {
-        ((VirtualQTableWidget*)self)->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
+        qFatal("Error: Protected virtual method QTableWidget::setSelection called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperSetSelection(QTableWidget* self, const QRect* rect, int command) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SetSelection_IsBase(true);
-        vqtablewidget->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        ((VirtualQTableWidget*)self)->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::setSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSetSelection(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SetSelection_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetSelection_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_setselection_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_SetSelection_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRegion* QTableWidget_VisualRegionForSelection(const QTableWidget* self, const QItemSelection* selection) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return new QRegion(vqtablewidget->visualRegionForSelection(*selection));
-    }
-    return {};
+    return new QRegion((self->*&VirtualQTableWidget::Base::visualRegionForSelection)(*selection));
 }
 
 // Base class handler implementation
 QRegion* QTableWidget_SuperVisualRegionForSelection(const QTableWidget* self, const QItemSelection* selection) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_VisualRegionForSelection_IsBase(true);
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
         return new QRegion(vqtablewidget->visualRegionForSelection(*selection));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QTableWidget::visualRegionForSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnVisualRegionForSelection(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_VisualRegionForSelection_Callback>(slot));
+void QTableWidget_OnVisualRegionForSelection(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_visualregionforselection_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_VisualRegionForSelection_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of QModelIndex* */ QTableWidget_SelectedIndexes(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         QList<QModelIndex> _ret = vqtablewidget->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
@@ -1711,25 +1491,14 @@ libqt_list /* of QModelIndex* */ QTableWidget_SelectedIndexes(const QTableWidget
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QList<QModelIndex> _ret = ((VirtualQTableWidget*)self)->selectedIndexes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+        qFatal("Error: Protected virtual method QTableWidget::selectedIndexes called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 libqt_list /* of QModelIndex* */ QTableWidget_SuperSelectedIndexes(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SelectedIndexes_IsBase(true);
-        QList<QModelIndex> _ret = vqtablewidget->selectedIndexes();
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        QList<QModelIndex> _ret = vqtablewidget->QTableWidget::selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -1739,2891 +1508,1886 @@ libqt_list /* of QModelIndex* */ QTableWidget_SuperSelectedIndexes(const QTableW
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualQTableWidget*)self)->selectedIndexes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::selectedIndexes called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnSelectedIndexes(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SelectedIndexes_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SelectedIndexes_Callback>(slot));
+void QTableWidget_OnSelectedIndexes(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_selectedindexes_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_SelectedIndexes_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_UpdateGeometries(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->updateGeometries();
     } else {
-        ((VirtualQTableWidget*)self)->updateGeometries();
+        qFatal("Error: Protected virtual method QTableWidget::updateGeometries called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperUpdateGeometries(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_UpdateGeometries_IsBase(true);
-        vqtablewidget->updateGeometries();
-    } else {
-        ((VirtualQTableWidget*)self)->updateGeometries();
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::updateGeometries();
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::updateGeometries called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnUpdateGeometries(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_UpdateGeometries_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_UpdateGeometries_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_updategeometries_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_UpdateGeometries_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QTableWidget_ViewportSizeHint(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return new QSize(vqtablewidget->viewportSizeHint());
-    }
-    return {};
+    return new QSize((self->*&VirtualQTableWidget::Base::viewportSizeHint)());
 }
 
 // Base class handler implementation
 QSize* QTableWidget_SuperViewportSizeHint(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ViewportSizeHint_IsBase(true);
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
         return new QSize(vqtablewidget->viewportSizeHint());
-    }
-    return {};
+    qFatal("Error: Protected virtual method QTableWidget::viewportSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnViewportSizeHint(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ViewportSizeHint_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ViewportSizeHint_Callback>(slot));
+void QTableWidget_OnViewportSizeHint(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_viewportsizehint_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_ViewportSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTableWidget_SizeHintForRow(const QTableWidget* self, int row) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->sizeHintForRow(static_cast<int>(row));
     } else {
-        return ((VirtualQTableWidget*)self)->sizeHintForRow(static_cast<int>(row));
+        qFatal("Error: Protected virtual method QTableWidget::sizeHintForRow called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QTableWidget_SuperSizeHintForRow(const QTableWidget* self, int row) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SizeHintForRow_IsBase(true);
-        return vqtablewidget->sizeHintForRow(static_cast<int>(row));
-    } else {
-        return ((VirtualQTableWidget*)self)->sizeHintForRow(static_cast<int>(row));
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return vqtablewidget->QTableWidget::sizeHintForRow(static_cast<int>(row));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::sizeHintForRow called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnSizeHintForRow(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SizeHintForRow_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SizeHintForRow_Callback>(slot));
+void QTableWidget_OnSizeHintForRow(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_sizehintforrow_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_SizeHintForRow_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTableWidget_SizeHintForColumn(const QTableWidget* self, int column) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->sizeHintForColumn(static_cast<int>(column));
     } else {
-        return ((VirtualQTableWidget*)self)->sizeHintForColumn(static_cast<int>(column));
+        qFatal("Error: Protected virtual method QTableWidget::sizeHintForColumn called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QTableWidget_SuperSizeHintForColumn(const QTableWidget* self, int column) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SizeHintForColumn_IsBase(true);
-        return vqtablewidget->sizeHintForColumn(static_cast<int>(column));
-    } else {
-        return ((VirtualQTableWidget*)self)->sizeHintForColumn(static_cast<int>(column));
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return vqtablewidget->QTableWidget::sizeHintForColumn(static_cast<int>(column));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::sizeHintForColumn called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnSizeHintForColumn(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SizeHintForColumn_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SizeHintForColumn_Callback>(slot));
+void QTableWidget_OnSizeHintForColumn(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_sizehintforcolumn_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_SizeHintForColumn_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_VerticalScrollbarAction(QTableWidget* self, int action) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->verticalScrollbarAction(static_cast<int>(action));
     } else {
-        ((VirtualQTableWidget*)self)->verticalScrollbarAction(static_cast<int>(action));
+        qFatal("Error: Protected virtual method QTableWidget::verticalScrollbarAction called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperVerticalScrollbarAction(QTableWidget* self, int action) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_VerticalScrollbarAction_IsBase(true);
-        vqtablewidget->verticalScrollbarAction(static_cast<int>(action));
-    } else {
-        ((VirtualQTableWidget*)self)->verticalScrollbarAction(static_cast<int>(action));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::verticalScrollbarAction(static_cast<int>(action));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::verticalScrollbarAction called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnVerticalScrollbarAction(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_VerticalScrollbarAction_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_verticalscrollbaraction_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_VerticalScrollbarAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_HorizontalScrollbarAction(QTableWidget* self, int action) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->horizontalScrollbarAction(static_cast<int>(action));
     } else {
-        ((VirtualQTableWidget*)self)->horizontalScrollbarAction(static_cast<int>(action));
+        qFatal("Error: Protected virtual method QTableWidget::horizontalScrollbarAction called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperHorizontalScrollbarAction(QTableWidget* self, int action) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_HorizontalScrollbarAction_IsBase(true);
-        vqtablewidget->horizontalScrollbarAction(static_cast<int>(action));
-    } else {
-        ((VirtualQTableWidget*)self)->horizontalScrollbarAction(static_cast<int>(action));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::horizontalScrollbarAction(static_cast<int>(action));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::horizontalScrollbarAction called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnHorizontalScrollbarAction(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_HorizontalScrollbarAction_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_horizontalscrollbaraction_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_HorizontalScrollbarAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTableWidget_IsIndexHidden(const QTableWidget* self, const QModelIndex* index) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->isIndexHidden(*index);
     } else {
-        return ((VirtualQTableWidget*)self)->isIndexHidden(*index);
+        qFatal("Error: Protected virtual method QTableWidget::isIndexHidden called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTableWidget_SuperIsIndexHidden(const QTableWidget* self, const QModelIndex* index) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_IsIndexHidden_IsBase(true);
-        return vqtablewidget->isIndexHidden(*index);
-    } else {
-        return ((VirtualQTableWidget*)self)->isIndexHidden(*index);
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return vqtablewidget->QTableWidget::isIndexHidden(*index);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::isIndexHidden called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnIsIndexHidden(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_IsIndexHidden_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_IsIndexHidden_Callback>(slot));
+void QTableWidget_OnIsIndexHidden(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_isindexhidden_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_IsIndexHidden_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_SelectionChanged(QTableWidget* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->selectionChanged(*selected, *deselected);
     } else {
-        ((VirtualQTableWidget*)self)->selectionChanged(*selected, *deselected);
+        qFatal("Error: Protected virtual method QTableWidget::selectionChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperSelectionChanged(QTableWidget* self, const QItemSelection* selected, const QItemSelection* deselected) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SelectionChanged_IsBase(true);
-        vqtablewidget->selectionChanged(*selected, *deselected);
-    } else {
-        ((VirtualQTableWidget*)self)->selectionChanged(*selected, *deselected);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::selectionChanged(*selected, *deselected);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::selectionChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSelectionChanged(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SelectionChanged_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SelectionChanged_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_selectionchanged_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_SelectionChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_CurrentChanged(QTableWidget* self, const QModelIndex* current, const QModelIndex* previous) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->currentChanged(*current, *previous);
     } else {
-        ((VirtualQTableWidget*)self)->currentChanged(*current, *previous);
+        qFatal("Error: Protected virtual method QTableWidget::currentChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperCurrentChanged(QTableWidget* self, const QModelIndex* current, const QModelIndex* previous) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_CurrentChanged_IsBase(true);
-        vqtablewidget->currentChanged(*current, *previous);
-    } else {
-        ((VirtualQTableWidget*)self)->currentChanged(*current, *previous);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::currentChanged(*current, *previous);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::currentChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnCurrentChanged(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_CurrentChanged_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_CurrentChanged_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_currentchanged_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_CurrentChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_KeyboardSearch(QTableWidget* self, const libqt_string search) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->keyboardSearch(search_QString);
-    } else {
-        self->QTableWidget::keyboardSearch(search_QString);
-    }
+    self->keyboardSearch(search_QString);
 }
 
 // Base class handler implementation
 void QTableWidget_SuperKeyboardSearch(QTableWidget* self, const libqt_string search) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_KeyboardSearch_IsBase(true);
-        vqtablewidget->keyboardSearch(search_QString);
-    } else {
-        self->QTableWidget::keyboardSearch(search_QString);
-    }
+    self->QTableWidget::keyboardSearch(search_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnKeyboardSearch(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_KeyboardSearch_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_KeyboardSearch_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_keyboardsearch_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_KeyboardSearch_Callback>(slot);
 }
 
 // Derived class handler implementation
 QAbstractItemDelegate* QTableWidget_ItemDelegateForIndex(const QTableWidget* self, const QModelIndex* index) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->itemDelegateForIndex(*index);
-    } else {
-        return self->QTableWidget::itemDelegateForIndex(*index);
-    }
+    return self->itemDelegateForIndex(*index);
 }
 
 // Base class handler implementation
 QAbstractItemDelegate* QTableWidget_SuperItemDelegateForIndex(const QTableWidget* self, const QModelIndex* index) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ItemDelegateForIndex_IsBase(true);
-        return vqtablewidget->itemDelegateForIndex(*index);
-    } else {
-        return self->QTableWidget::itemDelegateForIndex(*index);
-    }
+    return self->QTableWidget::itemDelegateForIndex(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnItemDelegateForIndex(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ItemDelegateForIndex_Callback>(slot));
+void QTableWidget_OnItemDelegateForIndex(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_itemdelegateforindex_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_ItemDelegateForIndex_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QTableWidget_InputMethodQuery(const QTableWidget* self, int query) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return new QVariant(vqtablewidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQTableWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Base class handler implementation
 QVariant* QTableWidget_SuperInputMethodQuery(const QTableWidget* self, int query) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vqtablewidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQTableWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->QTableWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnInputMethodQuery(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_InputMethodQuery_Callback>(slot));
+void QTableWidget_OnInputMethodQuery(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_inputmethodquery_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_Reset(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->reset();
-    } else {
-        self->QTableWidget::reset();
-    }
+    self->reset();
 }
 
 // Base class handler implementation
 void QTableWidget_SuperReset(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_Reset_IsBase(true);
-        vqtablewidget->reset();
-    } else {
-        self->QTableWidget::reset();
-    }
+    self->QTableWidget::reset();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnReset(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_Reset_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Reset_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_reset_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_Reset_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_SelectAll(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->selectAll();
-    } else {
-        self->QTableWidget::selectAll();
-    }
+    self->selectAll();
 }
 
 // Base class handler implementation
 void QTableWidget_SuperSelectAll(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SelectAll_IsBase(true);
-        vqtablewidget->selectAll();
-    } else {
-        self->QTableWidget::selectAll();
-    }
+    self->QTableWidget::selectAll();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSelectAll(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SelectAll_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SelectAll_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_selectall_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_SelectAll_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_DataChanged(QTableWidget* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
     int* roles_arr = static_cast<int*>(roles.data);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QList.push_back(static_cast<int>(roles_arr[i]));
     }
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
+    if (vqtablewidget) {
         vqtablewidget->dataChanged(*topLeft, *bottomRight, roles_QList);
     } else {
-        ((VirtualQTableWidget*)self)->dataChanged(*topLeft, *bottomRight, roles_QList);
+        qFatal("Error: Protected virtual method QTableWidget::dataChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperDataChanged(QTableWidget* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
     int* roles_arr = static_cast<int*>(roles.data);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QList.push_back(static_cast<int>(roles_arr[i]));
     }
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DataChanged_IsBase(true);
-        vqtablewidget->dataChanged(*topLeft, *bottomRight, roles_QList);
-    } else {
-        ((VirtualQTableWidget*)self)->dataChanged(*topLeft, *bottomRight, roles_QList);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::dataChanged(*topLeft, *bottomRight, roles_QList);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::dataChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDataChanged(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_DataChanged_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DataChanged_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_datachanged_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_DataChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_RowsInserted(QTableWidget* self, const QModelIndex* parent, int start, int end) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
     } else {
-        ((VirtualQTableWidget*)self)->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+        qFatal("Error: Protected virtual method QTableWidget::rowsInserted called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperRowsInserted(QTableWidget* self, const QModelIndex* parent, int start, int end) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_RowsInserted_IsBase(true);
-        vqtablewidget->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQTableWidget*)self)->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::rowsInserted called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnRowsInserted(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_RowsInserted_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_RowsInserted_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_rowsinserted_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_RowsInserted_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_RowsAboutToBeRemoved(QTableWidget* self, const QModelIndex* parent, int start, int end) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
     } else {
-        ((VirtualQTableWidget*)self)->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+        qFatal("Error: Protected virtual method QTableWidget::rowsAboutToBeRemoved called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperRowsAboutToBeRemoved(QTableWidget* self, const QModelIndex* parent, int start, int end) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_RowsAboutToBeRemoved_IsBase(true);
-        vqtablewidget->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQTableWidget*)self)->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::rowsAboutToBeRemoved called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnRowsAboutToBeRemoved(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_RowsAboutToBeRemoved_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_rowsabouttoberemoved_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_RowsAboutToBeRemoved_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_UpdateEditorData(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->updateEditorData();
     } else {
-        ((VirtualQTableWidget*)self)->updateEditorData();
+        qFatal("Error: Protected virtual method QTableWidget::updateEditorData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperUpdateEditorData(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_UpdateEditorData_IsBase(true);
-        vqtablewidget->updateEditorData();
-    } else {
-        ((VirtualQTableWidget*)self)->updateEditorData();
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::updateEditorData();
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::updateEditorData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnUpdateEditorData(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_UpdateEditorData_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_UpdateEditorData_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_updateeditordata_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_UpdateEditorData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_UpdateEditorGeometries(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->updateEditorGeometries();
     } else {
-        ((VirtualQTableWidget*)self)->updateEditorGeometries();
+        qFatal("Error: Protected virtual method QTableWidget::updateEditorGeometries called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperUpdateEditorGeometries(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_UpdateEditorGeometries_IsBase(true);
-        vqtablewidget->updateEditorGeometries();
-    } else {
-        ((VirtualQTableWidget*)self)->updateEditorGeometries();
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::updateEditorGeometries();
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::updateEditorGeometries called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnUpdateEditorGeometries(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_UpdateEditorGeometries_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_updateeditorgeometries_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_UpdateEditorGeometries_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_VerticalScrollbarValueChanged(QTableWidget* self, int value) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->verticalScrollbarValueChanged(static_cast<int>(value));
     } else {
-        ((VirtualQTableWidget*)self)->verticalScrollbarValueChanged(static_cast<int>(value));
+        qFatal("Error: Protected virtual method QTableWidget::verticalScrollbarValueChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperVerticalScrollbarValueChanged(QTableWidget* self, int value) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_VerticalScrollbarValueChanged_IsBase(true);
-        vqtablewidget->verticalScrollbarValueChanged(static_cast<int>(value));
-    } else {
-        ((VirtualQTableWidget*)self)->verticalScrollbarValueChanged(static_cast<int>(value));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::verticalScrollbarValueChanged(static_cast<int>(value));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::verticalScrollbarValueChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnVerticalScrollbarValueChanged(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_VerticalScrollbarValueChanged_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_verticalscrollbarvaluechanged_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_VerticalScrollbarValueChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_HorizontalScrollbarValueChanged(QTableWidget* self, int value) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->horizontalScrollbarValueChanged(static_cast<int>(value));
     } else {
-        ((VirtualQTableWidget*)self)->horizontalScrollbarValueChanged(static_cast<int>(value));
+        qFatal("Error: Protected virtual method QTableWidget::horizontalScrollbarValueChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperHorizontalScrollbarValueChanged(QTableWidget* self, int value) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_HorizontalScrollbarValueChanged_IsBase(true);
-        vqtablewidget->horizontalScrollbarValueChanged(static_cast<int>(value));
-    } else {
-        ((VirtualQTableWidget*)self)->horizontalScrollbarValueChanged(static_cast<int>(value));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::horizontalScrollbarValueChanged(static_cast<int>(value));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::horizontalScrollbarValueChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnHorizontalScrollbarValueChanged(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_HorizontalScrollbarValueChanged_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_horizontalscrollbarvaluechanged_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_HorizontalScrollbarValueChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_CloseEditor(QTableWidget* self, QWidget* editor, int hint) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
     } else {
-        ((VirtualQTableWidget*)self)->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
+        qFatal("Error: Protected virtual method QTableWidget::closeEditor called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperCloseEditor(QTableWidget* self, QWidget* editor, int hint) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_CloseEditor_IsBase(true);
-        vqtablewidget->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
-    } else {
-        ((VirtualQTableWidget*)self)->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::closeEditor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnCloseEditor(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_CloseEditor_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_CloseEditor_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_closeeditor_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_CloseEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_CommitData(QTableWidget* self, QWidget* editor) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->commitData(editor);
     } else {
-        ((VirtualQTableWidget*)self)->commitData(editor);
+        qFatal("Error: Protected virtual method QTableWidget::commitData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperCommitData(QTableWidget* self, QWidget* editor) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_CommitData_IsBase(true);
-        vqtablewidget->commitData(editor);
-    } else {
-        ((VirtualQTableWidget*)self)->commitData(editor);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::commitData(editor);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::commitData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnCommitData(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_CommitData_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_CommitData_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_commitdata_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_CommitData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_EditorDestroyed(QTableWidget* self, QObject* editor) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->editorDestroyed(editor);
     } else {
-        ((VirtualQTableWidget*)self)->editorDestroyed(editor);
+        qFatal("Error: Protected virtual method QTableWidget::editorDestroyed called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperEditorDestroyed(QTableWidget* self, QObject* editor) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_EditorDestroyed_IsBase(true);
-        vqtablewidget->editorDestroyed(editor);
-    } else {
-        ((VirtualQTableWidget*)self)->editorDestroyed(editor);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::editorDestroyed(editor);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::editorDestroyed called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnEditorDestroyed(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_EditorDestroyed_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_EditorDestroyed_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_editordestroyed_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_EditorDestroyed_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTableWidget_Edit2(QTableWidget* self, const QModelIndex* index, int trigger, QEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
     } else {
-        return ((VirtualQTableWidget*)self)->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
+        qFatal("Error: Protected virtual method QTableWidget::edit2 called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTableWidget_SuperEdit2(QTableWidget* self, const QModelIndex* index, int trigger, QEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_Edit2_IsBase(true);
-        return vqtablewidget->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
-    } else {
-        return ((VirtualQTableWidget*)self)->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        return vqtablewidget->QTableWidget::edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::edit2 called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnEdit2(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_Edit2_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Edit2_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_edit2_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_Edit2_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTableWidget_SelectionCommand(const QTableWidget* self, const QModelIndex* index, const QEvent* event) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return static_cast<int>(vqtablewidget->selectionCommand(*index, event));
     } else {
-        return static_cast<int>(((VirtualQTableWidget*)self)->selectionCommand(*index, event));
+        qFatal("Error: Protected virtual method QTableWidget::selectionCommand called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QTableWidget_SuperSelectionCommand(const QTableWidget* self, const QModelIndex* index, const QEvent* event) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SelectionCommand_IsBase(true);
-        return static_cast<int>(vqtablewidget->selectionCommand(*index, event));
-    } else {
-        return static_cast<int>(((VirtualQTableWidget*)self)->selectionCommand(*index, event));
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return static_cast<int>(vqtablewidget->QTableWidget::selectionCommand(*index, event));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::selectionCommand called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnSelectionCommand(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SelectionCommand_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SelectionCommand_Callback>(slot));
+void QTableWidget_OnSelectionCommand(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_selectioncommand_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_SelectionCommand_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_StartDrag(QTableWidget* self, int supportedActions) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->startDrag(static_cast<Qt::DropActions>(supportedActions));
     } else {
-        ((VirtualQTableWidget*)self)->startDrag(static_cast<Qt::DropActions>(supportedActions));
+        qFatal("Error: Protected virtual method QTableWidget::startDrag called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperStartDrag(QTableWidget* self, int supportedActions) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_StartDrag_IsBase(true);
-        vqtablewidget->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    } else {
-        ((VirtualQTableWidget*)self)->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::startDrag(static_cast<Qt::DropActions>(supportedActions));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::startDrag called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnStartDrag(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_StartDrag_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_StartDrag_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_startdrag_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_StartDrag_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTableWidget_FocusNextPrevChild(QTableWidget* self, bool next) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualQTableWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QTableWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTableWidget_SuperFocusNextPrevChild(QTableWidget* self, bool next) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_FocusNextPrevChild_IsBase(true);
-        return vqtablewidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQTableWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        return vqtablewidget->QTableWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnFocusNextPrevChild(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_focusnextprevchild_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTableWidget_ViewportEvent(QTableWidget* self, QEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->viewportEvent(event);
     } else {
-        return ((VirtualQTableWidget*)self)->viewportEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::viewportEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTableWidget_SuperViewportEvent(QTableWidget* self, QEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ViewportEvent_IsBase(true);
-        return vqtablewidget->viewportEvent(event);
-    } else {
-        return ((VirtualQTableWidget*)self)->viewportEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        return vqtablewidget->QTableWidget::viewportEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::viewportEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnViewportEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ViewportEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ViewportEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_viewportevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_ViewportEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_MousePressEvent(QTableWidget* self, QMouseEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->mousePressEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperMousePressEvent(QTableWidget* self, QMouseEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_MousePressEvent_IsBase(true);
-        vqtablewidget->mousePressEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMousePressEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MousePressEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_mousepressevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_MouseMoveEvent(QTableWidget* self, QMouseEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->mouseMoveEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperMouseMoveEvent(QTableWidget* self, QMouseEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_MouseMoveEvent_IsBase(true);
-        vqtablewidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMouseMoveEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_mousemoveevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_MouseReleaseEvent(QTableWidget* self, QMouseEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperMouseReleaseEvent(QTableWidget* self, QMouseEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_MouseReleaseEvent_IsBase(true);
-        vqtablewidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMouseReleaseEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_mousereleaseevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_MouseDoubleClickEvent(QTableWidget* self, QMouseEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperMouseDoubleClickEvent(QTableWidget* self, QMouseEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_MouseDoubleClickEvent_IsBase(true);
-        vqtablewidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMouseDoubleClickEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_DragEnterEvent(QTableWidget* self, QDragEnterEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->dragEnterEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperDragEnterEvent(QTableWidget* self, QDragEnterEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DragEnterEvent_IsBase(true);
-        vqtablewidget->dragEnterEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDragEnterEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_dragenterevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_DragMoveEvent(QTableWidget* self, QDragMoveEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->dragMoveEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperDragMoveEvent(QTableWidget* self, QDragMoveEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DragMoveEvent_IsBase(true);
-        vqtablewidget->dragMoveEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDragMoveEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_dragmoveevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_DragLeaveEvent(QTableWidget* self, QDragLeaveEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->dragLeaveEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperDragLeaveEvent(QTableWidget* self, QDragLeaveEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DragLeaveEvent_IsBase(true);
-        vqtablewidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDragLeaveEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_dragleaveevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_FocusInEvent(QTableWidget* self, QFocusEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->focusInEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperFocusInEvent(QTableWidget* self, QFocusEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_FocusInEvent_IsBase(true);
-        vqtablewidget->focusInEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnFocusInEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_FocusInEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_focusinevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_FocusOutEvent(QTableWidget* self, QFocusEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->focusOutEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperFocusOutEvent(QTableWidget* self, QFocusEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_FocusOutEvent_IsBase(true);
-        vqtablewidget->focusOutEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnFocusOutEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_focusoutevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_KeyPressEvent(QTableWidget* self, QKeyEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->keyPressEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperKeyPressEvent(QTableWidget* self, QKeyEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_KeyPressEvent_IsBase(true);
-        vqtablewidget->keyPressEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnKeyPressEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_keypressevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_ResizeEvent(QTableWidget* self, QResizeEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->resizeEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperResizeEvent(QTableWidget* self, QResizeEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ResizeEvent_IsBase(true);
-        vqtablewidget->resizeEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnResizeEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ResizeEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_resizeevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_InputMethodEvent(QTableWidget* self, QInputMethodEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->inputMethodEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->inputMethodEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperInputMethodEvent(QTableWidget* self, QInputMethodEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_InputMethodEvent_IsBase(true);
-        vqtablewidget->inputMethodEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->inputMethodEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::inputMethodEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnInputMethodEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_inputmethodevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTableWidget_EventFilter(QTableWidget* self, QObject* object, QEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->eventFilter(object, event);
     } else {
-        return ((VirtualQTableWidget*)self)->eventFilter(object, event);
+        qFatal("Error: Protected virtual method QTableWidget::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTableWidget_SuperEventFilter(QTableWidget* self, QObject* object, QEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_EventFilter_IsBase(true);
-        return vqtablewidget->eventFilter(object, event);
-    } else {
-        return ((VirtualQTableWidget*)self)->eventFilter(object, event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        return vqtablewidget->QTableWidget::eventFilter(object, event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnEventFilter(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_EventFilter_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_EventFilter_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_eventfilter_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QTableWidget_MinimumSizeHint(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return new QSize(vqtablewidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQTableWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QTableWidget_SuperMinimumSizeHint(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vqtablewidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQTableWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QTableWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnMinimumSizeHint(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MinimumSizeHint_Callback>(slot));
+void QTableWidget_OnMinimumSizeHint(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_minimumsizehint_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QTableWidget_SizeHint(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return new QSize(vqtablewidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQTableWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QTableWidget_SuperSizeHint(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SizeHint_IsBase(true);
-        return new QSize(vqtablewidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQTableWidget*)self)->sizeHint());
-    }
+    return new QSize(self->QTableWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnSizeHint(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SizeHint_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SizeHint_Callback>(slot));
+void QTableWidget_OnSizeHint(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_sizehint_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_SetupViewport(QTableWidget* self, QWidget* viewport) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setupViewport(viewport);
-    } else {
-        self->QTableWidget::setupViewport(viewport);
-    }
+    self->setupViewport(viewport);
 }
 
 // Base class handler implementation
 void QTableWidget_SuperSetupViewport(QTableWidget* self, QWidget* viewport) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SetupViewport_IsBase(true);
-        vqtablewidget->setupViewport(viewport);
-    } else {
-        self->QTableWidget::setupViewport(viewport);
-    }
+    self->QTableWidget::setupViewport(viewport);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSetupViewport(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SetupViewport_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetupViewport_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_setupviewport_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_SetupViewport_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_WheelEvent(QTableWidget* self, QWheelEvent* param1) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->wheelEvent(param1);
     } else {
-        ((VirtualQTableWidget*)self)->wheelEvent(param1);
+        qFatal("Error: Protected virtual method QTableWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperWheelEvent(QTableWidget* self, QWheelEvent* param1) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_WheelEvent_IsBase(true);
-        vqtablewidget->wheelEvent(param1);
-    } else {
-        ((VirtualQTableWidget*)self)->wheelEvent(param1);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::wheelEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnWheelEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_WheelEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_WheelEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_wheelevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_ContextMenuEvent(QTableWidget* self, QContextMenuEvent* param1) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->contextMenuEvent(param1);
     } else {
-        ((VirtualQTableWidget*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method QTableWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperContextMenuEvent(QTableWidget* self, QContextMenuEvent* param1) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ContextMenuEvent_IsBase(true);
-        vqtablewidget->contextMenuEvent(param1);
-    } else {
-        ((VirtualQTableWidget*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnContextMenuEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_contextmenuevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_ChangeEvent(QTableWidget* self, QEvent* param1) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->changeEvent(param1);
     } else {
-        ((VirtualQTableWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QTableWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperChangeEvent(QTableWidget* self, QEvent* param1) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ChangeEvent_IsBase(true);
-        vqtablewidget->changeEvent(param1);
-    } else {
-        ((VirtualQTableWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnChangeEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ChangeEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_changeevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_InitStyleOption(const QTableWidget* self, QStyleOptionFrame* option) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->initStyleOption(option);
     } else {
-        ((VirtualQTableWidget*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method QTableWidget::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperInitStyleOption(const QTableWidget* self, QStyleOptionFrame* option) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_InitStyleOption_IsBase(true);
-        vqtablewidget->initStyleOption(option);
-    } else {
-        ((VirtualQTableWidget*)self)->initStyleOption(option);
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        vqtablewidget->QTableWidget::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnInitStyleOption(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_InitStyleOption_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_InitStyleOption_Callback>(slot));
+void QTableWidget_OnInitStyleOption(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_initstyleoption_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTableWidget_DevType(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->devType();
-    } else {
-        return self->QTableWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QTableWidget_SuperDevType(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DevType_IsBase(true);
-        return vqtablewidget->devType();
-    } else {
-        return self->QTableWidget::devType();
-    }
+    return self->QTableWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnDevType(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_DevType_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DevType_Callback>(slot));
+void QTableWidget_OnDevType(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_devtype_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_SetVisible(QTableWidget* self, bool visible) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setVisible(visible);
-    } else {
-        self->QTableWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QTableWidget_SuperSetVisible(QTableWidget* self, bool visible) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SetVisible_IsBase(true);
-        vqtablewidget->setVisible(visible);
-    } else {
-        self->QTableWidget::setVisible(visible);
-    }
+    self->QTableWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSetVisible(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SetVisible_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetVisible_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_setvisible_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTableWidget_HeightForWidth(const QTableWidget* self, int param1) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QTableWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QTableWidget_SuperHeightForWidth(const QTableWidget* self, int param1) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_HeightForWidth_IsBase(true);
-        return vqtablewidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QTableWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QTableWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnHeightForWidth(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_HeightForWidth_Callback>(slot));
+void QTableWidget_OnHeightForWidth(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_heightforwidth_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTableWidget_HasHeightForWidth(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->hasHeightForWidth();
-    } else {
-        return self->QTableWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QTableWidget_SuperHasHeightForWidth(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_HasHeightForWidth_IsBase(true);
-        return vqtablewidget->hasHeightForWidth();
-    } else {
-        return self->QTableWidget::hasHeightForWidth();
-    }
+    return self->QTableWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnHasHeightForWidth(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_HasHeightForWidth_Callback>(slot));
+void QTableWidget_OnHasHeightForWidth(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_hasheightforwidth_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QTableWidget_PaintEngine(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->paintEngine();
-    } else {
-        return self->QTableWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QTableWidget_SuperPaintEngine(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_PaintEngine_IsBase(true);
-        return vqtablewidget->paintEngine();
-    } else {
-        return self->QTableWidget::paintEngine();
-    }
+    return self->QTableWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnPaintEngine(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_PaintEngine_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_PaintEngine_Callback>(slot));
+void QTableWidget_OnPaintEngine(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_paintengine_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_KeyReleaseEvent(QTableWidget* self, QKeyEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->keyReleaseEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperKeyReleaseEvent(QTableWidget* self, QKeyEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_KeyReleaseEvent_IsBase(true);
-        vqtablewidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnKeyReleaseEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_keyreleaseevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_EnterEvent(QTableWidget* self, QEnterEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->enterEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperEnterEvent(QTableWidget* self, QEnterEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_EnterEvent_IsBase(true);
-        vqtablewidget->enterEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->enterEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnEnterEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_EnterEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_EnterEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_enterevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_LeaveEvent(QTableWidget* self, QEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->leaveEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperLeaveEvent(QTableWidget* self, QEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_LeaveEvent_IsBase(true);
-        vqtablewidget->leaveEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnLeaveEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_LeaveEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_leaveevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_MoveEvent(QTableWidget* self, QMoveEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->moveEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperMoveEvent(QTableWidget* self, QMoveEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_MoveEvent_IsBase(true);
-        vqtablewidget->moveEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->moveEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMoveEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_MoveEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MoveEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_moveevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_CloseEvent(QTableWidget* self, QCloseEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->closeEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperCloseEvent(QTableWidget* self, QCloseEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_CloseEvent_IsBase(true);
-        vqtablewidget->closeEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->closeEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnCloseEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_CloseEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_CloseEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_closeevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_TabletEvent(QTableWidget* self, QTabletEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->tabletEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperTabletEvent(QTableWidget* self, QTabletEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_TabletEvent_IsBase(true);
-        vqtablewidget->tabletEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnTabletEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_TabletEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_TabletEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_tabletevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_ActionEvent(QTableWidget* self, QActionEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->actionEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperActionEvent(QTableWidget* self, QActionEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ActionEvent_IsBase(true);
-        vqtablewidget->actionEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->actionEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnActionEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ActionEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ActionEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_actionevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_ShowEvent(QTableWidget* self, QShowEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->showEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperShowEvent(QTableWidget* self, QShowEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ShowEvent_IsBase(true);
-        vqtablewidget->showEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->showEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnShowEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ShowEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ShowEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_showevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_HideEvent(QTableWidget* self, QHideEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->hideEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperHideEvent(QTableWidget* self, QHideEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_HideEvent_IsBase(true);
-        vqtablewidget->hideEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->hideEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnHideEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_HideEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_HideEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_hideevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTableWidget_NativeEvent(QTableWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
+    if (vqtablewidget) {
         return vqtablewidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQTableWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QTableWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTableWidget_SuperNativeEvent(QTableWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_NativeEvent_IsBase(true);
-        return vqtablewidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQTableWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        return vqtablewidget->QTableWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnNativeEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_NativeEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_NativeEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_nativeevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTableWidget_Metric(const QTableWidget* self, int param1) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQTableWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QTableWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QTableWidget_SuperMetric(const QTableWidget* self, int param1) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_Metric_IsBase(true);
-        return vqtablewidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQTableWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return vqtablewidget->QTableWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnMetric(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_Metric_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Metric_Callback>(slot));
+void QTableWidget_OnMetric(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_metric_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_InitPainter(const QTableWidget* self, QPainter* painter) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->initPainter(painter);
     } else {
-        ((VirtualQTableWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QTableWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperInitPainter(const QTableWidget* self, QPainter* painter) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_InitPainter_IsBase(true);
-        vqtablewidget->initPainter(painter);
-    } else {
-        ((VirtualQTableWidget*)self)->initPainter(painter);
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        vqtablewidget->QTableWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnInitPainter(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_InitPainter_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_InitPainter_Callback>(slot));
+void QTableWidget_OnInitPainter(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_initpainter_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QTableWidget_Redirected(const QTableWidget* self, QPoint* offset) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->redirected(offset);
     } else {
-        return ((VirtualQTableWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QTableWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QTableWidget_SuperRedirected(const QTableWidget* self, QPoint* offset) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_Redirected_IsBase(true);
-        return vqtablewidget->redirected(offset);
-    } else {
-        return ((VirtualQTableWidget*)self)->redirected(offset);
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return vqtablewidget->QTableWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnRedirected(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_Redirected_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Redirected_Callback>(slot));
+void QTableWidget_OnRedirected(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_redirected_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QTableWidget_SharedPainter(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         return vqtablewidget->sharedPainter();
     } else {
-        return ((VirtualQTableWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QTableWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QTableWidget_SuperSharedPainter(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SharedPainter_IsBase(true);
-        return vqtablewidget->sharedPainter();
-    } else {
-        return ((VirtualQTableWidget*)self)->sharedPainter();
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return vqtablewidget->QTableWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTableWidget_OnSharedPainter(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SharedPainter_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SharedPainter_Callback>(slot));
+void QTableWidget_OnSharedPainter(QTableWidget* self, intptr_t slot) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
+        vqtablewidget->qtablewidget_sharedpainter_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_ChildEvent(QTableWidget* self, QChildEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->childEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperChildEvent(QTableWidget* self, QChildEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ChildEvent_IsBase(true);
-        vqtablewidget->childEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->childEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnChildEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ChildEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ChildEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_childevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_CustomEvent(QTableWidget* self, QEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->customEvent(event);
     } else {
-        ((VirtualQTableWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QTableWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperCustomEvent(QTableWidget* self, QEvent* event) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_CustomEvent_IsBase(true);
-        vqtablewidget->customEvent(event);
-    } else {
-        ((VirtualQTableWidget*)self)->customEvent(event);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnCustomEvent(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_CustomEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_CustomEvent_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_customevent_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_ConnectNotify(QTableWidget* self, const QMetaMethod* signal) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->connectNotify(*signal);
     } else {
-        ((VirtualQTableWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QTableWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperConnectNotify(QTableWidget* self, const QMetaMethod* signal) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ConnectNotify_IsBase(true);
-        vqtablewidget->connectNotify(*signal);
-    } else {
-        ((VirtualQTableWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnConnectNotify(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ConnectNotify_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_connectnotify_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTableWidget_DisconnectNotify(QTableWidget* self, const QMetaMethod* signal) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget) {
         vqtablewidget->disconnectNotify(*signal);
     } else {
-        ((VirtualQTableWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QTableWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTableWidget_SuperDisconnectNotify(QTableWidget* self, const QMetaMethod* signal) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DisconnectNotify_IsBase(true);
-        vqtablewidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualQTableWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->QTableWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTableWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDisconnectNotify(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self))
+        vqtablewidget->qtablewidget_disconnectnotify_callback = reinterpret_cast<VirtualQTableWidget::QTableWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_RowMoved(QTableWidget* self, int row, int oldIndex, int newIndex) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->rowMoved(static_cast<int>(row), static_cast<int>(oldIndex), static_cast<int>(newIndex));
-    } else {
-        ((VirtualQTableWidget*)self)->rowMoved(static_cast<int>(row), static_cast<int>(oldIndex), static_cast<int>(newIndex));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::rowMoved(static_cast<int>(row), static_cast<int>(oldIndex), static_cast<int>(newIndex));
+    } else
+        qFatal("Error: Protected method QTableWidget::rowMoved called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperRowMoved(QTableWidget* self, int row, int oldIndex, int newIndex) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_RowMoved_IsBase(true);
-        vqtablewidget->rowMoved(static_cast<int>(row), static_cast<int>(oldIndex), static_cast<int>(newIndex));
-    } else {
-        ((VirtualQTableWidget*)self)->rowMoved(static_cast<int>(row), static_cast<int>(oldIndex), static_cast<int>(newIndex));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnRowMoved(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_RowMoved_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_RowMoved_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_ColumnMoved(QTableWidget* self, int column, int oldIndex, int newIndex) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->columnMoved(static_cast<int>(column), static_cast<int>(oldIndex), static_cast<int>(newIndex));
-    } else {
-        ((VirtualQTableWidget*)self)->columnMoved(static_cast<int>(column), static_cast<int>(oldIndex), static_cast<int>(newIndex));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::columnMoved(static_cast<int>(column), static_cast<int>(oldIndex), static_cast<int>(newIndex));
+    } else
+        qFatal("Error: Protected method QTableWidget::columnMoved called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperColumnMoved(QTableWidget* self, int column, int oldIndex, int newIndex) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ColumnMoved_IsBase(true);
-        vqtablewidget->columnMoved(static_cast<int>(column), static_cast<int>(oldIndex), static_cast<int>(newIndex));
-    } else {
-        ((VirtualQTableWidget*)self)->columnMoved(static_cast<int>(column), static_cast<int>(oldIndex), static_cast<int>(newIndex));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnColumnMoved(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ColumnMoved_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ColumnMoved_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_RowResized(QTableWidget* self, int row, int oldHeight, int newHeight) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->rowResized(static_cast<int>(row), static_cast<int>(oldHeight), static_cast<int>(newHeight));
-    } else {
-        ((VirtualQTableWidget*)self)->rowResized(static_cast<int>(row), static_cast<int>(oldHeight), static_cast<int>(newHeight));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::rowResized(static_cast<int>(row), static_cast<int>(oldHeight), static_cast<int>(newHeight));
+    } else
+        qFatal("Error: Protected method QTableWidget::rowResized called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperRowResized(QTableWidget* self, int row, int oldHeight, int newHeight) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_RowResized_IsBase(true);
-        vqtablewidget->rowResized(static_cast<int>(row), static_cast<int>(oldHeight), static_cast<int>(newHeight));
-    } else {
-        ((VirtualQTableWidget*)self)->rowResized(static_cast<int>(row), static_cast<int>(oldHeight), static_cast<int>(newHeight));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnRowResized(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_RowResized_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_RowResized_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_ColumnResized(QTableWidget* self, int column, int oldWidth, int newWidth) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->columnResized(static_cast<int>(column), static_cast<int>(oldWidth), static_cast<int>(newWidth));
-    } else {
-        ((VirtualQTableWidget*)self)->columnResized(static_cast<int>(column), static_cast<int>(oldWidth), static_cast<int>(newWidth));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::columnResized(static_cast<int>(column), static_cast<int>(oldWidth), static_cast<int>(newWidth));
+    } else
+        qFatal("Error: Protected method QTableWidget::columnResized called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperColumnResized(QTableWidget* self, int column, int oldWidth, int newWidth) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ColumnResized_IsBase(true);
-        vqtablewidget->columnResized(static_cast<int>(column), static_cast<int>(oldWidth), static_cast<int>(newWidth));
-    } else {
-        ((VirtualQTableWidget*)self)->columnResized(static_cast<int>(column), static_cast<int>(oldWidth), static_cast<int>(newWidth));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnColumnResized(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ColumnResized_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ColumnResized_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_RowCountChanged(QTableWidget* self, int oldCount, int newCount) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->rowCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
-    } else {
-        ((VirtualQTableWidget*)self)->rowCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::rowCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
+    } else
+        qFatal("Error: Protected method QTableWidget::rowCountChanged called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperRowCountChanged(QTableWidget* self, int oldCount, int newCount) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_RowCountChanged_IsBase(true);
-        vqtablewidget->rowCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
-    } else {
-        ((VirtualQTableWidget*)self)->rowCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnRowCountChanged(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_RowCountChanged_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_RowCountChanged_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_ColumnCountChanged(QTableWidget* self, int oldCount, int newCount) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->columnCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
-    } else {
-        ((VirtualQTableWidget*)self)->columnCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::columnCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
+    } else
+        qFatal("Error: Protected method QTableWidget::columnCountChanged called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperColumnCountChanged(QTableWidget* self, int oldCount, int newCount) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ColumnCountChanged_IsBase(true);
-        vqtablewidget->columnCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
-    } else {
-        ((VirtualQTableWidget*)self)->columnCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnColumnCountChanged(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ColumnCountChanged_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ColumnCountChanged_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTableWidget_State(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return static_cast<int>(vqtablewidget->state());
-    } else {
-        return static_cast<int>(((VirtualQTableWidget*)self)->state());
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return static_cast<int>(vqtablewidget->VirtualQTableWidget::state());
+    } else
+        qFatal("Error: Protected method QTableWidget::state called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTableWidget_SuperState(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_State_IsBase(true);
-        return static_cast<int>(vqtablewidget->state());
-    } else {
-        return static_cast<int>(((VirtualQTableWidget*)self)->state());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnState(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_State_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_State_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_SetState(QTableWidget* self, int state) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setState(static_cast<VirtualQTableWidget::State>(state));
-    } else {
-        ((VirtualQTableWidget*)self)->setState(static_cast<VirtualQTableWidget::State>(state));
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::setState(static_cast<VirtualQTableWidget::State>(state));
+    } else
+        qFatal("Error: Protected method QTableWidget::setState called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperSetState(QTableWidget* self, int state) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SetState_IsBase(true);
-        vqtablewidget->setState(static_cast<VirtualQTableWidget::State>(state));
-    } else {
-        ((VirtualQTableWidget*)self)->setState(static_cast<VirtualQTableWidget::State>(state));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnSetState(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SetState_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetState_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_ScheduleDelayedItemsLayout(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->scheduleDelayedItemsLayout();
-    } else {
-        ((VirtualQTableWidget*)self)->scheduleDelayedItemsLayout();
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::scheduleDelayedItemsLayout();
+    } else
+        qFatal("Error: Protected method QTableWidget::scheduleDelayedItemsLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperScheduleDelayedItemsLayout(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ScheduleDelayedItemsLayout_IsBase(true);
-        vqtablewidget->scheduleDelayedItemsLayout();
-    } else {
-        ((VirtualQTableWidget*)self)->scheduleDelayedItemsLayout();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnScheduleDelayedItemsLayout(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ScheduleDelayedItemsLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_ExecuteDelayedItemsLayout(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->executeDelayedItemsLayout();
-    } else {
-        ((VirtualQTableWidget*)self)->executeDelayedItemsLayout();
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::executeDelayedItemsLayout();
+    } else
+        qFatal("Error: Protected method QTableWidget::executeDelayedItemsLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperExecuteDelayedItemsLayout(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ExecuteDelayedItemsLayout_IsBase(true);
-        vqtablewidget->executeDelayedItemsLayout();
-    } else {
-        ((VirtualQTableWidget*)self)->executeDelayedItemsLayout();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnExecuteDelayedItemsLayout(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ExecuteDelayedItemsLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_SetDirtyRegion(QTableWidget* self, const QRegion* region) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setDirtyRegion(*region);
-    } else {
-        ((VirtualQTableWidget*)self)->setDirtyRegion(*region);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::setDirtyRegion(*region);
+    } else
+        qFatal("Error: Protected method QTableWidget::setDirtyRegion called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperSetDirtyRegion(QTableWidget* self, const QRegion* region) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SetDirtyRegion_IsBase(true);
-        vqtablewidget->setDirtyRegion(*region);
-    } else {
-        ((VirtualQTableWidget*)self)->setDirtyRegion(*region);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnSetDirtyRegion(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SetDirtyRegion_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetDirtyRegion_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_ScrollDirtyRegion(QTableWidget* self, int dx, int dy) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQTableWidget*)self)->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Base class handler implementation
-void QTableWidget_SuperScrollDirtyRegion(QTableWidget* self, int dx, int dy) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ScrollDirtyRegion_IsBase(true);
-        vqtablewidget->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQTableWidget*)self)->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnScrollDirtyRegion(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ScrollDirtyRegion_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected method QTableWidget::scrollDirtyRegion called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QPoint* QTableWidget_DirtyRegionOffset(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
         return new QPoint(vqtablewidget->dirtyRegionOffset());
-    }
-    return {};
+    qFatal("Error: Protected method QTableWidget::dirtyRegionOffset called without a directly constructed type");
 }
 
-// Base class handler implementation
-QPoint* QTableWidget_SuperDirtyRegionOffset(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DirtyRegionOffset_IsBase(true);
-        return new QPoint(vqtablewidget->dirtyRegionOffset());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnDirtyRegionOffset(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_DirtyRegionOffset_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DirtyRegionOffset_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_StartAutoScroll(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->startAutoScroll();
-    } else {
-        ((VirtualQTableWidget*)self)->startAutoScroll();
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::startAutoScroll();
+    } else
+        qFatal("Error: Protected method QTableWidget::startAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperStartAutoScroll(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_StartAutoScroll_IsBase(true);
-        vqtablewidget->startAutoScroll();
-    } else {
-        ((VirtualQTableWidget*)self)->startAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnStartAutoScroll(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_StartAutoScroll_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_StartAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_StopAutoScroll(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->stopAutoScroll();
-    } else {
-        ((VirtualQTableWidget*)self)->stopAutoScroll();
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::stopAutoScroll();
+    } else
+        qFatal("Error: Protected method QTableWidget::stopAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperStopAutoScroll(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_StopAutoScroll_IsBase(true);
-        vqtablewidget->stopAutoScroll();
-    } else {
-        ((VirtualQTableWidget*)self)->stopAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnStopAutoScroll(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_StopAutoScroll_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_StopAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_DoAutoScroll(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->doAutoScroll();
-    } else {
-        ((VirtualQTableWidget*)self)->doAutoScroll();
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::doAutoScroll();
+    } else
+        qFatal("Error: Protected method QTableWidget::doAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperDoAutoScroll(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DoAutoScroll_IsBase(true);
-        vqtablewidget->doAutoScroll();
-    } else {
-        ((VirtualQTableWidget*)self)->doAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnDoAutoScroll(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_DoAutoScroll_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DoAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTableWidget_DropIndicatorPosition(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return static_cast<int>(vqtablewidget->dropIndicatorPosition());
-    } else {
-        return static_cast<int>(((VirtualQTableWidget*)self)->dropIndicatorPosition());
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return static_cast<int>(vqtablewidget->VirtualQTableWidget::dropIndicatorPosition());
+    } else
+        qFatal("Error: Protected method QTableWidget::dropIndicatorPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTableWidget_SuperDropIndicatorPosition(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DropIndicatorPosition_IsBase(true);
-        return static_cast<int>(vqtablewidget->dropIndicatorPosition());
-    } else {
-        return static_cast<int>(((VirtualQTableWidget*)self)->dropIndicatorPosition());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnDropIndicatorPosition(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_DropIndicatorPosition_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DropIndicatorPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_SetViewportMargins(QTableWidget* self, int left, int top, int right, int bottom) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQTableWidget*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Base class handler implementation
-void QTableWidget_SuperSetViewportMargins(QTableWidget* self, int left, int top, int right, int bottom) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SetViewportMargins_IsBase(true);
-        vqtablewidget->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQTableWidget*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnSetViewportMargins(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SetViewportMargins_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetViewportMargins_Callback>(slot));
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+    } else
+        qFatal("Error: Protected method QTableWidget::setViewportMargins called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMargins* QTableWidget_ViewportMargins(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self)))
         return new QMargins(vqtablewidget->viewportMargins());
-    }
-    return {};
+    qFatal("Error: Protected method QTableWidget::viewportMargins called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMargins* QTableWidget_SuperViewportMargins(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_ViewportMargins_IsBase(true);
-        return new QMargins(vqtablewidget->viewportMargins());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnViewportMargins(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_ViewportMargins_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ViewportMargins_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_DrawFrame(QTableWidget* self, QPainter* param1) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->drawFrame(param1);
-    } else {
-        ((VirtualQTableWidget*)self)->drawFrame(param1);
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method QTableWidget::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperDrawFrame(QTableWidget* self, QPainter* param1) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_DrawFrame_IsBase(true);
-        vqtablewidget->drawFrame(param1);
-    } else {
-        ((VirtualQTableWidget*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnDrawFrame(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_DrawFrame_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_UpdateMicroFocus(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->updateMicroFocus();
-    } else {
-        ((VirtualQTableWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QTableWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperUpdateMicroFocus(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_UpdateMicroFocus_IsBase(true);
-        vqtablewidget->updateMicroFocus();
-    } else {
-        ((VirtualQTableWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnUpdateMicroFocus(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_Create(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->create();
-    } else {
-        ((VirtualQTableWidget*)self)->create();
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::create();
+    } else
+        qFatal("Error: Protected method QTableWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperCreate(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_Create_IsBase(true);
-        vqtablewidget->create();
-    } else {
-        ((VirtualQTableWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnCreate(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_Create_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTableWidget_Destroy(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->destroy();
-    } else {
-        ((VirtualQTableWidget*)self)->destroy();
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        vqtablewidget->VirtualQTableWidget::destroy();
+    } else
+        qFatal("Error: Protected method QTableWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTableWidget_SuperDestroy(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_Destroy_IsBase(true);
-        vqtablewidget->destroy();
-    } else {
-        ((VirtualQTableWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnDestroy(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_Destroy_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTableWidget_FocusNextChild(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->focusNextChild();
-    } else {
-        return ((VirtualQTableWidget*)self)->focusNextChild();
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        return vqtablewidget->VirtualQTableWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method QTableWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QTableWidget_SuperFocusNextChild(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_FocusNextChild_IsBase(true);
-        return vqtablewidget->focusNextChild();
-    } else {
-        return ((VirtualQTableWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnFocusNextChild(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTableWidget_FocusPreviousChild(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->focusPreviousChild();
-    } else {
-        return ((VirtualQTableWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self)) {
+        return vqtablewidget->VirtualQTableWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QTableWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QTableWidget_SuperFocusPreviousChild(QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_FocusPreviousChild_IsBase(true);
-        return vqtablewidget->focusPreviousChild();
-    } else {
-        return ((VirtualQTableWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnFocusPreviousChild(QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QTableWidget_Sender(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->sender();
-    } else {
-        return ((VirtualQTableWidget*)self)->sender();
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return vqtablewidget->VirtualQTableWidget::sender();
+    } else
+        qFatal("Error: Protected method QTableWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QTableWidget_SuperSender(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_Sender_IsBase(true);
-        return vqtablewidget->sender();
-    } else {
-        return ((VirtualQTableWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnSender(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_Sender_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTableWidget_SenderSignalIndex(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->senderSignalIndex();
-    } else {
-        return ((VirtualQTableWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return vqtablewidget->VirtualQTableWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QTableWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTableWidget_SuperSenderSignalIndex(const QTableWidget* self) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_SenderSignalIndex_IsBase(true);
-        return vqtablewidget->senderSignalIndex();
-    } else {
-        return ((VirtualQTableWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnSenderSignalIndex(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTableWidget_Receivers(const QTableWidget* self, const char* signal) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->receivers(signal);
-    } else {
-        return ((VirtualQTableWidget*)self)->receivers(signal);
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return vqtablewidget->VirtualQTableWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method QTableWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTableWidget_SuperReceivers(const QTableWidget* self, const char* signal) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_Receivers_IsBase(true);
-        return vqtablewidget->receivers(signal);
-    } else {
-        return ((VirtualQTableWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnReceivers(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_Receivers_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTableWidget_IsSignalConnected(const QTableWidget* self, const QMetaMethod* signal) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTableWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return vqtablewidget->VirtualQTableWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QTableWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QTableWidget_SuperIsSignalConnected(const QTableWidget* self, const QMetaMethod* signal) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_IsSignalConnected_IsBase(true);
-        return vqtablewidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTableWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnIsSignalConnected(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QTableWidget_GetDecodedMetricF(const QTableWidget* self, int metricA, int metricB) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return vqtablewidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQTableWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QTableWidget_SuperGetDecodedMetricF(const QTableWidget* self, int metricA, int metricB) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        vqtablewidget->setQTableWidget_GetDecodedMetricF_IsBase(true);
-        return vqtablewidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQTableWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableWidget_OnGetDecodedMetricF(const QTableWidget* self, intptr_t slot) {
-    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
-        vqtablewidget->setQTableWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self))) {
+        return vqtablewidget->VirtualQTableWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QTableWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void QTableWidget_Delete(QTableWidget* self) {

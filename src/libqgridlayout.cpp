@@ -210,7 +210,7 @@ void QGridLayout_GetItemPosition(const QGridLayout* self, int idx, int* row, int
 
 void QGridLayout_AddItem2(QGridLayout* self, QLayoutItem* param1) {
     auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+    if (vqgridlayout) {
         vqgridlayout->addItem(param1);
     }
 }
@@ -269,996 +269,554 @@ void QGridLayout_AddItem6(QGridLayout* self, QLayoutItem* item, int row, int col
 
 // Base class handler implementation
 QMetaObject* QGridLayout_SuperMetaObject(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_MetaObject_IsBase(true);
-        return (QMetaObject*)vqgridlayout->metaObject();
-    } else {
-        return (QMetaObject*)self->QGridLayout::metaObject();
-    }
+    return (QMetaObject*)self->QGridLayout::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnMetaObject(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_MetaObject_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_MetaObject_Callback>(slot));
+void QGridLayout_OnMetaObject(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_metaobject_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QGridLayout_SuperMetacast(QGridLayout* self, const char* param1) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Metacast_IsBase(true);
-        return vqgridlayout->qt_metacast(param1);
-    } else {
-        return self->QGridLayout::qt_metacast(param1);
-    }
+    return self->QGridLayout::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnMetacast(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_Metacast_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Metacast_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_metacast_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QGridLayout_SuperMetacall(QGridLayout* self, int param1, int param2, void** param3) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Metacall_IsBase(true);
-        return vqgridlayout->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QGridLayout::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QGridLayout::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnMetacall(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_Metacall_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Metacall_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_metacall_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QGridLayout_SuperSizeHint(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_SizeHint_IsBase(true);
-        return new QSize(vqgridlayout->sizeHint());
-    } else {
-        return new QSize(((VirtualQGridLayout*)self)->sizeHint());
-    }
+    return new QSize(self->QGridLayout::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnSizeHint(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_SizeHint_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_SizeHint_Callback>(slot));
+void QGridLayout_OnSizeHint(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_sizehint_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QGridLayout_SuperMinimumSize(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_MinimumSize_IsBase(true);
-        return new QSize(vqgridlayout->minimumSize());
-    } else {
-        return new QSize(((VirtualQGridLayout*)self)->minimumSize());
-    }
+    return new QSize(self->QGridLayout::minimumSize());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnMinimumSize(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_MinimumSize_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_MinimumSize_Callback>(slot));
+void QGridLayout_OnMinimumSize(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_minimumsize_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_MinimumSize_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QGridLayout_SuperMaximumSize(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_MaximumSize_IsBase(true);
-        return new QSize(vqgridlayout->maximumSize());
-    } else {
-        return new QSize(((VirtualQGridLayout*)self)->maximumSize());
-    }
+    return new QSize(self->QGridLayout::maximumSize());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnMaximumSize(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_MaximumSize_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_MaximumSize_Callback>(slot));
+void QGridLayout_OnMaximumSize(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_maximumsize_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_MaximumSize_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGridLayout_SuperSetSpacing(QGridLayout* self, int spacing) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_SetSpacing_IsBase(true);
-        vqgridlayout->setSpacing(static_cast<int>(spacing));
-    } else {
-        self->QGridLayout::setSpacing(static_cast<int>(spacing));
-    }
+    self->QGridLayout::setSpacing(static_cast<int>(spacing));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnSetSpacing(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_SetSpacing_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_SetSpacing_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_setspacing_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_SetSpacing_Callback>(slot);
 }
 
 // Base class handler implementation
 int QGridLayout_SuperSpacing(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Spacing_IsBase(true);
-        return vqgridlayout->spacing();
-    } else {
-        return self->QGridLayout::spacing();
-    }
+    return self->QGridLayout::spacing();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnSpacing(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_Spacing_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Spacing_Callback>(slot));
+void QGridLayout_OnSpacing(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_spacing_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_Spacing_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QGridLayout_SuperHasHeightForWidth(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_HasHeightForWidth_IsBase(true);
-        return vqgridlayout->hasHeightForWidth();
-    } else {
-        return self->QGridLayout::hasHeightForWidth();
-    }
+    return self->QGridLayout::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnHasHeightForWidth(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_HasHeightForWidth_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_HasHeightForWidth_Callback>(slot));
+void QGridLayout_OnHasHeightForWidth(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_hasheightforwidth_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_HasHeightForWidth_Callback>(slot);
 }
 
 // Base class handler implementation
 int QGridLayout_SuperHeightForWidth(const QGridLayout* self, int param1) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_HeightForWidth_IsBase(true);
-        return vqgridlayout->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QGridLayout::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QGridLayout::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnHeightForWidth(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_HeightForWidth_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_HeightForWidth_Callback>(slot));
+void QGridLayout_OnHeightForWidth(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_heightforwidth_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_HeightForWidth_Callback>(slot);
 }
 
 // Base class handler implementation
 int QGridLayout_SuperMinimumHeightForWidth(const QGridLayout* self, int param1) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_MinimumHeightForWidth_IsBase(true);
-        return vqgridlayout->minimumHeightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QGridLayout::minimumHeightForWidth(static_cast<int>(param1));
-    }
+    return self->QGridLayout::minimumHeightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnMinimumHeightForWidth(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_MinimumHeightForWidth_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_MinimumHeightForWidth_Callback>(slot));
+void QGridLayout_OnMinimumHeightForWidth(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_minimumheightforwidth_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_MinimumHeightForWidth_Callback>(slot);
 }
 
 // Base class handler implementation
 int QGridLayout_SuperExpandingDirections(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_ExpandingDirections_IsBase(true);
-        return static_cast<int>(vqgridlayout->expandingDirections());
-    } else {
-        return static_cast<int>(self->QGridLayout::expandingDirections());
-    }
+    return static_cast<int>(self->QGridLayout::expandingDirections());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnExpandingDirections(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_ExpandingDirections_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_ExpandingDirections_Callback>(slot));
+void QGridLayout_OnExpandingDirections(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_expandingdirections_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_ExpandingDirections_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGridLayout_SuperInvalidate(QGridLayout* self) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Invalidate_IsBase(true);
-        vqgridlayout->invalidate();
-    } else {
-        self->QGridLayout::invalidate();
-    }
+    self->QGridLayout::invalidate();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnInvalidate(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_Invalidate_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Invalidate_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_invalidate_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_Invalidate_Callback>(slot);
 }
 
 // Base class handler implementation
 QLayoutItem* QGridLayout_SuperItemAt(const QGridLayout* self, int index) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_ItemAt_IsBase(true);
-        return vqgridlayout->itemAt(static_cast<int>(index));
-    } else {
-        return self->QGridLayout::itemAt(static_cast<int>(index));
-    }
+    return self->QGridLayout::itemAt(static_cast<int>(index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnItemAt(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_ItemAt_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_ItemAt_Callback>(slot));
+void QGridLayout_OnItemAt(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_itemat_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_ItemAt_Callback>(slot);
 }
 
 // Base class handler implementation
 QLayoutItem* QGridLayout_SuperTakeAt(QGridLayout* self, int index) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_TakeAt_IsBase(true);
-        return vqgridlayout->takeAt(static_cast<int>(index));
-    } else {
-        return self->QGridLayout::takeAt(static_cast<int>(index));
-    }
+    return self->QGridLayout::takeAt(static_cast<int>(index));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnTakeAt(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_TakeAt_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_TakeAt_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_takeat_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_TakeAt_Callback>(slot);
 }
 
 // Base class handler implementation
 int QGridLayout_SuperCount(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Count_IsBase(true);
-        return vqgridlayout->count();
-    } else {
-        return self->QGridLayout::count();
-    }
+    return self->QGridLayout::count();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnCount(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_Count_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Count_Callback>(slot));
+void QGridLayout_OnCount(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_count_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_Count_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGridLayout_SuperSetGeometry(QGridLayout* self, const QRect* geometry) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_SetGeometry_IsBase(true);
-        vqgridlayout->setGeometry(*geometry);
-    } else {
-        self->QGridLayout::setGeometry(*geometry);
-    }
+    self->QGridLayout::setGeometry(*geometry);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnSetGeometry(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_SetGeometry_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_SetGeometry_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_setgeometry_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_SetGeometry_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGridLayout_SuperAddItem2(QGridLayout* self, QLayoutItem* param1) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_AddItem2_IsBase(true);
-        vqgridlayout->addItem(param1);
-    } else {
-        ((VirtualQGridLayout*)self)->addItem(param1);
-    }
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self)) {
+        vqgridlayout->QGridLayout::addItem(param1);
+    } else
+        qFatal("Error: Protected virtual method QGridLayout::addItem2 called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnAddItem2(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_AddItem2_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_AddItem2_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_additem2_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_AddItem2_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRect* QGridLayout_Geometry(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return new QRect(vqgridlayout->geometry());
-    } else {
-        return new QRect(((VirtualQGridLayout*)self)->geometry());
-    }
+    return new QRect(self->geometry());
 }
 
 // Base class handler implementation
 QRect* QGridLayout_SuperGeometry(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Geometry_IsBase(true);
-        return new QRect(vqgridlayout->geometry());
-    } else {
-        return new QRect(((VirtualQGridLayout*)self)->geometry());
-    }
+    return new QRect(self->QGridLayout::geometry());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnGeometry(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_Geometry_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Geometry_Callback>(slot));
+void QGridLayout_OnGeometry(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_geometry_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_Geometry_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QGridLayout_IndexOf(const QGridLayout* self, const QWidget* param1) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return vqgridlayout->indexOf(param1);
-    } else {
-        return self->QGridLayout::indexOf(param1);
-    }
+    return self->indexOf(param1);
 }
 
 // Base class handler implementation
 int QGridLayout_SuperIndexOf(const QGridLayout* self, const QWidget* param1) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_IndexOf_IsBase(true);
-        return vqgridlayout->indexOf(param1);
-    } else {
-        return self->QGridLayout::indexOf(param1);
-    }
+    return self->QGridLayout::indexOf(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnIndexOf(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_IndexOf_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_IndexOf_Callback>(slot));
+void QGridLayout_OnIndexOf(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_indexof_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_IndexOf_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGridLayout_IsEmpty(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return vqgridlayout->isEmpty();
-    } else {
-        return self->QGridLayout::isEmpty();
-    }
+    return self->isEmpty();
 }
 
 // Base class handler implementation
 bool QGridLayout_SuperIsEmpty(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_IsEmpty_IsBase(true);
-        return vqgridlayout->isEmpty();
-    } else {
-        return self->QGridLayout::isEmpty();
-    }
+    return self->QGridLayout::isEmpty();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnIsEmpty(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_IsEmpty_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_IsEmpty_Callback>(slot));
+void QGridLayout_OnIsEmpty(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_isempty_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_IsEmpty_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QGridLayout_ControlTypes(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return static_cast<int>(vqgridlayout->controlTypes());
-    } else {
-        return static_cast<int>(self->QGridLayout::controlTypes());
-    }
+    return static_cast<int>(self->controlTypes());
 }
 
 // Base class handler implementation
 int QGridLayout_SuperControlTypes(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_ControlTypes_IsBase(true);
-        return static_cast<int>(vqgridlayout->controlTypes());
-    } else {
-        return static_cast<int>(self->QGridLayout::controlTypes());
-    }
+    return static_cast<int>(self->QGridLayout::controlTypes());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnControlTypes(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_ControlTypes_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_ControlTypes_Callback>(slot));
+void QGridLayout_OnControlTypes(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_controltypes_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_ControlTypes_Callback>(slot);
 }
 
 // Derived class handler implementation
 QLayoutItem* QGridLayout_ReplaceWidget(QGridLayout* self, QWidget* from, QWidget* to, int options) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return vqgridlayout->replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
-    } else {
-        return self->QGridLayout::replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
-    }
+    return self->replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
 }
 
 // Base class handler implementation
 QLayoutItem* QGridLayout_SuperReplaceWidget(QGridLayout* self, QWidget* from, QWidget* to, int options) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_ReplaceWidget_IsBase(true);
-        return vqgridlayout->replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
-    } else {
-        return self->QGridLayout::replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
-    }
+    return self->QGridLayout::replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnReplaceWidget(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_ReplaceWidget_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_ReplaceWidget_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_replacewidget_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_ReplaceWidget_Callback>(slot);
 }
 
 // Derived class handler implementation
 QLayout* QGridLayout_Layout(QGridLayout* self) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return vqgridlayout->layout();
-    } else {
-        return self->QGridLayout::layout();
-    }
+    return self->layout();
 }
 
 // Base class handler implementation
 QLayout* QGridLayout_SuperLayout(QGridLayout* self) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Layout_IsBase(true);
-        return vqgridlayout->layout();
-    } else {
-        return self->QGridLayout::layout();
-    }
+    return self->QGridLayout::layout();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnLayout(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_Layout_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Layout_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_layout_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_Layout_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGridLayout_ChildEvent(QGridLayout* self, QChildEvent* e) {
     auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+    if (vqgridlayout) {
         vqgridlayout->childEvent(e);
     } else {
-        ((VirtualQGridLayout*)self)->childEvent(e);
+        qFatal("Error: Protected virtual method QGridLayout::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGridLayout_SuperChildEvent(QGridLayout* self, QChildEvent* e) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_ChildEvent_IsBase(true);
-        vqgridlayout->childEvent(e);
-    } else {
-        ((VirtualQGridLayout*)self)->childEvent(e);
-    }
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self)) {
+        vqgridlayout->QGridLayout::childEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QGridLayout::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnChildEvent(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_ChildEvent_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_ChildEvent_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_childevent_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGridLayout_Event(QGridLayout* self, QEvent* event) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return vqgridlayout->event(event);
-    } else {
-        return self->QGridLayout::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QGridLayout_SuperEvent(QGridLayout* self, QEvent* event) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Event_IsBase(true);
-        return vqgridlayout->event(event);
-    } else {
-        return self->QGridLayout::event(event);
-    }
+    return self->QGridLayout::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnEvent(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_Event_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Event_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_event_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGridLayout_EventFilter(QGridLayout* self, QObject* watched, QEvent* event) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return vqgridlayout->eventFilter(watched, event);
-    } else {
-        return self->QGridLayout::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QGridLayout_SuperEventFilter(QGridLayout* self, QObject* watched, QEvent* event) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_EventFilter_IsBase(true);
-        return vqgridlayout->eventFilter(watched, event);
-    } else {
-        return self->QGridLayout::eventFilter(watched, event);
-    }
+    return self->QGridLayout::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnEventFilter(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_EventFilter_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_EventFilter_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_eventfilter_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGridLayout_TimerEvent(QGridLayout* self, QTimerEvent* event) {
     auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+    if (vqgridlayout) {
         vqgridlayout->timerEvent(event);
     } else {
-        ((VirtualQGridLayout*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QGridLayout::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGridLayout_SuperTimerEvent(QGridLayout* self, QTimerEvent* event) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_TimerEvent_IsBase(true);
-        vqgridlayout->timerEvent(event);
-    } else {
-        ((VirtualQGridLayout*)self)->timerEvent(event);
-    }
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self)) {
+        vqgridlayout->QGridLayout::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGridLayout::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnTimerEvent(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_TimerEvent_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_TimerEvent_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_timerevent_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGridLayout_CustomEvent(QGridLayout* self, QEvent* event) {
     auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+    if (vqgridlayout) {
         vqgridlayout->customEvent(event);
     } else {
-        ((VirtualQGridLayout*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QGridLayout::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGridLayout_SuperCustomEvent(QGridLayout* self, QEvent* event) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_CustomEvent_IsBase(true);
-        vqgridlayout->customEvent(event);
-    } else {
-        ((VirtualQGridLayout*)self)->customEvent(event);
-    }
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self)) {
+        vqgridlayout->QGridLayout::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGridLayout::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnCustomEvent(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_CustomEvent_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_CustomEvent_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_customevent_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGridLayout_ConnectNotify(QGridLayout* self, const QMetaMethod* signal) {
     auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+    if (vqgridlayout) {
         vqgridlayout->connectNotify(*signal);
     } else {
-        ((VirtualQGridLayout*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QGridLayout::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGridLayout_SuperConnectNotify(QGridLayout* self, const QMetaMethod* signal) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_ConnectNotify_IsBase(true);
-        vqgridlayout->connectNotify(*signal);
-    } else {
-        ((VirtualQGridLayout*)self)->connectNotify(*signal);
-    }
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self)) {
+        vqgridlayout->QGridLayout::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGridLayout::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnConnectNotify(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_ConnectNotify_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_ConnectNotify_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_connectnotify_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGridLayout_DisconnectNotify(QGridLayout* self, const QMetaMethod* signal) {
     auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+    if (vqgridlayout) {
         vqgridlayout->disconnectNotify(*signal);
     } else {
-        ((VirtualQGridLayout*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QGridLayout::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGridLayout_SuperDisconnectNotify(QGridLayout* self, const QMetaMethod* signal) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_DisconnectNotify_IsBase(true);
-        vqgridlayout->disconnectNotify(*signal);
-    } else {
-        ((VirtualQGridLayout*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self)) {
+        vqgridlayout->QGridLayout::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGridLayout::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnDisconnectNotify(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_DisconnectNotify_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_DisconnectNotify_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_disconnectnotify_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 QWidget* QGridLayout_Widget(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return vqgridlayout->widget();
-    } else {
-        return self->QGridLayout::widget();
-    }
+    return self->widget();
 }
 
 // Base class handler implementation
 QWidget* QGridLayout_SuperWidget(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Widget_IsBase(true);
-        return vqgridlayout->widget();
-    } else {
-        return self->QGridLayout::widget();
-    }
+    return self->QGridLayout::widget();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnWidget(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_Widget_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Widget_Callback>(slot));
+void QGridLayout_OnWidget(QGridLayout* self, intptr_t slot) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
+        vqgridlayout->qgridlayout_widget_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_Widget_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSpacerItem* QGridLayout_SpacerItem(QGridLayout* self) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return vqgridlayout->spacerItem();
-    } else {
-        return self->QGridLayout::spacerItem();
-    }
+    return self->spacerItem();
 }
 
 // Base class handler implementation
 QSpacerItem* QGridLayout_SuperSpacerItem(QGridLayout* self) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_SpacerItem_IsBase(true);
-        return vqgridlayout->spacerItem();
-    } else {
-        return self->QGridLayout::spacerItem();
-    }
+    return self->QGridLayout::spacerItem();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGridLayout_OnSpacerItem(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_SpacerItem_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_SpacerItem_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self))
+        vqgridlayout->qgridlayout_spaceritem_callback = reinterpret_cast<VirtualQGridLayout::QGridLayout_SpacerItem_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGridLayout_WidgetEvent(QGridLayout* self, QEvent* param1) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->widgetEvent(param1);
-    } else {
-        ((VirtualQGridLayout*)self)->widgetEvent(param1);
-    }
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self)) {
+        vqgridlayout->VirtualQGridLayout::widgetEvent(param1);
+    } else
+        qFatal("Error: Protected method QGridLayout::widgetEvent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGridLayout_SuperWidgetEvent(QGridLayout* self, QEvent* param1) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_WidgetEvent_IsBase(true);
-        vqgridlayout->widgetEvent(param1);
-    } else {
-        ((VirtualQGridLayout*)self)->widgetEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGridLayout_OnWidgetEvent(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_WidgetEvent_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_WidgetEvent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGridLayout_AddChildLayout(QGridLayout* self, QLayout* l) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->addChildLayout(l);
-    } else {
-        ((VirtualQGridLayout*)self)->addChildLayout(l);
-    }
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self)) {
+        vqgridlayout->VirtualQGridLayout::addChildLayout(l);
+    } else
+        qFatal("Error: Protected method QGridLayout::addChildLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGridLayout_SuperAddChildLayout(QGridLayout* self, QLayout* l) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_AddChildLayout_IsBase(true);
-        vqgridlayout->addChildLayout(l);
-    } else {
-        ((VirtualQGridLayout*)self)->addChildLayout(l);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGridLayout_OnAddChildLayout(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_AddChildLayout_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_AddChildLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGridLayout_AddChildWidget(QGridLayout* self, QWidget* w) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->addChildWidget(w);
-    } else {
-        ((VirtualQGridLayout*)self)->addChildWidget(w);
-    }
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self)) {
+        vqgridlayout->VirtualQGridLayout::addChildWidget(w);
+    } else
+        qFatal("Error: Protected method QGridLayout::addChildWidget called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGridLayout_SuperAddChildWidget(QGridLayout* self, QWidget* w) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_AddChildWidget_IsBase(true);
-        vqgridlayout->addChildWidget(w);
-    } else {
-        ((VirtualQGridLayout*)self)->addChildWidget(w);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGridLayout_OnAddChildWidget(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_AddChildWidget_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_AddChildWidget_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QGridLayout_AdoptLayout(QGridLayout* self, QLayout* layout) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return vqgridlayout->adoptLayout(layout);
-    } else {
-        return ((VirtualQGridLayout*)self)->adoptLayout(layout);
-    }
-}
-
-// Base class handler implementation
-bool QGridLayout_SuperAdoptLayout(QGridLayout* self, QLayout* layout) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_AdoptLayout_IsBase(true);
-        return vqgridlayout->adoptLayout(layout);
-    } else {
-        return ((VirtualQGridLayout*)self)->adoptLayout(layout);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGridLayout_OnAdoptLayout(QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_AdoptLayout_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_AdoptLayout_Callback>(slot));
+    if (auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self)) {
+        return vqgridlayout->VirtualQGridLayout::adoptLayout(layout);
+    } else
+        qFatal("Error: Protected method QGridLayout::adoptLayout called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QRect* QGridLayout_AlignmentRect(const QGridLayout* self, const QRect* param1) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self)))
         return new QRect(vqgridlayout->alignmentRect(*param1));
-    }
-    return {};
+    qFatal("Error: Protected method QGridLayout::alignmentRect called without a directly constructed type");
 }
 
-// Base class handler implementation
-QRect* QGridLayout_SuperAlignmentRect(const QGridLayout* self, const QRect* param1) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_AlignmentRect_IsBase(true);
-        return new QRect(vqgridlayout->alignmentRect(*param1));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGridLayout_OnAlignmentRect(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_AlignmentRect_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_AlignmentRect_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QGridLayout_Sender(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return vqgridlayout->sender();
-    } else {
-        return ((VirtualQGridLayout*)self)->sender();
-    }
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self))) {
+        return vqgridlayout->VirtualQGridLayout::sender();
+    } else
+        qFatal("Error: Protected method QGridLayout::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QGridLayout_SuperSender(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Sender_IsBase(true);
-        return vqgridlayout->sender();
-    } else {
-        return ((VirtualQGridLayout*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGridLayout_OnSender(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_Sender_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGridLayout_SenderSignalIndex(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return vqgridlayout->senderSignalIndex();
-    } else {
-        return ((VirtualQGridLayout*)self)->senderSignalIndex();
-    }
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self))) {
+        return vqgridlayout->VirtualQGridLayout::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QGridLayout::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGridLayout_SuperSenderSignalIndex(const QGridLayout* self) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_SenderSignalIndex_IsBase(true);
-        return vqgridlayout->senderSignalIndex();
-    } else {
-        return ((VirtualQGridLayout*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGridLayout_OnSenderSignalIndex(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGridLayout_Receivers(const QGridLayout* self, const char* signal) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return vqgridlayout->receivers(signal);
-    } else {
-        return ((VirtualQGridLayout*)self)->receivers(signal);
-    }
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self))) {
+        return vqgridlayout->VirtualQGridLayout::receivers(signal);
+    } else
+        qFatal("Error: Protected method QGridLayout::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGridLayout_SuperReceivers(const QGridLayout* self, const char* signal) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_Receivers_IsBase(true);
-        return vqgridlayout->receivers(signal);
-    } else {
-        return ((VirtualQGridLayout*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGridLayout_OnReceivers(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_Receivers_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QGridLayout_IsSignalConnected(const QGridLayout* self, const QMetaMethod* signal) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        return vqgridlayout->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGridLayout*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QGridLayout_SuperIsSignalConnected(const QGridLayout* self, const QMetaMethod* signal) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_IsSignalConnected_IsBase(true);
-        return vqgridlayout->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGridLayout*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGridLayout_OnIsSignalConnected(const QGridLayout* self, intptr_t slot) {
-    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
-    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout)
-        vqgridlayout->setQGridLayout_IsSignalConnected_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_IsSignalConnected_Callback>(slot));
+    if (auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self))) {
+        return vqgridlayout->VirtualQGridLayout::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QGridLayout::isSignalConnected called without a directly constructed type");
 }
 
 void QGridLayout_Delete(QGridLayout* self) {

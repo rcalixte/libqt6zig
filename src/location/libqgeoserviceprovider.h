@@ -64,7 +64,7 @@ void QGeoServiceProvider_SetAllowExperimental(QGeoServiceProvider* self, bool al
 void QGeoServiceProvider_SetQmlEngine(QGeoServiceProvider* self, QQmlEngine* engine);
 libqt_string QGeoServiceProvider_Tr2(const char* s, const char* c);
 libqt_string QGeoServiceProvider_Tr3(const char* s, const char* c, int n);
-void QGeoServiceProvider_OnMetaObject(const QGeoServiceProvider* self, intptr_t slot);
+void QGeoServiceProvider_OnMetaObject(QGeoServiceProvider* self, intptr_t slot);
 QMetaObject* QGeoServiceProvider_SuperMetaObject(const QGeoServiceProvider* self);
 void QGeoServiceProvider_OnMetacast(QGeoServiceProvider* self, intptr_t slot);
 void* QGeoServiceProvider_SuperMetacast(QGeoServiceProvider* self, const char* param1);
@@ -92,17 +92,9 @@ void QGeoServiceProvider_DisconnectNotify(QGeoServiceProvider* self, const QMeta
 void QGeoServiceProvider_OnDisconnectNotify(QGeoServiceProvider* self, intptr_t slot);
 void QGeoServiceProvider_SuperDisconnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal);
 QObject* QGeoServiceProvider_Sender(const QGeoServiceProvider* self);
-void QGeoServiceProvider_OnSender(const QGeoServiceProvider* self, intptr_t slot);
-QObject* QGeoServiceProvider_SuperSender(const QGeoServiceProvider* self);
 int QGeoServiceProvider_SenderSignalIndex(const QGeoServiceProvider* self);
-void QGeoServiceProvider_OnSenderSignalIndex(const QGeoServiceProvider* self, intptr_t slot);
-int QGeoServiceProvider_SuperSenderSignalIndex(const QGeoServiceProvider* self);
 int QGeoServiceProvider_Receivers(const QGeoServiceProvider* self, const char* signal);
-void QGeoServiceProvider_OnReceivers(const QGeoServiceProvider* self, intptr_t slot);
-int QGeoServiceProvider_SuperReceivers(const QGeoServiceProvider* self, const char* signal);
 bool QGeoServiceProvider_IsSignalConnected(const QGeoServiceProvider* self, const QMetaMethod* signal);
-void QGeoServiceProvider_OnIsSignalConnected(const QGeoServiceProvider* self, intptr_t slot);
-bool QGeoServiceProvider_SuperIsSignalConnected(const QGeoServiceProvider* self, const QMetaMethod* signal);
 void QGeoServiceProvider_Delete(QGeoServiceProvider* self);
 
 #ifdef __cplusplus

@@ -54,7 +54,7 @@ void QQmlApplicationEngine_Connect_ObjectCreationFailed(QQmlApplicationEngine* s
 libqt_string QQmlApplicationEngine_Tr2(const char* s, const char* c);
 libqt_string QQmlApplicationEngine_Tr3(const char* s, const char* c, int n);
 void QQmlApplicationEngine_LoadData2(QQmlApplicationEngine* self, const libqt_string data, const QUrl* url);
-void QQmlApplicationEngine_OnMetaObject(const QQmlApplicationEngine* self, intptr_t slot);
+void QQmlApplicationEngine_OnMetaObject(QQmlApplicationEngine* self, intptr_t slot);
 QMetaObject* QQmlApplicationEngine_SuperMetaObject(const QQmlApplicationEngine* self);
 void QQmlApplicationEngine_OnMetacast(QQmlApplicationEngine* self, intptr_t slot);
 void* QQmlApplicationEngine_SuperMetacast(QQmlApplicationEngine* self, const char* param1);
@@ -82,17 +82,9 @@ void QQmlApplicationEngine_DisconnectNotify(QQmlApplicationEngine* self, const Q
 void QQmlApplicationEngine_OnDisconnectNotify(QQmlApplicationEngine* self, intptr_t slot);
 void QQmlApplicationEngine_SuperDisconnectNotify(QQmlApplicationEngine* self, const QMetaMethod* signal);
 QObject* QQmlApplicationEngine_Sender(const QQmlApplicationEngine* self);
-void QQmlApplicationEngine_OnSender(const QQmlApplicationEngine* self, intptr_t slot);
-QObject* QQmlApplicationEngine_SuperSender(const QQmlApplicationEngine* self);
 int QQmlApplicationEngine_SenderSignalIndex(const QQmlApplicationEngine* self);
-void QQmlApplicationEngine_OnSenderSignalIndex(const QQmlApplicationEngine* self, intptr_t slot);
-int QQmlApplicationEngine_SuperSenderSignalIndex(const QQmlApplicationEngine* self);
 int QQmlApplicationEngine_Receivers(const QQmlApplicationEngine* self, const char* signal);
-void QQmlApplicationEngine_OnReceivers(const QQmlApplicationEngine* self, intptr_t slot);
-int QQmlApplicationEngine_SuperReceivers(const QQmlApplicationEngine* self, const char* signal);
 bool QQmlApplicationEngine_IsSignalConnected(const QQmlApplicationEngine* self, const QMetaMethod* signal);
-void QQmlApplicationEngine_OnIsSignalConnected(const QQmlApplicationEngine* self, intptr_t slot);
-bool QQmlApplicationEngine_SuperIsSignalConnected(const QQmlApplicationEngine* self, const QMetaMethod* signal);
 void QQmlApplicationEngine_Delete(QQmlApplicationEngine* self);
 
 #ifdef __cplusplus

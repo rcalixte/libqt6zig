@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KDualAction so that we can call protected methods
+// This class is a subclass of KDualAction
 class VirtualKDualAction final : public KDualAction {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKDualAction = true;
-
-    // Virtual class public types (including callbacks)
-    using KDualAction_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KDualAction_MetaObject_Callback = QMetaObject* (*)(const KDualAction*);
     using KDualAction_Metacast_Callback = void* (*)(KDualAction*, const char*);
     using KDualAction_Metacall_Callback = int (*)(KDualAction*, int, int, void**);
     using KDualAction_Event_Callback = bool (*)(KDualAction*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualKDualAction final : public KDualAction {
     using KDualAction_CustomEvent_Callback = void (*)(KDualAction*, QEvent*);
     using KDualAction_ConnectNotify_Callback = void (*)(KDualAction*, QMetaMethod*);
     using KDualAction_DisconnectNotify_Callback = void (*)(KDualAction*, QMetaMethod*);
-    using KDualAction_Sender_Callback = QObject* (*)();
-    using KDualAction_SenderSignalIndex_Callback = int (*)();
-    using KDualAction_Receivers_Callback = int (*)(const KDualAction*, const char*);
-    using KDualAction_IsSignalConnected_Callback = bool (*)(const KDualAction*, QMetaMethod*);
+    using KDualAction::isSignalConnected;
+    using KDualAction::receivers;
+    using KDualAction::sender;
+    using KDualAction::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KDualAction_MetaObject_Callback kdualaction_metaobject_callback = nullptr;
     KDualAction_Metacast_Callback kdualaction_metacast_callback = nullptr;
@@ -44,72 +39,24 @@ class VirtualKDualAction final : public KDualAction {
     KDualAction_CustomEvent_Callback kdualaction_customevent_callback = nullptr;
     KDualAction_ConnectNotify_Callback kdualaction_connectnotify_callback = nullptr;
     KDualAction_DisconnectNotify_Callback kdualaction_disconnectnotify_callback = nullptr;
-    KDualAction_Sender_Callback kdualaction_sender_callback = nullptr;
-    KDualAction_SenderSignalIndex_Callback kdualaction_sendersignalindex_callback = nullptr;
-    KDualAction_Receivers_Callback kdualaction_receivers_callback = nullptr;
-    KDualAction_IsSignalConnected_Callback kdualaction_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kdualaction_metaobject_isbase = false;
-    mutable bool kdualaction_metacast_isbase = false;
-    mutable bool kdualaction_metacall_isbase = false;
-    mutable bool kdualaction_event_isbase = false;
-    mutable bool kdualaction_eventfilter_isbase = false;
-    mutable bool kdualaction_timerevent_isbase = false;
-    mutable bool kdualaction_childevent_isbase = false;
-    mutable bool kdualaction_customevent_isbase = false;
-    mutable bool kdualaction_connectnotify_isbase = false;
-    mutable bool kdualaction_disconnectnotify_isbase = false;
-    mutable bool kdualaction_sender_isbase = false;
-    mutable bool kdualaction_sendersignalindex_isbase = false;
-    mutable bool kdualaction_receivers_isbase = false;
-    mutable bool kdualaction_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KDualAction {
+        using KDualAction::childEvent;
+        using KDualAction::connectNotify;
+        using KDualAction::customEvent;
+        using KDualAction::disconnectNotify;
+        using KDualAction::event;
+        using KDualAction::timerEvent;
+    };
 
-  public:
     VirtualKDualAction(QObject* parent) : KDualAction(parent) {};
     VirtualKDualAction(const QString& inactiveText, const QString& activeText, QObject* parent) : KDualAction(inactiveText, activeText, parent) {};
 
-    // Callback setters
-    inline void setKDualAction_MetaObject_Callback(KDualAction_MetaObject_Callback cb) { kdualaction_metaobject_callback = cb; }
-    inline void setKDualAction_Metacast_Callback(KDualAction_Metacast_Callback cb) { kdualaction_metacast_callback = cb; }
-    inline void setKDualAction_Metacall_Callback(KDualAction_Metacall_Callback cb) { kdualaction_metacall_callback = cb; }
-    inline void setKDualAction_Event_Callback(KDualAction_Event_Callback cb) { kdualaction_event_callback = cb; }
-    inline void setKDualAction_EventFilter_Callback(KDualAction_EventFilter_Callback cb) { kdualaction_eventfilter_callback = cb; }
-    inline void setKDualAction_TimerEvent_Callback(KDualAction_TimerEvent_Callback cb) { kdualaction_timerevent_callback = cb; }
-    inline void setKDualAction_ChildEvent_Callback(KDualAction_ChildEvent_Callback cb) { kdualaction_childevent_callback = cb; }
-    inline void setKDualAction_CustomEvent_Callback(KDualAction_CustomEvent_Callback cb) { kdualaction_customevent_callback = cb; }
-    inline void setKDualAction_ConnectNotify_Callback(KDualAction_ConnectNotify_Callback cb) { kdualaction_connectnotify_callback = cb; }
-    inline void setKDualAction_DisconnectNotify_Callback(KDualAction_DisconnectNotify_Callback cb) { kdualaction_disconnectnotify_callback = cb; }
-    inline void setKDualAction_Sender_Callback(KDualAction_Sender_Callback cb) { kdualaction_sender_callback = cb; }
-    inline void setKDualAction_SenderSignalIndex_Callback(KDualAction_SenderSignalIndex_Callback cb) { kdualaction_sendersignalindex_callback = cb; }
-    inline void setKDualAction_Receivers_Callback(KDualAction_Receivers_Callback cb) { kdualaction_receivers_callback = cb; }
-    inline void setKDualAction_IsSignalConnected_Callback(KDualAction_IsSignalConnected_Callback cb) { kdualaction_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKDualAction_MetaObject_IsBase(bool value) const { kdualaction_metaobject_isbase = value; }
-    inline void setKDualAction_Metacast_IsBase(bool value) const { kdualaction_metacast_isbase = value; }
-    inline void setKDualAction_Metacall_IsBase(bool value) const { kdualaction_metacall_isbase = value; }
-    inline void setKDualAction_Event_IsBase(bool value) const { kdualaction_event_isbase = value; }
-    inline void setKDualAction_EventFilter_IsBase(bool value) const { kdualaction_eventfilter_isbase = value; }
-    inline void setKDualAction_TimerEvent_IsBase(bool value) const { kdualaction_timerevent_isbase = value; }
-    inline void setKDualAction_ChildEvent_IsBase(bool value) const { kdualaction_childevent_isbase = value; }
-    inline void setKDualAction_CustomEvent_IsBase(bool value) const { kdualaction_customevent_isbase = value; }
-    inline void setKDualAction_ConnectNotify_IsBase(bool value) const { kdualaction_connectnotify_isbase = value; }
-    inline void setKDualAction_DisconnectNotify_IsBase(bool value) const { kdualaction_disconnectnotify_isbase = value; }
-    inline void setKDualAction_Sender_IsBase(bool value) const { kdualaction_sender_isbase = value; }
-    inline void setKDualAction_SenderSignalIndex_IsBase(bool value) const { kdualaction_sendersignalindex_isbase = value; }
-    inline void setKDualAction_Receivers_IsBase(bool value) const { kdualaction_receivers_isbase = value; }
-    inline void setKDualAction_IsSignalConnected_IsBase(bool value) const { kdualaction_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kdualaction_metaobject_isbase) {
-            kdualaction_metaobject_isbase = false;
-            return KDualAction::metaObject();
-        }
-        auto metaobject_cb = kdualaction_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kdualaction_metaobject_callback) {
+            QMetaObject* callback_ret = kdualaction_metaobject_callback(this);
             return callback_ret;
         }
         return KDualAction::metaObject();
@@ -117,14 +64,9 @@ class VirtualKDualAction final : public KDualAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kdualaction_metacast_isbase) {
-            kdualaction_metacast_isbase = false;
-            return KDualAction::qt_metacast(param1);
-        }
-        auto metacast_cb = kdualaction_metacast_callback;
-        if (metacast_cb) {
+        if (kdualaction_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kdualaction_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KDualAction::qt_metacast(param1);
@@ -132,16 +74,11 @@ class VirtualKDualAction final : public KDualAction {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kdualaction_metacall_isbase) {
-            kdualaction_metacall_isbase = false;
-            return KDualAction::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kdualaction_metacall_callback;
-        if (metacall_cb) {
+        if (kdualaction_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kdualaction_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KDualAction::qt_metacall(param1, param2, param3);
@@ -149,14 +86,9 @@ class VirtualKDualAction final : public KDualAction {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* param1) override {
-        if (kdualaction_event_isbase) {
-            kdualaction_event_isbase = false;
-            return KDualAction::event(param1);
-        }
-        auto event_cb = kdualaction_event_callback;
-        if (event_cb) {
+        if (kdualaction_event_callback) {
             QEvent* cbval1 = param1;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kdualaction_event_callback(this, cbval1);
             return callback_ret;
         }
         return KDualAction::event(param1);
@@ -164,15 +96,10 @@ class VirtualKDualAction final : public KDualAction {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kdualaction_eventfilter_isbase) {
-            kdualaction_eventfilter_isbase = false;
-            return KDualAction::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kdualaction_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kdualaction_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kdualaction_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KDualAction::eventFilter(watched, event);
@@ -180,15 +107,9 @@ class VirtualKDualAction final : public KDualAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kdualaction_timerevent_isbase) {
-            kdualaction_timerevent_isbase = false;
-            KDualAction::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kdualaction_timerevent_callback;
-        if (timerevent_cb) {
+        if (kdualaction_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kdualaction_timerevent_callback(this, cbval1);
             return;
         }
         KDualAction::timerEvent(event);
@@ -196,15 +117,9 @@ class VirtualKDualAction final : public KDualAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kdualaction_childevent_isbase) {
-            kdualaction_childevent_isbase = false;
-            KDualAction::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kdualaction_childevent_callback;
-        if (childevent_cb) {
+        if (kdualaction_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kdualaction_childevent_callback(this, cbval1);
             return;
         }
         KDualAction::childEvent(event);
@@ -212,15 +127,9 @@ class VirtualKDualAction final : public KDualAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kdualaction_customevent_isbase) {
-            kdualaction_customevent_isbase = false;
-            KDualAction::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kdualaction_customevent_callback;
-        if (customevent_cb) {
+        if (kdualaction_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kdualaction_customevent_callback(this, cbval1);
             return;
         }
         KDualAction::customEvent(event);
@@ -228,17 +137,11 @@ class VirtualKDualAction final : public KDualAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kdualaction_connectnotify_isbase) {
-            kdualaction_connectnotify_isbase = false;
-            KDualAction::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kdualaction_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kdualaction_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kdualaction_connectnotify_callback(this, cbval1);
             return;
         }
         KDualAction::connectNotify(signal);
@@ -246,103 +149,23 @@ class VirtualKDualAction final : public KDualAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kdualaction_disconnectnotify_isbase) {
-            kdualaction_disconnectnotify_isbase = false;
-            KDualAction::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kdualaction_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kdualaction_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kdualaction_disconnectnotify_callback(this, cbval1);
             return;
         }
         KDualAction::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kdualaction_sender_isbase) {
-            kdualaction_sender_isbase = false;
-            return KDualAction::sender();
-        }
-        auto sender_cb = kdualaction_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KDualAction::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kdualaction_sendersignalindex_isbase) {
-            kdualaction_sendersignalindex_isbase = false;
-            return KDualAction::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kdualaction_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KDualAction::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kdualaction_receivers_isbase) {
-            kdualaction_receivers_isbase = false;
-            return KDualAction::receivers(signal);
-        }
-        auto receivers_cb = kdualaction_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KDualAction::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kdualaction_issignalconnected_isbase) {
-            kdualaction_issignalconnected_isbase = false;
-            return KDualAction::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kdualaction_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KDualAction::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend bool KDualAction_Event(KDualAction* self, QEvent* param1);
     friend bool KDualAction_SuperEvent(KDualAction* self, QEvent* param1);
-    friend void KDualAction_TimerEvent(KDualAction* self, QTimerEvent* event);
     friend void KDualAction_SuperTimerEvent(KDualAction* self, QTimerEvent* event);
-    friend void KDualAction_ChildEvent(KDualAction* self, QChildEvent* event);
     friend void KDualAction_SuperChildEvent(KDualAction* self, QChildEvent* event);
-    friend void KDualAction_CustomEvent(KDualAction* self, QEvent* event);
     friend void KDualAction_SuperCustomEvent(KDualAction* self, QEvent* event);
-    friend void KDualAction_ConnectNotify(KDualAction* self, const QMetaMethod* signal);
     friend void KDualAction_SuperConnectNotify(KDualAction* self, const QMetaMethod* signal);
-    friend void KDualAction_DisconnectNotify(KDualAction* self, const QMetaMethod* signal);
     friend void KDualAction_SuperDisconnectNotify(KDualAction* self, const QMetaMethod* signal);
-    friend QObject* KDualAction_Sender(const KDualAction* self);
-    friend QObject* KDualAction_SuperSender(const KDualAction* self);
-    friend int KDualAction_SenderSignalIndex(const KDualAction* self);
-    friend int KDualAction_SuperSenderSignalIndex(const KDualAction* self);
-    friend int KDualAction_Receivers(const KDualAction* self, const char* signal);
-    friend int KDualAction_SuperReceivers(const KDualAction* self, const char* signal);
-    friend bool KDualAction_IsSignalConnected(const KDualAction* self, const QMetaMethod* signal);
-    friend bool KDualAction_SuperIsSignalConnected(const KDualAction* self, const QMetaMethod* signal);
 };
 
 #endif

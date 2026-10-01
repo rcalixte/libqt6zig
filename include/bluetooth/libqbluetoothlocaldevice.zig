@@ -112,9 +112,9 @@ pub const QBluetoothLocalDevice = extern struct {
     ///
     /// ` self: QBluetoothLocalDevice `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QBluetoothLocalDevice) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QBluetoothLocalDevice, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QBluetoothLocalDevice, callback: *const fn (QBluetoothLocalDevice) callconv(.c) QMetaObject) void {
         qtc.QBluetoothLocalDevice_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2079,44 +2079,6 @@ pub const QBluetoothLocalDevice = extern struct {
         return .{ .ptr = qtc.QBluetoothLocalDevice_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBluetoothLocalDevice `
-    ///
-    pub fn superSender(self: QBluetoothLocalDevice) QObject {
-        return .{ .ptr = qtc.QBluetoothLocalDevice_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QBluetoothLocalDevice`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QBluetoothLocalDevice, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QBluetoothLocalDevice_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2133,44 +2095,6 @@ pub const QBluetoothLocalDevice = extern struct {
     ///
     pub fn senderSignalIndex(self: QBluetoothLocalDevice) i32 {
         return qtc.QBluetoothLocalDevice_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBluetoothLocalDevice `
-    ///
-    pub fn superSenderSignalIndex(self: QBluetoothLocalDevice) i32 {
-        return qtc.QBluetoothLocalDevice_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QBluetoothLocalDevice`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QBluetoothLocalDevice, callback: *const fn () callconv(.c) i32) void {
-        qtc.QBluetoothLocalDevice_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2194,47 +2118,6 @@ pub const QBluetoothLocalDevice = extern struct {
         return qtc.QBluetoothLocalDevice_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBluetoothLocalDevice `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QBluetoothLocalDevice, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QBluetoothLocalDevice_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QBluetoothLocalDevice`
-    ///
-    /// ` callback: *const fn (self: QBluetoothLocalDevice, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QBluetoothLocalDevice, callback: *const fn (QBluetoothLocalDevice, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QBluetoothLocalDevice_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2254,47 +2137,6 @@ pub const QBluetoothLocalDevice = extern struct {
     pub fn isSignalConnected(self: QBluetoothLocalDevice, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QBluetoothLocalDevice_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBluetoothLocalDevice `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QBluetoothLocalDevice, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QBluetoothLocalDevice_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QBluetoothLocalDevice`
-    ///
-    /// ` callback: *const fn (self: QBluetoothLocalDevice, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QBluetoothLocalDevice, callback: *const fn (QBluetoothLocalDevice, QMetaMethod) callconv(.c) bool) void {
-        qtc.QBluetoothLocalDevice_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

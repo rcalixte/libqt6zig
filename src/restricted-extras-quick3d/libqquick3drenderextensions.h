@@ -38,7 +38,7 @@ int QQuick3DRenderExtension_Metacall(QQuick3DRenderExtension* self, int param1, 
 libqt_string QQuick3DRenderExtension_Tr(const char* s);
 libqt_string QQuick3DRenderExtension_Tr2(const char* s, const char* c);
 libqt_string QQuick3DRenderExtension_Tr3(const char* s, const char* c, int n);
-void QQuick3DRenderExtension_OnMetaObject(const QQuick3DRenderExtension* self, intptr_t slot);
+void QQuick3DRenderExtension_OnMetaObject(QQuick3DRenderExtension* self, intptr_t slot);
 QMetaObject* QQuick3DRenderExtension_SuperMetaObject(const QQuick3DRenderExtension* self);
 void QQuick3DRenderExtension_OnMetacast(QQuick3DRenderExtension* self, intptr_t slot);
 void* QQuick3DRenderExtension_SuperMetacast(QQuick3DRenderExtension* self, const char* param1);
@@ -81,20 +81,10 @@ void QQuick3DRenderExtension_DisconnectNotify(QQuick3DRenderExtension* self, con
 void QQuick3DRenderExtension_OnDisconnectNotify(QQuick3DRenderExtension* self, intptr_t slot);
 void QQuick3DRenderExtension_SuperDisconnectNotify(QQuick3DRenderExtension* self, const QMetaMethod* signal);
 bool QQuick3DRenderExtension_IsComponentComplete(const QQuick3DRenderExtension* self);
-void QQuick3DRenderExtension_OnIsComponentComplete(const QQuick3DRenderExtension* self, intptr_t slot);
-bool QQuick3DRenderExtension_SuperIsComponentComplete(const QQuick3DRenderExtension* self);
 QObject* QQuick3DRenderExtension_Sender(const QQuick3DRenderExtension* self);
-void QQuick3DRenderExtension_OnSender(const QQuick3DRenderExtension* self, intptr_t slot);
-QObject* QQuick3DRenderExtension_SuperSender(const QQuick3DRenderExtension* self);
 int QQuick3DRenderExtension_SenderSignalIndex(const QQuick3DRenderExtension* self);
-void QQuick3DRenderExtension_OnSenderSignalIndex(const QQuick3DRenderExtension* self, intptr_t slot);
-int QQuick3DRenderExtension_SuperSenderSignalIndex(const QQuick3DRenderExtension* self);
 int QQuick3DRenderExtension_Receivers(const QQuick3DRenderExtension* self, const char* signal);
-void QQuick3DRenderExtension_OnReceivers(const QQuick3DRenderExtension* self, intptr_t slot);
-int QQuick3DRenderExtension_SuperReceivers(const QQuick3DRenderExtension* self, const char* signal);
 bool QQuick3DRenderExtension_IsSignalConnected(const QQuick3DRenderExtension* self, const QMetaMethod* signal);
-void QQuick3DRenderExtension_OnIsSignalConnected(const QQuick3DRenderExtension* self, intptr_t slot);
-bool QQuick3DRenderExtension_SuperIsSignalConnected(const QQuick3DRenderExtension* self, const QMetaMethod* signal);
 void QQuick3DRenderExtension_Delete(QQuick3DRenderExtension* self);
 
 #ifdef __cplusplus

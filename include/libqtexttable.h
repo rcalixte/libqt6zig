@@ -82,7 +82,7 @@ void QTextTable_SetFormat(QTextTable* self, const QTextTableFormat* format);
 QTextTableFormat* QTextTable_Format(const QTextTable* self);
 libqt_string QTextTable_Tr2(const char* s, const char* c);
 libqt_string QTextTable_Tr3(const char* s, const char* c, int n);
-void QTextTable_OnMetaObject(const QTextTable* self, intptr_t slot);
+void QTextTable_OnMetaObject(QTextTable* self, intptr_t slot);
 QMetaObject* QTextTable_SuperMetaObject(const QTextTable* self);
 void QTextTable_OnMetacast(QTextTable* self, intptr_t slot);
 void* QTextTable_SuperMetacast(QTextTable* self, const char* param1);
@@ -110,17 +110,9 @@ void QTextTable_DisconnectNotify(QTextTable* self, const QMetaMethod* signal);
 void QTextTable_OnDisconnectNotify(QTextTable* self, intptr_t slot);
 void QTextTable_SuperDisconnectNotify(QTextTable* self, const QMetaMethod* signal);
 QObject* QTextTable_Sender(const QTextTable* self);
-void QTextTable_OnSender(const QTextTable* self, intptr_t slot);
-QObject* QTextTable_SuperSender(const QTextTable* self);
 int QTextTable_SenderSignalIndex(const QTextTable* self);
-void QTextTable_OnSenderSignalIndex(const QTextTable* self, intptr_t slot);
-int QTextTable_SuperSenderSignalIndex(const QTextTable* self);
 int QTextTable_Receivers(const QTextTable* self, const char* signal);
-void QTextTable_OnReceivers(const QTextTable* self, intptr_t slot);
-int QTextTable_SuperReceivers(const QTextTable* self, const char* signal);
 bool QTextTable_IsSignalConnected(const QTextTable* self, const QMetaMethod* signal);
-void QTextTable_OnIsSignalConnected(const QTextTable* self, intptr_t slot);
-bool QTextTable_SuperIsSignalConnected(const QTextTable* self, const QMetaMethod* signal);
 void QTextTable_Delete(QTextTable* self);
 
 #ifdef __cplusplus

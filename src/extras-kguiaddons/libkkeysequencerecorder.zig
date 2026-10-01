@@ -87,9 +87,9 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KKeySequenceRecorder) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KKeySequenceRecorder, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) QMetaObject) void {
         qtc.KKeySequenceRecorder_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2182,44 +2182,6 @@ pub const KKeySequenceRecorder = extern struct {
         return .{ .ptr = qtc.KKeySequenceRecorder_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KKeySequenceRecorder `
-    ///
-    pub fn superSender(self: KKeySequenceRecorder) QObject {
-        return .{ .ptr = qtc.KKeySequenceRecorder_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KKeySequenceRecorder`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KKeySequenceRecorder, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KKeySequenceRecorder_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2236,44 +2198,6 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     pub fn senderSignalIndex(self: KKeySequenceRecorder) i32 {
         return qtc.KKeySequenceRecorder_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KKeySequenceRecorder `
-    ///
-    pub fn superSenderSignalIndex(self: KKeySequenceRecorder) i32 {
-        return qtc.KKeySequenceRecorder_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KKeySequenceRecorder`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KKeySequenceRecorder, callback: *const fn () callconv(.c) i32) void {
-        qtc.KKeySequenceRecorder_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2297,47 +2221,6 @@ pub const KKeySequenceRecorder = extern struct {
         return qtc.KKeySequenceRecorder_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KKeySequenceRecorder `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KKeySequenceRecorder, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KKeySequenceRecorder_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KKeySequenceRecorder`
-    ///
-    /// ` callback: *const fn (self: KKeySequenceRecorder, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KKeySequenceRecorder_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2357,47 +2240,6 @@ pub const KKeySequenceRecorder = extern struct {
     pub fn isSignalConnected(self: KKeySequenceRecorder, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KKeySequenceRecorder_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KKeySequenceRecorder `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KKeySequenceRecorder, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KKeySequenceRecorder_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KKeySequenceRecorder`
-    ///
-    /// ` callback: *const fn (self: KKeySequenceRecorder, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QMetaMethod) callconv(.c) bool) void {
-        qtc.KKeySequenceRecorder_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

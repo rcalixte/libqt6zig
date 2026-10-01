@@ -178,435 +178,327 @@ void KRecentFilesAction_AddUrl22(KRecentFilesAction* self, const QUrl* url, cons
 
 // Base class handler implementation
 QMetaObject* KRecentFilesAction_SuperMetaObject(const KRecentFilesAction* self) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_MetaObject_IsBase(true);
-        return (QMetaObject*)vkrecentfilesaction->metaObject();
-    } else {
-        return (QMetaObject*)self->KRecentFilesAction::metaObject();
-    }
+    return (QMetaObject*)self->KRecentFilesAction::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRecentFilesAction_OnMetaObject(const KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_MetaObject_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_MetaObject_Callback>(slot));
+void KRecentFilesAction_OnMetaObject(KRecentFilesAction* self, intptr_t slot) {
+    if (auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self)))
+        vkrecentfilesaction->krecentfilesaction_metaobject_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KRecentFilesAction_SuperMetacast(KRecentFilesAction* self, const char* param1) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_Metacast_IsBase(true);
-        return vkrecentfilesaction->qt_metacast(param1);
-    } else {
-        return self->KRecentFilesAction::qt_metacast(param1);
-    }
+    return self->KRecentFilesAction::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnMetacast(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_Metacast_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Metacast_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_metacast_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KRecentFilesAction_SuperMetacall(KRecentFilesAction* self, int param1, int param2, void** param3) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_Metacall_IsBase(true);
-        return vkrecentfilesaction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KRecentFilesAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KRecentFilesAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnMetacall(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_Metacall_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Metacall_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_metacall_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QAction* KRecentFilesAction_SuperRemoveAction(KRecentFilesAction* self, QAction* action) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_RemoveAction_IsBase(true);
-        return vkrecentfilesaction->removeAction(action);
-    } else {
-        return self->KRecentFilesAction::removeAction(action);
-    }
+    return self->KRecentFilesAction::removeAction(action);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnRemoveAction(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_RemoveAction_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_RemoveAction_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_removeaction_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_RemoveAction_Callback>(slot);
 }
 
 // Base class handler implementation
 void KRecentFilesAction_SuperClear(KRecentFilesAction* self) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_Clear_IsBase(true);
-        vkrecentfilesaction->clear();
-    } else {
-        self->KRecentFilesAction::clear();
-    }
+    self->KRecentFilesAction::clear();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnClear(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_Clear_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Clear_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_clear_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Clear_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesAction_InsertAction(KRecentFilesAction* self, QAction* before, QAction* action) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->insertAction(before, action);
-    } else {
-        self->KRecentFilesAction::insertAction(before, action);
-    }
+    self->insertAction(before, action);
 }
 
 // Base class handler implementation
 void KRecentFilesAction_SuperInsertAction(KRecentFilesAction* self, QAction* before, QAction* action) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_InsertAction_IsBase(true);
-        vkrecentfilesaction->insertAction(before, action);
-    } else {
-        self->KRecentFilesAction::insertAction(before, action);
-    }
+    self->KRecentFilesAction::insertAction(before, action);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnInsertAction(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_InsertAction_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_InsertAction_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_insertaction_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_InsertAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesAction_SlotActionTriggered(KRecentFilesAction* self, QAction* action) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction) {
         vkrecentfilesaction->slotActionTriggered(action);
     } else {
-        ((VirtualKRecentFilesAction*)self)->slotActionTriggered(action);
+        qFatal("Error: Protected virtual method KRecentFilesAction::slotActionTriggered called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesAction_SuperSlotActionTriggered(KRecentFilesAction* self, QAction* action) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_SlotActionTriggered_IsBase(true);
-        vkrecentfilesaction->slotActionTriggered(action);
-    } else {
-        ((VirtualKRecentFilesAction*)self)->slotActionTriggered(action);
-    }
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self)) {
+        vkrecentfilesaction->KRecentFilesAction::slotActionTriggered(action);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesAction::slotActionTriggered called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnSlotActionTriggered(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_SlotActionTriggered_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_SlotActionTriggered_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_slotactiontriggered_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_SlotActionTriggered_Callback>(slot);
 }
 
 // Derived class handler implementation
 QWidget* KRecentFilesAction_CreateWidget(KRecentFilesAction* self, QWidget* parent) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction) {
         return vkrecentfilesaction->createWidget(parent);
     } else {
-        return ((VirtualKRecentFilesAction*)self)->createWidget(parent);
+        qFatal("Error: Protected virtual method KRecentFilesAction::createWidget called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QWidget* KRecentFilesAction_SuperCreateWidget(KRecentFilesAction* self, QWidget* parent) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_CreateWidget_IsBase(true);
-        return vkrecentfilesaction->createWidget(parent);
-    } else {
-        return ((VirtualKRecentFilesAction*)self)->createWidget(parent);
-    }
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self)) {
+        return vkrecentfilesaction->KRecentFilesAction::createWidget(parent);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesAction::createWidget called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnCreateWidget(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_CreateWidget_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_CreateWidget_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_createwidget_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_CreateWidget_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesAction_DeleteWidget(KRecentFilesAction* self, QWidget* widget) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction) {
         vkrecentfilesaction->deleteWidget(widget);
     } else {
-        ((VirtualKRecentFilesAction*)self)->deleteWidget(widget);
+        qFatal("Error: Protected virtual method KRecentFilesAction::deleteWidget called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesAction_SuperDeleteWidget(KRecentFilesAction* self, QWidget* widget) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_DeleteWidget_IsBase(true);
-        vkrecentfilesaction->deleteWidget(widget);
-    } else {
-        ((VirtualKRecentFilesAction*)self)->deleteWidget(widget);
-    }
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self)) {
+        vkrecentfilesaction->KRecentFilesAction::deleteWidget(widget);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesAction::deleteWidget called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnDeleteWidget(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_DeleteWidget_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_DeleteWidget_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_deletewidget_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_DeleteWidget_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRecentFilesAction_Event(KRecentFilesAction* self, QEvent* event) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction) {
         return vkrecentfilesaction->event(event);
     } else {
-        return ((VirtualKRecentFilesAction*)self)->event(event);
+        qFatal("Error: Protected virtual method KRecentFilesAction::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRecentFilesAction_SuperEvent(KRecentFilesAction* self, QEvent* event) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_Event_IsBase(true);
-        return vkrecentfilesaction->event(event);
-    } else {
-        return ((VirtualKRecentFilesAction*)self)->event(event);
-    }
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self)) {
+        return vkrecentfilesaction->KRecentFilesAction::event(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesAction::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnEvent(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_Event_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Event_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_event_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRecentFilesAction_EventFilter(KRecentFilesAction* self, QObject* watched, QEvent* event) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction) {
         return vkrecentfilesaction->eventFilter(watched, event);
     } else {
-        return ((VirtualKRecentFilesAction*)self)->eventFilter(watched, event);
+        qFatal("Error: Protected virtual method KRecentFilesAction::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRecentFilesAction_SuperEventFilter(KRecentFilesAction* self, QObject* watched, QEvent* event) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_EventFilter_IsBase(true);
-        return vkrecentfilesaction->eventFilter(watched, event);
-    } else {
-        return ((VirtualKRecentFilesAction*)self)->eventFilter(watched, event);
-    }
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self)) {
+        return vkrecentfilesaction->KRecentFilesAction::eventFilter(watched, event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesAction::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnEventFilter(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_EventFilter_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_EventFilter_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_eventfilter_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesAction_TimerEvent(KRecentFilesAction* self, QTimerEvent* event) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction) {
         vkrecentfilesaction->timerEvent(event);
     } else {
-        ((VirtualKRecentFilesAction*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesAction::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesAction_SuperTimerEvent(KRecentFilesAction* self, QTimerEvent* event) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_TimerEvent_IsBase(true);
-        vkrecentfilesaction->timerEvent(event);
-    } else {
-        ((VirtualKRecentFilesAction*)self)->timerEvent(event);
-    }
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self)) {
+        vkrecentfilesaction->KRecentFilesAction::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesAction::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnTimerEvent(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_TimerEvent_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_TimerEvent_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_timerevent_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesAction_ChildEvent(KRecentFilesAction* self, QChildEvent* event) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction) {
         vkrecentfilesaction->childEvent(event);
     } else {
-        ((VirtualKRecentFilesAction*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesAction::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesAction_SuperChildEvent(KRecentFilesAction* self, QChildEvent* event) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_ChildEvent_IsBase(true);
-        vkrecentfilesaction->childEvent(event);
-    } else {
-        ((VirtualKRecentFilesAction*)self)->childEvent(event);
-    }
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self)) {
+        vkrecentfilesaction->KRecentFilesAction::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesAction::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnChildEvent(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_ChildEvent_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_ChildEvent_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_childevent_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesAction_CustomEvent(KRecentFilesAction* self, QEvent* event) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction) {
         vkrecentfilesaction->customEvent(event);
     } else {
-        ((VirtualKRecentFilesAction*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesAction::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesAction_SuperCustomEvent(KRecentFilesAction* self, QEvent* event) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_CustomEvent_IsBase(true);
-        vkrecentfilesaction->customEvent(event);
-    } else {
-        ((VirtualKRecentFilesAction*)self)->customEvent(event);
-    }
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self)) {
+        vkrecentfilesaction->KRecentFilesAction::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesAction::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnCustomEvent(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_CustomEvent_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_CustomEvent_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_customevent_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesAction_ConnectNotify(KRecentFilesAction* self, const QMetaMethod* signal) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction) {
         vkrecentfilesaction->connectNotify(*signal);
     } else {
-        ((VirtualKRecentFilesAction*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KRecentFilesAction::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesAction_SuperConnectNotify(KRecentFilesAction* self, const QMetaMethod* signal) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_ConnectNotify_IsBase(true);
-        vkrecentfilesaction->connectNotify(*signal);
-    } else {
-        ((VirtualKRecentFilesAction*)self)->connectNotify(*signal);
-    }
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self)) {
+        vkrecentfilesaction->KRecentFilesAction::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesAction::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnConnectNotify(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_ConnectNotify_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_ConnectNotify_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_connectnotify_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesAction_DisconnectNotify(KRecentFilesAction* self, const QMetaMethod* signal) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction) {
         vkrecentfilesaction->disconnectNotify(*signal);
     } else {
-        ((VirtualKRecentFilesAction*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KRecentFilesAction::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesAction_SuperDisconnectNotify(KRecentFilesAction* self, const QMetaMethod* signal) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_DisconnectNotify_IsBase(true);
-        vkrecentfilesaction->disconnectNotify(*signal);
-    } else {
-        ((VirtualKRecentFilesAction*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self)) {
+        vkrecentfilesaction->KRecentFilesAction::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesAction::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnDisconnectNotify(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_DisconnectNotify_Callback>(slot));
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self))
+        vkrecentfilesaction->krecentfilesaction_disconnectnotify_callback = reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRecentFilesAction_SlotToggled(KRecentFilesAction* self, bool param1) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->slotToggled(param1);
-    } else {
-        ((VirtualKRecentFilesAction*)self)->slotToggled(param1);
-    }
+    if (auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self)) {
+        vkrecentfilesaction->VirtualKRecentFilesAction::slotToggled(param1);
+    } else
+        qFatal("Error: Protected method KRecentFilesAction::slotToggled called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRecentFilesAction_SuperSlotToggled(KRecentFilesAction* self, bool param1) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_SlotToggled_IsBase(true);
-        vkrecentfilesaction->slotToggled(param1);
-    } else {
-        ((VirtualKRecentFilesAction*)self)->slotToggled(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesAction_OnSlotToggled(KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_SlotToggled_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_SlotToggled_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of QWidget* */ KRecentFilesAction_CreatedWidgets(const KRecentFilesAction* self) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        QList<QWidget*> _ret = vkrecentfilesaction->createdWidgets();
+    if (auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self))) {
+        QList<QWidget*> _ret = vkrecentfilesaction->VirtualKRecentFilesAction::createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
         QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -616,166 +508,40 @@ libqt_list /* of QWidget* */ KRecentFilesAction_CreatedWidgets(const KRecentFile
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QWidget*> _ret = ((VirtualKRecentFilesAction*)self)->createdWidgets();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KRecentFilesAction::createdWidgets called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of QWidget* */ KRecentFilesAction_SuperCreatedWidgets(const KRecentFilesAction* self) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_CreatedWidgets_IsBase(true);
-        QList<QWidget*> _ret = vkrecentfilesaction->createdWidgets();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QWidget*> _ret = ((VirtualKRecentFilesAction*)self)->createdWidgets();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesAction_OnCreatedWidgets(const KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_CreatedWidgets_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_CreatedWidgets_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KRecentFilesAction_Sender(const KRecentFilesAction* self) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        return vkrecentfilesaction->sender();
-    } else {
-        return ((VirtualKRecentFilesAction*)self)->sender();
-    }
+    if (auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self))) {
+        return vkrecentfilesaction->VirtualKRecentFilesAction::sender();
+    } else
+        qFatal("Error: Protected method KRecentFilesAction::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KRecentFilesAction_SuperSender(const KRecentFilesAction* self) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_Sender_IsBase(true);
-        return vkrecentfilesaction->sender();
-    } else {
-        return ((VirtualKRecentFilesAction*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesAction_OnSender(const KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_Sender_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KRecentFilesAction_SenderSignalIndex(const KRecentFilesAction* self) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        return vkrecentfilesaction->senderSignalIndex();
-    } else {
-        return ((VirtualKRecentFilesAction*)self)->senderSignalIndex();
-    }
+    if (auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self))) {
+        return vkrecentfilesaction->VirtualKRecentFilesAction::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KRecentFilesAction::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KRecentFilesAction_SuperSenderSignalIndex(const KRecentFilesAction* self) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_SenderSignalIndex_IsBase(true);
-        return vkrecentfilesaction->senderSignalIndex();
-    } else {
-        return ((VirtualKRecentFilesAction*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesAction_OnSenderSignalIndex(const KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KRecentFilesAction_Receivers(const KRecentFilesAction* self, const char* signal) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        return vkrecentfilesaction->receivers(signal);
-    } else {
-        return ((VirtualKRecentFilesAction*)self)->receivers(signal);
-    }
+    if (auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self))) {
+        return vkrecentfilesaction->VirtualKRecentFilesAction::receivers(signal);
+    } else
+        qFatal("Error: Protected method KRecentFilesAction::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KRecentFilesAction_SuperReceivers(const KRecentFilesAction* self, const char* signal) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_Receivers_IsBase(true);
-        return vkrecentfilesaction->receivers(signal);
-    } else {
-        return ((VirtualKRecentFilesAction*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesAction_OnReceivers(const KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_Receivers_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRecentFilesAction_IsSignalConnected(const KRecentFilesAction* self, const QMetaMethod* signal) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        return vkrecentfilesaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKRecentFilesAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KRecentFilesAction_SuperIsSignalConnected(const KRecentFilesAction* self, const QMetaMethod* signal) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        vkrecentfilesaction->setKRecentFilesAction_IsSignalConnected_IsBase(true);
-        return vkrecentfilesaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKRecentFilesAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesAction_OnIsSignalConnected(const KRecentFilesAction* self, intptr_t slot) {
-    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
-        vkrecentfilesaction->setKRecentFilesAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_IsSignalConnected_Callback>(slot));
+    if (auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self))) {
+        return vkrecentfilesaction->VirtualKRecentFilesAction::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KRecentFilesAction::isSignalConnected called without a directly constructed type");
 }
 
 void KRecentFilesAction_Delete(KRecentFilesAction* self) {

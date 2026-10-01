@@ -189,1990 +189,1317 @@ libqt_string KPageDialog_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KPageDialog_SuperMetaObject(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vkpagedialog->metaObject();
-    } else {
-        return (QMetaObject*)self->KPageDialog::metaObject();
-    }
+    return (QMetaObject*)self->KPageDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPageDialog_OnMetaObject(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_MetaObject_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MetaObject_Callback>(slot));
+void KPageDialog_OnMetaObject(KPageDialog* self, intptr_t slot) {
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self)))
+        vkpagedialog->kpagedialog_metaobject_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KPageDialog_SuperMetacast(KPageDialog* self, const char* param1) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_Metacast_IsBase(true);
-        return vkpagedialog->qt_metacast(param1);
-    } else {
-        return self->KPageDialog::qt_metacast(param1);
-    }
+    return self->KPageDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMetacast(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_Metacast_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Metacast_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_metacast_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KPageDialog_SuperMetacall(KPageDialog* self, int param1, int param2, void** param3) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_Metacall_IsBase(true);
-        return vkpagedialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KPageDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KPageDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMetacall(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_Metacall_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Metacall_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_metacall_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_SetVisible(KPageDialog* self, bool visible) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setVisible(visible);
-    } else {
-        self->KPageDialog::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KPageDialog_SuperSetVisible(KPageDialog* self, bool visible) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_SetVisible_IsBase(true);
-        vkpagedialog->setVisible(visible);
-    } else {
-        self->KPageDialog::setVisible(visible);
-    }
+    self->KPageDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnSetVisible(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_SetVisible_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_SetVisible_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_setvisible_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KPageDialog_SizeHint(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return new QSize(vkpagedialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKPageDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KPageDialog_SuperSizeHint(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_SizeHint_IsBase(true);
-        return new QSize(vkpagedialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKPageDialog*)self)->sizeHint());
-    }
+    return new QSize(self->KPageDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPageDialog_OnSizeHint(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_SizeHint_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_SizeHint_Callback>(slot));
+void KPageDialog_OnSizeHint(KPageDialog* self, intptr_t slot) {
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self)))
+        vkpagedialog->kpagedialog_sizehint_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KPageDialog_MinimumSizeHint(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return new QSize(vkpagedialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPageDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KPageDialog_SuperMinimumSizeHint(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vkpagedialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPageDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KPageDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPageDialog_OnMinimumSizeHint(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MinimumSizeHint_Callback>(slot));
+void KPageDialog_OnMinimumSizeHint(KPageDialog* self, intptr_t slot) {
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self)))
+        vkpagedialog->kpagedialog_minimumsizehint_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_Open(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->open();
-    } else {
-        self->KPageDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void KPageDialog_SuperOpen(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_Open_IsBase(true);
-        vkpagedialog->open();
-    } else {
-        self->KPageDialog::open();
-    }
+    self->KPageDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnOpen(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_Open_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Open_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_open_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPageDialog_Exec(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return vkpagedialog->exec();
-    } else {
-        return self->KPageDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int KPageDialog_SuperExec(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_Exec_IsBase(true);
-        return vkpagedialog->exec();
-    } else {
-        return self->KPageDialog::exec();
-    }
+    return self->KPageDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnExec(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_Exec_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Exec_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_exec_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_Done(KPageDialog* self, int param1) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->done(static_cast<int>(param1));
-    } else {
-        self->KPageDialog::done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 void KPageDialog_SuperDone(KPageDialog* self, int param1) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_Done_IsBase(true);
-        vkpagedialog->done(static_cast<int>(param1));
-    } else {
-        self->KPageDialog::done(static_cast<int>(param1));
-    }
+    self->KPageDialog::done(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnDone(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_Done_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Done_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_done_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_Accept(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->accept();
-    } else {
-        self->KPageDialog::accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation
 void KPageDialog_SuperAccept(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_Accept_IsBase(true);
-        vkpagedialog->accept();
-    } else {
-        self->KPageDialog::accept();
-    }
+    self->KPageDialog::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnAccept(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_Accept_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Accept_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_accept_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_Reject(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->reject();
-    } else {
-        self->KPageDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void KPageDialog_SuperReject(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_Reject_IsBase(true);
-        vkpagedialog->reject();
-    } else {
-        self->KPageDialog::reject();
-    }
+    self->KPageDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnReject(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_Reject_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Reject_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_reject_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_KeyPressEvent(KPageDialog* self, QKeyEvent* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->keyPressEvent(param1);
     } else {
-        ((VirtualKPageDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method KPageDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperKeyPressEvent(KPageDialog* self, QKeyEvent* param1) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_KeyPressEvent_IsBase(true);
-        vkpagedialog->keyPressEvent(param1);
-    } else {
-        ((VirtualKPageDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnKeyPressEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_keypressevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_CloseEvent(KPageDialog* self, QCloseEvent* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->closeEvent(param1);
     } else {
-        ((VirtualKPageDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method KPageDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperCloseEvent(KPageDialog* self, QCloseEvent* param1) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_CloseEvent_IsBase(true);
-        vkpagedialog->closeEvent(param1);
-    } else {
-        ((VirtualKPageDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnCloseEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_CloseEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_CloseEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_closeevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_ShowEvent(KPageDialog* self, QShowEvent* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->showEvent(param1);
     } else {
-        ((VirtualKPageDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method KPageDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperShowEvent(KPageDialog* self, QShowEvent* param1) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_ShowEvent_IsBase(true);
-        vkpagedialog->showEvent(param1);
-    } else {
-        ((VirtualKPageDialog*)self)->showEvent(param1);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnShowEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_ShowEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ShowEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_showevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_ResizeEvent(KPageDialog* self, QResizeEvent* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->resizeEvent(param1);
     } else {
-        ((VirtualKPageDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method KPageDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperResizeEvent(KPageDialog* self, QResizeEvent* param1) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_ResizeEvent_IsBase(true);
-        vkpagedialog->resizeEvent(param1);
-    } else {
-        ((VirtualKPageDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnResizeEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ResizeEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_resizeevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_ContextMenuEvent(KPageDialog* self, QContextMenuEvent* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->contextMenuEvent(param1);
     } else {
-        ((VirtualKPageDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method KPageDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperContextMenuEvent(KPageDialog* self, QContextMenuEvent* param1) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_ContextMenuEvent_IsBase(true);
-        vkpagedialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualKPageDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnContextMenuEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_contextmenuevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPageDialog_EventFilter(KPageDialog* self, QObject* param1, QEvent* param2) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         return vkpagedialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualKPageDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method KPageDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPageDialog_SuperEventFilter(KPageDialog* self, QObject* param1, QEvent* param2) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_EventFilter_IsBase(true);
-        return vkpagedialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKPageDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        return vkpagedialog->KPageDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnEventFilter(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_EventFilter_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_EventFilter_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_eventfilter_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPageDialog_DevType(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return vkpagedialog->devType();
-    } else {
-        return self->KPageDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KPageDialog_SuperDevType(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_DevType_IsBase(true);
-        return vkpagedialog->devType();
-    } else {
-        return self->KPageDialog::devType();
-    }
+    return self->KPageDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPageDialog_OnDevType(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_DevType_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_DevType_Callback>(slot));
+void KPageDialog_OnDevType(KPageDialog* self, intptr_t slot) {
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self)))
+        vkpagedialog->kpagedialog_devtype_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPageDialog_HeightForWidth(const KPageDialog* self, int param1) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return vkpagedialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KPageDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KPageDialog_SuperHeightForWidth(const KPageDialog* self, int param1) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_HeightForWidth_IsBase(true);
-        return vkpagedialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KPageDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KPageDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPageDialog_OnHeightForWidth(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_HeightForWidth_Callback>(slot));
+void KPageDialog_OnHeightForWidth(KPageDialog* self, intptr_t slot) {
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self)))
+        vkpagedialog->kpagedialog_heightforwidth_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPageDialog_HasHeightForWidth(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return vkpagedialog->hasHeightForWidth();
-    } else {
-        return self->KPageDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KPageDialog_SuperHasHeightForWidth(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_HasHeightForWidth_IsBase(true);
-        return vkpagedialog->hasHeightForWidth();
-    } else {
-        return self->KPageDialog::hasHeightForWidth();
-    }
+    return self->KPageDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPageDialog_OnHasHeightForWidth(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_HasHeightForWidth_Callback>(slot));
+void KPageDialog_OnHasHeightForWidth(KPageDialog* self, intptr_t slot) {
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self)))
+        vkpagedialog->kpagedialog_hasheightforwidth_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KPageDialog_PaintEngine(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return vkpagedialog->paintEngine();
-    } else {
-        return self->KPageDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KPageDialog_SuperPaintEngine(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_PaintEngine_IsBase(true);
-        return vkpagedialog->paintEngine();
-    } else {
-        return self->KPageDialog::paintEngine();
-    }
+    return self->KPageDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPageDialog_OnPaintEngine(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_PaintEngine_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_PaintEngine_Callback>(slot));
+void KPageDialog_OnPaintEngine(KPageDialog* self, intptr_t slot) {
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self)))
+        vkpagedialog->kpagedialog_paintengine_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPageDialog_Event(KPageDialog* self, QEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         return vkpagedialog->event(event);
     } else {
-        return ((VirtualKPageDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method KPageDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPageDialog_SuperEvent(KPageDialog* self, QEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_Event_IsBase(true);
-        return vkpagedialog->event(event);
-    } else {
-        return ((VirtualKPageDialog*)self)->event(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        return vkpagedialog->KPageDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_Event_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Event_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_event_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_MousePressEvent(KPageDialog* self, QMouseEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->mousePressEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperMousePressEvent(KPageDialog* self, QMouseEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_MousePressEvent_IsBase(true);
-        vkpagedialog->mousePressEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMousePressEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MousePressEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_mousepressevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_MouseReleaseEvent(KPageDialog* self, QMouseEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperMouseReleaseEvent(KPageDialog* self, QMouseEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_MouseReleaseEvent_IsBase(true);
-        vkpagedialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMouseReleaseEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_mousereleaseevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_MouseDoubleClickEvent(KPageDialog* self, QMouseEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperMouseDoubleClickEvent(KPageDialog* self, QMouseEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_MouseDoubleClickEvent_IsBase(true);
-        vkpagedialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMouseDoubleClickEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_MouseMoveEvent(KPageDialog* self, QMouseEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->mouseMoveEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperMouseMoveEvent(KPageDialog* self, QMouseEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_MouseMoveEvent_IsBase(true);
-        vkpagedialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMouseMoveEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_mousemoveevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_WheelEvent(KPageDialog* self, QWheelEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->wheelEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperWheelEvent(KPageDialog* self, QWheelEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_WheelEvent_IsBase(true);
-        vkpagedialog->wheelEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnWheelEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_WheelEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_WheelEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_wheelevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_KeyReleaseEvent(KPageDialog* self, QKeyEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->keyReleaseEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperKeyReleaseEvent(KPageDialog* self, QKeyEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_KeyReleaseEvent_IsBase(true);
-        vkpagedialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnKeyReleaseEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_keyreleaseevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_FocusInEvent(KPageDialog* self, QFocusEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->focusInEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperFocusInEvent(KPageDialog* self, QFocusEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_FocusInEvent_IsBase(true);
-        vkpagedialog->focusInEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnFocusInEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_FocusInEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_focusinevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_FocusOutEvent(KPageDialog* self, QFocusEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->focusOutEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperFocusOutEvent(KPageDialog* self, QFocusEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_FocusOutEvent_IsBase(true);
-        vkpagedialog->focusOutEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnFocusOutEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_focusoutevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_EnterEvent(KPageDialog* self, QEnterEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->enterEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperEnterEvent(KPageDialog* self, QEnterEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_EnterEvent_IsBase(true);
-        vkpagedialog->enterEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->enterEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnEnterEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_EnterEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_EnterEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_enterevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_LeaveEvent(KPageDialog* self, QEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->leaveEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperLeaveEvent(KPageDialog* self, QEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_LeaveEvent_IsBase(true);
-        vkpagedialog->leaveEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnLeaveEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_LeaveEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_leaveevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_PaintEvent(KPageDialog* self, QPaintEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->paintEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperPaintEvent(KPageDialog* self, QPaintEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_PaintEvent_IsBase(true);
-        vkpagedialog->paintEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->paintEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnPaintEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_PaintEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_PaintEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_paintevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_MoveEvent(KPageDialog* self, QMoveEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->moveEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperMoveEvent(KPageDialog* self, QMoveEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_MoveEvent_IsBase(true);
-        vkpagedialog->moveEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->moveEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMoveEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_MoveEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MoveEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_moveevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_TabletEvent(KPageDialog* self, QTabletEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->tabletEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperTabletEvent(KPageDialog* self, QTabletEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_TabletEvent_IsBase(true);
-        vkpagedialog->tabletEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnTabletEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_TabletEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_TabletEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_tabletevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_ActionEvent(KPageDialog* self, QActionEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->actionEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperActionEvent(KPageDialog* self, QActionEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_ActionEvent_IsBase(true);
-        vkpagedialog->actionEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->actionEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnActionEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_ActionEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ActionEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_actionevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_DragEnterEvent(KPageDialog* self, QDragEnterEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->dragEnterEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperDragEnterEvent(KPageDialog* self, QDragEnterEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_DragEnterEvent_IsBase(true);
-        vkpagedialog->dragEnterEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnDragEnterEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_dragenterevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_DragMoveEvent(KPageDialog* self, QDragMoveEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->dragMoveEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperDragMoveEvent(KPageDialog* self, QDragMoveEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_DragMoveEvent_IsBase(true);
-        vkpagedialog->dragMoveEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnDragMoveEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_dragmoveevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_DragLeaveEvent(KPageDialog* self, QDragLeaveEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->dragLeaveEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperDragLeaveEvent(KPageDialog* self, QDragLeaveEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_DragLeaveEvent_IsBase(true);
-        vkpagedialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnDragLeaveEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_dragleaveevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_DropEvent(KPageDialog* self, QDropEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->dropEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperDropEvent(KPageDialog* self, QDropEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_DropEvent_IsBase(true);
-        vkpagedialog->dropEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->dropEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnDropEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_DropEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_DropEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_dropevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_HideEvent(KPageDialog* self, QHideEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->hideEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperHideEvent(KPageDialog* self, QHideEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_HideEvent_IsBase(true);
-        vkpagedialog->hideEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->hideEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnHideEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_HideEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_HideEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_hideevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPageDialog_NativeEvent(KPageDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
+    if (vkpagedialog) {
         return vkpagedialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKPageDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KPageDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPageDialog_SuperNativeEvent(KPageDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_NativeEvent_IsBase(true);
-        return vkpagedialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKPageDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        return vkpagedialog->KPageDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnNativeEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_NativeEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_NativeEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_nativeevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_ChangeEvent(KPageDialog* self, QEvent* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->changeEvent(param1);
     } else {
-        ((VirtualKPageDialog*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KPageDialog::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperChangeEvent(KPageDialog* self, QEvent* param1) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_ChangeEvent_IsBase(true);
-        vkpagedialog->changeEvent(param1);
-    } else {
-        ((VirtualKPageDialog*)self)->changeEvent(param1);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnChangeEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ChangeEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_changeevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPageDialog_Metric(const KPageDialog* self, int param1) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         return vkpagedialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKPageDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KPageDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KPageDialog_SuperMetric(const KPageDialog* self, int param1) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_Metric_IsBase(true);
-        return vkpagedialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKPageDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self))) {
+        return vkpagedialog->KPageDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPageDialog_OnMetric(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_Metric_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Metric_Callback>(slot));
+void KPageDialog_OnMetric(KPageDialog* self, intptr_t slot) {
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self)))
+        vkpagedialog->kpagedialog_metric_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_InitPainter(const KPageDialog* self, QPainter* painter) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->initPainter(painter);
     } else {
-        ((VirtualKPageDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KPageDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperInitPainter(const KPageDialog* self, QPainter* painter) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_InitPainter_IsBase(true);
-        vkpagedialog->initPainter(painter);
-    } else {
-        ((VirtualKPageDialog*)self)->initPainter(painter);
-    }
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self))) {
+        vkpagedialog->KPageDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPageDialog_OnInitPainter(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_InitPainter_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_InitPainter_Callback>(slot));
+void KPageDialog_OnInitPainter(KPageDialog* self, intptr_t slot) {
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self)))
+        vkpagedialog->kpagedialog_initpainter_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KPageDialog_Redirected(const KPageDialog* self, QPoint* offset) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         return vkpagedialog->redirected(offset);
     } else {
-        return ((VirtualKPageDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KPageDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KPageDialog_SuperRedirected(const KPageDialog* self, QPoint* offset) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_Redirected_IsBase(true);
-        return vkpagedialog->redirected(offset);
-    } else {
-        return ((VirtualKPageDialog*)self)->redirected(offset);
-    }
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self))) {
+        return vkpagedialog->KPageDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPageDialog_OnRedirected(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_Redirected_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Redirected_Callback>(slot));
+void KPageDialog_OnRedirected(KPageDialog* self, intptr_t slot) {
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self)))
+        vkpagedialog->kpagedialog_redirected_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KPageDialog_SharedPainter(const KPageDialog* self) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         return vkpagedialog->sharedPainter();
     } else {
-        return ((VirtualKPageDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KPageDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KPageDialog_SuperSharedPainter(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_SharedPainter_IsBase(true);
-        return vkpagedialog->sharedPainter();
-    } else {
-        return ((VirtualKPageDialog*)self)->sharedPainter();
-    }
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self))) {
+        return vkpagedialog->KPageDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPageDialog_OnSharedPainter(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_SharedPainter_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_SharedPainter_Callback>(slot));
+void KPageDialog_OnSharedPainter(KPageDialog* self, intptr_t slot) {
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self)))
+        vkpagedialog->kpagedialog_sharedpainter_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_InputMethodEvent(KPageDialog* self, QInputMethodEvent* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->inputMethodEvent(param1);
     } else {
-        ((VirtualKPageDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KPageDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperInputMethodEvent(KPageDialog* self, QInputMethodEvent* param1) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_InputMethodEvent_IsBase(true);
-        vkpagedialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualKPageDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnInputMethodEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_inputmethodevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KPageDialog_InputMethodQuery(const KPageDialog* self, int param1) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return new QVariant(vkpagedialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPageDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KPageDialog_SuperInputMethodQuery(const KPageDialog* self, int param1) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vkpagedialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPageDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KPageDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPageDialog_OnInputMethodQuery(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_InputMethodQuery_Callback>(slot));
+void KPageDialog_OnInputMethodQuery(KPageDialog* self, intptr_t slot) {
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self)))
+        vkpagedialog->kpagedialog_inputmethodquery_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPageDialog_FocusNextPrevChild(KPageDialog* self, bool next) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         return vkpagedialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualKPageDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KPageDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPageDialog_SuperFocusNextPrevChild(KPageDialog* self, bool next) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_FocusNextPrevChild_IsBase(true);
-        return vkpagedialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKPageDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        return vkpagedialog->KPageDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnFocusNextPrevChild(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_focusnextprevchild_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_TimerEvent(KPageDialog* self, QTimerEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->timerEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperTimerEvent(KPageDialog* self, QTimerEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_TimerEvent_IsBase(true);
-        vkpagedialog->timerEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->timerEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnTimerEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_TimerEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_TimerEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_timerevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_ChildEvent(KPageDialog* self, QChildEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->childEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperChildEvent(KPageDialog* self, QChildEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_ChildEvent_IsBase(true);
-        vkpagedialog->childEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->childEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnChildEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_ChildEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ChildEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_childevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_CustomEvent(KPageDialog* self, QEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->customEvent(event);
     } else {
-        ((VirtualKPageDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KPageDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperCustomEvent(KPageDialog* self, QEvent* event) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_CustomEvent_IsBase(true);
-        vkpagedialog->customEvent(event);
-    } else {
-        ((VirtualKPageDialog*)self)->customEvent(event);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnCustomEvent(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_CustomEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_CustomEvent_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_customevent_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_ConnectNotify(KPageDialog* self, const QMetaMethod* signal) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->connectNotify(*signal);
     } else {
-        ((VirtualKPageDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KPageDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperConnectNotify(KPageDialog* self, const QMetaMethod* signal) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_ConnectNotify_IsBase(true);
-        vkpagedialog->connectNotify(*signal);
-    } else {
-        ((VirtualKPageDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnConnectNotify(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ConnectNotify_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_connectnotify_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPageDialog_DisconnectNotify(KPageDialog* self, const QMetaMethod* signal) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog) {
         vkpagedialog->disconnectNotify(*signal);
     } else {
-        ((VirtualKPageDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KPageDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPageDialog_SuperDisconnectNotify(KPageDialog* self, const QMetaMethod* signal) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_DisconnectNotify_IsBase(true);
-        vkpagedialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualKPageDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->KPageDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPageDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnDisconnectNotify(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self))
+        vkpagedialog->kpagedialog_disconnectnotify_callback = reinterpret_cast<VirtualKPageDialog::KPageDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 KPageWidget* KPageDialog_PageWidget(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return vkpagedialog->pageWidget();
-    } else {
-        return ((VirtualKPageDialog*)self)->pageWidget();
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        return vkpagedialog->VirtualKPageDialog::pageWidget();
+    } else
+        qFatal("Error: Protected method KPageDialog::pageWidget called without a directly constructed type");
 }
 
-// Base class handler implementation
-KPageWidget* KPageDialog_SuperPageWidget(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_PageWidget_IsBase(true);
-        return vkpagedialog->pageWidget();
-    } else {
-        return ((VirtualKPageDialog*)self)->pageWidget();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnPageWidget(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_PageWidget_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_PageWidget_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 KPageWidget* KPageDialog_PageWidget2(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return (KPageWidget*)vkpagedialog->pageWidget();
-    } else {
-        return (KPageWidget*)((VirtualKPageDialog*)self)->pageWidget();
-    }
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self))) {
+        return (KPageWidget*)vkpagedialog->VirtualKPageDialog::pageWidget();
+    } else
+        qFatal("Error: Protected method KPageDialog::pageWidget2 called without a directly constructed type");
 }
 
-// Base class handler implementation
-KPageWidget* KPageDialog_SuperPageWidget2(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_PageWidget2_IsBase(true);
-        return (KPageWidget*)vkpagedialog->pageWidget();
-    } else {
-        return (KPageWidget*)((VirtualKPageDialog*)self)->pageWidget();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnPageWidget2(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_PageWidget2_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_PageWidget2_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPageDialog_SetPageWidget(KPageDialog* self, KPageWidget* widget) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setPageWidget(widget);
-    } else {
-        ((VirtualKPageDialog*)self)->setPageWidget(widget);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->VirtualKPageDialog::setPageWidget(widget);
+    } else
+        qFatal("Error: Protected method KPageDialog::setPageWidget called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPageDialog_SuperSetPageWidget(KPageDialog* self, KPageWidget* widget) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_SetPageWidget_IsBase(true);
-        vkpagedialog->setPageWidget(widget);
-    } else {
-        ((VirtualKPageDialog*)self)->setPageWidget(widget);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnSetPageWidget(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_SetPageWidget_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_SetPageWidget_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QDialogButtonBox* KPageDialog_ButtonBox(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return vkpagedialog->buttonBox();
-    } else {
-        return ((VirtualKPageDialog*)self)->buttonBox();
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        return vkpagedialog->VirtualKPageDialog::buttonBox();
+    } else
+        qFatal("Error: Protected method KPageDialog::buttonBox called without a directly constructed type");
 }
 
-// Base class handler implementation
-QDialogButtonBox* KPageDialog_SuperButtonBox(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_ButtonBox_IsBase(true);
-        return vkpagedialog->buttonBox();
-    } else {
-        return ((VirtualKPageDialog*)self)->buttonBox();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnButtonBox(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_ButtonBox_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ButtonBox_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QDialogButtonBox* KPageDialog_ButtonBox2(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return (QDialogButtonBox*)vkpagedialog->buttonBox();
-    } else {
-        return (QDialogButtonBox*)((VirtualKPageDialog*)self)->buttonBox();
-    }
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self))) {
+        return (QDialogButtonBox*)vkpagedialog->VirtualKPageDialog::buttonBox();
+    } else
+        qFatal("Error: Protected method KPageDialog::buttonBox2 called without a directly constructed type");
 }
 
-// Base class handler implementation
-QDialogButtonBox* KPageDialog_SuperButtonBox2(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_ButtonBox2_IsBase(true);
-        return (QDialogButtonBox*)vkpagedialog->buttonBox();
-    } else {
-        return (QDialogButtonBox*)((VirtualKPageDialog*)self)->buttonBox();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnButtonBox2(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_ButtonBox2_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ButtonBox2_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPageDialog_SetButtonBox(KPageDialog* self, QDialogButtonBox* box) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setButtonBox(box);
-    } else {
-        ((VirtualKPageDialog*)self)->setButtonBox(box);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->VirtualKPageDialog::setButtonBox(box);
+    } else
+        qFatal("Error: Protected method KPageDialog::setButtonBox called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPageDialog_SuperSetButtonBox(KPageDialog* self, QDialogButtonBox* box) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_SetButtonBox_IsBase(true);
-        vkpagedialog->setButtonBox(box);
-    } else {
-        ((VirtualKPageDialog*)self)->setButtonBox(box);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnSetButtonBox(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_SetButtonBox_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_SetButtonBox_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPageDialog_AdjustPosition(KPageDialog* self, QWidget* param1) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->adjustPosition(param1);
-    } else {
-        ((VirtualKPageDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->VirtualKPageDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method KPageDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPageDialog_SuperAdjustPosition(KPageDialog* self, QWidget* param1) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_AdjustPosition_IsBase(true);
-        vkpagedialog->adjustPosition(param1);
-    } else {
-        ((VirtualKPageDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnAdjustPosition(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPageDialog_UpdateMicroFocus(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->updateMicroFocus();
-    } else {
-        ((VirtualKPageDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->VirtualKPageDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KPageDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPageDialog_SuperUpdateMicroFocus(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_UpdateMicroFocus_IsBase(true);
-        vkpagedialog->updateMicroFocus();
-    } else {
-        ((VirtualKPageDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnUpdateMicroFocus(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPageDialog_Create(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->create();
-    } else {
-        ((VirtualKPageDialog*)self)->create();
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->VirtualKPageDialog::create();
+    } else
+        qFatal("Error: Protected method KPageDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPageDialog_SuperCreate(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_Create_IsBase(true);
-        vkpagedialog->create();
-    } else {
-        ((VirtualKPageDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnCreate(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_Create_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPageDialog_Destroy(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->destroy();
-    } else {
-        ((VirtualKPageDialog*)self)->destroy();
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        vkpagedialog->VirtualKPageDialog::destroy();
+    } else
+        qFatal("Error: Protected method KPageDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPageDialog_SuperDestroy(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_Destroy_IsBase(true);
-        vkpagedialog->destroy();
-    } else {
-        ((VirtualKPageDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnDestroy(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_Destroy_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPageDialog_FocusNextChild(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return vkpagedialog->focusNextChild();
-    } else {
-        return ((VirtualKPageDialog*)self)->focusNextChild();
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        return vkpagedialog->VirtualKPageDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method KPageDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPageDialog_SuperFocusNextChild(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_FocusNextChild_IsBase(true);
-        return vkpagedialog->focusNextChild();
-    } else {
-        return ((VirtualKPageDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnFocusNextChild(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPageDialog_FocusPreviousChild(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return vkpagedialog->focusPreviousChild();
-    } else {
-        return ((VirtualKPageDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self)) {
+        return vkpagedialog->VirtualKPageDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KPageDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPageDialog_SuperFocusPreviousChild(KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_FocusPreviousChild_IsBase(true);
-        return vkpagedialog->focusPreviousChild();
-    } else {
-        return ((VirtualKPageDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnFocusPreviousChild(KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KPageDialog_Sender(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return vkpagedialog->sender();
-    } else {
-        return ((VirtualKPageDialog*)self)->sender();
-    }
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self))) {
+        return vkpagedialog->VirtualKPageDialog::sender();
+    } else
+        qFatal("Error: Protected method KPageDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KPageDialog_SuperSender(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_Sender_IsBase(true);
-        return vkpagedialog->sender();
-    } else {
-        return ((VirtualKPageDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnSender(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_Sender_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPageDialog_SenderSignalIndex(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return vkpagedialog->senderSignalIndex();
-    } else {
-        return ((VirtualKPageDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self))) {
+        return vkpagedialog->VirtualKPageDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KPageDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPageDialog_SuperSenderSignalIndex(const KPageDialog* self) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_SenderSignalIndex_IsBase(true);
-        return vkpagedialog->senderSignalIndex();
-    } else {
-        return ((VirtualKPageDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnSenderSignalIndex(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPageDialog_Receivers(const KPageDialog* self, const char* signal) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return vkpagedialog->receivers(signal);
-    } else {
-        return ((VirtualKPageDialog*)self)->receivers(signal);
-    }
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self))) {
+        return vkpagedialog->VirtualKPageDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method KPageDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPageDialog_SuperReceivers(const KPageDialog* self, const char* signal) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_Receivers_IsBase(true);
-        return vkpagedialog->receivers(signal);
-    } else {
-        return ((VirtualKPageDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnReceivers(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_Receivers_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPageDialog_IsSignalConnected(const KPageDialog* self, const QMetaMethod* signal) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return vkpagedialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPageDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self))) {
+        return vkpagedialog->VirtualKPageDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KPageDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPageDialog_SuperIsSignalConnected(const KPageDialog* self, const QMetaMethod* signal) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_IsSignalConnected_IsBase(true);
-        return vkpagedialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPageDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnIsSignalConnected(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KPageDialog_GetDecodedMetricF(const KPageDialog* self, int metricA, int metricB) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return vkpagedialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPageDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KPageDialog_SuperGetDecodedMetricF(const KPageDialog* self, int metricA, int metricB) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        vkpagedialog->setKPageDialog_GetDecodedMetricF_IsBase(true);
-        return vkpagedialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPageDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPageDialog_OnGetDecodedMetricF(const KPageDialog* self, intptr_t slot) {
-    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
-        vkpagedialog->setKPageDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self))) {
+        return vkpagedialog->VirtualKPageDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KPageDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void KPageDialog_Delete(KPageDialog* self) {

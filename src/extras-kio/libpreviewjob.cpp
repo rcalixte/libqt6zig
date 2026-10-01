@@ -207,7 +207,7 @@ void KIO__PreviewJob_Connect_Failed(KIO__PreviewJob* self, intptr_t slot) {
 
 void KIO__PreviewJob_SlotResult(KIO__PreviewJob* self, KJob* job) {
     auto* vkio__previewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkio__previewjob && vkio__previewjob->isVirtualKIOPreviewJob) {
+    if (vkio__previewjob) {
         vkio__previewjob->slotResult(job);
     }
 }
@@ -246,563 +246,409 @@ void KIO__PreviewJob_SetIgnoreMaximumSize1(KIO__PreviewJob* self, bool ignoreSiz
 
 // Base class handler implementation
 QMetaObject* KIO__PreviewJob_SuperMetaObject(const KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_MetaObject_IsBase(true);
-        return (QMetaObject*)vkiopreviewjob->metaObject();
-    } else {
-        return (QMetaObject*)self->KIO::PreviewJob::metaObject();
-    }
+    return (QMetaObject*)self->KIO::PreviewJob::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnMetaObject(const KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_MetaObject_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_MetaObject_Callback>(slot));
+void KIO__PreviewJob_OnMetaObject(KIO__PreviewJob* self, intptr_t slot) {
+    if (auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self)))
+        vkiopreviewjob->kio__previewjob_metaobject_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KIO__PreviewJob_SuperMetacast(KIO__PreviewJob* self, const char* param1) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_Metacast_IsBase(true);
-        return vkiopreviewjob->qt_metacast(param1);
-    } else {
-        return self->KIO::PreviewJob::qt_metacast(param1);
-    }
+    return self->KIO::PreviewJob::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnMetacast(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_Metacast_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Metacast_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_metacast_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KIO__PreviewJob_SuperMetacall(KIO__PreviewJob* self, int param1, int param2, void** param3) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_Metacall_IsBase(true);
-        return vkiopreviewjob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KIO::PreviewJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KIO::PreviewJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnMetacall(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_Metacall_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Metacall_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_metacall_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KIO__PreviewJob_SuperSlotResult(KIO__PreviewJob* self, KJob* job) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_SlotResult_IsBase(true);
-        vkiopreviewjob->slotResult(job);
-    } else {
-        ((VirtualKIOPreviewJob*)self)->slotResult(job);
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->KIO::PreviewJob::slotResult(job);
+    } else
+        qFatal("Error: Protected virtual method KIO::PreviewJob::slotResult called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnSlotResult(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_SlotResult_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SlotResult_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_slotresult_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SlotResult_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__PreviewJob_Start(KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->start();
-    } else {
-        self->KIO::PreviewJob::start();
-    }
+    self->start();
 }
 
 // Base class handler implementation
 void KIO__PreviewJob_SuperStart(KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_Start_IsBase(true);
-        vkiopreviewjob->start();
-    } else {
-        self->KIO::PreviewJob::start();
-    }
+    self->KIO::PreviewJob::start();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnStart(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_Start_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Start_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_start_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Start_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__PreviewJob_DoKill(KIO__PreviewJob* self) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob) {
         return vkiopreviewjob->doKill();
     } else {
-        return ((VirtualKIOPreviewJob*)self)->doKill();
+        qFatal("Error: Protected virtual method KIO::PreviewJob::doKill called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__PreviewJob_SuperDoKill(KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_DoKill_IsBase(true);
-        return vkiopreviewjob->doKill();
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->doKill();
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        return vkiopreviewjob->KIO::PreviewJob::doKill();
+    } else
+        qFatal("Error: Protected virtual method KIO::PreviewJob::doKill called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnDoKill(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_DoKill_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_DoKill_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_dokill_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_DoKill_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__PreviewJob_DoSuspend(KIO__PreviewJob* self) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob) {
         return vkiopreviewjob->doSuspend();
     } else {
-        return ((VirtualKIOPreviewJob*)self)->doSuspend();
+        qFatal("Error: Protected virtual method KIO::PreviewJob::doSuspend called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__PreviewJob_SuperDoSuspend(KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_DoSuspend_IsBase(true);
-        return vkiopreviewjob->doSuspend();
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->doSuspend();
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        return vkiopreviewjob->KIO::PreviewJob::doSuspend();
+    } else
+        qFatal("Error: Protected virtual method KIO::PreviewJob::doSuspend called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnDoSuspend(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_DoSuspend_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_DoSuspend_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_dosuspend_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_DoSuspend_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__PreviewJob_DoResume(KIO__PreviewJob* self) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob) {
         return vkiopreviewjob->doResume();
     } else {
-        return ((VirtualKIOPreviewJob*)self)->doResume();
+        qFatal("Error: Protected virtual method KIO::PreviewJob::doResume called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__PreviewJob_SuperDoResume(KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_DoResume_IsBase(true);
-        return vkiopreviewjob->doResume();
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->doResume();
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        return vkiopreviewjob->KIO::PreviewJob::doResume();
+    } else
+        qFatal("Error: Protected virtual method KIO::PreviewJob::doResume called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnDoResume(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_DoResume_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_DoResume_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_doresume_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_DoResume_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KIO__PreviewJob_ErrorString(const KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        auto _ret = vkiopreviewjob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KIO::PreviewJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KIO__PreviewJob_SuperErrorString(const KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_ErrorString_IsBase(true);
-        auto _ret = vkiopreviewjob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KIO::PreviewJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KIO::PreviewJob::errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnErrorString(const KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_ErrorString_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_ErrorString_Callback>(slot));
+void KIO__PreviewJob_OnErrorString(KIO__PreviewJob* self, intptr_t slot) {
+    if (auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self)))
+        vkiopreviewjob->kio__previewjob_errorstring_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_ErrorString_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__PreviewJob_AddSubjob(KIO__PreviewJob* self, KJob* job) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob) {
         return vkiopreviewjob->addSubjob(job);
     } else {
-        return ((VirtualKIOPreviewJob*)self)->addSubjob(job);
+        qFatal("Error: Protected virtual method KIO::PreviewJob::addSubjob called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__PreviewJob_SuperAddSubjob(KIO__PreviewJob* self, KJob* job) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_AddSubjob_IsBase(true);
-        return vkiopreviewjob->addSubjob(job);
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->addSubjob(job);
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        return vkiopreviewjob->KIO::PreviewJob::addSubjob(job);
+    } else
+        qFatal("Error: Protected virtual method KIO::PreviewJob::addSubjob called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnAddSubjob(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_AddSubjob_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_AddSubjob_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_addsubjob_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_AddSubjob_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__PreviewJob_RemoveSubjob(KIO__PreviewJob* self, KJob* job) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob) {
         return vkiopreviewjob->removeSubjob(job);
     } else {
-        return ((VirtualKIOPreviewJob*)self)->removeSubjob(job);
+        qFatal("Error: Protected virtual method KIO::PreviewJob::removeSubjob called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__PreviewJob_SuperRemoveSubjob(KIO__PreviewJob* self, KJob* job) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_RemoveSubjob_IsBase(true);
-        return vkiopreviewjob->removeSubjob(job);
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->removeSubjob(job);
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        return vkiopreviewjob->KIO::PreviewJob::removeSubjob(job);
+    } else
+        qFatal("Error: Protected virtual method KIO::PreviewJob::removeSubjob called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnRemoveSubjob(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_RemoveSubjob_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_RemoveSubjob_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_removesubjob_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_RemoveSubjob_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__PreviewJob_SlotInfoMessage(KIO__PreviewJob* self, KJob* job, const libqt_string message) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
+    if (vkiopreviewjob) {
         vkiopreviewjob->slotInfoMessage(job, message_QString);
     } else {
-        ((VirtualKIOPreviewJob*)self)->slotInfoMessage(job, message_QString);
+        qFatal("Error: Protected virtual method KIO::PreviewJob::slotInfoMessage called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__PreviewJob_SuperSlotInfoMessage(KIO__PreviewJob* self, KJob* job, const libqt_string message) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_SlotInfoMessage_IsBase(true);
-        vkiopreviewjob->slotInfoMessage(job, message_QString);
-    } else {
-        ((VirtualKIOPreviewJob*)self)->slotInfoMessage(job, message_QString);
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->KIO::PreviewJob::slotInfoMessage(job, message_QString);
+    } else
+        qFatal("Error: Protected virtual method KIO::PreviewJob::slotInfoMessage called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnSlotInfoMessage(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_SlotInfoMessage_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SlotInfoMessage_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_slotinfomessage_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SlotInfoMessage_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__PreviewJob_Event(KIO__PreviewJob* self, QEvent* event) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        return vkiopreviewjob->event(event);
-    } else {
-        return self->KIO::PreviewJob::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KIO__PreviewJob_SuperEvent(KIO__PreviewJob* self, QEvent* event) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_Event_IsBase(true);
-        return vkiopreviewjob->event(event);
-    } else {
-        return self->KIO::PreviewJob::event(event);
-    }
+    return self->KIO::PreviewJob::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnEvent(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_Event_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Event_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_event_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__PreviewJob_EventFilter(KIO__PreviewJob* self, QObject* watched, QEvent* event) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        return vkiopreviewjob->eventFilter(watched, event);
-    } else {
-        return self->KIO::PreviewJob::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KIO__PreviewJob_SuperEventFilter(KIO__PreviewJob* self, QObject* watched, QEvent* event) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_EventFilter_IsBase(true);
-        return vkiopreviewjob->eventFilter(watched, event);
-    } else {
-        return self->KIO::PreviewJob::eventFilter(watched, event);
-    }
+    return self->KIO::PreviewJob::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnEventFilter(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_EventFilter_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_EventFilter_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_eventfilter_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__PreviewJob_TimerEvent(KIO__PreviewJob* self, QTimerEvent* event) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob) {
         vkiopreviewjob->timerEvent(event);
     } else {
-        ((VirtualKIOPreviewJob*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KIO::PreviewJob::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__PreviewJob_SuperTimerEvent(KIO__PreviewJob* self, QTimerEvent* event) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_TimerEvent_IsBase(true);
-        vkiopreviewjob->timerEvent(event);
-    } else {
-        ((VirtualKIOPreviewJob*)self)->timerEvent(event);
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->KIO::PreviewJob::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::PreviewJob::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnTimerEvent(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_TimerEvent_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_TimerEvent_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_timerevent_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__PreviewJob_ChildEvent(KIO__PreviewJob* self, QChildEvent* event) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob) {
         vkiopreviewjob->childEvent(event);
     } else {
-        ((VirtualKIOPreviewJob*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KIO::PreviewJob::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__PreviewJob_SuperChildEvent(KIO__PreviewJob* self, QChildEvent* event) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_ChildEvent_IsBase(true);
-        vkiopreviewjob->childEvent(event);
-    } else {
-        ((VirtualKIOPreviewJob*)self)->childEvent(event);
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->KIO::PreviewJob::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::PreviewJob::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnChildEvent(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_ChildEvent_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_ChildEvent_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_childevent_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__PreviewJob_CustomEvent(KIO__PreviewJob* self, QEvent* event) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob) {
         vkiopreviewjob->customEvent(event);
     } else {
-        ((VirtualKIOPreviewJob*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KIO::PreviewJob::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__PreviewJob_SuperCustomEvent(KIO__PreviewJob* self, QEvent* event) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_CustomEvent_IsBase(true);
-        vkiopreviewjob->customEvent(event);
-    } else {
-        ((VirtualKIOPreviewJob*)self)->customEvent(event);
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->KIO::PreviewJob::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::PreviewJob::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnCustomEvent(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_CustomEvent_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_CustomEvent_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_customevent_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__PreviewJob_ConnectNotify(KIO__PreviewJob* self, const QMetaMethod* signal) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob) {
         vkiopreviewjob->connectNotify(*signal);
     } else {
-        ((VirtualKIOPreviewJob*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::PreviewJob::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__PreviewJob_SuperConnectNotify(KIO__PreviewJob* self, const QMetaMethod* signal) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_ConnectNotify_IsBase(true);
-        vkiopreviewjob->connectNotify(*signal);
-    } else {
-        ((VirtualKIOPreviewJob*)self)->connectNotify(*signal);
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->KIO::PreviewJob::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::PreviewJob::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnConnectNotify(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_ConnectNotify_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_connectnotify_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__PreviewJob_DisconnectNotify(KIO__PreviewJob* self, const QMetaMethod* signal) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob) {
         vkiopreviewjob->disconnectNotify(*signal);
     } else {
-        ((VirtualKIOPreviewJob*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::PreviewJob::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__PreviewJob_SuperDisconnectNotify(KIO__PreviewJob* self, const QMetaMethod* signal) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_DisconnectNotify_IsBase(true);
-        vkiopreviewjob->disconnectNotify(*signal);
-    } else {
-        ((VirtualKIOPreviewJob*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->KIO::PreviewJob::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::PreviewJob::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnDisconnectNotify(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_DisconnectNotify_Callback>(slot));
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self))
+        vkiopreviewjob->kio__previewjob_disconnectnotify_callback = reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__PreviewJob_HasSubjobs(const KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        return vkiopreviewjob->hasSubjobs();
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->hasSubjobs();
-    }
+    if (auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self))) {
+        return vkiopreviewjob->VirtualKIOPreviewJob::hasSubjobs();
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::hasSubjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KIO__PreviewJob_SuperHasSubjobs(const KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_HasSubjobs_IsBase(true);
-        return vkiopreviewjob->hasSubjobs();
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->hasSubjobs();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnHasSubjobs(const KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_HasSubjobs_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_HasSubjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of KJob* */ KIO__PreviewJob_Subjobs(const KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        const QList<KJob*>& _ret = vkiopreviewjob->subjobs();
+    if (auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self))) {
+        const QList<KJob*>& _ret = vkiopreviewjob->VirtualKIOPreviewJob::subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
         KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -812,532 +658,145 @@ libqt_list /* of KJob* */ KIO__PreviewJob_Subjobs(const KIO__PreviewJob* self) {
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        const QList<KJob*>& _ret = ((VirtualKIOPreviewJob*)self)->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::subjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of KJob* */ KIO__PreviewJob_SuperSubjobs(const KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_Subjobs_IsBase(true);
-        const QList<KJob*>& _ret = vkiopreviewjob->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        const QList<KJob*>& _ret = ((VirtualKIOPreviewJob*)self)->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnSubjobs(const KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_Subjobs_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Subjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__PreviewJob_ClearSubjobs(KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->clearSubjobs();
-    } else {
-        ((VirtualKIOPreviewJob*)self)->clearSubjobs();
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->VirtualKIOPreviewJob::clearSubjobs();
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::clearSubjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__PreviewJob_SuperClearSubjobs(KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_ClearSubjobs_IsBase(true);
-        vkiopreviewjob->clearSubjobs();
-    } else {
-        ((VirtualKIOPreviewJob*)self)->clearSubjobs();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnClearSubjobs(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_ClearSubjobs_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_ClearSubjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__PreviewJob_SetCapabilities(KIO__PreviewJob* self, int capabilities) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->VirtualKIOPreviewJob::setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::setCapabilities called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__PreviewJob_SuperSetCapabilities(KIO__PreviewJob* self, int capabilities) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_SetCapabilities_IsBase(true);
-        vkiopreviewjob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnSetCapabilities(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SetCapabilities_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__PreviewJob_IsFinished(const KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        return vkiopreviewjob->isFinished();
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->isFinished();
-    }
+    if (auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self))) {
+        return vkiopreviewjob->VirtualKIOPreviewJob::isFinished();
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::isFinished called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KIO__PreviewJob_SuperIsFinished(const KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_IsFinished_IsBase(true);
-        return vkiopreviewjob->isFinished();
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->isFinished();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnIsFinished(const KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_IsFinished_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_IsFinished_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__PreviewJob_SetError(KIO__PreviewJob* self, int errorCode) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->setError(static_cast<int>(errorCode));
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->VirtualKIOPreviewJob::setError(static_cast<int>(errorCode));
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::setError called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__PreviewJob_SuperSetError(KIO__PreviewJob* self, int errorCode) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_SetError_IsBase(true);
-        vkiopreviewjob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->setError(static_cast<int>(errorCode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnSetError(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_SetError_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SetError_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__PreviewJob_SetErrorText(KIO__PreviewJob* self, const libqt_string errorText) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKIOPreviewJob*)self)->setErrorText(errorText_QString);
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
+        vkiopreviewjob->VirtualKIOPreviewJob::setErrorText(errorText_QString);
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::setErrorText called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__PreviewJob_SuperSetErrorText(KIO__PreviewJob* self, const libqt_string errorText) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_SetErrorText_IsBase(true);
-        vkiopreviewjob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKIOPreviewJob*)self)->setErrorText(errorText_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnSetErrorText(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_SetErrorText_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SetErrorText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__PreviewJob_SetProcessedAmount(KIO__PreviewJob* self, int unit, unsigned long long amount) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->VirtualKIOPreviewJob::setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::setProcessedAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__PreviewJob_SuperSetProcessedAmount(KIO__PreviewJob* self, int unit, unsigned long long amount) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_SetProcessedAmount_IsBase(true);
-        vkiopreviewjob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnSetProcessedAmount(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SetProcessedAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__PreviewJob_SetTotalAmount(KIO__PreviewJob* self, int unit, unsigned long long amount) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->VirtualKIOPreviewJob::setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::setTotalAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__PreviewJob_SuperSetTotalAmount(KIO__PreviewJob* self, int unit, unsigned long long amount) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_SetTotalAmount_IsBase(true);
-        vkiopreviewjob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnSetTotalAmount(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SetTotalAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__PreviewJob_SetProgressUnit(KIO__PreviewJob* self, int unit) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->VirtualKIOPreviewJob::setProgressUnit(static_cast<KJob::Unit>(unit));
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::setProgressUnit called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__PreviewJob_SuperSetProgressUnit(KIO__PreviewJob* self, int unit) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_SetProgressUnit_IsBase(true);
-        vkiopreviewjob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnSetProgressUnit(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SetProgressUnit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__PreviewJob_SetPercent(KIO__PreviewJob* self, unsigned long percentage) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->VirtualKIOPreviewJob::setPercent(static_cast<unsigned long>(percentage));
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::setPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__PreviewJob_SuperSetPercent(KIO__PreviewJob* self, unsigned long percentage) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_SetPercent_IsBase(true);
-        vkiopreviewjob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnSetPercent(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_SetPercent_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SetPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__PreviewJob_EmitResult(KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->emitResult();
-    } else {
-        ((VirtualKIOPreviewJob*)self)->emitResult();
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->VirtualKIOPreviewJob::emitResult();
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::emitResult called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__PreviewJob_SuperEmitResult(KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_EmitResult_IsBase(true);
-        vkiopreviewjob->emitResult();
-    } else {
-        ((VirtualKIOPreviewJob*)self)->emitResult();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnEmitResult(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_EmitResult_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_EmitResult_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__PreviewJob_EmitPercent(KIO__PreviewJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->VirtualKIOPreviewJob::emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::emitPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__PreviewJob_SuperEmitPercent(KIO__PreviewJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_EmitPercent_IsBase(true);
-        vkiopreviewjob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnEmitPercent(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_EmitPercent_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_EmitPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__PreviewJob_EmitSpeed(KIO__PreviewJob* self, unsigned long speed) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->VirtualKIOPreviewJob::emitSpeed(static_cast<unsigned long>(speed));
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::emitSpeed called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__PreviewJob_SuperEmitSpeed(KIO__PreviewJob* self, unsigned long speed) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_EmitSpeed_IsBase(true);
-        vkiopreviewjob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKIOPreviewJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnEmitSpeed(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_EmitSpeed_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__PreviewJob_StartElapsedTimer(KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->startElapsedTimer();
-    } else {
-        ((VirtualKIOPreviewJob*)self)->startElapsedTimer();
-    }
+    if (auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self)) {
+        vkiopreviewjob->VirtualKIOPreviewJob::startElapsedTimer();
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::startElapsedTimer called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__PreviewJob_SuperStartElapsedTimer(KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_StartElapsedTimer_IsBase(true);
-        vkiopreviewjob->startElapsedTimer();
-    } else {
-        ((VirtualKIOPreviewJob*)self)->startElapsedTimer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnStartElapsedTimer(KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_StartElapsedTimer_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KIO__PreviewJob_Sender(const KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        return vkiopreviewjob->sender();
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->sender();
-    }
+    if (auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self))) {
+        return vkiopreviewjob->VirtualKIOPreviewJob::sender();
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KIO__PreviewJob_SuperSender(const KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_Sender_IsBase(true);
-        return vkiopreviewjob->sender();
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnSender(const KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_Sender_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__PreviewJob_SenderSignalIndex(const KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        return vkiopreviewjob->senderSignalIndex();
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->senderSignalIndex();
-    }
+    if (auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self))) {
+        return vkiopreviewjob->VirtualKIOPreviewJob::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__PreviewJob_SuperSenderSignalIndex(const KIO__PreviewJob* self) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_SenderSignalIndex_IsBase(true);
-        return vkiopreviewjob->senderSignalIndex();
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnSenderSignalIndex(const KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__PreviewJob_Receivers(const KIO__PreviewJob* self, const char* signal) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        return vkiopreviewjob->receivers(signal);
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->receivers(signal);
-    }
+    if (auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self))) {
+        return vkiopreviewjob->VirtualKIOPreviewJob::receivers(signal);
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__PreviewJob_SuperReceivers(const KIO__PreviewJob* self, const char* signal) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_Receivers_IsBase(true);
-        return vkiopreviewjob->receivers(signal);
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnReceivers(const KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_Receivers_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__PreviewJob_IsSignalConnected(const KIO__PreviewJob* self, const QMetaMethod* signal) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        return vkiopreviewjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KIO__PreviewJob_SuperIsSignalConnected(const KIO__PreviewJob* self, const QMetaMethod* signal) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        vkiopreviewjob->setKIO__PreviewJob_IsSignalConnected_IsBase(true);
-        return vkiopreviewjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__PreviewJob_OnIsSignalConnected(const KIO__PreviewJob* self, intptr_t slot) {
-    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
-        vkiopreviewjob->setKIO__PreviewJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_IsSignalConnected_Callback>(slot));
+    if (auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self))) {
+        return vkiopreviewjob->VirtualKIOPreviewJob::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KIO::PreviewJob::isSignalConnected called without a directly constructed type");
 }
 
 void KIO__PreviewJob_Delete(KIO__PreviewJob* self) {

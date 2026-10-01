@@ -550,9 +550,9 @@ pub const KZip = extern struct {
     ///
     /// ` self: KZip `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KZip) callconv(.c) bool `
     ///
-    pub fn onCloseArchive(self: KZip, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCloseArchive(self: KZip, callback: *const fn (KZip) callconv(.c) bool) void {
         qtc.KZip_OnCloseArchive(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2093,9 +2093,9 @@ pub const KZip = extern struct {
     ///
     /// ` self: KZip`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KZip) callconv(.c) bool `
     ///
-    pub fn onClose(self: KZip, callback: *const fn () callconv(.c) bool) void {
+    pub fn onClose(self: KZip, callback: *const fn (KZip) callconv(.c) bool) void {
         qtc.KZip_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2149,9 +2149,9 @@ pub const KZip = extern struct {
     ///
     /// ` self: KZip`
     ///
-    /// ` callback: *const fn () callconv(.c) KArchiveDirectory `
+    /// ` callback: *const fn (self: KZip) callconv(.c) KArchiveDirectory `
     ///
-    pub fn onRootDir(self: KZip, callback: *const fn () callconv(.c) KArchiveDirectory) void {
+    pub fn onRootDir(self: KZip, callback: *const fn (KZip) callconv(.c) KArchiveDirectory) void {
         qtc.KZip_OnRootDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2239,50 +2239,6 @@ pub const KZip = extern struct {
         qtc.KZip_SetErrorString(@ptrCast(self.ptr), errorStr_str);
     }
 
-    /// ### DEPRECATED: Use `superSetErrorString` instead
-    ///
-    pub const SuperSetErrorString = superSetErrorString;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setErrorString)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KZip `
-    ///
-    /// ` errorStr: []const u8 `
-    ///
-    pub fn superSetErrorString(self: KZip, errorStr: []const u8) void {
-        const errorStr_str = qtc.libqt_string{
-            .len = errorStr.len,
-            .data = errorStr.ptr,
-        };
-        qtc.KZip_SuperSetErrorString(@ptrCast(self.ptr), errorStr_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorString` instead
-    ///
-    pub const OnSetErrorString = onSetErrorString;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setErrorString)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KZip`
-    ///
-    /// ` callback: *const fn (self: KZip, errorStr: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorString(self: KZip, callback: *const fn (KZip, [*:0]const u8) callconv(.c) void) void {
-        qtc.KZip_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `findOrCreate` instead
     ///
     pub const FindOrCreate = findOrCreate;
@@ -2307,50 +2263,6 @@ pub const KZip = extern struct {
         return .{ .ptr = qtc.KZip_FindOrCreate(@ptrCast(self.ptr), path_str) };
     }
 
-    /// ### DEPRECATED: Use `superFindOrCreate` instead
-    ///
-    pub const SuperFindOrCreate = superFindOrCreate;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#findOrCreate)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KZip `
-    ///
-    /// ` path: []const u8 `
-    ///
-    pub fn superFindOrCreate(self: KZip, path: []const u8) KArchiveDirectory {
-        const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
-        };
-        return .{ .ptr = qtc.KZip_SuperFindOrCreate(@ptrCast(self.ptr), path_str) };
-    }
-
-    /// ### DEPRECATED: Use `onFindOrCreate` instead
-    ///
-    pub const OnFindOrCreate = onFindOrCreate;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#findOrCreate)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KZip`
-    ///
-    /// ` callback: *const fn (self: KZip, path: [*:0]const u8) callconv(.c) KArchiveDirectory `
-    ///
-    pub fn onFindOrCreate(self: KZip, callback: *const fn (KZip, [*:0]const u8) callconv(.c) KArchiveDirectory) void {
-        qtc.KZip_OnFindOrCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setDevice` instead
     ///
     pub const SetDevice = setDevice;
@@ -2372,47 +2284,6 @@ pub const KZip = extern struct {
         qtc.KZip_SetDevice(@ptrCast(self.ptr), @ptrCast(dev.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetDevice` instead
-    ///
-    pub const SuperSetDevice = superSetDevice;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setDevice)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KZip `
-    ///
-    /// ` dev: QIODevice `
-    ///
-    pub fn superSetDevice(self: KZip, dev: anytype) void {
-        comptime _ = @TypeOf(dev)._is_QIODevice;
-        qtc.KZip_SuperSetDevice(@ptrCast(self.ptr), @ptrCast(dev.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDevice` instead
-    ///
-    pub const OnSetDevice = onSetDevice;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setDevice)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KZip`
-    ///
-    /// ` callback: *const fn (self: KZip, dev: QIODevice) callconv(.c) void `
-    ///
-    pub fn onSetDevice(self: KZip, callback: *const fn (KZip, QIODevice) callconv(.c) void) void {
-        qtc.KZip_OnSetDevice(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setRootDir` instead
     ///
     pub const SetRootDir = setRootDir;
@@ -2432,47 +2303,6 @@ pub const KZip = extern struct {
     pub fn setRootDir(self: KZip, _rootDir: anytype) void {
         comptime _ = @TypeOf(_rootDir)._is_KArchiveDirectory;
         qtc.KZip_SetRootDir(@ptrCast(self.ptr), @ptrCast(_rootDir.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSetRootDir` instead
-    ///
-    pub const SuperSetRootDir = superSetRootDir;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setRootDir)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KZip `
-    ///
-    /// ` _rootDir: KArchiveDirectory `
-    ///
-    pub fn superSetRootDir(self: KZip, _rootDir: anytype) void {
-        comptime _ = @TypeOf(_rootDir)._is_KArchiveDirectory;
-        qtc.KZip_SuperSetRootDir(@ptrCast(self.ptr), @ptrCast(_rootDir.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetRootDir` instead
-    ///
-    pub const OnSetRootDir = onSetRootDir;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setRootDir)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KZip`
-    ///
-    /// ` callback: *const fn (self: KZip, rootDir: KArchiveDirectory) callconv(.c) void `
-    ///
-    pub fn onSetRootDir(self: KZip, callback: *const fn (KZip, KArchiveDirectory) callconv(.c) void) void {
-        qtc.KZip_OnSetRootDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

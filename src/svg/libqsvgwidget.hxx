@@ -9,25 +9,21 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QSvgWidget so that we can call protected methods
+// This class is a subclass of QSvgWidget
 class VirtualQSvgWidget final : public QSvgWidget {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQSvgWidget = true;
-
-    // Virtual class public types (including callbacks)
-    using QSvgWidget_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QSvgWidget_MetaObject_Callback = QMetaObject* (*)(const QSvgWidget*);
     using QSvgWidget_Metacast_Callback = void* (*)(QSvgWidget*, const char*);
     using QSvgWidget_Metacall_Callback = int (*)(QSvgWidget*, int, int, void**);
-    using QSvgWidget_SizeHint_Callback = QSize* (*)();
+    using QSvgWidget_SizeHint_Callback = QSize* (*)(const QSvgWidget*);
     using QSvgWidget_PaintEvent_Callback = void (*)(QSvgWidget*, QPaintEvent*);
-    using QSvgWidget_DevType_Callback = int (*)();
+    using QSvgWidget_DevType_Callback = int (*)(const QSvgWidget*);
     using QSvgWidget_SetVisible_Callback = void (*)(QSvgWidget*, bool);
-    using QSvgWidget_MinimumSizeHint_Callback = QSize* (*)();
+    using QSvgWidget_MinimumSizeHint_Callback = QSize* (*)(const QSvgWidget*);
     using QSvgWidget_HeightForWidth_Callback = int (*)(const QSvgWidget*, int);
-    using QSvgWidget_HasHeightForWidth_Callback = bool (*)();
-    using QSvgWidget_PaintEngine_Callback = QPaintEngine* (*)();
+    using QSvgWidget_HasHeightForWidth_Callback = bool (*)(const QSvgWidget*);
+    using QSvgWidget_PaintEngine_Callback = QPaintEngine* (*)(const QSvgWidget*);
     using QSvgWidget_Event_Callback = bool (*)(QSvgWidget*, QEvent*);
     using QSvgWidget_MousePressEvent_Callback = void (*)(QSvgWidget*, QMouseEvent*);
     using QSvgWidget_MouseReleaseEvent_Callback = void (*)(QSvgWidget*, QMouseEvent*);
@@ -57,7 +53,7 @@ class VirtualQSvgWidget final : public QSvgWidget {
     using QSvgWidget_Metric_Callback = int (*)(const QSvgWidget*, int);
     using QSvgWidget_InitPainter_Callback = void (*)(const QSvgWidget*, QPainter*);
     using QSvgWidget_Redirected_Callback = QPaintDevice* (*)(const QSvgWidget*, QPoint*);
-    using QSvgWidget_SharedPainter_Callback = QPainter* (*)();
+    using QSvgWidget_SharedPainter_Callback = QPainter* (*)(const QSvgWidget*);
     using QSvgWidget_InputMethodEvent_Callback = void (*)(QSvgWidget*, QInputMethodEvent*);
     using QSvgWidget_InputMethodQuery_Callback = QVariant* (*)(const QSvgWidget*, int);
     using QSvgWidget_FocusNextPrevChild_Callback = bool (*)(QSvgWidget*, bool);
@@ -67,18 +63,17 @@ class VirtualQSvgWidget final : public QSvgWidget {
     using QSvgWidget_CustomEvent_Callback = void (*)(QSvgWidget*, QEvent*);
     using QSvgWidget_ConnectNotify_Callback = void (*)(QSvgWidget*, QMetaMethod*);
     using QSvgWidget_DisconnectNotify_Callback = void (*)(QSvgWidget*, QMetaMethod*);
-    using QSvgWidget_UpdateMicroFocus_Callback = void (*)();
-    using QSvgWidget_Create_Callback = void (*)();
-    using QSvgWidget_Destroy_Callback = void (*)();
-    using QSvgWidget_FocusNextChild_Callback = bool (*)();
-    using QSvgWidget_FocusPreviousChild_Callback = bool (*)();
-    using QSvgWidget_Sender_Callback = QObject* (*)();
-    using QSvgWidget_SenderSignalIndex_Callback = int (*)();
-    using QSvgWidget_Receivers_Callback = int (*)(const QSvgWidget*, const char*);
-    using QSvgWidget_IsSignalConnected_Callback = bool (*)(const QSvgWidget*, QMetaMethod*);
-    using QSvgWidget_GetDecodedMetricF_Callback = double (*)(const QSvgWidget*, int, int);
+    using QSvgWidget::create;
+    using QSvgWidget::destroy;
+    using QSvgWidget::focusNextChild;
+    using QSvgWidget::focusPreviousChild;
+    using QSvgWidget::getDecodedMetricF;
+    using QSvgWidget::isSignalConnected;
+    using QSvgWidget::receivers;
+    using QSvgWidget::sender;
+    using QSvgWidget::senderSignalIndex;
+    using QSvgWidget::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QSvgWidget_MetaObject_Callback qsvgwidget_metaobject_callback = nullptr;
     QSvgWidget_Metacast_Callback qsvgwidget_metacast_callback = nullptr;
@@ -130,218 +125,58 @@ class VirtualQSvgWidget final : public QSvgWidget {
     QSvgWidget_CustomEvent_Callback qsvgwidget_customevent_callback = nullptr;
     QSvgWidget_ConnectNotify_Callback qsvgwidget_connectnotify_callback = nullptr;
     QSvgWidget_DisconnectNotify_Callback qsvgwidget_disconnectnotify_callback = nullptr;
-    QSvgWidget_UpdateMicroFocus_Callback qsvgwidget_updatemicrofocus_callback = nullptr;
-    QSvgWidget_Create_Callback qsvgwidget_create_callback = nullptr;
-    QSvgWidget_Destroy_Callback qsvgwidget_destroy_callback = nullptr;
-    QSvgWidget_FocusNextChild_Callback qsvgwidget_focusnextchild_callback = nullptr;
-    QSvgWidget_FocusPreviousChild_Callback qsvgwidget_focuspreviouschild_callback = nullptr;
-    QSvgWidget_Sender_Callback qsvgwidget_sender_callback = nullptr;
-    QSvgWidget_SenderSignalIndex_Callback qsvgwidget_sendersignalindex_callback = nullptr;
-    QSvgWidget_Receivers_Callback qsvgwidget_receivers_callback = nullptr;
-    QSvgWidget_IsSignalConnected_Callback qsvgwidget_issignalconnected_callback = nullptr;
-    QSvgWidget_GetDecodedMetricF_Callback qsvgwidget_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qsvgwidget_metaobject_isbase = false;
-    mutable bool qsvgwidget_metacast_isbase = false;
-    mutable bool qsvgwidget_metacall_isbase = false;
-    mutable bool qsvgwidget_sizehint_isbase = false;
-    mutable bool qsvgwidget_paintevent_isbase = false;
-    mutable bool qsvgwidget_devtype_isbase = false;
-    mutable bool qsvgwidget_setvisible_isbase = false;
-    mutable bool qsvgwidget_minimumsizehint_isbase = false;
-    mutable bool qsvgwidget_heightforwidth_isbase = false;
-    mutable bool qsvgwidget_hasheightforwidth_isbase = false;
-    mutable bool qsvgwidget_paintengine_isbase = false;
-    mutable bool qsvgwidget_event_isbase = false;
-    mutable bool qsvgwidget_mousepressevent_isbase = false;
-    mutable bool qsvgwidget_mousereleaseevent_isbase = false;
-    mutable bool qsvgwidget_mousedoubleclickevent_isbase = false;
-    mutable bool qsvgwidget_mousemoveevent_isbase = false;
-    mutable bool qsvgwidget_wheelevent_isbase = false;
-    mutable bool qsvgwidget_keypressevent_isbase = false;
-    mutable bool qsvgwidget_keyreleaseevent_isbase = false;
-    mutable bool qsvgwidget_focusinevent_isbase = false;
-    mutable bool qsvgwidget_focusoutevent_isbase = false;
-    mutable bool qsvgwidget_enterevent_isbase = false;
-    mutable bool qsvgwidget_leaveevent_isbase = false;
-    mutable bool qsvgwidget_moveevent_isbase = false;
-    mutable bool qsvgwidget_resizeevent_isbase = false;
-    mutable bool qsvgwidget_closeevent_isbase = false;
-    mutable bool qsvgwidget_contextmenuevent_isbase = false;
-    mutable bool qsvgwidget_tabletevent_isbase = false;
-    mutable bool qsvgwidget_actionevent_isbase = false;
-    mutable bool qsvgwidget_dragenterevent_isbase = false;
-    mutable bool qsvgwidget_dragmoveevent_isbase = false;
-    mutable bool qsvgwidget_dragleaveevent_isbase = false;
-    mutable bool qsvgwidget_dropevent_isbase = false;
-    mutable bool qsvgwidget_showevent_isbase = false;
-    mutable bool qsvgwidget_hideevent_isbase = false;
-    mutable bool qsvgwidget_nativeevent_isbase = false;
-    mutable bool qsvgwidget_changeevent_isbase = false;
-    mutable bool qsvgwidget_metric_isbase = false;
-    mutable bool qsvgwidget_initpainter_isbase = false;
-    mutable bool qsvgwidget_redirected_isbase = false;
-    mutable bool qsvgwidget_sharedpainter_isbase = false;
-    mutable bool qsvgwidget_inputmethodevent_isbase = false;
-    mutable bool qsvgwidget_inputmethodquery_isbase = false;
-    mutable bool qsvgwidget_focusnextprevchild_isbase = false;
-    mutable bool qsvgwidget_eventfilter_isbase = false;
-    mutable bool qsvgwidget_timerevent_isbase = false;
-    mutable bool qsvgwidget_childevent_isbase = false;
-    mutable bool qsvgwidget_customevent_isbase = false;
-    mutable bool qsvgwidget_connectnotify_isbase = false;
-    mutable bool qsvgwidget_disconnectnotify_isbase = false;
-    mutable bool qsvgwidget_updatemicrofocus_isbase = false;
-    mutable bool qsvgwidget_create_isbase = false;
-    mutable bool qsvgwidget_destroy_isbase = false;
-    mutable bool qsvgwidget_focusnextchild_isbase = false;
-    mutable bool qsvgwidget_focuspreviouschild_isbase = false;
-    mutable bool qsvgwidget_sender_isbase = false;
-    mutable bool qsvgwidget_sendersignalindex_isbase = false;
-    mutable bool qsvgwidget_receivers_isbase = false;
-    mutable bool qsvgwidget_issignalconnected_isbase = false;
-    mutable bool qsvgwidget_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QSvgWidget {
+        using QSvgWidget::actionEvent;
+        using QSvgWidget::changeEvent;
+        using QSvgWidget::childEvent;
+        using QSvgWidget::closeEvent;
+        using QSvgWidget::connectNotify;
+        using QSvgWidget::contextMenuEvent;
+        using QSvgWidget::customEvent;
+        using QSvgWidget::disconnectNotify;
+        using QSvgWidget::dragEnterEvent;
+        using QSvgWidget::dragLeaveEvent;
+        using QSvgWidget::dragMoveEvent;
+        using QSvgWidget::dropEvent;
+        using QSvgWidget::enterEvent;
+        using QSvgWidget::event;
+        using QSvgWidget::focusInEvent;
+        using QSvgWidget::focusNextPrevChild;
+        using QSvgWidget::focusOutEvent;
+        using QSvgWidget::hideEvent;
+        using QSvgWidget::initPainter;
+        using QSvgWidget::inputMethodEvent;
+        using QSvgWidget::keyPressEvent;
+        using QSvgWidget::keyReleaseEvent;
+        using QSvgWidget::leaveEvent;
+        using QSvgWidget::metric;
+        using QSvgWidget::mouseDoubleClickEvent;
+        using QSvgWidget::mouseMoveEvent;
+        using QSvgWidget::mousePressEvent;
+        using QSvgWidget::mouseReleaseEvent;
+        using QSvgWidget::moveEvent;
+        using QSvgWidget::nativeEvent;
+        using QSvgWidget::paintEvent;
+        using QSvgWidget::redirected;
+        using QSvgWidget::resizeEvent;
+        using QSvgWidget::sharedPainter;
+        using QSvgWidget::showEvent;
+        using QSvgWidget::tabletEvent;
+        using QSvgWidget::timerEvent;
+        using QSvgWidget::wheelEvent;
+    };
 
-  public:
     VirtualQSvgWidget(QWidget* parent) : QSvgWidget(parent) {};
     VirtualQSvgWidget() : QSvgWidget() {};
     VirtualQSvgWidget(const QString& file) : QSvgWidget(file) {};
     VirtualQSvgWidget(const QString& file, QWidget* parent) : QSvgWidget(file, parent) {};
 
-    // Callback setters
-    inline void setQSvgWidget_MetaObject_Callback(QSvgWidget_MetaObject_Callback cb) { qsvgwidget_metaobject_callback = cb; }
-    inline void setQSvgWidget_Metacast_Callback(QSvgWidget_Metacast_Callback cb) { qsvgwidget_metacast_callback = cb; }
-    inline void setQSvgWidget_Metacall_Callback(QSvgWidget_Metacall_Callback cb) { qsvgwidget_metacall_callback = cb; }
-    inline void setQSvgWidget_SizeHint_Callback(QSvgWidget_SizeHint_Callback cb) { qsvgwidget_sizehint_callback = cb; }
-    inline void setQSvgWidget_PaintEvent_Callback(QSvgWidget_PaintEvent_Callback cb) { qsvgwidget_paintevent_callback = cb; }
-    inline void setQSvgWidget_DevType_Callback(QSvgWidget_DevType_Callback cb) { qsvgwidget_devtype_callback = cb; }
-    inline void setQSvgWidget_SetVisible_Callback(QSvgWidget_SetVisible_Callback cb) { qsvgwidget_setvisible_callback = cb; }
-    inline void setQSvgWidget_MinimumSizeHint_Callback(QSvgWidget_MinimumSizeHint_Callback cb) { qsvgwidget_minimumsizehint_callback = cb; }
-    inline void setQSvgWidget_HeightForWidth_Callback(QSvgWidget_HeightForWidth_Callback cb) { qsvgwidget_heightforwidth_callback = cb; }
-    inline void setQSvgWidget_HasHeightForWidth_Callback(QSvgWidget_HasHeightForWidth_Callback cb) { qsvgwidget_hasheightforwidth_callback = cb; }
-    inline void setQSvgWidget_PaintEngine_Callback(QSvgWidget_PaintEngine_Callback cb) { qsvgwidget_paintengine_callback = cb; }
-    inline void setQSvgWidget_Event_Callback(QSvgWidget_Event_Callback cb) { qsvgwidget_event_callback = cb; }
-    inline void setQSvgWidget_MousePressEvent_Callback(QSvgWidget_MousePressEvent_Callback cb) { qsvgwidget_mousepressevent_callback = cb; }
-    inline void setQSvgWidget_MouseReleaseEvent_Callback(QSvgWidget_MouseReleaseEvent_Callback cb) { qsvgwidget_mousereleaseevent_callback = cb; }
-    inline void setQSvgWidget_MouseDoubleClickEvent_Callback(QSvgWidget_MouseDoubleClickEvent_Callback cb) { qsvgwidget_mousedoubleclickevent_callback = cb; }
-    inline void setQSvgWidget_MouseMoveEvent_Callback(QSvgWidget_MouseMoveEvent_Callback cb) { qsvgwidget_mousemoveevent_callback = cb; }
-    inline void setQSvgWidget_WheelEvent_Callback(QSvgWidget_WheelEvent_Callback cb) { qsvgwidget_wheelevent_callback = cb; }
-    inline void setQSvgWidget_KeyPressEvent_Callback(QSvgWidget_KeyPressEvent_Callback cb) { qsvgwidget_keypressevent_callback = cb; }
-    inline void setQSvgWidget_KeyReleaseEvent_Callback(QSvgWidget_KeyReleaseEvent_Callback cb) { qsvgwidget_keyreleaseevent_callback = cb; }
-    inline void setQSvgWidget_FocusInEvent_Callback(QSvgWidget_FocusInEvent_Callback cb) { qsvgwidget_focusinevent_callback = cb; }
-    inline void setQSvgWidget_FocusOutEvent_Callback(QSvgWidget_FocusOutEvent_Callback cb) { qsvgwidget_focusoutevent_callback = cb; }
-    inline void setQSvgWidget_EnterEvent_Callback(QSvgWidget_EnterEvent_Callback cb) { qsvgwidget_enterevent_callback = cb; }
-    inline void setQSvgWidget_LeaveEvent_Callback(QSvgWidget_LeaveEvent_Callback cb) { qsvgwidget_leaveevent_callback = cb; }
-    inline void setQSvgWidget_MoveEvent_Callback(QSvgWidget_MoveEvent_Callback cb) { qsvgwidget_moveevent_callback = cb; }
-    inline void setQSvgWidget_ResizeEvent_Callback(QSvgWidget_ResizeEvent_Callback cb) { qsvgwidget_resizeevent_callback = cb; }
-    inline void setQSvgWidget_CloseEvent_Callback(QSvgWidget_CloseEvent_Callback cb) { qsvgwidget_closeevent_callback = cb; }
-    inline void setQSvgWidget_ContextMenuEvent_Callback(QSvgWidget_ContextMenuEvent_Callback cb) { qsvgwidget_contextmenuevent_callback = cb; }
-    inline void setQSvgWidget_TabletEvent_Callback(QSvgWidget_TabletEvent_Callback cb) { qsvgwidget_tabletevent_callback = cb; }
-    inline void setQSvgWidget_ActionEvent_Callback(QSvgWidget_ActionEvent_Callback cb) { qsvgwidget_actionevent_callback = cb; }
-    inline void setQSvgWidget_DragEnterEvent_Callback(QSvgWidget_DragEnterEvent_Callback cb) { qsvgwidget_dragenterevent_callback = cb; }
-    inline void setQSvgWidget_DragMoveEvent_Callback(QSvgWidget_DragMoveEvent_Callback cb) { qsvgwidget_dragmoveevent_callback = cb; }
-    inline void setQSvgWidget_DragLeaveEvent_Callback(QSvgWidget_DragLeaveEvent_Callback cb) { qsvgwidget_dragleaveevent_callback = cb; }
-    inline void setQSvgWidget_DropEvent_Callback(QSvgWidget_DropEvent_Callback cb) { qsvgwidget_dropevent_callback = cb; }
-    inline void setQSvgWidget_ShowEvent_Callback(QSvgWidget_ShowEvent_Callback cb) { qsvgwidget_showevent_callback = cb; }
-    inline void setQSvgWidget_HideEvent_Callback(QSvgWidget_HideEvent_Callback cb) { qsvgwidget_hideevent_callback = cb; }
-    inline void setQSvgWidget_NativeEvent_Callback(QSvgWidget_NativeEvent_Callback cb) { qsvgwidget_nativeevent_callback = cb; }
-    inline void setQSvgWidget_ChangeEvent_Callback(QSvgWidget_ChangeEvent_Callback cb) { qsvgwidget_changeevent_callback = cb; }
-    inline void setQSvgWidget_Metric_Callback(QSvgWidget_Metric_Callback cb) { qsvgwidget_metric_callback = cb; }
-    inline void setQSvgWidget_InitPainter_Callback(QSvgWidget_InitPainter_Callback cb) { qsvgwidget_initpainter_callback = cb; }
-    inline void setQSvgWidget_Redirected_Callback(QSvgWidget_Redirected_Callback cb) { qsvgwidget_redirected_callback = cb; }
-    inline void setQSvgWidget_SharedPainter_Callback(QSvgWidget_SharedPainter_Callback cb) { qsvgwidget_sharedpainter_callback = cb; }
-    inline void setQSvgWidget_InputMethodEvent_Callback(QSvgWidget_InputMethodEvent_Callback cb) { qsvgwidget_inputmethodevent_callback = cb; }
-    inline void setQSvgWidget_InputMethodQuery_Callback(QSvgWidget_InputMethodQuery_Callback cb) { qsvgwidget_inputmethodquery_callback = cb; }
-    inline void setQSvgWidget_FocusNextPrevChild_Callback(QSvgWidget_FocusNextPrevChild_Callback cb) { qsvgwidget_focusnextprevchild_callback = cb; }
-    inline void setQSvgWidget_EventFilter_Callback(QSvgWidget_EventFilter_Callback cb) { qsvgwidget_eventfilter_callback = cb; }
-    inline void setQSvgWidget_TimerEvent_Callback(QSvgWidget_TimerEvent_Callback cb) { qsvgwidget_timerevent_callback = cb; }
-    inline void setQSvgWidget_ChildEvent_Callback(QSvgWidget_ChildEvent_Callback cb) { qsvgwidget_childevent_callback = cb; }
-    inline void setQSvgWidget_CustomEvent_Callback(QSvgWidget_CustomEvent_Callback cb) { qsvgwidget_customevent_callback = cb; }
-    inline void setQSvgWidget_ConnectNotify_Callback(QSvgWidget_ConnectNotify_Callback cb) { qsvgwidget_connectnotify_callback = cb; }
-    inline void setQSvgWidget_DisconnectNotify_Callback(QSvgWidget_DisconnectNotify_Callback cb) { qsvgwidget_disconnectnotify_callback = cb; }
-    inline void setQSvgWidget_UpdateMicroFocus_Callback(QSvgWidget_UpdateMicroFocus_Callback cb) { qsvgwidget_updatemicrofocus_callback = cb; }
-    inline void setQSvgWidget_Create_Callback(QSvgWidget_Create_Callback cb) { qsvgwidget_create_callback = cb; }
-    inline void setQSvgWidget_Destroy_Callback(QSvgWidget_Destroy_Callback cb) { qsvgwidget_destroy_callback = cb; }
-    inline void setQSvgWidget_FocusNextChild_Callback(QSvgWidget_FocusNextChild_Callback cb) { qsvgwidget_focusnextchild_callback = cb; }
-    inline void setQSvgWidget_FocusPreviousChild_Callback(QSvgWidget_FocusPreviousChild_Callback cb) { qsvgwidget_focuspreviouschild_callback = cb; }
-    inline void setQSvgWidget_Sender_Callback(QSvgWidget_Sender_Callback cb) { qsvgwidget_sender_callback = cb; }
-    inline void setQSvgWidget_SenderSignalIndex_Callback(QSvgWidget_SenderSignalIndex_Callback cb) { qsvgwidget_sendersignalindex_callback = cb; }
-    inline void setQSvgWidget_Receivers_Callback(QSvgWidget_Receivers_Callback cb) { qsvgwidget_receivers_callback = cb; }
-    inline void setQSvgWidget_IsSignalConnected_Callback(QSvgWidget_IsSignalConnected_Callback cb) { qsvgwidget_issignalconnected_callback = cb; }
-    inline void setQSvgWidget_GetDecodedMetricF_Callback(QSvgWidget_GetDecodedMetricF_Callback cb) { qsvgwidget_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQSvgWidget_MetaObject_IsBase(bool value) const { qsvgwidget_metaobject_isbase = value; }
-    inline void setQSvgWidget_Metacast_IsBase(bool value) const { qsvgwidget_metacast_isbase = value; }
-    inline void setQSvgWidget_Metacall_IsBase(bool value) const { qsvgwidget_metacall_isbase = value; }
-    inline void setQSvgWidget_SizeHint_IsBase(bool value) const { qsvgwidget_sizehint_isbase = value; }
-    inline void setQSvgWidget_PaintEvent_IsBase(bool value) const { qsvgwidget_paintevent_isbase = value; }
-    inline void setQSvgWidget_DevType_IsBase(bool value) const { qsvgwidget_devtype_isbase = value; }
-    inline void setQSvgWidget_SetVisible_IsBase(bool value) const { qsvgwidget_setvisible_isbase = value; }
-    inline void setQSvgWidget_MinimumSizeHint_IsBase(bool value) const { qsvgwidget_minimumsizehint_isbase = value; }
-    inline void setQSvgWidget_HeightForWidth_IsBase(bool value) const { qsvgwidget_heightforwidth_isbase = value; }
-    inline void setQSvgWidget_HasHeightForWidth_IsBase(bool value) const { qsvgwidget_hasheightforwidth_isbase = value; }
-    inline void setQSvgWidget_PaintEngine_IsBase(bool value) const { qsvgwidget_paintengine_isbase = value; }
-    inline void setQSvgWidget_Event_IsBase(bool value) const { qsvgwidget_event_isbase = value; }
-    inline void setQSvgWidget_MousePressEvent_IsBase(bool value) const { qsvgwidget_mousepressevent_isbase = value; }
-    inline void setQSvgWidget_MouseReleaseEvent_IsBase(bool value) const { qsvgwidget_mousereleaseevent_isbase = value; }
-    inline void setQSvgWidget_MouseDoubleClickEvent_IsBase(bool value) const { qsvgwidget_mousedoubleclickevent_isbase = value; }
-    inline void setQSvgWidget_MouseMoveEvent_IsBase(bool value) const { qsvgwidget_mousemoveevent_isbase = value; }
-    inline void setQSvgWidget_WheelEvent_IsBase(bool value) const { qsvgwidget_wheelevent_isbase = value; }
-    inline void setQSvgWidget_KeyPressEvent_IsBase(bool value) const { qsvgwidget_keypressevent_isbase = value; }
-    inline void setQSvgWidget_KeyReleaseEvent_IsBase(bool value) const { qsvgwidget_keyreleaseevent_isbase = value; }
-    inline void setQSvgWidget_FocusInEvent_IsBase(bool value) const { qsvgwidget_focusinevent_isbase = value; }
-    inline void setQSvgWidget_FocusOutEvent_IsBase(bool value) const { qsvgwidget_focusoutevent_isbase = value; }
-    inline void setQSvgWidget_EnterEvent_IsBase(bool value) const { qsvgwidget_enterevent_isbase = value; }
-    inline void setQSvgWidget_LeaveEvent_IsBase(bool value) const { qsvgwidget_leaveevent_isbase = value; }
-    inline void setQSvgWidget_MoveEvent_IsBase(bool value) const { qsvgwidget_moveevent_isbase = value; }
-    inline void setQSvgWidget_ResizeEvent_IsBase(bool value) const { qsvgwidget_resizeevent_isbase = value; }
-    inline void setQSvgWidget_CloseEvent_IsBase(bool value) const { qsvgwidget_closeevent_isbase = value; }
-    inline void setQSvgWidget_ContextMenuEvent_IsBase(bool value) const { qsvgwidget_contextmenuevent_isbase = value; }
-    inline void setQSvgWidget_TabletEvent_IsBase(bool value) const { qsvgwidget_tabletevent_isbase = value; }
-    inline void setQSvgWidget_ActionEvent_IsBase(bool value) const { qsvgwidget_actionevent_isbase = value; }
-    inline void setQSvgWidget_DragEnterEvent_IsBase(bool value) const { qsvgwidget_dragenterevent_isbase = value; }
-    inline void setQSvgWidget_DragMoveEvent_IsBase(bool value) const { qsvgwidget_dragmoveevent_isbase = value; }
-    inline void setQSvgWidget_DragLeaveEvent_IsBase(bool value) const { qsvgwidget_dragleaveevent_isbase = value; }
-    inline void setQSvgWidget_DropEvent_IsBase(bool value) const { qsvgwidget_dropevent_isbase = value; }
-    inline void setQSvgWidget_ShowEvent_IsBase(bool value) const { qsvgwidget_showevent_isbase = value; }
-    inline void setQSvgWidget_HideEvent_IsBase(bool value) const { qsvgwidget_hideevent_isbase = value; }
-    inline void setQSvgWidget_NativeEvent_IsBase(bool value) const { qsvgwidget_nativeevent_isbase = value; }
-    inline void setQSvgWidget_ChangeEvent_IsBase(bool value) const { qsvgwidget_changeevent_isbase = value; }
-    inline void setQSvgWidget_Metric_IsBase(bool value) const { qsvgwidget_metric_isbase = value; }
-    inline void setQSvgWidget_InitPainter_IsBase(bool value) const { qsvgwidget_initpainter_isbase = value; }
-    inline void setQSvgWidget_Redirected_IsBase(bool value) const { qsvgwidget_redirected_isbase = value; }
-    inline void setQSvgWidget_SharedPainter_IsBase(bool value) const { qsvgwidget_sharedpainter_isbase = value; }
-    inline void setQSvgWidget_InputMethodEvent_IsBase(bool value) const { qsvgwidget_inputmethodevent_isbase = value; }
-    inline void setQSvgWidget_InputMethodQuery_IsBase(bool value) const { qsvgwidget_inputmethodquery_isbase = value; }
-    inline void setQSvgWidget_FocusNextPrevChild_IsBase(bool value) const { qsvgwidget_focusnextprevchild_isbase = value; }
-    inline void setQSvgWidget_EventFilter_IsBase(bool value) const { qsvgwidget_eventfilter_isbase = value; }
-    inline void setQSvgWidget_TimerEvent_IsBase(bool value) const { qsvgwidget_timerevent_isbase = value; }
-    inline void setQSvgWidget_ChildEvent_IsBase(bool value) const { qsvgwidget_childevent_isbase = value; }
-    inline void setQSvgWidget_CustomEvent_IsBase(bool value) const { qsvgwidget_customevent_isbase = value; }
-    inline void setQSvgWidget_ConnectNotify_IsBase(bool value) const { qsvgwidget_connectnotify_isbase = value; }
-    inline void setQSvgWidget_DisconnectNotify_IsBase(bool value) const { qsvgwidget_disconnectnotify_isbase = value; }
-    inline void setQSvgWidget_UpdateMicroFocus_IsBase(bool value) const { qsvgwidget_updatemicrofocus_isbase = value; }
-    inline void setQSvgWidget_Create_IsBase(bool value) const { qsvgwidget_create_isbase = value; }
-    inline void setQSvgWidget_Destroy_IsBase(bool value) const { qsvgwidget_destroy_isbase = value; }
-    inline void setQSvgWidget_FocusNextChild_IsBase(bool value) const { qsvgwidget_focusnextchild_isbase = value; }
-    inline void setQSvgWidget_FocusPreviousChild_IsBase(bool value) const { qsvgwidget_focuspreviouschild_isbase = value; }
-    inline void setQSvgWidget_Sender_IsBase(bool value) const { qsvgwidget_sender_isbase = value; }
-    inline void setQSvgWidget_SenderSignalIndex_IsBase(bool value) const { qsvgwidget_sendersignalindex_isbase = value; }
-    inline void setQSvgWidget_Receivers_IsBase(bool value) const { qsvgwidget_receivers_isbase = value; }
-    inline void setQSvgWidget_IsSignalConnected_IsBase(bool value) const { qsvgwidget_issignalconnected_isbase = value; }
-    inline void setQSvgWidget_GetDecodedMetricF_IsBase(bool value) const { qsvgwidget_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qsvgwidget_metaobject_isbase) {
-            qsvgwidget_metaobject_isbase = false;
-            return QSvgWidget::metaObject();
-        }
-        auto metaobject_cb = qsvgwidget_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qsvgwidget_metaobject_callback) {
+            QMetaObject* callback_ret = qsvgwidget_metaobject_callback(this);
             return callback_ret;
         }
         return QSvgWidget::metaObject();
@@ -349,14 +184,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qsvgwidget_metacast_isbase) {
-            qsvgwidget_metacast_isbase = false;
-            return QSvgWidget::qt_metacast(param1);
-        }
-        auto metacast_cb = qsvgwidget_metacast_callback;
-        if (metacast_cb) {
+        if (qsvgwidget_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qsvgwidget_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QSvgWidget::qt_metacast(param1);
@@ -364,16 +194,11 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qsvgwidget_metacall_isbase) {
-            qsvgwidget_metacall_isbase = false;
-            return QSvgWidget::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qsvgwidget_metacall_callback;
-        if (metacall_cb) {
+        if (qsvgwidget_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qsvgwidget_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QSvgWidget::qt_metacall(param1, param2, param3);
@@ -381,13 +206,8 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qsvgwidget_sizehint_isbase) {
-            qsvgwidget_sizehint_isbase = false;
-            return QSvgWidget::sizeHint();
-        }
-        auto sizehint_cb = qsvgwidget_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qsvgwidget_sizehint_callback) {
+            QSize* callback_ret = qsvgwidget_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -397,15 +217,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (qsvgwidget_paintevent_isbase) {
-            qsvgwidget_paintevent_isbase = false;
-            QSvgWidget::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = qsvgwidget_paintevent_callback;
-        if (paintevent_cb) {
+        if (qsvgwidget_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            qsvgwidget_paintevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::paintEvent(event);
@@ -413,13 +227,8 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qsvgwidget_devtype_isbase) {
-            qsvgwidget_devtype_isbase = false;
-            return QSvgWidget::devType();
-        }
-        auto devtype_cb = qsvgwidget_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qsvgwidget_devtype_callback) {
+            int callback_ret = qsvgwidget_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QSvgWidget::devType();
@@ -427,15 +236,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qsvgwidget_setvisible_isbase) {
-            qsvgwidget_setvisible_isbase = false;
-            QSvgWidget::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qsvgwidget_setvisible_callback;
-        if (setvisible_cb) {
+        if (qsvgwidget_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qsvgwidget_setvisible_callback(this, cbval1);
             return;
         }
         QSvgWidget::setVisible(visible);
@@ -443,13 +246,8 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qsvgwidget_minimumsizehint_isbase) {
-            qsvgwidget_minimumsizehint_isbase = false;
-            return QSvgWidget::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qsvgwidget_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qsvgwidget_minimumsizehint_callback) {
+            QSize* callback_ret = qsvgwidget_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -459,14 +257,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qsvgwidget_heightforwidth_isbase) {
-            qsvgwidget_heightforwidth_isbase = false;
-            return QSvgWidget::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qsvgwidget_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qsvgwidget_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qsvgwidget_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QSvgWidget::heightForWidth(param1);
@@ -474,13 +267,8 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qsvgwidget_hasheightforwidth_isbase) {
-            qsvgwidget_hasheightforwidth_isbase = false;
-            return QSvgWidget::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qsvgwidget_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qsvgwidget_hasheightforwidth_callback) {
+            bool callback_ret = qsvgwidget_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QSvgWidget::hasHeightForWidth();
@@ -488,13 +276,8 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qsvgwidget_paintengine_isbase) {
-            qsvgwidget_paintengine_isbase = false;
-            return QSvgWidget::paintEngine();
-        }
-        auto paintengine_cb = qsvgwidget_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qsvgwidget_paintengine_callback) {
+            QPaintEngine* callback_ret = qsvgwidget_paintengine_callback(this);
             return callback_ret;
         }
         return QSvgWidget::paintEngine();
@@ -502,14 +285,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qsvgwidget_event_isbase) {
-            qsvgwidget_event_isbase = false;
-            return QSvgWidget::event(event);
-        }
-        auto event_cb = qsvgwidget_event_callback;
-        if (event_cb) {
+        if (qsvgwidget_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qsvgwidget_event_callback(this, cbval1);
             return callback_ret;
         }
         return QSvgWidget::event(event);
@@ -517,15 +295,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (qsvgwidget_mousepressevent_isbase) {
-            qsvgwidget_mousepressevent_isbase = false;
-            QSvgWidget::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qsvgwidget_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qsvgwidget_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qsvgwidget_mousepressevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::mousePressEvent(event);
@@ -533,15 +305,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qsvgwidget_mousereleaseevent_isbase) {
-            qsvgwidget_mousereleaseevent_isbase = false;
-            QSvgWidget::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qsvgwidget_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qsvgwidget_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qsvgwidget_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::mouseReleaseEvent(event);
@@ -549,15 +315,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qsvgwidget_mousedoubleclickevent_isbase) {
-            qsvgwidget_mousedoubleclickevent_isbase = false;
-            QSvgWidget::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qsvgwidget_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qsvgwidget_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qsvgwidget_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::mouseDoubleClickEvent(event);
@@ -565,15 +325,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qsvgwidget_mousemoveevent_isbase) {
-            qsvgwidget_mousemoveevent_isbase = false;
-            QSvgWidget::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qsvgwidget_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qsvgwidget_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qsvgwidget_mousemoveevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::mouseMoveEvent(event);
@@ -581,15 +335,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qsvgwidget_wheelevent_isbase) {
-            qsvgwidget_wheelevent_isbase = false;
-            QSvgWidget::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qsvgwidget_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qsvgwidget_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qsvgwidget_wheelevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::wheelEvent(event);
@@ -597,15 +345,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qsvgwidget_keypressevent_isbase) {
-            qsvgwidget_keypressevent_isbase = false;
-            QSvgWidget::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qsvgwidget_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qsvgwidget_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qsvgwidget_keypressevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::keyPressEvent(event);
@@ -613,15 +355,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qsvgwidget_keyreleaseevent_isbase) {
-            qsvgwidget_keyreleaseevent_isbase = false;
-            QSvgWidget::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qsvgwidget_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qsvgwidget_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qsvgwidget_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::keyReleaseEvent(event);
@@ -629,15 +365,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qsvgwidget_focusinevent_isbase) {
-            qsvgwidget_focusinevent_isbase = false;
-            QSvgWidget::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qsvgwidget_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qsvgwidget_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qsvgwidget_focusinevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::focusInEvent(event);
@@ -645,15 +375,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qsvgwidget_focusoutevent_isbase) {
-            qsvgwidget_focusoutevent_isbase = false;
-            QSvgWidget::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qsvgwidget_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qsvgwidget_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qsvgwidget_focusoutevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::focusOutEvent(event);
@@ -661,15 +385,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qsvgwidget_enterevent_isbase) {
-            qsvgwidget_enterevent_isbase = false;
-            QSvgWidget::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qsvgwidget_enterevent_callback;
-        if (enterevent_cb) {
+        if (qsvgwidget_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qsvgwidget_enterevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::enterEvent(event);
@@ -677,15 +395,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qsvgwidget_leaveevent_isbase) {
-            qsvgwidget_leaveevent_isbase = false;
-            QSvgWidget::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qsvgwidget_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qsvgwidget_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qsvgwidget_leaveevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::leaveEvent(event);
@@ -693,15 +405,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qsvgwidget_moveevent_isbase) {
-            qsvgwidget_moveevent_isbase = false;
-            QSvgWidget::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qsvgwidget_moveevent_callback;
-        if (moveevent_cb) {
+        if (qsvgwidget_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qsvgwidget_moveevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::moveEvent(event);
@@ -709,15 +415,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (qsvgwidget_resizeevent_isbase) {
-            qsvgwidget_resizeevent_isbase = false;
-            QSvgWidget::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = qsvgwidget_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qsvgwidget_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            qsvgwidget_resizeevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::resizeEvent(event);
@@ -725,15 +425,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qsvgwidget_closeevent_isbase) {
-            qsvgwidget_closeevent_isbase = false;
-            QSvgWidget::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qsvgwidget_closeevent_callback;
-        if (closeevent_cb) {
+        if (qsvgwidget_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qsvgwidget_closeevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::closeEvent(event);
@@ -741,15 +435,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (qsvgwidget_contextmenuevent_isbase) {
-            qsvgwidget_contextmenuevent_isbase = false;
-            QSvgWidget::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qsvgwidget_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qsvgwidget_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qsvgwidget_contextmenuevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::contextMenuEvent(event);
@@ -757,15 +445,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qsvgwidget_tabletevent_isbase) {
-            qsvgwidget_tabletevent_isbase = false;
-            QSvgWidget::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qsvgwidget_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qsvgwidget_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qsvgwidget_tabletevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::tabletEvent(event);
@@ -773,15 +455,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qsvgwidget_actionevent_isbase) {
-            qsvgwidget_actionevent_isbase = false;
-            QSvgWidget::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qsvgwidget_actionevent_callback;
-        if (actionevent_cb) {
+        if (qsvgwidget_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qsvgwidget_actionevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::actionEvent(event);
@@ -789,15 +465,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qsvgwidget_dragenterevent_isbase) {
-            qsvgwidget_dragenterevent_isbase = false;
-            QSvgWidget::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qsvgwidget_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qsvgwidget_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qsvgwidget_dragenterevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::dragEnterEvent(event);
@@ -805,15 +475,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qsvgwidget_dragmoveevent_isbase) {
-            qsvgwidget_dragmoveevent_isbase = false;
-            QSvgWidget::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qsvgwidget_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qsvgwidget_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qsvgwidget_dragmoveevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::dragMoveEvent(event);
@@ -821,15 +485,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qsvgwidget_dragleaveevent_isbase) {
-            qsvgwidget_dragleaveevent_isbase = false;
-            QSvgWidget::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qsvgwidget_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qsvgwidget_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qsvgwidget_dragleaveevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::dragLeaveEvent(event);
@@ -837,15 +495,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qsvgwidget_dropevent_isbase) {
-            qsvgwidget_dropevent_isbase = false;
-            QSvgWidget::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qsvgwidget_dropevent_callback;
-        if (dropevent_cb) {
+        if (qsvgwidget_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qsvgwidget_dropevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::dropEvent(event);
@@ -853,15 +505,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (qsvgwidget_showevent_isbase) {
-            qsvgwidget_showevent_isbase = false;
-            QSvgWidget::showEvent(event);
-            return;
-        }
-        auto showevent_cb = qsvgwidget_showevent_callback;
-        if (showevent_cb) {
+        if (qsvgwidget_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            qsvgwidget_showevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::showEvent(event);
@@ -869,15 +515,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qsvgwidget_hideevent_isbase) {
-            qsvgwidget_hideevent_isbase = false;
-            QSvgWidget::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qsvgwidget_hideevent_callback;
-        if (hideevent_cb) {
+        if (qsvgwidget_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qsvgwidget_hideevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::hideEvent(event);
@@ -885,12 +525,7 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qsvgwidget_nativeevent_isbase) {
-            qsvgwidget_nativeevent_isbase = false;
-            return QSvgWidget::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qsvgwidget_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qsvgwidget_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -900,7 +535,7 @@ class VirtualQSvgWidget final : public QSvgWidget {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qsvgwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -909,15 +544,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (qsvgwidget_changeevent_isbase) {
-            qsvgwidget_changeevent_isbase = false;
-            QSvgWidget::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = qsvgwidget_changeevent_callback;
-        if (changeevent_cb) {
+        if (qsvgwidget_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            qsvgwidget_changeevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::changeEvent(param1);
@@ -925,14 +554,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qsvgwidget_metric_isbase) {
-            qsvgwidget_metric_isbase = false;
-            return QSvgWidget::metric(param1);
-        }
-        auto metric_cb = qsvgwidget_metric_callback;
-        if (metric_cb) {
+        if (qsvgwidget_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qsvgwidget_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QSvgWidget::metric(param1);
@@ -940,15 +564,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qsvgwidget_initpainter_isbase) {
-            qsvgwidget_initpainter_isbase = false;
-            QSvgWidget::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qsvgwidget_initpainter_callback;
-        if (initpainter_cb) {
+        if (qsvgwidget_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qsvgwidget_initpainter_callback(this, cbval1);
             return;
         }
         QSvgWidget::initPainter(painter);
@@ -956,14 +574,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qsvgwidget_redirected_isbase) {
-            qsvgwidget_redirected_isbase = false;
-            return QSvgWidget::redirected(offset);
-        }
-        auto redirected_cb = qsvgwidget_redirected_callback;
-        if (redirected_cb) {
+        if (qsvgwidget_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qsvgwidget_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QSvgWidget::redirected(offset);
@@ -971,13 +584,8 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qsvgwidget_sharedpainter_isbase) {
-            qsvgwidget_sharedpainter_isbase = false;
-            return QSvgWidget::sharedPainter();
-        }
-        auto sharedpainter_cb = qsvgwidget_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qsvgwidget_sharedpainter_callback) {
+            QPainter* callback_ret = qsvgwidget_sharedpainter_callback(this);
             return callback_ret;
         }
         return QSvgWidget::sharedPainter();
@@ -985,15 +593,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qsvgwidget_inputmethodevent_isbase) {
-            qsvgwidget_inputmethodevent_isbase = false;
-            QSvgWidget::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qsvgwidget_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qsvgwidget_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qsvgwidget_inputmethodevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::inputMethodEvent(param1);
@@ -1001,14 +603,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qsvgwidget_inputmethodquery_isbase) {
-            qsvgwidget_inputmethodquery_isbase = false;
-            return QSvgWidget::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qsvgwidget_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qsvgwidget_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qsvgwidget_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1018,14 +615,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qsvgwidget_focusnextprevchild_isbase) {
-            qsvgwidget_focusnextprevchild_isbase = false;
-            return QSvgWidget::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qsvgwidget_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qsvgwidget_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qsvgwidget_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QSvgWidget::focusNextPrevChild(next);
@@ -1033,15 +625,10 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qsvgwidget_eventfilter_isbase) {
-            qsvgwidget_eventfilter_isbase = false;
-            return QSvgWidget::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qsvgwidget_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qsvgwidget_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qsvgwidget_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QSvgWidget::eventFilter(watched, event);
@@ -1049,15 +636,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qsvgwidget_timerevent_isbase) {
-            qsvgwidget_timerevent_isbase = false;
-            QSvgWidget::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qsvgwidget_timerevent_callback;
-        if (timerevent_cb) {
+        if (qsvgwidget_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qsvgwidget_timerevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::timerEvent(event);
@@ -1065,15 +646,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qsvgwidget_childevent_isbase) {
-            qsvgwidget_childevent_isbase = false;
-            QSvgWidget::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qsvgwidget_childevent_callback;
-        if (childevent_cb) {
+        if (qsvgwidget_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qsvgwidget_childevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::childEvent(event);
@@ -1081,15 +656,9 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qsvgwidget_customevent_isbase) {
-            qsvgwidget_customevent_isbase = false;
-            QSvgWidget::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qsvgwidget_customevent_callback;
-        if (customevent_cb) {
+        if (qsvgwidget_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qsvgwidget_customevent_callback(this, cbval1);
             return;
         }
         QSvgWidget::customEvent(event);
@@ -1097,17 +666,11 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qsvgwidget_connectnotify_isbase) {
-            qsvgwidget_connectnotify_isbase = false;
-            QSvgWidget::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qsvgwidget_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qsvgwidget_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qsvgwidget_connectnotify_callback(this, cbval1);
             return;
         }
         QSvgWidget::connectNotify(signal);
@@ -1115,268 +678,55 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qsvgwidget_disconnectnotify_isbase) {
-            qsvgwidget_disconnectnotify_isbase = false;
-            QSvgWidget::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qsvgwidget_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qsvgwidget_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qsvgwidget_disconnectnotify_callback(this, cbval1);
             return;
         }
         QSvgWidget::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qsvgwidget_updatemicrofocus_isbase) {
-            qsvgwidget_updatemicrofocus_isbase = false;
-            QSvgWidget::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qsvgwidget_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QSvgWidget::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qsvgwidget_create_isbase) {
-            qsvgwidget_create_isbase = false;
-            QSvgWidget::create();
-            return;
-        }
-        auto create_cb = qsvgwidget_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QSvgWidget::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qsvgwidget_destroy_isbase) {
-            qsvgwidget_destroy_isbase = false;
-            QSvgWidget::destroy();
-            return;
-        }
-        auto destroy_cb = qsvgwidget_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QSvgWidget::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qsvgwidget_focusnextchild_isbase) {
-            qsvgwidget_focusnextchild_isbase = false;
-            return QSvgWidget::focusNextChild();
-        }
-        auto focusnextchild_cb = qsvgwidget_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QSvgWidget::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qsvgwidget_focuspreviouschild_isbase) {
-            qsvgwidget_focuspreviouschild_isbase = false;
-            return QSvgWidget::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qsvgwidget_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QSvgWidget::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qsvgwidget_sender_isbase) {
-            qsvgwidget_sender_isbase = false;
-            return QSvgWidget::sender();
-        }
-        auto sender_cb = qsvgwidget_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QSvgWidget::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qsvgwidget_sendersignalindex_isbase) {
-            qsvgwidget_sendersignalindex_isbase = false;
-            return QSvgWidget::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qsvgwidget_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QSvgWidget::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qsvgwidget_receivers_isbase) {
-            qsvgwidget_receivers_isbase = false;
-            return QSvgWidget::receivers(signal);
-        }
-        auto receivers_cb = qsvgwidget_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QSvgWidget::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qsvgwidget_issignalconnected_isbase) {
-            qsvgwidget_issignalconnected_isbase = false;
-            return QSvgWidget::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qsvgwidget_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QSvgWidget::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qsvgwidget_getdecodedmetricf_isbase) {
-            qsvgwidget_getdecodedmetricf_isbase = false;
-            return QSvgWidget::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qsvgwidget_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QSvgWidget::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void QSvgWidget_PaintEvent(QSvgWidget* self, QPaintEvent* event);
     friend void QSvgWidget_SuperPaintEvent(QSvgWidget* self, QPaintEvent* event);
-    friend bool QSvgWidget_Event(QSvgWidget* self, QEvent* event);
     friend bool QSvgWidget_SuperEvent(QSvgWidget* self, QEvent* event);
-    friend void QSvgWidget_MousePressEvent(QSvgWidget* self, QMouseEvent* event);
     friend void QSvgWidget_SuperMousePressEvent(QSvgWidget* self, QMouseEvent* event);
-    friend void QSvgWidget_MouseReleaseEvent(QSvgWidget* self, QMouseEvent* event);
     friend void QSvgWidget_SuperMouseReleaseEvent(QSvgWidget* self, QMouseEvent* event);
-    friend void QSvgWidget_MouseDoubleClickEvent(QSvgWidget* self, QMouseEvent* event);
     friend void QSvgWidget_SuperMouseDoubleClickEvent(QSvgWidget* self, QMouseEvent* event);
-    friend void QSvgWidget_MouseMoveEvent(QSvgWidget* self, QMouseEvent* event);
     friend void QSvgWidget_SuperMouseMoveEvent(QSvgWidget* self, QMouseEvent* event);
-    friend void QSvgWidget_WheelEvent(QSvgWidget* self, QWheelEvent* event);
     friend void QSvgWidget_SuperWheelEvent(QSvgWidget* self, QWheelEvent* event);
-    friend void QSvgWidget_KeyPressEvent(QSvgWidget* self, QKeyEvent* event);
     friend void QSvgWidget_SuperKeyPressEvent(QSvgWidget* self, QKeyEvent* event);
-    friend void QSvgWidget_KeyReleaseEvent(QSvgWidget* self, QKeyEvent* event);
     friend void QSvgWidget_SuperKeyReleaseEvent(QSvgWidget* self, QKeyEvent* event);
-    friend void QSvgWidget_FocusInEvent(QSvgWidget* self, QFocusEvent* event);
     friend void QSvgWidget_SuperFocusInEvent(QSvgWidget* self, QFocusEvent* event);
-    friend void QSvgWidget_FocusOutEvent(QSvgWidget* self, QFocusEvent* event);
     friend void QSvgWidget_SuperFocusOutEvent(QSvgWidget* self, QFocusEvent* event);
-    friend void QSvgWidget_EnterEvent(QSvgWidget* self, QEnterEvent* event);
     friend void QSvgWidget_SuperEnterEvent(QSvgWidget* self, QEnterEvent* event);
-    friend void QSvgWidget_LeaveEvent(QSvgWidget* self, QEvent* event);
     friend void QSvgWidget_SuperLeaveEvent(QSvgWidget* self, QEvent* event);
-    friend void QSvgWidget_MoveEvent(QSvgWidget* self, QMoveEvent* event);
     friend void QSvgWidget_SuperMoveEvent(QSvgWidget* self, QMoveEvent* event);
-    friend void QSvgWidget_ResizeEvent(QSvgWidget* self, QResizeEvent* event);
     friend void QSvgWidget_SuperResizeEvent(QSvgWidget* self, QResizeEvent* event);
-    friend void QSvgWidget_CloseEvent(QSvgWidget* self, QCloseEvent* event);
     friend void QSvgWidget_SuperCloseEvent(QSvgWidget* self, QCloseEvent* event);
-    friend void QSvgWidget_ContextMenuEvent(QSvgWidget* self, QContextMenuEvent* event);
     friend void QSvgWidget_SuperContextMenuEvent(QSvgWidget* self, QContextMenuEvent* event);
-    friend void QSvgWidget_TabletEvent(QSvgWidget* self, QTabletEvent* event);
     friend void QSvgWidget_SuperTabletEvent(QSvgWidget* self, QTabletEvent* event);
-    friend void QSvgWidget_ActionEvent(QSvgWidget* self, QActionEvent* event);
     friend void QSvgWidget_SuperActionEvent(QSvgWidget* self, QActionEvent* event);
-    friend void QSvgWidget_DragEnterEvent(QSvgWidget* self, QDragEnterEvent* event);
     friend void QSvgWidget_SuperDragEnterEvent(QSvgWidget* self, QDragEnterEvent* event);
-    friend void QSvgWidget_DragMoveEvent(QSvgWidget* self, QDragMoveEvent* event);
     friend void QSvgWidget_SuperDragMoveEvent(QSvgWidget* self, QDragMoveEvent* event);
-    friend void QSvgWidget_DragLeaveEvent(QSvgWidget* self, QDragLeaveEvent* event);
     friend void QSvgWidget_SuperDragLeaveEvent(QSvgWidget* self, QDragLeaveEvent* event);
-    friend void QSvgWidget_DropEvent(QSvgWidget* self, QDropEvent* event);
     friend void QSvgWidget_SuperDropEvent(QSvgWidget* self, QDropEvent* event);
-    friend void QSvgWidget_ShowEvent(QSvgWidget* self, QShowEvent* event);
     friend void QSvgWidget_SuperShowEvent(QSvgWidget* self, QShowEvent* event);
-    friend void QSvgWidget_HideEvent(QSvgWidget* self, QHideEvent* event);
     friend void QSvgWidget_SuperHideEvent(QSvgWidget* self, QHideEvent* event);
-    friend bool QSvgWidget_NativeEvent(QSvgWidget* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QSvgWidget_SuperNativeEvent(QSvgWidget* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void QSvgWidget_ChangeEvent(QSvgWidget* self, QEvent* param1);
     friend void QSvgWidget_SuperChangeEvent(QSvgWidget* self, QEvent* param1);
-    friend int QSvgWidget_Metric(const QSvgWidget* self, int param1);
     friend int QSvgWidget_SuperMetric(const QSvgWidget* self, int param1);
-    friend void QSvgWidget_InitPainter(const QSvgWidget* self, QPainter* painter);
     friend void QSvgWidget_SuperInitPainter(const QSvgWidget* self, QPainter* painter);
-    friend QPaintDevice* QSvgWidget_Redirected(const QSvgWidget* self, QPoint* offset);
     friend QPaintDevice* QSvgWidget_SuperRedirected(const QSvgWidget* self, QPoint* offset);
-    friend QPainter* QSvgWidget_SharedPainter(const QSvgWidget* self);
     friend QPainter* QSvgWidget_SuperSharedPainter(const QSvgWidget* self);
-    friend void QSvgWidget_InputMethodEvent(QSvgWidget* self, QInputMethodEvent* param1);
     friend void QSvgWidget_SuperInputMethodEvent(QSvgWidget* self, QInputMethodEvent* param1);
-    friend bool QSvgWidget_FocusNextPrevChild(QSvgWidget* self, bool next);
     friend bool QSvgWidget_SuperFocusNextPrevChild(QSvgWidget* self, bool next);
-    friend void QSvgWidget_TimerEvent(QSvgWidget* self, QTimerEvent* event);
     friend void QSvgWidget_SuperTimerEvent(QSvgWidget* self, QTimerEvent* event);
-    friend void QSvgWidget_ChildEvent(QSvgWidget* self, QChildEvent* event);
     friend void QSvgWidget_SuperChildEvent(QSvgWidget* self, QChildEvent* event);
-    friend void QSvgWidget_CustomEvent(QSvgWidget* self, QEvent* event);
     friend void QSvgWidget_SuperCustomEvent(QSvgWidget* self, QEvent* event);
-    friend void QSvgWidget_ConnectNotify(QSvgWidget* self, const QMetaMethod* signal);
     friend void QSvgWidget_SuperConnectNotify(QSvgWidget* self, const QMetaMethod* signal);
-    friend void QSvgWidget_DisconnectNotify(QSvgWidget* self, const QMetaMethod* signal);
     friend void QSvgWidget_SuperDisconnectNotify(QSvgWidget* self, const QMetaMethod* signal);
-    friend void QSvgWidget_UpdateMicroFocus(QSvgWidget* self);
-    friend void QSvgWidget_SuperUpdateMicroFocus(QSvgWidget* self);
-    friend void QSvgWidget_Create(QSvgWidget* self);
-    friend void QSvgWidget_SuperCreate(QSvgWidget* self);
-    friend void QSvgWidget_Destroy(QSvgWidget* self);
-    friend void QSvgWidget_SuperDestroy(QSvgWidget* self);
-    friend bool QSvgWidget_FocusNextChild(QSvgWidget* self);
-    friend bool QSvgWidget_SuperFocusNextChild(QSvgWidget* self);
-    friend bool QSvgWidget_FocusPreviousChild(QSvgWidget* self);
-    friend bool QSvgWidget_SuperFocusPreviousChild(QSvgWidget* self);
-    friend QObject* QSvgWidget_Sender(const QSvgWidget* self);
-    friend QObject* QSvgWidget_SuperSender(const QSvgWidget* self);
-    friend int QSvgWidget_SenderSignalIndex(const QSvgWidget* self);
-    friend int QSvgWidget_SuperSenderSignalIndex(const QSvgWidget* self);
-    friend int QSvgWidget_Receivers(const QSvgWidget* self, const char* signal);
-    friend int QSvgWidget_SuperReceivers(const QSvgWidget* self, const char* signal);
-    friend bool QSvgWidget_IsSignalConnected(const QSvgWidget* self, const QMetaMethod* signal);
-    friend bool QSvgWidget_SuperIsSignalConnected(const QSvgWidget* self, const QMetaMethod* signal);
-    friend double QSvgWidget_GetDecodedMetricF(const QSvgWidget* self, int metricA, int metricB);
-    friend double QSvgWidget_SuperGetDecodedMetricF(const QSvgWidget* self, int metricA, int metricB);
 };
 
 #endif

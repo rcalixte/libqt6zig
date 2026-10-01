@@ -9,26 +9,22 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KCapacityBar so that we can call protected methods
+// This class is a subclass of KCapacityBar
 class VirtualKCapacityBar final : public KCapacityBar {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKCapacityBar = true;
-
-    // Virtual class public types (including callbacks)
-    using KCapacityBar_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KCapacityBar_MetaObject_Callback = QMetaObject* (*)(const KCapacityBar*);
     using KCapacityBar_Metacast_Callback = void* (*)(KCapacityBar*, const char*);
     using KCapacityBar_Metacall_Callback = int (*)(KCapacityBar*, int, int, void**);
-    using KCapacityBar_MinimumSizeHint_Callback = QSize* (*)();
+    using KCapacityBar_MinimumSizeHint_Callback = QSize* (*)(const KCapacityBar*);
     using KCapacityBar_PaintEvent_Callback = void (*)(KCapacityBar*, QPaintEvent*);
     using KCapacityBar_ChangeEvent_Callback = void (*)(KCapacityBar*, QEvent*);
-    using KCapacityBar_DevType_Callback = int (*)();
+    using KCapacityBar_DevType_Callback = int (*)(const KCapacityBar*);
     using KCapacityBar_SetVisible_Callback = void (*)(KCapacityBar*, bool);
-    using KCapacityBar_SizeHint_Callback = QSize* (*)();
+    using KCapacityBar_SizeHint_Callback = QSize* (*)(const KCapacityBar*);
     using KCapacityBar_HeightForWidth_Callback = int (*)(const KCapacityBar*, int);
-    using KCapacityBar_HasHeightForWidth_Callback = bool (*)();
-    using KCapacityBar_PaintEngine_Callback = QPaintEngine* (*)();
+    using KCapacityBar_HasHeightForWidth_Callback = bool (*)(const KCapacityBar*);
+    using KCapacityBar_PaintEngine_Callback = QPaintEngine* (*)(const KCapacityBar*);
     using KCapacityBar_Event_Callback = bool (*)(KCapacityBar*, QEvent*);
     using KCapacityBar_MousePressEvent_Callback = void (*)(KCapacityBar*, QMouseEvent*);
     using KCapacityBar_MouseReleaseEvent_Callback = void (*)(KCapacityBar*, QMouseEvent*);
@@ -57,7 +53,7 @@ class VirtualKCapacityBar final : public KCapacityBar {
     using KCapacityBar_Metric_Callback = int (*)(const KCapacityBar*, int);
     using KCapacityBar_InitPainter_Callback = void (*)(const KCapacityBar*, QPainter*);
     using KCapacityBar_Redirected_Callback = QPaintDevice* (*)(const KCapacityBar*, QPoint*);
-    using KCapacityBar_SharedPainter_Callback = QPainter* (*)();
+    using KCapacityBar_SharedPainter_Callback = QPainter* (*)(const KCapacityBar*);
     using KCapacityBar_InputMethodEvent_Callback = void (*)(KCapacityBar*, QInputMethodEvent*);
     using KCapacityBar_InputMethodQuery_Callback = QVariant* (*)(const KCapacityBar*, int);
     using KCapacityBar_FocusNextPrevChild_Callback = bool (*)(KCapacityBar*, bool);
@@ -67,18 +63,17 @@ class VirtualKCapacityBar final : public KCapacityBar {
     using KCapacityBar_CustomEvent_Callback = void (*)(KCapacityBar*, QEvent*);
     using KCapacityBar_ConnectNotify_Callback = void (*)(KCapacityBar*, QMetaMethod*);
     using KCapacityBar_DisconnectNotify_Callback = void (*)(KCapacityBar*, QMetaMethod*);
-    using KCapacityBar_UpdateMicroFocus_Callback = void (*)();
-    using KCapacityBar_Create_Callback = void (*)();
-    using KCapacityBar_Destroy_Callback = void (*)();
-    using KCapacityBar_FocusNextChild_Callback = bool (*)();
-    using KCapacityBar_FocusPreviousChild_Callback = bool (*)();
-    using KCapacityBar_Sender_Callback = QObject* (*)();
-    using KCapacityBar_SenderSignalIndex_Callback = int (*)();
-    using KCapacityBar_Receivers_Callback = int (*)(const KCapacityBar*, const char*);
-    using KCapacityBar_IsSignalConnected_Callback = bool (*)(const KCapacityBar*, QMetaMethod*);
-    using KCapacityBar_GetDecodedMetricF_Callback = double (*)(const KCapacityBar*, int, int);
+    using KCapacityBar::create;
+    using KCapacityBar::destroy;
+    using KCapacityBar::focusNextChild;
+    using KCapacityBar::focusPreviousChild;
+    using KCapacityBar::getDecodedMetricF;
+    using KCapacityBar::isSignalConnected;
+    using KCapacityBar::receivers;
+    using KCapacityBar::sender;
+    using KCapacityBar::senderSignalIndex;
+    using KCapacityBar::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     KCapacityBar_MetaObject_Callback kcapacitybar_metaobject_callback = nullptr;
     KCapacityBar_Metacast_Callback kcapacitybar_metacast_callback = nullptr;
@@ -130,218 +125,58 @@ class VirtualKCapacityBar final : public KCapacityBar {
     KCapacityBar_CustomEvent_Callback kcapacitybar_customevent_callback = nullptr;
     KCapacityBar_ConnectNotify_Callback kcapacitybar_connectnotify_callback = nullptr;
     KCapacityBar_DisconnectNotify_Callback kcapacitybar_disconnectnotify_callback = nullptr;
-    KCapacityBar_UpdateMicroFocus_Callback kcapacitybar_updatemicrofocus_callback = nullptr;
-    KCapacityBar_Create_Callback kcapacitybar_create_callback = nullptr;
-    KCapacityBar_Destroy_Callback kcapacitybar_destroy_callback = nullptr;
-    KCapacityBar_FocusNextChild_Callback kcapacitybar_focusnextchild_callback = nullptr;
-    KCapacityBar_FocusPreviousChild_Callback kcapacitybar_focuspreviouschild_callback = nullptr;
-    KCapacityBar_Sender_Callback kcapacitybar_sender_callback = nullptr;
-    KCapacityBar_SenderSignalIndex_Callback kcapacitybar_sendersignalindex_callback = nullptr;
-    KCapacityBar_Receivers_Callback kcapacitybar_receivers_callback = nullptr;
-    KCapacityBar_IsSignalConnected_Callback kcapacitybar_issignalconnected_callback = nullptr;
-    KCapacityBar_GetDecodedMetricF_Callback kcapacitybar_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kcapacitybar_metaobject_isbase = false;
-    mutable bool kcapacitybar_metacast_isbase = false;
-    mutable bool kcapacitybar_metacall_isbase = false;
-    mutable bool kcapacitybar_minimumsizehint_isbase = false;
-    mutable bool kcapacitybar_paintevent_isbase = false;
-    mutable bool kcapacitybar_changeevent_isbase = false;
-    mutable bool kcapacitybar_devtype_isbase = false;
-    mutable bool kcapacitybar_setvisible_isbase = false;
-    mutable bool kcapacitybar_sizehint_isbase = false;
-    mutable bool kcapacitybar_heightforwidth_isbase = false;
-    mutable bool kcapacitybar_hasheightforwidth_isbase = false;
-    mutable bool kcapacitybar_paintengine_isbase = false;
-    mutable bool kcapacitybar_event_isbase = false;
-    mutable bool kcapacitybar_mousepressevent_isbase = false;
-    mutable bool kcapacitybar_mousereleaseevent_isbase = false;
-    mutable bool kcapacitybar_mousedoubleclickevent_isbase = false;
-    mutable bool kcapacitybar_mousemoveevent_isbase = false;
-    mutable bool kcapacitybar_wheelevent_isbase = false;
-    mutable bool kcapacitybar_keypressevent_isbase = false;
-    mutable bool kcapacitybar_keyreleaseevent_isbase = false;
-    mutable bool kcapacitybar_focusinevent_isbase = false;
-    mutable bool kcapacitybar_focusoutevent_isbase = false;
-    mutable bool kcapacitybar_enterevent_isbase = false;
-    mutable bool kcapacitybar_leaveevent_isbase = false;
-    mutable bool kcapacitybar_moveevent_isbase = false;
-    mutable bool kcapacitybar_resizeevent_isbase = false;
-    mutable bool kcapacitybar_closeevent_isbase = false;
-    mutable bool kcapacitybar_contextmenuevent_isbase = false;
-    mutable bool kcapacitybar_tabletevent_isbase = false;
-    mutable bool kcapacitybar_actionevent_isbase = false;
-    mutable bool kcapacitybar_dragenterevent_isbase = false;
-    mutable bool kcapacitybar_dragmoveevent_isbase = false;
-    mutable bool kcapacitybar_dragleaveevent_isbase = false;
-    mutable bool kcapacitybar_dropevent_isbase = false;
-    mutable bool kcapacitybar_showevent_isbase = false;
-    mutable bool kcapacitybar_hideevent_isbase = false;
-    mutable bool kcapacitybar_nativeevent_isbase = false;
-    mutable bool kcapacitybar_metric_isbase = false;
-    mutable bool kcapacitybar_initpainter_isbase = false;
-    mutable bool kcapacitybar_redirected_isbase = false;
-    mutable bool kcapacitybar_sharedpainter_isbase = false;
-    mutable bool kcapacitybar_inputmethodevent_isbase = false;
-    mutable bool kcapacitybar_inputmethodquery_isbase = false;
-    mutable bool kcapacitybar_focusnextprevchild_isbase = false;
-    mutable bool kcapacitybar_eventfilter_isbase = false;
-    mutable bool kcapacitybar_timerevent_isbase = false;
-    mutable bool kcapacitybar_childevent_isbase = false;
-    mutable bool kcapacitybar_customevent_isbase = false;
-    mutable bool kcapacitybar_connectnotify_isbase = false;
-    mutable bool kcapacitybar_disconnectnotify_isbase = false;
-    mutable bool kcapacitybar_updatemicrofocus_isbase = false;
-    mutable bool kcapacitybar_create_isbase = false;
-    mutable bool kcapacitybar_destroy_isbase = false;
-    mutable bool kcapacitybar_focusnextchild_isbase = false;
-    mutable bool kcapacitybar_focuspreviouschild_isbase = false;
-    mutable bool kcapacitybar_sender_isbase = false;
-    mutable bool kcapacitybar_sendersignalindex_isbase = false;
-    mutable bool kcapacitybar_receivers_isbase = false;
-    mutable bool kcapacitybar_issignalconnected_isbase = false;
-    mutable bool kcapacitybar_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KCapacityBar {
+        using KCapacityBar::actionEvent;
+        using KCapacityBar::changeEvent;
+        using KCapacityBar::childEvent;
+        using KCapacityBar::closeEvent;
+        using KCapacityBar::connectNotify;
+        using KCapacityBar::contextMenuEvent;
+        using KCapacityBar::customEvent;
+        using KCapacityBar::disconnectNotify;
+        using KCapacityBar::dragEnterEvent;
+        using KCapacityBar::dragLeaveEvent;
+        using KCapacityBar::dragMoveEvent;
+        using KCapacityBar::dropEvent;
+        using KCapacityBar::enterEvent;
+        using KCapacityBar::event;
+        using KCapacityBar::focusInEvent;
+        using KCapacityBar::focusNextPrevChild;
+        using KCapacityBar::focusOutEvent;
+        using KCapacityBar::hideEvent;
+        using KCapacityBar::initPainter;
+        using KCapacityBar::inputMethodEvent;
+        using KCapacityBar::keyPressEvent;
+        using KCapacityBar::keyReleaseEvent;
+        using KCapacityBar::leaveEvent;
+        using KCapacityBar::metric;
+        using KCapacityBar::mouseDoubleClickEvent;
+        using KCapacityBar::mouseMoveEvent;
+        using KCapacityBar::mousePressEvent;
+        using KCapacityBar::mouseReleaseEvent;
+        using KCapacityBar::moveEvent;
+        using KCapacityBar::nativeEvent;
+        using KCapacityBar::paintEvent;
+        using KCapacityBar::redirected;
+        using KCapacityBar::resizeEvent;
+        using KCapacityBar::sharedPainter;
+        using KCapacityBar::showEvent;
+        using KCapacityBar::tabletEvent;
+        using KCapacityBar::timerEvent;
+        using KCapacityBar::wheelEvent;
+    };
 
-  public:
     VirtualKCapacityBar(QWidget* parent) : KCapacityBar(parent) {};
     VirtualKCapacityBar() : KCapacityBar() {};
     VirtualKCapacityBar(KCapacityBar::DrawTextMode drawTextMode) : KCapacityBar(drawTextMode) {};
     VirtualKCapacityBar(KCapacityBar::DrawTextMode drawTextMode, QWidget* parent) : KCapacityBar(drawTextMode, parent) {};
 
-    // Callback setters
-    inline void setKCapacityBar_MetaObject_Callback(KCapacityBar_MetaObject_Callback cb) { kcapacitybar_metaobject_callback = cb; }
-    inline void setKCapacityBar_Metacast_Callback(KCapacityBar_Metacast_Callback cb) { kcapacitybar_metacast_callback = cb; }
-    inline void setKCapacityBar_Metacall_Callback(KCapacityBar_Metacall_Callback cb) { kcapacitybar_metacall_callback = cb; }
-    inline void setKCapacityBar_MinimumSizeHint_Callback(KCapacityBar_MinimumSizeHint_Callback cb) { kcapacitybar_minimumsizehint_callback = cb; }
-    inline void setKCapacityBar_PaintEvent_Callback(KCapacityBar_PaintEvent_Callback cb) { kcapacitybar_paintevent_callback = cb; }
-    inline void setKCapacityBar_ChangeEvent_Callback(KCapacityBar_ChangeEvent_Callback cb) { kcapacitybar_changeevent_callback = cb; }
-    inline void setKCapacityBar_DevType_Callback(KCapacityBar_DevType_Callback cb) { kcapacitybar_devtype_callback = cb; }
-    inline void setKCapacityBar_SetVisible_Callback(KCapacityBar_SetVisible_Callback cb) { kcapacitybar_setvisible_callback = cb; }
-    inline void setKCapacityBar_SizeHint_Callback(KCapacityBar_SizeHint_Callback cb) { kcapacitybar_sizehint_callback = cb; }
-    inline void setKCapacityBar_HeightForWidth_Callback(KCapacityBar_HeightForWidth_Callback cb) { kcapacitybar_heightforwidth_callback = cb; }
-    inline void setKCapacityBar_HasHeightForWidth_Callback(KCapacityBar_HasHeightForWidth_Callback cb) { kcapacitybar_hasheightforwidth_callback = cb; }
-    inline void setKCapacityBar_PaintEngine_Callback(KCapacityBar_PaintEngine_Callback cb) { kcapacitybar_paintengine_callback = cb; }
-    inline void setKCapacityBar_Event_Callback(KCapacityBar_Event_Callback cb) { kcapacitybar_event_callback = cb; }
-    inline void setKCapacityBar_MousePressEvent_Callback(KCapacityBar_MousePressEvent_Callback cb) { kcapacitybar_mousepressevent_callback = cb; }
-    inline void setKCapacityBar_MouseReleaseEvent_Callback(KCapacityBar_MouseReleaseEvent_Callback cb) { kcapacitybar_mousereleaseevent_callback = cb; }
-    inline void setKCapacityBar_MouseDoubleClickEvent_Callback(KCapacityBar_MouseDoubleClickEvent_Callback cb) { kcapacitybar_mousedoubleclickevent_callback = cb; }
-    inline void setKCapacityBar_MouseMoveEvent_Callback(KCapacityBar_MouseMoveEvent_Callback cb) { kcapacitybar_mousemoveevent_callback = cb; }
-    inline void setKCapacityBar_WheelEvent_Callback(KCapacityBar_WheelEvent_Callback cb) { kcapacitybar_wheelevent_callback = cb; }
-    inline void setKCapacityBar_KeyPressEvent_Callback(KCapacityBar_KeyPressEvent_Callback cb) { kcapacitybar_keypressevent_callback = cb; }
-    inline void setKCapacityBar_KeyReleaseEvent_Callback(KCapacityBar_KeyReleaseEvent_Callback cb) { kcapacitybar_keyreleaseevent_callback = cb; }
-    inline void setKCapacityBar_FocusInEvent_Callback(KCapacityBar_FocusInEvent_Callback cb) { kcapacitybar_focusinevent_callback = cb; }
-    inline void setKCapacityBar_FocusOutEvent_Callback(KCapacityBar_FocusOutEvent_Callback cb) { kcapacitybar_focusoutevent_callback = cb; }
-    inline void setKCapacityBar_EnterEvent_Callback(KCapacityBar_EnterEvent_Callback cb) { kcapacitybar_enterevent_callback = cb; }
-    inline void setKCapacityBar_LeaveEvent_Callback(KCapacityBar_LeaveEvent_Callback cb) { kcapacitybar_leaveevent_callback = cb; }
-    inline void setKCapacityBar_MoveEvent_Callback(KCapacityBar_MoveEvent_Callback cb) { kcapacitybar_moveevent_callback = cb; }
-    inline void setKCapacityBar_ResizeEvent_Callback(KCapacityBar_ResizeEvent_Callback cb) { kcapacitybar_resizeevent_callback = cb; }
-    inline void setKCapacityBar_CloseEvent_Callback(KCapacityBar_CloseEvent_Callback cb) { kcapacitybar_closeevent_callback = cb; }
-    inline void setKCapacityBar_ContextMenuEvent_Callback(KCapacityBar_ContextMenuEvent_Callback cb) { kcapacitybar_contextmenuevent_callback = cb; }
-    inline void setKCapacityBar_TabletEvent_Callback(KCapacityBar_TabletEvent_Callback cb) { kcapacitybar_tabletevent_callback = cb; }
-    inline void setKCapacityBar_ActionEvent_Callback(KCapacityBar_ActionEvent_Callback cb) { kcapacitybar_actionevent_callback = cb; }
-    inline void setKCapacityBar_DragEnterEvent_Callback(KCapacityBar_DragEnterEvent_Callback cb) { kcapacitybar_dragenterevent_callback = cb; }
-    inline void setKCapacityBar_DragMoveEvent_Callback(KCapacityBar_DragMoveEvent_Callback cb) { kcapacitybar_dragmoveevent_callback = cb; }
-    inline void setKCapacityBar_DragLeaveEvent_Callback(KCapacityBar_DragLeaveEvent_Callback cb) { kcapacitybar_dragleaveevent_callback = cb; }
-    inline void setKCapacityBar_DropEvent_Callback(KCapacityBar_DropEvent_Callback cb) { kcapacitybar_dropevent_callback = cb; }
-    inline void setKCapacityBar_ShowEvent_Callback(KCapacityBar_ShowEvent_Callback cb) { kcapacitybar_showevent_callback = cb; }
-    inline void setKCapacityBar_HideEvent_Callback(KCapacityBar_HideEvent_Callback cb) { kcapacitybar_hideevent_callback = cb; }
-    inline void setKCapacityBar_NativeEvent_Callback(KCapacityBar_NativeEvent_Callback cb) { kcapacitybar_nativeevent_callback = cb; }
-    inline void setKCapacityBar_Metric_Callback(KCapacityBar_Metric_Callback cb) { kcapacitybar_metric_callback = cb; }
-    inline void setKCapacityBar_InitPainter_Callback(KCapacityBar_InitPainter_Callback cb) { kcapacitybar_initpainter_callback = cb; }
-    inline void setKCapacityBar_Redirected_Callback(KCapacityBar_Redirected_Callback cb) { kcapacitybar_redirected_callback = cb; }
-    inline void setKCapacityBar_SharedPainter_Callback(KCapacityBar_SharedPainter_Callback cb) { kcapacitybar_sharedpainter_callback = cb; }
-    inline void setKCapacityBar_InputMethodEvent_Callback(KCapacityBar_InputMethodEvent_Callback cb) { kcapacitybar_inputmethodevent_callback = cb; }
-    inline void setKCapacityBar_InputMethodQuery_Callback(KCapacityBar_InputMethodQuery_Callback cb) { kcapacitybar_inputmethodquery_callback = cb; }
-    inline void setKCapacityBar_FocusNextPrevChild_Callback(KCapacityBar_FocusNextPrevChild_Callback cb) { kcapacitybar_focusnextprevchild_callback = cb; }
-    inline void setKCapacityBar_EventFilter_Callback(KCapacityBar_EventFilter_Callback cb) { kcapacitybar_eventfilter_callback = cb; }
-    inline void setKCapacityBar_TimerEvent_Callback(KCapacityBar_TimerEvent_Callback cb) { kcapacitybar_timerevent_callback = cb; }
-    inline void setKCapacityBar_ChildEvent_Callback(KCapacityBar_ChildEvent_Callback cb) { kcapacitybar_childevent_callback = cb; }
-    inline void setKCapacityBar_CustomEvent_Callback(KCapacityBar_CustomEvent_Callback cb) { kcapacitybar_customevent_callback = cb; }
-    inline void setKCapacityBar_ConnectNotify_Callback(KCapacityBar_ConnectNotify_Callback cb) { kcapacitybar_connectnotify_callback = cb; }
-    inline void setKCapacityBar_DisconnectNotify_Callback(KCapacityBar_DisconnectNotify_Callback cb) { kcapacitybar_disconnectnotify_callback = cb; }
-    inline void setKCapacityBar_UpdateMicroFocus_Callback(KCapacityBar_UpdateMicroFocus_Callback cb) { kcapacitybar_updatemicrofocus_callback = cb; }
-    inline void setKCapacityBar_Create_Callback(KCapacityBar_Create_Callback cb) { kcapacitybar_create_callback = cb; }
-    inline void setKCapacityBar_Destroy_Callback(KCapacityBar_Destroy_Callback cb) { kcapacitybar_destroy_callback = cb; }
-    inline void setKCapacityBar_FocusNextChild_Callback(KCapacityBar_FocusNextChild_Callback cb) { kcapacitybar_focusnextchild_callback = cb; }
-    inline void setKCapacityBar_FocusPreviousChild_Callback(KCapacityBar_FocusPreviousChild_Callback cb) { kcapacitybar_focuspreviouschild_callback = cb; }
-    inline void setKCapacityBar_Sender_Callback(KCapacityBar_Sender_Callback cb) { kcapacitybar_sender_callback = cb; }
-    inline void setKCapacityBar_SenderSignalIndex_Callback(KCapacityBar_SenderSignalIndex_Callback cb) { kcapacitybar_sendersignalindex_callback = cb; }
-    inline void setKCapacityBar_Receivers_Callback(KCapacityBar_Receivers_Callback cb) { kcapacitybar_receivers_callback = cb; }
-    inline void setKCapacityBar_IsSignalConnected_Callback(KCapacityBar_IsSignalConnected_Callback cb) { kcapacitybar_issignalconnected_callback = cb; }
-    inline void setKCapacityBar_GetDecodedMetricF_Callback(KCapacityBar_GetDecodedMetricF_Callback cb) { kcapacitybar_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKCapacityBar_MetaObject_IsBase(bool value) const { kcapacitybar_metaobject_isbase = value; }
-    inline void setKCapacityBar_Metacast_IsBase(bool value) const { kcapacitybar_metacast_isbase = value; }
-    inline void setKCapacityBar_Metacall_IsBase(bool value) const { kcapacitybar_metacall_isbase = value; }
-    inline void setKCapacityBar_MinimumSizeHint_IsBase(bool value) const { kcapacitybar_minimumsizehint_isbase = value; }
-    inline void setKCapacityBar_PaintEvent_IsBase(bool value) const { kcapacitybar_paintevent_isbase = value; }
-    inline void setKCapacityBar_ChangeEvent_IsBase(bool value) const { kcapacitybar_changeevent_isbase = value; }
-    inline void setKCapacityBar_DevType_IsBase(bool value) const { kcapacitybar_devtype_isbase = value; }
-    inline void setKCapacityBar_SetVisible_IsBase(bool value) const { kcapacitybar_setvisible_isbase = value; }
-    inline void setKCapacityBar_SizeHint_IsBase(bool value) const { kcapacitybar_sizehint_isbase = value; }
-    inline void setKCapacityBar_HeightForWidth_IsBase(bool value) const { kcapacitybar_heightforwidth_isbase = value; }
-    inline void setKCapacityBar_HasHeightForWidth_IsBase(bool value) const { kcapacitybar_hasheightforwidth_isbase = value; }
-    inline void setKCapacityBar_PaintEngine_IsBase(bool value) const { kcapacitybar_paintengine_isbase = value; }
-    inline void setKCapacityBar_Event_IsBase(bool value) const { kcapacitybar_event_isbase = value; }
-    inline void setKCapacityBar_MousePressEvent_IsBase(bool value) const { kcapacitybar_mousepressevent_isbase = value; }
-    inline void setKCapacityBar_MouseReleaseEvent_IsBase(bool value) const { kcapacitybar_mousereleaseevent_isbase = value; }
-    inline void setKCapacityBar_MouseDoubleClickEvent_IsBase(bool value) const { kcapacitybar_mousedoubleclickevent_isbase = value; }
-    inline void setKCapacityBar_MouseMoveEvent_IsBase(bool value) const { kcapacitybar_mousemoveevent_isbase = value; }
-    inline void setKCapacityBar_WheelEvent_IsBase(bool value) const { kcapacitybar_wheelevent_isbase = value; }
-    inline void setKCapacityBar_KeyPressEvent_IsBase(bool value) const { kcapacitybar_keypressevent_isbase = value; }
-    inline void setKCapacityBar_KeyReleaseEvent_IsBase(bool value) const { kcapacitybar_keyreleaseevent_isbase = value; }
-    inline void setKCapacityBar_FocusInEvent_IsBase(bool value) const { kcapacitybar_focusinevent_isbase = value; }
-    inline void setKCapacityBar_FocusOutEvent_IsBase(bool value) const { kcapacitybar_focusoutevent_isbase = value; }
-    inline void setKCapacityBar_EnterEvent_IsBase(bool value) const { kcapacitybar_enterevent_isbase = value; }
-    inline void setKCapacityBar_LeaveEvent_IsBase(bool value) const { kcapacitybar_leaveevent_isbase = value; }
-    inline void setKCapacityBar_MoveEvent_IsBase(bool value) const { kcapacitybar_moveevent_isbase = value; }
-    inline void setKCapacityBar_ResizeEvent_IsBase(bool value) const { kcapacitybar_resizeevent_isbase = value; }
-    inline void setKCapacityBar_CloseEvent_IsBase(bool value) const { kcapacitybar_closeevent_isbase = value; }
-    inline void setKCapacityBar_ContextMenuEvent_IsBase(bool value) const { kcapacitybar_contextmenuevent_isbase = value; }
-    inline void setKCapacityBar_TabletEvent_IsBase(bool value) const { kcapacitybar_tabletevent_isbase = value; }
-    inline void setKCapacityBar_ActionEvent_IsBase(bool value) const { kcapacitybar_actionevent_isbase = value; }
-    inline void setKCapacityBar_DragEnterEvent_IsBase(bool value) const { kcapacitybar_dragenterevent_isbase = value; }
-    inline void setKCapacityBar_DragMoveEvent_IsBase(bool value) const { kcapacitybar_dragmoveevent_isbase = value; }
-    inline void setKCapacityBar_DragLeaveEvent_IsBase(bool value) const { kcapacitybar_dragleaveevent_isbase = value; }
-    inline void setKCapacityBar_DropEvent_IsBase(bool value) const { kcapacitybar_dropevent_isbase = value; }
-    inline void setKCapacityBar_ShowEvent_IsBase(bool value) const { kcapacitybar_showevent_isbase = value; }
-    inline void setKCapacityBar_HideEvent_IsBase(bool value) const { kcapacitybar_hideevent_isbase = value; }
-    inline void setKCapacityBar_NativeEvent_IsBase(bool value) const { kcapacitybar_nativeevent_isbase = value; }
-    inline void setKCapacityBar_Metric_IsBase(bool value) const { kcapacitybar_metric_isbase = value; }
-    inline void setKCapacityBar_InitPainter_IsBase(bool value) const { kcapacitybar_initpainter_isbase = value; }
-    inline void setKCapacityBar_Redirected_IsBase(bool value) const { kcapacitybar_redirected_isbase = value; }
-    inline void setKCapacityBar_SharedPainter_IsBase(bool value) const { kcapacitybar_sharedpainter_isbase = value; }
-    inline void setKCapacityBar_InputMethodEvent_IsBase(bool value) const { kcapacitybar_inputmethodevent_isbase = value; }
-    inline void setKCapacityBar_InputMethodQuery_IsBase(bool value) const { kcapacitybar_inputmethodquery_isbase = value; }
-    inline void setKCapacityBar_FocusNextPrevChild_IsBase(bool value) const { kcapacitybar_focusnextprevchild_isbase = value; }
-    inline void setKCapacityBar_EventFilter_IsBase(bool value) const { kcapacitybar_eventfilter_isbase = value; }
-    inline void setKCapacityBar_TimerEvent_IsBase(bool value) const { kcapacitybar_timerevent_isbase = value; }
-    inline void setKCapacityBar_ChildEvent_IsBase(bool value) const { kcapacitybar_childevent_isbase = value; }
-    inline void setKCapacityBar_CustomEvent_IsBase(bool value) const { kcapacitybar_customevent_isbase = value; }
-    inline void setKCapacityBar_ConnectNotify_IsBase(bool value) const { kcapacitybar_connectnotify_isbase = value; }
-    inline void setKCapacityBar_DisconnectNotify_IsBase(bool value) const { kcapacitybar_disconnectnotify_isbase = value; }
-    inline void setKCapacityBar_UpdateMicroFocus_IsBase(bool value) const { kcapacitybar_updatemicrofocus_isbase = value; }
-    inline void setKCapacityBar_Create_IsBase(bool value) const { kcapacitybar_create_isbase = value; }
-    inline void setKCapacityBar_Destroy_IsBase(bool value) const { kcapacitybar_destroy_isbase = value; }
-    inline void setKCapacityBar_FocusNextChild_IsBase(bool value) const { kcapacitybar_focusnextchild_isbase = value; }
-    inline void setKCapacityBar_FocusPreviousChild_IsBase(bool value) const { kcapacitybar_focuspreviouschild_isbase = value; }
-    inline void setKCapacityBar_Sender_IsBase(bool value) const { kcapacitybar_sender_isbase = value; }
-    inline void setKCapacityBar_SenderSignalIndex_IsBase(bool value) const { kcapacitybar_sendersignalindex_isbase = value; }
-    inline void setKCapacityBar_Receivers_IsBase(bool value) const { kcapacitybar_receivers_isbase = value; }
-    inline void setKCapacityBar_IsSignalConnected_IsBase(bool value) const { kcapacitybar_issignalconnected_isbase = value; }
-    inline void setKCapacityBar_GetDecodedMetricF_IsBase(bool value) const { kcapacitybar_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kcapacitybar_metaobject_isbase) {
-            kcapacitybar_metaobject_isbase = false;
-            return KCapacityBar::metaObject();
-        }
-        auto metaobject_cb = kcapacitybar_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kcapacitybar_metaobject_callback) {
+            QMetaObject* callback_ret = kcapacitybar_metaobject_callback(this);
             return callback_ret;
         }
         return KCapacityBar::metaObject();
@@ -349,14 +184,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kcapacitybar_metacast_isbase) {
-            kcapacitybar_metacast_isbase = false;
-            return KCapacityBar::qt_metacast(param1);
-        }
-        auto metacast_cb = kcapacitybar_metacast_callback;
-        if (metacast_cb) {
+        if (kcapacitybar_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kcapacitybar_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KCapacityBar::qt_metacast(param1);
@@ -364,16 +194,11 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kcapacitybar_metacall_isbase) {
-            kcapacitybar_metacall_isbase = false;
-            return KCapacityBar::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kcapacitybar_metacall_callback;
-        if (metacall_cb) {
+        if (kcapacitybar_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kcapacitybar_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KCapacityBar::qt_metacall(param1, param2, param3);
@@ -381,13 +206,8 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (kcapacitybar_minimumsizehint_isbase) {
-            kcapacitybar_minimumsizehint_isbase = false;
-            return KCapacityBar::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = kcapacitybar_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (kcapacitybar_minimumsizehint_callback) {
+            QSize* callback_ret = kcapacitybar_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -397,15 +217,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (kcapacitybar_paintevent_isbase) {
-            kcapacitybar_paintevent_isbase = false;
-            KCapacityBar::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = kcapacitybar_paintevent_callback;
-        if (paintevent_cb) {
+        if (kcapacitybar_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            kcapacitybar_paintevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::paintEvent(event);
@@ -413,15 +227,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* event) override {
-        if (kcapacitybar_changeevent_isbase) {
-            kcapacitybar_changeevent_isbase = false;
-            KCapacityBar::changeEvent(event);
-            return;
-        }
-        auto changeevent_cb = kcapacitybar_changeevent_callback;
-        if (changeevent_cb) {
+        if (kcapacitybar_changeevent_callback) {
             QEvent* cbval1 = event;
-            changeevent_cb(this, cbval1);
+            kcapacitybar_changeevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::changeEvent(event);
@@ -429,13 +237,8 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (kcapacitybar_devtype_isbase) {
-            kcapacitybar_devtype_isbase = false;
-            return KCapacityBar::devType();
-        }
-        auto devtype_cb = kcapacitybar_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (kcapacitybar_devtype_callback) {
+            int callback_ret = kcapacitybar_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KCapacityBar::devType();
@@ -443,15 +246,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (kcapacitybar_setvisible_isbase) {
-            kcapacitybar_setvisible_isbase = false;
-            KCapacityBar::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = kcapacitybar_setvisible_callback;
-        if (setvisible_cb) {
+        if (kcapacitybar_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            kcapacitybar_setvisible_callback(this, cbval1);
             return;
         }
         KCapacityBar::setVisible(visible);
@@ -459,13 +256,8 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (kcapacitybar_sizehint_isbase) {
-            kcapacitybar_sizehint_isbase = false;
-            return KCapacityBar::sizeHint();
-        }
-        auto sizehint_cb = kcapacitybar_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (kcapacitybar_sizehint_callback) {
+            QSize* callback_ret = kcapacitybar_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -475,14 +267,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (kcapacitybar_heightforwidth_isbase) {
-            kcapacitybar_heightforwidth_isbase = false;
-            return KCapacityBar::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = kcapacitybar_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (kcapacitybar_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = kcapacitybar_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KCapacityBar::heightForWidth(param1);
@@ -490,13 +277,8 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (kcapacitybar_hasheightforwidth_isbase) {
-            kcapacitybar_hasheightforwidth_isbase = false;
-            return KCapacityBar::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = kcapacitybar_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (kcapacitybar_hasheightforwidth_callback) {
+            bool callback_ret = kcapacitybar_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KCapacityBar::hasHeightForWidth();
@@ -504,13 +286,8 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (kcapacitybar_paintengine_isbase) {
-            kcapacitybar_paintengine_isbase = false;
-            return KCapacityBar::paintEngine();
-        }
-        auto paintengine_cb = kcapacitybar_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (kcapacitybar_paintengine_callback) {
+            QPaintEngine* callback_ret = kcapacitybar_paintengine_callback(this);
             return callback_ret;
         }
         return KCapacityBar::paintEngine();
@@ -518,14 +295,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kcapacitybar_event_isbase) {
-            kcapacitybar_event_isbase = false;
-            return KCapacityBar::event(event);
-        }
-        auto event_cb = kcapacitybar_event_callback;
-        if (event_cb) {
+        if (kcapacitybar_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kcapacitybar_event_callback(this, cbval1);
             return callback_ret;
         }
         return KCapacityBar::event(event);
@@ -533,15 +305,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (kcapacitybar_mousepressevent_isbase) {
-            kcapacitybar_mousepressevent_isbase = false;
-            KCapacityBar::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = kcapacitybar_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (kcapacitybar_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            kcapacitybar_mousepressevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::mousePressEvent(event);
@@ -549,15 +315,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (kcapacitybar_mousereleaseevent_isbase) {
-            kcapacitybar_mousereleaseevent_isbase = false;
-            KCapacityBar::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = kcapacitybar_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (kcapacitybar_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            kcapacitybar_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::mouseReleaseEvent(event);
@@ -565,15 +325,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (kcapacitybar_mousedoubleclickevent_isbase) {
-            kcapacitybar_mousedoubleclickevent_isbase = false;
-            KCapacityBar::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = kcapacitybar_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (kcapacitybar_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            kcapacitybar_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::mouseDoubleClickEvent(event);
@@ -581,15 +335,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (kcapacitybar_mousemoveevent_isbase) {
-            kcapacitybar_mousemoveevent_isbase = false;
-            KCapacityBar::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = kcapacitybar_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (kcapacitybar_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            kcapacitybar_mousemoveevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::mouseMoveEvent(event);
@@ -597,15 +345,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (kcapacitybar_wheelevent_isbase) {
-            kcapacitybar_wheelevent_isbase = false;
-            KCapacityBar::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = kcapacitybar_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (kcapacitybar_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            kcapacitybar_wheelevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::wheelEvent(event);
@@ -613,15 +355,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (kcapacitybar_keypressevent_isbase) {
-            kcapacitybar_keypressevent_isbase = false;
-            KCapacityBar::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = kcapacitybar_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (kcapacitybar_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            kcapacitybar_keypressevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::keyPressEvent(event);
@@ -629,15 +365,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (kcapacitybar_keyreleaseevent_isbase) {
-            kcapacitybar_keyreleaseevent_isbase = false;
-            KCapacityBar::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = kcapacitybar_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (kcapacitybar_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            kcapacitybar_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::keyReleaseEvent(event);
@@ -645,15 +375,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (kcapacitybar_focusinevent_isbase) {
-            kcapacitybar_focusinevent_isbase = false;
-            KCapacityBar::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = kcapacitybar_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (kcapacitybar_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            kcapacitybar_focusinevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::focusInEvent(event);
@@ -661,15 +385,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (kcapacitybar_focusoutevent_isbase) {
-            kcapacitybar_focusoutevent_isbase = false;
-            KCapacityBar::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = kcapacitybar_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (kcapacitybar_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            kcapacitybar_focusoutevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::focusOutEvent(event);
@@ -677,15 +395,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (kcapacitybar_enterevent_isbase) {
-            kcapacitybar_enterevent_isbase = false;
-            KCapacityBar::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = kcapacitybar_enterevent_callback;
-        if (enterevent_cb) {
+        if (kcapacitybar_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            kcapacitybar_enterevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::enterEvent(event);
@@ -693,15 +405,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (kcapacitybar_leaveevent_isbase) {
-            kcapacitybar_leaveevent_isbase = false;
-            KCapacityBar::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = kcapacitybar_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (kcapacitybar_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            kcapacitybar_leaveevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::leaveEvent(event);
@@ -709,15 +415,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (kcapacitybar_moveevent_isbase) {
-            kcapacitybar_moveevent_isbase = false;
-            KCapacityBar::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = kcapacitybar_moveevent_callback;
-        if (moveevent_cb) {
+        if (kcapacitybar_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            kcapacitybar_moveevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::moveEvent(event);
@@ -725,15 +425,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (kcapacitybar_resizeevent_isbase) {
-            kcapacitybar_resizeevent_isbase = false;
-            KCapacityBar::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = kcapacitybar_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (kcapacitybar_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            kcapacitybar_resizeevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::resizeEvent(event);
@@ -741,15 +435,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (kcapacitybar_closeevent_isbase) {
-            kcapacitybar_closeevent_isbase = false;
-            KCapacityBar::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = kcapacitybar_closeevent_callback;
-        if (closeevent_cb) {
+        if (kcapacitybar_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            kcapacitybar_closeevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::closeEvent(event);
@@ -757,15 +445,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (kcapacitybar_contextmenuevent_isbase) {
-            kcapacitybar_contextmenuevent_isbase = false;
-            KCapacityBar::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = kcapacitybar_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (kcapacitybar_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            kcapacitybar_contextmenuevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::contextMenuEvent(event);
@@ -773,15 +455,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (kcapacitybar_tabletevent_isbase) {
-            kcapacitybar_tabletevent_isbase = false;
-            KCapacityBar::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = kcapacitybar_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (kcapacitybar_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            kcapacitybar_tabletevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::tabletEvent(event);
@@ -789,15 +465,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (kcapacitybar_actionevent_isbase) {
-            kcapacitybar_actionevent_isbase = false;
-            KCapacityBar::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = kcapacitybar_actionevent_callback;
-        if (actionevent_cb) {
+        if (kcapacitybar_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            kcapacitybar_actionevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::actionEvent(event);
@@ -805,15 +475,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (kcapacitybar_dragenterevent_isbase) {
-            kcapacitybar_dragenterevent_isbase = false;
-            KCapacityBar::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = kcapacitybar_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (kcapacitybar_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            kcapacitybar_dragenterevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::dragEnterEvent(event);
@@ -821,15 +485,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (kcapacitybar_dragmoveevent_isbase) {
-            kcapacitybar_dragmoveevent_isbase = false;
-            KCapacityBar::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = kcapacitybar_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (kcapacitybar_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            kcapacitybar_dragmoveevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::dragMoveEvent(event);
@@ -837,15 +495,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (kcapacitybar_dragleaveevent_isbase) {
-            kcapacitybar_dragleaveevent_isbase = false;
-            KCapacityBar::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = kcapacitybar_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (kcapacitybar_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            kcapacitybar_dragleaveevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::dragLeaveEvent(event);
@@ -853,15 +505,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (kcapacitybar_dropevent_isbase) {
-            kcapacitybar_dropevent_isbase = false;
-            KCapacityBar::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = kcapacitybar_dropevent_callback;
-        if (dropevent_cb) {
+        if (kcapacitybar_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            kcapacitybar_dropevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::dropEvent(event);
@@ -869,15 +515,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (kcapacitybar_showevent_isbase) {
-            kcapacitybar_showevent_isbase = false;
-            KCapacityBar::showEvent(event);
-            return;
-        }
-        auto showevent_cb = kcapacitybar_showevent_callback;
-        if (showevent_cb) {
+        if (kcapacitybar_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            kcapacitybar_showevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::showEvent(event);
@@ -885,15 +525,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (kcapacitybar_hideevent_isbase) {
-            kcapacitybar_hideevent_isbase = false;
-            KCapacityBar::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = kcapacitybar_hideevent_callback;
-        if (hideevent_cb) {
+        if (kcapacitybar_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            kcapacitybar_hideevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::hideEvent(event);
@@ -901,12 +535,7 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (kcapacitybar_nativeevent_isbase) {
-            kcapacitybar_nativeevent_isbase = false;
-            return KCapacityBar::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = kcapacitybar_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (kcapacitybar_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -916,7 +545,7 @@ class VirtualKCapacityBar final : public KCapacityBar {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kcapacitybar_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -925,14 +554,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (kcapacitybar_metric_isbase) {
-            kcapacitybar_metric_isbase = false;
-            return KCapacityBar::metric(param1);
-        }
-        auto metric_cb = kcapacitybar_metric_callback;
-        if (metric_cb) {
+        if (kcapacitybar_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = kcapacitybar_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KCapacityBar::metric(param1);
@@ -940,15 +564,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (kcapacitybar_initpainter_isbase) {
-            kcapacitybar_initpainter_isbase = false;
-            KCapacityBar::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = kcapacitybar_initpainter_callback;
-        if (initpainter_cb) {
+        if (kcapacitybar_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            kcapacitybar_initpainter_callback(this, cbval1);
             return;
         }
         KCapacityBar::initPainter(painter);
@@ -956,14 +574,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (kcapacitybar_redirected_isbase) {
-            kcapacitybar_redirected_isbase = false;
-            return KCapacityBar::redirected(offset);
-        }
-        auto redirected_cb = kcapacitybar_redirected_callback;
-        if (redirected_cb) {
+        if (kcapacitybar_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = kcapacitybar_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KCapacityBar::redirected(offset);
@@ -971,13 +584,8 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (kcapacitybar_sharedpainter_isbase) {
-            kcapacitybar_sharedpainter_isbase = false;
-            return KCapacityBar::sharedPainter();
-        }
-        auto sharedpainter_cb = kcapacitybar_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (kcapacitybar_sharedpainter_callback) {
+            QPainter* callback_ret = kcapacitybar_sharedpainter_callback(this);
             return callback_ret;
         }
         return KCapacityBar::sharedPainter();
@@ -985,15 +593,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (kcapacitybar_inputmethodevent_isbase) {
-            kcapacitybar_inputmethodevent_isbase = false;
-            KCapacityBar::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = kcapacitybar_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (kcapacitybar_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            kcapacitybar_inputmethodevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::inputMethodEvent(param1);
@@ -1001,14 +603,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (kcapacitybar_inputmethodquery_isbase) {
-            kcapacitybar_inputmethodquery_isbase = false;
-            return KCapacityBar::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = kcapacitybar_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (kcapacitybar_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = kcapacitybar_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1018,14 +615,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (kcapacitybar_focusnextprevchild_isbase) {
-            kcapacitybar_focusnextprevchild_isbase = false;
-            return KCapacityBar::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = kcapacitybar_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (kcapacitybar_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = kcapacitybar_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KCapacityBar::focusNextPrevChild(next);
@@ -1033,15 +625,10 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kcapacitybar_eventfilter_isbase) {
-            kcapacitybar_eventfilter_isbase = false;
-            return KCapacityBar::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kcapacitybar_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kcapacitybar_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kcapacitybar_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KCapacityBar::eventFilter(watched, event);
@@ -1049,15 +636,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kcapacitybar_timerevent_isbase) {
-            kcapacitybar_timerevent_isbase = false;
-            KCapacityBar::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kcapacitybar_timerevent_callback;
-        if (timerevent_cb) {
+        if (kcapacitybar_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kcapacitybar_timerevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::timerEvent(event);
@@ -1065,15 +646,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kcapacitybar_childevent_isbase) {
-            kcapacitybar_childevent_isbase = false;
-            KCapacityBar::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kcapacitybar_childevent_callback;
-        if (childevent_cb) {
+        if (kcapacitybar_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kcapacitybar_childevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::childEvent(event);
@@ -1081,15 +656,9 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kcapacitybar_customevent_isbase) {
-            kcapacitybar_customevent_isbase = false;
-            KCapacityBar::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kcapacitybar_customevent_callback;
-        if (customevent_cb) {
+        if (kcapacitybar_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kcapacitybar_customevent_callback(this, cbval1);
             return;
         }
         KCapacityBar::customEvent(event);
@@ -1097,17 +666,11 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kcapacitybar_connectnotify_isbase) {
-            kcapacitybar_connectnotify_isbase = false;
-            KCapacityBar::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kcapacitybar_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kcapacitybar_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kcapacitybar_connectnotify_callback(this, cbval1);
             return;
         }
         KCapacityBar::connectNotify(signal);
@@ -1115,268 +678,55 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kcapacitybar_disconnectnotify_isbase) {
-            kcapacitybar_disconnectnotify_isbase = false;
-            KCapacityBar::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kcapacitybar_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kcapacitybar_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kcapacitybar_disconnectnotify_callback(this, cbval1);
             return;
         }
         KCapacityBar::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (kcapacitybar_updatemicrofocus_isbase) {
-            kcapacitybar_updatemicrofocus_isbase = false;
-            KCapacityBar::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = kcapacitybar_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KCapacityBar::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (kcapacitybar_create_isbase) {
-            kcapacitybar_create_isbase = false;
-            KCapacityBar::create();
-            return;
-        }
-        auto create_cb = kcapacitybar_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KCapacityBar::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (kcapacitybar_destroy_isbase) {
-            kcapacitybar_destroy_isbase = false;
-            KCapacityBar::destroy();
-            return;
-        }
-        auto destroy_cb = kcapacitybar_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KCapacityBar::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (kcapacitybar_focusnextchild_isbase) {
-            kcapacitybar_focusnextchild_isbase = false;
-            return KCapacityBar::focusNextChild();
-        }
-        auto focusnextchild_cb = kcapacitybar_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KCapacityBar::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (kcapacitybar_focuspreviouschild_isbase) {
-            kcapacitybar_focuspreviouschild_isbase = false;
-            return KCapacityBar::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = kcapacitybar_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KCapacityBar::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kcapacitybar_sender_isbase) {
-            kcapacitybar_sender_isbase = false;
-            return KCapacityBar::sender();
-        }
-        auto sender_cb = kcapacitybar_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KCapacityBar::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kcapacitybar_sendersignalindex_isbase) {
-            kcapacitybar_sendersignalindex_isbase = false;
-            return KCapacityBar::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kcapacitybar_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KCapacityBar::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kcapacitybar_receivers_isbase) {
-            kcapacitybar_receivers_isbase = false;
-            return KCapacityBar::receivers(signal);
-        }
-        auto receivers_cb = kcapacitybar_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KCapacityBar::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kcapacitybar_issignalconnected_isbase) {
-            kcapacitybar_issignalconnected_isbase = false;
-            return KCapacityBar::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kcapacitybar_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KCapacityBar::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (kcapacitybar_getdecodedmetricf_isbase) {
-            kcapacitybar_getdecodedmetricf_isbase = false;
-            return KCapacityBar::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = kcapacitybar_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KCapacityBar::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void KCapacityBar_PaintEvent(KCapacityBar* self, QPaintEvent* event);
     friend void KCapacityBar_SuperPaintEvent(KCapacityBar* self, QPaintEvent* event);
-    friend void KCapacityBar_ChangeEvent(KCapacityBar* self, QEvent* event);
     friend void KCapacityBar_SuperChangeEvent(KCapacityBar* self, QEvent* event);
-    friend bool KCapacityBar_Event(KCapacityBar* self, QEvent* event);
     friend bool KCapacityBar_SuperEvent(KCapacityBar* self, QEvent* event);
-    friend void KCapacityBar_MousePressEvent(KCapacityBar* self, QMouseEvent* event);
     friend void KCapacityBar_SuperMousePressEvent(KCapacityBar* self, QMouseEvent* event);
-    friend void KCapacityBar_MouseReleaseEvent(KCapacityBar* self, QMouseEvent* event);
     friend void KCapacityBar_SuperMouseReleaseEvent(KCapacityBar* self, QMouseEvent* event);
-    friend void KCapacityBar_MouseDoubleClickEvent(KCapacityBar* self, QMouseEvent* event);
     friend void KCapacityBar_SuperMouseDoubleClickEvent(KCapacityBar* self, QMouseEvent* event);
-    friend void KCapacityBar_MouseMoveEvent(KCapacityBar* self, QMouseEvent* event);
     friend void KCapacityBar_SuperMouseMoveEvent(KCapacityBar* self, QMouseEvent* event);
-    friend void KCapacityBar_WheelEvent(KCapacityBar* self, QWheelEvent* event);
     friend void KCapacityBar_SuperWheelEvent(KCapacityBar* self, QWheelEvent* event);
-    friend void KCapacityBar_KeyPressEvent(KCapacityBar* self, QKeyEvent* event);
     friend void KCapacityBar_SuperKeyPressEvent(KCapacityBar* self, QKeyEvent* event);
-    friend void KCapacityBar_KeyReleaseEvent(KCapacityBar* self, QKeyEvent* event);
     friend void KCapacityBar_SuperKeyReleaseEvent(KCapacityBar* self, QKeyEvent* event);
-    friend void KCapacityBar_FocusInEvent(KCapacityBar* self, QFocusEvent* event);
     friend void KCapacityBar_SuperFocusInEvent(KCapacityBar* self, QFocusEvent* event);
-    friend void KCapacityBar_FocusOutEvent(KCapacityBar* self, QFocusEvent* event);
     friend void KCapacityBar_SuperFocusOutEvent(KCapacityBar* self, QFocusEvent* event);
-    friend void KCapacityBar_EnterEvent(KCapacityBar* self, QEnterEvent* event);
     friend void KCapacityBar_SuperEnterEvent(KCapacityBar* self, QEnterEvent* event);
-    friend void KCapacityBar_LeaveEvent(KCapacityBar* self, QEvent* event);
     friend void KCapacityBar_SuperLeaveEvent(KCapacityBar* self, QEvent* event);
-    friend void KCapacityBar_MoveEvent(KCapacityBar* self, QMoveEvent* event);
     friend void KCapacityBar_SuperMoveEvent(KCapacityBar* self, QMoveEvent* event);
-    friend void KCapacityBar_ResizeEvent(KCapacityBar* self, QResizeEvent* event);
     friend void KCapacityBar_SuperResizeEvent(KCapacityBar* self, QResizeEvent* event);
-    friend void KCapacityBar_CloseEvent(KCapacityBar* self, QCloseEvent* event);
     friend void KCapacityBar_SuperCloseEvent(KCapacityBar* self, QCloseEvent* event);
-    friend void KCapacityBar_ContextMenuEvent(KCapacityBar* self, QContextMenuEvent* event);
     friend void KCapacityBar_SuperContextMenuEvent(KCapacityBar* self, QContextMenuEvent* event);
-    friend void KCapacityBar_TabletEvent(KCapacityBar* self, QTabletEvent* event);
     friend void KCapacityBar_SuperTabletEvent(KCapacityBar* self, QTabletEvent* event);
-    friend void KCapacityBar_ActionEvent(KCapacityBar* self, QActionEvent* event);
     friend void KCapacityBar_SuperActionEvent(KCapacityBar* self, QActionEvent* event);
-    friend void KCapacityBar_DragEnterEvent(KCapacityBar* self, QDragEnterEvent* event);
     friend void KCapacityBar_SuperDragEnterEvent(KCapacityBar* self, QDragEnterEvent* event);
-    friend void KCapacityBar_DragMoveEvent(KCapacityBar* self, QDragMoveEvent* event);
     friend void KCapacityBar_SuperDragMoveEvent(KCapacityBar* self, QDragMoveEvent* event);
-    friend void KCapacityBar_DragLeaveEvent(KCapacityBar* self, QDragLeaveEvent* event);
     friend void KCapacityBar_SuperDragLeaveEvent(KCapacityBar* self, QDragLeaveEvent* event);
-    friend void KCapacityBar_DropEvent(KCapacityBar* self, QDropEvent* event);
     friend void KCapacityBar_SuperDropEvent(KCapacityBar* self, QDropEvent* event);
-    friend void KCapacityBar_ShowEvent(KCapacityBar* self, QShowEvent* event);
     friend void KCapacityBar_SuperShowEvent(KCapacityBar* self, QShowEvent* event);
-    friend void KCapacityBar_HideEvent(KCapacityBar* self, QHideEvent* event);
     friend void KCapacityBar_SuperHideEvent(KCapacityBar* self, QHideEvent* event);
-    friend bool KCapacityBar_NativeEvent(KCapacityBar* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KCapacityBar_SuperNativeEvent(KCapacityBar* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int KCapacityBar_Metric(const KCapacityBar* self, int param1);
     friend int KCapacityBar_SuperMetric(const KCapacityBar* self, int param1);
-    friend void KCapacityBar_InitPainter(const KCapacityBar* self, QPainter* painter);
     friend void KCapacityBar_SuperInitPainter(const KCapacityBar* self, QPainter* painter);
-    friend QPaintDevice* KCapacityBar_Redirected(const KCapacityBar* self, QPoint* offset);
     friend QPaintDevice* KCapacityBar_SuperRedirected(const KCapacityBar* self, QPoint* offset);
-    friend QPainter* KCapacityBar_SharedPainter(const KCapacityBar* self);
     friend QPainter* KCapacityBar_SuperSharedPainter(const KCapacityBar* self);
-    friend void KCapacityBar_InputMethodEvent(KCapacityBar* self, QInputMethodEvent* param1);
     friend void KCapacityBar_SuperInputMethodEvent(KCapacityBar* self, QInputMethodEvent* param1);
-    friend bool KCapacityBar_FocusNextPrevChild(KCapacityBar* self, bool next);
     friend bool KCapacityBar_SuperFocusNextPrevChild(KCapacityBar* self, bool next);
-    friend void KCapacityBar_TimerEvent(KCapacityBar* self, QTimerEvent* event);
     friend void KCapacityBar_SuperTimerEvent(KCapacityBar* self, QTimerEvent* event);
-    friend void KCapacityBar_ChildEvent(KCapacityBar* self, QChildEvent* event);
     friend void KCapacityBar_SuperChildEvent(KCapacityBar* self, QChildEvent* event);
-    friend void KCapacityBar_CustomEvent(KCapacityBar* self, QEvent* event);
     friend void KCapacityBar_SuperCustomEvent(KCapacityBar* self, QEvent* event);
-    friend void KCapacityBar_ConnectNotify(KCapacityBar* self, const QMetaMethod* signal);
     friend void KCapacityBar_SuperConnectNotify(KCapacityBar* self, const QMetaMethod* signal);
-    friend void KCapacityBar_DisconnectNotify(KCapacityBar* self, const QMetaMethod* signal);
     friend void KCapacityBar_SuperDisconnectNotify(KCapacityBar* self, const QMetaMethod* signal);
-    friend void KCapacityBar_UpdateMicroFocus(KCapacityBar* self);
-    friend void KCapacityBar_SuperUpdateMicroFocus(KCapacityBar* self);
-    friend void KCapacityBar_Create(KCapacityBar* self);
-    friend void KCapacityBar_SuperCreate(KCapacityBar* self);
-    friend void KCapacityBar_Destroy(KCapacityBar* self);
-    friend void KCapacityBar_SuperDestroy(KCapacityBar* self);
-    friend bool KCapacityBar_FocusNextChild(KCapacityBar* self);
-    friend bool KCapacityBar_SuperFocusNextChild(KCapacityBar* self);
-    friend bool KCapacityBar_FocusPreviousChild(KCapacityBar* self);
-    friend bool KCapacityBar_SuperFocusPreviousChild(KCapacityBar* self);
-    friend QObject* KCapacityBar_Sender(const KCapacityBar* self);
-    friend QObject* KCapacityBar_SuperSender(const KCapacityBar* self);
-    friend int KCapacityBar_SenderSignalIndex(const KCapacityBar* self);
-    friend int KCapacityBar_SuperSenderSignalIndex(const KCapacityBar* self);
-    friend int KCapacityBar_Receivers(const KCapacityBar* self, const char* signal);
-    friend int KCapacityBar_SuperReceivers(const KCapacityBar* self, const char* signal);
-    friend bool KCapacityBar_IsSignalConnected(const KCapacityBar* self, const QMetaMethod* signal);
-    friend bool KCapacityBar_SuperIsSignalConnected(const KCapacityBar* self, const QMetaMethod* signal);
-    friend double KCapacityBar_GetDecodedMetricF(const KCapacityBar* self, int metricA, int metricB);
-    friend double KCapacityBar_SuperGetDecodedMetricF(const KCapacityBar* self, int metricA, int metricB);
 };
 
 #endif

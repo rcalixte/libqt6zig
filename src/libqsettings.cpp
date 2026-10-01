@@ -323,10 +323,10 @@ void QSettings_SetPath(int format, int scope, const libqt_string path) {
 
 bool QSettings_Event(QSettings* self, QEvent* event) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings) {
         return vqsettings->event(event);
     }
-    return {};
+    qFatal("Error: Protected method QSettings::event called without a directly constructed type");
 }
 
 libqt_string QSettings_Tr2(const char* s, const char* c) {
@@ -359,354 +359,217 @@ void QSettings_BeginWriteArray2(QSettings* self, libqt_string prefix, int size) 
 
 // Base class handler implementation
 QMetaObject* QSettings_SuperMetaObject(const QSettings* self) {
-    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsettings->metaObject();
-    } else {
-        return (QMetaObject*)self->QSettings::metaObject();
-    }
+    return (QMetaObject*)self->QSettings::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSettings_OnMetaObject(const QSettings* self, intptr_t slot) {
-    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings)
-        vqsettings->setQSettings_MetaObject_Callback(reinterpret_cast<VirtualQSettings::QSettings_MetaObject_Callback>(slot));
+void QSettings_OnMetaObject(QSettings* self, intptr_t slot) {
+    if (auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self)))
+        vqsettings->qsettings_metaobject_callback = reinterpret_cast<VirtualQSettings::QSettings_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QSettings_SuperMetacast(QSettings* self, const char* param1) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_Metacast_IsBase(true);
-        return vqsettings->qt_metacast(param1);
-    } else {
-        return self->QSettings::qt_metacast(param1);
-    }
+    return self->QSettings::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnMetacast(QSettings* self, intptr_t slot) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings)
-        vqsettings->setQSettings_Metacast_Callback(reinterpret_cast<VirtualQSettings::QSettings_Metacast_Callback>(slot));
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self))
+        vqsettings->qsettings_metacast_callback = reinterpret_cast<VirtualQSettings::QSettings_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSettings_SuperMetacall(QSettings* self, int param1, int param2, void** param3) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_Metacall_IsBase(true);
-        return vqsettings->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QSettings::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QSettings::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnMetacall(QSettings* self, intptr_t slot) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings)
-        vqsettings->setQSettings_Metacall_Callback(reinterpret_cast<VirtualQSettings::QSettings_Metacall_Callback>(slot));
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self))
+        vqsettings->qsettings_metacall_callback = reinterpret_cast<VirtualQSettings::QSettings_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QSettings_SuperEvent(QSettings* self, QEvent* event) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_Event_IsBase(true);
-        return vqsettings->event(event);
-    } else {
-        return ((VirtualQSettings*)self)->event(event);
-    }
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self)) {
+        return vqsettings->QSettings::event(event);
+    } else
+        qFatal("Error: Protected virtual method QSettings::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnEvent(QSettings* self, intptr_t slot) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings)
-        vqsettings->setQSettings_Event_Callback(reinterpret_cast<VirtualQSettings::QSettings_Event_Callback>(slot));
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self))
+        vqsettings->qsettings_event_callback = reinterpret_cast<VirtualQSettings::QSettings_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSettings_EventFilter(QSettings* self, QObject* watched, QEvent* event) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        return vqsettings->eventFilter(watched, event);
-    } else {
-        return self->QSettings::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QSettings_SuperEventFilter(QSettings* self, QObject* watched, QEvent* event) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_EventFilter_IsBase(true);
-        return vqsettings->eventFilter(watched, event);
-    } else {
-        return self->QSettings::eventFilter(watched, event);
-    }
+    return self->QSettings::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnEventFilter(QSettings* self, intptr_t slot) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings)
-        vqsettings->setQSettings_EventFilter_Callback(reinterpret_cast<VirtualQSettings::QSettings_EventFilter_Callback>(slot));
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self))
+        vqsettings->qsettings_eventfilter_callback = reinterpret_cast<VirtualQSettings::QSettings_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSettings_TimerEvent(QSettings* self, QTimerEvent* event) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings) {
         vqsettings->timerEvent(event);
     } else {
-        ((VirtualQSettings*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QSettings::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSettings_SuperTimerEvent(QSettings* self, QTimerEvent* event) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_TimerEvent_IsBase(true);
-        vqsettings->timerEvent(event);
-    } else {
-        ((VirtualQSettings*)self)->timerEvent(event);
-    }
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self)) {
+        vqsettings->QSettings::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSettings::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnTimerEvent(QSettings* self, intptr_t slot) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings)
-        vqsettings->setQSettings_TimerEvent_Callback(reinterpret_cast<VirtualQSettings::QSettings_TimerEvent_Callback>(slot));
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self))
+        vqsettings->qsettings_timerevent_callback = reinterpret_cast<VirtualQSettings::QSettings_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSettings_ChildEvent(QSettings* self, QChildEvent* event) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings) {
         vqsettings->childEvent(event);
     } else {
-        ((VirtualQSettings*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QSettings::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSettings_SuperChildEvent(QSettings* self, QChildEvent* event) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_ChildEvent_IsBase(true);
-        vqsettings->childEvent(event);
-    } else {
-        ((VirtualQSettings*)self)->childEvent(event);
-    }
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self)) {
+        vqsettings->QSettings::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSettings::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnChildEvent(QSettings* self, intptr_t slot) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings)
-        vqsettings->setQSettings_ChildEvent_Callback(reinterpret_cast<VirtualQSettings::QSettings_ChildEvent_Callback>(slot));
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self))
+        vqsettings->qsettings_childevent_callback = reinterpret_cast<VirtualQSettings::QSettings_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSettings_CustomEvent(QSettings* self, QEvent* event) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings) {
         vqsettings->customEvent(event);
     } else {
-        ((VirtualQSettings*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QSettings::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSettings_SuperCustomEvent(QSettings* self, QEvent* event) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_CustomEvent_IsBase(true);
-        vqsettings->customEvent(event);
-    } else {
-        ((VirtualQSettings*)self)->customEvent(event);
-    }
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self)) {
+        vqsettings->QSettings::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSettings::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnCustomEvent(QSettings* self, intptr_t slot) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings)
-        vqsettings->setQSettings_CustomEvent_Callback(reinterpret_cast<VirtualQSettings::QSettings_CustomEvent_Callback>(slot));
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self))
+        vqsettings->qsettings_customevent_callback = reinterpret_cast<VirtualQSettings::QSettings_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSettings_ConnectNotify(QSettings* self, const QMetaMethod* signal) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings) {
         vqsettings->connectNotify(*signal);
     } else {
-        ((VirtualQSettings*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QSettings::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSettings_SuperConnectNotify(QSettings* self, const QMetaMethod* signal) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_ConnectNotify_IsBase(true);
-        vqsettings->connectNotify(*signal);
-    } else {
-        ((VirtualQSettings*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self)) {
+        vqsettings->QSettings::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSettings::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnConnectNotify(QSettings* self, intptr_t slot) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings)
-        vqsettings->setQSettings_ConnectNotify_Callback(reinterpret_cast<VirtualQSettings::QSettings_ConnectNotify_Callback>(slot));
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self))
+        vqsettings->qsettings_connectnotify_callback = reinterpret_cast<VirtualQSettings::QSettings_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSettings_DisconnectNotify(QSettings* self, const QMetaMethod* signal) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings) {
         vqsettings->disconnectNotify(*signal);
     } else {
-        ((VirtualQSettings*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QSettings::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSettings_SuperDisconnectNotify(QSettings* self, const QMetaMethod* signal) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_DisconnectNotify_IsBase(true);
-        vqsettings->disconnectNotify(*signal);
-    } else {
-        ((VirtualQSettings*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self)) {
+        vqsettings->QSettings::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSettings::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnDisconnectNotify(QSettings* self, intptr_t slot) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings)
-        vqsettings->setQSettings_DisconnectNotify_Callback(reinterpret_cast<VirtualQSettings::QSettings_DisconnectNotify_Callback>(slot));
+    if (auto* vqsettings = dynamic_cast<VirtualQSettings*>(self))
+        vqsettings->qsettings_disconnectnotify_callback = reinterpret_cast<VirtualQSettings::QSettings_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QSettings_Sender(const QSettings* self) {
-    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        return vqsettings->sender();
-    } else {
-        return ((VirtualQSettings*)self)->sender();
-    }
+    if (auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self))) {
+        return vqsettings->VirtualQSettings::sender();
+    } else
+        qFatal("Error: Protected method QSettings::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QSettings_SuperSender(const QSettings* self) {
-    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_Sender_IsBase(true);
-        return vqsettings->sender();
-    } else {
-        return ((VirtualQSettings*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSettings_OnSender(const QSettings* self, intptr_t slot) {
-    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings)
-        vqsettings->setQSettings_Sender_Callback(reinterpret_cast<VirtualQSettings::QSettings_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSettings_SenderSignalIndex(const QSettings* self) {
-    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        return vqsettings->senderSignalIndex();
-    } else {
-        return ((VirtualQSettings*)self)->senderSignalIndex();
-    }
+    if (auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self))) {
+        return vqsettings->VirtualQSettings::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QSettings::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSettings_SuperSenderSignalIndex(const QSettings* self) {
-    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_SenderSignalIndex_IsBase(true);
-        return vqsettings->senderSignalIndex();
-    } else {
-        return ((VirtualQSettings*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSettings_OnSenderSignalIndex(const QSettings* self, intptr_t slot) {
-    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings)
-        vqsettings->setQSettings_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSettings::QSettings_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSettings_Receivers(const QSettings* self, const char* signal) {
-    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        return vqsettings->receivers(signal);
-    } else {
-        return ((VirtualQSettings*)self)->receivers(signal);
-    }
+    if (auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self))) {
+        return vqsettings->VirtualQSettings::receivers(signal);
+    } else
+        qFatal("Error: Protected method QSettings::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSettings_SuperReceivers(const QSettings* self, const char* signal) {
-    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_Receivers_IsBase(true);
-        return vqsettings->receivers(signal);
-    } else {
-        return ((VirtualQSettings*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSettings_OnReceivers(const QSettings* self, intptr_t slot) {
-    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings)
-        vqsettings->setQSettings_Receivers_Callback(reinterpret_cast<VirtualQSettings::QSettings_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSettings_IsSignalConnected(const QSettings* self, const QMetaMethod* signal) {
-    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        return vqsettings->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSettings*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QSettings_SuperIsSignalConnected(const QSettings* self, const QMetaMethod* signal) {
-    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        vqsettings->setQSettings_IsSignalConnected_IsBase(true);
-        return vqsettings->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSettings*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSettings_OnIsSignalConnected(const QSettings* self, intptr_t slot) {
-    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings)
-        vqsettings->setQSettings_IsSignalConnected_Callback(reinterpret_cast<VirtualQSettings::QSettings_IsSignalConnected_Callback>(slot));
+    if (auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self))) {
+        return vqsettings->VirtualQSettings::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QSettings::isSignalConnected called without a directly constructed type");
 }
 
 void QSettings_Delete(QSettings* self) {

@@ -100,7 +100,7 @@ bool QItemSelectionModel_RowIntersectsSelection2(const QItemSelectionModel* self
 bool QItemSelectionModel_ColumnIntersectsSelection2(const QItemSelectionModel* self, int column, const QModelIndex* parent);
 libqt_list /* of QModelIndex* */ QItemSelectionModel_SelectedRows1(const QItemSelectionModel* self, int column);
 libqt_list /* of QModelIndex* */ QItemSelectionModel_SelectedColumns1(const QItemSelectionModel* self, int row);
-void QItemSelectionModel_OnMetaObject(const QItemSelectionModel* self, intptr_t slot);
+void QItemSelectionModel_OnMetaObject(QItemSelectionModel* self, intptr_t slot);
 QMetaObject* QItemSelectionModel_SuperMetaObject(const QItemSelectionModel* self);
 void QItemSelectionModel_OnMetacast(QItemSelectionModel* self, intptr_t slot);
 void* QItemSelectionModel_SuperMetacast(QItemSelectionModel* self, const char* param1);
@@ -140,20 +140,10 @@ void QItemSelectionModel_DisconnectNotify(QItemSelectionModel* self, const QMeta
 void QItemSelectionModel_OnDisconnectNotify(QItemSelectionModel* self, intptr_t slot);
 void QItemSelectionModel_SuperDisconnectNotify(QItemSelectionModel* self, const QMetaMethod* signal);
 void QItemSelectionModel_EmitSelectionChanged(QItemSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
-void QItemSelectionModel_OnEmitSelectionChanged(QItemSelectionModel* self, intptr_t slot);
-void QItemSelectionModel_SuperEmitSelectionChanged(QItemSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
 QObject* QItemSelectionModel_Sender(const QItemSelectionModel* self);
-void QItemSelectionModel_OnSender(const QItemSelectionModel* self, intptr_t slot);
-QObject* QItemSelectionModel_SuperSender(const QItemSelectionModel* self);
 int QItemSelectionModel_SenderSignalIndex(const QItemSelectionModel* self);
-void QItemSelectionModel_OnSenderSignalIndex(const QItemSelectionModel* self, intptr_t slot);
-int QItemSelectionModel_SuperSenderSignalIndex(const QItemSelectionModel* self);
 int QItemSelectionModel_Receivers(const QItemSelectionModel* self, const char* signal);
-void QItemSelectionModel_OnReceivers(const QItemSelectionModel* self, intptr_t slot);
-int QItemSelectionModel_SuperReceivers(const QItemSelectionModel* self, const char* signal);
 bool QItemSelectionModel_IsSignalConnected(const QItemSelectionModel* self, const QMetaMethod* signal);
-void QItemSelectionModel_OnIsSignalConnected(const QItemSelectionModel* self, intptr_t slot);
-bool QItemSelectionModel_SuperIsSignalConnected(const QItemSelectionModel* self, const QMetaMethod* signal);
 void QItemSelectionModel_Delete(QItemSelectionModel* self);
 
 QItemSelection* QItemSelection_new();

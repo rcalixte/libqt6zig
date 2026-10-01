@@ -88,9 +88,9 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QFormLayout, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) QMetaObject) void {
         qtc.QFormLayout_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -457,9 +457,9 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) i32 `
     ///
-    pub fn onSpacing(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSpacing(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) i32) void {
         qtc.QFormLayout_OnSpacing(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1407,11 +1407,11 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSize(self: QFormLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) QSize) void {
         qtc.QFormLayout_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1457,11 +1457,11 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QFormLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) QSize) void {
         qtc.QFormLayout_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1507,9 +1507,9 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) void `
     ///
-    pub fn onInvalidate(self: QFormLayout, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidate(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) void) void {
         qtc.QFormLayout_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1555,9 +1555,9 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QFormLayout, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) bool) void {
         qtc.QFormLayout_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1659,9 +1659,9 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) i32 `
     ///
-    pub fn onExpandingDirections(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExpandingDirections(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) i32) void {
         qtc.QFormLayout_OnExpandingDirections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1711,9 +1711,9 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) i32 `
     ///
-    pub fn onCount(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCount(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) i32) void {
         qtc.QFormLayout_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3417,11 +3417,11 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QRect `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) QRect `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onGeometry(self: QFormLayout, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onGeometry(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) QRect) void {
         qtc.QFormLayout_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3475,11 +3475,11 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaximumSize(self: QFormLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMaximumSize(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) QSize) void {
         qtc.QFormLayout_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3595,9 +3595,9 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) bool `
     ///
-    pub fn onIsEmpty(self: QFormLayout, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) bool) void {
         qtc.QFormLayout_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3659,9 +3659,9 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) i32 `
     ///
-    pub fn onControlTypes(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onControlTypes(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) i32) void {
         qtc.QFormLayout_OnControlTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3787,9 +3787,9 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QLayout `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) QLayout `
     ///
-    pub fn onLayout(self: QFormLayout, callback: *const fn () callconv(.c) QLayout) void {
+    pub fn onLayout(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) QLayout) void {
         qtc.QFormLayout_OnLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4343,9 +4343,9 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) QWidget `
     ///
-    pub fn onWidget(self: QFormLayout, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onWidget(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) QWidget) void {
         qtc.QFormLayout_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4399,9 +4399,9 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QSpacerItem `
+    /// ` callback: *const fn (self: QFormLayout) callconv(.c) QSpacerItem `
     ///
-    pub fn onSpacerItem(self: QFormLayout, callback: *const fn () callconv(.c) QSpacerItem) void {
+    pub fn onSpacerItem(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) QSpacerItem) void {
         qtc.QFormLayout_OnSpacerItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4426,47 +4426,6 @@ pub const QFormLayout = extern struct {
         qtc.QFormLayout_WidgetEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superWidgetEvent` instead
-    ///
-    pub const SuperWidgetEvent = superWidgetEvent;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    /// ` param1: QEvent `
-    ///
-    pub fn superWidgetEvent(self: QFormLayout, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QEvent;
-        qtc.QFormLayout_SuperWidgetEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onWidgetEvent` instead
-    ///
-    pub const OnWidgetEvent = onWidgetEvent;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFormLayout`
-    ///
-    /// ` callback: *const fn (self: QFormLayout, param1: QEvent) callconv(.c) void `
-    ///
-    pub fn onWidgetEvent(self: QFormLayout, callback: *const fn (QFormLayout, QEvent) callconv(.c) void) void {
-        qtc.QFormLayout_OnWidgetEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `addChildLayout` instead
     ///
     pub const AddChildLayout = addChildLayout;
@@ -4486,47 +4445,6 @@ pub const QFormLayout = extern struct {
     pub fn addChildLayout(self: QFormLayout, l: anytype) void {
         comptime _ = @TypeOf(l)._is_QLayout;
         qtc.QFormLayout_AddChildLayout(@ptrCast(self.ptr), @ptrCast(l.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superAddChildLayout` instead
-    ///
-    pub const SuperAddChildLayout = superAddChildLayout;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    /// ` l: QLayout `
-    ///
-    pub fn superAddChildLayout(self: QFormLayout, l: anytype) void {
-        comptime _ = @TypeOf(l)._is_QLayout;
-        qtc.QFormLayout_SuperAddChildLayout(@ptrCast(self.ptr), @ptrCast(l.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddChildLayout` instead
-    ///
-    pub const OnAddChildLayout = onAddChildLayout;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFormLayout`
-    ///
-    /// ` callback: *const fn (self: QFormLayout, l: QLayout) callconv(.c) void `
-    ///
-    pub fn onAddChildLayout(self: QFormLayout, callback: *const fn (QFormLayout, QLayout) callconv(.c) void) void {
-        qtc.QFormLayout_OnAddChildLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `addChildWidget` instead
@@ -4550,47 +4468,6 @@ pub const QFormLayout = extern struct {
         qtc.QFormLayout_AddChildWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAddChildWidget` instead
-    ///
-    pub const SuperAddChildWidget = superAddChildWidget;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    /// ` w: QWidget `
-    ///
-    pub fn superAddChildWidget(self: QFormLayout, w: anytype) void {
-        comptime _ = @TypeOf(w)._is_QWidget;
-        qtc.QFormLayout_SuperAddChildWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddChildWidget` instead
-    ///
-    pub const OnAddChildWidget = onAddChildWidget;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFormLayout`
-    ///
-    /// ` callback: *const fn (self: QFormLayout, w: QWidget) callconv(.c) void `
-    ///
-    pub fn onAddChildWidget(self: QFormLayout, callback: *const fn (QFormLayout, QWidget) callconv(.c) void) void {
-        qtc.QFormLayout_OnAddChildWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `adoptLayout` instead
     ///
     pub const AdoptLayout = adoptLayout;
@@ -4610,47 +4487,6 @@ pub const QFormLayout = extern struct {
     pub fn adoptLayout(self: QFormLayout, _layout: anytype) bool {
         comptime _ = @TypeOf(_layout)._is_QLayout;
         return qtc.QFormLayout_AdoptLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superAdoptLayout` instead
-    ///
-    pub const SuperAdoptLayout = superAdoptLayout;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    /// ` _layout: QLayout `
-    ///
-    pub fn superAdoptLayout(self: QFormLayout, _layout: anytype) bool {
-        comptime _ = @TypeOf(_layout)._is_QLayout;
-        return qtc.QFormLayout_SuperAdoptLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAdoptLayout` instead
-    ///
-    pub const OnAdoptLayout = onAdoptLayout;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFormLayout`
-    ///
-    /// ` callback: *const fn (self: QFormLayout, layout: QLayout) callconv(.c) bool `
-    ///
-    pub fn onAdoptLayout(self: QFormLayout, callback: *const fn (QFormLayout, QLayout) callconv(.c) bool) void {
-        qtc.QFormLayout_OnAdoptLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `alignmentRect` instead
@@ -4674,49 +4510,6 @@ pub const QFormLayout = extern struct {
         return .{ .ptr = qtc.QFormLayout_AlignmentRect(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superAlignmentRect` instead
-    ///
-    pub const SuperAlignmentRect = superAlignmentRect;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    /// ` param1: QRect `
-    ///
-    pub fn superAlignmentRect(self: QFormLayout, param1: anytype) QRect {
-        comptime _ = @TypeOf(param1)._is_QRect;
-        return .{ .ptr = qtc.QFormLayout_SuperAlignmentRect(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onAlignmentRect` instead
-    ///
-    pub const OnAlignmentRect = onAlignmentRect;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFormLayout`
-    ///
-    /// ` callback: *const fn (self: QFormLayout, param1: QRect) callconv(.c) QRect `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onAlignmentRect(self: QFormLayout, callback: *const fn (QFormLayout, QRect) callconv(.c) QRect) void {
-        qtc.QFormLayout_OnAlignmentRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -4735,44 +4528,6 @@ pub const QFormLayout = extern struct {
         return .{ .ptr = qtc.QFormLayout_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    pub fn superSender(self: QFormLayout) QObject {
-        return .{ .ptr = qtc.QFormLayout_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFormLayout`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QFormLayout, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QFormLayout_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4789,44 +4544,6 @@ pub const QFormLayout = extern struct {
     ///
     pub fn senderSignalIndex(self: QFormLayout) i32 {
         return qtc.QFormLayout_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    pub fn superSenderSignalIndex(self: QFormLayout) i32 {
-        return qtc.QFormLayout_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFormLayout`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFormLayout_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4850,47 +4567,6 @@ pub const QFormLayout = extern struct {
         return qtc.QFormLayout_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QFormLayout, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QFormLayout_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFormLayout`
-    ///
-    /// ` callback: *const fn (self: QFormLayout, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QFormLayout, callback: *const fn (QFormLayout, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QFormLayout_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4910,47 +4586,6 @@ pub const QFormLayout = extern struct {
     pub fn isSignalConnected(self: QFormLayout, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QFormLayout_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QFormLayout, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QFormLayout_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFormLayout`
-    ///
-    /// ` callback: *const fn (self: QFormLayout, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QFormLayout, callback: *const fn (QFormLayout, QMetaMethod) callconv(.c) bool) void {
-        qtc.QFormLayout_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

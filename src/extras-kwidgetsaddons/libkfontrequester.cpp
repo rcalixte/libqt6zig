@@ -148,10 +148,10 @@ void KFontRequester_Connect_FontSelected(KFontRequester* self, intptr_t slot) {
 
 bool KFontRequester_EventFilter(KFontRequester* self, QObject* watched, QEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         return vkfontrequester->eventFilter(watched, event);
     }
-    return {};
+    qFatal("Error: Protected method KFontRequester::eventFilter called without a directly constructed type");
 }
 
 libqt_string KFontRequester_Tr2(const char* s, const char* c) {
@@ -180,1700 +180,1206 @@ libqt_string KFontRequester_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KFontRequester_SuperMetaObject(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_MetaObject_IsBase(true);
-        return (QMetaObject*)vkfontrequester->metaObject();
-    } else {
-        return (QMetaObject*)self->KFontRequester::metaObject();
-    }
+    return (QMetaObject*)self->KFontRequester::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontRequester_OnMetaObject(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_MetaObject_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MetaObject_Callback>(slot));
+void KFontRequester_OnMetaObject(KFontRequester* self, intptr_t slot) {
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self)))
+        vkfontrequester->kfontrequester_metaobject_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KFontRequester_SuperMetacast(KFontRequester* self, const char* param1) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_Metacast_IsBase(true);
-        return vkfontrequester->qt_metacast(param1);
-    } else {
-        return self->KFontRequester::qt_metacast(param1);
-    }
+    return self->KFontRequester::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMetacast(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_Metacast_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Metacast_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_metacast_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KFontRequester_SuperMetacall(KFontRequester* self, int param1, int param2, void** param3) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_Metacall_IsBase(true);
-        return vkfontrequester->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KFontRequester::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KFontRequester::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMetacall(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_Metacall_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Metacall_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_metacall_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFontRequester_SuperSetFont(KFontRequester* self, const QFont* font, bool onlyFixed) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_SetFont_IsBase(true);
-        vkfontrequester->setFont(*font, onlyFixed);
-    } else {
-        self->KFontRequester::setFont(*font, onlyFixed);
-    }
+    self->KFontRequester::setFont(*font, onlyFixed);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnSetFont(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_SetFont_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SetFont_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_setfont_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_SetFont_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFontRequester_SuperSetSampleText(KFontRequester* self, const libqt_string text) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_SetSampleText_IsBase(true);
-        vkfontrequester->setSampleText(text_QString);
-    } else {
-        self->KFontRequester::setSampleText(text_QString);
-    }
+    self->KFontRequester::setSampleText(text_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnSetSampleText(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_SetSampleText_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SetSampleText_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_setsampletext_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_SetSampleText_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFontRequester_SuperSetTitle(KFontRequester* self, const libqt_string title) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     QString title_QString = QString::fromUtf8(title.data, title.len);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_SetTitle_IsBase(true);
-        vkfontrequester->setTitle(title_QString);
-    } else {
-        self->KFontRequester::setTitle(title_QString);
-    }
+    self->KFontRequester::setTitle(title_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnSetTitle(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_SetTitle_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SetTitle_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_settitle_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_SetTitle_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KFontRequester_SuperEventFilter(KFontRequester* self, QObject* watched, QEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_EventFilter_IsBase(true);
-        return vkfontrequester->eventFilter(watched, event);
-    } else {
-        return ((VirtualKFontRequester*)self)->eventFilter(watched, event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        return vkfontrequester->KFontRequester::eventFilter(watched, event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnEventFilter(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_EventFilter_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_EventFilter_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_eventfilter_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFontRequester_DevType(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return vkfontrequester->devType();
-    } else {
-        return self->KFontRequester::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KFontRequester_SuperDevType(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_DevType_IsBase(true);
-        return vkfontrequester->devType();
-    } else {
-        return self->KFontRequester::devType();
-    }
+    return self->KFontRequester::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontRequester_OnDevType(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_DevType_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_DevType_Callback>(slot));
+void KFontRequester_OnDevType(KFontRequester* self, intptr_t slot) {
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self)))
+        vkfontrequester->kfontrequester_devtype_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_SetVisible(KFontRequester* self, bool visible) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setVisible(visible);
-    } else {
-        self->KFontRequester::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KFontRequester_SuperSetVisible(KFontRequester* self, bool visible) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_SetVisible_IsBase(true);
-        vkfontrequester->setVisible(visible);
-    } else {
-        self->KFontRequester::setVisible(visible);
-    }
+    self->KFontRequester::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnSetVisible(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_SetVisible_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SetVisible_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_setvisible_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KFontRequester_SizeHint(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return new QSize(vkfontrequester->sizeHint());
-    } else {
-        return new QSize(((VirtualKFontRequester*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KFontRequester_SuperSizeHint(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_SizeHint_IsBase(true);
-        return new QSize(vkfontrequester->sizeHint());
-    } else {
-        return new QSize(((VirtualKFontRequester*)self)->sizeHint());
-    }
+    return new QSize(self->KFontRequester::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontRequester_OnSizeHint(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_SizeHint_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SizeHint_Callback>(slot));
+void KFontRequester_OnSizeHint(KFontRequester* self, intptr_t slot) {
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self)))
+        vkfontrequester->kfontrequester_sizehint_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KFontRequester_MinimumSizeHint(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return new QSize(vkfontrequester->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKFontRequester*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KFontRequester_SuperMinimumSizeHint(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_MinimumSizeHint_IsBase(true);
-        return new QSize(vkfontrequester->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKFontRequester*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KFontRequester::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontRequester_OnMinimumSizeHint(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_MinimumSizeHint_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MinimumSizeHint_Callback>(slot));
+void KFontRequester_OnMinimumSizeHint(KFontRequester* self, intptr_t slot) {
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self)))
+        vkfontrequester->kfontrequester_minimumsizehint_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFontRequester_HeightForWidth(const KFontRequester* self, int param1) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return vkfontrequester->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KFontRequester::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KFontRequester_SuperHeightForWidth(const KFontRequester* self, int param1) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_HeightForWidth_IsBase(true);
-        return vkfontrequester->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KFontRequester::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KFontRequester::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontRequester_OnHeightForWidth(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_HeightForWidth_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_HeightForWidth_Callback>(slot));
+void KFontRequester_OnHeightForWidth(KFontRequester* self, intptr_t slot) {
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self)))
+        vkfontrequester->kfontrequester_heightforwidth_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFontRequester_HasHeightForWidth(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return vkfontrequester->hasHeightForWidth();
-    } else {
-        return self->KFontRequester::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KFontRequester_SuperHasHeightForWidth(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_HasHeightForWidth_IsBase(true);
-        return vkfontrequester->hasHeightForWidth();
-    } else {
-        return self->KFontRequester::hasHeightForWidth();
-    }
+    return self->KFontRequester::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontRequester_OnHasHeightForWidth(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_HasHeightForWidth_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_HasHeightForWidth_Callback>(slot));
+void KFontRequester_OnHasHeightForWidth(KFontRequester* self, intptr_t slot) {
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self)))
+        vkfontrequester->kfontrequester_hasheightforwidth_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KFontRequester_PaintEngine(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return vkfontrequester->paintEngine();
-    } else {
-        return self->KFontRequester::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KFontRequester_SuperPaintEngine(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_PaintEngine_IsBase(true);
-        return vkfontrequester->paintEngine();
-    } else {
-        return self->KFontRequester::paintEngine();
-    }
+    return self->KFontRequester::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontRequester_OnPaintEngine(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_PaintEngine_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_PaintEngine_Callback>(slot));
+void KFontRequester_OnPaintEngine(KFontRequester* self, intptr_t slot) {
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self)))
+        vkfontrequester->kfontrequester_paintengine_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFontRequester_Event(KFontRequester* self, QEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         return vkfontrequester->event(event);
     } else {
-        return ((VirtualKFontRequester*)self)->event(event);
+        qFatal("Error: Protected virtual method KFontRequester::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFontRequester_SuperEvent(KFontRequester* self, QEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_Event_IsBase(true);
-        return vkfontrequester->event(event);
-    } else {
-        return ((VirtualKFontRequester*)self)->event(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        return vkfontrequester->KFontRequester::event(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_Event_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Event_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_event_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_MousePressEvent(KFontRequester* self, QMouseEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->mousePressEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperMousePressEvent(KFontRequester* self, QMouseEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_MousePressEvent_IsBase(true);
-        vkfontrequester->mousePressEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->mousePressEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMousePressEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_MousePressEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MousePressEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_mousepressevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_MouseReleaseEvent(KFontRequester* self, QMouseEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->mouseReleaseEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperMouseReleaseEvent(KFontRequester* self, QMouseEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_MouseReleaseEvent_IsBase(true);
-        vkfontrequester->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMouseReleaseEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_mousereleaseevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_MouseDoubleClickEvent(KFontRequester* self, QMouseEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperMouseDoubleClickEvent(KFontRequester* self, QMouseEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_MouseDoubleClickEvent_IsBase(true);
-        vkfontrequester->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMouseDoubleClickEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_mousedoubleclickevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_MouseMoveEvent(KFontRequester* self, QMouseEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->mouseMoveEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperMouseMoveEvent(KFontRequester* self, QMouseEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_MouseMoveEvent_IsBase(true);
-        vkfontrequester->mouseMoveEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMouseMoveEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_MouseMoveEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MouseMoveEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_mousemoveevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_WheelEvent(KFontRequester* self, QWheelEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->wheelEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperWheelEvent(KFontRequester* self, QWheelEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_WheelEvent_IsBase(true);
-        vkfontrequester->wheelEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->wheelEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnWheelEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_WheelEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_WheelEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_wheelevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_KeyPressEvent(KFontRequester* self, QKeyEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->keyPressEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperKeyPressEvent(KFontRequester* self, QKeyEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_KeyPressEvent_IsBase(true);
-        vkfontrequester->keyPressEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->keyPressEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnKeyPressEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_KeyPressEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_KeyPressEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_keypressevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_KeyReleaseEvent(KFontRequester* self, QKeyEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->keyReleaseEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperKeyReleaseEvent(KFontRequester* self, QKeyEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_KeyReleaseEvent_IsBase(true);
-        vkfontrequester->keyReleaseEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnKeyReleaseEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_keyreleaseevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_FocusInEvent(KFontRequester* self, QFocusEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->focusInEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperFocusInEvent(KFontRequester* self, QFocusEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_FocusInEvent_IsBase(true);
-        vkfontrequester->focusInEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->focusInEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnFocusInEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_FocusInEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_FocusInEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_focusinevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_FocusOutEvent(KFontRequester* self, QFocusEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->focusOutEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperFocusOutEvent(KFontRequester* self, QFocusEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_FocusOutEvent_IsBase(true);
-        vkfontrequester->focusOutEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->focusOutEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnFocusOutEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_FocusOutEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_FocusOutEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_focusoutevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_EnterEvent(KFontRequester* self, QEnterEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->enterEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperEnterEvent(KFontRequester* self, QEnterEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_EnterEvent_IsBase(true);
-        vkfontrequester->enterEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->enterEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnEnterEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_EnterEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_EnterEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_enterevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_LeaveEvent(KFontRequester* self, QEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->leaveEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperLeaveEvent(KFontRequester* self, QEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_LeaveEvent_IsBase(true);
-        vkfontrequester->leaveEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->leaveEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnLeaveEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_LeaveEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_LeaveEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_leaveevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_PaintEvent(KFontRequester* self, QPaintEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->paintEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperPaintEvent(KFontRequester* self, QPaintEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_PaintEvent_IsBase(true);
-        vkfontrequester->paintEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->paintEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnPaintEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_PaintEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_PaintEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_paintevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_MoveEvent(KFontRequester* self, QMoveEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->moveEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperMoveEvent(KFontRequester* self, QMoveEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_MoveEvent_IsBase(true);
-        vkfontrequester->moveEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->moveEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMoveEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_MoveEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MoveEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_moveevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_ResizeEvent(KFontRequester* self, QResizeEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->resizeEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperResizeEvent(KFontRequester* self, QResizeEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_ResizeEvent_IsBase(true);
-        vkfontrequester->resizeEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->resizeEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnResizeEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_ResizeEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_ResizeEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_resizeevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_CloseEvent(KFontRequester* self, QCloseEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->closeEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperCloseEvent(KFontRequester* self, QCloseEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_CloseEvent_IsBase(true);
-        vkfontrequester->closeEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->closeEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnCloseEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_CloseEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_CloseEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_closeevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_ContextMenuEvent(KFontRequester* self, QContextMenuEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->contextMenuEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperContextMenuEvent(KFontRequester* self, QContextMenuEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_ContextMenuEvent_IsBase(true);
-        vkfontrequester->contextMenuEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnContextMenuEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_ContextMenuEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_ContextMenuEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_contextmenuevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_TabletEvent(KFontRequester* self, QTabletEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->tabletEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperTabletEvent(KFontRequester* self, QTabletEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_TabletEvent_IsBase(true);
-        vkfontrequester->tabletEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->tabletEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnTabletEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_TabletEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_TabletEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_tabletevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_ActionEvent(KFontRequester* self, QActionEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->actionEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperActionEvent(KFontRequester* self, QActionEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_ActionEvent_IsBase(true);
-        vkfontrequester->actionEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->actionEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnActionEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_ActionEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_ActionEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_actionevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_DragEnterEvent(KFontRequester* self, QDragEnterEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->dragEnterEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperDragEnterEvent(KFontRequester* self, QDragEnterEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_DragEnterEvent_IsBase(true);
-        vkfontrequester->dragEnterEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnDragEnterEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_DragEnterEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_DragEnterEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_dragenterevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_DragMoveEvent(KFontRequester* self, QDragMoveEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->dragMoveEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperDragMoveEvent(KFontRequester* self, QDragMoveEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_DragMoveEvent_IsBase(true);
-        vkfontrequester->dragMoveEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnDragMoveEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_DragMoveEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_DragMoveEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_dragmoveevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_DragLeaveEvent(KFontRequester* self, QDragLeaveEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->dragLeaveEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperDragLeaveEvent(KFontRequester* self, QDragLeaveEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_DragLeaveEvent_IsBase(true);
-        vkfontrequester->dragLeaveEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnDragLeaveEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_DragLeaveEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_DragLeaveEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_dragleaveevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_DropEvent(KFontRequester* self, QDropEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->dropEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperDropEvent(KFontRequester* self, QDropEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_DropEvent_IsBase(true);
-        vkfontrequester->dropEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->dropEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnDropEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_DropEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_DropEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_dropevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_ShowEvent(KFontRequester* self, QShowEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->showEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperShowEvent(KFontRequester* self, QShowEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_ShowEvent_IsBase(true);
-        vkfontrequester->showEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->showEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnShowEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_ShowEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_ShowEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_showevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_HideEvent(KFontRequester* self, QHideEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->hideEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperHideEvent(KFontRequester* self, QHideEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_HideEvent_IsBase(true);
-        vkfontrequester->hideEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->hideEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnHideEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_HideEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_HideEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_hideevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFontRequester_NativeEvent(KFontRequester* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester) {
         return vkfontrequester->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKFontRequester*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KFontRequester::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFontRequester_SuperNativeEvent(KFontRequester* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_NativeEvent_IsBase(true);
-        return vkfontrequester->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKFontRequester*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        return vkfontrequester->KFontRequester::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnNativeEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_NativeEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_NativeEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_nativeevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_ChangeEvent(KFontRequester* self, QEvent* param1) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->changeEvent(param1);
     } else {
-        ((VirtualKFontRequester*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KFontRequester::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperChangeEvent(KFontRequester* self, QEvent* param1) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_ChangeEvent_IsBase(true);
-        vkfontrequester->changeEvent(param1);
-    } else {
-        ((VirtualKFontRequester*)self)->changeEvent(param1);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnChangeEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_ChangeEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_ChangeEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_changeevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFontRequester_Metric(const KFontRequester* self, int param1) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         return vkfontrequester->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKFontRequester*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KFontRequester::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KFontRequester_SuperMetric(const KFontRequester* self, int param1) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_Metric_IsBase(true);
-        return vkfontrequester->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKFontRequester*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self))) {
+        return vkfontrequester->KFontRequester::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontRequester_OnMetric(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_Metric_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Metric_Callback>(slot));
+void KFontRequester_OnMetric(KFontRequester* self, intptr_t slot) {
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self)))
+        vkfontrequester->kfontrequester_metric_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_InitPainter(const KFontRequester* self, QPainter* painter) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->initPainter(painter);
     } else {
-        ((VirtualKFontRequester*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KFontRequester::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperInitPainter(const KFontRequester* self, QPainter* painter) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_InitPainter_IsBase(true);
-        vkfontrequester->initPainter(painter);
-    } else {
-        ((VirtualKFontRequester*)self)->initPainter(painter);
-    }
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self))) {
+        vkfontrequester->KFontRequester::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontRequester_OnInitPainter(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_InitPainter_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_InitPainter_Callback>(slot));
+void KFontRequester_OnInitPainter(KFontRequester* self, intptr_t slot) {
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self)))
+        vkfontrequester->kfontrequester_initpainter_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KFontRequester_Redirected(const KFontRequester* self, QPoint* offset) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         return vkfontrequester->redirected(offset);
     } else {
-        return ((VirtualKFontRequester*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KFontRequester::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KFontRequester_SuperRedirected(const KFontRequester* self, QPoint* offset) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_Redirected_IsBase(true);
-        return vkfontrequester->redirected(offset);
-    } else {
-        return ((VirtualKFontRequester*)self)->redirected(offset);
-    }
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self))) {
+        return vkfontrequester->KFontRequester::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontRequester_OnRedirected(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_Redirected_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Redirected_Callback>(slot));
+void KFontRequester_OnRedirected(KFontRequester* self, intptr_t slot) {
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self)))
+        vkfontrequester->kfontrequester_redirected_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KFontRequester_SharedPainter(const KFontRequester* self) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         return vkfontrequester->sharedPainter();
     } else {
-        return ((VirtualKFontRequester*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KFontRequester::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KFontRequester_SuperSharedPainter(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_SharedPainter_IsBase(true);
-        return vkfontrequester->sharedPainter();
-    } else {
-        return ((VirtualKFontRequester*)self)->sharedPainter();
-    }
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self))) {
+        return vkfontrequester->KFontRequester::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontRequester_OnSharedPainter(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_SharedPainter_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SharedPainter_Callback>(slot));
+void KFontRequester_OnSharedPainter(KFontRequester* self, intptr_t slot) {
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self)))
+        vkfontrequester->kfontrequester_sharedpainter_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_InputMethodEvent(KFontRequester* self, QInputMethodEvent* param1) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->inputMethodEvent(param1);
     } else {
-        ((VirtualKFontRequester*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KFontRequester::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperInputMethodEvent(KFontRequester* self, QInputMethodEvent* param1) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_InputMethodEvent_IsBase(true);
-        vkfontrequester->inputMethodEvent(param1);
-    } else {
-        ((VirtualKFontRequester*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnInputMethodEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_InputMethodEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_InputMethodEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_inputmethodevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KFontRequester_InputMethodQuery(const KFontRequester* self, int param1) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return new QVariant(vkfontrequester->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKFontRequester*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KFontRequester_SuperInputMethodQuery(const KFontRequester* self, int param1) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_InputMethodQuery_IsBase(true);
-        return new QVariant(vkfontrequester->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKFontRequester*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KFontRequester::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontRequester_OnInputMethodQuery(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_InputMethodQuery_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_InputMethodQuery_Callback>(slot));
+void KFontRequester_OnInputMethodQuery(KFontRequester* self, intptr_t slot) {
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self)))
+        vkfontrequester->kfontrequester_inputmethodquery_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFontRequester_FocusNextPrevChild(KFontRequester* self, bool next) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         return vkfontrequester->focusNextPrevChild(next);
     } else {
-        return ((VirtualKFontRequester*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KFontRequester::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFontRequester_SuperFocusNextPrevChild(KFontRequester* self, bool next) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_FocusNextPrevChild_IsBase(true);
-        return vkfontrequester->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKFontRequester*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        return vkfontrequester->KFontRequester::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnFocusNextPrevChild(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_focusnextprevchild_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_TimerEvent(KFontRequester* self, QTimerEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->timerEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperTimerEvent(KFontRequester* self, QTimerEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_TimerEvent_IsBase(true);
-        vkfontrequester->timerEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->timerEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnTimerEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_TimerEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_TimerEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_timerevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_ChildEvent(KFontRequester* self, QChildEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->childEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperChildEvent(KFontRequester* self, QChildEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_ChildEvent_IsBase(true);
-        vkfontrequester->childEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->childEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnChildEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_ChildEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_ChildEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_childevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_CustomEvent(KFontRequester* self, QEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->customEvent(event);
     } else {
-        ((VirtualKFontRequester*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KFontRequester::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperCustomEvent(KFontRequester* self, QEvent* event) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_CustomEvent_IsBase(true);
-        vkfontrequester->customEvent(event);
-    } else {
-        ((VirtualKFontRequester*)self)->customEvent(event);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnCustomEvent(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_CustomEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_CustomEvent_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_customevent_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_ConnectNotify(KFontRequester* self, const QMetaMethod* signal) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->connectNotify(*signal);
     } else {
-        ((VirtualKFontRequester*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KFontRequester::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperConnectNotify(KFontRequester* self, const QMetaMethod* signal) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_ConnectNotify_IsBase(true);
-        vkfontrequester->connectNotify(*signal);
-    } else {
-        ((VirtualKFontRequester*)self)->connectNotify(*signal);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnConnectNotify(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_ConnectNotify_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_ConnectNotify_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_connectnotify_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontRequester_DisconnectNotify(KFontRequester* self, const QMetaMethod* signal) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester) {
         vkfontrequester->disconnectNotify(*signal);
     } else {
-        ((VirtualKFontRequester*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KFontRequester::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontRequester_SuperDisconnectNotify(KFontRequester* self, const QMetaMethod* signal) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_DisconnectNotify_IsBase(true);
-        vkfontrequester->disconnectNotify(*signal);
-    } else {
-        ((VirtualKFontRequester*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->KFontRequester::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFontRequester::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnDisconnectNotify(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_DisconnectNotify_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_DisconnectNotify_Callback>(slot));
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self))
+        vkfontrequester->kfontrequester_disconnectnotify_callback = reinterpret_cast<VirtualKFontRequester::KFontRequester_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFontRequester_UpdateMicroFocus(KFontRequester* self) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->updateMicroFocus();
-    } else {
-        ((VirtualKFontRequester*)self)->updateMicroFocus();
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->VirtualKFontRequester::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KFontRequester::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFontRequester_SuperUpdateMicroFocus(KFontRequester* self) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_UpdateMicroFocus_IsBase(true);
-        vkfontrequester->updateMicroFocus();
-    } else {
-        ((VirtualKFontRequester*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontRequester_OnUpdateMicroFocus(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFontRequester_Create(KFontRequester* self) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->create();
-    } else {
-        ((VirtualKFontRequester*)self)->create();
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->VirtualKFontRequester::create();
+    } else
+        qFatal("Error: Protected method KFontRequester::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFontRequester_SuperCreate(KFontRequester* self) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_Create_IsBase(true);
-        vkfontrequester->create();
-    } else {
-        ((VirtualKFontRequester*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontRequester_OnCreate(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_Create_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFontRequester_Destroy(KFontRequester* self) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->destroy();
-    } else {
-        ((VirtualKFontRequester*)self)->destroy();
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        vkfontrequester->VirtualKFontRequester::destroy();
+    } else
+        qFatal("Error: Protected method KFontRequester::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFontRequester_SuperDestroy(KFontRequester* self) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_Destroy_IsBase(true);
-        vkfontrequester->destroy();
-    } else {
-        ((VirtualKFontRequester*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontRequester_OnDestroy(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_Destroy_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFontRequester_FocusNextChild(KFontRequester* self) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return vkfontrequester->focusNextChild();
-    } else {
-        return ((VirtualKFontRequester*)self)->focusNextChild();
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        return vkfontrequester->VirtualKFontRequester::focusNextChild();
+    } else
+        qFatal("Error: Protected method KFontRequester::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFontRequester_SuperFocusNextChild(KFontRequester* self) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_FocusNextChild_IsBase(true);
-        return vkfontrequester->focusNextChild();
-    } else {
-        return ((VirtualKFontRequester*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontRequester_OnFocusNextChild(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_FocusNextChild_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFontRequester_FocusPreviousChild(KFontRequester* self) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return vkfontrequester->focusPreviousChild();
-    } else {
-        return ((VirtualKFontRequester*)self)->focusPreviousChild();
-    }
+    if (auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self)) {
+        return vkfontrequester->VirtualKFontRequester::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KFontRequester::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFontRequester_SuperFocusPreviousChild(KFontRequester* self) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_FocusPreviousChild_IsBase(true);
-        return vkfontrequester->focusPreviousChild();
-    } else {
-        return ((VirtualKFontRequester*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontRequester_OnFocusPreviousChild(KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_FocusPreviousChild_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KFontRequester_Sender(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return vkfontrequester->sender();
-    } else {
-        return ((VirtualKFontRequester*)self)->sender();
-    }
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self))) {
+        return vkfontrequester->VirtualKFontRequester::sender();
+    } else
+        qFatal("Error: Protected method KFontRequester::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KFontRequester_SuperSender(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_Sender_IsBase(true);
-        return vkfontrequester->sender();
-    } else {
-        return ((VirtualKFontRequester*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontRequester_OnSender(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_Sender_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFontRequester_SenderSignalIndex(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return vkfontrequester->senderSignalIndex();
-    } else {
-        return ((VirtualKFontRequester*)self)->senderSignalIndex();
-    }
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self))) {
+        return vkfontrequester->VirtualKFontRequester::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KFontRequester::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFontRequester_SuperSenderSignalIndex(const KFontRequester* self) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_SenderSignalIndex_IsBase(true);
-        return vkfontrequester->senderSignalIndex();
-    } else {
-        return ((VirtualKFontRequester*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontRequester_OnSenderSignalIndex(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFontRequester_Receivers(const KFontRequester* self, const char* signal) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return vkfontrequester->receivers(signal);
-    } else {
-        return ((VirtualKFontRequester*)self)->receivers(signal);
-    }
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self))) {
+        return vkfontrequester->VirtualKFontRequester::receivers(signal);
+    } else
+        qFatal("Error: Protected method KFontRequester::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFontRequester_SuperReceivers(const KFontRequester* self, const char* signal) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_Receivers_IsBase(true);
-        return vkfontrequester->receivers(signal);
-    } else {
-        return ((VirtualKFontRequester*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontRequester_OnReceivers(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_Receivers_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFontRequester_IsSignalConnected(const KFontRequester* self, const QMetaMethod* signal) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return vkfontrequester->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFontRequester*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self))) {
+        return vkfontrequester->VirtualKFontRequester::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KFontRequester::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFontRequester_SuperIsSignalConnected(const KFontRequester* self, const QMetaMethod* signal) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_IsSignalConnected_IsBase(true);
-        return vkfontrequester->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFontRequester*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontRequester_OnIsSignalConnected(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_IsSignalConnected_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KFontRequester_GetDecodedMetricF(const KFontRequester* self, int metricA, int metricB) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return vkfontrequester->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKFontRequester*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KFontRequester_SuperGetDecodedMetricF(const KFontRequester* self, int metricA, int metricB) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        vkfontrequester->setKFontRequester_GetDecodedMetricF_IsBase(true);
-        return vkfontrequester->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKFontRequester*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontRequester_OnGetDecodedMetricF(const KFontRequester* self, intptr_t slot) {
-    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
-        vkfontrequester->setKFontRequester_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self))) {
+        return vkfontrequester->VirtualKFontRequester::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KFontRequester::getDecodedMetricF called without a directly constructed type");
 }
 
 void KFontRequester_Delete(KFontRequester* self) {

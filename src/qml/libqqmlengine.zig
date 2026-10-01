@@ -114,6 +114,8 @@ pub const QQmlImageProviderBase = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlimageproviderbase.html#imageType)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QQmlImageProviderBase `
@@ -131,6 +133,8 @@ pub const QQmlImageProviderBase = extern struct {
     pub const Flags = flags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlimageproviderbase.html#flags)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1304,9 +1308,9 @@ pub const QQmlEngine = extern struct {
     ///
     /// ` self: QQmlEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QQmlEngine) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QQmlEngine, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QQmlEngine, callback: *const fn (QQmlEngine) callconv(.c) QMetaObject) void {
         qtc.QQmlEngine_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4435,44 +4439,6 @@ pub const QQmlEngine = extern struct {
         return .{ .ptr = qtc.QQmlEngine_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlEngine `
-    ///
-    pub fn superSender(self: QQmlEngine) QObject {
-        return .{ .ptr = qtc.QQmlEngine_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQmlEngine`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QQmlEngine, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QQmlEngine_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4489,44 +4455,6 @@ pub const QQmlEngine = extern struct {
     ///
     pub fn senderSignalIndex(self: QQmlEngine) i32 {
         return qtc.QQmlEngine_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlEngine `
-    ///
-    pub fn superSenderSignalIndex(self: QQmlEngine) i32 {
-        return qtc.QQmlEngine_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQmlEngine`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QQmlEngine, callback: *const fn () callconv(.c) i32) void {
-        qtc.QQmlEngine_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4550,47 +4478,6 @@ pub const QQmlEngine = extern struct {
         return qtc.QQmlEngine_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlEngine `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QQmlEngine, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QQmlEngine_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQmlEngine`
-    ///
-    /// ` callback: *const fn (self: QQmlEngine, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QQmlEngine, callback: *const fn (QQmlEngine, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QQmlEngine_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4610,47 +4497,6 @@ pub const QQmlEngine = extern struct {
     pub fn isSignalConnected(self: QQmlEngine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QQmlEngine_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlEngine `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QQmlEngine, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QQmlEngine_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQmlEngine`
-    ///
-    /// ` callback: *const fn (self: QQmlEngine, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QQmlEngine, callback: *const fn (QQmlEngine, QMetaMethod) callconv(.c) bool) void {
-        qtc.QQmlEngine_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

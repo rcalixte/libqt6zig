@@ -215,7 +215,7 @@ void KStartupInfo_Connect_GotRemoveStartup(KStartupInfo* self, intptr_t slot) {
 
 void KStartupInfo_CustomEvent(KStartupInfo* self, QEvent* e_P) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo) {
         vkstartupinfo->customEvent(e_P);
     }
 }
@@ -246,354 +246,209 @@ libqt_string KStartupInfo_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KStartupInfo_SuperMetaObject(const KStartupInfo* self) {
-    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        vkstartupinfo->setKStartupInfo_MetaObject_IsBase(true);
-        return (QMetaObject*)vkstartupinfo->metaObject();
-    } else {
-        return (QMetaObject*)self->KStartupInfo::metaObject();
-    }
+    return (QMetaObject*)self->KStartupInfo::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KStartupInfo_OnMetaObject(const KStartupInfo* self, intptr_t slot) {
-    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
-        vkstartupinfo->setKStartupInfo_MetaObject_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_MetaObject_Callback>(slot));
+void KStartupInfo_OnMetaObject(KStartupInfo* self, intptr_t slot) {
+    if (auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self)))
+        vkstartupinfo->kstartupinfo_metaobject_callback = reinterpret_cast<VirtualKStartupInfo::KStartupInfo_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KStartupInfo_SuperMetacast(KStartupInfo* self, const char* param1) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        vkstartupinfo->setKStartupInfo_Metacast_IsBase(true);
-        return vkstartupinfo->qt_metacast(param1);
-    } else {
-        return self->KStartupInfo::qt_metacast(param1);
-    }
+    return self->KStartupInfo::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnMetacast(KStartupInfo* self, intptr_t slot) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
-        vkstartupinfo->setKStartupInfo_Metacast_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_Metacast_Callback>(slot));
+    if (auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self))
+        vkstartupinfo->kstartupinfo_metacast_callback = reinterpret_cast<VirtualKStartupInfo::KStartupInfo_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KStartupInfo_SuperMetacall(KStartupInfo* self, int param1, int param2, void** param3) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        vkstartupinfo->setKStartupInfo_Metacall_IsBase(true);
-        return vkstartupinfo->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KStartupInfo::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KStartupInfo::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnMetacall(KStartupInfo* self, intptr_t slot) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
-        vkstartupinfo->setKStartupInfo_Metacall_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_Metacall_Callback>(slot));
+    if (auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self))
+        vkstartupinfo->kstartupinfo_metacall_callback = reinterpret_cast<VirtualKStartupInfo::KStartupInfo_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KStartupInfo_SuperCustomEvent(KStartupInfo* self, QEvent* e_P) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        vkstartupinfo->setKStartupInfo_CustomEvent_IsBase(true);
-        vkstartupinfo->customEvent(e_P);
-    } else {
-        ((VirtualKStartupInfo*)self)->customEvent(e_P);
-    }
+    if (auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self)) {
+        vkstartupinfo->KStartupInfo::customEvent(e_P);
+    } else
+        qFatal("Error: Protected virtual method KStartupInfo::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnCustomEvent(KStartupInfo* self, intptr_t slot) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
-        vkstartupinfo->setKStartupInfo_CustomEvent_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_CustomEvent_Callback>(slot));
+    if (auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self))
+        vkstartupinfo->kstartupinfo_customevent_callback = reinterpret_cast<VirtualKStartupInfo::KStartupInfo_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KStartupInfo_Event(KStartupInfo* self, QEvent* event) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        return vkstartupinfo->event(event);
-    } else {
-        return self->KStartupInfo::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KStartupInfo_SuperEvent(KStartupInfo* self, QEvent* event) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        vkstartupinfo->setKStartupInfo_Event_IsBase(true);
-        return vkstartupinfo->event(event);
-    } else {
-        return self->KStartupInfo::event(event);
-    }
+    return self->KStartupInfo::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnEvent(KStartupInfo* self, intptr_t slot) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
-        vkstartupinfo->setKStartupInfo_Event_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_Event_Callback>(slot));
+    if (auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self))
+        vkstartupinfo->kstartupinfo_event_callback = reinterpret_cast<VirtualKStartupInfo::KStartupInfo_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KStartupInfo_EventFilter(KStartupInfo* self, QObject* watched, QEvent* event) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        return vkstartupinfo->eventFilter(watched, event);
-    } else {
-        return self->KStartupInfo::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KStartupInfo_SuperEventFilter(KStartupInfo* self, QObject* watched, QEvent* event) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        vkstartupinfo->setKStartupInfo_EventFilter_IsBase(true);
-        return vkstartupinfo->eventFilter(watched, event);
-    } else {
-        return self->KStartupInfo::eventFilter(watched, event);
-    }
+    return self->KStartupInfo::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnEventFilter(KStartupInfo* self, intptr_t slot) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
-        vkstartupinfo->setKStartupInfo_EventFilter_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_EventFilter_Callback>(slot));
+    if (auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self))
+        vkstartupinfo->kstartupinfo_eventfilter_callback = reinterpret_cast<VirtualKStartupInfo::KStartupInfo_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KStartupInfo_TimerEvent(KStartupInfo* self, QTimerEvent* event) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo) {
         vkstartupinfo->timerEvent(event);
     } else {
-        ((VirtualKStartupInfo*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KStartupInfo::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KStartupInfo_SuperTimerEvent(KStartupInfo* self, QTimerEvent* event) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        vkstartupinfo->setKStartupInfo_TimerEvent_IsBase(true);
-        vkstartupinfo->timerEvent(event);
-    } else {
-        ((VirtualKStartupInfo*)self)->timerEvent(event);
-    }
+    if (auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self)) {
+        vkstartupinfo->KStartupInfo::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KStartupInfo::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnTimerEvent(KStartupInfo* self, intptr_t slot) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
-        vkstartupinfo->setKStartupInfo_TimerEvent_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_TimerEvent_Callback>(slot));
+    if (auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self))
+        vkstartupinfo->kstartupinfo_timerevent_callback = reinterpret_cast<VirtualKStartupInfo::KStartupInfo_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KStartupInfo_ChildEvent(KStartupInfo* self, QChildEvent* event) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo) {
         vkstartupinfo->childEvent(event);
     } else {
-        ((VirtualKStartupInfo*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KStartupInfo::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KStartupInfo_SuperChildEvent(KStartupInfo* self, QChildEvent* event) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        vkstartupinfo->setKStartupInfo_ChildEvent_IsBase(true);
-        vkstartupinfo->childEvent(event);
-    } else {
-        ((VirtualKStartupInfo*)self)->childEvent(event);
-    }
+    if (auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self)) {
+        vkstartupinfo->KStartupInfo::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KStartupInfo::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnChildEvent(KStartupInfo* self, intptr_t slot) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
-        vkstartupinfo->setKStartupInfo_ChildEvent_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_ChildEvent_Callback>(slot));
+    if (auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self))
+        vkstartupinfo->kstartupinfo_childevent_callback = reinterpret_cast<VirtualKStartupInfo::KStartupInfo_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KStartupInfo_ConnectNotify(KStartupInfo* self, const QMetaMethod* signal) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo) {
         vkstartupinfo->connectNotify(*signal);
     } else {
-        ((VirtualKStartupInfo*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KStartupInfo::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KStartupInfo_SuperConnectNotify(KStartupInfo* self, const QMetaMethod* signal) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        vkstartupinfo->setKStartupInfo_ConnectNotify_IsBase(true);
-        vkstartupinfo->connectNotify(*signal);
-    } else {
-        ((VirtualKStartupInfo*)self)->connectNotify(*signal);
-    }
+    if (auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self)) {
+        vkstartupinfo->KStartupInfo::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KStartupInfo::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnConnectNotify(KStartupInfo* self, intptr_t slot) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
-        vkstartupinfo->setKStartupInfo_ConnectNotify_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_ConnectNotify_Callback>(slot));
+    if (auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self))
+        vkstartupinfo->kstartupinfo_connectnotify_callback = reinterpret_cast<VirtualKStartupInfo::KStartupInfo_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KStartupInfo_DisconnectNotify(KStartupInfo* self, const QMetaMethod* signal) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo) {
         vkstartupinfo->disconnectNotify(*signal);
     } else {
-        ((VirtualKStartupInfo*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KStartupInfo::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KStartupInfo_SuperDisconnectNotify(KStartupInfo* self, const QMetaMethod* signal) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        vkstartupinfo->setKStartupInfo_DisconnectNotify_IsBase(true);
-        vkstartupinfo->disconnectNotify(*signal);
-    } else {
-        ((VirtualKStartupInfo*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self)) {
+        vkstartupinfo->KStartupInfo::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KStartupInfo::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnDisconnectNotify(KStartupInfo* self, intptr_t slot) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
-        vkstartupinfo->setKStartupInfo_DisconnectNotify_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_DisconnectNotify_Callback>(slot));
+    if (auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self))
+        vkstartupinfo->kstartupinfo_disconnectnotify_callback = reinterpret_cast<VirtualKStartupInfo::KStartupInfo_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KStartupInfo_Sender(const KStartupInfo* self) {
-    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        return vkstartupinfo->sender();
-    } else {
-        return ((VirtualKStartupInfo*)self)->sender();
-    }
+    if (auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self))) {
+        return vkstartupinfo->VirtualKStartupInfo::sender();
+    } else
+        qFatal("Error: Protected method KStartupInfo::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KStartupInfo_SuperSender(const KStartupInfo* self) {
-    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        vkstartupinfo->setKStartupInfo_Sender_IsBase(true);
-        return vkstartupinfo->sender();
-    } else {
-        return ((VirtualKStartupInfo*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KStartupInfo_OnSender(const KStartupInfo* self, intptr_t slot) {
-    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
-        vkstartupinfo->setKStartupInfo_Sender_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KStartupInfo_SenderSignalIndex(const KStartupInfo* self) {
-    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        return vkstartupinfo->senderSignalIndex();
-    } else {
-        return ((VirtualKStartupInfo*)self)->senderSignalIndex();
-    }
+    if (auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self))) {
+        return vkstartupinfo->VirtualKStartupInfo::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KStartupInfo::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KStartupInfo_SuperSenderSignalIndex(const KStartupInfo* self) {
-    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        vkstartupinfo->setKStartupInfo_SenderSignalIndex_IsBase(true);
-        return vkstartupinfo->senderSignalIndex();
-    } else {
-        return ((VirtualKStartupInfo*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KStartupInfo_OnSenderSignalIndex(const KStartupInfo* self, intptr_t slot) {
-    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
-        vkstartupinfo->setKStartupInfo_SenderSignalIndex_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KStartupInfo_Receivers(const KStartupInfo* self, const char* signal) {
-    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        return vkstartupinfo->receivers(signal);
-    } else {
-        return ((VirtualKStartupInfo*)self)->receivers(signal);
-    }
+    if (auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self))) {
+        return vkstartupinfo->VirtualKStartupInfo::receivers(signal);
+    } else
+        qFatal("Error: Protected method KStartupInfo::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KStartupInfo_SuperReceivers(const KStartupInfo* self, const char* signal) {
-    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        vkstartupinfo->setKStartupInfo_Receivers_IsBase(true);
-        return vkstartupinfo->receivers(signal);
-    } else {
-        return ((VirtualKStartupInfo*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KStartupInfo_OnReceivers(const KStartupInfo* self, intptr_t slot) {
-    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
-        vkstartupinfo->setKStartupInfo_Receivers_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KStartupInfo_IsSignalConnected(const KStartupInfo* self, const QMetaMethod* signal) {
-    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        return vkstartupinfo->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKStartupInfo*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KStartupInfo_SuperIsSignalConnected(const KStartupInfo* self, const QMetaMethod* signal) {
-    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        vkstartupinfo->setKStartupInfo_IsSignalConnected_IsBase(true);
-        return vkstartupinfo->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKStartupInfo*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KStartupInfo_OnIsSignalConnected(const KStartupInfo* self, intptr_t slot) {
-    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
-        vkstartupinfo->setKStartupInfo_IsSignalConnected_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_IsSignalConnected_Callback>(slot));
+    if (auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self))) {
+        return vkstartupinfo->VirtualKStartupInfo::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KStartupInfo::isSignalConnected called without a directly constructed type");
 }
 
 void KStartupInfo_Delete(KStartupInfo* self) {

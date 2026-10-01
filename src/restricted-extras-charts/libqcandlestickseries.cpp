@@ -489,382 +489,230 @@ libqt_string QCandlestickSeries_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QCandlestickSeries_SuperMetaObject(const QCandlestickSeries* self) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_MetaObject_IsBase(true);
-        return (QMetaObject*)vqcandlestickseries->metaObject();
-    } else {
-        return (QMetaObject*)self->QCandlestickSeries::metaObject();
-    }
+    return (QMetaObject*)self->QCandlestickSeries::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCandlestickSeries_OnMetaObject(const QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_MetaObject_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_MetaObject_Callback>(slot));
+void QCandlestickSeries_OnMetaObject(QCandlestickSeries* self, intptr_t slot) {
+    if (auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self)))
+        vqcandlestickseries->qcandlestickseries_metaobject_callback = reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QCandlestickSeries_SuperMetacast(QCandlestickSeries* self, const char* param1) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_Metacast_IsBase(true);
-        return vqcandlestickseries->qt_metacast(param1);
-    } else {
-        return self->QCandlestickSeries::qt_metacast(param1);
-    }
+    return self->QCandlestickSeries::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSeries_OnMetacast(QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_Metacast_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_Metacast_Callback>(slot));
+    if (auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self))
+        vqcandlestickseries->qcandlestickseries_metacast_callback = reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QCandlestickSeries_SuperMetacall(QCandlestickSeries* self, int param1, int param2, void** param3) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_Metacall_IsBase(true);
-        return vqcandlestickseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QCandlestickSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QCandlestickSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSeries_OnMetacall(QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_Metacall_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_Metacall_Callback>(slot));
+    if (auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self))
+        vqcandlestickseries->qcandlestickseries_metacall_callback = reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QCandlestickSeries_SuperType(const QCandlestickSeries* self) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_Type_IsBase(true);
-        return static_cast<int>(vqcandlestickseries->type());
-    } else {
-        return static_cast<int>(self->QCandlestickSeries::type());
-    }
+    return static_cast<int>(self->QCandlestickSeries::type());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCandlestickSeries_OnType(const QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_Type_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_Type_Callback>(slot));
+void QCandlestickSeries_OnType(QCandlestickSeries* self, intptr_t slot) {
+    if (auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self)))
+        vqcandlestickseries->qcandlestickseries_type_callback = reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_Type_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QCandlestickSeries_Event(QCandlestickSeries* self, QEvent* event) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        return vqcandlestickseries->event(event);
-    } else {
-        return self->QCandlestickSeries::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QCandlestickSeries_SuperEvent(QCandlestickSeries* self, QEvent* event) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_Event_IsBase(true);
-        return vqcandlestickseries->event(event);
-    } else {
-        return self->QCandlestickSeries::event(event);
-    }
+    return self->QCandlestickSeries::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSeries_OnEvent(QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_Event_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_Event_Callback>(slot));
+    if (auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self))
+        vqcandlestickseries->qcandlestickseries_event_callback = reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QCandlestickSeries_EventFilter(QCandlestickSeries* self, QObject* watched, QEvent* event) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        return vqcandlestickseries->eventFilter(watched, event);
-    } else {
-        return self->QCandlestickSeries::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QCandlestickSeries_SuperEventFilter(QCandlestickSeries* self, QObject* watched, QEvent* event) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_EventFilter_IsBase(true);
-        return vqcandlestickseries->eventFilter(watched, event);
-    } else {
-        return self->QCandlestickSeries::eventFilter(watched, event);
-    }
+    return self->QCandlestickSeries::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSeries_OnEventFilter(QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_EventFilter_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_EventFilter_Callback>(slot));
+    if (auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self))
+        vqcandlestickseries->qcandlestickseries_eventfilter_callback = reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCandlestickSeries_TimerEvent(QCandlestickSeries* self, QTimerEvent* event) {
     auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
+    if (vqcandlestickseries) {
         vqcandlestickseries->timerEvent(event);
     } else {
-        ((VirtualQCandlestickSeries*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QCandlestickSeries::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCandlestickSeries_SuperTimerEvent(QCandlestickSeries* self, QTimerEvent* event) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_TimerEvent_IsBase(true);
-        vqcandlestickseries->timerEvent(event);
-    } else {
-        ((VirtualQCandlestickSeries*)self)->timerEvent(event);
-    }
+    if (auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self)) {
+        vqcandlestickseries->QCandlestickSeries::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCandlestickSeries::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSeries_OnTimerEvent(QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_TimerEvent_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_TimerEvent_Callback>(slot));
+    if (auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self))
+        vqcandlestickseries->qcandlestickseries_timerevent_callback = reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCandlestickSeries_ChildEvent(QCandlestickSeries* self, QChildEvent* event) {
     auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
+    if (vqcandlestickseries) {
         vqcandlestickseries->childEvent(event);
     } else {
-        ((VirtualQCandlestickSeries*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QCandlestickSeries::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCandlestickSeries_SuperChildEvent(QCandlestickSeries* self, QChildEvent* event) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_ChildEvent_IsBase(true);
-        vqcandlestickseries->childEvent(event);
-    } else {
-        ((VirtualQCandlestickSeries*)self)->childEvent(event);
-    }
+    if (auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self)) {
+        vqcandlestickseries->QCandlestickSeries::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCandlestickSeries::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSeries_OnChildEvent(QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_ChildEvent_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_ChildEvent_Callback>(slot));
+    if (auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self))
+        vqcandlestickseries->qcandlestickseries_childevent_callback = reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCandlestickSeries_CustomEvent(QCandlestickSeries* self, QEvent* event) {
     auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
+    if (vqcandlestickseries) {
         vqcandlestickseries->customEvent(event);
     } else {
-        ((VirtualQCandlestickSeries*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QCandlestickSeries::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCandlestickSeries_SuperCustomEvent(QCandlestickSeries* self, QEvent* event) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_CustomEvent_IsBase(true);
-        vqcandlestickseries->customEvent(event);
-    } else {
-        ((VirtualQCandlestickSeries*)self)->customEvent(event);
-    }
+    if (auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self)) {
+        vqcandlestickseries->QCandlestickSeries::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCandlestickSeries::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSeries_OnCustomEvent(QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_CustomEvent_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_CustomEvent_Callback>(slot));
+    if (auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self))
+        vqcandlestickseries->qcandlestickseries_customevent_callback = reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCandlestickSeries_ConnectNotify(QCandlestickSeries* self, const QMetaMethod* signal) {
     auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
+    if (vqcandlestickseries) {
         vqcandlestickseries->connectNotify(*signal);
     } else {
-        ((VirtualQCandlestickSeries*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QCandlestickSeries::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCandlestickSeries_SuperConnectNotify(QCandlestickSeries* self, const QMetaMethod* signal) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_ConnectNotify_IsBase(true);
-        vqcandlestickseries->connectNotify(*signal);
-    } else {
-        ((VirtualQCandlestickSeries*)self)->connectNotify(*signal);
-    }
+    if (auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self)) {
+        vqcandlestickseries->QCandlestickSeries::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QCandlestickSeries::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSeries_OnConnectNotify(QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_ConnectNotify_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_ConnectNotify_Callback>(slot));
+    if (auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self))
+        vqcandlestickseries->qcandlestickseries_connectnotify_callback = reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCandlestickSeries_DisconnectNotify(QCandlestickSeries* self, const QMetaMethod* signal) {
     auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
+    if (vqcandlestickseries) {
         vqcandlestickseries->disconnectNotify(*signal);
     } else {
-        ((VirtualQCandlestickSeries*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QCandlestickSeries::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCandlestickSeries_SuperDisconnectNotify(QCandlestickSeries* self, const QMetaMethod* signal) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_DisconnectNotify_IsBase(true);
-        vqcandlestickseries->disconnectNotify(*signal);
-    } else {
-        ((VirtualQCandlestickSeries*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self)) {
+        vqcandlestickseries->QCandlestickSeries::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QCandlestickSeries::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSeries_OnDisconnectNotify(QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_DisconnectNotify_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_DisconnectNotify_Callback>(slot));
+    if (auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self))
+        vqcandlestickseries->qcandlestickseries_disconnectnotify_callback = reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QCandlestickSeries_Sender(const QCandlestickSeries* self) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        return vqcandlestickseries->sender();
-    } else {
-        return ((VirtualQCandlestickSeries*)self)->sender();
-    }
+    if (auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self))) {
+        return vqcandlestickseries->VirtualQCandlestickSeries::sender();
+    } else
+        qFatal("Error: Protected method QCandlestickSeries::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QCandlestickSeries_SuperSender(const QCandlestickSeries* self) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_Sender_IsBase(true);
-        return vqcandlestickseries->sender();
-    } else {
-        return ((VirtualQCandlestickSeries*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCandlestickSeries_OnSender(const QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_Sender_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QCandlestickSeries_SenderSignalIndex(const QCandlestickSeries* self) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        return vqcandlestickseries->senderSignalIndex();
-    } else {
-        return ((VirtualQCandlestickSeries*)self)->senderSignalIndex();
-    }
+    if (auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self))) {
+        return vqcandlestickseries->VirtualQCandlestickSeries::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QCandlestickSeries::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QCandlestickSeries_SuperSenderSignalIndex(const QCandlestickSeries* self) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_SenderSignalIndex_IsBase(true);
-        return vqcandlestickseries->senderSignalIndex();
-    } else {
-        return ((VirtualQCandlestickSeries*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCandlestickSeries_OnSenderSignalIndex(const QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_SenderSignalIndex_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QCandlestickSeries_Receivers(const QCandlestickSeries* self, const char* signal) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        return vqcandlestickseries->receivers(signal);
-    } else {
-        return ((VirtualQCandlestickSeries*)self)->receivers(signal);
-    }
+    if (auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self))) {
+        return vqcandlestickseries->VirtualQCandlestickSeries::receivers(signal);
+    } else
+        qFatal("Error: Protected method QCandlestickSeries::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QCandlestickSeries_SuperReceivers(const QCandlestickSeries* self, const char* signal) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_Receivers_IsBase(true);
-        return vqcandlestickseries->receivers(signal);
-    } else {
-        return ((VirtualQCandlestickSeries*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCandlestickSeries_OnReceivers(const QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_Receivers_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QCandlestickSeries_IsSignalConnected(const QCandlestickSeries* self, const QMetaMethod* signal) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        return vqcandlestickseries->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQCandlestickSeries*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QCandlestickSeries_SuperIsSignalConnected(const QCandlestickSeries* self, const QMetaMethod* signal) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        vqcandlestickseries->setQCandlestickSeries_IsSignalConnected_IsBase(true);
-        return vqcandlestickseries->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQCandlestickSeries*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCandlestickSeries_OnIsSignalConnected(const QCandlestickSeries* self, intptr_t slot) {
-    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries)
-        vqcandlestickseries->setQCandlestickSeries_IsSignalConnected_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_IsSignalConnected_Callback>(slot));
+    if (auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self))) {
+        return vqcandlestickseries->VirtualQCandlestickSeries::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QCandlestickSeries::isSignalConnected called without a directly constructed type");
 }
 
 void QCandlestickSeries_Delete(QCandlestickSeries* self) {

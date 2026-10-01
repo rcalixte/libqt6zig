@@ -9,27 +9,23 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QSplashScreen so that we can call protected methods
+// This class is a subclass of QSplashScreen
 class VirtualQSplashScreen final : public QSplashScreen {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQSplashScreen = true;
-
-    // Virtual class public types (including callbacks)
-    using QSplashScreen_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QSplashScreen_MetaObject_Callback = QMetaObject* (*)(const QSplashScreen*);
     using QSplashScreen_Metacast_Callback = void* (*)(QSplashScreen*, const char*);
     using QSplashScreen_Metacall_Callback = int (*)(QSplashScreen*, int, int, void**);
     using QSplashScreen_Event_Callback = bool (*)(QSplashScreen*, QEvent*);
     using QSplashScreen_DrawContents_Callback = void (*)(QSplashScreen*, QPainter*);
     using QSplashScreen_MousePressEvent_Callback = void (*)(QSplashScreen*, QMouseEvent*);
-    using QSplashScreen_DevType_Callback = int (*)();
+    using QSplashScreen_DevType_Callback = int (*)(const QSplashScreen*);
     using QSplashScreen_SetVisible_Callback = void (*)(QSplashScreen*, bool);
-    using QSplashScreen_SizeHint_Callback = QSize* (*)();
-    using QSplashScreen_MinimumSizeHint_Callback = QSize* (*)();
+    using QSplashScreen_SizeHint_Callback = QSize* (*)(const QSplashScreen*);
+    using QSplashScreen_MinimumSizeHint_Callback = QSize* (*)(const QSplashScreen*);
     using QSplashScreen_HeightForWidth_Callback = int (*)(const QSplashScreen*, int);
-    using QSplashScreen_HasHeightForWidth_Callback = bool (*)();
-    using QSplashScreen_PaintEngine_Callback = QPaintEngine* (*)();
+    using QSplashScreen_HasHeightForWidth_Callback = bool (*)(const QSplashScreen*);
+    using QSplashScreen_PaintEngine_Callback = QPaintEngine* (*)(const QSplashScreen*);
     using QSplashScreen_MouseReleaseEvent_Callback = void (*)(QSplashScreen*, QMouseEvent*);
     using QSplashScreen_MouseDoubleClickEvent_Callback = void (*)(QSplashScreen*, QMouseEvent*);
     using QSplashScreen_MouseMoveEvent_Callback = void (*)(QSplashScreen*, QMouseEvent*);
@@ -58,7 +54,7 @@ class VirtualQSplashScreen final : public QSplashScreen {
     using QSplashScreen_Metric_Callback = int (*)(const QSplashScreen*, int);
     using QSplashScreen_InitPainter_Callback = void (*)(const QSplashScreen*, QPainter*);
     using QSplashScreen_Redirected_Callback = QPaintDevice* (*)(const QSplashScreen*, QPoint*);
-    using QSplashScreen_SharedPainter_Callback = QPainter* (*)();
+    using QSplashScreen_SharedPainter_Callback = QPainter* (*)(const QSplashScreen*);
     using QSplashScreen_InputMethodEvent_Callback = void (*)(QSplashScreen*, QInputMethodEvent*);
     using QSplashScreen_InputMethodQuery_Callback = QVariant* (*)(const QSplashScreen*, int);
     using QSplashScreen_FocusNextPrevChild_Callback = bool (*)(QSplashScreen*, bool);
@@ -68,18 +64,17 @@ class VirtualQSplashScreen final : public QSplashScreen {
     using QSplashScreen_CustomEvent_Callback = void (*)(QSplashScreen*, QEvent*);
     using QSplashScreen_ConnectNotify_Callback = void (*)(QSplashScreen*, QMetaMethod*);
     using QSplashScreen_DisconnectNotify_Callback = void (*)(QSplashScreen*, QMetaMethod*);
-    using QSplashScreen_UpdateMicroFocus_Callback = void (*)();
-    using QSplashScreen_Create_Callback = void (*)();
-    using QSplashScreen_Destroy_Callback = void (*)();
-    using QSplashScreen_FocusNextChild_Callback = bool (*)();
-    using QSplashScreen_FocusPreviousChild_Callback = bool (*)();
-    using QSplashScreen_Sender_Callback = QObject* (*)();
-    using QSplashScreen_SenderSignalIndex_Callback = int (*)();
-    using QSplashScreen_Receivers_Callback = int (*)(const QSplashScreen*, const char*);
-    using QSplashScreen_IsSignalConnected_Callback = bool (*)(const QSplashScreen*, QMetaMethod*);
-    using QSplashScreen_GetDecodedMetricF_Callback = double (*)(const QSplashScreen*, int, int);
+    using QSplashScreen::create;
+    using QSplashScreen::destroy;
+    using QSplashScreen::focusNextChild;
+    using QSplashScreen::focusPreviousChild;
+    using QSplashScreen::getDecodedMetricF;
+    using QSplashScreen::isSignalConnected;
+    using QSplashScreen::receivers;
+    using QSplashScreen::sender;
+    using QSplashScreen::senderSignalIndex;
+    using QSplashScreen::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QSplashScreen_MetaObject_Callback qsplashscreen_metaobject_callback = nullptr;
     QSplashScreen_Metacast_Callback qsplashscreen_metacast_callback = nullptr;
@@ -132,81 +127,50 @@ class VirtualQSplashScreen final : public QSplashScreen {
     QSplashScreen_CustomEvent_Callback qsplashscreen_customevent_callback = nullptr;
     QSplashScreen_ConnectNotify_Callback qsplashscreen_connectnotify_callback = nullptr;
     QSplashScreen_DisconnectNotify_Callback qsplashscreen_disconnectnotify_callback = nullptr;
-    QSplashScreen_UpdateMicroFocus_Callback qsplashscreen_updatemicrofocus_callback = nullptr;
-    QSplashScreen_Create_Callback qsplashscreen_create_callback = nullptr;
-    QSplashScreen_Destroy_Callback qsplashscreen_destroy_callback = nullptr;
-    QSplashScreen_FocusNextChild_Callback qsplashscreen_focusnextchild_callback = nullptr;
-    QSplashScreen_FocusPreviousChild_Callback qsplashscreen_focuspreviouschild_callback = nullptr;
-    QSplashScreen_Sender_Callback qsplashscreen_sender_callback = nullptr;
-    QSplashScreen_SenderSignalIndex_Callback qsplashscreen_sendersignalindex_callback = nullptr;
-    QSplashScreen_Receivers_Callback qsplashscreen_receivers_callback = nullptr;
-    QSplashScreen_IsSignalConnected_Callback qsplashscreen_issignalconnected_callback = nullptr;
-    QSplashScreen_GetDecodedMetricF_Callback qsplashscreen_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qsplashscreen_metaobject_isbase = false;
-    mutable bool qsplashscreen_metacast_isbase = false;
-    mutable bool qsplashscreen_metacall_isbase = false;
-    mutable bool qsplashscreen_event_isbase = false;
-    mutable bool qsplashscreen_drawcontents_isbase = false;
-    mutable bool qsplashscreen_mousepressevent_isbase = false;
-    mutable bool qsplashscreen_devtype_isbase = false;
-    mutable bool qsplashscreen_setvisible_isbase = false;
-    mutable bool qsplashscreen_sizehint_isbase = false;
-    mutable bool qsplashscreen_minimumsizehint_isbase = false;
-    mutable bool qsplashscreen_heightforwidth_isbase = false;
-    mutable bool qsplashscreen_hasheightforwidth_isbase = false;
-    mutable bool qsplashscreen_paintengine_isbase = false;
-    mutable bool qsplashscreen_mousereleaseevent_isbase = false;
-    mutable bool qsplashscreen_mousedoubleclickevent_isbase = false;
-    mutable bool qsplashscreen_mousemoveevent_isbase = false;
-    mutable bool qsplashscreen_wheelevent_isbase = false;
-    mutable bool qsplashscreen_keypressevent_isbase = false;
-    mutable bool qsplashscreen_keyreleaseevent_isbase = false;
-    mutable bool qsplashscreen_focusinevent_isbase = false;
-    mutable bool qsplashscreen_focusoutevent_isbase = false;
-    mutable bool qsplashscreen_enterevent_isbase = false;
-    mutable bool qsplashscreen_leaveevent_isbase = false;
-    mutable bool qsplashscreen_paintevent_isbase = false;
-    mutable bool qsplashscreen_moveevent_isbase = false;
-    mutable bool qsplashscreen_resizeevent_isbase = false;
-    mutable bool qsplashscreen_closeevent_isbase = false;
-    mutable bool qsplashscreen_contextmenuevent_isbase = false;
-    mutable bool qsplashscreen_tabletevent_isbase = false;
-    mutable bool qsplashscreen_actionevent_isbase = false;
-    mutable bool qsplashscreen_dragenterevent_isbase = false;
-    mutable bool qsplashscreen_dragmoveevent_isbase = false;
-    mutable bool qsplashscreen_dragleaveevent_isbase = false;
-    mutable bool qsplashscreen_dropevent_isbase = false;
-    mutable bool qsplashscreen_showevent_isbase = false;
-    mutable bool qsplashscreen_hideevent_isbase = false;
-    mutable bool qsplashscreen_nativeevent_isbase = false;
-    mutable bool qsplashscreen_changeevent_isbase = false;
-    mutable bool qsplashscreen_metric_isbase = false;
-    mutable bool qsplashscreen_initpainter_isbase = false;
-    mutable bool qsplashscreen_redirected_isbase = false;
-    mutable bool qsplashscreen_sharedpainter_isbase = false;
-    mutable bool qsplashscreen_inputmethodevent_isbase = false;
-    mutable bool qsplashscreen_inputmethodquery_isbase = false;
-    mutable bool qsplashscreen_focusnextprevchild_isbase = false;
-    mutable bool qsplashscreen_eventfilter_isbase = false;
-    mutable bool qsplashscreen_timerevent_isbase = false;
-    mutable bool qsplashscreen_childevent_isbase = false;
-    mutable bool qsplashscreen_customevent_isbase = false;
-    mutable bool qsplashscreen_connectnotify_isbase = false;
-    mutable bool qsplashscreen_disconnectnotify_isbase = false;
-    mutable bool qsplashscreen_updatemicrofocus_isbase = false;
-    mutable bool qsplashscreen_create_isbase = false;
-    mutable bool qsplashscreen_destroy_isbase = false;
-    mutable bool qsplashscreen_focusnextchild_isbase = false;
-    mutable bool qsplashscreen_focuspreviouschild_isbase = false;
-    mutable bool qsplashscreen_sender_isbase = false;
-    mutable bool qsplashscreen_sendersignalindex_isbase = false;
-    mutable bool qsplashscreen_receivers_isbase = false;
-    mutable bool qsplashscreen_issignalconnected_isbase = false;
-    mutable bool qsplashscreen_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QSplashScreen {
+        using QSplashScreen::actionEvent;
+        using QSplashScreen::changeEvent;
+        using QSplashScreen::childEvent;
+        using QSplashScreen::closeEvent;
+        using QSplashScreen::connectNotify;
+        using QSplashScreen::contextMenuEvent;
+        using QSplashScreen::customEvent;
+        using QSplashScreen::disconnectNotify;
+        using QSplashScreen::dragEnterEvent;
+        using QSplashScreen::dragLeaveEvent;
+        using QSplashScreen::dragMoveEvent;
+        using QSplashScreen::drawContents;
+        using QSplashScreen::dropEvent;
+        using QSplashScreen::enterEvent;
+        using QSplashScreen::event;
+        using QSplashScreen::focusInEvent;
+        using QSplashScreen::focusNextPrevChild;
+        using QSplashScreen::focusOutEvent;
+        using QSplashScreen::hideEvent;
+        using QSplashScreen::initPainter;
+        using QSplashScreen::inputMethodEvent;
+        using QSplashScreen::keyPressEvent;
+        using QSplashScreen::keyReleaseEvent;
+        using QSplashScreen::leaveEvent;
+        using QSplashScreen::metric;
+        using QSplashScreen::mouseDoubleClickEvent;
+        using QSplashScreen::mouseMoveEvent;
+        using QSplashScreen::mousePressEvent;
+        using QSplashScreen::mouseReleaseEvent;
+        using QSplashScreen::moveEvent;
+        using QSplashScreen::nativeEvent;
+        using QSplashScreen::paintEvent;
+        using QSplashScreen::redirected;
+        using QSplashScreen::resizeEvent;
+        using QSplashScreen::sharedPainter;
+        using QSplashScreen::showEvent;
+        using QSplashScreen::tabletEvent;
+        using QSplashScreen::timerEvent;
+        using QSplashScreen::wheelEvent;
+    };
 
-  public:
     VirtualQSplashScreen() : QSplashScreen() {};
     VirtualQSplashScreen(QScreen* screen) : QSplashScreen(screen) {};
     VirtualQSplashScreen(const QPixmap& pixmap) : QSplashScreen(pixmap) {};
@@ -214,141 +178,10 @@ class VirtualQSplashScreen final : public QSplashScreen {
     VirtualQSplashScreen(QScreen* screen, const QPixmap& pixmap) : QSplashScreen(screen, pixmap) {};
     VirtualQSplashScreen(QScreen* screen, const QPixmap& pixmap, Qt::WindowFlags f) : QSplashScreen(screen, pixmap, f) {};
 
-    // Callback setters
-    inline void setQSplashScreen_MetaObject_Callback(QSplashScreen_MetaObject_Callback cb) { qsplashscreen_metaobject_callback = cb; }
-    inline void setQSplashScreen_Metacast_Callback(QSplashScreen_Metacast_Callback cb) { qsplashscreen_metacast_callback = cb; }
-    inline void setQSplashScreen_Metacall_Callback(QSplashScreen_Metacall_Callback cb) { qsplashscreen_metacall_callback = cb; }
-    inline void setQSplashScreen_Event_Callback(QSplashScreen_Event_Callback cb) { qsplashscreen_event_callback = cb; }
-    inline void setQSplashScreen_DrawContents_Callback(QSplashScreen_DrawContents_Callback cb) { qsplashscreen_drawcontents_callback = cb; }
-    inline void setQSplashScreen_MousePressEvent_Callback(QSplashScreen_MousePressEvent_Callback cb) { qsplashscreen_mousepressevent_callback = cb; }
-    inline void setQSplashScreen_DevType_Callback(QSplashScreen_DevType_Callback cb) { qsplashscreen_devtype_callback = cb; }
-    inline void setQSplashScreen_SetVisible_Callback(QSplashScreen_SetVisible_Callback cb) { qsplashscreen_setvisible_callback = cb; }
-    inline void setQSplashScreen_SizeHint_Callback(QSplashScreen_SizeHint_Callback cb) { qsplashscreen_sizehint_callback = cb; }
-    inline void setQSplashScreen_MinimumSizeHint_Callback(QSplashScreen_MinimumSizeHint_Callback cb) { qsplashscreen_minimumsizehint_callback = cb; }
-    inline void setQSplashScreen_HeightForWidth_Callback(QSplashScreen_HeightForWidth_Callback cb) { qsplashscreen_heightforwidth_callback = cb; }
-    inline void setQSplashScreen_HasHeightForWidth_Callback(QSplashScreen_HasHeightForWidth_Callback cb) { qsplashscreen_hasheightforwidth_callback = cb; }
-    inline void setQSplashScreen_PaintEngine_Callback(QSplashScreen_PaintEngine_Callback cb) { qsplashscreen_paintengine_callback = cb; }
-    inline void setQSplashScreen_MouseReleaseEvent_Callback(QSplashScreen_MouseReleaseEvent_Callback cb) { qsplashscreen_mousereleaseevent_callback = cb; }
-    inline void setQSplashScreen_MouseDoubleClickEvent_Callback(QSplashScreen_MouseDoubleClickEvent_Callback cb) { qsplashscreen_mousedoubleclickevent_callback = cb; }
-    inline void setQSplashScreen_MouseMoveEvent_Callback(QSplashScreen_MouseMoveEvent_Callback cb) { qsplashscreen_mousemoveevent_callback = cb; }
-    inline void setQSplashScreen_WheelEvent_Callback(QSplashScreen_WheelEvent_Callback cb) { qsplashscreen_wheelevent_callback = cb; }
-    inline void setQSplashScreen_KeyPressEvent_Callback(QSplashScreen_KeyPressEvent_Callback cb) { qsplashscreen_keypressevent_callback = cb; }
-    inline void setQSplashScreen_KeyReleaseEvent_Callback(QSplashScreen_KeyReleaseEvent_Callback cb) { qsplashscreen_keyreleaseevent_callback = cb; }
-    inline void setQSplashScreen_FocusInEvent_Callback(QSplashScreen_FocusInEvent_Callback cb) { qsplashscreen_focusinevent_callback = cb; }
-    inline void setQSplashScreen_FocusOutEvent_Callback(QSplashScreen_FocusOutEvent_Callback cb) { qsplashscreen_focusoutevent_callback = cb; }
-    inline void setQSplashScreen_EnterEvent_Callback(QSplashScreen_EnterEvent_Callback cb) { qsplashscreen_enterevent_callback = cb; }
-    inline void setQSplashScreen_LeaveEvent_Callback(QSplashScreen_LeaveEvent_Callback cb) { qsplashscreen_leaveevent_callback = cb; }
-    inline void setQSplashScreen_PaintEvent_Callback(QSplashScreen_PaintEvent_Callback cb) { qsplashscreen_paintevent_callback = cb; }
-    inline void setQSplashScreen_MoveEvent_Callback(QSplashScreen_MoveEvent_Callback cb) { qsplashscreen_moveevent_callback = cb; }
-    inline void setQSplashScreen_ResizeEvent_Callback(QSplashScreen_ResizeEvent_Callback cb) { qsplashscreen_resizeevent_callback = cb; }
-    inline void setQSplashScreen_CloseEvent_Callback(QSplashScreen_CloseEvent_Callback cb) { qsplashscreen_closeevent_callback = cb; }
-    inline void setQSplashScreen_ContextMenuEvent_Callback(QSplashScreen_ContextMenuEvent_Callback cb) { qsplashscreen_contextmenuevent_callback = cb; }
-    inline void setQSplashScreen_TabletEvent_Callback(QSplashScreen_TabletEvent_Callback cb) { qsplashscreen_tabletevent_callback = cb; }
-    inline void setQSplashScreen_ActionEvent_Callback(QSplashScreen_ActionEvent_Callback cb) { qsplashscreen_actionevent_callback = cb; }
-    inline void setQSplashScreen_DragEnterEvent_Callback(QSplashScreen_DragEnterEvent_Callback cb) { qsplashscreen_dragenterevent_callback = cb; }
-    inline void setQSplashScreen_DragMoveEvent_Callback(QSplashScreen_DragMoveEvent_Callback cb) { qsplashscreen_dragmoveevent_callback = cb; }
-    inline void setQSplashScreen_DragLeaveEvent_Callback(QSplashScreen_DragLeaveEvent_Callback cb) { qsplashscreen_dragleaveevent_callback = cb; }
-    inline void setQSplashScreen_DropEvent_Callback(QSplashScreen_DropEvent_Callback cb) { qsplashscreen_dropevent_callback = cb; }
-    inline void setQSplashScreen_ShowEvent_Callback(QSplashScreen_ShowEvent_Callback cb) { qsplashscreen_showevent_callback = cb; }
-    inline void setQSplashScreen_HideEvent_Callback(QSplashScreen_HideEvent_Callback cb) { qsplashscreen_hideevent_callback = cb; }
-    inline void setQSplashScreen_NativeEvent_Callback(QSplashScreen_NativeEvent_Callback cb) { qsplashscreen_nativeevent_callback = cb; }
-    inline void setQSplashScreen_ChangeEvent_Callback(QSplashScreen_ChangeEvent_Callback cb) { qsplashscreen_changeevent_callback = cb; }
-    inline void setQSplashScreen_Metric_Callback(QSplashScreen_Metric_Callback cb) { qsplashscreen_metric_callback = cb; }
-    inline void setQSplashScreen_InitPainter_Callback(QSplashScreen_InitPainter_Callback cb) { qsplashscreen_initpainter_callback = cb; }
-    inline void setQSplashScreen_Redirected_Callback(QSplashScreen_Redirected_Callback cb) { qsplashscreen_redirected_callback = cb; }
-    inline void setQSplashScreen_SharedPainter_Callback(QSplashScreen_SharedPainter_Callback cb) { qsplashscreen_sharedpainter_callback = cb; }
-    inline void setQSplashScreen_InputMethodEvent_Callback(QSplashScreen_InputMethodEvent_Callback cb) { qsplashscreen_inputmethodevent_callback = cb; }
-    inline void setQSplashScreen_InputMethodQuery_Callback(QSplashScreen_InputMethodQuery_Callback cb) { qsplashscreen_inputmethodquery_callback = cb; }
-    inline void setQSplashScreen_FocusNextPrevChild_Callback(QSplashScreen_FocusNextPrevChild_Callback cb) { qsplashscreen_focusnextprevchild_callback = cb; }
-    inline void setQSplashScreen_EventFilter_Callback(QSplashScreen_EventFilter_Callback cb) { qsplashscreen_eventfilter_callback = cb; }
-    inline void setQSplashScreen_TimerEvent_Callback(QSplashScreen_TimerEvent_Callback cb) { qsplashscreen_timerevent_callback = cb; }
-    inline void setQSplashScreen_ChildEvent_Callback(QSplashScreen_ChildEvent_Callback cb) { qsplashscreen_childevent_callback = cb; }
-    inline void setQSplashScreen_CustomEvent_Callback(QSplashScreen_CustomEvent_Callback cb) { qsplashscreen_customevent_callback = cb; }
-    inline void setQSplashScreen_ConnectNotify_Callback(QSplashScreen_ConnectNotify_Callback cb) { qsplashscreen_connectnotify_callback = cb; }
-    inline void setQSplashScreen_DisconnectNotify_Callback(QSplashScreen_DisconnectNotify_Callback cb) { qsplashscreen_disconnectnotify_callback = cb; }
-    inline void setQSplashScreen_UpdateMicroFocus_Callback(QSplashScreen_UpdateMicroFocus_Callback cb) { qsplashscreen_updatemicrofocus_callback = cb; }
-    inline void setQSplashScreen_Create_Callback(QSplashScreen_Create_Callback cb) { qsplashscreen_create_callback = cb; }
-    inline void setQSplashScreen_Destroy_Callback(QSplashScreen_Destroy_Callback cb) { qsplashscreen_destroy_callback = cb; }
-    inline void setQSplashScreen_FocusNextChild_Callback(QSplashScreen_FocusNextChild_Callback cb) { qsplashscreen_focusnextchild_callback = cb; }
-    inline void setQSplashScreen_FocusPreviousChild_Callback(QSplashScreen_FocusPreviousChild_Callback cb) { qsplashscreen_focuspreviouschild_callback = cb; }
-    inline void setQSplashScreen_Sender_Callback(QSplashScreen_Sender_Callback cb) { qsplashscreen_sender_callback = cb; }
-    inline void setQSplashScreen_SenderSignalIndex_Callback(QSplashScreen_SenderSignalIndex_Callback cb) { qsplashscreen_sendersignalindex_callback = cb; }
-    inline void setQSplashScreen_Receivers_Callback(QSplashScreen_Receivers_Callback cb) { qsplashscreen_receivers_callback = cb; }
-    inline void setQSplashScreen_IsSignalConnected_Callback(QSplashScreen_IsSignalConnected_Callback cb) { qsplashscreen_issignalconnected_callback = cb; }
-    inline void setQSplashScreen_GetDecodedMetricF_Callback(QSplashScreen_GetDecodedMetricF_Callback cb) { qsplashscreen_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQSplashScreen_MetaObject_IsBase(bool value) const { qsplashscreen_metaobject_isbase = value; }
-    inline void setQSplashScreen_Metacast_IsBase(bool value) const { qsplashscreen_metacast_isbase = value; }
-    inline void setQSplashScreen_Metacall_IsBase(bool value) const { qsplashscreen_metacall_isbase = value; }
-    inline void setQSplashScreen_Event_IsBase(bool value) const { qsplashscreen_event_isbase = value; }
-    inline void setQSplashScreen_DrawContents_IsBase(bool value) const { qsplashscreen_drawcontents_isbase = value; }
-    inline void setQSplashScreen_MousePressEvent_IsBase(bool value) const { qsplashscreen_mousepressevent_isbase = value; }
-    inline void setQSplashScreen_DevType_IsBase(bool value) const { qsplashscreen_devtype_isbase = value; }
-    inline void setQSplashScreen_SetVisible_IsBase(bool value) const { qsplashscreen_setvisible_isbase = value; }
-    inline void setQSplashScreen_SizeHint_IsBase(bool value) const { qsplashscreen_sizehint_isbase = value; }
-    inline void setQSplashScreen_MinimumSizeHint_IsBase(bool value) const { qsplashscreen_minimumsizehint_isbase = value; }
-    inline void setQSplashScreen_HeightForWidth_IsBase(bool value) const { qsplashscreen_heightforwidth_isbase = value; }
-    inline void setQSplashScreen_HasHeightForWidth_IsBase(bool value) const { qsplashscreen_hasheightforwidth_isbase = value; }
-    inline void setQSplashScreen_PaintEngine_IsBase(bool value) const { qsplashscreen_paintengine_isbase = value; }
-    inline void setQSplashScreen_MouseReleaseEvent_IsBase(bool value) const { qsplashscreen_mousereleaseevent_isbase = value; }
-    inline void setQSplashScreen_MouseDoubleClickEvent_IsBase(bool value) const { qsplashscreen_mousedoubleclickevent_isbase = value; }
-    inline void setQSplashScreen_MouseMoveEvent_IsBase(bool value) const { qsplashscreen_mousemoveevent_isbase = value; }
-    inline void setQSplashScreen_WheelEvent_IsBase(bool value) const { qsplashscreen_wheelevent_isbase = value; }
-    inline void setQSplashScreen_KeyPressEvent_IsBase(bool value) const { qsplashscreen_keypressevent_isbase = value; }
-    inline void setQSplashScreen_KeyReleaseEvent_IsBase(bool value) const { qsplashscreen_keyreleaseevent_isbase = value; }
-    inline void setQSplashScreen_FocusInEvent_IsBase(bool value) const { qsplashscreen_focusinevent_isbase = value; }
-    inline void setQSplashScreen_FocusOutEvent_IsBase(bool value) const { qsplashscreen_focusoutevent_isbase = value; }
-    inline void setQSplashScreen_EnterEvent_IsBase(bool value) const { qsplashscreen_enterevent_isbase = value; }
-    inline void setQSplashScreen_LeaveEvent_IsBase(bool value) const { qsplashscreen_leaveevent_isbase = value; }
-    inline void setQSplashScreen_PaintEvent_IsBase(bool value) const { qsplashscreen_paintevent_isbase = value; }
-    inline void setQSplashScreen_MoveEvent_IsBase(bool value) const { qsplashscreen_moveevent_isbase = value; }
-    inline void setQSplashScreen_ResizeEvent_IsBase(bool value) const { qsplashscreen_resizeevent_isbase = value; }
-    inline void setQSplashScreen_CloseEvent_IsBase(bool value) const { qsplashscreen_closeevent_isbase = value; }
-    inline void setQSplashScreen_ContextMenuEvent_IsBase(bool value) const { qsplashscreen_contextmenuevent_isbase = value; }
-    inline void setQSplashScreen_TabletEvent_IsBase(bool value) const { qsplashscreen_tabletevent_isbase = value; }
-    inline void setQSplashScreen_ActionEvent_IsBase(bool value) const { qsplashscreen_actionevent_isbase = value; }
-    inline void setQSplashScreen_DragEnterEvent_IsBase(bool value) const { qsplashscreen_dragenterevent_isbase = value; }
-    inline void setQSplashScreen_DragMoveEvent_IsBase(bool value) const { qsplashscreen_dragmoveevent_isbase = value; }
-    inline void setQSplashScreen_DragLeaveEvent_IsBase(bool value) const { qsplashscreen_dragleaveevent_isbase = value; }
-    inline void setQSplashScreen_DropEvent_IsBase(bool value) const { qsplashscreen_dropevent_isbase = value; }
-    inline void setQSplashScreen_ShowEvent_IsBase(bool value) const { qsplashscreen_showevent_isbase = value; }
-    inline void setQSplashScreen_HideEvent_IsBase(bool value) const { qsplashscreen_hideevent_isbase = value; }
-    inline void setQSplashScreen_NativeEvent_IsBase(bool value) const { qsplashscreen_nativeevent_isbase = value; }
-    inline void setQSplashScreen_ChangeEvent_IsBase(bool value) const { qsplashscreen_changeevent_isbase = value; }
-    inline void setQSplashScreen_Metric_IsBase(bool value) const { qsplashscreen_metric_isbase = value; }
-    inline void setQSplashScreen_InitPainter_IsBase(bool value) const { qsplashscreen_initpainter_isbase = value; }
-    inline void setQSplashScreen_Redirected_IsBase(bool value) const { qsplashscreen_redirected_isbase = value; }
-    inline void setQSplashScreen_SharedPainter_IsBase(bool value) const { qsplashscreen_sharedpainter_isbase = value; }
-    inline void setQSplashScreen_InputMethodEvent_IsBase(bool value) const { qsplashscreen_inputmethodevent_isbase = value; }
-    inline void setQSplashScreen_InputMethodQuery_IsBase(bool value) const { qsplashscreen_inputmethodquery_isbase = value; }
-    inline void setQSplashScreen_FocusNextPrevChild_IsBase(bool value) const { qsplashscreen_focusnextprevchild_isbase = value; }
-    inline void setQSplashScreen_EventFilter_IsBase(bool value) const { qsplashscreen_eventfilter_isbase = value; }
-    inline void setQSplashScreen_TimerEvent_IsBase(bool value) const { qsplashscreen_timerevent_isbase = value; }
-    inline void setQSplashScreen_ChildEvent_IsBase(bool value) const { qsplashscreen_childevent_isbase = value; }
-    inline void setQSplashScreen_CustomEvent_IsBase(bool value) const { qsplashscreen_customevent_isbase = value; }
-    inline void setQSplashScreen_ConnectNotify_IsBase(bool value) const { qsplashscreen_connectnotify_isbase = value; }
-    inline void setQSplashScreen_DisconnectNotify_IsBase(bool value) const { qsplashscreen_disconnectnotify_isbase = value; }
-    inline void setQSplashScreen_UpdateMicroFocus_IsBase(bool value) const { qsplashscreen_updatemicrofocus_isbase = value; }
-    inline void setQSplashScreen_Create_IsBase(bool value) const { qsplashscreen_create_isbase = value; }
-    inline void setQSplashScreen_Destroy_IsBase(bool value) const { qsplashscreen_destroy_isbase = value; }
-    inline void setQSplashScreen_FocusNextChild_IsBase(bool value) const { qsplashscreen_focusnextchild_isbase = value; }
-    inline void setQSplashScreen_FocusPreviousChild_IsBase(bool value) const { qsplashscreen_focuspreviouschild_isbase = value; }
-    inline void setQSplashScreen_Sender_IsBase(bool value) const { qsplashscreen_sender_isbase = value; }
-    inline void setQSplashScreen_SenderSignalIndex_IsBase(bool value) const { qsplashscreen_sendersignalindex_isbase = value; }
-    inline void setQSplashScreen_Receivers_IsBase(bool value) const { qsplashscreen_receivers_isbase = value; }
-    inline void setQSplashScreen_IsSignalConnected_IsBase(bool value) const { qsplashscreen_issignalconnected_isbase = value; }
-    inline void setQSplashScreen_GetDecodedMetricF_IsBase(bool value) const { qsplashscreen_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qsplashscreen_metaobject_isbase) {
-            qsplashscreen_metaobject_isbase = false;
-            return QSplashScreen::metaObject();
-        }
-        auto metaobject_cb = qsplashscreen_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qsplashscreen_metaobject_callback) {
+            QMetaObject* callback_ret = qsplashscreen_metaobject_callback(this);
             return callback_ret;
         }
         return QSplashScreen::metaObject();
@@ -356,14 +189,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qsplashscreen_metacast_isbase) {
-            qsplashscreen_metacast_isbase = false;
-            return QSplashScreen::qt_metacast(param1);
-        }
-        auto metacast_cb = qsplashscreen_metacast_callback;
-        if (metacast_cb) {
+        if (qsplashscreen_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qsplashscreen_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QSplashScreen::qt_metacast(param1);
@@ -371,16 +199,11 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qsplashscreen_metacall_isbase) {
-            qsplashscreen_metacall_isbase = false;
-            return QSplashScreen::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qsplashscreen_metacall_callback;
-        if (metacall_cb) {
+        if (qsplashscreen_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qsplashscreen_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QSplashScreen::qt_metacall(param1, param2, param3);
@@ -388,14 +211,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* e) override {
-        if (qsplashscreen_event_isbase) {
-            qsplashscreen_event_isbase = false;
-            return QSplashScreen::event(e);
-        }
-        auto event_cb = qsplashscreen_event_callback;
-        if (event_cb) {
+        if (qsplashscreen_event_callback) {
             QEvent* cbval1 = e;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qsplashscreen_event_callback(this, cbval1);
             return callback_ret;
         }
         return QSplashScreen::event(e);
@@ -403,15 +221,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void drawContents(QPainter* painter) override {
-        if (qsplashscreen_drawcontents_isbase) {
-            qsplashscreen_drawcontents_isbase = false;
-            QSplashScreen::drawContents(painter);
-            return;
-        }
-        auto drawcontents_cb = qsplashscreen_drawcontents_callback;
-        if (drawcontents_cb) {
+        if (qsplashscreen_drawcontents_callback) {
             QPainter* cbval1 = painter;
-            drawcontents_cb(this, cbval1);
+            qsplashscreen_drawcontents_callback(this, cbval1);
             return;
         }
         QSplashScreen::drawContents(painter);
@@ -419,15 +231,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* param1) override {
-        if (qsplashscreen_mousepressevent_isbase) {
-            qsplashscreen_mousepressevent_isbase = false;
-            QSplashScreen::mousePressEvent(param1);
-            return;
-        }
-        auto mousepressevent_cb = qsplashscreen_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qsplashscreen_mousepressevent_callback) {
             QMouseEvent* cbval1 = param1;
-            mousepressevent_cb(this, cbval1);
+            qsplashscreen_mousepressevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::mousePressEvent(param1);
@@ -435,13 +241,8 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qsplashscreen_devtype_isbase) {
-            qsplashscreen_devtype_isbase = false;
-            return QSplashScreen::devType();
-        }
-        auto devtype_cb = qsplashscreen_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qsplashscreen_devtype_callback) {
+            int callback_ret = qsplashscreen_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QSplashScreen::devType();
@@ -449,15 +250,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qsplashscreen_setvisible_isbase) {
-            qsplashscreen_setvisible_isbase = false;
-            QSplashScreen::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qsplashscreen_setvisible_callback;
-        if (setvisible_cb) {
+        if (qsplashscreen_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qsplashscreen_setvisible_callback(this, cbval1);
             return;
         }
         QSplashScreen::setVisible(visible);
@@ -465,13 +260,8 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qsplashscreen_sizehint_isbase) {
-            qsplashscreen_sizehint_isbase = false;
-            return QSplashScreen::sizeHint();
-        }
-        auto sizehint_cb = qsplashscreen_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qsplashscreen_sizehint_callback) {
+            QSize* callback_ret = qsplashscreen_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -481,13 +271,8 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qsplashscreen_minimumsizehint_isbase) {
-            qsplashscreen_minimumsizehint_isbase = false;
-            return QSplashScreen::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qsplashscreen_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qsplashscreen_minimumsizehint_callback) {
+            QSize* callback_ret = qsplashscreen_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -497,14 +282,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qsplashscreen_heightforwidth_isbase) {
-            qsplashscreen_heightforwidth_isbase = false;
-            return QSplashScreen::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qsplashscreen_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qsplashscreen_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qsplashscreen_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QSplashScreen::heightForWidth(param1);
@@ -512,13 +292,8 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qsplashscreen_hasheightforwidth_isbase) {
-            qsplashscreen_hasheightforwidth_isbase = false;
-            return QSplashScreen::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qsplashscreen_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qsplashscreen_hasheightforwidth_callback) {
+            bool callback_ret = qsplashscreen_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QSplashScreen::hasHeightForWidth();
@@ -526,13 +301,8 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qsplashscreen_paintengine_isbase) {
-            qsplashscreen_paintengine_isbase = false;
-            return QSplashScreen::paintEngine();
-        }
-        auto paintengine_cb = qsplashscreen_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qsplashscreen_paintengine_callback) {
+            QPaintEngine* callback_ret = qsplashscreen_paintengine_callback(this);
             return callback_ret;
         }
         return QSplashScreen::paintEngine();
@@ -540,15 +310,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qsplashscreen_mousereleaseevent_isbase) {
-            qsplashscreen_mousereleaseevent_isbase = false;
-            QSplashScreen::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qsplashscreen_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qsplashscreen_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qsplashscreen_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::mouseReleaseEvent(event);
@@ -556,15 +320,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qsplashscreen_mousedoubleclickevent_isbase) {
-            qsplashscreen_mousedoubleclickevent_isbase = false;
-            QSplashScreen::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qsplashscreen_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qsplashscreen_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qsplashscreen_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::mouseDoubleClickEvent(event);
@@ -572,15 +330,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qsplashscreen_mousemoveevent_isbase) {
-            qsplashscreen_mousemoveevent_isbase = false;
-            QSplashScreen::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qsplashscreen_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qsplashscreen_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qsplashscreen_mousemoveevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::mouseMoveEvent(event);
@@ -588,15 +340,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qsplashscreen_wheelevent_isbase) {
-            qsplashscreen_wheelevent_isbase = false;
-            QSplashScreen::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qsplashscreen_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qsplashscreen_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qsplashscreen_wheelevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::wheelEvent(event);
@@ -604,15 +350,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qsplashscreen_keypressevent_isbase) {
-            qsplashscreen_keypressevent_isbase = false;
-            QSplashScreen::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qsplashscreen_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qsplashscreen_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qsplashscreen_keypressevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::keyPressEvent(event);
@@ -620,15 +360,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qsplashscreen_keyreleaseevent_isbase) {
-            qsplashscreen_keyreleaseevent_isbase = false;
-            QSplashScreen::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qsplashscreen_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qsplashscreen_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qsplashscreen_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::keyReleaseEvent(event);
@@ -636,15 +370,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qsplashscreen_focusinevent_isbase) {
-            qsplashscreen_focusinevent_isbase = false;
-            QSplashScreen::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qsplashscreen_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qsplashscreen_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qsplashscreen_focusinevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::focusInEvent(event);
@@ -652,15 +380,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qsplashscreen_focusoutevent_isbase) {
-            qsplashscreen_focusoutevent_isbase = false;
-            QSplashScreen::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qsplashscreen_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qsplashscreen_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qsplashscreen_focusoutevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::focusOutEvent(event);
@@ -668,15 +390,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qsplashscreen_enterevent_isbase) {
-            qsplashscreen_enterevent_isbase = false;
-            QSplashScreen::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qsplashscreen_enterevent_callback;
-        if (enterevent_cb) {
+        if (qsplashscreen_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qsplashscreen_enterevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::enterEvent(event);
@@ -684,15 +400,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qsplashscreen_leaveevent_isbase) {
-            qsplashscreen_leaveevent_isbase = false;
-            QSplashScreen::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qsplashscreen_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qsplashscreen_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qsplashscreen_leaveevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::leaveEvent(event);
@@ -700,15 +410,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (qsplashscreen_paintevent_isbase) {
-            qsplashscreen_paintevent_isbase = false;
-            QSplashScreen::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = qsplashscreen_paintevent_callback;
-        if (paintevent_cb) {
+        if (qsplashscreen_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            qsplashscreen_paintevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::paintEvent(event);
@@ -716,15 +420,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qsplashscreen_moveevent_isbase) {
-            qsplashscreen_moveevent_isbase = false;
-            QSplashScreen::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qsplashscreen_moveevent_callback;
-        if (moveevent_cb) {
+        if (qsplashscreen_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qsplashscreen_moveevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::moveEvent(event);
@@ -732,15 +430,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (qsplashscreen_resizeevent_isbase) {
-            qsplashscreen_resizeevent_isbase = false;
-            QSplashScreen::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = qsplashscreen_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qsplashscreen_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            qsplashscreen_resizeevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::resizeEvent(event);
@@ -748,15 +440,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qsplashscreen_closeevent_isbase) {
-            qsplashscreen_closeevent_isbase = false;
-            QSplashScreen::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qsplashscreen_closeevent_callback;
-        if (closeevent_cb) {
+        if (qsplashscreen_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qsplashscreen_closeevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::closeEvent(event);
@@ -764,15 +450,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (qsplashscreen_contextmenuevent_isbase) {
-            qsplashscreen_contextmenuevent_isbase = false;
-            QSplashScreen::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qsplashscreen_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qsplashscreen_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qsplashscreen_contextmenuevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::contextMenuEvent(event);
@@ -780,15 +460,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qsplashscreen_tabletevent_isbase) {
-            qsplashscreen_tabletevent_isbase = false;
-            QSplashScreen::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qsplashscreen_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qsplashscreen_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qsplashscreen_tabletevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::tabletEvent(event);
@@ -796,15 +470,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qsplashscreen_actionevent_isbase) {
-            qsplashscreen_actionevent_isbase = false;
-            QSplashScreen::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qsplashscreen_actionevent_callback;
-        if (actionevent_cb) {
+        if (qsplashscreen_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qsplashscreen_actionevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::actionEvent(event);
@@ -812,15 +480,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qsplashscreen_dragenterevent_isbase) {
-            qsplashscreen_dragenterevent_isbase = false;
-            QSplashScreen::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qsplashscreen_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qsplashscreen_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qsplashscreen_dragenterevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::dragEnterEvent(event);
@@ -828,15 +490,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qsplashscreen_dragmoveevent_isbase) {
-            qsplashscreen_dragmoveevent_isbase = false;
-            QSplashScreen::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qsplashscreen_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qsplashscreen_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qsplashscreen_dragmoveevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::dragMoveEvent(event);
@@ -844,15 +500,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qsplashscreen_dragleaveevent_isbase) {
-            qsplashscreen_dragleaveevent_isbase = false;
-            QSplashScreen::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qsplashscreen_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qsplashscreen_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qsplashscreen_dragleaveevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::dragLeaveEvent(event);
@@ -860,15 +510,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qsplashscreen_dropevent_isbase) {
-            qsplashscreen_dropevent_isbase = false;
-            QSplashScreen::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qsplashscreen_dropevent_callback;
-        if (dropevent_cb) {
+        if (qsplashscreen_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qsplashscreen_dropevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::dropEvent(event);
@@ -876,15 +520,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (qsplashscreen_showevent_isbase) {
-            qsplashscreen_showevent_isbase = false;
-            QSplashScreen::showEvent(event);
-            return;
-        }
-        auto showevent_cb = qsplashscreen_showevent_callback;
-        if (showevent_cb) {
+        if (qsplashscreen_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            qsplashscreen_showevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::showEvent(event);
@@ -892,15 +530,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qsplashscreen_hideevent_isbase) {
-            qsplashscreen_hideevent_isbase = false;
-            QSplashScreen::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qsplashscreen_hideevent_callback;
-        if (hideevent_cb) {
+        if (qsplashscreen_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qsplashscreen_hideevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::hideEvent(event);
@@ -908,12 +540,7 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qsplashscreen_nativeevent_isbase) {
-            qsplashscreen_nativeevent_isbase = false;
-            return QSplashScreen::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qsplashscreen_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qsplashscreen_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -923,7 +550,7 @@ class VirtualQSplashScreen final : public QSplashScreen {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qsplashscreen_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -932,15 +559,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (qsplashscreen_changeevent_isbase) {
-            qsplashscreen_changeevent_isbase = false;
-            QSplashScreen::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = qsplashscreen_changeevent_callback;
-        if (changeevent_cb) {
+        if (qsplashscreen_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            qsplashscreen_changeevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::changeEvent(param1);
@@ -948,14 +569,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qsplashscreen_metric_isbase) {
-            qsplashscreen_metric_isbase = false;
-            return QSplashScreen::metric(param1);
-        }
-        auto metric_cb = qsplashscreen_metric_callback;
-        if (metric_cb) {
+        if (qsplashscreen_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qsplashscreen_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QSplashScreen::metric(param1);
@@ -963,15 +579,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qsplashscreen_initpainter_isbase) {
-            qsplashscreen_initpainter_isbase = false;
-            QSplashScreen::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qsplashscreen_initpainter_callback;
-        if (initpainter_cb) {
+        if (qsplashscreen_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qsplashscreen_initpainter_callback(this, cbval1);
             return;
         }
         QSplashScreen::initPainter(painter);
@@ -979,14 +589,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qsplashscreen_redirected_isbase) {
-            qsplashscreen_redirected_isbase = false;
-            return QSplashScreen::redirected(offset);
-        }
-        auto redirected_cb = qsplashscreen_redirected_callback;
-        if (redirected_cb) {
+        if (qsplashscreen_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qsplashscreen_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QSplashScreen::redirected(offset);
@@ -994,13 +599,8 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qsplashscreen_sharedpainter_isbase) {
-            qsplashscreen_sharedpainter_isbase = false;
-            return QSplashScreen::sharedPainter();
-        }
-        auto sharedpainter_cb = qsplashscreen_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qsplashscreen_sharedpainter_callback) {
+            QPainter* callback_ret = qsplashscreen_sharedpainter_callback(this);
             return callback_ret;
         }
         return QSplashScreen::sharedPainter();
@@ -1008,15 +608,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qsplashscreen_inputmethodevent_isbase) {
-            qsplashscreen_inputmethodevent_isbase = false;
-            QSplashScreen::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qsplashscreen_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qsplashscreen_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qsplashscreen_inputmethodevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::inputMethodEvent(param1);
@@ -1024,14 +618,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qsplashscreen_inputmethodquery_isbase) {
-            qsplashscreen_inputmethodquery_isbase = false;
-            return QSplashScreen::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qsplashscreen_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qsplashscreen_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qsplashscreen_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1041,14 +630,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qsplashscreen_focusnextprevchild_isbase) {
-            qsplashscreen_focusnextprevchild_isbase = false;
-            return QSplashScreen::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qsplashscreen_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qsplashscreen_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qsplashscreen_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QSplashScreen::focusNextPrevChild(next);
@@ -1056,15 +640,10 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qsplashscreen_eventfilter_isbase) {
-            qsplashscreen_eventfilter_isbase = false;
-            return QSplashScreen::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qsplashscreen_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qsplashscreen_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qsplashscreen_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QSplashScreen::eventFilter(watched, event);
@@ -1072,15 +651,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qsplashscreen_timerevent_isbase) {
-            qsplashscreen_timerevent_isbase = false;
-            QSplashScreen::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qsplashscreen_timerevent_callback;
-        if (timerevent_cb) {
+        if (qsplashscreen_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qsplashscreen_timerevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::timerEvent(event);
@@ -1088,15 +661,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qsplashscreen_childevent_isbase) {
-            qsplashscreen_childevent_isbase = false;
-            QSplashScreen::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qsplashscreen_childevent_callback;
-        if (childevent_cb) {
+        if (qsplashscreen_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qsplashscreen_childevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::childEvent(event);
@@ -1104,15 +671,9 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qsplashscreen_customevent_isbase) {
-            qsplashscreen_customevent_isbase = false;
-            QSplashScreen::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qsplashscreen_customevent_callback;
-        if (customevent_cb) {
+        if (qsplashscreen_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qsplashscreen_customevent_callback(this, cbval1);
             return;
         }
         QSplashScreen::customEvent(event);
@@ -1120,17 +681,11 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qsplashscreen_connectnotify_isbase) {
-            qsplashscreen_connectnotify_isbase = false;
-            QSplashScreen::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qsplashscreen_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qsplashscreen_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qsplashscreen_connectnotify_callback(this, cbval1);
             return;
         }
         QSplashScreen::connectNotify(signal);
@@ -1138,270 +693,56 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qsplashscreen_disconnectnotify_isbase) {
-            qsplashscreen_disconnectnotify_isbase = false;
-            QSplashScreen::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qsplashscreen_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qsplashscreen_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qsplashscreen_disconnectnotify_callback(this, cbval1);
             return;
         }
         QSplashScreen::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qsplashscreen_updatemicrofocus_isbase) {
-            qsplashscreen_updatemicrofocus_isbase = false;
-            QSplashScreen::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qsplashscreen_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QSplashScreen::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qsplashscreen_create_isbase) {
-            qsplashscreen_create_isbase = false;
-            QSplashScreen::create();
-            return;
-        }
-        auto create_cb = qsplashscreen_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QSplashScreen::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qsplashscreen_destroy_isbase) {
-            qsplashscreen_destroy_isbase = false;
-            QSplashScreen::destroy();
-            return;
-        }
-        auto destroy_cb = qsplashscreen_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QSplashScreen::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qsplashscreen_focusnextchild_isbase) {
-            qsplashscreen_focusnextchild_isbase = false;
-            return QSplashScreen::focusNextChild();
-        }
-        auto focusnextchild_cb = qsplashscreen_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QSplashScreen::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qsplashscreen_focuspreviouschild_isbase) {
-            qsplashscreen_focuspreviouschild_isbase = false;
-            return QSplashScreen::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qsplashscreen_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QSplashScreen::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qsplashscreen_sender_isbase) {
-            qsplashscreen_sender_isbase = false;
-            return QSplashScreen::sender();
-        }
-        auto sender_cb = qsplashscreen_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QSplashScreen::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qsplashscreen_sendersignalindex_isbase) {
-            qsplashscreen_sendersignalindex_isbase = false;
-            return QSplashScreen::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qsplashscreen_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QSplashScreen::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qsplashscreen_receivers_isbase) {
-            qsplashscreen_receivers_isbase = false;
-            return QSplashScreen::receivers(signal);
-        }
-        auto receivers_cb = qsplashscreen_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QSplashScreen::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qsplashscreen_issignalconnected_isbase) {
-            qsplashscreen_issignalconnected_isbase = false;
-            return QSplashScreen::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qsplashscreen_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QSplashScreen::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qsplashscreen_getdecodedmetricf_isbase) {
-            qsplashscreen_getdecodedmetricf_isbase = false;
-            return QSplashScreen::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qsplashscreen_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QSplashScreen::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool QSplashScreen_Event(QSplashScreen* self, QEvent* e);
     friend bool QSplashScreen_SuperEvent(QSplashScreen* self, QEvent* e);
-    friend void QSplashScreen_DrawContents(QSplashScreen* self, QPainter* painter);
     friend void QSplashScreen_SuperDrawContents(QSplashScreen* self, QPainter* painter);
-    friend void QSplashScreen_MousePressEvent(QSplashScreen* self, QMouseEvent* param1);
     friend void QSplashScreen_SuperMousePressEvent(QSplashScreen* self, QMouseEvent* param1);
-    friend void QSplashScreen_MouseReleaseEvent(QSplashScreen* self, QMouseEvent* event);
     friend void QSplashScreen_SuperMouseReleaseEvent(QSplashScreen* self, QMouseEvent* event);
-    friend void QSplashScreen_MouseDoubleClickEvent(QSplashScreen* self, QMouseEvent* event);
     friend void QSplashScreen_SuperMouseDoubleClickEvent(QSplashScreen* self, QMouseEvent* event);
-    friend void QSplashScreen_MouseMoveEvent(QSplashScreen* self, QMouseEvent* event);
     friend void QSplashScreen_SuperMouseMoveEvent(QSplashScreen* self, QMouseEvent* event);
-    friend void QSplashScreen_WheelEvent(QSplashScreen* self, QWheelEvent* event);
     friend void QSplashScreen_SuperWheelEvent(QSplashScreen* self, QWheelEvent* event);
-    friend void QSplashScreen_KeyPressEvent(QSplashScreen* self, QKeyEvent* event);
     friend void QSplashScreen_SuperKeyPressEvent(QSplashScreen* self, QKeyEvent* event);
-    friend void QSplashScreen_KeyReleaseEvent(QSplashScreen* self, QKeyEvent* event);
     friend void QSplashScreen_SuperKeyReleaseEvent(QSplashScreen* self, QKeyEvent* event);
-    friend void QSplashScreen_FocusInEvent(QSplashScreen* self, QFocusEvent* event);
     friend void QSplashScreen_SuperFocusInEvent(QSplashScreen* self, QFocusEvent* event);
-    friend void QSplashScreen_FocusOutEvent(QSplashScreen* self, QFocusEvent* event);
     friend void QSplashScreen_SuperFocusOutEvent(QSplashScreen* self, QFocusEvent* event);
-    friend void QSplashScreen_EnterEvent(QSplashScreen* self, QEnterEvent* event);
     friend void QSplashScreen_SuperEnterEvent(QSplashScreen* self, QEnterEvent* event);
-    friend void QSplashScreen_LeaveEvent(QSplashScreen* self, QEvent* event);
     friend void QSplashScreen_SuperLeaveEvent(QSplashScreen* self, QEvent* event);
-    friend void QSplashScreen_PaintEvent(QSplashScreen* self, QPaintEvent* event);
     friend void QSplashScreen_SuperPaintEvent(QSplashScreen* self, QPaintEvent* event);
-    friend void QSplashScreen_MoveEvent(QSplashScreen* self, QMoveEvent* event);
     friend void QSplashScreen_SuperMoveEvent(QSplashScreen* self, QMoveEvent* event);
-    friend void QSplashScreen_ResizeEvent(QSplashScreen* self, QResizeEvent* event);
     friend void QSplashScreen_SuperResizeEvent(QSplashScreen* self, QResizeEvent* event);
-    friend void QSplashScreen_CloseEvent(QSplashScreen* self, QCloseEvent* event);
     friend void QSplashScreen_SuperCloseEvent(QSplashScreen* self, QCloseEvent* event);
-    friend void QSplashScreen_ContextMenuEvent(QSplashScreen* self, QContextMenuEvent* event);
     friend void QSplashScreen_SuperContextMenuEvent(QSplashScreen* self, QContextMenuEvent* event);
-    friend void QSplashScreen_TabletEvent(QSplashScreen* self, QTabletEvent* event);
     friend void QSplashScreen_SuperTabletEvent(QSplashScreen* self, QTabletEvent* event);
-    friend void QSplashScreen_ActionEvent(QSplashScreen* self, QActionEvent* event);
     friend void QSplashScreen_SuperActionEvent(QSplashScreen* self, QActionEvent* event);
-    friend void QSplashScreen_DragEnterEvent(QSplashScreen* self, QDragEnterEvent* event);
     friend void QSplashScreen_SuperDragEnterEvent(QSplashScreen* self, QDragEnterEvent* event);
-    friend void QSplashScreen_DragMoveEvent(QSplashScreen* self, QDragMoveEvent* event);
     friend void QSplashScreen_SuperDragMoveEvent(QSplashScreen* self, QDragMoveEvent* event);
-    friend void QSplashScreen_DragLeaveEvent(QSplashScreen* self, QDragLeaveEvent* event);
     friend void QSplashScreen_SuperDragLeaveEvent(QSplashScreen* self, QDragLeaveEvent* event);
-    friend void QSplashScreen_DropEvent(QSplashScreen* self, QDropEvent* event);
     friend void QSplashScreen_SuperDropEvent(QSplashScreen* self, QDropEvent* event);
-    friend void QSplashScreen_ShowEvent(QSplashScreen* self, QShowEvent* event);
     friend void QSplashScreen_SuperShowEvent(QSplashScreen* self, QShowEvent* event);
-    friend void QSplashScreen_HideEvent(QSplashScreen* self, QHideEvent* event);
     friend void QSplashScreen_SuperHideEvent(QSplashScreen* self, QHideEvent* event);
-    friend bool QSplashScreen_NativeEvent(QSplashScreen* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QSplashScreen_SuperNativeEvent(QSplashScreen* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void QSplashScreen_ChangeEvent(QSplashScreen* self, QEvent* param1);
     friend void QSplashScreen_SuperChangeEvent(QSplashScreen* self, QEvent* param1);
-    friend int QSplashScreen_Metric(const QSplashScreen* self, int param1);
     friend int QSplashScreen_SuperMetric(const QSplashScreen* self, int param1);
-    friend void QSplashScreen_InitPainter(const QSplashScreen* self, QPainter* painter);
     friend void QSplashScreen_SuperInitPainter(const QSplashScreen* self, QPainter* painter);
-    friend QPaintDevice* QSplashScreen_Redirected(const QSplashScreen* self, QPoint* offset);
     friend QPaintDevice* QSplashScreen_SuperRedirected(const QSplashScreen* self, QPoint* offset);
-    friend QPainter* QSplashScreen_SharedPainter(const QSplashScreen* self);
     friend QPainter* QSplashScreen_SuperSharedPainter(const QSplashScreen* self);
-    friend void QSplashScreen_InputMethodEvent(QSplashScreen* self, QInputMethodEvent* param1);
     friend void QSplashScreen_SuperInputMethodEvent(QSplashScreen* self, QInputMethodEvent* param1);
-    friend bool QSplashScreen_FocusNextPrevChild(QSplashScreen* self, bool next);
     friend bool QSplashScreen_SuperFocusNextPrevChild(QSplashScreen* self, bool next);
-    friend void QSplashScreen_TimerEvent(QSplashScreen* self, QTimerEvent* event);
     friend void QSplashScreen_SuperTimerEvent(QSplashScreen* self, QTimerEvent* event);
-    friend void QSplashScreen_ChildEvent(QSplashScreen* self, QChildEvent* event);
     friend void QSplashScreen_SuperChildEvent(QSplashScreen* self, QChildEvent* event);
-    friend void QSplashScreen_CustomEvent(QSplashScreen* self, QEvent* event);
     friend void QSplashScreen_SuperCustomEvent(QSplashScreen* self, QEvent* event);
-    friend void QSplashScreen_ConnectNotify(QSplashScreen* self, const QMetaMethod* signal);
     friend void QSplashScreen_SuperConnectNotify(QSplashScreen* self, const QMetaMethod* signal);
-    friend void QSplashScreen_DisconnectNotify(QSplashScreen* self, const QMetaMethod* signal);
     friend void QSplashScreen_SuperDisconnectNotify(QSplashScreen* self, const QMetaMethod* signal);
-    friend void QSplashScreen_UpdateMicroFocus(QSplashScreen* self);
-    friend void QSplashScreen_SuperUpdateMicroFocus(QSplashScreen* self);
-    friend void QSplashScreen_Create(QSplashScreen* self);
-    friend void QSplashScreen_SuperCreate(QSplashScreen* self);
-    friend void QSplashScreen_Destroy(QSplashScreen* self);
-    friend void QSplashScreen_SuperDestroy(QSplashScreen* self);
-    friend bool QSplashScreen_FocusNextChild(QSplashScreen* self);
-    friend bool QSplashScreen_SuperFocusNextChild(QSplashScreen* self);
-    friend bool QSplashScreen_FocusPreviousChild(QSplashScreen* self);
-    friend bool QSplashScreen_SuperFocusPreviousChild(QSplashScreen* self);
-    friend QObject* QSplashScreen_Sender(const QSplashScreen* self);
-    friend QObject* QSplashScreen_SuperSender(const QSplashScreen* self);
-    friend int QSplashScreen_SenderSignalIndex(const QSplashScreen* self);
-    friend int QSplashScreen_SuperSenderSignalIndex(const QSplashScreen* self);
-    friend int QSplashScreen_Receivers(const QSplashScreen* self, const char* signal);
-    friend int QSplashScreen_SuperReceivers(const QSplashScreen* self, const char* signal);
-    friend bool QSplashScreen_IsSignalConnected(const QSplashScreen* self, const QMetaMethod* signal);
-    friend bool QSplashScreen_SuperIsSignalConnected(const QSplashScreen* self, const QMetaMethod* signal);
-    friend double QSplashScreen_GetDecodedMetricF(const QSplashScreen* self, int metricA, int metricB);
-    friend double QSplashScreen_SuperGetDecodedMetricF(const QSplashScreen* self, int metricA, int metricB);
 };
 
 #endif

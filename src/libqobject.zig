@@ -195,9 +195,9 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QObject) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QObject, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QObject, callback: *const fn (QObject) callconv(.c) QMetaObject) void {
         qtc.QObject_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1113,40 +1113,6 @@ pub const QObject = extern struct {
         return .{ .ptr = qtc.QObject_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QObject `
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QObject, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QObject_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QObject `
-    ///
-    pub fn superSender(self: QObject) QObject {
-        return .{ .ptr = qtc.QObject_SuperSender(@ptrCast(self.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1159,40 +1125,6 @@ pub const QObject = extern struct {
     ///
     pub fn senderSignalIndex(self: QObject) i32 {
         return qtc.QObject_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QObject `
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QObject, callback: *const fn () callconv(.c) i32) void {
-        qtc.QObject_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QObject `
-    ///
-    pub fn superSenderSignalIndex(self: QObject) i32 {
-        return qtc.QObject_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1212,43 +1144,6 @@ pub const QObject = extern struct {
         return qtc.QObject_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QObject `
-    ///
-    /// ` callback: *const fn (self: QObject, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QObject, callback: *const fn (QObject, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QObject_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QObject `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QObject, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QObject_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -1264,43 +1159,6 @@ pub const QObject = extern struct {
     pub fn isSignalConnected(self: QObject, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QObject_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QObject `
-    ///
-    /// ` callback: *const fn (self: QObject, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QObject, callback: *const fn (QObject, QMetaMethod) callconv(.c) bool) void {
-        qtc.QObject_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QObject `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QObject, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QObject_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `timerEvent` instead

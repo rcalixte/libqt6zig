@@ -224,13 +224,13 @@ void QGraphicsScene_Invalidate5(QGraphicsScene* self, double x, double y, double
 void QGraphicsScene_Update1(QGraphicsScene* self, const QRectF* rect);
 void QGraphicsScene_Invalidate1(QGraphicsScene* self, const QRectF* rect);
 void QGraphicsScene_Invalidate22(QGraphicsScene* self, const QRectF* rect, int layers);
-void QGraphicsScene_OnMetaObject(const QGraphicsScene* self, intptr_t slot);
+void QGraphicsScene_OnMetaObject(QGraphicsScene* self, intptr_t slot);
 QMetaObject* QGraphicsScene_SuperMetaObject(const QGraphicsScene* self);
 void QGraphicsScene_OnMetacast(QGraphicsScene* self, intptr_t slot);
 void* QGraphicsScene_SuperMetacast(QGraphicsScene* self, const char* param1);
 void QGraphicsScene_OnMetacall(QGraphicsScene* self, intptr_t slot);
 int QGraphicsScene_SuperMetacall(QGraphicsScene* self, int param1, int param2, void** param3);
-void QGraphicsScene_OnInputMethodQuery(const QGraphicsScene* self, intptr_t slot);
+void QGraphicsScene_OnInputMethodQuery(QGraphicsScene* self, intptr_t slot);
 QVariant* QGraphicsScene_SuperInputMethodQuery(const QGraphicsScene* self, int query);
 void QGraphicsScene_OnEvent(QGraphicsScene* self, intptr_t slot);
 bool QGraphicsScene_SuperEvent(QGraphicsScene* self, QEvent* event);
@@ -292,17 +292,9 @@ void QGraphicsScene_DisconnectNotify(QGraphicsScene* self, const QMetaMethod* si
 void QGraphicsScene_OnDisconnectNotify(QGraphicsScene* self, intptr_t slot);
 void QGraphicsScene_SuperDisconnectNotify(QGraphicsScene* self, const QMetaMethod* signal);
 QObject* QGraphicsScene_Sender(const QGraphicsScene* self);
-void QGraphicsScene_OnSender(const QGraphicsScene* self, intptr_t slot);
-QObject* QGraphicsScene_SuperSender(const QGraphicsScene* self);
 int QGraphicsScene_SenderSignalIndex(const QGraphicsScene* self);
-void QGraphicsScene_OnSenderSignalIndex(const QGraphicsScene* self, intptr_t slot);
-int QGraphicsScene_SuperSenderSignalIndex(const QGraphicsScene* self);
 int QGraphicsScene_Receivers(const QGraphicsScene* self, const char* signal);
-void QGraphicsScene_OnReceivers(const QGraphicsScene* self, intptr_t slot);
-int QGraphicsScene_SuperReceivers(const QGraphicsScene* self, const char* signal);
 bool QGraphicsScene_IsSignalConnected(const QGraphicsScene* self, const QMetaMethod* signal);
-void QGraphicsScene_OnIsSignalConnected(const QGraphicsScene* self, intptr_t slot);
-bool QGraphicsScene_SuperIsSignalConnected(const QGraphicsScene* self, const QMetaMethod* signal);
 void QGraphicsScene_Delete(QGraphicsScene* self);
 
 #ifdef __cplusplus

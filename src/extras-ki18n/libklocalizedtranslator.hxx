@@ -9,19 +9,15 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KLocalizedTranslator so that we can call protected methods
+// This class is a subclass of KLocalizedTranslator
 class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKLocalizedTranslator = true;
-
-    // Virtual class public types (including callbacks)
-    using KLocalizedTranslator_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KLocalizedTranslator_MetaObject_Callback = QMetaObject* (*)(const KLocalizedTranslator*);
     using KLocalizedTranslator_Metacast_Callback = void* (*)(KLocalizedTranslator*, const char*);
     using KLocalizedTranslator_Metacall_Callback = int (*)(KLocalizedTranslator*, int, int, void**);
     using KLocalizedTranslator_Translate_Callback = const char* (*)(const KLocalizedTranslator*, const char*, const char*, const char*, int);
-    using KLocalizedTranslator_IsEmpty_Callback = bool (*)();
+    using KLocalizedTranslator_IsEmpty_Callback = bool (*)(const KLocalizedTranslator*);
     using KLocalizedTranslator_Event_Callback = bool (*)(KLocalizedTranslator*, QEvent*);
     using KLocalizedTranslator_EventFilter_Callback = bool (*)(KLocalizedTranslator*, QObject*, QEvent*);
     using KLocalizedTranslator_TimerEvent_Callback = void (*)(KLocalizedTranslator*, QTimerEvent*);
@@ -29,12 +25,11 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
     using KLocalizedTranslator_CustomEvent_Callback = void (*)(KLocalizedTranslator*, QEvent*);
     using KLocalizedTranslator_ConnectNotify_Callback = void (*)(KLocalizedTranslator*, QMetaMethod*);
     using KLocalizedTranslator_DisconnectNotify_Callback = void (*)(KLocalizedTranslator*, QMetaMethod*);
-    using KLocalizedTranslator_Sender_Callback = QObject* (*)();
-    using KLocalizedTranslator_SenderSignalIndex_Callback = int (*)();
-    using KLocalizedTranslator_Receivers_Callback = int (*)(const KLocalizedTranslator*, const char*);
-    using KLocalizedTranslator_IsSignalConnected_Callback = bool (*)(const KLocalizedTranslator*, QMetaMethod*);
+    using KLocalizedTranslator::isSignalConnected;
+    using KLocalizedTranslator::receivers;
+    using KLocalizedTranslator::sender;
+    using KLocalizedTranslator::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KLocalizedTranslator_MetaObject_Callback klocalizedtranslator_metaobject_callback = nullptr;
     KLocalizedTranslator_Metacast_Callback klocalizedtranslator_metacast_callback = nullptr;
@@ -48,78 +43,23 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
     KLocalizedTranslator_CustomEvent_Callback klocalizedtranslator_customevent_callback = nullptr;
     KLocalizedTranslator_ConnectNotify_Callback klocalizedtranslator_connectnotify_callback = nullptr;
     KLocalizedTranslator_DisconnectNotify_Callback klocalizedtranslator_disconnectnotify_callback = nullptr;
-    KLocalizedTranslator_Sender_Callback klocalizedtranslator_sender_callback = nullptr;
-    KLocalizedTranslator_SenderSignalIndex_Callback klocalizedtranslator_sendersignalindex_callback = nullptr;
-    KLocalizedTranslator_Receivers_Callback klocalizedtranslator_receivers_callback = nullptr;
-    KLocalizedTranslator_IsSignalConnected_Callback klocalizedtranslator_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool klocalizedtranslator_metaobject_isbase = false;
-    mutable bool klocalizedtranslator_metacast_isbase = false;
-    mutable bool klocalizedtranslator_metacall_isbase = false;
-    mutable bool klocalizedtranslator_translate_isbase = false;
-    mutable bool klocalizedtranslator_isempty_isbase = false;
-    mutable bool klocalizedtranslator_event_isbase = false;
-    mutable bool klocalizedtranslator_eventfilter_isbase = false;
-    mutable bool klocalizedtranslator_timerevent_isbase = false;
-    mutable bool klocalizedtranslator_childevent_isbase = false;
-    mutable bool klocalizedtranslator_customevent_isbase = false;
-    mutable bool klocalizedtranslator_connectnotify_isbase = false;
-    mutable bool klocalizedtranslator_disconnectnotify_isbase = false;
-    mutable bool klocalizedtranslator_sender_isbase = false;
-    mutable bool klocalizedtranslator_sendersignalindex_isbase = false;
-    mutable bool klocalizedtranslator_receivers_isbase = false;
-    mutable bool klocalizedtranslator_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KLocalizedTranslator {
+        using KLocalizedTranslator::childEvent;
+        using KLocalizedTranslator::connectNotify;
+        using KLocalizedTranslator::customEvent;
+        using KLocalizedTranslator::disconnectNotify;
+        using KLocalizedTranslator::timerEvent;
+    };
 
-  public:
     VirtualKLocalizedTranslator() : KLocalizedTranslator() {};
     VirtualKLocalizedTranslator(QObject* parent) : KLocalizedTranslator(parent) {};
 
-    // Callback setters
-    inline void setKLocalizedTranslator_MetaObject_Callback(KLocalizedTranslator_MetaObject_Callback cb) { klocalizedtranslator_metaobject_callback = cb; }
-    inline void setKLocalizedTranslator_Metacast_Callback(KLocalizedTranslator_Metacast_Callback cb) { klocalizedtranslator_metacast_callback = cb; }
-    inline void setKLocalizedTranslator_Metacall_Callback(KLocalizedTranslator_Metacall_Callback cb) { klocalizedtranslator_metacall_callback = cb; }
-    inline void setKLocalizedTranslator_Translate_Callback(KLocalizedTranslator_Translate_Callback cb) { klocalizedtranslator_translate_callback = cb; }
-    inline void setKLocalizedTranslator_IsEmpty_Callback(KLocalizedTranslator_IsEmpty_Callback cb) { klocalizedtranslator_isempty_callback = cb; }
-    inline void setKLocalizedTranslator_Event_Callback(KLocalizedTranslator_Event_Callback cb) { klocalizedtranslator_event_callback = cb; }
-    inline void setKLocalizedTranslator_EventFilter_Callback(KLocalizedTranslator_EventFilter_Callback cb) { klocalizedtranslator_eventfilter_callback = cb; }
-    inline void setKLocalizedTranslator_TimerEvent_Callback(KLocalizedTranslator_TimerEvent_Callback cb) { klocalizedtranslator_timerevent_callback = cb; }
-    inline void setKLocalizedTranslator_ChildEvent_Callback(KLocalizedTranslator_ChildEvent_Callback cb) { klocalizedtranslator_childevent_callback = cb; }
-    inline void setKLocalizedTranslator_CustomEvent_Callback(KLocalizedTranslator_CustomEvent_Callback cb) { klocalizedtranslator_customevent_callback = cb; }
-    inline void setKLocalizedTranslator_ConnectNotify_Callback(KLocalizedTranslator_ConnectNotify_Callback cb) { klocalizedtranslator_connectnotify_callback = cb; }
-    inline void setKLocalizedTranslator_DisconnectNotify_Callback(KLocalizedTranslator_DisconnectNotify_Callback cb) { klocalizedtranslator_disconnectnotify_callback = cb; }
-    inline void setKLocalizedTranslator_Sender_Callback(KLocalizedTranslator_Sender_Callback cb) { klocalizedtranslator_sender_callback = cb; }
-    inline void setKLocalizedTranslator_SenderSignalIndex_Callback(KLocalizedTranslator_SenderSignalIndex_Callback cb) { klocalizedtranslator_sendersignalindex_callback = cb; }
-    inline void setKLocalizedTranslator_Receivers_Callback(KLocalizedTranslator_Receivers_Callback cb) { klocalizedtranslator_receivers_callback = cb; }
-    inline void setKLocalizedTranslator_IsSignalConnected_Callback(KLocalizedTranslator_IsSignalConnected_Callback cb) { klocalizedtranslator_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKLocalizedTranslator_MetaObject_IsBase(bool value) const { klocalizedtranslator_metaobject_isbase = value; }
-    inline void setKLocalizedTranslator_Metacast_IsBase(bool value) const { klocalizedtranslator_metacast_isbase = value; }
-    inline void setKLocalizedTranslator_Metacall_IsBase(bool value) const { klocalizedtranslator_metacall_isbase = value; }
-    inline void setKLocalizedTranslator_Translate_IsBase(bool value) const { klocalizedtranslator_translate_isbase = value; }
-    inline void setKLocalizedTranslator_IsEmpty_IsBase(bool value) const { klocalizedtranslator_isempty_isbase = value; }
-    inline void setKLocalizedTranslator_Event_IsBase(bool value) const { klocalizedtranslator_event_isbase = value; }
-    inline void setKLocalizedTranslator_EventFilter_IsBase(bool value) const { klocalizedtranslator_eventfilter_isbase = value; }
-    inline void setKLocalizedTranslator_TimerEvent_IsBase(bool value) const { klocalizedtranslator_timerevent_isbase = value; }
-    inline void setKLocalizedTranslator_ChildEvent_IsBase(bool value) const { klocalizedtranslator_childevent_isbase = value; }
-    inline void setKLocalizedTranslator_CustomEvent_IsBase(bool value) const { klocalizedtranslator_customevent_isbase = value; }
-    inline void setKLocalizedTranslator_ConnectNotify_IsBase(bool value) const { klocalizedtranslator_connectnotify_isbase = value; }
-    inline void setKLocalizedTranslator_DisconnectNotify_IsBase(bool value) const { klocalizedtranslator_disconnectnotify_isbase = value; }
-    inline void setKLocalizedTranslator_Sender_IsBase(bool value) const { klocalizedtranslator_sender_isbase = value; }
-    inline void setKLocalizedTranslator_SenderSignalIndex_IsBase(bool value) const { klocalizedtranslator_sendersignalindex_isbase = value; }
-    inline void setKLocalizedTranslator_Receivers_IsBase(bool value) const { klocalizedtranslator_receivers_isbase = value; }
-    inline void setKLocalizedTranslator_IsSignalConnected_IsBase(bool value) const { klocalizedtranslator_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (klocalizedtranslator_metaobject_isbase) {
-            klocalizedtranslator_metaobject_isbase = false;
-            return KLocalizedTranslator::metaObject();
-        }
-        auto metaobject_cb = klocalizedtranslator_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (klocalizedtranslator_metaobject_callback) {
+            QMetaObject* callback_ret = klocalizedtranslator_metaobject_callback(this);
             return callback_ret;
         }
         return KLocalizedTranslator::metaObject();
@@ -127,14 +67,9 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (klocalizedtranslator_metacast_isbase) {
-            klocalizedtranslator_metacast_isbase = false;
-            return KLocalizedTranslator::qt_metacast(param1);
-        }
-        auto metacast_cb = klocalizedtranslator_metacast_callback;
-        if (metacast_cb) {
+        if (klocalizedtranslator_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = klocalizedtranslator_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KLocalizedTranslator::qt_metacast(param1);
@@ -142,16 +77,11 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (klocalizedtranslator_metacall_isbase) {
-            klocalizedtranslator_metacall_isbase = false;
-            return KLocalizedTranslator::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = klocalizedtranslator_metacall_callback;
-        if (metacall_cb) {
+        if (klocalizedtranslator_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = klocalizedtranslator_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KLocalizedTranslator::qt_metacall(param1, param2, param3);
@@ -159,17 +89,12 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
 
     // Virtual method for C ABI access and custom callback
     virtual QString translate(const char* context, const char* sourceText, const char* disambiguation, int n) const override {
-        if (klocalizedtranslator_translate_isbase) {
-            klocalizedtranslator_translate_isbase = false;
-            return KLocalizedTranslator::translate(context, sourceText, disambiguation, n);
-        }
-        auto translate_cb = klocalizedtranslator_translate_callback;
-        if (translate_cb) {
+        if (klocalizedtranslator_translate_callback) {
             const char* cbval1 = (const char*)context;
             const char* cbval2 = (const char*)sourceText;
             const char* cbval3 = (const char*)disambiguation;
             int cbval4 = n;
-            const char* callback_ret = translate_cb(this, cbval1, cbval2, cbval3, cbval4);
+            const char* callback_ret = klocalizedtranslator_translate_callback(this, cbval1, cbval2, cbval3, cbval4);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -178,13 +103,8 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
 
     // Virtual method for C ABI access and custom callback
     virtual bool isEmpty() const override {
-        if (klocalizedtranslator_isempty_isbase) {
-            klocalizedtranslator_isempty_isbase = false;
-            return KLocalizedTranslator::isEmpty();
-        }
-        auto isempty_cb = klocalizedtranslator_isempty_callback;
-        if (isempty_cb) {
-            bool callback_ret = isempty_cb();
+        if (klocalizedtranslator_isempty_callback) {
+            bool callback_ret = klocalizedtranslator_isempty_callback(this);
             return callback_ret;
         }
         return KLocalizedTranslator::isEmpty();
@@ -192,14 +112,9 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (klocalizedtranslator_event_isbase) {
-            klocalizedtranslator_event_isbase = false;
-            return KLocalizedTranslator::event(event);
-        }
-        auto event_cb = klocalizedtranslator_event_callback;
-        if (event_cb) {
+        if (klocalizedtranslator_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = klocalizedtranslator_event_callback(this, cbval1);
             return callback_ret;
         }
         return KLocalizedTranslator::event(event);
@@ -207,15 +122,10 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (klocalizedtranslator_eventfilter_isbase) {
-            klocalizedtranslator_eventfilter_isbase = false;
-            return KLocalizedTranslator::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = klocalizedtranslator_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (klocalizedtranslator_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = klocalizedtranslator_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KLocalizedTranslator::eventFilter(watched, event);
@@ -223,15 +133,9 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (klocalizedtranslator_timerevent_isbase) {
-            klocalizedtranslator_timerevent_isbase = false;
-            KLocalizedTranslator::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = klocalizedtranslator_timerevent_callback;
-        if (timerevent_cb) {
+        if (klocalizedtranslator_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            klocalizedtranslator_timerevent_callback(this, cbval1);
             return;
         }
         KLocalizedTranslator::timerEvent(event);
@@ -239,15 +143,9 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (klocalizedtranslator_childevent_isbase) {
-            klocalizedtranslator_childevent_isbase = false;
-            KLocalizedTranslator::childEvent(event);
-            return;
-        }
-        auto childevent_cb = klocalizedtranslator_childevent_callback;
-        if (childevent_cb) {
+        if (klocalizedtranslator_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            klocalizedtranslator_childevent_callback(this, cbval1);
             return;
         }
         KLocalizedTranslator::childEvent(event);
@@ -255,15 +153,9 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (klocalizedtranslator_customevent_isbase) {
-            klocalizedtranslator_customevent_isbase = false;
-            KLocalizedTranslator::customEvent(event);
-            return;
-        }
-        auto customevent_cb = klocalizedtranslator_customevent_callback;
-        if (customevent_cb) {
+        if (klocalizedtranslator_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            klocalizedtranslator_customevent_callback(this, cbval1);
             return;
         }
         KLocalizedTranslator::customEvent(event);
@@ -271,17 +163,11 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (klocalizedtranslator_connectnotify_isbase) {
-            klocalizedtranslator_connectnotify_isbase = false;
-            KLocalizedTranslator::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = klocalizedtranslator_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (klocalizedtranslator_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            klocalizedtranslator_connectnotify_callback(this, cbval1);
             return;
         }
         KLocalizedTranslator::connectNotify(signal);
@@ -289,101 +175,22 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (klocalizedtranslator_disconnectnotify_isbase) {
-            klocalizedtranslator_disconnectnotify_isbase = false;
-            KLocalizedTranslator::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = klocalizedtranslator_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (klocalizedtranslator_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            klocalizedtranslator_disconnectnotify_callback(this, cbval1);
             return;
         }
         KLocalizedTranslator::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (klocalizedtranslator_sender_isbase) {
-            klocalizedtranslator_sender_isbase = false;
-            return KLocalizedTranslator::sender();
-        }
-        auto sender_cb = klocalizedtranslator_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KLocalizedTranslator::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (klocalizedtranslator_sendersignalindex_isbase) {
-            klocalizedtranslator_sendersignalindex_isbase = false;
-            return KLocalizedTranslator::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = klocalizedtranslator_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KLocalizedTranslator::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (klocalizedtranslator_receivers_isbase) {
-            klocalizedtranslator_receivers_isbase = false;
-            return KLocalizedTranslator::receivers(signal);
-        }
-        auto receivers_cb = klocalizedtranslator_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KLocalizedTranslator::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (klocalizedtranslator_issignalconnected_isbase) {
-            klocalizedtranslator_issignalconnected_isbase = false;
-            return KLocalizedTranslator::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = klocalizedtranslator_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KLocalizedTranslator::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KLocalizedTranslator_TimerEvent(KLocalizedTranslator* self, QTimerEvent* event);
     friend void KLocalizedTranslator_SuperTimerEvent(KLocalizedTranslator* self, QTimerEvent* event);
-    friend void KLocalizedTranslator_ChildEvent(KLocalizedTranslator* self, QChildEvent* event);
     friend void KLocalizedTranslator_SuperChildEvent(KLocalizedTranslator* self, QChildEvent* event);
-    friend void KLocalizedTranslator_CustomEvent(KLocalizedTranslator* self, QEvent* event);
     friend void KLocalizedTranslator_SuperCustomEvent(KLocalizedTranslator* self, QEvent* event);
-    friend void KLocalizedTranslator_ConnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal);
     friend void KLocalizedTranslator_SuperConnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal);
-    friend void KLocalizedTranslator_DisconnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal);
     friend void KLocalizedTranslator_SuperDisconnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal);
-    friend QObject* KLocalizedTranslator_Sender(const KLocalizedTranslator* self);
-    friend QObject* KLocalizedTranslator_SuperSender(const KLocalizedTranslator* self);
-    friend int KLocalizedTranslator_SenderSignalIndex(const KLocalizedTranslator* self);
-    friend int KLocalizedTranslator_SuperSenderSignalIndex(const KLocalizedTranslator* self);
-    friend int KLocalizedTranslator_Receivers(const KLocalizedTranslator* self, const char* signal);
-    friend int KLocalizedTranslator_SuperReceivers(const KLocalizedTranslator* self, const char* signal);
-    friend bool KLocalizedTranslator_IsSignalConnected(const KLocalizedTranslator* self, const QMetaMethod* signal);
-    friend bool KLocalizedTranslator_SuperIsSignalConnected(const KLocalizedTranslator* self, const QMetaMethod* signal);
 };
 
 #endif

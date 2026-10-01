@@ -706,9 +706,9 @@ pub const KParts__PartBase = extern struct {
     ///
     /// ` self: KParts__PartBase`
     ///
-    /// ` callback: *const fn () callconv(.c) KActionCollection `
+    /// ` callback: *const fn (self: KParts__PartBase) callconv(.c) KActionCollection `
     ///
-    pub fn onActionCollection(self: KParts__PartBase, callback: *const fn () callconv(.c) KActionCollection) void {
+    pub fn onActionCollection(self: KParts__PartBase, callback: *const fn (KParts__PartBase) callconv(.c) KActionCollection) void {
         qtc.KParts__PartBase_OnActionCollection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -774,9 +774,9 @@ pub const KParts__PartBase = extern struct {
     ///
     /// ` self: KParts__PartBase`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KParts__PartBase) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onComponentName(self: KParts__PartBase, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onComponentName(self: KParts__PartBase, callback: *const fn (KParts__PartBase) callconv(.c) [*:0]const u8) void {
         qtc.KParts__PartBase_OnComponentName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -830,11 +830,11 @@ pub const KParts__PartBase = extern struct {
     ///
     /// ` self: KParts__PartBase`
     ///
-    /// ` callback: *const fn () callconv(.c) QDomDocument `
+    /// ` callback: *const fn (self: KParts__PartBase) callconv(.c) QDomDocument `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onDomDocument(self: KParts__PartBase, callback: *const fn () callconv(.c) QDomDocument) void {
+    pub fn onDomDocument(self: KParts__PartBase, callback: *const fn (KParts__PartBase) callconv(.c) QDomDocument) void {
         qtc.KParts__PartBase_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -900,9 +900,9 @@ pub const KParts__PartBase = extern struct {
     ///
     /// ` self: KParts__PartBase`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KParts__PartBase) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onXmlFile(self: KParts__PartBase, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onXmlFile(self: KParts__PartBase, callback: *const fn (KParts__PartBase) callconv(.c) [*:0]const u8) void {
         qtc.KParts__PartBase_OnXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -968,9 +968,9 @@ pub const KParts__PartBase = extern struct {
     ///
     /// ` self: KParts__PartBase`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KParts__PartBase) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onLocalXMLFile(self: KParts__PartBase, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onLocalXMLFile(self: KParts__PartBase, callback: *const fn (KParts__PartBase) callconv(.c) [*:0]const u8) void {
         qtc.KParts__PartBase_OnLocalXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1432,50 +1432,6 @@ pub const KParts__PartBase = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superStandardsXmlFileLocation` instead
-    ///
-    pub const SuperStandardsXmlFileLocation = superStandardsXmlFileLocation;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__PartBase `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superStandardsXmlFileLocation(self: KParts__PartBase, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__PartBase_SuperStandardsXmlFileLocation(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__PartBase.standardsXmlFileLocation: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onStandardsXmlFileLocation` instead
-    ///
-    pub const OnStandardsXmlFileLocation = onStandardsXmlFileLocation;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__PartBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onStandardsXmlFileLocation(self: KParts__PartBase, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__PartBase_OnStandardsXmlFileLocation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `loadStandardsXmlFile` instead
     ///
     pub const LoadStandardsXmlFile = loadStandardsXmlFile;
@@ -1492,44 +1448,6 @@ pub const KParts__PartBase = extern struct {
     ///
     pub fn loadStandardsXmlFile(self: KParts__PartBase) void {
         qtc.KParts__PartBase_LoadStandardsXmlFile(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superLoadStandardsXmlFile` instead
-    ///
-    pub const SuperLoadStandardsXmlFile = superLoadStandardsXmlFile;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__PartBase `
-    ///
-    pub fn superLoadStandardsXmlFile(self: KParts__PartBase) void {
-        qtc.KParts__PartBase_SuperLoadStandardsXmlFile(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onLoadStandardsXmlFile` instead
-    ///
-    pub const OnLoadStandardsXmlFile = onLoadStandardsXmlFile;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__PartBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onLoadStandardsXmlFile(self: KParts__PartBase, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__PartBase_OnLoadStandardsXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

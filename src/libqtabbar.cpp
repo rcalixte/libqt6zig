@@ -414,136 +414,136 @@ void QTabBar_Connect_TabBarDoubleClicked(QTabBar* self, intptr_t slot) {
 
 QSize* QTabBar_TabSizeHint(const QTabBar* self, int index) {
     auto* vqtabbar = dynamic_cast<const VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         return new QSize(vqtabbar->tabSizeHint(static_cast<int>(index)));
     }
-    return {};
+    qFatal("Error: Protected method QTabBar::tabSizeHint called without a directly constructed type");
 }
 
 QSize* QTabBar_MinimumTabSizeHint(const QTabBar* self, int index) {
     auto* vqtabbar = dynamic_cast<const VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         return new QSize(vqtabbar->minimumTabSizeHint(static_cast<int>(index)));
     }
-    return {};
+    qFatal("Error: Protected method QTabBar::minimumTabSizeHint called without a directly constructed type");
 }
 
 void QTabBar_TabInserted(QTabBar* self, int index) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->tabInserted(static_cast<int>(index));
     }
 }
 
 void QTabBar_TabRemoved(QTabBar* self, int index) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->tabRemoved(static_cast<int>(index));
     }
 }
 
 void QTabBar_TabLayoutChange(QTabBar* self) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->tabLayoutChange();
     }
 }
 
 bool QTabBar_Event(QTabBar* self, QEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         return vqtabbar->event(param1);
     }
-    return {};
+    qFatal("Error: Protected method QTabBar::event called without a directly constructed type");
 }
 
 void QTabBar_ResizeEvent(QTabBar* self, QResizeEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->resizeEvent(param1);
     }
 }
 
 void QTabBar_ShowEvent(QTabBar* self, QShowEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->showEvent(param1);
     }
 }
 
 void QTabBar_HideEvent(QTabBar* self, QHideEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->hideEvent(param1);
     }
 }
 
 void QTabBar_PaintEvent(QTabBar* self, QPaintEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->paintEvent(param1);
     }
 }
 
 void QTabBar_MousePressEvent(QTabBar* self, QMouseEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->mousePressEvent(param1);
     }
 }
 
 void QTabBar_MouseMoveEvent(QTabBar* self, QMouseEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->mouseMoveEvent(param1);
     }
 }
 
 void QTabBar_MouseReleaseEvent(QTabBar* self, QMouseEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->mouseReleaseEvent(param1);
     }
 }
 
 void QTabBar_MouseDoubleClickEvent(QTabBar* self, QMouseEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->mouseDoubleClickEvent(param1);
     }
 }
 
 void QTabBar_WheelEvent(QTabBar* self, QWheelEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->wheelEvent(event);
     }
 }
 
 void QTabBar_KeyPressEvent(QTabBar* self, QKeyEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->keyPressEvent(param1);
     }
 }
 
 void QTabBar_ChangeEvent(QTabBar* self, QEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->changeEvent(param1);
     }
 }
 
 void QTabBar_TimerEvent(QTabBar* self, QTimerEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->timerEvent(event);
     }
 }
 
 void QTabBar_InitStyleOption(const QTabBar* self, QStyleOptionTab* option, int tabIndex) {
     auto* vqtabbar = dynamic_cast<const VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->initStyleOption(option, static_cast<int>(tabIndex));
     }
 }
@@ -574,1610 +574,1115 @@ libqt_string QTabBar_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QTabBar_SuperMetaObject(const QTabBar* self) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_MetaObject_IsBase(true);
-        return (QMetaObject*)vqtabbar->metaObject();
-    } else {
-        return (QMetaObject*)self->QTabBar::metaObject();
-    }
+    return (QMetaObject*)self->QTabBar::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnMetaObject(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_MetaObject_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_MetaObject_Callback>(slot));
+void QTabBar_OnMetaObject(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_metaobject_callback = reinterpret_cast<VirtualQTabBar::QTabBar_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QTabBar_SuperMetacast(QTabBar* self, const char* param1) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_Metacast_IsBase(true);
-        return vqtabbar->qt_metacast(param1);
-    } else {
-        return self->QTabBar::qt_metacast(param1);
-    }
+    return self->QTabBar::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnMetacast(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_Metacast_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_Metacast_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_metacast_callback = reinterpret_cast<VirtualQTabBar::QTabBar_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QTabBar_SuperMetacall(QTabBar* self, int param1, int param2, void** param3) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_Metacall_IsBase(true);
-        return vqtabbar->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QTabBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QTabBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnMetacall(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_Metacall_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_Metacall_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_metacall_callback = reinterpret_cast<VirtualQTabBar::QTabBar_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QTabBar_SuperSizeHint(const QTabBar* self) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_SizeHint_IsBase(true);
-        return new QSize(vqtabbar->sizeHint());
-    } else {
-        return new QSize(((VirtualQTabBar*)self)->sizeHint());
-    }
+    return new QSize(self->QTabBar::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnSizeHint(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_SizeHint_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_SizeHint_Callback>(slot));
+void QTabBar_OnSizeHint(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_sizehint_callback = reinterpret_cast<VirtualQTabBar::QTabBar_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QTabBar_SuperMinimumSizeHint(const QTabBar* self) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_MinimumSizeHint_IsBase(true);
-        return new QSize(vqtabbar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQTabBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QTabBar::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnMinimumSizeHint(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_MinimumSizeHint_Callback>(slot));
+void QTabBar_OnMinimumSizeHint(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_minimumsizehint_callback = reinterpret_cast<VirtualQTabBar::QTabBar_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QTabBar_SuperTabSizeHint(const QTabBar* self, int index) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_TabSizeHint_IsBase(true);
-        return new QSize(vqtabbar->tabSizeHint(static_cast<int>(index)));
-    }
-    return {};
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        return new QSize(vqtabbar->QTabBar::tabSizeHint(static_cast<int>(index)));
+    qFatal("Error: Protected virtual method QTabBar::tabSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnTabSizeHint(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_TabSizeHint_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_TabSizeHint_Callback>(slot));
+void QTabBar_OnTabSizeHint(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_tabsizehint_callback = reinterpret_cast<VirtualQTabBar::QTabBar_TabSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QTabBar_SuperMinimumTabSizeHint(const QTabBar* self, int index) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_MinimumTabSizeHint_IsBase(true);
-        return new QSize(vqtabbar->minimumTabSizeHint(static_cast<int>(index)));
-    }
-    return {};
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        return new QSize(vqtabbar->QTabBar::minimumTabSizeHint(static_cast<int>(index)));
+    qFatal("Error: Protected virtual method QTabBar::minimumTabSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnMinimumTabSizeHint(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_MinimumTabSizeHint_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_MinimumTabSizeHint_Callback>(slot));
+void QTabBar_OnMinimumTabSizeHint(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_minimumtabsizehint_callback = reinterpret_cast<VirtualQTabBar::QTabBar_MinimumTabSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperTabInserted(QTabBar* self, int index) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_TabInserted_IsBase(true);
-        vqtabbar->tabInserted(static_cast<int>(index));
-    } else {
-        ((VirtualQTabBar*)self)->tabInserted(static_cast<int>(index));
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::tabInserted(static_cast<int>(index));
+    } else
+        qFatal("Error: Protected virtual method QTabBar::tabInserted called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnTabInserted(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_TabInserted_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_TabInserted_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_tabinserted_callback = reinterpret_cast<VirtualQTabBar::QTabBar_TabInserted_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperTabRemoved(QTabBar* self, int index) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_TabRemoved_IsBase(true);
-        vqtabbar->tabRemoved(static_cast<int>(index));
-    } else {
-        ((VirtualQTabBar*)self)->tabRemoved(static_cast<int>(index));
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::tabRemoved(static_cast<int>(index));
+    } else
+        qFatal("Error: Protected virtual method QTabBar::tabRemoved called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnTabRemoved(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_TabRemoved_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_TabRemoved_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_tabremoved_callback = reinterpret_cast<VirtualQTabBar::QTabBar_TabRemoved_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperTabLayoutChange(QTabBar* self) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_TabLayoutChange_IsBase(true);
-        vqtabbar->tabLayoutChange();
-    } else {
-        ((VirtualQTabBar*)self)->tabLayoutChange();
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::tabLayoutChange();
+    } else
+        qFatal("Error: Protected virtual method QTabBar::tabLayoutChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnTabLayoutChange(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_TabLayoutChange_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_TabLayoutChange_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_tablayoutchange_callback = reinterpret_cast<VirtualQTabBar::QTabBar_TabLayoutChange_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QTabBar_SuperEvent(QTabBar* self, QEvent* param1) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_Event_IsBase(true);
-        return vqtabbar->event(param1);
-    } else {
-        return ((VirtualQTabBar*)self)->event(param1);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        return vqtabbar->QTabBar::event(param1);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_Event_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_Event_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_event_callback = reinterpret_cast<VirtualQTabBar::QTabBar_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperResizeEvent(QTabBar* self, QResizeEvent* param1) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_ResizeEvent_IsBase(true);
-        vqtabbar->resizeEvent(param1);
-    } else {
-        ((VirtualQTabBar*)self)->resizeEvent(param1);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnResizeEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_ResizeEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_ResizeEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_resizeevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperShowEvent(QTabBar* self, QShowEvent* param1) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_ShowEvent_IsBase(true);
-        vqtabbar->showEvent(param1);
-    } else {
-        ((VirtualQTabBar*)self)->showEvent(param1);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnShowEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_ShowEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_ShowEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_showevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperHideEvent(QTabBar* self, QHideEvent* param1) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_HideEvent_IsBase(true);
-        vqtabbar->hideEvent(param1);
-    } else {
-        ((VirtualQTabBar*)self)->hideEvent(param1);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::hideEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnHideEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_HideEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_HideEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_hideevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_HideEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperPaintEvent(QTabBar* self, QPaintEvent* param1) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_PaintEvent_IsBase(true);
-        vqtabbar->paintEvent(param1);
-    } else {
-        ((VirtualQTabBar*)self)->paintEvent(param1);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnPaintEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_PaintEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_PaintEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_paintevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperMousePressEvent(QTabBar* self, QMouseEvent* param1) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_MousePressEvent_IsBase(true);
-        vqtabbar->mousePressEvent(param1);
-    } else {
-        ((VirtualQTabBar*)self)->mousePressEvent(param1);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnMousePressEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_MousePressEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_MousePressEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_mousepressevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperMouseMoveEvent(QTabBar* self, QMouseEvent* param1) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_MouseMoveEvent_IsBase(true);
-        vqtabbar->mouseMoveEvent(param1);
-    } else {
-        ((VirtualQTabBar*)self)->mouseMoveEvent(param1);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::mouseMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnMouseMoveEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_MouseMoveEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_mousemoveevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperMouseReleaseEvent(QTabBar* self, QMouseEvent* param1) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_MouseReleaseEvent_IsBase(true);
-        vqtabbar->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualQTabBar*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnMouseReleaseEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_mousereleaseevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperMouseDoubleClickEvent(QTabBar* self, QMouseEvent* param1) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_MouseDoubleClickEvent_IsBase(true);
-        vqtabbar->mouseDoubleClickEvent(param1);
-    } else {
-        ((VirtualQTabBar*)self)->mouseDoubleClickEvent(param1);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::mouseDoubleClickEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnMouseDoubleClickEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_mousedoubleclickevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperWheelEvent(QTabBar* self, QWheelEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_WheelEvent_IsBase(true);
-        vqtabbar->wheelEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->wheelEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnWheelEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_WheelEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_WheelEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_wheelevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_WheelEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperKeyPressEvent(QTabBar* self, QKeyEvent* param1) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_KeyPressEvent_IsBase(true);
-        vqtabbar->keyPressEvent(param1);
-    } else {
-        ((VirtualQTabBar*)self)->keyPressEvent(param1);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnKeyPressEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_KeyPressEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_KeyPressEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_keypressevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperChangeEvent(QTabBar* self, QEvent* param1) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_ChangeEvent_IsBase(true);
-        vqtabbar->changeEvent(param1);
-    } else {
-        ((VirtualQTabBar*)self)->changeEvent(param1);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnChangeEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_ChangeEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_ChangeEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_changeevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_ChangeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperTimerEvent(QTabBar* self, QTimerEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_TimerEvent_IsBase(true);
-        vqtabbar->timerEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->timerEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnTimerEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_TimerEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_TimerEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_timerevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_TimerEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTabBar_SuperInitStyleOption(const QTabBar* self, QStyleOptionTab* option, int tabIndex) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_InitStyleOption_IsBase(true);
-        vqtabbar->initStyleOption(option, static_cast<int>(tabIndex));
-    } else {
-        ((VirtualQTabBar*)self)->initStyleOption(option, static_cast<int>(tabIndex));
-    }
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self))) {
+        vqtabbar->QTabBar::initStyleOption(option, static_cast<int>(tabIndex));
+    } else
+        qFatal("Error: Protected virtual method QTabBar::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnInitStyleOption(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_InitStyleOption_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_InitStyleOption_Callback>(slot));
+void QTabBar_OnInitStyleOption(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_initstyleoption_callback = reinterpret_cast<VirtualQTabBar::QTabBar_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTabBar_DevType(const QTabBar* self) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return vqtabbar->devType();
-    } else {
-        return self->QTabBar::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QTabBar_SuperDevType(const QTabBar* self) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_DevType_IsBase(true);
-        return vqtabbar->devType();
-    } else {
-        return self->QTabBar::devType();
-    }
+    return self->QTabBar::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnDevType(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_DevType_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_DevType_Callback>(slot));
+void QTabBar_OnDevType(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_devtype_callback = reinterpret_cast<VirtualQTabBar::QTabBar_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_SetVisible(QTabBar* self, bool visible) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setVisible(visible);
-    } else {
-        self->QTabBar::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QTabBar_SuperSetVisible(QTabBar* self, bool visible) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_SetVisible_IsBase(true);
-        vqtabbar->setVisible(visible);
-    } else {
-        self->QTabBar::setVisible(visible);
-    }
+    self->QTabBar::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnSetVisible(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_SetVisible_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_SetVisible_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_setvisible_callback = reinterpret_cast<VirtualQTabBar::QTabBar_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTabBar_HeightForWidth(const QTabBar* self, int param1) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return vqtabbar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QTabBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QTabBar_SuperHeightForWidth(const QTabBar* self, int param1) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_HeightForWidth_IsBase(true);
-        return vqtabbar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QTabBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QTabBar::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnHeightForWidth(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_HeightForWidth_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_HeightForWidth_Callback>(slot));
+void QTabBar_OnHeightForWidth(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_heightforwidth_callback = reinterpret_cast<VirtualQTabBar::QTabBar_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTabBar_HasHeightForWidth(const QTabBar* self) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return vqtabbar->hasHeightForWidth();
-    } else {
-        return self->QTabBar::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QTabBar_SuperHasHeightForWidth(const QTabBar* self) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_HasHeightForWidth_IsBase(true);
-        return vqtabbar->hasHeightForWidth();
-    } else {
-        return self->QTabBar::hasHeightForWidth();
-    }
+    return self->QTabBar::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnHasHeightForWidth(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_HasHeightForWidth_Callback>(slot));
+void QTabBar_OnHasHeightForWidth(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_hasheightforwidth_callback = reinterpret_cast<VirtualQTabBar::QTabBar_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QTabBar_PaintEngine(const QTabBar* self) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return vqtabbar->paintEngine();
-    } else {
-        return self->QTabBar::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QTabBar_SuperPaintEngine(const QTabBar* self) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_PaintEngine_IsBase(true);
-        return vqtabbar->paintEngine();
-    } else {
-        return self->QTabBar::paintEngine();
-    }
+    return self->QTabBar::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnPaintEngine(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_PaintEngine_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_PaintEngine_Callback>(slot));
+void QTabBar_OnPaintEngine(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_paintengine_callback = reinterpret_cast<VirtualQTabBar::QTabBar_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_KeyReleaseEvent(QTabBar* self, QKeyEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->keyReleaseEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperKeyReleaseEvent(QTabBar* self, QKeyEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_KeyReleaseEvent_IsBase(true);
-        vqtabbar->keyReleaseEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnKeyReleaseEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_keyreleaseevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_FocusInEvent(QTabBar* self, QFocusEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->focusInEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperFocusInEvent(QTabBar* self, QFocusEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_FocusInEvent_IsBase(true);
-        vqtabbar->focusInEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->focusInEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnFocusInEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_FocusInEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_FocusInEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_focusinevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_FocusOutEvent(QTabBar* self, QFocusEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->focusOutEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperFocusOutEvent(QTabBar* self, QFocusEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_FocusOutEvent_IsBase(true);
-        vqtabbar->focusOutEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->focusOutEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnFocusOutEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_FocusOutEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_FocusOutEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_focusoutevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_EnterEvent(QTabBar* self, QEnterEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->enterEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperEnterEvent(QTabBar* self, QEnterEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_EnterEvent_IsBase(true);
-        vqtabbar->enterEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->enterEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnEnterEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_EnterEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_EnterEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_enterevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_LeaveEvent(QTabBar* self, QEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->leaveEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperLeaveEvent(QTabBar* self, QEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_LeaveEvent_IsBase(true);
-        vqtabbar->leaveEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->leaveEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnLeaveEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_LeaveEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_LeaveEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_leaveevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_MoveEvent(QTabBar* self, QMoveEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->moveEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperMoveEvent(QTabBar* self, QMoveEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_MoveEvent_IsBase(true);
-        vqtabbar->moveEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->moveEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnMoveEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_MoveEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_MoveEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_moveevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_CloseEvent(QTabBar* self, QCloseEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->closeEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperCloseEvent(QTabBar* self, QCloseEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_CloseEvent_IsBase(true);
-        vqtabbar->closeEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->closeEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnCloseEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_CloseEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_CloseEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_closeevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_ContextMenuEvent(QTabBar* self, QContextMenuEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->contextMenuEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperContextMenuEvent(QTabBar* self, QContextMenuEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_ContextMenuEvent_IsBase(true);
-        vqtabbar->contextMenuEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnContextMenuEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_ContextMenuEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_contextmenuevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_TabletEvent(QTabBar* self, QTabletEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->tabletEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperTabletEvent(QTabBar* self, QTabletEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_TabletEvent_IsBase(true);
-        vqtabbar->tabletEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->tabletEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnTabletEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_TabletEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_TabletEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_tabletevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_ActionEvent(QTabBar* self, QActionEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->actionEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperActionEvent(QTabBar* self, QActionEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_ActionEvent_IsBase(true);
-        vqtabbar->actionEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->actionEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnActionEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_ActionEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_ActionEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_actionevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_DragEnterEvent(QTabBar* self, QDragEnterEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->dragEnterEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperDragEnterEvent(QTabBar* self, QDragEnterEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_DragEnterEvent_IsBase(true);
-        vqtabbar->dragEnterEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnDragEnterEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_DragEnterEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_DragEnterEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_dragenterevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_DragMoveEvent(QTabBar* self, QDragMoveEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->dragMoveEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperDragMoveEvent(QTabBar* self, QDragMoveEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_DragMoveEvent_IsBase(true);
-        vqtabbar->dragMoveEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnDragMoveEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_DragMoveEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_DragMoveEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_dragmoveevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_DragLeaveEvent(QTabBar* self, QDragLeaveEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->dragLeaveEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperDragLeaveEvent(QTabBar* self, QDragLeaveEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_DragLeaveEvent_IsBase(true);
-        vqtabbar->dragLeaveEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnDragLeaveEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_DragLeaveEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_dragleaveevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_DropEvent(QTabBar* self, QDropEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->dropEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperDropEvent(QTabBar* self, QDropEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_DropEvent_IsBase(true);
-        vqtabbar->dropEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->dropEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnDropEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_DropEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_DropEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_dropevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTabBar_NativeEvent(QTabBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
+    if (vqtabbar) {
         return vqtabbar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQTabBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QTabBar::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTabBar_SuperNativeEvent(QTabBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_NativeEvent_IsBase(true);
-        return vqtabbar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQTabBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        return vqtabbar->QTabBar::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QTabBar::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnNativeEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_NativeEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_NativeEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_nativeevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTabBar_Metric(const QTabBar* self, int param1) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         return vqtabbar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQTabBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QTabBar::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QTabBar_SuperMetric(const QTabBar* self, int param1) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_Metric_IsBase(true);
-        return vqtabbar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQTabBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self))) {
+        return vqtabbar->QTabBar::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QTabBar::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnMetric(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_Metric_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_Metric_Callback>(slot));
+void QTabBar_OnMetric(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_metric_callback = reinterpret_cast<VirtualQTabBar::QTabBar_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_InitPainter(const QTabBar* self, QPainter* painter) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->initPainter(painter);
     } else {
-        ((VirtualQTabBar*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QTabBar::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperInitPainter(const QTabBar* self, QPainter* painter) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_InitPainter_IsBase(true);
-        vqtabbar->initPainter(painter);
-    } else {
-        ((VirtualQTabBar*)self)->initPainter(painter);
-    }
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self))) {
+        vqtabbar->QTabBar::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnInitPainter(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_InitPainter_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_InitPainter_Callback>(slot));
+void QTabBar_OnInitPainter(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_initpainter_callback = reinterpret_cast<VirtualQTabBar::QTabBar_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QTabBar_Redirected(const QTabBar* self, QPoint* offset) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         return vqtabbar->redirected(offset);
     } else {
-        return ((VirtualQTabBar*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QTabBar::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QTabBar_SuperRedirected(const QTabBar* self, QPoint* offset) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_Redirected_IsBase(true);
-        return vqtabbar->redirected(offset);
-    } else {
-        return ((VirtualQTabBar*)self)->redirected(offset);
-    }
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self))) {
+        return vqtabbar->QTabBar::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnRedirected(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_Redirected_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_Redirected_Callback>(slot));
+void QTabBar_OnRedirected(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_redirected_callback = reinterpret_cast<VirtualQTabBar::QTabBar_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QTabBar_SharedPainter(const QTabBar* self) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         return vqtabbar->sharedPainter();
     } else {
-        return ((VirtualQTabBar*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QTabBar::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QTabBar_SuperSharedPainter(const QTabBar* self) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_SharedPainter_IsBase(true);
-        return vqtabbar->sharedPainter();
-    } else {
-        return ((VirtualQTabBar*)self)->sharedPainter();
-    }
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self))) {
+        return vqtabbar->QTabBar::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QTabBar::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnSharedPainter(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_SharedPainter_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_SharedPainter_Callback>(slot));
+void QTabBar_OnSharedPainter(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_sharedpainter_callback = reinterpret_cast<VirtualQTabBar::QTabBar_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_InputMethodEvent(QTabBar* self, QInputMethodEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->inputMethodEvent(param1);
     } else {
-        ((VirtualQTabBar*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QTabBar::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperInputMethodEvent(QTabBar* self, QInputMethodEvent* param1) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_InputMethodEvent_IsBase(true);
-        vqtabbar->inputMethodEvent(param1);
-    } else {
-        ((VirtualQTabBar*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnInputMethodEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_InputMethodEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_InputMethodEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_inputmethodevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QTabBar_InputMethodQuery(const QTabBar* self, int param1) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return new QVariant(vqtabbar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQTabBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QTabBar_SuperInputMethodQuery(const QTabBar* self, int param1) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_InputMethodQuery_IsBase(true);
-        return new QVariant(vqtabbar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQTabBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QTabBar::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTabBar_OnInputMethodQuery(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_InputMethodQuery_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_InputMethodQuery_Callback>(slot));
+void QTabBar_OnInputMethodQuery(QTabBar* self, intptr_t slot) {
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self)))
+        vqtabbar->qtabbar_inputmethodquery_callback = reinterpret_cast<VirtualQTabBar::QTabBar_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTabBar_FocusNextPrevChild(QTabBar* self, bool next) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         return vqtabbar->focusNextPrevChild(next);
     } else {
-        return ((VirtualQTabBar*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QTabBar::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTabBar_SuperFocusNextPrevChild(QTabBar* self, bool next) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_FocusNextPrevChild_IsBase(true);
-        return vqtabbar->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQTabBar*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        return vqtabbar->QTabBar::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnFocusNextPrevChild(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_focusnextprevchild_callback = reinterpret_cast<VirtualQTabBar::QTabBar_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTabBar_EventFilter(QTabBar* self, QObject* watched, QEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return vqtabbar->eventFilter(watched, event);
-    } else {
-        return self->QTabBar::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QTabBar_SuperEventFilter(QTabBar* self, QObject* watched, QEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_EventFilter_IsBase(true);
-        return vqtabbar->eventFilter(watched, event);
-    } else {
-        return self->QTabBar::eventFilter(watched, event);
-    }
+    return self->QTabBar::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnEventFilter(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_EventFilter_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_EventFilter_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_eventfilter_callback = reinterpret_cast<VirtualQTabBar::QTabBar_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_ChildEvent(QTabBar* self, QChildEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->childEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperChildEvent(QTabBar* self, QChildEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_ChildEvent_IsBase(true);
-        vqtabbar->childEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->childEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnChildEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_ChildEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_ChildEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_childevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_CustomEvent(QTabBar* self, QEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->customEvent(event);
     } else {
-        ((VirtualQTabBar*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QTabBar::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperCustomEvent(QTabBar* self, QEvent* event) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_CustomEvent_IsBase(true);
-        vqtabbar->customEvent(event);
-    } else {
-        ((VirtualQTabBar*)self)->customEvent(event);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnCustomEvent(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_CustomEvent_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_CustomEvent_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_customevent_callback = reinterpret_cast<VirtualQTabBar::QTabBar_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_ConnectNotify(QTabBar* self, const QMetaMethod* signal) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->connectNotify(*signal);
     } else {
-        ((VirtualQTabBar*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QTabBar::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperConnectNotify(QTabBar* self, const QMetaMethod* signal) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_ConnectNotify_IsBase(true);
-        vqtabbar->connectNotify(*signal);
-    } else {
-        ((VirtualQTabBar*)self)->connectNotify(*signal);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnConnectNotify(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_ConnectNotify_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_ConnectNotify_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_connectnotify_callback = reinterpret_cast<VirtualQTabBar::QTabBar_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTabBar_DisconnectNotify(QTabBar* self, const QMetaMethod* signal) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+    if (vqtabbar) {
         vqtabbar->disconnectNotify(*signal);
     } else {
-        ((VirtualQTabBar*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QTabBar::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTabBar_SuperDisconnectNotify(QTabBar* self, const QMetaMethod* signal) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_DisconnectNotify_IsBase(true);
-        vqtabbar->disconnectNotify(*signal);
-    } else {
-        ((VirtualQTabBar*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->QTabBar::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTabBar::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTabBar_OnDisconnectNotify(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_DisconnectNotify_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_DisconnectNotify_Callback>(slot));
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self))
+        vqtabbar->qtabbar_disconnectnotify_callback = reinterpret_cast<VirtualQTabBar::QTabBar_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTabBar_UpdateMicroFocus(QTabBar* self) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->updateMicroFocus();
-    } else {
-        ((VirtualQTabBar*)self)->updateMicroFocus();
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->VirtualQTabBar::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QTabBar::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTabBar_SuperUpdateMicroFocus(QTabBar* self) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_UpdateMicroFocus_IsBase(true);
-        vqtabbar->updateMicroFocus();
-    } else {
-        ((VirtualQTabBar*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabBar_OnUpdateMicroFocus(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTabBar_Create(QTabBar* self) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->create();
-    } else {
-        ((VirtualQTabBar*)self)->create();
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->VirtualQTabBar::create();
+    } else
+        qFatal("Error: Protected method QTabBar::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTabBar_SuperCreate(QTabBar* self) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_Create_IsBase(true);
-        vqtabbar->create();
-    } else {
-        ((VirtualQTabBar*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabBar_OnCreate(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_Create_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTabBar_Destroy(QTabBar* self) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->destroy();
-    } else {
-        ((VirtualQTabBar*)self)->destroy();
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        vqtabbar->VirtualQTabBar::destroy();
+    } else
+        qFatal("Error: Protected method QTabBar::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTabBar_SuperDestroy(QTabBar* self) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_Destroy_IsBase(true);
-        vqtabbar->destroy();
-    } else {
-        ((VirtualQTabBar*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabBar_OnDestroy(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_Destroy_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTabBar_FocusNextChild(QTabBar* self) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return vqtabbar->focusNextChild();
-    } else {
-        return ((VirtualQTabBar*)self)->focusNextChild();
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        return vqtabbar->VirtualQTabBar::focusNextChild();
+    } else
+        qFatal("Error: Protected method QTabBar::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QTabBar_SuperFocusNextChild(QTabBar* self) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_FocusNextChild_IsBase(true);
-        return vqtabbar->focusNextChild();
-    } else {
-        return ((VirtualQTabBar*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabBar_OnFocusNextChild(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_FocusNextChild_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTabBar_FocusPreviousChild(QTabBar* self) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return vqtabbar->focusPreviousChild();
-    } else {
-        return ((VirtualQTabBar*)self)->focusPreviousChild();
-    }
+    if (auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self)) {
+        return vqtabbar->VirtualQTabBar::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QTabBar::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QTabBar_SuperFocusPreviousChild(QTabBar* self) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_FocusPreviousChild_IsBase(true);
-        return vqtabbar->focusPreviousChild();
-    } else {
-        return ((VirtualQTabBar*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabBar_OnFocusPreviousChild(QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QTabBar_Sender(const QTabBar* self) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return vqtabbar->sender();
-    } else {
-        return ((VirtualQTabBar*)self)->sender();
-    }
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self))) {
+        return vqtabbar->VirtualQTabBar::sender();
+    } else
+        qFatal("Error: Protected method QTabBar::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QTabBar_SuperSender(const QTabBar* self) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_Sender_IsBase(true);
-        return vqtabbar->sender();
-    } else {
-        return ((VirtualQTabBar*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabBar_OnSender(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_Sender_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTabBar_SenderSignalIndex(const QTabBar* self) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return vqtabbar->senderSignalIndex();
-    } else {
-        return ((VirtualQTabBar*)self)->senderSignalIndex();
-    }
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self))) {
+        return vqtabbar->VirtualQTabBar::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QTabBar::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTabBar_SuperSenderSignalIndex(const QTabBar* self) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_SenderSignalIndex_IsBase(true);
-        return vqtabbar->senderSignalIndex();
-    } else {
-        return ((VirtualQTabBar*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabBar_OnSenderSignalIndex(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTabBar_Receivers(const QTabBar* self, const char* signal) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return vqtabbar->receivers(signal);
-    } else {
-        return ((VirtualQTabBar*)self)->receivers(signal);
-    }
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self))) {
+        return vqtabbar->VirtualQTabBar::receivers(signal);
+    } else
+        qFatal("Error: Protected method QTabBar::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTabBar_SuperReceivers(const QTabBar* self, const char* signal) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_Receivers_IsBase(true);
-        return vqtabbar->receivers(signal);
-    } else {
-        return ((VirtualQTabBar*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabBar_OnReceivers(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_Receivers_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTabBar_IsSignalConnected(const QTabBar* self, const QMetaMethod* signal) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return vqtabbar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTabBar*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self))) {
+        return vqtabbar->VirtualQTabBar::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QTabBar::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QTabBar_SuperIsSignalConnected(const QTabBar* self, const QMetaMethod* signal) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_IsSignalConnected_IsBase(true);
-        return vqtabbar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTabBar*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabBar_OnIsSignalConnected(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_IsSignalConnected_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QTabBar_GetDecodedMetricF(const QTabBar* self, int metricA, int metricB) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return vqtabbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQTabBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QTabBar_SuperGetDecodedMetricF(const QTabBar* self, int metricA, int metricB) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        vqtabbar->setQTabBar_GetDecodedMetricF_IsBase(true);
-        return vqtabbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQTabBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTabBar_OnGetDecodedMetricF(const QTabBar* self, intptr_t slot) {
-    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
-    if (vqtabbar && vqtabbar->isVirtualQTabBar)
-        vqtabbar->setQTabBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self))) {
+        return vqtabbar->VirtualQTabBar::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QTabBar::getDecodedMetricF called without a directly constructed type");
 }
 
 void QTabBar_Delete(QTabBar* self) {

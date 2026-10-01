@@ -80,9 +80,9 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowToolInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QDesignerFormWindowToolInterface) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QDesignerFormWindowToolInterface, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDesignerFormWindowToolInterface, callback: *const fn (QDesignerFormWindowToolInterface) callconv(.c) QMetaObject) void {
         qtc.QDesignerFormWindowToolInterface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -233,6 +233,8 @@ pub const QDesignerFormWindowToolInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowtoolinterface.html#core)
     ///
+    /// This method must be implemented with `onCore` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowToolInterface `
@@ -253,26 +255,10 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowToolInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QDesignerFormEditorInterface `
+    /// ` callback: *const fn (self: QDesignerFormWindowToolInterface) callconv(.c) QDesignerFormEditorInterface `
     ///
-    pub fn onCore(self: QDesignerFormWindowToolInterface, callback: *const fn () callconv(.c) QDesignerFormEditorInterface) void {
+    pub fn onCore(self: QDesignerFormWindowToolInterface, callback: *const fn (QDesignerFormWindowToolInterface) callconv(.c) QDesignerFormEditorInterface) void {
         qtc.QDesignerFormWindowToolInterface_OnCore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCore` instead
-    ///
-    pub const SuperCore = superCore;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowtoolinterface.html#core)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowToolInterface `
-    ///
-    pub fn superCore(self: QDesignerFormWindowToolInterface) QDesignerFormEditorInterface {
-        return .{ .ptr = qtc.QDesignerFormWindowToolInterface_SuperCore(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `formWindow` instead
@@ -280,6 +266,8 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     pub const FormWindow = formWindow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowtoolinterface.html#formWindow)
+    ///
+    /// This method must be implemented with `onFormWindow` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -301,26 +289,10 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowToolInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QDesignerFormWindowInterface `
+    /// ` callback: *const fn (self: QDesignerFormWindowToolInterface) callconv(.c) QDesignerFormWindowInterface `
     ///
-    pub fn onFormWindow(self: QDesignerFormWindowToolInterface, callback: *const fn () callconv(.c) QDesignerFormWindowInterface) void {
+    pub fn onFormWindow(self: QDesignerFormWindowToolInterface, callback: *const fn (QDesignerFormWindowToolInterface) callconv(.c) QDesignerFormWindowInterface) void {
         qtc.QDesignerFormWindowToolInterface_OnFormWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superFormWindow` instead
-    ///
-    pub const SuperFormWindow = superFormWindow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowtoolinterface.html#formWindow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowToolInterface `
-    ///
-    pub fn superFormWindow(self: QDesignerFormWindowToolInterface) QDesignerFormWindowInterface {
-        return .{ .ptr = qtc.QDesignerFormWindowToolInterface_SuperFormWindow(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `editor` instead
@@ -328,6 +300,8 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     pub const Editor = editor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowtoolinterface.html#editor)
+    ///
+    /// This method must be implemented with `onEditor` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -349,26 +323,10 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowToolInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
+    /// ` callback: *const fn (self: QDesignerFormWindowToolInterface) callconv(.c) QWidget `
     ///
-    pub fn onEditor(self: QDesignerFormWindowToolInterface, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onEditor(self: QDesignerFormWindowToolInterface, callback: *const fn (QDesignerFormWindowToolInterface) callconv(.c) QWidget) void {
         qtc.QDesignerFormWindowToolInterface_OnEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEditor` instead
-    ///
-    pub const SuperEditor = superEditor;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowtoolinterface.html#editor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowToolInterface `
-    ///
-    pub fn superEditor(self: QDesignerFormWindowToolInterface) QWidget {
-        return .{ .ptr = qtc.QDesignerFormWindowToolInterface_SuperEditor(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `action` instead
@@ -376,6 +334,8 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     pub const Action = action;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowtoolinterface.html#action)
+    ///
+    /// This method must be implemented with `onAction` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -397,26 +357,10 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowToolInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QAction `
+    /// ` callback: *const fn (self: QDesignerFormWindowToolInterface) callconv(.c) QAction `
     ///
-    pub fn onAction(self: QDesignerFormWindowToolInterface, callback: *const fn () callconv(.c) QAction) void {
+    pub fn onAction(self: QDesignerFormWindowToolInterface, callback: *const fn (QDesignerFormWindowToolInterface) callconv(.c) QAction) void {
         qtc.QDesignerFormWindowToolInterface_OnAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAction` instead
-    ///
-    pub const SuperAction = superAction;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowtoolinterface.html#action)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowToolInterface `
-    ///
-    pub fn superAction(self: QDesignerFormWindowToolInterface) QAction {
-        return .{ .ptr = qtc.QDesignerFormWindowToolInterface_SuperAction(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `activated` instead
@@ -424,6 +368,8 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     pub const Activated = activated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowtoolinterface.html#activated)
+    ///
+    /// This method must be implemented with `onActivated` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -445,26 +391,10 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowToolInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowToolInterface) callconv(.c) void `
     ///
-    pub fn onActivated(self: QDesignerFormWindowToolInterface, callback: *const fn () callconv(.c) void) void {
+    pub fn onActivated(self: QDesignerFormWindowToolInterface, callback: *const fn (QDesignerFormWindowToolInterface) callconv(.c) void) void {
         qtc.QDesignerFormWindowToolInterface_OnActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superActivated` instead
-    ///
-    pub const SuperActivated = superActivated;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowtoolinterface.html#activated)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowToolInterface `
-    ///
-    pub fn superActivated(self: QDesignerFormWindowToolInterface) void {
-        qtc.QDesignerFormWindowToolInterface_SuperActivated(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `deactivated` instead
@@ -472,6 +402,8 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     pub const Deactivated = deactivated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowtoolinterface.html#deactivated)
+    ///
+    /// This method must be implemented with `onDeactivated` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -493,26 +425,10 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowToolInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowToolInterface) callconv(.c) void `
     ///
-    pub fn onDeactivated(self: QDesignerFormWindowToolInterface, callback: *const fn () callconv(.c) void) void {
+    pub fn onDeactivated(self: QDesignerFormWindowToolInterface, callback: *const fn (QDesignerFormWindowToolInterface) callconv(.c) void) void {
         qtc.QDesignerFormWindowToolInterface_OnDeactivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDeactivated` instead
-    ///
-    pub const SuperDeactivated = superDeactivated;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowtoolinterface.html#deactivated)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowToolInterface `
-    ///
-    pub fn superDeactivated(self: QDesignerFormWindowToolInterface) void {
-        qtc.QDesignerFormWindowToolInterface_SuperDeactivated(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `handleEvent` instead
@@ -520,6 +436,8 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     pub const HandleEvent = handleEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowtoolinterface.html#handleEvent)
+    ///
+    /// This method must be implemented with `onHandleEvent` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -554,31 +472,6 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     ///
     pub fn onHandleEvent(self: QDesignerFormWindowToolInterface, callback: *const fn (QDesignerFormWindowToolInterface, QWidget, QWidget, QEvent) callconv(.c) bool) void {
         qtc.QDesignerFormWindowToolInterface_OnHandleEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHandleEvent` instead
-    ///
-    pub const SuperHandleEvent = superHandleEvent;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowtoolinterface.html#handleEvent)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowToolInterface `
-    ///
-    /// ` widget: QWidget `
-    ///
-    /// ` managedWidget: QWidget `
-    ///
-    /// ` _event: QEvent `
-    ///
-    pub fn superHandleEvent(self: QDesignerFormWindowToolInterface, widget: anytype, managedWidget: anytype, _event: anytype) bool {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        comptime _ = @TypeOf(managedWidget)._is_QWidget;
-        comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QDesignerFormWindowToolInterface_SuperHandleEvent(@ptrCast(self.ptr), @ptrCast(widget.ptr), @ptrCast(managedWidget.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2058,44 +1951,6 @@ pub const QDesignerFormWindowToolInterface = extern struct {
         return .{ .ptr = qtc.QDesignerFormWindowToolInterface_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowToolInterface `
-    ///
-    pub fn superSender(self: QDesignerFormWindowToolInterface) QObject {
-        return .{ .ptr = qtc.QDesignerFormWindowToolInterface_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormWindowToolInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QDesignerFormWindowToolInterface, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QDesignerFormWindowToolInterface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2112,44 +1967,6 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     ///
     pub fn senderSignalIndex(self: QDesignerFormWindowToolInterface) i32 {
         return qtc.QDesignerFormWindowToolInterface_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowToolInterface `
-    ///
-    pub fn superSenderSignalIndex(self: QDesignerFormWindowToolInterface) i32 {
-        return qtc.QDesignerFormWindowToolInterface_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormWindowToolInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QDesignerFormWindowToolInterface, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerFormWindowToolInterface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2173,47 +1990,6 @@ pub const QDesignerFormWindowToolInterface = extern struct {
         return qtc.QDesignerFormWindowToolInterface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowToolInterface `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QDesignerFormWindowToolInterface, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QDesignerFormWindowToolInterface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormWindowToolInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerFormWindowToolInterface, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QDesignerFormWindowToolInterface, callback: *const fn (QDesignerFormWindowToolInterface, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerFormWindowToolInterface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2233,47 +2009,6 @@ pub const QDesignerFormWindowToolInterface = extern struct {
     pub fn isSignalConnected(self: QDesignerFormWindowToolInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerFormWindowToolInterface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowToolInterface `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QDesignerFormWindowToolInterface, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QDesignerFormWindowToolInterface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormWindowToolInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerFormWindowToolInterface, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QDesignerFormWindowToolInterface, callback: *const fn (QDesignerFormWindowToolInterface, QMetaMethod) callconv(.c) bool) void {
-        qtc.QDesignerFormWindowToolInterface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

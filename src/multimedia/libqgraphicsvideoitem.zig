@@ -109,9 +109,9 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) QMetaObject) void {
         qtc.QGraphicsVideoItem_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -406,11 +406,11 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
+    /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) QRectF `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onBoundingRect(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onBoundingRect(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) QRectF) void {
         qtc.QGraphicsVideoItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -524,9 +524,9 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) i32 `
     ///
-    pub fn onType(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) i32) void {
         qtc.QGraphicsVideoItem_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6204,11 +6204,11 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainterPath `
+    /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) QPainterPath `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onShape(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QPainterPath) void {
+    pub fn onShape(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) QPainterPath) void {
         qtc.QGraphicsVideoItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6522,11 +6522,11 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainterPath `
+    /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) QPainterPath `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onOpaqueArea(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QPainterPath) void {
+    pub fn onOpaqueArea(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) QPainterPath) void {
         qtc.QGraphicsVideoItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8048,44 +8048,6 @@ pub const QGraphicsVideoItem = extern struct {
         qtc.QGraphicsVideoItem_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QGraphicsObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsVideoItem `
-    ///
-    pub fn superUpdateMicroFocus(self: QGraphicsVideoItem) void {
-        qtc.QGraphicsVideoItem_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QGraphicsObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsVideoItem`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -8104,44 +8066,6 @@ pub const QGraphicsVideoItem = extern struct {
         return .{ .ptr = qtc.QGraphicsVideoItem_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsVideoItem `
-    ///
-    pub fn superSender(self: QGraphicsVideoItem) QObject {
-        return .{ .ptr = qtc.QGraphicsVideoItem_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsVideoItem`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGraphicsVideoItem_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -8158,44 +8082,6 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     pub fn senderSignalIndex(self: QGraphicsVideoItem) i32 {
         return qtc.QGraphicsVideoItem_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsVideoItem `
-    ///
-    pub fn superSenderSignalIndex(self: QGraphicsVideoItem) i32 {
-        return qtc.QGraphicsVideoItem_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsVideoItem`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsVideoItem_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -8219,47 +8105,6 @@ pub const QGraphicsVideoItem = extern struct {
         return qtc.QGraphicsVideoItem_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsVideoItem `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGraphicsVideoItem, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsVideoItem_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsVideoItem`
-    ///
-    /// ` callback: *const fn (self: QGraphicsVideoItem, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsVideoItem_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -8281,47 +8126,6 @@ pub const QGraphicsVideoItem = extern struct {
         return qtc.QGraphicsVideoItem_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsVideoItem `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGraphicsVideoItem, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGraphicsVideoItem_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsVideoItem`
-    ///
-    /// ` callback: *const fn (self: QGraphicsVideoItem, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGraphicsVideoItem_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `addToIndex` instead
     ///
     pub const AddToIndex = addToIndex;
@@ -8338,44 +8142,6 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     pub fn addToIndex(self: QGraphicsVideoItem) void {
         qtc.QGraphicsVideoItem_AddToIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superAddToIndex` instead
-    ///
-    pub const SuperAddToIndex = superAddToIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsVideoItem `
-    ///
-    pub fn superAddToIndex(self: QGraphicsVideoItem) void {
-        qtc.QGraphicsVideoItem_SuperAddToIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddToIndex` instead
-    ///
-    pub const OnAddToIndex = onAddToIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsVideoItem`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onAddToIndex(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnAddToIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `removeFromIndex` instead
@@ -8396,44 +8162,6 @@ pub const QGraphicsVideoItem = extern struct {
         qtc.QGraphicsVideoItem_RemoveFromIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superRemoveFromIndex` instead
-    ///
-    pub const SuperRemoveFromIndex = superRemoveFromIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsVideoItem `
-    ///
-    pub fn superRemoveFromIndex(self: QGraphicsVideoItem) void {
-        qtc.QGraphicsVideoItem_SuperRemoveFromIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onRemoveFromIndex` instead
-    ///
-    pub const OnRemoveFromIndex = onRemoveFromIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsVideoItem`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onRemoveFromIndex(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnRemoveFromIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `prepareGeometryChange` instead
     ///
     pub const PrepareGeometryChange = prepareGeometryChange;
@@ -8450,44 +8178,6 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     pub fn prepareGeometryChange(self: QGraphicsVideoItem) void {
         qtc.QGraphicsVideoItem_PrepareGeometryChange(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superPrepareGeometryChange` instead
-    ///
-    pub const SuperPrepareGeometryChange = superPrepareGeometryChange;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsVideoItem `
-    ///
-    pub fn superPrepareGeometryChange(self: QGraphicsVideoItem) void {
-        qtc.QGraphicsVideoItem_SuperPrepareGeometryChange(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onPrepareGeometryChange` instead
-    ///
-    pub const OnPrepareGeometryChange = onPrepareGeometryChange;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsVideoItem`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onPrepareGeometryChange(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsVideoItem_OnPrepareGeometryChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -43,16 +43,14 @@ QDateTime* KFileMetaData__ExtractorPlugin_DateTimeFromString(const libqt_string 
 libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_ContactsFromString(const libqt_string string);
 libqt_string KFileMetaData__ExtractorPlugin_Tr2(const char* s, const char* c);
 libqt_string KFileMetaData__ExtractorPlugin_Tr3(const char* s, const char* c, int n);
-void KFileMetaData__ExtractorPlugin_OnMetaObject(const KFileMetaData__ExtractorPlugin* self, intptr_t slot);
+void KFileMetaData__ExtractorPlugin_OnMetaObject(KFileMetaData__ExtractorPlugin* self, intptr_t slot);
 QMetaObject* KFileMetaData__ExtractorPlugin_SuperMetaObject(const KFileMetaData__ExtractorPlugin* self);
 void KFileMetaData__ExtractorPlugin_OnMetacast(KFileMetaData__ExtractorPlugin* self, intptr_t slot);
 void* KFileMetaData__ExtractorPlugin_SuperMetacast(KFileMetaData__ExtractorPlugin* self, const char* param1);
 void KFileMetaData__ExtractorPlugin_OnMetacall(KFileMetaData__ExtractorPlugin* self, intptr_t slot);
 int KFileMetaData__ExtractorPlugin_SuperMetacall(KFileMetaData__ExtractorPlugin* self, int param1, int param2, void** param3);
-void KFileMetaData__ExtractorPlugin_OnMimetypes(const KFileMetaData__ExtractorPlugin* self, intptr_t slot);
-libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_SuperMimetypes(const KFileMetaData__ExtractorPlugin* self);
+void KFileMetaData__ExtractorPlugin_OnMimetypes(KFileMetaData__ExtractorPlugin* self, intptr_t slot);
 void KFileMetaData__ExtractorPlugin_OnExtract(KFileMetaData__ExtractorPlugin* self, intptr_t slot);
-void KFileMetaData__ExtractorPlugin_SuperExtract(KFileMetaData__ExtractorPlugin* self, KFileMetaData__ExtractionResult* result);
 bool KFileMetaData__ExtractorPlugin_Event(KFileMetaData__ExtractorPlugin* self, QEvent* event);
 void KFileMetaData__ExtractorPlugin_OnEvent(KFileMetaData__ExtractorPlugin* self, intptr_t slot);
 bool KFileMetaData__ExtractorPlugin_SuperEvent(KFileMetaData__ExtractorPlugin* self, QEvent* event);
@@ -75,20 +73,10 @@ void KFileMetaData__ExtractorPlugin_DisconnectNotify(KFileMetaData__ExtractorPlu
 void KFileMetaData__ExtractorPlugin_OnDisconnectNotify(KFileMetaData__ExtractorPlugin* self, intptr_t slot);
 void KFileMetaData__ExtractorPlugin_SuperDisconnectNotify(KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal);
 libqt_string KFileMetaData__ExtractorPlugin_GetSupportedMimeType(const KFileMetaData__ExtractorPlugin* self, const libqt_string mimetype);
-void KFileMetaData__ExtractorPlugin_OnGetSupportedMimeType(const KFileMetaData__ExtractorPlugin* self, intptr_t slot);
-libqt_string KFileMetaData__ExtractorPlugin_SuperGetSupportedMimeType(const KFileMetaData__ExtractorPlugin* self, const libqt_string mimetype);
 QObject* KFileMetaData__ExtractorPlugin_Sender(const KFileMetaData__ExtractorPlugin* self);
-void KFileMetaData__ExtractorPlugin_OnSender(const KFileMetaData__ExtractorPlugin* self, intptr_t slot);
-QObject* KFileMetaData__ExtractorPlugin_SuperSender(const KFileMetaData__ExtractorPlugin* self);
 int KFileMetaData__ExtractorPlugin_SenderSignalIndex(const KFileMetaData__ExtractorPlugin* self);
-void KFileMetaData__ExtractorPlugin_OnSenderSignalIndex(const KFileMetaData__ExtractorPlugin* self, intptr_t slot);
-int KFileMetaData__ExtractorPlugin_SuperSenderSignalIndex(const KFileMetaData__ExtractorPlugin* self);
 int KFileMetaData__ExtractorPlugin_Receivers(const KFileMetaData__ExtractorPlugin* self, const char* signal);
-void KFileMetaData__ExtractorPlugin_OnReceivers(const KFileMetaData__ExtractorPlugin* self, intptr_t slot);
-int KFileMetaData__ExtractorPlugin_SuperReceivers(const KFileMetaData__ExtractorPlugin* self, const char* signal);
 bool KFileMetaData__ExtractorPlugin_IsSignalConnected(const KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal);
-void KFileMetaData__ExtractorPlugin_OnIsSignalConnected(const KFileMetaData__ExtractorPlugin* self, intptr_t slot);
-bool KFileMetaData__ExtractorPlugin_SuperIsSignalConnected(const KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal);
 void KFileMetaData__ExtractorPlugin_Delete(KFileMetaData__ExtractorPlugin* self);
 
 #ifdef __cplusplus

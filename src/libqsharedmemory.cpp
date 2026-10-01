@@ -222,364 +222,219 @@ QNativeIpcKey* QSharedMemory_LegacyNativeKey2(const libqt_string key, uint16_t t
 
 // Base class handler implementation
 QMetaObject* QSharedMemory_SuperMetaObject(const QSharedMemory* self) {
-    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsharedmemory->metaObject();
-    } else {
-        return (QMetaObject*)self->QSharedMemory::metaObject();
-    }
+    return (QMetaObject*)self->QSharedMemory::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSharedMemory_OnMetaObject(const QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
-        vqsharedmemory->setQSharedMemory_MetaObject_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_MetaObject_Callback>(slot));
+void QSharedMemory_OnMetaObject(QSharedMemory* self, intptr_t slot) {
+    if (auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self)))
+        vqsharedmemory->qsharedmemory_metaobject_callback = reinterpret_cast<VirtualQSharedMemory::QSharedMemory_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QSharedMemory_SuperMetacast(QSharedMemory* self, const char* param1) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_Metacast_IsBase(true);
-        return vqsharedmemory->qt_metacast(param1);
-    } else {
-        return self->QSharedMemory::qt_metacast(param1);
-    }
+    return self->QSharedMemory::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnMetacast(QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
-        vqsharedmemory->setQSharedMemory_Metacast_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Metacast_Callback>(slot));
+    if (auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self))
+        vqsharedmemory->qsharedmemory_metacast_callback = reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSharedMemory_SuperMetacall(QSharedMemory* self, int param1, int param2, void** param3) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_Metacall_IsBase(true);
-        return vqsharedmemory->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QSharedMemory::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QSharedMemory::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnMetacall(QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
-        vqsharedmemory->setQSharedMemory_Metacall_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Metacall_Callback>(slot));
+    if (auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self))
+        vqsharedmemory->qsharedmemory_metacall_callback = reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSharedMemory_Event(QSharedMemory* self, QEvent* event) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        return vqsharedmemory->event(event);
-    } else {
-        return self->QSharedMemory::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QSharedMemory_SuperEvent(QSharedMemory* self, QEvent* event) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_Event_IsBase(true);
-        return vqsharedmemory->event(event);
-    } else {
-        return self->QSharedMemory::event(event);
-    }
+    return self->QSharedMemory::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnEvent(QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
-        vqsharedmemory->setQSharedMemory_Event_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Event_Callback>(slot));
+    if (auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self))
+        vqsharedmemory->qsharedmemory_event_callback = reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSharedMemory_EventFilter(QSharedMemory* self, QObject* watched, QEvent* event) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        return vqsharedmemory->eventFilter(watched, event);
-    } else {
-        return self->QSharedMemory::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QSharedMemory_SuperEventFilter(QSharedMemory* self, QObject* watched, QEvent* event) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_EventFilter_IsBase(true);
-        return vqsharedmemory->eventFilter(watched, event);
-    } else {
-        return self->QSharedMemory::eventFilter(watched, event);
-    }
+    return self->QSharedMemory::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnEventFilter(QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
-        vqsharedmemory->setQSharedMemory_EventFilter_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_EventFilter_Callback>(slot));
+    if (auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self))
+        vqsharedmemory->qsharedmemory_eventfilter_callback = reinterpret_cast<VirtualQSharedMemory::QSharedMemory_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSharedMemory_TimerEvent(QSharedMemory* self, QTimerEvent* event) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory) {
         vqsharedmemory->timerEvent(event);
     } else {
-        ((VirtualQSharedMemory*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QSharedMemory::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSharedMemory_SuperTimerEvent(QSharedMemory* self, QTimerEvent* event) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_TimerEvent_IsBase(true);
-        vqsharedmemory->timerEvent(event);
-    } else {
-        ((VirtualQSharedMemory*)self)->timerEvent(event);
-    }
+    if (auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self)) {
+        vqsharedmemory->QSharedMemory::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSharedMemory::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnTimerEvent(QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
-        vqsharedmemory->setQSharedMemory_TimerEvent_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_TimerEvent_Callback>(slot));
+    if (auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self))
+        vqsharedmemory->qsharedmemory_timerevent_callback = reinterpret_cast<VirtualQSharedMemory::QSharedMemory_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSharedMemory_ChildEvent(QSharedMemory* self, QChildEvent* event) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory) {
         vqsharedmemory->childEvent(event);
     } else {
-        ((VirtualQSharedMemory*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QSharedMemory::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSharedMemory_SuperChildEvent(QSharedMemory* self, QChildEvent* event) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_ChildEvent_IsBase(true);
-        vqsharedmemory->childEvent(event);
-    } else {
-        ((VirtualQSharedMemory*)self)->childEvent(event);
-    }
+    if (auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self)) {
+        vqsharedmemory->QSharedMemory::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSharedMemory::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnChildEvent(QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
-        vqsharedmemory->setQSharedMemory_ChildEvent_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_ChildEvent_Callback>(slot));
+    if (auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self))
+        vqsharedmemory->qsharedmemory_childevent_callback = reinterpret_cast<VirtualQSharedMemory::QSharedMemory_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSharedMemory_CustomEvent(QSharedMemory* self, QEvent* event) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory) {
         vqsharedmemory->customEvent(event);
     } else {
-        ((VirtualQSharedMemory*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QSharedMemory::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSharedMemory_SuperCustomEvent(QSharedMemory* self, QEvent* event) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_CustomEvent_IsBase(true);
-        vqsharedmemory->customEvent(event);
-    } else {
-        ((VirtualQSharedMemory*)self)->customEvent(event);
-    }
+    if (auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self)) {
+        vqsharedmemory->QSharedMemory::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSharedMemory::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnCustomEvent(QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
-        vqsharedmemory->setQSharedMemory_CustomEvent_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_CustomEvent_Callback>(slot));
+    if (auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self))
+        vqsharedmemory->qsharedmemory_customevent_callback = reinterpret_cast<VirtualQSharedMemory::QSharedMemory_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSharedMemory_ConnectNotify(QSharedMemory* self, const QMetaMethod* signal) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory) {
         vqsharedmemory->connectNotify(*signal);
     } else {
-        ((VirtualQSharedMemory*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QSharedMemory::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSharedMemory_SuperConnectNotify(QSharedMemory* self, const QMetaMethod* signal) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_ConnectNotify_IsBase(true);
-        vqsharedmemory->connectNotify(*signal);
-    } else {
-        ((VirtualQSharedMemory*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self)) {
+        vqsharedmemory->QSharedMemory::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSharedMemory::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnConnectNotify(QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
-        vqsharedmemory->setQSharedMemory_ConnectNotify_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_ConnectNotify_Callback>(slot));
+    if (auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self))
+        vqsharedmemory->qsharedmemory_connectnotify_callback = reinterpret_cast<VirtualQSharedMemory::QSharedMemory_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSharedMemory_DisconnectNotify(QSharedMemory* self, const QMetaMethod* signal) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory) {
         vqsharedmemory->disconnectNotify(*signal);
     } else {
-        ((VirtualQSharedMemory*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QSharedMemory::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSharedMemory_SuperDisconnectNotify(QSharedMemory* self, const QMetaMethod* signal) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_DisconnectNotify_IsBase(true);
-        vqsharedmemory->disconnectNotify(*signal);
-    } else {
-        ((VirtualQSharedMemory*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self)) {
+        vqsharedmemory->QSharedMemory::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSharedMemory::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnDisconnectNotify(QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
-        vqsharedmemory->setQSharedMemory_DisconnectNotify_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_DisconnectNotify_Callback>(slot));
+    if (auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self))
+        vqsharedmemory->qsharedmemory_disconnectnotify_callback = reinterpret_cast<VirtualQSharedMemory::QSharedMemory_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QSharedMemory_Sender(const QSharedMemory* self) {
-    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        return vqsharedmemory->sender();
-    } else {
-        return ((VirtualQSharedMemory*)self)->sender();
-    }
+    if (auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self))) {
+        return vqsharedmemory->VirtualQSharedMemory::sender();
+    } else
+        qFatal("Error: Protected method QSharedMemory::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QSharedMemory_SuperSender(const QSharedMemory* self) {
-    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_Sender_IsBase(true);
-        return vqsharedmemory->sender();
-    } else {
-        return ((VirtualQSharedMemory*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSharedMemory_OnSender(const QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
-        vqsharedmemory->setQSharedMemory_Sender_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSharedMemory_SenderSignalIndex(const QSharedMemory* self) {
-    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        return vqsharedmemory->senderSignalIndex();
-    } else {
-        return ((VirtualQSharedMemory*)self)->senderSignalIndex();
-    }
+    if (auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self))) {
+        return vqsharedmemory->VirtualQSharedMemory::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QSharedMemory::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSharedMemory_SuperSenderSignalIndex(const QSharedMemory* self) {
-    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_SenderSignalIndex_IsBase(true);
-        return vqsharedmemory->senderSignalIndex();
-    } else {
-        return ((VirtualQSharedMemory*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSharedMemory_OnSenderSignalIndex(const QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
-        vqsharedmemory->setQSharedMemory_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSharedMemory_Receivers(const QSharedMemory* self, const char* signal) {
-    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        return vqsharedmemory->receivers(signal);
-    } else {
-        return ((VirtualQSharedMemory*)self)->receivers(signal);
-    }
+    if (auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self))) {
+        return vqsharedmemory->VirtualQSharedMemory::receivers(signal);
+    } else
+        qFatal("Error: Protected method QSharedMemory::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSharedMemory_SuperReceivers(const QSharedMemory* self, const char* signal) {
-    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_Receivers_IsBase(true);
-        return vqsharedmemory->receivers(signal);
-    } else {
-        return ((VirtualQSharedMemory*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSharedMemory_OnReceivers(const QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
-        vqsharedmemory->setQSharedMemory_Receivers_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSharedMemory_IsSignalConnected(const QSharedMemory* self, const QMetaMethod* signal) {
-    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        return vqsharedmemory->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSharedMemory*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QSharedMemory_SuperIsSignalConnected(const QSharedMemory* self, const QMetaMethod* signal) {
-    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        vqsharedmemory->setQSharedMemory_IsSignalConnected_IsBase(true);
-        return vqsharedmemory->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSharedMemory*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSharedMemory_OnIsSignalConnected(const QSharedMemory* self, intptr_t slot) {
-    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
-        vqsharedmemory->setQSharedMemory_IsSignalConnected_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_IsSignalConnected_Callback>(slot));
+    if (auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self))) {
+        return vqsharedmemory->VirtualQSharedMemory::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QSharedMemory::isSignalConnected called without a directly constructed type");
 }
 
 void QSharedMemory_Delete(QSharedMemory* self) {

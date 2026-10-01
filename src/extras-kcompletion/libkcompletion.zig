@@ -63,9 +63,9 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KCompletion) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KCompletion, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KCompletion, callback: *const fn (KCompletion) callconv(.c) QMetaObject) void {
         qtc.KCompletion_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -278,9 +278,9 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KCompletion) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onLastMatch(self: KCompletion, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onLastMatch(self: KCompletion, callback: *const fn (KCompletion) callconv(.c) [*:0]const u8) void {
         qtc.KCompletion_OnLastMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1057,9 +1057,9 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KCompletion) callconv(.c) void `
     ///
-    pub fn onClear(self: KCompletion, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: KCompletion, callback: *const fn (KCompletion) callconv(.c) void) void {
         qtc.KCompletion_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1336,42 +1336,6 @@ pub const KCompletion = extern struct {
     ///
     pub fn setShouldAutoSuggest(self: KCompletion, shouldAutosuggest: bool) void {
         qtc.KCompletion_SetShouldAutoSuggest(@ptrCast(self.ptr), shouldAutosuggest);
-    }
-
-    /// ### DEPRECATED: Use `onSetShouldAutoSuggest` instead
-    ///
-    pub const OnSetShouldAutoSuggest = onSetShouldAutoSuggest;
-
-    /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompletion `
-    ///
-    /// ` callback: *const fn (self: KCompletion, shouldAutosuggest: bool) callconv(.c) void `
-    ///
-    pub fn onSetShouldAutoSuggest(self: KCompletion, callback: *const fn (KCompletion, bool) callconv(.c) void) void {
-        qtc.KCompletion_OnSetShouldAutoSuggest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetShouldAutoSuggest` instead
-    ///
-    pub const SuperSetShouldAutoSuggest = superSetShouldAutoSuggest;
-
-    /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletion `
-    ///
-    /// ` shouldAutosuggest: bool `
-    ///
-    pub fn superSetShouldAutoSuggest(self: KCompletion, shouldAutosuggest: bool) void {
-        qtc.KCompletion_SuperSetShouldAutoSuggest(@ptrCast(self.ptr), shouldAutosuggest);
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2851,44 +2815,6 @@ pub const KCompletion = extern struct {
         return .{ .ptr = qtc.KCompletion_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletion `
-    ///
-    pub fn superSender(self: KCompletion) QObject {
-        return .{ .ptr = qtc.KCompletion_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompletion`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KCompletion, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KCompletion_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2905,44 +2831,6 @@ pub const KCompletion = extern struct {
     ///
     pub fn senderSignalIndex(self: KCompletion) i32 {
         return qtc.KCompletion_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletion `
-    ///
-    pub fn superSenderSignalIndex(self: KCompletion) i32 {
-        return qtc.KCompletion_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompletion`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KCompletion, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCompletion_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2966,47 +2854,6 @@ pub const KCompletion = extern struct {
         return qtc.KCompletion_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletion `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KCompletion, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KCompletion_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompletion`
-    ///
-    /// ` callback: *const fn (self: KCompletion, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KCompletion, callback: *const fn (KCompletion, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KCompletion_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3026,47 +2873,6 @@ pub const KCompletion = extern struct {
     pub fn isSignalConnected(self: KCompletion, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCompletion_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletion `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KCompletion, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KCompletion_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompletion`
-    ///
-    /// ` callback: *const fn (self: KCompletion, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KCompletion, callback: *const fn (KCompletion, QMetaMethod) callconv(.c) bool) void {
-        qtc.KCompletion_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

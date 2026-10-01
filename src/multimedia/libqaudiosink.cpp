@@ -169,364 +169,219 @@ libqt_string QAudioSink_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QAudioSink_SuperMetaObject(const QAudioSink* self) {
-    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        vqaudiosink->setQAudioSink_MetaObject_IsBase(true);
-        return (QMetaObject*)vqaudiosink->metaObject();
-    } else {
-        return (QMetaObject*)self->QAudioSink::metaObject();
-    }
+    return (QMetaObject*)self->QAudioSink::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAudioSink_OnMetaObject(const QAudioSink* self, intptr_t slot) {
-    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
-        vqaudiosink->setQAudioSink_MetaObject_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_MetaObject_Callback>(slot));
+void QAudioSink_OnMetaObject(QAudioSink* self, intptr_t slot) {
+    if (auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self)))
+        vqaudiosink->qaudiosink_metaobject_callback = reinterpret_cast<VirtualQAudioSink::QAudioSink_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QAudioSink_SuperMetacast(QAudioSink* self, const char* param1) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        vqaudiosink->setQAudioSink_Metacast_IsBase(true);
-        return vqaudiosink->qt_metacast(param1);
-    } else {
-        return self->QAudioSink::qt_metacast(param1);
-    }
+    return self->QAudioSink::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnMetacast(QAudioSink* self, intptr_t slot) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
-        vqaudiosink->setQAudioSink_Metacast_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_Metacast_Callback>(slot));
+    if (auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self))
+        vqaudiosink->qaudiosink_metacast_callback = reinterpret_cast<VirtualQAudioSink::QAudioSink_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAudioSink_SuperMetacall(QAudioSink* self, int param1, int param2, void** param3) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        vqaudiosink->setQAudioSink_Metacall_IsBase(true);
-        return vqaudiosink->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QAudioSink::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QAudioSink::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnMetacall(QAudioSink* self, intptr_t slot) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
-        vqaudiosink->setQAudioSink_Metacall_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_Metacall_Callback>(slot));
+    if (auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self))
+        vqaudiosink->qaudiosink_metacall_callback = reinterpret_cast<VirtualQAudioSink::QAudioSink_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAudioSink_Event(QAudioSink* self, QEvent* event) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        return vqaudiosink->event(event);
-    } else {
-        return self->QAudioSink::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QAudioSink_SuperEvent(QAudioSink* self, QEvent* event) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        vqaudiosink->setQAudioSink_Event_IsBase(true);
-        return vqaudiosink->event(event);
-    } else {
-        return self->QAudioSink::event(event);
-    }
+    return self->QAudioSink::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnEvent(QAudioSink* self, intptr_t slot) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
-        vqaudiosink->setQAudioSink_Event_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_Event_Callback>(slot));
+    if (auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self))
+        vqaudiosink->qaudiosink_event_callback = reinterpret_cast<VirtualQAudioSink::QAudioSink_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAudioSink_EventFilter(QAudioSink* self, QObject* watched, QEvent* event) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        return vqaudiosink->eventFilter(watched, event);
-    } else {
-        return self->QAudioSink::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QAudioSink_SuperEventFilter(QAudioSink* self, QObject* watched, QEvent* event) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        vqaudiosink->setQAudioSink_EventFilter_IsBase(true);
-        return vqaudiosink->eventFilter(watched, event);
-    } else {
-        return self->QAudioSink::eventFilter(watched, event);
-    }
+    return self->QAudioSink::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnEventFilter(QAudioSink* self, intptr_t slot) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
-        vqaudiosink->setQAudioSink_EventFilter_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_EventFilter_Callback>(slot));
+    if (auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self))
+        vqaudiosink->qaudiosink_eventfilter_callback = reinterpret_cast<VirtualQAudioSink::QAudioSink_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioSink_TimerEvent(QAudioSink* self, QTimerEvent* event) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink) {
         vqaudiosink->timerEvent(event);
     } else {
-        ((VirtualQAudioSink*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QAudioSink::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioSink_SuperTimerEvent(QAudioSink* self, QTimerEvent* event) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        vqaudiosink->setQAudioSink_TimerEvent_IsBase(true);
-        vqaudiosink->timerEvent(event);
-    } else {
-        ((VirtualQAudioSink*)self)->timerEvent(event);
-    }
+    if (auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self)) {
+        vqaudiosink->QAudioSink::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAudioSink::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnTimerEvent(QAudioSink* self, intptr_t slot) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
-        vqaudiosink->setQAudioSink_TimerEvent_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_TimerEvent_Callback>(slot));
+    if (auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self))
+        vqaudiosink->qaudiosink_timerevent_callback = reinterpret_cast<VirtualQAudioSink::QAudioSink_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioSink_ChildEvent(QAudioSink* self, QChildEvent* event) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink) {
         vqaudiosink->childEvent(event);
     } else {
-        ((VirtualQAudioSink*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QAudioSink::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioSink_SuperChildEvent(QAudioSink* self, QChildEvent* event) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        vqaudiosink->setQAudioSink_ChildEvent_IsBase(true);
-        vqaudiosink->childEvent(event);
-    } else {
-        ((VirtualQAudioSink*)self)->childEvent(event);
-    }
+    if (auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self)) {
+        vqaudiosink->QAudioSink::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAudioSink::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnChildEvent(QAudioSink* self, intptr_t slot) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
-        vqaudiosink->setQAudioSink_ChildEvent_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_ChildEvent_Callback>(slot));
+    if (auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self))
+        vqaudiosink->qaudiosink_childevent_callback = reinterpret_cast<VirtualQAudioSink::QAudioSink_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioSink_CustomEvent(QAudioSink* self, QEvent* event) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink) {
         vqaudiosink->customEvent(event);
     } else {
-        ((VirtualQAudioSink*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QAudioSink::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioSink_SuperCustomEvent(QAudioSink* self, QEvent* event) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        vqaudiosink->setQAudioSink_CustomEvent_IsBase(true);
-        vqaudiosink->customEvent(event);
-    } else {
-        ((VirtualQAudioSink*)self)->customEvent(event);
-    }
+    if (auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self)) {
+        vqaudiosink->QAudioSink::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAudioSink::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnCustomEvent(QAudioSink* self, intptr_t slot) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
-        vqaudiosink->setQAudioSink_CustomEvent_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_CustomEvent_Callback>(slot));
+    if (auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self))
+        vqaudiosink->qaudiosink_customevent_callback = reinterpret_cast<VirtualQAudioSink::QAudioSink_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioSink_ConnectNotify(QAudioSink* self, const QMetaMethod* signal) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink) {
         vqaudiosink->connectNotify(*signal);
     } else {
-        ((VirtualQAudioSink*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QAudioSink::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioSink_SuperConnectNotify(QAudioSink* self, const QMetaMethod* signal) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        vqaudiosink->setQAudioSink_ConnectNotify_IsBase(true);
-        vqaudiosink->connectNotify(*signal);
-    } else {
-        ((VirtualQAudioSink*)self)->connectNotify(*signal);
-    }
+    if (auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self)) {
+        vqaudiosink->QAudioSink::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAudioSink::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnConnectNotify(QAudioSink* self, intptr_t slot) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
-        vqaudiosink->setQAudioSink_ConnectNotify_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_ConnectNotify_Callback>(slot));
+    if (auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self))
+        vqaudiosink->qaudiosink_connectnotify_callback = reinterpret_cast<VirtualQAudioSink::QAudioSink_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioSink_DisconnectNotify(QAudioSink* self, const QMetaMethod* signal) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink) {
         vqaudiosink->disconnectNotify(*signal);
     } else {
-        ((VirtualQAudioSink*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QAudioSink::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioSink_SuperDisconnectNotify(QAudioSink* self, const QMetaMethod* signal) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        vqaudiosink->setQAudioSink_DisconnectNotify_IsBase(true);
-        vqaudiosink->disconnectNotify(*signal);
-    } else {
-        ((VirtualQAudioSink*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self)) {
+        vqaudiosink->QAudioSink::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAudioSink::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnDisconnectNotify(QAudioSink* self, intptr_t slot) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
-        vqaudiosink->setQAudioSink_DisconnectNotify_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_DisconnectNotify_Callback>(slot));
+    if (auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self))
+        vqaudiosink->qaudiosink_disconnectnotify_callback = reinterpret_cast<VirtualQAudioSink::QAudioSink_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QAudioSink_Sender(const QAudioSink* self) {
-    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        return vqaudiosink->sender();
-    } else {
-        return ((VirtualQAudioSink*)self)->sender();
-    }
+    if (auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self))) {
+        return vqaudiosink->VirtualQAudioSink::sender();
+    } else
+        qFatal("Error: Protected method QAudioSink::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QAudioSink_SuperSender(const QAudioSink* self) {
-    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        vqaudiosink->setQAudioSink_Sender_IsBase(true);
-        return vqaudiosink->sender();
-    } else {
-        return ((VirtualQAudioSink*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAudioSink_OnSender(const QAudioSink* self, intptr_t slot) {
-    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
-        vqaudiosink->setQAudioSink_Sender_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAudioSink_SenderSignalIndex(const QAudioSink* self) {
-    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        return vqaudiosink->senderSignalIndex();
-    } else {
-        return ((VirtualQAudioSink*)self)->senderSignalIndex();
-    }
+    if (auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self))) {
+        return vqaudiosink->VirtualQAudioSink::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QAudioSink::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAudioSink_SuperSenderSignalIndex(const QAudioSink* self) {
-    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        vqaudiosink->setQAudioSink_SenderSignalIndex_IsBase(true);
-        return vqaudiosink->senderSignalIndex();
-    } else {
-        return ((VirtualQAudioSink*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAudioSink_OnSenderSignalIndex(const QAudioSink* self, intptr_t slot) {
-    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
-        vqaudiosink->setQAudioSink_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAudioSink_Receivers(const QAudioSink* self, const char* signal) {
-    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        return vqaudiosink->receivers(signal);
-    } else {
-        return ((VirtualQAudioSink*)self)->receivers(signal);
-    }
+    if (auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self))) {
+        return vqaudiosink->VirtualQAudioSink::receivers(signal);
+    } else
+        qFatal("Error: Protected method QAudioSink::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAudioSink_SuperReceivers(const QAudioSink* self, const char* signal) {
-    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        vqaudiosink->setQAudioSink_Receivers_IsBase(true);
-        return vqaudiosink->receivers(signal);
-    } else {
-        return ((VirtualQAudioSink*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAudioSink_OnReceivers(const QAudioSink* self, intptr_t slot) {
-    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
-        vqaudiosink->setQAudioSink_Receivers_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAudioSink_IsSignalConnected(const QAudioSink* self, const QMetaMethod* signal) {
-    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        return vqaudiosink->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAudioSink*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QAudioSink_SuperIsSignalConnected(const QAudioSink* self, const QMetaMethod* signal) {
-    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        vqaudiosink->setQAudioSink_IsSignalConnected_IsBase(true);
-        return vqaudiosink->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAudioSink*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAudioSink_OnIsSignalConnected(const QAudioSink* self, intptr_t slot) {
-    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
-        vqaudiosink->setQAudioSink_IsSignalConnected_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_IsSignalConnected_Callback>(slot));
+    if (auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self))) {
+        return vqaudiosink->VirtualQAudioSink::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QAudioSink::isSignalConnected called without a directly constructed type");
 }
 
 void QAudioSink_Delete(QAudioSink* self) {

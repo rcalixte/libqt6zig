@@ -495,364 +495,219 @@ void QVirtualKeyboardInputContext_Commit3(QVirtualKeyboardInputContext* self, co
 
 // Base class handler implementation
 QMetaObject* QVirtualKeyboardInputContext_SuperMetaObject(const QVirtualKeyboardInputContext* self) {
-    auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self));
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_MetaObject_IsBase(true);
-        return (QMetaObject*)vqvirtualkeyboardinputcontext->metaObject();
-    } else {
-        return (QMetaObject*)self->QVirtualKeyboardInputContext::metaObject();
-    }
+    return (QMetaObject*)self->QVirtualKeyboardInputContext::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVirtualKeyboardInputContext_OnMetaObject(const QVirtualKeyboardInputContext* self, intptr_t slot) {
-    auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self));
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext)
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_MetaObject_Callback(reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_MetaObject_Callback>(slot));
+void QVirtualKeyboardInputContext_OnMetaObject(QVirtualKeyboardInputContext* self, intptr_t slot) {
+    if (auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self)))
+        vqvirtualkeyboardinputcontext->qvirtualkeyboardinputcontext_metaobject_callback = reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QVirtualKeyboardInputContext_SuperMetacast(QVirtualKeyboardInputContext* self, const char* param1) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_Metacast_IsBase(true);
-        return vqvirtualkeyboardinputcontext->qt_metacast(param1);
-    } else {
-        return self->QVirtualKeyboardInputContext::qt_metacast(param1);
-    }
+    return self->QVirtualKeyboardInputContext::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardInputContext_OnMetacast(QVirtualKeyboardInputContext* self, intptr_t slot) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext)
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_Metacast_Callback(reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_Metacast_Callback>(slot));
+    if (auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self))
+        vqvirtualkeyboardinputcontext->qvirtualkeyboardinputcontext_metacast_callback = reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QVirtualKeyboardInputContext_SuperMetacall(QVirtualKeyboardInputContext* self, int param1, int param2, void** param3) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_Metacall_IsBase(true);
-        return vqvirtualkeyboardinputcontext->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QVirtualKeyboardInputContext::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QVirtualKeyboardInputContext::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardInputContext_OnMetacall(QVirtualKeyboardInputContext* self, intptr_t slot) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext)
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_Metacall_Callback(reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_Metacall_Callback>(slot));
+    if (auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self))
+        vqvirtualkeyboardinputcontext->qvirtualkeyboardinputcontext_metacall_callback = reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVirtualKeyboardInputContext_Event(QVirtualKeyboardInputContext* self, QEvent* event) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        return vqvirtualkeyboardinputcontext->event(event);
-    } else {
-        return self->QVirtualKeyboardInputContext::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QVirtualKeyboardInputContext_SuperEvent(QVirtualKeyboardInputContext* self, QEvent* event) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_Event_IsBase(true);
-        return vqvirtualkeyboardinputcontext->event(event);
-    } else {
-        return self->QVirtualKeyboardInputContext::event(event);
-    }
+    return self->QVirtualKeyboardInputContext::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardInputContext_OnEvent(QVirtualKeyboardInputContext* self, intptr_t slot) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext)
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_Event_Callback(reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_Event_Callback>(slot));
+    if (auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self))
+        vqvirtualkeyboardinputcontext->qvirtualkeyboardinputcontext_event_callback = reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVirtualKeyboardInputContext_EventFilter(QVirtualKeyboardInputContext* self, QObject* watched, QEvent* event) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        return vqvirtualkeyboardinputcontext->eventFilter(watched, event);
-    } else {
-        return self->QVirtualKeyboardInputContext::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QVirtualKeyboardInputContext_SuperEventFilter(QVirtualKeyboardInputContext* self, QObject* watched, QEvent* event) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_EventFilter_IsBase(true);
-        return vqvirtualkeyboardinputcontext->eventFilter(watched, event);
-    } else {
-        return self->QVirtualKeyboardInputContext::eventFilter(watched, event);
-    }
+    return self->QVirtualKeyboardInputContext::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardInputContext_OnEventFilter(QVirtualKeyboardInputContext* self, intptr_t slot) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext)
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_EventFilter_Callback(reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_EventFilter_Callback>(slot));
+    if (auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self))
+        vqvirtualkeyboardinputcontext->qvirtualkeyboardinputcontext_eventfilter_callback = reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVirtualKeyboardInputContext_TimerEvent(QVirtualKeyboardInputContext* self, QTimerEvent* event) {
     auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
+    if (vqvirtualkeyboardinputcontext) {
         vqvirtualkeyboardinputcontext->timerEvent(event);
     } else {
-        ((VirtualQVirtualKeyboardInputContext*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QVirtualKeyboardInputContext::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVirtualKeyboardInputContext_SuperTimerEvent(QVirtualKeyboardInputContext* self, QTimerEvent* event) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_TimerEvent_IsBase(true);
-        vqvirtualkeyboardinputcontext->timerEvent(event);
-    } else {
-        ((VirtualQVirtualKeyboardInputContext*)self)->timerEvent(event);
-    }
+    if (auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self)) {
+        vqvirtualkeyboardinputcontext->QVirtualKeyboardInputContext::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVirtualKeyboardInputContext::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardInputContext_OnTimerEvent(QVirtualKeyboardInputContext* self, intptr_t slot) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext)
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_TimerEvent_Callback(reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_TimerEvent_Callback>(slot));
+    if (auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self))
+        vqvirtualkeyboardinputcontext->qvirtualkeyboardinputcontext_timerevent_callback = reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVirtualKeyboardInputContext_ChildEvent(QVirtualKeyboardInputContext* self, QChildEvent* event) {
     auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
+    if (vqvirtualkeyboardinputcontext) {
         vqvirtualkeyboardinputcontext->childEvent(event);
     } else {
-        ((VirtualQVirtualKeyboardInputContext*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QVirtualKeyboardInputContext::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVirtualKeyboardInputContext_SuperChildEvent(QVirtualKeyboardInputContext* self, QChildEvent* event) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_ChildEvent_IsBase(true);
-        vqvirtualkeyboardinputcontext->childEvent(event);
-    } else {
-        ((VirtualQVirtualKeyboardInputContext*)self)->childEvent(event);
-    }
+    if (auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self)) {
+        vqvirtualkeyboardinputcontext->QVirtualKeyboardInputContext::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVirtualKeyboardInputContext::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardInputContext_OnChildEvent(QVirtualKeyboardInputContext* self, intptr_t slot) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext)
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_ChildEvent_Callback(reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_ChildEvent_Callback>(slot));
+    if (auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self))
+        vqvirtualkeyboardinputcontext->qvirtualkeyboardinputcontext_childevent_callback = reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVirtualKeyboardInputContext_CustomEvent(QVirtualKeyboardInputContext* self, QEvent* event) {
     auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
+    if (vqvirtualkeyboardinputcontext) {
         vqvirtualkeyboardinputcontext->customEvent(event);
     } else {
-        ((VirtualQVirtualKeyboardInputContext*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QVirtualKeyboardInputContext::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVirtualKeyboardInputContext_SuperCustomEvent(QVirtualKeyboardInputContext* self, QEvent* event) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_CustomEvent_IsBase(true);
-        vqvirtualkeyboardinputcontext->customEvent(event);
-    } else {
-        ((VirtualQVirtualKeyboardInputContext*)self)->customEvent(event);
-    }
+    if (auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self)) {
+        vqvirtualkeyboardinputcontext->QVirtualKeyboardInputContext::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVirtualKeyboardInputContext::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardInputContext_OnCustomEvent(QVirtualKeyboardInputContext* self, intptr_t slot) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext)
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_CustomEvent_Callback(reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_CustomEvent_Callback>(slot));
+    if (auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self))
+        vqvirtualkeyboardinputcontext->qvirtualkeyboardinputcontext_customevent_callback = reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVirtualKeyboardInputContext_ConnectNotify(QVirtualKeyboardInputContext* self, const QMetaMethod* signal) {
     auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
+    if (vqvirtualkeyboardinputcontext) {
         vqvirtualkeyboardinputcontext->connectNotify(*signal);
     } else {
-        ((VirtualQVirtualKeyboardInputContext*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QVirtualKeyboardInputContext::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVirtualKeyboardInputContext_SuperConnectNotify(QVirtualKeyboardInputContext* self, const QMetaMethod* signal) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_ConnectNotify_IsBase(true);
-        vqvirtualkeyboardinputcontext->connectNotify(*signal);
-    } else {
-        ((VirtualQVirtualKeyboardInputContext*)self)->connectNotify(*signal);
-    }
+    if (auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self)) {
+        vqvirtualkeyboardinputcontext->QVirtualKeyboardInputContext::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QVirtualKeyboardInputContext::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardInputContext_OnConnectNotify(QVirtualKeyboardInputContext* self, intptr_t slot) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext)
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_ConnectNotify_Callback(reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_ConnectNotify_Callback>(slot));
+    if (auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self))
+        vqvirtualkeyboardinputcontext->qvirtualkeyboardinputcontext_connectnotify_callback = reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVirtualKeyboardInputContext_DisconnectNotify(QVirtualKeyboardInputContext* self, const QMetaMethod* signal) {
     auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
+    if (vqvirtualkeyboardinputcontext) {
         vqvirtualkeyboardinputcontext->disconnectNotify(*signal);
     } else {
-        ((VirtualQVirtualKeyboardInputContext*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QVirtualKeyboardInputContext::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVirtualKeyboardInputContext_SuperDisconnectNotify(QVirtualKeyboardInputContext* self, const QMetaMethod* signal) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_DisconnectNotify_IsBase(true);
-        vqvirtualkeyboardinputcontext->disconnectNotify(*signal);
-    } else {
-        ((VirtualQVirtualKeyboardInputContext*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self)) {
+        vqvirtualkeyboardinputcontext->QVirtualKeyboardInputContext::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QVirtualKeyboardInputContext::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardInputContext_OnDisconnectNotify(QVirtualKeyboardInputContext* self, intptr_t slot) {
-    auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self);
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext)
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_DisconnectNotify_Callback(reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_DisconnectNotify_Callback>(slot));
+    if (auto* vqvirtualkeyboardinputcontext = dynamic_cast<VirtualQVirtualKeyboardInputContext*>(self))
+        vqvirtualkeyboardinputcontext->qvirtualkeyboardinputcontext_disconnectnotify_callback = reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QVirtualKeyboardInputContext_Sender(const QVirtualKeyboardInputContext* self) {
-    auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self));
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        return vqvirtualkeyboardinputcontext->sender();
-    } else {
-        return ((VirtualQVirtualKeyboardInputContext*)self)->sender();
-    }
+    if (auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self))) {
+        return vqvirtualkeyboardinputcontext->VirtualQVirtualKeyboardInputContext::sender();
+    } else
+        qFatal("Error: Protected method QVirtualKeyboardInputContext::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QVirtualKeyboardInputContext_SuperSender(const QVirtualKeyboardInputContext* self) {
-    auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self));
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_Sender_IsBase(true);
-        return vqvirtualkeyboardinputcontext->sender();
-    } else {
-        return ((VirtualQVirtualKeyboardInputContext*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVirtualKeyboardInputContext_OnSender(const QVirtualKeyboardInputContext* self, intptr_t slot) {
-    auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self));
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext)
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_Sender_Callback(reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVirtualKeyboardInputContext_SenderSignalIndex(const QVirtualKeyboardInputContext* self) {
-    auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self));
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        return vqvirtualkeyboardinputcontext->senderSignalIndex();
-    } else {
-        return ((VirtualQVirtualKeyboardInputContext*)self)->senderSignalIndex();
-    }
+    if (auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self))) {
+        return vqvirtualkeyboardinputcontext->VirtualQVirtualKeyboardInputContext::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QVirtualKeyboardInputContext::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVirtualKeyboardInputContext_SuperSenderSignalIndex(const QVirtualKeyboardInputContext* self) {
-    auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self));
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_SenderSignalIndex_IsBase(true);
-        return vqvirtualkeyboardinputcontext->senderSignalIndex();
-    } else {
-        return ((VirtualQVirtualKeyboardInputContext*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVirtualKeyboardInputContext_OnSenderSignalIndex(const QVirtualKeyboardInputContext* self, intptr_t slot) {
-    auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self));
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext)
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVirtualKeyboardInputContext_Receivers(const QVirtualKeyboardInputContext* self, const char* signal) {
-    auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self));
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        return vqvirtualkeyboardinputcontext->receivers(signal);
-    } else {
-        return ((VirtualQVirtualKeyboardInputContext*)self)->receivers(signal);
-    }
+    if (auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self))) {
+        return vqvirtualkeyboardinputcontext->VirtualQVirtualKeyboardInputContext::receivers(signal);
+    } else
+        qFatal("Error: Protected method QVirtualKeyboardInputContext::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVirtualKeyboardInputContext_SuperReceivers(const QVirtualKeyboardInputContext* self, const char* signal) {
-    auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self));
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_Receivers_IsBase(true);
-        return vqvirtualkeyboardinputcontext->receivers(signal);
-    } else {
-        return ((VirtualQVirtualKeyboardInputContext*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVirtualKeyboardInputContext_OnReceivers(const QVirtualKeyboardInputContext* self, intptr_t slot) {
-    auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self));
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext)
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_Receivers_Callback(reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QVirtualKeyboardInputContext_IsSignalConnected(const QVirtualKeyboardInputContext* self, const QMetaMethod* signal) {
-    auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self));
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        return vqvirtualkeyboardinputcontext->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQVirtualKeyboardInputContext*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QVirtualKeyboardInputContext_SuperIsSignalConnected(const QVirtualKeyboardInputContext* self, const QMetaMethod* signal) {
-    auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self));
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext) {
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_IsSignalConnected_IsBase(true);
-        return vqvirtualkeyboardinputcontext->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQVirtualKeyboardInputContext*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVirtualKeyboardInputContext_OnIsSignalConnected(const QVirtualKeyboardInputContext* self, intptr_t slot) {
-    auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self));
-    if (vqvirtualkeyboardinputcontext && vqvirtualkeyboardinputcontext->isVirtualQVirtualKeyboardInputContext)
-        vqvirtualkeyboardinputcontext->setQVirtualKeyboardInputContext_IsSignalConnected_Callback(reinterpret_cast<VirtualQVirtualKeyboardInputContext::QVirtualKeyboardInputContext_IsSignalConnected_Callback>(slot));
+    if (auto* vqvirtualkeyboardinputcontext = const_cast<VirtualQVirtualKeyboardInputContext*>(dynamic_cast<const VirtualQVirtualKeyboardInputContext*>(self))) {
+        return vqvirtualkeyboardinputcontext->VirtualQVirtualKeyboardInputContext::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QVirtualKeyboardInputContext::isSignalConnected called without a directly constructed type");
 }
 
 void QVirtualKeyboardInputContext_Delete(QVirtualKeyboardInputContext* self) {

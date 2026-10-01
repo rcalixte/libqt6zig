@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QPdfView so that we can call protected methods
+// This class is a subclass of QPdfView
 class VirtualQPdfView final : public QPdfView {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQPdfView = true;
-
-    // Virtual class public types (including callbacks)
-    using QPdfView_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QPdfView_MetaObject_Callback = QMetaObject* (*)(const QPdfView*);
     using QPdfView_Metacast_Callback = void* (*)(QPdfView*, const char*);
     using QPdfView_Metacall_Callback = int (*)(QPdfView*, int, int, void**);
     using QPdfView_PaintEvent_Callback = void (*)(QPdfView*, QPaintEvent*);
@@ -26,8 +22,8 @@ class VirtualQPdfView final : public QPdfView {
     using QPdfView_MousePressEvent_Callback = void (*)(QPdfView*, QMouseEvent*);
     using QPdfView_MouseMoveEvent_Callback = void (*)(QPdfView*, QMouseEvent*);
     using QPdfView_MouseReleaseEvent_Callback = void (*)(QPdfView*, QMouseEvent*);
-    using QPdfView_MinimumSizeHint_Callback = QSize* (*)();
-    using QPdfView_SizeHint_Callback = QSize* (*)();
+    using QPdfView_MinimumSizeHint_Callback = QSize* (*)(const QPdfView*);
+    using QPdfView_SizeHint_Callback = QSize* (*)(const QPdfView*);
     using QPdfView_SetupViewport_Callback = void (*)(QPdfView*, QWidget*);
     using QPdfView_EventFilter_Callback = bool (*)(QPdfView*, QObject*, QEvent*);
     using QPdfView_Event_Callback = bool (*)(QPdfView*, QEvent*);
@@ -40,14 +36,14 @@ class VirtualQPdfView final : public QPdfView {
     using QPdfView_DragLeaveEvent_Callback = void (*)(QPdfView*, QDragLeaveEvent*);
     using QPdfView_DropEvent_Callback = void (*)(QPdfView*, QDropEvent*);
     using QPdfView_KeyPressEvent_Callback = void (*)(QPdfView*, QKeyEvent*);
-    using QPdfView_ViewportSizeHint_Callback = QSize* (*)();
+    using QPdfView_ViewportSizeHint_Callback = QSize* (*)(const QPdfView*);
     using QPdfView_ChangeEvent_Callback = void (*)(QPdfView*, QEvent*);
     using QPdfView_InitStyleOption_Callback = void (*)(const QPdfView*, QStyleOptionFrame*);
-    using QPdfView_DevType_Callback = int (*)();
+    using QPdfView_DevType_Callback = int (*)(const QPdfView*);
     using QPdfView_SetVisible_Callback = void (*)(QPdfView*, bool);
     using QPdfView_HeightForWidth_Callback = int (*)(const QPdfView*, int);
-    using QPdfView_HasHeightForWidth_Callback = bool (*)();
-    using QPdfView_PaintEngine_Callback = QPaintEngine* (*)();
+    using QPdfView_HasHeightForWidth_Callback = bool (*)(const QPdfView*);
+    using QPdfView_PaintEngine_Callback = QPaintEngine* (*)(const QPdfView*);
     using QPdfView_KeyReleaseEvent_Callback = void (*)(QPdfView*, QKeyEvent*);
     using QPdfView_FocusInEvent_Callback = void (*)(QPdfView*, QFocusEvent*);
     using QPdfView_FocusOutEvent_Callback = void (*)(QPdfView*, QFocusEvent*);
@@ -63,7 +59,7 @@ class VirtualQPdfView final : public QPdfView {
     using QPdfView_Metric_Callback = int (*)(const QPdfView*, int);
     using QPdfView_InitPainter_Callback = void (*)(const QPdfView*, QPainter*);
     using QPdfView_Redirected_Callback = QPaintDevice* (*)(const QPdfView*, QPoint*);
-    using QPdfView_SharedPainter_Callback = QPainter* (*)();
+    using QPdfView_SharedPainter_Callback = QPainter* (*)(const QPdfView*);
     using QPdfView_InputMethodEvent_Callback = void (*)(QPdfView*, QInputMethodEvent*);
     using QPdfView_InputMethodQuery_Callback = QVariant* (*)(const QPdfView*, int);
     using QPdfView_FocusNextPrevChild_Callback = bool (*)(QPdfView*, bool);
@@ -72,21 +68,20 @@ class VirtualQPdfView final : public QPdfView {
     using QPdfView_CustomEvent_Callback = void (*)(QPdfView*, QEvent*);
     using QPdfView_ConnectNotify_Callback = void (*)(QPdfView*, QMetaMethod*);
     using QPdfView_DisconnectNotify_Callback = void (*)(QPdfView*, QMetaMethod*);
-    using QPdfView_SetViewportMargins_Callback = void (*)(QPdfView*, int, int, int, int);
-    using QPdfView_ViewportMargins_Callback = QMargins* (*)();
-    using QPdfView_DrawFrame_Callback = void (*)(QPdfView*, QPainter*);
-    using QPdfView_UpdateMicroFocus_Callback = void (*)();
-    using QPdfView_Create_Callback = void (*)();
-    using QPdfView_Destroy_Callback = void (*)();
-    using QPdfView_FocusNextChild_Callback = bool (*)();
-    using QPdfView_FocusPreviousChild_Callback = bool (*)();
-    using QPdfView_Sender_Callback = QObject* (*)();
-    using QPdfView_SenderSignalIndex_Callback = int (*)();
-    using QPdfView_Receivers_Callback = int (*)(const QPdfView*, const char*);
-    using QPdfView_IsSignalConnected_Callback = bool (*)(const QPdfView*, QMetaMethod*);
-    using QPdfView_GetDecodedMetricF_Callback = double (*)(const QPdfView*, int, int);
+    using QPdfView::create;
+    using QPdfView::destroy;
+    using QPdfView::drawFrame;
+    using QPdfView::focusNextChild;
+    using QPdfView::focusPreviousChild;
+    using QPdfView::getDecodedMetricF;
+    using QPdfView::isSignalConnected;
+    using QPdfView::receivers;
+    using QPdfView::sender;
+    using QPdfView::senderSignalIndex;
+    using QPdfView::setViewportMargins;
+    using QPdfView::updateMicroFocus;
+    using QPdfView::viewportMargins;
 
-  protected:
     // Instance callback storage
     QPdfView_MetaObject_Callback qpdfview_metaobject_callback = nullptr;
     QPdfView_Metacast_Callback qpdfview_metacast_callback = nullptr;
@@ -143,243 +138,61 @@ class VirtualQPdfView final : public QPdfView {
     QPdfView_CustomEvent_Callback qpdfview_customevent_callback = nullptr;
     QPdfView_ConnectNotify_Callback qpdfview_connectnotify_callback = nullptr;
     QPdfView_DisconnectNotify_Callback qpdfview_disconnectnotify_callback = nullptr;
-    QPdfView_SetViewportMargins_Callback qpdfview_setviewportmargins_callback = nullptr;
-    QPdfView_ViewportMargins_Callback qpdfview_viewportmargins_callback = nullptr;
-    QPdfView_DrawFrame_Callback qpdfview_drawframe_callback = nullptr;
-    QPdfView_UpdateMicroFocus_Callback qpdfview_updatemicrofocus_callback = nullptr;
-    QPdfView_Create_Callback qpdfview_create_callback = nullptr;
-    QPdfView_Destroy_Callback qpdfview_destroy_callback = nullptr;
-    QPdfView_FocusNextChild_Callback qpdfview_focusnextchild_callback = nullptr;
-    QPdfView_FocusPreviousChild_Callback qpdfview_focuspreviouschild_callback = nullptr;
-    QPdfView_Sender_Callback qpdfview_sender_callback = nullptr;
-    QPdfView_SenderSignalIndex_Callback qpdfview_sendersignalindex_callback = nullptr;
-    QPdfView_Receivers_Callback qpdfview_receivers_callback = nullptr;
-    QPdfView_IsSignalConnected_Callback qpdfview_issignalconnected_callback = nullptr;
-    QPdfView_GetDecodedMetricF_Callback qpdfview_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qpdfview_metaobject_isbase = false;
-    mutable bool qpdfview_metacast_isbase = false;
-    mutable bool qpdfview_metacall_isbase = false;
-    mutable bool qpdfview_paintevent_isbase = false;
-    mutable bool qpdfview_resizeevent_isbase = false;
-    mutable bool qpdfview_scrollcontentsby_isbase = false;
-    mutable bool qpdfview_mousepressevent_isbase = false;
-    mutable bool qpdfview_mousemoveevent_isbase = false;
-    mutable bool qpdfview_mousereleaseevent_isbase = false;
-    mutable bool qpdfview_minimumsizehint_isbase = false;
-    mutable bool qpdfview_sizehint_isbase = false;
-    mutable bool qpdfview_setupviewport_isbase = false;
-    mutable bool qpdfview_eventfilter_isbase = false;
-    mutable bool qpdfview_event_isbase = false;
-    mutable bool qpdfview_viewportevent_isbase = false;
-    mutable bool qpdfview_mousedoubleclickevent_isbase = false;
-    mutable bool qpdfview_wheelevent_isbase = false;
-    mutable bool qpdfview_contextmenuevent_isbase = false;
-    mutable bool qpdfview_dragenterevent_isbase = false;
-    mutable bool qpdfview_dragmoveevent_isbase = false;
-    mutable bool qpdfview_dragleaveevent_isbase = false;
-    mutable bool qpdfview_dropevent_isbase = false;
-    mutable bool qpdfview_keypressevent_isbase = false;
-    mutable bool qpdfview_viewportsizehint_isbase = false;
-    mutable bool qpdfview_changeevent_isbase = false;
-    mutable bool qpdfview_initstyleoption_isbase = false;
-    mutable bool qpdfview_devtype_isbase = false;
-    mutable bool qpdfview_setvisible_isbase = false;
-    mutable bool qpdfview_heightforwidth_isbase = false;
-    mutable bool qpdfview_hasheightforwidth_isbase = false;
-    mutable bool qpdfview_paintengine_isbase = false;
-    mutable bool qpdfview_keyreleaseevent_isbase = false;
-    mutable bool qpdfview_focusinevent_isbase = false;
-    mutable bool qpdfview_focusoutevent_isbase = false;
-    mutable bool qpdfview_enterevent_isbase = false;
-    mutable bool qpdfview_leaveevent_isbase = false;
-    mutable bool qpdfview_moveevent_isbase = false;
-    mutable bool qpdfview_closeevent_isbase = false;
-    mutable bool qpdfview_tabletevent_isbase = false;
-    mutable bool qpdfview_actionevent_isbase = false;
-    mutable bool qpdfview_showevent_isbase = false;
-    mutable bool qpdfview_hideevent_isbase = false;
-    mutable bool qpdfview_nativeevent_isbase = false;
-    mutable bool qpdfview_metric_isbase = false;
-    mutable bool qpdfview_initpainter_isbase = false;
-    mutable bool qpdfview_redirected_isbase = false;
-    mutable bool qpdfview_sharedpainter_isbase = false;
-    mutable bool qpdfview_inputmethodevent_isbase = false;
-    mutable bool qpdfview_inputmethodquery_isbase = false;
-    mutable bool qpdfview_focusnextprevchild_isbase = false;
-    mutable bool qpdfview_timerevent_isbase = false;
-    mutable bool qpdfview_childevent_isbase = false;
-    mutable bool qpdfview_customevent_isbase = false;
-    mutable bool qpdfview_connectnotify_isbase = false;
-    mutable bool qpdfview_disconnectnotify_isbase = false;
-    mutable bool qpdfview_setviewportmargins_isbase = false;
-    mutable bool qpdfview_viewportmargins_isbase = false;
-    mutable bool qpdfview_drawframe_isbase = false;
-    mutable bool qpdfview_updatemicrofocus_isbase = false;
-    mutable bool qpdfview_create_isbase = false;
-    mutable bool qpdfview_destroy_isbase = false;
-    mutable bool qpdfview_focusnextchild_isbase = false;
-    mutable bool qpdfview_focuspreviouschild_isbase = false;
-    mutable bool qpdfview_sender_isbase = false;
-    mutable bool qpdfview_sendersignalindex_isbase = false;
-    mutable bool qpdfview_receivers_isbase = false;
-    mutable bool qpdfview_issignalconnected_isbase = false;
-    mutable bool qpdfview_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QPdfView {
+        using QPdfView::actionEvent;
+        using QPdfView::changeEvent;
+        using QPdfView::childEvent;
+        using QPdfView::closeEvent;
+        using QPdfView::connectNotify;
+        using QPdfView::contextMenuEvent;
+        using QPdfView::customEvent;
+        using QPdfView::disconnectNotify;
+        using QPdfView::dragEnterEvent;
+        using QPdfView::dragLeaveEvent;
+        using QPdfView::dragMoveEvent;
+        using QPdfView::dropEvent;
+        using QPdfView::enterEvent;
+        using QPdfView::event;
+        using QPdfView::eventFilter;
+        using QPdfView::focusInEvent;
+        using QPdfView::focusNextPrevChild;
+        using QPdfView::focusOutEvent;
+        using QPdfView::hideEvent;
+        using QPdfView::initPainter;
+        using QPdfView::initStyleOption;
+        using QPdfView::inputMethodEvent;
+        using QPdfView::keyPressEvent;
+        using QPdfView::keyReleaseEvent;
+        using QPdfView::leaveEvent;
+        using QPdfView::metric;
+        using QPdfView::mouseDoubleClickEvent;
+        using QPdfView::mouseMoveEvent;
+        using QPdfView::mousePressEvent;
+        using QPdfView::mouseReleaseEvent;
+        using QPdfView::moveEvent;
+        using QPdfView::nativeEvent;
+        using QPdfView::paintEvent;
+        using QPdfView::redirected;
+        using QPdfView::resizeEvent;
+        using QPdfView::scrollContentsBy;
+        using QPdfView::sharedPainter;
+        using QPdfView::showEvent;
+        using QPdfView::tabletEvent;
+        using QPdfView::timerEvent;
+        using QPdfView::viewportEvent;
+        using QPdfView::viewportSizeHint;
+        using QPdfView::wheelEvent;
+    };
 
-  public:
     VirtualQPdfView(QWidget* parent) : QPdfView(parent) {};
     VirtualQPdfView() : QPdfView() {};
 
-    // Callback setters
-    inline void setQPdfView_MetaObject_Callback(QPdfView_MetaObject_Callback cb) { qpdfview_metaobject_callback = cb; }
-    inline void setQPdfView_Metacast_Callback(QPdfView_Metacast_Callback cb) { qpdfview_metacast_callback = cb; }
-    inline void setQPdfView_Metacall_Callback(QPdfView_Metacall_Callback cb) { qpdfview_metacall_callback = cb; }
-    inline void setQPdfView_PaintEvent_Callback(QPdfView_PaintEvent_Callback cb) { qpdfview_paintevent_callback = cb; }
-    inline void setQPdfView_ResizeEvent_Callback(QPdfView_ResizeEvent_Callback cb) { qpdfview_resizeevent_callback = cb; }
-    inline void setQPdfView_ScrollContentsBy_Callback(QPdfView_ScrollContentsBy_Callback cb) { qpdfview_scrollcontentsby_callback = cb; }
-    inline void setQPdfView_MousePressEvent_Callback(QPdfView_MousePressEvent_Callback cb) { qpdfview_mousepressevent_callback = cb; }
-    inline void setQPdfView_MouseMoveEvent_Callback(QPdfView_MouseMoveEvent_Callback cb) { qpdfview_mousemoveevent_callback = cb; }
-    inline void setQPdfView_MouseReleaseEvent_Callback(QPdfView_MouseReleaseEvent_Callback cb) { qpdfview_mousereleaseevent_callback = cb; }
-    inline void setQPdfView_MinimumSizeHint_Callback(QPdfView_MinimumSizeHint_Callback cb) { qpdfview_minimumsizehint_callback = cb; }
-    inline void setQPdfView_SizeHint_Callback(QPdfView_SizeHint_Callback cb) { qpdfview_sizehint_callback = cb; }
-    inline void setQPdfView_SetupViewport_Callback(QPdfView_SetupViewport_Callback cb) { qpdfview_setupviewport_callback = cb; }
-    inline void setQPdfView_EventFilter_Callback(QPdfView_EventFilter_Callback cb) { qpdfview_eventfilter_callback = cb; }
-    inline void setQPdfView_Event_Callback(QPdfView_Event_Callback cb) { qpdfview_event_callback = cb; }
-    inline void setQPdfView_ViewportEvent_Callback(QPdfView_ViewportEvent_Callback cb) { qpdfview_viewportevent_callback = cb; }
-    inline void setQPdfView_MouseDoubleClickEvent_Callback(QPdfView_MouseDoubleClickEvent_Callback cb) { qpdfview_mousedoubleclickevent_callback = cb; }
-    inline void setQPdfView_WheelEvent_Callback(QPdfView_WheelEvent_Callback cb) { qpdfview_wheelevent_callback = cb; }
-    inline void setQPdfView_ContextMenuEvent_Callback(QPdfView_ContextMenuEvent_Callback cb) { qpdfview_contextmenuevent_callback = cb; }
-    inline void setQPdfView_DragEnterEvent_Callback(QPdfView_DragEnterEvent_Callback cb) { qpdfview_dragenterevent_callback = cb; }
-    inline void setQPdfView_DragMoveEvent_Callback(QPdfView_DragMoveEvent_Callback cb) { qpdfview_dragmoveevent_callback = cb; }
-    inline void setQPdfView_DragLeaveEvent_Callback(QPdfView_DragLeaveEvent_Callback cb) { qpdfview_dragleaveevent_callback = cb; }
-    inline void setQPdfView_DropEvent_Callback(QPdfView_DropEvent_Callback cb) { qpdfview_dropevent_callback = cb; }
-    inline void setQPdfView_KeyPressEvent_Callback(QPdfView_KeyPressEvent_Callback cb) { qpdfview_keypressevent_callback = cb; }
-    inline void setQPdfView_ViewportSizeHint_Callback(QPdfView_ViewportSizeHint_Callback cb) { qpdfview_viewportsizehint_callback = cb; }
-    inline void setQPdfView_ChangeEvent_Callback(QPdfView_ChangeEvent_Callback cb) { qpdfview_changeevent_callback = cb; }
-    inline void setQPdfView_InitStyleOption_Callback(QPdfView_InitStyleOption_Callback cb) { qpdfview_initstyleoption_callback = cb; }
-    inline void setQPdfView_DevType_Callback(QPdfView_DevType_Callback cb) { qpdfview_devtype_callback = cb; }
-    inline void setQPdfView_SetVisible_Callback(QPdfView_SetVisible_Callback cb) { qpdfview_setvisible_callback = cb; }
-    inline void setQPdfView_HeightForWidth_Callback(QPdfView_HeightForWidth_Callback cb) { qpdfview_heightforwidth_callback = cb; }
-    inline void setQPdfView_HasHeightForWidth_Callback(QPdfView_HasHeightForWidth_Callback cb) { qpdfview_hasheightforwidth_callback = cb; }
-    inline void setQPdfView_PaintEngine_Callback(QPdfView_PaintEngine_Callback cb) { qpdfview_paintengine_callback = cb; }
-    inline void setQPdfView_KeyReleaseEvent_Callback(QPdfView_KeyReleaseEvent_Callback cb) { qpdfview_keyreleaseevent_callback = cb; }
-    inline void setQPdfView_FocusInEvent_Callback(QPdfView_FocusInEvent_Callback cb) { qpdfview_focusinevent_callback = cb; }
-    inline void setQPdfView_FocusOutEvent_Callback(QPdfView_FocusOutEvent_Callback cb) { qpdfview_focusoutevent_callback = cb; }
-    inline void setQPdfView_EnterEvent_Callback(QPdfView_EnterEvent_Callback cb) { qpdfview_enterevent_callback = cb; }
-    inline void setQPdfView_LeaveEvent_Callback(QPdfView_LeaveEvent_Callback cb) { qpdfview_leaveevent_callback = cb; }
-    inline void setQPdfView_MoveEvent_Callback(QPdfView_MoveEvent_Callback cb) { qpdfview_moveevent_callback = cb; }
-    inline void setQPdfView_CloseEvent_Callback(QPdfView_CloseEvent_Callback cb) { qpdfview_closeevent_callback = cb; }
-    inline void setQPdfView_TabletEvent_Callback(QPdfView_TabletEvent_Callback cb) { qpdfview_tabletevent_callback = cb; }
-    inline void setQPdfView_ActionEvent_Callback(QPdfView_ActionEvent_Callback cb) { qpdfview_actionevent_callback = cb; }
-    inline void setQPdfView_ShowEvent_Callback(QPdfView_ShowEvent_Callback cb) { qpdfview_showevent_callback = cb; }
-    inline void setQPdfView_HideEvent_Callback(QPdfView_HideEvent_Callback cb) { qpdfview_hideevent_callback = cb; }
-    inline void setQPdfView_NativeEvent_Callback(QPdfView_NativeEvent_Callback cb) { qpdfview_nativeevent_callback = cb; }
-    inline void setQPdfView_Metric_Callback(QPdfView_Metric_Callback cb) { qpdfview_metric_callback = cb; }
-    inline void setQPdfView_InitPainter_Callback(QPdfView_InitPainter_Callback cb) { qpdfview_initpainter_callback = cb; }
-    inline void setQPdfView_Redirected_Callback(QPdfView_Redirected_Callback cb) { qpdfview_redirected_callback = cb; }
-    inline void setQPdfView_SharedPainter_Callback(QPdfView_SharedPainter_Callback cb) { qpdfview_sharedpainter_callback = cb; }
-    inline void setQPdfView_InputMethodEvent_Callback(QPdfView_InputMethodEvent_Callback cb) { qpdfview_inputmethodevent_callback = cb; }
-    inline void setQPdfView_InputMethodQuery_Callback(QPdfView_InputMethodQuery_Callback cb) { qpdfview_inputmethodquery_callback = cb; }
-    inline void setQPdfView_FocusNextPrevChild_Callback(QPdfView_FocusNextPrevChild_Callback cb) { qpdfview_focusnextprevchild_callback = cb; }
-    inline void setQPdfView_TimerEvent_Callback(QPdfView_TimerEvent_Callback cb) { qpdfview_timerevent_callback = cb; }
-    inline void setQPdfView_ChildEvent_Callback(QPdfView_ChildEvent_Callback cb) { qpdfview_childevent_callback = cb; }
-    inline void setQPdfView_CustomEvent_Callback(QPdfView_CustomEvent_Callback cb) { qpdfview_customevent_callback = cb; }
-    inline void setQPdfView_ConnectNotify_Callback(QPdfView_ConnectNotify_Callback cb) { qpdfview_connectnotify_callback = cb; }
-    inline void setQPdfView_DisconnectNotify_Callback(QPdfView_DisconnectNotify_Callback cb) { qpdfview_disconnectnotify_callback = cb; }
-    inline void setQPdfView_SetViewportMargins_Callback(QPdfView_SetViewportMargins_Callback cb) { qpdfview_setviewportmargins_callback = cb; }
-    inline void setQPdfView_ViewportMargins_Callback(QPdfView_ViewportMargins_Callback cb) { qpdfview_viewportmargins_callback = cb; }
-    inline void setQPdfView_DrawFrame_Callback(QPdfView_DrawFrame_Callback cb) { qpdfview_drawframe_callback = cb; }
-    inline void setQPdfView_UpdateMicroFocus_Callback(QPdfView_UpdateMicroFocus_Callback cb) { qpdfview_updatemicrofocus_callback = cb; }
-    inline void setQPdfView_Create_Callback(QPdfView_Create_Callback cb) { qpdfview_create_callback = cb; }
-    inline void setQPdfView_Destroy_Callback(QPdfView_Destroy_Callback cb) { qpdfview_destroy_callback = cb; }
-    inline void setQPdfView_FocusNextChild_Callback(QPdfView_FocusNextChild_Callback cb) { qpdfview_focusnextchild_callback = cb; }
-    inline void setQPdfView_FocusPreviousChild_Callback(QPdfView_FocusPreviousChild_Callback cb) { qpdfview_focuspreviouschild_callback = cb; }
-    inline void setQPdfView_Sender_Callback(QPdfView_Sender_Callback cb) { qpdfview_sender_callback = cb; }
-    inline void setQPdfView_SenderSignalIndex_Callback(QPdfView_SenderSignalIndex_Callback cb) { qpdfview_sendersignalindex_callback = cb; }
-    inline void setQPdfView_Receivers_Callback(QPdfView_Receivers_Callback cb) { qpdfview_receivers_callback = cb; }
-    inline void setQPdfView_IsSignalConnected_Callback(QPdfView_IsSignalConnected_Callback cb) { qpdfview_issignalconnected_callback = cb; }
-    inline void setQPdfView_GetDecodedMetricF_Callback(QPdfView_GetDecodedMetricF_Callback cb) { qpdfview_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQPdfView_MetaObject_IsBase(bool value) const { qpdfview_metaobject_isbase = value; }
-    inline void setQPdfView_Metacast_IsBase(bool value) const { qpdfview_metacast_isbase = value; }
-    inline void setQPdfView_Metacall_IsBase(bool value) const { qpdfview_metacall_isbase = value; }
-    inline void setQPdfView_PaintEvent_IsBase(bool value) const { qpdfview_paintevent_isbase = value; }
-    inline void setQPdfView_ResizeEvent_IsBase(bool value) const { qpdfview_resizeevent_isbase = value; }
-    inline void setQPdfView_ScrollContentsBy_IsBase(bool value) const { qpdfview_scrollcontentsby_isbase = value; }
-    inline void setQPdfView_MousePressEvent_IsBase(bool value) const { qpdfview_mousepressevent_isbase = value; }
-    inline void setQPdfView_MouseMoveEvent_IsBase(bool value) const { qpdfview_mousemoveevent_isbase = value; }
-    inline void setQPdfView_MouseReleaseEvent_IsBase(bool value) const { qpdfview_mousereleaseevent_isbase = value; }
-    inline void setQPdfView_MinimumSizeHint_IsBase(bool value) const { qpdfview_minimumsizehint_isbase = value; }
-    inline void setQPdfView_SizeHint_IsBase(bool value) const { qpdfview_sizehint_isbase = value; }
-    inline void setQPdfView_SetupViewport_IsBase(bool value) const { qpdfview_setupviewport_isbase = value; }
-    inline void setQPdfView_EventFilter_IsBase(bool value) const { qpdfview_eventfilter_isbase = value; }
-    inline void setQPdfView_Event_IsBase(bool value) const { qpdfview_event_isbase = value; }
-    inline void setQPdfView_ViewportEvent_IsBase(bool value) const { qpdfview_viewportevent_isbase = value; }
-    inline void setQPdfView_MouseDoubleClickEvent_IsBase(bool value) const { qpdfview_mousedoubleclickevent_isbase = value; }
-    inline void setQPdfView_WheelEvent_IsBase(bool value) const { qpdfview_wheelevent_isbase = value; }
-    inline void setQPdfView_ContextMenuEvent_IsBase(bool value) const { qpdfview_contextmenuevent_isbase = value; }
-    inline void setQPdfView_DragEnterEvent_IsBase(bool value) const { qpdfview_dragenterevent_isbase = value; }
-    inline void setQPdfView_DragMoveEvent_IsBase(bool value) const { qpdfview_dragmoveevent_isbase = value; }
-    inline void setQPdfView_DragLeaveEvent_IsBase(bool value) const { qpdfview_dragleaveevent_isbase = value; }
-    inline void setQPdfView_DropEvent_IsBase(bool value) const { qpdfview_dropevent_isbase = value; }
-    inline void setQPdfView_KeyPressEvent_IsBase(bool value) const { qpdfview_keypressevent_isbase = value; }
-    inline void setQPdfView_ViewportSizeHint_IsBase(bool value) const { qpdfview_viewportsizehint_isbase = value; }
-    inline void setQPdfView_ChangeEvent_IsBase(bool value) const { qpdfview_changeevent_isbase = value; }
-    inline void setQPdfView_InitStyleOption_IsBase(bool value) const { qpdfview_initstyleoption_isbase = value; }
-    inline void setQPdfView_DevType_IsBase(bool value) const { qpdfview_devtype_isbase = value; }
-    inline void setQPdfView_SetVisible_IsBase(bool value) const { qpdfview_setvisible_isbase = value; }
-    inline void setQPdfView_HeightForWidth_IsBase(bool value) const { qpdfview_heightforwidth_isbase = value; }
-    inline void setQPdfView_HasHeightForWidth_IsBase(bool value) const { qpdfview_hasheightforwidth_isbase = value; }
-    inline void setQPdfView_PaintEngine_IsBase(bool value) const { qpdfview_paintengine_isbase = value; }
-    inline void setQPdfView_KeyReleaseEvent_IsBase(bool value) const { qpdfview_keyreleaseevent_isbase = value; }
-    inline void setQPdfView_FocusInEvent_IsBase(bool value) const { qpdfview_focusinevent_isbase = value; }
-    inline void setQPdfView_FocusOutEvent_IsBase(bool value) const { qpdfview_focusoutevent_isbase = value; }
-    inline void setQPdfView_EnterEvent_IsBase(bool value) const { qpdfview_enterevent_isbase = value; }
-    inline void setQPdfView_LeaveEvent_IsBase(bool value) const { qpdfview_leaveevent_isbase = value; }
-    inline void setQPdfView_MoveEvent_IsBase(bool value) const { qpdfview_moveevent_isbase = value; }
-    inline void setQPdfView_CloseEvent_IsBase(bool value) const { qpdfview_closeevent_isbase = value; }
-    inline void setQPdfView_TabletEvent_IsBase(bool value) const { qpdfview_tabletevent_isbase = value; }
-    inline void setQPdfView_ActionEvent_IsBase(bool value) const { qpdfview_actionevent_isbase = value; }
-    inline void setQPdfView_ShowEvent_IsBase(bool value) const { qpdfview_showevent_isbase = value; }
-    inline void setQPdfView_HideEvent_IsBase(bool value) const { qpdfview_hideevent_isbase = value; }
-    inline void setQPdfView_NativeEvent_IsBase(bool value) const { qpdfview_nativeevent_isbase = value; }
-    inline void setQPdfView_Metric_IsBase(bool value) const { qpdfview_metric_isbase = value; }
-    inline void setQPdfView_InitPainter_IsBase(bool value) const { qpdfview_initpainter_isbase = value; }
-    inline void setQPdfView_Redirected_IsBase(bool value) const { qpdfview_redirected_isbase = value; }
-    inline void setQPdfView_SharedPainter_IsBase(bool value) const { qpdfview_sharedpainter_isbase = value; }
-    inline void setQPdfView_InputMethodEvent_IsBase(bool value) const { qpdfview_inputmethodevent_isbase = value; }
-    inline void setQPdfView_InputMethodQuery_IsBase(bool value) const { qpdfview_inputmethodquery_isbase = value; }
-    inline void setQPdfView_FocusNextPrevChild_IsBase(bool value) const { qpdfview_focusnextprevchild_isbase = value; }
-    inline void setQPdfView_TimerEvent_IsBase(bool value) const { qpdfview_timerevent_isbase = value; }
-    inline void setQPdfView_ChildEvent_IsBase(bool value) const { qpdfview_childevent_isbase = value; }
-    inline void setQPdfView_CustomEvent_IsBase(bool value) const { qpdfview_customevent_isbase = value; }
-    inline void setQPdfView_ConnectNotify_IsBase(bool value) const { qpdfview_connectnotify_isbase = value; }
-    inline void setQPdfView_DisconnectNotify_IsBase(bool value) const { qpdfview_disconnectnotify_isbase = value; }
-    inline void setQPdfView_SetViewportMargins_IsBase(bool value) const { qpdfview_setviewportmargins_isbase = value; }
-    inline void setQPdfView_ViewportMargins_IsBase(bool value) const { qpdfview_viewportmargins_isbase = value; }
-    inline void setQPdfView_DrawFrame_IsBase(bool value) const { qpdfview_drawframe_isbase = value; }
-    inline void setQPdfView_UpdateMicroFocus_IsBase(bool value) const { qpdfview_updatemicrofocus_isbase = value; }
-    inline void setQPdfView_Create_IsBase(bool value) const { qpdfview_create_isbase = value; }
-    inline void setQPdfView_Destroy_IsBase(bool value) const { qpdfview_destroy_isbase = value; }
-    inline void setQPdfView_FocusNextChild_IsBase(bool value) const { qpdfview_focusnextchild_isbase = value; }
-    inline void setQPdfView_FocusPreviousChild_IsBase(bool value) const { qpdfview_focuspreviouschild_isbase = value; }
-    inline void setQPdfView_Sender_IsBase(bool value) const { qpdfview_sender_isbase = value; }
-    inline void setQPdfView_SenderSignalIndex_IsBase(bool value) const { qpdfview_sendersignalindex_isbase = value; }
-    inline void setQPdfView_Receivers_IsBase(bool value) const { qpdfview_receivers_isbase = value; }
-    inline void setQPdfView_IsSignalConnected_IsBase(bool value) const { qpdfview_issignalconnected_isbase = value; }
-    inline void setQPdfView_GetDecodedMetricF_IsBase(bool value) const { qpdfview_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qpdfview_metaobject_isbase) {
-            qpdfview_metaobject_isbase = false;
-            return QPdfView::metaObject();
-        }
-        auto metaobject_cb = qpdfview_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qpdfview_metaobject_callback) {
+            QMetaObject* callback_ret = qpdfview_metaobject_callback(this);
             return callback_ret;
         }
         return QPdfView::metaObject();
@@ -387,14 +200,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qpdfview_metacast_isbase) {
-            qpdfview_metacast_isbase = false;
-            return QPdfView::qt_metacast(param1);
-        }
-        auto metacast_cb = qpdfview_metacast_callback;
-        if (metacast_cb) {
+        if (qpdfview_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qpdfview_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QPdfView::qt_metacast(param1);
@@ -402,16 +210,11 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qpdfview_metacall_isbase) {
-            qpdfview_metacall_isbase = false;
-            return QPdfView::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qpdfview_metacall_callback;
-        if (metacall_cb) {
+        if (qpdfview_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qpdfview_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QPdfView::qt_metacall(param1, param2, param3);
@@ -419,15 +222,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (qpdfview_paintevent_isbase) {
-            qpdfview_paintevent_isbase = false;
-            QPdfView::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = qpdfview_paintevent_callback;
-        if (paintevent_cb) {
+        if (qpdfview_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            qpdfview_paintevent_callback(this, cbval1);
             return;
         }
         QPdfView::paintEvent(event);
@@ -435,15 +232,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (qpdfview_resizeevent_isbase) {
-            qpdfview_resizeevent_isbase = false;
-            QPdfView::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = qpdfview_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qpdfview_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            qpdfview_resizeevent_callback(this, cbval1);
             return;
         }
         QPdfView::resizeEvent(event);
@@ -451,16 +242,10 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void scrollContentsBy(int dx, int dy) override {
-        if (qpdfview_scrollcontentsby_isbase) {
-            qpdfview_scrollcontentsby_isbase = false;
-            QPdfView::scrollContentsBy(dx, dy);
-            return;
-        }
-        auto scrollcontentsby_cb = qpdfview_scrollcontentsby_callback;
-        if (scrollcontentsby_cb) {
+        if (qpdfview_scrollcontentsby_callback) {
             int cbval1 = dx;
             int cbval2 = dy;
-            scrollcontentsby_cb(this, cbval1, cbval2);
+            qpdfview_scrollcontentsby_callback(this, cbval1, cbval2);
             return;
         }
         QPdfView::scrollContentsBy(dx, dy);
@@ -468,15 +253,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (qpdfview_mousepressevent_isbase) {
-            qpdfview_mousepressevent_isbase = false;
-            QPdfView::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qpdfview_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qpdfview_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qpdfview_mousepressevent_callback(this, cbval1);
             return;
         }
         QPdfView::mousePressEvent(event);
@@ -484,15 +263,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qpdfview_mousemoveevent_isbase) {
-            qpdfview_mousemoveevent_isbase = false;
-            QPdfView::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qpdfview_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qpdfview_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qpdfview_mousemoveevent_callback(this, cbval1);
             return;
         }
         QPdfView::mouseMoveEvent(event);
@@ -500,15 +273,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qpdfview_mousereleaseevent_isbase) {
-            qpdfview_mousereleaseevent_isbase = false;
-            QPdfView::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qpdfview_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qpdfview_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qpdfview_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QPdfView::mouseReleaseEvent(event);
@@ -516,13 +283,8 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qpdfview_minimumsizehint_isbase) {
-            qpdfview_minimumsizehint_isbase = false;
-            return QPdfView::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qpdfview_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qpdfview_minimumsizehint_callback) {
+            QSize* callback_ret = qpdfview_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -532,13 +294,8 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qpdfview_sizehint_isbase) {
-            qpdfview_sizehint_isbase = false;
-            return QPdfView::sizeHint();
-        }
-        auto sizehint_cb = qpdfview_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qpdfview_sizehint_callback) {
+            QSize* callback_ret = qpdfview_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -548,15 +305,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void setupViewport(QWidget* viewport) override {
-        if (qpdfview_setupviewport_isbase) {
-            qpdfview_setupviewport_isbase = false;
-            QPdfView::setupViewport(viewport);
-            return;
-        }
-        auto setupviewport_cb = qpdfview_setupviewport_callback;
-        if (setupviewport_cb) {
+        if (qpdfview_setupviewport_callback) {
             QWidget* cbval1 = viewport;
-            setupviewport_cb(this, cbval1);
+            qpdfview_setupviewport_callback(this, cbval1);
             return;
         }
         QPdfView::setupViewport(viewport);
@@ -564,15 +315,10 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (qpdfview_eventfilter_isbase) {
-            qpdfview_eventfilter_isbase = false;
-            return QPdfView::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = qpdfview_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qpdfview_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qpdfview_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QPdfView::eventFilter(param1, param2);
@@ -580,14 +326,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* param1) override {
-        if (qpdfview_event_isbase) {
-            qpdfview_event_isbase = false;
-            return QPdfView::event(param1);
-        }
-        auto event_cb = qpdfview_event_callback;
-        if (event_cb) {
+        if (qpdfview_event_callback) {
             QEvent* cbval1 = param1;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qpdfview_event_callback(this, cbval1);
             return callback_ret;
         }
         return QPdfView::event(param1);
@@ -595,14 +336,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool viewportEvent(QEvent* param1) override {
-        if (qpdfview_viewportevent_isbase) {
-            qpdfview_viewportevent_isbase = false;
-            return QPdfView::viewportEvent(param1);
-        }
-        auto viewportevent_cb = qpdfview_viewportevent_callback;
-        if (viewportevent_cb) {
+        if (qpdfview_viewportevent_callback) {
             QEvent* cbval1 = param1;
-            bool callback_ret = viewportevent_cb(this, cbval1);
+            bool callback_ret = qpdfview_viewportevent_callback(this, cbval1);
             return callback_ret;
         }
         return QPdfView::viewportEvent(param1);
@@ -610,15 +346,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* param1) override {
-        if (qpdfview_mousedoubleclickevent_isbase) {
-            qpdfview_mousedoubleclickevent_isbase = false;
-            QPdfView::mouseDoubleClickEvent(param1);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qpdfview_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qpdfview_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = param1;
-            mousedoubleclickevent_cb(this, cbval1);
+            qpdfview_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QPdfView::mouseDoubleClickEvent(param1);
@@ -626,15 +356,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* param1) override {
-        if (qpdfview_wheelevent_isbase) {
-            qpdfview_wheelevent_isbase = false;
-            QPdfView::wheelEvent(param1);
-            return;
-        }
-        auto wheelevent_cb = qpdfview_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qpdfview_wheelevent_callback) {
             QWheelEvent* cbval1 = param1;
-            wheelevent_cb(this, cbval1);
+            qpdfview_wheelevent_callback(this, cbval1);
             return;
         }
         QPdfView::wheelEvent(param1);
@@ -642,15 +366,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* param1) override {
-        if (qpdfview_contextmenuevent_isbase) {
-            qpdfview_contextmenuevent_isbase = false;
-            QPdfView::contextMenuEvent(param1);
-            return;
-        }
-        auto contextmenuevent_cb = qpdfview_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qpdfview_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = param1;
-            contextmenuevent_cb(this, cbval1);
+            qpdfview_contextmenuevent_callback(this, cbval1);
             return;
         }
         QPdfView::contextMenuEvent(param1);
@@ -658,15 +376,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* param1) override {
-        if (qpdfview_dragenterevent_isbase) {
-            qpdfview_dragenterevent_isbase = false;
-            QPdfView::dragEnterEvent(param1);
-            return;
-        }
-        auto dragenterevent_cb = qpdfview_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qpdfview_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = param1;
-            dragenterevent_cb(this, cbval1);
+            qpdfview_dragenterevent_callback(this, cbval1);
             return;
         }
         QPdfView::dragEnterEvent(param1);
@@ -674,15 +386,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* param1) override {
-        if (qpdfview_dragmoveevent_isbase) {
-            qpdfview_dragmoveevent_isbase = false;
-            QPdfView::dragMoveEvent(param1);
-            return;
-        }
-        auto dragmoveevent_cb = qpdfview_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qpdfview_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = param1;
-            dragmoveevent_cb(this, cbval1);
+            qpdfview_dragmoveevent_callback(this, cbval1);
             return;
         }
         QPdfView::dragMoveEvent(param1);
@@ -690,15 +396,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* param1) override {
-        if (qpdfview_dragleaveevent_isbase) {
-            qpdfview_dragleaveevent_isbase = false;
-            QPdfView::dragLeaveEvent(param1);
-            return;
-        }
-        auto dragleaveevent_cb = qpdfview_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qpdfview_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = param1;
-            dragleaveevent_cb(this, cbval1);
+            qpdfview_dragleaveevent_callback(this, cbval1);
             return;
         }
         QPdfView::dragLeaveEvent(param1);
@@ -706,15 +406,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* param1) override {
-        if (qpdfview_dropevent_isbase) {
-            qpdfview_dropevent_isbase = false;
-            QPdfView::dropEvent(param1);
-            return;
-        }
-        auto dropevent_cb = qpdfview_dropevent_callback;
-        if (dropevent_cb) {
+        if (qpdfview_dropevent_callback) {
             QDropEvent* cbval1 = param1;
-            dropevent_cb(this, cbval1);
+            qpdfview_dropevent_callback(this, cbval1);
             return;
         }
         QPdfView::dropEvent(param1);
@@ -722,15 +416,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* param1) override {
-        if (qpdfview_keypressevent_isbase) {
-            qpdfview_keypressevent_isbase = false;
-            QPdfView::keyPressEvent(param1);
-            return;
-        }
-        auto keypressevent_cb = qpdfview_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qpdfview_keypressevent_callback) {
             QKeyEvent* cbval1 = param1;
-            keypressevent_cb(this, cbval1);
+            qpdfview_keypressevent_callback(this, cbval1);
             return;
         }
         QPdfView::keyPressEvent(param1);
@@ -738,13 +426,8 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize viewportSizeHint() const override {
-        if (qpdfview_viewportsizehint_isbase) {
-            qpdfview_viewportsizehint_isbase = false;
-            return QPdfView::viewportSizeHint();
-        }
-        auto viewportsizehint_cb = qpdfview_viewportsizehint_callback;
-        if (viewportsizehint_cb) {
-            QSize* callback_ret = viewportsizehint_cb();
+        if (qpdfview_viewportsizehint_callback) {
+            QSize* callback_ret = qpdfview_viewportsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -754,15 +437,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (qpdfview_changeevent_isbase) {
-            qpdfview_changeevent_isbase = false;
-            QPdfView::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = qpdfview_changeevent_callback;
-        if (changeevent_cb) {
+        if (qpdfview_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            qpdfview_changeevent_callback(this, cbval1);
             return;
         }
         QPdfView::changeEvent(param1);
@@ -770,15 +447,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionFrame* option) const override {
-        if (qpdfview_initstyleoption_isbase) {
-            qpdfview_initstyleoption_isbase = false;
-            QPdfView::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = qpdfview_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (qpdfview_initstyleoption_callback) {
             QStyleOptionFrame* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            qpdfview_initstyleoption_callback(this, cbval1);
             return;
         }
         QPdfView::initStyleOption(option);
@@ -786,13 +457,8 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qpdfview_devtype_isbase) {
-            qpdfview_devtype_isbase = false;
-            return QPdfView::devType();
-        }
-        auto devtype_cb = qpdfview_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qpdfview_devtype_callback) {
+            int callback_ret = qpdfview_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QPdfView::devType();
@@ -800,15 +466,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qpdfview_setvisible_isbase) {
-            qpdfview_setvisible_isbase = false;
-            QPdfView::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qpdfview_setvisible_callback;
-        if (setvisible_cb) {
+        if (qpdfview_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qpdfview_setvisible_callback(this, cbval1);
             return;
         }
         QPdfView::setVisible(visible);
@@ -816,14 +476,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qpdfview_heightforwidth_isbase) {
-            qpdfview_heightforwidth_isbase = false;
-            return QPdfView::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qpdfview_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qpdfview_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qpdfview_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QPdfView::heightForWidth(param1);
@@ -831,13 +486,8 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qpdfview_hasheightforwidth_isbase) {
-            qpdfview_hasheightforwidth_isbase = false;
-            return QPdfView::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qpdfview_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qpdfview_hasheightforwidth_callback) {
+            bool callback_ret = qpdfview_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QPdfView::hasHeightForWidth();
@@ -845,13 +495,8 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qpdfview_paintengine_isbase) {
-            qpdfview_paintengine_isbase = false;
-            return QPdfView::paintEngine();
-        }
-        auto paintengine_cb = qpdfview_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qpdfview_paintengine_callback) {
+            QPaintEngine* callback_ret = qpdfview_paintengine_callback(this);
             return callback_ret;
         }
         return QPdfView::paintEngine();
@@ -859,15 +504,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qpdfview_keyreleaseevent_isbase) {
-            qpdfview_keyreleaseevent_isbase = false;
-            QPdfView::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qpdfview_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qpdfview_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qpdfview_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QPdfView::keyReleaseEvent(event);
@@ -875,15 +514,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qpdfview_focusinevent_isbase) {
-            qpdfview_focusinevent_isbase = false;
-            QPdfView::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qpdfview_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qpdfview_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qpdfview_focusinevent_callback(this, cbval1);
             return;
         }
         QPdfView::focusInEvent(event);
@@ -891,15 +524,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qpdfview_focusoutevent_isbase) {
-            qpdfview_focusoutevent_isbase = false;
-            QPdfView::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qpdfview_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qpdfview_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qpdfview_focusoutevent_callback(this, cbval1);
             return;
         }
         QPdfView::focusOutEvent(event);
@@ -907,15 +534,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qpdfview_enterevent_isbase) {
-            qpdfview_enterevent_isbase = false;
-            QPdfView::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qpdfview_enterevent_callback;
-        if (enterevent_cb) {
+        if (qpdfview_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qpdfview_enterevent_callback(this, cbval1);
             return;
         }
         QPdfView::enterEvent(event);
@@ -923,15 +544,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qpdfview_leaveevent_isbase) {
-            qpdfview_leaveevent_isbase = false;
-            QPdfView::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qpdfview_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qpdfview_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qpdfview_leaveevent_callback(this, cbval1);
             return;
         }
         QPdfView::leaveEvent(event);
@@ -939,15 +554,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qpdfview_moveevent_isbase) {
-            qpdfview_moveevent_isbase = false;
-            QPdfView::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qpdfview_moveevent_callback;
-        if (moveevent_cb) {
+        if (qpdfview_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qpdfview_moveevent_callback(this, cbval1);
             return;
         }
         QPdfView::moveEvent(event);
@@ -955,15 +564,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qpdfview_closeevent_isbase) {
-            qpdfview_closeevent_isbase = false;
-            QPdfView::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qpdfview_closeevent_callback;
-        if (closeevent_cb) {
+        if (qpdfview_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qpdfview_closeevent_callback(this, cbval1);
             return;
         }
         QPdfView::closeEvent(event);
@@ -971,15 +574,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qpdfview_tabletevent_isbase) {
-            qpdfview_tabletevent_isbase = false;
-            QPdfView::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qpdfview_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qpdfview_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qpdfview_tabletevent_callback(this, cbval1);
             return;
         }
         QPdfView::tabletEvent(event);
@@ -987,15 +584,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qpdfview_actionevent_isbase) {
-            qpdfview_actionevent_isbase = false;
-            QPdfView::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qpdfview_actionevent_callback;
-        if (actionevent_cb) {
+        if (qpdfview_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qpdfview_actionevent_callback(this, cbval1);
             return;
         }
         QPdfView::actionEvent(event);
@@ -1003,15 +594,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (qpdfview_showevent_isbase) {
-            qpdfview_showevent_isbase = false;
-            QPdfView::showEvent(event);
-            return;
-        }
-        auto showevent_cb = qpdfview_showevent_callback;
-        if (showevent_cb) {
+        if (qpdfview_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            qpdfview_showevent_callback(this, cbval1);
             return;
         }
         QPdfView::showEvent(event);
@@ -1019,15 +604,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qpdfview_hideevent_isbase) {
-            qpdfview_hideevent_isbase = false;
-            QPdfView::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qpdfview_hideevent_callback;
-        if (hideevent_cb) {
+        if (qpdfview_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qpdfview_hideevent_callback(this, cbval1);
             return;
         }
         QPdfView::hideEvent(event);
@@ -1035,12 +614,7 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qpdfview_nativeevent_isbase) {
-            qpdfview_nativeevent_isbase = false;
-            return QPdfView::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qpdfview_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qpdfview_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1050,7 +624,7 @@ class VirtualQPdfView final : public QPdfView {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qpdfview_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1059,14 +633,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qpdfview_metric_isbase) {
-            qpdfview_metric_isbase = false;
-            return QPdfView::metric(param1);
-        }
-        auto metric_cb = qpdfview_metric_callback;
-        if (metric_cb) {
+        if (qpdfview_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qpdfview_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QPdfView::metric(param1);
@@ -1074,15 +643,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qpdfview_initpainter_isbase) {
-            qpdfview_initpainter_isbase = false;
-            QPdfView::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qpdfview_initpainter_callback;
-        if (initpainter_cb) {
+        if (qpdfview_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qpdfview_initpainter_callback(this, cbval1);
             return;
         }
         QPdfView::initPainter(painter);
@@ -1090,14 +653,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qpdfview_redirected_isbase) {
-            qpdfview_redirected_isbase = false;
-            return QPdfView::redirected(offset);
-        }
-        auto redirected_cb = qpdfview_redirected_callback;
-        if (redirected_cb) {
+        if (qpdfview_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qpdfview_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QPdfView::redirected(offset);
@@ -1105,13 +663,8 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qpdfview_sharedpainter_isbase) {
-            qpdfview_sharedpainter_isbase = false;
-            return QPdfView::sharedPainter();
-        }
-        auto sharedpainter_cb = qpdfview_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qpdfview_sharedpainter_callback) {
+            QPainter* callback_ret = qpdfview_sharedpainter_callback(this);
             return callback_ret;
         }
         return QPdfView::sharedPainter();
@@ -1119,15 +672,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qpdfview_inputmethodevent_isbase) {
-            qpdfview_inputmethodevent_isbase = false;
-            QPdfView::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qpdfview_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qpdfview_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qpdfview_inputmethodevent_callback(this, cbval1);
             return;
         }
         QPdfView::inputMethodEvent(param1);
@@ -1135,14 +682,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qpdfview_inputmethodquery_isbase) {
-            qpdfview_inputmethodquery_isbase = false;
-            return QPdfView::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qpdfview_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qpdfview_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qpdfview_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1152,14 +694,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qpdfview_focusnextprevchild_isbase) {
-            qpdfview_focusnextprevchild_isbase = false;
-            return QPdfView::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qpdfview_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qpdfview_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qpdfview_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QPdfView::focusNextPrevChild(next);
@@ -1167,15 +704,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qpdfview_timerevent_isbase) {
-            qpdfview_timerevent_isbase = false;
-            QPdfView::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qpdfview_timerevent_callback;
-        if (timerevent_cb) {
+        if (qpdfview_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qpdfview_timerevent_callback(this, cbval1);
             return;
         }
         QPdfView::timerEvent(event);
@@ -1183,15 +714,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qpdfview_childevent_isbase) {
-            qpdfview_childevent_isbase = false;
-            QPdfView::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qpdfview_childevent_callback;
-        if (childevent_cb) {
+        if (qpdfview_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qpdfview_childevent_callback(this, cbval1);
             return;
         }
         QPdfView::childEvent(event);
@@ -1199,15 +724,9 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qpdfview_customevent_isbase) {
-            qpdfview_customevent_isbase = false;
-            QPdfView::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qpdfview_customevent_callback;
-        if (customevent_cb) {
+        if (qpdfview_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qpdfview_customevent_callback(this, cbval1);
             return;
         }
         QPdfView::customEvent(event);
@@ -1215,17 +734,11 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qpdfview_connectnotify_isbase) {
-            qpdfview_connectnotify_isbase = false;
-            QPdfView::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qpdfview_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qpdfview_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qpdfview_connectnotify_callback(this, cbval1);
             return;
         }
         QPdfView::connectNotify(signal);
@@ -1233,335 +746,60 @@ class VirtualQPdfView final : public QPdfView {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qpdfview_disconnectnotify_isbase) {
-            qpdfview_disconnectnotify_isbase = false;
-            QPdfView::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qpdfview_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qpdfview_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qpdfview_disconnectnotify_callback(this, cbval1);
             return;
         }
         QPdfView::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void setViewportMargins(int left, int top, int right, int bottom) {
-        if (qpdfview_setviewportmargins_isbase) {
-            qpdfview_setviewportmargins_isbase = false;
-            QPdfView::setViewportMargins(left, top, right, bottom);
-            return;
-        }
-        auto setviewportmargins_cb = qpdfview_setviewportmargins_callback;
-        if (setviewportmargins_cb) {
-            int cbval1 = left;
-            int cbval2 = top;
-            int cbval3 = right;
-            int cbval4 = bottom;
-            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
-            return;
-        }
-        QPdfView::setViewportMargins(left, top, right, bottom);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QMargins viewportMargins() const {
-        if (qpdfview_viewportmargins_isbase) {
-            qpdfview_viewportmargins_isbase = false;
-            return QPdfView::viewportMargins();
-        }
-        auto viewportmargins_cb = qpdfview_viewportmargins_callback;
-        if (viewportmargins_cb) {
-            QMargins* callback_ret = viewportmargins_cb();
-            auto callback_ret_Value = std::move(*callback_ret);
-            delete callback_ret;
-            return callback_ret_Value;
-        }
-        return QPdfView::viewportMargins();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void drawFrame(QPainter* param1) {
-        if (qpdfview_drawframe_isbase) {
-            qpdfview_drawframe_isbase = false;
-            QPdfView::drawFrame(param1);
-            return;
-        }
-        auto drawframe_cb = qpdfview_drawframe_callback;
-        if (drawframe_cb) {
-            QPainter* cbval1 = param1;
-            drawframe_cb(this, cbval1);
-            return;
-        }
-        QPdfView::drawFrame(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qpdfview_updatemicrofocus_isbase) {
-            qpdfview_updatemicrofocus_isbase = false;
-            QPdfView::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qpdfview_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QPdfView::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qpdfview_create_isbase) {
-            qpdfview_create_isbase = false;
-            QPdfView::create();
-            return;
-        }
-        auto create_cb = qpdfview_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QPdfView::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qpdfview_destroy_isbase) {
-            qpdfview_destroy_isbase = false;
-            QPdfView::destroy();
-            return;
-        }
-        auto destroy_cb = qpdfview_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QPdfView::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qpdfview_focusnextchild_isbase) {
-            qpdfview_focusnextchild_isbase = false;
-            return QPdfView::focusNextChild();
-        }
-        auto focusnextchild_cb = qpdfview_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QPdfView::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qpdfview_focuspreviouschild_isbase) {
-            qpdfview_focuspreviouschild_isbase = false;
-            return QPdfView::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qpdfview_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QPdfView::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qpdfview_sender_isbase) {
-            qpdfview_sender_isbase = false;
-            return QPdfView::sender();
-        }
-        auto sender_cb = qpdfview_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QPdfView::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qpdfview_sendersignalindex_isbase) {
-            qpdfview_sendersignalindex_isbase = false;
-            return QPdfView::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qpdfview_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QPdfView::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qpdfview_receivers_isbase) {
-            qpdfview_receivers_isbase = false;
-            return QPdfView::receivers(signal);
-        }
-        auto receivers_cb = qpdfview_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QPdfView::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qpdfview_issignalconnected_isbase) {
-            qpdfview_issignalconnected_isbase = false;
-            return QPdfView::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qpdfview_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QPdfView::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qpdfview_getdecodedmetricf_isbase) {
-            qpdfview_getdecodedmetricf_isbase = false;
-            return QPdfView::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qpdfview_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QPdfView::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void QPdfView_PaintEvent(QPdfView* self, QPaintEvent* event);
     friend void QPdfView_SuperPaintEvent(QPdfView* self, QPaintEvent* event);
-    friend void QPdfView_ResizeEvent(QPdfView* self, QResizeEvent* event);
     friend void QPdfView_SuperResizeEvent(QPdfView* self, QResizeEvent* event);
-    friend void QPdfView_ScrollContentsBy(QPdfView* self, int dx, int dy);
     friend void QPdfView_SuperScrollContentsBy(QPdfView* self, int dx, int dy);
-    friend void QPdfView_MousePressEvent(QPdfView* self, QMouseEvent* event);
     friend void QPdfView_SuperMousePressEvent(QPdfView* self, QMouseEvent* event);
-    friend void QPdfView_MouseMoveEvent(QPdfView* self, QMouseEvent* event);
     friend void QPdfView_SuperMouseMoveEvent(QPdfView* self, QMouseEvent* event);
-    friend void QPdfView_MouseReleaseEvent(QPdfView* self, QMouseEvent* event);
     friend void QPdfView_SuperMouseReleaseEvent(QPdfView* self, QMouseEvent* event);
-    friend bool QPdfView_EventFilter(QPdfView* self, QObject* param1, QEvent* param2);
     friend bool QPdfView_SuperEventFilter(QPdfView* self, QObject* param1, QEvent* param2);
-    friend bool QPdfView_Event(QPdfView* self, QEvent* param1);
     friend bool QPdfView_SuperEvent(QPdfView* self, QEvent* param1);
-    friend bool QPdfView_ViewportEvent(QPdfView* self, QEvent* param1);
     friend bool QPdfView_SuperViewportEvent(QPdfView* self, QEvent* param1);
-    friend void QPdfView_MouseDoubleClickEvent(QPdfView* self, QMouseEvent* param1);
     friend void QPdfView_SuperMouseDoubleClickEvent(QPdfView* self, QMouseEvent* param1);
-    friend void QPdfView_WheelEvent(QPdfView* self, QWheelEvent* param1);
     friend void QPdfView_SuperWheelEvent(QPdfView* self, QWheelEvent* param1);
-    friend void QPdfView_ContextMenuEvent(QPdfView* self, QContextMenuEvent* param1);
     friend void QPdfView_SuperContextMenuEvent(QPdfView* self, QContextMenuEvent* param1);
-    friend void QPdfView_DragEnterEvent(QPdfView* self, QDragEnterEvent* param1);
     friend void QPdfView_SuperDragEnterEvent(QPdfView* self, QDragEnterEvent* param1);
-    friend void QPdfView_DragMoveEvent(QPdfView* self, QDragMoveEvent* param1);
     friend void QPdfView_SuperDragMoveEvent(QPdfView* self, QDragMoveEvent* param1);
-    friend void QPdfView_DragLeaveEvent(QPdfView* self, QDragLeaveEvent* param1);
     friend void QPdfView_SuperDragLeaveEvent(QPdfView* self, QDragLeaveEvent* param1);
-    friend void QPdfView_DropEvent(QPdfView* self, QDropEvent* param1);
     friend void QPdfView_SuperDropEvent(QPdfView* self, QDropEvent* param1);
-    friend void QPdfView_KeyPressEvent(QPdfView* self, QKeyEvent* param1);
     friend void QPdfView_SuperKeyPressEvent(QPdfView* self, QKeyEvent* param1);
-    friend QSize* QPdfView_ViewportSizeHint(const QPdfView* self);
     friend QSize* QPdfView_SuperViewportSizeHint(const QPdfView* self);
-    friend void QPdfView_ChangeEvent(QPdfView* self, QEvent* param1);
     friend void QPdfView_SuperChangeEvent(QPdfView* self, QEvent* param1);
-    friend void QPdfView_InitStyleOption(const QPdfView* self, QStyleOptionFrame* option);
     friend void QPdfView_SuperInitStyleOption(const QPdfView* self, QStyleOptionFrame* option);
-    friend void QPdfView_KeyReleaseEvent(QPdfView* self, QKeyEvent* event);
     friend void QPdfView_SuperKeyReleaseEvent(QPdfView* self, QKeyEvent* event);
-    friend void QPdfView_FocusInEvent(QPdfView* self, QFocusEvent* event);
     friend void QPdfView_SuperFocusInEvent(QPdfView* self, QFocusEvent* event);
-    friend void QPdfView_FocusOutEvent(QPdfView* self, QFocusEvent* event);
     friend void QPdfView_SuperFocusOutEvent(QPdfView* self, QFocusEvent* event);
-    friend void QPdfView_EnterEvent(QPdfView* self, QEnterEvent* event);
     friend void QPdfView_SuperEnterEvent(QPdfView* self, QEnterEvent* event);
-    friend void QPdfView_LeaveEvent(QPdfView* self, QEvent* event);
     friend void QPdfView_SuperLeaveEvent(QPdfView* self, QEvent* event);
-    friend void QPdfView_MoveEvent(QPdfView* self, QMoveEvent* event);
     friend void QPdfView_SuperMoveEvent(QPdfView* self, QMoveEvent* event);
-    friend void QPdfView_CloseEvent(QPdfView* self, QCloseEvent* event);
     friend void QPdfView_SuperCloseEvent(QPdfView* self, QCloseEvent* event);
-    friend void QPdfView_TabletEvent(QPdfView* self, QTabletEvent* event);
     friend void QPdfView_SuperTabletEvent(QPdfView* self, QTabletEvent* event);
-    friend void QPdfView_ActionEvent(QPdfView* self, QActionEvent* event);
     friend void QPdfView_SuperActionEvent(QPdfView* self, QActionEvent* event);
-    friend void QPdfView_ShowEvent(QPdfView* self, QShowEvent* event);
     friend void QPdfView_SuperShowEvent(QPdfView* self, QShowEvent* event);
-    friend void QPdfView_HideEvent(QPdfView* self, QHideEvent* event);
     friend void QPdfView_SuperHideEvent(QPdfView* self, QHideEvent* event);
-    friend bool QPdfView_NativeEvent(QPdfView* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QPdfView_SuperNativeEvent(QPdfView* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int QPdfView_Metric(const QPdfView* self, int param1);
     friend int QPdfView_SuperMetric(const QPdfView* self, int param1);
-    friend void QPdfView_InitPainter(const QPdfView* self, QPainter* painter);
     friend void QPdfView_SuperInitPainter(const QPdfView* self, QPainter* painter);
-    friend QPaintDevice* QPdfView_Redirected(const QPdfView* self, QPoint* offset);
     friend QPaintDevice* QPdfView_SuperRedirected(const QPdfView* self, QPoint* offset);
-    friend QPainter* QPdfView_SharedPainter(const QPdfView* self);
     friend QPainter* QPdfView_SuperSharedPainter(const QPdfView* self);
-    friend void QPdfView_InputMethodEvent(QPdfView* self, QInputMethodEvent* param1);
     friend void QPdfView_SuperInputMethodEvent(QPdfView* self, QInputMethodEvent* param1);
-    friend bool QPdfView_FocusNextPrevChild(QPdfView* self, bool next);
     friend bool QPdfView_SuperFocusNextPrevChild(QPdfView* self, bool next);
-    friend void QPdfView_TimerEvent(QPdfView* self, QTimerEvent* event);
     friend void QPdfView_SuperTimerEvent(QPdfView* self, QTimerEvent* event);
-    friend void QPdfView_ChildEvent(QPdfView* self, QChildEvent* event);
     friend void QPdfView_SuperChildEvent(QPdfView* self, QChildEvent* event);
-    friend void QPdfView_CustomEvent(QPdfView* self, QEvent* event);
     friend void QPdfView_SuperCustomEvent(QPdfView* self, QEvent* event);
-    friend void QPdfView_ConnectNotify(QPdfView* self, const QMetaMethod* signal);
     friend void QPdfView_SuperConnectNotify(QPdfView* self, const QMetaMethod* signal);
-    friend void QPdfView_DisconnectNotify(QPdfView* self, const QMetaMethod* signal);
     friend void QPdfView_SuperDisconnectNotify(QPdfView* self, const QMetaMethod* signal);
-    friend void QPdfView_SetViewportMargins(QPdfView* self, int left, int top, int right, int bottom);
-    friend void QPdfView_SuperSetViewportMargins(QPdfView* self, int left, int top, int right, int bottom);
-    friend QMargins* QPdfView_ViewportMargins(const QPdfView* self);
-    friend QMargins* QPdfView_SuperViewportMargins(const QPdfView* self);
-    friend void QPdfView_DrawFrame(QPdfView* self, QPainter* param1);
-    friend void QPdfView_SuperDrawFrame(QPdfView* self, QPainter* param1);
-    friend void QPdfView_UpdateMicroFocus(QPdfView* self);
-    friend void QPdfView_SuperUpdateMicroFocus(QPdfView* self);
-    friend void QPdfView_Create(QPdfView* self);
-    friend void QPdfView_SuperCreate(QPdfView* self);
-    friend void QPdfView_Destroy(QPdfView* self);
-    friend void QPdfView_SuperDestroy(QPdfView* self);
-    friend bool QPdfView_FocusNextChild(QPdfView* self);
-    friend bool QPdfView_SuperFocusNextChild(QPdfView* self);
-    friend bool QPdfView_FocusPreviousChild(QPdfView* self);
-    friend bool QPdfView_SuperFocusPreviousChild(QPdfView* self);
-    friend QObject* QPdfView_Sender(const QPdfView* self);
-    friend QObject* QPdfView_SuperSender(const QPdfView* self);
-    friend int QPdfView_SenderSignalIndex(const QPdfView* self);
-    friend int QPdfView_SuperSenderSignalIndex(const QPdfView* self);
-    friend int QPdfView_Receivers(const QPdfView* self, const char* signal);
-    friend int QPdfView_SuperReceivers(const QPdfView* self, const char* signal);
-    friend bool QPdfView_IsSignalConnected(const QPdfView* self, const QMetaMethod* signal);
-    friend bool QPdfView_SuperIsSignalConnected(const QPdfView* self, const QMetaMethod* signal);
-    friend double QPdfView_GetDecodedMetricF(const QPdfView* self, int metricA, int metricB);
-    friend double QPdfView_SuperGetDecodedMetricF(const QPdfView* self, int metricA, int metricB);
 };
 
 #endif

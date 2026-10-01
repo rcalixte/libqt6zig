@@ -4,7 +4,6 @@ const QMarginsF = @import("libqt6").QMarginsF;
 const QPageLayout = @import("libqt6").QPageLayout;
 const QPageRanges = @import("libqt6").QPageRanges;
 const QPageSize = @import("libqt6").QPageSize;
-const QPaintEngine = @import("libqt6").QPaintEngine;
 const qpagelayout_enums = @import("libqpagelayout.zig").enums;
 const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
 
@@ -18,20 +17,6 @@ pub const QPagedPaintDevice = extern struct {
 
     pub const _is_QPagedPaintDevice = {};
     pub const _is_QPaintDevice = {};
-
-    /// ### DEPRECATED: Use `newPage` instead
-    ///
-    pub const NewPage = newPage;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#newPage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPagedPaintDevice `
-    ///
-    pub fn newPage(self: QPagedPaintDevice) bool {
-        return qtc.QPagedPaintDevice_NewPage(@ptrCast(self.ptr));
-    }
 
     /// ### DEPRECATED: Use `setPageLayout` instead
     ///
@@ -177,22 +162,6 @@ pub const QPagedPaintDevice = extern struct {
     ///
     pub fn paintingActive(self: QPagedPaintDevice) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `paintEngine` instead
-    ///
-    pub const PaintEngine = paintEngine;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintEngine)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPagedPaintDevice `
-    ///
-    pub fn paintEngine(self: QPagedPaintDevice) QPaintEngine {
-        return .{ .ptr = qtc.QPaintDevice_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `width` instead

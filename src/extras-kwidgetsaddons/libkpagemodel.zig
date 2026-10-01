@@ -86,9 +86,9 @@ pub const KPageModel = extern struct {
     ///
     /// ` self: KPageModel `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KPageModel) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KPageModel, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KPageModel, callback: *const fn (KPageModel) callconv(.c) QMetaObject) void {
         qtc.KPageModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1895,6 +1895,8 @@ pub const KPageModel = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onIndex` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KPageModel `
@@ -1908,31 +1910,6 @@ pub const KPageModel = extern struct {
     pub fn index(self: KPageModel, row: i32, column: i32, _parent: anytype) QModelIndex {
         comptime _ = @TypeOf(_parent)._is_QModelIndex;
         return .{ .ptr = qtc.KPageModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superIndex` instead
-    ///
-    pub const SuperIndex = superIndex;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#index)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` row: i32 `
-    ///
-    /// ` column: i32 `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    pub fn superIndex(self: KPageModel, row: i32, column: i32, _parent: anytype) QModelIndex {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        return .{ .ptr = qtc.KPageModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr)) };
     }
 
     /// ### DEPRECATED: Use `onIndex` instead
@@ -1967,6 +1944,8 @@ pub const KPageModel = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onParent` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KPageModel `
@@ -1976,27 +1955,6 @@ pub const KPageModel = extern struct {
     pub fn parent(self: KPageModel, child: anytype) QModelIndex {
         comptime _ = @TypeOf(child)._is_QModelIndex;
         return .{ .ptr = qtc.KPageModel_Parent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superParent` instead
-    ///
-    pub const SuperParent = superParent;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` child: QModelIndex `
-    ///
-    pub fn superParent(self: KPageModel, child: anytype) QModelIndex {
-        comptime _ = @TypeOf(child)._is_QModelIndex;
-        return .{ .ptr = qtc.KPageModel_SuperParent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
 
     /// ### DEPRECATED: Use `onParent` instead
@@ -2103,6 +2061,8 @@ pub const KPageModel = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onRowCount` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KPageModel `
@@ -2112,27 +2072,6 @@ pub const KPageModel = extern struct {
     pub fn rowCount(self: KPageModel, _parent: anytype) i32 {
         comptime _ = @TypeOf(_parent)._is_QModelIndex;
         return qtc.KPageModel_RowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superRowCount` instead
-    ///
-    pub const SuperRowCount = superRowCount;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    pub fn superRowCount(self: KPageModel, _parent: anytype) i32 {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        return qtc.KPageModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
     /// ### DEPRECATED: Use `onRowCount` instead
@@ -2165,6 +2104,8 @@ pub const KPageModel = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onColumnCount` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KPageModel `
@@ -2174,27 +2115,6 @@ pub const KPageModel = extern struct {
     pub fn columnCount(self: KPageModel, _parent: anytype) i32 {
         comptime _ = @TypeOf(_parent)._is_QModelIndex;
         return qtc.KPageModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superColumnCount` instead
-    ///
-    pub const SuperColumnCount = superColumnCount;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    pub fn superColumnCount(self: KPageModel, _parent: anytype) i32 {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        return qtc.KPageModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
     /// ### DEPRECATED: Use `onColumnCount` instead
@@ -2289,6 +2209,8 @@ pub const KPageModel = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onData` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KPageModel `
@@ -2300,29 +2222,6 @@ pub const KPageModel = extern struct {
     pub fn data(self: KPageModel, _index: anytype, role: i32) QVariant {
         comptime _ = @TypeOf(_index)._is_QModelIndex;
         return .{ .ptr = qtc.KPageModel_Data(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(role)) };
-    }
-
-    /// ### DEPRECATED: Use `superData` instead
-    ///
-    pub const SuperData = superData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` _index: QModelIndex `
-    ///
-    /// ` role: i32 `
-    ///
-    pub fn superData(self: KPageModel, _index: anytype, role: i32) QVariant {
-        comptime _ = @TypeOf(_index)._is_QModelIndex;
-        return .{ .ptr = qtc.KPageModel_SuperData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(role)) };
     }
 
     /// ### DEPRECATED: Use `onData` instead
@@ -2913,9 +2812,9 @@ pub const KPageModel = extern struct {
     ///
     /// ` self: KPageModel`
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: KPageModel) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onMimeTypes(self: KPageModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onMimeTypes(self: KPageModel, callback: *const fn (KPageModel) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KPageModel_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3205,9 +3104,9 @@ pub const KPageModel = extern struct {
     ///
     /// ` self: KPageModel`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPageModel) callconv(.c) i32 `
     ///
-    pub fn onSupportedDropActions(self: KPageModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDropActions(self: KPageModel, callback: *const fn (KPageModel) callconv(.c) i32) void {
         qtc.KPageModel_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3269,9 +3168,9 @@ pub const KPageModel = extern struct {
     ///
     /// ` self: KPageModel`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPageModel) callconv(.c) i32 `
     ///
-    pub fn onSupportedDragActions(self: KPageModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDragActions(self: KPageModel, callback: *const fn (KPageModel) callconv(.c) i32) void {
         qtc.KPageModel_OnSupportedDragActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4299,13 +4198,13 @@ pub const KPageModel = extern struct {
     ///
     /// ` self: KPageModel`
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
+    /// ` callback: *const fn (self: KPageModel) callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of Map_i32_u8 `
     ///
-    pub fn onRoleNames(self: KPageModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+    pub fn onRoleNames(self: KPageModel, callback: *const fn (KPageModel) callconv(.c) qtc.libqt_map) void {
         qtc.KPageModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4427,9 +4326,9 @@ pub const KPageModel = extern struct {
     ///
     /// ` self: KPageModel`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageModel) callconv(.c) bool `
     ///
-    pub fn onSubmit(self: KPageModel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSubmit(self: KPageModel, callback: *const fn (KPageModel) callconv(.c) bool) void {
         qtc.KPageModel_OnSubmit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4483,9 +4382,9 @@ pub const KPageModel = extern struct {
     ///
     /// ` self: KPageModel`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KPageModel) callconv(.c) void `
     ///
-    pub fn onRevert(self: KPageModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onRevert(self: KPageModel, callback: *const fn (KPageModel) callconv(.c) void) void {
         qtc.KPageModel_OnRevert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4539,9 +4438,9 @@ pub const KPageModel = extern struct {
     ///
     /// ` self: KPageModel`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KPageModel) callconv(.c) void `
     ///
-    pub fn onResetInternalData(self: KPageModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onResetInternalData(self: KPageModel, callback: *const fn (KPageModel) callconv(.c) void) void {
         qtc.KPageModel_OnResetInternalData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5007,50 +4906,6 @@ pub const KPageModel = extern struct {
         return .{ .ptr = qtc.KPageModel_CreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
-    /// ### DEPRECATED: Use `superCreateIndex` instead
-    ///
-    pub const SuperCreateIndex = superCreateIndex;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` row: i32 `
-    ///
-    /// ` column: i32 `
-    ///
-    pub fn superCreateIndex(self: KPageModel, row: i32, column: i32) QModelIndex {
-        return .{ .ptr = qtc.KPageModel_SuperCreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
-    }
-
-    /// ### DEPRECATED: Use `onCreateIndex` instead
-    ///
-    pub const OnCreateIndex = onCreateIndex;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn (self: KPageModel, row: i32, column: i32) callconv(.c) QModelIndex `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCreateIndex(self: KPageModel, callback: *const fn (KPageModel, i32, i32) callconv(.c) QModelIndex) void {
-        qtc.KPageModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `encodeData` instead
     ///
     pub const EncodeData = encodeData;
@@ -5076,53 +4931,6 @@ pub const KPageModel = extern struct {
         };
         comptime _ = @TypeOf(stream)._is_QDataStream;
         qtc.KPageModel_EncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEncodeData` instead
-    ///
-    pub const SuperEncodeData = superEncodeData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` indexes: []QModelIndex `
-    ///
-    /// ` stream: QDataStream `
-    ///
-    pub fn superEncodeData(self: KPageModel, indexes: []QModelIndex, stream: anytype) void {
-        const indexes_list = qtc.libqt_list{
-            .len = indexes.len,
-            .data = @ptrCast(indexes.ptr),
-        };
-        comptime _ = @TypeOf(stream)._is_QDataStream;
-        qtc.KPageModel_SuperEncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEncodeData` instead
-    ///
-    pub const OnEncodeData = onEncodeData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn (self: KPageModel, indexes: qtc.libqt_list ([]QModelIndex), stream: QDataStream) callconv(.c) void `
-    ///
-    pub fn onEncodeData(self: KPageModel, callback: *const fn (KPageModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
-        qtc.KPageModel_OnEncodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `decodeData` instead
@@ -5153,54 +4961,6 @@ pub const KPageModel = extern struct {
         return qtc.KPageModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDecodeData` instead
-    ///
-    pub const SuperDecodeData = superDecodeData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` row: i32 `
-    ///
-    /// ` column: i32 `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` stream: QDataStream `
-    ///
-    pub fn superDecodeData(self: KPageModel, row: i32, column: i32, _parent: anytype, stream: anytype) bool {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        comptime _ = @TypeOf(stream)._is_QDataStream;
-        return qtc.KPageModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDecodeData` instead
-    ///
-    pub const OnDecodeData = onDecodeData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn (self: KPageModel, row: i32, column: i32, parent: QModelIndex, stream: QDataStream) callconv(.c) bool `
-    ///
-    pub fn onDecodeData(self: KPageModel, callback: *const fn (KPageModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
-        qtc.KPageModel_OnDecodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `beginInsertRows` instead
     ///
     pub const BeginInsertRows = beginInsertRows;
@@ -5226,51 +4986,6 @@ pub const KPageModel = extern struct {
         qtc.KPageModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `superBeginInsertRows` instead
-    ///
-    pub const SuperBeginInsertRows = superBeginInsertRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginInsertRows(self: KPageModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.KPageModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
-    /// ### DEPRECATED: Use `onBeginInsertRows` instead
-    ///
-    pub const OnBeginInsertRows = onBeginInsertRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn (self: KPageModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginInsertRows(self: KPageModel, callback: *const fn (KPageModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.KPageModel_OnBeginInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endInsertRows` instead
     ///
     pub const EndInsertRows = endInsertRows;
@@ -5287,44 +5002,6 @@ pub const KPageModel = extern struct {
     ///
     pub fn endInsertRows(self: KPageModel) void {
         qtc.KPageModel_EndInsertRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndInsertRows` instead
-    ///
-    pub const SuperEndInsertRows = superEndInsertRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    pub fn superEndInsertRows(self: KPageModel) void {
-        qtc.KPageModel_SuperEndInsertRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndInsertRows` instead
-    ///
-    pub const OnEndInsertRows = onEndInsertRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndInsertRows(self: KPageModel, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageModel_OnEndInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginRemoveRows` instead
@@ -5352,51 +5029,6 @@ pub const KPageModel = extern struct {
         qtc.KPageModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `superBeginRemoveRows` instead
-    ///
-    pub const SuperBeginRemoveRows = superBeginRemoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginRemoveRows(self: KPageModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.KPageModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
-    /// ### DEPRECATED: Use `onBeginRemoveRows` instead
-    ///
-    pub const OnBeginRemoveRows = onBeginRemoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn (self: KPageModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginRemoveRows(self: KPageModel, callback: *const fn (KPageModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.KPageModel_OnBeginRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endRemoveRows` instead
     ///
     pub const EndRemoveRows = endRemoveRows;
@@ -5413,44 +5045,6 @@ pub const KPageModel = extern struct {
     ///
     pub fn endRemoveRows(self: KPageModel) void {
         qtc.KPageModel_EndRemoveRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndRemoveRows` instead
-    ///
-    pub const SuperEndRemoveRows = superEndRemoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    pub fn superEndRemoveRows(self: KPageModel) void {
-        qtc.KPageModel_SuperEndRemoveRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndRemoveRows` instead
-    ///
-    pub const OnEndRemoveRows = onEndRemoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndRemoveRows(self: KPageModel, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageModel_OnEndRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginMoveRows` instead
@@ -5483,56 +5077,6 @@ pub const KPageModel = extern struct {
         return qtc.KPageModel_BeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
-    /// ### DEPRECATED: Use `superBeginMoveRows` instead
-    ///
-    pub const SuperBeginMoveRows = superBeginMoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` sourceParent: QModelIndex `
-    ///
-    /// ` sourceFirst: i32 `
-    ///
-    /// ` sourceLast: i32 `
-    ///
-    /// ` destinationParent: QModelIndex `
-    ///
-    /// ` destinationRow: i32 `
-    ///
-    pub fn superBeginMoveRows(self: KPageModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
-        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
-        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
-        return qtc.KPageModel_SuperBeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
-    }
-
-    /// ### DEPRECATED: Use `onBeginMoveRows` instead
-    ///
-    pub const OnBeginMoveRows = onBeginMoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn (self: KPageModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) bool `
-    ///
-    pub fn onBeginMoveRows(self: KPageModel, callback: *const fn (KPageModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
-        qtc.KPageModel_OnBeginMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endMoveRows` instead
     ///
     pub const EndMoveRows = endMoveRows;
@@ -5549,44 +5093,6 @@ pub const KPageModel = extern struct {
     ///
     pub fn endMoveRows(self: KPageModel) void {
         qtc.KPageModel_EndMoveRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndMoveRows` instead
-    ///
-    pub const SuperEndMoveRows = superEndMoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    pub fn superEndMoveRows(self: KPageModel) void {
-        qtc.KPageModel_SuperEndMoveRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndMoveRows` instead
-    ///
-    pub const OnEndMoveRows = onEndMoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndMoveRows(self: KPageModel, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageModel_OnEndMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginInsertColumns` instead
@@ -5614,51 +5120,6 @@ pub const KPageModel = extern struct {
         qtc.KPageModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `superBeginInsertColumns` instead
-    ///
-    pub const SuperBeginInsertColumns = superBeginInsertColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginInsertColumns(self: KPageModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.KPageModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
-    /// ### DEPRECATED: Use `onBeginInsertColumns` instead
-    ///
-    pub const OnBeginInsertColumns = onBeginInsertColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn (self: KPageModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginInsertColumns(self: KPageModel, callback: *const fn (KPageModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.KPageModel_OnBeginInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endInsertColumns` instead
     ///
     pub const EndInsertColumns = endInsertColumns;
@@ -5675,44 +5136,6 @@ pub const KPageModel = extern struct {
     ///
     pub fn endInsertColumns(self: KPageModel) void {
         qtc.KPageModel_EndInsertColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndInsertColumns` instead
-    ///
-    pub const SuperEndInsertColumns = superEndInsertColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    pub fn superEndInsertColumns(self: KPageModel) void {
-        qtc.KPageModel_SuperEndInsertColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndInsertColumns` instead
-    ///
-    pub const OnEndInsertColumns = onEndInsertColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndInsertColumns(self: KPageModel, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageModel_OnEndInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginRemoveColumns` instead
@@ -5740,51 +5163,6 @@ pub const KPageModel = extern struct {
         qtc.KPageModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `superBeginRemoveColumns` instead
-    ///
-    pub const SuperBeginRemoveColumns = superBeginRemoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginRemoveColumns(self: KPageModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.KPageModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
-    /// ### DEPRECATED: Use `onBeginRemoveColumns` instead
-    ///
-    pub const OnBeginRemoveColumns = onBeginRemoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn (self: KPageModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginRemoveColumns(self: KPageModel, callback: *const fn (KPageModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.KPageModel_OnBeginRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endRemoveColumns` instead
     ///
     pub const EndRemoveColumns = endRemoveColumns;
@@ -5801,44 +5179,6 @@ pub const KPageModel = extern struct {
     ///
     pub fn endRemoveColumns(self: KPageModel) void {
         qtc.KPageModel_EndRemoveColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndRemoveColumns` instead
-    ///
-    pub const SuperEndRemoveColumns = superEndRemoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    pub fn superEndRemoveColumns(self: KPageModel) void {
-        qtc.KPageModel_SuperEndRemoveColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndRemoveColumns` instead
-    ///
-    pub const OnEndRemoveColumns = onEndRemoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndRemoveColumns(self: KPageModel, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageModel_OnEndRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginMoveColumns` instead
@@ -5871,56 +5211,6 @@ pub const KPageModel = extern struct {
         return qtc.KPageModel_BeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
-    /// ### DEPRECATED: Use `superBeginMoveColumns` instead
-    ///
-    pub const SuperBeginMoveColumns = superBeginMoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` sourceParent: QModelIndex `
-    ///
-    /// ` sourceFirst: i32 `
-    ///
-    /// ` sourceLast: i32 `
-    ///
-    /// ` destinationParent: QModelIndex `
-    ///
-    /// ` destinationColumn: i32 `
-    ///
-    pub fn superBeginMoveColumns(self: KPageModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
-        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
-        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
-        return qtc.KPageModel_SuperBeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
-    }
-
-    /// ### DEPRECATED: Use `onBeginMoveColumns` instead
-    ///
-    pub const OnBeginMoveColumns = onBeginMoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn (self: KPageModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) bool `
-    ///
-    pub fn onBeginMoveColumns(self: KPageModel, callback: *const fn (KPageModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
-        qtc.KPageModel_OnBeginMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endMoveColumns` instead
     ///
     pub const EndMoveColumns = endMoveColumns;
@@ -5937,44 +5227,6 @@ pub const KPageModel = extern struct {
     ///
     pub fn endMoveColumns(self: KPageModel) void {
         qtc.KPageModel_EndMoveColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndMoveColumns` instead
-    ///
-    pub const SuperEndMoveColumns = superEndMoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    pub fn superEndMoveColumns(self: KPageModel) void {
-        qtc.KPageModel_SuperEndMoveColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndMoveColumns` instead
-    ///
-    pub const OnEndMoveColumns = onEndMoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndMoveColumns(self: KPageModel, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageModel_OnEndMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginResetModel` instead
@@ -5995,44 +5247,6 @@ pub const KPageModel = extern struct {
         qtc.KPageModel_BeginResetModel(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superBeginResetModel` instead
-    ///
-    pub const SuperBeginResetModel = superBeginResetModel;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    pub fn superBeginResetModel(self: KPageModel) void {
-        qtc.KPageModel_SuperBeginResetModel(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onBeginResetModel` instead
-    ///
-    pub const OnBeginResetModel = onBeginResetModel;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onBeginResetModel(self: KPageModel, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageModel_OnBeginResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endResetModel` instead
     ///
     pub const EndResetModel = endResetModel;
@@ -6049,44 +5263,6 @@ pub const KPageModel = extern struct {
     ///
     pub fn endResetModel(self: KPageModel) void {
         qtc.KPageModel_EndResetModel(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndResetModel` instead
-    ///
-    pub const SuperEndResetModel = superEndResetModel;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    pub fn superEndResetModel(self: KPageModel) void {
-        qtc.KPageModel_SuperEndResetModel(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndResetModel` instead
-    ///
-    pub const OnEndResetModel = onEndResetModel;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndResetModel(self: KPageModel, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageModel_OnEndResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `changePersistentIndex` instead
@@ -6111,50 +5287,6 @@ pub const KPageModel = extern struct {
         comptime _ = @TypeOf(from)._is_QModelIndex;
         comptime _ = @TypeOf(to)._is_QModelIndex;
         qtc.KPageModel_ChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superChangePersistentIndex` instead
-    ///
-    pub const SuperChangePersistentIndex = superChangePersistentIndex;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` from: QModelIndex `
-    ///
-    /// ` to: QModelIndex `
-    ///
-    pub fn superChangePersistentIndex(self: KPageModel, from: anytype, to: anytype) void {
-        comptime _ = @TypeOf(from)._is_QModelIndex;
-        comptime _ = @TypeOf(to)._is_QModelIndex;
-        qtc.KPageModel_SuperChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onChangePersistentIndex` instead
-    ///
-    pub const OnChangePersistentIndex = onChangePersistentIndex;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn (self: KPageModel, from: QModelIndex, to: QModelIndex) callconv(.c) void `
-    ///
-    pub fn onChangePersistentIndex(self: KPageModel, callback: *const fn (KPageModel, QModelIndex, QModelIndex) callconv(.c) void) void {
-        qtc.KPageModel_OnChangePersistentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `changePersistentIndexList` instead
@@ -6187,56 +5319,6 @@ pub const KPageModel = extern struct {
         qtc.KPageModel_ChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
-    /// ### DEPRECATED: Use `superChangePersistentIndexList` instead
-    ///
-    pub const SuperChangePersistentIndexList = superChangePersistentIndexList;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` from: []QModelIndex `
-    ///
-    /// ` to: []QModelIndex `
-    ///
-    pub fn superChangePersistentIndexList(self: KPageModel, from: []QModelIndex, to: []QModelIndex) void {
-        const from_list = qtc.libqt_list{
-            .len = from.len,
-            .data = @ptrCast(from.ptr),
-        };
-        const to_list = qtc.libqt_list{
-            .len = to.len,
-            .data = @ptrCast(to.ptr),
-        };
-        qtc.KPageModel_SuperChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
-    }
-
-    /// ### DEPRECATED: Use `onChangePersistentIndexList` instead
-    ///
-    pub const OnChangePersistentIndexList = onChangePersistentIndexList;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn (self: KPageModel, from: qtc.libqt_list ([]QModelIndex), to: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
-    ///
-    pub fn onChangePersistentIndexList(self: KPageModel, callback: *const fn (KPageModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.KPageModel_OnChangePersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `persistentIndexList` instead
     ///
     pub const PersistentIndexList = persistentIndexList;
@@ -6263,58 +5345,6 @@ pub const KPageModel = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superPersistentIndexList` instead
-    ///
-    pub const SuperPersistentIndexList = superPersistentIndexList;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superPersistentIndexList(self: KPageModel, allocator: std.mem.Allocator) []QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KPageModel_SuperPersistentIndexList(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KPageModel.persistentIndexList: Memory allocation failed");
-        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onPersistentIndexList` instead
-    ///
-    pub const OnPersistentIndexList = onPersistentIndexList;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of []QModelIndex `
-    ///
-    pub fn onPersistentIndexList(self: KPageModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KPageModel_OnPersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -6333,44 +5363,6 @@ pub const KPageModel = extern struct {
         return .{ .ptr = qtc.KPageModel_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    pub fn superSender(self: KPageModel) QObject {
-        return .{ .ptr = qtc.KPageModel_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KPageModel, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KPageModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -6387,44 +5379,6 @@ pub const KPageModel = extern struct {
     ///
     pub fn senderSignalIndex(self: KPageModel) i32 {
         return qtc.KPageModel_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    pub fn superSenderSignalIndex(self: KPageModel) i32 {
-        return qtc.KPageModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KPageModel, callback: *const fn () callconv(.c) i32) void {
-        qtc.KPageModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -6448,47 +5402,6 @@ pub const KPageModel = extern struct {
         return qtc.KPageModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KPageModel, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KPageModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn (self: KPageModel, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KPageModel, callback: *const fn (KPageModel, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KPageModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -6508,47 +5421,6 @@ pub const KPageModel = extern struct {
     pub fn isSignalConnected(self: KPageModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPageModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageModel `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KPageModel, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KPageModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageModel`
-    ///
-    /// ` callback: *const fn (self: KPageModel, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KPageModel, callback: *const fn (KPageModel, QMetaMethod) callconv(.c) bool) void {
-        qtc.KPageModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onRowsAboutToBeInserted` instead

@@ -244,9 +244,9 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     /// ` self: KFilePlaceEditDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KFilePlaceEditDialog) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog) callconv(.c) QMetaObject) void {
         qtc.KFilePlaceEditDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7112,11 +7112,11 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     /// ` self: KFilePlaceEditDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KFilePlaceEditDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog) callconv(.c) QSize) void {
         qtc.KFilePlaceEditDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7170,11 +7170,11 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     /// ` self: KFilePlaceEditDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KFilePlaceEditDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog) callconv(.c) QSize) void {
         qtc.KFilePlaceEditDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7228,9 +7228,9 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     /// ` self: KFilePlaceEditDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KFilePlaceEditDialog) callconv(.c) void `
     ///
-    pub fn onOpen(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog) callconv(.c) void) void {
         qtc.KFilePlaceEditDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7284,9 +7284,9 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     /// ` self: KFilePlaceEditDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KFilePlaceEditDialog) callconv(.c) i32 `
     ///
-    pub fn onExec(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog) callconv(.c) i32) void {
         qtc.KFilePlaceEditDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7400,9 +7400,9 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     /// ` self: KFilePlaceEditDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KFilePlaceEditDialog) callconv(.c) void `
     ///
-    pub fn onAccept(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog) callconv(.c) void) void {
         qtc.KFilePlaceEditDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7456,9 +7456,9 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     /// ` self: KFilePlaceEditDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KFilePlaceEditDialog) callconv(.c) void `
     ///
-    pub fn onReject(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog) callconv(.c) void) void {
         qtc.KFilePlaceEditDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7890,9 +7890,9 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     /// ` self: KFilePlaceEditDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KFilePlaceEditDialog) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog) callconv(.c) i32) void {
         qtc.KFilePlaceEditDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8006,9 +8006,9 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     /// ` self: KFilePlaceEditDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KFilePlaceEditDialog) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog) callconv(.c) bool) void {
         qtc.KFilePlaceEditDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8062,9 +8062,9 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     /// ` self: KFilePlaceEditDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KFilePlaceEditDialog) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog) callconv(.c) QPaintEngine) void {
         qtc.KFilePlaceEditDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9680,9 +9680,9 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     /// ` self: KFilePlaceEditDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KFilePlaceEditDialog) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog) callconv(.c) QPainter) void {
         qtc.KFilePlaceEditDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10201,47 +10201,6 @@ pub const KFilePlaceEditDialog = extern struct {
         qtc.KFilePlaceEditDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAdjustPosition` instead
-    ///
-    pub const SuperAdjustPosition = superAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlaceEditDialog `
-    ///
-    /// ` param1: QWidget `
-    ///
-    pub fn superAdjustPosition(self: KFilePlaceEditDialog, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWidget;
-        qtc.KFilePlaceEditDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAdjustPosition` instead
-    ///
-    pub const OnAdjustPosition = onAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlaceEditDialog`
-    ///
-    /// ` callback: *const fn (self: KFilePlaceEditDialog, param1: QWidget) callconv(.c) void `
-    ///
-    pub fn onAdjustPosition(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog, QWidget) callconv(.c) void) void {
-        qtc.KFilePlaceEditDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -10258,44 +10217,6 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     pub fn updateMicroFocus(self: KFilePlaceEditDialog) void {
         qtc.KFilePlaceEditDialog_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlaceEditDialog `
-    ///
-    pub fn superUpdateMicroFocus(self: KFilePlaceEditDialog) void {
-        qtc.KFilePlaceEditDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlaceEditDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlaceEditDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -10316,44 +10237,6 @@ pub const KFilePlaceEditDialog = extern struct {
         qtc.KFilePlaceEditDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlaceEditDialog `
-    ///
-    pub fn superCreate(self: KFilePlaceEditDialog) void {
-        qtc.KFilePlaceEditDialog_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlaceEditDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlaceEditDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10370,44 +10253,6 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     pub fn destroy(self: KFilePlaceEditDialog) void {
         qtc.KFilePlaceEditDialog_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlaceEditDialog `
-    ///
-    pub fn superDestroy(self: KFilePlaceEditDialog) void {
-        qtc.KFilePlaceEditDialog_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlaceEditDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlaceEditDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10428,44 +10273,6 @@ pub const KFilePlaceEditDialog = extern struct {
         return qtc.KFilePlaceEditDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlaceEditDialog `
-    ///
-    pub fn superFocusNextChild(self: KFilePlaceEditDialog) bool {
-        return qtc.KFilePlaceEditDialog_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlaceEditDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.KFilePlaceEditDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10482,44 +10289,6 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     pub fn focusPreviousChild(self: KFilePlaceEditDialog) bool {
         return qtc.KFilePlaceEditDialog_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlaceEditDialog `
-    ///
-    pub fn superFocusPreviousChild(self: KFilePlaceEditDialog) bool {
-        return qtc.KFilePlaceEditDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlaceEditDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.KFilePlaceEditDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10540,44 +10309,6 @@ pub const KFilePlaceEditDialog = extern struct {
         return .{ .ptr = qtc.KFilePlaceEditDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlaceEditDialog `
-    ///
-    pub fn superSender(self: KFilePlaceEditDialog) QObject {
-        return .{ .ptr = qtc.KFilePlaceEditDialog_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlaceEditDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KFilePlaceEditDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10594,44 +10325,6 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     pub fn senderSignalIndex(self: KFilePlaceEditDialog) i32 {
         return qtc.KFilePlaceEditDialog_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlaceEditDialog `
-    ///
-    pub fn superSenderSignalIndex(self: KFilePlaceEditDialog) i32 {
-        return qtc.KFilePlaceEditDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlaceEditDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFilePlaceEditDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10655,47 +10348,6 @@ pub const KFilePlaceEditDialog = extern struct {
         return qtc.KFilePlaceEditDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlaceEditDialog `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KFilePlaceEditDialog, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KFilePlaceEditDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlaceEditDialog`
-    ///
-    /// ` callback: *const fn (self: KFilePlaceEditDialog, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KFilePlaceEditDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10715,47 +10367,6 @@ pub const KFilePlaceEditDialog = extern struct {
     pub fn isSignalConnected(self: KFilePlaceEditDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KFilePlaceEditDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlaceEditDialog `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KFilePlaceEditDialog, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KFilePlaceEditDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlaceEditDialog`
-    ///
-    /// ` callback: *const fn (self: KFilePlaceEditDialog, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog, QMetaMethod) callconv(.c) bool) void {
-        qtc.KFilePlaceEditDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10778,48 +10389,6 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     pub fn getDecodedMetricF(self: KFilePlaceEditDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KFilePlaceEditDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlaceEditDialog `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KFilePlaceEditDialog, metricA: i32, metricB: i32) f64 {
-        return qtc.KFilePlaceEditDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlaceEditDialog`
-    ///
-    /// ` callback: *const fn (self: KFilePlaceEditDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog, i32, i32) callconv(.c) f64) void {
-        qtc.KFilePlaceEditDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

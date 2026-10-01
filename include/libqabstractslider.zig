@@ -131,9 +131,9 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QAbstractSlider) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QAbstractSlider, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) QMetaObject) void {
         qtc.QAbstractSlider_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -906,42 +906,6 @@ pub const QAbstractSlider = extern struct {
         qtc.QAbstractSlider_SetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `onSetRepeatAction` instead
-    ///
-    pub const OnSetRepeatAction = onSetRepeatAction;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    /// ` callback: *const fn (self: QAbstractSlider, action: qabstractslider_enums.SliderAction) callconv(.c) void `
-    ///
-    pub fn onSetRepeatAction(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnSetRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetRepeatAction` instead
-    ///
-    pub const SuperSetRepeatAction = superSetRepeatAction;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    /// ` action: qabstractslider_enums.SliderAction `
-    ///
-    pub fn superSetRepeatAction(self: QAbstractSlider, action: i32) void {
-        qtc.QAbstractSlider_SuperSetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
-    }
-
     /// ### DEPRECATED: Use `repeatAction` instead
     ///
     pub const RepeatAction = repeatAction;
@@ -958,44 +922,6 @@ pub const QAbstractSlider = extern struct {
     ///
     pub fn repeatAction(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_RepeatAction(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onRepeatAction` instead
-    ///
-    pub const OnRepeatAction = onRepeatAction;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#repeatAction)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onRepeatAction(self: QAbstractSlider, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractSlider_OnRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRepeatAction` instead
-    ///
-    pub const SuperRepeatAction = superRepeatAction;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#repeatAction)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractslider_enums.SliderAction `
-    ///
-    pub fn superRepeatAction(self: QAbstractSlider) i32 {
-        return qtc.QAbstractSlider_SuperRepeatAction(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `sliderChange` instead
@@ -1338,44 +1264,6 @@ pub const QAbstractSlider = extern struct {
         qtc.QAbstractSlider_SetRepeatAction2(@ptrCast(self.ptr), @bitCast(action), @bitCast(thresholdTime));
     }
 
-    /// ### DEPRECATED: Use `onSetRepeatAction2` instead
-    ///
-    pub const OnSetRepeatAction2 = onSetRepeatAction2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    /// ` callback: *const fn (self: QAbstractSlider, action: qabstractslider_enums.SliderAction, thresholdTime: i32) callconv(.c) void `
-    ///
-    pub fn onSetRepeatAction2(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnSetRepeatAction2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetRepeatAction2` instead
-    ///
-    pub const SuperSetRepeatAction2 = superSetRepeatAction2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    /// ` action: qabstractslider_enums.SliderAction `
-    ///
-    /// ` thresholdTime: i32 `
-    ///
-    pub fn superSetRepeatAction2(self: QAbstractSlider, action: i32, thresholdTime: i32) void {
-        qtc.QAbstractSlider_SuperSetRepeatAction2(@ptrCast(self.ptr), @bitCast(action), @bitCast(thresholdTime));
-    }
-
     /// ### DEPRECATED: Use `setRepeatAction3` instead
     ///
     pub const SetRepeatAction3 = setRepeatAction3;
@@ -1394,46 +1282,6 @@ pub const QAbstractSlider = extern struct {
     ///
     pub fn setRepeatAction3(self: QAbstractSlider, action: i32, thresholdTime: i32, repeatTime: i32) void {
         qtc.QAbstractSlider_SetRepeatAction3(@ptrCast(self.ptr), @bitCast(action), @bitCast(thresholdTime), @bitCast(repeatTime));
-    }
-
-    /// ### DEPRECATED: Use `onSetRepeatAction3` instead
-    ///
-    pub const OnSetRepeatAction3 = onSetRepeatAction3;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    /// ` callback: *const fn (self: QAbstractSlider, action: qabstractslider_enums.SliderAction, thresholdTime: i32, repeatTime: i32) callconv(.c) void `
-    ///
-    pub fn onSetRepeatAction3(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnSetRepeatAction3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetRepeatAction3` instead
-    ///
-    pub const SuperSetRepeatAction3 = superSetRepeatAction3;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    /// ` action: qabstractslider_enums.SliderAction `
-    ///
-    /// ` thresholdTime: i32 `
-    ///
-    /// ` repeatTime: i32 `
-    ///
-    pub fn superSetRepeatAction3(self: QAbstractSlider, action: i32, thresholdTime: i32, repeatTime: i32) void {
-        qtc.QAbstractSlider_SuperSetRepeatAction3(@ptrCast(self.ptr), @bitCast(action), @bitCast(thresholdTime), @bitCast(repeatTime));
     }
 
     /// Inherited from QWidget
@@ -7692,9 +7540,9 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractSlider) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QAbstractSlider, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) i32) void {
         qtc.QAbstractSlider_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7808,11 +7656,11 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QAbstractSlider) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QAbstractSlider, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) QSize) void {
         qtc.QAbstractSlider_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7866,11 +7714,11 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QAbstractSlider) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QAbstractSlider, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) QSize) void {
         qtc.QAbstractSlider_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7984,9 +7832,9 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractSlider) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QAbstractSlider, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) bool) void {
         qtc.QAbstractSlider_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8040,9 +7888,9 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QAbstractSlider) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QAbstractSlider, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) QPaintEngine) void {
         qtc.QAbstractSlider_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9720,9 +9568,9 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QAbstractSlider) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QAbstractSlider, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) QPainter) void {
         qtc.QAbstractSlider_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10244,44 +10092,6 @@ pub const QAbstractSlider = extern struct {
         qtc.QAbstractSlider_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    pub fn superUpdateMicroFocus(self: QAbstractSlider) void {
-        qtc.QAbstractSlider_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSlider`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QAbstractSlider, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractSlider_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -10298,44 +10108,6 @@ pub const QAbstractSlider = extern struct {
     ///
     pub fn create(self: QAbstractSlider) void {
         qtc.QAbstractSlider_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    pub fn superCreate(self: QAbstractSlider) void {
-        qtc.QAbstractSlider_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSlider`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QAbstractSlider, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractSlider_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -10356,44 +10128,6 @@ pub const QAbstractSlider = extern struct {
         qtc.QAbstractSlider_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    pub fn superDestroy(self: QAbstractSlider) void {
-        qtc.QAbstractSlider_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSlider`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QAbstractSlider, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractSlider_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -10410,44 +10144,6 @@ pub const QAbstractSlider = extern struct {
     ///
     pub fn focusNextChild(self: QAbstractSlider) bool {
         return qtc.QAbstractSlider_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    pub fn superFocusNextChild(self: QAbstractSlider) bool {
-        return qtc.QAbstractSlider_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSlider`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QAbstractSlider, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractSlider_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -10468,44 +10164,6 @@ pub const QAbstractSlider = extern struct {
         return qtc.QAbstractSlider_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    pub fn superFocusPreviousChild(self: QAbstractSlider) bool {
-        return qtc.QAbstractSlider_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSlider`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QAbstractSlider, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractSlider_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10524,44 +10182,6 @@ pub const QAbstractSlider = extern struct {
         return .{ .ptr = qtc.QAbstractSlider_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    pub fn superSender(self: QAbstractSlider) QObject {
-        return .{ .ptr = qtc.QAbstractSlider_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSlider`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QAbstractSlider, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAbstractSlider_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10578,44 +10198,6 @@ pub const QAbstractSlider = extern struct {
     ///
     pub fn senderSignalIndex(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    pub fn superSenderSignalIndex(self: QAbstractSlider) i32 {
-        return qtc.QAbstractSlider_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSlider`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QAbstractSlider, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractSlider_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10639,47 +10221,6 @@ pub const QAbstractSlider = extern struct {
         return qtc.QAbstractSlider_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QAbstractSlider, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QAbstractSlider_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSlider`
-    ///
-    /// ` callback: *const fn (self: QAbstractSlider, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractSlider_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10699,47 +10240,6 @@ pub const QAbstractSlider = extern struct {
     pub fn isSignalConnected(self: QAbstractSlider, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractSlider_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QAbstractSlider, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QAbstractSlider_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSlider`
-    ///
-    /// ` callback: *const fn (self: QAbstractSlider, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMetaMethod) callconv(.c) bool) void {
-        qtc.QAbstractSlider_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10762,48 +10262,6 @@ pub const QAbstractSlider = extern struct {
     ///
     pub fn getDecodedMetricF(self: QAbstractSlider, metricA: i32, metricB: i32) f64 {
         return qtc.QAbstractSlider_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QAbstractSlider, metricA: i32, metricB: i32) f64 {
-        return qtc.QAbstractSlider_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSlider`
-    ///
-    /// ` callback: *const fn (self: QAbstractSlider, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32) callconv(.c) f64) void {
-        qtc.QAbstractSlider_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

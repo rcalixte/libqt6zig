@@ -186,592 +186,293 @@ void QGeoCodeReply_Connect_ErrorOccurred2(QGeoCodeReply* self, intptr_t slot) {
 
 // Base class handler implementation
 QMetaObject* QGeoCodeReply_SuperMetaObject(const QGeoCodeReply* self) {
-    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_MetaObject_IsBase(true);
-        return (QMetaObject*)vqgeocodereply->metaObject();
-    } else {
-        return (QMetaObject*)self->QGeoCodeReply::metaObject();
-    }
+    return (QMetaObject*)self->QGeoCodeReply::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGeoCodeReply_OnMetaObject(const QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_MetaObject_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_MetaObject_Callback>(slot));
+void QGeoCodeReply_OnMetaObject(QGeoCodeReply* self, intptr_t slot) {
+    if (auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self)))
+        vqgeocodereply->qgeocodereply_metaobject_callback = reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QGeoCodeReply_SuperMetacast(QGeoCodeReply* self, const char* param1) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_Metacast_IsBase(true);
-        return vqgeocodereply->qt_metacast(param1);
-    } else {
-        return self->QGeoCodeReply::qt_metacast(param1);
-    }
+    return self->QGeoCodeReply::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnMetacast(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_Metacast_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Metacast_Callback>(slot));
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self))
+        vqgeocodereply->qgeocodereply_metacast_callback = reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QGeoCodeReply_SuperMetacall(QGeoCodeReply* self, int param1, int param2, void** param3) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_Metacall_IsBase(true);
-        return vqgeocodereply->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QGeoCodeReply::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QGeoCodeReply::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnMetacall(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_Metacall_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Metacall_Callback>(slot));
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self))
+        vqgeocodereply->qgeocodereply_metacall_callback = reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGeoCodeReply_SuperAbort(QGeoCodeReply* self) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_Abort_IsBase(true);
-        vqgeocodereply->abort();
-    } else {
-        self->QGeoCodeReply::abort();
-    }
+    self->QGeoCodeReply::abort();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnAbort(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_Abort_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Abort_Callback>(slot));
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self))
+        vqgeocodereply->qgeocodereply_abort_callback = reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Abort_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGeoCodeReply_Event(QGeoCodeReply* self, QEvent* event) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        return vqgeocodereply->event(event);
-    } else {
-        return self->QGeoCodeReply::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QGeoCodeReply_SuperEvent(QGeoCodeReply* self, QEvent* event) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_Event_IsBase(true);
-        return vqgeocodereply->event(event);
-    } else {
-        return self->QGeoCodeReply::event(event);
-    }
+    return self->QGeoCodeReply::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnEvent(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_Event_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Event_Callback>(slot));
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self))
+        vqgeocodereply->qgeocodereply_event_callback = reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGeoCodeReply_EventFilter(QGeoCodeReply* self, QObject* watched, QEvent* event) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        return vqgeocodereply->eventFilter(watched, event);
-    } else {
-        return self->QGeoCodeReply::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QGeoCodeReply_SuperEventFilter(QGeoCodeReply* self, QObject* watched, QEvent* event) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_EventFilter_IsBase(true);
-        return vqgeocodereply->eventFilter(watched, event);
-    } else {
-        return self->QGeoCodeReply::eventFilter(watched, event);
-    }
+    return self->QGeoCodeReply::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnEventFilter(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_EventFilter_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_EventFilter_Callback>(slot));
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self))
+        vqgeocodereply->qgeocodereply_eventfilter_callback = reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoCodeReply_TimerEvent(QGeoCodeReply* self, QTimerEvent* event) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply) {
         vqgeocodereply->timerEvent(event);
     } else {
-        ((VirtualQGeoCodeReply*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QGeoCodeReply::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoCodeReply_SuperTimerEvent(QGeoCodeReply* self, QTimerEvent* event) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_TimerEvent_IsBase(true);
-        vqgeocodereply->timerEvent(event);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->timerEvent(event);
-    }
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self)) {
+        vqgeocodereply->QGeoCodeReply::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGeoCodeReply::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnTimerEvent(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_TimerEvent_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_TimerEvent_Callback>(slot));
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self))
+        vqgeocodereply->qgeocodereply_timerevent_callback = reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoCodeReply_ChildEvent(QGeoCodeReply* self, QChildEvent* event) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply) {
         vqgeocodereply->childEvent(event);
     } else {
-        ((VirtualQGeoCodeReply*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QGeoCodeReply::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoCodeReply_SuperChildEvent(QGeoCodeReply* self, QChildEvent* event) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_ChildEvent_IsBase(true);
-        vqgeocodereply->childEvent(event);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->childEvent(event);
-    }
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self)) {
+        vqgeocodereply->QGeoCodeReply::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGeoCodeReply::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnChildEvent(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_ChildEvent_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_ChildEvent_Callback>(slot));
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self))
+        vqgeocodereply->qgeocodereply_childevent_callback = reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoCodeReply_CustomEvent(QGeoCodeReply* self, QEvent* event) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply) {
         vqgeocodereply->customEvent(event);
     } else {
-        ((VirtualQGeoCodeReply*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QGeoCodeReply::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoCodeReply_SuperCustomEvent(QGeoCodeReply* self, QEvent* event) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_CustomEvent_IsBase(true);
-        vqgeocodereply->customEvent(event);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->customEvent(event);
-    }
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self)) {
+        vqgeocodereply->QGeoCodeReply::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGeoCodeReply::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnCustomEvent(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_CustomEvent_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_CustomEvent_Callback>(slot));
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self))
+        vqgeocodereply->qgeocodereply_customevent_callback = reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoCodeReply_ConnectNotify(QGeoCodeReply* self, const QMetaMethod* signal) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply) {
         vqgeocodereply->connectNotify(*signal);
     } else {
-        ((VirtualQGeoCodeReply*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QGeoCodeReply::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoCodeReply_SuperConnectNotify(QGeoCodeReply* self, const QMetaMethod* signal) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_ConnectNotify_IsBase(true);
-        vqgeocodereply->connectNotify(*signal);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->connectNotify(*signal);
-    }
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self)) {
+        vqgeocodereply->QGeoCodeReply::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGeoCodeReply::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnConnectNotify(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_ConnectNotify_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_ConnectNotify_Callback>(slot));
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self))
+        vqgeocodereply->qgeocodereply_connectnotify_callback = reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoCodeReply_DisconnectNotify(QGeoCodeReply* self, const QMetaMethod* signal) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply) {
         vqgeocodereply->disconnectNotify(*signal);
     } else {
-        ((VirtualQGeoCodeReply*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QGeoCodeReply::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoCodeReply_SuperDisconnectNotify(QGeoCodeReply* self, const QMetaMethod* signal) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_DisconnectNotify_IsBase(true);
-        vqgeocodereply->disconnectNotify(*signal);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self)) {
+        vqgeocodereply->QGeoCodeReply::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGeoCodeReply::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnDisconnectNotify(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_DisconnectNotify_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_DisconnectNotify_Callback>(slot));
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self))
+        vqgeocodereply->qgeocodereply_disconnectnotify_callback = reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGeoCodeReply_SetError(QGeoCodeReply* self, int errorVal, const libqt_string errorString) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setError(static_cast<QGeoCodeReply::Error>(errorVal), errorString_QString);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->setError(static_cast<QGeoCodeReply::Error>(errorVal), errorString_QString);
-    }
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self)) {
+        QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
+        vqgeocodereply->VirtualQGeoCodeReply::setError(static_cast<QGeoCodeReply::Error>(errorVal), errorString_QString);
+    } else
+        qFatal("Error: Protected method QGeoCodeReply::setError called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGeoCodeReply_SuperSetError(QGeoCodeReply* self, int errorVal, const libqt_string errorString) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_SetError_IsBase(true);
-        vqgeocodereply->setError(static_cast<QGeoCodeReply::Error>(errorVal), errorString_QString);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->setError(static_cast<QGeoCodeReply::Error>(errorVal), errorString_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoCodeReply_OnSetError(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_SetError_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_SetError_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGeoCodeReply_SetFinished(QGeoCodeReply* self, bool finished) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setFinished(finished);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->setFinished(finished);
-    }
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self)) {
+        vqgeocodereply->VirtualQGeoCodeReply::setFinished(finished);
+    } else
+        qFatal("Error: Protected method QGeoCodeReply::setFinished called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGeoCodeReply_SuperSetFinished(QGeoCodeReply* self, bool finished) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_SetFinished_IsBase(true);
-        vqgeocodereply->setFinished(finished);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->setFinished(finished);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoCodeReply_OnSetFinished(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_SetFinished_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_SetFinished_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGeoCodeReply_SetViewport(QGeoCodeReply* self, const QGeoShape* viewport) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setViewport(*viewport);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->setViewport(*viewport);
-    }
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self)) {
+        vqgeocodereply->VirtualQGeoCodeReply::setViewport(*viewport);
+    } else
+        qFatal("Error: Protected method QGeoCodeReply::setViewport called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGeoCodeReply_SuperSetViewport(QGeoCodeReply* self, const QGeoShape* viewport) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_SetViewport_IsBase(true);
-        vqgeocodereply->setViewport(*viewport);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->setViewport(*viewport);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoCodeReply_OnSetViewport(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_SetViewport_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_SetViewport_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGeoCodeReply_AddLocation(QGeoCodeReply* self, const QGeoLocation* location) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->addLocation(*location);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->addLocation(*location);
-    }
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self)) {
+        vqgeocodereply->VirtualQGeoCodeReply::addLocation(*location);
+    } else
+        qFatal("Error: Protected method QGeoCodeReply::addLocation called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGeoCodeReply_SuperAddLocation(QGeoCodeReply* self, const QGeoLocation* location) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_AddLocation_IsBase(true);
-        vqgeocodereply->addLocation(*location);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->addLocation(*location);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoCodeReply_OnAddLocation(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_AddLocation_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_AddLocation_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGeoCodeReply_SetLocations(QGeoCodeReply* self, const libqt_list /* of QGeoLocation* */ locations) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    QList<QGeoLocation> locations_QList;
-    locations_QList.reserve(locations.len);
-    QGeoLocation** locations_arr = static_cast<QGeoLocation**>(locations.data);
-    for (size_t i = 0; i < locations.len; ++i) {
-        locations_QList.push_back(*(locations_arr[i]));
-    }
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setLocations(locations_QList);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->setLocations(locations_QList);
-    }
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self)) {
+        QList<QGeoLocation> locations_QList;
+        locations_QList.reserve(locations.len);
+        QGeoLocation** locations_arr = static_cast<QGeoLocation**>(locations.data);
+        for (size_t i = 0; i < locations.len; ++i) {
+            locations_QList.push_back(*(locations_arr[i]));
+        }
+        vqgeocodereply->VirtualQGeoCodeReply::setLocations(locations_QList);
+    } else
+        qFatal("Error: Protected method QGeoCodeReply::setLocations called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGeoCodeReply_SuperSetLocations(QGeoCodeReply* self, const libqt_list /* of QGeoLocation* */ locations) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    QList<QGeoLocation> locations_QList;
-    locations_QList.reserve(locations.len);
-    QGeoLocation** locations_arr = static_cast<QGeoLocation**>(locations.data);
-    for (size_t i = 0; i < locations.len; ++i) {
-        locations_QList.push_back(*(locations_arr[i]));
-    }
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_SetLocations_IsBase(true);
-        vqgeocodereply->setLocations(locations_QList);
-    } else {
-        ((VirtualQGeoCodeReply*)self)->setLocations(locations_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoCodeReply_OnSetLocations(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_SetLocations_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_SetLocations_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGeoCodeReply_SetLimit(QGeoCodeReply* self, ptrdiff_t limit) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setLimit((qsizetype)(limit));
-    } else {
-        ((VirtualQGeoCodeReply*)self)->setLimit((qsizetype)(limit));
-    }
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self)) {
+        vqgeocodereply->VirtualQGeoCodeReply::setLimit((qsizetype)(limit));
+    } else
+        qFatal("Error: Protected method QGeoCodeReply::setLimit called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGeoCodeReply_SuperSetLimit(QGeoCodeReply* self, ptrdiff_t limit) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_SetLimit_IsBase(true);
-        vqgeocodereply->setLimit((qsizetype)(limit));
-    } else {
-        ((VirtualQGeoCodeReply*)self)->setLimit((qsizetype)(limit));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoCodeReply_OnSetLimit(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_SetLimit_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_SetLimit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGeoCodeReply_SetOffset(QGeoCodeReply* self, ptrdiff_t offset) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setOffset((qsizetype)(offset));
-    } else {
-        ((VirtualQGeoCodeReply*)self)->setOffset((qsizetype)(offset));
-    }
+    if (auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self)) {
+        vqgeocodereply->VirtualQGeoCodeReply::setOffset((qsizetype)(offset));
+    } else
+        qFatal("Error: Protected method QGeoCodeReply::setOffset called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGeoCodeReply_SuperSetOffset(QGeoCodeReply* self, ptrdiff_t offset) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_SetOffset_IsBase(true);
-        vqgeocodereply->setOffset((qsizetype)(offset));
-    } else {
-        ((VirtualQGeoCodeReply*)self)->setOffset((qsizetype)(offset));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoCodeReply_OnSetOffset(QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_SetOffset_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_SetOffset_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QGeoCodeReply_Sender(const QGeoCodeReply* self) {
-    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        return vqgeocodereply->sender();
-    } else {
-        return ((VirtualQGeoCodeReply*)self)->sender();
-    }
+    if (auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self))) {
+        return vqgeocodereply->VirtualQGeoCodeReply::sender();
+    } else
+        qFatal("Error: Protected method QGeoCodeReply::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QGeoCodeReply_SuperSender(const QGeoCodeReply* self) {
-    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_Sender_IsBase(true);
-        return vqgeocodereply->sender();
-    } else {
-        return ((VirtualQGeoCodeReply*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoCodeReply_OnSender(const QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_Sender_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGeoCodeReply_SenderSignalIndex(const QGeoCodeReply* self) {
-    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        return vqgeocodereply->senderSignalIndex();
-    } else {
-        return ((VirtualQGeoCodeReply*)self)->senderSignalIndex();
-    }
+    if (auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self))) {
+        return vqgeocodereply->VirtualQGeoCodeReply::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QGeoCodeReply::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGeoCodeReply_SuperSenderSignalIndex(const QGeoCodeReply* self) {
-    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_SenderSignalIndex_IsBase(true);
-        return vqgeocodereply->senderSignalIndex();
-    } else {
-        return ((VirtualQGeoCodeReply*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoCodeReply_OnSenderSignalIndex(const QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGeoCodeReply_Receivers(const QGeoCodeReply* self, const char* signal) {
-    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        return vqgeocodereply->receivers(signal);
-    } else {
-        return ((VirtualQGeoCodeReply*)self)->receivers(signal);
-    }
+    if (auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self))) {
+        return vqgeocodereply->VirtualQGeoCodeReply::receivers(signal);
+    } else
+        qFatal("Error: Protected method QGeoCodeReply::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGeoCodeReply_SuperReceivers(const QGeoCodeReply* self, const char* signal) {
-    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_Receivers_IsBase(true);
-        return vqgeocodereply->receivers(signal);
-    } else {
-        return ((VirtualQGeoCodeReply*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoCodeReply_OnReceivers(const QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_Receivers_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QGeoCodeReply_IsSignalConnected(const QGeoCodeReply* self, const QMetaMethod* signal) {
-    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        return vqgeocodereply->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGeoCodeReply*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QGeoCodeReply_SuperIsSignalConnected(const QGeoCodeReply* self, const QMetaMethod* signal) {
-    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        vqgeocodereply->setQGeoCodeReply_IsSignalConnected_IsBase(true);
-        return vqgeocodereply->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGeoCodeReply*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoCodeReply_OnIsSignalConnected(const QGeoCodeReply* self, intptr_t slot) {
-    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
-        vqgeocodereply->setQGeoCodeReply_IsSignalConnected_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_IsSignalConnected_Callback>(slot));
+    if (auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self))) {
+        return vqgeocodereply->VirtualQGeoCodeReply::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QGeoCodeReply::isSignalConnected called without a directly constructed type");
 }
 
 void QGeoCodeReply_Delete(QGeoCodeReply* self) {

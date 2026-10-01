@@ -25,22 +25,15 @@ void TextAutoCorrectionCore__ImportKMailAutocorrection_OperatorAssign(TextAutoCo
 
 // Base class handler implementation
 bool TextAutoCorrectionCore__ImportKMailAutocorrection_SuperImport(TextAutoCorrectionCore__ImportKMailAutocorrection* self, const libqt_string fileName, libqt_string errorMessage, int loadAttribute) {
-    auto* vtextautocorrectioncoreimportkmailautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportKMailAutocorrection*>(self);
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     QString errorMessage_QString = QString::fromUtf8(errorMessage.data, errorMessage.len);
-    if (vtextautocorrectioncoreimportkmailautocorrection && vtextautocorrectioncoreimportkmailautocorrection->isVirtualTextAutoCorrectionCoreImportKMailAutocorrection) {
-        vtextautocorrectioncoreimportkmailautocorrection->setTextAutoCorrectionCore__ImportKMailAutocorrection_Import_IsBase(true);
-        return vtextautocorrectioncoreimportkmailautocorrection->import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
-    } else {
-        return self->TextAutoCorrectionCore::ImportKMailAutocorrection::import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
-    }
+    return self->TextAutoCorrectionCore::ImportKMailAutocorrection::import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionCore__ImportKMailAutocorrection_OnImport(TextAutoCorrectionCore__ImportKMailAutocorrection* self, intptr_t slot) {
-    auto* vtextautocorrectioncoreimportkmailautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportKMailAutocorrection*>(self);
-    if (vtextautocorrectioncoreimportkmailautocorrection && vtextautocorrectioncoreimportkmailautocorrection->isVirtualTextAutoCorrectionCoreImportKMailAutocorrection)
-        vtextautocorrectioncoreimportkmailautocorrection->setTextAutoCorrectionCore__ImportKMailAutocorrection_Import_Callback(reinterpret_cast<VirtualTextAutoCorrectionCoreImportKMailAutocorrection::TextAutoCorrectionCore__ImportKMailAutocorrection_Import_Callback>(slot));
+    if (auto* vtextautocorrectioncoreimportkmailautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportKMailAutocorrection*>(self))
+        vtextautocorrectioncoreimportkmailautocorrection->textautocorrectioncore__importkmailautocorrection_import_callback = reinterpret_cast<VirtualTextAutoCorrectionCoreImportKMailAutocorrection::TextAutoCorrectionCore__ImportKMailAutocorrection_Import_Callback>(slot);
 }
 
 void TextAutoCorrectionCore__ImportKMailAutocorrection_Delete(TextAutoCorrectionCore__ImportKMailAutocorrection* self) {

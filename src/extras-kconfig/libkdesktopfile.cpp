@@ -251,356 +251,218 @@ libqt_list /* of KDesktopFileAction* */ KDesktopFile_Actions(const KDesktopFile*
 
 // Derived class handler implementation
 bool KDesktopFile_Sync(KDesktopFile* self) {
-    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        return vkdesktopfile->sync();
-    } else {
-        return self->KDesktopFile::sync();
-    }
+    return self->sync();
 }
 
 // Base class handler implementation
 bool KDesktopFile_SuperSync(KDesktopFile* self) {
-    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        vkdesktopfile->setKDesktopFile_Sync_IsBase(true);
-        return vkdesktopfile->sync();
-    } else {
-        return self->KDesktopFile::sync();
-    }
+    return self->KDesktopFile::sync();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDesktopFile_OnSync(KDesktopFile* self, intptr_t slot) {
-    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
-        vkdesktopfile->setKDesktopFile_Sync_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_Sync_Callback>(slot));
+    if (auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self))
+        vkdesktopfile->kdesktopfile_sync_callback = reinterpret_cast<VirtualKDesktopFile::KDesktopFile_Sync_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDesktopFile_MarkAsClean(KDesktopFile* self) {
-    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        vkdesktopfile->markAsClean();
-    } else {
-        self->KDesktopFile::markAsClean();
-    }
+    self->markAsClean();
 }
 
 // Base class handler implementation
 void KDesktopFile_SuperMarkAsClean(KDesktopFile* self) {
-    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        vkdesktopfile->setKDesktopFile_MarkAsClean_IsBase(true);
-        vkdesktopfile->markAsClean();
-    } else {
-        self->KDesktopFile::markAsClean();
-    }
+    self->KDesktopFile::markAsClean();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDesktopFile_OnMarkAsClean(KDesktopFile* self, intptr_t slot) {
-    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
-        vkdesktopfile->setKDesktopFile_MarkAsClean_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_MarkAsClean_Callback>(slot));
+    if (auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self))
+        vkdesktopfile->kdesktopfile_markasclean_callback = reinterpret_cast<VirtualKDesktopFile::KDesktopFile_MarkAsClean_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KDesktopFile_AccessMode(const KDesktopFile* self) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        return static_cast<int>(vkdesktopfile->accessMode());
-    } else {
-        return static_cast<int>(self->KDesktopFile::accessMode());
-    }
+    return static_cast<int>(self->accessMode());
 }
 
 // Base class handler implementation
 int KDesktopFile_SuperAccessMode(const KDesktopFile* self) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        vkdesktopfile->setKDesktopFile_AccessMode_IsBase(true);
-        return static_cast<int>(vkdesktopfile->accessMode());
-    } else {
-        return static_cast<int>(self->KDesktopFile::accessMode());
-    }
+    return static_cast<int>(self->KDesktopFile::accessMode());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDesktopFile_OnAccessMode(const KDesktopFile* self, intptr_t slot) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
-        vkdesktopfile->setKDesktopFile_AccessMode_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_AccessMode_Callback>(slot));
+void KDesktopFile_OnAccessMode(KDesktopFile* self, intptr_t slot) {
+    if (auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self)))
+        vkdesktopfile->kdesktopfile_accessmode_callback = reinterpret_cast<VirtualKDesktopFile::KDesktopFile_AccessMode_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDesktopFile_IsImmutable(const KDesktopFile* self) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        return vkdesktopfile->isImmutable();
-    } else {
-        return self->KDesktopFile::isImmutable();
-    }
+    return self->isImmutable();
 }
 
 // Base class handler implementation
 bool KDesktopFile_SuperIsImmutable(const KDesktopFile* self) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        vkdesktopfile->setKDesktopFile_IsImmutable_IsBase(true);
-        return vkdesktopfile->isImmutable();
-    } else {
-        return self->KDesktopFile::isImmutable();
-    }
+    return self->KDesktopFile::isImmutable();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDesktopFile_OnIsImmutable(const KDesktopFile* self, intptr_t slot) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
-        vkdesktopfile->setKDesktopFile_IsImmutable_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_IsImmutable_Callback>(slot));
+void KDesktopFile_OnIsImmutable(KDesktopFile* self, intptr_t slot) {
+    if (auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self)))
+        vkdesktopfile->kdesktopfile_isimmutable_callback = reinterpret_cast<VirtualKDesktopFile::KDesktopFile_IsImmutable_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of libqt_string */ KDesktopFile_GroupList(const KDesktopFile* self) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        QList<QString> _ret = vkdesktopfile->groupList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->KDesktopFile::groupList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->groupList();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ KDesktopFile_SuperGroupList(const KDesktopFile* self) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        vkdesktopfile->setKDesktopFile_GroupList_IsBase(true);
-        QList<QString> _ret = vkdesktopfile->groupList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->KDesktopFile::groupList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->KDesktopFile::groupList();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDesktopFile_OnGroupList(const KDesktopFile* self, intptr_t slot) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
-        vkdesktopfile->setKDesktopFile_GroupList_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_GroupList_Callback>(slot));
+void KDesktopFile_OnGroupList(KDesktopFile* self, intptr_t slot) {
+    if (auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self)))
+        vkdesktopfile->kdesktopfile_grouplist_callback = reinterpret_cast<VirtualKDesktopFile::KDesktopFile_GroupList_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDesktopFile_HasGroupImpl(const KDesktopFile* self, const libqt_string groupName) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
     QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
+    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
+    if (vkdesktopfile) {
         return vkdesktopfile->hasGroupImpl(groupName_QString);
     } else {
-        return ((VirtualKDesktopFile*)self)->hasGroupImpl(groupName_QString);
+        qFatal("Error: Protected virtual method KDesktopFile::hasGroupImpl called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KDesktopFile_SuperHasGroupImpl(const KDesktopFile* self, const libqt_string groupName) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
     QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        vkdesktopfile->setKDesktopFile_HasGroupImpl_IsBase(true);
-        return vkdesktopfile->hasGroupImpl(groupName_QString);
-    } else {
-        return ((VirtualKDesktopFile*)self)->hasGroupImpl(groupName_QString);
-    }
+    if (auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self))) {
+        return vkdesktopfile->KDesktopFile::hasGroupImpl(groupName_QString);
+    } else
+        qFatal("Error: Protected virtual method KDesktopFile::hasGroupImpl called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDesktopFile_OnHasGroupImpl(const KDesktopFile* self, intptr_t slot) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
-        vkdesktopfile->setKDesktopFile_HasGroupImpl_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_HasGroupImpl_Callback>(slot));
-}
-
-// Derived class handler implementation
-KConfigGroup* KDesktopFile_GroupImpl(KDesktopFile* self, const libqt_string groupName) {
-    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        return new KConfigGroup(vkdesktopfile->groupImpl(groupName_QString));
-    }
-    return {};
-}
-
-// Base class handler implementation
-KConfigGroup* KDesktopFile_SuperGroupImpl(KDesktopFile* self, const libqt_string groupName) {
-    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        vkdesktopfile->setKDesktopFile_GroupImpl_IsBase(true);
-        return new KConfigGroup(vkdesktopfile->groupImpl(groupName_QString));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDesktopFile_OnGroupImpl(KDesktopFile* self, intptr_t slot) {
-    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
-        vkdesktopfile->setKDesktopFile_GroupImpl_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_GroupImpl_Callback>(slot));
+void KDesktopFile_OnHasGroupImpl(KDesktopFile* self, intptr_t slot) {
+    if (auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self)))
+        vkdesktopfile->kdesktopfile_hasgroupimpl_callback = reinterpret_cast<VirtualKDesktopFile::KDesktopFile_HasGroupImpl_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDesktopFile_DeleteGroupImpl(KDesktopFile* self, const libqt_string groupName, int flags) {
-    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
     QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
+    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
+    if (vkdesktopfile) {
         vkdesktopfile->deleteGroupImpl(groupName_QString, static_cast<KConfigBase::WriteConfigFlags>(flags));
     } else {
-        ((VirtualKDesktopFile*)self)->deleteGroupImpl(groupName_QString, static_cast<KConfigBase::WriteConfigFlags>(flags));
+        qFatal("Error: Protected virtual method KDesktopFile::deleteGroupImpl called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDesktopFile_SuperDeleteGroupImpl(KDesktopFile* self, const libqt_string groupName, int flags) {
-    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
     QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        vkdesktopfile->setKDesktopFile_DeleteGroupImpl_IsBase(true);
-        vkdesktopfile->deleteGroupImpl(groupName_QString, static_cast<KConfigBase::WriteConfigFlags>(flags));
-    } else {
-        ((VirtualKDesktopFile*)self)->deleteGroupImpl(groupName_QString, static_cast<KConfigBase::WriteConfigFlags>(flags));
-    }
+    if (auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self)) {
+        vkdesktopfile->KDesktopFile::deleteGroupImpl(groupName_QString, static_cast<KConfigBase::WriteConfigFlags>(flags));
+    } else
+        qFatal("Error: Protected virtual method KDesktopFile::deleteGroupImpl called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDesktopFile_OnDeleteGroupImpl(KDesktopFile* self, intptr_t slot) {
-    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
-        vkdesktopfile->setKDesktopFile_DeleteGroupImpl_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_DeleteGroupImpl_Callback>(slot));
+    if (auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self))
+        vkdesktopfile->kdesktopfile_deletegroupimpl_callback = reinterpret_cast<VirtualKDesktopFile::KDesktopFile_DeleteGroupImpl_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDesktopFile_IsGroupImmutableImpl(const KDesktopFile* self, const libqt_string groupName) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
     QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
+    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
+    if (vkdesktopfile) {
         return vkdesktopfile->isGroupImmutableImpl(groupName_QString);
     } else {
-        return ((VirtualKDesktopFile*)self)->isGroupImmutableImpl(groupName_QString);
+        qFatal("Error: Protected virtual method KDesktopFile::isGroupImmutableImpl called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KDesktopFile_SuperIsGroupImmutableImpl(const KDesktopFile* self, const libqt_string groupName) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
     QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        vkdesktopfile->setKDesktopFile_IsGroupImmutableImpl_IsBase(true);
-        return vkdesktopfile->isGroupImmutableImpl(groupName_QString);
-    } else {
-        return ((VirtualKDesktopFile*)self)->isGroupImmutableImpl(groupName_QString);
-    }
+    if (auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self))) {
+        return vkdesktopfile->KDesktopFile::isGroupImmutableImpl(groupName_QString);
+    } else
+        qFatal("Error: Protected virtual method KDesktopFile::isGroupImmutableImpl called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDesktopFile_OnIsGroupImmutableImpl(const KDesktopFile* self, intptr_t slot) {
-    auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
-        vkdesktopfile->setKDesktopFile_IsGroupImmutableImpl_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_IsGroupImmutableImpl_Callback>(slot));
+void KDesktopFile_OnIsGroupImmutableImpl(KDesktopFile* self, intptr_t slot) {
+    if (auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self)))
+        vkdesktopfile->kdesktopfile_isgroupimmutableimpl_callback = reinterpret_cast<VirtualKDesktopFile::KDesktopFile_IsGroupImmutableImpl_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDesktopFile_VirtualHook(KDesktopFile* self, int id, void* data) {
     auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
+    if (vkdesktopfile) {
         vkdesktopfile->virtual_hook(static_cast<int>(id), data);
     } else {
-        ((VirtualKDesktopFile*)self)->virtual_hook(static_cast<int>(id), data);
+        qFatal("Error: Protected virtual method KDesktopFile::virtual_hook called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDesktopFile_SuperVirtualHook(KDesktopFile* self, int id, void* data) {
-    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
-        vkdesktopfile->setKDesktopFile_VirtualHook_IsBase(true);
-        vkdesktopfile->virtual_hook(static_cast<int>(id), data);
-    } else {
-        ((VirtualKDesktopFile*)self)->virtual_hook(static_cast<int>(id), data);
-    }
+    if (auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self)) {
+        vkdesktopfile->KDesktopFile::virtual_hook(static_cast<int>(id), data);
+    } else
+        qFatal("Error: Protected virtual method KDesktopFile::virtual_hook called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDesktopFile_OnVirtualHook(KDesktopFile* self, intptr_t slot) {
-    auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
-        vkdesktopfile->setKDesktopFile_VirtualHook_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_VirtualHook_Callback>(slot));
+    if (auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self))
+        vkdesktopfile->kdesktopfile_virtualhook_callback = reinterpret_cast<VirtualKDesktopFile::KDesktopFile_VirtualHook_Callback>(slot);
 }
 
 void KDesktopFile_Delete(KDesktopFile* self) {

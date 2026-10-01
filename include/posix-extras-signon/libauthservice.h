@@ -62,7 +62,7 @@ void SignOn__AuthService_Connect_Cleared(SignOn__AuthService* self, intptr_t slo
 libqt_string SignOn__AuthService_Tr2(const char* s, const char* c);
 libqt_string SignOn__AuthService_Tr3(const char* s, const char* c, int n);
 void SignOn__AuthService_QueryIdentities1(SignOn__AuthService* self, const libqt_map /* of int to SignOn__AuthService__IdentityRegExp* */ filter);
-void SignOn__AuthService_OnMetaObject(const SignOn__AuthService* self, intptr_t slot);
+void SignOn__AuthService_OnMetaObject(SignOn__AuthService* self, intptr_t slot);
 QMetaObject* SignOn__AuthService_SuperMetaObject(const SignOn__AuthService* self);
 void SignOn__AuthService_OnMetacast(SignOn__AuthService* self, intptr_t slot);
 void* SignOn__AuthService_SuperMetacast(SignOn__AuthService* self, const char* param1);
@@ -90,17 +90,9 @@ void SignOn__AuthService_DisconnectNotify(SignOn__AuthService* self, const QMeta
 void SignOn__AuthService_OnDisconnectNotify(SignOn__AuthService* self, intptr_t slot);
 void SignOn__AuthService_SuperDisconnectNotify(SignOn__AuthService* self, const QMetaMethod* signal);
 QObject* SignOn__AuthService_Sender(const SignOn__AuthService* self);
-void SignOn__AuthService_OnSender(const SignOn__AuthService* self, intptr_t slot);
-QObject* SignOn__AuthService_SuperSender(const SignOn__AuthService* self);
 int SignOn__AuthService_SenderSignalIndex(const SignOn__AuthService* self);
-void SignOn__AuthService_OnSenderSignalIndex(const SignOn__AuthService* self, intptr_t slot);
-int SignOn__AuthService_SuperSenderSignalIndex(const SignOn__AuthService* self);
 int SignOn__AuthService_Receivers(const SignOn__AuthService* self, const char* signal);
-void SignOn__AuthService_OnReceivers(const SignOn__AuthService* self, intptr_t slot);
-int SignOn__AuthService_SuperReceivers(const SignOn__AuthService* self, const char* signal);
 bool SignOn__AuthService_IsSignalConnected(const SignOn__AuthService* self, const QMetaMethod* signal);
-void SignOn__AuthService_OnIsSignalConnected(const SignOn__AuthService* self, intptr_t slot);
-bool SignOn__AuthService_SuperIsSignalConnected(const SignOn__AuthService* self, const QMetaMethod* signal);
 void SignOn__AuthService_Delete(SignOn__AuthService* self);
 
 SignOn__AuthService__IdentityRegExp* SignOn__AuthService__IdentityRegExp_new(const libqt_string pattern);

@@ -352,382 +352,230 @@ libqt_string QBoxPlotSeries_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QBoxPlotSeries_SuperMetaObject(const QBoxPlotSeries* self) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_MetaObject_IsBase(true);
-        return (QMetaObject*)vqboxplotseries->metaObject();
-    } else {
-        return (QMetaObject*)self->QBoxPlotSeries::metaObject();
-    }
+    return (QMetaObject*)self->QBoxPlotSeries::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QBoxPlotSeries_OnMetaObject(const QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_MetaObject_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_MetaObject_Callback>(slot));
+void QBoxPlotSeries_OnMetaObject(QBoxPlotSeries* self, intptr_t slot) {
+    if (auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self)))
+        vqboxplotseries->qboxplotseries_metaobject_callback = reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QBoxPlotSeries_SuperMetacast(QBoxPlotSeries* self, const char* param1) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_Metacast_IsBase(true);
-        return vqboxplotseries->qt_metacast(param1);
-    } else {
-        return self->QBoxPlotSeries::qt_metacast(param1);
-    }
+    return self->QBoxPlotSeries::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotSeries_OnMetacast(QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_Metacast_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_Metacast_Callback>(slot));
+    if (auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self))
+        vqboxplotseries->qboxplotseries_metacast_callback = reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QBoxPlotSeries_SuperMetacall(QBoxPlotSeries* self, int param1, int param2, void** param3) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_Metacall_IsBase(true);
-        return vqboxplotseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QBoxPlotSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QBoxPlotSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotSeries_OnMetacall(QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_Metacall_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_Metacall_Callback>(slot));
+    if (auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self))
+        vqboxplotseries->qboxplotseries_metacall_callback = reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QBoxPlotSeries_SuperType(const QBoxPlotSeries* self) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_Type_IsBase(true);
-        return static_cast<int>(vqboxplotseries->type());
-    } else {
-        return static_cast<int>(self->QBoxPlotSeries::type());
-    }
+    return static_cast<int>(self->QBoxPlotSeries::type());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QBoxPlotSeries_OnType(const QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_Type_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_Type_Callback>(slot));
+void QBoxPlotSeries_OnType(QBoxPlotSeries* self, intptr_t slot) {
+    if (auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self)))
+        vqboxplotseries->qboxplotseries_type_callback = reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_Type_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QBoxPlotSeries_Event(QBoxPlotSeries* self, QEvent* event) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        return vqboxplotseries->event(event);
-    } else {
-        return self->QBoxPlotSeries::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QBoxPlotSeries_SuperEvent(QBoxPlotSeries* self, QEvent* event) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_Event_IsBase(true);
-        return vqboxplotseries->event(event);
-    } else {
-        return self->QBoxPlotSeries::event(event);
-    }
+    return self->QBoxPlotSeries::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotSeries_OnEvent(QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_Event_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_Event_Callback>(slot));
+    if (auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self))
+        vqboxplotseries->qboxplotseries_event_callback = reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QBoxPlotSeries_EventFilter(QBoxPlotSeries* self, QObject* watched, QEvent* event) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        return vqboxplotseries->eventFilter(watched, event);
-    } else {
-        return self->QBoxPlotSeries::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QBoxPlotSeries_SuperEventFilter(QBoxPlotSeries* self, QObject* watched, QEvent* event) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_EventFilter_IsBase(true);
-        return vqboxplotseries->eventFilter(watched, event);
-    } else {
-        return self->QBoxPlotSeries::eventFilter(watched, event);
-    }
+    return self->QBoxPlotSeries::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotSeries_OnEventFilter(QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_EventFilter_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_EventFilter_Callback>(slot));
+    if (auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self))
+        vqboxplotseries->qboxplotseries_eventfilter_callback = reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBoxPlotSeries_TimerEvent(QBoxPlotSeries* self, QTimerEvent* event) {
     auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
+    if (vqboxplotseries) {
         vqboxplotseries->timerEvent(event);
     } else {
-        ((VirtualQBoxPlotSeries*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QBoxPlotSeries::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBoxPlotSeries_SuperTimerEvent(QBoxPlotSeries* self, QTimerEvent* event) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_TimerEvent_IsBase(true);
-        vqboxplotseries->timerEvent(event);
-    } else {
-        ((VirtualQBoxPlotSeries*)self)->timerEvent(event);
-    }
+    if (auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self)) {
+        vqboxplotseries->QBoxPlotSeries::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBoxPlotSeries::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotSeries_OnTimerEvent(QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_TimerEvent_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_TimerEvent_Callback>(slot));
+    if (auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self))
+        vqboxplotseries->qboxplotseries_timerevent_callback = reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBoxPlotSeries_ChildEvent(QBoxPlotSeries* self, QChildEvent* event) {
     auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
+    if (vqboxplotseries) {
         vqboxplotseries->childEvent(event);
     } else {
-        ((VirtualQBoxPlotSeries*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QBoxPlotSeries::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBoxPlotSeries_SuperChildEvent(QBoxPlotSeries* self, QChildEvent* event) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_ChildEvent_IsBase(true);
-        vqboxplotseries->childEvent(event);
-    } else {
-        ((VirtualQBoxPlotSeries*)self)->childEvent(event);
-    }
+    if (auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self)) {
+        vqboxplotseries->QBoxPlotSeries::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBoxPlotSeries::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotSeries_OnChildEvent(QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_ChildEvent_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_ChildEvent_Callback>(slot));
+    if (auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self))
+        vqboxplotseries->qboxplotseries_childevent_callback = reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBoxPlotSeries_CustomEvent(QBoxPlotSeries* self, QEvent* event) {
     auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
+    if (vqboxplotseries) {
         vqboxplotseries->customEvent(event);
     } else {
-        ((VirtualQBoxPlotSeries*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QBoxPlotSeries::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBoxPlotSeries_SuperCustomEvent(QBoxPlotSeries* self, QEvent* event) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_CustomEvent_IsBase(true);
-        vqboxplotseries->customEvent(event);
-    } else {
-        ((VirtualQBoxPlotSeries*)self)->customEvent(event);
-    }
+    if (auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self)) {
+        vqboxplotseries->QBoxPlotSeries::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBoxPlotSeries::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotSeries_OnCustomEvent(QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_CustomEvent_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_CustomEvent_Callback>(slot));
+    if (auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self))
+        vqboxplotseries->qboxplotseries_customevent_callback = reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBoxPlotSeries_ConnectNotify(QBoxPlotSeries* self, const QMetaMethod* signal) {
     auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
+    if (vqboxplotseries) {
         vqboxplotseries->connectNotify(*signal);
     } else {
-        ((VirtualQBoxPlotSeries*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QBoxPlotSeries::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBoxPlotSeries_SuperConnectNotify(QBoxPlotSeries* self, const QMetaMethod* signal) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_ConnectNotify_IsBase(true);
-        vqboxplotseries->connectNotify(*signal);
-    } else {
-        ((VirtualQBoxPlotSeries*)self)->connectNotify(*signal);
-    }
+    if (auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self)) {
+        vqboxplotseries->QBoxPlotSeries::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QBoxPlotSeries::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotSeries_OnConnectNotify(QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_ConnectNotify_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_ConnectNotify_Callback>(slot));
+    if (auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self))
+        vqboxplotseries->qboxplotseries_connectnotify_callback = reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBoxPlotSeries_DisconnectNotify(QBoxPlotSeries* self, const QMetaMethod* signal) {
     auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
+    if (vqboxplotseries) {
         vqboxplotseries->disconnectNotify(*signal);
     } else {
-        ((VirtualQBoxPlotSeries*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QBoxPlotSeries::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBoxPlotSeries_SuperDisconnectNotify(QBoxPlotSeries* self, const QMetaMethod* signal) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_DisconnectNotify_IsBase(true);
-        vqboxplotseries->disconnectNotify(*signal);
-    } else {
-        ((VirtualQBoxPlotSeries*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self)) {
+        vqboxplotseries->QBoxPlotSeries::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QBoxPlotSeries::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotSeries_OnDisconnectNotify(QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_DisconnectNotify_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_DisconnectNotify_Callback>(slot));
+    if (auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self))
+        vqboxplotseries->qboxplotseries_disconnectnotify_callback = reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QBoxPlotSeries_Sender(const QBoxPlotSeries* self) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        return vqboxplotseries->sender();
-    } else {
-        return ((VirtualQBoxPlotSeries*)self)->sender();
-    }
+    if (auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self))) {
+        return vqboxplotseries->VirtualQBoxPlotSeries::sender();
+    } else
+        qFatal("Error: Protected method QBoxPlotSeries::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QBoxPlotSeries_SuperSender(const QBoxPlotSeries* self) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_Sender_IsBase(true);
-        return vqboxplotseries->sender();
-    } else {
-        return ((VirtualQBoxPlotSeries*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBoxPlotSeries_OnSender(const QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_Sender_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QBoxPlotSeries_SenderSignalIndex(const QBoxPlotSeries* self) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        return vqboxplotseries->senderSignalIndex();
-    } else {
-        return ((VirtualQBoxPlotSeries*)self)->senderSignalIndex();
-    }
+    if (auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self))) {
+        return vqboxplotseries->VirtualQBoxPlotSeries::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QBoxPlotSeries::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QBoxPlotSeries_SuperSenderSignalIndex(const QBoxPlotSeries* self) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_SenderSignalIndex_IsBase(true);
-        return vqboxplotseries->senderSignalIndex();
-    } else {
-        return ((VirtualQBoxPlotSeries*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBoxPlotSeries_OnSenderSignalIndex(const QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QBoxPlotSeries_Receivers(const QBoxPlotSeries* self, const char* signal) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        return vqboxplotseries->receivers(signal);
-    } else {
-        return ((VirtualQBoxPlotSeries*)self)->receivers(signal);
-    }
+    if (auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self))) {
+        return vqboxplotseries->VirtualQBoxPlotSeries::receivers(signal);
+    } else
+        qFatal("Error: Protected method QBoxPlotSeries::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QBoxPlotSeries_SuperReceivers(const QBoxPlotSeries* self, const char* signal) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_Receivers_IsBase(true);
-        return vqboxplotseries->receivers(signal);
-    } else {
-        return ((VirtualQBoxPlotSeries*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBoxPlotSeries_OnReceivers(const QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_Receivers_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QBoxPlotSeries_IsSignalConnected(const QBoxPlotSeries* self, const QMetaMethod* signal) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        return vqboxplotseries->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQBoxPlotSeries*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QBoxPlotSeries_SuperIsSignalConnected(const QBoxPlotSeries* self, const QMetaMethod* signal) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        vqboxplotseries->setQBoxPlotSeries_IsSignalConnected_IsBase(true);
-        return vqboxplotseries->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQBoxPlotSeries*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBoxPlotSeries_OnIsSignalConnected(const QBoxPlotSeries* self, intptr_t slot) {
-    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries)
-        vqboxplotseries->setQBoxPlotSeries_IsSignalConnected_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_IsSignalConnected_Callback>(slot));
+    if (auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self))) {
+        return vqboxplotseries->VirtualQBoxPlotSeries::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QBoxPlotSeries::isSignalConnected called without a directly constructed type");
 }
 
 void QBoxPlotSeries_Delete(QBoxPlotSeries* self) {

@@ -70,7 +70,7 @@ libqt_string KTextEditor__Message_Tr2(const char* s, const char* c);
 libqt_string KTextEditor__Message_Tr3(const char* s, const char* c, int n);
 void KTextEditor__Message_AddAction2(KTextEditor__Message* self, QAction* action, bool closeOnTrigger);
 void KTextEditor__Message_SetAutoHide1(KTextEditor__Message* self, int delay);
-void KTextEditor__Message_OnMetaObject(const KTextEditor__Message* self, intptr_t slot);
+void KTextEditor__Message_OnMetaObject(KTextEditor__Message* self, intptr_t slot);
 QMetaObject* KTextEditor__Message_SuperMetaObject(const KTextEditor__Message* self);
 void KTextEditor__Message_OnMetacast(KTextEditor__Message* self, intptr_t slot);
 void* KTextEditor__Message_SuperMetacast(KTextEditor__Message* self, const char* param1);
@@ -98,17 +98,9 @@ void KTextEditor__Message_DisconnectNotify(KTextEditor__Message* self, const QMe
 void KTextEditor__Message_OnDisconnectNotify(KTextEditor__Message* self, intptr_t slot);
 void KTextEditor__Message_SuperDisconnectNotify(KTextEditor__Message* self, const QMetaMethod* signal);
 QObject* KTextEditor__Message_Sender(const KTextEditor__Message* self);
-void KTextEditor__Message_OnSender(const KTextEditor__Message* self, intptr_t slot);
-QObject* KTextEditor__Message_SuperSender(const KTextEditor__Message* self);
 int KTextEditor__Message_SenderSignalIndex(const KTextEditor__Message* self);
-void KTextEditor__Message_OnSenderSignalIndex(const KTextEditor__Message* self, intptr_t slot);
-int KTextEditor__Message_SuperSenderSignalIndex(const KTextEditor__Message* self);
 int KTextEditor__Message_Receivers(const KTextEditor__Message* self, const char* signal);
-void KTextEditor__Message_OnReceivers(const KTextEditor__Message* self, intptr_t slot);
-int KTextEditor__Message_SuperReceivers(const KTextEditor__Message* self, const char* signal);
 bool KTextEditor__Message_IsSignalConnected(const KTextEditor__Message* self, const QMetaMethod* signal);
-void KTextEditor__Message_OnIsSignalConnected(const KTextEditor__Message* self, intptr_t slot);
-bool KTextEditor__Message_SuperIsSignalConnected(const KTextEditor__Message* self, const QMetaMethod* signal);
 void KTextEditor__Message_Delete(KTextEditor__Message* self);
 
 #ifdef __cplusplus

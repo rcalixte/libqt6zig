@@ -9,29 +9,25 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KBusyIndicatorWidget so that we can call protected methods
+// This class is a subclass of KBusyIndicatorWidget
 class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKBusyIndicatorWidget = true;
-
-    // Virtual class public types (including callbacks)
-    using KBusyIndicatorWidget_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KBusyIndicatorWidget_MetaObject_Callback = QMetaObject* (*)(const KBusyIndicatorWidget*);
     using KBusyIndicatorWidget_Metacast_Callback = void* (*)(KBusyIndicatorWidget*, const char*);
     using KBusyIndicatorWidget_Metacall_Callback = int (*)(KBusyIndicatorWidget*, int, int, void**);
-    using KBusyIndicatorWidget_MinimumSizeHint_Callback = QSize* (*)();
+    using KBusyIndicatorWidget_MinimumSizeHint_Callback = QSize* (*)(const KBusyIndicatorWidget*);
     using KBusyIndicatorWidget_ShowEvent_Callback = void (*)(KBusyIndicatorWidget*, QShowEvent*);
     using KBusyIndicatorWidget_HideEvent_Callback = void (*)(KBusyIndicatorWidget*, QHideEvent*);
     using KBusyIndicatorWidget_ResizeEvent_Callback = void (*)(KBusyIndicatorWidget*, QResizeEvent*);
     using KBusyIndicatorWidget_PaintEvent_Callback = void (*)(KBusyIndicatorWidget*, QPaintEvent*);
     using KBusyIndicatorWidget_Event_Callback = bool (*)(KBusyIndicatorWidget*, QEvent*);
-    using KBusyIndicatorWidget_DevType_Callback = int (*)();
+    using KBusyIndicatorWidget_DevType_Callback = int (*)(const KBusyIndicatorWidget*);
     using KBusyIndicatorWidget_SetVisible_Callback = void (*)(KBusyIndicatorWidget*, bool);
-    using KBusyIndicatorWidget_SizeHint_Callback = QSize* (*)();
+    using KBusyIndicatorWidget_SizeHint_Callback = QSize* (*)(const KBusyIndicatorWidget*);
     using KBusyIndicatorWidget_HeightForWidth_Callback = int (*)(const KBusyIndicatorWidget*, int);
-    using KBusyIndicatorWidget_HasHeightForWidth_Callback = bool (*)();
-    using KBusyIndicatorWidget_PaintEngine_Callback = QPaintEngine* (*)();
+    using KBusyIndicatorWidget_HasHeightForWidth_Callback = bool (*)(const KBusyIndicatorWidget*);
+    using KBusyIndicatorWidget_PaintEngine_Callback = QPaintEngine* (*)(const KBusyIndicatorWidget*);
     using KBusyIndicatorWidget_MousePressEvent_Callback = void (*)(KBusyIndicatorWidget*, QMouseEvent*);
     using KBusyIndicatorWidget_MouseReleaseEvent_Callback = void (*)(KBusyIndicatorWidget*, QMouseEvent*);
     using KBusyIndicatorWidget_MouseDoubleClickEvent_Callback = void (*)(KBusyIndicatorWidget*, QMouseEvent*);
@@ -57,7 +53,7 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
     using KBusyIndicatorWidget_Metric_Callback = int (*)(const KBusyIndicatorWidget*, int);
     using KBusyIndicatorWidget_InitPainter_Callback = void (*)(const KBusyIndicatorWidget*, QPainter*);
     using KBusyIndicatorWidget_Redirected_Callback = QPaintDevice* (*)(const KBusyIndicatorWidget*, QPoint*);
-    using KBusyIndicatorWidget_SharedPainter_Callback = QPainter* (*)();
+    using KBusyIndicatorWidget_SharedPainter_Callback = QPainter* (*)(const KBusyIndicatorWidget*);
     using KBusyIndicatorWidget_InputMethodEvent_Callback = void (*)(KBusyIndicatorWidget*, QInputMethodEvent*);
     using KBusyIndicatorWidget_InputMethodQuery_Callback = QVariant* (*)(const KBusyIndicatorWidget*, int);
     using KBusyIndicatorWidget_FocusNextPrevChild_Callback = bool (*)(KBusyIndicatorWidget*, bool);
@@ -67,18 +63,17 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
     using KBusyIndicatorWidget_CustomEvent_Callback = void (*)(KBusyIndicatorWidget*, QEvent*);
     using KBusyIndicatorWidget_ConnectNotify_Callback = void (*)(KBusyIndicatorWidget*, QMetaMethod*);
     using KBusyIndicatorWidget_DisconnectNotify_Callback = void (*)(KBusyIndicatorWidget*, QMetaMethod*);
-    using KBusyIndicatorWidget_UpdateMicroFocus_Callback = void (*)();
-    using KBusyIndicatorWidget_Create_Callback = void (*)();
-    using KBusyIndicatorWidget_Destroy_Callback = void (*)();
-    using KBusyIndicatorWidget_FocusNextChild_Callback = bool (*)();
-    using KBusyIndicatorWidget_FocusPreviousChild_Callback = bool (*)();
-    using KBusyIndicatorWidget_Sender_Callback = QObject* (*)();
-    using KBusyIndicatorWidget_SenderSignalIndex_Callback = int (*)();
-    using KBusyIndicatorWidget_Receivers_Callback = int (*)(const KBusyIndicatorWidget*, const char*);
-    using KBusyIndicatorWidget_IsSignalConnected_Callback = bool (*)(const KBusyIndicatorWidget*, QMetaMethod*);
-    using KBusyIndicatorWidget_GetDecodedMetricF_Callback = double (*)(const KBusyIndicatorWidget*, int, int);
+    using KBusyIndicatorWidget::create;
+    using KBusyIndicatorWidget::destroy;
+    using KBusyIndicatorWidget::focusNextChild;
+    using KBusyIndicatorWidget::focusPreviousChild;
+    using KBusyIndicatorWidget::getDecodedMetricF;
+    using KBusyIndicatorWidget::isSignalConnected;
+    using KBusyIndicatorWidget::receivers;
+    using KBusyIndicatorWidget::sender;
+    using KBusyIndicatorWidget::senderSignalIndex;
+    using KBusyIndicatorWidget::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     KBusyIndicatorWidget_MetaObject_Callback kbusyindicatorwidget_metaobject_callback = nullptr;
     KBusyIndicatorWidget_Metacast_Callback kbusyindicatorwidget_metacast_callback = nullptr;
@@ -130,216 +125,56 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
     KBusyIndicatorWidget_CustomEvent_Callback kbusyindicatorwidget_customevent_callback = nullptr;
     KBusyIndicatorWidget_ConnectNotify_Callback kbusyindicatorwidget_connectnotify_callback = nullptr;
     KBusyIndicatorWidget_DisconnectNotify_Callback kbusyindicatorwidget_disconnectnotify_callback = nullptr;
-    KBusyIndicatorWidget_UpdateMicroFocus_Callback kbusyindicatorwidget_updatemicrofocus_callback = nullptr;
-    KBusyIndicatorWidget_Create_Callback kbusyindicatorwidget_create_callback = nullptr;
-    KBusyIndicatorWidget_Destroy_Callback kbusyindicatorwidget_destroy_callback = nullptr;
-    KBusyIndicatorWidget_FocusNextChild_Callback kbusyindicatorwidget_focusnextchild_callback = nullptr;
-    KBusyIndicatorWidget_FocusPreviousChild_Callback kbusyindicatorwidget_focuspreviouschild_callback = nullptr;
-    KBusyIndicatorWidget_Sender_Callback kbusyindicatorwidget_sender_callback = nullptr;
-    KBusyIndicatorWidget_SenderSignalIndex_Callback kbusyindicatorwidget_sendersignalindex_callback = nullptr;
-    KBusyIndicatorWidget_Receivers_Callback kbusyindicatorwidget_receivers_callback = nullptr;
-    KBusyIndicatorWidget_IsSignalConnected_Callback kbusyindicatorwidget_issignalconnected_callback = nullptr;
-    KBusyIndicatorWidget_GetDecodedMetricF_Callback kbusyindicatorwidget_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kbusyindicatorwidget_metaobject_isbase = false;
-    mutable bool kbusyindicatorwidget_metacast_isbase = false;
-    mutable bool kbusyindicatorwidget_metacall_isbase = false;
-    mutable bool kbusyindicatorwidget_minimumsizehint_isbase = false;
-    mutable bool kbusyindicatorwidget_showevent_isbase = false;
-    mutable bool kbusyindicatorwidget_hideevent_isbase = false;
-    mutable bool kbusyindicatorwidget_resizeevent_isbase = false;
-    mutable bool kbusyindicatorwidget_paintevent_isbase = false;
-    mutable bool kbusyindicatorwidget_event_isbase = false;
-    mutable bool kbusyindicatorwidget_devtype_isbase = false;
-    mutable bool kbusyindicatorwidget_setvisible_isbase = false;
-    mutable bool kbusyindicatorwidget_sizehint_isbase = false;
-    mutable bool kbusyindicatorwidget_heightforwidth_isbase = false;
-    mutable bool kbusyindicatorwidget_hasheightforwidth_isbase = false;
-    mutable bool kbusyindicatorwidget_paintengine_isbase = false;
-    mutable bool kbusyindicatorwidget_mousepressevent_isbase = false;
-    mutable bool kbusyindicatorwidget_mousereleaseevent_isbase = false;
-    mutable bool kbusyindicatorwidget_mousedoubleclickevent_isbase = false;
-    mutable bool kbusyindicatorwidget_mousemoveevent_isbase = false;
-    mutable bool kbusyindicatorwidget_wheelevent_isbase = false;
-    mutable bool kbusyindicatorwidget_keypressevent_isbase = false;
-    mutable bool kbusyindicatorwidget_keyreleaseevent_isbase = false;
-    mutable bool kbusyindicatorwidget_focusinevent_isbase = false;
-    mutable bool kbusyindicatorwidget_focusoutevent_isbase = false;
-    mutable bool kbusyindicatorwidget_enterevent_isbase = false;
-    mutable bool kbusyindicatorwidget_leaveevent_isbase = false;
-    mutable bool kbusyindicatorwidget_moveevent_isbase = false;
-    mutable bool kbusyindicatorwidget_closeevent_isbase = false;
-    mutable bool kbusyindicatorwidget_contextmenuevent_isbase = false;
-    mutable bool kbusyindicatorwidget_tabletevent_isbase = false;
-    mutable bool kbusyindicatorwidget_actionevent_isbase = false;
-    mutable bool kbusyindicatorwidget_dragenterevent_isbase = false;
-    mutable bool kbusyindicatorwidget_dragmoveevent_isbase = false;
-    mutable bool kbusyindicatorwidget_dragleaveevent_isbase = false;
-    mutable bool kbusyindicatorwidget_dropevent_isbase = false;
-    mutable bool kbusyindicatorwidget_nativeevent_isbase = false;
-    mutable bool kbusyindicatorwidget_changeevent_isbase = false;
-    mutable bool kbusyindicatorwidget_metric_isbase = false;
-    mutable bool kbusyindicatorwidget_initpainter_isbase = false;
-    mutable bool kbusyindicatorwidget_redirected_isbase = false;
-    mutable bool kbusyindicatorwidget_sharedpainter_isbase = false;
-    mutable bool kbusyindicatorwidget_inputmethodevent_isbase = false;
-    mutable bool kbusyindicatorwidget_inputmethodquery_isbase = false;
-    mutable bool kbusyindicatorwidget_focusnextprevchild_isbase = false;
-    mutable bool kbusyindicatorwidget_eventfilter_isbase = false;
-    mutable bool kbusyindicatorwidget_timerevent_isbase = false;
-    mutable bool kbusyindicatorwidget_childevent_isbase = false;
-    mutable bool kbusyindicatorwidget_customevent_isbase = false;
-    mutable bool kbusyindicatorwidget_connectnotify_isbase = false;
-    mutable bool kbusyindicatorwidget_disconnectnotify_isbase = false;
-    mutable bool kbusyindicatorwidget_updatemicrofocus_isbase = false;
-    mutable bool kbusyindicatorwidget_create_isbase = false;
-    mutable bool kbusyindicatorwidget_destroy_isbase = false;
-    mutable bool kbusyindicatorwidget_focusnextchild_isbase = false;
-    mutable bool kbusyindicatorwidget_focuspreviouschild_isbase = false;
-    mutable bool kbusyindicatorwidget_sender_isbase = false;
-    mutable bool kbusyindicatorwidget_sendersignalindex_isbase = false;
-    mutable bool kbusyindicatorwidget_receivers_isbase = false;
-    mutable bool kbusyindicatorwidget_issignalconnected_isbase = false;
-    mutable bool kbusyindicatorwidget_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KBusyIndicatorWidget {
+        using KBusyIndicatorWidget::actionEvent;
+        using KBusyIndicatorWidget::changeEvent;
+        using KBusyIndicatorWidget::childEvent;
+        using KBusyIndicatorWidget::closeEvent;
+        using KBusyIndicatorWidget::connectNotify;
+        using KBusyIndicatorWidget::contextMenuEvent;
+        using KBusyIndicatorWidget::customEvent;
+        using KBusyIndicatorWidget::disconnectNotify;
+        using KBusyIndicatorWidget::dragEnterEvent;
+        using KBusyIndicatorWidget::dragLeaveEvent;
+        using KBusyIndicatorWidget::dragMoveEvent;
+        using KBusyIndicatorWidget::dropEvent;
+        using KBusyIndicatorWidget::enterEvent;
+        using KBusyIndicatorWidget::event;
+        using KBusyIndicatorWidget::focusInEvent;
+        using KBusyIndicatorWidget::focusNextPrevChild;
+        using KBusyIndicatorWidget::focusOutEvent;
+        using KBusyIndicatorWidget::hideEvent;
+        using KBusyIndicatorWidget::initPainter;
+        using KBusyIndicatorWidget::inputMethodEvent;
+        using KBusyIndicatorWidget::keyPressEvent;
+        using KBusyIndicatorWidget::keyReleaseEvent;
+        using KBusyIndicatorWidget::leaveEvent;
+        using KBusyIndicatorWidget::metric;
+        using KBusyIndicatorWidget::mouseDoubleClickEvent;
+        using KBusyIndicatorWidget::mouseMoveEvent;
+        using KBusyIndicatorWidget::mousePressEvent;
+        using KBusyIndicatorWidget::mouseReleaseEvent;
+        using KBusyIndicatorWidget::moveEvent;
+        using KBusyIndicatorWidget::nativeEvent;
+        using KBusyIndicatorWidget::paintEvent;
+        using KBusyIndicatorWidget::redirected;
+        using KBusyIndicatorWidget::resizeEvent;
+        using KBusyIndicatorWidget::sharedPainter;
+        using KBusyIndicatorWidget::showEvent;
+        using KBusyIndicatorWidget::tabletEvent;
+        using KBusyIndicatorWidget::timerEvent;
+        using KBusyIndicatorWidget::wheelEvent;
+    };
 
-  public:
     VirtualKBusyIndicatorWidget(QWidget* parent) : KBusyIndicatorWidget(parent) {};
     VirtualKBusyIndicatorWidget() : KBusyIndicatorWidget() {};
 
-    // Callback setters
-    inline void setKBusyIndicatorWidget_MetaObject_Callback(KBusyIndicatorWidget_MetaObject_Callback cb) { kbusyindicatorwidget_metaobject_callback = cb; }
-    inline void setKBusyIndicatorWidget_Metacast_Callback(KBusyIndicatorWidget_Metacast_Callback cb) { kbusyindicatorwidget_metacast_callback = cb; }
-    inline void setKBusyIndicatorWidget_Metacall_Callback(KBusyIndicatorWidget_Metacall_Callback cb) { kbusyindicatorwidget_metacall_callback = cb; }
-    inline void setKBusyIndicatorWidget_MinimumSizeHint_Callback(KBusyIndicatorWidget_MinimumSizeHint_Callback cb) { kbusyindicatorwidget_minimumsizehint_callback = cb; }
-    inline void setKBusyIndicatorWidget_ShowEvent_Callback(KBusyIndicatorWidget_ShowEvent_Callback cb) { kbusyindicatorwidget_showevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_HideEvent_Callback(KBusyIndicatorWidget_HideEvent_Callback cb) { kbusyindicatorwidget_hideevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_ResizeEvent_Callback(KBusyIndicatorWidget_ResizeEvent_Callback cb) { kbusyindicatorwidget_resizeevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_PaintEvent_Callback(KBusyIndicatorWidget_PaintEvent_Callback cb) { kbusyindicatorwidget_paintevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_Event_Callback(KBusyIndicatorWidget_Event_Callback cb) { kbusyindicatorwidget_event_callback = cb; }
-    inline void setKBusyIndicatorWidget_DevType_Callback(KBusyIndicatorWidget_DevType_Callback cb) { kbusyindicatorwidget_devtype_callback = cb; }
-    inline void setKBusyIndicatorWidget_SetVisible_Callback(KBusyIndicatorWidget_SetVisible_Callback cb) { kbusyindicatorwidget_setvisible_callback = cb; }
-    inline void setKBusyIndicatorWidget_SizeHint_Callback(KBusyIndicatorWidget_SizeHint_Callback cb) { kbusyindicatorwidget_sizehint_callback = cb; }
-    inline void setKBusyIndicatorWidget_HeightForWidth_Callback(KBusyIndicatorWidget_HeightForWidth_Callback cb) { kbusyindicatorwidget_heightforwidth_callback = cb; }
-    inline void setKBusyIndicatorWidget_HasHeightForWidth_Callback(KBusyIndicatorWidget_HasHeightForWidth_Callback cb) { kbusyindicatorwidget_hasheightforwidth_callback = cb; }
-    inline void setKBusyIndicatorWidget_PaintEngine_Callback(KBusyIndicatorWidget_PaintEngine_Callback cb) { kbusyindicatorwidget_paintengine_callback = cb; }
-    inline void setKBusyIndicatorWidget_MousePressEvent_Callback(KBusyIndicatorWidget_MousePressEvent_Callback cb) { kbusyindicatorwidget_mousepressevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_MouseReleaseEvent_Callback(KBusyIndicatorWidget_MouseReleaseEvent_Callback cb) { kbusyindicatorwidget_mousereleaseevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_MouseDoubleClickEvent_Callback(KBusyIndicatorWidget_MouseDoubleClickEvent_Callback cb) { kbusyindicatorwidget_mousedoubleclickevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_MouseMoveEvent_Callback(KBusyIndicatorWidget_MouseMoveEvent_Callback cb) { kbusyindicatorwidget_mousemoveevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_WheelEvent_Callback(KBusyIndicatorWidget_WheelEvent_Callback cb) { kbusyindicatorwidget_wheelevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_KeyPressEvent_Callback(KBusyIndicatorWidget_KeyPressEvent_Callback cb) { kbusyindicatorwidget_keypressevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_KeyReleaseEvent_Callback(KBusyIndicatorWidget_KeyReleaseEvent_Callback cb) { kbusyindicatorwidget_keyreleaseevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_FocusInEvent_Callback(KBusyIndicatorWidget_FocusInEvent_Callback cb) { kbusyindicatorwidget_focusinevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_FocusOutEvent_Callback(KBusyIndicatorWidget_FocusOutEvent_Callback cb) { kbusyindicatorwidget_focusoutevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_EnterEvent_Callback(KBusyIndicatorWidget_EnterEvent_Callback cb) { kbusyindicatorwidget_enterevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_LeaveEvent_Callback(KBusyIndicatorWidget_LeaveEvent_Callback cb) { kbusyindicatorwidget_leaveevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_MoveEvent_Callback(KBusyIndicatorWidget_MoveEvent_Callback cb) { kbusyindicatorwidget_moveevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_CloseEvent_Callback(KBusyIndicatorWidget_CloseEvent_Callback cb) { kbusyindicatorwidget_closeevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_ContextMenuEvent_Callback(KBusyIndicatorWidget_ContextMenuEvent_Callback cb) { kbusyindicatorwidget_contextmenuevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_TabletEvent_Callback(KBusyIndicatorWidget_TabletEvent_Callback cb) { kbusyindicatorwidget_tabletevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_ActionEvent_Callback(KBusyIndicatorWidget_ActionEvent_Callback cb) { kbusyindicatorwidget_actionevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_DragEnterEvent_Callback(KBusyIndicatorWidget_DragEnterEvent_Callback cb) { kbusyindicatorwidget_dragenterevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_DragMoveEvent_Callback(KBusyIndicatorWidget_DragMoveEvent_Callback cb) { kbusyindicatorwidget_dragmoveevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_DragLeaveEvent_Callback(KBusyIndicatorWidget_DragLeaveEvent_Callback cb) { kbusyindicatorwidget_dragleaveevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_DropEvent_Callback(KBusyIndicatorWidget_DropEvent_Callback cb) { kbusyindicatorwidget_dropevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_NativeEvent_Callback(KBusyIndicatorWidget_NativeEvent_Callback cb) { kbusyindicatorwidget_nativeevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_ChangeEvent_Callback(KBusyIndicatorWidget_ChangeEvent_Callback cb) { kbusyindicatorwidget_changeevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_Metric_Callback(KBusyIndicatorWidget_Metric_Callback cb) { kbusyindicatorwidget_metric_callback = cb; }
-    inline void setKBusyIndicatorWidget_InitPainter_Callback(KBusyIndicatorWidget_InitPainter_Callback cb) { kbusyindicatorwidget_initpainter_callback = cb; }
-    inline void setKBusyIndicatorWidget_Redirected_Callback(KBusyIndicatorWidget_Redirected_Callback cb) { kbusyindicatorwidget_redirected_callback = cb; }
-    inline void setKBusyIndicatorWidget_SharedPainter_Callback(KBusyIndicatorWidget_SharedPainter_Callback cb) { kbusyindicatorwidget_sharedpainter_callback = cb; }
-    inline void setKBusyIndicatorWidget_InputMethodEvent_Callback(KBusyIndicatorWidget_InputMethodEvent_Callback cb) { kbusyindicatorwidget_inputmethodevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_InputMethodQuery_Callback(KBusyIndicatorWidget_InputMethodQuery_Callback cb) { kbusyindicatorwidget_inputmethodquery_callback = cb; }
-    inline void setKBusyIndicatorWidget_FocusNextPrevChild_Callback(KBusyIndicatorWidget_FocusNextPrevChild_Callback cb) { kbusyindicatorwidget_focusnextprevchild_callback = cb; }
-    inline void setKBusyIndicatorWidget_EventFilter_Callback(KBusyIndicatorWidget_EventFilter_Callback cb) { kbusyindicatorwidget_eventfilter_callback = cb; }
-    inline void setKBusyIndicatorWidget_TimerEvent_Callback(KBusyIndicatorWidget_TimerEvent_Callback cb) { kbusyindicatorwidget_timerevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_ChildEvent_Callback(KBusyIndicatorWidget_ChildEvent_Callback cb) { kbusyindicatorwidget_childevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_CustomEvent_Callback(KBusyIndicatorWidget_CustomEvent_Callback cb) { kbusyindicatorwidget_customevent_callback = cb; }
-    inline void setKBusyIndicatorWidget_ConnectNotify_Callback(KBusyIndicatorWidget_ConnectNotify_Callback cb) { kbusyindicatorwidget_connectnotify_callback = cb; }
-    inline void setKBusyIndicatorWidget_DisconnectNotify_Callback(KBusyIndicatorWidget_DisconnectNotify_Callback cb) { kbusyindicatorwidget_disconnectnotify_callback = cb; }
-    inline void setKBusyIndicatorWidget_UpdateMicroFocus_Callback(KBusyIndicatorWidget_UpdateMicroFocus_Callback cb) { kbusyindicatorwidget_updatemicrofocus_callback = cb; }
-    inline void setKBusyIndicatorWidget_Create_Callback(KBusyIndicatorWidget_Create_Callback cb) { kbusyindicatorwidget_create_callback = cb; }
-    inline void setKBusyIndicatorWidget_Destroy_Callback(KBusyIndicatorWidget_Destroy_Callback cb) { kbusyindicatorwidget_destroy_callback = cb; }
-    inline void setKBusyIndicatorWidget_FocusNextChild_Callback(KBusyIndicatorWidget_FocusNextChild_Callback cb) { kbusyindicatorwidget_focusnextchild_callback = cb; }
-    inline void setKBusyIndicatorWidget_FocusPreviousChild_Callback(KBusyIndicatorWidget_FocusPreviousChild_Callback cb) { kbusyindicatorwidget_focuspreviouschild_callback = cb; }
-    inline void setKBusyIndicatorWidget_Sender_Callback(KBusyIndicatorWidget_Sender_Callback cb) { kbusyindicatorwidget_sender_callback = cb; }
-    inline void setKBusyIndicatorWidget_SenderSignalIndex_Callback(KBusyIndicatorWidget_SenderSignalIndex_Callback cb) { kbusyindicatorwidget_sendersignalindex_callback = cb; }
-    inline void setKBusyIndicatorWidget_Receivers_Callback(KBusyIndicatorWidget_Receivers_Callback cb) { kbusyindicatorwidget_receivers_callback = cb; }
-    inline void setKBusyIndicatorWidget_IsSignalConnected_Callback(KBusyIndicatorWidget_IsSignalConnected_Callback cb) { kbusyindicatorwidget_issignalconnected_callback = cb; }
-    inline void setKBusyIndicatorWidget_GetDecodedMetricF_Callback(KBusyIndicatorWidget_GetDecodedMetricF_Callback cb) { kbusyindicatorwidget_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKBusyIndicatorWidget_MetaObject_IsBase(bool value) const { kbusyindicatorwidget_metaobject_isbase = value; }
-    inline void setKBusyIndicatorWidget_Metacast_IsBase(bool value) const { kbusyindicatorwidget_metacast_isbase = value; }
-    inline void setKBusyIndicatorWidget_Metacall_IsBase(bool value) const { kbusyindicatorwidget_metacall_isbase = value; }
-    inline void setKBusyIndicatorWidget_MinimumSizeHint_IsBase(bool value) const { kbusyindicatorwidget_minimumsizehint_isbase = value; }
-    inline void setKBusyIndicatorWidget_ShowEvent_IsBase(bool value) const { kbusyindicatorwidget_showevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_HideEvent_IsBase(bool value) const { kbusyindicatorwidget_hideevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_ResizeEvent_IsBase(bool value) const { kbusyindicatorwidget_resizeevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_PaintEvent_IsBase(bool value) const { kbusyindicatorwidget_paintevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_Event_IsBase(bool value) const { kbusyindicatorwidget_event_isbase = value; }
-    inline void setKBusyIndicatorWidget_DevType_IsBase(bool value) const { kbusyindicatorwidget_devtype_isbase = value; }
-    inline void setKBusyIndicatorWidget_SetVisible_IsBase(bool value) const { kbusyindicatorwidget_setvisible_isbase = value; }
-    inline void setKBusyIndicatorWidget_SizeHint_IsBase(bool value) const { kbusyindicatorwidget_sizehint_isbase = value; }
-    inline void setKBusyIndicatorWidget_HeightForWidth_IsBase(bool value) const { kbusyindicatorwidget_heightforwidth_isbase = value; }
-    inline void setKBusyIndicatorWidget_HasHeightForWidth_IsBase(bool value) const { kbusyindicatorwidget_hasheightforwidth_isbase = value; }
-    inline void setKBusyIndicatorWidget_PaintEngine_IsBase(bool value) const { kbusyindicatorwidget_paintengine_isbase = value; }
-    inline void setKBusyIndicatorWidget_MousePressEvent_IsBase(bool value) const { kbusyindicatorwidget_mousepressevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_MouseReleaseEvent_IsBase(bool value) const { kbusyindicatorwidget_mousereleaseevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_MouseDoubleClickEvent_IsBase(bool value) const { kbusyindicatorwidget_mousedoubleclickevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_MouseMoveEvent_IsBase(bool value) const { kbusyindicatorwidget_mousemoveevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_WheelEvent_IsBase(bool value) const { kbusyindicatorwidget_wheelevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_KeyPressEvent_IsBase(bool value) const { kbusyindicatorwidget_keypressevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_KeyReleaseEvent_IsBase(bool value) const { kbusyindicatorwidget_keyreleaseevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_FocusInEvent_IsBase(bool value) const { kbusyindicatorwidget_focusinevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_FocusOutEvent_IsBase(bool value) const { kbusyindicatorwidget_focusoutevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_EnterEvent_IsBase(bool value) const { kbusyindicatorwidget_enterevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_LeaveEvent_IsBase(bool value) const { kbusyindicatorwidget_leaveevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_MoveEvent_IsBase(bool value) const { kbusyindicatorwidget_moveevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_CloseEvent_IsBase(bool value) const { kbusyindicatorwidget_closeevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_ContextMenuEvent_IsBase(bool value) const { kbusyindicatorwidget_contextmenuevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_TabletEvent_IsBase(bool value) const { kbusyindicatorwidget_tabletevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_ActionEvent_IsBase(bool value) const { kbusyindicatorwidget_actionevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_DragEnterEvent_IsBase(bool value) const { kbusyindicatorwidget_dragenterevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_DragMoveEvent_IsBase(bool value) const { kbusyindicatorwidget_dragmoveevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_DragLeaveEvent_IsBase(bool value) const { kbusyindicatorwidget_dragleaveevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_DropEvent_IsBase(bool value) const { kbusyindicatorwidget_dropevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_NativeEvent_IsBase(bool value) const { kbusyindicatorwidget_nativeevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_ChangeEvent_IsBase(bool value) const { kbusyindicatorwidget_changeevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_Metric_IsBase(bool value) const { kbusyindicatorwidget_metric_isbase = value; }
-    inline void setKBusyIndicatorWidget_InitPainter_IsBase(bool value) const { kbusyindicatorwidget_initpainter_isbase = value; }
-    inline void setKBusyIndicatorWidget_Redirected_IsBase(bool value) const { kbusyindicatorwidget_redirected_isbase = value; }
-    inline void setKBusyIndicatorWidget_SharedPainter_IsBase(bool value) const { kbusyindicatorwidget_sharedpainter_isbase = value; }
-    inline void setKBusyIndicatorWidget_InputMethodEvent_IsBase(bool value) const { kbusyindicatorwidget_inputmethodevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_InputMethodQuery_IsBase(bool value) const { kbusyindicatorwidget_inputmethodquery_isbase = value; }
-    inline void setKBusyIndicatorWidget_FocusNextPrevChild_IsBase(bool value) const { kbusyindicatorwidget_focusnextprevchild_isbase = value; }
-    inline void setKBusyIndicatorWidget_EventFilter_IsBase(bool value) const { kbusyindicatorwidget_eventfilter_isbase = value; }
-    inline void setKBusyIndicatorWidget_TimerEvent_IsBase(bool value) const { kbusyindicatorwidget_timerevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_ChildEvent_IsBase(bool value) const { kbusyindicatorwidget_childevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_CustomEvent_IsBase(bool value) const { kbusyindicatorwidget_customevent_isbase = value; }
-    inline void setKBusyIndicatorWidget_ConnectNotify_IsBase(bool value) const { kbusyindicatorwidget_connectnotify_isbase = value; }
-    inline void setKBusyIndicatorWidget_DisconnectNotify_IsBase(bool value) const { kbusyindicatorwidget_disconnectnotify_isbase = value; }
-    inline void setKBusyIndicatorWidget_UpdateMicroFocus_IsBase(bool value) const { kbusyindicatorwidget_updatemicrofocus_isbase = value; }
-    inline void setKBusyIndicatorWidget_Create_IsBase(bool value) const { kbusyindicatorwidget_create_isbase = value; }
-    inline void setKBusyIndicatorWidget_Destroy_IsBase(bool value) const { kbusyindicatorwidget_destroy_isbase = value; }
-    inline void setKBusyIndicatorWidget_FocusNextChild_IsBase(bool value) const { kbusyindicatorwidget_focusnextchild_isbase = value; }
-    inline void setKBusyIndicatorWidget_FocusPreviousChild_IsBase(bool value) const { kbusyindicatorwidget_focuspreviouschild_isbase = value; }
-    inline void setKBusyIndicatorWidget_Sender_IsBase(bool value) const { kbusyindicatorwidget_sender_isbase = value; }
-    inline void setKBusyIndicatorWidget_SenderSignalIndex_IsBase(bool value) const { kbusyindicatorwidget_sendersignalindex_isbase = value; }
-    inline void setKBusyIndicatorWidget_Receivers_IsBase(bool value) const { kbusyindicatorwidget_receivers_isbase = value; }
-    inline void setKBusyIndicatorWidget_IsSignalConnected_IsBase(bool value) const { kbusyindicatorwidget_issignalconnected_isbase = value; }
-    inline void setKBusyIndicatorWidget_GetDecodedMetricF_IsBase(bool value) const { kbusyindicatorwidget_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kbusyindicatorwidget_metaobject_isbase) {
-            kbusyindicatorwidget_metaobject_isbase = false;
-            return KBusyIndicatorWidget::metaObject();
-        }
-        auto metaobject_cb = kbusyindicatorwidget_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kbusyindicatorwidget_metaobject_callback) {
+            QMetaObject* callback_ret = kbusyindicatorwidget_metaobject_callback(this);
             return callback_ret;
         }
         return KBusyIndicatorWidget::metaObject();
@@ -347,14 +182,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kbusyindicatorwidget_metacast_isbase) {
-            kbusyindicatorwidget_metacast_isbase = false;
-            return KBusyIndicatorWidget::qt_metacast(param1);
-        }
-        auto metacast_cb = kbusyindicatorwidget_metacast_callback;
-        if (metacast_cb) {
+        if (kbusyindicatorwidget_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kbusyindicatorwidget_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KBusyIndicatorWidget::qt_metacast(param1);
@@ -362,16 +192,11 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kbusyindicatorwidget_metacall_isbase) {
-            kbusyindicatorwidget_metacall_isbase = false;
-            return KBusyIndicatorWidget::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kbusyindicatorwidget_metacall_callback;
-        if (metacall_cb) {
+        if (kbusyindicatorwidget_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kbusyindicatorwidget_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KBusyIndicatorWidget::qt_metacall(param1, param2, param3);
@@ -379,13 +204,8 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (kbusyindicatorwidget_minimumsizehint_isbase) {
-            kbusyindicatorwidget_minimumsizehint_isbase = false;
-            return KBusyIndicatorWidget::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = kbusyindicatorwidget_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (kbusyindicatorwidget_minimumsizehint_callback) {
+            QSize* callback_ret = kbusyindicatorwidget_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -395,15 +215,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (kbusyindicatorwidget_showevent_isbase) {
-            kbusyindicatorwidget_showevent_isbase = false;
-            KBusyIndicatorWidget::showEvent(event);
-            return;
-        }
-        auto showevent_cb = kbusyindicatorwidget_showevent_callback;
-        if (showevent_cb) {
+        if (kbusyindicatorwidget_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            kbusyindicatorwidget_showevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::showEvent(event);
@@ -411,15 +225,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (kbusyindicatorwidget_hideevent_isbase) {
-            kbusyindicatorwidget_hideevent_isbase = false;
-            KBusyIndicatorWidget::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = kbusyindicatorwidget_hideevent_callback;
-        if (hideevent_cb) {
+        if (kbusyindicatorwidget_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            kbusyindicatorwidget_hideevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::hideEvent(event);
@@ -427,15 +235,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (kbusyindicatorwidget_resizeevent_isbase) {
-            kbusyindicatorwidget_resizeevent_isbase = false;
-            KBusyIndicatorWidget::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = kbusyindicatorwidget_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (kbusyindicatorwidget_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            kbusyindicatorwidget_resizeevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::resizeEvent(event);
@@ -443,15 +245,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* param1) override {
-        if (kbusyindicatorwidget_paintevent_isbase) {
-            kbusyindicatorwidget_paintevent_isbase = false;
-            KBusyIndicatorWidget::paintEvent(param1);
-            return;
-        }
-        auto paintevent_cb = kbusyindicatorwidget_paintevent_callback;
-        if (paintevent_cb) {
+        if (kbusyindicatorwidget_paintevent_callback) {
             QPaintEvent* cbval1 = param1;
-            paintevent_cb(this, cbval1);
+            kbusyindicatorwidget_paintevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::paintEvent(param1);
@@ -459,14 +255,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kbusyindicatorwidget_event_isbase) {
-            kbusyindicatorwidget_event_isbase = false;
-            return KBusyIndicatorWidget::event(event);
-        }
-        auto event_cb = kbusyindicatorwidget_event_callback;
-        if (event_cb) {
+        if (kbusyindicatorwidget_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kbusyindicatorwidget_event_callback(this, cbval1);
             return callback_ret;
         }
         return KBusyIndicatorWidget::event(event);
@@ -474,13 +265,8 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (kbusyindicatorwidget_devtype_isbase) {
-            kbusyindicatorwidget_devtype_isbase = false;
-            return KBusyIndicatorWidget::devType();
-        }
-        auto devtype_cb = kbusyindicatorwidget_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (kbusyindicatorwidget_devtype_callback) {
+            int callback_ret = kbusyindicatorwidget_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KBusyIndicatorWidget::devType();
@@ -488,15 +274,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (kbusyindicatorwidget_setvisible_isbase) {
-            kbusyindicatorwidget_setvisible_isbase = false;
-            KBusyIndicatorWidget::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = kbusyindicatorwidget_setvisible_callback;
-        if (setvisible_cb) {
+        if (kbusyindicatorwidget_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            kbusyindicatorwidget_setvisible_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::setVisible(visible);
@@ -504,13 +284,8 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (kbusyindicatorwidget_sizehint_isbase) {
-            kbusyindicatorwidget_sizehint_isbase = false;
-            return KBusyIndicatorWidget::sizeHint();
-        }
-        auto sizehint_cb = kbusyindicatorwidget_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (kbusyindicatorwidget_sizehint_callback) {
+            QSize* callback_ret = kbusyindicatorwidget_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -520,14 +295,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (kbusyindicatorwidget_heightforwidth_isbase) {
-            kbusyindicatorwidget_heightforwidth_isbase = false;
-            return KBusyIndicatorWidget::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = kbusyindicatorwidget_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (kbusyindicatorwidget_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = kbusyindicatorwidget_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KBusyIndicatorWidget::heightForWidth(param1);
@@ -535,13 +305,8 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (kbusyindicatorwidget_hasheightforwidth_isbase) {
-            kbusyindicatorwidget_hasheightforwidth_isbase = false;
-            return KBusyIndicatorWidget::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = kbusyindicatorwidget_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (kbusyindicatorwidget_hasheightforwidth_callback) {
+            bool callback_ret = kbusyindicatorwidget_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KBusyIndicatorWidget::hasHeightForWidth();
@@ -549,13 +314,8 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (kbusyindicatorwidget_paintengine_isbase) {
-            kbusyindicatorwidget_paintengine_isbase = false;
-            return KBusyIndicatorWidget::paintEngine();
-        }
-        auto paintengine_cb = kbusyindicatorwidget_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (kbusyindicatorwidget_paintengine_callback) {
+            QPaintEngine* callback_ret = kbusyindicatorwidget_paintengine_callback(this);
             return callback_ret;
         }
         return KBusyIndicatorWidget::paintEngine();
@@ -563,15 +323,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (kbusyindicatorwidget_mousepressevent_isbase) {
-            kbusyindicatorwidget_mousepressevent_isbase = false;
-            KBusyIndicatorWidget::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = kbusyindicatorwidget_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (kbusyindicatorwidget_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            kbusyindicatorwidget_mousepressevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::mousePressEvent(event);
@@ -579,15 +333,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (kbusyindicatorwidget_mousereleaseevent_isbase) {
-            kbusyindicatorwidget_mousereleaseevent_isbase = false;
-            KBusyIndicatorWidget::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = kbusyindicatorwidget_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (kbusyindicatorwidget_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            kbusyindicatorwidget_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::mouseReleaseEvent(event);
@@ -595,15 +343,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (kbusyindicatorwidget_mousedoubleclickevent_isbase) {
-            kbusyindicatorwidget_mousedoubleclickevent_isbase = false;
-            KBusyIndicatorWidget::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = kbusyindicatorwidget_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (kbusyindicatorwidget_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            kbusyindicatorwidget_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::mouseDoubleClickEvent(event);
@@ -611,15 +353,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (kbusyindicatorwidget_mousemoveevent_isbase) {
-            kbusyindicatorwidget_mousemoveevent_isbase = false;
-            KBusyIndicatorWidget::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = kbusyindicatorwidget_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (kbusyindicatorwidget_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            kbusyindicatorwidget_mousemoveevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::mouseMoveEvent(event);
@@ -627,15 +363,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (kbusyindicatorwidget_wheelevent_isbase) {
-            kbusyindicatorwidget_wheelevent_isbase = false;
-            KBusyIndicatorWidget::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = kbusyindicatorwidget_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (kbusyindicatorwidget_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            kbusyindicatorwidget_wheelevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::wheelEvent(event);
@@ -643,15 +373,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (kbusyindicatorwidget_keypressevent_isbase) {
-            kbusyindicatorwidget_keypressevent_isbase = false;
-            KBusyIndicatorWidget::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = kbusyindicatorwidget_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (kbusyindicatorwidget_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            kbusyindicatorwidget_keypressevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::keyPressEvent(event);
@@ -659,15 +383,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (kbusyindicatorwidget_keyreleaseevent_isbase) {
-            kbusyindicatorwidget_keyreleaseevent_isbase = false;
-            KBusyIndicatorWidget::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = kbusyindicatorwidget_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (kbusyindicatorwidget_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            kbusyindicatorwidget_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::keyReleaseEvent(event);
@@ -675,15 +393,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (kbusyindicatorwidget_focusinevent_isbase) {
-            kbusyindicatorwidget_focusinevent_isbase = false;
-            KBusyIndicatorWidget::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = kbusyindicatorwidget_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (kbusyindicatorwidget_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            kbusyindicatorwidget_focusinevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::focusInEvent(event);
@@ -691,15 +403,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (kbusyindicatorwidget_focusoutevent_isbase) {
-            kbusyindicatorwidget_focusoutevent_isbase = false;
-            KBusyIndicatorWidget::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = kbusyindicatorwidget_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (kbusyindicatorwidget_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            kbusyindicatorwidget_focusoutevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::focusOutEvent(event);
@@ -707,15 +413,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (kbusyindicatorwidget_enterevent_isbase) {
-            kbusyindicatorwidget_enterevent_isbase = false;
-            KBusyIndicatorWidget::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = kbusyindicatorwidget_enterevent_callback;
-        if (enterevent_cb) {
+        if (kbusyindicatorwidget_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            kbusyindicatorwidget_enterevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::enterEvent(event);
@@ -723,15 +423,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (kbusyindicatorwidget_leaveevent_isbase) {
-            kbusyindicatorwidget_leaveevent_isbase = false;
-            KBusyIndicatorWidget::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = kbusyindicatorwidget_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (kbusyindicatorwidget_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            kbusyindicatorwidget_leaveevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::leaveEvent(event);
@@ -739,15 +433,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (kbusyindicatorwidget_moveevent_isbase) {
-            kbusyindicatorwidget_moveevent_isbase = false;
-            KBusyIndicatorWidget::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = kbusyindicatorwidget_moveevent_callback;
-        if (moveevent_cb) {
+        if (kbusyindicatorwidget_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            kbusyindicatorwidget_moveevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::moveEvent(event);
@@ -755,15 +443,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (kbusyindicatorwidget_closeevent_isbase) {
-            kbusyindicatorwidget_closeevent_isbase = false;
-            KBusyIndicatorWidget::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = kbusyindicatorwidget_closeevent_callback;
-        if (closeevent_cb) {
+        if (kbusyindicatorwidget_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            kbusyindicatorwidget_closeevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::closeEvent(event);
@@ -771,15 +453,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (kbusyindicatorwidget_contextmenuevent_isbase) {
-            kbusyindicatorwidget_contextmenuevent_isbase = false;
-            KBusyIndicatorWidget::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = kbusyindicatorwidget_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (kbusyindicatorwidget_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            kbusyindicatorwidget_contextmenuevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::contextMenuEvent(event);
@@ -787,15 +463,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (kbusyindicatorwidget_tabletevent_isbase) {
-            kbusyindicatorwidget_tabletevent_isbase = false;
-            KBusyIndicatorWidget::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = kbusyindicatorwidget_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (kbusyindicatorwidget_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            kbusyindicatorwidget_tabletevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::tabletEvent(event);
@@ -803,15 +473,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (kbusyindicatorwidget_actionevent_isbase) {
-            kbusyindicatorwidget_actionevent_isbase = false;
-            KBusyIndicatorWidget::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = kbusyindicatorwidget_actionevent_callback;
-        if (actionevent_cb) {
+        if (kbusyindicatorwidget_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            kbusyindicatorwidget_actionevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::actionEvent(event);
@@ -819,15 +483,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (kbusyindicatorwidget_dragenterevent_isbase) {
-            kbusyindicatorwidget_dragenterevent_isbase = false;
-            KBusyIndicatorWidget::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = kbusyindicatorwidget_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (kbusyindicatorwidget_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            kbusyindicatorwidget_dragenterevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::dragEnterEvent(event);
@@ -835,15 +493,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (kbusyindicatorwidget_dragmoveevent_isbase) {
-            kbusyindicatorwidget_dragmoveevent_isbase = false;
-            KBusyIndicatorWidget::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = kbusyindicatorwidget_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (kbusyindicatorwidget_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            kbusyindicatorwidget_dragmoveevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::dragMoveEvent(event);
@@ -851,15 +503,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (kbusyindicatorwidget_dragleaveevent_isbase) {
-            kbusyindicatorwidget_dragleaveevent_isbase = false;
-            KBusyIndicatorWidget::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = kbusyindicatorwidget_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (kbusyindicatorwidget_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            kbusyindicatorwidget_dragleaveevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::dragLeaveEvent(event);
@@ -867,15 +513,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (kbusyindicatorwidget_dropevent_isbase) {
-            kbusyindicatorwidget_dropevent_isbase = false;
-            KBusyIndicatorWidget::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = kbusyindicatorwidget_dropevent_callback;
-        if (dropevent_cb) {
+        if (kbusyindicatorwidget_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            kbusyindicatorwidget_dropevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::dropEvent(event);
@@ -883,12 +523,7 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (kbusyindicatorwidget_nativeevent_isbase) {
-            kbusyindicatorwidget_nativeevent_isbase = false;
-            return KBusyIndicatorWidget::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = kbusyindicatorwidget_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (kbusyindicatorwidget_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -898,7 +533,7 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kbusyindicatorwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -907,15 +542,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (kbusyindicatorwidget_changeevent_isbase) {
-            kbusyindicatorwidget_changeevent_isbase = false;
-            KBusyIndicatorWidget::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = kbusyindicatorwidget_changeevent_callback;
-        if (changeevent_cb) {
+        if (kbusyindicatorwidget_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            kbusyindicatorwidget_changeevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::changeEvent(param1);
@@ -923,14 +552,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (kbusyindicatorwidget_metric_isbase) {
-            kbusyindicatorwidget_metric_isbase = false;
-            return KBusyIndicatorWidget::metric(param1);
-        }
-        auto metric_cb = kbusyindicatorwidget_metric_callback;
-        if (metric_cb) {
+        if (kbusyindicatorwidget_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = kbusyindicatorwidget_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KBusyIndicatorWidget::metric(param1);
@@ -938,15 +562,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (kbusyindicatorwidget_initpainter_isbase) {
-            kbusyindicatorwidget_initpainter_isbase = false;
-            KBusyIndicatorWidget::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = kbusyindicatorwidget_initpainter_callback;
-        if (initpainter_cb) {
+        if (kbusyindicatorwidget_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            kbusyindicatorwidget_initpainter_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::initPainter(painter);
@@ -954,14 +572,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (kbusyindicatorwidget_redirected_isbase) {
-            kbusyindicatorwidget_redirected_isbase = false;
-            return KBusyIndicatorWidget::redirected(offset);
-        }
-        auto redirected_cb = kbusyindicatorwidget_redirected_callback;
-        if (redirected_cb) {
+        if (kbusyindicatorwidget_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = kbusyindicatorwidget_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KBusyIndicatorWidget::redirected(offset);
@@ -969,13 +582,8 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (kbusyindicatorwidget_sharedpainter_isbase) {
-            kbusyindicatorwidget_sharedpainter_isbase = false;
-            return KBusyIndicatorWidget::sharedPainter();
-        }
-        auto sharedpainter_cb = kbusyindicatorwidget_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (kbusyindicatorwidget_sharedpainter_callback) {
+            QPainter* callback_ret = kbusyindicatorwidget_sharedpainter_callback(this);
             return callback_ret;
         }
         return KBusyIndicatorWidget::sharedPainter();
@@ -983,15 +591,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (kbusyindicatorwidget_inputmethodevent_isbase) {
-            kbusyindicatorwidget_inputmethodevent_isbase = false;
-            KBusyIndicatorWidget::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = kbusyindicatorwidget_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (kbusyindicatorwidget_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            kbusyindicatorwidget_inputmethodevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::inputMethodEvent(param1);
@@ -999,14 +601,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (kbusyindicatorwidget_inputmethodquery_isbase) {
-            kbusyindicatorwidget_inputmethodquery_isbase = false;
-            return KBusyIndicatorWidget::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = kbusyindicatorwidget_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (kbusyindicatorwidget_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = kbusyindicatorwidget_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1016,14 +613,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (kbusyindicatorwidget_focusnextprevchild_isbase) {
-            kbusyindicatorwidget_focusnextprevchild_isbase = false;
-            return KBusyIndicatorWidget::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = kbusyindicatorwidget_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (kbusyindicatorwidget_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = kbusyindicatorwidget_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KBusyIndicatorWidget::focusNextPrevChild(next);
@@ -1031,15 +623,10 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kbusyindicatorwidget_eventfilter_isbase) {
-            kbusyindicatorwidget_eventfilter_isbase = false;
-            return KBusyIndicatorWidget::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kbusyindicatorwidget_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kbusyindicatorwidget_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kbusyindicatorwidget_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KBusyIndicatorWidget::eventFilter(watched, event);
@@ -1047,15 +634,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kbusyindicatorwidget_timerevent_isbase) {
-            kbusyindicatorwidget_timerevent_isbase = false;
-            KBusyIndicatorWidget::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kbusyindicatorwidget_timerevent_callback;
-        if (timerevent_cb) {
+        if (kbusyindicatorwidget_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kbusyindicatorwidget_timerevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::timerEvent(event);
@@ -1063,15 +644,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kbusyindicatorwidget_childevent_isbase) {
-            kbusyindicatorwidget_childevent_isbase = false;
-            KBusyIndicatorWidget::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kbusyindicatorwidget_childevent_callback;
-        if (childevent_cb) {
+        if (kbusyindicatorwidget_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kbusyindicatorwidget_childevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::childEvent(event);
@@ -1079,15 +654,9 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kbusyindicatorwidget_customevent_isbase) {
-            kbusyindicatorwidget_customevent_isbase = false;
-            KBusyIndicatorWidget::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kbusyindicatorwidget_customevent_callback;
-        if (customevent_cb) {
+        if (kbusyindicatorwidget_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kbusyindicatorwidget_customevent_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::customEvent(event);
@@ -1095,17 +664,11 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kbusyindicatorwidget_connectnotify_isbase) {
-            kbusyindicatorwidget_connectnotify_isbase = false;
-            KBusyIndicatorWidget::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kbusyindicatorwidget_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kbusyindicatorwidget_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kbusyindicatorwidget_connectnotify_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::connectNotify(signal);
@@ -1113,268 +676,55 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kbusyindicatorwidget_disconnectnotify_isbase) {
-            kbusyindicatorwidget_disconnectnotify_isbase = false;
-            KBusyIndicatorWidget::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kbusyindicatorwidget_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kbusyindicatorwidget_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kbusyindicatorwidget_disconnectnotify_callback(this, cbval1);
             return;
         }
         KBusyIndicatorWidget::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (kbusyindicatorwidget_updatemicrofocus_isbase) {
-            kbusyindicatorwidget_updatemicrofocus_isbase = false;
-            KBusyIndicatorWidget::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = kbusyindicatorwidget_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KBusyIndicatorWidget::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (kbusyindicatorwidget_create_isbase) {
-            kbusyindicatorwidget_create_isbase = false;
-            KBusyIndicatorWidget::create();
-            return;
-        }
-        auto create_cb = kbusyindicatorwidget_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KBusyIndicatorWidget::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (kbusyindicatorwidget_destroy_isbase) {
-            kbusyindicatorwidget_destroy_isbase = false;
-            KBusyIndicatorWidget::destroy();
-            return;
-        }
-        auto destroy_cb = kbusyindicatorwidget_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KBusyIndicatorWidget::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (kbusyindicatorwidget_focusnextchild_isbase) {
-            kbusyindicatorwidget_focusnextchild_isbase = false;
-            return KBusyIndicatorWidget::focusNextChild();
-        }
-        auto focusnextchild_cb = kbusyindicatorwidget_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KBusyIndicatorWidget::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (kbusyindicatorwidget_focuspreviouschild_isbase) {
-            kbusyindicatorwidget_focuspreviouschild_isbase = false;
-            return KBusyIndicatorWidget::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = kbusyindicatorwidget_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KBusyIndicatorWidget::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kbusyindicatorwidget_sender_isbase) {
-            kbusyindicatorwidget_sender_isbase = false;
-            return KBusyIndicatorWidget::sender();
-        }
-        auto sender_cb = kbusyindicatorwidget_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KBusyIndicatorWidget::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kbusyindicatorwidget_sendersignalindex_isbase) {
-            kbusyindicatorwidget_sendersignalindex_isbase = false;
-            return KBusyIndicatorWidget::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kbusyindicatorwidget_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KBusyIndicatorWidget::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kbusyindicatorwidget_receivers_isbase) {
-            kbusyindicatorwidget_receivers_isbase = false;
-            return KBusyIndicatorWidget::receivers(signal);
-        }
-        auto receivers_cb = kbusyindicatorwidget_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KBusyIndicatorWidget::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kbusyindicatorwidget_issignalconnected_isbase) {
-            kbusyindicatorwidget_issignalconnected_isbase = false;
-            return KBusyIndicatorWidget::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kbusyindicatorwidget_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KBusyIndicatorWidget::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (kbusyindicatorwidget_getdecodedmetricf_isbase) {
-            kbusyindicatorwidget_getdecodedmetricf_isbase = false;
-            return KBusyIndicatorWidget::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = kbusyindicatorwidget_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KBusyIndicatorWidget::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void KBusyIndicatorWidget_ShowEvent(KBusyIndicatorWidget* self, QShowEvent* event);
     friend void KBusyIndicatorWidget_SuperShowEvent(KBusyIndicatorWidget* self, QShowEvent* event);
-    friend void KBusyIndicatorWidget_HideEvent(KBusyIndicatorWidget* self, QHideEvent* event);
     friend void KBusyIndicatorWidget_SuperHideEvent(KBusyIndicatorWidget* self, QHideEvent* event);
-    friend void KBusyIndicatorWidget_ResizeEvent(KBusyIndicatorWidget* self, QResizeEvent* event);
     friend void KBusyIndicatorWidget_SuperResizeEvent(KBusyIndicatorWidget* self, QResizeEvent* event);
-    friend void KBusyIndicatorWidget_PaintEvent(KBusyIndicatorWidget* self, QPaintEvent* param1);
     friend void KBusyIndicatorWidget_SuperPaintEvent(KBusyIndicatorWidget* self, QPaintEvent* param1);
-    friend bool KBusyIndicatorWidget_Event(KBusyIndicatorWidget* self, QEvent* event);
     friend bool KBusyIndicatorWidget_SuperEvent(KBusyIndicatorWidget* self, QEvent* event);
-    friend void KBusyIndicatorWidget_MousePressEvent(KBusyIndicatorWidget* self, QMouseEvent* event);
     friend void KBusyIndicatorWidget_SuperMousePressEvent(KBusyIndicatorWidget* self, QMouseEvent* event);
-    friend void KBusyIndicatorWidget_MouseReleaseEvent(KBusyIndicatorWidget* self, QMouseEvent* event);
     friend void KBusyIndicatorWidget_SuperMouseReleaseEvent(KBusyIndicatorWidget* self, QMouseEvent* event);
-    friend void KBusyIndicatorWidget_MouseDoubleClickEvent(KBusyIndicatorWidget* self, QMouseEvent* event);
     friend void KBusyIndicatorWidget_SuperMouseDoubleClickEvent(KBusyIndicatorWidget* self, QMouseEvent* event);
-    friend void KBusyIndicatorWidget_MouseMoveEvent(KBusyIndicatorWidget* self, QMouseEvent* event);
     friend void KBusyIndicatorWidget_SuperMouseMoveEvent(KBusyIndicatorWidget* self, QMouseEvent* event);
-    friend void KBusyIndicatorWidget_WheelEvent(KBusyIndicatorWidget* self, QWheelEvent* event);
     friend void KBusyIndicatorWidget_SuperWheelEvent(KBusyIndicatorWidget* self, QWheelEvent* event);
-    friend void KBusyIndicatorWidget_KeyPressEvent(KBusyIndicatorWidget* self, QKeyEvent* event);
     friend void KBusyIndicatorWidget_SuperKeyPressEvent(KBusyIndicatorWidget* self, QKeyEvent* event);
-    friend void KBusyIndicatorWidget_KeyReleaseEvent(KBusyIndicatorWidget* self, QKeyEvent* event);
     friend void KBusyIndicatorWidget_SuperKeyReleaseEvent(KBusyIndicatorWidget* self, QKeyEvent* event);
-    friend void KBusyIndicatorWidget_FocusInEvent(KBusyIndicatorWidget* self, QFocusEvent* event);
     friend void KBusyIndicatorWidget_SuperFocusInEvent(KBusyIndicatorWidget* self, QFocusEvent* event);
-    friend void KBusyIndicatorWidget_FocusOutEvent(KBusyIndicatorWidget* self, QFocusEvent* event);
     friend void KBusyIndicatorWidget_SuperFocusOutEvent(KBusyIndicatorWidget* self, QFocusEvent* event);
-    friend void KBusyIndicatorWidget_EnterEvent(KBusyIndicatorWidget* self, QEnterEvent* event);
     friend void KBusyIndicatorWidget_SuperEnterEvent(KBusyIndicatorWidget* self, QEnterEvent* event);
-    friend void KBusyIndicatorWidget_LeaveEvent(KBusyIndicatorWidget* self, QEvent* event);
     friend void KBusyIndicatorWidget_SuperLeaveEvent(KBusyIndicatorWidget* self, QEvent* event);
-    friend void KBusyIndicatorWidget_MoveEvent(KBusyIndicatorWidget* self, QMoveEvent* event);
     friend void KBusyIndicatorWidget_SuperMoveEvent(KBusyIndicatorWidget* self, QMoveEvent* event);
-    friend void KBusyIndicatorWidget_CloseEvent(KBusyIndicatorWidget* self, QCloseEvent* event);
     friend void KBusyIndicatorWidget_SuperCloseEvent(KBusyIndicatorWidget* self, QCloseEvent* event);
-    friend void KBusyIndicatorWidget_ContextMenuEvent(KBusyIndicatorWidget* self, QContextMenuEvent* event);
     friend void KBusyIndicatorWidget_SuperContextMenuEvent(KBusyIndicatorWidget* self, QContextMenuEvent* event);
-    friend void KBusyIndicatorWidget_TabletEvent(KBusyIndicatorWidget* self, QTabletEvent* event);
     friend void KBusyIndicatorWidget_SuperTabletEvent(KBusyIndicatorWidget* self, QTabletEvent* event);
-    friend void KBusyIndicatorWidget_ActionEvent(KBusyIndicatorWidget* self, QActionEvent* event);
     friend void KBusyIndicatorWidget_SuperActionEvent(KBusyIndicatorWidget* self, QActionEvent* event);
-    friend void KBusyIndicatorWidget_DragEnterEvent(KBusyIndicatorWidget* self, QDragEnterEvent* event);
     friend void KBusyIndicatorWidget_SuperDragEnterEvent(KBusyIndicatorWidget* self, QDragEnterEvent* event);
-    friend void KBusyIndicatorWidget_DragMoveEvent(KBusyIndicatorWidget* self, QDragMoveEvent* event);
     friend void KBusyIndicatorWidget_SuperDragMoveEvent(KBusyIndicatorWidget* self, QDragMoveEvent* event);
-    friend void KBusyIndicatorWidget_DragLeaveEvent(KBusyIndicatorWidget* self, QDragLeaveEvent* event);
     friend void KBusyIndicatorWidget_SuperDragLeaveEvent(KBusyIndicatorWidget* self, QDragLeaveEvent* event);
-    friend void KBusyIndicatorWidget_DropEvent(KBusyIndicatorWidget* self, QDropEvent* event);
     friend void KBusyIndicatorWidget_SuperDropEvent(KBusyIndicatorWidget* self, QDropEvent* event);
-    friend bool KBusyIndicatorWidget_NativeEvent(KBusyIndicatorWidget* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KBusyIndicatorWidget_SuperNativeEvent(KBusyIndicatorWidget* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void KBusyIndicatorWidget_ChangeEvent(KBusyIndicatorWidget* self, QEvent* param1);
     friend void KBusyIndicatorWidget_SuperChangeEvent(KBusyIndicatorWidget* self, QEvent* param1);
-    friend int KBusyIndicatorWidget_Metric(const KBusyIndicatorWidget* self, int param1);
     friend int KBusyIndicatorWidget_SuperMetric(const KBusyIndicatorWidget* self, int param1);
-    friend void KBusyIndicatorWidget_InitPainter(const KBusyIndicatorWidget* self, QPainter* painter);
     friend void KBusyIndicatorWidget_SuperInitPainter(const KBusyIndicatorWidget* self, QPainter* painter);
-    friend QPaintDevice* KBusyIndicatorWidget_Redirected(const KBusyIndicatorWidget* self, QPoint* offset);
     friend QPaintDevice* KBusyIndicatorWidget_SuperRedirected(const KBusyIndicatorWidget* self, QPoint* offset);
-    friend QPainter* KBusyIndicatorWidget_SharedPainter(const KBusyIndicatorWidget* self);
     friend QPainter* KBusyIndicatorWidget_SuperSharedPainter(const KBusyIndicatorWidget* self);
-    friend void KBusyIndicatorWidget_InputMethodEvent(KBusyIndicatorWidget* self, QInputMethodEvent* param1);
     friend void KBusyIndicatorWidget_SuperInputMethodEvent(KBusyIndicatorWidget* self, QInputMethodEvent* param1);
-    friend bool KBusyIndicatorWidget_FocusNextPrevChild(KBusyIndicatorWidget* self, bool next);
     friend bool KBusyIndicatorWidget_SuperFocusNextPrevChild(KBusyIndicatorWidget* self, bool next);
-    friend void KBusyIndicatorWidget_TimerEvent(KBusyIndicatorWidget* self, QTimerEvent* event);
     friend void KBusyIndicatorWidget_SuperTimerEvent(KBusyIndicatorWidget* self, QTimerEvent* event);
-    friend void KBusyIndicatorWidget_ChildEvent(KBusyIndicatorWidget* self, QChildEvent* event);
     friend void KBusyIndicatorWidget_SuperChildEvent(KBusyIndicatorWidget* self, QChildEvent* event);
-    friend void KBusyIndicatorWidget_CustomEvent(KBusyIndicatorWidget* self, QEvent* event);
     friend void KBusyIndicatorWidget_SuperCustomEvent(KBusyIndicatorWidget* self, QEvent* event);
-    friend void KBusyIndicatorWidget_ConnectNotify(KBusyIndicatorWidget* self, const QMetaMethod* signal);
     friend void KBusyIndicatorWidget_SuperConnectNotify(KBusyIndicatorWidget* self, const QMetaMethod* signal);
-    friend void KBusyIndicatorWidget_DisconnectNotify(KBusyIndicatorWidget* self, const QMetaMethod* signal);
     friend void KBusyIndicatorWidget_SuperDisconnectNotify(KBusyIndicatorWidget* self, const QMetaMethod* signal);
-    friend void KBusyIndicatorWidget_UpdateMicroFocus(KBusyIndicatorWidget* self);
-    friend void KBusyIndicatorWidget_SuperUpdateMicroFocus(KBusyIndicatorWidget* self);
-    friend void KBusyIndicatorWidget_Create(KBusyIndicatorWidget* self);
-    friend void KBusyIndicatorWidget_SuperCreate(KBusyIndicatorWidget* self);
-    friend void KBusyIndicatorWidget_Destroy(KBusyIndicatorWidget* self);
-    friend void KBusyIndicatorWidget_SuperDestroy(KBusyIndicatorWidget* self);
-    friend bool KBusyIndicatorWidget_FocusNextChild(KBusyIndicatorWidget* self);
-    friend bool KBusyIndicatorWidget_SuperFocusNextChild(KBusyIndicatorWidget* self);
-    friend bool KBusyIndicatorWidget_FocusPreviousChild(KBusyIndicatorWidget* self);
-    friend bool KBusyIndicatorWidget_SuperFocusPreviousChild(KBusyIndicatorWidget* self);
-    friend QObject* KBusyIndicatorWidget_Sender(const KBusyIndicatorWidget* self);
-    friend QObject* KBusyIndicatorWidget_SuperSender(const KBusyIndicatorWidget* self);
-    friend int KBusyIndicatorWidget_SenderSignalIndex(const KBusyIndicatorWidget* self);
-    friend int KBusyIndicatorWidget_SuperSenderSignalIndex(const KBusyIndicatorWidget* self);
-    friend int KBusyIndicatorWidget_Receivers(const KBusyIndicatorWidget* self, const char* signal);
-    friend int KBusyIndicatorWidget_SuperReceivers(const KBusyIndicatorWidget* self, const char* signal);
-    friend bool KBusyIndicatorWidget_IsSignalConnected(const KBusyIndicatorWidget* self, const QMetaMethod* signal);
-    friend bool KBusyIndicatorWidget_SuperIsSignalConnected(const KBusyIndicatorWidget* self, const QMetaMethod* signal);
-    friend double KBusyIndicatorWidget_GetDecodedMetricF(const KBusyIndicatorWidget* self, int metricA, int metricB);
-    friend double KBusyIndicatorWidget_SuperGetDecodedMetricF(const KBusyIndicatorWidget* self, int metricA, int metricB);
 };
 
 #endif

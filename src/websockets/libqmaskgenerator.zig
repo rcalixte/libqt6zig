@@ -56,6 +56,8 @@ pub const QMaskGenerator = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#seed)
     ///
+    /// This method must be implemented with `onSeed` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QMaskGenerator `
@@ -76,26 +78,10 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QMaskGenerator) callconv(.c) bool `
     ///
-    pub fn onSeed(self: QMaskGenerator, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSeed(self: QMaskGenerator, callback: *const fn (QMaskGenerator) callconv(.c) bool) void {
         qtc.QMaskGenerator_OnSeed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSeed` instead
-    ///
-    pub const SuperSeed = superSeed;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#seed)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QMaskGenerator `
-    ///
-    pub fn superSeed(self: QMaskGenerator) bool {
-        return qtc.QMaskGenerator_SuperSeed(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `nextMask` instead
@@ -103,6 +89,8 @@ pub const QMaskGenerator = extern struct {
     pub const NextMask = nextMask;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#nextMask)
+    ///
+    /// This method must be implemented with `onNextMask` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -124,26 +112,10 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    /// ` callback: *const fn () callconv(.c) u32 `
+    /// ` callback: *const fn (self: QMaskGenerator) callconv(.c) u32 `
     ///
-    pub fn onNextMask(self: QMaskGenerator, callback: *const fn () callconv(.c) u32) void {
+    pub fn onNextMask(self: QMaskGenerator, callback: *const fn (QMaskGenerator) callconv(.c) u32) void {
         qtc.QMaskGenerator_OnNextMask(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superNextMask` instead
-    ///
-    pub const SuperNextMask = superNextMask;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#nextMask)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QMaskGenerator `
-    ///
-    pub fn superNextMask(self: QMaskGenerator) u32 {
-        return qtc.QMaskGenerator_SuperNextMask(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `objectName` instead
@@ -1161,9 +1133,9 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator`
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QMaskGenerator) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QMaskGenerator, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QMaskGenerator, callback: *const fn (QMaskGenerator) callconv(.c) QMetaObject) void {
         qtc.QMaskGenerator_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1755,44 +1727,6 @@ pub const QMaskGenerator = extern struct {
         return .{ .ptr = qtc.QMaskGenerator_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QMaskGenerator `
-    ///
-    pub fn superSender(self: QMaskGenerator) QObject {
-        return .{ .ptr = qtc.QMaskGenerator_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QMaskGenerator`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QMaskGenerator, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QMaskGenerator_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1809,44 +1743,6 @@ pub const QMaskGenerator = extern struct {
     ///
     pub fn senderSignalIndex(self: QMaskGenerator) i32 {
         return qtc.QMaskGenerator_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QMaskGenerator `
-    ///
-    pub fn superSenderSignalIndex(self: QMaskGenerator) i32 {
-        return qtc.QMaskGenerator_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QMaskGenerator`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QMaskGenerator, callback: *const fn () callconv(.c) i32) void {
-        qtc.QMaskGenerator_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1870,47 +1766,6 @@ pub const QMaskGenerator = extern struct {
         return qtc.QMaskGenerator_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QMaskGenerator `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QMaskGenerator, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QMaskGenerator_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QMaskGenerator`
-    ///
-    /// ` callback: *const fn (self: QMaskGenerator, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QMaskGenerator, callback: *const fn (QMaskGenerator, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QMaskGenerator_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -1930,47 +1785,6 @@ pub const QMaskGenerator = extern struct {
     pub fn isSignalConnected(self: QMaskGenerator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QMaskGenerator_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QMaskGenerator `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QMaskGenerator, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QMaskGenerator_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QMaskGenerator`
-    ///
-    /// ` callback: *const fn (self: QMaskGenerator, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QMetaMethod) callconv(.c) bool) void {
-        qtc.QMaskGenerator_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

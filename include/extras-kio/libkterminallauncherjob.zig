@@ -95,9 +95,9 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KTerminalLauncherJob) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob) callconv(.c) QMetaObject) void {
         qtc.KTerminalLauncherJob_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -325,9 +325,9 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KTerminalLauncherJob) callconv(.c) void `
     ///
-    pub fn onStart(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) void) void {
+    pub fn onStart(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1984,9 +1984,9 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KTerminalLauncherJob) callconv(.c) bool `
     ///
-    pub fn onDoKill(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoKill(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob) callconv(.c) bool) void {
         qtc.KTerminalLauncherJob_OnDoKill(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2040,9 +2040,9 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KTerminalLauncherJob) callconv(.c) bool `
     ///
-    pub fn onDoSuspend(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoSuspend(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob) callconv(.c) bool) void {
         qtc.KTerminalLauncherJob_OnDoSuspend(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2096,9 +2096,9 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KTerminalLauncherJob) callconv(.c) bool `
     ///
-    pub fn onDoResume(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoResume(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob) callconv(.c) bool) void {
         qtc.KTerminalLauncherJob_OnDoResume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2164,9 +2164,9 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KTerminalLauncherJob) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onErrorString(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onErrorString(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob) callconv(.c) [*:0]const u8) void {
         qtc.KTerminalLauncherJob_OnErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2630,46 +2630,6 @@ pub const KTerminalLauncherJob = extern struct {
         qtc.KTerminalLauncherJob_SetCapabilities(@ptrCast(self.ptr), @bitCast(_capabilities));
     }
 
-    /// ### DEPRECATED: Use `superSetCapabilities` instead
-    ///
-    pub const SuperSetCapabilities = superSetCapabilities;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    /// ` _capabilities: flag of kjob_enums.Capability `
-    ///
-    pub fn superSetCapabilities(self: KTerminalLauncherJob, _capabilities: i32) void {
-        qtc.KTerminalLauncherJob_SuperSetCapabilities(@ptrCast(self.ptr), @bitCast(_capabilities));
-    }
-
-    /// ### DEPRECATED: Use `onSetCapabilities` instead
-    ///
-    pub const OnSetCapabilities = onSetCapabilities;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KTerminalLauncherJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void `
-    ///
-    pub fn onSetCapabilities(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnSetCapabilities(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isFinished` instead
     ///
     pub const IsFinished = isFinished;
@@ -2686,44 +2646,6 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     pub fn isFinished(self: KTerminalLauncherJob) bool {
         return qtc.KTerminalLauncherJob_IsFinished(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsFinished` instead
-    ///
-    pub const SuperIsFinished = superIsFinished;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#isFinished)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    pub fn superIsFinished(self: KTerminalLauncherJob) bool {
-        return qtc.KTerminalLauncherJob_SuperIsFinished(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsFinished` instead
-    ///
-    pub const OnIsFinished = onIsFinished;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#isFinished)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onIsFinished(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTerminalLauncherJob_OnIsFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setError` instead
@@ -2744,46 +2666,6 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     pub fn setError(self: KTerminalLauncherJob, errorCode: i32) void {
         qtc.KTerminalLauncherJob_SetError(@ptrCast(self.ptr), @bitCast(errorCode));
-    }
-
-    /// ### DEPRECATED: Use `superSetError` instead
-    ///
-    pub const SuperSetError = superSetError;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setError)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    /// ` errorCode: i32 `
-    ///
-    pub fn superSetError(self: KTerminalLauncherJob, errorCode: i32) void {
-        qtc.KTerminalLauncherJob_SuperSetError(@ptrCast(self.ptr), @bitCast(errorCode));
-    }
-
-    /// ### DEPRECATED: Use `onSetError` instead
-    ///
-    pub const OnSetError = onSetError;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setError)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KTerminalLauncherJob, errorCode: i32) callconv(.c) void `
-    ///
-    pub fn onSetError(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setErrorText` instead
@@ -2810,50 +2692,6 @@ pub const KTerminalLauncherJob = extern struct {
         qtc.KTerminalLauncherJob_SetErrorText(@ptrCast(self.ptr), errorText_str);
     }
 
-    /// ### DEPRECATED: Use `superSetErrorText` instead
-    ///
-    pub const SuperSetErrorText = superSetErrorText;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    /// ` _errorText: []const u8 `
-    ///
-    pub fn superSetErrorText(self: KTerminalLauncherJob, _errorText: []const u8) void {
-        const errorText_str = qtc.libqt_string{
-            .len = _errorText.len,
-            .data = _errorText.ptr,
-        };
-        qtc.KTerminalLauncherJob_SuperSetErrorText(@ptrCast(self.ptr), errorText_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorText` instead
-    ///
-    pub const OnSetErrorText = onSetErrorText;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KTerminalLauncherJob, errorText: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorText(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, [*:0]const u8) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnSetErrorText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setProcessedAmount` instead
     ///
     pub const SetProcessedAmount = setProcessedAmount;
@@ -2874,48 +2712,6 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     pub fn setProcessedAmount(self: KTerminalLauncherJob, unit: i32, amount: usize) void {
         qtc.KTerminalLauncherJob_SetProcessedAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
-    }
-
-    /// ### DEPRECATED: Use `superSetProcessedAmount` instead
-    ///
-    pub const SuperSetProcessedAmount = superSetProcessedAmount;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    /// ` unit: kjob_enums.Unit `
-    ///
-    /// ` amount: usize `
-    ///
-    pub fn superSetProcessedAmount(self: KTerminalLauncherJob, unit: i32, amount: usize) void {
-        qtc.KTerminalLauncherJob_SuperSetProcessedAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
-    }
-
-    /// ### DEPRECATED: Use `onSetProcessedAmount` instead
-    ///
-    pub const OnSetProcessedAmount = onSetProcessedAmount;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KTerminalLauncherJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
-    ///
-    pub fn onSetProcessedAmount(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32, usize) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnSetProcessedAmount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setTotalAmount` instead
@@ -2940,48 +2736,6 @@ pub const KTerminalLauncherJob = extern struct {
         qtc.KTerminalLauncherJob_SetTotalAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
-    /// ### DEPRECATED: Use `superSetTotalAmount` instead
-    ///
-    pub const SuperSetTotalAmount = superSetTotalAmount;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    /// ` unit: kjob_enums.Unit `
-    ///
-    /// ` amount: usize `
-    ///
-    pub fn superSetTotalAmount(self: KTerminalLauncherJob, unit: i32, amount: usize) void {
-        qtc.KTerminalLauncherJob_SuperSetTotalAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
-    }
-
-    /// ### DEPRECATED: Use `onSetTotalAmount` instead
-    ///
-    pub const OnSetTotalAmount = onSetTotalAmount;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KTerminalLauncherJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
-    ///
-    pub fn onSetTotalAmount(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32, usize) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnSetTotalAmount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setProgressUnit` instead
     ///
     pub const SetProgressUnit = setProgressUnit;
@@ -3000,46 +2754,6 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     pub fn setProgressUnit(self: KTerminalLauncherJob, unit: i32) void {
         qtc.KTerminalLauncherJob_SetProgressUnit(@ptrCast(self.ptr), @bitCast(unit));
-    }
-
-    /// ### DEPRECATED: Use `superSetProgressUnit` instead
-    ///
-    pub const SuperSetProgressUnit = superSetProgressUnit;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    /// ` unit: kjob_enums.Unit `
-    ///
-    pub fn superSetProgressUnit(self: KTerminalLauncherJob, unit: i32) void {
-        qtc.KTerminalLauncherJob_SuperSetProgressUnit(@ptrCast(self.ptr), @bitCast(unit));
-    }
-
-    /// ### DEPRECATED: Use `onSetProgressUnit` instead
-    ///
-    pub const OnSetProgressUnit = onSetProgressUnit;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KTerminalLauncherJob, unit: kjob_enums.Unit) callconv(.c) void `
-    ///
-    pub fn onSetProgressUnit(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnSetProgressUnit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setPercent` instead
@@ -3062,46 +2776,6 @@ pub const KTerminalLauncherJob = extern struct {
         qtc.KTerminalLauncherJob_SetPercent(@ptrCast(self.ptr), @bitCast(percentage));
     }
 
-    /// ### DEPRECATED: Use `superSetPercent` instead
-    ///
-    pub const SuperSetPercent = superSetPercent;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setPercent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    /// ` percentage: usize `
-    ///
-    pub fn superSetPercent(self: KTerminalLauncherJob, percentage: usize) void {
-        qtc.KTerminalLauncherJob_SuperSetPercent(@ptrCast(self.ptr), @bitCast(percentage));
-    }
-
-    /// ### DEPRECATED: Use `onSetPercent` instead
-    ///
-    pub const OnSetPercent = onSetPercent;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setPercent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KTerminalLauncherJob, percentage: usize) callconv(.c) void `
-    ///
-    pub fn onSetPercent(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, usize) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnSetPercent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `emitResult` instead
     ///
     pub const EmitResult = emitResult;
@@ -3118,44 +2792,6 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     pub fn emitResult(self: KTerminalLauncherJob) void {
         qtc.KTerminalLauncherJob_EmitResult(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEmitResult` instead
-    ///
-    pub const SuperEmitResult = superEmitResult;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitResult)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    pub fn superEmitResult(self: KTerminalLauncherJob) void {
-        qtc.KTerminalLauncherJob_SuperEmitResult(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEmitResult` instead
-    ///
-    pub const OnEmitResult = onEmitResult;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitResult)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEmitResult(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnEmitResult(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `emitPercent` instead
@@ -3180,48 +2816,6 @@ pub const KTerminalLauncherJob = extern struct {
         qtc.KTerminalLauncherJob_EmitPercent(@ptrCast(self.ptr), @bitCast(_processedAmount), @bitCast(_totalAmount));
     }
 
-    /// ### DEPRECATED: Use `superEmitPercent` instead
-    ///
-    pub const SuperEmitPercent = superEmitPercent;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    /// ` _processedAmount: usize `
-    ///
-    /// ` _totalAmount: usize `
-    ///
-    pub fn superEmitPercent(self: KTerminalLauncherJob, _processedAmount: usize, _totalAmount: usize) void {
-        qtc.KTerminalLauncherJob_SuperEmitPercent(@ptrCast(self.ptr), @bitCast(_processedAmount), @bitCast(_totalAmount));
-    }
-
-    /// ### DEPRECATED: Use `onEmitPercent` instead
-    ///
-    pub const OnEmitPercent = onEmitPercent;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KTerminalLauncherJob, processedAmount: usize, totalAmount: usize) callconv(.c) void `
-    ///
-    pub fn onEmitPercent(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, usize, usize) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnEmitPercent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `emitSpeed` instead
     ///
     pub const EmitSpeed = emitSpeed;
@@ -3242,46 +2836,6 @@ pub const KTerminalLauncherJob = extern struct {
         qtc.KTerminalLauncherJob_EmitSpeed(@ptrCast(self.ptr), @bitCast(_speed));
     }
 
-    /// ### DEPRECATED: Use `superEmitSpeed` instead
-    ///
-    pub const SuperEmitSpeed = superEmitSpeed;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    /// ` _speed: usize `
-    ///
-    pub fn superEmitSpeed(self: KTerminalLauncherJob, _speed: usize) void {
-        qtc.KTerminalLauncherJob_SuperEmitSpeed(@ptrCast(self.ptr), @bitCast(_speed));
-    }
-
-    /// ### DEPRECATED: Use `onEmitSpeed` instead
-    ///
-    pub const OnEmitSpeed = onEmitSpeed;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KTerminalLauncherJob, speed: usize) callconv(.c) void `
-    ///
-    pub fn onEmitSpeed(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, usize) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnEmitSpeed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `startElapsedTimer` instead
     ///
     pub const StartElapsedTimer = startElapsedTimer;
@@ -3298,44 +2852,6 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     pub fn startElapsedTimer(self: KTerminalLauncherJob) void {
         qtc.KTerminalLauncherJob_StartElapsedTimer(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superStartElapsedTimer` instead
-    ///
-    pub const SuperStartElapsedTimer = superStartElapsedTimer;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    pub fn superStartElapsedTimer(self: KTerminalLauncherJob) void {
-        qtc.KTerminalLauncherJob_SuperStartElapsedTimer(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStartElapsedTimer` instead
-    ///
-    pub const OnStartElapsedTimer = onStartElapsedTimer;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStartElapsedTimer(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnStartElapsedTimer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -3356,44 +2872,6 @@ pub const KTerminalLauncherJob = extern struct {
         return .{ .ptr = qtc.KTerminalLauncherJob_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    pub fn superSender(self: KTerminalLauncherJob) QObject {
-        return .{ .ptr = qtc.KTerminalLauncherJob_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KTerminalLauncherJob_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3410,44 +2888,6 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     pub fn senderSignalIndex(self: KTerminalLauncherJob) i32 {
         return qtc.KTerminalLauncherJob_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    pub fn superSenderSignalIndex(self: KTerminalLauncherJob) i32 {
-        return qtc.KTerminalLauncherJob_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) i32) void {
-        qtc.KTerminalLauncherJob_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3471,47 +2911,6 @@ pub const KTerminalLauncherJob = extern struct {
         return qtc.KTerminalLauncherJob_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KTerminalLauncherJob, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KTerminalLauncherJob_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KTerminalLauncherJob, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KTerminalLauncherJob_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3531,47 +2930,6 @@ pub const KTerminalLauncherJob = extern struct {
     pub fn isSignalConnected(self: KTerminalLauncherJob, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KTerminalLauncherJob_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KTerminalLauncherJob, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KTerminalLauncherJob_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTerminalLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KTerminalLauncherJob, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QMetaMethod) callconv(.c) bool) void {
-        qtc.KTerminalLauncherJob_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onFinished` instead

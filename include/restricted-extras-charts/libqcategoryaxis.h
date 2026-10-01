@@ -50,13 +50,13 @@ void QCategoryAxis_Connect_LabelsPositionChanged(QCategoryAxis* self, intptr_t s
 libqt_string QCategoryAxis_Tr2(const char* s, const char* c);
 libqt_string QCategoryAxis_Tr3(const char* s, const char* c, int n);
 double QCategoryAxis_StartValue1(const QCategoryAxis* self, const libqt_string categoryLabel);
-void QCategoryAxis_OnMetaObject(const QCategoryAxis* self, intptr_t slot);
+void QCategoryAxis_OnMetaObject(QCategoryAxis* self, intptr_t slot);
 QMetaObject* QCategoryAxis_SuperMetaObject(const QCategoryAxis* self);
 void QCategoryAxis_OnMetacast(QCategoryAxis* self, intptr_t slot);
 void* QCategoryAxis_SuperMetacast(QCategoryAxis* self, const char* param1);
 void QCategoryAxis_OnMetacall(QCategoryAxis* self, intptr_t slot);
 int QCategoryAxis_SuperMetacall(QCategoryAxis* self, int param1, int param2, void** param3);
-void QCategoryAxis_OnType(const QCategoryAxis* self, intptr_t slot);
+void QCategoryAxis_OnType(QCategoryAxis* self, intptr_t slot);
 int QCategoryAxis_SuperType(const QCategoryAxis* self);
 bool QCategoryAxis_Event(QCategoryAxis* self, QEvent* event);
 void QCategoryAxis_OnEvent(QCategoryAxis* self, intptr_t slot);
@@ -80,17 +80,9 @@ void QCategoryAxis_DisconnectNotify(QCategoryAxis* self, const QMetaMethod* sign
 void QCategoryAxis_OnDisconnectNotify(QCategoryAxis* self, intptr_t slot);
 void QCategoryAxis_SuperDisconnectNotify(QCategoryAxis* self, const QMetaMethod* signal);
 QObject* QCategoryAxis_Sender(const QCategoryAxis* self);
-void QCategoryAxis_OnSender(const QCategoryAxis* self, intptr_t slot);
-QObject* QCategoryAxis_SuperSender(const QCategoryAxis* self);
 int QCategoryAxis_SenderSignalIndex(const QCategoryAxis* self);
-void QCategoryAxis_OnSenderSignalIndex(const QCategoryAxis* self, intptr_t slot);
-int QCategoryAxis_SuperSenderSignalIndex(const QCategoryAxis* self);
 int QCategoryAxis_Receivers(const QCategoryAxis* self, const char* signal);
-void QCategoryAxis_OnReceivers(const QCategoryAxis* self, intptr_t slot);
-int QCategoryAxis_SuperReceivers(const QCategoryAxis* self, const char* signal);
 bool QCategoryAxis_IsSignalConnected(const QCategoryAxis* self, const QMetaMethod* signal);
-void QCategoryAxis_OnIsSignalConnected(const QCategoryAxis* self, intptr_t slot);
-bool QCategoryAxis_SuperIsSignalConnected(const QCategoryAxis* self, const QMetaMethod* signal);
 void QCategoryAxis_Delete(QCategoryAxis* self);
 
 #ifdef __cplusplus

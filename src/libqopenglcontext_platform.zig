@@ -49,6 +49,8 @@ pub const QNativeInterface__QEGLContext = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qeglcontext.html#nativeContext)
     ///
+    /// This method must be implemented with `onNativeContext` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QNativeInterface__QEGLContext `
@@ -71,30 +73,12 @@ pub const QNativeInterface__QEGLContext = extern struct {
     ///
     /// ` self: QNativeInterface__QEGLContext `
     ///
-    /// ` callback: *const fn () callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QNativeInterface__QEGLContext) callconv(.c) ?*anyopaque `
     ///
-    pub fn onNativeContext(self: QNativeInterface__QEGLContext, callback: *const fn () callconv(.c) ?*anyopaque) void {
+    pub fn onNativeContext(self: QNativeInterface__QEGLContext, callback: *const fn (QNativeInterface__QEGLContext) callconv(.c) ?*anyopaque) void {
         if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
             @compileError("Unsupported operating system");
         qtc.QNativeInterface__QEGLContext_OnNativeContext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superNativeContext` instead
-    ///
-    pub const SuperNativeContext = superNativeContext;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qeglcontext.html#nativeContext)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNativeInterface__QEGLContext `
-    ///
-    pub fn superNativeContext(self: QNativeInterface__QEGLContext) ?*anyopaque {
-        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
-            @compileError("Unsupported operating system");
-        return qtc.QNativeInterface__QEGLContext_SuperNativeContext(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `config` instead
@@ -102,6 +86,8 @@ pub const QNativeInterface__QEGLContext = extern struct {
     pub const Config = config;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qeglcontext.html#config)
+    ///
+    /// This method must be implemented with `onConfig` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -125,30 +111,12 @@ pub const QNativeInterface__QEGLContext = extern struct {
     ///
     /// ` self: QNativeInterface__QEGLContext `
     ///
-    /// ` callback: *const fn () callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QNativeInterface__QEGLContext) callconv(.c) ?*anyopaque `
     ///
-    pub fn onConfig(self: QNativeInterface__QEGLContext, callback: *const fn () callconv(.c) ?*anyopaque) void {
+    pub fn onConfig(self: QNativeInterface__QEGLContext, callback: *const fn (QNativeInterface__QEGLContext) callconv(.c) ?*anyopaque) void {
         if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
             @compileError("Unsupported operating system");
         qtc.QNativeInterface__QEGLContext_OnConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superConfig` instead
-    ///
-    pub const SuperConfig = superConfig;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qeglcontext.html#config)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNativeInterface__QEGLContext `
-    ///
-    pub fn superConfig(self: QNativeInterface__QEGLContext) ?*anyopaque {
-        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
-            @compileError("Unsupported operating system");
-        return qtc.QNativeInterface__QEGLContext_SuperConfig(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `display` instead
@@ -156,6 +124,8 @@ pub const QNativeInterface__QEGLContext = extern struct {
     pub const Display = display;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qeglcontext.html#display)
+    ///
+    /// This method must be implemented with `onDisplay` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -179,30 +149,12 @@ pub const QNativeInterface__QEGLContext = extern struct {
     ///
     /// ` self: QNativeInterface__QEGLContext `
     ///
-    /// ` callback: *const fn () callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QNativeInterface__QEGLContext) callconv(.c) ?*anyopaque `
     ///
-    pub fn onDisplay(self: QNativeInterface__QEGLContext, callback: *const fn () callconv(.c) ?*anyopaque) void {
+    pub fn onDisplay(self: QNativeInterface__QEGLContext, callback: *const fn (QNativeInterface__QEGLContext) callconv(.c) ?*anyopaque) void {
         if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
             @compileError("Unsupported operating system");
         qtc.QNativeInterface__QEGLContext_OnDisplay(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDisplay` instead
-    ///
-    pub const SuperDisplay = superDisplay;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qeglcontext.html#display)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNativeInterface__QEGLContext `
-    ///
-    pub fn superDisplay(self: QNativeInterface__QEGLContext) ?*anyopaque {
-        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
-            @compileError("Unsupported operating system");
-        return qtc.QNativeInterface__QEGLContext_SuperDisplay(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `invalidateContext` instead
@@ -210,6 +162,8 @@ pub const QNativeInterface__QEGLContext = extern struct {
     pub const InvalidateContext = invalidateContext;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qeglcontext.html#invalidateContext)
+    ///
+    /// This method must be implemented with `onInvalidateContext` before it can be called.
     ///
     /// ## Parameter(s):
     ///

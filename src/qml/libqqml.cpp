@@ -155,364 +155,219 @@ libqt_string QQmlTypeNotAvailable_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QQmlTypeNotAvailable_SuperMetaObject(const QQmlTypeNotAvailable* self) {
-    auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self));
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_MetaObject_IsBase(true);
-        return (QMetaObject*)vqqmltypenotavailable->metaObject();
-    } else {
-        return (QMetaObject*)self->QQmlTypeNotAvailable::metaObject();
-    }
+    return (QMetaObject*)self->QQmlTypeNotAvailable::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQmlTypeNotAvailable_OnMetaObject(const QQmlTypeNotAvailable* self, intptr_t slot) {
-    auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self));
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable)
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_MetaObject_Callback(reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_MetaObject_Callback>(slot));
+void QQmlTypeNotAvailable_OnMetaObject(QQmlTypeNotAvailable* self, intptr_t slot) {
+    if (auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self)))
+        vqqmltypenotavailable->qqmltypenotavailable_metaobject_callback = reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQmlTypeNotAvailable_SuperMetacast(QQmlTypeNotAvailable* self, const char* param1) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_Metacast_IsBase(true);
-        return vqqmltypenotavailable->qt_metacast(param1);
-    } else {
-        return self->QQmlTypeNotAvailable::qt_metacast(param1);
-    }
+    return self->QQmlTypeNotAvailable::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlTypeNotAvailable_OnMetacast(QQmlTypeNotAvailable* self, intptr_t slot) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable)
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_Metacast_Callback(reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_Metacast_Callback>(slot));
+    if (auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self))
+        vqqmltypenotavailable->qqmltypenotavailable_metacast_callback = reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQmlTypeNotAvailable_SuperMetacall(QQmlTypeNotAvailable* self, int param1, int param2, void** param3) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_Metacall_IsBase(true);
-        return vqqmltypenotavailable->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQmlTypeNotAvailable::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQmlTypeNotAvailable::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlTypeNotAvailable_OnMetacall(QQmlTypeNotAvailable* self, intptr_t slot) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable)
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_Metacall_Callback(reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_Metacall_Callback>(slot));
+    if (auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self))
+        vqqmltypenotavailable->qqmltypenotavailable_metacall_callback = reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQmlTypeNotAvailable_Event(QQmlTypeNotAvailable* self, QEvent* event) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        return vqqmltypenotavailable->event(event);
-    } else {
-        return self->QQmlTypeNotAvailable::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QQmlTypeNotAvailable_SuperEvent(QQmlTypeNotAvailable* self, QEvent* event) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_Event_IsBase(true);
-        return vqqmltypenotavailable->event(event);
-    } else {
-        return self->QQmlTypeNotAvailable::event(event);
-    }
+    return self->QQmlTypeNotAvailable::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlTypeNotAvailable_OnEvent(QQmlTypeNotAvailable* self, intptr_t slot) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable)
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_Event_Callback(reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_Event_Callback>(slot));
+    if (auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self))
+        vqqmltypenotavailable->qqmltypenotavailable_event_callback = reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQmlTypeNotAvailable_EventFilter(QQmlTypeNotAvailable* self, QObject* watched, QEvent* event) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        return vqqmltypenotavailable->eventFilter(watched, event);
-    } else {
-        return self->QQmlTypeNotAvailable::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQmlTypeNotAvailable_SuperEventFilter(QQmlTypeNotAvailable* self, QObject* watched, QEvent* event) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_EventFilter_IsBase(true);
-        return vqqmltypenotavailable->eventFilter(watched, event);
-    } else {
-        return self->QQmlTypeNotAvailable::eventFilter(watched, event);
-    }
+    return self->QQmlTypeNotAvailable::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlTypeNotAvailable_OnEventFilter(QQmlTypeNotAvailable* self, intptr_t slot) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable)
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_EventFilter_Callback(reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_EventFilter_Callback>(slot));
+    if (auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self))
+        vqqmltypenotavailable->qqmltypenotavailable_eventfilter_callback = reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlTypeNotAvailable_TimerEvent(QQmlTypeNotAvailable* self, QTimerEvent* event) {
     auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
+    if (vqqmltypenotavailable) {
         vqqmltypenotavailable->timerEvent(event);
     } else {
-        ((VirtualQQmlTypeNotAvailable*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQmlTypeNotAvailable::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlTypeNotAvailable_SuperTimerEvent(QQmlTypeNotAvailable* self, QTimerEvent* event) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_TimerEvent_IsBase(true);
-        vqqmltypenotavailable->timerEvent(event);
-    } else {
-        ((VirtualQQmlTypeNotAvailable*)self)->timerEvent(event);
-    }
+    if (auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self)) {
+        vqqmltypenotavailable->QQmlTypeNotAvailable::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQmlTypeNotAvailable::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlTypeNotAvailable_OnTimerEvent(QQmlTypeNotAvailable* self, intptr_t slot) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable)
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_TimerEvent_Callback(reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_TimerEvent_Callback>(slot));
+    if (auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self))
+        vqqmltypenotavailable->qqmltypenotavailable_timerevent_callback = reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlTypeNotAvailable_ChildEvent(QQmlTypeNotAvailable* self, QChildEvent* event) {
     auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
+    if (vqqmltypenotavailable) {
         vqqmltypenotavailable->childEvent(event);
     } else {
-        ((VirtualQQmlTypeNotAvailable*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQmlTypeNotAvailable::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlTypeNotAvailable_SuperChildEvent(QQmlTypeNotAvailable* self, QChildEvent* event) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_ChildEvent_IsBase(true);
-        vqqmltypenotavailable->childEvent(event);
-    } else {
-        ((VirtualQQmlTypeNotAvailable*)self)->childEvent(event);
-    }
+    if (auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self)) {
+        vqqmltypenotavailable->QQmlTypeNotAvailable::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQmlTypeNotAvailable::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlTypeNotAvailable_OnChildEvent(QQmlTypeNotAvailable* self, intptr_t slot) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable)
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_ChildEvent_Callback(reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_ChildEvent_Callback>(slot));
+    if (auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self))
+        vqqmltypenotavailable->qqmltypenotavailable_childevent_callback = reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlTypeNotAvailable_CustomEvent(QQmlTypeNotAvailable* self, QEvent* event) {
     auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
+    if (vqqmltypenotavailable) {
         vqqmltypenotavailable->customEvent(event);
     } else {
-        ((VirtualQQmlTypeNotAvailable*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQmlTypeNotAvailable::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlTypeNotAvailable_SuperCustomEvent(QQmlTypeNotAvailable* self, QEvent* event) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_CustomEvent_IsBase(true);
-        vqqmltypenotavailable->customEvent(event);
-    } else {
-        ((VirtualQQmlTypeNotAvailable*)self)->customEvent(event);
-    }
+    if (auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self)) {
+        vqqmltypenotavailable->QQmlTypeNotAvailable::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQmlTypeNotAvailable::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlTypeNotAvailable_OnCustomEvent(QQmlTypeNotAvailable* self, intptr_t slot) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable)
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_CustomEvent_Callback(reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_CustomEvent_Callback>(slot));
+    if (auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self))
+        vqqmltypenotavailable->qqmltypenotavailable_customevent_callback = reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlTypeNotAvailable_ConnectNotify(QQmlTypeNotAvailable* self, const QMetaMethod* signal) {
     auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
+    if (vqqmltypenotavailable) {
         vqqmltypenotavailable->connectNotify(*signal);
     } else {
-        ((VirtualQQmlTypeNotAvailable*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQmlTypeNotAvailable::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlTypeNotAvailable_SuperConnectNotify(QQmlTypeNotAvailable* self, const QMetaMethod* signal) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_ConnectNotify_IsBase(true);
-        vqqmltypenotavailable->connectNotify(*signal);
-    } else {
-        ((VirtualQQmlTypeNotAvailable*)self)->connectNotify(*signal);
-    }
+    if (auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self)) {
+        vqqmltypenotavailable->QQmlTypeNotAvailable::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQmlTypeNotAvailable::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlTypeNotAvailable_OnConnectNotify(QQmlTypeNotAvailable* self, intptr_t slot) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable)
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_ConnectNotify_Callback(reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_ConnectNotify_Callback>(slot));
+    if (auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self))
+        vqqmltypenotavailable->qqmltypenotavailable_connectnotify_callback = reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlTypeNotAvailable_DisconnectNotify(QQmlTypeNotAvailable* self, const QMetaMethod* signal) {
     auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
+    if (vqqmltypenotavailable) {
         vqqmltypenotavailable->disconnectNotify(*signal);
     } else {
-        ((VirtualQQmlTypeNotAvailable*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQmlTypeNotAvailable::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlTypeNotAvailable_SuperDisconnectNotify(QQmlTypeNotAvailable* self, const QMetaMethod* signal) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_DisconnectNotify_IsBase(true);
-        vqqmltypenotavailable->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQmlTypeNotAvailable*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self)) {
+        vqqmltypenotavailable->QQmlTypeNotAvailable::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQmlTypeNotAvailable::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlTypeNotAvailable_OnDisconnectNotify(QQmlTypeNotAvailable* self, intptr_t slot) {
-    auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self);
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable)
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_DisconnectNotify_Callback(reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_DisconnectNotify_Callback>(slot));
+    if (auto* vqqmltypenotavailable = dynamic_cast<VirtualQQmlTypeNotAvailable*>(self))
+        vqqmltypenotavailable->qqmltypenotavailable_disconnectnotify_callback = reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQmlTypeNotAvailable_Sender(const QQmlTypeNotAvailable* self) {
-    auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self));
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        return vqqmltypenotavailable->sender();
-    } else {
-        return ((VirtualQQmlTypeNotAvailable*)self)->sender();
-    }
+    if (auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self))) {
+        return vqqmltypenotavailable->VirtualQQmlTypeNotAvailable::sender();
+    } else
+        qFatal("Error: Protected method QQmlTypeNotAvailable::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQmlTypeNotAvailable_SuperSender(const QQmlTypeNotAvailable* self) {
-    auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self));
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_Sender_IsBase(true);
-        return vqqmltypenotavailable->sender();
-    } else {
-        return ((VirtualQQmlTypeNotAvailable*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlTypeNotAvailable_OnSender(const QQmlTypeNotAvailable* self, intptr_t slot) {
-    auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self));
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable)
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_Sender_Callback(reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQmlTypeNotAvailable_SenderSignalIndex(const QQmlTypeNotAvailable* self) {
-    auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self));
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        return vqqmltypenotavailable->senderSignalIndex();
-    } else {
-        return ((VirtualQQmlTypeNotAvailable*)self)->senderSignalIndex();
-    }
+    if (auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self))) {
+        return vqqmltypenotavailable->VirtualQQmlTypeNotAvailable::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQmlTypeNotAvailable::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQmlTypeNotAvailable_SuperSenderSignalIndex(const QQmlTypeNotAvailable* self) {
-    auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self));
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_SenderSignalIndex_IsBase(true);
-        return vqqmltypenotavailable->senderSignalIndex();
-    } else {
-        return ((VirtualQQmlTypeNotAvailable*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlTypeNotAvailable_OnSenderSignalIndex(const QQmlTypeNotAvailable* self, intptr_t slot) {
-    auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self));
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable)
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQmlTypeNotAvailable_Receivers(const QQmlTypeNotAvailable* self, const char* signal) {
-    auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self));
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        return vqqmltypenotavailable->receivers(signal);
-    } else {
-        return ((VirtualQQmlTypeNotAvailable*)self)->receivers(signal);
-    }
+    if (auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self))) {
+        return vqqmltypenotavailable->VirtualQQmlTypeNotAvailable::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQmlTypeNotAvailable::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQmlTypeNotAvailable_SuperReceivers(const QQmlTypeNotAvailable* self, const char* signal) {
-    auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self));
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_Receivers_IsBase(true);
-        return vqqmltypenotavailable->receivers(signal);
-    } else {
-        return ((VirtualQQmlTypeNotAvailable*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlTypeNotAvailable_OnReceivers(const QQmlTypeNotAvailable* self, intptr_t slot) {
-    auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self));
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable)
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_Receivers_Callback(reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQmlTypeNotAvailable_IsSignalConnected(const QQmlTypeNotAvailable* self, const QMetaMethod* signal) {
-    auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self));
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        return vqqmltypenotavailable->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQmlTypeNotAvailable*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQmlTypeNotAvailable_SuperIsSignalConnected(const QQmlTypeNotAvailable* self, const QMetaMethod* signal) {
-    auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self));
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable) {
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_IsSignalConnected_IsBase(true);
-        return vqqmltypenotavailable->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQmlTypeNotAvailable*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlTypeNotAvailable_OnIsSignalConnected(const QQmlTypeNotAvailable* self, intptr_t slot) {
-    auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self));
-    if (vqqmltypenotavailable && vqqmltypenotavailable->isVirtualQQmlTypeNotAvailable)
-        vqqmltypenotavailable->setQQmlTypeNotAvailable_IsSignalConnected_Callback(reinterpret_cast<VirtualQQmlTypeNotAvailable::QQmlTypeNotAvailable_IsSignalConnected_Callback>(slot));
+    if (auto* vqqmltypenotavailable = const_cast<VirtualQQmlTypeNotAvailable*>(dynamic_cast<const VirtualQQmlTypeNotAvailable*>(self))) {
+        return vqqmltypenotavailable->VirtualQQmlTypeNotAvailable::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQmlTypeNotAvailable::isSignalConnected called without a directly constructed type");
 }
 
 void QQmlTypeNotAvailable_Delete(QQmlTypeNotAvailable* self) {

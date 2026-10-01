@@ -155,7 +155,7 @@ void QVirtualKeyboardTrace_StartHideTimer(QVirtualKeyboardTrace* self, int delay
 
 void QVirtualKeyboardTrace_TimerEvent(QVirtualKeyboardTrace* self, QTimerEvent* event) {
     auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
+    if (vqvirtualkeyboardtrace) {
         vqvirtualkeyboardtrace->timerEvent(event);
     }
 }
@@ -323,354 +323,209 @@ libqt_list /* of QVariant* */ QVirtualKeyboardTrace_ChannelData3(const QVirtualK
 
 // Base class handler implementation
 QMetaObject* QVirtualKeyboardTrace_SuperMetaObject(const QVirtualKeyboardTrace* self) {
-    auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self));
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_MetaObject_IsBase(true);
-        return (QMetaObject*)vqvirtualkeyboardtrace->metaObject();
-    } else {
-        return (QMetaObject*)self->QVirtualKeyboardTrace::metaObject();
-    }
+    return (QMetaObject*)self->QVirtualKeyboardTrace::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVirtualKeyboardTrace_OnMetaObject(const QVirtualKeyboardTrace* self, intptr_t slot) {
-    auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self));
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace)
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_MetaObject_Callback(reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_MetaObject_Callback>(slot));
+void QVirtualKeyboardTrace_OnMetaObject(QVirtualKeyboardTrace* self, intptr_t slot) {
+    if (auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self)))
+        vqvirtualkeyboardtrace->qvirtualkeyboardtrace_metaobject_callback = reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QVirtualKeyboardTrace_SuperMetacast(QVirtualKeyboardTrace* self, const char* param1) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_Metacast_IsBase(true);
-        return vqvirtualkeyboardtrace->qt_metacast(param1);
-    } else {
-        return self->QVirtualKeyboardTrace::qt_metacast(param1);
-    }
+    return self->QVirtualKeyboardTrace::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardTrace_OnMetacast(QVirtualKeyboardTrace* self, intptr_t slot) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace)
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_Metacast_Callback(reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_Metacast_Callback>(slot));
+    if (auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self))
+        vqvirtualkeyboardtrace->qvirtualkeyboardtrace_metacast_callback = reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QVirtualKeyboardTrace_SuperMetacall(QVirtualKeyboardTrace* self, int param1, int param2, void** param3) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_Metacall_IsBase(true);
-        return vqvirtualkeyboardtrace->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QVirtualKeyboardTrace::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QVirtualKeyboardTrace::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardTrace_OnMetacall(QVirtualKeyboardTrace* self, intptr_t slot) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace)
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_Metacall_Callback(reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_Metacall_Callback>(slot));
+    if (auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self))
+        vqvirtualkeyboardtrace->qvirtualkeyboardtrace_metacall_callback = reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QVirtualKeyboardTrace_SuperTimerEvent(QVirtualKeyboardTrace* self, QTimerEvent* event) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_TimerEvent_IsBase(true);
-        vqvirtualkeyboardtrace->timerEvent(event);
-    } else {
-        ((VirtualQVirtualKeyboardTrace*)self)->timerEvent(event);
-    }
+    if (auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self)) {
+        vqvirtualkeyboardtrace->QVirtualKeyboardTrace::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVirtualKeyboardTrace::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardTrace_OnTimerEvent(QVirtualKeyboardTrace* self, intptr_t slot) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace)
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_TimerEvent_Callback(reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_TimerEvent_Callback>(slot));
+    if (auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self))
+        vqvirtualkeyboardtrace->qvirtualkeyboardtrace_timerevent_callback = reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVirtualKeyboardTrace_Event(QVirtualKeyboardTrace* self, QEvent* event) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        return vqvirtualkeyboardtrace->event(event);
-    } else {
-        return self->QVirtualKeyboardTrace::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QVirtualKeyboardTrace_SuperEvent(QVirtualKeyboardTrace* self, QEvent* event) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_Event_IsBase(true);
-        return vqvirtualkeyboardtrace->event(event);
-    } else {
-        return self->QVirtualKeyboardTrace::event(event);
-    }
+    return self->QVirtualKeyboardTrace::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardTrace_OnEvent(QVirtualKeyboardTrace* self, intptr_t slot) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace)
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_Event_Callback(reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_Event_Callback>(slot));
+    if (auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self))
+        vqvirtualkeyboardtrace->qvirtualkeyboardtrace_event_callback = reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVirtualKeyboardTrace_EventFilter(QVirtualKeyboardTrace* self, QObject* watched, QEvent* event) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        return vqvirtualkeyboardtrace->eventFilter(watched, event);
-    } else {
-        return self->QVirtualKeyboardTrace::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QVirtualKeyboardTrace_SuperEventFilter(QVirtualKeyboardTrace* self, QObject* watched, QEvent* event) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_EventFilter_IsBase(true);
-        return vqvirtualkeyboardtrace->eventFilter(watched, event);
-    } else {
-        return self->QVirtualKeyboardTrace::eventFilter(watched, event);
-    }
+    return self->QVirtualKeyboardTrace::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardTrace_OnEventFilter(QVirtualKeyboardTrace* self, intptr_t slot) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace)
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_EventFilter_Callback(reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_EventFilter_Callback>(slot));
+    if (auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self))
+        vqvirtualkeyboardtrace->qvirtualkeyboardtrace_eventfilter_callback = reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVirtualKeyboardTrace_ChildEvent(QVirtualKeyboardTrace* self, QChildEvent* event) {
     auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
+    if (vqvirtualkeyboardtrace) {
         vqvirtualkeyboardtrace->childEvent(event);
     } else {
-        ((VirtualQVirtualKeyboardTrace*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QVirtualKeyboardTrace::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVirtualKeyboardTrace_SuperChildEvent(QVirtualKeyboardTrace* self, QChildEvent* event) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_ChildEvent_IsBase(true);
-        vqvirtualkeyboardtrace->childEvent(event);
-    } else {
-        ((VirtualQVirtualKeyboardTrace*)self)->childEvent(event);
-    }
+    if (auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self)) {
+        vqvirtualkeyboardtrace->QVirtualKeyboardTrace::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVirtualKeyboardTrace::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardTrace_OnChildEvent(QVirtualKeyboardTrace* self, intptr_t slot) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace)
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_ChildEvent_Callback(reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_ChildEvent_Callback>(slot));
+    if (auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self))
+        vqvirtualkeyboardtrace->qvirtualkeyboardtrace_childevent_callback = reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVirtualKeyboardTrace_CustomEvent(QVirtualKeyboardTrace* self, QEvent* event) {
     auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
+    if (vqvirtualkeyboardtrace) {
         vqvirtualkeyboardtrace->customEvent(event);
     } else {
-        ((VirtualQVirtualKeyboardTrace*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QVirtualKeyboardTrace::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVirtualKeyboardTrace_SuperCustomEvent(QVirtualKeyboardTrace* self, QEvent* event) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_CustomEvent_IsBase(true);
-        vqvirtualkeyboardtrace->customEvent(event);
-    } else {
-        ((VirtualQVirtualKeyboardTrace*)self)->customEvent(event);
-    }
+    if (auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self)) {
+        vqvirtualkeyboardtrace->QVirtualKeyboardTrace::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVirtualKeyboardTrace::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardTrace_OnCustomEvent(QVirtualKeyboardTrace* self, intptr_t slot) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace)
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_CustomEvent_Callback(reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_CustomEvent_Callback>(slot));
+    if (auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self))
+        vqvirtualkeyboardtrace->qvirtualkeyboardtrace_customevent_callback = reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVirtualKeyboardTrace_ConnectNotify(QVirtualKeyboardTrace* self, const QMetaMethod* signal) {
     auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
+    if (vqvirtualkeyboardtrace) {
         vqvirtualkeyboardtrace->connectNotify(*signal);
     } else {
-        ((VirtualQVirtualKeyboardTrace*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QVirtualKeyboardTrace::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVirtualKeyboardTrace_SuperConnectNotify(QVirtualKeyboardTrace* self, const QMetaMethod* signal) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_ConnectNotify_IsBase(true);
-        vqvirtualkeyboardtrace->connectNotify(*signal);
-    } else {
-        ((VirtualQVirtualKeyboardTrace*)self)->connectNotify(*signal);
-    }
+    if (auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self)) {
+        vqvirtualkeyboardtrace->QVirtualKeyboardTrace::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QVirtualKeyboardTrace::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardTrace_OnConnectNotify(QVirtualKeyboardTrace* self, intptr_t slot) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace)
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_ConnectNotify_Callback(reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_ConnectNotify_Callback>(slot));
+    if (auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self))
+        vqvirtualkeyboardtrace->qvirtualkeyboardtrace_connectnotify_callback = reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVirtualKeyboardTrace_DisconnectNotify(QVirtualKeyboardTrace* self, const QMetaMethod* signal) {
     auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
+    if (vqvirtualkeyboardtrace) {
         vqvirtualkeyboardtrace->disconnectNotify(*signal);
     } else {
-        ((VirtualQVirtualKeyboardTrace*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QVirtualKeyboardTrace::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVirtualKeyboardTrace_SuperDisconnectNotify(QVirtualKeyboardTrace* self, const QMetaMethod* signal) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_DisconnectNotify_IsBase(true);
-        vqvirtualkeyboardtrace->disconnectNotify(*signal);
-    } else {
-        ((VirtualQVirtualKeyboardTrace*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self)) {
+        vqvirtualkeyboardtrace->QVirtualKeyboardTrace::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QVirtualKeyboardTrace::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVirtualKeyboardTrace_OnDisconnectNotify(QVirtualKeyboardTrace* self, intptr_t slot) {
-    auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self);
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace)
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_DisconnectNotify_Callback(reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_DisconnectNotify_Callback>(slot));
+    if (auto* vqvirtualkeyboardtrace = dynamic_cast<VirtualQVirtualKeyboardTrace*>(self))
+        vqvirtualkeyboardtrace->qvirtualkeyboardtrace_disconnectnotify_callback = reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QVirtualKeyboardTrace_Sender(const QVirtualKeyboardTrace* self) {
-    auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self));
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        return vqvirtualkeyboardtrace->sender();
-    } else {
-        return ((VirtualQVirtualKeyboardTrace*)self)->sender();
-    }
+    if (auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self))) {
+        return vqvirtualkeyboardtrace->VirtualQVirtualKeyboardTrace::sender();
+    } else
+        qFatal("Error: Protected method QVirtualKeyboardTrace::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QVirtualKeyboardTrace_SuperSender(const QVirtualKeyboardTrace* self) {
-    auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self));
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_Sender_IsBase(true);
-        return vqvirtualkeyboardtrace->sender();
-    } else {
-        return ((VirtualQVirtualKeyboardTrace*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVirtualKeyboardTrace_OnSender(const QVirtualKeyboardTrace* self, intptr_t slot) {
-    auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self));
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace)
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_Sender_Callback(reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVirtualKeyboardTrace_SenderSignalIndex(const QVirtualKeyboardTrace* self) {
-    auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self));
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        return vqvirtualkeyboardtrace->senderSignalIndex();
-    } else {
-        return ((VirtualQVirtualKeyboardTrace*)self)->senderSignalIndex();
-    }
+    if (auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self))) {
+        return vqvirtualkeyboardtrace->VirtualQVirtualKeyboardTrace::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QVirtualKeyboardTrace::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVirtualKeyboardTrace_SuperSenderSignalIndex(const QVirtualKeyboardTrace* self) {
-    auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self));
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_SenderSignalIndex_IsBase(true);
-        return vqvirtualkeyboardtrace->senderSignalIndex();
-    } else {
-        return ((VirtualQVirtualKeyboardTrace*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVirtualKeyboardTrace_OnSenderSignalIndex(const QVirtualKeyboardTrace* self, intptr_t slot) {
-    auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self));
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace)
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVirtualKeyboardTrace_Receivers(const QVirtualKeyboardTrace* self, const char* signal) {
-    auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self));
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        return vqvirtualkeyboardtrace->receivers(signal);
-    } else {
-        return ((VirtualQVirtualKeyboardTrace*)self)->receivers(signal);
-    }
+    if (auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self))) {
+        return vqvirtualkeyboardtrace->VirtualQVirtualKeyboardTrace::receivers(signal);
+    } else
+        qFatal("Error: Protected method QVirtualKeyboardTrace::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVirtualKeyboardTrace_SuperReceivers(const QVirtualKeyboardTrace* self, const char* signal) {
-    auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self));
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_Receivers_IsBase(true);
-        return vqvirtualkeyboardtrace->receivers(signal);
-    } else {
-        return ((VirtualQVirtualKeyboardTrace*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVirtualKeyboardTrace_OnReceivers(const QVirtualKeyboardTrace* self, intptr_t slot) {
-    auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self));
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace)
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_Receivers_Callback(reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QVirtualKeyboardTrace_IsSignalConnected(const QVirtualKeyboardTrace* self, const QMetaMethod* signal) {
-    auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self));
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        return vqvirtualkeyboardtrace->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQVirtualKeyboardTrace*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QVirtualKeyboardTrace_SuperIsSignalConnected(const QVirtualKeyboardTrace* self, const QMetaMethod* signal) {
-    auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self));
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace) {
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_IsSignalConnected_IsBase(true);
-        return vqvirtualkeyboardtrace->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQVirtualKeyboardTrace*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVirtualKeyboardTrace_OnIsSignalConnected(const QVirtualKeyboardTrace* self, intptr_t slot) {
-    auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self));
-    if (vqvirtualkeyboardtrace && vqvirtualkeyboardtrace->isVirtualQVirtualKeyboardTrace)
-        vqvirtualkeyboardtrace->setQVirtualKeyboardTrace_IsSignalConnected_Callback(reinterpret_cast<VirtualQVirtualKeyboardTrace::QVirtualKeyboardTrace_IsSignalConnected_Callback>(slot));
+    if (auto* vqvirtualkeyboardtrace = const_cast<VirtualQVirtualKeyboardTrace*>(dynamic_cast<const VirtualQVirtualKeyboardTrace*>(self))) {
+        return vqvirtualkeyboardtrace->VirtualQVirtualKeyboardTrace::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QVirtualKeyboardTrace::isSignalConnected called without a directly constructed type");
 }
 
 void QVirtualKeyboardTrace_Delete(QVirtualKeyboardTrace* self) {

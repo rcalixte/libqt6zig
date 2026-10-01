@@ -37,7 +37,7 @@ int QAreaLegendMarker_Type(QAreaLegendMarker* self);
 QAreaSeries* QAreaLegendMarker_Series(QAreaLegendMarker* self);
 libqt_string QAreaLegendMarker_Tr2(const char* s, const char* c);
 libqt_string QAreaLegendMarker_Tr3(const char* s, const char* c, int n);
-void QAreaLegendMarker_OnMetaObject(const QAreaLegendMarker* self, intptr_t slot);
+void QAreaLegendMarker_OnMetaObject(QAreaLegendMarker* self, intptr_t slot);
 QMetaObject* QAreaLegendMarker_SuperMetaObject(const QAreaLegendMarker* self);
 void QAreaLegendMarker_OnMetacast(QAreaLegendMarker* self, intptr_t slot);
 void* QAreaLegendMarker_SuperMetacast(QAreaLegendMarker* self, const char* param1);
@@ -69,17 +69,9 @@ void QAreaLegendMarker_DisconnectNotify(QAreaLegendMarker* self, const QMetaMeth
 void QAreaLegendMarker_OnDisconnectNotify(QAreaLegendMarker* self, intptr_t slot);
 void QAreaLegendMarker_SuperDisconnectNotify(QAreaLegendMarker* self, const QMetaMethod* signal);
 QObject* QAreaLegendMarker_Sender(const QAreaLegendMarker* self);
-void QAreaLegendMarker_OnSender(const QAreaLegendMarker* self, intptr_t slot);
-QObject* QAreaLegendMarker_SuperSender(const QAreaLegendMarker* self);
 int QAreaLegendMarker_SenderSignalIndex(const QAreaLegendMarker* self);
-void QAreaLegendMarker_OnSenderSignalIndex(const QAreaLegendMarker* self, intptr_t slot);
-int QAreaLegendMarker_SuperSenderSignalIndex(const QAreaLegendMarker* self);
 int QAreaLegendMarker_Receivers(const QAreaLegendMarker* self, const char* signal);
-void QAreaLegendMarker_OnReceivers(const QAreaLegendMarker* self, intptr_t slot);
-int QAreaLegendMarker_SuperReceivers(const QAreaLegendMarker* self, const char* signal);
 bool QAreaLegendMarker_IsSignalConnected(const QAreaLegendMarker* self, const QMetaMethod* signal);
-void QAreaLegendMarker_OnIsSignalConnected(const QAreaLegendMarker* self, intptr_t slot);
-bool QAreaLegendMarker_SuperIsSignalConnected(const QAreaLegendMarker* self, const QMetaMethod* signal);
 void QAreaLegendMarker_Delete(QAreaLegendMarker* self);
 
 #ifdef __cplusplus

@@ -104,9 +104,9 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     /// ` self: QQuickFramebufferObject `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QQuickFramebufferObject) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject) callconv(.c) QMetaObject) void {
         qtc.QQuickFramebufferObject_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -317,6 +317,8 @@ pub const QQuickFramebufferObject = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickframebufferobject.html#createRenderer)
     ///
+    /// This method must be implemented with `onCreateRenderer` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QQuickFramebufferObject `
@@ -337,26 +339,10 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     /// ` self: QQuickFramebufferObject `
     ///
-    /// ` callback: *const fn () callconv(.c) QQuickFramebufferObject__Renderer `
+    /// ` callback: *const fn (self: QQuickFramebufferObject) callconv(.c) QQuickFramebufferObject__Renderer `
     ///
-    pub fn onCreateRenderer(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) QQuickFramebufferObject__Renderer) void {
+    pub fn onCreateRenderer(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject) callconv(.c) QQuickFramebufferObject__Renderer) void {
         qtc.QQuickFramebufferObject_OnCreateRenderer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreateRenderer` instead
-    ///
-    pub const SuperCreateRenderer = superCreateRenderer;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickframebufferobject.html#createRenderer)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickFramebufferObject `
-    ///
-    pub fn superCreateRenderer(self: QQuickFramebufferObject) QQuickFramebufferObject__Renderer {
-        return .{ .ptr = qtc.QQuickFramebufferObject_SuperCreateRenderer(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isTextureProvider` instead
@@ -385,9 +371,9 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     /// ` self: QQuickFramebufferObject `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QQuickFramebufferObject) callconv(.c) bool `
     ///
-    pub fn onIsTextureProvider(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsTextureProvider(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject) callconv(.c) bool) void {
         qtc.QQuickFramebufferObject_OnIsTextureProvider(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -433,9 +419,9 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     /// ` self: QQuickFramebufferObject `
     ///
-    /// ` callback: *const fn () callconv(.c) QSGTextureProvider `
+    /// ` callback: *const fn (self: QQuickFramebufferObject) callconv(.c) QSGTextureProvider `
     ///
-    pub fn onTextureProvider(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) QSGTextureProvider) void {
+    pub fn onTextureProvider(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject) callconv(.c) QSGTextureProvider) void {
         qtc.QQuickFramebufferObject_OnTextureProvider(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -481,9 +467,9 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     /// ` self: QQuickFramebufferObject `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuickFramebufferObject) callconv(.c) void `
     ///
-    pub fn onReleaseResources(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) void) void {
+    pub fn onReleaseResources(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject) callconv(.c) void) void {
         qtc.QQuickFramebufferObject_OnReleaseResources(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5027,11 +5013,11 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     /// ` self: QQuickFramebufferObject`
     ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
+    /// ` callback: *const fn (self: QQuickFramebufferObject) callconv(.c) QRectF `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onBoundingRect(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onBoundingRect(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject) callconv(.c) QRectF) void {
         qtc.QQuickFramebufferObject_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5085,11 +5071,11 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     /// ` self: QQuickFramebufferObject`
     ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
+    /// ` callback: *const fn (self: QQuickFramebufferObject) callconv(.c) QRectF `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onClipRect(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onClipRect(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject) callconv(.c) QRectF) void {
         qtc.QQuickFramebufferObject_OnClipRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5395,9 +5381,9 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     /// ` self: QQuickFramebufferObject`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuickFramebufferObject) callconv(.c) void `
     ///
-    pub fn onClassBegin(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) void) void {
+    pub fn onClassBegin(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject) callconv(.c) void) void {
         qtc.QQuickFramebufferObject_OnClassBegin(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5451,9 +5437,9 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     /// ` self: QQuickFramebufferObject`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuickFramebufferObject) callconv(.c) void `
     ///
-    pub fn onComponentComplete(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) void) void {
+    pub fn onComponentComplete(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject) callconv(.c) void) void {
         qtc.QQuickFramebufferObject_OnComponentComplete(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6065,9 +6051,9 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     /// ` self: QQuickFramebufferObject`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuickFramebufferObject) callconv(.c) void `
     ///
-    pub fn onMouseUngrabEvent(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) void) void {
+    pub fn onMouseUngrabEvent(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject) callconv(.c) void) void {
         qtc.QQuickFramebufferObject_OnMouseUngrabEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6121,9 +6107,9 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     /// ` self: QQuickFramebufferObject`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuickFramebufferObject) callconv(.c) void `
     ///
-    pub fn onTouchUngrabEvent(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) void) void {
+    pub fn onTouchUngrabEvent(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject) callconv(.c) void) void {
         qtc.QQuickFramebufferObject_OnTouchUngrabEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6803,9 +6789,9 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     /// ` self: QQuickFramebufferObject`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuickFramebufferObject) callconv(.c) void `
     ///
-    pub fn onUpdatePolish(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdatePolish(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject) callconv(.c) void) void {
         qtc.QQuickFramebufferObject_OnUpdatePolish(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7205,44 +7191,6 @@ pub const QQuickFramebufferObject = extern struct {
         return qtc.QQuickFramebufferObject_IsComponentComplete(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superIsComponentComplete` instead
-    ///
-    pub const SuperIsComponentComplete = superIsComponentComplete;
-
-    /// Inherited from QQuickItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#isComponentComplete)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickFramebufferObject `
-    ///
-    pub fn superIsComponentComplete(self: QQuickFramebufferObject) bool {
-        return qtc.QQuickFramebufferObject_SuperIsComponentComplete(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsComponentComplete` instead
-    ///
-    pub const OnIsComponentComplete = onIsComponentComplete;
-
-    /// Inherited from QQuickItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#isComponentComplete)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickFramebufferObject`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onIsComponentComplete(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) bool) void {
-        qtc.QQuickFramebufferObject_OnIsComponentComplete(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateInputMethod` instead
     ///
     pub const UpdateInputMethod = updateInputMethod;
@@ -7259,44 +7207,6 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     pub fn updateInputMethod(self: QQuickFramebufferObject) void {
         qtc.QQuickFramebufferObject_UpdateInputMethod(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateInputMethod` instead
-    ///
-    pub const SuperUpdateInputMethod = superUpdateInputMethod;
-
-    /// Inherited from QQuickItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#updateInputMethod)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickFramebufferObject `
-    ///
-    pub fn superUpdateInputMethod(self: QQuickFramebufferObject) void {
-        qtc.QQuickFramebufferObject_SuperUpdateInputMethod(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateInputMethod` instead
-    ///
-    pub const OnUpdateInputMethod = onUpdateInputMethod;
-
-    /// Inherited from QQuickItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#updateInputMethod)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickFramebufferObject`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateInputMethod(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) void) void {
-        qtc.QQuickFramebufferObject_OnUpdateInputMethod(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `widthValid` instead
@@ -7317,44 +7227,6 @@ pub const QQuickFramebufferObject = extern struct {
         return qtc.QQuickFramebufferObject_WidthValid(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superWidthValid` instead
-    ///
-    pub const SuperWidthValid = superWidthValid;
-
-    /// Inherited from QQuickItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#widthValid)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickFramebufferObject `
-    ///
-    pub fn superWidthValid(self: QQuickFramebufferObject) bool {
-        return qtc.QQuickFramebufferObject_SuperWidthValid(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onWidthValid` instead
-    ///
-    pub const OnWidthValid = onWidthValid;
-
-    /// Inherited from QQuickItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#widthValid)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickFramebufferObject`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onWidthValid(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) bool) void {
-        qtc.QQuickFramebufferObject_OnWidthValid(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `heightValid` instead
     ///
     pub const HeightValid = heightValid;
@@ -7371,44 +7243,6 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     pub fn heightValid(self: QQuickFramebufferObject) bool {
         return qtc.QQuickFramebufferObject_HeightValid(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superHeightValid` instead
-    ///
-    pub const SuperHeightValid = superHeightValid;
-
-    /// Inherited from QQuickItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#heightValid)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickFramebufferObject `
-    ///
-    pub fn superHeightValid(self: QQuickFramebufferObject) bool {
-        return qtc.QQuickFramebufferObject_SuperHeightValid(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onHeightValid` instead
-    ///
-    pub const OnHeightValid = onHeightValid;
-
-    /// Inherited from QQuickItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#heightValid)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickFramebufferObject`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onHeightValid(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) bool) void {
-        qtc.QQuickFramebufferObject_OnHeightValid(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setImplicitSize` instead
@@ -7433,48 +7267,6 @@ pub const QQuickFramebufferObject = extern struct {
         qtc.QQuickFramebufferObject_SetImplicitSize(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
 
-    /// ### DEPRECATED: Use `superSetImplicitSize` instead
-    ///
-    pub const SuperSetImplicitSize = superSetImplicitSize;
-
-    /// Inherited from QQuickItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#setImplicitSize)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickFramebufferObject `
-    ///
-    /// ` param1: f64 `
-    ///
-    /// ` param2: f64 `
-    ///
-    pub fn superSetImplicitSize(self: QQuickFramebufferObject, param1: f64, param2: f64) void {
-        qtc.QQuickFramebufferObject_SuperSetImplicitSize(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
-    }
-
-    /// ### DEPRECATED: Use `onSetImplicitSize` instead
-    ///
-    pub const OnSetImplicitSize = onSetImplicitSize;
-
-    /// Inherited from QQuickItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#setImplicitSize)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickFramebufferObject`
-    ///
-    /// ` callback: *const fn (self: QQuickFramebufferObject, param1: f64, param2: f64) callconv(.c) void `
-    ///
-    pub fn onSetImplicitSize(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject, f64, f64) callconv(.c) void) void {
-        qtc.QQuickFramebufferObject_OnSetImplicitSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -7493,44 +7285,6 @@ pub const QQuickFramebufferObject = extern struct {
         return .{ .ptr = qtc.QQuickFramebufferObject_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickFramebufferObject `
-    ///
-    pub fn superSender(self: QQuickFramebufferObject) QObject {
-        return .{ .ptr = qtc.QQuickFramebufferObject_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickFramebufferObject`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QQuickFramebufferObject_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -7547,44 +7301,6 @@ pub const QQuickFramebufferObject = extern struct {
     ///
     pub fn senderSignalIndex(self: QQuickFramebufferObject) i32 {
         return qtc.QQuickFramebufferObject_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickFramebufferObject `
-    ///
-    pub fn superSenderSignalIndex(self: QQuickFramebufferObject) i32 {
-        return qtc.QQuickFramebufferObject_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickFramebufferObject`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QQuickFramebufferObject, callback: *const fn () callconv(.c) i32) void {
-        qtc.QQuickFramebufferObject_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -7608,47 +7324,6 @@ pub const QQuickFramebufferObject = extern struct {
         return qtc.QQuickFramebufferObject_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickFramebufferObject `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QQuickFramebufferObject, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QQuickFramebufferObject_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickFramebufferObject`
-    ///
-    /// ` callback: *const fn (self: QQuickFramebufferObject, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QQuickFramebufferObject_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -7668,47 +7343,6 @@ pub const QQuickFramebufferObject = extern struct {
     pub fn isSignalConnected(self: QQuickFramebufferObject, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QQuickFramebufferObject_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickFramebufferObject `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QQuickFramebufferObject, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QQuickFramebufferObject_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickFramebufferObject`
-    ///
-    /// ` callback: *const fn (self: QQuickFramebufferObject, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QQuickFramebufferObject, callback: *const fn (QQuickFramebufferObject, QMetaMethod) callconv(.c) bool) void {
-        qtc.QQuickFramebufferObject_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

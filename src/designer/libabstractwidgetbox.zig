@@ -149,9 +149,9 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QDesignerWidgetBoxInterface) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface) callconv(.c) QMetaObject) void {
         qtc.QDesignerWidgetBoxInterface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -302,6 +302,8 @@ pub const QDesignerWidgetBoxInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#categoryCount)
     ///
+    /// This method must be implemented with `onCategoryCount` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerWidgetBoxInterface `
@@ -322,26 +324,10 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerWidgetBoxInterface) callconv(.c) i32 `
     ///
-    pub fn onCategoryCount(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCategoryCount(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface) callconv(.c) i32) void {
         qtc.QDesignerWidgetBoxInterface_OnCategoryCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCategoryCount` instead
-    ///
-    pub const SuperCategoryCount = superCategoryCount;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#categoryCount)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    pub fn superCategoryCount(self: QDesignerWidgetBoxInterface) i32 {
-        return qtc.QDesignerWidgetBoxInterface_SuperCategoryCount(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `category` instead
@@ -349,6 +335,8 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     pub const Category = category;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#category)
+    ///
+    /// This method must be implemented with `onCategory` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -380,29 +368,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         qtc.QDesignerWidgetBoxInterface_OnCategory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superCategory` instead
-    ///
-    pub const SuperCategory = superCategory;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#category)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` cat_idx: i32 `
-    ///
-    pub fn superCategory(self: QDesignerWidgetBoxInterface, cat_idx: i32) QDesignerWidgetBoxInterface__Category {
-        return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SuperCategory(@ptrCast(self.ptr), @bitCast(cat_idx)) };
-    }
-
     /// ### DEPRECATED: Use `addCategory` instead
     ///
     pub const AddCategory = addCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#addCategory)
+    ///
+    /// This method must be implemented with `onAddCategory` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -433,30 +405,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         qtc.QDesignerWidgetBoxInterface_OnAddCategory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superAddCategory` instead
-    ///
-    pub const SuperAddCategory = superAddCategory;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#addCategory)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` cat: QDesignerWidgetBoxInterface__Category `
-    ///
-    pub fn superAddCategory(self: QDesignerWidgetBoxInterface, cat: anytype) void {
-        comptime _ = @TypeOf(cat)._is_QDesignerWidgetBoxInterface__Category;
-        qtc.QDesignerWidgetBoxInterface_SuperAddCategory(@ptrCast(self.ptr), @ptrCast(cat.ptr));
-    }
-
     /// ### DEPRECATED: Use `removeCategory` instead
     ///
     pub const RemoveCategory = removeCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#removeCategory)
+    ///
+    /// This method must be implemented with `onRemoveCategory` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -486,29 +441,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         qtc.QDesignerWidgetBoxInterface_OnRemoveCategory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superRemoveCategory` instead
-    ///
-    pub const SuperRemoveCategory = superRemoveCategory;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#removeCategory)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` cat_idx: i32 `
-    ///
-    pub fn superRemoveCategory(self: QDesignerWidgetBoxInterface, cat_idx: i32) void {
-        qtc.QDesignerWidgetBoxInterface_SuperRemoveCategory(@ptrCast(self.ptr), @bitCast(cat_idx));
-    }
-
     /// ### DEPRECATED: Use `widgetCount` instead
     ///
     pub const WidgetCount = widgetCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#widgetCount)
+    ///
+    /// This method must be implemented with `onWidgetCount` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -538,29 +477,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         qtc.QDesignerWidgetBoxInterface_OnWidgetCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superWidgetCount` instead
-    ///
-    pub const SuperWidgetCount = superWidgetCount;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#widgetCount)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` cat_idx: i32 `
-    ///
-    pub fn superWidgetCount(self: QDesignerWidgetBoxInterface, cat_idx: i32) i32 {
-        return qtc.QDesignerWidgetBoxInterface_SuperWidgetCount(@ptrCast(self.ptr), @bitCast(cat_idx));
-    }
-
     /// ### DEPRECATED: Use `widget` instead
     ///
     pub const Widget = widget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#widget)
+    ///
+    /// This method must be implemented with `onWidget` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -594,31 +517,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         qtc.QDesignerWidgetBoxInterface_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superWidget` instead
-    ///
-    pub const SuperWidget = superWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#widget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` cat_idx: i32 `
-    ///
-    /// ` wgt_idx: i32 `
-    ///
-    pub fn superWidget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt_idx: i32) QDesignerWidgetBoxInterface__Widget {
-        return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SuperWidget(@ptrCast(self.ptr), @bitCast(cat_idx), @bitCast(wgt_idx)) };
-    }
-
     /// ### DEPRECATED: Use `addWidget` instead
     ///
     pub const AddWidget = addWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#addWidget)
+    ///
+    /// This method must be implemented with `onAddWidget` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -651,32 +556,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         qtc.QDesignerWidgetBoxInterface_OnAddWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superAddWidget` instead
-    ///
-    pub const SuperAddWidget = superAddWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#addWidget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` cat_idx: i32 `
-    ///
-    /// ` wgt: QDesignerWidgetBoxInterface__Widget `
-    ///
-    pub fn superAddWidget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt: anytype) void {
-        comptime _ = @TypeOf(wgt)._is_QDesignerWidgetBoxInterface__Widget;
-        qtc.QDesignerWidgetBoxInterface_SuperAddWidget(@ptrCast(self.ptr), @bitCast(cat_idx), @ptrCast(wgt.ptr));
-    }
-
     /// ### DEPRECATED: Use `removeWidget` instead
     ///
     pub const RemoveWidget = removeWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#removeWidget)
+    ///
+    /// This method must be implemented with `onRemoveWidget` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -708,26 +594,6 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         qtc.QDesignerWidgetBoxInterface_OnRemoveWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superRemoveWidget` instead
-    ///
-    pub const SuperRemoveWidget = superRemoveWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#removeWidget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` cat_idx: i32 `
-    ///
-    /// ` wgt_idx: i32 `
-    ///
-    pub fn superRemoveWidget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt_idx: i32) void {
-        qtc.QDesignerWidgetBoxInterface_SuperRemoveWidget(@ptrCast(self.ptr), @bitCast(cat_idx), @bitCast(wgt_idx));
-    }
-
     /// ### DEPRECATED: Use `findOrInsertCategory` instead
     ///
     pub const FindOrInsertCategory = findOrInsertCategory;
@@ -753,6 +619,8 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     pub const DropWidgets = dropWidgets;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#dropWidgets)
+    ///
+    /// This method must be implemented with `onDropWidgets` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -789,36 +657,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         qtc.QDesignerWidgetBoxInterface_OnDropWidgets(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superDropWidgets` instead
-    ///
-    pub const SuperDropWidgets = superDropWidgets;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#dropWidgets)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` item_list: []QDesignerDnDItemInterface `
-    ///
-    /// ` global_mouse_pos: QPoint `
-    ///
-    pub fn superDropWidgets(self: QDesignerWidgetBoxInterface, item_list: []QDesignerDnDItemInterface, global_mouse_pos: anytype) void {
-        const item_list_list = qtc.libqt_list{
-            .len = item_list.len,
-            .data = @ptrCast(item_list.ptr),
-        };
-        comptime _ = @TypeOf(global_mouse_pos)._is_QPoint;
-        qtc.QDesignerWidgetBoxInterface_SuperDropWidgets(@ptrCast(self.ptr), item_list_list, @ptrCast(global_mouse_pos.ptr));
-    }
-
     /// ### DEPRECATED: Use `setFileName` instead
     ///
     pub const SetFileName = setFileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#setFileName)
+    ///
+    /// This method must be implemented with `onSetFileName` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -852,33 +697,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         qtc.QDesignerWidgetBoxInterface_OnSetFileName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetFileName` instead
-    ///
-    pub const SuperSetFileName = superSetFileName;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#setFileName)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` file_name: []const u8 `
-    ///
-    pub fn superSetFileName(self: QDesignerWidgetBoxInterface, file_name: []const u8) void {
-        const file_name_str = qtc.libqt_string{
-            .len = file_name.len,
-            .data = file_name.ptr,
-        };
-        qtc.QDesignerWidgetBoxInterface_SuperSetFileName(@ptrCast(self.ptr), file_name_str);
-    }
-
     /// ### DEPRECATED: Use `fileName` instead
     ///
     pub const FileName = fileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#fileName)
+    ///
+    /// This method must be implemented with `onFileName` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -906,32 +731,10 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QDesignerWidgetBoxInterface) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onFileName(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onFileName(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface) callconv(.c) [*:0]const u8) void {
         qtc.QDesignerWidgetBoxInterface_OnFileName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superFileName` instead
-    ///
-    pub const SuperFileName = superFileName;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#fileName)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superFileName(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerWidgetBoxInterface_SuperFileName(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.fileName: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `load` instead
@@ -939,6 +742,8 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     pub const Load = load;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#load)
+    ///
+    /// This method must be implemented with `onLoad` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -960,26 +765,10 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerWidgetBoxInterface) callconv(.c) bool `
     ///
-    pub fn onLoad(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onLoad(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface) callconv(.c) bool) void {
         qtc.QDesignerWidgetBoxInterface_OnLoad(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superLoad` instead
-    ///
-    pub const SuperLoad = superLoad;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#load)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    pub fn superLoad(self: QDesignerWidgetBoxInterface) bool {
-        return qtc.QDesignerWidgetBoxInterface_SuperLoad(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `save` instead
@@ -987,6 +776,8 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     pub const Save = save;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#save)
+    ///
+    /// This method must be implemented with `onSave` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1008,26 +799,10 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerWidgetBoxInterface) callconv(.c) bool `
     ///
-    pub fn onSave(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSave(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface) callconv(.c) bool) void {
         qtc.QDesignerWidgetBoxInterface_OnSave(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSave` instead
-    ///
-    pub const SuperSave = superSave;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#save)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    pub fn superSave(self: QDesignerWidgetBoxInterface) bool {
-        return qtc.QDesignerWidgetBoxInterface_SuperSave(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -7340,9 +7115,9 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerWidgetBoxInterface) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface) callconv(.c) i32) void {
         qtc.QDesignerWidgetBoxInterface_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7456,11 +7231,11 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QDesignerWidgetBoxInterface) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface) callconv(.c) QSize) void {
         qtc.QDesignerWidgetBoxInterface_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7514,11 +7289,11 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QDesignerWidgetBoxInterface) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface) callconv(.c) QSize) void {
         qtc.QDesignerWidgetBoxInterface_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7632,9 +7407,9 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerWidgetBoxInterface) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface) callconv(.c) bool) void {
         qtc.QDesignerWidgetBoxInterface_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7688,9 +7463,9 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QDesignerWidgetBoxInterface) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface) callconv(.c) QPaintEngine) void {
         qtc.QDesignerWidgetBoxInterface_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9616,9 +9391,9 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QDesignerWidgetBoxInterface) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface) callconv(.c) QPainter) void {
         qtc.QDesignerWidgetBoxInterface_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10202,44 +9977,6 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         qtc.QDesignerWidgetBoxInterface_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    pub fn superUpdateMicroFocus(self: QDesignerWidgetBoxInterface) void {
-        qtc.QDesignerWidgetBoxInterface_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerWidgetBoxInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerWidgetBoxInterface_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -10256,44 +9993,6 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     pub fn create(self: QDesignerWidgetBoxInterface) void {
         qtc.QDesignerWidgetBoxInterface_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    pub fn superCreate(self: QDesignerWidgetBoxInterface) void {
-        qtc.QDesignerWidgetBoxInterface_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerWidgetBoxInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerWidgetBoxInterface_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -10314,44 +10013,6 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         qtc.QDesignerWidgetBoxInterface_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    pub fn superDestroy(self: QDesignerWidgetBoxInterface) void {
-        qtc.QDesignerWidgetBoxInterface_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerWidgetBoxInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerWidgetBoxInterface_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -10368,44 +10029,6 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     pub fn focusNextChild(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QDesignerWidgetBoxInterface_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    pub fn superFocusNextChild(self: QDesignerWidgetBoxInterface) bool {
-        return qtc.QDesignerWidgetBoxInterface_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerWidgetBoxInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerWidgetBoxInterface_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -10426,44 +10049,6 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         return qtc.QDesignerWidgetBoxInterface_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    pub fn superFocusPreviousChild(self: QDesignerWidgetBoxInterface) bool {
-        return qtc.QDesignerWidgetBoxInterface_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerWidgetBoxInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerWidgetBoxInterface_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10482,44 +10067,6 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    pub fn superSender(self: QDesignerWidgetBoxInterface) QObject {
-        return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerWidgetBoxInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QDesignerWidgetBoxInterface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10536,44 +10083,6 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     pub fn senderSignalIndex(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QDesignerWidgetBoxInterface_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    pub fn superSenderSignalIndex(self: QDesignerWidgetBoxInterface) i32 {
-        return qtc.QDesignerWidgetBoxInterface_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerWidgetBoxInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerWidgetBoxInterface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10597,47 +10106,6 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         return qtc.QDesignerWidgetBoxInterface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QDesignerWidgetBoxInterface, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QDesignerWidgetBoxInterface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerWidgetBoxInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerWidgetBoxInterface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10657,47 +10125,6 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     pub fn isSignalConnected(self: QDesignerWidgetBoxInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerWidgetBoxInterface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QDesignerWidgetBoxInterface, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QDesignerWidgetBoxInterface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerWidgetBoxInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMetaMethod) callconv(.c) bool) void {
-        qtc.QDesignerWidgetBoxInterface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10720,48 +10147,6 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     pub fn getDecodedMetricF(self: QDesignerWidgetBoxInterface, metricA: i32, metricB: i32) f64 {
         return qtc.QDesignerWidgetBoxInterface_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QDesignerWidgetBoxInterface, metricA: i32, metricB: i32) f64 {
-        return qtc.QDesignerWidgetBoxInterface_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerWidgetBoxInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32, i32) callconv(.c) f64) void {
-        qtc.QDesignerWidgetBoxInterface_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

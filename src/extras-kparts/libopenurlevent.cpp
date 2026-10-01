@@ -33,58 +33,34 @@ bool KParts__OpenUrlEvent_Test(const QEvent* event) {
 
 // Derived class handler implementation
 void KParts__OpenUrlEvent_SetAccepted(KParts__OpenUrlEvent* self, bool accepted) {
-    auto* vkpartsopenurlevent = dynamic_cast<VirtualKPartsOpenUrlEvent*>(self);
-    if (vkpartsopenurlevent && vkpartsopenurlevent->isVirtualKPartsOpenUrlEvent) {
-        vkpartsopenurlevent->setAccepted(accepted);
-    } else {
-        self->KParts::OpenUrlEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void KParts__OpenUrlEvent_SuperSetAccepted(KParts__OpenUrlEvent* self, bool accepted) {
-    auto* vkpartsopenurlevent = dynamic_cast<VirtualKPartsOpenUrlEvent*>(self);
-    if (vkpartsopenurlevent && vkpartsopenurlevent->isVirtualKPartsOpenUrlEvent) {
-        vkpartsopenurlevent->setKParts__OpenUrlEvent_SetAccepted_IsBase(true);
-        vkpartsopenurlevent->setAccepted(accepted);
-    } else {
-        self->KParts::OpenUrlEvent::setAccepted(accepted);
-    }
+    self->KParts::OpenUrlEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__OpenUrlEvent_OnSetAccepted(KParts__OpenUrlEvent* self, intptr_t slot) {
-    auto* vkpartsopenurlevent = dynamic_cast<VirtualKPartsOpenUrlEvent*>(self);
-    if (vkpartsopenurlevent && vkpartsopenurlevent->isVirtualKPartsOpenUrlEvent)
-        vkpartsopenurlevent->setKParts__OpenUrlEvent_SetAccepted_Callback(reinterpret_cast<VirtualKPartsOpenUrlEvent::KParts__OpenUrlEvent_SetAccepted_Callback>(slot));
+    if (auto* vkpartsopenurlevent = dynamic_cast<VirtualKPartsOpenUrlEvent*>(self))
+        vkpartsopenurlevent->kparts__openurlevent_setaccepted_callback = reinterpret_cast<VirtualKPartsOpenUrlEvent::KParts__OpenUrlEvent_SetAccepted_Callback>(slot);
 }
 
 // Derived class handler implementation
 QEvent* KParts__OpenUrlEvent_Clone(const KParts__OpenUrlEvent* self) {
-    auto* vkpartsopenurlevent = const_cast<VirtualKPartsOpenUrlEvent*>(dynamic_cast<const VirtualKPartsOpenUrlEvent*>(self));
-    if (vkpartsopenurlevent && vkpartsopenurlevent->isVirtualKPartsOpenUrlEvent) {
-        return vkpartsopenurlevent->clone();
-    } else {
-        return self->KParts::OpenUrlEvent::clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
 QEvent* KParts__OpenUrlEvent_SuperClone(const KParts__OpenUrlEvent* self) {
-    auto* vkpartsopenurlevent = const_cast<VirtualKPartsOpenUrlEvent*>(dynamic_cast<const VirtualKPartsOpenUrlEvent*>(self));
-    if (vkpartsopenurlevent && vkpartsopenurlevent->isVirtualKPartsOpenUrlEvent) {
-        vkpartsopenurlevent->setKParts__OpenUrlEvent_Clone_IsBase(true);
-        return vkpartsopenurlevent->clone();
-    } else {
-        return self->KParts::OpenUrlEvent::clone();
-    }
+    return self->KParts::OpenUrlEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__OpenUrlEvent_OnClone(const KParts__OpenUrlEvent* self, intptr_t slot) {
-    auto* vkpartsopenurlevent = const_cast<VirtualKPartsOpenUrlEvent*>(dynamic_cast<const VirtualKPartsOpenUrlEvent*>(self));
-    if (vkpartsopenurlevent && vkpartsopenurlevent->isVirtualKPartsOpenUrlEvent)
-        vkpartsopenurlevent->setKParts__OpenUrlEvent_Clone_Callback(reinterpret_cast<VirtualKPartsOpenUrlEvent::KParts__OpenUrlEvent_Clone_Callback>(slot));
+void KParts__OpenUrlEvent_OnClone(KParts__OpenUrlEvent* self, intptr_t slot) {
+    if (auto* vkpartsopenurlevent = const_cast<VirtualKPartsOpenUrlEvent*>(dynamic_cast<const VirtualKPartsOpenUrlEvent*>(self)))
+        vkpartsopenurlevent->kparts__openurlevent_clone_callback = reinterpret_cast<VirtualKPartsOpenUrlEvent::KParts__OpenUrlEvent_Clone_Callback>(slot);
 }
 
 void KParts__OpenUrlEvent_Delete(KParts__OpenUrlEvent* self) {

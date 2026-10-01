@@ -349,14 +349,14 @@ void KCompletion_PostProcessMatches(const KCompletion* self, libqt_list /* of li
         matchList_QList->push_back(matchList_arr_i_QString);
     }
     auto* vkcompletion = dynamic_cast<const VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion) {
         vkcompletion->postProcessMatches(matchList_QList);
     }
 }
 
 void KCompletion_PostProcessMatches2(const KCompletion* self, KCompletionMatches* matches) {
     auto* vkcompletion = dynamic_cast<const VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion) {
         vkcompletion->postProcessMatches(matches);
     }
 }
@@ -387,202 +387,122 @@ libqt_string KCompletion_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KCompletion_SuperMetaObject(const KCompletion* self) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_MetaObject_IsBase(true);
-        return (QMetaObject*)vkcompletion->metaObject();
-    } else {
-        return (QMetaObject*)self->KCompletion::metaObject();
-    }
+    return (QMetaObject*)self->KCompletion::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCompletion_OnMetaObject(const KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_MetaObject_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_MetaObject_Callback>(slot));
+void KCompletion_OnMetaObject(KCompletion* self, intptr_t slot) {
+    if (auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self)))
+        vkcompletion->kcompletion_metaobject_callback = reinterpret_cast<VirtualKCompletion::KCompletion_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KCompletion_SuperMetacast(KCompletion* self, const char* param1) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_Metacast_IsBase(true);
-        return vkcompletion->qt_metacast(param1);
-    } else {
-        return self->KCompletion::qt_metacast(param1);
-    }
+    return self->KCompletion::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnMetacast(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_Metacast_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_Metacast_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_metacast_callback = reinterpret_cast<VirtualKCompletion::KCompletion_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KCompletion_SuperMetacall(KCompletion* self, int param1, int param2, void** param3) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_Metacall_IsBase(true);
-        return vkcompletion->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KCompletion::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KCompletion::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnMetacall(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_Metacall_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_Metacall_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_metacall_callback = reinterpret_cast<VirtualKCompletion::KCompletion_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string KCompletion_SuperLastMatch(const KCompletion* self) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_LastMatch_IsBase(true);
-        const auto _ret = vkcompletion->lastMatch();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        const auto _ret = self->KCompletion::lastMatch();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    const auto _ret = self->KCompletion::lastMatch();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCompletion_OnLastMatch(const KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_LastMatch_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_LastMatch_Callback>(slot));
+void KCompletion_OnLastMatch(KCompletion* self, intptr_t slot) {
+    if (auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self)))
+        vkcompletion->kcompletion_lastmatch_callback = reinterpret_cast<VirtualKCompletion::KCompletion_LastMatch_Callback>(slot);
 }
 
 // Base class handler implementation
 void KCompletion_SuperSetCompletionMode(KCompletion* self, int mode) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_SetCompletionMode_IsBase(true);
-        vkcompletion->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
-    } else {
-        self->KCompletion::setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
-    }
+    self->KCompletion::setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnSetCompletionMode(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_SetCompletionMode_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_SetCompletionMode_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_setcompletionmode_callback = reinterpret_cast<VirtualKCompletion::KCompletion_SetCompletionMode_Callback>(slot);
 }
 
 // Base class handler implementation
 void KCompletion_SuperSetOrder(KCompletion* self, int order) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_SetOrder_IsBase(true);
-        vkcompletion->setOrder(static_cast<KCompletion::CompOrder>(order));
-    } else {
-        self->KCompletion::setOrder(static_cast<KCompletion::CompOrder>(order));
-    }
+    self->KCompletion::setOrder(static_cast<KCompletion::CompOrder>(order));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnSetOrder(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_SetOrder_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_SetOrder_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_setorder_callback = reinterpret_cast<VirtualKCompletion::KCompletion_SetOrder_Callback>(slot);
 }
 
 // Base class handler implementation
 void KCompletion_SuperSetIgnoreCase(KCompletion* self, bool ignoreCase) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_SetIgnoreCase_IsBase(true);
-        vkcompletion->setIgnoreCase(ignoreCase);
-    } else {
-        self->KCompletion::setIgnoreCase(ignoreCase);
-    }
+    self->KCompletion::setIgnoreCase(ignoreCase);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnSetIgnoreCase(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_SetIgnoreCase_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_SetIgnoreCase_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_setignorecase_callback = reinterpret_cast<VirtualKCompletion::KCompletion_SetIgnoreCase_Callback>(slot);
 }
 
 // Base class handler implementation
 void KCompletion_SuperSetSoundsEnabled(KCompletion* self, bool enable) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_SetSoundsEnabled_IsBase(true);
-        vkcompletion->setSoundsEnabled(enable);
-    } else {
-        self->KCompletion::setSoundsEnabled(enable);
-    }
+    self->KCompletion::setSoundsEnabled(enable);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnSetSoundsEnabled(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_SetSoundsEnabled_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_SetSoundsEnabled_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_setsoundsenabled_callback = reinterpret_cast<VirtualKCompletion::KCompletion_SetSoundsEnabled_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string KCompletion_SuperMakeCompletion(KCompletion* self, const libqt_string string) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     QString string_QString = QString::fromUtf8(string.data, string.len);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_MakeCompletion_IsBase(true);
-        auto _ret = vkcompletion->makeCompletion(string_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KCompletion::makeCompletion(string_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KCompletion::makeCompletion(string_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnMakeCompletion(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_MakeCompletion_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_MakeCompletion_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_makecompletion_callback = reinterpret_cast<VirtualKCompletion::KCompletion_MakeCompletion_Callback>(slot);
 }
 
 // Base class handler implementation
 void KCompletion_SuperSetItems(KCompletion* self, const libqt_list /* of libqt_string */ itemList) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     QList<QString> itemList_QList;
     itemList_QList.reserve(itemList.len);
     libqt_string* itemList_arr = static_cast<libqt_string*>(itemList.data);
@@ -590,42 +510,28 @@ void KCompletion_SuperSetItems(KCompletion* self, const libqt_list /* of libqt_s
         QString itemList_arr_i_QString = QString::fromUtf8(itemList_arr[i].data, itemList_arr[i].len);
         itemList_QList.push_back(itemList_arr_i_QString);
     }
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_SetItems_IsBase(true);
-        vkcompletion->setItems(itemList_QList);
-    } else {
-        self->KCompletion::setItems(itemList_QList);
-    }
+    self->KCompletion::setItems(itemList_QList);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnSetItems(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_SetItems_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_SetItems_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_setitems_callback = reinterpret_cast<VirtualKCompletion::KCompletion_SetItems_Callback>(slot);
 }
 
 // Base class handler implementation
 void KCompletion_SuperClear(KCompletion* self) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_Clear_IsBase(true);
-        vkcompletion->clear();
-    } else {
-        self->KCompletion::clear();
-    }
+    self->KCompletion::clear();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnClear(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_Clear_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_Clear_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_clear_callback = reinterpret_cast<VirtualKCompletion::KCompletion_Clear_Callback>(slot);
 }
 
 // Base class handler implementation
 void KCompletion_SuperPostProcessMatches(const KCompletion* self, libqt_list /* of libqt_string */ matchList) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
     QList<QString>* matchList_QList = new QList<QString>();
     matchList_QList->reserve(matchList.len);
     libqt_string* matchList_arr = static_cast<libqt_string*>(matchList.data);
@@ -633,373 +539,222 @@ void KCompletion_SuperPostProcessMatches(const KCompletion* self, libqt_list /* 
         QString matchList_arr_i_QString = QString::fromUtf8(matchList_arr[i].data, matchList_arr[i].len);
         matchList_QList->push_back(matchList_arr_i_QString);
     }
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_PostProcessMatches_IsBase(true);
-        vkcompletion->postProcessMatches(matchList_QList);
-    } else {
-        ((VirtualKCompletion*)self)->postProcessMatches(matchList_QList);
-    }
+    if (auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self))) {
+        vkcompletion->KCompletion::postProcessMatches(matchList_QList);
+    } else
+        qFatal("Error: Protected virtual method KCompletion::postProcessMatches called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCompletion_OnPostProcessMatches(const KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_PostProcessMatches_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_PostProcessMatches_Callback>(slot));
+void KCompletion_OnPostProcessMatches(KCompletion* self, intptr_t slot) {
+    if (auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self)))
+        vkcompletion->kcompletion_postprocessmatches_callback = reinterpret_cast<VirtualKCompletion::KCompletion_PostProcessMatches_Callback>(slot);
 }
 
 // Base class handler implementation
 void KCompletion_SuperPostProcessMatches2(const KCompletion* self, KCompletionMatches* matches) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_PostProcessMatches2_IsBase(true);
-        vkcompletion->postProcessMatches(matches);
-    } else {
-        ((VirtualKCompletion*)self)->postProcessMatches(matches);
-    }
+    if (auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self))) {
+        vkcompletion->KCompletion::postProcessMatches(matches);
+    } else
+        qFatal("Error: Protected virtual method KCompletion::postProcessMatches2 called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCompletion_OnPostProcessMatches2(const KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_PostProcessMatches2_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_PostProcessMatches2_Callback>(slot));
+void KCompletion_OnPostProcessMatches2(KCompletion* self, intptr_t slot) {
+    if (auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self)))
+        vkcompletion->kcompletion_postprocessmatches2_callback = reinterpret_cast<VirtualKCompletion::KCompletion_PostProcessMatches2_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCompletion_Event(KCompletion* self, QEvent* event) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        return vkcompletion->event(event);
-    } else {
-        return self->KCompletion::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KCompletion_SuperEvent(KCompletion* self, QEvent* event) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_Event_IsBase(true);
-        return vkcompletion->event(event);
-    } else {
-        return self->KCompletion::event(event);
-    }
+    return self->KCompletion::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnEvent(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_Event_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_Event_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_event_callback = reinterpret_cast<VirtualKCompletion::KCompletion_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCompletion_EventFilter(KCompletion* self, QObject* watched, QEvent* event) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        return vkcompletion->eventFilter(watched, event);
-    } else {
-        return self->KCompletion::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KCompletion_SuperEventFilter(KCompletion* self, QObject* watched, QEvent* event) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_EventFilter_IsBase(true);
-        return vkcompletion->eventFilter(watched, event);
-    } else {
-        return self->KCompletion::eventFilter(watched, event);
-    }
+    return self->KCompletion::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnEventFilter(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_EventFilter_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_EventFilter_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_eventfilter_callback = reinterpret_cast<VirtualKCompletion::KCompletion_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCompletion_TimerEvent(KCompletion* self, QTimerEvent* event) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion) {
         vkcompletion->timerEvent(event);
     } else {
-        ((VirtualKCompletion*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KCompletion::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCompletion_SuperTimerEvent(KCompletion* self, QTimerEvent* event) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_TimerEvent_IsBase(true);
-        vkcompletion->timerEvent(event);
-    } else {
-        ((VirtualKCompletion*)self)->timerEvent(event);
-    }
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self)) {
+        vkcompletion->KCompletion::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCompletion::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnTimerEvent(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_TimerEvent_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_TimerEvent_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_timerevent_callback = reinterpret_cast<VirtualKCompletion::KCompletion_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCompletion_ChildEvent(KCompletion* self, QChildEvent* event) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion) {
         vkcompletion->childEvent(event);
     } else {
-        ((VirtualKCompletion*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KCompletion::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCompletion_SuperChildEvent(KCompletion* self, QChildEvent* event) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_ChildEvent_IsBase(true);
-        vkcompletion->childEvent(event);
-    } else {
-        ((VirtualKCompletion*)self)->childEvent(event);
-    }
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self)) {
+        vkcompletion->KCompletion::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCompletion::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnChildEvent(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_ChildEvent_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_ChildEvent_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_childevent_callback = reinterpret_cast<VirtualKCompletion::KCompletion_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCompletion_CustomEvent(KCompletion* self, QEvent* event) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion) {
         vkcompletion->customEvent(event);
     } else {
-        ((VirtualKCompletion*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KCompletion::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCompletion_SuperCustomEvent(KCompletion* self, QEvent* event) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_CustomEvent_IsBase(true);
-        vkcompletion->customEvent(event);
-    } else {
-        ((VirtualKCompletion*)self)->customEvent(event);
-    }
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self)) {
+        vkcompletion->KCompletion::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCompletion::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnCustomEvent(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_CustomEvent_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_CustomEvent_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_customevent_callback = reinterpret_cast<VirtualKCompletion::KCompletion_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCompletion_ConnectNotify(KCompletion* self, const QMetaMethod* signal) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion) {
         vkcompletion->connectNotify(*signal);
     } else {
-        ((VirtualKCompletion*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KCompletion::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCompletion_SuperConnectNotify(KCompletion* self, const QMetaMethod* signal) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_ConnectNotify_IsBase(true);
-        vkcompletion->connectNotify(*signal);
-    } else {
-        ((VirtualKCompletion*)self)->connectNotify(*signal);
-    }
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self)) {
+        vkcompletion->KCompletion::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KCompletion::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnConnectNotify(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_ConnectNotify_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_ConnectNotify_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_connectnotify_callback = reinterpret_cast<VirtualKCompletion::KCompletion_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCompletion_DisconnectNotify(KCompletion* self, const QMetaMethod* signal) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion) {
         vkcompletion->disconnectNotify(*signal);
     } else {
-        ((VirtualKCompletion*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KCompletion::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCompletion_SuperDisconnectNotify(KCompletion* self, const QMetaMethod* signal) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_DisconnectNotify_IsBase(true);
-        vkcompletion->disconnectNotify(*signal);
-    } else {
-        ((VirtualKCompletion*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self)) {
+        vkcompletion->KCompletion::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KCompletion::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnDisconnectNotify(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_DisconnectNotify_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_DisconnectNotify_Callback>(slot));
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self))
+        vkcompletion->kcompletion_disconnectnotify_callback = reinterpret_cast<VirtualKCompletion::KCompletion_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCompletion_SetShouldAutoSuggest(KCompletion* self, bool shouldAutosuggest) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setShouldAutoSuggest(shouldAutosuggest);
-    } else {
-        ((VirtualKCompletion*)self)->setShouldAutoSuggest(shouldAutosuggest);
-    }
+    if (auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self)) {
+        vkcompletion->VirtualKCompletion::setShouldAutoSuggest(shouldAutosuggest);
+    } else
+        qFatal("Error: Protected method KCompletion::setShouldAutoSuggest called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCompletion_SuperSetShouldAutoSuggest(KCompletion* self, bool shouldAutosuggest) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_SetShouldAutoSuggest_IsBase(true);
-        vkcompletion->setShouldAutoSuggest(shouldAutosuggest);
-    } else {
-        ((VirtualKCompletion*)self)->setShouldAutoSuggest(shouldAutosuggest);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompletion_OnSetShouldAutoSuggest(KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_SetShouldAutoSuggest_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_SetShouldAutoSuggest_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KCompletion_Sender(const KCompletion* self) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        return vkcompletion->sender();
-    } else {
-        return ((VirtualKCompletion*)self)->sender();
-    }
+    if (auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self))) {
+        return vkcompletion->VirtualKCompletion::sender();
+    } else
+        qFatal("Error: Protected method KCompletion::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KCompletion_SuperSender(const KCompletion* self) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_Sender_IsBase(true);
-        return vkcompletion->sender();
-    } else {
-        return ((VirtualKCompletion*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompletion_OnSender(const KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_Sender_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KCompletion_SenderSignalIndex(const KCompletion* self) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        return vkcompletion->senderSignalIndex();
-    } else {
-        return ((VirtualKCompletion*)self)->senderSignalIndex();
-    }
+    if (auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self))) {
+        return vkcompletion->VirtualKCompletion::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KCompletion::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KCompletion_SuperSenderSignalIndex(const KCompletion* self) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_SenderSignalIndex_IsBase(true);
-        return vkcompletion->senderSignalIndex();
-    } else {
-        return ((VirtualKCompletion*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompletion_OnSenderSignalIndex(const KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KCompletion_Receivers(const KCompletion* self, const char* signal) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        return vkcompletion->receivers(signal);
-    } else {
-        return ((VirtualKCompletion*)self)->receivers(signal);
-    }
+    if (auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self))) {
+        return vkcompletion->VirtualKCompletion::receivers(signal);
+    } else
+        qFatal("Error: Protected method KCompletion::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KCompletion_SuperReceivers(const KCompletion* self, const char* signal) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_Receivers_IsBase(true);
-        return vkcompletion->receivers(signal);
-    } else {
-        return ((VirtualKCompletion*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompletion_OnReceivers(const KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_Receivers_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KCompletion_IsSignalConnected(const KCompletion* self, const QMetaMethod* signal) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        return vkcompletion->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKCompletion*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KCompletion_SuperIsSignalConnected(const KCompletion* self, const QMetaMethod* signal) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->setKCompletion_IsSignalConnected_IsBase(true);
-        return vkcompletion->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKCompletion*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompletion_OnIsSignalConnected(const KCompletion* self, intptr_t slot) {
-    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion)
-        vkcompletion->setKCompletion_IsSignalConnected_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_IsSignalConnected_Callback>(slot));
+    if (auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self))) {
+        return vkcompletion->VirtualKCompletion::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KCompletion::isSignalConnected called without a directly constructed type");
 }
 
 void KCompletion_Delete(KCompletion* self) {

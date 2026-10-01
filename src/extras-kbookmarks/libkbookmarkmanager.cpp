@@ -178,364 +178,219 @@ bool KBookmarkManager_Save1(const KBookmarkManager* self, bool toolbarCache) {
 
 // Base class handler implementation
 QMetaObject* KBookmarkManager_SuperMetaObject(const KBookmarkManager* self) {
-    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        vkbookmarkmanager->setKBookmarkManager_MetaObject_IsBase(true);
-        return (QMetaObject*)vkbookmarkmanager->metaObject();
-    } else {
-        return (QMetaObject*)self->KBookmarkManager::metaObject();
-    }
+    return (QMetaObject*)self->KBookmarkManager::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KBookmarkManager_OnMetaObject(const KBookmarkManager* self, intptr_t slot) {
-    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
-        vkbookmarkmanager->setKBookmarkManager_MetaObject_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_MetaObject_Callback>(slot));
+void KBookmarkManager_OnMetaObject(KBookmarkManager* self, intptr_t slot) {
+    if (auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self)))
+        vkbookmarkmanager->kbookmarkmanager_metaobject_callback = reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KBookmarkManager_SuperMetacast(KBookmarkManager* self, const char* param1) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        vkbookmarkmanager->setKBookmarkManager_Metacast_IsBase(true);
-        return vkbookmarkmanager->qt_metacast(param1);
-    } else {
-        return self->KBookmarkManager::qt_metacast(param1);
-    }
+    return self->KBookmarkManager::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnMetacast(KBookmarkManager* self, intptr_t slot) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
-        vkbookmarkmanager->setKBookmarkManager_Metacast_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_Metacast_Callback>(slot));
+    if (auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self))
+        vkbookmarkmanager->kbookmarkmanager_metacast_callback = reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KBookmarkManager_SuperMetacall(KBookmarkManager* self, int param1, int param2, void** param3) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        vkbookmarkmanager->setKBookmarkManager_Metacall_IsBase(true);
-        return vkbookmarkmanager->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KBookmarkManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KBookmarkManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnMetacall(KBookmarkManager* self, intptr_t slot) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
-        vkbookmarkmanager->setKBookmarkManager_Metacall_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_Metacall_Callback>(slot));
+    if (auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self))
+        vkbookmarkmanager->kbookmarkmanager_metacall_callback = reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KBookmarkManager_Event(KBookmarkManager* self, QEvent* event) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        return vkbookmarkmanager->event(event);
-    } else {
-        return self->KBookmarkManager::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KBookmarkManager_SuperEvent(KBookmarkManager* self, QEvent* event) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        vkbookmarkmanager->setKBookmarkManager_Event_IsBase(true);
-        return vkbookmarkmanager->event(event);
-    } else {
-        return self->KBookmarkManager::event(event);
-    }
+    return self->KBookmarkManager::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnEvent(KBookmarkManager* self, intptr_t slot) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
-        vkbookmarkmanager->setKBookmarkManager_Event_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_Event_Callback>(slot));
+    if (auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self))
+        vkbookmarkmanager->kbookmarkmanager_event_callback = reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KBookmarkManager_EventFilter(KBookmarkManager* self, QObject* watched, QEvent* event) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        return vkbookmarkmanager->eventFilter(watched, event);
-    } else {
-        return self->KBookmarkManager::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KBookmarkManager_SuperEventFilter(KBookmarkManager* self, QObject* watched, QEvent* event) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        vkbookmarkmanager->setKBookmarkManager_EventFilter_IsBase(true);
-        return vkbookmarkmanager->eventFilter(watched, event);
-    } else {
-        return self->KBookmarkManager::eventFilter(watched, event);
-    }
+    return self->KBookmarkManager::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnEventFilter(KBookmarkManager* self, intptr_t slot) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
-        vkbookmarkmanager->setKBookmarkManager_EventFilter_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_EventFilter_Callback>(slot));
+    if (auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self))
+        vkbookmarkmanager->kbookmarkmanager_eventfilter_callback = reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkManager_TimerEvent(KBookmarkManager* self, QTimerEvent* event) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager) {
         vkbookmarkmanager->timerEvent(event);
     } else {
-        ((VirtualKBookmarkManager*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkManager::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkManager_SuperTimerEvent(KBookmarkManager* self, QTimerEvent* event) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        vkbookmarkmanager->setKBookmarkManager_TimerEvent_IsBase(true);
-        vkbookmarkmanager->timerEvent(event);
-    } else {
-        ((VirtualKBookmarkManager*)self)->timerEvent(event);
-    }
+    if (auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self)) {
+        vkbookmarkmanager->KBookmarkManager::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkManager::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnTimerEvent(KBookmarkManager* self, intptr_t slot) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
-        vkbookmarkmanager->setKBookmarkManager_TimerEvent_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_TimerEvent_Callback>(slot));
+    if (auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self))
+        vkbookmarkmanager->kbookmarkmanager_timerevent_callback = reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkManager_ChildEvent(KBookmarkManager* self, QChildEvent* event) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager) {
         vkbookmarkmanager->childEvent(event);
     } else {
-        ((VirtualKBookmarkManager*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkManager::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkManager_SuperChildEvent(KBookmarkManager* self, QChildEvent* event) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        vkbookmarkmanager->setKBookmarkManager_ChildEvent_IsBase(true);
-        vkbookmarkmanager->childEvent(event);
-    } else {
-        ((VirtualKBookmarkManager*)self)->childEvent(event);
-    }
+    if (auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self)) {
+        vkbookmarkmanager->KBookmarkManager::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkManager::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnChildEvent(KBookmarkManager* self, intptr_t slot) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
-        vkbookmarkmanager->setKBookmarkManager_ChildEvent_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_ChildEvent_Callback>(slot));
+    if (auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self))
+        vkbookmarkmanager->kbookmarkmanager_childevent_callback = reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkManager_CustomEvent(KBookmarkManager* self, QEvent* event) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager) {
         vkbookmarkmanager->customEvent(event);
     } else {
-        ((VirtualKBookmarkManager*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkManager::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkManager_SuperCustomEvent(KBookmarkManager* self, QEvent* event) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        vkbookmarkmanager->setKBookmarkManager_CustomEvent_IsBase(true);
-        vkbookmarkmanager->customEvent(event);
-    } else {
-        ((VirtualKBookmarkManager*)self)->customEvent(event);
-    }
+    if (auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self)) {
+        vkbookmarkmanager->KBookmarkManager::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkManager::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnCustomEvent(KBookmarkManager* self, intptr_t slot) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
-        vkbookmarkmanager->setKBookmarkManager_CustomEvent_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_CustomEvent_Callback>(slot));
+    if (auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self))
+        vkbookmarkmanager->kbookmarkmanager_customevent_callback = reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkManager_ConnectNotify(KBookmarkManager* self, const QMetaMethod* signal) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager) {
         vkbookmarkmanager->connectNotify(*signal);
     } else {
-        ((VirtualKBookmarkManager*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KBookmarkManager::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkManager_SuperConnectNotify(KBookmarkManager* self, const QMetaMethod* signal) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        vkbookmarkmanager->setKBookmarkManager_ConnectNotify_IsBase(true);
-        vkbookmarkmanager->connectNotify(*signal);
-    } else {
-        ((VirtualKBookmarkManager*)self)->connectNotify(*signal);
-    }
+    if (auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self)) {
+        vkbookmarkmanager->KBookmarkManager::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkManager::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnConnectNotify(KBookmarkManager* self, intptr_t slot) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
-        vkbookmarkmanager->setKBookmarkManager_ConnectNotify_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_ConnectNotify_Callback>(slot));
+    if (auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self))
+        vkbookmarkmanager->kbookmarkmanager_connectnotify_callback = reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkManager_DisconnectNotify(KBookmarkManager* self, const QMetaMethod* signal) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager) {
         vkbookmarkmanager->disconnectNotify(*signal);
     } else {
-        ((VirtualKBookmarkManager*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KBookmarkManager::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkManager_SuperDisconnectNotify(KBookmarkManager* self, const QMetaMethod* signal) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        vkbookmarkmanager->setKBookmarkManager_DisconnectNotify_IsBase(true);
-        vkbookmarkmanager->disconnectNotify(*signal);
-    } else {
-        ((VirtualKBookmarkManager*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self)) {
+        vkbookmarkmanager->KBookmarkManager::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkManager::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnDisconnectNotify(KBookmarkManager* self, intptr_t slot) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
-        vkbookmarkmanager->setKBookmarkManager_DisconnectNotify_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_DisconnectNotify_Callback>(slot));
+    if (auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self))
+        vkbookmarkmanager->kbookmarkmanager_disconnectnotify_callback = reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KBookmarkManager_Sender(const KBookmarkManager* self) {
-    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        return vkbookmarkmanager->sender();
-    } else {
-        return ((VirtualKBookmarkManager*)self)->sender();
-    }
+    if (auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self))) {
+        return vkbookmarkmanager->VirtualKBookmarkManager::sender();
+    } else
+        qFatal("Error: Protected method KBookmarkManager::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KBookmarkManager_SuperSender(const KBookmarkManager* self) {
-    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        vkbookmarkmanager->setKBookmarkManager_Sender_IsBase(true);
-        return vkbookmarkmanager->sender();
-    } else {
-        return ((VirtualKBookmarkManager*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkManager_OnSender(const KBookmarkManager* self, intptr_t slot) {
-    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
-        vkbookmarkmanager->setKBookmarkManager_Sender_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KBookmarkManager_SenderSignalIndex(const KBookmarkManager* self) {
-    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        return vkbookmarkmanager->senderSignalIndex();
-    } else {
-        return ((VirtualKBookmarkManager*)self)->senderSignalIndex();
-    }
+    if (auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self))) {
+        return vkbookmarkmanager->VirtualKBookmarkManager::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KBookmarkManager::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KBookmarkManager_SuperSenderSignalIndex(const KBookmarkManager* self) {
-    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        vkbookmarkmanager->setKBookmarkManager_SenderSignalIndex_IsBase(true);
-        return vkbookmarkmanager->senderSignalIndex();
-    } else {
-        return ((VirtualKBookmarkManager*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkManager_OnSenderSignalIndex(const KBookmarkManager* self, intptr_t slot) {
-    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
-        vkbookmarkmanager->setKBookmarkManager_SenderSignalIndex_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KBookmarkManager_Receivers(const KBookmarkManager* self, const char* signal) {
-    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        return vkbookmarkmanager->receivers(signal);
-    } else {
-        return ((VirtualKBookmarkManager*)self)->receivers(signal);
-    }
+    if (auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self))) {
+        return vkbookmarkmanager->VirtualKBookmarkManager::receivers(signal);
+    } else
+        qFatal("Error: Protected method KBookmarkManager::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KBookmarkManager_SuperReceivers(const KBookmarkManager* self, const char* signal) {
-    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        vkbookmarkmanager->setKBookmarkManager_Receivers_IsBase(true);
-        return vkbookmarkmanager->receivers(signal);
-    } else {
-        return ((VirtualKBookmarkManager*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkManager_OnReceivers(const KBookmarkManager* self, intptr_t slot) {
-    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
-        vkbookmarkmanager->setKBookmarkManager_Receivers_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KBookmarkManager_IsSignalConnected(const KBookmarkManager* self, const QMetaMethod* signal) {
-    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        return vkbookmarkmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKBookmarkManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KBookmarkManager_SuperIsSignalConnected(const KBookmarkManager* self, const QMetaMethod* signal) {
-    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        vkbookmarkmanager->setKBookmarkManager_IsSignalConnected_IsBase(true);
-        return vkbookmarkmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKBookmarkManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkManager_OnIsSignalConnected(const KBookmarkManager* self, intptr_t slot) {
-    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
-        vkbookmarkmanager->setKBookmarkManager_IsSignalConnected_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_IsSignalConnected_Callback>(slot));
+    if (auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self))) {
+        return vkbookmarkmanager->VirtualKBookmarkManager::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KBookmarkManager::isSignalConnected called without a directly constructed type");
 }
 
 void KBookmarkManager_Delete(KBookmarkManager* self) {

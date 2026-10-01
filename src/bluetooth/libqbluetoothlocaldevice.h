@@ -56,7 +56,7 @@ void QBluetoothLocalDevice_ErrorOccurred(QBluetoothLocalDevice* self, int errorV
 void QBluetoothLocalDevice_Connect_ErrorOccurred(QBluetoothLocalDevice* self, intptr_t slot);
 libqt_string QBluetoothLocalDevice_Tr2(const char* s, const char* c);
 libqt_string QBluetoothLocalDevice_Tr3(const char* s, const char* c, int n);
-void QBluetoothLocalDevice_OnMetaObject(const QBluetoothLocalDevice* self, intptr_t slot);
+void QBluetoothLocalDevice_OnMetaObject(QBluetoothLocalDevice* self, intptr_t slot);
 QMetaObject* QBluetoothLocalDevice_SuperMetaObject(const QBluetoothLocalDevice* self);
 void QBluetoothLocalDevice_OnMetacast(QBluetoothLocalDevice* self, intptr_t slot);
 void* QBluetoothLocalDevice_SuperMetacast(QBluetoothLocalDevice* self, const char* param1);
@@ -84,17 +84,9 @@ void QBluetoothLocalDevice_DisconnectNotify(QBluetoothLocalDevice* self, const Q
 void QBluetoothLocalDevice_OnDisconnectNotify(QBluetoothLocalDevice* self, intptr_t slot);
 void QBluetoothLocalDevice_SuperDisconnectNotify(QBluetoothLocalDevice* self, const QMetaMethod* signal);
 QObject* QBluetoothLocalDevice_Sender(const QBluetoothLocalDevice* self);
-void QBluetoothLocalDevice_OnSender(const QBluetoothLocalDevice* self, intptr_t slot);
-QObject* QBluetoothLocalDevice_SuperSender(const QBluetoothLocalDevice* self);
 int QBluetoothLocalDevice_SenderSignalIndex(const QBluetoothLocalDevice* self);
-void QBluetoothLocalDevice_OnSenderSignalIndex(const QBluetoothLocalDevice* self, intptr_t slot);
-int QBluetoothLocalDevice_SuperSenderSignalIndex(const QBluetoothLocalDevice* self);
 int QBluetoothLocalDevice_Receivers(const QBluetoothLocalDevice* self, const char* signal);
-void QBluetoothLocalDevice_OnReceivers(const QBluetoothLocalDevice* self, intptr_t slot);
-int QBluetoothLocalDevice_SuperReceivers(const QBluetoothLocalDevice* self, const char* signal);
 bool QBluetoothLocalDevice_IsSignalConnected(const QBluetoothLocalDevice* self, const QMetaMethod* signal);
-void QBluetoothLocalDevice_OnIsSignalConnected(const QBluetoothLocalDevice* self, intptr_t slot);
-bool QBluetoothLocalDevice_SuperIsSignalConnected(const QBluetoothLocalDevice* self, const QMetaMethod* signal);
 void QBluetoothLocalDevice_Delete(QBluetoothLocalDevice* self);
 
 #ifdef __cplusplus

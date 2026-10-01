@@ -116,364 +116,219 @@ libqt_string QDtlsClientVerifier_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QDtlsClientVerifier_SuperMetaObject(const QDtlsClientVerifier* self) {
-    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdtlsclientverifier->metaObject();
-    } else {
-        return (QMetaObject*)self->QDtlsClientVerifier::metaObject();
-    }
+    return (QMetaObject*)self->QDtlsClientVerifier::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDtlsClientVerifier_OnMetaObject(const QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
-        vqdtlsclientverifier->setQDtlsClientVerifier_MetaObject_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_MetaObject_Callback>(slot));
+void QDtlsClientVerifier_OnMetaObject(QDtlsClientVerifier* self, intptr_t slot) {
+    if (auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self)))
+        vqdtlsclientverifier->qdtlsclientverifier_metaobject_callback = reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDtlsClientVerifier_SuperMetacast(QDtlsClientVerifier* self, const char* param1) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_Metacast_IsBase(true);
-        return vqdtlsclientverifier->qt_metacast(param1);
-    } else {
-        return self->QDtlsClientVerifier::qt_metacast(param1);
-    }
+    return self->QDtlsClientVerifier::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnMetacast(QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
-        vqdtlsclientverifier->setQDtlsClientVerifier_Metacast_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Metacast_Callback>(slot));
+    if (auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self))
+        vqdtlsclientverifier->qdtlsclientverifier_metacast_callback = reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDtlsClientVerifier_SuperMetacall(QDtlsClientVerifier* self, int param1, int param2, void** param3) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_Metacall_IsBase(true);
-        return vqdtlsclientverifier->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDtlsClientVerifier::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDtlsClientVerifier::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnMetacall(QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
-        vqdtlsclientverifier->setQDtlsClientVerifier_Metacall_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Metacall_Callback>(slot));
+    if (auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self))
+        vqdtlsclientverifier->qdtlsclientverifier_metacall_callback = reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDtlsClientVerifier_Event(QDtlsClientVerifier* self, QEvent* event) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        return vqdtlsclientverifier->event(event);
-    } else {
-        return self->QDtlsClientVerifier::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QDtlsClientVerifier_SuperEvent(QDtlsClientVerifier* self, QEvent* event) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_Event_IsBase(true);
-        return vqdtlsclientverifier->event(event);
-    } else {
-        return self->QDtlsClientVerifier::event(event);
-    }
+    return self->QDtlsClientVerifier::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnEvent(QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
-        vqdtlsclientverifier->setQDtlsClientVerifier_Event_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Event_Callback>(slot));
+    if (auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self))
+        vqdtlsclientverifier->qdtlsclientverifier_event_callback = reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDtlsClientVerifier_EventFilter(QDtlsClientVerifier* self, QObject* watched, QEvent* event) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        return vqdtlsclientverifier->eventFilter(watched, event);
-    } else {
-        return self->QDtlsClientVerifier::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDtlsClientVerifier_SuperEventFilter(QDtlsClientVerifier* self, QObject* watched, QEvent* event) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_EventFilter_IsBase(true);
-        return vqdtlsclientverifier->eventFilter(watched, event);
-    } else {
-        return self->QDtlsClientVerifier::eventFilter(watched, event);
-    }
+    return self->QDtlsClientVerifier::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnEventFilter(QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
-        vqdtlsclientverifier->setQDtlsClientVerifier_EventFilter_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_EventFilter_Callback>(slot));
+    if (auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self))
+        vqdtlsclientverifier->qdtlsclientverifier_eventfilter_callback = reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDtlsClientVerifier_TimerEvent(QDtlsClientVerifier* self, QTimerEvent* event) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier) {
         vqdtlsclientverifier->timerEvent(event);
     } else {
-        ((VirtualQDtlsClientVerifier*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDtlsClientVerifier::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDtlsClientVerifier_SuperTimerEvent(QDtlsClientVerifier* self, QTimerEvent* event) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_TimerEvent_IsBase(true);
-        vqdtlsclientverifier->timerEvent(event);
-    } else {
-        ((VirtualQDtlsClientVerifier*)self)->timerEvent(event);
-    }
+    if (auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self)) {
+        vqdtlsclientverifier->QDtlsClientVerifier::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDtlsClientVerifier::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnTimerEvent(QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
-        vqdtlsclientverifier->setQDtlsClientVerifier_TimerEvent_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_TimerEvent_Callback>(slot));
+    if (auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self))
+        vqdtlsclientverifier->qdtlsclientverifier_timerevent_callback = reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDtlsClientVerifier_ChildEvent(QDtlsClientVerifier* self, QChildEvent* event) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier) {
         vqdtlsclientverifier->childEvent(event);
     } else {
-        ((VirtualQDtlsClientVerifier*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDtlsClientVerifier::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDtlsClientVerifier_SuperChildEvent(QDtlsClientVerifier* self, QChildEvent* event) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_ChildEvent_IsBase(true);
-        vqdtlsclientverifier->childEvent(event);
-    } else {
-        ((VirtualQDtlsClientVerifier*)self)->childEvent(event);
-    }
+    if (auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self)) {
+        vqdtlsclientverifier->QDtlsClientVerifier::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDtlsClientVerifier::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnChildEvent(QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
-        vqdtlsclientverifier->setQDtlsClientVerifier_ChildEvent_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_ChildEvent_Callback>(slot));
+    if (auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self))
+        vqdtlsclientverifier->qdtlsclientverifier_childevent_callback = reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDtlsClientVerifier_CustomEvent(QDtlsClientVerifier* self, QEvent* event) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier) {
         vqdtlsclientverifier->customEvent(event);
     } else {
-        ((VirtualQDtlsClientVerifier*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDtlsClientVerifier::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDtlsClientVerifier_SuperCustomEvent(QDtlsClientVerifier* self, QEvent* event) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_CustomEvent_IsBase(true);
-        vqdtlsclientverifier->customEvent(event);
-    } else {
-        ((VirtualQDtlsClientVerifier*)self)->customEvent(event);
-    }
+    if (auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self)) {
+        vqdtlsclientverifier->QDtlsClientVerifier::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDtlsClientVerifier::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnCustomEvent(QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
-        vqdtlsclientverifier->setQDtlsClientVerifier_CustomEvent_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_CustomEvent_Callback>(slot));
+    if (auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self))
+        vqdtlsclientverifier->qdtlsclientverifier_customevent_callback = reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDtlsClientVerifier_ConnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier) {
         vqdtlsclientverifier->connectNotify(*signal);
     } else {
-        ((VirtualQDtlsClientVerifier*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDtlsClientVerifier::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDtlsClientVerifier_SuperConnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_ConnectNotify_IsBase(true);
-        vqdtlsclientverifier->connectNotify(*signal);
-    } else {
-        ((VirtualQDtlsClientVerifier*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self)) {
+        vqdtlsclientverifier->QDtlsClientVerifier::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDtlsClientVerifier::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnConnectNotify(QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
-        vqdtlsclientverifier->setQDtlsClientVerifier_ConnectNotify_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_ConnectNotify_Callback>(slot));
+    if (auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self))
+        vqdtlsclientverifier->qdtlsclientverifier_connectnotify_callback = reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDtlsClientVerifier_DisconnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier) {
         vqdtlsclientverifier->disconnectNotify(*signal);
     } else {
-        ((VirtualQDtlsClientVerifier*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDtlsClientVerifier::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDtlsClientVerifier_SuperDisconnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_DisconnectNotify_IsBase(true);
-        vqdtlsclientverifier->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDtlsClientVerifier*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self)) {
+        vqdtlsclientverifier->QDtlsClientVerifier::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDtlsClientVerifier::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnDisconnectNotify(QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
-        vqdtlsclientverifier->setQDtlsClientVerifier_DisconnectNotify_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_DisconnectNotify_Callback>(slot));
+    if (auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self))
+        vqdtlsclientverifier->qdtlsclientverifier_disconnectnotify_callback = reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDtlsClientVerifier_Sender(const QDtlsClientVerifier* self) {
-    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        return vqdtlsclientverifier->sender();
-    } else {
-        return ((VirtualQDtlsClientVerifier*)self)->sender();
-    }
+    if (auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self))) {
+        return vqdtlsclientverifier->VirtualQDtlsClientVerifier::sender();
+    } else
+        qFatal("Error: Protected method QDtlsClientVerifier::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDtlsClientVerifier_SuperSender(const QDtlsClientVerifier* self) {
-    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_Sender_IsBase(true);
-        return vqdtlsclientverifier->sender();
-    } else {
-        return ((VirtualQDtlsClientVerifier*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDtlsClientVerifier_OnSender(const QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
-        vqdtlsclientverifier->setQDtlsClientVerifier_Sender_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDtlsClientVerifier_SenderSignalIndex(const QDtlsClientVerifier* self) {
-    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        return vqdtlsclientverifier->senderSignalIndex();
-    } else {
-        return ((VirtualQDtlsClientVerifier*)self)->senderSignalIndex();
-    }
+    if (auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self))) {
+        return vqdtlsclientverifier->VirtualQDtlsClientVerifier::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDtlsClientVerifier::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDtlsClientVerifier_SuperSenderSignalIndex(const QDtlsClientVerifier* self) {
-    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_SenderSignalIndex_IsBase(true);
-        return vqdtlsclientverifier->senderSignalIndex();
-    } else {
-        return ((VirtualQDtlsClientVerifier*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDtlsClientVerifier_OnSenderSignalIndex(const QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
-        vqdtlsclientverifier->setQDtlsClientVerifier_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDtlsClientVerifier_Receivers(const QDtlsClientVerifier* self, const char* signal) {
-    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        return vqdtlsclientverifier->receivers(signal);
-    } else {
-        return ((VirtualQDtlsClientVerifier*)self)->receivers(signal);
-    }
+    if (auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self))) {
+        return vqdtlsclientverifier->VirtualQDtlsClientVerifier::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDtlsClientVerifier::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDtlsClientVerifier_SuperReceivers(const QDtlsClientVerifier* self, const char* signal) {
-    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_Receivers_IsBase(true);
-        return vqdtlsclientverifier->receivers(signal);
-    } else {
-        return ((VirtualQDtlsClientVerifier*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDtlsClientVerifier_OnReceivers(const QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
-        vqdtlsclientverifier->setQDtlsClientVerifier_Receivers_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDtlsClientVerifier_IsSignalConnected(const QDtlsClientVerifier* self, const QMetaMethod* signal) {
-    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        return vqdtlsclientverifier->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDtlsClientVerifier*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QDtlsClientVerifier_SuperIsSignalConnected(const QDtlsClientVerifier* self, const QMetaMethod* signal) {
-    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        vqdtlsclientverifier->setQDtlsClientVerifier_IsSignalConnected_IsBase(true);
-        return vqdtlsclientverifier->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDtlsClientVerifier*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDtlsClientVerifier_OnIsSignalConnected(const QDtlsClientVerifier* self, intptr_t slot) {
-    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
-        vqdtlsclientverifier->setQDtlsClientVerifier_IsSignalConnected_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_IsSignalConnected_Callback>(slot));
+    if (auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self))) {
+        return vqdtlsclientverifier->VirtualQDtlsClientVerifier::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDtlsClientVerifier::isSignalConnected called without a directly constructed type");
 }
 
 void QDtlsClientVerifier_Delete(QDtlsClientVerifier* self) {
@@ -722,364 +577,219 @@ bool QDtls_DoHandshake2(QDtls* self, QUdpSocket* socket, const libqt_string dgra
 
 // Base class handler implementation
 QMetaObject* QDtls_SuperMetaObject(const QDtls* self) {
-    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdtls->metaObject();
-    } else {
-        return (QMetaObject*)self->QDtls::metaObject();
-    }
+    return (QMetaObject*)self->QDtls::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDtls_OnMetaObject(const QDtls* self, intptr_t slot) {
-    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls)
-        vqdtls->setQDtls_MetaObject_Callback(reinterpret_cast<VirtualQDtls::QDtls_MetaObject_Callback>(slot));
+void QDtls_OnMetaObject(QDtls* self, intptr_t slot) {
+    if (auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self)))
+        vqdtls->qdtls_metaobject_callback = reinterpret_cast<VirtualQDtls::QDtls_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDtls_SuperMetacast(QDtls* self, const char* param1) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_Metacast_IsBase(true);
-        return vqdtls->qt_metacast(param1);
-    } else {
-        return self->QDtls::qt_metacast(param1);
-    }
+    return self->QDtls::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnMetacast(QDtls* self, intptr_t slot) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls)
-        vqdtls->setQDtls_Metacast_Callback(reinterpret_cast<VirtualQDtls::QDtls_Metacast_Callback>(slot));
+    if (auto* vqdtls = dynamic_cast<VirtualQDtls*>(self))
+        vqdtls->qdtls_metacast_callback = reinterpret_cast<VirtualQDtls::QDtls_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDtls_SuperMetacall(QDtls* self, int param1, int param2, void** param3) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_Metacall_IsBase(true);
-        return vqdtls->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDtls::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDtls::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnMetacall(QDtls* self, intptr_t slot) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls)
-        vqdtls->setQDtls_Metacall_Callback(reinterpret_cast<VirtualQDtls::QDtls_Metacall_Callback>(slot));
+    if (auto* vqdtls = dynamic_cast<VirtualQDtls*>(self))
+        vqdtls->qdtls_metacall_callback = reinterpret_cast<VirtualQDtls::QDtls_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDtls_Event(QDtls* self, QEvent* event) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        return vqdtls->event(event);
-    } else {
-        return self->QDtls::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QDtls_SuperEvent(QDtls* self, QEvent* event) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_Event_IsBase(true);
-        return vqdtls->event(event);
-    } else {
-        return self->QDtls::event(event);
-    }
+    return self->QDtls::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnEvent(QDtls* self, intptr_t slot) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls)
-        vqdtls->setQDtls_Event_Callback(reinterpret_cast<VirtualQDtls::QDtls_Event_Callback>(slot));
+    if (auto* vqdtls = dynamic_cast<VirtualQDtls*>(self))
+        vqdtls->qdtls_event_callback = reinterpret_cast<VirtualQDtls::QDtls_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDtls_EventFilter(QDtls* self, QObject* watched, QEvent* event) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        return vqdtls->eventFilter(watched, event);
-    } else {
-        return self->QDtls::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDtls_SuperEventFilter(QDtls* self, QObject* watched, QEvent* event) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_EventFilter_IsBase(true);
-        return vqdtls->eventFilter(watched, event);
-    } else {
-        return self->QDtls::eventFilter(watched, event);
-    }
+    return self->QDtls::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnEventFilter(QDtls* self, intptr_t slot) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls)
-        vqdtls->setQDtls_EventFilter_Callback(reinterpret_cast<VirtualQDtls::QDtls_EventFilter_Callback>(slot));
+    if (auto* vqdtls = dynamic_cast<VirtualQDtls*>(self))
+        vqdtls->qdtls_eventfilter_callback = reinterpret_cast<VirtualQDtls::QDtls_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDtls_TimerEvent(QDtls* self, QTimerEvent* event) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls) {
         vqdtls->timerEvent(event);
     } else {
-        ((VirtualQDtls*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDtls::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDtls_SuperTimerEvent(QDtls* self, QTimerEvent* event) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_TimerEvent_IsBase(true);
-        vqdtls->timerEvent(event);
-    } else {
-        ((VirtualQDtls*)self)->timerEvent(event);
-    }
+    if (auto* vqdtls = dynamic_cast<VirtualQDtls*>(self)) {
+        vqdtls->QDtls::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDtls::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnTimerEvent(QDtls* self, intptr_t slot) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls)
-        vqdtls->setQDtls_TimerEvent_Callback(reinterpret_cast<VirtualQDtls::QDtls_TimerEvent_Callback>(slot));
+    if (auto* vqdtls = dynamic_cast<VirtualQDtls*>(self))
+        vqdtls->qdtls_timerevent_callback = reinterpret_cast<VirtualQDtls::QDtls_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDtls_ChildEvent(QDtls* self, QChildEvent* event) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls) {
         vqdtls->childEvent(event);
     } else {
-        ((VirtualQDtls*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDtls::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDtls_SuperChildEvent(QDtls* self, QChildEvent* event) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_ChildEvent_IsBase(true);
-        vqdtls->childEvent(event);
-    } else {
-        ((VirtualQDtls*)self)->childEvent(event);
-    }
+    if (auto* vqdtls = dynamic_cast<VirtualQDtls*>(self)) {
+        vqdtls->QDtls::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDtls::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnChildEvent(QDtls* self, intptr_t slot) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls)
-        vqdtls->setQDtls_ChildEvent_Callback(reinterpret_cast<VirtualQDtls::QDtls_ChildEvent_Callback>(slot));
+    if (auto* vqdtls = dynamic_cast<VirtualQDtls*>(self))
+        vqdtls->qdtls_childevent_callback = reinterpret_cast<VirtualQDtls::QDtls_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDtls_CustomEvent(QDtls* self, QEvent* event) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls) {
         vqdtls->customEvent(event);
     } else {
-        ((VirtualQDtls*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDtls::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDtls_SuperCustomEvent(QDtls* self, QEvent* event) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_CustomEvent_IsBase(true);
-        vqdtls->customEvent(event);
-    } else {
-        ((VirtualQDtls*)self)->customEvent(event);
-    }
+    if (auto* vqdtls = dynamic_cast<VirtualQDtls*>(self)) {
+        vqdtls->QDtls::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDtls::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnCustomEvent(QDtls* self, intptr_t slot) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls)
-        vqdtls->setQDtls_CustomEvent_Callback(reinterpret_cast<VirtualQDtls::QDtls_CustomEvent_Callback>(slot));
+    if (auto* vqdtls = dynamic_cast<VirtualQDtls*>(self))
+        vqdtls->qdtls_customevent_callback = reinterpret_cast<VirtualQDtls::QDtls_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDtls_ConnectNotify(QDtls* self, const QMetaMethod* signal) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls) {
         vqdtls->connectNotify(*signal);
     } else {
-        ((VirtualQDtls*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDtls::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDtls_SuperConnectNotify(QDtls* self, const QMetaMethod* signal) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_ConnectNotify_IsBase(true);
-        vqdtls->connectNotify(*signal);
-    } else {
-        ((VirtualQDtls*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdtls = dynamic_cast<VirtualQDtls*>(self)) {
+        vqdtls->QDtls::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDtls::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnConnectNotify(QDtls* self, intptr_t slot) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls)
-        vqdtls->setQDtls_ConnectNotify_Callback(reinterpret_cast<VirtualQDtls::QDtls_ConnectNotify_Callback>(slot));
+    if (auto* vqdtls = dynamic_cast<VirtualQDtls*>(self))
+        vqdtls->qdtls_connectnotify_callback = reinterpret_cast<VirtualQDtls::QDtls_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDtls_DisconnectNotify(QDtls* self, const QMetaMethod* signal) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls) {
         vqdtls->disconnectNotify(*signal);
     } else {
-        ((VirtualQDtls*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDtls::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDtls_SuperDisconnectNotify(QDtls* self, const QMetaMethod* signal) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_DisconnectNotify_IsBase(true);
-        vqdtls->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDtls*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdtls = dynamic_cast<VirtualQDtls*>(self)) {
+        vqdtls->QDtls::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDtls::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnDisconnectNotify(QDtls* self, intptr_t slot) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls)
-        vqdtls->setQDtls_DisconnectNotify_Callback(reinterpret_cast<VirtualQDtls::QDtls_DisconnectNotify_Callback>(slot));
+    if (auto* vqdtls = dynamic_cast<VirtualQDtls*>(self))
+        vqdtls->qdtls_disconnectnotify_callback = reinterpret_cast<VirtualQDtls::QDtls_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDtls_Sender(const QDtls* self) {
-    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        return vqdtls->sender();
-    } else {
-        return ((VirtualQDtls*)self)->sender();
-    }
+    if (auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self))) {
+        return vqdtls->VirtualQDtls::sender();
+    } else
+        qFatal("Error: Protected method QDtls::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDtls_SuperSender(const QDtls* self) {
-    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_Sender_IsBase(true);
-        return vqdtls->sender();
-    } else {
-        return ((VirtualQDtls*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDtls_OnSender(const QDtls* self, intptr_t slot) {
-    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls)
-        vqdtls->setQDtls_Sender_Callback(reinterpret_cast<VirtualQDtls::QDtls_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDtls_SenderSignalIndex(const QDtls* self) {
-    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        return vqdtls->senderSignalIndex();
-    } else {
-        return ((VirtualQDtls*)self)->senderSignalIndex();
-    }
+    if (auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self))) {
+        return vqdtls->VirtualQDtls::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDtls::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDtls_SuperSenderSignalIndex(const QDtls* self) {
-    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_SenderSignalIndex_IsBase(true);
-        return vqdtls->senderSignalIndex();
-    } else {
-        return ((VirtualQDtls*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDtls_OnSenderSignalIndex(const QDtls* self, intptr_t slot) {
-    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls)
-        vqdtls->setQDtls_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDtls::QDtls_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDtls_Receivers(const QDtls* self, const char* signal) {
-    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        return vqdtls->receivers(signal);
-    } else {
-        return ((VirtualQDtls*)self)->receivers(signal);
-    }
+    if (auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self))) {
+        return vqdtls->VirtualQDtls::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDtls::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDtls_SuperReceivers(const QDtls* self, const char* signal) {
-    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_Receivers_IsBase(true);
-        return vqdtls->receivers(signal);
-    } else {
-        return ((VirtualQDtls*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDtls_OnReceivers(const QDtls* self, intptr_t slot) {
-    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls)
-        vqdtls->setQDtls_Receivers_Callback(reinterpret_cast<VirtualQDtls::QDtls_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDtls_IsSignalConnected(const QDtls* self, const QMetaMethod* signal) {
-    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        return vqdtls->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDtls*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QDtls_SuperIsSignalConnected(const QDtls* self, const QMetaMethod* signal) {
-    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        vqdtls->setQDtls_IsSignalConnected_IsBase(true);
-        return vqdtls->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDtls*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDtls_OnIsSignalConnected(const QDtls* self, intptr_t slot) {
-    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls)
-        vqdtls->setQDtls_IsSignalConnected_Callback(reinterpret_cast<VirtualQDtls::QDtls_IsSignalConnected_Callback>(slot));
+    if (auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self))) {
+        return vqdtls->VirtualQDtls::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDtls::isSignalConnected called without a directly constructed type");
 }
 
 void QDtls_Delete(QDtls* self) {

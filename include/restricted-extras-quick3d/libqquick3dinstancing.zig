@@ -86,9 +86,9 @@ pub const QQuick3DInstancing = extern struct {
     ///
     /// ` self: QQuick3DInstancing `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QQuick3DInstancing) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QQuick3DInstancing, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QQuick3DInstancing, callback: *const fn (QQuick3DInstancing) callconv(.c) QMetaObject) void {
         qtc.QQuick3DInstancing_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -581,6 +581,8 @@ pub const QQuick3DInstancing = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dinstancing.html#getInstanceBuffer)
     ///
+    /// This method must be implemented with `onGetInstanceBuffer` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QQuick3DInstancing `
@@ -615,30 +617,6 @@ pub const QQuick3DInstancing = extern struct {
         qtc.QQuick3DInstancing_OnGetInstanceBuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superGetInstanceBuffer` instead
-    ///
-    pub const SuperGetInstanceBuffer = superGetInstanceBuffer;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dinstancing.html#getInstanceBuffer)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` instanceCount: *i32 `
-    ///
-    pub fn superGetInstanceBuffer(self: QQuick3DInstancing, allocator: std.mem.Allocator, instanceCount: *i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QQuick3DInstancing_SuperGetInstanceBuffer(@ptrCast(self.ptr), @ptrCast(instanceCount));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QQuick3DInstancing.getInstanceBuffer: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `markDirty` instead
     ///
     pub const MarkDirty = markDirty;
@@ -651,40 +629,6 @@ pub const QQuick3DInstancing = extern struct {
     ///
     pub fn markDirty(self: QQuick3DInstancing) void {
         qtc.QQuick3DInstancing_MarkDirty(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onMarkDirty` instead
-    ///
-    pub const OnMarkDirty = onMarkDirty;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dinstancing.html#markDirty)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onMarkDirty(self: QQuick3DInstancing, callback: *const fn () callconv(.c) void) void {
-        qtc.QQuick3DInstancing_OnMarkDirty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superMarkDirty` instead
-    ///
-    pub const SuperMarkDirty = superMarkDirty;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dinstancing.html#markDirty)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    pub fn superMarkDirty(self: QQuick3DInstancing) void {
-        qtc.QQuick3DInstancing_SuperMarkDirty(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `calculateTableEntry` instead
@@ -713,54 +657,6 @@ pub const QQuick3DInstancing = extern struct {
         return .{ .ptr = qtc.QQuick3DInstancing_CalculateTableEntry(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(scale.ptr), @ptrCast(eulerRotation.ptr), @ptrCast(color.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onCalculateTableEntry` instead
-    ///
-    pub const OnCalculateTableEntry = onCalculateTableEntry;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dinstancing.html#calculateTableEntry)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    /// ` callback: *const fn (self: QQuick3DInstancing, position: QVector3D, scale: QVector3D, eulerRotation: QVector3D, color: QColor) callconv(.c) QQuick3DInstancing__InstanceTableEntry `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCalculateTableEntry(self: QQuick3DInstancing, callback: *const fn (QQuick3DInstancing, QVector3D, QVector3D, QVector3D, QColor) callconv(.c) QQuick3DInstancing__InstanceTableEntry) void {
-        qtc.QQuick3DInstancing_OnCalculateTableEntry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCalculateTableEntry` instead
-    ///
-    pub const SuperCalculateTableEntry = superCalculateTableEntry;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dinstancing.html#calculateTableEntry)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    /// ` position: QVector3D `
-    ///
-    /// ` scale: QVector3D `
-    ///
-    /// ` eulerRotation: QVector3D `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superCalculateTableEntry(self: QQuick3DInstancing, position: anytype, scale: anytype, eulerRotation: anytype, color: anytype) QQuick3DInstancing__InstanceTableEntry {
-        comptime _ = @TypeOf(position)._is_QVector3D;
-        comptime _ = @TypeOf(scale)._is_QVector3D;
-        comptime _ = @TypeOf(eulerRotation)._is_QVector3D;
-        comptime _ = @TypeOf(color)._is_QColor;
-        return .{ .ptr = qtc.QQuick3DInstancing_SuperCalculateTableEntry(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(scale.ptr), @ptrCast(eulerRotation.ptr), @ptrCast(color.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `calculateTableEntryFromQuaternion` instead
     ///
     pub const CalculateTableEntryFromQuaternion = calculateTableEntryFromQuaternion;
@@ -785,54 +681,6 @@ pub const QQuick3DInstancing = extern struct {
         comptime _ = @TypeOf(rotation)._is_QQuaternion;
         comptime _ = @TypeOf(color)._is_QColor;
         return .{ .ptr = qtc.QQuick3DInstancing_CalculateTableEntryFromQuaternion(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(scale.ptr), @ptrCast(rotation.ptr), @ptrCast(color.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onCalculateTableEntryFromQuaternion` instead
-    ///
-    pub const OnCalculateTableEntryFromQuaternion = onCalculateTableEntryFromQuaternion;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dinstancing.html#calculateTableEntryFromQuaternion)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    /// ` callback: *const fn (self: QQuick3DInstancing, position: QVector3D, scale: QVector3D, rotation: QQuaternion, color: QColor) callconv(.c) QQuick3DInstancing__InstanceTableEntry `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCalculateTableEntryFromQuaternion(self: QQuick3DInstancing, callback: *const fn (QQuick3DInstancing, QVector3D, QVector3D, QQuaternion, QColor) callconv(.c) QQuick3DInstancing__InstanceTableEntry) void {
-        qtc.QQuick3DInstancing_OnCalculateTableEntryFromQuaternion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCalculateTableEntryFromQuaternion` instead
-    ///
-    pub const SuperCalculateTableEntryFromQuaternion = superCalculateTableEntryFromQuaternion;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dinstancing.html#calculateTableEntryFromQuaternion)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    /// ` position: QVector3D `
-    ///
-    /// ` scale: QVector3D `
-    ///
-    /// ` rotation: QQuaternion `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superCalculateTableEntryFromQuaternion(self: QQuick3DInstancing, position: anytype, scale: anytype, rotation: anytype, color: anytype) QQuick3DInstancing__InstanceTableEntry {
-        comptime _ = @TypeOf(position)._is_QVector3D;
-        comptime _ = @TypeOf(scale)._is_QVector3D;
-        comptime _ = @TypeOf(rotation)._is_QQuaternion;
-        comptime _ = @TypeOf(color)._is_QColor;
-        return .{ .ptr = qtc.QQuick3DInstancing_SuperCalculateTableEntryFromQuaternion(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(scale.ptr), @ptrCast(rotation.ptr), @ptrCast(color.ptr)) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -918,57 +766,6 @@ pub const QQuick3DInstancing = extern struct {
         return .{ .ptr = qtc.QQuick3DInstancing_CalculateTableEntry5(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(scale.ptr), @ptrCast(eulerRotation.ptr), @ptrCast(color.ptr), @ptrCast(customData.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onCalculateTableEntry5` instead
-    ///
-    pub const OnCalculateTableEntry5 = onCalculateTableEntry5;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dinstancing.html#calculateTableEntry)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    /// ` callback: *const fn (self: QQuick3DInstancing, position: QVector3D, scale: QVector3D, eulerRotation: QVector3D, color: QColor, customData: QVector4D) callconv(.c) QQuick3DInstancing__InstanceTableEntry `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCalculateTableEntry5(self: QQuick3DInstancing, callback: *const fn (QQuick3DInstancing, QVector3D, QVector3D, QVector3D, QColor, QVector4D) callconv(.c) QQuick3DInstancing__InstanceTableEntry) void {
-        qtc.QQuick3DInstancing_OnCalculateTableEntry5(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCalculateTableEntry5` instead
-    ///
-    pub const SuperCalculateTableEntry5 = superCalculateTableEntry5;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dinstancing.html#calculateTableEntry)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    /// ` position: QVector3D `
-    ///
-    /// ` scale: QVector3D `
-    ///
-    /// ` eulerRotation: QVector3D `
-    ///
-    /// ` color: QColor `
-    ///
-    /// ` customData: QVector4D `
-    ///
-    pub fn superCalculateTableEntry5(self: QQuick3DInstancing, position: anytype, scale: anytype, eulerRotation: anytype, color: anytype, customData: anytype) QQuick3DInstancing__InstanceTableEntry {
-        comptime _ = @TypeOf(position)._is_QVector3D;
-        comptime _ = @TypeOf(scale)._is_QVector3D;
-        comptime _ = @TypeOf(eulerRotation)._is_QVector3D;
-        comptime _ = @TypeOf(color)._is_QColor;
-        comptime _ = @TypeOf(customData)._is_QVector4D;
-        return .{ .ptr = qtc.QQuick3DInstancing_SuperCalculateTableEntry5(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(scale.ptr), @ptrCast(eulerRotation.ptr), @ptrCast(color.ptr), @ptrCast(customData.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `calculateTableEntryFromQuaternion5` instead
     ///
     pub const CalculateTableEntryFromQuaternion5 = calculateTableEntryFromQuaternion5;
@@ -996,57 +793,6 @@ pub const QQuick3DInstancing = extern struct {
         comptime _ = @TypeOf(color)._is_QColor;
         comptime _ = @TypeOf(customData)._is_QVector4D;
         return .{ .ptr = qtc.QQuick3DInstancing_CalculateTableEntryFromQuaternion5(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(scale.ptr), @ptrCast(rotation.ptr), @ptrCast(color.ptr), @ptrCast(customData.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onCalculateTableEntryFromQuaternion5` instead
-    ///
-    pub const OnCalculateTableEntryFromQuaternion5 = onCalculateTableEntryFromQuaternion5;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dinstancing.html#calculateTableEntryFromQuaternion)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    /// ` callback: *const fn (self: QQuick3DInstancing, position: QVector3D, scale: QVector3D, rotation: QQuaternion, color: QColor, customData: QVector4D) callconv(.c) QQuick3DInstancing__InstanceTableEntry `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCalculateTableEntryFromQuaternion5(self: QQuick3DInstancing, callback: *const fn (QQuick3DInstancing, QVector3D, QVector3D, QQuaternion, QColor, QVector4D) callconv(.c) QQuick3DInstancing__InstanceTableEntry) void {
-        qtc.QQuick3DInstancing_OnCalculateTableEntryFromQuaternion5(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCalculateTableEntryFromQuaternion5` instead
-    ///
-    pub const SuperCalculateTableEntryFromQuaternion5 = superCalculateTableEntryFromQuaternion5;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dinstancing.html#calculateTableEntryFromQuaternion)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    /// ` position: QVector3D `
-    ///
-    /// ` scale: QVector3D `
-    ///
-    /// ` rotation: QQuaternion `
-    ///
-    /// ` color: QColor `
-    ///
-    /// ` customData: QVector4D `
-    ///
-    pub fn superCalculateTableEntryFromQuaternion5(self: QQuick3DInstancing, position: anytype, scale: anytype, rotation: anytype, color: anytype, customData: anytype) QQuick3DInstancing__InstanceTableEntry {
-        comptime _ = @TypeOf(position)._is_QVector3D;
-        comptime _ = @TypeOf(scale)._is_QVector3D;
-        comptime _ = @TypeOf(rotation)._is_QQuaternion;
-        comptime _ = @TypeOf(color)._is_QColor;
-        comptime _ = @TypeOf(customData)._is_QVector4D;
-        return .{ .ptr = qtc.QQuick3DInstancing_SuperCalculateTableEntryFromQuaternion5(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(scale.ptr), @ptrCast(rotation.ptr), @ptrCast(color.ptr), @ptrCast(customData.ptr)) };
     }
 
     /// Inherited from QQuick3DObject
@@ -2330,9 +2076,9 @@ pub const QQuick3DInstancing = extern struct {
     ///
     /// ` self: QQuick3DInstancing`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuick3DInstancing) callconv(.c) void `
     ///
-    pub fn onMarkAllDirty(self: QQuick3DInstancing, callback: *const fn () callconv(.c) void) void {
+    pub fn onMarkAllDirty(self: QQuick3DInstancing, callback: *const fn (QQuick3DInstancing) callconv(.c) void) void {
         qtc.QQuick3DInstancing_OnMarkAllDirty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2452,9 +2198,9 @@ pub const QQuick3DInstancing = extern struct {
     ///
     /// ` self: QQuick3DInstancing`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuick3DInstancing) callconv(.c) void `
     ///
-    pub fn onClassBegin(self: QQuick3DInstancing, callback: *const fn () callconv(.c) void) void {
+    pub fn onClassBegin(self: QQuick3DInstancing, callback: *const fn (QQuick3DInstancing) callconv(.c) void) void {
         qtc.QQuick3DInstancing_OnClassBegin(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2508,9 +2254,9 @@ pub const QQuick3DInstancing = extern struct {
     ///
     /// ` self: QQuick3DInstancing`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuick3DInstancing) callconv(.c) void `
     ///
-    pub fn onComponentComplete(self: QQuick3DInstancing, callback: *const fn () callconv(.c) void) void {
+    pub fn onComponentComplete(self: QQuick3DInstancing, callback: *const fn (QQuick3DInstancing) callconv(.c) void) void {
         qtc.QQuick3DInstancing_OnComponentComplete(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2564,9 +2310,9 @@ pub const QQuick3DInstancing = extern struct {
     ///
     /// ` self: QQuick3DInstancing`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuick3DInstancing) callconv(.c) void `
     ///
-    pub fn onPreSync(self: QQuick3DInstancing, callback: *const fn () callconv(.c) void) void {
+    pub fn onPreSync(self: QQuick3DInstancing, callback: *const fn (QQuick3DInstancing) callconv(.c) void) void {
         qtc.QQuick3DInstancing_OnPreSync(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3028,44 +2774,6 @@ pub const QQuick3DInstancing = extern struct {
         return qtc.QQuick3DInstancing_IsComponentComplete(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superIsComponentComplete` instead
-    ///
-    pub const SuperIsComponentComplete = superIsComponentComplete;
-
-    /// Inherited from QQuick3DObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dobject.html#isComponentComplete)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    pub fn superIsComponentComplete(self: QQuick3DInstancing) bool {
-        return qtc.QQuick3DInstancing_SuperIsComponentComplete(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsComponentComplete` instead
-    ///
-    pub const OnIsComponentComplete = onIsComponentComplete;
-
-    /// Inherited from QQuick3DObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dobject.html#isComponentComplete)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DInstancing`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onIsComponentComplete(self: QQuick3DInstancing, callback: *const fn () callconv(.c) bool) void {
-        qtc.QQuick3DInstancing_OnIsComponentComplete(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -3084,44 +2792,6 @@ pub const QQuick3DInstancing = extern struct {
         return .{ .ptr = qtc.QQuick3DInstancing_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    pub fn superSender(self: QQuick3DInstancing) QObject {
-        return .{ .ptr = qtc.QQuick3DInstancing_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DInstancing`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QQuick3DInstancing, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QQuick3DInstancing_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3138,44 +2808,6 @@ pub const QQuick3DInstancing = extern struct {
     ///
     pub fn senderSignalIndex(self: QQuick3DInstancing) i32 {
         return qtc.QQuick3DInstancing_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    pub fn superSenderSignalIndex(self: QQuick3DInstancing) i32 {
-        return qtc.QQuick3DInstancing_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DInstancing`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QQuick3DInstancing, callback: *const fn () callconv(.c) i32) void {
-        qtc.QQuick3DInstancing_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3199,47 +2831,6 @@ pub const QQuick3DInstancing = extern struct {
         return qtc.QQuick3DInstancing_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QQuick3DInstancing, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QQuick3DInstancing_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DInstancing`
-    ///
-    /// ` callback: *const fn (self: QQuick3DInstancing, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QQuick3DInstancing, callback: *const fn (QQuick3DInstancing, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QQuick3DInstancing_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3259,47 +2850,6 @@ pub const QQuick3DInstancing = extern struct {
     pub fn isSignalConnected(self: QQuick3DInstancing, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QQuick3DInstancing_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DInstancing `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QQuick3DInstancing, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QQuick3DInstancing_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DInstancing`
-    ///
-    /// ` callback: *const fn (self: QQuick3DInstancing, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QQuick3DInstancing, callback: *const fn (QQuick3DInstancing, QMetaMethod) callconv(.c) bool) void {
-        qtc.QQuick3DInstancing_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -152,1050 +152,626 @@ libqt_list /* of KAutoSaveFile* */ KAutoSaveFile_AllStaleFiles1(const libqt_stri
 
 // Base class handler implementation
 QMetaObject* KAutoSaveFile_SuperMetaObject(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_MetaObject_IsBase(true);
-        return (QMetaObject*)vkautosavefile->metaObject();
-    } else {
-        return (QMetaObject*)self->KAutoSaveFile::metaObject();
-    }
+    return (QMetaObject*)self->KAutoSaveFile::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnMetaObject(const KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_MetaObject_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_MetaObject_Callback>(slot));
+void KAutoSaveFile_OnMetaObject(KAutoSaveFile* self, intptr_t slot) {
+    if (auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self)))
+        vkautosavefile->kautosavefile_metaobject_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KAutoSaveFile_SuperMetacast(KAutoSaveFile* self, const char* param1) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Metacast_IsBase(true);
-        return vkautosavefile->qt_metacast(param1);
-    } else {
-        return self->KAutoSaveFile::qt_metacast(param1);
-    }
+    return self->KAutoSaveFile::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnMetacast(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_Metacast_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Metacast_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_metacast_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KAutoSaveFile_SuperMetacall(KAutoSaveFile* self, int param1, int param2, void** param3) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Metacall_IsBase(true);
-        return vkautosavefile->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KAutoSaveFile::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KAutoSaveFile::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnMetacall(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_Metacall_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Metacall_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_metacall_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KAutoSaveFile_SuperReleaseLock(KAutoSaveFile* self) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_ReleaseLock_IsBase(true);
-        vkautosavefile->releaseLock();
-    } else {
-        self->KAutoSaveFile::releaseLock();
-    }
+    self->KAutoSaveFile::releaseLock();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnReleaseLock(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_ReleaseLock_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ReleaseLock_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_releaselock_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ReleaseLock_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KAutoSaveFile_SuperOpen(KAutoSaveFile* self, int openmode) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Open_IsBase(true);
-        return vkautosavefile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openmode));
-    } else {
-        return self->KAutoSaveFile::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openmode));
-    }
+    return self->KAutoSaveFile::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openmode));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnOpen(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_Open_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Open_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_open_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KAutoSaveFile_FileName(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        auto _ret = vkautosavefile->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KAutoSaveFile::fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->fileName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KAutoSaveFile_SuperFileName(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_FileName_IsBase(true);
-        auto _ret = vkautosavefile->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KAutoSaveFile::fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KAutoSaveFile::fileName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnFileName(const KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_FileName_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_FileName_Callback>(slot));
+void KAutoSaveFile_OnFileName(KAutoSaveFile* self, intptr_t slot) {
+    if (auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self)))
+        vkautosavefile->kautosavefile_filename_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_FileName_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long KAutoSaveFile_Size(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return static_cast<long long>(vkautosavefile->size());
-    } else {
-        return static_cast<long long>(self->KAutoSaveFile::size());
-    }
+    return static_cast<long long>(self->size());
 }
 
 // Base class handler implementation
 long long KAutoSaveFile_SuperSize(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Size_IsBase(true);
-        return static_cast<long long>(vkautosavefile->size());
-    } else {
-        return static_cast<long long>(self->KAutoSaveFile::size());
-    }
+    return static_cast<long long>(self->KAutoSaveFile::size());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnSize(const KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_Size_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Size_Callback>(slot));
+void KAutoSaveFile_OnSize(KAutoSaveFile* self, intptr_t slot) {
+    if (auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self)))
+        vkautosavefile->kautosavefile_size_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Size_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAutoSaveFile_Resize(KAutoSaveFile* self, long long sz) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->resize(static_cast<qint64>(sz));
-    } else {
-        return self->KAutoSaveFile::resize(static_cast<qint64>(sz));
-    }
+    return self->resize(static_cast<qint64>(sz));
 }
 
 // Base class handler implementation
 bool KAutoSaveFile_SuperResize(KAutoSaveFile* self, long long sz) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Resize_IsBase(true);
-        return vkautosavefile->resize(static_cast<qint64>(sz));
-    } else {
-        return self->KAutoSaveFile::resize(static_cast<qint64>(sz));
-    }
+    return self->KAutoSaveFile::resize(static_cast<qint64>(sz));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnResize(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_Resize_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Resize_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_resize_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Resize_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KAutoSaveFile_Permissions(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return static_cast<int>(vkautosavefile->permissions());
-    } else {
-        return static_cast<int>(self->KAutoSaveFile::permissions());
-    }
+    return static_cast<int>(self->permissions());
 }
 
 // Base class handler implementation
 int KAutoSaveFile_SuperPermissions(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Permissions_IsBase(true);
-        return static_cast<int>(vkautosavefile->permissions());
-    } else {
-        return static_cast<int>(self->KAutoSaveFile::permissions());
-    }
+    return static_cast<int>(self->KAutoSaveFile::permissions());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnPermissions(const KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_Permissions_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Permissions_Callback>(slot));
+void KAutoSaveFile_OnPermissions(KAutoSaveFile* self, intptr_t slot) {
+    if (auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self)))
+        vkautosavefile->kautosavefile_permissions_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Permissions_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAutoSaveFile_SetPermissions(KAutoSaveFile* self, int permissionSpec) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
-    } else {
-        return self->KAutoSaveFile::setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
-    }
+    return self->setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
 }
 
 // Base class handler implementation
 bool KAutoSaveFile_SuperSetPermissions(KAutoSaveFile* self, int permissionSpec) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_SetPermissions_IsBase(true);
-        return vkautosavefile->setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
-    } else {
-        return self->KAutoSaveFile::setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
-    }
+    return self->KAutoSaveFile::setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnSetPermissions(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_SetPermissions_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_SetPermissions_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_setpermissions_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_SetPermissions_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAutoSaveFile_Close(KAutoSaveFile* self) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->close();
-    } else {
-        self->KAutoSaveFile::close();
-    }
+    self->close();
 }
 
 // Base class handler implementation
 void KAutoSaveFile_SuperClose(KAutoSaveFile* self) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Close_IsBase(true);
-        vkautosavefile->close();
-    } else {
-        self->KAutoSaveFile::close();
-    }
+    self->KAutoSaveFile::close();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnClose(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_Close_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Close_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_close_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Close_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAutoSaveFile_IsSequential(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->isSequential();
-    } else {
-        return self->KAutoSaveFile::isSequential();
-    }
+    return self->isSequential();
 }
 
 // Base class handler implementation
 bool KAutoSaveFile_SuperIsSequential(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_IsSequential_IsBase(true);
-        return vkautosavefile->isSequential();
-    } else {
-        return self->KAutoSaveFile::isSequential();
-    }
+    return self->KAutoSaveFile::isSequential();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnIsSequential(const KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_IsSequential_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_IsSequential_Callback>(slot));
+void KAutoSaveFile_OnIsSequential(KAutoSaveFile* self, intptr_t slot) {
+    if (auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self)))
+        vkautosavefile->kautosavefile_issequential_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_IsSequential_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long KAutoSaveFile_Pos(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return static_cast<long long>(vkautosavefile->pos());
-    } else {
-        return static_cast<long long>(self->KAutoSaveFile::pos());
-    }
+    return static_cast<long long>(self->pos());
 }
 
 // Base class handler implementation
 long long KAutoSaveFile_SuperPos(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Pos_IsBase(true);
-        return static_cast<long long>(vkautosavefile->pos());
-    } else {
-        return static_cast<long long>(self->KAutoSaveFile::pos());
-    }
+    return static_cast<long long>(self->KAutoSaveFile::pos());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnPos(const KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_Pos_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Pos_Callback>(slot));
+void KAutoSaveFile_OnPos(KAutoSaveFile* self, intptr_t slot) {
+    if (auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self)))
+        vkautosavefile->kautosavefile_pos_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Pos_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAutoSaveFile_Seek(KAutoSaveFile* self, long long offset) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->seek(static_cast<qint64>(offset));
-    } else {
-        return self->KAutoSaveFile::seek(static_cast<qint64>(offset));
-    }
+    return self->seek(static_cast<qint64>(offset));
 }
 
 // Base class handler implementation
 bool KAutoSaveFile_SuperSeek(KAutoSaveFile* self, long long offset) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Seek_IsBase(true);
-        return vkautosavefile->seek(static_cast<qint64>(offset));
-    } else {
-        return self->KAutoSaveFile::seek(static_cast<qint64>(offset));
-    }
+    return self->KAutoSaveFile::seek(static_cast<qint64>(offset));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnSeek(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_Seek_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Seek_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_seek_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Seek_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAutoSaveFile_AtEnd(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->atEnd();
-    } else {
-        return self->KAutoSaveFile::atEnd();
-    }
+    return self->atEnd();
 }
 
 // Base class handler implementation
 bool KAutoSaveFile_SuperAtEnd(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_AtEnd_IsBase(true);
-        return vkautosavefile->atEnd();
-    } else {
-        return self->KAutoSaveFile::atEnd();
-    }
+    return self->KAutoSaveFile::atEnd();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnAtEnd(const KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_AtEnd_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_AtEnd_Callback>(slot));
+void KAutoSaveFile_OnAtEnd(KAutoSaveFile* self, intptr_t slot) {
+    if (auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self)))
+        vkautosavefile->kautosavefile_atend_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_AtEnd_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long KAutoSaveFile_ReadData(KAutoSaveFile* self, char* data, long long maxlen) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile) {
         return static_cast<long long>(vkautosavefile->readData(data, static_cast<qint64>(maxlen)));
     } else {
-        return static_cast<long long>(((VirtualKAutoSaveFile*)self)->readData(data, static_cast<qint64>(maxlen)));
+        qFatal("Error: Protected virtual method KAutoSaveFile::readData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 long long KAutoSaveFile_SuperReadData(KAutoSaveFile* self, char* data, long long maxlen) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_ReadData_IsBase(true);
-        return static_cast<long long>(vkautosavefile->readData(data, static_cast<qint64>(maxlen)));
-    } else {
-        return static_cast<long long>(((VirtualKAutoSaveFile*)self)->readData(data, static_cast<qint64>(maxlen)));
-    }
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self)) {
+        return static_cast<long long>(vkautosavefile->KAutoSaveFile::readData(data, static_cast<qint64>(maxlen)));
+    } else
+        qFatal("Error: Protected virtual method KAutoSaveFile::readData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnReadData(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_ReadData_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ReadData_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_readdata_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ReadData_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long KAutoSaveFile_WriteData(KAutoSaveFile* self, const char* data, long long len) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile) {
         return static_cast<long long>(vkautosavefile->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualKAutoSaveFile*)self)->writeData(data, static_cast<qint64>(len)));
+        qFatal("Error: Protected virtual method KAutoSaveFile::writeData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 long long KAutoSaveFile_SuperWriteData(KAutoSaveFile* self, const char* data, long long len) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_WriteData_IsBase(true);
-        return static_cast<long long>(vkautosavefile->writeData(data, static_cast<qint64>(len)));
-    } else {
-        return static_cast<long long>(((VirtualKAutoSaveFile*)self)->writeData(data, static_cast<qint64>(len)));
-    }
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self)) {
+        return static_cast<long long>(vkautosavefile->KAutoSaveFile::writeData(data, static_cast<qint64>(len)));
+    } else
+        qFatal("Error: Protected virtual method KAutoSaveFile::writeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnWriteData(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_WriteData_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_WriteData_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_writedata_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_WriteData_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long KAutoSaveFile_ReadLineData(KAutoSaveFile* self, char* data, long long maxlen) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile) {
         return static_cast<long long>(vkautosavefile->readLineData(data, static_cast<qint64>(maxlen)));
     } else {
-        return static_cast<long long>(((VirtualKAutoSaveFile*)self)->readLineData(data, static_cast<qint64>(maxlen)));
+        qFatal("Error: Protected virtual method KAutoSaveFile::readLineData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 long long KAutoSaveFile_SuperReadLineData(KAutoSaveFile* self, char* data, long long maxlen) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_ReadLineData_IsBase(true);
-        return static_cast<long long>(vkautosavefile->readLineData(data, static_cast<qint64>(maxlen)));
-    } else {
-        return static_cast<long long>(((VirtualKAutoSaveFile*)self)->readLineData(data, static_cast<qint64>(maxlen)));
-    }
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self)) {
+        return static_cast<long long>(vkautosavefile->KAutoSaveFile::readLineData(data, static_cast<qint64>(maxlen)));
+    } else
+        qFatal("Error: Protected virtual method KAutoSaveFile::readLineData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnReadLineData(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_ReadLineData_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ReadLineData_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_readlinedata_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ReadLineData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAutoSaveFile_Reset(KAutoSaveFile* self) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->reset();
-    } else {
-        return self->KAutoSaveFile::reset();
-    }
+    return self->reset();
 }
 
 // Base class handler implementation
 bool KAutoSaveFile_SuperReset(KAutoSaveFile* self) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Reset_IsBase(true);
-        return vkautosavefile->reset();
-    } else {
-        return self->KAutoSaveFile::reset();
-    }
+    return self->KAutoSaveFile::reset();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnReset(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_Reset_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Reset_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_reset_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Reset_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long KAutoSaveFile_BytesAvailable(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return static_cast<long long>(vkautosavefile->bytesAvailable());
-    } else {
-        return static_cast<long long>(self->KAutoSaveFile::bytesAvailable());
-    }
+    return static_cast<long long>(self->bytesAvailable());
 }
 
 // Base class handler implementation
 long long KAutoSaveFile_SuperBytesAvailable(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_BytesAvailable_IsBase(true);
-        return static_cast<long long>(vkautosavefile->bytesAvailable());
-    } else {
-        return static_cast<long long>(self->KAutoSaveFile::bytesAvailable());
-    }
+    return static_cast<long long>(self->KAutoSaveFile::bytesAvailable());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnBytesAvailable(const KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_BytesAvailable_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_BytesAvailable_Callback>(slot));
+void KAutoSaveFile_OnBytesAvailable(KAutoSaveFile* self, intptr_t slot) {
+    if (auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self)))
+        vkautosavefile->kautosavefile_bytesavailable_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_BytesAvailable_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long KAutoSaveFile_BytesToWrite(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return static_cast<long long>(vkautosavefile->bytesToWrite());
-    } else {
-        return static_cast<long long>(self->KAutoSaveFile::bytesToWrite());
-    }
+    return static_cast<long long>(self->bytesToWrite());
 }
 
 // Base class handler implementation
 long long KAutoSaveFile_SuperBytesToWrite(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_BytesToWrite_IsBase(true);
-        return static_cast<long long>(vkautosavefile->bytesToWrite());
-    } else {
-        return static_cast<long long>(self->KAutoSaveFile::bytesToWrite());
-    }
+    return static_cast<long long>(self->KAutoSaveFile::bytesToWrite());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnBytesToWrite(const KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_BytesToWrite_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_BytesToWrite_Callback>(slot));
+void KAutoSaveFile_OnBytesToWrite(KAutoSaveFile* self, intptr_t slot) {
+    if (auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self)))
+        vkautosavefile->kautosavefile_bytestowrite_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_BytesToWrite_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAutoSaveFile_CanReadLine(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->canReadLine();
-    } else {
-        return self->KAutoSaveFile::canReadLine();
-    }
+    return self->canReadLine();
 }
 
 // Base class handler implementation
 bool KAutoSaveFile_SuperCanReadLine(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_CanReadLine_IsBase(true);
-        return vkautosavefile->canReadLine();
-    } else {
-        return self->KAutoSaveFile::canReadLine();
-    }
+    return self->KAutoSaveFile::canReadLine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnCanReadLine(const KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_CanReadLine_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_CanReadLine_Callback>(slot));
+void KAutoSaveFile_OnCanReadLine(KAutoSaveFile* self, intptr_t slot) {
+    if (auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self)))
+        vkautosavefile->kautosavefile_canreadline_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_CanReadLine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAutoSaveFile_WaitForReadyRead(KAutoSaveFile* self, int msecs) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->waitForReadyRead(static_cast<int>(msecs));
-    } else {
-        return self->KAutoSaveFile::waitForReadyRead(static_cast<int>(msecs));
-    }
+    return self->waitForReadyRead(static_cast<int>(msecs));
 }
 
 // Base class handler implementation
 bool KAutoSaveFile_SuperWaitForReadyRead(KAutoSaveFile* self, int msecs) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_WaitForReadyRead_IsBase(true);
-        return vkautosavefile->waitForReadyRead(static_cast<int>(msecs));
-    } else {
-        return self->KAutoSaveFile::waitForReadyRead(static_cast<int>(msecs));
-    }
+    return self->KAutoSaveFile::waitForReadyRead(static_cast<int>(msecs));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnWaitForReadyRead(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_WaitForReadyRead_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_WaitForReadyRead_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_waitforreadyread_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_WaitForReadyRead_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAutoSaveFile_WaitForBytesWritten(KAutoSaveFile* self, int msecs) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->waitForBytesWritten(static_cast<int>(msecs));
-    } else {
-        return self->KAutoSaveFile::waitForBytesWritten(static_cast<int>(msecs));
-    }
+    return self->waitForBytesWritten(static_cast<int>(msecs));
 }
 
 // Base class handler implementation
 bool KAutoSaveFile_SuperWaitForBytesWritten(KAutoSaveFile* self, int msecs) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_WaitForBytesWritten_IsBase(true);
-        return vkautosavefile->waitForBytesWritten(static_cast<int>(msecs));
-    } else {
-        return self->KAutoSaveFile::waitForBytesWritten(static_cast<int>(msecs));
-    }
+    return self->KAutoSaveFile::waitForBytesWritten(static_cast<int>(msecs));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnWaitForBytesWritten(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_WaitForBytesWritten_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_WaitForBytesWritten_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_waitforbyteswritten_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_WaitForBytesWritten_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long KAutoSaveFile_SkipData(KAutoSaveFile* self, long long maxSize) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile) {
         return static_cast<long long>(vkautosavefile->skipData(static_cast<qint64>(maxSize)));
     } else {
-        return static_cast<long long>(((VirtualKAutoSaveFile*)self)->skipData(static_cast<qint64>(maxSize)));
+        qFatal("Error: Protected virtual method KAutoSaveFile::skipData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 long long KAutoSaveFile_SuperSkipData(KAutoSaveFile* self, long long maxSize) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_SkipData_IsBase(true);
-        return static_cast<long long>(vkautosavefile->skipData(static_cast<qint64>(maxSize)));
-    } else {
-        return static_cast<long long>(((VirtualKAutoSaveFile*)self)->skipData(static_cast<qint64>(maxSize)));
-    }
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self)) {
+        return static_cast<long long>(vkautosavefile->KAutoSaveFile::skipData(static_cast<qint64>(maxSize)));
+    } else
+        qFatal("Error: Protected virtual method KAutoSaveFile::skipData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnSkipData(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_SkipData_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_SkipData_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_skipdata_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_SkipData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAutoSaveFile_Event(KAutoSaveFile* self, QEvent* event) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->event(event);
-    } else {
-        return self->KAutoSaveFile::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KAutoSaveFile_SuperEvent(KAutoSaveFile* self, QEvent* event) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Event_IsBase(true);
-        return vkautosavefile->event(event);
-    } else {
-        return self->KAutoSaveFile::event(event);
-    }
+    return self->KAutoSaveFile::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnEvent(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_Event_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Event_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_event_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAutoSaveFile_EventFilter(KAutoSaveFile* self, QObject* watched, QEvent* event) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->eventFilter(watched, event);
-    } else {
-        return self->KAutoSaveFile::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KAutoSaveFile_SuperEventFilter(KAutoSaveFile* self, QObject* watched, QEvent* event) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_EventFilter_IsBase(true);
-        return vkautosavefile->eventFilter(watched, event);
-    } else {
-        return self->KAutoSaveFile::eventFilter(watched, event);
-    }
+    return self->KAutoSaveFile::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnEventFilter(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_EventFilter_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_EventFilter_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_eventfilter_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAutoSaveFile_TimerEvent(KAutoSaveFile* self, QTimerEvent* event) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile) {
         vkautosavefile->timerEvent(event);
     } else {
-        ((VirtualKAutoSaveFile*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KAutoSaveFile::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAutoSaveFile_SuperTimerEvent(KAutoSaveFile* self, QTimerEvent* event) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_TimerEvent_IsBase(true);
-        vkautosavefile->timerEvent(event);
-    } else {
-        ((VirtualKAutoSaveFile*)self)->timerEvent(event);
-    }
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self)) {
+        vkautosavefile->KAutoSaveFile::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAutoSaveFile::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnTimerEvent(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_TimerEvent_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_TimerEvent_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_timerevent_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAutoSaveFile_ChildEvent(KAutoSaveFile* self, QChildEvent* event) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile) {
         vkautosavefile->childEvent(event);
     } else {
-        ((VirtualKAutoSaveFile*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KAutoSaveFile::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAutoSaveFile_SuperChildEvent(KAutoSaveFile* self, QChildEvent* event) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_ChildEvent_IsBase(true);
-        vkautosavefile->childEvent(event);
-    } else {
-        ((VirtualKAutoSaveFile*)self)->childEvent(event);
-    }
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self)) {
+        vkautosavefile->KAutoSaveFile::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAutoSaveFile::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnChildEvent(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_ChildEvent_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ChildEvent_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_childevent_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAutoSaveFile_CustomEvent(KAutoSaveFile* self, QEvent* event) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile) {
         vkautosavefile->customEvent(event);
     } else {
-        ((VirtualKAutoSaveFile*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KAutoSaveFile::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAutoSaveFile_SuperCustomEvent(KAutoSaveFile* self, QEvent* event) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_CustomEvent_IsBase(true);
-        vkautosavefile->customEvent(event);
-    } else {
-        ((VirtualKAutoSaveFile*)self)->customEvent(event);
-    }
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self)) {
+        vkautosavefile->KAutoSaveFile::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAutoSaveFile::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnCustomEvent(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_CustomEvent_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_CustomEvent_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_customevent_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAutoSaveFile_ConnectNotify(KAutoSaveFile* self, const QMetaMethod* signal) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile) {
         vkautosavefile->connectNotify(*signal);
     } else {
-        ((VirtualKAutoSaveFile*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KAutoSaveFile::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAutoSaveFile_SuperConnectNotify(KAutoSaveFile* self, const QMetaMethod* signal) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_ConnectNotify_IsBase(true);
-        vkautosavefile->connectNotify(*signal);
-    } else {
-        ((VirtualKAutoSaveFile*)self)->connectNotify(*signal);
-    }
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self)) {
+        vkautosavefile->KAutoSaveFile::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KAutoSaveFile::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnConnectNotify(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_ConnectNotify_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ConnectNotify_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_connectnotify_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAutoSaveFile_DisconnectNotify(KAutoSaveFile* self, const QMetaMethod* signal) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile) {
         vkautosavefile->disconnectNotify(*signal);
     } else {
-        ((VirtualKAutoSaveFile*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KAutoSaveFile::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAutoSaveFile_SuperDisconnectNotify(KAutoSaveFile* self, const QMetaMethod* signal) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_DisconnectNotify_IsBase(true);
-        vkautosavefile->disconnectNotify(*signal);
-    } else {
-        ((VirtualKAutoSaveFile*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self)) {
+        vkautosavefile->KAutoSaveFile::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KAutoSaveFile::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnDisconnectNotify(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_DisconnectNotify_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_DisconnectNotify_Callback>(slot));
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self))
+        vkautosavefile->kautosavefile_disconnectnotify_callback = reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KAutoSaveFile_SetOpenMode(KAutoSaveFile* self, int openMode) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
-    } else {
-        ((VirtualKAutoSaveFile*)self)->setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
-    }
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self)) {
+        vkautosavefile->VirtualKAutoSaveFile::setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
+    } else
+        qFatal("Error: Protected method KAutoSaveFile::setOpenMode called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KAutoSaveFile_SuperSetOpenMode(KAutoSaveFile* self, int openMode) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_SetOpenMode_IsBase(true);
-        vkautosavefile->setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
-    } else {
-        ((VirtualKAutoSaveFile*)self)->setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnSetOpenMode(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_SetOpenMode_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_SetOpenMode_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KAutoSaveFile_SetErrorString(KAutoSaveFile* self, const libqt_string errorString) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setErrorString(errorString_QString);
-    } else {
-        ((VirtualKAutoSaveFile*)self)->setErrorString(errorString_QString);
-    }
+    if (auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self)) {
+        QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
+        vkautosavefile->VirtualKAutoSaveFile::setErrorString(errorString_QString);
+    } else
+        qFatal("Error: Protected method KAutoSaveFile::setErrorString called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KAutoSaveFile_SuperSetErrorString(KAutoSaveFile* self, const libqt_string errorString) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_SetErrorString_IsBase(true);
-        vkautosavefile->setErrorString(errorString_QString);
-    } else {
-        ((VirtualKAutoSaveFile*)self)->setErrorString(errorString_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnSetErrorString(KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_SetErrorString_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_SetErrorString_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KAutoSaveFile_Sender(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->sender();
-    } else {
-        return ((VirtualKAutoSaveFile*)self)->sender();
-    }
+    if (auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self))) {
+        return vkautosavefile->VirtualKAutoSaveFile::sender();
+    } else
+        qFatal("Error: Protected method KAutoSaveFile::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KAutoSaveFile_SuperSender(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Sender_IsBase(true);
-        return vkautosavefile->sender();
-    } else {
-        return ((VirtualKAutoSaveFile*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnSender(const KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_Sender_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KAutoSaveFile_SenderSignalIndex(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->senderSignalIndex();
-    } else {
-        return ((VirtualKAutoSaveFile*)self)->senderSignalIndex();
-    }
+    if (auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self))) {
+        return vkautosavefile->VirtualKAutoSaveFile::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KAutoSaveFile::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KAutoSaveFile_SuperSenderSignalIndex(const KAutoSaveFile* self) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_SenderSignalIndex_IsBase(true);
-        return vkautosavefile->senderSignalIndex();
-    } else {
-        return ((VirtualKAutoSaveFile*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnSenderSignalIndex(const KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_SenderSignalIndex_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KAutoSaveFile_Receivers(const KAutoSaveFile* self, const char* signal) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->receivers(signal);
-    } else {
-        return ((VirtualKAutoSaveFile*)self)->receivers(signal);
-    }
+    if (auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self))) {
+        return vkautosavefile->VirtualKAutoSaveFile::receivers(signal);
+    } else
+        qFatal("Error: Protected method KAutoSaveFile::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KAutoSaveFile_SuperReceivers(const KAutoSaveFile* self, const char* signal) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_Receivers_IsBase(true);
-        return vkautosavefile->receivers(signal);
-    } else {
-        return ((VirtualKAutoSaveFile*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnReceivers(const KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_Receivers_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KAutoSaveFile_IsSignalConnected(const KAutoSaveFile* self, const QMetaMethod* signal) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return vkautosavefile->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKAutoSaveFile*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KAutoSaveFile_SuperIsSignalConnected(const KAutoSaveFile* self, const QMetaMethod* signal) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        vkautosavefile->setKAutoSaveFile_IsSignalConnected_IsBase(true);
-        return vkautosavefile->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKAutoSaveFile*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAutoSaveFile_OnIsSignalConnected(const KAutoSaveFile* self, intptr_t slot) {
-    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
-        vkautosavefile->setKAutoSaveFile_IsSignalConnected_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_IsSignalConnected_Callback>(slot));
+    if (auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self))) {
+        return vkautosavefile->VirtualKAutoSaveFile::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KAutoSaveFile::isSignalConnected called without a directly constructed type");
 }
 
 void KAutoSaveFile_Delete(KAutoSaveFile* self) {

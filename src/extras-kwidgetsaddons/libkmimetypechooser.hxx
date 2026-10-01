@@ -9,24 +9,20 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KMimeTypeChooser so that we can call protected methods
+// This class is a subclass of KMimeTypeChooser
 class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKMimeTypeChooser = true;
-
-    // Virtual class public types (including callbacks)
-    using KMimeTypeChooser_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KMimeTypeChooser_MetaObject_Callback = QMetaObject* (*)(const KMimeTypeChooser*);
     using KMimeTypeChooser_Metacast_Callback = void* (*)(KMimeTypeChooser*, const char*);
     using KMimeTypeChooser_Metacall_Callback = int (*)(KMimeTypeChooser*, int, int, void**);
-    using KMimeTypeChooser_DevType_Callback = int (*)();
+    using KMimeTypeChooser_DevType_Callback = int (*)(const KMimeTypeChooser*);
     using KMimeTypeChooser_SetVisible_Callback = void (*)(KMimeTypeChooser*, bool);
-    using KMimeTypeChooser_SizeHint_Callback = QSize* (*)();
-    using KMimeTypeChooser_MinimumSizeHint_Callback = QSize* (*)();
+    using KMimeTypeChooser_SizeHint_Callback = QSize* (*)(const KMimeTypeChooser*);
+    using KMimeTypeChooser_MinimumSizeHint_Callback = QSize* (*)(const KMimeTypeChooser*);
     using KMimeTypeChooser_HeightForWidth_Callback = int (*)(const KMimeTypeChooser*, int);
-    using KMimeTypeChooser_HasHeightForWidth_Callback = bool (*)();
-    using KMimeTypeChooser_PaintEngine_Callback = QPaintEngine* (*)();
+    using KMimeTypeChooser_HasHeightForWidth_Callback = bool (*)(const KMimeTypeChooser*);
+    using KMimeTypeChooser_PaintEngine_Callback = QPaintEngine* (*)(const KMimeTypeChooser*);
     using KMimeTypeChooser_Event_Callback = bool (*)(KMimeTypeChooser*, QEvent*);
     using KMimeTypeChooser_MousePressEvent_Callback = void (*)(KMimeTypeChooser*, QMouseEvent*);
     using KMimeTypeChooser_MouseReleaseEvent_Callback = void (*)(KMimeTypeChooser*, QMouseEvent*);
@@ -57,7 +53,7 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
     using KMimeTypeChooser_Metric_Callback = int (*)(const KMimeTypeChooser*, int);
     using KMimeTypeChooser_InitPainter_Callback = void (*)(const KMimeTypeChooser*, QPainter*);
     using KMimeTypeChooser_Redirected_Callback = QPaintDevice* (*)(const KMimeTypeChooser*, QPoint*);
-    using KMimeTypeChooser_SharedPainter_Callback = QPainter* (*)();
+    using KMimeTypeChooser_SharedPainter_Callback = QPainter* (*)(const KMimeTypeChooser*);
     using KMimeTypeChooser_InputMethodEvent_Callback = void (*)(KMimeTypeChooser*, QInputMethodEvent*);
     using KMimeTypeChooser_InputMethodQuery_Callback = QVariant* (*)(const KMimeTypeChooser*, int);
     using KMimeTypeChooser_FocusNextPrevChild_Callback = bool (*)(KMimeTypeChooser*, bool);
@@ -67,18 +63,17 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
     using KMimeTypeChooser_CustomEvent_Callback = void (*)(KMimeTypeChooser*, QEvent*);
     using KMimeTypeChooser_ConnectNotify_Callback = void (*)(KMimeTypeChooser*, QMetaMethod*);
     using KMimeTypeChooser_DisconnectNotify_Callback = void (*)(KMimeTypeChooser*, QMetaMethod*);
-    using KMimeTypeChooser_UpdateMicroFocus_Callback = void (*)();
-    using KMimeTypeChooser_Create_Callback = void (*)();
-    using KMimeTypeChooser_Destroy_Callback = void (*)();
-    using KMimeTypeChooser_FocusNextChild_Callback = bool (*)();
-    using KMimeTypeChooser_FocusPreviousChild_Callback = bool (*)();
-    using KMimeTypeChooser_Sender_Callback = QObject* (*)();
-    using KMimeTypeChooser_SenderSignalIndex_Callback = int (*)();
-    using KMimeTypeChooser_Receivers_Callback = int (*)(const KMimeTypeChooser*, const char*);
-    using KMimeTypeChooser_IsSignalConnected_Callback = bool (*)(const KMimeTypeChooser*, QMetaMethod*);
-    using KMimeTypeChooser_GetDecodedMetricF_Callback = double (*)(const KMimeTypeChooser*, int, int);
+    using KMimeTypeChooser::create;
+    using KMimeTypeChooser::destroy;
+    using KMimeTypeChooser::focusNextChild;
+    using KMimeTypeChooser::focusPreviousChild;
+    using KMimeTypeChooser::getDecodedMetricF;
+    using KMimeTypeChooser::isSignalConnected;
+    using KMimeTypeChooser::receivers;
+    using KMimeTypeChooser::sender;
+    using KMimeTypeChooser::senderSignalIndex;
+    using KMimeTypeChooser::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     KMimeTypeChooser_MetaObject_Callback kmimetypechooser_metaobject_callback = nullptr;
     KMimeTypeChooser_Metacast_Callback kmimetypechooser_metacast_callback = nullptr;
@@ -130,80 +125,49 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
     KMimeTypeChooser_CustomEvent_Callback kmimetypechooser_customevent_callback = nullptr;
     KMimeTypeChooser_ConnectNotify_Callback kmimetypechooser_connectnotify_callback = nullptr;
     KMimeTypeChooser_DisconnectNotify_Callback kmimetypechooser_disconnectnotify_callback = nullptr;
-    KMimeTypeChooser_UpdateMicroFocus_Callback kmimetypechooser_updatemicrofocus_callback = nullptr;
-    KMimeTypeChooser_Create_Callback kmimetypechooser_create_callback = nullptr;
-    KMimeTypeChooser_Destroy_Callback kmimetypechooser_destroy_callback = nullptr;
-    KMimeTypeChooser_FocusNextChild_Callback kmimetypechooser_focusnextchild_callback = nullptr;
-    KMimeTypeChooser_FocusPreviousChild_Callback kmimetypechooser_focuspreviouschild_callback = nullptr;
-    KMimeTypeChooser_Sender_Callback kmimetypechooser_sender_callback = nullptr;
-    KMimeTypeChooser_SenderSignalIndex_Callback kmimetypechooser_sendersignalindex_callback = nullptr;
-    KMimeTypeChooser_Receivers_Callback kmimetypechooser_receivers_callback = nullptr;
-    KMimeTypeChooser_IsSignalConnected_Callback kmimetypechooser_issignalconnected_callback = nullptr;
-    KMimeTypeChooser_GetDecodedMetricF_Callback kmimetypechooser_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kmimetypechooser_metaobject_isbase = false;
-    mutable bool kmimetypechooser_metacast_isbase = false;
-    mutable bool kmimetypechooser_metacall_isbase = false;
-    mutable bool kmimetypechooser_devtype_isbase = false;
-    mutable bool kmimetypechooser_setvisible_isbase = false;
-    mutable bool kmimetypechooser_sizehint_isbase = false;
-    mutable bool kmimetypechooser_minimumsizehint_isbase = false;
-    mutable bool kmimetypechooser_heightforwidth_isbase = false;
-    mutable bool kmimetypechooser_hasheightforwidth_isbase = false;
-    mutable bool kmimetypechooser_paintengine_isbase = false;
-    mutable bool kmimetypechooser_event_isbase = false;
-    mutable bool kmimetypechooser_mousepressevent_isbase = false;
-    mutable bool kmimetypechooser_mousereleaseevent_isbase = false;
-    mutable bool kmimetypechooser_mousedoubleclickevent_isbase = false;
-    mutable bool kmimetypechooser_mousemoveevent_isbase = false;
-    mutable bool kmimetypechooser_wheelevent_isbase = false;
-    mutable bool kmimetypechooser_keypressevent_isbase = false;
-    mutable bool kmimetypechooser_keyreleaseevent_isbase = false;
-    mutable bool kmimetypechooser_focusinevent_isbase = false;
-    mutable bool kmimetypechooser_focusoutevent_isbase = false;
-    mutable bool kmimetypechooser_enterevent_isbase = false;
-    mutable bool kmimetypechooser_leaveevent_isbase = false;
-    mutable bool kmimetypechooser_paintevent_isbase = false;
-    mutable bool kmimetypechooser_moveevent_isbase = false;
-    mutable bool kmimetypechooser_resizeevent_isbase = false;
-    mutable bool kmimetypechooser_closeevent_isbase = false;
-    mutable bool kmimetypechooser_contextmenuevent_isbase = false;
-    mutable bool kmimetypechooser_tabletevent_isbase = false;
-    mutable bool kmimetypechooser_actionevent_isbase = false;
-    mutable bool kmimetypechooser_dragenterevent_isbase = false;
-    mutable bool kmimetypechooser_dragmoveevent_isbase = false;
-    mutable bool kmimetypechooser_dragleaveevent_isbase = false;
-    mutable bool kmimetypechooser_dropevent_isbase = false;
-    mutable bool kmimetypechooser_showevent_isbase = false;
-    mutable bool kmimetypechooser_hideevent_isbase = false;
-    mutable bool kmimetypechooser_nativeevent_isbase = false;
-    mutable bool kmimetypechooser_changeevent_isbase = false;
-    mutable bool kmimetypechooser_metric_isbase = false;
-    mutable bool kmimetypechooser_initpainter_isbase = false;
-    mutable bool kmimetypechooser_redirected_isbase = false;
-    mutable bool kmimetypechooser_sharedpainter_isbase = false;
-    mutable bool kmimetypechooser_inputmethodevent_isbase = false;
-    mutable bool kmimetypechooser_inputmethodquery_isbase = false;
-    mutable bool kmimetypechooser_focusnextprevchild_isbase = false;
-    mutable bool kmimetypechooser_eventfilter_isbase = false;
-    mutable bool kmimetypechooser_timerevent_isbase = false;
-    mutable bool kmimetypechooser_childevent_isbase = false;
-    mutable bool kmimetypechooser_customevent_isbase = false;
-    mutable bool kmimetypechooser_connectnotify_isbase = false;
-    mutable bool kmimetypechooser_disconnectnotify_isbase = false;
-    mutable bool kmimetypechooser_updatemicrofocus_isbase = false;
-    mutable bool kmimetypechooser_create_isbase = false;
-    mutable bool kmimetypechooser_destroy_isbase = false;
-    mutable bool kmimetypechooser_focusnextchild_isbase = false;
-    mutable bool kmimetypechooser_focuspreviouschild_isbase = false;
-    mutable bool kmimetypechooser_sender_isbase = false;
-    mutable bool kmimetypechooser_sendersignalindex_isbase = false;
-    mutable bool kmimetypechooser_receivers_isbase = false;
-    mutable bool kmimetypechooser_issignalconnected_isbase = false;
-    mutable bool kmimetypechooser_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KMimeTypeChooser {
+        using KMimeTypeChooser::actionEvent;
+        using KMimeTypeChooser::changeEvent;
+        using KMimeTypeChooser::childEvent;
+        using KMimeTypeChooser::closeEvent;
+        using KMimeTypeChooser::connectNotify;
+        using KMimeTypeChooser::contextMenuEvent;
+        using KMimeTypeChooser::customEvent;
+        using KMimeTypeChooser::disconnectNotify;
+        using KMimeTypeChooser::dragEnterEvent;
+        using KMimeTypeChooser::dragLeaveEvent;
+        using KMimeTypeChooser::dragMoveEvent;
+        using KMimeTypeChooser::dropEvent;
+        using KMimeTypeChooser::enterEvent;
+        using KMimeTypeChooser::event;
+        using KMimeTypeChooser::focusInEvent;
+        using KMimeTypeChooser::focusNextPrevChild;
+        using KMimeTypeChooser::focusOutEvent;
+        using KMimeTypeChooser::hideEvent;
+        using KMimeTypeChooser::initPainter;
+        using KMimeTypeChooser::inputMethodEvent;
+        using KMimeTypeChooser::keyPressEvent;
+        using KMimeTypeChooser::keyReleaseEvent;
+        using KMimeTypeChooser::leaveEvent;
+        using KMimeTypeChooser::metric;
+        using KMimeTypeChooser::mouseDoubleClickEvent;
+        using KMimeTypeChooser::mouseMoveEvent;
+        using KMimeTypeChooser::mousePressEvent;
+        using KMimeTypeChooser::mouseReleaseEvent;
+        using KMimeTypeChooser::moveEvent;
+        using KMimeTypeChooser::nativeEvent;
+        using KMimeTypeChooser::paintEvent;
+        using KMimeTypeChooser::redirected;
+        using KMimeTypeChooser::resizeEvent;
+        using KMimeTypeChooser::sharedPainter;
+        using KMimeTypeChooser::showEvent;
+        using KMimeTypeChooser::tabletEvent;
+        using KMimeTypeChooser::timerEvent;
+        using KMimeTypeChooser::wheelEvent;
+    };
 
-  public:
     VirtualKMimeTypeChooser() : KMimeTypeChooser() {};
     VirtualKMimeTypeChooser(const QString& text) : KMimeTypeChooser(text) {};
     VirtualKMimeTypeChooser(const QString& text, const QList<QString>& selectedMimeTypes) : KMimeTypeChooser(text, selectedMimeTypes) {};
@@ -212,139 +176,10 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
     VirtualKMimeTypeChooser(const QString& text, const QList<QString>& selectedMimeTypes, const QString& defaultGroup, const QList<QString>& groupsToShow, int visuals) : KMimeTypeChooser(text, selectedMimeTypes, defaultGroup, groupsToShow, visuals) {};
     VirtualKMimeTypeChooser(const QString& text, const QList<QString>& selectedMimeTypes, const QString& defaultGroup, const QList<QString>& groupsToShow, int visuals, QWidget* parent) : KMimeTypeChooser(text, selectedMimeTypes, defaultGroup, groupsToShow, visuals, parent) {};
 
-    // Callback setters
-    inline void setKMimeTypeChooser_MetaObject_Callback(KMimeTypeChooser_MetaObject_Callback cb) { kmimetypechooser_metaobject_callback = cb; }
-    inline void setKMimeTypeChooser_Metacast_Callback(KMimeTypeChooser_Metacast_Callback cb) { kmimetypechooser_metacast_callback = cb; }
-    inline void setKMimeTypeChooser_Metacall_Callback(KMimeTypeChooser_Metacall_Callback cb) { kmimetypechooser_metacall_callback = cb; }
-    inline void setKMimeTypeChooser_DevType_Callback(KMimeTypeChooser_DevType_Callback cb) { kmimetypechooser_devtype_callback = cb; }
-    inline void setKMimeTypeChooser_SetVisible_Callback(KMimeTypeChooser_SetVisible_Callback cb) { kmimetypechooser_setvisible_callback = cb; }
-    inline void setKMimeTypeChooser_SizeHint_Callback(KMimeTypeChooser_SizeHint_Callback cb) { kmimetypechooser_sizehint_callback = cb; }
-    inline void setKMimeTypeChooser_MinimumSizeHint_Callback(KMimeTypeChooser_MinimumSizeHint_Callback cb) { kmimetypechooser_minimumsizehint_callback = cb; }
-    inline void setKMimeTypeChooser_HeightForWidth_Callback(KMimeTypeChooser_HeightForWidth_Callback cb) { kmimetypechooser_heightforwidth_callback = cb; }
-    inline void setKMimeTypeChooser_HasHeightForWidth_Callback(KMimeTypeChooser_HasHeightForWidth_Callback cb) { kmimetypechooser_hasheightforwidth_callback = cb; }
-    inline void setKMimeTypeChooser_PaintEngine_Callback(KMimeTypeChooser_PaintEngine_Callback cb) { kmimetypechooser_paintengine_callback = cb; }
-    inline void setKMimeTypeChooser_Event_Callback(KMimeTypeChooser_Event_Callback cb) { kmimetypechooser_event_callback = cb; }
-    inline void setKMimeTypeChooser_MousePressEvent_Callback(KMimeTypeChooser_MousePressEvent_Callback cb) { kmimetypechooser_mousepressevent_callback = cb; }
-    inline void setKMimeTypeChooser_MouseReleaseEvent_Callback(KMimeTypeChooser_MouseReleaseEvent_Callback cb) { kmimetypechooser_mousereleaseevent_callback = cb; }
-    inline void setKMimeTypeChooser_MouseDoubleClickEvent_Callback(KMimeTypeChooser_MouseDoubleClickEvent_Callback cb) { kmimetypechooser_mousedoubleclickevent_callback = cb; }
-    inline void setKMimeTypeChooser_MouseMoveEvent_Callback(KMimeTypeChooser_MouseMoveEvent_Callback cb) { kmimetypechooser_mousemoveevent_callback = cb; }
-    inline void setKMimeTypeChooser_WheelEvent_Callback(KMimeTypeChooser_WheelEvent_Callback cb) { kmimetypechooser_wheelevent_callback = cb; }
-    inline void setKMimeTypeChooser_KeyPressEvent_Callback(KMimeTypeChooser_KeyPressEvent_Callback cb) { kmimetypechooser_keypressevent_callback = cb; }
-    inline void setKMimeTypeChooser_KeyReleaseEvent_Callback(KMimeTypeChooser_KeyReleaseEvent_Callback cb) { kmimetypechooser_keyreleaseevent_callback = cb; }
-    inline void setKMimeTypeChooser_FocusInEvent_Callback(KMimeTypeChooser_FocusInEvent_Callback cb) { kmimetypechooser_focusinevent_callback = cb; }
-    inline void setKMimeTypeChooser_FocusOutEvent_Callback(KMimeTypeChooser_FocusOutEvent_Callback cb) { kmimetypechooser_focusoutevent_callback = cb; }
-    inline void setKMimeTypeChooser_EnterEvent_Callback(KMimeTypeChooser_EnterEvent_Callback cb) { kmimetypechooser_enterevent_callback = cb; }
-    inline void setKMimeTypeChooser_LeaveEvent_Callback(KMimeTypeChooser_LeaveEvent_Callback cb) { kmimetypechooser_leaveevent_callback = cb; }
-    inline void setKMimeTypeChooser_PaintEvent_Callback(KMimeTypeChooser_PaintEvent_Callback cb) { kmimetypechooser_paintevent_callback = cb; }
-    inline void setKMimeTypeChooser_MoveEvent_Callback(KMimeTypeChooser_MoveEvent_Callback cb) { kmimetypechooser_moveevent_callback = cb; }
-    inline void setKMimeTypeChooser_ResizeEvent_Callback(KMimeTypeChooser_ResizeEvent_Callback cb) { kmimetypechooser_resizeevent_callback = cb; }
-    inline void setKMimeTypeChooser_CloseEvent_Callback(KMimeTypeChooser_CloseEvent_Callback cb) { kmimetypechooser_closeevent_callback = cb; }
-    inline void setKMimeTypeChooser_ContextMenuEvent_Callback(KMimeTypeChooser_ContextMenuEvent_Callback cb) { kmimetypechooser_contextmenuevent_callback = cb; }
-    inline void setKMimeTypeChooser_TabletEvent_Callback(KMimeTypeChooser_TabletEvent_Callback cb) { kmimetypechooser_tabletevent_callback = cb; }
-    inline void setKMimeTypeChooser_ActionEvent_Callback(KMimeTypeChooser_ActionEvent_Callback cb) { kmimetypechooser_actionevent_callback = cb; }
-    inline void setKMimeTypeChooser_DragEnterEvent_Callback(KMimeTypeChooser_DragEnterEvent_Callback cb) { kmimetypechooser_dragenterevent_callback = cb; }
-    inline void setKMimeTypeChooser_DragMoveEvent_Callback(KMimeTypeChooser_DragMoveEvent_Callback cb) { kmimetypechooser_dragmoveevent_callback = cb; }
-    inline void setKMimeTypeChooser_DragLeaveEvent_Callback(KMimeTypeChooser_DragLeaveEvent_Callback cb) { kmimetypechooser_dragleaveevent_callback = cb; }
-    inline void setKMimeTypeChooser_DropEvent_Callback(KMimeTypeChooser_DropEvent_Callback cb) { kmimetypechooser_dropevent_callback = cb; }
-    inline void setKMimeTypeChooser_ShowEvent_Callback(KMimeTypeChooser_ShowEvent_Callback cb) { kmimetypechooser_showevent_callback = cb; }
-    inline void setKMimeTypeChooser_HideEvent_Callback(KMimeTypeChooser_HideEvent_Callback cb) { kmimetypechooser_hideevent_callback = cb; }
-    inline void setKMimeTypeChooser_NativeEvent_Callback(KMimeTypeChooser_NativeEvent_Callback cb) { kmimetypechooser_nativeevent_callback = cb; }
-    inline void setKMimeTypeChooser_ChangeEvent_Callback(KMimeTypeChooser_ChangeEvent_Callback cb) { kmimetypechooser_changeevent_callback = cb; }
-    inline void setKMimeTypeChooser_Metric_Callback(KMimeTypeChooser_Metric_Callback cb) { kmimetypechooser_metric_callback = cb; }
-    inline void setKMimeTypeChooser_InitPainter_Callback(KMimeTypeChooser_InitPainter_Callback cb) { kmimetypechooser_initpainter_callback = cb; }
-    inline void setKMimeTypeChooser_Redirected_Callback(KMimeTypeChooser_Redirected_Callback cb) { kmimetypechooser_redirected_callback = cb; }
-    inline void setKMimeTypeChooser_SharedPainter_Callback(KMimeTypeChooser_SharedPainter_Callback cb) { kmimetypechooser_sharedpainter_callback = cb; }
-    inline void setKMimeTypeChooser_InputMethodEvent_Callback(KMimeTypeChooser_InputMethodEvent_Callback cb) { kmimetypechooser_inputmethodevent_callback = cb; }
-    inline void setKMimeTypeChooser_InputMethodQuery_Callback(KMimeTypeChooser_InputMethodQuery_Callback cb) { kmimetypechooser_inputmethodquery_callback = cb; }
-    inline void setKMimeTypeChooser_FocusNextPrevChild_Callback(KMimeTypeChooser_FocusNextPrevChild_Callback cb) { kmimetypechooser_focusnextprevchild_callback = cb; }
-    inline void setKMimeTypeChooser_EventFilter_Callback(KMimeTypeChooser_EventFilter_Callback cb) { kmimetypechooser_eventfilter_callback = cb; }
-    inline void setKMimeTypeChooser_TimerEvent_Callback(KMimeTypeChooser_TimerEvent_Callback cb) { kmimetypechooser_timerevent_callback = cb; }
-    inline void setKMimeTypeChooser_ChildEvent_Callback(KMimeTypeChooser_ChildEvent_Callback cb) { kmimetypechooser_childevent_callback = cb; }
-    inline void setKMimeTypeChooser_CustomEvent_Callback(KMimeTypeChooser_CustomEvent_Callback cb) { kmimetypechooser_customevent_callback = cb; }
-    inline void setKMimeTypeChooser_ConnectNotify_Callback(KMimeTypeChooser_ConnectNotify_Callback cb) { kmimetypechooser_connectnotify_callback = cb; }
-    inline void setKMimeTypeChooser_DisconnectNotify_Callback(KMimeTypeChooser_DisconnectNotify_Callback cb) { kmimetypechooser_disconnectnotify_callback = cb; }
-    inline void setKMimeTypeChooser_UpdateMicroFocus_Callback(KMimeTypeChooser_UpdateMicroFocus_Callback cb) { kmimetypechooser_updatemicrofocus_callback = cb; }
-    inline void setKMimeTypeChooser_Create_Callback(KMimeTypeChooser_Create_Callback cb) { kmimetypechooser_create_callback = cb; }
-    inline void setKMimeTypeChooser_Destroy_Callback(KMimeTypeChooser_Destroy_Callback cb) { kmimetypechooser_destroy_callback = cb; }
-    inline void setKMimeTypeChooser_FocusNextChild_Callback(KMimeTypeChooser_FocusNextChild_Callback cb) { kmimetypechooser_focusnextchild_callback = cb; }
-    inline void setKMimeTypeChooser_FocusPreviousChild_Callback(KMimeTypeChooser_FocusPreviousChild_Callback cb) { kmimetypechooser_focuspreviouschild_callback = cb; }
-    inline void setKMimeTypeChooser_Sender_Callback(KMimeTypeChooser_Sender_Callback cb) { kmimetypechooser_sender_callback = cb; }
-    inline void setKMimeTypeChooser_SenderSignalIndex_Callback(KMimeTypeChooser_SenderSignalIndex_Callback cb) { kmimetypechooser_sendersignalindex_callback = cb; }
-    inline void setKMimeTypeChooser_Receivers_Callback(KMimeTypeChooser_Receivers_Callback cb) { kmimetypechooser_receivers_callback = cb; }
-    inline void setKMimeTypeChooser_IsSignalConnected_Callback(KMimeTypeChooser_IsSignalConnected_Callback cb) { kmimetypechooser_issignalconnected_callback = cb; }
-    inline void setKMimeTypeChooser_GetDecodedMetricF_Callback(KMimeTypeChooser_GetDecodedMetricF_Callback cb) { kmimetypechooser_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKMimeTypeChooser_MetaObject_IsBase(bool value) const { kmimetypechooser_metaobject_isbase = value; }
-    inline void setKMimeTypeChooser_Metacast_IsBase(bool value) const { kmimetypechooser_metacast_isbase = value; }
-    inline void setKMimeTypeChooser_Metacall_IsBase(bool value) const { kmimetypechooser_metacall_isbase = value; }
-    inline void setKMimeTypeChooser_DevType_IsBase(bool value) const { kmimetypechooser_devtype_isbase = value; }
-    inline void setKMimeTypeChooser_SetVisible_IsBase(bool value) const { kmimetypechooser_setvisible_isbase = value; }
-    inline void setKMimeTypeChooser_SizeHint_IsBase(bool value) const { kmimetypechooser_sizehint_isbase = value; }
-    inline void setKMimeTypeChooser_MinimumSizeHint_IsBase(bool value) const { kmimetypechooser_minimumsizehint_isbase = value; }
-    inline void setKMimeTypeChooser_HeightForWidth_IsBase(bool value) const { kmimetypechooser_heightforwidth_isbase = value; }
-    inline void setKMimeTypeChooser_HasHeightForWidth_IsBase(bool value) const { kmimetypechooser_hasheightforwidth_isbase = value; }
-    inline void setKMimeTypeChooser_PaintEngine_IsBase(bool value) const { kmimetypechooser_paintengine_isbase = value; }
-    inline void setKMimeTypeChooser_Event_IsBase(bool value) const { kmimetypechooser_event_isbase = value; }
-    inline void setKMimeTypeChooser_MousePressEvent_IsBase(bool value) const { kmimetypechooser_mousepressevent_isbase = value; }
-    inline void setKMimeTypeChooser_MouseReleaseEvent_IsBase(bool value) const { kmimetypechooser_mousereleaseevent_isbase = value; }
-    inline void setKMimeTypeChooser_MouseDoubleClickEvent_IsBase(bool value) const { kmimetypechooser_mousedoubleclickevent_isbase = value; }
-    inline void setKMimeTypeChooser_MouseMoveEvent_IsBase(bool value) const { kmimetypechooser_mousemoveevent_isbase = value; }
-    inline void setKMimeTypeChooser_WheelEvent_IsBase(bool value) const { kmimetypechooser_wheelevent_isbase = value; }
-    inline void setKMimeTypeChooser_KeyPressEvent_IsBase(bool value) const { kmimetypechooser_keypressevent_isbase = value; }
-    inline void setKMimeTypeChooser_KeyReleaseEvent_IsBase(bool value) const { kmimetypechooser_keyreleaseevent_isbase = value; }
-    inline void setKMimeTypeChooser_FocusInEvent_IsBase(bool value) const { kmimetypechooser_focusinevent_isbase = value; }
-    inline void setKMimeTypeChooser_FocusOutEvent_IsBase(bool value) const { kmimetypechooser_focusoutevent_isbase = value; }
-    inline void setKMimeTypeChooser_EnterEvent_IsBase(bool value) const { kmimetypechooser_enterevent_isbase = value; }
-    inline void setKMimeTypeChooser_LeaveEvent_IsBase(bool value) const { kmimetypechooser_leaveevent_isbase = value; }
-    inline void setKMimeTypeChooser_PaintEvent_IsBase(bool value) const { kmimetypechooser_paintevent_isbase = value; }
-    inline void setKMimeTypeChooser_MoveEvent_IsBase(bool value) const { kmimetypechooser_moveevent_isbase = value; }
-    inline void setKMimeTypeChooser_ResizeEvent_IsBase(bool value) const { kmimetypechooser_resizeevent_isbase = value; }
-    inline void setKMimeTypeChooser_CloseEvent_IsBase(bool value) const { kmimetypechooser_closeevent_isbase = value; }
-    inline void setKMimeTypeChooser_ContextMenuEvent_IsBase(bool value) const { kmimetypechooser_contextmenuevent_isbase = value; }
-    inline void setKMimeTypeChooser_TabletEvent_IsBase(bool value) const { kmimetypechooser_tabletevent_isbase = value; }
-    inline void setKMimeTypeChooser_ActionEvent_IsBase(bool value) const { kmimetypechooser_actionevent_isbase = value; }
-    inline void setKMimeTypeChooser_DragEnterEvent_IsBase(bool value) const { kmimetypechooser_dragenterevent_isbase = value; }
-    inline void setKMimeTypeChooser_DragMoveEvent_IsBase(bool value) const { kmimetypechooser_dragmoveevent_isbase = value; }
-    inline void setKMimeTypeChooser_DragLeaveEvent_IsBase(bool value) const { kmimetypechooser_dragleaveevent_isbase = value; }
-    inline void setKMimeTypeChooser_DropEvent_IsBase(bool value) const { kmimetypechooser_dropevent_isbase = value; }
-    inline void setKMimeTypeChooser_ShowEvent_IsBase(bool value) const { kmimetypechooser_showevent_isbase = value; }
-    inline void setKMimeTypeChooser_HideEvent_IsBase(bool value) const { kmimetypechooser_hideevent_isbase = value; }
-    inline void setKMimeTypeChooser_NativeEvent_IsBase(bool value) const { kmimetypechooser_nativeevent_isbase = value; }
-    inline void setKMimeTypeChooser_ChangeEvent_IsBase(bool value) const { kmimetypechooser_changeevent_isbase = value; }
-    inline void setKMimeTypeChooser_Metric_IsBase(bool value) const { kmimetypechooser_metric_isbase = value; }
-    inline void setKMimeTypeChooser_InitPainter_IsBase(bool value) const { kmimetypechooser_initpainter_isbase = value; }
-    inline void setKMimeTypeChooser_Redirected_IsBase(bool value) const { kmimetypechooser_redirected_isbase = value; }
-    inline void setKMimeTypeChooser_SharedPainter_IsBase(bool value) const { kmimetypechooser_sharedpainter_isbase = value; }
-    inline void setKMimeTypeChooser_InputMethodEvent_IsBase(bool value) const { kmimetypechooser_inputmethodevent_isbase = value; }
-    inline void setKMimeTypeChooser_InputMethodQuery_IsBase(bool value) const { kmimetypechooser_inputmethodquery_isbase = value; }
-    inline void setKMimeTypeChooser_FocusNextPrevChild_IsBase(bool value) const { kmimetypechooser_focusnextprevchild_isbase = value; }
-    inline void setKMimeTypeChooser_EventFilter_IsBase(bool value) const { kmimetypechooser_eventfilter_isbase = value; }
-    inline void setKMimeTypeChooser_TimerEvent_IsBase(bool value) const { kmimetypechooser_timerevent_isbase = value; }
-    inline void setKMimeTypeChooser_ChildEvent_IsBase(bool value) const { kmimetypechooser_childevent_isbase = value; }
-    inline void setKMimeTypeChooser_CustomEvent_IsBase(bool value) const { kmimetypechooser_customevent_isbase = value; }
-    inline void setKMimeTypeChooser_ConnectNotify_IsBase(bool value) const { kmimetypechooser_connectnotify_isbase = value; }
-    inline void setKMimeTypeChooser_DisconnectNotify_IsBase(bool value) const { kmimetypechooser_disconnectnotify_isbase = value; }
-    inline void setKMimeTypeChooser_UpdateMicroFocus_IsBase(bool value) const { kmimetypechooser_updatemicrofocus_isbase = value; }
-    inline void setKMimeTypeChooser_Create_IsBase(bool value) const { kmimetypechooser_create_isbase = value; }
-    inline void setKMimeTypeChooser_Destroy_IsBase(bool value) const { kmimetypechooser_destroy_isbase = value; }
-    inline void setKMimeTypeChooser_FocusNextChild_IsBase(bool value) const { kmimetypechooser_focusnextchild_isbase = value; }
-    inline void setKMimeTypeChooser_FocusPreviousChild_IsBase(bool value) const { kmimetypechooser_focuspreviouschild_isbase = value; }
-    inline void setKMimeTypeChooser_Sender_IsBase(bool value) const { kmimetypechooser_sender_isbase = value; }
-    inline void setKMimeTypeChooser_SenderSignalIndex_IsBase(bool value) const { kmimetypechooser_sendersignalindex_isbase = value; }
-    inline void setKMimeTypeChooser_Receivers_IsBase(bool value) const { kmimetypechooser_receivers_isbase = value; }
-    inline void setKMimeTypeChooser_IsSignalConnected_IsBase(bool value) const { kmimetypechooser_issignalconnected_isbase = value; }
-    inline void setKMimeTypeChooser_GetDecodedMetricF_IsBase(bool value) const { kmimetypechooser_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kmimetypechooser_metaobject_isbase) {
-            kmimetypechooser_metaobject_isbase = false;
-            return KMimeTypeChooser::metaObject();
-        }
-        auto metaobject_cb = kmimetypechooser_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kmimetypechooser_metaobject_callback) {
+            QMetaObject* callback_ret = kmimetypechooser_metaobject_callback(this);
             return callback_ret;
         }
         return KMimeTypeChooser::metaObject();
@@ -352,14 +187,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kmimetypechooser_metacast_isbase) {
-            kmimetypechooser_metacast_isbase = false;
-            return KMimeTypeChooser::qt_metacast(param1);
-        }
-        auto metacast_cb = kmimetypechooser_metacast_callback;
-        if (metacast_cb) {
+        if (kmimetypechooser_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kmimetypechooser_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KMimeTypeChooser::qt_metacast(param1);
@@ -367,16 +197,11 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kmimetypechooser_metacall_isbase) {
-            kmimetypechooser_metacall_isbase = false;
-            return KMimeTypeChooser::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kmimetypechooser_metacall_callback;
-        if (metacall_cb) {
+        if (kmimetypechooser_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kmimetypechooser_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KMimeTypeChooser::qt_metacall(param1, param2, param3);
@@ -384,13 +209,8 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (kmimetypechooser_devtype_isbase) {
-            kmimetypechooser_devtype_isbase = false;
-            return KMimeTypeChooser::devType();
-        }
-        auto devtype_cb = kmimetypechooser_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (kmimetypechooser_devtype_callback) {
+            int callback_ret = kmimetypechooser_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KMimeTypeChooser::devType();
@@ -398,15 +218,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (kmimetypechooser_setvisible_isbase) {
-            kmimetypechooser_setvisible_isbase = false;
-            KMimeTypeChooser::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = kmimetypechooser_setvisible_callback;
-        if (setvisible_cb) {
+        if (kmimetypechooser_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            kmimetypechooser_setvisible_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::setVisible(visible);
@@ -414,13 +228,8 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (kmimetypechooser_sizehint_isbase) {
-            kmimetypechooser_sizehint_isbase = false;
-            return KMimeTypeChooser::sizeHint();
-        }
-        auto sizehint_cb = kmimetypechooser_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (kmimetypechooser_sizehint_callback) {
+            QSize* callback_ret = kmimetypechooser_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -430,13 +239,8 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (kmimetypechooser_minimumsizehint_isbase) {
-            kmimetypechooser_minimumsizehint_isbase = false;
-            return KMimeTypeChooser::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = kmimetypechooser_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (kmimetypechooser_minimumsizehint_callback) {
+            QSize* callback_ret = kmimetypechooser_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -446,14 +250,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (kmimetypechooser_heightforwidth_isbase) {
-            kmimetypechooser_heightforwidth_isbase = false;
-            return KMimeTypeChooser::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = kmimetypechooser_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (kmimetypechooser_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = kmimetypechooser_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KMimeTypeChooser::heightForWidth(param1);
@@ -461,13 +260,8 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (kmimetypechooser_hasheightforwidth_isbase) {
-            kmimetypechooser_hasheightforwidth_isbase = false;
-            return KMimeTypeChooser::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = kmimetypechooser_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (kmimetypechooser_hasheightforwidth_callback) {
+            bool callback_ret = kmimetypechooser_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KMimeTypeChooser::hasHeightForWidth();
@@ -475,13 +269,8 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (kmimetypechooser_paintengine_isbase) {
-            kmimetypechooser_paintengine_isbase = false;
-            return KMimeTypeChooser::paintEngine();
-        }
-        auto paintengine_cb = kmimetypechooser_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (kmimetypechooser_paintengine_callback) {
+            QPaintEngine* callback_ret = kmimetypechooser_paintengine_callback(this);
             return callback_ret;
         }
         return KMimeTypeChooser::paintEngine();
@@ -489,14 +278,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kmimetypechooser_event_isbase) {
-            kmimetypechooser_event_isbase = false;
-            return KMimeTypeChooser::event(event);
-        }
-        auto event_cb = kmimetypechooser_event_callback;
-        if (event_cb) {
+        if (kmimetypechooser_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kmimetypechooser_event_callback(this, cbval1);
             return callback_ret;
         }
         return KMimeTypeChooser::event(event);
@@ -504,15 +288,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (kmimetypechooser_mousepressevent_isbase) {
-            kmimetypechooser_mousepressevent_isbase = false;
-            KMimeTypeChooser::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = kmimetypechooser_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (kmimetypechooser_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            kmimetypechooser_mousepressevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::mousePressEvent(event);
@@ -520,15 +298,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (kmimetypechooser_mousereleaseevent_isbase) {
-            kmimetypechooser_mousereleaseevent_isbase = false;
-            KMimeTypeChooser::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = kmimetypechooser_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (kmimetypechooser_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            kmimetypechooser_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::mouseReleaseEvent(event);
@@ -536,15 +308,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (kmimetypechooser_mousedoubleclickevent_isbase) {
-            kmimetypechooser_mousedoubleclickevent_isbase = false;
-            KMimeTypeChooser::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = kmimetypechooser_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (kmimetypechooser_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            kmimetypechooser_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::mouseDoubleClickEvent(event);
@@ -552,15 +318,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (kmimetypechooser_mousemoveevent_isbase) {
-            kmimetypechooser_mousemoveevent_isbase = false;
-            KMimeTypeChooser::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = kmimetypechooser_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (kmimetypechooser_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            kmimetypechooser_mousemoveevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::mouseMoveEvent(event);
@@ -568,15 +328,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (kmimetypechooser_wheelevent_isbase) {
-            kmimetypechooser_wheelevent_isbase = false;
-            KMimeTypeChooser::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = kmimetypechooser_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (kmimetypechooser_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            kmimetypechooser_wheelevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::wheelEvent(event);
@@ -584,15 +338,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (kmimetypechooser_keypressevent_isbase) {
-            kmimetypechooser_keypressevent_isbase = false;
-            KMimeTypeChooser::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = kmimetypechooser_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (kmimetypechooser_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            kmimetypechooser_keypressevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::keyPressEvent(event);
@@ -600,15 +348,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (kmimetypechooser_keyreleaseevent_isbase) {
-            kmimetypechooser_keyreleaseevent_isbase = false;
-            KMimeTypeChooser::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = kmimetypechooser_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (kmimetypechooser_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            kmimetypechooser_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::keyReleaseEvent(event);
@@ -616,15 +358,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (kmimetypechooser_focusinevent_isbase) {
-            kmimetypechooser_focusinevent_isbase = false;
-            KMimeTypeChooser::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = kmimetypechooser_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (kmimetypechooser_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            kmimetypechooser_focusinevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::focusInEvent(event);
@@ -632,15 +368,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (kmimetypechooser_focusoutevent_isbase) {
-            kmimetypechooser_focusoutevent_isbase = false;
-            KMimeTypeChooser::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = kmimetypechooser_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (kmimetypechooser_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            kmimetypechooser_focusoutevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::focusOutEvent(event);
@@ -648,15 +378,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (kmimetypechooser_enterevent_isbase) {
-            kmimetypechooser_enterevent_isbase = false;
-            KMimeTypeChooser::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = kmimetypechooser_enterevent_callback;
-        if (enterevent_cb) {
+        if (kmimetypechooser_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            kmimetypechooser_enterevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::enterEvent(event);
@@ -664,15 +388,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (kmimetypechooser_leaveevent_isbase) {
-            kmimetypechooser_leaveevent_isbase = false;
-            KMimeTypeChooser::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = kmimetypechooser_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (kmimetypechooser_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            kmimetypechooser_leaveevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::leaveEvent(event);
@@ -680,15 +398,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (kmimetypechooser_paintevent_isbase) {
-            kmimetypechooser_paintevent_isbase = false;
-            KMimeTypeChooser::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = kmimetypechooser_paintevent_callback;
-        if (paintevent_cb) {
+        if (kmimetypechooser_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            kmimetypechooser_paintevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::paintEvent(event);
@@ -696,15 +408,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (kmimetypechooser_moveevent_isbase) {
-            kmimetypechooser_moveevent_isbase = false;
-            KMimeTypeChooser::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = kmimetypechooser_moveevent_callback;
-        if (moveevent_cb) {
+        if (kmimetypechooser_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            kmimetypechooser_moveevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::moveEvent(event);
@@ -712,15 +418,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (kmimetypechooser_resizeevent_isbase) {
-            kmimetypechooser_resizeevent_isbase = false;
-            KMimeTypeChooser::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = kmimetypechooser_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (kmimetypechooser_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            kmimetypechooser_resizeevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::resizeEvent(event);
@@ -728,15 +428,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (kmimetypechooser_closeevent_isbase) {
-            kmimetypechooser_closeevent_isbase = false;
-            KMimeTypeChooser::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = kmimetypechooser_closeevent_callback;
-        if (closeevent_cb) {
+        if (kmimetypechooser_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            kmimetypechooser_closeevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::closeEvent(event);
@@ -744,15 +438,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (kmimetypechooser_contextmenuevent_isbase) {
-            kmimetypechooser_contextmenuevent_isbase = false;
-            KMimeTypeChooser::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = kmimetypechooser_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (kmimetypechooser_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            kmimetypechooser_contextmenuevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::contextMenuEvent(event);
@@ -760,15 +448,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (kmimetypechooser_tabletevent_isbase) {
-            kmimetypechooser_tabletevent_isbase = false;
-            KMimeTypeChooser::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = kmimetypechooser_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (kmimetypechooser_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            kmimetypechooser_tabletevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::tabletEvent(event);
@@ -776,15 +458,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (kmimetypechooser_actionevent_isbase) {
-            kmimetypechooser_actionevent_isbase = false;
-            KMimeTypeChooser::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = kmimetypechooser_actionevent_callback;
-        if (actionevent_cb) {
+        if (kmimetypechooser_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            kmimetypechooser_actionevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::actionEvent(event);
@@ -792,15 +468,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (kmimetypechooser_dragenterevent_isbase) {
-            kmimetypechooser_dragenterevent_isbase = false;
-            KMimeTypeChooser::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = kmimetypechooser_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (kmimetypechooser_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            kmimetypechooser_dragenterevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::dragEnterEvent(event);
@@ -808,15 +478,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (kmimetypechooser_dragmoveevent_isbase) {
-            kmimetypechooser_dragmoveevent_isbase = false;
-            KMimeTypeChooser::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = kmimetypechooser_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (kmimetypechooser_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            kmimetypechooser_dragmoveevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::dragMoveEvent(event);
@@ -824,15 +488,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (kmimetypechooser_dragleaveevent_isbase) {
-            kmimetypechooser_dragleaveevent_isbase = false;
-            KMimeTypeChooser::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = kmimetypechooser_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (kmimetypechooser_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            kmimetypechooser_dragleaveevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::dragLeaveEvent(event);
@@ -840,15 +498,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (kmimetypechooser_dropevent_isbase) {
-            kmimetypechooser_dropevent_isbase = false;
-            KMimeTypeChooser::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = kmimetypechooser_dropevent_callback;
-        if (dropevent_cb) {
+        if (kmimetypechooser_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            kmimetypechooser_dropevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::dropEvent(event);
@@ -856,15 +508,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (kmimetypechooser_showevent_isbase) {
-            kmimetypechooser_showevent_isbase = false;
-            KMimeTypeChooser::showEvent(event);
-            return;
-        }
-        auto showevent_cb = kmimetypechooser_showevent_callback;
-        if (showevent_cb) {
+        if (kmimetypechooser_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            kmimetypechooser_showevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::showEvent(event);
@@ -872,15 +518,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (kmimetypechooser_hideevent_isbase) {
-            kmimetypechooser_hideevent_isbase = false;
-            KMimeTypeChooser::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = kmimetypechooser_hideevent_callback;
-        if (hideevent_cb) {
+        if (kmimetypechooser_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            kmimetypechooser_hideevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::hideEvent(event);
@@ -888,12 +528,7 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (kmimetypechooser_nativeevent_isbase) {
-            kmimetypechooser_nativeevent_isbase = false;
-            return KMimeTypeChooser::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = kmimetypechooser_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (kmimetypechooser_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -903,7 +538,7 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kmimetypechooser_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -912,15 +547,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (kmimetypechooser_changeevent_isbase) {
-            kmimetypechooser_changeevent_isbase = false;
-            KMimeTypeChooser::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = kmimetypechooser_changeevent_callback;
-        if (changeevent_cb) {
+        if (kmimetypechooser_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            kmimetypechooser_changeevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::changeEvent(param1);
@@ -928,14 +557,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (kmimetypechooser_metric_isbase) {
-            kmimetypechooser_metric_isbase = false;
-            return KMimeTypeChooser::metric(param1);
-        }
-        auto metric_cb = kmimetypechooser_metric_callback;
-        if (metric_cb) {
+        if (kmimetypechooser_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = kmimetypechooser_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KMimeTypeChooser::metric(param1);
@@ -943,15 +567,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (kmimetypechooser_initpainter_isbase) {
-            kmimetypechooser_initpainter_isbase = false;
-            KMimeTypeChooser::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = kmimetypechooser_initpainter_callback;
-        if (initpainter_cb) {
+        if (kmimetypechooser_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            kmimetypechooser_initpainter_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::initPainter(painter);
@@ -959,14 +577,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (kmimetypechooser_redirected_isbase) {
-            kmimetypechooser_redirected_isbase = false;
-            return KMimeTypeChooser::redirected(offset);
-        }
-        auto redirected_cb = kmimetypechooser_redirected_callback;
-        if (redirected_cb) {
+        if (kmimetypechooser_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = kmimetypechooser_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KMimeTypeChooser::redirected(offset);
@@ -974,13 +587,8 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (kmimetypechooser_sharedpainter_isbase) {
-            kmimetypechooser_sharedpainter_isbase = false;
-            return KMimeTypeChooser::sharedPainter();
-        }
-        auto sharedpainter_cb = kmimetypechooser_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (kmimetypechooser_sharedpainter_callback) {
+            QPainter* callback_ret = kmimetypechooser_sharedpainter_callback(this);
             return callback_ret;
         }
         return KMimeTypeChooser::sharedPainter();
@@ -988,15 +596,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (kmimetypechooser_inputmethodevent_isbase) {
-            kmimetypechooser_inputmethodevent_isbase = false;
-            KMimeTypeChooser::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = kmimetypechooser_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (kmimetypechooser_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            kmimetypechooser_inputmethodevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::inputMethodEvent(param1);
@@ -1004,14 +606,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (kmimetypechooser_inputmethodquery_isbase) {
-            kmimetypechooser_inputmethodquery_isbase = false;
-            return KMimeTypeChooser::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = kmimetypechooser_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (kmimetypechooser_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = kmimetypechooser_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1021,14 +618,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (kmimetypechooser_focusnextprevchild_isbase) {
-            kmimetypechooser_focusnextprevchild_isbase = false;
-            return KMimeTypeChooser::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = kmimetypechooser_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (kmimetypechooser_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = kmimetypechooser_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KMimeTypeChooser::focusNextPrevChild(next);
@@ -1036,15 +628,10 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kmimetypechooser_eventfilter_isbase) {
-            kmimetypechooser_eventfilter_isbase = false;
-            return KMimeTypeChooser::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kmimetypechooser_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kmimetypechooser_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kmimetypechooser_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KMimeTypeChooser::eventFilter(watched, event);
@@ -1052,15 +639,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kmimetypechooser_timerevent_isbase) {
-            kmimetypechooser_timerevent_isbase = false;
-            KMimeTypeChooser::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kmimetypechooser_timerevent_callback;
-        if (timerevent_cb) {
+        if (kmimetypechooser_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kmimetypechooser_timerevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::timerEvent(event);
@@ -1068,15 +649,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kmimetypechooser_childevent_isbase) {
-            kmimetypechooser_childevent_isbase = false;
-            KMimeTypeChooser::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kmimetypechooser_childevent_callback;
-        if (childevent_cb) {
+        if (kmimetypechooser_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kmimetypechooser_childevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::childEvent(event);
@@ -1084,15 +659,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kmimetypechooser_customevent_isbase) {
-            kmimetypechooser_customevent_isbase = false;
-            KMimeTypeChooser::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kmimetypechooser_customevent_callback;
-        if (customevent_cb) {
+        if (kmimetypechooser_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kmimetypechooser_customevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::customEvent(event);
@@ -1100,17 +669,11 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kmimetypechooser_connectnotify_isbase) {
-            kmimetypechooser_connectnotify_isbase = false;
-            KMimeTypeChooser::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kmimetypechooser_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kmimetypechooser_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kmimetypechooser_connectnotify_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::connectNotify(signal);
@@ -1118,299 +681,82 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kmimetypechooser_disconnectnotify_isbase) {
-            kmimetypechooser_disconnectnotify_isbase = false;
-            KMimeTypeChooser::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kmimetypechooser_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kmimetypechooser_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kmimetypechooser_disconnectnotify_callback(this, cbval1);
             return;
         }
         KMimeTypeChooser::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (kmimetypechooser_updatemicrofocus_isbase) {
-            kmimetypechooser_updatemicrofocus_isbase = false;
-            KMimeTypeChooser::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = kmimetypechooser_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KMimeTypeChooser::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (kmimetypechooser_create_isbase) {
-            kmimetypechooser_create_isbase = false;
-            KMimeTypeChooser::create();
-            return;
-        }
-        auto create_cb = kmimetypechooser_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KMimeTypeChooser::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (kmimetypechooser_destroy_isbase) {
-            kmimetypechooser_destroy_isbase = false;
-            KMimeTypeChooser::destroy();
-            return;
-        }
-        auto destroy_cb = kmimetypechooser_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KMimeTypeChooser::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (kmimetypechooser_focusnextchild_isbase) {
-            kmimetypechooser_focusnextchild_isbase = false;
-            return KMimeTypeChooser::focusNextChild();
-        }
-        auto focusnextchild_cb = kmimetypechooser_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KMimeTypeChooser::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (kmimetypechooser_focuspreviouschild_isbase) {
-            kmimetypechooser_focuspreviouschild_isbase = false;
-            return KMimeTypeChooser::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = kmimetypechooser_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KMimeTypeChooser::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kmimetypechooser_sender_isbase) {
-            kmimetypechooser_sender_isbase = false;
-            return KMimeTypeChooser::sender();
-        }
-        auto sender_cb = kmimetypechooser_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KMimeTypeChooser::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kmimetypechooser_sendersignalindex_isbase) {
-            kmimetypechooser_sendersignalindex_isbase = false;
-            return KMimeTypeChooser::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kmimetypechooser_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KMimeTypeChooser::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kmimetypechooser_receivers_isbase) {
-            kmimetypechooser_receivers_isbase = false;
-            return KMimeTypeChooser::receivers(signal);
-        }
-        auto receivers_cb = kmimetypechooser_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KMimeTypeChooser::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kmimetypechooser_issignalconnected_isbase) {
-            kmimetypechooser_issignalconnected_isbase = false;
-            return KMimeTypeChooser::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kmimetypechooser_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KMimeTypeChooser::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (kmimetypechooser_getdecodedmetricf_isbase) {
-            kmimetypechooser_getdecodedmetricf_isbase = false;
-            return KMimeTypeChooser::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = kmimetypechooser_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KMimeTypeChooser::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool KMimeTypeChooser_Event(KMimeTypeChooser* self, QEvent* event);
     friend bool KMimeTypeChooser_SuperEvent(KMimeTypeChooser* self, QEvent* event);
-    friend void KMimeTypeChooser_MousePressEvent(KMimeTypeChooser* self, QMouseEvent* event);
     friend void KMimeTypeChooser_SuperMousePressEvent(KMimeTypeChooser* self, QMouseEvent* event);
-    friend void KMimeTypeChooser_MouseReleaseEvent(KMimeTypeChooser* self, QMouseEvent* event);
     friend void KMimeTypeChooser_SuperMouseReleaseEvent(KMimeTypeChooser* self, QMouseEvent* event);
-    friend void KMimeTypeChooser_MouseDoubleClickEvent(KMimeTypeChooser* self, QMouseEvent* event);
     friend void KMimeTypeChooser_SuperMouseDoubleClickEvent(KMimeTypeChooser* self, QMouseEvent* event);
-    friend void KMimeTypeChooser_MouseMoveEvent(KMimeTypeChooser* self, QMouseEvent* event);
     friend void KMimeTypeChooser_SuperMouseMoveEvent(KMimeTypeChooser* self, QMouseEvent* event);
-    friend void KMimeTypeChooser_WheelEvent(KMimeTypeChooser* self, QWheelEvent* event);
     friend void KMimeTypeChooser_SuperWheelEvent(KMimeTypeChooser* self, QWheelEvent* event);
-    friend void KMimeTypeChooser_KeyPressEvent(KMimeTypeChooser* self, QKeyEvent* event);
     friend void KMimeTypeChooser_SuperKeyPressEvent(KMimeTypeChooser* self, QKeyEvent* event);
-    friend void KMimeTypeChooser_KeyReleaseEvent(KMimeTypeChooser* self, QKeyEvent* event);
     friend void KMimeTypeChooser_SuperKeyReleaseEvent(KMimeTypeChooser* self, QKeyEvent* event);
-    friend void KMimeTypeChooser_FocusInEvent(KMimeTypeChooser* self, QFocusEvent* event);
     friend void KMimeTypeChooser_SuperFocusInEvent(KMimeTypeChooser* self, QFocusEvent* event);
-    friend void KMimeTypeChooser_FocusOutEvent(KMimeTypeChooser* self, QFocusEvent* event);
     friend void KMimeTypeChooser_SuperFocusOutEvent(KMimeTypeChooser* self, QFocusEvent* event);
-    friend void KMimeTypeChooser_EnterEvent(KMimeTypeChooser* self, QEnterEvent* event);
     friend void KMimeTypeChooser_SuperEnterEvent(KMimeTypeChooser* self, QEnterEvent* event);
-    friend void KMimeTypeChooser_LeaveEvent(KMimeTypeChooser* self, QEvent* event);
     friend void KMimeTypeChooser_SuperLeaveEvent(KMimeTypeChooser* self, QEvent* event);
-    friend void KMimeTypeChooser_PaintEvent(KMimeTypeChooser* self, QPaintEvent* event);
     friend void KMimeTypeChooser_SuperPaintEvent(KMimeTypeChooser* self, QPaintEvent* event);
-    friend void KMimeTypeChooser_MoveEvent(KMimeTypeChooser* self, QMoveEvent* event);
     friend void KMimeTypeChooser_SuperMoveEvent(KMimeTypeChooser* self, QMoveEvent* event);
-    friend void KMimeTypeChooser_ResizeEvent(KMimeTypeChooser* self, QResizeEvent* event);
     friend void KMimeTypeChooser_SuperResizeEvent(KMimeTypeChooser* self, QResizeEvent* event);
-    friend void KMimeTypeChooser_CloseEvent(KMimeTypeChooser* self, QCloseEvent* event);
     friend void KMimeTypeChooser_SuperCloseEvent(KMimeTypeChooser* self, QCloseEvent* event);
-    friend void KMimeTypeChooser_ContextMenuEvent(KMimeTypeChooser* self, QContextMenuEvent* event);
     friend void KMimeTypeChooser_SuperContextMenuEvent(KMimeTypeChooser* self, QContextMenuEvent* event);
-    friend void KMimeTypeChooser_TabletEvent(KMimeTypeChooser* self, QTabletEvent* event);
     friend void KMimeTypeChooser_SuperTabletEvent(KMimeTypeChooser* self, QTabletEvent* event);
-    friend void KMimeTypeChooser_ActionEvent(KMimeTypeChooser* self, QActionEvent* event);
     friend void KMimeTypeChooser_SuperActionEvent(KMimeTypeChooser* self, QActionEvent* event);
-    friend void KMimeTypeChooser_DragEnterEvent(KMimeTypeChooser* self, QDragEnterEvent* event);
     friend void KMimeTypeChooser_SuperDragEnterEvent(KMimeTypeChooser* self, QDragEnterEvent* event);
-    friend void KMimeTypeChooser_DragMoveEvent(KMimeTypeChooser* self, QDragMoveEvent* event);
     friend void KMimeTypeChooser_SuperDragMoveEvent(KMimeTypeChooser* self, QDragMoveEvent* event);
-    friend void KMimeTypeChooser_DragLeaveEvent(KMimeTypeChooser* self, QDragLeaveEvent* event);
     friend void KMimeTypeChooser_SuperDragLeaveEvent(KMimeTypeChooser* self, QDragLeaveEvent* event);
-    friend void KMimeTypeChooser_DropEvent(KMimeTypeChooser* self, QDropEvent* event);
     friend void KMimeTypeChooser_SuperDropEvent(KMimeTypeChooser* self, QDropEvent* event);
-    friend void KMimeTypeChooser_ShowEvent(KMimeTypeChooser* self, QShowEvent* event);
     friend void KMimeTypeChooser_SuperShowEvent(KMimeTypeChooser* self, QShowEvent* event);
-    friend void KMimeTypeChooser_HideEvent(KMimeTypeChooser* self, QHideEvent* event);
     friend void KMimeTypeChooser_SuperHideEvent(KMimeTypeChooser* self, QHideEvent* event);
-    friend bool KMimeTypeChooser_NativeEvent(KMimeTypeChooser* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KMimeTypeChooser_SuperNativeEvent(KMimeTypeChooser* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void KMimeTypeChooser_ChangeEvent(KMimeTypeChooser* self, QEvent* param1);
     friend void KMimeTypeChooser_SuperChangeEvent(KMimeTypeChooser* self, QEvent* param1);
-    friend int KMimeTypeChooser_Metric(const KMimeTypeChooser* self, int param1);
     friend int KMimeTypeChooser_SuperMetric(const KMimeTypeChooser* self, int param1);
-    friend void KMimeTypeChooser_InitPainter(const KMimeTypeChooser* self, QPainter* painter);
     friend void KMimeTypeChooser_SuperInitPainter(const KMimeTypeChooser* self, QPainter* painter);
-    friend QPaintDevice* KMimeTypeChooser_Redirected(const KMimeTypeChooser* self, QPoint* offset);
     friend QPaintDevice* KMimeTypeChooser_SuperRedirected(const KMimeTypeChooser* self, QPoint* offset);
-    friend QPainter* KMimeTypeChooser_SharedPainter(const KMimeTypeChooser* self);
     friend QPainter* KMimeTypeChooser_SuperSharedPainter(const KMimeTypeChooser* self);
-    friend void KMimeTypeChooser_InputMethodEvent(KMimeTypeChooser* self, QInputMethodEvent* param1);
     friend void KMimeTypeChooser_SuperInputMethodEvent(KMimeTypeChooser* self, QInputMethodEvent* param1);
-    friend bool KMimeTypeChooser_FocusNextPrevChild(KMimeTypeChooser* self, bool next);
     friend bool KMimeTypeChooser_SuperFocusNextPrevChild(KMimeTypeChooser* self, bool next);
-    friend void KMimeTypeChooser_TimerEvent(KMimeTypeChooser* self, QTimerEvent* event);
     friend void KMimeTypeChooser_SuperTimerEvent(KMimeTypeChooser* self, QTimerEvent* event);
-    friend void KMimeTypeChooser_ChildEvent(KMimeTypeChooser* self, QChildEvent* event);
     friend void KMimeTypeChooser_SuperChildEvent(KMimeTypeChooser* self, QChildEvent* event);
-    friend void KMimeTypeChooser_CustomEvent(KMimeTypeChooser* self, QEvent* event);
     friend void KMimeTypeChooser_SuperCustomEvent(KMimeTypeChooser* self, QEvent* event);
-    friend void KMimeTypeChooser_ConnectNotify(KMimeTypeChooser* self, const QMetaMethod* signal);
     friend void KMimeTypeChooser_SuperConnectNotify(KMimeTypeChooser* self, const QMetaMethod* signal);
-    friend void KMimeTypeChooser_DisconnectNotify(KMimeTypeChooser* self, const QMetaMethod* signal);
     friend void KMimeTypeChooser_SuperDisconnectNotify(KMimeTypeChooser* self, const QMetaMethod* signal);
-    friend void KMimeTypeChooser_UpdateMicroFocus(KMimeTypeChooser* self);
-    friend void KMimeTypeChooser_SuperUpdateMicroFocus(KMimeTypeChooser* self);
-    friend void KMimeTypeChooser_Create(KMimeTypeChooser* self);
-    friend void KMimeTypeChooser_SuperCreate(KMimeTypeChooser* self);
-    friend void KMimeTypeChooser_Destroy(KMimeTypeChooser* self);
-    friend void KMimeTypeChooser_SuperDestroy(KMimeTypeChooser* self);
-    friend bool KMimeTypeChooser_FocusNextChild(KMimeTypeChooser* self);
-    friend bool KMimeTypeChooser_SuperFocusNextChild(KMimeTypeChooser* self);
-    friend bool KMimeTypeChooser_FocusPreviousChild(KMimeTypeChooser* self);
-    friend bool KMimeTypeChooser_SuperFocusPreviousChild(KMimeTypeChooser* self);
-    friend QObject* KMimeTypeChooser_Sender(const KMimeTypeChooser* self);
-    friend QObject* KMimeTypeChooser_SuperSender(const KMimeTypeChooser* self);
-    friend int KMimeTypeChooser_SenderSignalIndex(const KMimeTypeChooser* self);
-    friend int KMimeTypeChooser_SuperSenderSignalIndex(const KMimeTypeChooser* self);
-    friend int KMimeTypeChooser_Receivers(const KMimeTypeChooser* self, const char* signal);
-    friend int KMimeTypeChooser_SuperReceivers(const KMimeTypeChooser* self, const char* signal);
-    friend bool KMimeTypeChooser_IsSignalConnected(const KMimeTypeChooser* self, const QMetaMethod* signal);
-    friend bool KMimeTypeChooser_SuperIsSignalConnected(const KMimeTypeChooser* self, const QMetaMethod* signal);
-    friend double KMimeTypeChooser_GetDecodedMetricF(const KMimeTypeChooser* self, int metricA, int metricB);
-    friend double KMimeTypeChooser_SuperGetDecodedMetricF(const KMimeTypeChooser* self, int metricA, int metricB);
 };
 
-// This class is a subclass of KMimeTypeChooserDialog so that we can call protected methods
+// This class is a subclass of KMimeTypeChooserDialog
 class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKMimeTypeChooserDialog = true;
-
-    // Virtual class public types (including callbacks)
-    using KMimeTypeChooserDialog_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KMimeTypeChooserDialog_MetaObject_Callback = QMetaObject* (*)(const KMimeTypeChooserDialog*);
     using KMimeTypeChooserDialog_Metacast_Callback = void* (*)(KMimeTypeChooserDialog*, const char*);
     using KMimeTypeChooserDialog_Metacall_Callback = int (*)(KMimeTypeChooserDialog*, int, int, void**);
-    using KMimeTypeChooserDialog_SizeHint_Callback = QSize* (*)();
+    using KMimeTypeChooserDialog_SizeHint_Callback = QSize* (*)(const KMimeTypeChooserDialog*);
     using KMimeTypeChooserDialog_SetVisible_Callback = void (*)(KMimeTypeChooserDialog*, bool);
-    using KMimeTypeChooserDialog_MinimumSizeHint_Callback = QSize* (*)();
-    using KMimeTypeChooserDialog_Open_Callback = void (*)();
-    using KMimeTypeChooserDialog_Exec_Callback = int (*)();
+    using KMimeTypeChooserDialog_MinimumSizeHint_Callback = QSize* (*)(const KMimeTypeChooserDialog*);
+    using KMimeTypeChooserDialog_Open_Callback = void (*)(KMimeTypeChooserDialog*);
+    using KMimeTypeChooserDialog_Exec_Callback = int (*)(KMimeTypeChooserDialog*);
     using KMimeTypeChooserDialog_Done_Callback = void (*)(KMimeTypeChooserDialog*, int);
-    using KMimeTypeChooserDialog_Accept_Callback = void (*)();
-    using KMimeTypeChooserDialog_Reject_Callback = void (*)();
+    using KMimeTypeChooserDialog_Accept_Callback = void (*)(KMimeTypeChooserDialog*);
+    using KMimeTypeChooserDialog_Reject_Callback = void (*)(KMimeTypeChooserDialog*);
     using KMimeTypeChooserDialog_KeyPressEvent_Callback = void (*)(KMimeTypeChooserDialog*, QKeyEvent*);
     using KMimeTypeChooserDialog_CloseEvent_Callback = void (*)(KMimeTypeChooserDialog*, QCloseEvent*);
     using KMimeTypeChooserDialog_ShowEvent_Callback = void (*)(KMimeTypeChooserDialog*, QShowEvent*);
     using KMimeTypeChooserDialog_ResizeEvent_Callback = void (*)(KMimeTypeChooserDialog*, QResizeEvent*);
     using KMimeTypeChooserDialog_ContextMenuEvent_Callback = void (*)(KMimeTypeChooserDialog*, QContextMenuEvent*);
     using KMimeTypeChooserDialog_EventFilter_Callback = bool (*)(KMimeTypeChooserDialog*, QObject*, QEvent*);
-    using KMimeTypeChooserDialog_DevType_Callback = int (*)();
+    using KMimeTypeChooserDialog_DevType_Callback = int (*)(const KMimeTypeChooserDialog*);
     using KMimeTypeChooserDialog_HeightForWidth_Callback = int (*)(const KMimeTypeChooserDialog*, int);
-    using KMimeTypeChooserDialog_HasHeightForWidth_Callback = bool (*)();
-    using KMimeTypeChooserDialog_PaintEngine_Callback = QPaintEngine* (*)();
+    using KMimeTypeChooserDialog_HasHeightForWidth_Callback = bool (*)(const KMimeTypeChooserDialog*);
+    using KMimeTypeChooserDialog_PaintEngine_Callback = QPaintEngine* (*)(const KMimeTypeChooserDialog*);
     using KMimeTypeChooserDialog_Event_Callback = bool (*)(KMimeTypeChooserDialog*, QEvent*);
     using KMimeTypeChooserDialog_MousePressEvent_Callback = void (*)(KMimeTypeChooserDialog*, QMouseEvent*);
     using KMimeTypeChooserDialog_MouseReleaseEvent_Callback = void (*)(KMimeTypeChooserDialog*, QMouseEvent*);
@@ -1436,7 +782,7 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
     using KMimeTypeChooserDialog_Metric_Callback = int (*)(const KMimeTypeChooserDialog*, int);
     using KMimeTypeChooserDialog_InitPainter_Callback = void (*)(const KMimeTypeChooserDialog*, QPainter*);
     using KMimeTypeChooserDialog_Redirected_Callback = QPaintDevice* (*)(const KMimeTypeChooserDialog*, QPoint*);
-    using KMimeTypeChooserDialog_SharedPainter_Callback = QPainter* (*)();
+    using KMimeTypeChooserDialog_SharedPainter_Callback = QPainter* (*)(const KMimeTypeChooserDialog*);
     using KMimeTypeChooserDialog_InputMethodEvent_Callback = void (*)(KMimeTypeChooserDialog*, QInputMethodEvent*);
     using KMimeTypeChooserDialog_InputMethodQuery_Callback = QVariant* (*)(const KMimeTypeChooserDialog*, int);
     using KMimeTypeChooserDialog_FocusNextPrevChild_Callback = bool (*)(KMimeTypeChooserDialog*, bool);
@@ -1445,19 +791,18 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
     using KMimeTypeChooserDialog_CustomEvent_Callback = void (*)(KMimeTypeChooserDialog*, QEvent*);
     using KMimeTypeChooserDialog_ConnectNotify_Callback = void (*)(KMimeTypeChooserDialog*, QMetaMethod*);
     using KMimeTypeChooserDialog_DisconnectNotify_Callback = void (*)(KMimeTypeChooserDialog*, QMetaMethod*);
-    using KMimeTypeChooserDialog_AdjustPosition_Callback = void (*)(KMimeTypeChooserDialog*, QWidget*);
-    using KMimeTypeChooserDialog_UpdateMicroFocus_Callback = void (*)();
-    using KMimeTypeChooserDialog_Create_Callback = void (*)();
-    using KMimeTypeChooserDialog_Destroy_Callback = void (*)();
-    using KMimeTypeChooserDialog_FocusNextChild_Callback = bool (*)();
-    using KMimeTypeChooserDialog_FocusPreviousChild_Callback = bool (*)();
-    using KMimeTypeChooserDialog_Sender_Callback = QObject* (*)();
-    using KMimeTypeChooserDialog_SenderSignalIndex_Callback = int (*)();
-    using KMimeTypeChooserDialog_Receivers_Callback = int (*)(const KMimeTypeChooserDialog*, const char*);
-    using KMimeTypeChooserDialog_IsSignalConnected_Callback = bool (*)(const KMimeTypeChooserDialog*, QMetaMethod*);
-    using KMimeTypeChooserDialog_GetDecodedMetricF_Callback = double (*)(const KMimeTypeChooserDialog*, int, int);
+    using KMimeTypeChooserDialog::adjustPosition;
+    using KMimeTypeChooserDialog::create;
+    using KMimeTypeChooserDialog::destroy;
+    using KMimeTypeChooserDialog::focusNextChild;
+    using KMimeTypeChooserDialog::focusPreviousChild;
+    using KMimeTypeChooserDialog::getDecodedMetricF;
+    using KMimeTypeChooserDialog::isSignalConnected;
+    using KMimeTypeChooserDialog::receivers;
+    using KMimeTypeChooserDialog::sender;
+    using KMimeTypeChooserDialog::senderSignalIndex;
+    using KMimeTypeChooserDialog::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     KMimeTypeChooserDialog_MetaObject_Callback kmimetypechooserdialog_metaobject_callback = nullptr;
     KMimeTypeChooserDialog_Metacast_Callback kmimetypechooserdialog_metacast_callback = nullptr;
@@ -1514,87 +859,50 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
     KMimeTypeChooserDialog_CustomEvent_Callback kmimetypechooserdialog_customevent_callback = nullptr;
     KMimeTypeChooserDialog_ConnectNotify_Callback kmimetypechooserdialog_connectnotify_callback = nullptr;
     KMimeTypeChooserDialog_DisconnectNotify_Callback kmimetypechooserdialog_disconnectnotify_callback = nullptr;
-    KMimeTypeChooserDialog_AdjustPosition_Callback kmimetypechooserdialog_adjustposition_callback = nullptr;
-    KMimeTypeChooserDialog_UpdateMicroFocus_Callback kmimetypechooserdialog_updatemicrofocus_callback = nullptr;
-    KMimeTypeChooserDialog_Create_Callback kmimetypechooserdialog_create_callback = nullptr;
-    KMimeTypeChooserDialog_Destroy_Callback kmimetypechooserdialog_destroy_callback = nullptr;
-    KMimeTypeChooserDialog_FocusNextChild_Callback kmimetypechooserdialog_focusnextchild_callback = nullptr;
-    KMimeTypeChooserDialog_FocusPreviousChild_Callback kmimetypechooserdialog_focuspreviouschild_callback = nullptr;
-    KMimeTypeChooserDialog_Sender_Callback kmimetypechooserdialog_sender_callback = nullptr;
-    KMimeTypeChooserDialog_SenderSignalIndex_Callback kmimetypechooserdialog_sendersignalindex_callback = nullptr;
-    KMimeTypeChooserDialog_Receivers_Callback kmimetypechooserdialog_receivers_callback = nullptr;
-    KMimeTypeChooserDialog_IsSignalConnected_Callback kmimetypechooserdialog_issignalconnected_callback = nullptr;
-    KMimeTypeChooserDialog_GetDecodedMetricF_Callback kmimetypechooserdialog_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kmimetypechooserdialog_metaobject_isbase = false;
-    mutable bool kmimetypechooserdialog_metacast_isbase = false;
-    mutable bool kmimetypechooserdialog_metacall_isbase = false;
-    mutable bool kmimetypechooserdialog_sizehint_isbase = false;
-    mutable bool kmimetypechooserdialog_setvisible_isbase = false;
-    mutable bool kmimetypechooserdialog_minimumsizehint_isbase = false;
-    mutable bool kmimetypechooserdialog_open_isbase = false;
-    mutable bool kmimetypechooserdialog_exec_isbase = false;
-    mutable bool kmimetypechooserdialog_done_isbase = false;
-    mutable bool kmimetypechooserdialog_accept_isbase = false;
-    mutable bool kmimetypechooserdialog_reject_isbase = false;
-    mutable bool kmimetypechooserdialog_keypressevent_isbase = false;
-    mutable bool kmimetypechooserdialog_closeevent_isbase = false;
-    mutable bool kmimetypechooserdialog_showevent_isbase = false;
-    mutable bool kmimetypechooserdialog_resizeevent_isbase = false;
-    mutable bool kmimetypechooserdialog_contextmenuevent_isbase = false;
-    mutable bool kmimetypechooserdialog_eventfilter_isbase = false;
-    mutable bool kmimetypechooserdialog_devtype_isbase = false;
-    mutable bool kmimetypechooserdialog_heightforwidth_isbase = false;
-    mutable bool kmimetypechooserdialog_hasheightforwidth_isbase = false;
-    mutable bool kmimetypechooserdialog_paintengine_isbase = false;
-    mutable bool kmimetypechooserdialog_event_isbase = false;
-    mutable bool kmimetypechooserdialog_mousepressevent_isbase = false;
-    mutable bool kmimetypechooserdialog_mousereleaseevent_isbase = false;
-    mutable bool kmimetypechooserdialog_mousedoubleclickevent_isbase = false;
-    mutable bool kmimetypechooserdialog_mousemoveevent_isbase = false;
-    mutable bool kmimetypechooserdialog_wheelevent_isbase = false;
-    mutable bool kmimetypechooserdialog_keyreleaseevent_isbase = false;
-    mutable bool kmimetypechooserdialog_focusinevent_isbase = false;
-    mutable bool kmimetypechooserdialog_focusoutevent_isbase = false;
-    mutable bool kmimetypechooserdialog_enterevent_isbase = false;
-    mutable bool kmimetypechooserdialog_leaveevent_isbase = false;
-    mutable bool kmimetypechooserdialog_paintevent_isbase = false;
-    mutable bool kmimetypechooserdialog_moveevent_isbase = false;
-    mutable bool kmimetypechooserdialog_tabletevent_isbase = false;
-    mutable bool kmimetypechooserdialog_actionevent_isbase = false;
-    mutable bool kmimetypechooserdialog_dragenterevent_isbase = false;
-    mutable bool kmimetypechooserdialog_dragmoveevent_isbase = false;
-    mutable bool kmimetypechooserdialog_dragleaveevent_isbase = false;
-    mutable bool kmimetypechooserdialog_dropevent_isbase = false;
-    mutable bool kmimetypechooserdialog_hideevent_isbase = false;
-    mutable bool kmimetypechooserdialog_nativeevent_isbase = false;
-    mutable bool kmimetypechooserdialog_changeevent_isbase = false;
-    mutable bool kmimetypechooserdialog_metric_isbase = false;
-    mutable bool kmimetypechooserdialog_initpainter_isbase = false;
-    mutable bool kmimetypechooserdialog_redirected_isbase = false;
-    mutable bool kmimetypechooserdialog_sharedpainter_isbase = false;
-    mutable bool kmimetypechooserdialog_inputmethodevent_isbase = false;
-    mutable bool kmimetypechooserdialog_inputmethodquery_isbase = false;
-    mutable bool kmimetypechooserdialog_focusnextprevchild_isbase = false;
-    mutable bool kmimetypechooserdialog_timerevent_isbase = false;
-    mutable bool kmimetypechooserdialog_childevent_isbase = false;
-    mutable bool kmimetypechooserdialog_customevent_isbase = false;
-    mutable bool kmimetypechooserdialog_connectnotify_isbase = false;
-    mutable bool kmimetypechooserdialog_disconnectnotify_isbase = false;
-    mutable bool kmimetypechooserdialog_adjustposition_isbase = false;
-    mutable bool kmimetypechooserdialog_updatemicrofocus_isbase = false;
-    mutable bool kmimetypechooserdialog_create_isbase = false;
-    mutable bool kmimetypechooserdialog_destroy_isbase = false;
-    mutable bool kmimetypechooserdialog_focusnextchild_isbase = false;
-    mutable bool kmimetypechooserdialog_focuspreviouschild_isbase = false;
-    mutable bool kmimetypechooserdialog_sender_isbase = false;
-    mutable bool kmimetypechooserdialog_sendersignalindex_isbase = false;
-    mutable bool kmimetypechooserdialog_receivers_isbase = false;
-    mutable bool kmimetypechooserdialog_issignalconnected_isbase = false;
-    mutable bool kmimetypechooserdialog_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KMimeTypeChooserDialog {
+        using KMimeTypeChooserDialog::actionEvent;
+        using KMimeTypeChooserDialog::changeEvent;
+        using KMimeTypeChooserDialog::childEvent;
+        using KMimeTypeChooserDialog::closeEvent;
+        using KMimeTypeChooserDialog::connectNotify;
+        using KMimeTypeChooserDialog::contextMenuEvent;
+        using KMimeTypeChooserDialog::customEvent;
+        using KMimeTypeChooserDialog::disconnectNotify;
+        using KMimeTypeChooserDialog::dragEnterEvent;
+        using KMimeTypeChooserDialog::dragLeaveEvent;
+        using KMimeTypeChooserDialog::dragMoveEvent;
+        using KMimeTypeChooserDialog::dropEvent;
+        using KMimeTypeChooserDialog::enterEvent;
+        using KMimeTypeChooserDialog::event;
+        using KMimeTypeChooserDialog::eventFilter;
+        using KMimeTypeChooserDialog::focusInEvent;
+        using KMimeTypeChooserDialog::focusNextPrevChild;
+        using KMimeTypeChooserDialog::focusOutEvent;
+        using KMimeTypeChooserDialog::hideEvent;
+        using KMimeTypeChooserDialog::initPainter;
+        using KMimeTypeChooserDialog::inputMethodEvent;
+        using KMimeTypeChooserDialog::keyPressEvent;
+        using KMimeTypeChooserDialog::keyReleaseEvent;
+        using KMimeTypeChooserDialog::leaveEvent;
+        using KMimeTypeChooserDialog::metric;
+        using KMimeTypeChooserDialog::mouseDoubleClickEvent;
+        using KMimeTypeChooserDialog::mouseMoveEvent;
+        using KMimeTypeChooserDialog::mousePressEvent;
+        using KMimeTypeChooserDialog::mouseReleaseEvent;
+        using KMimeTypeChooserDialog::moveEvent;
+        using KMimeTypeChooserDialog::nativeEvent;
+        using KMimeTypeChooserDialog::paintEvent;
+        using KMimeTypeChooserDialog::redirected;
+        using KMimeTypeChooserDialog::resizeEvent;
+        using KMimeTypeChooserDialog::sharedPainter;
+        using KMimeTypeChooserDialog::showEvent;
+        using KMimeTypeChooserDialog::tabletEvent;
+        using KMimeTypeChooserDialog::timerEvent;
+        using KMimeTypeChooserDialog::wheelEvent;
+    };
 
-  public:
     VirtualKMimeTypeChooserDialog() : KMimeTypeChooserDialog() {};
     VirtualKMimeTypeChooserDialog(const QString& title, const QString& text, const QList<QString>& selectedMimeTypes, const QString& defaultGroup) : KMimeTypeChooserDialog(title, text, selectedMimeTypes, defaultGroup, nullptr) {};
     VirtualKMimeTypeChooserDialog(const QString& title) : KMimeTypeChooserDialog(title) {};
@@ -1605,151 +913,10 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
     VirtualKMimeTypeChooserDialog(const QString& title, const QString& text, const QList<QString>& selectedMimeTypes, const QString& defaultGroup, const QList<QString>& groupsToShow, int visuals, QWidget* parent) : KMimeTypeChooserDialog(title, text, selectedMimeTypes, defaultGroup, groupsToShow, visuals, parent) {};
     VirtualKMimeTypeChooserDialog(const QString& title, const QString& text, const QList<QString>& selectedMimeTypes, const QString& defaultGroup, QWidget* parent) : KMimeTypeChooserDialog(title, text, selectedMimeTypes, defaultGroup, parent) {};
 
-    // Callback setters
-    inline void setKMimeTypeChooserDialog_MetaObject_Callback(KMimeTypeChooserDialog_MetaObject_Callback cb) { kmimetypechooserdialog_metaobject_callback = cb; }
-    inline void setKMimeTypeChooserDialog_Metacast_Callback(KMimeTypeChooserDialog_Metacast_Callback cb) { kmimetypechooserdialog_metacast_callback = cb; }
-    inline void setKMimeTypeChooserDialog_Metacall_Callback(KMimeTypeChooserDialog_Metacall_Callback cb) { kmimetypechooserdialog_metacall_callback = cb; }
-    inline void setKMimeTypeChooserDialog_SizeHint_Callback(KMimeTypeChooserDialog_SizeHint_Callback cb) { kmimetypechooserdialog_sizehint_callback = cb; }
-    inline void setKMimeTypeChooserDialog_SetVisible_Callback(KMimeTypeChooserDialog_SetVisible_Callback cb) { kmimetypechooserdialog_setvisible_callback = cb; }
-    inline void setKMimeTypeChooserDialog_MinimumSizeHint_Callback(KMimeTypeChooserDialog_MinimumSizeHint_Callback cb) { kmimetypechooserdialog_minimumsizehint_callback = cb; }
-    inline void setKMimeTypeChooserDialog_Open_Callback(KMimeTypeChooserDialog_Open_Callback cb) { kmimetypechooserdialog_open_callback = cb; }
-    inline void setKMimeTypeChooserDialog_Exec_Callback(KMimeTypeChooserDialog_Exec_Callback cb) { kmimetypechooserdialog_exec_callback = cb; }
-    inline void setKMimeTypeChooserDialog_Done_Callback(KMimeTypeChooserDialog_Done_Callback cb) { kmimetypechooserdialog_done_callback = cb; }
-    inline void setKMimeTypeChooserDialog_Accept_Callback(KMimeTypeChooserDialog_Accept_Callback cb) { kmimetypechooserdialog_accept_callback = cb; }
-    inline void setKMimeTypeChooserDialog_Reject_Callback(KMimeTypeChooserDialog_Reject_Callback cb) { kmimetypechooserdialog_reject_callback = cb; }
-    inline void setKMimeTypeChooserDialog_KeyPressEvent_Callback(KMimeTypeChooserDialog_KeyPressEvent_Callback cb) { kmimetypechooserdialog_keypressevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_CloseEvent_Callback(KMimeTypeChooserDialog_CloseEvent_Callback cb) { kmimetypechooserdialog_closeevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_ShowEvent_Callback(KMimeTypeChooserDialog_ShowEvent_Callback cb) { kmimetypechooserdialog_showevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_ResizeEvent_Callback(KMimeTypeChooserDialog_ResizeEvent_Callback cb) { kmimetypechooserdialog_resizeevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_ContextMenuEvent_Callback(KMimeTypeChooserDialog_ContextMenuEvent_Callback cb) { kmimetypechooserdialog_contextmenuevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_EventFilter_Callback(KMimeTypeChooserDialog_EventFilter_Callback cb) { kmimetypechooserdialog_eventfilter_callback = cb; }
-    inline void setKMimeTypeChooserDialog_DevType_Callback(KMimeTypeChooserDialog_DevType_Callback cb) { kmimetypechooserdialog_devtype_callback = cb; }
-    inline void setKMimeTypeChooserDialog_HeightForWidth_Callback(KMimeTypeChooserDialog_HeightForWidth_Callback cb) { kmimetypechooserdialog_heightforwidth_callback = cb; }
-    inline void setKMimeTypeChooserDialog_HasHeightForWidth_Callback(KMimeTypeChooserDialog_HasHeightForWidth_Callback cb) { kmimetypechooserdialog_hasheightforwidth_callback = cb; }
-    inline void setKMimeTypeChooserDialog_PaintEngine_Callback(KMimeTypeChooserDialog_PaintEngine_Callback cb) { kmimetypechooserdialog_paintengine_callback = cb; }
-    inline void setKMimeTypeChooserDialog_Event_Callback(KMimeTypeChooserDialog_Event_Callback cb) { kmimetypechooserdialog_event_callback = cb; }
-    inline void setKMimeTypeChooserDialog_MousePressEvent_Callback(KMimeTypeChooserDialog_MousePressEvent_Callback cb) { kmimetypechooserdialog_mousepressevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_MouseReleaseEvent_Callback(KMimeTypeChooserDialog_MouseReleaseEvent_Callback cb) { kmimetypechooserdialog_mousereleaseevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_MouseDoubleClickEvent_Callback(KMimeTypeChooserDialog_MouseDoubleClickEvent_Callback cb) { kmimetypechooserdialog_mousedoubleclickevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_MouseMoveEvent_Callback(KMimeTypeChooserDialog_MouseMoveEvent_Callback cb) { kmimetypechooserdialog_mousemoveevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_WheelEvent_Callback(KMimeTypeChooserDialog_WheelEvent_Callback cb) { kmimetypechooserdialog_wheelevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_KeyReleaseEvent_Callback(KMimeTypeChooserDialog_KeyReleaseEvent_Callback cb) { kmimetypechooserdialog_keyreleaseevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_FocusInEvent_Callback(KMimeTypeChooserDialog_FocusInEvent_Callback cb) { kmimetypechooserdialog_focusinevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_FocusOutEvent_Callback(KMimeTypeChooserDialog_FocusOutEvent_Callback cb) { kmimetypechooserdialog_focusoutevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_EnterEvent_Callback(KMimeTypeChooserDialog_EnterEvent_Callback cb) { kmimetypechooserdialog_enterevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_LeaveEvent_Callback(KMimeTypeChooserDialog_LeaveEvent_Callback cb) { kmimetypechooserdialog_leaveevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_PaintEvent_Callback(KMimeTypeChooserDialog_PaintEvent_Callback cb) { kmimetypechooserdialog_paintevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_MoveEvent_Callback(KMimeTypeChooserDialog_MoveEvent_Callback cb) { kmimetypechooserdialog_moveevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_TabletEvent_Callback(KMimeTypeChooserDialog_TabletEvent_Callback cb) { kmimetypechooserdialog_tabletevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_ActionEvent_Callback(KMimeTypeChooserDialog_ActionEvent_Callback cb) { kmimetypechooserdialog_actionevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_DragEnterEvent_Callback(KMimeTypeChooserDialog_DragEnterEvent_Callback cb) { kmimetypechooserdialog_dragenterevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_DragMoveEvent_Callback(KMimeTypeChooserDialog_DragMoveEvent_Callback cb) { kmimetypechooserdialog_dragmoveevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_DragLeaveEvent_Callback(KMimeTypeChooserDialog_DragLeaveEvent_Callback cb) { kmimetypechooserdialog_dragleaveevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_DropEvent_Callback(KMimeTypeChooserDialog_DropEvent_Callback cb) { kmimetypechooserdialog_dropevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_HideEvent_Callback(KMimeTypeChooserDialog_HideEvent_Callback cb) { kmimetypechooserdialog_hideevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_NativeEvent_Callback(KMimeTypeChooserDialog_NativeEvent_Callback cb) { kmimetypechooserdialog_nativeevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_ChangeEvent_Callback(KMimeTypeChooserDialog_ChangeEvent_Callback cb) { kmimetypechooserdialog_changeevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_Metric_Callback(KMimeTypeChooserDialog_Metric_Callback cb) { kmimetypechooserdialog_metric_callback = cb; }
-    inline void setKMimeTypeChooserDialog_InitPainter_Callback(KMimeTypeChooserDialog_InitPainter_Callback cb) { kmimetypechooserdialog_initpainter_callback = cb; }
-    inline void setKMimeTypeChooserDialog_Redirected_Callback(KMimeTypeChooserDialog_Redirected_Callback cb) { kmimetypechooserdialog_redirected_callback = cb; }
-    inline void setKMimeTypeChooserDialog_SharedPainter_Callback(KMimeTypeChooserDialog_SharedPainter_Callback cb) { kmimetypechooserdialog_sharedpainter_callback = cb; }
-    inline void setKMimeTypeChooserDialog_InputMethodEvent_Callback(KMimeTypeChooserDialog_InputMethodEvent_Callback cb) { kmimetypechooserdialog_inputmethodevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_InputMethodQuery_Callback(KMimeTypeChooserDialog_InputMethodQuery_Callback cb) { kmimetypechooserdialog_inputmethodquery_callback = cb; }
-    inline void setKMimeTypeChooserDialog_FocusNextPrevChild_Callback(KMimeTypeChooserDialog_FocusNextPrevChild_Callback cb) { kmimetypechooserdialog_focusnextprevchild_callback = cb; }
-    inline void setKMimeTypeChooserDialog_TimerEvent_Callback(KMimeTypeChooserDialog_TimerEvent_Callback cb) { kmimetypechooserdialog_timerevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_ChildEvent_Callback(KMimeTypeChooserDialog_ChildEvent_Callback cb) { kmimetypechooserdialog_childevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_CustomEvent_Callback(KMimeTypeChooserDialog_CustomEvent_Callback cb) { kmimetypechooserdialog_customevent_callback = cb; }
-    inline void setKMimeTypeChooserDialog_ConnectNotify_Callback(KMimeTypeChooserDialog_ConnectNotify_Callback cb) { kmimetypechooserdialog_connectnotify_callback = cb; }
-    inline void setKMimeTypeChooserDialog_DisconnectNotify_Callback(KMimeTypeChooserDialog_DisconnectNotify_Callback cb) { kmimetypechooserdialog_disconnectnotify_callback = cb; }
-    inline void setKMimeTypeChooserDialog_AdjustPosition_Callback(KMimeTypeChooserDialog_AdjustPosition_Callback cb) { kmimetypechooserdialog_adjustposition_callback = cb; }
-    inline void setKMimeTypeChooserDialog_UpdateMicroFocus_Callback(KMimeTypeChooserDialog_UpdateMicroFocus_Callback cb) { kmimetypechooserdialog_updatemicrofocus_callback = cb; }
-    inline void setKMimeTypeChooserDialog_Create_Callback(KMimeTypeChooserDialog_Create_Callback cb) { kmimetypechooserdialog_create_callback = cb; }
-    inline void setKMimeTypeChooserDialog_Destroy_Callback(KMimeTypeChooserDialog_Destroy_Callback cb) { kmimetypechooserdialog_destroy_callback = cb; }
-    inline void setKMimeTypeChooserDialog_FocusNextChild_Callback(KMimeTypeChooserDialog_FocusNextChild_Callback cb) { kmimetypechooserdialog_focusnextchild_callback = cb; }
-    inline void setKMimeTypeChooserDialog_FocusPreviousChild_Callback(KMimeTypeChooserDialog_FocusPreviousChild_Callback cb) { kmimetypechooserdialog_focuspreviouschild_callback = cb; }
-    inline void setKMimeTypeChooserDialog_Sender_Callback(KMimeTypeChooserDialog_Sender_Callback cb) { kmimetypechooserdialog_sender_callback = cb; }
-    inline void setKMimeTypeChooserDialog_SenderSignalIndex_Callback(KMimeTypeChooserDialog_SenderSignalIndex_Callback cb) { kmimetypechooserdialog_sendersignalindex_callback = cb; }
-    inline void setKMimeTypeChooserDialog_Receivers_Callback(KMimeTypeChooserDialog_Receivers_Callback cb) { kmimetypechooserdialog_receivers_callback = cb; }
-    inline void setKMimeTypeChooserDialog_IsSignalConnected_Callback(KMimeTypeChooserDialog_IsSignalConnected_Callback cb) { kmimetypechooserdialog_issignalconnected_callback = cb; }
-    inline void setKMimeTypeChooserDialog_GetDecodedMetricF_Callback(KMimeTypeChooserDialog_GetDecodedMetricF_Callback cb) { kmimetypechooserdialog_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKMimeTypeChooserDialog_MetaObject_IsBase(bool value) const { kmimetypechooserdialog_metaobject_isbase = value; }
-    inline void setKMimeTypeChooserDialog_Metacast_IsBase(bool value) const { kmimetypechooserdialog_metacast_isbase = value; }
-    inline void setKMimeTypeChooserDialog_Metacall_IsBase(bool value) const { kmimetypechooserdialog_metacall_isbase = value; }
-    inline void setKMimeTypeChooserDialog_SizeHint_IsBase(bool value) const { kmimetypechooserdialog_sizehint_isbase = value; }
-    inline void setKMimeTypeChooserDialog_SetVisible_IsBase(bool value) const { kmimetypechooserdialog_setvisible_isbase = value; }
-    inline void setKMimeTypeChooserDialog_MinimumSizeHint_IsBase(bool value) const { kmimetypechooserdialog_minimumsizehint_isbase = value; }
-    inline void setKMimeTypeChooserDialog_Open_IsBase(bool value) const { kmimetypechooserdialog_open_isbase = value; }
-    inline void setKMimeTypeChooserDialog_Exec_IsBase(bool value) const { kmimetypechooserdialog_exec_isbase = value; }
-    inline void setKMimeTypeChooserDialog_Done_IsBase(bool value) const { kmimetypechooserdialog_done_isbase = value; }
-    inline void setKMimeTypeChooserDialog_Accept_IsBase(bool value) const { kmimetypechooserdialog_accept_isbase = value; }
-    inline void setKMimeTypeChooserDialog_Reject_IsBase(bool value) const { kmimetypechooserdialog_reject_isbase = value; }
-    inline void setKMimeTypeChooserDialog_KeyPressEvent_IsBase(bool value) const { kmimetypechooserdialog_keypressevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_CloseEvent_IsBase(bool value) const { kmimetypechooserdialog_closeevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_ShowEvent_IsBase(bool value) const { kmimetypechooserdialog_showevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_ResizeEvent_IsBase(bool value) const { kmimetypechooserdialog_resizeevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_ContextMenuEvent_IsBase(bool value) const { kmimetypechooserdialog_contextmenuevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_EventFilter_IsBase(bool value) const { kmimetypechooserdialog_eventfilter_isbase = value; }
-    inline void setKMimeTypeChooserDialog_DevType_IsBase(bool value) const { kmimetypechooserdialog_devtype_isbase = value; }
-    inline void setKMimeTypeChooserDialog_HeightForWidth_IsBase(bool value) const { kmimetypechooserdialog_heightforwidth_isbase = value; }
-    inline void setKMimeTypeChooserDialog_HasHeightForWidth_IsBase(bool value) const { kmimetypechooserdialog_hasheightforwidth_isbase = value; }
-    inline void setKMimeTypeChooserDialog_PaintEngine_IsBase(bool value) const { kmimetypechooserdialog_paintengine_isbase = value; }
-    inline void setKMimeTypeChooserDialog_Event_IsBase(bool value) const { kmimetypechooserdialog_event_isbase = value; }
-    inline void setKMimeTypeChooserDialog_MousePressEvent_IsBase(bool value) const { kmimetypechooserdialog_mousepressevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_MouseReleaseEvent_IsBase(bool value) const { kmimetypechooserdialog_mousereleaseevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_MouseDoubleClickEvent_IsBase(bool value) const { kmimetypechooserdialog_mousedoubleclickevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_MouseMoveEvent_IsBase(bool value) const { kmimetypechooserdialog_mousemoveevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_WheelEvent_IsBase(bool value) const { kmimetypechooserdialog_wheelevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_KeyReleaseEvent_IsBase(bool value) const { kmimetypechooserdialog_keyreleaseevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_FocusInEvent_IsBase(bool value) const { kmimetypechooserdialog_focusinevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_FocusOutEvent_IsBase(bool value) const { kmimetypechooserdialog_focusoutevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_EnterEvent_IsBase(bool value) const { kmimetypechooserdialog_enterevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_LeaveEvent_IsBase(bool value) const { kmimetypechooserdialog_leaveevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_PaintEvent_IsBase(bool value) const { kmimetypechooserdialog_paintevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_MoveEvent_IsBase(bool value) const { kmimetypechooserdialog_moveevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_TabletEvent_IsBase(bool value) const { kmimetypechooserdialog_tabletevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_ActionEvent_IsBase(bool value) const { kmimetypechooserdialog_actionevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_DragEnterEvent_IsBase(bool value) const { kmimetypechooserdialog_dragenterevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_DragMoveEvent_IsBase(bool value) const { kmimetypechooserdialog_dragmoveevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_DragLeaveEvent_IsBase(bool value) const { kmimetypechooserdialog_dragleaveevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_DropEvent_IsBase(bool value) const { kmimetypechooserdialog_dropevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_HideEvent_IsBase(bool value) const { kmimetypechooserdialog_hideevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_NativeEvent_IsBase(bool value) const { kmimetypechooserdialog_nativeevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_ChangeEvent_IsBase(bool value) const { kmimetypechooserdialog_changeevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_Metric_IsBase(bool value) const { kmimetypechooserdialog_metric_isbase = value; }
-    inline void setKMimeTypeChooserDialog_InitPainter_IsBase(bool value) const { kmimetypechooserdialog_initpainter_isbase = value; }
-    inline void setKMimeTypeChooserDialog_Redirected_IsBase(bool value) const { kmimetypechooserdialog_redirected_isbase = value; }
-    inline void setKMimeTypeChooserDialog_SharedPainter_IsBase(bool value) const { kmimetypechooserdialog_sharedpainter_isbase = value; }
-    inline void setKMimeTypeChooserDialog_InputMethodEvent_IsBase(bool value) const { kmimetypechooserdialog_inputmethodevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_InputMethodQuery_IsBase(bool value) const { kmimetypechooserdialog_inputmethodquery_isbase = value; }
-    inline void setKMimeTypeChooserDialog_FocusNextPrevChild_IsBase(bool value) const { kmimetypechooserdialog_focusnextprevchild_isbase = value; }
-    inline void setKMimeTypeChooserDialog_TimerEvent_IsBase(bool value) const { kmimetypechooserdialog_timerevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_ChildEvent_IsBase(bool value) const { kmimetypechooserdialog_childevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_CustomEvent_IsBase(bool value) const { kmimetypechooserdialog_customevent_isbase = value; }
-    inline void setKMimeTypeChooserDialog_ConnectNotify_IsBase(bool value) const { kmimetypechooserdialog_connectnotify_isbase = value; }
-    inline void setKMimeTypeChooserDialog_DisconnectNotify_IsBase(bool value) const { kmimetypechooserdialog_disconnectnotify_isbase = value; }
-    inline void setKMimeTypeChooserDialog_AdjustPosition_IsBase(bool value) const { kmimetypechooserdialog_adjustposition_isbase = value; }
-    inline void setKMimeTypeChooserDialog_UpdateMicroFocus_IsBase(bool value) const { kmimetypechooserdialog_updatemicrofocus_isbase = value; }
-    inline void setKMimeTypeChooserDialog_Create_IsBase(bool value) const { kmimetypechooserdialog_create_isbase = value; }
-    inline void setKMimeTypeChooserDialog_Destroy_IsBase(bool value) const { kmimetypechooserdialog_destroy_isbase = value; }
-    inline void setKMimeTypeChooserDialog_FocusNextChild_IsBase(bool value) const { kmimetypechooserdialog_focusnextchild_isbase = value; }
-    inline void setKMimeTypeChooserDialog_FocusPreviousChild_IsBase(bool value) const { kmimetypechooserdialog_focuspreviouschild_isbase = value; }
-    inline void setKMimeTypeChooserDialog_Sender_IsBase(bool value) const { kmimetypechooserdialog_sender_isbase = value; }
-    inline void setKMimeTypeChooserDialog_SenderSignalIndex_IsBase(bool value) const { kmimetypechooserdialog_sendersignalindex_isbase = value; }
-    inline void setKMimeTypeChooserDialog_Receivers_IsBase(bool value) const { kmimetypechooserdialog_receivers_isbase = value; }
-    inline void setKMimeTypeChooserDialog_IsSignalConnected_IsBase(bool value) const { kmimetypechooserdialog_issignalconnected_isbase = value; }
-    inline void setKMimeTypeChooserDialog_GetDecodedMetricF_IsBase(bool value) const { kmimetypechooserdialog_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kmimetypechooserdialog_metaobject_isbase) {
-            kmimetypechooserdialog_metaobject_isbase = false;
-            return KMimeTypeChooserDialog::metaObject();
-        }
-        auto metaobject_cb = kmimetypechooserdialog_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kmimetypechooserdialog_metaobject_callback) {
+            QMetaObject* callback_ret = kmimetypechooserdialog_metaobject_callback(this);
             return callback_ret;
         }
         return KMimeTypeChooserDialog::metaObject();
@@ -1757,14 +924,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kmimetypechooserdialog_metacast_isbase) {
-            kmimetypechooserdialog_metacast_isbase = false;
-            return KMimeTypeChooserDialog::qt_metacast(param1);
-        }
-        auto metacast_cb = kmimetypechooserdialog_metacast_callback;
-        if (metacast_cb) {
+        if (kmimetypechooserdialog_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kmimetypechooserdialog_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KMimeTypeChooserDialog::qt_metacast(param1);
@@ -1772,16 +934,11 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kmimetypechooserdialog_metacall_isbase) {
-            kmimetypechooserdialog_metacall_isbase = false;
-            return KMimeTypeChooserDialog::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kmimetypechooserdialog_metacall_callback;
-        if (metacall_cb) {
+        if (kmimetypechooserdialog_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kmimetypechooserdialog_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KMimeTypeChooserDialog::qt_metacall(param1, param2, param3);
@@ -1789,13 +946,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (kmimetypechooserdialog_sizehint_isbase) {
-            kmimetypechooserdialog_sizehint_isbase = false;
-            return KMimeTypeChooserDialog::sizeHint();
-        }
-        auto sizehint_cb = kmimetypechooserdialog_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (kmimetypechooserdialog_sizehint_callback) {
+            QSize* callback_ret = kmimetypechooserdialog_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1805,15 +957,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (kmimetypechooserdialog_setvisible_isbase) {
-            kmimetypechooserdialog_setvisible_isbase = false;
-            KMimeTypeChooserDialog::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = kmimetypechooserdialog_setvisible_callback;
-        if (setvisible_cb) {
+        if (kmimetypechooserdialog_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            kmimetypechooserdialog_setvisible_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::setVisible(visible);
@@ -1821,13 +967,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (kmimetypechooserdialog_minimumsizehint_isbase) {
-            kmimetypechooserdialog_minimumsizehint_isbase = false;
-            return KMimeTypeChooserDialog::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = kmimetypechooserdialog_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (kmimetypechooserdialog_minimumsizehint_callback) {
+            QSize* callback_ret = kmimetypechooserdialog_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1837,14 +978,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void open() override {
-        if (kmimetypechooserdialog_open_isbase) {
-            kmimetypechooserdialog_open_isbase = false;
-            KMimeTypeChooserDialog::open();
-            return;
-        }
-        auto open_cb = kmimetypechooserdialog_open_callback;
-        if (open_cb) {
-            open_cb();
+        if (kmimetypechooserdialog_open_callback) {
+            kmimetypechooserdialog_open_callback(this);
             return;
         }
         KMimeTypeChooserDialog::open();
@@ -1852,13 +987,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int exec() override {
-        if (kmimetypechooserdialog_exec_isbase) {
-            kmimetypechooserdialog_exec_isbase = false;
-            return KMimeTypeChooserDialog::exec();
-        }
-        auto exec_cb = kmimetypechooserdialog_exec_callback;
-        if (exec_cb) {
-            int callback_ret = exec_cb();
+        if (kmimetypechooserdialog_exec_callback) {
+            int callback_ret = kmimetypechooserdialog_exec_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KMimeTypeChooserDialog::exec();
@@ -1866,15 +996,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void done(int param1) override {
-        if (kmimetypechooserdialog_done_isbase) {
-            kmimetypechooserdialog_done_isbase = false;
-            KMimeTypeChooserDialog::done(param1);
-            return;
-        }
-        auto done_cb = kmimetypechooserdialog_done_callback;
-        if (done_cb) {
+        if (kmimetypechooserdialog_done_callback) {
             int cbval1 = param1;
-            done_cb(this, cbval1);
+            kmimetypechooserdialog_done_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::done(param1);
@@ -1882,14 +1006,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void accept() override {
-        if (kmimetypechooserdialog_accept_isbase) {
-            kmimetypechooserdialog_accept_isbase = false;
-            KMimeTypeChooserDialog::accept();
-            return;
-        }
-        auto accept_cb = kmimetypechooserdialog_accept_callback;
-        if (accept_cb) {
-            accept_cb();
+        if (kmimetypechooserdialog_accept_callback) {
+            kmimetypechooserdialog_accept_callback(this);
             return;
         }
         KMimeTypeChooserDialog::accept();
@@ -1897,14 +1015,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void reject() override {
-        if (kmimetypechooserdialog_reject_isbase) {
-            kmimetypechooserdialog_reject_isbase = false;
-            KMimeTypeChooserDialog::reject();
-            return;
-        }
-        auto reject_cb = kmimetypechooserdialog_reject_callback;
-        if (reject_cb) {
-            reject_cb();
+        if (kmimetypechooserdialog_reject_callback) {
+            kmimetypechooserdialog_reject_callback(this);
             return;
         }
         KMimeTypeChooserDialog::reject();
@@ -1912,15 +1024,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* param1) override {
-        if (kmimetypechooserdialog_keypressevent_isbase) {
-            kmimetypechooserdialog_keypressevent_isbase = false;
-            KMimeTypeChooserDialog::keyPressEvent(param1);
-            return;
-        }
-        auto keypressevent_cb = kmimetypechooserdialog_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (kmimetypechooserdialog_keypressevent_callback) {
             QKeyEvent* cbval1 = param1;
-            keypressevent_cb(this, cbval1);
+            kmimetypechooserdialog_keypressevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::keyPressEvent(param1);
@@ -1928,15 +1034,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* param1) override {
-        if (kmimetypechooserdialog_closeevent_isbase) {
-            kmimetypechooserdialog_closeevent_isbase = false;
-            KMimeTypeChooserDialog::closeEvent(param1);
-            return;
-        }
-        auto closeevent_cb = kmimetypechooserdialog_closeevent_callback;
-        if (closeevent_cb) {
+        if (kmimetypechooserdialog_closeevent_callback) {
             QCloseEvent* cbval1 = param1;
-            closeevent_cb(this, cbval1);
+            kmimetypechooserdialog_closeevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::closeEvent(param1);
@@ -1944,15 +1044,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* param1) override {
-        if (kmimetypechooserdialog_showevent_isbase) {
-            kmimetypechooserdialog_showevent_isbase = false;
-            KMimeTypeChooserDialog::showEvent(param1);
-            return;
-        }
-        auto showevent_cb = kmimetypechooserdialog_showevent_callback;
-        if (showevent_cb) {
+        if (kmimetypechooserdialog_showevent_callback) {
             QShowEvent* cbval1 = param1;
-            showevent_cb(this, cbval1);
+            kmimetypechooserdialog_showevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::showEvent(param1);
@@ -1960,15 +1054,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* param1) override {
-        if (kmimetypechooserdialog_resizeevent_isbase) {
-            kmimetypechooserdialog_resizeevent_isbase = false;
-            KMimeTypeChooserDialog::resizeEvent(param1);
-            return;
-        }
-        auto resizeevent_cb = kmimetypechooserdialog_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (kmimetypechooserdialog_resizeevent_callback) {
             QResizeEvent* cbval1 = param1;
-            resizeevent_cb(this, cbval1);
+            kmimetypechooserdialog_resizeevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::resizeEvent(param1);
@@ -1976,15 +1064,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* param1) override {
-        if (kmimetypechooserdialog_contextmenuevent_isbase) {
-            kmimetypechooserdialog_contextmenuevent_isbase = false;
-            KMimeTypeChooserDialog::contextMenuEvent(param1);
-            return;
-        }
-        auto contextmenuevent_cb = kmimetypechooserdialog_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (kmimetypechooserdialog_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = param1;
-            contextmenuevent_cb(this, cbval1);
+            kmimetypechooserdialog_contextmenuevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::contextMenuEvent(param1);
@@ -1992,15 +1074,10 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (kmimetypechooserdialog_eventfilter_isbase) {
-            kmimetypechooserdialog_eventfilter_isbase = false;
-            return KMimeTypeChooserDialog::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = kmimetypechooserdialog_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kmimetypechooserdialog_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kmimetypechooserdialog_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KMimeTypeChooserDialog::eventFilter(param1, param2);
@@ -2008,13 +1085,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (kmimetypechooserdialog_devtype_isbase) {
-            kmimetypechooserdialog_devtype_isbase = false;
-            return KMimeTypeChooserDialog::devType();
-        }
-        auto devtype_cb = kmimetypechooserdialog_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (kmimetypechooserdialog_devtype_callback) {
+            int callback_ret = kmimetypechooserdialog_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KMimeTypeChooserDialog::devType();
@@ -2022,14 +1094,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (kmimetypechooserdialog_heightforwidth_isbase) {
-            kmimetypechooserdialog_heightforwidth_isbase = false;
-            return KMimeTypeChooserDialog::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = kmimetypechooserdialog_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (kmimetypechooserdialog_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = kmimetypechooserdialog_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KMimeTypeChooserDialog::heightForWidth(param1);
@@ -2037,13 +1104,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (kmimetypechooserdialog_hasheightforwidth_isbase) {
-            kmimetypechooserdialog_hasheightforwidth_isbase = false;
-            return KMimeTypeChooserDialog::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = kmimetypechooserdialog_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (kmimetypechooserdialog_hasheightforwidth_callback) {
+            bool callback_ret = kmimetypechooserdialog_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KMimeTypeChooserDialog::hasHeightForWidth();
@@ -2051,13 +1113,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (kmimetypechooserdialog_paintengine_isbase) {
-            kmimetypechooserdialog_paintengine_isbase = false;
-            return KMimeTypeChooserDialog::paintEngine();
-        }
-        auto paintengine_cb = kmimetypechooserdialog_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (kmimetypechooserdialog_paintengine_callback) {
+            QPaintEngine* callback_ret = kmimetypechooserdialog_paintengine_callback(this);
             return callback_ret;
         }
         return KMimeTypeChooserDialog::paintEngine();
@@ -2065,14 +1122,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kmimetypechooserdialog_event_isbase) {
-            kmimetypechooserdialog_event_isbase = false;
-            return KMimeTypeChooserDialog::event(event);
-        }
-        auto event_cb = kmimetypechooserdialog_event_callback;
-        if (event_cb) {
+        if (kmimetypechooserdialog_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kmimetypechooserdialog_event_callback(this, cbval1);
             return callback_ret;
         }
         return KMimeTypeChooserDialog::event(event);
@@ -2080,15 +1132,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (kmimetypechooserdialog_mousepressevent_isbase) {
-            kmimetypechooserdialog_mousepressevent_isbase = false;
-            KMimeTypeChooserDialog::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = kmimetypechooserdialog_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (kmimetypechooserdialog_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            kmimetypechooserdialog_mousepressevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::mousePressEvent(event);
@@ -2096,15 +1142,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (kmimetypechooserdialog_mousereleaseevent_isbase) {
-            kmimetypechooserdialog_mousereleaseevent_isbase = false;
-            KMimeTypeChooserDialog::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = kmimetypechooserdialog_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (kmimetypechooserdialog_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            kmimetypechooserdialog_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::mouseReleaseEvent(event);
@@ -2112,15 +1152,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (kmimetypechooserdialog_mousedoubleclickevent_isbase) {
-            kmimetypechooserdialog_mousedoubleclickevent_isbase = false;
-            KMimeTypeChooserDialog::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = kmimetypechooserdialog_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (kmimetypechooserdialog_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            kmimetypechooserdialog_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::mouseDoubleClickEvent(event);
@@ -2128,15 +1162,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (kmimetypechooserdialog_mousemoveevent_isbase) {
-            kmimetypechooserdialog_mousemoveevent_isbase = false;
-            KMimeTypeChooserDialog::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = kmimetypechooserdialog_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (kmimetypechooserdialog_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            kmimetypechooserdialog_mousemoveevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::mouseMoveEvent(event);
@@ -2144,15 +1172,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (kmimetypechooserdialog_wheelevent_isbase) {
-            kmimetypechooserdialog_wheelevent_isbase = false;
-            KMimeTypeChooserDialog::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = kmimetypechooserdialog_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (kmimetypechooserdialog_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            kmimetypechooserdialog_wheelevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::wheelEvent(event);
@@ -2160,15 +1182,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (kmimetypechooserdialog_keyreleaseevent_isbase) {
-            kmimetypechooserdialog_keyreleaseevent_isbase = false;
-            KMimeTypeChooserDialog::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = kmimetypechooserdialog_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (kmimetypechooserdialog_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            kmimetypechooserdialog_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::keyReleaseEvent(event);
@@ -2176,15 +1192,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (kmimetypechooserdialog_focusinevent_isbase) {
-            kmimetypechooserdialog_focusinevent_isbase = false;
-            KMimeTypeChooserDialog::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = kmimetypechooserdialog_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (kmimetypechooserdialog_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            kmimetypechooserdialog_focusinevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::focusInEvent(event);
@@ -2192,15 +1202,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (kmimetypechooserdialog_focusoutevent_isbase) {
-            kmimetypechooserdialog_focusoutevent_isbase = false;
-            KMimeTypeChooserDialog::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = kmimetypechooserdialog_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (kmimetypechooserdialog_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            kmimetypechooserdialog_focusoutevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::focusOutEvent(event);
@@ -2208,15 +1212,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (kmimetypechooserdialog_enterevent_isbase) {
-            kmimetypechooserdialog_enterevent_isbase = false;
-            KMimeTypeChooserDialog::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = kmimetypechooserdialog_enterevent_callback;
-        if (enterevent_cb) {
+        if (kmimetypechooserdialog_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            kmimetypechooserdialog_enterevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::enterEvent(event);
@@ -2224,15 +1222,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (kmimetypechooserdialog_leaveevent_isbase) {
-            kmimetypechooserdialog_leaveevent_isbase = false;
-            KMimeTypeChooserDialog::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = kmimetypechooserdialog_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (kmimetypechooserdialog_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            kmimetypechooserdialog_leaveevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::leaveEvent(event);
@@ -2240,15 +1232,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (kmimetypechooserdialog_paintevent_isbase) {
-            kmimetypechooserdialog_paintevent_isbase = false;
-            KMimeTypeChooserDialog::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = kmimetypechooserdialog_paintevent_callback;
-        if (paintevent_cb) {
+        if (kmimetypechooserdialog_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            kmimetypechooserdialog_paintevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::paintEvent(event);
@@ -2256,15 +1242,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (kmimetypechooserdialog_moveevent_isbase) {
-            kmimetypechooserdialog_moveevent_isbase = false;
-            KMimeTypeChooserDialog::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = kmimetypechooserdialog_moveevent_callback;
-        if (moveevent_cb) {
+        if (kmimetypechooserdialog_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            kmimetypechooserdialog_moveevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::moveEvent(event);
@@ -2272,15 +1252,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (kmimetypechooserdialog_tabletevent_isbase) {
-            kmimetypechooserdialog_tabletevent_isbase = false;
-            KMimeTypeChooserDialog::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = kmimetypechooserdialog_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (kmimetypechooserdialog_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            kmimetypechooserdialog_tabletevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::tabletEvent(event);
@@ -2288,15 +1262,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (kmimetypechooserdialog_actionevent_isbase) {
-            kmimetypechooserdialog_actionevent_isbase = false;
-            KMimeTypeChooserDialog::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = kmimetypechooserdialog_actionevent_callback;
-        if (actionevent_cb) {
+        if (kmimetypechooserdialog_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            kmimetypechooserdialog_actionevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::actionEvent(event);
@@ -2304,15 +1272,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (kmimetypechooserdialog_dragenterevent_isbase) {
-            kmimetypechooserdialog_dragenterevent_isbase = false;
-            KMimeTypeChooserDialog::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = kmimetypechooserdialog_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (kmimetypechooserdialog_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            kmimetypechooserdialog_dragenterevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::dragEnterEvent(event);
@@ -2320,15 +1282,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (kmimetypechooserdialog_dragmoveevent_isbase) {
-            kmimetypechooserdialog_dragmoveevent_isbase = false;
-            KMimeTypeChooserDialog::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = kmimetypechooserdialog_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (kmimetypechooserdialog_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            kmimetypechooserdialog_dragmoveevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::dragMoveEvent(event);
@@ -2336,15 +1292,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (kmimetypechooserdialog_dragleaveevent_isbase) {
-            kmimetypechooserdialog_dragleaveevent_isbase = false;
-            KMimeTypeChooserDialog::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = kmimetypechooserdialog_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (kmimetypechooserdialog_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            kmimetypechooserdialog_dragleaveevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::dragLeaveEvent(event);
@@ -2352,15 +1302,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (kmimetypechooserdialog_dropevent_isbase) {
-            kmimetypechooserdialog_dropevent_isbase = false;
-            KMimeTypeChooserDialog::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = kmimetypechooserdialog_dropevent_callback;
-        if (dropevent_cb) {
+        if (kmimetypechooserdialog_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            kmimetypechooserdialog_dropevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::dropEvent(event);
@@ -2368,15 +1312,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (kmimetypechooserdialog_hideevent_isbase) {
-            kmimetypechooserdialog_hideevent_isbase = false;
-            KMimeTypeChooserDialog::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = kmimetypechooserdialog_hideevent_callback;
-        if (hideevent_cb) {
+        if (kmimetypechooserdialog_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            kmimetypechooserdialog_hideevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::hideEvent(event);
@@ -2384,12 +1322,7 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (kmimetypechooserdialog_nativeevent_isbase) {
-            kmimetypechooserdialog_nativeevent_isbase = false;
-            return KMimeTypeChooserDialog::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = kmimetypechooserdialog_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (kmimetypechooserdialog_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2399,7 +1332,7 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kmimetypechooserdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -2408,15 +1341,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (kmimetypechooserdialog_changeevent_isbase) {
-            kmimetypechooserdialog_changeevent_isbase = false;
-            KMimeTypeChooserDialog::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = kmimetypechooserdialog_changeevent_callback;
-        if (changeevent_cb) {
+        if (kmimetypechooserdialog_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            kmimetypechooserdialog_changeevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::changeEvent(param1);
@@ -2424,14 +1351,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (kmimetypechooserdialog_metric_isbase) {
-            kmimetypechooserdialog_metric_isbase = false;
-            return KMimeTypeChooserDialog::metric(param1);
-        }
-        auto metric_cb = kmimetypechooserdialog_metric_callback;
-        if (metric_cb) {
+        if (kmimetypechooserdialog_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = kmimetypechooserdialog_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KMimeTypeChooserDialog::metric(param1);
@@ -2439,15 +1361,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (kmimetypechooserdialog_initpainter_isbase) {
-            kmimetypechooserdialog_initpainter_isbase = false;
-            KMimeTypeChooserDialog::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = kmimetypechooserdialog_initpainter_callback;
-        if (initpainter_cb) {
+        if (kmimetypechooserdialog_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            kmimetypechooserdialog_initpainter_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::initPainter(painter);
@@ -2455,14 +1371,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (kmimetypechooserdialog_redirected_isbase) {
-            kmimetypechooserdialog_redirected_isbase = false;
-            return KMimeTypeChooserDialog::redirected(offset);
-        }
-        auto redirected_cb = kmimetypechooserdialog_redirected_callback;
-        if (redirected_cb) {
+        if (kmimetypechooserdialog_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = kmimetypechooserdialog_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KMimeTypeChooserDialog::redirected(offset);
@@ -2470,13 +1381,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (kmimetypechooserdialog_sharedpainter_isbase) {
-            kmimetypechooserdialog_sharedpainter_isbase = false;
-            return KMimeTypeChooserDialog::sharedPainter();
-        }
-        auto sharedpainter_cb = kmimetypechooserdialog_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (kmimetypechooserdialog_sharedpainter_callback) {
+            QPainter* callback_ret = kmimetypechooserdialog_sharedpainter_callback(this);
             return callback_ret;
         }
         return KMimeTypeChooserDialog::sharedPainter();
@@ -2484,15 +1390,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (kmimetypechooserdialog_inputmethodevent_isbase) {
-            kmimetypechooserdialog_inputmethodevent_isbase = false;
-            KMimeTypeChooserDialog::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = kmimetypechooserdialog_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (kmimetypechooserdialog_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            kmimetypechooserdialog_inputmethodevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::inputMethodEvent(param1);
@@ -2500,14 +1400,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (kmimetypechooserdialog_inputmethodquery_isbase) {
-            kmimetypechooserdialog_inputmethodquery_isbase = false;
-            return KMimeTypeChooserDialog::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = kmimetypechooserdialog_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (kmimetypechooserdialog_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = kmimetypechooserdialog_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -2517,14 +1412,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (kmimetypechooserdialog_focusnextprevchild_isbase) {
-            kmimetypechooserdialog_focusnextprevchild_isbase = false;
-            return KMimeTypeChooserDialog::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = kmimetypechooserdialog_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (kmimetypechooserdialog_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = kmimetypechooserdialog_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KMimeTypeChooserDialog::focusNextPrevChild(next);
@@ -2532,15 +1422,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kmimetypechooserdialog_timerevent_isbase) {
-            kmimetypechooserdialog_timerevent_isbase = false;
-            KMimeTypeChooserDialog::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kmimetypechooserdialog_timerevent_callback;
-        if (timerevent_cb) {
+        if (kmimetypechooserdialog_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kmimetypechooserdialog_timerevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::timerEvent(event);
@@ -2548,15 +1432,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kmimetypechooserdialog_childevent_isbase) {
-            kmimetypechooserdialog_childevent_isbase = false;
-            KMimeTypeChooserDialog::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kmimetypechooserdialog_childevent_callback;
-        if (childevent_cb) {
+        if (kmimetypechooserdialog_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kmimetypechooserdialog_childevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::childEvent(event);
@@ -2564,15 +1442,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kmimetypechooserdialog_customevent_isbase) {
-            kmimetypechooserdialog_customevent_isbase = false;
-            KMimeTypeChooserDialog::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kmimetypechooserdialog_customevent_callback;
-        if (customevent_cb) {
+        if (kmimetypechooserdialog_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kmimetypechooserdialog_customevent_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::customEvent(event);
@@ -2580,17 +1452,11 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kmimetypechooserdialog_connectnotify_isbase) {
-            kmimetypechooserdialog_connectnotify_isbase = false;
-            KMimeTypeChooserDialog::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kmimetypechooserdialog_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kmimetypechooserdialog_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kmimetypechooserdialog_connectnotify_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::connectNotify(signal);
@@ -2598,288 +1464,56 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kmimetypechooserdialog_disconnectnotify_isbase) {
-            kmimetypechooserdialog_disconnectnotify_isbase = false;
-            KMimeTypeChooserDialog::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kmimetypechooserdialog_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kmimetypechooserdialog_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kmimetypechooserdialog_disconnectnotify_callback(this, cbval1);
             return;
         }
         KMimeTypeChooserDialog::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void adjustPosition(QWidget* param1) {
-        if (kmimetypechooserdialog_adjustposition_isbase) {
-            kmimetypechooserdialog_adjustposition_isbase = false;
-            KMimeTypeChooserDialog::adjustPosition(param1);
-            return;
-        }
-        auto adjustposition_cb = kmimetypechooserdialog_adjustposition_callback;
-        if (adjustposition_cb) {
-            QWidget* cbval1 = param1;
-            adjustposition_cb(this, cbval1);
-            return;
-        }
-        KMimeTypeChooserDialog::adjustPosition(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (kmimetypechooserdialog_updatemicrofocus_isbase) {
-            kmimetypechooserdialog_updatemicrofocus_isbase = false;
-            KMimeTypeChooserDialog::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = kmimetypechooserdialog_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KMimeTypeChooserDialog::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (kmimetypechooserdialog_create_isbase) {
-            kmimetypechooserdialog_create_isbase = false;
-            KMimeTypeChooserDialog::create();
-            return;
-        }
-        auto create_cb = kmimetypechooserdialog_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KMimeTypeChooserDialog::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (kmimetypechooserdialog_destroy_isbase) {
-            kmimetypechooserdialog_destroy_isbase = false;
-            KMimeTypeChooserDialog::destroy();
-            return;
-        }
-        auto destroy_cb = kmimetypechooserdialog_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KMimeTypeChooserDialog::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (kmimetypechooserdialog_focusnextchild_isbase) {
-            kmimetypechooserdialog_focusnextchild_isbase = false;
-            return KMimeTypeChooserDialog::focusNextChild();
-        }
-        auto focusnextchild_cb = kmimetypechooserdialog_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KMimeTypeChooserDialog::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (kmimetypechooserdialog_focuspreviouschild_isbase) {
-            kmimetypechooserdialog_focuspreviouschild_isbase = false;
-            return KMimeTypeChooserDialog::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = kmimetypechooserdialog_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KMimeTypeChooserDialog::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kmimetypechooserdialog_sender_isbase) {
-            kmimetypechooserdialog_sender_isbase = false;
-            return KMimeTypeChooserDialog::sender();
-        }
-        auto sender_cb = kmimetypechooserdialog_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KMimeTypeChooserDialog::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kmimetypechooserdialog_sendersignalindex_isbase) {
-            kmimetypechooserdialog_sendersignalindex_isbase = false;
-            return KMimeTypeChooserDialog::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kmimetypechooserdialog_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KMimeTypeChooserDialog::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kmimetypechooserdialog_receivers_isbase) {
-            kmimetypechooserdialog_receivers_isbase = false;
-            return KMimeTypeChooserDialog::receivers(signal);
-        }
-        auto receivers_cb = kmimetypechooserdialog_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KMimeTypeChooserDialog::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kmimetypechooserdialog_issignalconnected_isbase) {
-            kmimetypechooserdialog_issignalconnected_isbase = false;
-            return KMimeTypeChooserDialog::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kmimetypechooserdialog_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KMimeTypeChooserDialog::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (kmimetypechooserdialog_getdecodedmetricf_isbase) {
-            kmimetypechooserdialog_getdecodedmetricf_isbase = false;
-            return KMimeTypeChooserDialog::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = kmimetypechooserdialog_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KMimeTypeChooserDialog::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void KMimeTypeChooserDialog_KeyPressEvent(KMimeTypeChooserDialog* self, QKeyEvent* param1);
     friend void KMimeTypeChooserDialog_SuperKeyPressEvent(KMimeTypeChooserDialog* self, QKeyEvent* param1);
-    friend void KMimeTypeChooserDialog_CloseEvent(KMimeTypeChooserDialog* self, QCloseEvent* param1);
     friend void KMimeTypeChooserDialog_SuperCloseEvent(KMimeTypeChooserDialog* self, QCloseEvent* param1);
-    friend void KMimeTypeChooserDialog_ShowEvent(KMimeTypeChooserDialog* self, QShowEvent* param1);
     friend void KMimeTypeChooserDialog_SuperShowEvent(KMimeTypeChooserDialog* self, QShowEvent* param1);
-    friend void KMimeTypeChooserDialog_ResizeEvent(KMimeTypeChooserDialog* self, QResizeEvent* param1);
     friend void KMimeTypeChooserDialog_SuperResizeEvent(KMimeTypeChooserDialog* self, QResizeEvent* param1);
-    friend void KMimeTypeChooserDialog_ContextMenuEvent(KMimeTypeChooserDialog* self, QContextMenuEvent* param1);
     friend void KMimeTypeChooserDialog_SuperContextMenuEvent(KMimeTypeChooserDialog* self, QContextMenuEvent* param1);
-    friend bool KMimeTypeChooserDialog_EventFilter(KMimeTypeChooserDialog* self, QObject* param1, QEvent* param2);
     friend bool KMimeTypeChooserDialog_SuperEventFilter(KMimeTypeChooserDialog* self, QObject* param1, QEvent* param2);
-    friend bool KMimeTypeChooserDialog_Event(KMimeTypeChooserDialog* self, QEvent* event);
     friend bool KMimeTypeChooserDialog_SuperEvent(KMimeTypeChooserDialog* self, QEvent* event);
-    friend void KMimeTypeChooserDialog_MousePressEvent(KMimeTypeChooserDialog* self, QMouseEvent* event);
     friend void KMimeTypeChooserDialog_SuperMousePressEvent(KMimeTypeChooserDialog* self, QMouseEvent* event);
-    friend void KMimeTypeChooserDialog_MouseReleaseEvent(KMimeTypeChooserDialog* self, QMouseEvent* event);
     friend void KMimeTypeChooserDialog_SuperMouseReleaseEvent(KMimeTypeChooserDialog* self, QMouseEvent* event);
-    friend void KMimeTypeChooserDialog_MouseDoubleClickEvent(KMimeTypeChooserDialog* self, QMouseEvent* event);
     friend void KMimeTypeChooserDialog_SuperMouseDoubleClickEvent(KMimeTypeChooserDialog* self, QMouseEvent* event);
-    friend void KMimeTypeChooserDialog_MouseMoveEvent(KMimeTypeChooserDialog* self, QMouseEvent* event);
     friend void KMimeTypeChooserDialog_SuperMouseMoveEvent(KMimeTypeChooserDialog* self, QMouseEvent* event);
-    friend void KMimeTypeChooserDialog_WheelEvent(KMimeTypeChooserDialog* self, QWheelEvent* event);
     friend void KMimeTypeChooserDialog_SuperWheelEvent(KMimeTypeChooserDialog* self, QWheelEvent* event);
-    friend void KMimeTypeChooserDialog_KeyReleaseEvent(KMimeTypeChooserDialog* self, QKeyEvent* event);
     friend void KMimeTypeChooserDialog_SuperKeyReleaseEvent(KMimeTypeChooserDialog* self, QKeyEvent* event);
-    friend void KMimeTypeChooserDialog_FocusInEvent(KMimeTypeChooserDialog* self, QFocusEvent* event);
     friend void KMimeTypeChooserDialog_SuperFocusInEvent(KMimeTypeChooserDialog* self, QFocusEvent* event);
-    friend void KMimeTypeChooserDialog_FocusOutEvent(KMimeTypeChooserDialog* self, QFocusEvent* event);
     friend void KMimeTypeChooserDialog_SuperFocusOutEvent(KMimeTypeChooserDialog* self, QFocusEvent* event);
-    friend void KMimeTypeChooserDialog_EnterEvent(KMimeTypeChooserDialog* self, QEnterEvent* event);
     friend void KMimeTypeChooserDialog_SuperEnterEvent(KMimeTypeChooserDialog* self, QEnterEvent* event);
-    friend void KMimeTypeChooserDialog_LeaveEvent(KMimeTypeChooserDialog* self, QEvent* event);
     friend void KMimeTypeChooserDialog_SuperLeaveEvent(KMimeTypeChooserDialog* self, QEvent* event);
-    friend void KMimeTypeChooserDialog_PaintEvent(KMimeTypeChooserDialog* self, QPaintEvent* event);
     friend void KMimeTypeChooserDialog_SuperPaintEvent(KMimeTypeChooserDialog* self, QPaintEvent* event);
-    friend void KMimeTypeChooserDialog_MoveEvent(KMimeTypeChooserDialog* self, QMoveEvent* event);
     friend void KMimeTypeChooserDialog_SuperMoveEvent(KMimeTypeChooserDialog* self, QMoveEvent* event);
-    friend void KMimeTypeChooserDialog_TabletEvent(KMimeTypeChooserDialog* self, QTabletEvent* event);
     friend void KMimeTypeChooserDialog_SuperTabletEvent(KMimeTypeChooserDialog* self, QTabletEvent* event);
-    friend void KMimeTypeChooserDialog_ActionEvent(KMimeTypeChooserDialog* self, QActionEvent* event);
     friend void KMimeTypeChooserDialog_SuperActionEvent(KMimeTypeChooserDialog* self, QActionEvent* event);
-    friend void KMimeTypeChooserDialog_DragEnterEvent(KMimeTypeChooserDialog* self, QDragEnterEvent* event);
     friend void KMimeTypeChooserDialog_SuperDragEnterEvent(KMimeTypeChooserDialog* self, QDragEnterEvent* event);
-    friend void KMimeTypeChooserDialog_DragMoveEvent(KMimeTypeChooserDialog* self, QDragMoveEvent* event);
     friend void KMimeTypeChooserDialog_SuperDragMoveEvent(KMimeTypeChooserDialog* self, QDragMoveEvent* event);
-    friend void KMimeTypeChooserDialog_DragLeaveEvent(KMimeTypeChooserDialog* self, QDragLeaveEvent* event);
     friend void KMimeTypeChooserDialog_SuperDragLeaveEvent(KMimeTypeChooserDialog* self, QDragLeaveEvent* event);
-    friend void KMimeTypeChooserDialog_DropEvent(KMimeTypeChooserDialog* self, QDropEvent* event);
     friend void KMimeTypeChooserDialog_SuperDropEvent(KMimeTypeChooserDialog* self, QDropEvent* event);
-    friend void KMimeTypeChooserDialog_HideEvent(KMimeTypeChooserDialog* self, QHideEvent* event);
     friend void KMimeTypeChooserDialog_SuperHideEvent(KMimeTypeChooserDialog* self, QHideEvent* event);
-    friend bool KMimeTypeChooserDialog_NativeEvent(KMimeTypeChooserDialog* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KMimeTypeChooserDialog_SuperNativeEvent(KMimeTypeChooserDialog* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void KMimeTypeChooserDialog_ChangeEvent(KMimeTypeChooserDialog* self, QEvent* param1);
     friend void KMimeTypeChooserDialog_SuperChangeEvent(KMimeTypeChooserDialog* self, QEvent* param1);
-    friend int KMimeTypeChooserDialog_Metric(const KMimeTypeChooserDialog* self, int param1);
     friend int KMimeTypeChooserDialog_SuperMetric(const KMimeTypeChooserDialog* self, int param1);
-    friend void KMimeTypeChooserDialog_InitPainter(const KMimeTypeChooserDialog* self, QPainter* painter);
     friend void KMimeTypeChooserDialog_SuperInitPainter(const KMimeTypeChooserDialog* self, QPainter* painter);
-    friend QPaintDevice* KMimeTypeChooserDialog_Redirected(const KMimeTypeChooserDialog* self, QPoint* offset);
     friend QPaintDevice* KMimeTypeChooserDialog_SuperRedirected(const KMimeTypeChooserDialog* self, QPoint* offset);
-    friend QPainter* KMimeTypeChooserDialog_SharedPainter(const KMimeTypeChooserDialog* self);
     friend QPainter* KMimeTypeChooserDialog_SuperSharedPainter(const KMimeTypeChooserDialog* self);
-    friend void KMimeTypeChooserDialog_InputMethodEvent(KMimeTypeChooserDialog* self, QInputMethodEvent* param1);
     friend void KMimeTypeChooserDialog_SuperInputMethodEvent(KMimeTypeChooserDialog* self, QInputMethodEvent* param1);
-    friend bool KMimeTypeChooserDialog_FocusNextPrevChild(KMimeTypeChooserDialog* self, bool next);
     friend bool KMimeTypeChooserDialog_SuperFocusNextPrevChild(KMimeTypeChooserDialog* self, bool next);
-    friend void KMimeTypeChooserDialog_TimerEvent(KMimeTypeChooserDialog* self, QTimerEvent* event);
     friend void KMimeTypeChooserDialog_SuperTimerEvent(KMimeTypeChooserDialog* self, QTimerEvent* event);
-    friend void KMimeTypeChooserDialog_ChildEvent(KMimeTypeChooserDialog* self, QChildEvent* event);
     friend void KMimeTypeChooserDialog_SuperChildEvent(KMimeTypeChooserDialog* self, QChildEvent* event);
-    friend void KMimeTypeChooserDialog_CustomEvent(KMimeTypeChooserDialog* self, QEvent* event);
     friend void KMimeTypeChooserDialog_SuperCustomEvent(KMimeTypeChooserDialog* self, QEvent* event);
-    friend void KMimeTypeChooserDialog_ConnectNotify(KMimeTypeChooserDialog* self, const QMetaMethod* signal);
     friend void KMimeTypeChooserDialog_SuperConnectNotify(KMimeTypeChooserDialog* self, const QMetaMethod* signal);
-    friend void KMimeTypeChooserDialog_DisconnectNotify(KMimeTypeChooserDialog* self, const QMetaMethod* signal);
     friend void KMimeTypeChooserDialog_SuperDisconnectNotify(KMimeTypeChooserDialog* self, const QMetaMethod* signal);
-    friend void KMimeTypeChooserDialog_AdjustPosition(KMimeTypeChooserDialog* self, QWidget* param1);
-    friend void KMimeTypeChooserDialog_SuperAdjustPosition(KMimeTypeChooserDialog* self, QWidget* param1);
-    friend void KMimeTypeChooserDialog_UpdateMicroFocus(KMimeTypeChooserDialog* self);
-    friend void KMimeTypeChooserDialog_SuperUpdateMicroFocus(KMimeTypeChooserDialog* self);
-    friend void KMimeTypeChooserDialog_Create(KMimeTypeChooserDialog* self);
-    friend void KMimeTypeChooserDialog_SuperCreate(KMimeTypeChooserDialog* self);
-    friend void KMimeTypeChooserDialog_Destroy(KMimeTypeChooserDialog* self);
-    friend void KMimeTypeChooserDialog_SuperDestroy(KMimeTypeChooserDialog* self);
-    friend bool KMimeTypeChooserDialog_FocusNextChild(KMimeTypeChooserDialog* self);
-    friend bool KMimeTypeChooserDialog_SuperFocusNextChild(KMimeTypeChooserDialog* self);
-    friend bool KMimeTypeChooserDialog_FocusPreviousChild(KMimeTypeChooserDialog* self);
-    friend bool KMimeTypeChooserDialog_SuperFocusPreviousChild(KMimeTypeChooserDialog* self);
-    friend QObject* KMimeTypeChooserDialog_Sender(const KMimeTypeChooserDialog* self);
-    friend QObject* KMimeTypeChooserDialog_SuperSender(const KMimeTypeChooserDialog* self);
-    friend int KMimeTypeChooserDialog_SenderSignalIndex(const KMimeTypeChooserDialog* self);
-    friend int KMimeTypeChooserDialog_SuperSenderSignalIndex(const KMimeTypeChooserDialog* self);
-    friend int KMimeTypeChooserDialog_Receivers(const KMimeTypeChooserDialog* self, const char* signal);
-    friend int KMimeTypeChooserDialog_SuperReceivers(const KMimeTypeChooserDialog* self, const char* signal);
-    friend bool KMimeTypeChooserDialog_IsSignalConnected(const KMimeTypeChooserDialog* self, const QMetaMethod* signal);
-    friend bool KMimeTypeChooserDialog_SuperIsSignalConnected(const KMimeTypeChooserDialog* self, const QMetaMethod* signal);
-    friend double KMimeTypeChooserDialog_GetDecodedMetricF(const KMimeTypeChooserDialog* self, int metricA, int metricB);
-    friend double KMimeTypeChooserDialog_SuperGetDecodedMetricF(const KMimeTypeChooserDialog* self, int metricA, int metricB);
 };
 
 #endif

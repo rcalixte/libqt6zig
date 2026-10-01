@@ -140,9 +140,9 @@ pub const KFontAction = extern struct {
     ///
     /// ` self: KFontAction `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KFontAction) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KFontAction, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KFontAction, callback: *const fn (KFontAction) callconv(.c) QMetaObject) void {
         qtc.KFontAction_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4171,46 +4171,6 @@ pub const KFontAction = extern struct {
         qtc.KFontAction_SlotToggled(@ptrCast(self.ptr), param1);
     }
 
-    /// ### DEPRECATED: Use `superSlotToggled` instead
-    ///
-    pub const SuperSlotToggled = superSlotToggled;
-
-    /// Inherited from KSelectAction
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFontAction `
-    ///
-    /// ` param1: bool `
-    ///
-    pub fn superSlotToggled(self: KFontAction, param1: bool) void {
-        qtc.KFontAction_SuperSlotToggled(@ptrCast(self.ptr), param1);
-    }
-
-    /// ### DEPRECATED: Use `onSlotToggled` instead
-    ///
-    pub const OnSlotToggled = onSlotToggled;
-
-    /// Inherited from KSelectAction
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFontAction`
-    ///
-    /// ` callback: *const fn (self: KFontAction, param1: bool) callconv(.c) void `
-    ///
-    pub fn onSlotToggled(self: KFontAction, callback: *const fn (KFontAction, bool) callconv(.c) void) void {
-        qtc.KFontAction_OnSlotToggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `createdWidgets` instead
     ///
     pub const CreatedWidgets = createdWidgets;
@@ -4237,58 +4197,6 @@ pub const KFontAction = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superCreatedWidgets` instead
-    ///
-    pub const SuperCreatedWidgets = superCreatedWidgets;
-
-    /// Inherited from QWidgetAction
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFontAction `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superCreatedWidgets(self: KFontAction, allocator: std.mem.Allocator) []QWidget {
-        const _arr: qtc.libqt_list = qtc.KFontAction_SuperCreatedWidgets(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KFontAction.createdWidgets: Memory allocation failed");
-        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onCreatedWidgets` instead
-    ///
-    pub const OnCreatedWidgets = onCreatedWidgets;
-
-    /// Inherited from QWidgetAction
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFontAction`
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of []QWidget `
-    ///
-    pub fn onCreatedWidgets(self: KFontAction, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KFontAction_OnCreatedWidgets(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -4307,44 +4215,6 @@ pub const KFontAction = extern struct {
         return .{ .ptr = qtc.KFontAction_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFontAction `
-    ///
-    pub fn superSender(self: KFontAction) QObject {
-        return .{ .ptr = qtc.KFontAction_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFontAction`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KFontAction, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KFontAction_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4361,44 +4231,6 @@ pub const KFontAction = extern struct {
     ///
     pub fn senderSignalIndex(self: KFontAction) i32 {
         return qtc.KFontAction_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFontAction `
-    ///
-    pub fn superSenderSignalIndex(self: KFontAction) i32 {
-        return qtc.KFontAction_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFontAction`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KFontAction, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFontAction_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4422,47 +4254,6 @@ pub const KFontAction = extern struct {
         return qtc.KFontAction_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFontAction `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KFontAction, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KFontAction_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFontAction`
-    ///
-    /// ` callback: *const fn (self: KFontAction, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KFontAction, callback: *const fn (KFontAction, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KFontAction_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4482,47 +4273,6 @@ pub const KFontAction = extern struct {
     pub fn isSignalConnected(self: KFontAction, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KFontAction_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFontAction `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KFontAction, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KFontAction_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFontAction`
-    ///
-    /// ` callback: *const fn (self: KFontAction, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KFontAction, callback: *const fn (KFontAction, QMetaMethod) callconv(.c) bool) void {
-        qtc.KFontAction_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

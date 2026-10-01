@@ -51,7 +51,7 @@ libqt_string QGeoCodingManagerEngine_Tr2(const char* s, const char* c);
 libqt_string QGeoCodingManagerEngine_Tr3(const char* s, const char* c, int n);
 void QGeoCodingManagerEngine_ErrorOccurred3(QGeoCodingManagerEngine* self, QGeoCodeReply* reply, int errorVal, const libqt_string errorString);
 void QGeoCodingManagerEngine_Connect_ErrorOccurred3(QGeoCodingManagerEngine* self, intptr_t slot);
-void QGeoCodingManagerEngine_OnMetaObject(const QGeoCodingManagerEngine* self, intptr_t slot);
+void QGeoCodingManagerEngine_OnMetaObject(QGeoCodingManagerEngine* self, intptr_t slot);
 QMetaObject* QGeoCodingManagerEngine_SuperMetaObject(const QGeoCodingManagerEngine* self);
 void QGeoCodingManagerEngine_OnMetacast(QGeoCodingManagerEngine* self, intptr_t slot);
 void* QGeoCodingManagerEngine_SuperMetacast(QGeoCodingManagerEngine* self, const char* param1);
@@ -85,17 +85,9 @@ void QGeoCodingManagerEngine_DisconnectNotify(QGeoCodingManagerEngine* self, con
 void QGeoCodingManagerEngine_OnDisconnectNotify(QGeoCodingManagerEngine* self, intptr_t slot);
 void QGeoCodingManagerEngine_SuperDisconnectNotify(QGeoCodingManagerEngine* self, const QMetaMethod* signal);
 QObject* QGeoCodingManagerEngine_Sender(const QGeoCodingManagerEngine* self);
-void QGeoCodingManagerEngine_OnSender(const QGeoCodingManagerEngine* self, intptr_t slot);
-QObject* QGeoCodingManagerEngine_SuperSender(const QGeoCodingManagerEngine* self);
 int QGeoCodingManagerEngine_SenderSignalIndex(const QGeoCodingManagerEngine* self);
-void QGeoCodingManagerEngine_OnSenderSignalIndex(const QGeoCodingManagerEngine* self, intptr_t slot);
-int QGeoCodingManagerEngine_SuperSenderSignalIndex(const QGeoCodingManagerEngine* self);
 int QGeoCodingManagerEngine_Receivers(const QGeoCodingManagerEngine* self, const char* signal);
-void QGeoCodingManagerEngine_OnReceivers(const QGeoCodingManagerEngine* self, intptr_t slot);
-int QGeoCodingManagerEngine_SuperReceivers(const QGeoCodingManagerEngine* self, const char* signal);
 bool QGeoCodingManagerEngine_IsSignalConnected(const QGeoCodingManagerEngine* self, const QMetaMethod* signal);
-void QGeoCodingManagerEngine_OnIsSignalConnected(const QGeoCodingManagerEngine* self, intptr_t slot);
-bool QGeoCodingManagerEngine_SuperIsSignalConnected(const QGeoCodingManagerEngine* self, const QMetaMethod* signal);
 void QGeoCodingManagerEngine_Delete(QGeoCodingManagerEngine* self);
 
 #ifdef __cplusplus

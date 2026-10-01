@@ -190,10 +190,10 @@ void QMimeData_Clear(QMimeData* self) {
 QVariant* QMimeData_RetrieveData(const QMimeData* self, const libqt_string mimetype, QMetaType* preferredType) {
     QString mimetype_QString = QString::fromUtf8(mimetype.data, mimetype.len);
     auto* vqmimedata = dynamic_cast<const VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata) {
         return new QVariant(vqmimedata->retrieveData(mimetype_QString, *preferredType));
     }
-    return {};
+    qFatal("Error: Protected method QMimeData::retrieveData called without a directly constructed type");
 }
 
 libqt_string QMimeData_Tr2(const char* s, const char* c) {
@@ -222,453 +222,273 @@ libqt_string QMimeData_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QMimeData_SuperMetaObject(const QMimeData* self) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_MetaObject_IsBase(true);
-        return (QMetaObject*)vqmimedata->metaObject();
-    } else {
-        return (QMetaObject*)self->QMimeData::metaObject();
-    }
+    return (QMetaObject*)self->QMimeData::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMimeData_OnMetaObject(const QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_MetaObject_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_MetaObject_Callback>(slot));
+void QMimeData_OnMetaObject(QMimeData* self, intptr_t slot) {
+    if (auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self)))
+        vqmimedata->qmimedata_metaobject_callback = reinterpret_cast<VirtualQMimeData::QMimeData_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QMimeData_SuperMetacast(QMimeData* self, const char* param1) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_Metacast_IsBase(true);
-        return vqmimedata->qt_metacast(param1);
-    } else {
-        return self->QMimeData::qt_metacast(param1);
-    }
+    return self->QMimeData::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnMetacast(QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_Metacast_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_Metacast_Callback>(slot));
+    if (auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self))
+        vqmimedata->qmimedata_metacast_callback = reinterpret_cast<VirtualQMimeData::QMimeData_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QMimeData_SuperMetacall(QMimeData* self, int param1, int param2, void** param3) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_Metacall_IsBase(true);
-        return vqmimedata->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QMimeData::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QMimeData::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnMetacall(QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_Metacall_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_Metacall_Callback>(slot));
+    if (auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self))
+        vqmimedata->qmimedata_metacall_callback = reinterpret_cast<VirtualQMimeData::QMimeData_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QMimeData_SuperHasFormat(const QMimeData* self, const libqt_string mimetype) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
     QString mimetype_QString = QString::fromUtf8(mimetype.data, mimetype.len);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_HasFormat_IsBase(true);
-        return vqmimedata->hasFormat(mimetype_QString);
-    } else {
-        return self->QMimeData::hasFormat(mimetype_QString);
-    }
+    return self->QMimeData::hasFormat(mimetype_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMimeData_OnHasFormat(const QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_HasFormat_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_HasFormat_Callback>(slot));
+void QMimeData_OnHasFormat(QMimeData* self, intptr_t slot) {
+    if (auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self)))
+        vqmimedata->qmimedata_hasformat_callback = reinterpret_cast<VirtualQMimeData::QMimeData_HasFormat_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QMimeData_SuperFormats(const QMimeData* self) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_Formats_IsBase(true);
-        QList<QString> _ret = vqmimedata->formats();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->QMimeData::formats();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->QMimeData::formats();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMimeData_OnFormats(const QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_Formats_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_Formats_Callback>(slot));
+void QMimeData_OnFormats(QMimeData* self, intptr_t slot) {
+    if (auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self)))
+        vqmimedata->qmimedata_formats_callback = reinterpret_cast<VirtualQMimeData::QMimeData_Formats_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QMimeData_SuperRetrieveData(const QMimeData* self, const libqt_string mimetype, QMetaType* preferredType) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
     QString mimetype_QString = QString::fromUtf8(mimetype.data, mimetype.len);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_RetrieveData_IsBase(true);
-        return new QVariant(vqmimedata->retrieveData(mimetype_QString, *preferredType));
-    }
-    return {};
+    if (auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self)))
+        return new QVariant(vqmimedata->QMimeData::retrieveData(mimetype_QString, *preferredType));
+    qFatal("Error: Protected virtual method QMimeData::retrieveData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMimeData_OnRetrieveData(const QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_RetrieveData_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_RetrieveData_Callback>(slot));
+void QMimeData_OnRetrieveData(QMimeData* self, intptr_t slot) {
+    if (auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self)))
+        vqmimedata->qmimedata_retrievedata_callback = reinterpret_cast<VirtualQMimeData::QMimeData_RetrieveData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMimeData_Event(QMimeData* self, QEvent* event) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        return vqmimedata->event(event);
-    } else {
-        return self->QMimeData::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QMimeData_SuperEvent(QMimeData* self, QEvent* event) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_Event_IsBase(true);
-        return vqmimedata->event(event);
-    } else {
-        return self->QMimeData::event(event);
-    }
+    return self->QMimeData::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnEvent(QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_Event_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_Event_Callback>(slot));
+    if (auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self))
+        vqmimedata->qmimedata_event_callback = reinterpret_cast<VirtualQMimeData::QMimeData_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMimeData_EventFilter(QMimeData* self, QObject* watched, QEvent* event) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        return vqmimedata->eventFilter(watched, event);
-    } else {
-        return self->QMimeData::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QMimeData_SuperEventFilter(QMimeData* self, QObject* watched, QEvent* event) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_EventFilter_IsBase(true);
-        return vqmimedata->eventFilter(watched, event);
-    } else {
-        return self->QMimeData::eventFilter(watched, event);
-    }
+    return self->QMimeData::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnEventFilter(QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_EventFilter_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_EventFilter_Callback>(slot));
+    if (auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self))
+        vqmimedata->qmimedata_eventfilter_callback = reinterpret_cast<VirtualQMimeData::QMimeData_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMimeData_TimerEvent(QMimeData* self, QTimerEvent* event) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata) {
         vqmimedata->timerEvent(event);
     } else {
-        ((VirtualQMimeData*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QMimeData::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMimeData_SuperTimerEvent(QMimeData* self, QTimerEvent* event) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_TimerEvent_IsBase(true);
-        vqmimedata->timerEvent(event);
-    } else {
-        ((VirtualQMimeData*)self)->timerEvent(event);
-    }
+    if (auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self)) {
+        vqmimedata->QMimeData::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMimeData::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnTimerEvent(QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_TimerEvent_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_TimerEvent_Callback>(slot));
+    if (auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self))
+        vqmimedata->qmimedata_timerevent_callback = reinterpret_cast<VirtualQMimeData::QMimeData_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMimeData_ChildEvent(QMimeData* self, QChildEvent* event) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata) {
         vqmimedata->childEvent(event);
     } else {
-        ((VirtualQMimeData*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QMimeData::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMimeData_SuperChildEvent(QMimeData* self, QChildEvent* event) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_ChildEvent_IsBase(true);
-        vqmimedata->childEvent(event);
-    } else {
-        ((VirtualQMimeData*)self)->childEvent(event);
-    }
+    if (auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self)) {
+        vqmimedata->QMimeData::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMimeData::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnChildEvent(QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_ChildEvent_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_ChildEvent_Callback>(slot));
+    if (auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self))
+        vqmimedata->qmimedata_childevent_callback = reinterpret_cast<VirtualQMimeData::QMimeData_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMimeData_CustomEvent(QMimeData* self, QEvent* event) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata) {
         vqmimedata->customEvent(event);
     } else {
-        ((VirtualQMimeData*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QMimeData::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMimeData_SuperCustomEvent(QMimeData* self, QEvent* event) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_CustomEvent_IsBase(true);
-        vqmimedata->customEvent(event);
-    } else {
-        ((VirtualQMimeData*)self)->customEvent(event);
-    }
+    if (auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self)) {
+        vqmimedata->QMimeData::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMimeData::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnCustomEvent(QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_CustomEvent_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_CustomEvent_Callback>(slot));
+    if (auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self))
+        vqmimedata->qmimedata_customevent_callback = reinterpret_cast<VirtualQMimeData::QMimeData_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMimeData_ConnectNotify(QMimeData* self, const QMetaMethod* signal) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata) {
         vqmimedata->connectNotify(*signal);
     } else {
-        ((VirtualQMimeData*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QMimeData::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMimeData_SuperConnectNotify(QMimeData* self, const QMetaMethod* signal) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_ConnectNotify_IsBase(true);
-        vqmimedata->connectNotify(*signal);
-    } else {
-        ((VirtualQMimeData*)self)->connectNotify(*signal);
-    }
+    if (auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self)) {
+        vqmimedata->QMimeData::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QMimeData::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnConnectNotify(QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_ConnectNotify_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_ConnectNotify_Callback>(slot));
+    if (auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self))
+        vqmimedata->qmimedata_connectnotify_callback = reinterpret_cast<VirtualQMimeData::QMimeData_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMimeData_DisconnectNotify(QMimeData* self, const QMetaMethod* signal) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata) {
         vqmimedata->disconnectNotify(*signal);
     } else {
-        ((VirtualQMimeData*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QMimeData::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMimeData_SuperDisconnectNotify(QMimeData* self, const QMetaMethod* signal) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_DisconnectNotify_IsBase(true);
-        vqmimedata->disconnectNotify(*signal);
-    } else {
-        ((VirtualQMimeData*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self)) {
+        vqmimedata->QMimeData::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QMimeData::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnDisconnectNotify(QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_DisconnectNotify_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_DisconnectNotify_Callback>(slot));
+    if (auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self))
+        vqmimedata->qmimedata_disconnectnotify_callback = reinterpret_cast<VirtualQMimeData::QMimeData_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QMimeData_Sender(const QMimeData* self) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        return vqmimedata->sender();
-    } else {
-        return ((VirtualQMimeData*)self)->sender();
-    }
+    if (auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self))) {
+        return vqmimedata->VirtualQMimeData::sender();
+    } else
+        qFatal("Error: Protected method QMimeData::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QMimeData_SuperSender(const QMimeData* self) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_Sender_IsBase(true);
-        return vqmimedata->sender();
-    } else {
-        return ((VirtualQMimeData*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMimeData_OnSender(const QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_Sender_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QMimeData_SenderSignalIndex(const QMimeData* self) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        return vqmimedata->senderSignalIndex();
-    } else {
-        return ((VirtualQMimeData*)self)->senderSignalIndex();
-    }
+    if (auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self))) {
+        return vqmimedata->VirtualQMimeData::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QMimeData::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QMimeData_SuperSenderSignalIndex(const QMimeData* self) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_SenderSignalIndex_IsBase(true);
-        return vqmimedata->senderSignalIndex();
-    } else {
-        return ((VirtualQMimeData*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMimeData_OnSenderSignalIndex(const QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QMimeData_Receivers(const QMimeData* self, const char* signal) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        return vqmimedata->receivers(signal);
-    } else {
-        return ((VirtualQMimeData*)self)->receivers(signal);
-    }
+    if (auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self))) {
+        return vqmimedata->VirtualQMimeData::receivers(signal);
+    } else
+        qFatal("Error: Protected method QMimeData::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QMimeData_SuperReceivers(const QMimeData* self, const char* signal) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_Receivers_IsBase(true);
-        return vqmimedata->receivers(signal);
-    } else {
-        return ((VirtualQMimeData*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMimeData_OnReceivers(const QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_Receivers_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QMimeData_IsSignalConnected(const QMimeData* self, const QMetaMethod* signal) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        return vqmimedata->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQMimeData*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QMimeData_SuperIsSignalConnected(const QMimeData* self, const QMetaMethod* signal) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
-        vqmimedata->setQMimeData_IsSignalConnected_IsBase(true);
-        return vqmimedata->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQMimeData*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMimeData_OnIsSignalConnected(const QMimeData* self, intptr_t slot) {
-    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData)
-        vqmimedata->setQMimeData_IsSignalConnected_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_IsSignalConnected_Callback>(slot));
+    if (auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self))) {
+        return vqmimedata->VirtualQMimeData::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QMimeData::isSignalConnected called without a directly constructed type");
 }
 
 void QMimeData_Delete(QMimeData* self) {

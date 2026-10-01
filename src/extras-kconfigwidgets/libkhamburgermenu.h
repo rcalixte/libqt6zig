@@ -48,7 +48,7 @@ void KHamburgerMenu_Connect_AboutToShowMenu(KHamburgerMenu* self, intptr_t slot)
 QWidget* KHamburgerMenu_CreateWidget(KHamburgerMenu* self, QWidget* parent);
 libqt_string KHamburgerMenu_Tr2(const char* s, const char* c);
 libqt_string KHamburgerMenu_Tr3(const char* s, const char* c, int n);
-void KHamburgerMenu_OnMetaObject(const KHamburgerMenu* self, intptr_t slot);
+void KHamburgerMenu_OnMetaObject(KHamburgerMenu* self, intptr_t slot);
 QMetaObject* KHamburgerMenu_SuperMetaObject(const KHamburgerMenu* self);
 void KHamburgerMenu_OnMetacast(KHamburgerMenu* self, intptr_t slot);
 void* KHamburgerMenu_SuperMetacast(KHamburgerMenu* self, const char* param1);
@@ -81,20 +81,10 @@ void KHamburgerMenu_DisconnectNotify(KHamburgerMenu* self, const QMetaMethod* si
 void KHamburgerMenu_OnDisconnectNotify(KHamburgerMenu* self, intptr_t slot);
 void KHamburgerMenu_SuperDisconnectNotify(KHamburgerMenu* self, const QMetaMethod* signal);
 libqt_list /* of QWidget* */ KHamburgerMenu_CreatedWidgets(const KHamburgerMenu* self);
-void KHamburgerMenu_OnCreatedWidgets(const KHamburgerMenu* self, intptr_t slot);
-libqt_list /* of QWidget* */ KHamburgerMenu_SuperCreatedWidgets(const KHamburgerMenu* self);
 QObject* KHamburgerMenu_Sender(const KHamburgerMenu* self);
-void KHamburgerMenu_OnSender(const KHamburgerMenu* self, intptr_t slot);
-QObject* KHamburgerMenu_SuperSender(const KHamburgerMenu* self);
 int KHamburgerMenu_SenderSignalIndex(const KHamburgerMenu* self);
-void KHamburgerMenu_OnSenderSignalIndex(const KHamburgerMenu* self, intptr_t slot);
-int KHamburgerMenu_SuperSenderSignalIndex(const KHamburgerMenu* self);
 int KHamburgerMenu_Receivers(const KHamburgerMenu* self, const char* signal);
-void KHamburgerMenu_OnReceivers(const KHamburgerMenu* self, intptr_t slot);
-int KHamburgerMenu_SuperReceivers(const KHamburgerMenu* self, const char* signal);
 bool KHamburgerMenu_IsSignalConnected(const KHamburgerMenu* self, const QMetaMethod* signal);
-void KHamburgerMenu_OnIsSignalConnected(const KHamburgerMenu* self, intptr_t slot);
-bool KHamburgerMenu_SuperIsSignalConnected(const KHamburgerMenu* self, const QMetaMethod* signal);
 void KHamburgerMenu_Delete(KHamburgerMenu* self);
 
 #ifdef __cplusplus

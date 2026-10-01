@@ -85,864 +85,431 @@ libqt_string KListOpenFilesJob_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KListOpenFilesJob_SuperMetaObject(const KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_MetaObject_IsBase(true);
-        return (QMetaObject*)vklistopenfilesjob->metaObject();
-    } else {
-        return (QMetaObject*)self->KListOpenFilesJob::metaObject();
-    }
+    return (QMetaObject*)self->KListOpenFilesJob::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnMetaObject(const KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_MetaObject_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_MetaObject_Callback>(slot));
+void KListOpenFilesJob_OnMetaObject(KListOpenFilesJob* self, intptr_t slot) {
+    if (auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self)))
+        vklistopenfilesjob->klistopenfilesjob_metaobject_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KListOpenFilesJob_SuperMetacast(KListOpenFilesJob* self, const char* param1) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_Metacast_IsBase(true);
-        return vklistopenfilesjob->qt_metacast(param1);
-    } else {
-        return self->KListOpenFilesJob::qt_metacast(param1);
-    }
+    return self->KListOpenFilesJob::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnMetacast(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_Metacast_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Metacast_Callback>(slot));
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self))
+        vklistopenfilesjob->klistopenfilesjob_metacast_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KListOpenFilesJob_SuperMetacall(KListOpenFilesJob* self, int param1, int param2, void** param3) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_Metacall_IsBase(true);
-        return vklistopenfilesjob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KListOpenFilesJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KListOpenFilesJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnMetacall(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_Metacall_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Metacall_Callback>(slot));
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self))
+        vklistopenfilesjob->klistopenfilesjob_metacall_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KListOpenFilesJob_SuperStart(KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_Start_IsBase(true);
-        vklistopenfilesjob->start();
-    } else {
-        self->KListOpenFilesJob::start();
-    }
+    self->KListOpenFilesJob::start();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnStart(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_Start_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Start_Callback>(slot));
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self))
+        vklistopenfilesjob->klistopenfilesjob_start_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Start_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KListOpenFilesJob_DoKill(KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob) {
         return vklistopenfilesjob->doKill();
     } else {
-        return ((VirtualKListOpenFilesJob*)self)->doKill();
+        qFatal("Error: Protected virtual method KListOpenFilesJob::doKill called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KListOpenFilesJob_SuperDoKill(KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_DoKill_IsBase(true);
-        return vklistopenfilesjob->doKill();
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->doKill();
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        return vklistopenfilesjob->KListOpenFilesJob::doKill();
+    } else
+        qFatal("Error: Protected virtual method KListOpenFilesJob::doKill called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnDoKill(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_DoKill_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_DoKill_Callback>(slot));
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self))
+        vklistopenfilesjob->klistopenfilesjob_dokill_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_DoKill_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KListOpenFilesJob_DoSuspend(KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob) {
         return vklistopenfilesjob->doSuspend();
     } else {
-        return ((VirtualKListOpenFilesJob*)self)->doSuspend();
+        qFatal("Error: Protected virtual method KListOpenFilesJob::doSuspend called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KListOpenFilesJob_SuperDoSuspend(KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_DoSuspend_IsBase(true);
-        return vklistopenfilesjob->doSuspend();
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->doSuspend();
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        return vklistopenfilesjob->KListOpenFilesJob::doSuspend();
+    } else
+        qFatal("Error: Protected virtual method KListOpenFilesJob::doSuspend called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnDoSuspend(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_DoSuspend_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_DoSuspend_Callback>(slot));
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self))
+        vklistopenfilesjob->klistopenfilesjob_dosuspend_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_DoSuspend_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KListOpenFilesJob_DoResume(KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob) {
         return vklistopenfilesjob->doResume();
     } else {
-        return ((VirtualKListOpenFilesJob*)self)->doResume();
+        qFatal("Error: Protected virtual method KListOpenFilesJob::doResume called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KListOpenFilesJob_SuperDoResume(KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_DoResume_IsBase(true);
-        return vklistopenfilesjob->doResume();
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->doResume();
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        return vklistopenfilesjob->KListOpenFilesJob::doResume();
+    } else
+        qFatal("Error: Protected virtual method KListOpenFilesJob::doResume called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnDoResume(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_DoResume_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_DoResume_Callback>(slot));
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self))
+        vklistopenfilesjob->klistopenfilesjob_doresume_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_DoResume_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KListOpenFilesJob_ErrorString(const KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        auto _ret = vklistopenfilesjob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KListOpenFilesJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KListOpenFilesJob_SuperErrorString(const KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_ErrorString_IsBase(true);
-        auto _ret = vklistopenfilesjob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KListOpenFilesJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KListOpenFilesJob::errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnErrorString(const KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_ErrorString_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_ErrorString_Callback>(slot));
+void KListOpenFilesJob_OnErrorString(KListOpenFilesJob* self, intptr_t slot) {
+    if (auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self)))
+        vklistopenfilesjob->klistopenfilesjob_errorstring_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_ErrorString_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KListOpenFilesJob_Event(KListOpenFilesJob* self, QEvent* event) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        return vklistopenfilesjob->event(event);
-    } else {
-        return self->KListOpenFilesJob::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KListOpenFilesJob_SuperEvent(KListOpenFilesJob* self, QEvent* event) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_Event_IsBase(true);
-        return vklistopenfilesjob->event(event);
-    } else {
-        return self->KListOpenFilesJob::event(event);
-    }
+    return self->KListOpenFilesJob::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnEvent(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_Event_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Event_Callback>(slot));
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self))
+        vklistopenfilesjob->klistopenfilesjob_event_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KListOpenFilesJob_EventFilter(KListOpenFilesJob* self, QObject* watched, QEvent* event) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        return vklistopenfilesjob->eventFilter(watched, event);
-    } else {
-        return self->KListOpenFilesJob::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KListOpenFilesJob_SuperEventFilter(KListOpenFilesJob* self, QObject* watched, QEvent* event) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_EventFilter_IsBase(true);
-        return vklistopenfilesjob->eventFilter(watched, event);
-    } else {
-        return self->KListOpenFilesJob::eventFilter(watched, event);
-    }
+    return self->KListOpenFilesJob::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnEventFilter(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_EventFilter_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_EventFilter_Callback>(slot));
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self))
+        vklistopenfilesjob->klistopenfilesjob_eventfilter_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KListOpenFilesJob_TimerEvent(KListOpenFilesJob* self, QTimerEvent* event) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob) {
         vklistopenfilesjob->timerEvent(event);
     } else {
-        ((VirtualKListOpenFilesJob*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KListOpenFilesJob::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KListOpenFilesJob_SuperTimerEvent(KListOpenFilesJob* self, QTimerEvent* event) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_TimerEvent_IsBase(true);
-        vklistopenfilesjob->timerEvent(event);
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->timerEvent(event);
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->KListOpenFilesJob::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KListOpenFilesJob::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnTimerEvent(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_TimerEvent_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_TimerEvent_Callback>(slot));
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self))
+        vklistopenfilesjob->klistopenfilesjob_timerevent_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KListOpenFilesJob_ChildEvent(KListOpenFilesJob* self, QChildEvent* event) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob) {
         vklistopenfilesjob->childEvent(event);
     } else {
-        ((VirtualKListOpenFilesJob*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KListOpenFilesJob::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KListOpenFilesJob_SuperChildEvent(KListOpenFilesJob* self, QChildEvent* event) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_ChildEvent_IsBase(true);
-        vklistopenfilesjob->childEvent(event);
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->childEvent(event);
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->KListOpenFilesJob::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KListOpenFilesJob::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnChildEvent(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_ChildEvent_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_ChildEvent_Callback>(slot));
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self))
+        vklistopenfilesjob->klistopenfilesjob_childevent_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KListOpenFilesJob_CustomEvent(KListOpenFilesJob* self, QEvent* event) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob) {
         vklistopenfilesjob->customEvent(event);
     } else {
-        ((VirtualKListOpenFilesJob*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KListOpenFilesJob::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KListOpenFilesJob_SuperCustomEvent(KListOpenFilesJob* self, QEvent* event) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_CustomEvent_IsBase(true);
-        vklistopenfilesjob->customEvent(event);
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->customEvent(event);
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->KListOpenFilesJob::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KListOpenFilesJob::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnCustomEvent(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_CustomEvent_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_CustomEvent_Callback>(slot));
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self))
+        vklistopenfilesjob->klistopenfilesjob_customevent_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KListOpenFilesJob_ConnectNotify(KListOpenFilesJob* self, const QMetaMethod* signal) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob) {
         vklistopenfilesjob->connectNotify(*signal);
     } else {
-        ((VirtualKListOpenFilesJob*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KListOpenFilesJob::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KListOpenFilesJob_SuperConnectNotify(KListOpenFilesJob* self, const QMetaMethod* signal) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_ConnectNotify_IsBase(true);
-        vklistopenfilesjob->connectNotify(*signal);
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->connectNotify(*signal);
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->KListOpenFilesJob::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KListOpenFilesJob::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnConnectNotify(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_ConnectNotify_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_ConnectNotify_Callback>(slot));
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self))
+        vklistopenfilesjob->klistopenfilesjob_connectnotify_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KListOpenFilesJob_DisconnectNotify(KListOpenFilesJob* self, const QMetaMethod* signal) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob) {
         vklistopenfilesjob->disconnectNotify(*signal);
     } else {
-        ((VirtualKListOpenFilesJob*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KListOpenFilesJob::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KListOpenFilesJob_SuperDisconnectNotify(KListOpenFilesJob* self, const QMetaMethod* signal) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_DisconnectNotify_IsBase(true);
-        vklistopenfilesjob->disconnectNotify(*signal);
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->KListOpenFilesJob::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KListOpenFilesJob::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnDisconnectNotify(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_DisconnectNotify_Callback>(slot));
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self))
+        vklistopenfilesjob->klistopenfilesjob_disconnectnotify_callback = reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KListOpenFilesJob_SetCapabilities(KListOpenFilesJob* self, int capabilities) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->VirtualKListOpenFilesJob::setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::setCapabilities called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KListOpenFilesJob_SuperSetCapabilities(KListOpenFilesJob* self, int capabilities) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_SetCapabilities_IsBase(true);
-        vklistopenfilesjob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnSetCapabilities(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_SetCapabilities_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SetCapabilities_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KListOpenFilesJob_IsFinished(const KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        return vklistopenfilesjob->isFinished();
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->isFinished();
-    }
+    if (auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self))) {
+        return vklistopenfilesjob->VirtualKListOpenFilesJob::isFinished();
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::isFinished called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KListOpenFilesJob_SuperIsFinished(const KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_IsFinished_IsBase(true);
-        return vklistopenfilesjob->isFinished();
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->isFinished();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnIsFinished(const KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_IsFinished_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_IsFinished_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KListOpenFilesJob_SetError(KListOpenFilesJob* self, int errorCode) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->setError(static_cast<int>(errorCode));
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->VirtualKListOpenFilesJob::setError(static_cast<int>(errorCode));
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::setError called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KListOpenFilesJob_SuperSetError(KListOpenFilesJob* self, int errorCode) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_SetError_IsBase(true);
-        vklistopenfilesjob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->setError(static_cast<int>(errorCode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnSetError(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_SetError_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SetError_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KListOpenFilesJob_SetErrorText(KListOpenFilesJob* self, const libqt_string errorText) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->setErrorText(errorText_QString);
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
+        vklistopenfilesjob->VirtualKListOpenFilesJob::setErrorText(errorText_QString);
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::setErrorText called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KListOpenFilesJob_SuperSetErrorText(KListOpenFilesJob* self, const libqt_string errorText) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_SetErrorText_IsBase(true);
-        vklistopenfilesjob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->setErrorText(errorText_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnSetErrorText(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_SetErrorText_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SetErrorText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KListOpenFilesJob_SetProcessedAmount(KListOpenFilesJob* self, int unit, unsigned long long amount) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->VirtualKListOpenFilesJob::setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::setProcessedAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KListOpenFilesJob_SuperSetProcessedAmount(KListOpenFilesJob* self, int unit, unsigned long long amount) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_SetProcessedAmount_IsBase(true);
-        vklistopenfilesjob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnSetProcessedAmount(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SetProcessedAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KListOpenFilesJob_SetTotalAmount(KListOpenFilesJob* self, int unit, unsigned long long amount) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->VirtualKListOpenFilesJob::setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::setTotalAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KListOpenFilesJob_SuperSetTotalAmount(KListOpenFilesJob* self, int unit, unsigned long long amount) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_SetTotalAmount_IsBase(true);
-        vklistopenfilesjob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnSetTotalAmount(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SetTotalAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KListOpenFilesJob_SetProgressUnit(KListOpenFilesJob* self, int unit) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->VirtualKListOpenFilesJob::setProgressUnit(static_cast<KJob::Unit>(unit));
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::setProgressUnit called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KListOpenFilesJob_SuperSetProgressUnit(KListOpenFilesJob* self, int unit) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_SetProgressUnit_IsBase(true);
-        vklistopenfilesjob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnSetProgressUnit(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SetProgressUnit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KListOpenFilesJob_SetPercent(KListOpenFilesJob* self, unsigned long percentage) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->VirtualKListOpenFilesJob::setPercent(static_cast<unsigned long>(percentage));
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::setPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KListOpenFilesJob_SuperSetPercent(KListOpenFilesJob* self, unsigned long percentage) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_SetPercent_IsBase(true);
-        vklistopenfilesjob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnSetPercent(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_SetPercent_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SetPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KListOpenFilesJob_EmitResult(KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->emitResult();
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->emitResult();
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->VirtualKListOpenFilesJob::emitResult();
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::emitResult called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KListOpenFilesJob_SuperEmitResult(KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_EmitResult_IsBase(true);
-        vklistopenfilesjob->emitResult();
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->emitResult();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnEmitResult(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_EmitResult_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_EmitResult_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KListOpenFilesJob_EmitPercent(KListOpenFilesJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->VirtualKListOpenFilesJob::emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::emitPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KListOpenFilesJob_SuperEmitPercent(KListOpenFilesJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_EmitPercent_IsBase(true);
-        vklistopenfilesjob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnEmitPercent(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_EmitPercent_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_EmitPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KListOpenFilesJob_EmitSpeed(KListOpenFilesJob* self, unsigned long speed) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->VirtualKListOpenFilesJob::emitSpeed(static_cast<unsigned long>(speed));
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::emitSpeed called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KListOpenFilesJob_SuperEmitSpeed(KListOpenFilesJob* self, unsigned long speed) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_EmitSpeed_IsBase(true);
-        vklistopenfilesjob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnEmitSpeed(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_EmitSpeed_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_EmitSpeed_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KListOpenFilesJob_StartElapsedTimer(KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->startElapsedTimer();
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->startElapsedTimer();
-    }
+    if (auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self)) {
+        vklistopenfilesjob->VirtualKListOpenFilesJob::startElapsedTimer();
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::startElapsedTimer called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KListOpenFilesJob_SuperStartElapsedTimer(KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_StartElapsedTimer_IsBase(true);
-        vklistopenfilesjob->startElapsedTimer();
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->startElapsedTimer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnStartElapsedTimer(KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_StartElapsedTimer_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KListOpenFilesJob_Sender(const KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        return vklistopenfilesjob->sender();
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->sender();
-    }
+    if (auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self))) {
+        return vklistopenfilesjob->VirtualKListOpenFilesJob::sender();
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KListOpenFilesJob_SuperSender(const KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_Sender_IsBase(true);
-        return vklistopenfilesjob->sender();
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnSender(const KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_Sender_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KListOpenFilesJob_SenderSignalIndex(const KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        return vklistopenfilesjob->senderSignalIndex();
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->senderSignalIndex();
-    }
+    if (auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self))) {
+        return vklistopenfilesjob->VirtualKListOpenFilesJob::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KListOpenFilesJob_SuperSenderSignalIndex(const KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_SenderSignalIndex_IsBase(true);
-        return vklistopenfilesjob->senderSignalIndex();
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnSenderSignalIndex(const KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KListOpenFilesJob_Receivers(const KListOpenFilesJob* self, const char* signal) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        return vklistopenfilesjob->receivers(signal);
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->receivers(signal);
-    }
+    if (auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self))) {
+        return vklistopenfilesjob->VirtualKListOpenFilesJob::receivers(signal);
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KListOpenFilesJob_SuperReceivers(const KListOpenFilesJob* self, const char* signal) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_Receivers_IsBase(true);
-        return vklistopenfilesjob->receivers(signal);
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnReceivers(const KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_Receivers_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KListOpenFilesJob_IsSignalConnected(const KListOpenFilesJob* self, const QMetaMethod* signal) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        return vklistopenfilesjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KListOpenFilesJob_SuperIsSignalConnected(const KListOpenFilesJob* self, const QMetaMethod* signal) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        vklistopenfilesjob->setKListOpenFilesJob_IsSignalConnected_IsBase(true);
-        return vklistopenfilesjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KListOpenFilesJob_OnIsSignalConnected(const KListOpenFilesJob* self, intptr_t slot) {
-    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
-        vklistopenfilesjob->setKListOpenFilesJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_IsSignalConnected_Callback>(slot));
+    if (auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self))) {
+        return vklistopenfilesjob->VirtualKListOpenFilesJob::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KListOpenFilesJob::isSignalConnected called without a directly constructed type");
 }
 
 void KListOpenFilesJob_Delete(KListOpenFilesJob* self) {

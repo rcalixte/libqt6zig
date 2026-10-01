@@ -62,38 +62,24 @@ int QEvent_RegisterEventType1(int hint) {
 
 // Base class handler implementation
 void QEvent_SuperSetAccepted(QEvent* self, bool accepted) {
-    auto* vqevent = dynamic_cast<VirtualQEvent*>(self);
-    if (vqevent && vqevent->isVirtualQEvent) {
-        vqevent->setQEvent_SetAccepted_IsBase(true);
-        vqevent->setAccepted(accepted);
-    } else {
-        self->QEvent::setAccepted(accepted);
-    }
+    self->QEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QEvent_OnSetAccepted(QEvent* self, intptr_t slot) {
-    auto* vqevent = dynamic_cast<VirtualQEvent*>(self);
-    if (vqevent && vqevent->isVirtualQEvent)
-        vqevent->setQEvent_SetAccepted_Callback(reinterpret_cast<VirtualQEvent::QEvent_SetAccepted_Callback>(slot));
+    if (auto* vqevent = dynamic_cast<VirtualQEvent*>(self))
+        vqevent->qevent_setaccepted_callback = reinterpret_cast<VirtualQEvent::QEvent_SetAccepted_Callback>(slot);
 }
 
 // Base class handler implementation
 QEvent* QEvent_SuperClone(const QEvent* self) {
-    auto* vqevent = const_cast<VirtualQEvent*>(dynamic_cast<const VirtualQEvent*>(self));
-    if (vqevent && vqevent->isVirtualQEvent) {
-        vqevent->setQEvent_Clone_IsBase(true);
-        return vqevent->clone();
-    } else {
-        return self->QEvent::clone();
-    }
+    return self->QEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QEvent_OnClone(const QEvent* self, intptr_t slot) {
-    auto* vqevent = const_cast<VirtualQEvent*>(dynamic_cast<const VirtualQEvent*>(self));
-    if (vqevent && vqevent->isVirtualQEvent)
-        vqevent->setQEvent_Clone_Callback(reinterpret_cast<VirtualQEvent::QEvent_Clone_Callback>(slot));
+void QEvent_OnClone(QEvent* self, intptr_t slot) {
+    if (auto* vqevent = const_cast<VirtualQEvent*>(dynamic_cast<const VirtualQEvent*>(self)))
+        vqevent->qevent_clone_callback = reinterpret_cast<VirtualQEvent::QEvent_Clone_Callback>(slot);
 }
 
 void QEvent_Delete(QEvent* self) {
@@ -122,48 +108,29 @@ int QTimerEvent_Id(const QTimerEvent* self) {
 
 // Base class handler implementation
 QTimerEvent* QTimerEvent_SuperClone(const QTimerEvent* self) {
-    auto* vqtimerevent = const_cast<VirtualQTimerEvent*>(dynamic_cast<const VirtualQTimerEvent*>(self));
-    if (vqtimerevent && vqtimerevent->isVirtualQTimerEvent) {
-        vqtimerevent->setQTimerEvent_Clone_IsBase(true);
-        return vqtimerevent->clone();
-    } else {
-        return self->QTimerEvent::clone();
-    }
+    return self->QTimerEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimerEvent_OnClone(const QTimerEvent* self, intptr_t slot) {
-    auto* vqtimerevent = const_cast<VirtualQTimerEvent*>(dynamic_cast<const VirtualQTimerEvent*>(self));
-    if (vqtimerevent && vqtimerevent->isVirtualQTimerEvent)
-        vqtimerevent->setQTimerEvent_Clone_Callback(reinterpret_cast<VirtualQTimerEvent::QTimerEvent_Clone_Callback>(slot));
+void QTimerEvent_OnClone(QTimerEvent* self, intptr_t slot) {
+    if (auto* vqtimerevent = const_cast<VirtualQTimerEvent*>(dynamic_cast<const VirtualQTimerEvent*>(self)))
+        vqtimerevent->qtimerevent_clone_callback = reinterpret_cast<VirtualQTimerEvent::QTimerEvent_Clone_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimerEvent_SetAccepted(QTimerEvent* self, bool accepted) {
-    auto* vqtimerevent = dynamic_cast<VirtualQTimerEvent*>(self);
-    if (vqtimerevent && vqtimerevent->isVirtualQTimerEvent) {
-        vqtimerevent->setAccepted(accepted);
-    } else {
-        self->QTimerEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void QTimerEvent_SuperSetAccepted(QTimerEvent* self, bool accepted) {
-    auto* vqtimerevent = dynamic_cast<VirtualQTimerEvent*>(self);
-    if (vqtimerevent && vqtimerevent->isVirtualQTimerEvent) {
-        vqtimerevent->setQTimerEvent_SetAccepted_IsBase(true);
-        vqtimerevent->setAccepted(accepted);
-    } else {
-        self->QTimerEvent::setAccepted(accepted);
-    }
+    self->QTimerEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimerEvent_OnSetAccepted(QTimerEvent* self, intptr_t slot) {
-    auto* vqtimerevent = dynamic_cast<VirtualQTimerEvent*>(self);
-    if (vqtimerevent && vqtimerevent->isVirtualQTimerEvent)
-        vqtimerevent->setQTimerEvent_SetAccepted_Callback(reinterpret_cast<VirtualQTimerEvent::QTimerEvent_SetAccepted_Callback>(slot));
+    if (auto* vqtimerevent = dynamic_cast<VirtualQTimerEvent*>(self))
+        vqtimerevent->qtimerevent_setaccepted_callback = reinterpret_cast<VirtualQTimerEvent::QTimerEvent_SetAccepted_Callback>(slot);
 }
 
 void QTimerEvent_Delete(QTimerEvent* self) {
@@ -196,48 +163,29 @@ bool QChildEvent_Removed(const QChildEvent* self) {
 
 // Base class handler implementation
 QChildEvent* QChildEvent_SuperClone(const QChildEvent* self) {
-    auto* vqchildevent = const_cast<VirtualQChildEvent*>(dynamic_cast<const VirtualQChildEvent*>(self));
-    if (vqchildevent && vqchildevent->isVirtualQChildEvent) {
-        vqchildevent->setQChildEvent_Clone_IsBase(true);
-        return vqchildevent->clone();
-    } else {
-        return self->QChildEvent::clone();
-    }
+    return self->QChildEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QChildEvent_OnClone(const QChildEvent* self, intptr_t slot) {
-    auto* vqchildevent = const_cast<VirtualQChildEvent*>(dynamic_cast<const VirtualQChildEvent*>(self));
-    if (vqchildevent && vqchildevent->isVirtualQChildEvent)
-        vqchildevent->setQChildEvent_Clone_Callback(reinterpret_cast<VirtualQChildEvent::QChildEvent_Clone_Callback>(slot));
+void QChildEvent_OnClone(QChildEvent* self, intptr_t slot) {
+    if (auto* vqchildevent = const_cast<VirtualQChildEvent*>(dynamic_cast<const VirtualQChildEvent*>(self)))
+        vqchildevent->qchildevent_clone_callback = reinterpret_cast<VirtualQChildEvent::QChildEvent_Clone_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QChildEvent_SetAccepted(QChildEvent* self, bool accepted) {
-    auto* vqchildevent = dynamic_cast<VirtualQChildEvent*>(self);
-    if (vqchildevent && vqchildevent->isVirtualQChildEvent) {
-        vqchildevent->setAccepted(accepted);
-    } else {
-        self->QChildEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void QChildEvent_SuperSetAccepted(QChildEvent* self, bool accepted) {
-    auto* vqchildevent = dynamic_cast<VirtualQChildEvent*>(self);
-    if (vqchildevent && vqchildevent->isVirtualQChildEvent) {
-        vqchildevent->setQChildEvent_SetAccepted_IsBase(true);
-        vqchildevent->setAccepted(accepted);
-    } else {
-        self->QChildEvent::setAccepted(accepted);
-    }
+    self->QChildEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QChildEvent_OnSetAccepted(QChildEvent* self, intptr_t slot) {
-    auto* vqchildevent = dynamic_cast<VirtualQChildEvent*>(self);
-    if (vqchildevent && vqchildevent->isVirtualQChildEvent)
-        vqchildevent->setQChildEvent_SetAccepted_Callback(reinterpret_cast<VirtualQChildEvent::QChildEvent_SetAccepted_Callback>(slot));
+    if (auto* vqchildevent = dynamic_cast<VirtualQChildEvent*>(self))
+        vqchildevent->qchildevent_setaccepted_callback = reinterpret_cast<VirtualQChildEvent::QChildEvent_SetAccepted_Callback>(slot);
 }
 
 void QChildEvent_Delete(QChildEvent* self) {
@@ -264,48 +212,29 @@ libqt_string QDynamicPropertyChangeEvent_PropertyName(const QDynamicPropertyChan
 
 // Base class handler implementation
 QDynamicPropertyChangeEvent* QDynamicPropertyChangeEvent_SuperClone(const QDynamicPropertyChangeEvent* self) {
-    auto* vqdynamicpropertychangeevent = const_cast<VirtualQDynamicPropertyChangeEvent*>(dynamic_cast<const VirtualQDynamicPropertyChangeEvent*>(self));
-    if (vqdynamicpropertychangeevent && vqdynamicpropertychangeevent->isVirtualQDynamicPropertyChangeEvent) {
-        vqdynamicpropertychangeevent->setQDynamicPropertyChangeEvent_Clone_IsBase(true);
-        return vqdynamicpropertychangeevent->clone();
-    } else {
-        return self->QDynamicPropertyChangeEvent::clone();
-    }
+    return self->QDynamicPropertyChangeEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDynamicPropertyChangeEvent_OnClone(const QDynamicPropertyChangeEvent* self, intptr_t slot) {
-    auto* vqdynamicpropertychangeevent = const_cast<VirtualQDynamicPropertyChangeEvent*>(dynamic_cast<const VirtualQDynamicPropertyChangeEvent*>(self));
-    if (vqdynamicpropertychangeevent && vqdynamicpropertychangeevent->isVirtualQDynamicPropertyChangeEvent)
-        vqdynamicpropertychangeevent->setQDynamicPropertyChangeEvent_Clone_Callback(reinterpret_cast<VirtualQDynamicPropertyChangeEvent::QDynamicPropertyChangeEvent_Clone_Callback>(slot));
+void QDynamicPropertyChangeEvent_OnClone(QDynamicPropertyChangeEvent* self, intptr_t slot) {
+    if (auto* vqdynamicpropertychangeevent = const_cast<VirtualQDynamicPropertyChangeEvent*>(dynamic_cast<const VirtualQDynamicPropertyChangeEvent*>(self)))
+        vqdynamicpropertychangeevent->qdynamicpropertychangeevent_clone_callback = reinterpret_cast<VirtualQDynamicPropertyChangeEvent::QDynamicPropertyChangeEvent_Clone_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDynamicPropertyChangeEvent_SetAccepted(QDynamicPropertyChangeEvent* self, bool accepted) {
-    auto* vqdynamicpropertychangeevent = dynamic_cast<VirtualQDynamicPropertyChangeEvent*>(self);
-    if (vqdynamicpropertychangeevent && vqdynamicpropertychangeevent->isVirtualQDynamicPropertyChangeEvent) {
-        vqdynamicpropertychangeevent->setAccepted(accepted);
-    } else {
-        self->QDynamicPropertyChangeEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void QDynamicPropertyChangeEvent_SuperSetAccepted(QDynamicPropertyChangeEvent* self, bool accepted) {
-    auto* vqdynamicpropertychangeevent = dynamic_cast<VirtualQDynamicPropertyChangeEvent*>(self);
-    if (vqdynamicpropertychangeevent && vqdynamicpropertychangeevent->isVirtualQDynamicPropertyChangeEvent) {
-        vqdynamicpropertychangeevent->setQDynamicPropertyChangeEvent_SetAccepted_IsBase(true);
-        vqdynamicpropertychangeevent->setAccepted(accepted);
-    } else {
-        self->QDynamicPropertyChangeEvent::setAccepted(accepted);
-    }
+    self->QDynamicPropertyChangeEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDynamicPropertyChangeEvent_OnSetAccepted(QDynamicPropertyChangeEvent* self, intptr_t slot) {
-    auto* vqdynamicpropertychangeevent = dynamic_cast<VirtualQDynamicPropertyChangeEvent*>(self);
-    if (vqdynamicpropertychangeevent && vqdynamicpropertychangeevent->isVirtualQDynamicPropertyChangeEvent)
-        vqdynamicpropertychangeevent->setQDynamicPropertyChangeEvent_SetAccepted_Callback(reinterpret_cast<VirtualQDynamicPropertyChangeEvent::QDynamicPropertyChangeEvent_SetAccepted_Callback>(slot));
+    if (auto* vqdynamicpropertychangeevent = dynamic_cast<VirtualQDynamicPropertyChangeEvent*>(self))
+        vqdynamicpropertychangeevent->qdynamicpropertychangeevent_setaccepted_callback = reinterpret_cast<VirtualQDynamicPropertyChangeEvent::QDynamicPropertyChangeEvent_SetAccepted_Callback>(slot);
 }
 
 void QDynamicPropertyChangeEvent_Delete(QDynamicPropertyChangeEvent* self) {

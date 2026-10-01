@@ -65,9 +65,9 @@ pub const Konsole__Emulation = extern struct {
     ///
     /// ` self: Konsole__Emulation `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: Konsole__Emulation) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: Konsole__Emulation, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: Konsole__Emulation, callback: *const fn (Konsole__Emulation) callconv(.c) QMetaObject) void {
         qtc.Konsole__Emulation_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -280,9 +280,9 @@ pub const Konsole__Emulation = extern struct {
     ///
     /// ` self: Konsole__Emulation `
     ///
-    /// ` callback: *const fn () callconv(.c) u8 `
+    /// ` callback: *const fn (self: Konsole__Emulation) callconv(.c) u8 `
     ///
-    pub fn onEraseChar(self: Konsole__Emulation, callback: *const fn () callconv(.c) u8) void {
+    pub fn onEraseChar(self: Konsole__Emulation, callback: *const fn (Konsole__Emulation) callconv(.c) u8) void {
         qtc.Konsole__Emulation_OnEraseChar(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -348,6 +348,8 @@ pub const Konsole__Emulation = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// This method must be implemented with `onClearEntireScreen` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Konsole__Emulation `
@@ -368,26 +370,10 @@ pub const Konsole__Emulation = extern struct {
     ///
     /// ` self: Konsole__Emulation `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: Konsole__Emulation) callconv(.c) void `
     ///
-    pub fn onClearEntireScreen(self: Konsole__Emulation, callback: *const fn () callconv(.c) void) void {
+    pub fn onClearEntireScreen(self: Konsole__Emulation, callback: *const fn (Konsole__Emulation) callconv(.c) void) void {
         qtc.Konsole__Emulation_OnClearEntireScreen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superClearEntireScreen` instead
-    ///
-    pub const SuperClearEntireScreen = superClearEntireScreen;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    pub fn superClearEntireScreen(self: Konsole__Emulation) void {
-        qtc.Konsole__Emulation_SuperClearEntireScreen(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `reset` instead
@@ -395,6 +381,8 @@ pub const Konsole__Emulation = extern struct {
     pub const Reset = reset;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// This method must be implemented with `onReset` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -416,26 +404,10 @@ pub const Konsole__Emulation = extern struct {
     ///
     /// ` self: Konsole__Emulation `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: Konsole__Emulation) callconv(.c) void `
     ///
-    pub fn onReset(self: Konsole__Emulation, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: Konsole__Emulation, callback: *const fn (Konsole__Emulation) callconv(.c) void) void {
         qtc.Konsole__Emulation_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superReset` instead
-    ///
-    pub const SuperReset = superReset;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    pub fn superReset(self: Konsole__Emulation) void {
-        qtc.Konsole__Emulation_SuperReset(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `programUsesMouse` instead
@@ -528,6 +500,8 @@ pub const Konsole__Emulation = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// This method must be implemented with `onSendText` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Konsole__Emulation `
@@ -558,28 +532,6 @@ pub const Konsole__Emulation = extern struct {
     ///
     pub fn onSendText(self: Konsole__Emulation, callback: *const fn (Konsole__Emulation, [*:0]const u8) callconv(.c) void) void {
         qtc.Konsole__Emulation_OnSendText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSendText` instead
-    ///
-    pub const SuperSendText = superSendText;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn superSendText(self: Konsole__Emulation, text: []const u8) void {
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        qtc.Konsole__Emulation_SuperSendText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### DEPRECATED: Use `sendKeyEvent` instead
@@ -710,6 +662,8 @@ pub const Konsole__Emulation = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// This method must be implemented with `onSendString` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Konsole__Emulation `
@@ -739,27 +693,6 @@ pub const Konsole__Emulation = extern struct {
     ///
     pub fn onSendString(self: Konsole__Emulation, callback: *const fn (Konsole__Emulation, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.Konsole__Emulation_OnSendString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSendString` instead
-    ///
-    pub const SuperSendString = superSendString;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    /// ` string: [:0]const u8 `
-    ///
-    /// ` length: i32 `
-    ///
-    pub fn superSendString(self: Konsole__Emulation, string: [:0]const u8, length: i32) void {
-        const string_Cstring = string.ptr;
-        qtc.Konsole__Emulation_SuperSendString(@ptrCast(self.ptr), string_Cstring, @bitCast(length));
     }
 
     /// ### DEPRECATED: Use `receiveData` instead
@@ -1373,6 +1306,8 @@ pub const Konsole__Emulation = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// This method must be implemented with `onSetMode` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Konsole__Emulation `
@@ -1401,29 +1336,13 @@ pub const Konsole__Emulation = extern struct {
         qtc.Konsole__Emulation_OnSetMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetMode` instead
-    ///
-    pub const SuperSetMode = superSetMode;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    /// ` mode: i32 `
-    ///
-    pub fn superSetMode(self: Konsole__Emulation, mode: i32) void {
-        qtc.Konsole__Emulation_SuperSetMode(@ptrCast(self.ptr), @bitCast(mode));
-    }
-
     /// ### DEPRECATED: Use `resetMode` instead
     ///
     pub const ResetMode = resetMode;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// This method must be implemented with `onResetMode` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1453,24 +1372,6 @@ pub const Konsole__Emulation = extern struct {
         qtc.Konsole__Emulation_OnResetMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superResetMode` instead
-    ///
-    pub const SuperResetMode = superResetMode;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    /// ` mode: i32 `
-    ///
-    pub fn superResetMode(self: Konsole__Emulation, mode: i32) void {
-        qtc.Konsole__Emulation_SuperResetMode(@ptrCast(self.ptr), @bitCast(mode));
-    }
-
     /// ### DEPRECATED: Use `setScreen` instead
     ///
     pub const SetScreen = setScreen;
@@ -1485,42 +1386,6 @@ pub const Konsole__Emulation = extern struct {
     ///
     pub fn setScreen(self: Konsole__Emulation, index: i32) void {
         qtc.Konsole__Emulation_SetScreen(@ptrCast(self.ptr), @bitCast(index));
-    }
-
-    /// ### DEPRECATED: Use `onSetScreen` instead
-    ///
-    pub const OnSetScreen = onSetScreen;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    /// ` callback: *const fn (self: Konsole__Emulation, index: i32) callconv(.c) void `
-    ///
-    pub fn onSetScreen(self: Konsole__Emulation, callback: *const fn (Konsole__Emulation, i32) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnSetScreen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetScreen` instead
-    ///
-    pub const SuperSetScreen = superSetScreen;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    /// ` index: i32 `
-    ///
-    pub fn superSetScreen(self: Konsole__Emulation, index: i32) void {
-        qtc.Konsole__Emulation_SuperSetScreen(@ptrCast(self.ptr), @bitCast(index));
     }
 
     /// ### DEPRECATED: Use `setCodec` instead
@@ -1539,42 +1404,6 @@ pub const Konsole__Emulation = extern struct {
         qtc.Konsole__Emulation_SetCodec(@ptrCast(self.ptr), @bitCast(codec));
     }
 
-    /// ### DEPRECATED: Use `onSetCodec` instead
-    ///
-    pub const OnSetCodec = onSetCodec;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    /// ` callback: *const fn (self: Konsole__Emulation, codec: Emulation_enums.EmulationCodec) callconv(.c) void `
-    ///
-    pub fn onSetCodec(self: Konsole__Emulation, callback: *const fn (Konsole__Emulation, i32) callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnSetCodec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetCodec` instead
-    ///
-    pub const SuperSetCodec = superSetCodec;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    /// ` codec: Emulation_enums.EmulationCodec `
-    ///
-    pub fn superSetCodec(self: Konsole__Emulation, codec: i32) void {
-        qtc.Konsole__Emulation_SuperSetCodec(@ptrCast(self.ptr), @bitCast(codec));
-    }
-
     /// ### DEPRECATED: Use `bufferedUpdate` instead
     ///
     pub const BufferedUpdate = bufferedUpdate;
@@ -1587,40 +1416,6 @@ pub const Konsole__Emulation = extern struct {
     ///
     pub fn bufferedUpdate(self: Konsole__Emulation) void {
         qtc.Konsole__Emulation_BufferedUpdate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onBufferedUpdate` instead
-    ///
-    pub const OnBufferedUpdate = onBufferedUpdate;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onBufferedUpdate(self: Konsole__Emulation, callback: *const fn () callconv(.c) void) void {
-        qtc.Konsole__Emulation_OnBufferedUpdate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superBufferedUpdate` instead
-    ///
-    pub const SuperBufferedUpdate = superBufferedUpdate;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    pub fn superBufferedUpdate(self: Konsole__Emulation) void {
-        qtc.Konsole__Emulation_SuperBufferedUpdate(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -3100,44 +2895,6 @@ pub const Konsole__Emulation = extern struct {
         return .{ .ptr = qtc.Konsole__Emulation_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    pub fn superSender(self: Konsole__Emulation) QObject {
-        return .{ .ptr = qtc.Konsole__Emulation_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Emulation`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: Konsole__Emulation, callback: *const fn () callconv(.c) QObject) void {
-        qtc.Konsole__Emulation_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3154,44 +2911,6 @@ pub const Konsole__Emulation = extern struct {
     ///
     pub fn senderSignalIndex(self: Konsole__Emulation) i32 {
         return qtc.Konsole__Emulation_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    pub fn superSenderSignalIndex(self: Konsole__Emulation) i32 {
-        return qtc.Konsole__Emulation_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Emulation`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: Konsole__Emulation, callback: *const fn () callconv(.c) i32) void {
-        qtc.Konsole__Emulation_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3215,47 +2934,6 @@ pub const Konsole__Emulation = extern struct {
         return qtc.Konsole__Emulation_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: Konsole__Emulation, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.Konsole__Emulation_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Emulation`
-    ///
-    /// ` callback: *const fn (self: Konsole__Emulation, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: Konsole__Emulation, callback: *const fn (Konsole__Emulation, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Konsole__Emulation_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3275,47 +2953,6 @@ pub const Konsole__Emulation = extern struct {
     pub fn isSignalConnected(self: Konsole__Emulation, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Konsole__Emulation_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Emulation `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: Konsole__Emulation, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.Konsole__Emulation_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Emulation`
-    ///
-    /// ` callback: *const fn (self: Konsole__Emulation, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: Konsole__Emulation, callback: *const fn (Konsole__Emulation, QMetaMethod) callconv(.c) bool) void {
-        qtc.Konsole__Emulation_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

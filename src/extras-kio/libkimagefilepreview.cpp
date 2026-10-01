@@ -89,24 +89,24 @@ void KImageFilePreview_ClearPreview(KImageFilePreview* self) {
 
 void KImageFilePreview_GotPreview(KImageFilePreview* self, const KFileItem* param1, const QPixmap* param2) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->gotPreview(*param1, *param2);
     }
 }
 
 void KImageFilePreview_ResizeEvent(KImageFilePreview* self, QResizeEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->resizeEvent(event);
     }
 }
 
 KIO__PreviewJob* KImageFilePreview_CreateJob(KImageFilePreview* self, const QUrl* url, int width, int height) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         return vkimagefilepreview->createJob(*url, static_cast<int>(width), static_cast<int>(height));
     }
-    return {};
+    qFatal("Error: Protected method KImageFilePreview::createJob called without a directly constructed type");
 }
 
 libqt_string KImageFilePreview_Tr2(const char* s, const char* c) {
@@ -135,1804 +135,1239 @@ libqt_string KImageFilePreview_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KImageFilePreview_SuperMetaObject(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_MetaObject_IsBase(true);
-        return (QMetaObject*)vkimagefilepreview->metaObject();
-    } else {
-        return (QMetaObject*)self->KImageFilePreview::metaObject();
-    }
+    return (QMetaObject*)self->KImageFilePreview::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnMetaObject(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_MetaObject_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MetaObject_Callback>(slot));
+void KImageFilePreview_OnMetaObject(KImageFilePreview* self, intptr_t slot) {
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self)))
+        vkimagefilepreview->kimagefilepreview_metaobject_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KImageFilePreview_SuperMetacast(KImageFilePreview* self, const char* param1) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_Metacast_IsBase(true);
-        return vkimagefilepreview->qt_metacast(param1);
-    } else {
-        return self->KImageFilePreview::qt_metacast(param1);
-    }
+    return self->KImageFilePreview::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMetacast(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_Metacast_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Metacast_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_metacast_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KImageFilePreview_SuperMetacall(KImageFilePreview* self, int param1, int param2, void** param3) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_Metacall_IsBase(true);
-        return vkimagefilepreview->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KImageFilePreview::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KImageFilePreview::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMetacall(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_Metacall_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Metacall_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_metacall_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KImageFilePreview_SuperSizeHint(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_SizeHint_IsBase(true);
-        return new QSize(vkimagefilepreview->sizeHint());
-    } else {
-        return new QSize(((VirtualKImageFilePreview*)self)->sizeHint());
-    }
+    return new QSize(self->KImageFilePreview::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnSizeHint(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_SizeHint_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_SizeHint_Callback>(slot));
+void KImageFilePreview_OnSizeHint(KImageFilePreview* self, intptr_t slot) {
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self)))
+        vkimagefilepreview->kimagefilepreview_sizehint_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperShowPreview(KImageFilePreview* self, const QUrl* url) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_ShowPreview_IsBase(true);
-        vkimagefilepreview->showPreview(*url);
-    } else {
-        self->KImageFilePreview::showPreview(*url);
-    }
+    self->KImageFilePreview::showPreview(*url);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnShowPreview(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_ShowPreview_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ShowPreview_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_showpreview_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ShowPreview_Callback>(slot);
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperClearPreview(KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_ClearPreview_IsBase(true);
-        vkimagefilepreview->clearPreview();
-    } else {
-        self->KImageFilePreview::clearPreview();
-    }
+    self->KImageFilePreview::clearPreview();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnClearPreview(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_ClearPreview_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ClearPreview_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_clearpreview_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ClearPreview_Callback>(slot);
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperGotPreview(KImageFilePreview* self, const KFileItem* param1, const QPixmap* param2) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_GotPreview_IsBase(true);
-        vkimagefilepreview->gotPreview(*param1, *param2);
-    } else {
-        ((VirtualKImageFilePreview*)self)->gotPreview(*param1, *param2);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::gotPreview(*param1, *param2);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::gotPreview called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnGotPreview(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_GotPreview_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_GotPreview_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_gotpreview_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_GotPreview_Callback>(slot);
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperResizeEvent(KImageFilePreview* self, QResizeEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_ResizeEvent_IsBase(true);
-        vkimagefilepreview->resizeEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->resizeEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnResizeEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_ResizeEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ResizeEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_resizeevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 KIO__PreviewJob* KImageFilePreview_SuperCreateJob(KImageFilePreview* self, const QUrl* url, int width, int height) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_CreateJob_IsBase(true);
-        return vkimagefilepreview->createJob(*url, static_cast<int>(width), static_cast<int>(height));
-    } else {
-        return ((VirtualKImageFilePreview*)self)->createJob(*url, static_cast<int>(width), static_cast<int>(height));
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        return vkimagefilepreview->KImageFilePreview::createJob(*url, static_cast<int>(width), static_cast<int>(height));
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::createJob called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnCreateJob(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_CreateJob_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_CreateJob_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_createjob_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_CreateJob_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KImageFilePreview_DevType(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return vkimagefilepreview->devType();
-    } else {
-        return self->KImageFilePreview::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KImageFilePreview_SuperDevType(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_DevType_IsBase(true);
-        return vkimagefilepreview->devType();
-    } else {
-        return self->KImageFilePreview::devType();
-    }
+    return self->KImageFilePreview::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnDevType(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_DevType_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DevType_Callback>(slot));
+void KImageFilePreview_OnDevType(KImageFilePreview* self, intptr_t slot) {
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self)))
+        vkimagefilepreview->kimagefilepreview_devtype_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_SetVisible(KImageFilePreview* self, bool visible) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setVisible(visible);
-    } else {
-        self->KImageFilePreview::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperSetVisible(KImageFilePreview* self, bool visible) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_SetVisible_IsBase(true);
-        vkimagefilepreview->setVisible(visible);
-    } else {
-        self->KImageFilePreview::setVisible(visible);
-    }
+    self->KImageFilePreview::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnSetVisible(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_SetVisible_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_SetVisible_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_setvisible_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KImageFilePreview_MinimumSizeHint(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return new QSize(vkimagefilepreview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKImageFilePreview*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KImageFilePreview_SuperMinimumSizeHint(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_MinimumSizeHint_IsBase(true);
-        return new QSize(vkimagefilepreview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKImageFilePreview*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KImageFilePreview::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnMinimumSizeHint(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_MinimumSizeHint_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MinimumSizeHint_Callback>(slot));
+void KImageFilePreview_OnMinimumSizeHint(KImageFilePreview* self, intptr_t slot) {
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self)))
+        vkimagefilepreview->kimagefilepreview_minimumsizehint_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KImageFilePreview_HeightForWidth(const KImageFilePreview* self, int param1) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return vkimagefilepreview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KImageFilePreview::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KImageFilePreview_SuperHeightForWidth(const KImageFilePreview* self, int param1) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_HeightForWidth_IsBase(true);
-        return vkimagefilepreview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KImageFilePreview::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KImageFilePreview::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnHeightForWidth(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_HeightForWidth_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_HeightForWidth_Callback>(slot));
+void KImageFilePreview_OnHeightForWidth(KImageFilePreview* self, intptr_t slot) {
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self)))
+        vkimagefilepreview->kimagefilepreview_heightforwidth_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KImageFilePreview_HasHeightForWidth(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return vkimagefilepreview->hasHeightForWidth();
-    } else {
-        return self->KImageFilePreview::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KImageFilePreview_SuperHasHeightForWidth(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_HasHeightForWidth_IsBase(true);
-        return vkimagefilepreview->hasHeightForWidth();
-    } else {
-        return self->KImageFilePreview::hasHeightForWidth();
-    }
+    return self->KImageFilePreview::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnHasHeightForWidth(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_HasHeightForWidth_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_HasHeightForWidth_Callback>(slot));
+void KImageFilePreview_OnHasHeightForWidth(KImageFilePreview* self, intptr_t slot) {
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self)))
+        vkimagefilepreview->kimagefilepreview_hasheightforwidth_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KImageFilePreview_PaintEngine(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return vkimagefilepreview->paintEngine();
-    } else {
-        return self->KImageFilePreview::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KImageFilePreview_SuperPaintEngine(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_PaintEngine_IsBase(true);
-        return vkimagefilepreview->paintEngine();
-    } else {
-        return self->KImageFilePreview::paintEngine();
-    }
+    return self->KImageFilePreview::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnPaintEngine(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_PaintEngine_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_PaintEngine_Callback>(slot));
+void KImageFilePreview_OnPaintEngine(KImageFilePreview* self, intptr_t slot) {
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self)))
+        vkimagefilepreview->kimagefilepreview_paintengine_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KImageFilePreview_Event(KImageFilePreview* self, QEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         return vkimagefilepreview->event(event);
     } else {
-        return ((VirtualKImageFilePreview*)self)->event(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KImageFilePreview_SuperEvent(KImageFilePreview* self, QEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_Event_IsBase(true);
-        return vkimagefilepreview->event(event);
-    } else {
-        return ((VirtualKImageFilePreview*)self)->event(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        return vkimagefilepreview->KImageFilePreview::event(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_Event_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Event_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_event_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_MousePressEvent(KImageFilePreview* self, QMouseEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->mousePressEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperMousePressEvent(KImageFilePreview* self, QMouseEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_MousePressEvent_IsBase(true);
-        vkimagefilepreview->mousePressEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->mousePressEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMousePressEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_MousePressEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MousePressEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_mousepressevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_MouseReleaseEvent(KImageFilePreview* self, QMouseEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->mouseReleaseEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperMouseReleaseEvent(KImageFilePreview* self, QMouseEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_MouseReleaseEvent_IsBase(true);
-        vkimagefilepreview->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMouseReleaseEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_mousereleaseevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_MouseDoubleClickEvent(KImageFilePreview* self, QMouseEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperMouseDoubleClickEvent(KImageFilePreview* self, QMouseEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_MouseDoubleClickEvent_IsBase(true);
-        vkimagefilepreview->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMouseDoubleClickEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_mousedoubleclickevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_MouseMoveEvent(KImageFilePreview* self, QMouseEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->mouseMoveEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperMouseMoveEvent(KImageFilePreview* self, QMouseEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_MouseMoveEvent_IsBase(true);
-        vkimagefilepreview->mouseMoveEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMouseMoveEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_MouseMoveEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MouseMoveEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_mousemoveevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_WheelEvent(KImageFilePreview* self, QWheelEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->wheelEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperWheelEvent(KImageFilePreview* self, QWheelEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_WheelEvent_IsBase(true);
-        vkimagefilepreview->wheelEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->wheelEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnWheelEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_WheelEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_WheelEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_wheelevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_KeyPressEvent(KImageFilePreview* self, QKeyEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->keyPressEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperKeyPressEvent(KImageFilePreview* self, QKeyEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_KeyPressEvent_IsBase(true);
-        vkimagefilepreview->keyPressEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->keyPressEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnKeyPressEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_KeyPressEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_KeyPressEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_keypressevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_KeyReleaseEvent(KImageFilePreview* self, QKeyEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->keyReleaseEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperKeyReleaseEvent(KImageFilePreview* self, QKeyEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_KeyReleaseEvent_IsBase(true);
-        vkimagefilepreview->keyReleaseEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnKeyReleaseEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_keyreleaseevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_FocusInEvent(KImageFilePreview* self, QFocusEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->focusInEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperFocusInEvent(KImageFilePreview* self, QFocusEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_FocusInEvent_IsBase(true);
-        vkimagefilepreview->focusInEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->focusInEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnFocusInEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_FocusInEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_FocusInEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_focusinevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_FocusOutEvent(KImageFilePreview* self, QFocusEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->focusOutEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperFocusOutEvent(KImageFilePreview* self, QFocusEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_FocusOutEvent_IsBase(true);
-        vkimagefilepreview->focusOutEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->focusOutEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnFocusOutEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_FocusOutEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_FocusOutEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_focusoutevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_EnterEvent(KImageFilePreview* self, QEnterEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->enterEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperEnterEvent(KImageFilePreview* self, QEnterEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_EnterEvent_IsBase(true);
-        vkimagefilepreview->enterEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->enterEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnEnterEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_EnterEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_EnterEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_enterevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_LeaveEvent(KImageFilePreview* self, QEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->leaveEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperLeaveEvent(KImageFilePreview* self, QEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_LeaveEvent_IsBase(true);
-        vkimagefilepreview->leaveEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->leaveEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnLeaveEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_LeaveEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_LeaveEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_leaveevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_PaintEvent(KImageFilePreview* self, QPaintEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->paintEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperPaintEvent(KImageFilePreview* self, QPaintEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_PaintEvent_IsBase(true);
-        vkimagefilepreview->paintEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->paintEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnPaintEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_PaintEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_PaintEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_paintevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_MoveEvent(KImageFilePreview* self, QMoveEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->moveEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperMoveEvent(KImageFilePreview* self, QMoveEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_MoveEvent_IsBase(true);
-        vkimagefilepreview->moveEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->moveEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMoveEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_MoveEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MoveEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_moveevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_CloseEvent(KImageFilePreview* self, QCloseEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->closeEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperCloseEvent(KImageFilePreview* self, QCloseEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_CloseEvent_IsBase(true);
-        vkimagefilepreview->closeEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->closeEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnCloseEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_CloseEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_CloseEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_closeevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_ContextMenuEvent(KImageFilePreview* self, QContextMenuEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->contextMenuEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperContextMenuEvent(KImageFilePreview* self, QContextMenuEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_ContextMenuEvent_IsBase(true);
-        vkimagefilepreview->contextMenuEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnContextMenuEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_ContextMenuEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ContextMenuEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_contextmenuevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_TabletEvent(KImageFilePreview* self, QTabletEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->tabletEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperTabletEvent(KImageFilePreview* self, QTabletEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_TabletEvent_IsBase(true);
-        vkimagefilepreview->tabletEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->tabletEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnTabletEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_TabletEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_TabletEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_tabletevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_ActionEvent(KImageFilePreview* self, QActionEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->actionEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperActionEvent(KImageFilePreview* self, QActionEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_ActionEvent_IsBase(true);
-        vkimagefilepreview->actionEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->actionEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnActionEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_ActionEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ActionEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_actionevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_DragEnterEvent(KImageFilePreview* self, QDragEnterEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->dragEnterEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperDragEnterEvent(KImageFilePreview* self, QDragEnterEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_DragEnterEvent_IsBase(true);
-        vkimagefilepreview->dragEnterEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnDragEnterEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_DragEnterEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DragEnterEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_dragenterevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_DragMoveEvent(KImageFilePreview* self, QDragMoveEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->dragMoveEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperDragMoveEvent(KImageFilePreview* self, QDragMoveEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_DragMoveEvent_IsBase(true);
-        vkimagefilepreview->dragMoveEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnDragMoveEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_DragMoveEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DragMoveEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_dragmoveevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_DragLeaveEvent(KImageFilePreview* self, QDragLeaveEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->dragLeaveEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperDragLeaveEvent(KImageFilePreview* self, QDragLeaveEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_DragLeaveEvent_IsBase(true);
-        vkimagefilepreview->dragLeaveEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnDragLeaveEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_DragLeaveEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DragLeaveEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_dragleaveevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_DropEvent(KImageFilePreview* self, QDropEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->dropEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperDropEvent(KImageFilePreview* self, QDropEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_DropEvent_IsBase(true);
-        vkimagefilepreview->dropEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->dropEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnDropEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_DropEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DropEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_dropevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_ShowEvent(KImageFilePreview* self, QShowEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->showEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperShowEvent(KImageFilePreview* self, QShowEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_ShowEvent_IsBase(true);
-        vkimagefilepreview->showEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->showEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnShowEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_ShowEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ShowEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_showevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_HideEvent(KImageFilePreview* self, QHideEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->hideEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperHideEvent(KImageFilePreview* self, QHideEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_HideEvent_IsBase(true);
-        vkimagefilepreview->hideEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->hideEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnHideEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_HideEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_HideEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_hideevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KImageFilePreview_NativeEvent(KImageFilePreview* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
+    if (vkimagefilepreview) {
         return vkimagefilepreview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKImageFilePreview*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KImageFilePreview::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KImageFilePreview_SuperNativeEvent(KImageFilePreview* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_NativeEvent_IsBase(true);
-        return vkimagefilepreview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKImageFilePreview*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        return vkimagefilepreview->KImageFilePreview::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnNativeEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_NativeEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_NativeEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_nativeevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_ChangeEvent(KImageFilePreview* self, QEvent* param1) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->changeEvent(param1);
     } else {
-        ((VirtualKImageFilePreview*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KImageFilePreview::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperChangeEvent(KImageFilePreview* self, QEvent* param1) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_ChangeEvent_IsBase(true);
-        vkimagefilepreview->changeEvent(param1);
-    } else {
-        ((VirtualKImageFilePreview*)self)->changeEvent(param1);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnChangeEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_ChangeEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ChangeEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_changeevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KImageFilePreview_Metric(const KImageFilePreview* self, int param1) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         return vkimagefilepreview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKImageFilePreview*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KImageFilePreview::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KImageFilePreview_SuperMetric(const KImageFilePreview* self, int param1) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_Metric_IsBase(true);
-        return vkimagefilepreview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKImageFilePreview*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self))) {
+        return vkimagefilepreview->KImageFilePreview::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnMetric(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_Metric_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Metric_Callback>(slot));
+void KImageFilePreview_OnMetric(KImageFilePreview* self, intptr_t slot) {
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self)))
+        vkimagefilepreview->kimagefilepreview_metric_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_InitPainter(const KImageFilePreview* self, QPainter* painter) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->initPainter(painter);
     } else {
-        ((VirtualKImageFilePreview*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KImageFilePreview::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperInitPainter(const KImageFilePreview* self, QPainter* painter) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_InitPainter_IsBase(true);
-        vkimagefilepreview->initPainter(painter);
-    } else {
-        ((VirtualKImageFilePreview*)self)->initPainter(painter);
-    }
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self))) {
+        vkimagefilepreview->KImageFilePreview::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnInitPainter(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_InitPainter_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_InitPainter_Callback>(slot));
+void KImageFilePreview_OnInitPainter(KImageFilePreview* self, intptr_t slot) {
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self)))
+        vkimagefilepreview->kimagefilepreview_initpainter_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KImageFilePreview_Redirected(const KImageFilePreview* self, QPoint* offset) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         return vkimagefilepreview->redirected(offset);
     } else {
-        return ((VirtualKImageFilePreview*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KImageFilePreview::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KImageFilePreview_SuperRedirected(const KImageFilePreview* self, QPoint* offset) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_Redirected_IsBase(true);
-        return vkimagefilepreview->redirected(offset);
-    } else {
-        return ((VirtualKImageFilePreview*)self)->redirected(offset);
-    }
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self))) {
+        return vkimagefilepreview->KImageFilePreview::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnRedirected(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_Redirected_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Redirected_Callback>(slot));
+void KImageFilePreview_OnRedirected(KImageFilePreview* self, intptr_t slot) {
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self)))
+        vkimagefilepreview->kimagefilepreview_redirected_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KImageFilePreview_SharedPainter(const KImageFilePreview* self) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         return vkimagefilepreview->sharedPainter();
     } else {
-        return ((VirtualKImageFilePreview*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KImageFilePreview::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KImageFilePreview_SuperSharedPainter(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_SharedPainter_IsBase(true);
-        return vkimagefilepreview->sharedPainter();
-    } else {
-        return ((VirtualKImageFilePreview*)self)->sharedPainter();
-    }
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self))) {
+        return vkimagefilepreview->KImageFilePreview::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnSharedPainter(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_SharedPainter_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_SharedPainter_Callback>(slot));
+void KImageFilePreview_OnSharedPainter(KImageFilePreview* self, intptr_t slot) {
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self)))
+        vkimagefilepreview->kimagefilepreview_sharedpainter_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_InputMethodEvent(KImageFilePreview* self, QInputMethodEvent* param1) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->inputMethodEvent(param1);
     } else {
-        ((VirtualKImageFilePreview*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KImageFilePreview::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperInputMethodEvent(KImageFilePreview* self, QInputMethodEvent* param1) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_InputMethodEvent_IsBase(true);
-        vkimagefilepreview->inputMethodEvent(param1);
-    } else {
-        ((VirtualKImageFilePreview*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnInputMethodEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_InputMethodEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_InputMethodEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_inputmethodevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KImageFilePreview_InputMethodQuery(const KImageFilePreview* self, int param1) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return new QVariant(vkimagefilepreview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKImageFilePreview*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KImageFilePreview_SuperInputMethodQuery(const KImageFilePreview* self, int param1) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_InputMethodQuery_IsBase(true);
-        return new QVariant(vkimagefilepreview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKImageFilePreview*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KImageFilePreview::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnInputMethodQuery(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_InputMethodQuery_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_InputMethodQuery_Callback>(slot));
+void KImageFilePreview_OnInputMethodQuery(KImageFilePreview* self, intptr_t slot) {
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self)))
+        vkimagefilepreview->kimagefilepreview_inputmethodquery_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KImageFilePreview_FocusNextPrevChild(KImageFilePreview* self, bool next) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         return vkimagefilepreview->focusNextPrevChild(next);
     } else {
-        return ((VirtualKImageFilePreview*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KImageFilePreview::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KImageFilePreview_SuperFocusNextPrevChild(KImageFilePreview* self, bool next) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_FocusNextPrevChild_IsBase(true);
-        return vkimagefilepreview->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKImageFilePreview*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        return vkimagefilepreview->KImageFilePreview::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnFocusNextPrevChild(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_focusnextprevchild_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KImageFilePreview_EventFilter(KImageFilePreview* self, QObject* watched, QEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return vkimagefilepreview->eventFilter(watched, event);
-    } else {
-        return self->KImageFilePreview::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KImageFilePreview_SuperEventFilter(KImageFilePreview* self, QObject* watched, QEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_EventFilter_IsBase(true);
-        return vkimagefilepreview->eventFilter(watched, event);
-    } else {
-        return self->KImageFilePreview::eventFilter(watched, event);
-    }
+    return self->KImageFilePreview::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnEventFilter(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_EventFilter_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_EventFilter_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_eventfilter_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_TimerEvent(KImageFilePreview* self, QTimerEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->timerEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperTimerEvent(KImageFilePreview* self, QTimerEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_TimerEvent_IsBase(true);
-        vkimagefilepreview->timerEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->timerEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnTimerEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_TimerEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_TimerEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_timerevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_ChildEvent(KImageFilePreview* self, QChildEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->childEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperChildEvent(KImageFilePreview* self, QChildEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_ChildEvent_IsBase(true);
-        vkimagefilepreview->childEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->childEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnChildEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_ChildEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ChildEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_childevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_CustomEvent(KImageFilePreview* self, QEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->customEvent(event);
     } else {
-        ((VirtualKImageFilePreview*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KImageFilePreview::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperCustomEvent(KImageFilePreview* self, QEvent* event) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_CustomEvent_IsBase(true);
-        vkimagefilepreview->customEvent(event);
-    } else {
-        ((VirtualKImageFilePreview*)self)->customEvent(event);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnCustomEvent(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_CustomEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_CustomEvent_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_customevent_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_ConnectNotify(KImageFilePreview* self, const QMetaMethod* signal) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->connectNotify(*signal);
     } else {
-        ((VirtualKImageFilePreview*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KImageFilePreview::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperConnectNotify(KImageFilePreview* self, const QMetaMethod* signal) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_ConnectNotify_IsBase(true);
-        vkimagefilepreview->connectNotify(*signal);
-    } else {
-        ((VirtualKImageFilePreview*)self)->connectNotify(*signal);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnConnectNotify(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_ConnectNotify_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ConnectNotify_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_connectnotify_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KImageFilePreview_DisconnectNotify(KImageFilePreview* self, const QMetaMethod* signal) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview) {
         vkimagefilepreview->disconnectNotify(*signal);
     } else {
-        ((VirtualKImageFilePreview*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KImageFilePreview::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KImageFilePreview_SuperDisconnectNotify(KImageFilePreview* self, const QMetaMethod* signal) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_DisconnectNotify_IsBase(true);
-        vkimagefilepreview->disconnectNotify(*signal);
-    } else {
-        ((VirtualKImageFilePreview*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->KImageFilePreview::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KImageFilePreview::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnDisconnectNotify(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_DisconnectNotify_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DisconnectNotify_Callback>(slot));
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self))
+        vkimagefilepreview->kimagefilepreview_disconnectnotify_callback = reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KImageFilePreview_ShowPreview2(KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->showPreview();
-    } else {
-        ((VirtualKImageFilePreview*)self)->showPreview();
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->VirtualKImageFilePreview::showPreview();
+    } else
+        qFatal("Error: Protected method KImageFilePreview::showPreview2 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KImageFilePreview_SuperShowPreview2(KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_ShowPreview2_IsBase(true);
-        vkimagefilepreview->showPreview();
-    } else {
-        ((VirtualKImageFilePreview*)self)->showPreview();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnShowPreview2(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_ShowPreview2_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ShowPreview2_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KImageFilePreview_ShowPreview3(KImageFilePreview* self, const QUrl* url, bool force) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->showPreview(*url, force);
-    } else {
-        ((VirtualKImageFilePreview*)self)->showPreview(*url, force);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->VirtualKImageFilePreview::showPreview(*url, force);
+    } else
+        qFatal("Error: Protected method KImageFilePreview::showPreview3 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KImageFilePreview_SuperShowPreview3(KImageFilePreview* self, const QUrl* url, bool force) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_ShowPreview3_IsBase(true);
-        vkimagefilepreview->showPreview(*url, force);
-    } else {
-        ((VirtualKImageFilePreview*)self)->showPreview(*url, force);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnShowPreview3(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_ShowPreview3_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ShowPreview3_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KImageFilePreview_SetSupportedMimeTypes(KImageFilePreview* self, const libqt_list /* of libqt_string */ mimeTypes) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    QList<QString> mimeTypes_QList;
-    mimeTypes_QList.reserve(mimeTypes.len);
-    libqt_string* mimeTypes_arr = static_cast<libqt_string*>(mimeTypes.data);
-    for (size_t i = 0; i < mimeTypes.len; ++i) {
-        QString mimeTypes_arr_i_QString = QString::fromUtf8(mimeTypes_arr[i].data, mimeTypes_arr[i].len);
-        mimeTypes_QList.push_back(mimeTypes_arr_i_QString);
-    }
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setSupportedMimeTypes(mimeTypes_QList);
-    } else {
-        ((VirtualKImageFilePreview*)self)->setSupportedMimeTypes(mimeTypes_QList);
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        QList<QString> mimeTypes_QList;
+        mimeTypes_QList.reserve(mimeTypes.len);
+        libqt_string* mimeTypes_arr = static_cast<libqt_string*>(mimeTypes.data);
+        for (size_t i = 0; i < mimeTypes.len; ++i) {
+            QString mimeTypes_arr_i_QString = QString::fromUtf8(mimeTypes_arr[i].data, mimeTypes_arr[i].len);
+            mimeTypes_QList.push_back(mimeTypes_arr_i_QString);
+        }
+        vkimagefilepreview->VirtualKImageFilePreview::setSupportedMimeTypes(mimeTypes_QList);
+    } else
+        qFatal("Error: Protected method KImageFilePreview::setSupportedMimeTypes called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KImageFilePreview_SuperSetSupportedMimeTypes(KImageFilePreview* self, const libqt_list /* of libqt_string */ mimeTypes) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    QList<QString> mimeTypes_QList;
-    mimeTypes_QList.reserve(mimeTypes.len);
-    libqt_string* mimeTypes_arr = static_cast<libqt_string*>(mimeTypes.data);
-    for (size_t i = 0; i < mimeTypes.len; ++i) {
-        QString mimeTypes_arr_i_QString = QString::fromUtf8(mimeTypes_arr[i].data, mimeTypes_arr[i].len);
-        mimeTypes_QList.push_back(mimeTypes_arr_i_QString);
-    }
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_SetSupportedMimeTypes_IsBase(true);
-        vkimagefilepreview->setSupportedMimeTypes(mimeTypes_QList);
-    } else {
-        ((VirtualKImageFilePreview*)self)->setSupportedMimeTypes(mimeTypes_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnSetSupportedMimeTypes(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_SetSupportedMimeTypes_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_SetSupportedMimeTypes_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KImageFilePreview_UpdateMicroFocus(KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->updateMicroFocus();
-    } else {
-        ((VirtualKImageFilePreview*)self)->updateMicroFocus();
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->VirtualKImageFilePreview::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KImageFilePreview::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KImageFilePreview_SuperUpdateMicroFocus(KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_UpdateMicroFocus_IsBase(true);
-        vkimagefilepreview->updateMicroFocus();
-    } else {
-        ((VirtualKImageFilePreview*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnUpdateMicroFocus(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KImageFilePreview_Create(KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->create();
-    } else {
-        ((VirtualKImageFilePreview*)self)->create();
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->VirtualKImageFilePreview::create();
+    } else
+        qFatal("Error: Protected method KImageFilePreview::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KImageFilePreview_SuperCreate(KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_Create_IsBase(true);
-        vkimagefilepreview->create();
-    } else {
-        ((VirtualKImageFilePreview*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnCreate(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_Create_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KImageFilePreview_Destroy(KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->destroy();
-    } else {
-        ((VirtualKImageFilePreview*)self)->destroy();
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        vkimagefilepreview->VirtualKImageFilePreview::destroy();
+    } else
+        qFatal("Error: Protected method KImageFilePreview::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KImageFilePreview_SuperDestroy(KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_Destroy_IsBase(true);
-        vkimagefilepreview->destroy();
-    } else {
-        ((VirtualKImageFilePreview*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnDestroy(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_Destroy_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KImageFilePreview_FocusNextChild(KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return vkimagefilepreview->focusNextChild();
-    } else {
-        return ((VirtualKImageFilePreview*)self)->focusNextChild();
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        return vkimagefilepreview->VirtualKImageFilePreview::focusNextChild();
+    } else
+        qFatal("Error: Protected method KImageFilePreview::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KImageFilePreview_SuperFocusNextChild(KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_FocusNextChild_IsBase(true);
-        return vkimagefilepreview->focusNextChild();
-    } else {
-        return ((VirtualKImageFilePreview*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnFocusNextChild(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_FocusNextChild_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KImageFilePreview_FocusPreviousChild(KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return vkimagefilepreview->focusPreviousChild();
-    } else {
-        return ((VirtualKImageFilePreview*)self)->focusPreviousChild();
-    }
+    if (auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self)) {
+        return vkimagefilepreview->VirtualKImageFilePreview::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KImageFilePreview::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KImageFilePreview_SuperFocusPreviousChild(KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_FocusPreviousChild_IsBase(true);
-        return vkimagefilepreview->focusPreviousChild();
-    } else {
-        return ((VirtualKImageFilePreview*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnFocusPreviousChild(KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_FocusPreviousChild_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KImageFilePreview_Sender(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return vkimagefilepreview->sender();
-    } else {
-        return ((VirtualKImageFilePreview*)self)->sender();
-    }
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self))) {
+        return vkimagefilepreview->VirtualKImageFilePreview::sender();
+    } else
+        qFatal("Error: Protected method KImageFilePreview::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KImageFilePreview_SuperSender(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_Sender_IsBase(true);
-        return vkimagefilepreview->sender();
-    } else {
-        return ((VirtualKImageFilePreview*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnSender(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_Sender_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KImageFilePreview_SenderSignalIndex(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return vkimagefilepreview->senderSignalIndex();
-    } else {
-        return ((VirtualKImageFilePreview*)self)->senderSignalIndex();
-    }
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self))) {
+        return vkimagefilepreview->VirtualKImageFilePreview::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KImageFilePreview::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KImageFilePreview_SuperSenderSignalIndex(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_SenderSignalIndex_IsBase(true);
-        return vkimagefilepreview->senderSignalIndex();
-    } else {
-        return ((VirtualKImageFilePreview*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnSenderSignalIndex(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_SenderSignalIndex_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KImageFilePreview_Receivers(const KImageFilePreview* self, const char* signal) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return vkimagefilepreview->receivers(signal);
-    } else {
-        return ((VirtualKImageFilePreview*)self)->receivers(signal);
-    }
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self))) {
+        return vkimagefilepreview->VirtualKImageFilePreview::receivers(signal);
+    } else
+        qFatal("Error: Protected method KImageFilePreview::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KImageFilePreview_SuperReceivers(const KImageFilePreview* self, const char* signal) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_Receivers_IsBase(true);
-        return vkimagefilepreview->receivers(signal);
-    } else {
-        return ((VirtualKImageFilePreview*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnReceivers(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_Receivers_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KImageFilePreview_IsSignalConnected(const KImageFilePreview* self, const QMetaMethod* signal) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return vkimagefilepreview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKImageFilePreview*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self))) {
+        return vkimagefilepreview->VirtualKImageFilePreview::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KImageFilePreview::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KImageFilePreview_SuperIsSignalConnected(const KImageFilePreview* self, const QMetaMethod* signal) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_IsSignalConnected_IsBase(true);
-        return vkimagefilepreview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKImageFilePreview*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnIsSignalConnected(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_IsSignalConnected_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KImageFilePreview_GetDecodedMetricF(const KImageFilePreview* self, int metricA, int metricB) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return vkimagefilepreview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKImageFilePreview*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KImageFilePreview_SuperGetDecodedMetricF(const KImageFilePreview* self, int metricA, int metricB) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        vkimagefilepreview->setKImageFilePreview_GetDecodedMetricF_IsBase(true);
-        return vkimagefilepreview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKImageFilePreview*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KImageFilePreview_OnGetDecodedMetricF(const KImageFilePreview* self, intptr_t slot) {
-    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
-        vkimagefilepreview->setKImageFilePreview_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self))) {
+        return vkimagefilepreview->VirtualKImageFilePreview::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KImageFilePreview::getDecodedMetricF called without a directly constructed type");
 }
 
 void KImageFilePreview_Delete(KImageFilePreview* self) {

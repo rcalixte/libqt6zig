@@ -118,9 +118,9 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     /// ` self: KParts__ReadOnlyPart `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KParts__ReadOnlyPart) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KParts__ReadOnlyPart, callback: *const fn (KParts__ReadOnlyPart) callconv(.c) QMetaObject) void {
         qtc.KParts__ReadOnlyPart_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -389,9 +389,9 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     /// ` self: KParts__ReadOnlyPart `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__ReadOnlyPart) callconv(.c) bool `
     ///
-    pub fn onCloseUrl(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCloseUrl(self: KParts__ReadOnlyPart, callback: *const fn (KParts__ReadOnlyPart) callconv(.c) bool) void {
         qtc.KParts__ReadOnlyPart_OnCloseUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -701,9 +701,9 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     /// ` self: KParts__ReadOnlyPart `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__ReadOnlyPart) callconv(.c) bool `
     ///
-    pub fn onOpenFile(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) bool) void {
+    pub fn onOpenFile(self: KParts__ReadOnlyPart, callback: *const fn (KParts__ReadOnlyPart) callconv(.c) bool) void {
         qtc.KParts__ReadOnlyPart_OnOpenFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -735,40 +735,6 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     pub fn abortLoad(self: KParts__ReadOnlyPart) void {
         qtc.KParts__ReadOnlyPart_AbortLoad(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAbortLoad` instead
-    ///
-    pub const OnAbortLoad = onAbortLoad;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#abortLoad)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onAbortLoad(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__ReadOnlyPart_OnAbortLoad(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAbortLoad` instead
-    ///
-    pub const SuperAbortLoad = superAbortLoad;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#abortLoad)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    pub fn superAbortLoad(self: KParts__ReadOnlyPart) void {
-        qtc.KParts__ReadOnlyPart_SuperAbortLoad(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `guiActivateEvent` instead
@@ -842,43 +808,6 @@ pub const KParts__ReadOnlyPart = extern struct {
         qtc.KParts__ReadOnlyPart_SetUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetUrl` instead
-    ///
-    pub const OnSetUrl = onSetUrl;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setUrl)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    /// ` callback: *const fn (self: KParts__ReadOnlyPart, url: QUrl) callconv(.c) void `
-    ///
-    pub fn onSetUrl(self: KParts__ReadOnlyPart, callback: *const fn (KParts__ReadOnlyPart, QUrl) callconv(.c) void) void {
-        qtc.KParts__ReadOnlyPart_OnSetUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetUrl` instead
-    ///
-    pub const SuperSetUrl = superSetUrl;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setUrl)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    /// ` _url: QUrl `
-    ///
-    pub fn superSetUrl(self: KParts__ReadOnlyPart, _url: anytype) void {
-        comptime _ = @TypeOf(_url)._is_QUrl;
-        qtc.KParts__ReadOnlyPart_SuperSetUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr));
-    }
-
     /// ### DEPRECATED: Use `localFilePath` instead
     ///
     pub const LocalFilePath = localFilePath;
@@ -893,46 +822,6 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     pub fn localFilePath(self: KParts__ReadOnlyPart, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KParts__ReadOnlyPart_LocalFilePath(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__ReadOnlyPart.localFilePath: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onLocalFilePath` instead
-    ///
-    pub const OnLocalFilePath = onLocalFilePath;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#localFilePath)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onLocalFilePath(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__ReadOnlyPart_OnLocalFilePath(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superLocalFilePath` instead
-    ///
-    pub const SuperLocalFilePath = superLocalFilePath;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#localFilePath)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superLocalFilePath(self: KParts__ReadOnlyPart, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__ReadOnlyPart_SuperLocalFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__ReadOnlyPart.localFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -957,46 +846,6 @@ pub const KParts__ReadOnlyPart = extern struct {
             .data = _localFilePath.ptr,
         };
         qtc.KParts__ReadOnlyPart_SetLocalFilePath(@ptrCast(self.ptr), localFilePath_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetLocalFilePath` instead
-    ///
-    pub const OnSetLocalFilePath = onSetLocalFilePath;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    /// ` callback: *const fn (self: KParts__ReadOnlyPart, localFilePath: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetLocalFilePath(self: KParts__ReadOnlyPart, callback: *const fn (KParts__ReadOnlyPart, [*:0]const u8) callconv(.c) void) void {
-        qtc.KParts__ReadOnlyPart_OnSetLocalFilePath(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetLocalFilePath` instead
-    ///
-    pub const SuperSetLocalFilePath = superSetLocalFilePath;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    /// ` _localFilePath: []const u8 `
-    ///
-    pub fn superSetLocalFilePath(self: KParts__ReadOnlyPart, _localFilePath: []const u8) void {
-        const localFilePath_str = qtc.libqt_string{
-            .len = _localFilePath.len,
-            .data = _localFilePath.ptr,
-        };
-        qtc.KParts__ReadOnlyPart_SuperSetLocalFilePath(@ptrCast(self.ptr), localFilePath_str);
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2805,9 +2654,9 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     /// ` self: KParts__ReadOnlyPart`
     ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
+    /// ` callback: *const fn (self: KParts__ReadOnlyPart) callconv(.c) QWidget `
     ///
-    pub fn onWidget(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onWidget(self: KParts__ReadOnlyPart, callback: *const fn (KParts__ReadOnlyPart) callconv(.c) QWidget) void {
         qtc.KParts__ReadOnlyPart_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3617,9 +3466,9 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     /// ` self: KParts__ReadOnlyPart`
     ///
-    /// ` callback: *const fn () callconv(.c) KActionCollection `
+    /// ` callback: *const fn (self: KParts__ReadOnlyPart) callconv(.c) KActionCollection `
     ///
-    pub fn onActionCollection(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) KActionCollection) void {
+    pub fn onActionCollection(self: KParts__ReadOnlyPart, callback: *const fn (KParts__ReadOnlyPart) callconv(.c) KActionCollection) void {
         qtc.KParts__ReadOnlyPart_OnActionCollection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3685,9 +3534,9 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     /// ` self: KParts__ReadOnlyPart`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KParts__ReadOnlyPart) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onComponentName(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onComponentName(self: KParts__ReadOnlyPart, callback: *const fn (KParts__ReadOnlyPart) callconv(.c) [*:0]const u8) void {
         qtc.KParts__ReadOnlyPart_OnComponentName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3741,11 +3590,11 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     /// ` self: KParts__ReadOnlyPart`
     ///
-    /// ` callback: *const fn () callconv(.c) QDomDocument `
+    /// ` callback: *const fn (self: KParts__ReadOnlyPart) callconv(.c) QDomDocument `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onDomDocument(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) QDomDocument) void {
+    pub fn onDomDocument(self: KParts__ReadOnlyPart, callback: *const fn (KParts__ReadOnlyPart) callconv(.c) QDomDocument) void {
         qtc.KParts__ReadOnlyPart_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3811,9 +3660,9 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     /// ` self: KParts__ReadOnlyPart`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KParts__ReadOnlyPart) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onXmlFile(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onXmlFile(self: KParts__ReadOnlyPart, callback: *const fn (KParts__ReadOnlyPart) callconv(.c) [*:0]const u8) void {
         qtc.KParts__ReadOnlyPart_OnXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3879,9 +3728,9 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     /// ` self: KParts__ReadOnlyPart`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KParts__ReadOnlyPart) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onLocalXMLFile(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onLocalXMLFile(self: KParts__ReadOnlyPart, callback: *const fn (KParts__ReadOnlyPart) callconv(.c) [*:0]const u8) void {
         qtc.KParts__ReadOnlyPart_OnLocalXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4343,50 +4192,6 @@ pub const KParts__ReadOnlyPart = extern struct {
         return .{ .ptr = qtc.KParts__ReadOnlyPart_HostContainer(@ptrCast(self.ptr), containerName_str) };
     }
 
-    /// ### DEPRECATED: Use `superHostContainer` instead
-    ///
-    pub const SuperHostContainer = superHostContainer;
-
-    /// Inherited from KParts::Part
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    /// ` containerName: []const u8 `
-    ///
-    pub fn superHostContainer(self: KParts__ReadOnlyPart, containerName: []const u8) QWidget {
-        const containerName_str = qtc.libqt_string{
-            .len = containerName.len,
-            .data = containerName.ptr,
-        };
-        return .{ .ptr = qtc.KParts__ReadOnlyPart_SuperHostContainer(@ptrCast(self.ptr), containerName_str) };
-    }
-
-    /// ### DEPRECATED: Use `onHostContainer` instead
-    ///
-    pub const OnHostContainer = onHostContainer;
-
-    /// Inherited from KParts::Part
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ReadOnlyPart`
-    ///
-    /// ` callback: *const fn (self: KParts__ReadOnlyPart, containerName: [*:0]const u8) callconv(.c) QWidget `
-    ///
-    pub fn onHostContainer(self: KParts__ReadOnlyPart, callback: *const fn (KParts__ReadOnlyPart, [*:0]const u8) callconv(.c) QWidget) void {
-        qtc.KParts__ReadOnlyPart_OnHostContainer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `slotWidgetDestroyed` instead
     ///
     pub const SlotWidgetDestroyed = slotWidgetDestroyed;
@@ -4403,44 +4208,6 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     pub fn slotWidgetDestroyed(self: KParts__ReadOnlyPart) void {
         qtc.KParts__ReadOnlyPart_SlotWidgetDestroyed(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSlotWidgetDestroyed` instead
-    ///
-    pub const SuperSlotWidgetDestroyed = superSlotWidgetDestroyed;
-
-    /// Inherited from KParts::Part
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    pub fn superSlotWidgetDestroyed(self: KParts__ReadOnlyPart) void {
-        qtc.KParts__ReadOnlyPart_SuperSlotWidgetDestroyed(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotWidgetDestroyed` instead
-    ///
-    pub const OnSlotWidgetDestroyed = onSlotWidgetDestroyed;
-
-    /// Inherited from KParts::Part
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ReadOnlyPart`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotWidgetDestroyed(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__ReadOnlyPart_OnSlotWidgetDestroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -4461,44 +4228,6 @@ pub const KParts__ReadOnlyPart = extern struct {
         return .{ .ptr = qtc.KParts__ReadOnlyPart_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    pub fn superSender(self: KParts__ReadOnlyPart) QObject {
-        return .{ .ptr = qtc.KParts__ReadOnlyPart_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ReadOnlyPart`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KParts__ReadOnlyPart_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4515,44 +4244,6 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     pub fn senderSignalIndex(self: KParts__ReadOnlyPart) i32 {
         return qtc.KParts__ReadOnlyPart_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    pub fn superSenderSignalIndex(self: KParts__ReadOnlyPart) i32 {
-        return qtc.KParts__ReadOnlyPart_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ReadOnlyPart`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) i32) void {
-        qtc.KParts__ReadOnlyPart_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4576,47 +4267,6 @@ pub const KParts__ReadOnlyPart = extern struct {
         return qtc.KParts__ReadOnlyPart_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KParts__ReadOnlyPart, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KParts__ReadOnlyPart_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ReadOnlyPart`
-    ///
-    /// ` callback: *const fn (self: KParts__ReadOnlyPart, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KParts__ReadOnlyPart, callback: *const fn (KParts__ReadOnlyPart, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KParts__ReadOnlyPart_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4636,47 +4286,6 @@ pub const KParts__ReadOnlyPart = extern struct {
     pub fn isSignalConnected(self: KParts__ReadOnlyPart, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KParts__ReadOnlyPart_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KParts__ReadOnlyPart, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KParts__ReadOnlyPart_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ReadOnlyPart`
-    ///
-    /// ` callback: *const fn (self: KParts__ReadOnlyPart, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KParts__ReadOnlyPart, callback: *const fn (KParts__ReadOnlyPart, QMetaMethod) callconv(.c) bool) void {
-        qtc.KParts__ReadOnlyPart_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `standardsXmlFileLocation` instead
@@ -4703,50 +4312,6 @@ pub const KParts__ReadOnlyPart = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superStandardsXmlFileLocation` instead
-    ///
-    pub const SuperStandardsXmlFileLocation = superStandardsXmlFileLocation;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superStandardsXmlFileLocation(self: KParts__ReadOnlyPart, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__ReadOnlyPart_SuperStandardsXmlFileLocation(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__ReadOnlyPart.standardsXmlFileLocation: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onStandardsXmlFileLocation` instead
-    ///
-    pub const OnStandardsXmlFileLocation = onStandardsXmlFileLocation;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ReadOnlyPart`
-    ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onStandardsXmlFileLocation(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__ReadOnlyPart_OnStandardsXmlFileLocation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `loadStandardsXmlFile` instead
     ///
     pub const LoadStandardsXmlFile = loadStandardsXmlFile;
@@ -4763,44 +4328,6 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     pub fn loadStandardsXmlFile(self: KParts__ReadOnlyPart) void {
         qtc.KParts__ReadOnlyPart_LoadStandardsXmlFile(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superLoadStandardsXmlFile` instead
-    ///
-    pub const SuperLoadStandardsXmlFile = superLoadStandardsXmlFile;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ReadOnlyPart `
-    ///
-    pub fn superLoadStandardsXmlFile(self: KParts__ReadOnlyPart) void {
-        qtc.KParts__ReadOnlyPart_SuperLoadStandardsXmlFile(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onLoadStandardsXmlFile` instead
-    ///
-    pub const OnLoadStandardsXmlFile = onLoadStandardsXmlFile;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ReadOnlyPart`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onLoadStandardsXmlFile(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__ReadOnlyPart_OnLoadStandardsXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

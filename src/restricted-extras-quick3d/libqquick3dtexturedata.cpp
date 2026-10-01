@@ -108,7 +108,7 @@ void QQuick3DTextureData_Connect_TextureDataNodeDirty(QQuick3DTextureData* self,
 
 void QQuick3DTextureData_MarkAllDirty(QQuick3DTextureData* self) {
     auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
+    if (vqquick3dtexturedata) {
         vqquick3dtexturedata->markAllDirty();
     }
 }
@@ -139,522 +139,337 @@ libqt_string QQuick3DTextureData_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QQuick3DTextureData_SuperMetaObject(const QQuick3DTextureData* self) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_MetaObject_IsBase(true);
-        return (QMetaObject*)vqquick3dtexturedata->metaObject();
-    } else {
-        return (QMetaObject*)self->QQuick3DTextureData::metaObject();
-    }
+    return (QMetaObject*)self->QQuick3DTextureData::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuick3DTextureData_OnMetaObject(const QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_MetaObject_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_MetaObject_Callback>(slot));
+void QQuick3DTextureData_OnMetaObject(QQuick3DTextureData* self, intptr_t slot) {
+    if (auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self)))
+        vqquick3dtexturedata->qquick3dtexturedata_metaobject_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQuick3DTextureData_SuperMetacast(QQuick3DTextureData* self, const char* param1) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_Metacast_IsBase(true);
-        return vqquick3dtexturedata->qt_metacast(param1);
-    } else {
-        return self->QQuick3DTextureData::qt_metacast(param1);
-    }
+    return self->QQuick3DTextureData::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DTextureData_OnMetacast(QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_Metacast_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_Metacast_Callback>(slot));
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self))
+        vqquick3dtexturedata->qquick3dtexturedata_metacast_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQuick3DTextureData_SuperMetacall(QQuick3DTextureData* self, int param1, int param2, void** param3) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_Metacall_IsBase(true);
-        return vqquick3dtexturedata->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQuick3DTextureData::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQuick3DTextureData::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DTextureData_OnMetacall(QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_Metacall_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_Metacall_Callback>(slot));
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self))
+        vqquick3dtexturedata->qquick3dtexturedata_metacall_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuick3DTextureData_SuperMarkAllDirty(QQuick3DTextureData* self) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_MarkAllDirty_IsBase(true);
-        vqquick3dtexturedata->markAllDirty();
-    } else {
-        ((VirtualQQuick3DTextureData*)self)->markAllDirty();
-    }
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self)) {
+        vqquick3dtexturedata->QQuick3DTextureData::markAllDirty();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DTextureData::markAllDirty called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DTextureData_OnMarkAllDirty(QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_MarkAllDirty_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_MarkAllDirty_Callback>(slot));
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self))
+        vqquick3dtexturedata->qquick3dtexturedata_markalldirty_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_MarkAllDirty_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DTextureData_ItemChange(QQuick3DTextureData* self, int param1, const QQuick3DObject__ItemChangeData* param2) {
     auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
+    if (vqquick3dtexturedata) {
         vqquick3dtexturedata->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
     } else {
-        ((VirtualQQuick3DTextureData*)self)->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
+        qFatal("Error: Protected virtual method QQuick3DTextureData::itemChange called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DTextureData_SuperItemChange(QQuick3DTextureData* self, int param1, const QQuick3DObject__ItemChangeData* param2) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_ItemChange_IsBase(true);
-        vqquick3dtexturedata->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
-    } else {
-        ((VirtualQQuick3DTextureData*)self)->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
-    }
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self)) {
+        vqquick3dtexturedata->QQuick3DTextureData::itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DTextureData::itemChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DTextureData_OnItemChange(QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_ItemChange_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_ItemChange_Callback>(slot));
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self))
+        vqquick3dtexturedata->qquick3dtexturedata_itemchange_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_ItemChange_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DTextureData_ClassBegin(QQuick3DTextureData* self) {
     auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
+    if (vqquick3dtexturedata) {
         vqquick3dtexturedata->classBegin();
     } else {
-        ((VirtualQQuick3DTextureData*)self)->classBegin();
+        qFatal("Error: Protected virtual method QQuick3DTextureData::classBegin called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DTextureData_SuperClassBegin(QQuick3DTextureData* self) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_ClassBegin_IsBase(true);
-        vqquick3dtexturedata->classBegin();
-    } else {
-        ((VirtualQQuick3DTextureData*)self)->classBegin();
-    }
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self)) {
+        vqquick3dtexturedata->QQuick3DTextureData::classBegin();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DTextureData::classBegin called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DTextureData_OnClassBegin(QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_ClassBegin_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_ClassBegin_Callback>(slot));
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self))
+        vqquick3dtexturedata->qquick3dtexturedata_classbegin_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_ClassBegin_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DTextureData_ComponentComplete(QQuick3DTextureData* self) {
     auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
+    if (vqquick3dtexturedata) {
         vqquick3dtexturedata->componentComplete();
     } else {
-        ((VirtualQQuick3DTextureData*)self)->componentComplete();
+        qFatal("Error: Protected virtual method QQuick3DTextureData::componentComplete called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DTextureData_SuperComponentComplete(QQuick3DTextureData* self) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_ComponentComplete_IsBase(true);
-        vqquick3dtexturedata->componentComplete();
-    } else {
-        ((VirtualQQuick3DTextureData*)self)->componentComplete();
-    }
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self)) {
+        vqquick3dtexturedata->QQuick3DTextureData::componentComplete();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DTextureData::componentComplete called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DTextureData_OnComponentComplete(QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_ComponentComplete_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_ComponentComplete_Callback>(slot));
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self))
+        vqquick3dtexturedata->qquick3dtexturedata_componentcomplete_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_ComponentComplete_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DTextureData_PreSync(QQuick3DTextureData* self) {
     auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
+    if (vqquick3dtexturedata) {
         vqquick3dtexturedata->preSync();
     } else {
-        ((VirtualQQuick3DTextureData*)self)->preSync();
+        qFatal("Error: Protected virtual method QQuick3DTextureData::preSync called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DTextureData_SuperPreSync(QQuick3DTextureData* self) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_PreSync_IsBase(true);
-        vqquick3dtexturedata->preSync();
-    } else {
-        ((VirtualQQuick3DTextureData*)self)->preSync();
-    }
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self)) {
+        vqquick3dtexturedata->QQuick3DTextureData::preSync();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DTextureData::preSync called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DTextureData_OnPreSync(QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_PreSync_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_PreSync_Callback>(slot));
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self))
+        vqquick3dtexturedata->qquick3dtexturedata_presync_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_PreSync_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuick3DTextureData_Event(QQuick3DTextureData* self, QEvent* event) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        return vqquick3dtexturedata->event(event);
-    } else {
-        return self->QQuick3DTextureData::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QQuick3DTextureData_SuperEvent(QQuick3DTextureData* self, QEvent* event) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_Event_IsBase(true);
-        return vqquick3dtexturedata->event(event);
-    } else {
-        return self->QQuick3DTextureData::event(event);
-    }
+    return self->QQuick3DTextureData::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DTextureData_OnEvent(QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_Event_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_Event_Callback>(slot));
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self))
+        vqquick3dtexturedata->qquick3dtexturedata_event_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuick3DTextureData_EventFilter(QQuick3DTextureData* self, QObject* watched, QEvent* event) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        return vqquick3dtexturedata->eventFilter(watched, event);
-    } else {
-        return self->QQuick3DTextureData::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQuick3DTextureData_SuperEventFilter(QQuick3DTextureData* self, QObject* watched, QEvent* event) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_EventFilter_IsBase(true);
-        return vqquick3dtexturedata->eventFilter(watched, event);
-    } else {
-        return self->QQuick3DTextureData::eventFilter(watched, event);
-    }
+    return self->QQuick3DTextureData::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DTextureData_OnEventFilter(QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_EventFilter_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_EventFilter_Callback>(slot));
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self))
+        vqquick3dtexturedata->qquick3dtexturedata_eventfilter_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DTextureData_TimerEvent(QQuick3DTextureData* self, QTimerEvent* event) {
     auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
+    if (vqquick3dtexturedata) {
         vqquick3dtexturedata->timerEvent(event);
     } else {
-        ((VirtualQQuick3DTextureData*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQuick3DTextureData::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DTextureData_SuperTimerEvent(QQuick3DTextureData* self, QTimerEvent* event) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_TimerEvent_IsBase(true);
-        vqquick3dtexturedata->timerEvent(event);
-    } else {
-        ((VirtualQQuick3DTextureData*)self)->timerEvent(event);
-    }
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self)) {
+        vqquick3dtexturedata->QQuick3DTextureData::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DTextureData::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DTextureData_OnTimerEvent(QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_TimerEvent_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_TimerEvent_Callback>(slot));
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self))
+        vqquick3dtexturedata->qquick3dtexturedata_timerevent_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DTextureData_ChildEvent(QQuick3DTextureData* self, QChildEvent* event) {
     auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
+    if (vqquick3dtexturedata) {
         vqquick3dtexturedata->childEvent(event);
     } else {
-        ((VirtualQQuick3DTextureData*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQuick3DTextureData::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DTextureData_SuperChildEvent(QQuick3DTextureData* self, QChildEvent* event) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_ChildEvent_IsBase(true);
-        vqquick3dtexturedata->childEvent(event);
-    } else {
-        ((VirtualQQuick3DTextureData*)self)->childEvent(event);
-    }
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self)) {
+        vqquick3dtexturedata->QQuick3DTextureData::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DTextureData::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DTextureData_OnChildEvent(QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_ChildEvent_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_ChildEvent_Callback>(slot));
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self))
+        vqquick3dtexturedata->qquick3dtexturedata_childevent_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DTextureData_CustomEvent(QQuick3DTextureData* self, QEvent* event) {
     auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
+    if (vqquick3dtexturedata) {
         vqquick3dtexturedata->customEvent(event);
     } else {
-        ((VirtualQQuick3DTextureData*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQuick3DTextureData::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DTextureData_SuperCustomEvent(QQuick3DTextureData* self, QEvent* event) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_CustomEvent_IsBase(true);
-        vqquick3dtexturedata->customEvent(event);
-    } else {
-        ((VirtualQQuick3DTextureData*)self)->customEvent(event);
-    }
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self)) {
+        vqquick3dtexturedata->QQuick3DTextureData::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DTextureData::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DTextureData_OnCustomEvent(QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_CustomEvent_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_CustomEvent_Callback>(slot));
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self))
+        vqquick3dtexturedata->qquick3dtexturedata_customevent_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DTextureData_ConnectNotify(QQuick3DTextureData* self, const QMetaMethod* signal) {
     auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
+    if (vqquick3dtexturedata) {
         vqquick3dtexturedata->connectNotify(*signal);
     } else {
-        ((VirtualQQuick3DTextureData*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuick3DTextureData::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DTextureData_SuperConnectNotify(QQuick3DTextureData* self, const QMetaMethod* signal) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_ConnectNotify_IsBase(true);
-        vqquick3dtexturedata->connectNotify(*signal);
-    } else {
-        ((VirtualQQuick3DTextureData*)self)->connectNotify(*signal);
-    }
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self)) {
+        vqquick3dtexturedata->QQuick3DTextureData::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DTextureData::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DTextureData_OnConnectNotify(QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_ConnectNotify_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_ConnectNotify_Callback>(slot));
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self))
+        vqquick3dtexturedata->qquick3dtexturedata_connectnotify_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DTextureData_DisconnectNotify(QQuick3DTextureData* self, const QMetaMethod* signal) {
     auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
+    if (vqquick3dtexturedata) {
         vqquick3dtexturedata->disconnectNotify(*signal);
     } else {
-        ((VirtualQQuick3DTextureData*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuick3DTextureData::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DTextureData_SuperDisconnectNotify(QQuick3DTextureData* self, const QMetaMethod* signal) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_DisconnectNotify_IsBase(true);
-        vqquick3dtexturedata->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQuick3DTextureData*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self)) {
+        vqquick3dtexturedata->QQuick3DTextureData::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DTextureData::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DTextureData_OnDisconnectNotify(QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self);
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_DisconnectNotify_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_DisconnectNotify_Callback>(slot));
+    if (auto* vqquick3dtexturedata = dynamic_cast<VirtualQQuick3DTextureData*>(self))
+        vqquick3dtexturedata->qquick3dtexturedata_disconnectnotify_callback = reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuick3DTextureData_IsComponentComplete(const QQuick3DTextureData* self) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        return vqquick3dtexturedata->isComponentComplete();
-    } else {
-        return ((VirtualQQuick3DTextureData*)self)->isComponentComplete();
-    }
+    if (auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self))) {
+        return vqquick3dtexturedata->VirtualQQuick3DTextureData::isComponentComplete();
+    } else
+        qFatal("Error: Protected method QQuick3DTextureData::isComponentComplete called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QQuick3DTextureData_SuperIsComponentComplete(const QQuick3DTextureData* self) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_IsComponentComplete_IsBase(true);
-        return vqquick3dtexturedata->isComponentComplete();
-    } else {
-        return ((VirtualQQuick3DTextureData*)self)->isComponentComplete();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DTextureData_OnIsComponentComplete(const QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_IsComponentComplete_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_IsComponentComplete_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQuick3DTextureData_Sender(const QQuick3DTextureData* self) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        return vqquick3dtexturedata->sender();
-    } else {
-        return ((VirtualQQuick3DTextureData*)self)->sender();
-    }
+    if (auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self))) {
+        return vqquick3dtexturedata->VirtualQQuick3DTextureData::sender();
+    } else
+        qFatal("Error: Protected method QQuick3DTextureData::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQuick3DTextureData_SuperSender(const QQuick3DTextureData* self) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_Sender_IsBase(true);
-        return vqquick3dtexturedata->sender();
-    } else {
-        return ((VirtualQQuick3DTextureData*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DTextureData_OnSender(const QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_Sender_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuick3DTextureData_SenderSignalIndex(const QQuick3DTextureData* self) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        return vqquick3dtexturedata->senderSignalIndex();
-    } else {
-        return ((VirtualQQuick3DTextureData*)self)->senderSignalIndex();
-    }
+    if (auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self))) {
+        return vqquick3dtexturedata->VirtualQQuick3DTextureData::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQuick3DTextureData::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuick3DTextureData_SuperSenderSignalIndex(const QQuick3DTextureData* self) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_SenderSignalIndex_IsBase(true);
-        return vqquick3dtexturedata->senderSignalIndex();
-    } else {
-        return ((VirtualQQuick3DTextureData*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DTextureData_OnSenderSignalIndex(const QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuick3DTextureData_Receivers(const QQuick3DTextureData* self, const char* signal) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        return vqquick3dtexturedata->receivers(signal);
-    } else {
-        return ((VirtualQQuick3DTextureData*)self)->receivers(signal);
-    }
+    if (auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self))) {
+        return vqquick3dtexturedata->VirtualQQuick3DTextureData::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQuick3DTextureData::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuick3DTextureData_SuperReceivers(const QQuick3DTextureData* self, const char* signal) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_Receivers_IsBase(true);
-        return vqquick3dtexturedata->receivers(signal);
-    } else {
-        return ((VirtualQQuick3DTextureData*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DTextureData_OnReceivers(const QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_Receivers_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuick3DTextureData_IsSignalConnected(const QQuick3DTextureData* self, const QMetaMethod* signal) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        return vqquick3dtexturedata->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuick3DTextureData*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQuick3DTextureData_SuperIsSignalConnected(const QQuick3DTextureData* self, const QMetaMethod* signal) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData) {
-        vqquick3dtexturedata->setQQuick3DTextureData_IsSignalConnected_IsBase(true);
-        return vqquick3dtexturedata->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuick3DTextureData*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DTextureData_OnIsSignalConnected(const QQuick3DTextureData* self, intptr_t slot) {
-    auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self));
-    if (vqquick3dtexturedata && vqquick3dtexturedata->isVirtualQQuick3DTextureData)
-        vqquick3dtexturedata->setQQuick3DTextureData_IsSignalConnected_Callback(reinterpret_cast<VirtualQQuick3DTextureData::QQuick3DTextureData_IsSignalConnected_Callback>(slot));
+    if (auto* vqquick3dtexturedata = const_cast<VirtualQQuick3DTextureData*>(dynamic_cast<const VirtualQQuick3DTextureData*>(self))) {
+        return vqquick3dtexturedata->VirtualQQuick3DTextureData::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQuick3DTextureData::isSignalConnected called without a directly constructed type");
 }
 
 void QQuick3DTextureData_Delete(QQuick3DTextureData* self) {

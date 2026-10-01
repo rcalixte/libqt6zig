@@ -81,9 +81,9 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEngineClient `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorEngineClient) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextTranslator__TranslatorEngineClient, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextTranslator__TranslatorEngineClient, callback: *const fn (TextTranslator__TranslatorEngineClient) callconv(.c) QMetaObject) void {
         qtc.TextTranslator__TranslatorEngineClient_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -234,6 +234,8 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
     ///
+    /// This method must be implemented with `onName` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: TextTranslator__TranslatorEngineClient `
@@ -260,32 +262,10 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEngineClient `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorEngineClient) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onName(self: TextTranslator__TranslatorEngineClient, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onName(self: TextTranslator__TranslatorEngineClient, callback: *const fn (TextTranslator__TranslatorEngineClient) callconv(.c) [*:0]const u8) void {
         qtc.TextTranslator__TranslatorEngineClient_OnName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superName` instead
-    ///
-    pub const SuperName = superName;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superName(self: TextTranslator__TranslatorEngineClient, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.TextTranslator__TranslatorEngineClient_SuperName(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEngineClient.name: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `translatedName` instead
@@ -293,6 +273,8 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     pub const TranslatedName = translatedName;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
+    ///
+    /// This method must be implemented with `onTranslatedName` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -320,32 +302,10 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEngineClient `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorEngineClient) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onTranslatedName(self: TextTranslator__TranslatorEngineClient, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onTranslatedName(self: TextTranslator__TranslatorEngineClient, callback: *const fn (TextTranslator__TranslatorEngineClient) callconv(.c) [*:0]const u8) void {
         qtc.TextTranslator__TranslatorEngineClient_OnTranslatedName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTranslatedName` instead
-    ///
-    pub const SuperTranslatedName = superTranslatedName;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superTranslatedName(self: TextTranslator__TranslatorEngineClient, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.TextTranslator__TranslatorEngineClient_SuperTranslatedName(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEngineClient.translatedName: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `createTranslator` instead
@@ -353,6 +313,8 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     pub const CreateTranslator = createTranslator;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
+    ///
+    /// This method must be implemented with `onCreateTranslator` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -374,26 +336,10 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEngineClient `
     ///
-    /// ` callback: *const fn () callconv(.c) TextTranslator__TranslatorEnginePlugin `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorEngineClient) callconv(.c) TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn onCreateTranslator(self: TextTranslator__TranslatorEngineClient, callback: *const fn () callconv(.c) TextTranslator__TranslatorEnginePlugin) void {
+    pub fn onCreateTranslator(self: TextTranslator__TranslatorEngineClient, callback: *const fn (TextTranslator__TranslatorEngineClient) callconv(.c) TextTranslator__TranslatorEnginePlugin) void {
         qtc.TextTranslator__TranslatorEngineClient_OnCreateTranslator(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreateTranslator` instead
-    ///
-    pub const SuperCreateTranslator = superCreateTranslator;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient `
-    ///
-    pub fn superCreateTranslator(self: TextTranslator__TranslatorEngineClient) TextTranslator__TranslatorEnginePlugin {
-        return .{ .ptr = qtc.TextTranslator__TranslatorEngineClient_SuperCreateTranslator(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `supportedFromLanguages` instead
@@ -401,6 +347,8 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     pub const SupportedFromLanguages = supportedFromLanguages;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
+    ///
+    /// This method must be implemented with `onSupportedFromLanguages` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -449,57 +397,14 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEngineClient `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorEngineClient) callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of ArrayMap_i32_constu8 `
     ///
-    pub fn onSupportedFromLanguages(self: TextTranslator__TranslatorEngineClient, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+    pub fn onSupportedFromLanguages(self: TextTranslator__TranslatorEngineClient, callback: *const fn (TextTranslator__TranslatorEngineClient) callconv(.c) qtc.libqt_map) void {
         qtc.TextTranslator__TranslatorEngineClient_OnSupportedFromLanguages(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSupportedFromLanguages` instead
-    ///
-    pub const SuperSupportedFromLanguages = superSupportedFromLanguages;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ArrayMap_i32_constu8 (key: translatorutil_enums.Language) `
-    ///
-    pub fn superSupportedFromLanguages(self: TextTranslator__TranslatorEngineClient, allocator: std.mem.Allocator) ArrayMap_i32_constu8 {
-        const _map: qtc.libqt_map = qtc.TextTranslator__TranslatorEngineClient_SuperSupportedFromLanguages(@ptrCast(self.ptr));
-        var _ret: ArrayMap_i32_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextTranslator__TranslatorEngineClient.supportedFromLanguages: Total capacity allocation failed");
-        defer {
-            const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
-            for (0.._map.len) |i| {
-                qtc.libqt_free(_values[i].data);
-            }
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextTranslator__TranslatorEngineClient.supportedFromLanguages: Memory allocation failed");
-            @memcpy(_value_slice, _value.data);
-            _ret.putAssumeCapacity(_key, _value_slice);
-        }
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `supportedToLanguages` instead
@@ -507,6 +412,8 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     pub const SupportedToLanguages = supportedToLanguages;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
+    ///
+    /// This method must be implemented with `onSupportedToLanguages` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -555,57 +462,14 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEngineClient `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorEngineClient) callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of ArrayMap_i32_constu8 `
     ///
-    pub fn onSupportedToLanguages(self: TextTranslator__TranslatorEngineClient, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+    pub fn onSupportedToLanguages(self: TextTranslator__TranslatorEngineClient, callback: *const fn (TextTranslator__TranslatorEngineClient) callconv(.c) qtc.libqt_map) void {
         qtc.TextTranslator__TranslatorEngineClient_OnSupportedToLanguages(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSupportedToLanguages` instead
-    ///
-    pub const SuperSupportedToLanguages = superSupportedToLanguages;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ArrayMap_i32_constu8 (key: translatorutil_enums.Language) `
-    ///
-    pub fn superSupportedToLanguages(self: TextTranslator__TranslatorEngineClient, allocator: std.mem.Allocator) ArrayMap_i32_constu8 {
-        const _map: qtc.libqt_map = qtc.TextTranslator__TranslatorEngineClient_SuperSupportedToLanguages(@ptrCast(self.ptr));
-        var _ret: ArrayMap_i32_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextTranslator__TranslatorEngineClient.supportedToLanguages: Total capacity allocation failed");
-        defer {
-            const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
-            for (0.._map.len) |i| {
-                qtc.libqt_free(_values[i].data);
-            }
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextTranslator__TranslatorEngineClient.supportedToLanguages: Memory allocation failed");
-            @memcpy(_value_slice, _value.data);
-            _ret.putAssumeCapacity(_key, _value_slice);
-        }
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `updateListLanguages` instead
@@ -634,9 +498,9 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEngineClient `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorEngineClient) callconv(.c) void `
     ///
-    pub fn onUpdateListLanguages(self: TextTranslator__TranslatorEngineClient, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateListLanguages(self: TextTranslator__TranslatorEngineClient, callback: *const fn (TextTranslator__TranslatorEngineClient) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorEngineClient_OnUpdateListLanguages(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -682,9 +546,9 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEngineClient `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorEngineClient) callconv(.c) bool `
     ///
-    pub fn onHasConfigurationDialog(self: TextTranslator__TranslatorEngineClient, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasConfigurationDialog(self: TextTranslator__TranslatorEngineClient, callback: *const fn (TextTranslator__TranslatorEngineClient) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorEngineClient_OnHasConfigurationDialog(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -844,9 +708,9 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEngineClient `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorEngineClient) callconv(.c) bool `
     ///
-    pub fn onHasInvertSupport(self: TextTranslator__TranslatorEngineClient, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasInvertSupport(self: TextTranslator__TranslatorEngineClient, callback: *const fn (TextTranslator__TranslatorEngineClient) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorEngineClient_OnHasInvertSupport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -872,6 +736,8 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
     ///
+    /// This method must be implemented with `onEngineType` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: TextTranslator__TranslatorEngineClient `
@@ -896,30 +762,10 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEngineClient `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorEngineClient) callconv(.c) i32 `
     ///
-    pub fn onEngineType(self: TextTranslator__TranslatorEngineClient, callback: *const fn () callconv(.c) i32) void {
+    pub fn onEngineType(self: TextTranslator__TranslatorEngineClient, callback: *const fn (TextTranslator__TranslatorEngineClient) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorEngineClient_OnEngineType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEngineType` instead
-    ///
-    pub const SuperEngineType = superEngineType;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient `
-    ///
-    /// ## Returns:
-    ///
-    /// ` translatorengineclient_enums.EngineType `
-    ///
-    pub fn superEngineType(self: TextTranslator__TranslatorEngineClient) i32 {
-        return qtc.TextTranslator__TranslatorEngineClient_SuperEngineType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `configureChanged` instead
@@ -993,76 +839,13 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `onFillLanguages` instead
-    ///
-    pub const OnFillLanguages = onFillLanguages;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient `
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of ArrayMap_i32_constu8 `
-    ///
-    pub fn onFillLanguages(self: TextTranslator__TranslatorEngineClient, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.TextTranslator__TranslatorEngineClient_OnFillLanguages(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superFillLanguages` instead
-    ///
-    pub const SuperFillLanguages = superFillLanguages;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ArrayMap_i32_constu8 (key: translatorutil_enums.Language) `
-    ///
-    pub fn superFillLanguages(self: TextTranslator__TranslatorEngineClient, allocator: std.mem.Allocator) ArrayMap_i32_constu8 {
-        const _map: qtc.libqt_map = qtc.TextTranslator__TranslatorEngineClient_SuperFillLanguages(@ptrCast(self.ptr));
-        var _ret: ArrayMap_i32_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextTranslator__TranslatorEngineClient.fillLanguages: Total capacity allocation failed");
-        defer {
-            const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
-            for (0.._map.len) |i| {
-                qtc.libqt_free(_values[i].data);
-            }
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextTranslator__TranslatorEngineClient.fillLanguages: Memory allocation failed");
-            @memcpy(_value_slice, _value.data);
-            _ret.putAssumeCapacity(_key, _value_slice);
-        }
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `isSupported` instead
     ///
     pub const IsSupported = isSupported;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
+    ///
+    /// This method must be implemented with `onIsSupported` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1090,24 +873,6 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     ///
     pub fn onIsSupported(self: TextTranslator__TranslatorEngineClient, callback: *const fn (TextTranslator__TranslatorEngineClient, i32) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorEngineClient_OnIsSupported(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superIsSupported` instead
-    ///
-    pub const SuperIsSupported = superIsSupported;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEngineClient.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient `
-    ///
-    /// ` lang: translatorutil_enums.Language `
-    ///
-    pub fn superIsSupported(self: TextTranslator__TranslatorEngineClient, lang: i32) bool {
-        return qtc.TextTranslator__TranslatorEngineClient_SuperIsSupported(@ptrCast(self.ptr), @bitCast(lang));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2587,44 +2352,6 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
         return .{ .ptr = qtc.TextTranslator__TranslatorEngineClient_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient `
-    ///
-    pub fn superSender(self: TextTranslator__TranslatorEngineClient) QObject {
-        return .{ .ptr = qtc.TextTranslator__TranslatorEngineClient_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextTranslator__TranslatorEngineClient, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextTranslator__TranslatorEngineClient_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2641,44 +2368,6 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     ///
     pub fn senderSignalIndex(self: TextTranslator__TranslatorEngineClient) i32 {
         return qtc.TextTranslator__TranslatorEngineClient_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient `
-    ///
-    pub fn superSenderSignalIndex(self: TextTranslator__TranslatorEngineClient) i32 {
-        return qtc.TextTranslator__TranslatorEngineClient_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextTranslator__TranslatorEngineClient, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextTranslator__TranslatorEngineClient_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2702,47 +2391,6 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
         return qtc.TextTranslator__TranslatorEngineClient_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextTranslator__TranslatorEngineClient, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextTranslator__TranslatorEngineClient_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorEngineClient, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextTranslator__TranslatorEngineClient, callback: *const fn (TextTranslator__TranslatorEngineClient, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextTranslator__TranslatorEngineClient_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2762,47 +2410,6 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
     pub fn isSignalConnected(self: TextTranslator__TranslatorEngineClient, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextTranslator__TranslatorEngineClient_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextTranslator__TranslatorEngineClient, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextTranslator__TranslatorEngineClient_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorEngineClient`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorEngineClient, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextTranslator__TranslatorEngineClient, callback: *const fn (TextTranslator__TranslatorEngineClient, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorEngineClient_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

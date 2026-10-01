@@ -117,7 +117,7 @@ void PackageKit__Transaction_ConnectNotify(PackageKit__Transaction* self, const 
 void PackageKit__Transaction_DisconnectNotify(PackageKit__Transaction* self, const QMetaMethod* signal);
 libqt_string PackageKit__Transaction_Tr2(const char* s, const char* c);
 libqt_string PackageKit__Transaction_Tr3(const char* s, const char* c, int n);
-void PackageKit__Transaction_OnMetaObject(const PackageKit__Transaction* self, intptr_t slot);
+void PackageKit__Transaction_OnMetaObject(PackageKit__Transaction* self, intptr_t slot);
 QMetaObject* PackageKit__Transaction_SuperMetaObject(const PackageKit__Transaction* self);
 void PackageKit__Transaction_OnMetacast(PackageKit__Transaction* self, intptr_t slot);
 void* PackageKit__Transaction_SuperMetacast(PackageKit__Transaction* self, const char* param1);
@@ -143,20 +143,10 @@ void PackageKit__Transaction_CustomEvent(PackageKit__Transaction* self, QEvent* 
 void PackageKit__Transaction_OnCustomEvent(PackageKit__Transaction* self, intptr_t slot);
 void PackageKit__Transaction_SuperCustomEvent(PackageKit__Transaction* self, QEvent* event);
 int PackageKit__Transaction_ParseError(PackageKit__Transaction* self, const libqt_string errorName);
-void PackageKit__Transaction_OnParseError(PackageKit__Transaction* self, intptr_t slot);
-int PackageKit__Transaction_SuperParseError(PackageKit__Transaction* self, const libqt_string errorName);
 QObject* PackageKit__Transaction_Sender(const PackageKit__Transaction* self);
-void PackageKit__Transaction_OnSender(const PackageKit__Transaction* self, intptr_t slot);
-QObject* PackageKit__Transaction_SuperSender(const PackageKit__Transaction* self);
 int PackageKit__Transaction_SenderSignalIndex(const PackageKit__Transaction* self);
-void PackageKit__Transaction_OnSenderSignalIndex(const PackageKit__Transaction* self, intptr_t slot);
-int PackageKit__Transaction_SuperSenderSignalIndex(const PackageKit__Transaction* self);
 int PackageKit__Transaction_Receivers(const PackageKit__Transaction* self, const char* signal);
-void PackageKit__Transaction_OnReceivers(const PackageKit__Transaction* self, intptr_t slot);
-int PackageKit__Transaction_SuperReceivers(const PackageKit__Transaction* self, const char* signal);
 bool PackageKit__Transaction_IsSignalConnected(const PackageKit__Transaction* self, const QMetaMethod* signal);
-void PackageKit__Transaction_OnIsSignalConnected(const PackageKit__Transaction* self, intptr_t slot);
-bool PackageKit__Transaction_SuperIsSignalConnected(const PackageKit__Transaction* self, const QMetaMethod* signal);
 void PackageKit__Transaction_Delete(PackageKit__Transaction* self);
 
 #ifdef __cplusplus

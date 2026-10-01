@@ -793,21 +793,21 @@ void QFileDialog_SaveFileContent(const libqt_string fileContent, const libqt_str
 
 void QFileDialog_Done(QFileDialog* self, int result) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->done(static_cast<int>(result));
     }
 }
 
 void QFileDialog_Accept(QFileDialog* self) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->accept();
     }
 }
 
 void QFileDialog_ChangeEvent(QFileDialog* self, QEvent* e) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->changeEvent(e);
     }
 }
@@ -1248,1782 +1248,1250 @@ void QFileDialog_SaveFileContent3(const libqt_string fileContent, const libqt_st
 
 // Base class handler implementation
 QMetaObject* QFileDialog_SuperMetaObject(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vqfiledialog->metaObject();
-    } else {
-        return (QMetaObject*)self->QFileDialog::metaObject();
-    }
+    return (QMetaObject*)self->QFileDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFileDialog_OnMetaObject(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_MetaObject_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MetaObject_Callback>(slot));
+void QFileDialog_OnMetaObject(QFileDialog* self, intptr_t slot) {
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self)))
+        vqfiledialog->qfiledialog_metaobject_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QFileDialog_SuperMetacast(QFileDialog* self, const char* param1) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Metacast_IsBase(true);
-        return vqfiledialog->qt_metacast(param1);
-    } else {
-        return self->QFileDialog::qt_metacast(param1);
-    }
+    return self->QFileDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMetacast(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_Metacast_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Metacast_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_metacast_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QFileDialog_SuperMetacall(QFileDialog* self, int param1, int param2, void** param3) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Metacall_IsBase(true);
-        return vqfiledialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QFileDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QFileDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMetacall(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_Metacall_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Metacall_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_metacall_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QFileDialog_SuperSetVisible(QFileDialog* self, bool visible) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_SetVisible_IsBase(true);
-        vqfiledialog->setVisible(visible);
-    } else {
-        self->QFileDialog::setVisible(visible);
-    }
+    self->QFileDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnSetVisible(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_SetVisible_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_SetVisible_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_setvisible_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_SetVisible_Callback>(slot);
 }
 
 // Base class handler implementation
 void QFileDialog_SuperDone(QFileDialog* self, int result) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Done_IsBase(true);
-        vqfiledialog->done(static_cast<int>(result));
-    } else {
-        ((VirtualQFileDialog*)self)->done(static_cast<int>(result));
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::done(static_cast<int>(result));
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::done called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnDone(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_Done_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Done_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_done_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_Done_Callback>(slot);
 }
 
 // Base class handler implementation
 void QFileDialog_SuperAccept(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Accept_IsBase(true);
-        vqfiledialog->accept();
-    } else {
-        ((VirtualQFileDialog*)self)->accept();
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::accept();
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::accept called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnAccept(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_Accept_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Accept_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_accept_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_Accept_Callback>(slot);
 }
 
 // Base class handler implementation
 void QFileDialog_SuperChangeEvent(QFileDialog* self, QEvent* e) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_ChangeEvent_IsBase(true);
-        vqfiledialog->changeEvent(e);
-    } else {
-        ((VirtualQFileDialog*)self)->changeEvent(e);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnChangeEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ChangeEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_changeevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QFileDialog_SizeHint(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return new QSize(vqfiledialog->sizeHint());
-    } else {
-        return new QSize(((VirtualQFileDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QFileDialog_SuperSizeHint(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_SizeHint_IsBase(true);
-        return new QSize(vqfiledialog->sizeHint());
-    } else {
-        return new QSize(((VirtualQFileDialog*)self)->sizeHint());
-    }
+    return new QSize(self->QFileDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFileDialog_OnSizeHint(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_SizeHint_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_SizeHint_Callback>(slot));
+void QFileDialog_OnSizeHint(QFileDialog* self, intptr_t slot) {
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self)))
+        vqfiledialog->qfiledialog_sizehint_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QFileDialog_MinimumSizeHint(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return new QSize(vqfiledialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQFileDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QFileDialog_SuperMinimumSizeHint(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vqfiledialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQFileDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QFileDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFileDialog_OnMinimumSizeHint(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MinimumSizeHint_Callback>(slot));
+void QFileDialog_OnMinimumSizeHint(QFileDialog* self, intptr_t slot) {
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self)))
+        vqfiledialog->qfiledialog_minimumsizehint_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_Open(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->open();
-    } else {
-        self->QFileDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void QFileDialog_SuperOpen(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Open_IsBase(true);
-        vqfiledialog->open();
-    } else {
-        self->QFileDialog::open();
-    }
+    self->QFileDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnOpen(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_Open_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Open_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_open_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QFileDialog_Exec(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return vqfiledialog->exec();
-    } else {
-        return self->QFileDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int QFileDialog_SuperExec(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Exec_IsBase(true);
-        return vqfiledialog->exec();
-    } else {
-        return self->QFileDialog::exec();
-    }
+    return self->QFileDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnExec(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_Exec_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Exec_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_exec_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_Reject(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->reject();
-    } else {
-        self->QFileDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void QFileDialog_SuperReject(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Reject_IsBase(true);
-        vqfiledialog->reject();
-    } else {
-        self->QFileDialog::reject();
-    }
+    self->QFileDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnReject(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_Reject_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Reject_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_reject_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_KeyPressEvent(QFileDialog* self, QKeyEvent* param1) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->keyPressEvent(param1);
     } else {
-        ((VirtualQFileDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method QFileDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperKeyPressEvent(QFileDialog* self, QKeyEvent* param1) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_KeyPressEvent_IsBase(true);
-        vqfiledialog->keyPressEvent(param1);
-    } else {
-        ((VirtualQFileDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnKeyPressEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_keypressevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_CloseEvent(QFileDialog* self, QCloseEvent* param1) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->closeEvent(param1);
     } else {
-        ((VirtualQFileDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method QFileDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperCloseEvent(QFileDialog* self, QCloseEvent* param1) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_CloseEvent_IsBase(true);
-        vqfiledialog->closeEvent(param1);
-    } else {
-        ((VirtualQFileDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnCloseEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_CloseEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_CloseEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_closeevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_ShowEvent(QFileDialog* self, QShowEvent* param1) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->showEvent(param1);
     } else {
-        ((VirtualQFileDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method QFileDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperShowEvent(QFileDialog* self, QShowEvent* param1) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_ShowEvent_IsBase(true);
-        vqfiledialog->showEvent(param1);
-    } else {
-        ((VirtualQFileDialog*)self)->showEvent(param1);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnShowEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_ShowEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ShowEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_showevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_ResizeEvent(QFileDialog* self, QResizeEvent* param1) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->resizeEvent(param1);
     } else {
-        ((VirtualQFileDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method QFileDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperResizeEvent(QFileDialog* self, QResizeEvent* param1) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_ResizeEvent_IsBase(true);
-        vqfiledialog->resizeEvent(param1);
-    } else {
-        ((VirtualQFileDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnResizeEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_ResizeEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ResizeEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_resizeevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_ContextMenuEvent(QFileDialog* self, QContextMenuEvent* param1) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->contextMenuEvent(param1);
     } else {
-        ((VirtualQFileDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method QFileDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperContextMenuEvent(QFileDialog* self, QContextMenuEvent* param1) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_ContextMenuEvent_IsBase(true);
-        vqfiledialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualQFileDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnContextMenuEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_contextmenuevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QFileDialog_EventFilter(QFileDialog* self, QObject* param1, QEvent* param2) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         return vqfiledialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualQFileDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method QFileDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QFileDialog_SuperEventFilter(QFileDialog* self, QObject* param1, QEvent* param2) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_EventFilter_IsBase(true);
-        return vqfiledialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQFileDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        return vqfiledialog->QFileDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnEventFilter(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_EventFilter_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_EventFilter_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_eventfilter_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QFileDialog_DevType(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return vqfiledialog->devType();
-    } else {
-        return self->QFileDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QFileDialog_SuperDevType(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_DevType_IsBase(true);
-        return vqfiledialog->devType();
-    } else {
-        return self->QFileDialog::devType();
-    }
+    return self->QFileDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFileDialog_OnDevType(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_DevType_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_DevType_Callback>(slot));
+void QFileDialog_OnDevType(QFileDialog* self, intptr_t slot) {
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self)))
+        vqfiledialog->qfiledialog_devtype_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QFileDialog_HeightForWidth(const QFileDialog* self, int param1) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return vqfiledialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QFileDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QFileDialog_SuperHeightForWidth(const QFileDialog* self, int param1) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_HeightForWidth_IsBase(true);
-        return vqfiledialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QFileDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QFileDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFileDialog_OnHeightForWidth(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_HeightForWidth_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_HeightForWidth_Callback>(slot));
+void QFileDialog_OnHeightForWidth(QFileDialog* self, intptr_t slot) {
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self)))
+        vqfiledialog->qfiledialog_heightforwidth_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QFileDialog_HasHeightForWidth(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return vqfiledialog->hasHeightForWidth();
-    } else {
-        return self->QFileDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QFileDialog_SuperHasHeightForWidth(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_HasHeightForWidth_IsBase(true);
-        return vqfiledialog->hasHeightForWidth();
-    } else {
-        return self->QFileDialog::hasHeightForWidth();
-    }
+    return self->QFileDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFileDialog_OnHasHeightForWidth(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_HasHeightForWidth_Callback>(slot));
+void QFileDialog_OnHasHeightForWidth(QFileDialog* self, intptr_t slot) {
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self)))
+        vqfiledialog->qfiledialog_hasheightforwidth_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QFileDialog_PaintEngine(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return vqfiledialog->paintEngine();
-    } else {
-        return self->QFileDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QFileDialog_SuperPaintEngine(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_PaintEngine_IsBase(true);
-        return vqfiledialog->paintEngine();
-    } else {
-        return self->QFileDialog::paintEngine();
-    }
+    return self->QFileDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFileDialog_OnPaintEngine(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_PaintEngine_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_PaintEngine_Callback>(slot));
+void QFileDialog_OnPaintEngine(QFileDialog* self, intptr_t slot) {
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self)))
+        vqfiledialog->qfiledialog_paintengine_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QFileDialog_Event(QFileDialog* self, QEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         return vqfiledialog->event(event);
     } else {
-        return ((VirtualQFileDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method QFileDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QFileDialog_SuperEvent(QFileDialog* self, QEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Event_IsBase(true);
-        return vqfiledialog->event(event);
-    } else {
-        return ((VirtualQFileDialog*)self)->event(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        return vqfiledialog->QFileDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_Event_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Event_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_event_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_MousePressEvent(QFileDialog* self, QMouseEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->mousePressEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperMousePressEvent(QFileDialog* self, QMouseEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_MousePressEvent_IsBase(true);
-        vqfiledialog->mousePressEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMousePressEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_MousePressEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MousePressEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_mousepressevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_MouseReleaseEvent(QFileDialog* self, QMouseEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperMouseReleaseEvent(QFileDialog* self, QMouseEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_MouseReleaseEvent_IsBase(true);
-        vqfiledialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMouseReleaseEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_mousereleaseevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_MouseDoubleClickEvent(QFileDialog* self, QMouseEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperMouseDoubleClickEvent(QFileDialog* self, QMouseEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_MouseDoubleClickEvent_IsBase(true);
-        vqfiledialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMouseDoubleClickEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_MouseMoveEvent(QFileDialog* self, QMouseEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->mouseMoveEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperMouseMoveEvent(QFileDialog* self, QMouseEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_MouseMoveEvent_IsBase(true);
-        vqfiledialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMouseMoveEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_mousemoveevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_WheelEvent(QFileDialog* self, QWheelEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->wheelEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperWheelEvent(QFileDialog* self, QWheelEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_WheelEvent_IsBase(true);
-        vqfiledialog->wheelEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnWheelEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_WheelEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_WheelEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_wheelevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_KeyReleaseEvent(QFileDialog* self, QKeyEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->keyReleaseEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperKeyReleaseEvent(QFileDialog* self, QKeyEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_KeyReleaseEvent_IsBase(true);
-        vqfiledialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnKeyReleaseEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_keyreleaseevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_FocusInEvent(QFileDialog* self, QFocusEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->focusInEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperFocusInEvent(QFileDialog* self, QFocusEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_FocusInEvent_IsBase(true);
-        vqfiledialog->focusInEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnFocusInEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_FocusInEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_FocusInEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_focusinevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_FocusOutEvent(QFileDialog* self, QFocusEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->focusOutEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperFocusOutEvent(QFileDialog* self, QFocusEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_FocusOutEvent_IsBase(true);
-        vqfiledialog->focusOutEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnFocusOutEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_focusoutevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_EnterEvent(QFileDialog* self, QEnterEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->enterEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperEnterEvent(QFileDialog* self, QEnterEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_EnterEvent_IsBase(true);
-        vqfiledialog->enterEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->enterEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnEnterEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_EnterEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_EnterEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_enterevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_LeaveEvent(QFileDialog* self, QEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->leaveEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperLeaveEvent(QFileDialog* self, QEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_LeaveEvent_IsBase(true);
-        vqfiledialog->leaveEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnLeaveEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_LeaveEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_LeaveEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_leaveevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_PaintEvent(QFileDialog* self, QPaintEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->paintEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperPaintEvent(QFileDialog* self, QPaintEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_PaintEvent_IsBase(true);
-        vqfiledialog->paintEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->paintEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnPaintEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_PaintEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_PaintEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_paintevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_MoveEvent(QFileDialog* self, QMoveEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->moveEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperMoveEvent(QFileDialog* self, QMoveEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_MoveEvent_IsBase(true);
-        vqfiledialog->moveEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->moveEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMoveEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_MoveEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MoveEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_moveevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_TabletEvent(QFileDialog* self, QTabletEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->tabletEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperTabletEvent(QFileDialog* self, QTabletEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_TabletEvent_IsBase(true);
-        vqfiledialog->tabletEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnTabletEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_TabletEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_TabletEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_tabletevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_ActionEvent(QFileDialog* self, QActionEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->actionEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperActionEvent(QFileDialog* self, QActionEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_ActionEvent_IsBase(true);
-        vqfiledialog->actionEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->actionEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnActionEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_ActionEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ActionEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_actionevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_DragEnterEvent(QFileDialog* self, QDragEnterEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->dragEnterEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperDragEnterEvent(QFileDialog* self, QDragEnterEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_DragEnterEvent_IsBase(true);
-        vqfiledialog->dragEnterEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnDragEnterEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_dragenterevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_DragMoveEvent(QFileDialog* self, QDragMoveEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->dragMoveEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperDragMoveEvent(QFileDialog* self, QDragMoveEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_DragMoveEvent_IsBase(true);
-        vqfiledialog->dragMoveEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnDragMoveEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_dragmoveevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_DragLeaveEvent(QFileDialog* self, QDragLeaveEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->dragLeaveEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperDragLeaveEvent(QFileDialog* self, QDragLeaveEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_DragLeaveEvent_IsBase(true);
-        vqfiledialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnDragLeaveEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_dragleaveevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_DropEvent(QFileDialog* self, QDropEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->dropEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperDropEvent(QFileDialog* self, QDropEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_DropEvent_IsBase(true);
-        vqfiledialog->dropEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->dropEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnDropEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_DropEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_DropEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_dropevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_HideEvent(QFileDialog* self, QHideEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->hideEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperHideEvent(QFileDialog* self, QHideEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_HideEvent_IsBase(true);
-        vqfiledialog->hideEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->hideEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnHideEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_HideEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_HideEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_hideevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QFileDialog_NativeEvent(QFileDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
+    if (vqfiledialog) {
         return vqfiledialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQFileDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QFileDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QFileDialog_SuperNativeEvent(QFileDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_NativeEvent_IsBase(true);
-        return vqfiledialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQFileDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        return vqfiledialog->QFileDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnNativeEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_NativeEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_NativeEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_nativeevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QFileDialog_Metric(const QFileDialog* self, int param1) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         return vqfiledialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQFileDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QFileDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QFileDialog_SuperMetric(const QFileDialog* self, int param1) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Metric_IsBase(true);
-        return vqfiledialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQFileDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self))) {
+        return vqfiledialog->QFileDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFileDialog_OnMetric(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_Metric_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Metric_Callback>(slot));
+void QFileDialog_OnMetric(QFileDialog* self, intptr_t slot) {
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self)))
+        vqfiledialog->qfiledialog_metric_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_InitPainter(const QFileDialog* self, QPainter* painter) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->initPainter(painter);
     } else {
-        ((VirtualQFileDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QFileDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperInitPainter(const QFileDialog* self, QPainter* painter) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_InitPainter_IsBase(true);
-        vqfiledialog->initPainter(painter);
-    } else {
-        ((VirtualQFileDialog*)self)->initPainter(painter);
-    }
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self))) {
+        vqfiledialog->QFileDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFileDialog_OnInitPainter(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_InitPainter_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_InitPainter_Callback>(slot));
+void QFileDialog_OnInitPainter(QFileDialog* self, intptr_t slot) {
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self)))
+        vqfiledialog->qfiledialog_initpainter_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QFileDialog_Redirected(const QFileDialog* self, QPoint* offset) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         return vqfiledialog->redirected(offset);
     } else {
-        return ((VirtualQFileDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QFileDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QFileDialog_SuperRedirected(const QFileDialog* self, QPoint* offset) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Redirected_IsBase(true);
-        return vqfiledialog->redirected(offset);
-    } else {
-        return ((VirtualQFileDialog*)self)->redirected(offset);
-    }
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self))) {
+        return vqfiledialog->QFileDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFileDialog_OnRedirected(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_Redirected_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Redirected_Callback>(slot));
+void QFileDialog_OnRedirected(QFileDialog* self, intptr_t slot) {
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self)))
+        vqfiledialog->qfiledialog_redirected_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QFileDialog_SharedPainter(const QFileDialog* self) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         return vqfiledialog->sharedPainter();
     } else {
-        return ((VirtualQFileDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QFileDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QFileDialog_SuperSharedPainter(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_SharedPainter_IsBase(true);
-        return vqfiledialog->sharedPainter();
-    } else {
-        return ((VirtualQFileDialog*)self)->sharedPainter();
-    }
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self))) {
+        return vqfiledialog->QFileDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFileDialog_OnSharedPainter(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_SharedPainter_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_SharedPainter_Callback>(slot));
+void QFileDialog_OnSharedPainter(QFileDialog* self, intptr_t slot) {
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self)))
+        vqfiledialog->qfiledialog_sharedpainter_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_InputMethodEvent(QFileDialog* self, QInputMethodEvent* param1) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->inputMethodEvent(param1);
     } else {
-        ((VirtualQFileDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QFileDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperInputMethodEvent(QFileDialog* self, QInputMethodEvent* param1) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_InputMethodEvent_IsBase(true);
-        vqfiledialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualQFileDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnInputMethodEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_inputmethodevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QFileDialog_InputMethodQuery(const QFileDialog* self, int param1) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return new QVariant(vqfiledialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQFileDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QFileDialog_SuperInputMethodQuery(const QFileDialog* self, int param1) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vqfiledialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQFileDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QFileDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFileDialog_OnInputMethodQuery(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_InputMethodQuery_Callback>(slot));
+void QFileDialog_OnInputMethodQuery(QFileDialog* self, intptr_t slot) {
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self)))
+        vqfiledialog->qfiledialog_inputmethodquery_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QFileDialog_FocusNextPrevChild(QFileDialog* self, bool next) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         return vqfiledialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualQFileDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QFileDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QFileDialog_SuperFocusNextPrevChild(QFileDialog* self, bool next) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_FocusNextPrevChild_IsBase(true);
-        return vqfiledialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQFileDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        return vqfiledialog->QFileDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnFocusNextPrevChild(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_focusnextprevchild_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_TimerEvent(QFileDialog* self, QTimerEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->timerEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperTimerEvent(QFileDialog* self, QTimerEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_TimerEvent_IsBase(true);
-        vqfiledialog->timerEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->timerEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnTimerEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_TimerEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_TimerEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_timerevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_ChildEvent(QFileDialog* self, QChildEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->childEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperChildEvent(QFileDialog* self, QChildEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_ChildEvent_IsBase(true);
-        vqfiledialog->childEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->childEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnChildEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_ChildEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ChildEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_childevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_CustomEvent(QFileDialog* self, QEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->customEvent(event);
     } else {
-        ((VirtualQFileDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QFileDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperCustomEvent(QFileDialog* self, QEvent* event) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_CustomEvent_IsBase(true);
-        vqfiledialog->customEvent(event);
-    } else {
-        ((VirtualQFileDialog*)self)->customEvent(event);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnCustomEvent(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_CustomEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_CustomEvent_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_customevent_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_ConnectNotify(QFileDialog* self, const QMetaMethod* signal) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->connectNotify(*signal);
     } else {
-        ((VirtualQFileDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QFileDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperConnectNotify(QFileDialog* self, const QMetaMethod* signal) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_ConnectNotify_IsBase(true);
-        vqfiledialog->connectNotify(*signal);
-    } else {
-        ((VirtualQFileDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnConnectNotify(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_ConnectNotify_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ConnectNotify_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_connectnotify_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileDialog_DisconnectNotify(QFileDialog* self, const QMetaMethod* signal) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog) {
         vqfiledialog->disconnectNotify(*signal);
     } else {
-        ((VirtualQFileDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QFileDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileDialog_SuperDisconnectNotify(QFileDialog* self, const QMetaMethod* signal) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_DisconnectNotify_IsBase(true);
-        vqfiledialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualQFileDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->QFileDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QFileDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnDisconnectNotify(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self))
+        vqfiledialog->qfiledialog_disconnectnotify_callback = reinterpret_cast<VirtualQFileDialog::QFileDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QFileDialog_AdjustPosition(QFileDialog* self, QWidget* param1) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->adjustPosition(param1);
-    } else {
-        ((VirtualQFileDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->VirtualQFileDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method QFileDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QFileDialog_SuperAdjustPosition(QFileDialog* self, QWidget* param1) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_AdjustPosition_IsBase(true);
-        vqfiledialog->adjustPosition(param1);
-    } else {
-        ((VirtualQFileDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileDialog_OnAdjustPosition(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_AdjustPosition_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QFileDialog_UpdateMicroFocus(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->updateMicroFocus();
-    } else {
-        ((VirtualQFileDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->VirtualQFileDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QFileDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QFileDialog_SuperUpdateMicroFocus(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_UpdateMicroFocus_IsBase(true);
-        vqfiledialog->updateMicroFocus();
-    } else {
-        ((VirtualQFileDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileDialog_OnUpdateMicroFocus(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QFileDialog_Create(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->create();
-    } else {
-        ((VirtualQFileDialog*)self)->create();
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->VirtualQFileDialog::create();
+    } else
+        qFatal("Error: Protected method QFileDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QFileDialog_SuperCreate(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Create_IsBase(true);
-        vqfiledialog->create();
-    } else {
-        ((VirtualQFileDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileDialog_OnCreate(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_Create_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QFileDialog_Destroy(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->destroy();
-    } else {
-        ((VirtualQFileDialog*)self)->destroy();
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        vqfiledialog->VirtualQFileDialog::destroy();
+    } else
+        qFatal("Error: Protected method QFileDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QFileDialog_SuperDestroy(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Destroy_IsBase(true);
-        vqfiledialog->destroy();
-    } else {
-        ((VirtualQFileDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileDialog_OnDestroy(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_Destroy_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QFileDialog_FocusNextChild(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return vqfiledialog->focusNextChild();
-    } else {
-        return ((VirtualQFileDialog*)self)->focusNextChild();
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        return vqfiledialog->VirtualQFileDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method QFileDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QFileDialog_SuperFocusNextChild(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_FocusNextChild_IsBase(true);
-        return vqfiledialog->focusNextChild();
-    } else {
-        return ((VirtualQFileDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileDialog_OnFocusNextChild(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_FocusNextChild_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QFileDialog_FocusPreviousChild(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return vqfiledialog->focusPreviousChild();
-    } else {
-        return ((VirtualQFileDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self)) {
+        return vqfiledialog->VirtualQFileDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QFileDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QFileDialog_SuperFocusPreviousChild(QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_FocusPreviousChild_IsBase(true);
-        return vqfiledialog->focusPreviousChild();
-    } else {
-        return ((VirtualQFileDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileDialog_OnFocusPreviousChild(QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QFileDialog_Sender(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return vqfiledialog->sender();
-    } else {
-        return ((VirtualQFileDialog*)self)->sender();
-    }
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self))) {
+        return vqfiledialog->VirtualQFileDialog::sender();
+    } else
+        qFatal("Error: Protected method QFileDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QFileDialog_SuperSender(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Sender_IsBase(true);
-        return vqfiledialog->sender();
-    } else {
-        return ((VirtualQFileDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileDialog_OnSender(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_Sender_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QFileDialog_SenderSignalIndex(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return vqfiledialog->senderSignalIndex();
-    } else {
-        return ((VirtualQFileDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self))) {
+        return vqfiledialog->VirtualQFileDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QFileDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QFileDialog_SuperSenderSignalIndex(const QFileDialog* self) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_SenderSignalIndex_IsBase(true);
-        return vqfiledialog->senderSignalIndex();
-    } else {
-        return ((VirtualQFileDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileDialog_OnSenderSignalIndex(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QFileDialog_Receivers(const QFileDialog* self, const char* signal) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return vqfiledialog->receivers(signal);
-    } else {
-        return ((VirtualQFileDialog*)self)->receivers(signal);
-    }
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self))) {
+        return vqfiledialog->VirtualQFileDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method QFileDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QFileDialog_SuperReceivers(const QFileDialog* self, const char* signal) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_Receivers_IsBase(true);
-        return vqfiledialog->receivers(signal);
-    } else {
-        return ((VirtualQFileDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileDialog_OnReceivers(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_Receivers_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QFileDialog_IsSignalConnected(const QFileDialog* self, const QMetaMethod* signal) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return vqfiledialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQFileDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self))) {
+        return vqfiledialog->VirtualQFileDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QFileDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QFileDialog_SuperIsSignalConnected(const QFileDialog* self, const QMetaMethod* signal) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_IsSignalConnected_IsBase(true);
-        return vqfiledialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQFileDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileDialog_OnIsSignalConnected(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QFileDialog_GetDecodedMetricF(const QFileDialog* self, int metricA, int metricB) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return vqfiledialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQFileDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QFileDialog_SuperGetDecodedMetricF(const QFileDialog* self, int metricA, int metricB) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        vqfiledialog->setQFileDialog_GetDecodedMetricF_IsBase(true);
-        return vqfiledialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQFileDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileDialog_OnGetDecodedMetricF(const QFileDialog* self, intptr_t slot) {
-    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
-        vqfiledialog->setQFileDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self))) {
+        return vqfiledialog->VirtualQFileDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QFileDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void QFileDialog_Delete(QFileDialog* self) {

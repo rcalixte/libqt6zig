@@ -134,9 +134,9 @@ pub const KImageFilePreview = extern struct {
     ///
     /// ` self: KImageFilePreview `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KImageFilePreview) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KImageFilePreview, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KImageFilePreview, callback: *const fn (KImageFilePreview) callconv(.c) QMetaObject) void {
         qtc.KImageFilePreview_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -307,11 +307,11 @@ pub const KImageFilePreview = extern struct {
     ///
     /// ` self: KImageFilePreview `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KImageFilePreview) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KImageFilePreview, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KImageFilePreview, callback: *const fn (KImageFilePreview) callconv(.c) QSize) void {
         qtc.KImageFilePreview_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -411,9 +411,9 @@ pub const KImageFilePreview = extern struct {
     ///
     /// ` self: KImageFilePreview `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KImageFilePreview) callconv(.c) void `
     ///
-    pub fn onClearPreview(self: KImageFilePreview, callback: *const fn () callconv(.c) void) void {
+    pub fn onClearPreview(self: KImageFilePreview, callback: *const fn (KImageFilePreview) callconv(.c) void) void {
         qtc.KImageFilePreview_OnClearPreview(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -447,40 +447,6 @@ pub const KImageFilePreview = extern struct {
         qtc.KImageFilePreview_ShowPreview2(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onShowPreview2` instead
-    ///
-    pub const OnShowPreview2 = onShowPreview2;
-
-    /// ### [Upstream resources](https://api.kde.org/kimagefilepreview.html#showPreview)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onShowPreview2(self: KImageFilePreview, callback: *const fn () callconv(.c) void) void {
-        qtc.KImageFilePreview_OnShowPreview2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superShowPreview2` instead
-    ///
-    pub const SuperShowPreview2 = superShowPreview2;
-
-    /// ### [Upstream resources](https://api.kde.org/kimagefilepreview.html#showPreview)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    pub fn superShowPreview2(self: KImageFilePreview) void {
-        qtc.KImageFilePreview_SuperShowPreview2(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `showPreview3` instead
     ///
     pub const ShowPreview3 = showPreview3;
@@ -498,45 +464,6 @@ pub const KImageFilePreview = extern struct {
     pub fn showPreview3(self: KImageFilePreview, url: anytype, force: bool) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KImageFilePreview_ShowPreview3(@ptrCast(self.ptr), @ptrCast(url.ptr), force);
-    }
-
-    /// ### DEPRECATED: Use `onShowPreview3` instead
-    ///
-    pub const OnShowPreview3 = onShowPreview3;
-
-    /// ### [Upstream resources](https://api.kde.org/kimagefilepreview.html#showPreview)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    /// ` callback: *const fn (self: KImageFilePreview, url: QUrl, force: bool) callconv(.c) void `
-    ///
-    pub fn onShowPreview3(self: KImageFilePreview, callback: *const fn (KImageFilePreview, QUrl, bool) callconv(.c) void) void {
-        qtc.KImageFilePreview_OnShowPreview3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superShowPreview3` instead
-    ///
-    pub const SuperShowPreview3 = superShowPreview3;
-
-    /// ### [Upstream resources](https://api.kde.org/kimagefilepreview.html#showPreview)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    /// ` url: QUrl `
-    ///
-    /// ` force: bool `
-    ///
-    pub fn superShowPreview3(self: KImageFilePreview, url: anytype, force: bool) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.KImageFilePreview_SuperShowPreview3(@ptrCast(self.ptr), @ptrCast(url.ptr), force);
     }
 
     /// ### DEPRECATED: Use `gotPreview` instead
@@ -7057,9 +6984,9 @@ pub const KImageFilePreview = extern struct {
     ///
     /// ` self: KImageFilePreview`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KImageFilePreview) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KImageFilePreview, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KImageFilePreview, callback: *const fn (KImageFilePreview) callconv(.c) i32) void {
         qtc.KImageFilePreview_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7173,11 +7100,11 @@ pub const KImageFilePreview = extern struct {
     ///
     /// ` self: KImageFilePreview`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KImageFilePreview) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KImageFilePreview, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KImageFilePreview, callback: *const fn (KImageFilePreview) callconv(.c) QSize) void {
         qtc.KImageFilePreview_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7291,9 +7218,9 @@ pub const KImageFilePreview = extern struct {
     ///
     /// ` self: KImageFilePreview`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KImageFilePreview) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KImageFilePreview, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KImageFilePreview, callback: *const fn (KImageFilePreview) callconv(.c) bool) void {
         qtc.KImageFilePreview_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7347,9 +7274,9 @@ pub const KImageFilePreview = extern struct {
     ///
     /// ` self: KImageFilePreview`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KImageFilePreview) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KImageFilePreview, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KImageFilePreview, callback: *const fn (KImageFilePreview) callconv(.c) QPaintEngine) void {
         qtc.KImageFilePreview_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9213,9 +9140,9 @@ pub const KImageFilePreview = extern struct {
     ///
     /// ` self: KImageFilePreview`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KImageFilePreview) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KImageFilePreview, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KImageFilePreview, callback: *const fn (KImageFilePreview) callconv(.c) QPainter) void {
         qtc.KImageFilePreview_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9814,59 +9741,6 @@ pub const KImageFilePreview = extern struct {
         qtc.KImageFilePreview_SetSupportedMimeTypes(@ptrCast(self.ptr), mimeTypes_list);
     }
 
-    /// ### DEPRECATED: Use `superSetSupportedMimeTypes` instead
-    ///
-    pub const SuperSetSupportedMimeTypes = superSetSupportedMimeTypes;
-
-    /// Inherited from KPreviewWidgetBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kpreviewwidgetbase.html#setSupportedMimeTypes)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` mimeTypes: []const []const u8 `
-    ///
-    pub fn superSetSupportedMimeTypes(self: KImageFilePreview, allocator: std.mem.Allocator, mimeTypes: []const []const u8) void {
-        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("KImageFilePreview.setSupportedMimeTypes: Memory allocation failed");
-        defer allocator.free(mimeTypes_arr);
-        for (mimeTypes, 0..mimeTypes.len) |str_item, i|
-            mimeTypes_arr[i] = .{
-                .len = str_item.len,
-                .data = str_item.ptr,
-            };
-        const mimeTypes_list = qtc.libqt_list{
-            .len = mimeTypes.len,
-            .data = mimeTypes_arr.ptr,
-        };
-        qtc.KImageFilePreview_SuperSetSupportedMimeTypes(@ptrCast(self.ptr), mimeTypes_list);
-    }
-
-    /// ### DEPRECATED: Use `onSetSupportedMimeTypes` instead
-    ///
-    pub const OnSetSupportedMimeTypes = onSetSupportedMimeTypes;
-
-    /// Inherited from KPreviewWidgetBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kpreviewwidgetbase.html#setSupportedMimeTypes)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KImageFilePreview`
-    ///
-    /// ` callback: *const fn (self: KImageFilePreview, mimeTypes: ?[*:null]?[*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetSupportedMimeTypes(self: KImageFilePreview, callback: *const fn (KImageFilePreview, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.KImageFilePreview_OnSetSupportedMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -9883,44 +9757,6 @@ pub const KImageFilePreview = extern struct {
     ///
     pub fn updateMicroFocus(self: KImageFilePreview) void {
         qtc.KImageFilePreview_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    pub fn superUpdateMicroFocus(self: KImageFilePreview) void {
-        qtc.KImageFilePreview_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KImageFilePreview`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KImageFilePreview, callback: *const fn () callconv(.c) void) void {
-        qtc.KImageFilePreview_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -9941,44 +9777,6 @@ pub const KImageFilePreview = extern struct {
         qtc.KImageFilePreview_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    pub fn superCreate(self: KImageFilePreview) void {
-        qtc.KImageFilePreview_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KImageFilePreview`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KImageFilePreview, callback: *const fn () callconv(.c) void) void {
-        qtc.KImageFilePreview_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -9995,44 +9793,6 @@ pub const KImageFilePreview = extern struct {
     ///
     pub fn destroy(self: KImageFilePreview) void {
         qtc.KImageFilePreview_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    pub fn superDestroy(self: KImageFilePreview) void {
-        qtc.KImageFilePreview_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KImageFilePreview`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KImageFilePreview, callback: *const fn () callconv(.c) void) void {
-        qtc.KImageFilePreview_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10053,44 +9813,6 @@ pub const KImageFilePreview = extern struct {
         return qtc.KImageFilePreview_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    pub fn superFocusNextChild(self: KImageFilePreview) bool {
-        return qtc.KImageFilePreview_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KImageFilePreview`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KImageFilePreview, callback: *const fn () callconv(.c) bool) void {
-        qtc.KImageFilePreview_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10107,44 +9829,6 @@ pub const KImageFilePreview = extern struct {
     ///
     pub fn focusPreviousChild(self: KImageFilePreview) bool {
         return qtc.KImageFilePreview_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    pub fn superFocusPreviousChild(self: KImageFilePreview) bool {
-        return qtc.KImageFilePreview_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KImageFilePreview`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KImageFilePreview, callback: *const fn () callconv(.c) bool) void {
-        qtc.KImageFilePreview_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10165,44 +9849,6 @@ pub const KImageFilePreview = extern struct {
         return .{ .ptr = qtc.KImageFilePreview_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    pub fn superSender(self: KImageFilePreview) QObject {
-        return .{ .ptr = qtc.KImageFilePreview_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KImageFilePreview`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KImageFilePreview, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KImageFilePreview_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10219,44 +9865,6 @@ pub const KImageFilePreview = extern struct {
     ///
     pub fn senderSignalIndex(self: KImageFilePreview) i32 {
         return qtc.KImageFilePreview_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    pub fn superSenderSignalIndex(self: KImageFilePreview) i32 {
-        return qtc.KImageFilePreview_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KImageFilePreview`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KImageFilePreview, callback: *const fn () callconv(.c) i32) void {
-        qtc.KImageFilePreview_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10280,47 +9888,6 @@ pub const KImageFilePreview = extern struct {
         return qtc.KImageFilePreview_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KImageFilePreview, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KImageFilePreview_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KImageFilePreview`
-    ///
-    /// ` callback: *const fn (self: KImageFilePreview, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KImageFilePreview, callback: *const fn (KImageFilePreview, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KImageFilePreview_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10340,47 +9907,6 @@ pub const KImageFilePreview = extern struct {
     pub fn isSignalConnected(self: KImageFilePreview, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KImageFilePreview_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KImageFilePreview, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KImageFilePreview_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KImageFilePreview`
-    ///
-    /// ` callback: *const fn (self: KImageFilePreview, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KImageFilePreview, callback: *const fn (KImageFilePreview, QMetaMethod) callconv(.c) bool) void {
-        qtc.KImageFilePreview_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10403,48 +9929,6 @@ pub const KImageFilePreview = extern struct {
     ///
     pub fn getDecodedMetricF(self: KImageFilePreview, metricA: i32, metricB: i32) f64 {
         return qtc.KImageFilePreview_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KImageFilePreview `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KImageFilePreview, metricA: i32, metricB: i32) f64 {
-        return qtc.KImageFilePreview_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KImageFilePreview`
-    ///
-    /// ` callback: *const fn (self: KImageFilePreview, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KImageFilePreview, callback: *const fn (KImageFilePreview, i32, i32) callconv(.c) f64) void {
-        qtc.KImageFilePreview_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -110,364 +110,219 @@ libqt_string QOpenGLTimerQuery_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QOpenGLTimerQuery_SuperMetaObject(const QOpenGLTimerQuery* self) {
-    auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        vqopengltimerquery->setQOpenGLTimerQuery_MetaObject_IsBase(true);
-        return (QMetaObject*)vqopengltimerquery->metaObject();
-    } else {
-        return (QMetaObject*)self->QOpenGLTimerQuery::metaObject();
-    }
+    return (QMetaObject*)self->QOpenGLTimerQuery::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLTimerQuery_OnMetaObject(const QOpenGLTimerQuery* self, intptr_t slot) {
-    auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
-        vqopengltimerquery->setQOpenGLTimerQuery_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_MetaObject_Callback>(slot));
+void QOpenGLTimerQuery_OnMetaObject(QOpenGLTimerQuery* self, intptr_t slot) {
+    if (auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self)))
+        vqopengltimerquery->qopengltimerquery_metaobject_callback = reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QOpenGLTimerQuery_SuperMetacast(QOpenGLTimerQuery* self, const char* param1) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        vqopengltimerquery->setQOpenGLTimerQuery_Metacast_IsBase(true);
-        return vqopengltimerquery->qt_metacast(param1);
-    } else {
-        return self->QOpenGLTimerQuery::qt_metacast(param1);
-    }
+    return self->QOpenGLTimerQuery::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnMetacast(QOpenGLTimerQuery* self, intptr_t slot) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
-        vqopengltimerquery->setQOpenGLTimerQuery_Metacast_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_Metacast_Callback>(slot));
+    if (auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self))
+        vqopengltimerquery->qopengltimerquery_metacast_callback = reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QOpenGLTimerQuery_SuperMetacall(QOpenGLTimerQuery* self, int param1, int param2, void** param3) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        vqopengltimerquery->setQOpenGLTimerQuery_Metacall_IsBase(true);
-        return vqopengltimerquery->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QOpenGLTimerQuery::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QOpenGLTimerQuery::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnMetacall(QOpenGLTimerQuery* self, intptr_t slot) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
-        vqopengltimerquery->setQOpenGLTimerQuery_Metacall_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_Metacall_Callback>(slot));
+    if (auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self))
+        vqopengltimerquery->qopengltimerquery_metacall_callback = reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLTimerQuery_Event(QOpenGLTimerQuery* self, QEvent* event) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        return vqopengltimerquery->event(event);
-    } else {
-        return self->QOpenGLTimerQuery::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QOpenGLTimerQuery_SuperEvent(QOpenGLTimerQuery* self, QEvent* event) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        vqopengltimerquery->setQOpenGLTimerQuery_Event_IsBase(true);
-        return vqopengltimerquery->event(event);
-    } else {
-        return self->QOpenGLTimerQuery::event(event);
-    }
+    return self->QOpenGLTimerQuery::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnEvent(QOpenGLTimerQuery* self, intptr_t slot) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
-        vqopengltimerquery->setQOpenGLTimerQuery_Event_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_Event_Callback>(slot));
+    if (auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self))
+        vqopengltimerquery->qopengltimerquery_event_callback = reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLTimerQuery_EventFilter(QOpenGLTimerQuery* self, QObject* watched, QEvent* event) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        return vqopengltimerquery->eventFilter(watched, event);
-    } else {
-        return self->QOpenGLTimerQuery::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QOpenGLTimerQuery_SuperEventFilter(QOpenGLTimerQuery* self, QObject* watched, QEvent* event) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        vqopengltimerquery->setQOpenGLTimerQuery_EventFilter_IsBase(true);
-        return vqopengltimerquery->eventFilter(watched, event);
-    } else {
-        return self->QOpenGLTimerQuery::eventFilter(watched, event);
-    }
+    return self->QOpenGLTimerQuery::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnEventFilter(QOpenGLTimerQuery* self, intptr_t slot) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
-        vqopengltimerquery->setQOpenGLTimerQuery_EventFilter_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_EventFilter_Callback>(slot));
+    if (auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self))
+        vqopengltimerquery->qopengltimerquery_eventfilter_callback = reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLTimerQuery_TimerEvent(QOpenGLTimerQuery* self, QTimerEvent* event) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery) {
         vqopengltimerquery->timerEvent(event);
     } else {
-        ((VirtualQOpenGLTimerQuery*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLTimerQuery::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLTimerQuery_SuperTimerEvent(QOpenGLTimerQuery* self, QTimerEvent* event) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        vqopengltimerquery->setQOpenGLTimerQuery_TimerEvent_IsBase(true);
-        vqopengltimerquery->timerEvent(event);
-    } else {
-        ((VirtualQOpenGLTimerQuery*)self)->timerEvent(event);
-    }
+    if (auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self)) {
+        vqopengltimerquery->QOpenGLTimerQuery::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLTimerQuery::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnTimerEvent(QOpenGLTimerQuery* self, intptr_t slot) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
-        vqopengltimerquery->setQOpenGLTimerQuery_TimerEvent_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_TimerEvent_Callback>(slot));
+    if (auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self))
+        vqopengltimerquery->qopengltimerquery_timerevent_callback = reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLTimerQuery_ChildEvent(QOpenGLTimerQuery* self, QChildEvent* event) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery) {
         vqopengltimerquery->childEvent(event);
     } else {
-        ((VirtualQOpenGLTimerQuery*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLTimerQuery::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLTimerQuery_SuperChildEvent(QOpenGLTimerQuery* self, QChildEvent* event) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        vqopengltimerquery->setQOpenGLTimerQuery_ChildEvent_IsBase(true);
-        vqopengltimerquery->childEvent(event);
-    } else {
-        ((VirtualQOpenGLTimerQuery*)self)->childEvent(event);
-    }
+    if (auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self)) {
+        vqopengltimerquery->QOpenGLTimerQuery::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLTimerQuery::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnChildEvent(QOpenGLTimerQuery* self, intptr_t slot) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
-        vqopengltimerquery->setQOpenGLTimerQuery_ChildEvent_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_ChildEvent_Callback>(slot));
+    if (auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self))
+        vqopengltimerquery->qopengltimerquery_childevent_callback = reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLTimerQuery_CustomEvent(QOpenGLTimerQuery* self, QEvent* event) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery) {
         vqopengltimerquery->customEvent(event);
     } else {
-        ((VirtualQOpenGLTimerQuery*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLTimerQuery::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLTimerQuery_SuperCustomEvent(QOpenGLTimerQuery* self, QEvent* event) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        vqopengltimerquery->setQOpenGLTimerQuery_CustomEvent_IsBase(true);
-        vqopengltimerquery->customEvent(event);
-    } else {
-        ((VirtualQOpenGLTimerQuery*)self)->customEvent(event);
-    }
+    if (auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self)) {
+        vqopengltimerquery->QOpenGLTimerQuery::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLTimerQuery::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnCustomEvent(QOpenGLTimerQuery* self, intptr_t slot) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
-        vqopengltimerquery->setQOpenGLTimerQuery_CustomEvent_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_CustomEvent_Callback>(slot));
+    if (auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self))
+        vqopengltimerquery->qopengltimerquery_customevent_callback = reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLTimerQuery_ConnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery) {
         vqopengltimerquery->connectNotify(*signal);
     } else {
-        ((VirtualQOpenGLTimerQuery*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QOpenGLTimerQuery::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLTimerQuery_SuperConnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        vqopengltimerquery->setQOpenGLTimerQuery_ConnectNotify_IsBase(true);
-        vqopengltimerquery->connectNotify(*signal);
-    } else {
-        ((VirtualQOpenGLTimerQuery*)self)->connectNotify(*signal);
-    }
+    if (auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self)) {
+        vqopengltimerquery->QOpenGLTimerQuery::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLTimerQuery::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnConnectNotify(QOpenGLTimerQuery* self, intptr_t slot) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
-        vqopengltimerquery->setQOpenGLTimerQuery_ConnectNotify_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_ConnectNotify_Callback>(slot));
+    if (auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self))
+        vqopengltimerquery->qopengltimerquery_connectnotify_callback = reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLTimerQuery_DisconnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery) {
         vqopengltimerquery->disconnectNotify(*signal);
     } else {
-        ((VirtualQOpenGLTimerQuery*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QOpenGLTimerQuery::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLTimerQuery_SuperDisconnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        vqopengltimerquery->setQOpenGLTimerQuery_DisconnectNotify_IsBase(true);
-        vqopengltimerquery->disconnectNotify(*signal);
-    } else {
-        ((VirtualQOpenGLTimerQuery*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self)) {
+        vqopengltimerquery->QOpenGLTimerQuery::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLTimerQuery::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnDisconnectNotify(QOpenGLTimerQuery* self, intptr_t slot) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
-        vqopengltimerquery->setQOpenGLTimerQuery_DisconnectNotify_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_DisconnectNotify_Callback>(slot));
+    if (auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self))
+        vqopengltimerquery->qopengltimerquery_disconnectnotify_callback = reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QOpenGLTimerQuery_Sender(const QOpenGLTimerQuery* self) {
-    auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        return vqopengltimerquery->sender();
-    } else {
-        return ((VirtualQOpenGLTimerQuery*)self)->sender();
-    }
+    if (auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self))) {
+        return vqopengltimerquery->VirtualQOpenGLTimerQuery::sender();
+    } else
+        qFatal("Error: Protected method QOpenGLTimerQuery::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QOpenGLTimerQuery_SuperSender(const QOpenGLTimerQuery* self) {
-    auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        vqopengltimerquery->setQOpenGLTimerQuery_Sender_IsBase(true);
-        return vqopengltimerquery->sender();
-    } else {
-        return ((VirtualQOpenGLTimerQuery*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLTimerQuery_OnSender(const QOpenGLTimerQuery* self, intptr_t slot) {
-    auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
-        vqopengltimerquery->setQOpenGLTimerQuery_Sender_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QOpenGLTimerQuery_SenderSignalIndex(const QOpenGLTimerQuery* self) {
-    auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        return vqopengltimerquery->senderSignalIndex();
-    } else {
-        return ((VirtualQOpenGLTimerQuery*)self)->senderSignalIndex();
-    }
+    if (auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self))) {
+        return vqopengltimerquery->VirtualQOpenGLTimerQuery::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QOpenGLTimerQuery::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QOpenGLTimerQuery_SuperSenderSignalIndex(const QOpenGLTimerQuery* self) {
-    auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        vqopengltimerquery->setQOpenGLTimerQuery_SenderSignalIndex_IsBase(true);
-        return vqopengltimerquery->senderSignalIndex();
-    } else {
-        return ((VirtualQOpenGLTimerQuery*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLTimerQuery_OnSenderSignalIndex(const QOpenGLTimerQuery* self, intptr_t slot) {
-    auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
-        vqopengltimerquery->setQOpenGLTimerQuery_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QOpenGLTimerQuery_Receivers(const QOpenGLTimerQuery* self, const char* signal) {
-    auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        return vqopengltimerquery->receivers(signal);
-    } else {
-        return ((VirtualQOpenGLTimerQuery*)self)->receivers(signal);
-    }
+    if (auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self))) {
+        return vqopengltimerquery->VirtualQOpenGLTimerQuery::receivers(signal);
+    } else
+        qFatal("Error: Protected method QOpenGLTimerQuery::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QOpenGLTimerQuery_SuperReceivers(const QOpenGLTimerQuery* self, const char* signal) {
-    auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        vqopengltimerquery->setQOpenGLTimerQuery_Receivers_IsBase(true);
-        return vqopengltimerquery->receivers(signal);
-    } else {
-        return ((VirtualQOpenGLTimerQuery*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLTimerQuery_OnReceivers(const QOpenGLTimerQuery* self, intptr_t slot) {
-    auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
-        vqopengltimerquery->setQOpenGLTimerQuery_Receivers_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QOpenGLTimerQuery_IsSignalConnected(const QOpenGLTimerQuery* self, const QMetaMethod* signal) {
-    auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        return vqopengltimerquery->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQOpenGLTimerQuery*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QOpenGLTimerQuery_SuperIsSignalConnected(const QOpenGLTimerQuery* self, const QMetaMethod* signal) {
-    auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        vqopengltimerquery->setQOpenGLTimerQuery_IsSignalConnected_IsBase(true);
-        return vqopengltimerquery->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQOpenGLTimerQuery*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLTimerQuery_OnIsSignalConnected(const QOpenGLTimerQuery* self, intptr_t slot) {
-    auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
-        vqopengltimerquery->setQOpenGLTimerQuery_IsSignalConnected_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_IsSignalConnected_Callback>(slot));
+    if (auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self))) {
+        return vqopengltimerquery->VirtualQOpenGLTimerQuery::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QOpenGLTimerQuery::isSignalConnected called without a directly constructed type");
 }
 
 void QOpenGLTimerQuery_Delete(QOpenGLTimerQuery* self) {
@@ -603,364 +458,219 @@ libqt_string QOpenGLTimeMonitor_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QOpenGLTimeMonitor_SuperMetaObject(const QOpenGLTimeMonitor* self) {
-    auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        vqopengltimemonitor->setQOpenGLTimeMonitor_MetaObject_IsBase(true);
-        return (QMetaObject*)vqopengltimemonitor->metaObject();
-    } else {
-        return (QMetaObject*)self->QOpenGLTimeMonitor::metaObject();
-    }
+    return (QMetaObject*)self->QOpenGLTimeMonitor::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLTimeMonitor_OnMetaObject(const QOpenGLTimeMonitor* self, intptr_t slot) {
-    auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
-        vqopengltimemonitor->setQOpenGLTimeMonitor_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_MetaObject_Callback>(slot));
+void QOpenGLTimeMonitor_OnMetaObject(QOpenGLTimeMonitor* self, intptr_t slot) {
+    if (auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self)))
+        vqopengltimemonitor->qopengltimemonitor_metaobject_callback = reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QOpenGLTimeMonitor_SuperMetacast(QOpenGLTimeMonitor* self, const char* param1) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        vqopengltimemonitor->setQOpenGLTimeMonitor_Metacast_IsBase(true);
-        return vqopengltimemonitor->qt_metacast(param1);
-    } else {
-        return self->QOpenGLTimeMonitor::qt_metacast(param1);
-    }
+    return self->QOpenGLTimeMonitor::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnMetacast(QOpenGLTimeMonitor* self, intptr_t slot) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
-        vqopengltimemonitor->setQOpenGLTimeMonitor_Metacast_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_Metacast_Callback>(slot));
+    if (auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self))
+        vqopengltimemonitor->qopengltimemonitor_metacast_callback = reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QOpenGLTimeMonitor_SuperMetacall(QOpenGLTimeMonitor* self, int param1, int param2, void** param3) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        vqopengltimemonitor->setQOpenGLTimeMonitor_Metacall_IsBase(true);
-        return vqopengltimemonitor->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QOpenGLTimeMonitor::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QOpenGLTimeMonitor::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnMetacall(QOpenGLTimeMonitor* self, intptr_t slot) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
-        vqopengltimemonitor->setQOpenGLTimeMonitor_Metacall_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_Metacall_Callback>(slot));
+    if (auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self))
+        vqopengltimemonitor->qopengltimemonitor_metacall_callback = reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLTimeMonitor_Event(QOpenGLTimeMonitor* self, QEvent* event) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        return vqopengltimemonitor->event(event);
-    } else {
-        return self->QOpenGLTimeMonitor::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QOpenGLTimeMonitor_SuperEvent(QOpenGLTimeMonitor* self, QEvent* event) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        vqopengltimemonitor->setQOpenGLTimeMonitor_Event_IsBase(true);
-        return vqopengltimemonitor->event(event);
-    } else {
-        return self->QOpenGLTimeMonitor::event(event);
-    }
+    return self->QOpenGLTimeMonitor::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnEvent(QOpenGLTimeMonitor* self, intptr_t slot) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
-        vqopengltimemonitor->setQOpenGLTimeMonitor_Event_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_Event_Callback>(slot));
+    if (auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self))
+        vqopengltimemonitor->qopengltimemonitor_event_callback = reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLTimeMonitor_EventFilter(QOpenGLTimeMonitor* self, QObject* watched, QEvent* event) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        return vqopengltimemonitor->eventFilter(watched, event);
-    } else {
-        return self->QOpenGLTimeMonitor::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QOpenGLTimeMonitor_SuperEventFilter(QOpenGLTimeMonitor* self, QObject* watched, QEvent* event) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        vqopengltimemonitor->setQOpenGLTimeMonitor_EventFilter_IsBase(true);
-        return vqopengltimemonitor->eventFilter(watched, event);
-    } else {
-        return self->QOpenGLTimeMonitor::eventFilter(watched, event);
-    }
+    return self->QOpenGLTimeMonitor::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnEventFilter(QOpenGLTimeMonitor* self, intptr_t slot) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
-        vqopengltimemonitor->setQOpenGLTimeMonitor_EventFilter_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_EventFilter_Callback>(slot));
+    if (auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self))
+        vqopengltimemonitor->qopengltimemonitor_eventfilter_callback = reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLTimeMonitor_TimerEvent(QOpenGLTimeMonitor* self, QTimerEvent* event) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor) {
         vqopengltimemonitor->timerEvent(event);
     } else {
-        ((VirtualQOpenGLTimeMonitor*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLTimeMonitor::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLTimeMonitor_SuperTimerEvent(QOpenGLTimeMonitor* self, QTimerEvent* event) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        vqopengltimemonitor->setQOpenGLTimeMonitor_TimerEvent_IsBase(true);
-        vqopengltimemonitor->timerEvent(event);
-    } else {
-        ((VirtualQOpenGLTimeMonitor*)self)->timerEvent(event);
-    }
+    if (auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self)) {
+        vqopengltimemonitor->QOpenGLTimeMonitor::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLTimeMonitor::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnTimerEvent(QOpenGLTimeMonitor* self, intptr_t slot) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
-        vqopengltimemonitor->setQOpenGLTimeMonitor_TimerEvent_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_TimerEvent_Callback>(slot));
+    if (auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self))
+        vqopengltimemonitor->qopengltimemonitor_timerevent_callback = reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLTimeMonitor_ChildEvent(QOpenGLTimeMonitor* self, QChildEvent* event) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor) {
         vqopengltimemonitor->childEvent(event);
     } else {
-        ((VirtualQOpenGLTimeMonitor*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLTimeMonitor::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLTimeMonitor_SuperChildEvent(QOpenGLTimeMonitor* self, QChildEvent* event) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        vqopengltimemonitor->setQOpenGLTimeMonitor_ChildEvent_IsBase(true);
-        vqopengltimemonitor->childEvent(event);
-    } else {
-        ((VirtualQOpenGLTimeMonitor*)self)->childEvent(event);
-    }
+    if (auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self)) {
+        vqopengltimemonitor->QOpenGLTimeMonitor::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLTimeMonitor::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnChildEvent(QOpenGLTimeMonitor* self, intptr_t slot) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
-        vqopengltimemonitor->setQOpenGLTimeMonitor_ChildEvent_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_ChildEvent_Callback>(slot));
+    if (auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self))
+        vqopengltimemonitor->qopengltimemonitor_childevent_callback = reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLTimeMonitor_CustomEvent(QOpenGLTimeMonitor* self, QEvent* event) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor) {
         vqopengltimemonitor->customEvent(event);
     } else {
-        ((VirtualQOpenGLTimeMonitor*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLTimeMonitor::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLTimeMonitor_SuperCustomEvent(QOpenGLTimeMonitor* self, QEvent* event) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        vqopengltimemonitor->setQOpenGLTimeMonitor_CustomEvent_IsBase(true);
-        vqopengltimemonitor->customEvent(event);
-    } else {
-        ((VirtualQOpenGLTimeMonitor*)self)->customEvent(event);
-    }
+    if (auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self)) {
+        vqopengltimemonitor->QOpenGLTimeMonitor::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLTimeMonitor::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnCustomEvent(QOpenGLTimeMonitor* self, intptr_t slot) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
-        vqopengltimemonitor->setQOpenGLTimeMonitor_CustomEvent_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_CustomEvent_Callback>(slot));
+    if (auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self))
+        vqopengltimemonitor->qopengltimemonitor_customevent_callback = reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLTimeMonitor_ConnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor) {
         vqopengltimemonitor->connectNotify(*signal);
     } else {
-        ((VirtualQOpenGLTimeMonitor*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QOpenGLTimeMonitor::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLTimeMonitor_SuperConnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        vqopengltimemonitor->setQOpenGLTimeMonitor_ConnectNotify_IsBase(true);
-        vqopengltimemonitor->connectNotify(*signal);
-    } else {
-        ((VirtualQOpenGLTimeMonitor*)self)->connectNotify(*signal);
-    }
+    if (auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self)) {
+        vqopengltimemonitor->QOpenGLTimeMonitor::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLTimeMonitor::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnConnectNotify(QOpenGLTimeMonitor* self, intptr_t slot) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
-        vqopengltimemonitor->setQOpenGLTimeMonitor_ConnectNotify_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_ConnectNotify_Callback>(slot));
+    if (auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self))
+        vqopengltimemonitor->qopengltimemonitor_connectnotify_callback = reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLTimeMonitor_DisconnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor) {
         vqopengltimemonitor->disconnectNotify(*signal);
     } else {
-        ((VirtualQOpenGLTimeMonitor*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QOpenGLTimeMonitor::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLTimeMonitor_SuperDisconnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        vqopengltimemonitor->setQOpenGLTimeMonitor_DisconnectNotify_IsBase(true);
-        vqopengltimemonitor->disconnectNotify(*signal);
-    } else {
-        ((VirtualQOpenGLTimeMonitor*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self)) {
+        vqopengltimemonitor->QOpenGLTimeMonitor::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLTimeMonitor::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnDisconnectNotify(QOpenGLTimeMonitor* self, intptr_t slot) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
-        vqopengltimemonitor->setQOpenGLTimeMonitor_DisconnectNotify_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_DisconnectNotify_Callback>(slot));
+    if (auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self))
+        vqopengltimemonitor->qopengltimemonitor_disconnectnotify_callback = reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QOpenGLTimeMonitor_Sender(const QOpenGLTimeMonitor* self) {
-    auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        return vqopengltimemonitor->sender();
-    } else {
-        return ((VirtualQOpenGLTimeMonitor*)self)->sender();
-    }
+    if (auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self))) {
+        return vqopengltimemonitor->VirtualQOpenGLTimeMonitor::sender();
+    } else
+        qFatal("Error: Protected method QOpenGLTimeMonitor::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QOpenGLTimeMonitor_SuperSender(const QOpenGLTimeMonitor* self) {
-    auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        vqopengltimemonitor->setQOpenGLTimeMonitor_Sender_IsBase(true);
-        return vqopengltimemonitor->sender();
-    } else {
-        return ((VirtualQOpenGLTimeMonitor*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLTimeMonitor_OnSender(const QOpenGLTimeMonitor* self, intptr_t slot) {
-    auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
-        vqopengltimemonitor->setQOpenGLTimeMonitor_Sender_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QOpenGLTimeMonitor_SenderSignalIndex(const QOpenGLTimeMonitor* self) {
-    auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        return vqopengltimemonitor->senderSignalIndex();
-    } else {
-        return ((VirtualQOpenGLTimeMonitor*)self)->senderSignalIndex();
-    }
+    if (auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self))) {
+        return vqopengltimemonitor->VirtualQOpenGLTimeMonitor::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QOpenGLTimeMonitor::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QOpenGLTimeMonitor_SuperSenderSignalIndex(const QOpenGLTimeMonitor* self) {
-    auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        vqopengltimemonitor->setQOpenGLTimeMonitor_SenderSignalIndex_IsBase(true);
-        return vqopengltimemonitor->senderSignalIndex();
-    } else {
-        return ((VirtualQOpenGLTimeMonitor*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLTimeMonitor_OnSenderSignalIndex(const QOpenGLTimeMonitor* self, intptr_t slot) {
-    auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
-        vqopengltimemonitor->setQOpenGLTimeMonitor_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QOpenGLTimeMonitor_Receivers(const QOpenGLTimeMonitor* self, const char* signal) {
-    auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        return vqopengltimemonitor->receivers(signal);
-    } else {
-        return ((VirtualQOpenGLTimeMonitor*)self)->receivers(signal);
-    }
+    if (auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self))) {
+        return vqopengltimemonitor->VirtualQOpenGLTimeMonitor::receivers(signal);
+    } else
+        qFatal("Error: Protected method QOpenGLTimeMonitor::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QOpenGLTimeMonitor_SuperReceivers(const QOpenGLTimeMonitor* self, const char* signal) {
-    auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        vqopengltimemonitor->setQOpenGLTimeMonitor_Receivers_IsBase(true);
-        return vqopengltimemonitor->receivers(signal);
-    } else {
-        return ((VirtualQOpenGLTimeMonitor*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLTimeMonitor_OnReceivers(const QOpenGLTimeMonitor* self, intptr_t slot) {
-    auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
-        vqopengltimemonitor->setQOpenGLTimeMonitor_Receivers_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QOpenGLTimeMonitor_IsSignalConnected(const QOpenGLTimeMonitor* self, const QMetaMethod* signal) {
-    auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        return vqopengltimemonitor->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQOpenGLTimeMonitor*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QOpenGLTimeMonitor_SuperIsSignalConnected(const QOpenGLTimeMonitor* self, const QMetaMethod* signal) {
-    auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        vqopengltimemonitor->setQOpenGLTimeMonitor_IsSignalConnected_IsBase(true);
-        return vqopengltimemonitor->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQOpenGLTimeMonitor*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLTimeMonitor_OnIsSignalConnected(const QOpenGLTimeMonitor* self, intptr_t slot) {
-    auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
-        vqopengltimemonitor->setQOpenGLTimeMonitor_IsSignalConnected_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_IsSignalConnected_Callback>(slot));
+    if (auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self))) {
+        return vqopengltimemonitor->VirtualQOpenGLTimeMonitor::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QOpenGLTimeMonitor::isSignalConnected called without a directly constructed type");
 }
 
 void QOpenGLTimeMonitor_Delete(QOpenGLTimeMonitor* self) {

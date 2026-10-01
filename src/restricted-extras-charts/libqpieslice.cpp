@@ -484,364 +484,219 @@ void QPieSlice_SetExploded1(QPieSlice* self, bool exploded) {
 
 // Base class handler implementation
 QMetaObject* QPieSlice_SuperMetaObject(const QPieSlice* self) {
-    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_MetaObject_IsBase(true);
-        return (QMetaObject*)vqpieslice->metaObject();
-    } else {
-        return (QMetaObject*)self->QPieSlice::metaObject();
-    }
+    return (QMetaObject*)self->QPieSlice::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPieSlice_OnMetaObject(const QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
-        vqpieslice->setQPieSlice_MetaObject_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_MetaObject_Callback>(slot));
+void QPieSlice_OnMetaObject(QPieSlice* self, intptr_t slot) {
+    if (auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self)))
+        vqpieslice->qpieslice_metaobject_callback = reinterpret_cast<VirtualQPieSlice::QPieSlice_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPieSlice_SuperMetacast(QPieSlice* self, const char* param1) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_Metacast_IsBase(true);
-        return vqpieslice->qt_metacast(param1);
-    } else {
-        return self->QPieSlice::qt_metacast(param1);
-    }
+    return self->QPieSlice::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnMetacast(QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
-        vqpieslice->setQPieSlice_Metacast_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_Metacast_Callback>(slot));
+    if (auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self))
+        vqpieslice->qpieslice_metacast_callback = reinterpret_cast<VirtualQPieSlice::QPieSlice_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPieSlice_SuperMetacall(QPieSlice* self, int param1, int param2, void** param3) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_Metacall_IsBase(true);
-        return vqpieslice->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPieSlice::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPieSlice::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnMetacall(QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
-        vqpieslice->setQPieSlice_Metacall_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_Metacall_Callback>(slot));
+    if (auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self))
+        vqpieslice->qpieslice_metacall_callback = reinterpret_cast<VirtualQPieSlice::QPieSlice_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPieSlice_Event(QPieSlice* self, QEvent* event) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        return vqpieslice->event(event);
-    } else {
-        return self->QPieSlice::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QPieSlice_SuperEvent(QPieSlice* self, QEvent* event) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_Event_IsBase(true);
-        return vqpieslice->event(event);
-    } else {
-        return self->QPieSlice::event(event);
-    }
+    return self->QPieSlice::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnEvent(QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
-        vqpieslice->setQPieSlice_Event_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_Event_Callback>(slot));
+    if (auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self))
+        vqpieslice->qpieslice_event_callback = reinterpret_cast<VirtualQPieSlice::QPieSlice_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPieSlice_EventFilter(QPieSlice* self, QObject* watched, QEvent* event) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        return vqpieslice->eventFilter(watched, event);
-    } else {
-        return self->QPieSlice::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QPieSlice_SuperEventFilter(QPieSlice* self, QObject* watched, QEvent* event) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_EventFilter_IsBase(true);
-        return vqpieslice->eventFilter(watched, event);
-    } else {
-        return self->QPieSlice::eventFilter(watched, event);
-    }
+    return self->QPieSlice::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnEventFilter(QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
-        vqpieslice->setQPieSlice_EventFilter_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_EventFilter_Callback>(slot));
+    if (auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self))
+        vqpieslice->qpieslice_eventfilter_callback = reinterpret_cast<VirtualQPieSlice::QPieSlice_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieSlice_TimerEvent(QPieSlice* self, QTimerEvent* event) {
     auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice) {
         vqpieslice->timerEvent(event);
     } else {
-        ((VirtualQPieSlice*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPieSlice::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieSlice_SuperTimerEvent(QPieSlice* self, QTimerEvent* event) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_TimerEvent_IsBase(true);
-        vqpieslice->timerEvent(event);
-    } else {
-        ((VirtualQPieSlice*)self)->timerEvent(event);
-    }
+    if (auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self)) {
+        vqpieslice->QPieSlice::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPieSlice::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnTimerEvent(QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
-        vqpieslice->setQPieSlice_TimerEvent_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_TimerEvent_Callback>(slot));
+    if (auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self))
+        vqpieslice->qpieslice_timerevent_callback = reinterpret_cast<VirtualQPieSlice::QPieSlice_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieSlice_ChildEvent(QPieSlice* self, QChildEvent* event) {
     auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice) {
         vqpieslice->childEvent(event);
     } else {
-        ((VirtualQPieSlice*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPieSlice::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieSlice_SuperChildEvent(QPieSlice* self, QChildEvent* event) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_ChildEvent_IsBase(true);
-        vqpieslice->childEvent(event);
-    } else {
-        ((VirtualQPieSlice*)self)->childEvent(event);
-    }
+    if (auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self)) {
+        vqpieslice->QPieSlice::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPieSlice::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnChildEvent(QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
-        vqpieslice->setQPieSlice_ChildEvent_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_ChildEvent_Callback>(slot));
+    if (auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self))
+        vqpieslice->qpieslice_childevent_callback = reinterpret_cast<VirtualQPieSlice::QPieSlice_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieSlice_CustomEvent(QPieSlice* self, QEvent* event) {
     auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice) {
         vqpieslice->customEvent(event);
     } else {
-        ((VirtualQPieSlice*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPieSlice::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieSlice_SuperCustomEvent(QPieSlice* self, QEvent* event) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_CustomEvent_IsBase(true);
-        vqpieslice->customEvent(event);
-    } else {
-        ((VirtualQPieSlice*)self)->customEvent(event);
-    }
+    if (auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self)) {
+        vqpieslice->QPieSlice::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPieSlice::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnCustomEvent(QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
-        vqpieslice->setQPieSlice_CustomEvent_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_CustomEvent_Callback>(slot));
+    if (auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self))
+        vqpieslice->qpieslice_customevent_callback = reinterpret_cast<VirtualQPieSlice::QPieSlice_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieSlice_ConnectNotify(QPieSlice* self, const QMetaMethod* signal) {
     auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice) {
         vqpieslice->connectNotify(*signal);
     } else {
-        ((VirtualQPieSlice*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPieSlice::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieSlice_SuperConnectNotify(QPieSlice* self, const QMetaMethod* signal) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_ConnectNotify_IsBase(true);
-        vqpieslice->connectNotify(*signal);
-    } else {
-        ((VirtualQPieSlice*)self)->connectNotify(*signal);
-    }
+    if (auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self)) {
+        vqpieslice->QPieSlice::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPieSlice::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnConnectNotify(QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
-        vqpieslice->setQPieSlice_ConnectNotify_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_ConnectNotify_Callback>(slot));
+    if (auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self))
+        vqpieslice->qpieslice_connectnotify_callback = reinterpret_cast<VirtualQPieSlice::QPieSlice_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieSlice_DisconnectNotify(QPieSlice* self, const QMetaMethod* signal) {
     auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice) {
         vqpieslice->disconnectNotify(*signal);
     } else {
-        ((VirtualQPieSlice*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPieSlice::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieSlice_SuperDisconnectNotify(QPieSlice* self, const QMetaMethod* signal) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_DisconnectNotify_IsBase(true);
-        vqpieslice->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPieSlice*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self)) {
+        vqpieslice->QPieSlice::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPieSlice::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnDisconnectNotify(QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
-        vqpieslice->setQPieSlice_DisconnectNotify_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_DisconnectNotify_Callback>(slot));
+    if (auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self))
+        vqpieslice->qpieslice_disconnectnotify_callback = reinterpret_cast<VirtualQPieSlice::QPieSlice_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPieSlice_Sender(const QPieSlice* self) {
-    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        return vqpieslice->sender();
-    } else {
-        return ((VirtualQPieSlice*)self)->sender();
-    }
+    if (auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self))) {
+        return vqpieslice->VirtualQPieSlice::sender();
+    } else
+        qFatal("Error: Protected method QPieSlice::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPieSlice_SuperSender(const QPieSlice* self) {
-    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_Sender_IsBase(true);
-        return vqpieslice->sender();
-    } else {
-        return ((VirtualQPieSlice*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieSlice_OnSender(const QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
-        vqpieslice->setQPieSlice_Sender_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPieSlice_SenderSignalIndex(const QPieSlice* self) {
-    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        return vqpieslice->senderSignalIndex();
-    } else {
-        return ((VirtualQPieSlice*)self)->senderSignalIndex();
-    }
+    if (auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self))) {
+        return vqpieslice->VirtualQPieSlice::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPieSlice::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPieSlice_SuperSenderSignalIndex(const QPieSlice* self) {
-    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_SenderSignalIndex_IsBase(true);
-        return vqpieslice->senderSignalIndex();
-    } else {
-        return ((VirtualQPieSlice*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieSlice_OnSenderSignalIndex(const QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
-        vqpieslice->setQPieSlice_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPieSlice_Receivers(const QPieSlice* self, const char* signal) {
-    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        return vqpieslice->receivers(signal);
-    } else {
-        return ((VirtualQPieSlice*)self)->receivers(signal);
-    }
+    if (auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self))) {
+        return vqpieslice->VirtualQPieSlice::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPieSlice::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPieSlice_SuperReceivers(const QPieSlice* self, const char* signal) {
-    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_Receivers_IsBase(true);
-        return vqpieslice->receivers(signal);
-    } else {
-        return ((VirtualQPieSlice*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieSlice_OnReceivers(const QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
-        vqpieslice->setQPieSlice_Receivers_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPieSlice_IsSignalConnected(const QPieSlice* self, const QMetaMethod* signal) {
-    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        return vqpieslice->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPieSlice*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QPieSlice_SuperIsSignalConnected(const QPieSlice* self, const QMetaMethod* signal) {
-    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        vqpieslice->setQPieSlice_IsSignalConnected_IsBase(true);
-        return vqpieslice->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPieSlice*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieSlice_OnIsSignalConnected(const QPieSlice* self, intptr_t slot) {
-    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
-        vqpieslice->setQPieSlice_IsSignalConnected_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_IsSignalConnected_Callback>(slot));
+    if (auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self))) {
+        return vqpieslice->VirtualQPieSlice::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPieSlice::isSignalConnected called without a directly constructed type");
 }
 
 void QPieSlice_Delete(QPieSlice* self) {

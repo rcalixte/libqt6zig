@@ -122,1732 +122,1200 @@ libqt_string KPreviewWidgetBase_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KPreviewWidgetBase_SuperMetaObject(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_MetaObject_IsBase(true);
-        return (QMetaObject*)vkpreviewwidgetbase->metaObject();
-    } else {
-        return (QMetaObject*)self->KPreviewWidgetBase::metaObject();
-    }
+    return (QMetaObject*)self->KPreviewWidgetBase::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnMetaObject(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_MetaObject_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MetaObject_Callback>(slot));
+void KPreviewWidgetBase_OnMetaObject(KPreviewWidgetBase* self, intptr_t slot) {
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self)))
+        vkpreviewwidgetbase->kpreviewwidgetbase_metaobject_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KPreviewWidgetBase_SuperMetacast(KPreviewWidgetBase* self, const char* param1) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Metacast_IsBase(true);
-        return vkpreviewwidgetbase->qt_metacast(param1);
-    } else {
-        return self->KPreviewWidgetBase::qt_metacast(param1);
-    }
+    return self->KPreviewWidgetBase::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMetacast(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Metacast_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Metacast_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_metacast_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KPreviewWidgetBase_SuperMetacall(KPreviewWidgetBase* self, int param1, int param2, void** param3) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Metacall_IsBase(true);
-        return vkpreviewwidgetbase->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KPreviewWidgetBase::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KPreviewWidgetBase::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMetacall(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Metacall_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-void KPreviewWidgetBase_SuperShowPreview(KPreviewWidgetBase* self, const QUrl* url) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ShowPreview_IsBase(true);
-        vkpreviewwidgetbase->showPreview(*url);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->showPreview(*url);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_metacall_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnShowPreview(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ShowPreview_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ShowPreview_Callback>(slot));
-}
-
-// Base class handler implementation
-void KPreviewWidgetBase_SuperClearPreview(KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ClearPreview_IsBase(true);
-        vkpreviewwidgetbase->clearPreview();
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->clearPreview();
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_showpreview_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ShowPreview_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnClearPreview(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ClearPreview_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ClearPreview_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_clearpreview_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ClearPreview_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPreviewWidgetBase_DevType(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return vkpreviewwidgetbase->devType();
-    } else {
-        return self->KPreviewWidgetBase::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KPreviewWidgetBase_SuperDevType(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_DevType_IsBase(true);
-        return vkpreviewwidgetbase->devType();
-    } else {
-        return self->KPreviewWidgetBase::devType();
-    }
+    return self->KPreviewWidgetBase::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnDevType(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_DevType_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DevType_Callback>(slot));
+void KPreviewWidgetBase_OnDevType(KPreviewWidgetBase* self, intptr_t slot) {
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self)))
+        vkpreviewwidgetbase->kpreviewwidgetbase_devtype_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_SetVisible(KPreviewWidgetBase* self, bool visible) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setVisible(visible);
-    } else {
-        self->KPreviewWidgetBase::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperSetVisible(KPreviewWidgetBase* self, bool visible) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_SetVisible_IsBase(true);
-        vkpreviewwidgetbase->setVisible(visible);
-    } else {
-        self->KPreviewWidgetBase::setVisible(visible);
-    }
+    self->KPreviewWidgetBase::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnSetVisible(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_SetVisible_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_SetVisible_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_setvisible_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KPreviewWidgetBase_SizeHint(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return new QSize(vkpreviewwidgetbase->sizeHint());
-    } else {
-        return new QSize(((VirtualKPreviewWidgetBase*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KPreviewWidgetBase_SuperSizeHint(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_SizeHint_IsBase(true);
-        return new QSize(vkpreviewwidgetbase->sizeHint());
-    } else {
-        return new QSize(((VirtualKPreviewWidgetBase*)self)->sizeHint());
-    }
+    return new QSize(self->KPreviewWidgetBase::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnSizeHint(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_SizeHint_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_SizeHint_Callback>(slot));
+void KPreviewWidgetBase_OnSizeHint(KPreviewWidgetBase* self, intptr_t slot) {
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self)))
+        vkpreviewwidgetbase->kpreviewwidgetbase_sizehint_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KPreviewWidgetBase_MinimumSizeHint(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return new QSize(vkpreviewwidgetbase->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPreviewWidgetBase*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KPreviewWidgetBase_SuperMinimumSizeHint(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_MinimumSizeHint_IsBase(true);
-        return new QSize(vkpreviewwidgetbase->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPreviewWidgetBase*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KPreviewWidgetBase::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnMinimumSizeHint(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MinimumSizeHint_Callback>(slot));
+void KPreviewWidgetBase_OnMinimumSizeHint(KPreviewWidgetBase* self, intptr_t slot) {
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self)))
+        vkpreviewwidgetbase->kpreviewwidgetbase_minimumsizehint_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPreviewWidgetBase_HeightForWidth(const KPreviewWidgetBase* self, int param1) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return vkpreviewwidgetbase->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KPreviewWidgetBase::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KPreviewWidgetBase_SuperHeightForWidth(const KPreviewWidgetBase* self, int param1) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_HeightForWidth_IsBase(true);
-        return vkpreviewwidgetbase->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KPreviewWidgetBase::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KPreviewWidgetBase::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnHeightForWidth(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_HeightForWidth_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_HeightForWidth_Callback>(slot));
+void KPreviewWidgetBase_OnHeightForWidth(KPreviewWidgetBase* self, intptr_t slot) {
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self)))
+        vkpreviewwidgetbase->kpreviewwidgetbase_heightforwidth_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPreviewWidgetBase_HasHeightForWidth(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return vkpreviewwidgetbase->hasHeightForWidth();
-    } else {
-        return self->KPreviewWidgetBase::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KPreviewWidgetBase_SuperHasHeightForWidth(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_HasHeightForWidth_IsBase(true);
-        return vkpreviewwidgetbase->hasHeightForWidth();
-    } else {
-        return self->KPreviewWidgetBase::hasHeightForWidth();
-    }
+    return self->KPreviewWidgetBase::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnHasHeightForWidth(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_HasHeightForWidth_Callback>(slot));
+void KPreviewWidgetBase_OnHasHeightForWidth(KPreviewWidgetBase* self, intptr_t slot) {
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self)))
+        vkpreviewwidgetbase->kpreviewwidgetbase_hasheightforwidth_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KPreviewWidgetBase_PaintEngine(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return vkpreviewwidgetbase->paintEngine();
-    } else {
-        return self->KPreviewWidgetBase::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KPreviewWidgetBase_SuperPaintEngine(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_PaintEngine_IsBase(true);
-        return vkpreviewwidgetbase->paintEngine();
-    } else {
-        return self->KPreviewWidgetBase::paintEngine();
-    }
+    return self->KPreviewWidgetBase::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnPaintEngine(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_PaintEngine_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_PaintEngine_Callback>(slot));
+void KPreviewWidgetBase_OnPaintEngine(KPreviewWidgetBase* self, intptr_t slot) {
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self)))
+        vkpreviewwidgetbase->kpreviewwidgetbase_paintengine_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPreviewWidgetBase_Event(KPreviewWidgetBase* self, QEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         return vkpreviewwidgetbase->event(event);
     } else {
-        return ((VirtualKPreviewWidgetBase*)self)->event(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPreviewWidgetBase_SuperEvent(KPreviewWidgetBase* self, QEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Event_IsBase(true);
-        return vkpreviewwidgetbase->event(event);
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->event(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        return vkpreviewwidgetbase->KPreviewWidgetBase::event(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Event_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Event_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_event_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_MousePressEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->mousePressEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperMousePressEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_MousePressEvent_IsBase(true);
-        vkpreviewwidgetbase->mousePressEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->mousePressEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMousePressEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_MousePressEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MousePressEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_mousepressevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_MouseReleaseEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->mouseReleaseEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperMouseReleaseEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_MouseReleaseEvent_IsBase(true);
-        vkpreviewwidgetbase->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMouseReleaseEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_mousereleaseevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_MouseDoubleClickEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperMouseDoubleClickEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_MouseDoubleClickEvent_IsBase(true);
-        vkpreviewwidgetbase->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMouseDoubleClickEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_mousedoubleclickevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_MouseMoveEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->mouseMoveEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperMouseMoveEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_MouseMoveEvent_IsBase(true);
-        vkpreviewwidgetbase->mouseMoveEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMouseMoveEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MouseMoveEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_mousemoveevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_WheelEvent(KPreviewWidgetBase* self, QWheelEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->wheelEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperWheelEvent(KPreviewWidgetBase* self, QWheelEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_WheelEvent_IsBase(true);
-        vkpreviewwidgetbase->wheelEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->wheelEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnWheelEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_WheelEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_WheelEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_wheelevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_KeyPressEvent(KPreviewWidgetBase* self, QKeyEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->keyPressEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperKeyPressEvent(KPreviewWidgetBase* self, QKeyEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_KeyPressEvent_IsBase(true);
-        vkpreviewwidgetbase->keyPressEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->keyPressEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnKeyPressEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_KeyPressEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_KeyPressEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_keypressevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_KeyReleaseEvent(KPreviewWidgetBase* self, QKeyEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->keyReleaseEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperKeyReleaseEvent(KPreviewWidgetBase* self, QKeyEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_KeyReleaseEvent_IsBase(true);
-        vkpreviewwidgetbase->keyReleaseEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnKeyReleaseEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_keyreleaseevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_FocusInEvent(KPreviewWidgetBase* self, QFocusEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->focusInEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperFocusInEvent(KPreviewWidgetBase* self, QFocusEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_FocusInEvent_IsBase(true);
-        vkpreviewwidgetbase->focusInEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->focusInEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnFocusInEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_FocusInEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_FocusInEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_focusinevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_FocusOutEvent(KPreviewWidgetBase* self, QFocusEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->focusOutEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperFocusOutEvent(KPreviewWidgetBase* self, QFocusEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_FocusOutEvent_IsBase(true);
-        vkpreviewwidgetbase->focusOutEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->focusOutEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnFocusOutEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_FocusOutEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_FocusOutEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_focusoutevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_EnterEvent(KPreviewWidgetBase* self, QEnterEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->enterEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperEnterEvent(KPreviewWidgetBase* self, QEnterEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_EnterEvent_IsBase(true);
-        vkpreviewwidgetbase->enterEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->enterEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnEnterEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_EnterEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_EnterEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_enterevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_LeaveEvent(KPreviewWidgetBase* self, QEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->leaveEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperLeaveEvent(KPreviewWidgetBase* self, QEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_LeaveEvent_IsBase(true);
-        vkpreviewwidgetbase->leaveEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->leaveEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnLeaveEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_LeaveEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_LeaveEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_leaveevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_PaintEvent(KPreviewWidgetBase* self, QPaintEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->paintEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperPaintEvent(KPreviewWidgetBase* self, QPaintEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_PaintEvent_IsBase(true);
-        vkpreviewwidgetbase->paintEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->paintEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnPaintEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_PaintEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_PaintEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_paintevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_MoveEvent(KPreviewWidgetBase* self, QMoveEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->moveEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperMoveEvent(KPreviewWidgetBase* self, QMoveEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_MoveEvent_IsBase(true);
-        vkpreviewwidgetbase->moveEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->moveEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMoveEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_MoveEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MoveEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_moveevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_ResizeEvent(KPreviewWidgetBase* self, QResizeEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->resizeEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperResizeEvent(KPreviewWidgetBase* self, QResizeEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ResizeEvent_IsBase(true);
-        vkpreviewwidgetbase->resizeEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->resizeEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnResizeEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ResizeEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ResizeEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_resizeevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_CloseEvent(KPreviewWidgetBase* self, QCloseEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->closeEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperCloseEvent(KPreviewWidgetBase* self, QCloseEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_CloseEvent_IsBase(true);
-        vkpreviewwidgetbase->closeEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->closeEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnCloseEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_CloseEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_CloseEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_closeevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_ContextMenuEvent(KPreviewWidgetBase* self, QContextMenuEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->contextMenuEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperContextMenuEvent(KPreviewWidgetBase* self, QContextMenuEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ContextMenuEvent_IsBase(true);
-        vkpreviewwidgetbase->contextMenuEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnContextMenuEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ContextMenuEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_contextmenuevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_TabletEvent(KPreviewWidgetBase* self, QTabletEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->tabletEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperTabletEvent(KPreviewWidgetBase* self, QTabletEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_TabletEvent_IsBase(true);
-        vkpreviewwidgetbase->tabletEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->tabletEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnTabletEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_TabletEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_TabletEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_tabletevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_ActionEvent(KPreviewWidgetBase* self, QActionEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->actionEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperActionEvent(KPreviewWidgetBase* self, QActionEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ActionEvent_IsBase(true);
-        vkpreviewwidgetbase->actionEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->actionEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnActionEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ActionEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ActionEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_actionevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_DragEnterEvent(KPreviewWidgetBase* self, QDragEnterEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->dragEnterEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperDragEnterEvent(KPreviewWidgetBase* self, QDragEnterEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_DragEnterEvent_IsBase(true);
-        vkpreviewwidgetbase->dragEnterEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnDragEnterEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_DragEnterEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DragEnterEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_dragenterevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_DragMoveEvent(KPreviewWidgetBase* self, QDragMoveEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->dragMoveEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperDragMoveEvent(KPreviewWidgetBase* self, QDragMoveEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_DragMoveEvent_IsBase(true);
-        vkpreviewwidgetbase->dragMoveEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnDragMoveEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_DragMoveEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DragMoveEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_dragmoveevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_DragLeaveEvent(KPreviewWidgetBase* self, QDragLeaveEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->dragLeaveEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperDragLeaveEvent(KPreviewWidgetBase* self, QDragLeaveEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_DragLeaveEvent_IsBase(true);
-        vkpreviewwidgetbase->dragLeaveEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnDragLeaveEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DragLeaveEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_dragleaveevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_DropEvent(KPreviewWidgetBase* self, QDropEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->dropEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperDropEvent(KPreviewWidgetBase* self, QDropEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_DropEvent_IsBase(true);
-        vkpreviewwidgetbase->dropEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->dropEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnDropEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_DropEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DropEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_dropevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_ShowEvent(KPreviewWidgetBase* self, QShowEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->showEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperShowEvent(KPreviewWidgetBase* self, QShowEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ShowEvent_IsBase(true);
-        vkpreviewwidgetbase->showEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->showEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnShowEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ShowEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ShowEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_showevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_HideEvent(KPreviewWidgetBase* self, QHideEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->hideEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperHideEvent(KPreviewWidgetBase* self, QHideEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_HideEvent_IsBase(true);
-        vkpreviewwidgetbase->hideEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->hideEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnHideEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_HideEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_HideEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_hideevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPreviewWidgetBase_NativeEvent(KPreviewWidgetBase* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
+    if (vkpreviewwidgetbase) {
         return vkpreviewwidgetbase->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKPreviewWidgetBase*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPreviewWidgetBase_SuperNativeEvent(KPreviewWidgetBase* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_NativeEvent_IsBase(true);
-        return vkpreviewwidgetbase->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        return vkpreviewwidgetbase->KPreviewWidgetBase::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnNativeEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_NativeEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_NativeEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_nativeevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_ChangeEvent(KPreviewWidgetBase* self, QEvent* param1) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->changeEvent(param1);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperChangeEvent(KPreviewWidgetBase* self, QEvent* param1) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ChangeEvent_IsBase(true);
-        vkpreviewwidgetbase->changeEvent(param1);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->changeEvent(param1);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnChangeEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ChangeEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ChangeEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_changeevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPreviewWidgetBase_Metric(const KPreviewWidgetBase* self, int param1) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         return vkpreviewwidgetbase->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKPreviewWidgetBase*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KPreviewWidgetBase_SuperMetric(const KPreviewWidgetBase* self, int param1) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Metric_IsBase(true);
-        return vkpreviewwidgetbase->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self))) {
+        return vkpreviewwidgetbase->KPreviewWidgetBase::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnMetric(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Metric_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Metric_Callback>(slot));
+void KPreviewWidgetBase_OnMetric(KPreviewWidgetBase* self, intptr_t slot) {
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self)))
+        vkpreviewwidgetbase->kpreviewwidgetbase_metric_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_InitPainter(const KPreviewWidgetBase* self, QPainter* painter) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->initPainter(painter);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperInitPainter(const KPreviewWidgetBase* self, QPainter* painter) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_InitPainter_IsBase(true);
-        vkpreviewwidgetbase->initPainter(painter);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->initPainter(painter);
-    }
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self))) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnInitPainter(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_InitPainter_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_InitPainter_Callback>(slot));
+void KPreviewWidgetBase_OnInitPainter(KPreviewWidgetBase* self, intptr_t slot) {
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self)))
+        vkpreviewwidgetbase->kpreviewwidgetbase_initpainter_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KPreviewWidgetBase_Redirected(const KPreviewWidgetBase* self, QPoint* offset) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         return vkpreviewwidgetbase->redirected(offset);
     } else {
-        return ((VirtualKPreviewWidgetBase*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KPreviewWidgetBase_SuperRedirected(const KPreviewWidgetBase* self, QPoint* offset) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Redirected_IsBase(true);
-        return vkpreviewwidgetbase->redirected(offset);
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->redirected(offset);
-    }
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self))) {
+        return vkpreviewwidgetbase->KPreviewWidgetBase::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnRedirected(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Redirected_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Redirected_Callback>(slot));
+void KPreviewWidgetBase_OnRedirected(KPreviewWidgetBase* self, intptr_t slot) {
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self)))
+        vkpreviewwidgetbase->kpreviewwidgetbase_redirected_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KPreviewWidgetBase_SharedPainter(const KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         return vkpreviewwidgetbase->sharedPainter();
     } else {
-        return ((VirtualKPreviewWidgetBase*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KPreviewWidgetBase_SuperSharedPainter(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_SharedPainter_IsBase(true);
-        return vkpreviewwidgetbase->sharedPainter();
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->sharedPainter();
-    }
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self))) {
+        return vkpreviewwidgetbase->KPreviewWidgetBase::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnSharedPainter(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_SharedPainter_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_SharedPainter_Callback>(slot));
+void KPreviewWidgetBase_OnSharedPainter(KPreviewWidgetBase* self, intptr_t slot) {
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self)))
+        vkpreviewwidgetbase->kpreviewwidgetbase_sharedpainter_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_InputMethodEvent(KPreviewWidgetBase* self, QInputMethodEvent* param1) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->inputMethodEvent(param1);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperInputMethodEvent(KPreviewWidgetBase* self, QInputMethodEvent* param1) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_InputMethodEvent_IsBase(true);
-        vkpreviewwidgetbase->inputMethodEvent(param1);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnInputMethodEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_InputMethodEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_InputMethodEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_inputmethodevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KPreviewWidgetBase_InputMethodQuery(const KPreviewWidgetBase* self, int param1) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return new QVariant(vkpreviewwidgetbase->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPreviewWidgetBase*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KPreviewWidgetBase_SuperInputMethodQuery(const KPreviewWidgetBase* self, int param1) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_InputMethodQuery_IsBase(true);
-        return new QVariant(vkpreviewwidgetbase->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPreviewWidgetBase*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KPreviewWidgetBase::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnInputMethodQuery(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_InputMethodQuery_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_InputMethodQuery_Callback>(slot));
+void KPreviewWidgetBase_OnInputMethodQuery(KPreviewWidgetBase* self, intptr_t slot) {
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self)))
+        vkpreviewwidgetbase->kpreviewwidgetbase_inputmethodquery_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPreviewWidgetBase_FocusNextPrevChild(KPreviewWidgetBase* self, bool next) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         return vkpreviewwidgetbase->focusNextPrevChild(next);
     } else {
-        return ((VirtualKPreviewWidgetBase*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPreviewWidgetBase_SuperFocusNextPrevChild(KPreviewWidgetBase* self, bool next) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_FocusNextPrevChild_IsBase(true);
-        return vkpreviewwidgetbase->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        return vkpreviewwidgetbase->KPreviewWidgetBase::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnFocusNextPrevChild(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_focusnextprevchild_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPreviewWidgetBase_EventFilter(KPreviewWidgetBase* self, QObject* watched, QEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return vkpreviewwidgetbase->eventFilter(watched, event);
-    } else {
-        return self->KPreviewWidgetBase::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KPreviewWidgetBase_SuperEventFilter(KPreviewWidgetBase* self, QObject* watched, QEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_EventFilter_IsBase(true);
-        return vkpreviewwidgetbase->eventFilter(watched, event);
-    } else {
-        return self->KPreviewWidgetBase::eventFilter(watched, event);
-    }
+    return self->KPreviewWidgetBase::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnEventFilter(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_EventFilter_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_EventFilter_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_eventfilter_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_TimerEvent(KPreviewWidgetBase* self, QTimerEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->timerEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperTimerEvent(KPreviewWidgetBase* self, QTimerEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_TimerEvent_IsBase(true);
-        vkpreviewwidgetbase->timerEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->timerEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnTimerEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_TimerEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_TimerEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_timerevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_ChildEvent(KPreviewWidgetBase* self, QChildEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->childEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperChildEvent(KPreviewWidgetBase* self, QChildEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ChildEvent_IsBase(true);
-        vkpreviewwidgetbase->childEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->childEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnChildEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ChildEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ChildEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_childevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_CustomEvent(KPreviewWidgetBase* self, QEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->customEvent(event);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperCustomEvent(KPreviewWidgetBase* self, QEvent* event) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_CustomEvent_IsBase(true);
-        vkpreviewwidgetbase->customEvent(event);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->customEvent(event);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnCustomEvent(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_CustomEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_CustomEvent_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_customevent_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_ConnectNotify(KPreviewWidgetBase* self, const QMetaMethod* signal) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->connectNotify(*signal);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperConnectNotify(KPreviewWidgetBase* self, const QMetaMethod* signal) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ConnectNotify_IsBase(true);
-        vkpreviewwidgetbase->connectNotify(*signal);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->connectNotify(*signal);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnConnectNotify(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_ConnectNotify_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ConnectNotify_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_connectnotify_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPreviewWidgetBase_DisconnectNotify(KPreviewWidgetBase* self, const QMetaMethod* signal) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase) {
         vkpreviewwidgetbase->disconnectNotify(*signal);
     } else {
-        ((VirtualKPreviewWidgetBase*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPreviewWidgetBase_SuperDisconnectNotify(KPreviewWidgetBase* self, const QMetaMethod* signal) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_DisconnectNotify_IsBase(true);
-        vkpreviewwidgetbase->disconnectNotify(*signal);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->KPreviewWidgetBase::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPreviewWidgetBase::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnDisconnectNotify(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_DisconnectNotify_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DisconnectNotify_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self))
+        vkpreviewwidgetbase->kpreviewwidgetbase_disconnectnotify_callback = reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPreviewWidgetBase_SetSupportedMimeTypes(KPreviewWidgetBase* self, const libqt_list /* of libqt_string */ mimeTypes) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    QList<QString> mimeTypes_QList;
-    mimeTypes_QList.reserve(mimeTypes.len);
-    libqt_string* mimeTypes_arr = static_cast<libqt_string*>(mimeTypes.data);
-    for (size_t i = 0; i < mimeTypes.len; ++i) {
-        QString mimeTypes_arr_i_QString = QString::fromUtf8(mimeTypes_arr[i].data, mimeTypes_arr[i].len);
-        mimeTypes_QList.push_back(mimeTypes_arr_i_QString);
-    }
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setSupportedMimeTypes(mimeTypes_QList);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->setSupportedMimeTypes(mimeTypes_QList);
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        QList<QString> mimeTypes_QList;
+        mimeTypes_QList.reserve(mimeTypes.len);
+        libqt_string* mimeTypes_arr = static_cast<libqt_string*>(mimeTypes.data);
+        for (size_t i = 0; i < mimeTypes.len; ++i) {
+            QString mimeTypes_arr_i_QString = QString::fromUtf8(mimeTypes_arr[i].data, mimeTypes_arr[i].len);
+            mimeTypes_QList.push_back(mimeTypes_arr_i_QString);
+        }
+        vkpreviewwidgetbase->VirtualKPreviewWidgetBase::setSupportedMimeTypes(mimeTypes_QList);
+    } else
+        qFatal("Error: Protected method KPreviewWidgetBase::setSupportedMimeTypes called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPreviewWidgetBase_SuperSetSupportedMimeTypes(KPreviewWidgetBase* self, const libqt_list /* of libqt_string */ mimeTypes) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    QList<QString> mimeTypes_QList;
-    mimeTypes_QList.reserve(mimeTypes.len);
-    libqt_string* mimeTypes_arr = static_cast<libqt_string*>(mimeTypes.data);
-    for (size_t i = 0; i < mimeTypes.len; ++i) {
-        QString mimeTypes_arr_i_QString = QString::fromUtf8(mimeTypes_arr[i].data, mimeTypes_arr[i].len);
-        mimeTypes_QList.push_back(mimeTypes_arr_i_QString);
-    }
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_SetSupportedMimeTypes_IsBase(true);
-        vkpreviewwidgetbase->setSupportedMimeTypes(mimeTypes_QList);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->setSupportedMimeTypes(mimeTypes_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnSetSupportedMimeTypes(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_SetSupportedMimeTypes_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_SetSupportedMimeTypes_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPreviewWidgetBase_UpdateMicroFocus(KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->updateMicroFocus();
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->updateMicroFocus();
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->VirtualKPreviewWidgetBase::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KPreviewWidgetBase::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPreviewWidgetBase_SuperUpdateMicroFocus(KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_UpdateMicroFocus_IsBase(true);
-        vkpreviewwidgetbase->updateMicroFocus();
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnUpdateMicroFocus(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPreviewWidgetBase_Create(KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->create();
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->create();
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->VirtualKPreviewWidgetBase::create();
+    } else
+        qFatal("Error: Protected method KPreviewWidgetBase::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPreviewWidgetBase_SuperCreate(KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Create_IsBase(true);
-        vkpreviewwidgetbase->create();
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnCreate(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Create_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPreviewWidgetBase_Destroy(KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->destroy();
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->destroy();
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        vkpreviewwidgetbase->VirtualKPreviewWidgetBase::destroy();
+    } else
+        qFatal("Error: Protected method KPreviewWidgetBase::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPreviewWidgetBase_SuperDestroy(KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Destroy_IsBase(true);
-        vkpreviewwidgetbase->destroy();
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnDestroy(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Destroy_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPreviewWidgetBase_FocusNextChild(KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return vkpreviewwidgetbase->focusNextChild();
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->focusNextChild();
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        return vkpreviewwidgetbase->VirtualKPreviewWidgetBase::focusNextChild();
+    } else
+        qFatal("Error: Protected method KPreviewWidgetBase::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPreviewWidgetBase_SuperFocusNextChild(KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_FocusNextChild_IsBase(true);
-        return vkpreviewwidgetbase->focusNextChild();
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnFocusNextChild(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_FocusNextChild_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPreviewWidgetBase_FocusPreviousChild(KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return vkpreviewwidgetbase->focusPreviousChild();
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->focusPreviousChild();
-    }
+    if (auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self)) {
+        return vkpreviewwidgetbase->VirtualKPreviewWidgetBase::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KPreviewWidgetBase::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPreviewWidgetBase_SuperFocusPreviousChild(KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_FocusPreviousChild_IsBase(true);
-        return vkpreviewwidgetbase->focusPreviousChild();
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnFocusPreviousChild(KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KPreviewWidgetBase_Sender(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return vkpreviewwidgetbase->sender();
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->sender();
-    }
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self))) {
+        return vkpreviewwidgetbase->VirtualKPreviewWidgetBase::sender();
+    } else
+        qFatal("Error: Protected method KPreviewWidgetBase::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KPreviewWidgetBase_SuperSender(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Sender_IsBase(true);
-        return vkpreviewwidgetbase->sender();
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnSender(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Sender_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPreviewWidgetBase_SenderSignalIndex(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return vkpreviewwidgetbase->senderSignalIndex();
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->senderSignalIndex();
-    }
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self))) {
+        return vkpreviewwidgetbase->VirtualKPreviewWidgetBase::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KPreviewWidgetBase::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPreviewWidgetBase_SuperSenderSignalIndex(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_SenderSignalIndex_IsBase(true);
-        return vkpreviewwidgetbase->senderSignalIndex();
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnSenderSignalIndex(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPreviewWidgetBase_Receivers(const KPreviewWidgetBase* self, const char* signal) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return vkpreviewwidgetbase->receivers(signal);
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->receivers(signal);
-    }
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self))) {
+        return vkpreviewwidgetbase->VirtualKPreviewWidgetBase::receivers(signal);
+    } else
+        qFatal("Error: Protected method KPreviewWidgetBase::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPreviewWidgetBase_SuperReceivers(const KPreviewWidgetBase* self, const char* signal) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Receivers_IsBase(true);
-        return vkpreviewwidgetbase->receivers(signal);
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnReceivers(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_Receivers_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPreviewWidgetBase_IsSignalConnected(const KPreviewWidgetBase* self, const QMetaMethod* signal) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return vkpreviewwidgetbase->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self))) {
+        return vkpreviewwidgetbase->VirtualKPreviewWidgetBase::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KPreviewWidgetBase::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPreviewWidgetBase_SuperIsSignalConnected(const KPreviewWidgetBase* self, const QMetaMethod* signal) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_IsSignalConnected_IsBase(true);
-        return vkpreviewwidgetbase->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnIsSignalConnected(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_IsSignalConnected_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KPreviewWidgetBase_GetDecodedMetricF(const KPreviewWidgetBase* self, int metricA, int metricB) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return vkpreviewwidgetbase->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KPreviewWidgetBase_SuperGetDecodedMetricF(const KPreviewWidgetBase* self, int metricA, int metricB) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->setKPreviewWidgetBase_GetDecodedMetricF_IsBase(true);
-        return vkpreviewwidgetbase->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPreviewWidgetBase_OnGetDecodedMetricF(const KPreviewWidgetBase* self, intptr_t slot) {
-    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
-        vkpreviewwidgetbase->setKPreviewWidgetBase_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self))) {
+        return vkpreviewwidgetbase->VirtualKPreviewWidgetBase::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KPreviewWidgetBase::getDecodedMetricF called without a directly constructed type");
 }
 
 void KPreviewWidgetBase_Delete(KPreviewWidgetBase* self) {

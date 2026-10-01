@@ -98,9 +98,9 @@ pub const QXYLegendMarker = extern struct {
     ///
     /// ` self: QXYLegendMarker `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QXYLegendMarker) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QXYLegendMarker, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QXYLegendMarker, callback: *const fn (QXYLegendMarker) callconv(.c) QMetaObject) void {
         qtc.QXYLegendMarker_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -277,9 +277,9 @@ pub const QXYLegendMarker = extern struct {
     ///
     /// ` self: QXYLegendMarker `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QXYLegendMarker) callconv(.c) i32 `
     ///
-    pub fn onType(self: QXYLegendMarker, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QXYLegendMarker, callback: *const fn (QXYLegendMarker) callconv(.c) i32) void {
         qtc.QXYLegendMarker_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -329,9 +329,9 @@ pub const QXYLegendMarker = extern struct {
     ///
     /// ` self: QXYLegendMarker `
     ///
-    /// ` callback: *const fn () callconv(.c) QXYSeries `
+    /// ` callback: *const fn (self: QXYLegendMarker) callconv(.c) QXYSeries `
     ///
-    pub fn onSeries(self: QXYLegendMarker, callback: *const fn () callconv(.c) QXYSeries) void {
+    pub fn onSeries(self: QXYLegendMarker, callback: *const fn (QXYLegendMarker) callconv(.c) QXYSeries) void {
         qtc.QXYLegendMarker_OnSeries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2392,44 +2392,6 @@ pub const QXYLegendMarker = extern struct {
         return .{ .ptr = qtc.QXYLegendMarker_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QXYLegendMarker `
-    ///
-    pub fn superSender(self: QXYLegendMarker) QObject {
-        return .{ .ptr = qtc.QXYLegendMarker_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QXYLegendMarker`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QXYLegendMarker, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QXYLegendMarker_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2446,44 +2408,6 @@ pub const QXYLegendMarker = extern struct {
     ///
     pub fn senderSignalIndex(self: QXYLegendMarker) i32 {
         return qtc.QXYLegendMarker_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QXYLegendMarker `
-    ///
-    pub fn superSenderSignalIndex(self: QXYLegendMarker) i32 {
-        return qtc.QXYLegendMarker_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QXYLegendMarker`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QXYLegendMarker, callback: *const fn () callconv(.c) i32) void {
-        qtc.QXYLegendMarker_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2507,47 +2431,6 @@ pub const QXYLegendMarker = extern struct {
         return qtc.QXYLegendMarker_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QXYLegendMarker `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QXYLegendMarker, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QXYLegendMarker_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QXYLegendMarker`
-    ///
-    /// ` callback: *const fn (self: QXYLegendMarker, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QXYLegendMarker, callback: *const fn (QXYLegendMarker, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QXYLegendMarker_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2567,47 +2450,6 @@ pub const QXYLegendMarker = extern struct {
     pub fn isSignalConnected(self: QXYLegendMarker, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QXYLegendMarker_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QXYLegendMarker `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QXYLegendMarker, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QXYLegendMarker_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QXYLegendMarker`
-    ///
-    /// ` callback: *const fn (self: QXYLegendMarker, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QXYLegendMarker, callback: *const fn (QXYLegendMarker, QMetaMethod) callconv(.c) bool) void {
-        qtc.QXYLegendMarker_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

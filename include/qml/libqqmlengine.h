@@ -99,7 +99,7 @@ void QQmlEngine_Warnings(QQmlEngine* self, const libqt_list /* of QQmlError* */ 
 void QQmlEngine_Connect_Warnings(QQmlEngine* self, intptr_t slot);
 libqt_string QQmlEngine_Tr2(const char* s, const char* c);
 libqt_string QQmlEngine_Tr3(const char* s, const char* c, int n);
-void QQmlEngine_OnMetaObject(const QQmlEngine* self, intptr_t slot);
+void QQmlEngine_OnMetaObject(QQmlEngine* self, intptr_t slot);
 QMetaObject* QQmlEngine_SuperMetaObject(const QQmlEngine* self);
 void QQmlEngine_OnMetacast(QQmlEngine* self, intptr_t slot);
 void* QQmlEngine_SuperMetacast(QQmlEngine* self, const char* param1);
@@ -126,17 +126,9 @@ void QQmlEngine_DisconnectNotify(QQmlEngine* self, const QMetaMethod* signal);
 void QQmlEngine_OnDisconnectNotify(QQmlEngine* self, intptr_t slot);
 void QQmlEngine_SuperDisconnectNotify(QQmlEngine* self, const QMetaMethod* signal);
 QObject* QQmlEngine_Sender(const QQmlEngine* self);
-void QQmlEngine_OnSender(const QQmlEngine* self, intptr_t slot);
-QObject* QQmlEngine_SuperSender(const QQmlEngine* self);
 int QQmlEngine_SenderSignalIndex(const QQmlEngine* self);
-void QQmlEngine_OnSenderSignalIndex(const QQmlEngine* self, intptr_t slot);
-int QQmlEngine_SuperSenderSignalIndex(const QQmlEngine* self);
 int QQmlEngine_Receivers(const QQmlEngine* self, const char* signal);
-void QQmlEngine_OnReceivers(const QQmlEngine* self, intptr_t slot);
-int QQmlEngine_SuperReceivers(const QQmlEngine* self, const char* signal);
 bool QQmlEngine_IsSignalConnected(const QQmlEngine* self, const QMetaMethod* signal);
-void QQmlEngine_OnIsSignalConnected(const QQmlEngine* self, intptr_t slot);
-bool QQmlEngine_SuperIsSignalConnected(const QQmlEngine* self, const QMetaMethod* signal);
 void QQmlEngine_Delete(QQmlEngine* self);
 
 #ifdef __cplusplus

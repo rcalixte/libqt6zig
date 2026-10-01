@@ -63,7 +63,7 @@ QNetworkReply* QRestAccessManager_SendCustomRequest2(QRestAccessManager* self, c
 QNetworkReply* QRestAccessManager_SendCustomRequest3(QRestAccessManager* self, const QNetworkRequest* request, const libqt_string method, QHttpMultiPart* data);
 libqt_string QRestAccessManager_Tr2(const char* s, const char* c);
 libqt_string QRestAccessManager_Tr3(const char* s, const char* c, int n);
-void QRestAccessManager_OnMetaObject(const QRestAccessManager* self, intptr_t slot);
+void QRestAccessManager_OnMetaObject(QRestAccessManager* self, intptr_t slot);
 QMetaObject* QRestAccessManager_SuperMetaObject(const QRestAccessManager* self);
 void QRestAccessManager_OnMetacast(QRestAccessManager* self, intptr_t slot);
 void* QRestAccessManager_SuperMetacast(QRestAccessManager* self, const char* param1);
@@ -91,17 +91,9 @@ void QRestAccessManager_DisconnectNotify(QRestAccessManager* self, const QMetaMe
 void QRestAccessManager_OnDisconnectNotify(QRestAccessManager* self, intptr_t slot);
 void QRestAccessManager_SuperDisconnectNotify(QRestAccessManager* self, const QMetaMethod* signal);
 QObject* QRestAccessManager_Sender(const QRestAccessManager* self);
-void QRestAccessManager_OnSender(const QRestAccessManager* self, intptr_t slot);
-QObject* QRestAccessManager_SuperSender(const QRestAccessManager* self);
 int QRestAccessManager_SenderSignalIndex(const QRestAccessManager* self);
-void QRestAccessManager_OnSenderSignalIndex(const QRestAccessManager* self, intptr_t slot);
-int QRestAccessManager_SuperSenderSignalIndex(const QRestAccessManager* self);
 int QRestAccessManager_Receivers(const QRestAccessManager* self, const char* signal);
-void QRestAccessManager_OnReceivers(const QRestAccessManager* self, intptr_t slot);
-int QRestAccessManager_SuperReceivers(const QRestAccessManager* self, const char* signal);
 bool QRestAccessManager_IsSignalConnected(const QRestAccessManager* self, const QMetaMethod* signal);
-void QRestAccessManager_OnIsSignalConnected(const QRestAccessManager* self, intptr_t slot);
-bool QRestAccessManager_SuperIsSignalConnected(const QRestAccessManager* self, const QMetaMethod* signal);
 void QRestAccessManager_Delete(QRestAccessManager* self);
 
 #ifdef __cplusplus

@@ -97,9 +97,9 @@ pub const QGeoCodeReply = extern struct {
     ///
     /// ` self: QGeoCodeReply `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGeoCodeReply) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGeoCodeReply, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGeoCodeReply, callback: *const fn (QGeoCodeReply) callconv(.c) QMetaObject) void {
         qtc.QGeoCodeReply_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -388,9 +388,9 @@ pub const QGeoCodeReply = extern struct {
     ///
     /// ` self: QGeoCodeReply `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoCodeReply) callconv(.c) void `
     ///
-    pub fn onAbort(self: QGeoCodeReply, callback: *const fn () callconv(.c) void) void {
+    pub fn onAbort(self: QGeoCodeReply, callback: *const fn (QGeoCodeReply) callconv(.c) void) void {
         qtc.QGeoCodeReply_OnAbort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -524,48 +524,6 @@ pub const QGeoCodeReply = extern struct {
         qtc.QGeoCodeReply_SetError(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `onSetError` instead
-    ///
-    pub const OnSetError = onSetError;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setError)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` callback: *const fn (self: QGeoCodeReply, errorVal: qgeocodereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetError(self: QGeoCodeReply, callback: *const fn (QGeoCodeReply, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetError` instead
-    ///
-    pub const SuperSetError = superSetError;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setError)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` errorVal: qgeocodereply_enums.Error `
-    ///
-    /// ` _errorString: []const u8 `
-    ///
-    pub fn superSetError(self: QGeoCodeReply, errorVal: i32, _errorString: []const u8) void {
-        const errorString_str = qtc.libqt_string{
-            .len = _errorString.len,
-            .data = _errorString.ptr,
-        };
-        qtc.QGeoCodeReply_SuperSetError(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
-    }
-
     /// ### DEPRECATED: Use `setFinished` instead
     ///
     pub const SetFinished = setFinished;
@@ -580,42 +538,6 @@ pub const QGeoCodeReply = extern struct {
     ///
     pub fn setFinished(self: QGeoCodeReply, _finished: bool) void {
         qtc.QGeoCodeReply_SetFinished(@ptrCast(self.ptr), _finished);
-    }
-
-    /// ### DEPRECATED: Use `onSetFinished` instead
-    ///
-    pub const OnSetFinished = onSetFinished;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setFinished)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` callback: *const fn (self: QGeoCodeReply, finished: bool) callconv(.c) void `
-    ///
-    pub fn onSetFinished(self: QGeoCodeReply, callback: *const fn (QGeoCodeReply, bool) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnSetFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetFinished` instead
-    ///
-    pub const SuperSetFinished = superSetFinished;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setFinished)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` _finished: bool `
-    ///
-    pub fn superSetFinished(self: QGeoCodeReply, _finished: bool) void {
-        qtc.QGeoCodeReply_SuperSetFinished(@ptrCast(self.ptr), _finished);
     }
 
     /// ### DEPRECATED: Use `setViewport` instead
@@ -635,43 +557,6 @@ pub const QGeoCodeReply = extern struct {
         qtc.QGeoCodeReply_SetViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetViewport` instead
-    ///
-    pub const OnSetViewport = onSetViewport;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setViewport)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` callback: *const fn (self: QGeoCodeReply, viewport: QGeoShape) callconv(.c) void `
-    ///
-    pub fn onSetViewport(self: QGeoCodeReply, callback: *const fn (QGeoCodeReply, QGeoShape) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnSetViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetViewport` instead
-    ///
-    pub const SuperSetViewport = superSetViewport;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setViewport)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` _viewport: QGeoShape `
-    ///
-    pub fn superSetViewport(self: QGeoCodeReply, _viewport: anytype) void {
-        comptime _ = @TypeOf(_viewport)._is_QGeoShape;
-        qtc.QGeoCodeReply_SuperSetViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
-    }
-
     /// ### DEPRECATED: Use `addLocation` instead
     ///
     pub const AddLocation = addLocation;
@@ -687,43 +572,6 @@ pub const QGeoCodeReply = extern struct {
     pub fn addLocation(self: QGeoCodeReply, location: anytype) void {
         comptime _ = @TypeOf(location)._is_QGeoLocation;
         qtc.QGeoCodeReply_AddLocation(@ptrCast(self.ptr), @ptrCast(location.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddLocation` instead
-    ///
-    pub const OnAddLocation = onAddLocation;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#addLocation)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` callback: *const fn (self: QGeoCodeReply, location: QGeoLocation) callconv(.c) void `
-    ///
-    pub fn onAddLocation(self: QGeoCodeReply, callback: *const fn (QGeoCodeReply, QGeoLocation) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnAddLocation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAddLocation` instead
-    ///
-    pub const SuperAddLocation = superAddLocation;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#addLocation)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` location: QGeoLocation `
-    ///
-    pub fn superAddLocation(self: QGeoCodeReply, location: anytype) void {
-        comptime _ = @TypeOf(location)._is_QGeoLocation;
-        qtc.QGeoCodeReply_SuperAddLocation(@ptrCast(self.ptr), @ptrCast(location.ptr));
     }
 
     /// ### DEPRECATED: Use `setLocations` instead
@@ -746,46 +594,6 @@ pub const QGeoCodeReply = extern struct {
         qtc.QGeoCodeReply_SetLocations(@ptrCast(self.ptr), locations_list);
     }
 
-    /// ### DEPRECATED: Use `onSetLocations` instead
-    ///
-    pub const OnSetLocations = onSetLocations;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setLocations)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` callback: *const fn (self: QGeoCodeReply, locations: qtc.libqt_list ([]QGeoLocation)) callconv(.c) void `
-    ///
-    pub fn onSetLocations(self: QGeoCodeReply, callback: *const fn (QGeoCodeReply, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnSetLocations(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetLocations` instead
-    ///
-    pub const SuperSetLocations = superSetLocations;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setLocations)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` _locations: []QGeoLocation `
-    ///
-    pub fn superSetLocations(self: QGeoCodeReply, _locations: []QGeoLocation) void {
-        const locations_list = qtc.libqt_list{
-            .len = _locations.len,
-            .data = @ptrCast(_locations.ptr),
-        };
-        qtc.QGeoCodeReply_SuperSetLocations(@ptrCast(self.ptr), locations_list);
-    }
-
     /// ### DEPRECATED: Use `setLimit` instead
     ///
     pub const SetLimit = setLimit;
@@ -802,42 +610,6 @@ pub const QGeoCodeReply = extern struct {
         qtc.QGeoCodeReply_SetLimit(@ptrCast(self.ptr), @bitCast(_limit));
     }
 
-    /// ### DEPRECATED: Use `onSetLimit` instead
-    ///
-    pub const OnSetLimit = onSetLimit;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setLimit)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` callback: *const fn (self: QGeoCodeReply, limit: isize) callconv(.c) void `
-    ///
-    pub fn onSetLimit(self: QGeoCodeReply, callback: *const fn (QGeoCodeReply, isize) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnSetLimit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetLimit` instead
-    ///
-    pub const SuperSetLimit = superSetLimit;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setLimit)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` _limit: isize `
-    ///
-    pub fn superSetLimit(self: QGeoCodeReply, _limit: isize) void {
-        qtc.QGeoCodeReply_SuperSetLimit(@ptrCast(self.ptr), @bitCast(_limit));
-    }
-
     /// ### DEPRECATED: Use `setOffset` instead
     ///
     pub const SetOffset = setOffset;
@@ -852,42 +624,6 @@ pub const QGeoCodeReply = extern struct {
     ///
     pub fn setOffset(self: QGeoCodeReply, _offset: isize) void {
         qtc.QGeoCodeReply_SetOffset(@ptrCast(self.ptr), @bitCast(_offset));
-    }
-
-    /// ### DEPRECATED: Use `onSetOffset` instead
-    ///
-    pub const OnSetOffset = onSetOffset;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setOffset)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` callback: *const fn (self: QGeoCodeReply, offset: isize) callconv(.c) void `
-    ///
-    pub fn onSetOffset(self: QGeoCodeReply, callback: *const fn (QGeoCodeReply, isize) callconv(.c) void) void {
-        qtc.QGeoCodeReply_OnSetOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetOffset` instead
-    ///
-    pub const SuperSetOffset = superSetOffset;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setOffset)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` _offset: isize `
-    ///
-    pub fn superSetOffset(self: QGeoCodeReply, _offset: isize) void {
-        qtc.QGeoCodeReply_SuperSetOffset(@ptrCast(self.ptr), @bitCast(_offset));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2405,44 +2141,6 @@ pub const QGeoCodeReply = extern struct {
         return .{ .ptr = qtc.QGeoCodeReply_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    pub fn superSender(self: QGeoCodeReply) QObject {
-        return .{ .ptr = qtc.QGeoCodeReply_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoCodeReply`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGeoCodeReply, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGeoCodeReply_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2459,44 +2157,6 @@ pub const QGeoCodeReply = extern struct {
     ///
     pub fn senderSignalIndex(self: QGeoCodeReply) i32 {
         return qtc.QGeoCodeReply_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    pub fn superSenderSignalIndex(self: QGeoCodeReply) i32 {
-        return qtc.QGeoCodeReply_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoCodeReply`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGeoCodeReply, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGeoCodeReply_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2520,47 +2180,6 @@ pub const QGeoCodeReply = extern struct {
         return qtc.QGeoCodeReply_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGeoCodeReply, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGeoCodeReply_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoCodeReply`
-    ///
-    /// ` callback: *const fn (self: QGeoCodeReply, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGeoCodeReply, callback: *const fn (QGeoCodeReply, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGeoCodeReply_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2580,47 +2199,6 @@ pub const QGeoCodeReply = extern struct {
     pub fn isSignalConnected(self: QGeoCodeReply, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGeoCodeReply_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoCodeReply `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGeoCodeReply, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGeoCodeReply_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoCodeReply`
-    ///
-    /// ` callback: *const fn (self: QGeoCodeReply, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGeoCodeReply, callback: *const fn (QGeoCodeReply, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGeoCodeReply_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

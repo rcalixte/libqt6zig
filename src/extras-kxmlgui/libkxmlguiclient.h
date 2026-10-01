@@ -67,17 +67,17 @@ void KXMLGUIClient_SetXML(KXMLGUIClient* self, const libqt_string document, bool
 void KXMLGUIClient_SetDOMDocument(KXMLGUIClient* self, const QDomDocument* document, bool merge);
 void KXMLGUIClient_StateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse);
 void KXMLGUIClient_ReplaceXMLFile3(KXMLGUIClient* self, const libqt_string xmlfile, const libqt_string localxmlfile, bool merge);
-void KXMLGUIClient_OnAction2(const KXMLGUIClient* self, intptr_t slot);
+void KXMLGUIClient_OnAction2(KXMLGUIClient* self, intptr_t slot);
 QAction* KXMLGUIClient_SuperAction2(const KXMLGUIClient* self, const QDomElement* element);
-void KXMLGUIClient_OnActionCollection(const KXMLGUIClient* self, intptr_t slot);
+void KXMLGUIClient_OnActionCollection(KXMLGUIClient* self, intptr_t slot);
 KActionCollection* KXMLGUIClient_SuperActionCollection(const KXMLGUIClient* self);
-void KXMLGUIClient_OnComponentName(const KXMLGUIClient* self, intptr_t slot);
+void KXMLGUIClient_OnComponentName(KXMLGUIClient* self, intptr_t slot);
 libqt_string KXMLGUIClient_SuperComponentName(const KXMLGUIClient* self);
-void KXMLGUIClient_OnDomDocument(const KXMLGUIClient* self, intptr_t slot);
+void KXMLGUIClient_OnDomDocument(KXMLGUIClient* self, intptr_t slot);
 QDomDocument* KXMLGUIClient_SuperDomDocument(const KXMLGUIClient* self);
-void KXMLGUIClient_OnXmlFile(const KXMLGUIClient* self, intptr_t slot);
+void KXMLGUIClient_OnXmlFile(KXMLGUIClient* self, intptr_t slot);
 libqt_string KXMLGUIClient_SuperXmlFile(const KXMLGUIClient* self);
-void KXMLGUIClient_OnLocalXMLFile(const KXMLGUIClient* self, intptr_t slot);
+void KXMLGUIClient_OnLocalXMLFile(KXMLGUIClient* self, intptr_t slot);
 libqt_string KXMLGUIClient_SuperLocalXMLFile(const KXMLGUIClient* self);
 void KXMLGUIClient_OnSetComponentName(KXMLGUIClient* self, intptr_t slot);
 void KXMLGUIClient_SuperSetComponentName(KXMLGUIClient* self, const libqt_string componentName, const libqt_string componentDisplayName);
@@ -92,11 +92,7 @@ void KXMLGUIClient_SuperSetDOMDocument(KXMLGUIClient* self, const QDomDocument* 
 void KXMLGUIClient_OnStateChanged(KXMLGUIClient* self, intptr_t slot);
 void KXMLGUIClient_SuperStateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse);
 libqt_string KXMLGUIClient_StandardsXmlFileLocation(KXMLGUIClient* self);
-void KXMLGUIClient_OnStandardsXmlFileLocation(KXMLGUIClient* self, intptr_t slot);
-libqt_string KXMLGUIClient_SuperStandardsXmlFileLocation(KXMLGUIClient* self);
 void KXMLGUIClient_LoadStandardsXmlFile(KXMLGUIClient* self);
-void KXMLGUIClient_OnLoadStandardsXmlFile(KXMLGUIClient* self, intptr_t slot);
-void KXMLGUIClient_SuperLoadStandardsXmlFile(KXMLGUIClient* self);
 void KXMLGUIClient_Delete(KXMLGUIClient* self);
 
 KXMLGUIClient__StateChange* KXMLGUIClient__StateChange_new();

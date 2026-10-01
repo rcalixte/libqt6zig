@@ -77,373 +77,240 @@ QWidget* QFormBuilder_CreateWidget(QFormBuilder* self, const libqt_string widget
     QString widgetName_QString = QString::fromUtf8(widgetName.data, widgetName.len);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder) {
         return vqformbuilder->createWidget(widgetName_QString, parentWidget, name_QString);
     }
-    return {};
+    qFatal("Error: Protected method QFormBuilder::createWidget called without a directly constructed type");
 }
 
 QLayout* QFormBuilder_CreateLayout(QFormBuilder* self, const libqt_string layoutName, QObject* parent, const libqt_string name) {
     QString layoutName_QString = QString::fromUtf8(layoutName.data, layoutName.len);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder) {
         return vqformbuilder->createLayout(layoutName_QString, parent, name_QString);
     }
-    return {};
+    qFatal("Error: Protected method QFormBuilder::createLayout called without a directly constructed type");
 }
 
 void QFormBuilder_UpdateCustomWidgets(QFormBuilder* self) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder) {
         vqformbuilder->updateCustomWidgets();
     }
 }
 
 // Base class handler implementation
 QWidget* QFormBuilder_SuperCreateWidget(QFormBuilder* self, const libqt_string widgetName, QWidget* parentWidget, const libqt_string name) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     QString widgetName_QString = QString::fromUtf8(widgetName.data, widgetName.len);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->setQFormBuilder_CreateWidget_IsBase(true);
-        return vqformbuilder->createWidget(widgetName_QString, parentWidget, name_QString);
-    } else {
-        return ((VirtualQFormBuilder*)self)->createWidget(widgetName_QString, parentWidget, name_QString);
-    }
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self)) {
+        return vqformbuilder->QFormBuilder::createWidget(widgetName_QString, parentWidget, name_QString);
+    } else
+        qFatal("Error: Protected virtual method QFormBuilder::createWidget called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnCreateWidget(QFormBuilder* self, intptr_t slot) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
-        vqformbuilder->setQFormBuilder_CreateWidget_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CreateWidget_Callback>(slot));
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self))
+        vqformbuilder->qformbuilder_createwidget_callback = reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CreateWidget_Callback>(slot);
 }
 
 // Base class handler implementation
 QLayout* QFormBuilder_SuperCreateLayout(QFormBuilder* self, const libqt_string layoutName, QObject* parent, const libqt_string name) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     QString layoutName_QString = QString::fromUtf8(layoutName.data, layoutName.len);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->setQFormBuilder_CreateLayout_IsBase(true);
-        return vqformbuilder->createLayout(layoutName_QString, parent, name_QString);
-    } else {
-        return ((VirtualQFormBuilder*)self)->createLayout(layoutName_QString, parent, name_QString);
-    }
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self)) {
+        return vqformbuilder->QFormBuilder::createLayout(layoutName_QString, parent, name_QString);
+    } else
+        qFatal("Error: Protected virtual method QFormBuilder::createLayout called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnCreateLayout(QFormBuilder* self, intptr_t slot) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
-        vqformbuilder->setQFormBuilder_CreateLayout_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CreateLayout_Callback>(slot));
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self))
+        vqformbuilder->qformbuilder_createlayout_callback = reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CreateLayout_Callback>(slot);
 }
 
 // Base class handler implementation
 void QFormBuilder_SuperUpdateCustomWidgets(QFormBuilder* self) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->setQFormBuilder_UpdateCustomWidgets_IsBase(true);
-        vqformbuilder->updateCustomWidgets();
-    } else {
-        ((VirtualQFormBuilder*)self)->updateCustomWidgets();
-    }
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self)) {
+        vqformbuilder->QFormBuilder::updateCustomWidgets();
+    } else
+        qFatal("Error: Protected virtual method QFormBuilder::updateCustomWidgets called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnUpdateCustomWidgets(QFormBuilder* self, intptr_t slot) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
-        vqformbuilder->setQFormBuilder_UpdateCustomWidgets_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_UpdateCustomWidgets_Callback>(slot));
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self))
+        vqformbuilder->qformbuilder_updatecustomwidgets_callback = reinterpret_cast<VirtualQFormBuilder::QFormBuilder_UpdateCustomWidgets_Callback>(slot);
 }
 
 // Derived class handler implementation
 QWidget* QFormBuilder_Load(QFormBuilder* self, QIODevice* dev, QWidget* parentWidget) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        return vqformbuilder->load(dev, parentWidget);
-    } else {
-        return self->QFormBuilder::load(dev, parentWidget);
-    }
+    return self->load(dev, parentWidget);
 }
 
 // Base class handler implementation
 QWidget* QFormBuilder_SuperLoad(QFormBuilder* self, QIODevice* dev, QWidget* parentWidget) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->setQFormBuilder_Load_IsBase(true);
-        return vqformbuilder->load(dev, parentWidget);
-    } else {
-        return self->QFormBuilder::load(dev, parentWidget);
-    }
+    return self->QFormBuilder::load(dev, parentWidget);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnLoad(QFormBuilder* self, intptr_t slot) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
-        vqformbuilder->setQFormBuilder_Load_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_Load_Callback>(slot));
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self))
+        vqformbuilder->qformbuilder_load_callback = reinterpret_cast<VirtualQFormBuilder::QFormBuilder_Load_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFormBuilder_Save(QFormBuilder* self, QIODevice* dev, QWidget* widget) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->save(dev, widget);
-    } else {
-        self->QFormBuilder::save(dev, widget);
-    }
+    self->save(dev, widget);
 }
 
 // Base class handler implementation
 void QFormBuilder_SuperSave(QFormBuilder* self, QIODevice* dev, QWidget* widget) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->setQFormBuilder_Save_IsBase(true);
-        vqformbuilder->save(dev, widget);
-    } else {
-        self->QFormBuilder::save(dev, widget);
-    }
+    self->QFormBuilder::save(dev, widget);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnSave(QFormBuilder* self, intptr_t slot) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
-        vqformbuilder->setQFormBuilder_Save_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_Save_Callback>(slot));
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self))
+        vqformbuilder->qformbuilder_save_callback = reinterpret_cast<VirtualQFormBuilder::QFormBuilder_Save_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFormBuilder_AddMenuAction(QFormBuilder* self, QAction* action) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder) {
         vqformbuilder->addMenuAction(action);
     } else {
-        ((VirtualQFormBuilder*)self)->addMenuAction(action);
+        qFatal("Error: Protected virtual method QFormBuilder::addMenuAction called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFormBuilder_SuperAddMenuAction(QFormBuilder* self, QAction* action) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->setQFormBuilder_AddMenuAction_IsBase(true);
-        vqformbuilder->addMenuAction(action);
-    } else {
-        ((VirtualQFormBuilder*)self)->addMenuAction(action);
-    }
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self)) {
+        vqformbuilder->QFormBuilder::addMenuAction(action);
+    } else
+        qFatal("Error: Protected virtual method QFormBuilder::addMenuAction called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnAddMenuAction(QFormBuilder* self, intptr_t slot) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
-        vqformbuilder->setQFormBuilder_AddMenuAction_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_AddMenuAction_Callback>(slot));
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self))
+        vqformbuilder->qformbuilder_addmenuaction_callback = reinterpret_cast<VirtualQFormBuilder::QFormBuilder_AddMenuAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 QAction* QFormBuilder_CreateAction(QFormBuilder* self, QObject* parent, const libqt_string name) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
+    if (vqformbuilder) {
         return vqformbuilder->createAction(parent, name_QString);
     } else {
-        return ((VirtualQFormBuilder*)self)->createAction(parent, name_QString);
+        qFatal("Error: Protected virtual method QFormBuilder::createAction called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QAction* QFormBuilder_SuperCreateAction(QFormBuilder* self, QObject* parent, const libqt_string name) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->setQFormBuilder_CreateAction_IsBase(true);
-        return vqformbuilder->createAction(parent, name_QString);
-    } else {
-        return ((VirtualQFormBuilder*)self)->createAction(parent, name_QString);
-    }
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self)) {
+        return vqformbuilder->QFormBuilder::createAction(parent, name_QString);
+    } else
+        qFatal("Error: Protected virtual method QFormBuilder::createAction called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnCreateAction(QFormBuilder* self, intptr_t slot) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
-        vqformbuilder->setQFormBuilder_CreateAction_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CreateAction_Callback>(slot));
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self))
+        vqformbuilder->qformbuilder_createaction_callback = reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CreateAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 QActionGroup* QFormBuilder_CreateActionGroup(QFormBuilder* self, QObject* parent, const libqt_string name) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
+    if (vqformbuilder) {
         return vqformbuilder->createActionGroup(parent, name_QString);
     } else {
-        return ((VirtualQFormBuilder*)self)->createActionGroup(parent, name_QString);
+        qFatal("Error: Protected virtual method QFormBuilder::createActionGroup called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QActionGroup* QFormBuilder_SuperCreateActionGroup(QFormBuilder* self, QObject* parent, const libqt_string name) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->setQFormBuilder_CreateActionGroup_IsBase(true);
-        return vqformbuilder->createActionGroup(parent, name_QString);
-    } else {
-        return ((VirtualQFormBuilder*)self)->createActionGroup(parent, name_QString);
-    }
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self)) {
+        return vqformbuilder->QFormBuilder::createActionGroup(parent, name_QString);
+    } else
+        qFatal("Error: Protected virtual method QFormBuilder::createActionGroup called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnCreateActionGroup(QFormBuilder* self, intptr_t slot) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
-        vqformbuilder->setQFormBuilder_CreateActionGroup_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CreateActionGroup_Callback>(slot));
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self))
+        vqformbuilder->qformbuilder_createactiongroup_callback = reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CreateActionGroup_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QFormBuilder_CheckProperty(const QFormBuilder* self, QObject* obj, const libqt_string prop) {
-    auto* vqformbuilder = const_cast<VirtualQFormBuilder*>(dynamic_cast<const VirtualQFormBuilder*>(self));
     QString prop_QString = QString::fromUtf8(prop.data, prop.len);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    auto* vqformbuilder = const_cast<VirtualQFormBuilder*>(dynamic_cast<const VirtualQFormBuilder*>(self));
+    if (vqformbuilder) {
         return vqformbuilder->checkProperty(obj, prop_QString);
     } else {
-        return ((VirtualQFormBuilder*)self)->checkProperty(obj, prop_QString);
+        qFatal("Error: Protected virtual method QFormBuilder::checkProperty called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QFormBuilder_SuperCheckProperty(const QFormBuilder* self, QObject* obj, const libqt_string prop) {
-    auto* vqformbuilder = const_cast<VirtualQFormBuilder*>(dynamic_cast<const VirtualQFormBuilder*>(self));
     QString prop_QString = QString::fromUtf8(prop.data, prop.len);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->setQFormBuilder_CheckProperty_IsBase(true);
-        return vqformbuilder->checkProperty(obj, prop_QString);
-    } else {
-        return ((VirtualQFormBuilder*)self)->checkProperty(obj, prop_QString);
-    }
+    if (auto* vqformbuilder = const_cast<VirtualQFormBuilder*>(dynamic_cast<const VirtualQFormBuilder*>(self))) {
+        return vqformbuilder->QFormBuilder::checkProperty(obj, prop_QString);
+    } else
+        qFatal("Error: Protected virtual method QFormBuilder::checkProperty called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormBuilder_OnCheckProperty(const QFormBuilder* self, intptr_t slot) {
-    auto* vqformbuilder = const_cast<VirtualQFormBuilder*>(dynamic_cast<const VirtualQFormBuilder*>(self));
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
-        vqformbuilder->setQFormBuilder_CheckProperty_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CheckProperty_Callback>(slot));
+void QFormBuilder_OnCheckProperty(QFormBuilder* self, intptr_t slot) {
+    if (auto* vqformbuilder = const_cast<VirtualQFormBuilder*>(dynamic_cast<const VirtualQFormBuilder*>(self)))
+        vqformbuilder->qformbuilder_checkproperty_callback = reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CheckProperty_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QWidget* QFormBuilder_WidgetByName(QFormBuilder* self, QWidget* topLevel, const libqt_string name) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        return vqformbuilder->widgetByName(topLevel, name_QString);
-    } else {
-        return ((VirtualQFormBuilder*)self)->widgetByName(topLevel, name_QString);
-    }
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self)) {
+        QString name_QString = QString::fromUtf8(name.data, name.len);
+        return vqformbuilder->VirtualQFormBuilder::widgetByName(topLevel, name_QString);
+    } else
+        qFatal("Error: Protected method QFormBuilder::widgetByName called without a directly constructed type");
 }
 
-// Base class handler implementation
-QWidget* QFormBuilder_SuperWidgetByName(QFormBuilder* self, QWidget* topLevel, const libqt_string name) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->setQFormBuilder_WidgetByName_IsBase(true);
-        return vqformbuilder->widgetByName(topLevel, name_QString);
-    } else {
-        return ((VirtualQFormBuilder*)self)->widgetByName(topLevel, name_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFormBuilder_OnWidgetByName(QFormBuilder* self, intptr_t slot) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
-        vqformbuilder->setQFormBuilder_WidgetByName_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_WidgetByName_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QFormBuilder_ApplyPropertyInternally(QFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    QString propertyName_QString = QString::fromUtf8(propertyName.data, propertyName.len);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        return vqformbuilder->applyPropertyInternally(o, propertyName_QString, *value);
-    } else {
-        return ((VirtualQFormBuilder*)self)->applyPropertyInternally(o, propertyName_QString, *value);
-    }
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self)) {
+        QString propertyName_QString = QString::fromUtf8(propertyName.data, propertyName.len);
+        return vqformbuilder->VirtualQFormBuilder::applyPropertyInternally(o, propertyName_QString, *value);
+    } else
+        qFatal("Error: Protected method QFormBuilder::applyPropertyInternally called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QFormBuilder_SuperApplyPropertyInternally(QFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    QString propertyName_QString = QString::fromUtf8(propertyName.data, propertyName.len);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->setQFormBuilder_ApplyPropertyInternally_IsBase(true);
-        return vqformbuilder->applyPropertyInternally(o, propertyName_QString, *value);
-    } else {
-        return ((VirtualQFormBuilder*)self)->applyPropertyInternally(o, propertyName_QString, *value);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFormBuilder_OnApplyPropertyInternally(QFormBuilder* self, intptr_t slot) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
-        vqformbuilder->setQFormBuilder_ApplyPropertyInternally_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_ApplyPropertyInternally_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QFormBuilder_Reset(QFormBuilder* self) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->reset();
-    } else {
-        ((VirtualQFormBuilder*)self)->reset();
-    }
-}
-
-// Base class handler implementation
-void QFormBuilder_SuperReset(QFormBuilder* self) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->setQFormBuilder_Reset_IsBase(true);
-        vqformbuilder->reset();
-    } else {
-        ((VirtualQFormBuilder*)self)->reset();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFormBuilder_OnReset(QFormBuilder* self, intptr_t slot) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
-        vqformbuilder->setQFormBuilder_Reset_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_Reset_Callback>(slot));
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self)) {
+        vqformbuilder->VirtualQFormBuilder::reset();
+    } else
+        qFatal("Error: Protected method QFormBuilder::reset called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMetaEnum* QFormBuilder_ToolBarAreaMetaEnum(QFormBuilder* self) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self))
         return new QMetaEnum(vqformbuilder->toolBarAreaMetaEnum());
-    }
-    return {};
-}
-
-// Base class handler implementation
-QMetaEnum* QFormBuilder_SuperToolBarAreaMetaEnum(QFormBuilder* self) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
-        vqformbuilder->setQFormBuilder_ToolBarAreaMetaEnum_IsBase(true);
-        return new QMetaEnum(vqformbuilder->toolBarAreaMetaEnum());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFormBuilder_OnToolBarAreaMetaEnum(QFormBuilder* self, intptr_t slot) {
-    auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
-        vqformbuilder->setQFormBuilder_ToolBarAreaMetaEnum_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_ToolBarAreaMetaEnum_Callback>(slot));
+    qFatal("Error: Protected method QFormBuilder::toolBarAreaMetaEnum called without a directly constructed type");
 }
 
 void QFormBuilder_Delete(QFormBuilder* self) {

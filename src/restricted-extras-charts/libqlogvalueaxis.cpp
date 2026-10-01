@@ -238,382 +238,230 @@ libqt_string QLogValueAxis_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QLogValueAxis_SuperMetaObject(const QLogValueAxis* self) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_MetaObject_IsBase(true);
-        return (QMetaObject*)vqlogvalueaxis->metaObject();
-    } else {
-        return (QMetaObject*)self->QLogValueAxis::metaObject();
-    }
+    return (QMetaObject*)self->QLogValueAxis::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLogValueAxis_OnMetaObject(const QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_MetaObject_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_MetaObject_Callback>(slot));
+void QLogValueAxis_OnMetaObject(QLogValueAxis* self, intptr_t slot) {
+    if (auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self)))
+        vqlogvalueaxis->qlogvalueaxis_metaobject_callback = reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QLogValueAxis_SuperMetacast(QLogValueAxis* self, const char* param1) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_Metacast_IsBase(true);
-        return vqlogvalueaxis->qt_metacast(param1);
-    } else {
-        return self->QLogValueAxis::qt_metacast(param1);
-    }
+    return self->QLogValueAxis::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLogValueAxis_OnMetacast(QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_Metacast_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Metacast_Callback>(slot));
+    if (auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self))
+        vqlogvalueaxis->qlogvalueaxis_metacast_callback = reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QLogValueAxis_SuperMetacall(QLogValueAxis* self, int param1, int param2, void** param3) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_Metacall_IsBase(true);
-        return vqlogvalueaxis->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QLogValueAxis::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QLogValueAxis::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLogValueAxis_OnMetacall(QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_Metacall_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Metacall_Callback>(slot));
+    if (auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self))
+        vqlogvalueaxis->qlogvalueaxis_metacall_callback = reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QLogValueAxis_SuperType(const QLogValueAxis* self) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_Type_IsBase(true);
-        return static_cast<int>(vqlogvalueaxis->type());
-    } else {
-        return static_cast<int>(self->QLogValueAxis::type());
-    }
+    return static_cast<int>(self->QLogValueAxis::type());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLogValueAxis_OnType(const QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_Type_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Type_Callback>(slot));
+void QLogValueAxis_OnType(QLogValueAxis* self, intptr_t slot) {
+    if (auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self)))
+        vqlogvalueaxis->qlogvalueaxis_type_callback = reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Type_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QLogValueAxis_Event(QLogValueAxis* self, QEvent* event) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        return vqlogvalueaxis->event(event);
-    } else {
-        return self->QLogValueAxis::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QLogValueAxis_SuperEvent(QLogValueAxis* self, QEvent* event) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_Event_IsBase(true);
-        return vqlogvalueaxis->event(event);
-    } else {
-        return self->QLogValueAxis::event(event);
-    }
+    return self->QLogValueAxis::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLogValueAxis_OnEvent(QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_Event_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Event_Callback>(slot));
+    if (auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self))
+        vqlogvalueaxis->qlogvalueaxis_event_callback = reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QLogValueAxis_EventFilter(QLogValueAxis* self, QObject* watched, QEvent* event) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        return vqlogvalueaxis->eventFilter(watched, event);
-    } else {
-        return self->QLogValueAxis::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QLogValueAxis_SuperEventFilter(QLogValueAxis* self, QObject* watched, QEvent* event) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_EventFilter_IsBase(true);
-        return vqlogvalueaxis->eventFilter(watched, event);
-    } else {
-        return self->QLogValueAxis::eventFilter(watched, event);
-    }
+    return self->QLogValueAxis::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLogValueAxis_OnEventFilter(QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_EventFilter_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_EventFilter_Callback>(slot));
+    if (auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self))
+        vqlogvalueaxis->qlogvalueaxis_eventfilter_callback = reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLogValueAxis_TimerEvent(QLogValueAxis* self, QTimerEvent* event) {
     auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+    if (vqlogvalueaxis) {
         vqlogvalueaxis->timerEvent(event);
     } else {
-        ((VirtualQLogValueAxis*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QLogValueAxis::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLogValueAxis_SuperTimerEvent(QLogValueAxis* self, QTimerEvent* event) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_TimerEvent_IsBase(true);
-        vqlogvalueaxis->timerEvent(event);
-    } else {
-        ((VirtualQLogValueAxis*)self)->timerEvent(event);
-    }
+    if (auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self)) {
+        vqlogvalueaxis->QLogValueAxis::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLogValueAxis::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLogValueAxis_OnTimerEvent(QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_TimerEvent_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_TimerEvent_Callback>(slot));
+    if (auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self))
+        vqlogvalueaxis->qlogvalueaxis_timerevent_callback = reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLogValueAxis_ChildEvent(QLogValueAxis* self, QChildEvent* event) {
     auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+    if (vqlogvalueaxis) {
         vqlogvalueaxis->childEvent(event);
     } else {
-        ((VirtualQLogValueAxis*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QLogValueAxis::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLogValueAxis_SuperChildEvent(QLogValueAxis* self, QChildEvent* event) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_ChildEvent_IsBase(true);
-        vqlogvalueaxis->childEvent(event);
-    } else {
-        ((VirtualQLogValueAxis*)self)->childEvent(event);
-    }
+    if (auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self)) {
+        vqlogvalueaxis->QLogValueAxis::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLogValueAxis::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLogValueAxis_OnChildEvent(QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_ChildEvent_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_ChildEvent_Callback>(slot));
+    if (auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self))
+        vqlogvalueaxis->qlogvalueaxis_childevent_callback = reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLogValueAxis_CustomEvent(QLogValueAxis* self, QEvent* event) {
     auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+    if (vqlogvalueaxis) {
         vqlogvalueaxis->customEvent(event);
     } else {
-        ((VirtualQLogValueAxis*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QLogValueAxis::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLogValueAxis_SuperCustomEvent(QLogValueAxis* self, QEvent* event) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_CustomEvent_IsBase(true);
-        vqlogvalueaxis->customEvent(event);
-    } else {
-        ((VirtualQLogValueAxis*)self)->customEvent(event);
-    }
+    if (auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self)) {
+        vqlogvalueaxis->QLogValueAxis::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLogValueAxis::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLogValueAxis_OnCustomEvent(QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_CustomEvent_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_CustomEvent_Callback>(slot));
+    if (auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self))
+        vqlogvalueaxis->qlogvalueaxis_customevent_callback = reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLogValueAxis_ConnectNotify(QLogValueAxis* self, const QMetaMethod* signal) {
     auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+    if (vqlogvalueaxis) {
         vqlogvalueaxis->connectNotify(*signal);
     } else {
-        ((VirtualQLogValueAxis*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QLogValueAxis::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLogValueAxis_SuperConnectNotify(QLogValueAxis* self, const QMetaMethod* signal) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_ConnectNotify_IsBase(true);
-        vqlogvalueaxis->connectNotify(*signal);
-    } else {
-        ((VirtualQLogValueAxis*)self)->connectNotify(*signal);
-    }
+    if (auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self)) {
+        vqlogvalueaxis->QLogValueAxis::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QLogValueAxis::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLogValueAxis_OnConnectNotify(QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_ConnectNotify_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_ConnectNotify_Callback>(slot));
+    if (auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self))
+        vqlogvalueaxis->qlogvalueaxis_connectnotify_callback = reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLogValueAxis_DisconnectNotify(QLogValueAxis* self, const QMetaMethod* signal) {
     auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+    if (vqlogvalueaxis) {
         vqlogvalueaxis->disconnectNotify(*signal);
     } else {
-        ((VirtualQLogValueAxis*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QLogValueAxis::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLogValueAxis_SuperDisconnectNotify(QLogValueAxis* self, const QMetaMethod* signal) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_DisconnectNotify_IsBase(true);
-        vqlogvalueaxis->disconnectNotify(*signal);
-    } else {
-        ((VirtualQLogValueAxis*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self)) {
+        vqlogvalueaxis->QLogValueAxis::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QLogValueAxis::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLogValueAxis_OnDisconnectNotify(QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_DisconnectNotify_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_DisconnectNotify_Callback>(slot));
+    if (auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self))
+        vqlogvalueaxis->qlogvalueaxis_disconnectnotify_callback = reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QLogValueAxis_Sender(const QLogValueAxis* self) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        return vqlogvalueaxis->sender();
-    } else {
-        return ((VirtualQLogValueAxis*)self)->sender();
-    }
+    if (auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self))) {
+        return vqlogvalueaxis->VirtualQLogValueAxis::sender();
+    } else
+        qFatal("Error: Protected method QLogValueAxis::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QLogValueAxis_SuperSender(const QLogValueAxis* self) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_Sender_IsBase(true);
-        return vqlogvalueaxis->sender();
-    } else {
-        return ((VirtualQLogValueAxis*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLogValueAxis_OnSender(const QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_Sender_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QLogValueAxis_SenderSignalIndex(const QLogValueAxis* self) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        return vqlogvalueaxis->senderSignalIndex();
-    } else {
-        return ((VirtualQLogValueAxis*)self)->senderSignalIndex();
-    }
+    if (auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self))) {
+        return vqlogvalueaxis->VirtualQLogValueAxis::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QLogValueAxis::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QLogValueAxis_SuperSenderSignalIndex(const QLogValueAxis* self) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_SenderSignalIndex_IsBase(true);
-        return vqlogvalueaxis->senderSignalIndex();
-    } else {
-        return ((VirtualQLogValueAxis*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLogValueAxis_OnSenderSignalIndex(const QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_SenderSignalIndex_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QLogValueAxis_Receivers(const QLogValueAxis* self, const char* signal) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        return vqlogvalueaxis->receivers(signal);
-    } else {
-        return ((VirtualQLogValueAxis*)self)->receivers(signal);
-    }
+    if (auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self))) {
+        return vqlogvalueaxis->VirtualQLogValueAxis::receivers(signal);
+    } else
+        qFatal("Error: Protected method QLogValueAxis::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QLogValueAxis_SuperReceivers(const QLogValueAxis* self, const char* signal) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_Receivers_IsBase(true);
-        return vqlogvalueaxis->receivers(signal);
-    } else {
-        return ((VirtualQLogValueAxis*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLogValueAxis_OnReceivers(const QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_Receivers_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QLogValueAxis_IsSignalConnected(const QLogValueAxis* self, const QMetaMethod* signal) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        return vqlogvalueaxis->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQLogValueAxis*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QLogValueAxis_SuperIsSignalConnected(const QLogValueAxis* self, const QMetaMethod* signal) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        vqlogvalueaxis->setQLogValueAxis_IsSignalConnected_IsBase(true);
-        return vqlogvalueaxis->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQLogValueAxis*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLogValueAxis_OnIsSignalConnected(const QLogValueAxis* self, intptr_t slot) {
-    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis)
-        vqlogvalueaxis->setQLogValueAxis_IsSignalConnected_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_IsSignalConnected_Callback>(slot));
+    if (auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self))) {
+        return vqlogvalueaxis->VirtualQLogValueAxis::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QLogValueAxis::isSignalConnected called without a directly constructed type");
 }
 
 void QLogValueAxis_Delete(QLogValueAxis* self) {

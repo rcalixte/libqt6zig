@@ -77,9 +77,9 @@ pub const KJobUiDelegate = extern struct {
     ///
     /// ` self: KJobUiDelegate `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KJobUiDelegate) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KJobUiDelegate, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KJobUiDelegate, callback: *const fn (KJobUiDelegate) callconv(.c) QMetaObject) void {
         qtc.KJobUiDelegate_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -292,40 +292,6 @@ pub const KJobUiDelegate = extern struct {
         return .{ .ptr = qtc.KJobUiDelegate_Job(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onJob` instead
-    ///
-    pub const OnJob = onJob;
-
-    /// ### [Upstream resources](https://api.kde.org/kjobuidelegate.html#job)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJobUiDelegate `
-    ///
-    /// ` callback: *const fn () callconv(.c) KJob `
-    ///
-    pub fn onJob(self: KJobUiDelegate, callback: *const fn () callconv(.c) KJob) void {
-        qtc.KJobUiDelegate_OnJob(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superJob` instead
-    ///
-    pub const SuperJob = superJob;
-
-    /// ### [Upstream resources](https://api.kde.org/kjobuidelegate.html#job)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJobUiDelegate `
-    ///
-    pub fn superJob(self: KJobUiDelegate) KJob {
-        return .{ .ptr = qtc.KJobUiDelegate_SuperJob(@ptrCast(self.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `showErrorMessage` instead
     ///
     pub const ShowErrorMessage = showErrorMessage;
@@ -352,9 +318,9 @@ pub const KJobUiDelegate = extern struct {
     ///
     /// ` self: KJobUiDelegate `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KJobUiDelegate) callconv(.c) void `
     ///
-    pub fn onShowErrorMessage(self: KJobUiDelegate, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowErrorMessage(self: KJobUiDelegate, callback: *const fn (KJobUiDelegate) callconv(.c) void) void {
         qtc.KJobUiDelegate_OnShowErrorMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1977,44 +1943,6 @@ pub const KJobUiDelegate = extern struct {
         return .{ .ptr = qtc.KJobUiDelegate_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJobUiDelegate `
-    ///
-    pub fn superSender(self: KJobUiDelegate) QObject {
-        return .{ .ptr = qtc.KJobUiDelegate_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJobUiDelegate`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KJobUiDelegate, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KJobUiDelegate_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2031,44 +1959,6 @@ pub const KJobUiDelegate = extern struct {
     ///
     pub fn senderSignalIndex(self: KJobUiDelegate) i32 {
         return qtc.KJobUiDelegate_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJobUiDelegate `
-    ///
-    pub fn superSenderSignalIndex(self: KJobUiDelegate) i32 {
-        return qtc.KJobUiDelegate_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJobUiDelegate`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KJobUiDelegate, callback: *const fn () callconv(.c) i32) void {
-        qtc.KJobUiDelegate_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2092,47 +1982,6 @@ pub const KJobUiDelegate = extern struct {
         return qtc.KJobUiDelegate_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJobUiDelegate `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KJobUiDelegate, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KJobUiDelegate_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJobUiDelegate`
-    ///
-    /// ` callback: *const fn (self: KJobUiDelegate, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KJobUiDelegate, callback: *const fn (KJobUiDelegate, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KJobUiDelegate_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2152,47 +2001,6 @@ pub const KJobUiDelegate = extern struct {
     pub fn isSignalConnected(self: KJobUiDelegate, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KJobUiDelegate_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJobUiDelegate `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KJobUiDelegate, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KJobUiDelegate_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJobUiDelegate`
-    ///
-    /// ` callback: *const fn (self: KJobUiDelegate, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KJobUiDelegate, callback: *const fn (KJobUiDelegate, QMetaMethod) callconv(.c) bool) void {
-        qtc.KJobUiDelegate_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

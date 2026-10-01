@@ -47,6 +47,8 @@ pub const QPaintDevice = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintEngine)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QPaintDevice `

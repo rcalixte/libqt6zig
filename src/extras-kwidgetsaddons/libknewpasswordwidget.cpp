@@ -197,1654 +197,1173 @@ libqt_string KNewPasswordWidget_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KNewPasswordWidget_SuperMetaObject(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vknewpasswordwidget->metaObject();
-    } else {
-        return (QMetaObject*)self->KNewPasswordWidget::metaObject();
-    }
+    return (QMetaObject*)self->KNewPasswordWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnMetaObject(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_MetaObject_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MetaObject_Callback>(slot));
+void KNewPasswordWidget_OnMetaObject(KNewPasswordWidget* self, intptr_t slot) {
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self)))
+        vknewpasswordwidget->knewpasswordwidget_metaobject_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KNewPasswordWidget_SuperMetacast(KNewPasswordWidget* self, const char* param1) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_Metacast_IsBase(true);
-        return vknewpasswordwidget->qt_metacast(param1);
-    } else {
-        return self->KNewPasswordWidget::qt_metacast(param1);
-    }
+    return self->KNewPasswordWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMetacast(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_Metacast_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Metacast_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_metacast_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KNewPasswordWidget_SuperMetacall(KNewPasswordWidget* self, int param1, int param2, void** param3) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_Metacall_IsBase(true);
-        return vknewpasswordwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KNewPasswordWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KNewPasswordWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMetacall(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_Metacall_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Metacall_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_metacall_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KNewPasswordWidget_DevType(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return vknewpasswordwidget->devType();
-    } else {
-        return self->KNewPasswordWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KNewPasswordWidget_SuperDevType(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_DevType_IsBase(true);
-        return vknewpasswordwidget->devType();
-    } else {
-        return self->KNewPasswordWidget::devType();
-    }
+    return self->KNewPasswordWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnDevType(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_DevType_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DevType_Callback>(slot));
+void KNewPasswordWidget_OnDevType(KNewPasswordWidget* self, intptr_t slot) {
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self)))
+        vknewpasswordwidget->knewpasswordwidget_devtype_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_SetVisible(KNewPasswordWidget* self, bool visible) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setVisible(visible);
-    } else {
-        self->KNewPasswordWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperSetVisible(KNewPasswordWidget* self, bool visible) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_SetVisible_IsBase(true);
-        vknewpasswordwidget->setVisible(visible);
-    } else {
-        self->KNewPasswordWidget::setVisible(visible);
-    }
+    self->KNewPasswordWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnSetVisible(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_SetVisible_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_SetVisible_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_setvisible_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KNewPasswordWidget_SizeHint(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return new QSize(vknewpasswordwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKNewPasswordWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KNewPasswordWidget_SuperSizeHint(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_SizeHint_IsBase(true);
-        return new QSize(vknewpasswordwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKNewPasswordWidget*)self)->sizeHint());
-    }
+    return new QSize(self->KNewPasswordWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnSizeHint(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_SizeHint_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_SizeHint_Callback>(slot));
+void KNewPasswordWidget_OnSizeHint(KNewPasswordWidget* self, intptr_t slot) {
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self)))
+        vknewpasswordwidget->knewpasswordwidget_sizehint_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KNewPasswordWidget_MinimumSizeHint(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return new QSize(vknewpasswordwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKNewPasswordWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KNewPasswordWidget_SuperMinimumSizeHint(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vknewpasswordwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKNewPasswordWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KNewPasswordWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnMinimumSizeHint(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MinimumSizeHint_Callback>(slot));
+void KNewPasswordWidget_OnMinimumSizeHint(KNewPasswordWidget* self, intptr_t slot) {
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self)))
+        vknewpasswordwidget->knewpasswordwidget_minimumsizehint_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KNewPasswordWidget_HeightForWidth(const KNewPasswordWidget* self, int param1) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return vknewpasswordwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KNewPasswordWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KNewPasswordWidget_SuperHeightForWidth(const KNewPasswordWidget* self, int param1) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_HeightForWidth_IsBase(true);
-        return vknewpasswordwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KNewPasswordWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KNewPasswordWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnHeightForWidth(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_HeightForWidth_Callback>(slot));
+void KNewPasswordWidget_OnHeightForWidth(KNewPasswordWidget* self, intptr_t slot) {
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self)))
+        vknewpasswordwidget->knewpasswordwidget_heightforwidth_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNewPasswordWidget_HasHeightForWidth(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return vknewpasswordwidget->hasHeightForWidth();
-    } else {
-        return self->KNewPasswordWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KNewPasswordWidget_SuperHasHeightForWidth(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_HasHeightForWidth_IsBase(true);
-        return vknewpasswordwidget->hasHeightForWidth();
-    } else {
-        return self->KNewPasswordWidget::hasHeightForWidth();
-    }
+    return self->KNewPasswordWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnHasHeightForWidth(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_HasHeightForWidth_Callback>(slot));
+void KNewPasswordWidget_OnHasHeightForWidth(KNewPasswordWidget* self, intptr_t slot) {
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self)))
+        vknewpasswordwidget->knewpasswordwidget_hasheightforwidth_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KNewPasswordWidget_PaintEngine(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return vknewpasswordwidget->paintEngine();
-    } else {
-        return self->KNewPasswordWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KNewPasswordWidget_SuperPaintEngine(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_PaintEngine_IsBase(true);
-        return vknewpasswordwidget->paintEngine();
-    } else {
-        return self->KNewPasswordWidget::paintEngine();
-    }
+    return self->KNewPasswordWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnPaintEngine(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_PaintEngine_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_PaintEngine_Callback>(slot));
+void KNewPasswordWidget_OnPaintEngine(KNewPasswordWidget* self, intptr_t slot) {
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self)))
+        vknewpasswordwidget->knewpasswordwidget_paintengine_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNewPasswordWidget_Event(KNewPasswordWidget* self, QEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         return vknewpasswordwidget->event(event);
     } else {
-        return ((VirtualKNewPasswordWidget*)self)->event(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KNewPasswordWidget_SuperEvent(KNewPasswordWidget* self, QEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_Event_IsBase(true);
-        return vknewpasswordwidget->event(event);
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->event(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        return vknewpasswordwidget->KNewPasswordWidget::event(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_Event_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Event_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_event_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_MousePressEvent(KNewPasswordWidget* self, QMouseEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->mousePressEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperMousePressEvent(KNewPasswordWidget* self, QMouseEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_MousePressEvent_IsBase(true);
-        vknewpasswordwidget->mousePressEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMousePressEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MousePressEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_mousepressevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_MouseReleaseEvent(KNewPasswordWidget* self, QMouseEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperMouseReleaseEvent(KNewPasswordWidget* self, QMouseEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_MouseReleaseEvent_IsBase(true);
-        vknewpasswordwidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMouseReleaseEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_mousereleaseevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_MouseDoubleClickEvent(KNewPasswordWidget* self, QMouseEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperMouseDoubleClickEvent(KNewPasswordWidget* self, QMouseEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_MouseDoubleClickEvent_IsBase(true);
-        vknewpasswordwidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMouseDoubleClickEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_MouseMoveEvent(KNewPasswordWidget* self, QMouseEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->mouseMoveEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperMouseMoveEvent(KNewPasswordWidget* self, QMouseEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_MouseMoveEvent_IsBase(true);
-        vknewpasswordwidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMouseMoveEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_mousemoveevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_WheelEvent(KNewPasswordWidget* self, QWheelEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->wheelEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperWheelEvent(KNewPasswordWidget* self, QWheelEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_WheelEvent_IsBase(true);
-        vknewpasswordwidget->wheelEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnWheelEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_WheelEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_WheelEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_wheelevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_KeyPressEvent(KNewPasswordWidget* self, QKeyEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->keyPressEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperKeyPressEvent(KNewPasswordWidget* self, QKeyEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_KeyPressEvent_IsBase(true);
-        vknewpasswordwidget->keyPressEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnKeyPressEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_keypressevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_KeyReleaseEvent(KNewPasswordWidget* self, QKeyEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->keyReleaseEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperKeyReleaseEvent(KNewPasswordWidget* self, QKeyEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_KeyReleaseEvent_IsBase(true);
-        vknewpasswordwidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnKeyReleaseEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_keyreleaseevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_FocusInEvent(KNewPasswordWidget* self, QFocusEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->focusInEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperFocusInEvent(KNewPasswordWidget* self, QFocusEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_FocusInEvent_IsBase(true);
-        vknewpasswordwidget->focusInEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnFocusInEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_FocusInEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_focusinevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_FocusOutEvent(KNewPasswordWidget* self, QFocusEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->focusOutEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperFocusOutEvent(KNewPasswordWidget* self, QFocusEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_FocusOutEvent_IsBase(true);
-        vknewpasswordwidget->focusOutEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnFocusOutEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_focusoutevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_EnterEvent(KNewPasswordWidget* self, QEnterEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->enterEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperEnterEvent(KNewPasswordWidget* self, QEnterEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_EnterEvent_IsBase(true);
-        vknewpasswordwidget->enterEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->enterEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnEnterEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_EnterEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_EnterEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_enterevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_LeaveEvent(KNewPasswordWidget* self, QEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->leaveEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperLeaveEvent(KNewPasswordWidget* self, QEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_LeaveEvent_IsBase(true);
-        vknewpasswordwidget->leaveEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnLeaveEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_LeaveEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_leaveevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_PaintEvent(KNewPasswordWidget* self, QPaintEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->paintEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperPaintEvent(KNewPasswordWidget* self, QPaintEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_PaintEvent_IsBase(true);
-        vknewpasswordwidget->paintEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->paintEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnPaintEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_PaintEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_PaintEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_paintevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_MoveEvent(KNewPasswordWidget* self, QMoveEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->moveEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperMoveEvent(KNewPasswordWidget* self, QMoveEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_MoveEvent_IsBase(true);
-        vknewpasswordwidget->moveEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->moveEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMoveEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_MoveEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MoveEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_moveevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_ResizeEvent(KNewPasswordWidget* self, QResizeEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->resizeEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperResizeEvent(KNewPasswordWidget* self, QResizeEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_ResizeEvent_IsBase(true);
-        vknewpasswordwidget->resizeEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnResizeEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ResizeEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_resizeevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_CloseEvent(KNewPasswordWidget* self, QCloseEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->closeEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperCloseEvent(KNewPasswordWidget* self, QCloseEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_CloseEvent_IsBase(true);
-        vknewpasswordwidget->closeEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->closeEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnCloseEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_CloseEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_CloseEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_closeevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_ContextMenuEvent(KNewPasswordWidget* self, QContextMenuEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->contextMenuEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperContextMenuEvent(KNewPasswordWidget* self, QContextMenuEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_ContextMenuEvent_IsBase(true);
-        vknewpasswordwidget->contextMenuEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnContextMenuEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_contextmenuevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_TabletEvent(KNewPasswordWidget* self, QTabletEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->tabletEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperTabletEvent(KNewPasswordWidget* self, QTabletEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_TabletEvent_IsBase(true);
-        vknewpasswordwidget->tabletEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnTabletEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_TabletEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_TabletEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_tabletevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_ActionEvent(KNewPasswordWidget* self, QActionEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->actionEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperActionEvent(KNewPasswordWidget* self, QActionEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_ActionEvent_IsBase(true);
-        vknewpasswordwidget->actionEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->actionEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnActionEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_ActionEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ActionEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_actionevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_DragEnterEvent(KNewPasswordWidget* self, QDragEnterEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->dragEnterEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperDragEnterEvent(KNewPasswordWidget* self, QDragEnterEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_DragEnterEvent_IsBase(true);
-        vknewpasswordwidget->dragEnterEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnDragEnterEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_dragenterevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_DragMoveEvent(KNewPasswordWidget* self, QDragMoveEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->dragMoveEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperDragMoveEvent(KNewPasswordWidget* self, QDragMoveEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_DragMoveEvent_IsBase(true);
-        vknewpasswordwidget->dragMoveEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnDragMoveEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_dragmoveevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_DragLeaveEvent(KNewPasswordWidget* self, QDragLeaveEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->dragLeaveEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperDragLeaveEvent(KNewPasswordWidget* self, QDragLeaveEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_DragLeaveEvent_IsBase(true);
-        vknewpasswordwidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnDragLeaveEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_dragleaveevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_DropEvent(KNewPasswordWidget* self, QDropEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->dropEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperDropEvent(KNewPasswordWidget* self, QDropEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_DropEvent_IsBase(true);
-        vknewpasswordwidget->dropEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->dropEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnDropEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_DropEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DropEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_dropevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_ShowEvent(KNewPasswordWidget* self, QShowEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->showEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperShowEvent(KNewPasswordWidget* self, QShowEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_ShowEvent_IsBase(true);
-        vknewpasswordwidget->showEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->showEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnShowEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_ShowEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ShowEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_showevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_HideEvent(KNewPasswordWidget* self, QHideEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->hideEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperHideEvent(KNewPasswordWidget* self, QHideEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_HideEvent_IsBase(true);
-        vknewpasswordwidget->hideEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->hideEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnHideEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_HideEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_HideEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_hideevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNewPasswordWidget_NativeEvent(KNewPasswordWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
+    if (vknewpasswordwidget) {
         return vknewpasswordwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKNewPasswordWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KNewPasswordWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KNewPasswordWidget_SuperNativeEvent(KNewPasswordWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_NativeEvent_IsBase(true);
-        return vknewpasswordwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        return vknewpasswordwidget->KNewPasswordWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnNativeEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_NativeEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_NativeEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_nativeevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_ChangeEvent(KNewPasswordWidget* self, QEvent* param1) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->changeEvent(param1);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperChangeEvent(KNewPasswordWidget* self, QEvent* param1) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_ChangeEvent_IsBase(true);
-        vknewpasswordwidget->changeEvent(param1);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnChangeEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ChangeEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_changeevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KNewPasswordWidget_Metric(const KNewPasswordWidget* self, int param1) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         return vknewpasswordwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKNewPasswordWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KNewPasswordWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KNewPasswordWidget_SuperMetric(const KNewPasswordWidget* self, int param1) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_Metric_IsBase(true);
-        return vknewpasswordwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self))) {
+        return vknewpasswordwidget->KNewPasswordWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnMetric(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_Metric_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Metric_Callback>(slot));
+void KNewPasswordWidget_OnMetric(KNewPasswordWidget* self, intptr_t slot) {
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self)))
+        vknewpasswordwidget->knewpasswordwidget_metric_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_InitPainter(const KNewPasswordWidget* self, QPainter* painter) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->initPainter(painter);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperInitPainter(const KNewPasswordWidget* self, QPainter* painter) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_InitPainter_IsBase(true);
-        vknewpasswordwidget->initPainter(painter);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->initPainter(painter);
-    }
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self))) {
+        vknewpasswordwidget->KNewPasswordWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnInitPainter(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_InitPainter_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_InitPainter_Callback>(slot));
+void KNewPasswordWidget_OnInitPainter(KNewPasswordWidget* self, intptr_t slot) {
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self)))
+        vknewpasswordwidget->knewpasswordwidget_initpainter_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KNewPasswordWidget_Redirected(const KNewPasswordWidget* self, QPoint* offset) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         return vknewpasswordwidget->redirected(offset);
     } else {
-        return ((VirtualKNewPasswordWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KNewPasswordWidget_SuperRedirected(const KNewPasswordWidget* self, QPoint* offset) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_Redirected_IsBase(true);
-        return vknewpasswordwidget->redirected(offset);
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->redirected(offset);
-    }
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self))) {
+        return vknewpasswordwidget->KNewPasswordWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnRedirected(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_Redirected_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Redirected_Callback>(slot));
+void KNewPasswordWidget_OnRedirected(KNewPasswordWidget* self, intptr_t slot) {
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self)))
+        vknewpasswordwidget->knewpasswordwidget_redirected_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KNewPasswordWidget_SharedPainter(const KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         return vknewpasswordwidget->sharedPainter();
     } else {
-        return ((VirtualKNewPasswordWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KNewPasswordWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KNewPasswordWidget_SuperSharedPainter(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_SharedPainter_IsBase(true);
-        return vknewpasswordwidget->sharedPainter();
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->sharedPainter();
-    }
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self))) {
+        return vknewpasswordwidget->KNewPasswordWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnSharedPainter(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_SharedPainter_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_SharedPainter_Callback>(slot));
+void KNewPasswordWidget_OnSharedPainter(KNewPasswordWidget* self, intptr_t slot) {
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self)))
+        vknewpasswordwidget->knewpasswordwidget_sharedpainter_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_InputMethodEvent(KNewPasswordWidget* self, QInputMethodEvent* param1) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->inputMethodEvent(param1);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperInputMethodEvent(KNewPasswordWidget* self, QInputMethodEvent* param1) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_InputMethodEvent_IsBase(true);
-        vknewpasswordwidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnInputMethodEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_inputmethodevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KNewPasswordWidget_InputMethodQuery(const KNewPasswordWidget* self, int param1) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return new QVariant(vknewpasswordwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKNewPasswordWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KNewPasswordWidget_SuperInputMethodQuery(const KNewPasswordWidget* self, int param1) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vknewpasswordwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKNewPasswordWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KNewPasswordWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnInputMethodQuery(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_InputMethodQuery_Callback>(slot));
+void KNewPasswordWidget_OnInputMethodQuery(KNewPasswordWidget* self, intptr_t slot) {
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self)))
+        vknewpasswordwidget->knewpasswordwidget_inputmethodquery_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNewPasswordWidget_FocusNextPrevChild(KNewPasswordWidget* self, bool next) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         return vknewpasswordwidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualKNewPasswordWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KNewPasswordWidget_SuperFocusNextPrevChild(KNewPasswordWidget* self, bool next) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_FocusNextPrevChild_IsBase(true);
-        return vknewpasswordwidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        return vknewpasswordwidget->KNewPasswordWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnFocusNextPrevChild(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_focusnextprevchild_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNewPasswordWidget_EventFilter(KNewPasswordWidget* self, QObject* watched, QEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return vknewpasswordwidget->eventFilter(watched, event);
-    } else {
-        return self->KNewPasswordWidget::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KNewPasswordWidget_SuperEventFilter(KNewPasswordWidget* self, QObject* watched, QEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_EventFilter_IsBase(true);
-        return vknewpasswordwidget->eventFilter(watched, event);
-    } else {
-        return self->KNewPasswordWidget::eventFilter(watched, event);
-    }
+    return self->KNewPasswordWidget::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnEventFilter(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_EventFilter_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_EventFilter_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_eventfilter_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_TimerEvent(KNewPasswordWidget* self, QTimerEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->timerEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperTimerEvent(KNewPasswordWidget* self, QTimerEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_TimerEvent_IsBase(true);
-        vknewpasswordwidget->timerEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->timerEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnTimerEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_TimerEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_TimerEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_timerevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_ChildEvent(KNewPasswordWidget* self, QChildEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->childEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperChildEvent(KNewPasswordWidget* self, QChildEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_ChildEvent_IsBase(true);
-        vknewpasswordwidget->childEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->childEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnChildEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_ChildEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ChildEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_childevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_CustomEvent(KNewPasswordWidget* self, QEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->customEvent(event);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperCustomEvent(KNewPasswordWidget* self, QEvent* event) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_CustomEvent_IsBase(true);
-        vknewpasswordwidget->customEvent(event);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->customEvent(event);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnCustomEvent(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_CustomEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_CustomEvent_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_customevent_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_ConnectNotify(KNewPasswordWidget* self, const QMetaMethod* signal) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->connectNotify(*signal);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperConnectNotify(KNewPasswordWidget* self, const QMetaMethod* signal) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_ConnectNotify_IsBase(true);
-        vknewpasswordwidget->connectNotify(*signal);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnConnectNotify(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ConnectNotify_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_connectnotify_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewPasswordWidget_DisconnectNotify(KNewPasswordWidget* self, const QMetaMethod* signal) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget) {
         vknewpasswordwidget->disconnectNotify(*signal);
     } else {
-        ((VirtualKNewPasswordWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KNewPasswordWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewPasswordWidget_SuperDisconnectNotify(KNewPasswordWidget* self, const QMetaMethod* signal) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_DisconnectNotify_IsBase(true);
-        vknewpasswordwidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->KNewPasswordWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNewPasswordWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnDisconnectNotify(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self))
+        vknewpasswordwidget->knewpasswordwidget_disconnectnotify_callback = reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KNewPasswordWidget_UpdateMicroFocus(KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->updateMicroFocus();
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->VirtualKNewPasswordWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KNewPasswordWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KNewPasswordWidget_SuperUpdateMicroFocus(KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_UpdateMicroFocus_IsBase(true);
-        vknewpasswordwidget->updateMicroFocus();
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnUpdateMicroFocus(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KNewPasswordWidget_Create(KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->create();
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->create();
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->VirtualKNewPasswordWidget::create();
+    } else
+        qFatal("Error: Protected method KNewPasswordWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KNewPasswordWidget_SuperCreate(KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_Create_IsBase(true);
-        vknewpasswordwidget->create();
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnCreate(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_Create_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KNewPasswordWidget_Destroy(KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->destroy();
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->destroy();
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        vknewpasswordwidget->VirtualKNewPasswordWidget::destroy();
+    } else
+        qFatal("Error: Protected method KNewPasswordWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KNewPasswordWidget_SuperDestroy(KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_Destroy_IsBase(true);
-        vknewpasswordwidget->destroy();
-    } else {
-        ((VirtualKNewPasswordWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnDestroy(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_Destroy_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KNewPasswordWidget_FocusNextChild(KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return vknewpasswordwidget->focusNextChild();
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->focusNextChild();
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        return vknewpasswordwidget->VirtualKNewPasswordWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method KNewPasswordWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KNewPasswordWidget_SuperFocusNextChild(KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_FocusNextChild_IsBase(true);
-        return vknewpasswordwidget->focusNextChild();
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnFocusNextChild(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KNewPasswordWidget_FocusPreviousChild(KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return vknewpasswordwidget->focusPreviousChild();
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self)) {
+        return vknewpasswordwidget->VirtualKNewPasswordWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KNewPasswordWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KNewPasswordWidget_SuperFocusPreviousChild(KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_FocusPreviousChild_IsBase(true);
-        return vknewpasswordwidget->focusPreviousChild();
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnFocusPreviousChild(KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KNewPasswordWidget_Sender(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return vknewpasswordwidget->sender();
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->sender();
-    }
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self))) {
+        return vknewpasswordwidget->VirtualKNewPasswordWidget::sender();
+    } else
+        qFatal("Error: Protected method KNewPasswordWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KNewPasswordWidget_SuperSender(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_Sender_IsBase(true);
-        return vknewpasswordwidget->sender();
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnSender(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_Sender_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNewPasswordWidget_SenderSignalIndex(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return vknewpasswordwidget->senderSignalIndex();
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self))) {
+        return vknewpasswordwidget->VirtualKNewPasswordWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KNewPasswordWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNewPasswordWidget_SuperSenderSignalIndex(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_SenderSignalIndex_IsBase(true);
-        return vknewpasswordwidget->senderSignalIndex();
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnSenderSignalIndex(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNewPasswordWidget_Receivers(const KNewPasswordWidget* self, const char* signal) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return vknewpasswordwidget->receivers(signal);
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->receivers(signal);
-    }
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self))) {
+        return vknewpasswordwidget->VirtualKNewPasswordWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method KNewPasswordWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNewPasswordWidget_SuperReceivers(const KNewPasswordWidget* self, const char* signal) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_Receivers_IsBase(true);
-        return vknewpasswordwidget->receivers(signal);
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnReceivers(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_Receivers_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KNewPasswordWidget_IsSignalConnected(const KNewPasswordWidget* self, const QMetaMethod* signal) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return vknewpasswordwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self))) {
+        return vknewpasswordwidget->VirtualKNewPasswordWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KNewPasswordWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KNewPasswordWidget_SuperIsSignalConnected(const KNewPasswordWidget* self, const QMetaMethod* signal) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_IsSignalConnected_IsBase(true);
-        return vknewpasswordwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnIsSignalConnected(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KNewPasswordWidget_GetDecodedMetricF(const KNewPasswordWidget* self, int metricA, int metricB) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return vknewpasswordwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KNewPasswordWidget_SuperGetDecodedMetricF(const KNewPasswordWidget* self, int metricA, int metricB) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        vknewpasswordwidget->setKNewPasswordWidget_GetDecodedMetricF_IsBase(true);
-        return vknewpasswordwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewPasswordWidget_OnGetDecodedMetricF(const KNewPasswordWidget* self, intptr_t slot) {
-    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
-        vknewpasswordwidget->setKNewPasswordWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self))) {
+        return vknewpasswordwidget->VirtualKNewPasswordWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KNewPasswordWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void KNewPasswordWidget_Delete(KNewPasswordWidget* self) {

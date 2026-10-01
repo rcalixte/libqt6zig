@@ -198,364 +198,219 @@ libqt_string KModifierKeyInfo_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KModifierKeyInfo_SuperMetaObject(const KModifierKeyInfo* self) {
-    auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self));
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        vkmodifierkeyinfo->setKModifierKeyInfo_MetaObject_IsBase(true);
-        return (QMetaObject*)vkmodifierkeyinfo->metaObject();
-    } else {
-        return (QMetaObject*)self->KModifierKeyInfo::metaObject();
-    }
+    return (QMetaObject*)self->KModifierKeyInfo::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KModifierKeyInfo_OnMetaObject(const KModifierKeyInfo* self, intptr_t slot) {
-    auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self));
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo)
-        vkmodifierkeyinfo->setKModifierKeyInfo_MetaObject_Callback(reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_MetaObject_Callback>(slot));
+void KModifierKeyInfo_OnMetaObject(KModifierKeyInfo* self, intptr_t slot) {
+    if (auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self)))
+        vkmodifierkeyinfo->kmodifierkeyinfo_metaobject_callback = reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KModifierKeyInfo_SuperMetacast(KModifierKeyInfo* self, const char* param1) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        vkmodifierkeyinfo->setKModifierKeyInfo_Metacast_IsBase(true);
-        return vkmodifierkeyinfo->qt_metacast(param1);
-    } else {
-        return self->KModifierKeyInfo::qt_metacast(param1);
-    }
+    return self->KModifierKeyInfo::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfo_OnMetacast(KModifierKeyInfo* self, intptr_t slot) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo)
-        vkmodifierkeyinfo->setKModifierKeyInfo_Metacast_Callback(reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_Metacast_Callback>(slot));
+    if (auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self))
+        vkmodifierkeyinfo->kmodifierkeyinfo_metacast_callback = reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KModifierKeyInfo_SuperMetacall(KModifierKeyInfo* self, int param1, int param2, void** param3) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        vkmodifierkeyinfo->setKModifierKeyInfo_Metacall_IsBase(true);
-        return vkmodifierkeyinfo->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KModifierKeyInfo::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KModifierKeyInfo::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfo_OnMetacall(KModifierKeyInfo* self, intptr_t slot) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo)
-        vkmodifierkeyinfo->setKModifierKeyInfo_Metacall_Callback(reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_Metacall_Callback>(slot));
+    if (auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self))
+        vkmodifierkeyinfo->kmodifierkeyinfo_metacall_callback = reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KModifierKeyInfo_Event(KModifierKeyInfo* self, QEvent* event) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        return vkmodifierkeyinfo->event(event);
-    } else {
-        return self->KModifierKeyInfo::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KModifierKeyInfo_SuperEvent(KModifierKeyInfo* self, QEvent* event) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        vkmodifierkeyinfo->setKModifierKeyInfo_Event_IsBase(true);
-        return vkmodifierkeyinfo->event(event);
-    } else {
-        return self->KModifierKeyInfo::event(event);
-    }
+    return self->KModifierKeyInfo::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfo_OnEvent(KModifierKeyInfo* self, intptr_t slot) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo)
-        vkmodifierkeyinfo->setKModifierKeyInfo_Event_Callback(reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_Event_Callback>(slot));
+    if (auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self))
+        vkmodifierkeyinfo->kmodifierkeyinfo_event_callback = reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KModifierKeyInfo_EventFilter(KModifierKeyInfo* self, QObject* watched, QEvent* event) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        return vkmodifierkeyinfo->eventFilter(watched, event);
-    } else {
-        return self->KModifierKeyInfo::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KModifierKeyInfo_SuperEventFilter(KModifierKeyInfo* self, QObject* watched, QEvent* event) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        vkmodifierkeyinfo->setKModifierKeyInfo_EventFilter_IsBase(true);
-        return vkmodifierkeyinfo->eventFilter(watched, event);
-    } else {
-        return self->KModifierKeyInfo::eventFilter(watched, event);
-    }
+    return self->KModifierKeyInfo::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfo_OnEventFilter(KModifierKeyInfo* self, intptr_t slot) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo)
-        vkmodifierkeyinfo->setKModifierKeyInfo_EventFilter_Callback(reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_EventFilter_Callback>(slot));
+    if (auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self))
+        vkmodifierkeyinfo->kmodifierkeyinfo_eventfilter_callback = reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KModifierKeyInfo_TimerEvent(KModifierKeyInfo* self, QTimerEvent* event) {
     auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
+    if (vkmodifierkeyinfo) {
         vkmodifierkeyinfo->timerEvent(event);
     } else {
-        ((VirtualKModifierKeyInfo*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KModifierKeyInfo::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KModifierKeyInfo_SuperTimerEvent(KModifierKeyInfo* self, QTimerEvent* event) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        vkmodifierkeyinfo->setKModifierKeyInfo_TimerEvent_IsBase(true);
-        vkmodifierkeyinfo->timerEvent(event);
-    } else {
-        ((VirtualKModifierKeyInfo*)self)->timerEvent(event);
-    }
+    if (auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self)) {
+        vkmodifierkeyinfo->KModifierKeyInfo::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KModifierKeyInfo::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfo_OnTimerEvent(KModifierKeyInfo* self, intptr_t slot) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo)
-        vkmodifierkeyinfo->setKModifierKeyInfo_TimerEvent_Callback(reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_TimerEvent_Callback>(slot));
+    if (auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self))
+        vkmodifierkeyinfo->kmodifierkeyinfo_timerevent_callback = reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KModifierKeyInfo_ChildEvent(KModifierKeyInfo* self, QChildEvent* event) {
     auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
+    if (vkmodifierkeyinfo) {
         vkmodifierkeyinfo->childEvent(event);
     } else {
-        ((VirtualKModifierKeyInfo*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KModifierKeyInfo::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KModifierKeyInfo_SuperChildEvent(KModifierKeyInfo* self, QChildEvent* event) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        vkmodifierkeyinfo->setKModifierKeyInfo_ChildEvent_IsBase(true);
-        vkmodifierkeyinfo->childEvent(event);
-    } else {
-        ((VirtualKModifierKeyInfo*)self)->childEvent(event);
-    }
+    if (auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self)) {
+        vkmodifierkeyinfo->KModifierKeyInfo::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KModifierKeyInfo::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfo_OnChildEvent(KModifierKeyInfo* self, intptr_t slot) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo)
-        vkmodifierkeyinfo->setKModifierKeyInfo_ChildEvent_Callback(reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_ChildEvent_Callback>(slot));
+    if (auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self))
+        vkmodifierkeyinfo->kmodifierkeyinfo_childevent_callback = reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KModifierKeyInfo_CustomEvent(KModifierKeyInfo* self, QEvent* event) {
     auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
+    if (vkmodifierkeyinfo) {
         vkmodifierkeyinfo->customEvent(event);
     } else {
-        ((VirtualKModifierKeyInfo*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KModifierKeyInfo::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KModifierKeyInfo_SuperCustomEvent(KModifierKeyInfo* self, QEvent* event) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        vkmodifierkeyinfo->setKModifierKeyInfo_CustomEvent_IsBase(true);
-        vkmodifierkeyinfo->customEvent(event);
-    } else {
-        ((VirtualKModifierKeyInfo*)self)->customEvent(event);
-    }
+    if (auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self)) {
+        vkmodifierkeyinfo->KModifierKeyInfo::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KModifierKeyInfo::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfo_OnCustomEvent(KModifierKeyInfo* self, intptr_t slot) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo)
-        vkmodifierkeyinfo->setKModifierKeyInfo_CustomEvent_Callback(reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_CustomEvent_Callback>(slot));
+    if (auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self))
+        vkmodifierkeyinfo->kmodifierkeyinfo_customevent_callback = reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KModifierKeyInfo_ConnectNotify(KModifierKeyInfo* self, const QMetaMethod* signal) {
     auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
+    if (vkmodifierkeyinfo) {
         vkmodifierkeyinfo->connectNotify(*signal);
     } else {
-        ((VirtualKModifierKeyInfo*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KModifierKeyInfo::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KModifierKeyInfo_SuperConnectNotify(KModifierKeyInfo* self, const QMetaMethod* signal) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        vkmodifierkeyinfo->setKModifierKeyInfo_ConnectNotify_IsBase(true);
-        vkmodifierkeyinfo->connectNotify(*signal);
-    } else {
-        ((VirtualKModifierKeyInfo*)self)->connectNotify(*signal);
-    }
+    if (auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self)) {
+        vkmodifierkeyinfo->KModifierKeyInfo::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KModifierKeyInfo::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfo_OnConnectNotify(KModifierKeyInfo* self, intptr_t slot) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo)
-        vkmodifierkeyinfo->setKModifierKeyInfo_ConnectNotify_Callback(reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_ConnectNotify_Callback>(slot));
+    if (auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self))
+        vkmodifierkeyinfo->kmodifierkeyinfo_connectnotify_callback = reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KModifierKeyInfo_DisconnectNotify(KModifierKeyInfo* self, const QMetaMethod* signal) {
     auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
+    if (vkmodifierkeyinfo) {
         vkmodifierkeyinfo->disconnectNotify(*signal);
     } else {
-        ((VirtualKModifierKeyInfo*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KModifierKeyInfo::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KModifierKeyInfo_SuperDisconnectNotify(KModifierKeyInfo* self, const QMetaMethod* signal) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        vkmodifierkeyinfo->setKModifierKeyInfo_DisconnectNotify_IsBase(true);
-        vkmodifierkeyinfo->disconnectNotify(*signal);
-    } else {
-        ((VirtualKModifierKeyInfo*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self)) {
+        vkmodifierkeyinfo->KModifierKeyInfo::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KModifierKeyInfo::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfo_OnDisconnectNotify(KModifierKeyInfo* self, intptr_t slot) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo)
-        vkmodifierkeyinfo->setKModifierKeyInfo_DisconnectNotify_Callback(reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_DisconnectNotify_Callback>(slot));
+    if (auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self))
+        vkmodifierkeyinfo->kmodifierkeyinfo_disconnectnotify_callback = reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KModifierKeyInfo_Sender(const KModifierKeyInfo* self) {
-    auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self));
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        return vkmodifierkeyinfo->sender();
-    } else {
-        return ((VirtualKModifierKeyInfo*)self)->sender();
-    }
+    if (auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self))) {
+        return vkmodifierkeyinfo->VirtualKModifierKeyInfo::sender();
+    } else
+        qFatal("Error: Protected method KModifierKeyInfo::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KModifierKeyInfo_SuperSender(const KModifierKeyInfo* self) {
-    auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self));
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        vkmodifierkeyinfo->setKModifierKeyInfo_Sender_IsBase(true);
-        return vkmodifierkeyinfo->sender();
-    } else {
-        return ((VirtualKModifierKeyInfo*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KModifierKeyInfo_OnSender(const KModifierKeyInfo* self, intptr_t slot) {
-    auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self));
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo)
-        vkmodifierkeyinfo->setKModifierKeyInfo_Sender_Callback(reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KModifierKeyInfo_SenderSignalIndex(const KModifierKeyInfo* self) {
-    auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self));
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        return vkmodifierkeyinfo->senderSignalIndex();
-    } else {
-        return ((VirtualKModifierKeyInfo*)self)->senderSignalIndex();
-    }
+    if (auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self))) {
+        return vkmodifierkeyinfo->VirtualKModifierKeyInfo::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KModifierKeyInfo::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KModifierKeyInfo_SuperSenderSignalIndex(const KModifierKeyInfo* self) {
-    auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self));
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        vkmodifierkeyinfo->setKModifierKeyInfo_SenderSignalIndex_IsBase(true);
-        return vkmodifierkeyinfo->senderSignalIndex();
-    } else {
-        return ((VirtualKModifierKeyInfo*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KModifierKeyInfo_OnSenderSignalIndex(const KModifierKeyInfo* self, intptr_t slot) {
-    auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self));
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo)
-        vkmodifierkeyinfo->setKModifierKeyInfo_SenderSignalIndex_Callback(reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KModifierKeyInfo_Receivers(const KModifierKeyInfo* self, const char* signal) {
-    auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self));
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        return vkmodifierkeyinfo->receivers(signal);
-    } else {
-        return ((VirtualKModifierKeyInfo*)self)->receivers(signal);
-    }
+    if (auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self))) {
+        return vkmodifierkeyinfo->VirtualKModifierKeyInfo::receivers(signal);
+    } else
+        qFatal("Error: Protected method KModifierKeyInfo::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KModifierKeyInfo_SuperReceivers(const KModifierKeyInfo* self, const char* signal) {
-    auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self));
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        vkmodifierkeyinfo->setKModifierKeyInfo_Receivers_IsBase(true);
-        return vkmodifierkeyinfo->receivers(signal);
-    } else {
-        return ((VirtualKModifierKeyInfo*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KModifierKeyInfo_OnReceivers(const KModifierKeyInfo* self, intptr_t slot) {
-    auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self));
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo)
-        vkmodifierkeyinfo->setKModifierKeyInfo_Receivers_Callback(reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KModifierKeyInfo_IsSignalConnected(const KModifierKeyInfo* self, const QMetaMethod* signal) {
-    auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self));
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        return vkmodifierkeyinfo->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKModifierKeyInfo*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KModifierKeyInfo_SuperIsSignalConnected(const KModifierKeyInfo* self, const QMetaMethod* signal) {
-    auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self));
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        vkmodifierkeyinfo->setKModifierKeyInfo_IsSignalConnected_IsBase(true);
-        return vkmodifierkeyinfo->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKModifierKeyInfo*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KModifierKeyInfo_OnIsSignalConnected(const KModifierKeyInfo* self, intptr_t slot) {
-    auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self));
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo)
-        vkmodifierkeyinfo->setKModifierKeyInfo_IsSignalConnected_Callback(reinterpret_cast<VirtualKModifierKeyInfo::KModifierKeyInfo_IsSignalConnected_Callback>(slot));
+    if (auto* vkmodifierkeyinfo = const_cast<VirtualKModifierKeyInfo*>(dynamic_cast<const VirtualKModifierKeyInfo*>(self))) {
+        return vkmodifierkeyinfo->VirtualKModifierKeyInfo::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KModifierKeyInfo::isSignalConnected called without a directly constructed type");
 }
 
 void KModifierKeyInfo_Delete(KModifierKeyInfo* self) {

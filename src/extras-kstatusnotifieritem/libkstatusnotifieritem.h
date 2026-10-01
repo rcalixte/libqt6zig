@@ -95,7 +95,7 @@ bool KStatusNotifierItem_EventFilter(KStatusNotifierItem* self, QObject* watched
 libqt_string KStatusNotifierItem_Tr2(const char* s, const char* c);
 libqt_string KStatusNotifierItem_Tr3(const char* s, const char* c, int n);
 void KStatusNotifierItem_ShowMessage4(KStatusNotifierItem* self, const libqt_string title, const libqt_string message, const libqt_string icon, int timeout);
-void KStatusNotifierItem_OnMetaObject(const KStatusNotifierItem* self, intptr_t slot);
+void KStatusNotifierItem_OnMetaObject(KStatusNotifierItem* self, intptr_t slot);
 QMetaObject* KStatusNotifierItem_SuperMetaObject(const KStatusNotifierItem* self);
 void KStatusNotifierItem_OnMetacast(KStatusNotifierItem* self, intptr_t slot);
 void* KStatusNotifierItem_SuperMetacast(KStatusNotifierItem* self, const char* param1);
@@ -124,17 +124,9 @@ void KStatusNotifierItem_DisconnectNotify(KStatusNotifierItem* self, const QMeta
 void KStatusNotifierItem_OnDisconnectNotify(KStatusNotifierItem* self, intptr_t slot);
 void KStatusNotifierItem_SuperDisconnectNotify(KStatusNotifierItem* self, const QMetaMethod* signal);
 QObject* KStatusNotifierItem_Sender(const KStatusNotifierItem* self);
-void KStatusNotifierItem_OnSender(const KStatusNotifierItem* self, intptr_t slot);
-QObject* KStatusNotifierItem_SuperSender(const KStatusNotifierItem* self);
 int KStatusNotifierItem_SenderSignalIndex(const KStatusNotifierItem* self);
-void KStatusNotifierItem_OnSenderSignalIndex(const KStatusNotifierItem* self, intptr_t slot);
-int KStatusNotifierItem_SuperSenderSignalIndex(const KStatusNotifierItem* self);
 int KStatusNotifierItem_Receivers(const KStatusNotifierItem* self, const char* signal);
-void KStatusNotifierItem_OnReceivers(const KStatusNotifierItem* self, intptr_t slot);
-int KStatusNotifierItem_SuperReceivers(const KStatusNotifierItem* self, const char* signal);
 bool KStatusNotifierItem_IsSignalConnected(const KStatusNotifierItem* self, const QMetaMethod* signal);
-void KStatusNotifierItem_OnIsSignalConnected(const KStatusNotifierItem* self, intptr_t slot);
-bool KStatusNotifierItem_SuperIsSignalConnected(const KStatusNotifierItem* self, const QMetaMethod* signal);
 void KStatusNotifierItem_Delete(KStatusNotifierItem* self);
 
 #ifdef __cplusplus

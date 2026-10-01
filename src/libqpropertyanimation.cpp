@@ -80,22 +80,22 @@ void QPropertyAnimation_SetPropertyName(QPropertyAnimation* self, const libqt_st
 
 bool QPropertyAnimation_Event(QPropertyAnimation* self, QEvent* event) {
     auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+    if (vqpropertyanimation) {
         return vqpropertyanimation->event(event);
     }
-    return {};
+    qFatal("Error: Protected method QPropertyAnimation::event called without a directly constructed type");
 }
 
 void QPropertyAnimation_UpdateCurrentValue(QPropertyAnimation* self, const QVariant* value) {
     auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+    if (vqpropertyanimation) {
         vqpropertyanimation->updateCurrentValue(*value);
     }
 }
 
 void QPropertyAnimation_UpdateState(QPropertyAnimation* self, int newState, int oldState) {
     auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+    if (vqpropertyanimation) {
         vqpropertyanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
     }
 }
@@ -126,500 +126,327 @@ libqt_string QPropertyAnimation_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QPropertyAnimation_SuperMetaObject(const QPropertyAnimation* self) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_MetaObject_IsBase(true);
-        return (QMetaObject*)vqpropertyanimation->metaObject();
-    } else {
-        return (QMetaObject*)self->QPropertyAnimation::metaObject();
-    }
+    return (QMetaObject*)self->QPropertyAnimation::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPropertyAnimation_OnMetaObject(const QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_MetaObject_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_MetaObject_Callback>(slot));
+void QPropertyAnimation_OnMetaObject(QPropertyAnimation* self, intptr_t slot) {
+    if (auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self)))
+        vqpropertyanimation->qpropertyanimation_metaobject_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPropertyAnimation_SuperMetacast(QPropertyAnimation* self, const char* param1) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_Metacast_IsBase(true);
-        return vqpropertyanimation->qt_metacast(param1);
-    } else {
-        return self->QPropertyAnimation::qt_metacast(param1);
-    }
+    return self->QPropertyAnimation::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPropertyAnimation_OnMetacast(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_Metacast_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Metacast_Callback>(slot));
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self))
+        vqpropertyanimation->qpropertyanimation_metacast_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPropertyAnimation_SuperMetacall(QPropertyAnimation* self, int param1, int param2, void** param3) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_Metacall_IsBase(true);
-        return vqpropertyanimation->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPropertyAnimation::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPropertyAnimation::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPropertyAnimation_OnMetacall(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_Metacall_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Metacall_Callback>(slot));
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self))
+        vqpropertyanimation->qpropertyanimation_metacall_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QPropertyAnimation_SuperEvent(QPropertyAnimation* self, QEvent* event) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_Event_IsBase(true);
-        return vqpropertyanimation->event(event);
-    } else {
-        return ((VirtualQPropertyAnimation*)self)->event(event);
-    }
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self)) {
+        return vqpropertyanimation->QPropertyAnimation::event(event);
+    } else
+        qFatal("Error: Protected virtual method QPropertyAnimation::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPropertyAnimation_OnEvent(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_Event_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Event_Callback>(slot));
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self))
+        vqpropertyanimation->qpropertyanimation_event_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QPropertyAnimation_SuperUpdateCurrentValue(QPropertyAnimation* self, const QVariant* value) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_UpdateCurrentValue_IsBase(true);
-        vqpropertyanimation->updateCurrentValue(*value);
-    } else {
-        ((VirtualQPropertyAnimation*)self)->updateCurrentValue(*value);
-    }
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self)) {
+        vqpropertyanimation->QPropertyAnimation::updateCurrentValue(*value);
+    } else
+        qFatal("Error: Protected virtual method QPropertyAnimation::updateCurrentValue called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPropertyAnimation_OnUpdateCurrentValue(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_UpdateCurrentValue_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_UpdateCurrentValue_Callback>(slot));
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self))
+        vqpropertyanimation->qpropertyanimation_updatecurrentvalue_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_UpdateCurrentValue_Callback>(slot);
 }
 
 // Base class handler implementation
 void QPropertyAnimation_SuperUpdateState(QPropertyAnimation* self, int newState, int oldState) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_UpdateState_IsBase(true);
-        vqpropertyanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
-    } else {
-        ((VirtualQPropertyAnimation*)self)->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
-    }
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self)) {
+        vqpropertyanimation->QPropertyAnimation::updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
+    } else
+        qFatal("Error: Protected virtual method QPropertyAnimation::updateState called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPropertyAnimation_OnUpdateState(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_UpdateState_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_UpdateState_Callback>(slot));
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self))
+        vqpropertyanimation->qpropertyanimation_updatestate_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_UpdateState_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPropertyAnimation_Duration(const QPropertyAnimation* self) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        return vqpropertyanimation->duration();
-    } else {
-        return self->QPropertyAnimation::duration();
-    }
+    return self->duration();
 }
 
 // Base class handler implementation
 int QPropertyAnimation_SuperDuration(const QPropertyAnimation* self) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_Duration_IsBase(true);
-        return vqpropertyanimation->duration();
-    } else {
-        return self->QPropertyAnimation::duration();
-    }
+    return self->QPropertyAnimation::duration();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPropertyAnimation_OnDuration(const QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_Duration_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Duration_Callback>(slot));
+void QPropertyAnimation_OnDuration(QPropertyAnimation* self, intptr_t slot) {
+    if (auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self)))
+        vqpropertyanimation->qpropertyanimation_duration_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Duration_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPropertyAnimation_UpdateCurrentTime(QPropertyAnimation* self, int param1) {
     auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+    if (vqpropertyanimation) {
         vqpropertyanimation->updateCurrentTime(static_cast<int>(param1));
     } else {
-        ((VirtualQPropertyAnimation*)self)->updateCurrentTime(static_cast<int>(param1));
+        qFatal("Error: Protected virtual method QPropertyAnimation::updateCurrentTime called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPropertyAnimation_SuperUpdateCurrentTime(QPropertyAnimation* self, int param1) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_UpdateCurrentTime_IsBase(true);
-        vqpropertyanimation->updateCurrentTime(static_cast<int>(param1));
-    } else {
-        ((VirtualQPropertyAnimation*)self)->updateCurrentTime(static_cast<int>(param1));
-    }
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self)) {
+        vqpropertyanimation->QPropertyAnimation::updateCurrentTime(static_cast<int>(param1));
+    } else
+        qFatal("Error: Protected virtual method QPropertyAnimation::updateCurrentTime called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPropertyAnimation_OnUpdateCurrentTime(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_UpdateCurrentTime_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_UpdateCurrentTime_Callback>(slot));
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self))
+        vqpropertyanimation->qpropertyanimation_updatecurrenttime_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_UpdateCurrentTime_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QPropertyAnimation_Interpolated(const QPropertyAnimation* self, const QVariant* from, const QVariant* to, double progress) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        return new QVariant(vqpropertyanimation->interpolated(*from, *to, static_cast<qreal>(progress)));
-    }
-    return {};
+    return new QVariant((self->*&VirtualQPropertyAnimation::Base::interpolated)(*from, *to, static_cast<qreal>(progress)));
 }
 
 // Base class handler implementation
 QVariant* QPropertyAnimation_SuperInterpolated(const QPropertyAnimation* self, const QVariant* from, const QVariant* to, double progress) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_Interpolated_IsBase(true);
+    if (auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self)))
         return new QVariant(vqpropertyanimation->interpolated(*from, *to, static_cast<qreal>(progress)));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QPropertyAnimation::interpolated called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPropertyAnimation_OnInterpolated(const QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_Interpolated_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Interpolated_Callback>(slot));
+void QPropertyAnimation_OnInterpolated(QPropertyAnimation* self, intptr_t slot) {
+    if (auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self)))
+        vqpropertyanimation->qpropertyanimation_interpolated_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Interpolated_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPropertyAnimation_UpdateDirection(QPropertyAnimation* self, int direction) {
     auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+    if (vqpropertyanimation) {
         vqpropertyanimation->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
     } else {
-        ((VirtualQPropertyAnimation*)self)->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
+        qFatal("Error: Protected virtual method QPropertyAnimation::updateDirection called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPropertyAnimation_SuperUpdateDirection(QPropertyAnimation* self, int direction) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_UpdateDirection_IsBase(true);
-        vqpropertyanimation->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
-    } else {
-        ((VirtualQPropertyAnimation*)self)->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
-    }
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self)) {
+        vqpropertyanimation->QPropertyAnimation::updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
+    } else
+        qFatal("Error: Protected virtual method QPropertyAnimation::updateDirection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPropertyAnimation_OnUpdateDirection(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_UpdateDirection_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_UpdateDirection_Callback>(slot));
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self))
+        vqpropertyanimation->qpropertyanimation_updatedirection_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_UpdateDirection_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPropertyAnimation_EventFilter(QPropertyAnimation* self, QObject* watched, QEvent* event) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        return vqpropertyanimation->eventFilter(watched, event);
-    } else {
-        return self->QPropertyAnimation::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QPropertyAnimation_SuperEventFilter(QPropertyAnimation* self, QObject* watched, QEvent* event) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_EventFilter_IsBase(true);
-        return vqpropertyanimation->eventFilter(watched, event);
-    } else {
-        return self->QPropertyAnimation::eventFilter(watched, event);
-    }
+    return self->QPropertyAnimation::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPropertyAnimation_OnEventFilter(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_EventFilter_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_EventFilter_Callback>(slot));
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self))
+        vqpropertyanimation->qpropertyanimation_eventfilter_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPropertyAnimation_TimerEvent(QPropertyAnimation* self, QTimerEvent* event) {
     auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+    if (vqpropertyanimation) {
         vqpropertyanimation->timerEvent(event);
     } else {
-        ((VirtualQPropertyAnimation*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPropertyAnimation::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPropertyAnimation_SuperTimerEvent(QPropertyAnimation* self, QTimerEvent* event) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_TimerEvent_IsBase(true);
-        vqpropertyanimation->timerEvent(event);
-    } else {
-        ((VirtualQPropertyAnimation*)self)->timerEvent(event);
-    }
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self)) {
+        vqpropertyanimation->QPropertyAnimation::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPropertyAnimation::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPropertyAnimation_OnTimerEvent(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_TimerEvent_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_TimerEvent_Callback>(slot));
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self))
+        vqpropertyanimation->qpropertyanimation_timerevent_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPropertyAnimation_ChildEvent(QPropertyAnimation* self, QChildEvent* event) {
     auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+    if (vqpropertyanimation) {
         vqpropertyanimation->childEvent(event);
     } else {
-        ((VirtualQPropertyAnimation*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPropertyAnimation::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPropertyAnimation_SuperChildEvent(QPropertyAnimation* self, QChildEvent* event) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_ChildEvent_IsBase(true);
-        vqpropertyanimation->childEvent(event);
-    } else {
-        ((VirtualQPropertyAnimation*)self)->childEvent(event);
-    }
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self)) {
+        vqpropertyanimation->QPropertyAnimation::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPropertyAnimation::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPropertyAnimation_OnChildEvent(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_ChildEvent_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_ChildEvent_Callback>(slot));
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self))
+        vqpropertyanimation->qpropertyanimation_childevent_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPropertyAnimation_CustomEvent(QPropertyAnimation* self, QEvent* event) {
     auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+    if (vqpropertyanimation) {
         vqpropertyanimation->customEvent(event);
     } else {
-        ((VirtualQPropertyAnimation*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPropertyAnimation::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPropertyAnimation_SuperCustomEvent(QPropertyAnimation* self, QEvent* event) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_CustomEvent_IsBase(true);
-        vqpropertyanimation->customEvent(event);
-    } else {
-        ((VirtualQPropertyAnimation*)self)->customEvent(event);
-    }
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self)) {
+        vqpropertyanimation->QPropertyAnimation::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPropertyAnimation::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPropertyAnimation_OnCustomEvent(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_CustomEvent_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_CustomEvent_Callback>(slot));
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self))
+        vqpropertyanimation->qpropertyanimation_customevent_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPropertyAnimation_ConnectNotify(QPropertyAnimation* self, const QMetaMethod* signal) {
     auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+    if (vqpropertyanimation) {
         vqpropertyanimation->connectNotify(*signal);
     } else {
-        ((VirtualQPropertyAnimation*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPropertyAnimation::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPropertyAnimation_SuperConnectNotify(QPropertyAnimation* self, const QMetaMethod* signal) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_ConnectNotify_IsBase(true);
-        vqpropertyanimation->connectNotify(*signal);
-    } else {
-        ((VirtualQPropertyAnimation*)self)->connectNotify(*signal);
-    }
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self)) {
+        vqpropertyanimation->QPropertyAnimation::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPropertyAnimation::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPropertyAnimation_OnConnectNotify(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_ConnectNotify_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_ConnectNotify_Callback>(slot));
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self))
+        vqpropertyanimation->qpropertyanimation_connectnotify_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPropertyAnimation_DisconnectNotify(QPropertyAnimation* self, const QMetaMethod* signal) {
     auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+    if (vqpropertyanimation) {
         vqpropertyanimation->disconnectNotify(*signal);
     } else {
-        ((VirtualQPropertyAnimation*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPropertyAnimation::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPropertyAnimation_SuperDisconnectNotify(QPropertyAnimation* self, const QMetaMethod* signal) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_DisconnectNotify_IsBase(true);
-        vqpropertyanimation->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPropertyAnimation*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self)) {
+        vqpropertyanimation->QPropertyAnimation::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPropertyAnimation::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPropertyAnimation_OnDisconnectNotify(QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_DisconnectNotify_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_DisconnectNotify_Callback>(slot));
+    if (auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self))
+        vqpropertyanimation->qpropertyanimation_disconnectnotify_callback = reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPropertyAnimation_Sender(const QPropertyAnimation* self) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        return vqpropertyanimation->sender();
-    } else {
-        return ((VirtualQPropertyAnimation*)self)->sender();
-    }
+    if (auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self))) {
+        return vqpropertyanimation->VirtualQPropertyAnimation::sender();
+    } else
+        qFatal("Error: Protected method QPropertyAnimation::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPropertyAnimation_SuperSender(const QPropertyAnimation* self) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_Sender_IsBase(true);
-        return vqpropertyanimation->sender();
-    } else {
-        return ((VirtualQPropertyAnimation*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPropertyAnimation_OnSender(const QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_Sender_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPropertyAnimation_SenderSignalIndex(const QPropertyAnimation* self) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        return vqpropertyanimation->senderSignalIndex();
-    } else {
-        return ((VirtualQPropertyAnimation*)self)->senderSignalIndex();
-    }
+    if (auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self))) {
+        return vqpropertyanimation->VirtualQPropertyAnimation::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPropertyAnimation::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPropertyAnimation_SuperSenderSignalIndex(const QPropertyAnimation* self) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_SenderSignalIndex_IsBase(true);
-        return vqpropertyanimation->senderSignalIndex();
-    } else {
-        return ((VirtualQPropertyAnimation*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPropertyAnimation_OnSenderSignalIndex(const QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPropertyAnimation_Receivers(const QPropertyAnimation* self, const char* signal) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        return vqpropertyanimation->receivers(signal);
-    } else {
-        return ((VirtualQPropertyAnimation*)self)->receivers(signal);
-    }
+    if (auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self))) {
+        return vqpropertyanimation->VirtualQPropertyAnimation::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPropertyAnimation::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPropertyAnimation_SuperReceivers(const QPropertyAnimation* self, const char* signal) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_Receivers_IsBase(true);
-        return vqpropertyanimation->receivers(signal);
-    } else {
-        return ((VirtualQPropertyAnimation*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPropertyAnimation_OnReceivers(const QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_Receivers_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPropertyAnimation_IsSignalConnected(const QPropertyAnimation* self, const QMetaMethod* signal) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        return vqpropertyanimation->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPropertyAnimation*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QPropertyAnimation_SuperIsSignalConnected(const QPropertyAnimation* self, const QMetaMethod* signal) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        vqpropertyanimation->setQPropertyAnimation_IsSignalConnected_IsBase(true);
-        return vqpropertyanimation->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPropertyAnimation*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPropertyAnimation_OnIsSignalConnected(const QPropertyAnimation* self, intptr_t slot) {
-    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation)
-        vqpropertyanimation->setQPropertyAnimation_IsSignalConnected_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_IsSignalConnected_Callback>(slot));
+    if (auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self))) {
+        return vqpropertyanimation->VirtualQPropertyAnimation::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPropertyAnimation::isSignalConnected called without a directly constructed type");
 }
 
 void QPropertyAnimation_Delete(QPropertyAnimation* self) {

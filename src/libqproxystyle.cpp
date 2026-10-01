@@ -166,10 +166,10 @@ void QProxyStyle_Unpolish2(QProxyStyle* self, QApplication* app) {
 
 bool QProxyStyle_Event(QProxyStyle* self, QEvent* e) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
+    if (vqproxystyle) {
         return vqproxystyle->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QProxyStyle::event called without a directly constructed type");
 }
 
 libqt_string QProxyStyle_Tr2(const char* s, const char* c) {
@@ -198,770 +198,472 @@ libqt_string QProxyStyle_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QProxyStyle_SuperMetaObject(const QProxyStyle* self) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_MetaObject_IsBase(true);
-        return (QMetaObject*)vqproxystyle->metaObject();
-    } else {
-        return (QMetaObject*)self->QProxyStyle::metaObject();
-    }
+    return (QMetaObject*)self->QProxyStyle::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnMetaObject(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_MetaObject_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_MetaObject_Callback>(slot));
+void QProxyStyle_OnMetaObject(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_metaobject_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QProxyStyle_SuperMetacast(QProxyStyle* self, const char* param1) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_Metacast_IsBase(true);
-        return vqproxystyle->qt_metacast(param1);
-    } else {
-        return self->QProxyStyle::qt_metacast(param1);
-    }
+    return self->QProxyStyle::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProxyStyle_OnMetacast(QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_Metacast_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Metacast_Callback>(slot));
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self))
+        vqproxystyle->qproxystyle_metacast_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QProxyStyle_SuperMetacall(QProxyStyle* self, int param1, int param2, void** param3) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_Metacall_IsBase(true);
-        return vqproxystyle->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QProxyStyle::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QProxyStyle::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProxyStyle_OnMetacall(QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_Metacall_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Metacall_Callback>(slot));
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self))
+        vqproxystyle->qproxystyle_metacall_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperDrawPrimitive(const QProxyStyle* self, int element, const QStyleOption* option, QPainter* painter, const QWidget* widget) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_DrawPrimitive_IsBase(true);
-        vqproxystyle->drawPrimitive(static_cast<QStyle::PrimitiveElement>(element), option, painter, widget);
-    } else {
-        self->QProxyStyle::drawPrimitive(static_cast<QStyle::PrimitiveElement>(element), option, painter, widget);
-    }
+    self->QProxyStyle::drawPrimitive(static_cast<QStyle::PrimitiveElement>(element), option, painter, widget);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnDrawPrimitive(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_DrawPrimitive_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_DrawPrimitive_Callback>(slot));
+void QProxyStyle_OnDrawPrimitive(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_drawprimitive_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_DrawPrimitive_Callback>(slot);
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperDrawControl(const QProxyStyle* self, int element, const QStyleOption* option, QPainter* painter, const QWidget* widget) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_DrawControl_IsBase(true);
-        vqproxystyle->drawControl(static_cast<QStyle::ControlElement>(element), option, painter, widget);
-    } else {
-        self->QProxyStyle::drawControl(static_cast<QStyle::ControlElement>(element), option, painter, widget);
-    }
+    self->QProxyStyle::drawControl(static_cast<QStyle::ControlElement>(element), option, painter, widget);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnDrawControl(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_DrawControl_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_DrawControl_Callback>(slot));
+void QProxyStyle_OnDrawControl(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_drawcontrol_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_DrawControl_Callback>(slot);
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperDrawComplexControl(const QProxyStyle* self, int control, const QStyleOptionComplex* option, QPainter* painter, const QWidget* widget) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_DrawComplexControl_IsBase(true);
-        vqproxystyle->drawComplexControl(static_cast<QStyle::ComplexControl>(control), option, painter, widget);
-    } else {
-        self->QProxyStyle::drawComplexControl(static_cast<QStyle::ComplexControl>(control), option, painter, widget);
-    }
+    self->QProxyStyle::drawComplexControl(static_cast<QStyle::ComplexControl>(control), option, painter, widget);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnDrawComplexControl(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_DrawComplexControl_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_DrawComplexControl_Callback>(slot));
+void QProxyStyle_OnDrawComplexControl(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_drawcomplexcontrol_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_DrawComplexControl_Callback>(slot);
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperDrawItemText(const QProxyStyle* self, QPainter* painter, const QRect* rect, int flags, const QPalette* pal, bool enabled, const libqt_string text, int textRole) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_DrawItemText_IsBase(true);
-        vqproxystyle->drawItemText(painter, *rect, static_cast<int>(flags), *pal, enabled, text_QString, static_cast<QPalette::ColorRole>(textRole));
-    } else {
-        self->QProxyStyle::drawItemText(painter, *rect, static_cast<int>(flags), *pal, enabled, text_QString, static_cast<QPalette::ColorRole>(textRole));
-    }
+    self->QProxyStyle::drawItemText(painter, *rect, static_cast<int>(flags), *pal, enabled, text_QString, static_cast<QPalette::ColorRole>(textRole));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnDrawItemText(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_DrawItemText_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_DrawItemText_Callback>(slot));
+void QProxyStyle_OnDrawItemText(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_drawitemtext_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_DrawItemText_Callback>(slot);
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperDrawItemPixmap(const QProxyStyle* self, QPainter* painter, const QRect* rect, int alignment, const QPixmap* pixmap) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_DrawItemPixmap_IsBase(true);
-        vqproxystyle->drawItemPixmap(painter, *rect, static_cast<int>(alignment), *pixmap);
-    } else {
-        self->QProxyStyle::drawItemPixmap(painter, *rect, static_cast<int>(alignment), *pixmap);
-    }
+    self->QProxyStyle::drawItemPixmap(painter, *rect, static_cast<int>(alignment), *pixmap);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnDrawItemPixmap(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_DrawItemPixmap_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_DrawItemPixmap_Callback>(slot));
+void QProxyStyle_OnDrawItemPixmap(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_drawitempixmap_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_DrawItemPixmap_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QProxyStyle_SuperSizeFromContents(const QProxyStyle* self, int typeVal, const QStyleOption* option, const QSize* size, const QWidget* widget) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_SizeFromContents_IsBase(true);
-        return new QSize(vqproxystyle->sizeFromContents(static_cast<QStyle::ContentsType>(typeVal), option, *size, widget));
-    } else {
-        return new QSize(((VirtualQProxyStyle*)self)->sizeFromContents(static_cast<QStyle::ContentsType>(typeVal), option, *size, widget));
-    }
+    return new QSize(self->QProxyStyle::sizeFromContents(static_cast<QStyle::ContentsType>(typeVal), option, *size, widget));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnSizeFromContents(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_SizeFromContents_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_SizeFromContents_Callback>(slot));
+void QProxyStyle_OnSizeFromContents(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_sizefromcontents_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_SizeFromContents_Callback>(slot);
 }
 
 // Base class handler implementation
 QRect* QProxyStyle_SuperSubElementRect(const QProxyStyle* self, int element, const QStyleOption* option, const QWidget* widget) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_SubElementRect_IsBase(true);
-        return new QRect(vqproxystyle->subElementRect(static_cast<QStyle::SubElement>(element), option, widget));
-    } else {
-        return new QRect(((VirtualQProxyStyle*)self)->subElementRect(static_cast<QStyle::SubElement>(element), option, widget));
-    }
+    return new QRect(self->QProxyStyle::subElementRect(static_cast<QStyle::SubElement>(element), option, widget));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnSubElementRect(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_SubElementRect_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_SubElementRect_Callback>(slot));
+void QProxyStyle_OnSubElementRect(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_subelementrect_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_SubElementRect_Callback>(slot);
 }
 
 // Base class handler implementation
 QRect* QProxyStyle_SuperSubControlRect(const QProxyStyle* self, int cc, const QStyleOptionComplex* opt, int sc, const QWidget* widget) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_SubControlRect_IsBase(true);
-        return new QRect(vqproxystyle->subControlRect(static_cast<QStyle::ComplexControl>(cc), opt, static_cast<QStyle::SubControl>(sc), widget));
-    } else {
-        return new QRect(((VirtualQProxyStyle*)self)->subControlRect(static_cast<QStyle::ComplexControl>(cc), opt, static_cast<QStyle::SubControl>(sc), widget));
-    }
+    return new QRect(self->QProxyStyle::subControlRect(static_cast<QStyle::ComplexControl>(cc), opt, static_cast<QStyle::SubControl>(sc), widget));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnSubControlRect(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_SubControlRect_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_SubControlRect_Callback>(slot));
+void QProxyStyle_OnSubControlRect(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_subcontrolrect_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_SubControlRect_Callback>(slot);
 }
 
 // Base class handler implementation
 QRect* QProxyStyle_SuperItemTextRect(const QProxyStyle* self, const QFontMetrics* fm, const QRect* r, int flags, bool enabled, const libqt_string text) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_ItemTextRect_IsBase(true);
-        return new QRect(vqproxystyle->itemTextRect(*fm, *r, static_cast<int>(flags), enabled, text_QString));
-    } else {
-        return new QRect(((VirtualQProxyStyle*)self)->itemTextRect(*fm, *r, static_cast<int>(flags), enabled, text_QString));
-    }
+    return new QRect(self->QProxyStyle::itemTextRect(*fm, *r, static_cast<int>(flags), enabled, text_QString));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnItemTextRect(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_ItemTextRect_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_ItemTextRect_Callback>(slot));
+void QProxyStyle_OnItemTextRect(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_itemtextrect_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_ItemTextRect_Callback>(slot);
 }
 
 // Base class handler implementation
 QRect* QProxyStyle_SuperItemPixmapRect(const QProxyStyle* self, const QRect* r, int flags, const QPixmap* pixmap) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_ItemPixmapRect_IsBase(true);
-        return new QRect(vqproxystyle->itemPixmapRect(*r, static_cast<int>(flags), *pixmap));
-    } else {
-        return new QRect(((VirtualQProxyStyle*)self)->itemPixmapRect(*r, static_cast<int>(flags), *pixmap));
-    }
+    return new QRect(self->QProxyStyle::itemPixmapRect(*r, static_cast<int>(flags), *pixmap));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnItemPixmapRect(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_ItemPixmapRect_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_ItemPixmapRect_Callback>(slot));
+void QProxyStyle_OnItemPixmapRect(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_itempixmaprect_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_ItemPixmapRect_Callback>(slot);
 }
 
 // Base class handler implementation
 int QProxyStyle_SuperHitTestComplexControl(const QProxyStyle* self, int control, const QStyleOptionComplex* option, const QPoint* pos, const QWidget* widget) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_HitTestComplexControl_IsBase(true);
-        return static_cast<int>(vqproxystyle->hitTestComplexControl(static_cast<QStyle::ComplexControl>(control), option, *pos, widget));
-    } else {
-        return static_cast<int>(self->QProxyStyle::hitTestComplexControl(static_cast<QStyle::ComplexControl>(control), option, *pos, widget));
-    }
+    return static_cast<int>(self->QProxyStyle::hitTestComplexControl(static_cast<QStyle::ComplexControl>(control), option, *pos, widget));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnHitTestComplexControl(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_HitTestComplexControl_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_HitTestComplexControl_Callback>(slot));
+void QProxyStyle_OnHitTestComplexControl(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_hittestcomplexcontrol_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_HitTestComplexControl_Callback>(slot);
 }
 
 // Base class handler implementation
 int QProxyStyle_SuperStyleHint(const QProxyStyle* self, int hint, const QStyleOption* option, const QWidget* widget, QStyleHintReturn* returnData) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_StyleHint_IsBase(true);
-        return vqproxystyle->styleHint(static_cast<QStyle::StyleHint>(hint), option, widget, returnData);
-    } else {
-        return self->QProxyStyle::styleHint(static_cast<QStyle::StyleHint>(hint), option, widget, returnData);
-    }
+    return self->QProxyStyle::styleHint(static_cast<QStyle::StyleHint>(hint), option, widget, returnData);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnStyleHint(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_StyleHint_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_StyleHint_Callback>(slot));
+void QProxyStyle_OnStyleHint(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_stylehint_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_StyleHint_Callback>(slot);
 }
 
 // Base class handler implementation
 int QProxyStyle_SuperPixelMetric(const QProxyStyle* self, int metric, const QStyleOption* option, const QWidget* widget) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_PixelMetric_IsBase(true);
-        return vqproxystyle->pixelMetric(static_cast<QStyle::PixelMetric>(metric), option, widget);
-    } else {
-        return self->QProxyStyle::pixelMetric(static_cast<QStyle::PixelMetric>(metric), option, widget);
-    }
+    return self->QProxyStyle::pixelMetric(static_cast<QStyle::PixelMetric>(metric), option, widget);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnPixelMetric(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_PixelMetric_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_PixelMetric_Callback>(slot));
+void QProxyStyle_OnPixelMetric(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_pixelmetric_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_PixelMetric_Callback>(slot);
 }
 
 // Base class handler implementation
 int QProxyStyle_SuperLayoutSpacing(const QProxyStyle* self, int control1, int control2, int orientation, const QStyleOption* option, const QWidget* widget) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_LayoutSpacing_IsBase(true);
-        return vqproxystyle->layoutSpacing(static_cast<QSizePolicy::ControlType>(control1), static_cast<QSizePolicy::ControlType>(control2), static_cast<Qt::Orientation>(orientation), option, widget);
-    } else {
-        return self->QProxyStyle::layoutSpacing(static_cast<QSizePolicy::ControlType>(control1), static_cast<QSizePolicy::ControlType>(control2), static_cast<Qt::Orientation>(orientation), option, widget);
-    }
+    return self->QProxyStyle::layoutSpacing(static_cast<QSizePolicy::ControlType>(control1), static_cast<QSizePolicy::ControlType>(control2), static_cast<Qt::Orientation>(orientation), option, widget);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnLayoutSpacing(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_LayoutSpacing_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_LayoutSpacing_Callback>(slot));
+void QProxyStyle_OnLayoutSpacing(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_layoutspacing_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_LayoutSpacing_Callback>(slot);
 }
 
 // Base class handler implementation
 QIcon* QProxyStyle_SuperStandardIcon(const QProxyStyle* self, int standardIcon, const QStyleOption* option, const QWidget* widget) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_StandardIcon_IsBase(true);
-        return new QIcon(vqproxystyle->standardIcon(static_cast<QStyle::StandardPixmap>(standardIcon), option, widget));
-    } else {
-        return new QIcon(((VirtualQProxyStyle*)self)->standardIcon(static_cast<QStyle::StandardPixmap>(standardIcon), option, widget));
-    }
+    return new QIcon(self->QProxyStyle::standardIcon(static_cast<QStyle::StandardPixmap>(standardIcon), option, widget));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnStandardIcon(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_StandardIcon_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_StandardIcon_Callback>(slot));
+void QProxyStyle_OnStandardIcon(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_standardicon_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_StandardIcon_Callback>(slot);
 }
 
 // Base class handler implementation
 QPixmap* QProxyStyle_SuperStandardPixmap(const QProxyStyle* self, int standardPixmap, const QStyleOption* opt, const QWidget* widget) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_StandardPixmap_IsBase(true);
-        return new QPixmap(vqproxystyle->standardPixmap(static_cast<QStyle::StandardPixmap>(standardPixmap), opt, widget));
-    } else {
-        return new QPixmap(((VirtualQProxyStyle*)self)->standardPixmap(static_cast<QStyle::StandardPixmap>(standardPixmap), opt, widget));
-    }
+    return new QPixmap(self->QProxyStyle::standardPixmap(static_cast<QStyle::StandardPixmap>(standardPixmap), opt, widget));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnStandardPixmap(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_StandardPixmap_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_StandardPixmap_Callback>(slot));
+void QProxyStyle_OnStandardPixmap(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_standardpixmap_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_StandardPixmap_Callback>(slot);
 }
 
 // Base class handler implementation
 QPixmap* QProxyStyle_SuperGeneratedIconPixmap(const QProxyStyle* self, int iconMode, const QPixmap* pixmap, const QStyleOption* opt) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_GeneratedIconPixmap_IsBase(true);
-        return new QPixmap(vqproxystyle->generatedIconPixmap(static_cast<QIcon::Mode>(iconMode), *pixmap, opt));
-    } else {
-        return new QPixmap(((VirtualQProxyStyle*)self)->generatedIconPixmap(static_cast<QIcon::Mode>(iconMode), *pixmap, opt));
-    }
+    return new QPixmap(self->QProxyStyle::generatedIconPixmap(static_cast<QIcon::Mode>(iconMode), *pixmap, opt));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnGeneratedIconPixmap(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_GeneratedIconPixmap_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_GeneratedIconPixmap_Callback>(slot));
+void QProxyStyle_OnGeneratedIconPixmap(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_generatediconpixmap_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_GeneratedIconPixmap_Callback>(slot);
 }
 
 // Base class handler implementation
 QPalette* QProxyStyle_SuperStandardPalette(const QProxyStyle* self) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_StandardPalette_IsBase(true);
-        return new QPalette(vqproxystyle->standardPalette());
-    } else {
-        return new QPalette(((VirtualQProxyStyle*)self)->standardPalette());
-    }
+    return new QPalette(self->QProxyStyle::standardPalette());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnStandardPalette(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_StandardPalette_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_StandardPalette_Callback>(slot));
+void QProxyStyle_OnStandardPalette(QProxyStyle* self, intptr_t slot) {
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self)))
+        vqproxystyle->qproxystyle_standardpalette_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_StandardPalette_Callback>(slot);
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperPolish(QProxyStyle* self, QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_Polish_IsBase(true);
-        vqproxystyle->polish(widget);
-    } else {
-        self->QProxyStyle::polish(widget);
-    }
+    self->QProxyStyle::polish(widget);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProxyStyle_OnPolish(QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_Polish_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Polish_Callback>(slot));
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self))
+        vqproxystyle->qproxystyle_polish_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Polish_Callback>(slot);
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperPolish2(QProxyStyle* self, QPalette* pal) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_Polish2_IsBase(true);
-        vqproxystyle->polish(*pal);
-    } else {
-        self->QProxyStyle::polish(*pal);
-    }
+    self->QProxyStyle::polish(*pal);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProxyStyle_OnPolish2(QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_Polish2_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Polish2_Callback>(slot));
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self))
+        vqproxystyle->qproxystyle_polish2_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Polish2_Callback>(slot);
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperPolish3(QProxyStyle* self, QApplication* app) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_Polish3_IsBase(true);
-        vqproxystyle->polish(app);
-    } else {
-        self->QProxyStyle::polish(app);
-    }
+    self->QProxyStyle::polish(app);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProxyStyle_OnPolish3(QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_Polish3_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Polish3_Callback>(slot));
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self))
+        vqproxystyle->qproxystyle_polish3_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Polish3_Callback>(slot);
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperUnpolish(QProxyStyle* self, QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_Unpolish_IsBase(true);
-        vqproxystyle->unpolish(widget);
-    } else {
-        self->QProxyStyle::unpolish(widget);
-    }
+    self->QProxyStyle::unpolish(widget);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProxyStyle_OnUnpolish(QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_Unpolish_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Unpolish_Callback>(slot));
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self))
+        vqproxystyle->qproxystyle_unpolish_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Unpolish_Callback>(slot);
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperUnpolish2(QProxyStyle* self, QApplication* app) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_Unpolish2_IsBase(true);
-        vqproxystyle->unpolish(app);
-    } else {
-        self->QProxyStyle::unpolish(app);
-    }
+    self->QProxyStyle::unpolish(app);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProxyStyle_OnUnpolish2(QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_Unpolish2_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Unpolish2_Callback>(slot));
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self))
+        vqproxystyle->qproxystyle_unpolish2_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Unpolish2_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QProxyStyle_SuperEvent(QProxyStyle* self, QEvent* e) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_Event_IsBase(true);
-        return vqproxystyle->event(e);
-    } else {
-        return ((VirtualQProxyStyle*)self)->event(e);
-    }
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self)) {
+        return vqproxystyle->QProxyStyle::event(e);
+    } else
+        qFatal("Error: Protected virtual method QProxyStyle::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProxyStyle_OnEvent(QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_Event_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Event_Callback>(slot));
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self))
+        vqproxystyle->qproxystyle_event_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QProxyStyle_EventFilter(QProxyStyle* self, QObject* watched, QEvent* event) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return vqproxystyle->eventFilter(watched, event);
-    } else {
-        return self->QProxyStyle::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QProxyStyle_SuperEventFilter(QProxyStyle* self, QObject* watched, QEvent* event) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_EventFilter_IsBase(true);
-        return vqproxystyle->eventFilter(watched, event);
-    } else {
-        return self->QProxyStyle::eventFilter(watched, event);
-    }
+    return self->QProxyStyle::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProxyStyle_OnEventFilter(QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_EventFilter_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_EventFilter_Callback>(slot));
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self))
+        vqproxystyle->qproxystyle_eventfilter_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProxyStyle_TimerEvent(QProxyStyle* self, QTimerEvent* event) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
+    if (vqproxystyle) {
         vqproxystyle->timerEvent(event);
     } else {
-        ((VirtualQProxyStyle*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QProxyStyle::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperTimerEvent(QProxyStyle* self, QTimerEvent* event) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_TimerEvent_IsBase(true);
-        vqproxystyle->timerEvent(event);
-    } else {
-        ((VirtualQProxyStyle*)self)->timerEvent(event);
-    }
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self)) {
+        vqproxystyle->QProxyStyle::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProxyStyle::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProxyStyle_OnTimerEvent(QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_TimerEvent_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_TimerEvent_Callback>(slot));
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self))
+        vqproxystyle->qproxystyle_timerevent_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProxyStyle_ChildEvent(QProxyStyle* self, QChildEvent* event) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
+    if (vqproxystyle) {
         vqproxystyle->childEvent(event);
     } else {
-        ((VirtualQProxyStyle*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QProxyStyle::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperChildEvent(QProxyStyle* self, QChildEvent* event) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_ChildEvent_IsBase(true);
-        vqproxystyle->childEvent(event);
-    } else {
-        ((VirtualQProxyStyle*)self)->childEvent(event);
-    }
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self)) {
+        vqproxystyle->QProxyStyle::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProxyStyle::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProxyStyle_OnChildEvent(QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_ChildEvent_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_ChildEvent_Callback>(slot));
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self))
+        vqproxystyle->qproxystyle_childevent_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProxyStyle_CustomEvent(QProxyStyle* self, QEvent* event) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
+    if (vqproxystyle) {
         vqproxystyle->customEvent(event);
     } else {
-        ((VirtualQProxyStyle*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QProxyStyle::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperCustomEvent(QProxyStyle* self, QEvent* event) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_CustomEvent_IsBase(true);
-        vqproxystyle->customEvent(event);
-    } else {
-        ((VirtualQProxyStyle*)self)->customEvent(event);
-    }
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self)) {
+        vqproxystyle->QProxyStyle::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProxyStyle::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProxyStyle_OnCustomEvent(QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_CustomEvent_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_CustomEvent_Callback>(slot));
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self))
+        vqproxystyle->qproxystyle_customevent_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProxyStyle_ConnectNotify(QProxyStyle* self, const QMetaMethod* signal) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
+    if (vqproxystyle) {
         vqproxystyle->connectNotify(*signal);
     } else {
-        ((VirtualQProxyStyle*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QProxyStyle::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperConnectNotify(QProxyStyle* self, const QMetaMethod* signal) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_ConnectNotify_IsBase(true);
-        vqproxystyle->connectNotify(*signal);
-    } else {
-        ((VirtualQProxyStyle*)self)->connectNotify(*signal);
-    }
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self)) {
+        vqproxystyle->QProxyStyle::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QProxyStyle::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProxyStyle_OnConnectNotify(QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_ConnectNotify_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_ConnectNotify_Callback>(slot));
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self))
+        vqproxystyle->qproxystyle_connectnotify_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProxyStyle_DisconnectNotify(QProxyStyle* self, const QMetaMethod* signal) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
+    if (vqproxystyle) {
         vqproxystyle->disconnectNotify(*signal);
     } else {
-        ((VirtualQProxyStyle*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QProxyStyle::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProxyStyle_SuperDisconnectNotify(QProxyStyle* self, const QMetaMethod* signal) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_DisconnectNotify_IsBase(true);
-        vqproxystyle->disconnectNotify(*signal);
-    } else {
-        ((VirtualQProxyStyle*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self)) {
+        vqproxystyle->QProxyStyle::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QProxyStyle::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProxyStyle_OnDisconnectNotify(QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_DisconnectNotify_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_DisconnectNotify_Callback>(slot));
+    if (auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self))
+        vqproxystyle->qproxystyle_disconnectnotify_callback = reinterpret_cast<VirtualQProxyStyle::QProxyStyle_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QProxyStyle_Sender(const QProxyStyle* self) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return vqproxystyle->sender();
-    } else {
-        return ((VirtualQProxyStyle*)self)->sender();
-    }
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self))) {
+        return vqproxystyle->VirtualQProxyStyle::sender();
+    } else
+        qFatal("Error: Protected method QProxyStyle::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QProxyStyle_SuperSender(const QProxyStyle* self) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_Sender_IsBase(true);
-        return vqproxystyle->sender();
-    } else {
-        return ((VirtualQProxyStyle*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnSender(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_Sender_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QProxyStyle_SenderSignalIndex(const QProxyStyle* self) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return vqproxystyle->senderSignalIndex();
-    } else {
-        return ((VirtualQProxyStyle*)self)->senderSignalIndex();
-    }
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self))) {
+        return vqproxystyle->VirtualQProxyStyle::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QProxyStyle::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QProxyStyle_SuperSenderSignalIndex(const QProxyStyle* self) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_SenderSignalIndex_IsBase(true);
-        return vqproxystyle->senderSignalIndex();
-    } else {
-        return ((VirtualQProxyStyle*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnSenderSignalIndex(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_SenderSignalIndex_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QProxyStyle_Receivers(const QProxyStyle* self, const char* signal) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return vqproxystyle->receivers(signal);
-    } else {
-        return ((VirtualQProxyStyle*)self)->receivers(signal);
-    }
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self))) {
+        return vqproxystyle->VirtualQProxyStyle::receivers(signal);
+    } else
+        qFatal("Error: Protected method QProxyStyle::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QProxyStyle_SuperReceivers(const QProxyStyle* self, const char* signal) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_Receivers_IsBase(true);
-        return vqproxystyle->receivers(signal);
-    } else {
-        return ((VirtualQProxyStyle*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnReceivers(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_Receivers_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QProxyStyle_IsSignalConnected(const QProxyStyle* self, const QMetaMethod* signal) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return vqproxystyle->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQProxyStyle*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QProxyStyle_SuperIsSignalConnected(const QProxyStyle* self, const QMetaMethod* signal) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_IsSignalConnected_IsBase(true);
-        return vqproxystyle->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQProxyStyle*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnIsSignalConnected(const QProxyStyle* self, intptr_t slot) {
-    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle)
-        vqproxystyle->setQProxyStyle_IsSignalConnected_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_IsSignalConnected_Callback>(slot));
+    if (auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self))) {
+        return vqproxystyle->VirtualQProxyStyle::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QProxyStyle::isSignalConnected called without a directly constructed type");
 }
 
 void QProxyStyle_Delete(QProxyStyle* self) {

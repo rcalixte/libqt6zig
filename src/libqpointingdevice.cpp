@@ -199,364 +199,219 @@ QPointingDevice* QPointingDevice_PrimaryPointingDevice1(const libqt_string seatN
 
 // Base class handler implementation
 QMetaObject* QPointingDevice_SuperMetaObject(const QPointingDevice* self) {
-    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_MetaObject_IsBase(true);
-        return (QMetaObject*)vqpointingdevice->metaObject();
-    } else {
-        return (QMetaObject*)self->QPointingDevice::metaObject();
-    }
+    return (QMetaObject*)self->QPointingDevice::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPointingDevice_OnMetaObject(const QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice)
-        vqpointingdevice->setQPointingDevice_MetaObject_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_MetaObject_Callback>(slot));
+void QPointingDevice_OnMetaObject(QPointingDevice* self, intptr_t slot) {
+    if (auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self)))
+        vqpointingdevice->qpointingdevice_metaobject_callback = reinterpret_cast<VirtualQPointingDevice::QPointingDevice_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPointingDevice_SuperMetacast(QPointingDevice* self, const char* param1) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_Metacast_IsBase(true);
-        return vqpointingdevice->qt_metacast(param1);
-    } else {
-        return self->QPointingDevice::qt_metacast(param1);
-    }
+    return self->QPointingDevice::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPointingDevice_OnMetacast(QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice)
-        vqpointingdevice->setQPointingDevice_Metacast_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_Metacast_Callback>(slot));
+    if (auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self))
+        vqpointingdevice->qpointingdevice_metacast_callback = reinterpret_cast<VirtualQPointingDevice::QPointingDevice_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPointingDevice_SuperMetacall(QPointingDevice* self, int param1, int param2, void** param3) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_Metacall_IsBase(true);
-        return vqpointingdevice->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPointingDevice::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPointingDevice::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPointingDevice_OnMetacall(QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice)
-        vqpointingdevice->setQPointingDevice_Metacall_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_Metacall_Callback>(slot));
+    if (auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self))
+        vqpointingdevice->qpointingdevice_metacall_callback = reinterpret_cast<VirtualQPointingDevice::QPointingDevice_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPointingDevice_Event(QPointingDevice* self, QEvent* event) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        return vqpointingdevice->event(event);
-    } else {
-        return self->QPointingDevice::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QPointingDevice_SuperEvent(QPointingDevice* self, QEvent* event) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_Event_IsBase(true);
-        return vqpointingdevice->event(event);
-    } else {
-        return self->QPointingDevice::event(event);
-    }
+    return self->QPointingDevice::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPointingDevice_OnEvent(QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice)
-        vqpointingdevice->setQPointingDevice_Event_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_Event_Callback>(slot));
+    if (auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self))
+        vqpointingdevice->qpointingdevice_event_callback = reinterpret_cast<VirtualQPointingDevice::QPointingDevice_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPointingDevice_EventFilter(QPointingDevice* self, QObject* watched, QEvent* event) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        return vqpointingdevice->eventFilter(watched, event);
-    } else {
-        return self->QPointingDevice::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QPointingDevice_SuperEventFilter(QPointingDevice* self, QObject* watched, QEvent* event) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_EventFilter_IsBase(true);
-        return vqpointingdevice->eventFilter(watched, event);
-    } else {
-        return self->QPointingDevice::eventFilter(watched, event);
-    }
+    return self->QPointingDevice::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPointingDevice_OnEventFilter(QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice)
-        vqpointingdevice->setQPointingDevice_EventFilter_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_EventFilter_Callback>(slot));
+    if (auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self))
+        vqpointingdevice->qpointingdevice_eventfilter_callback = reinterpret_cast<VirtualQPointingDevice::QPointingDevice_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPointingDevice_TimerEvent(QPointingDevice* self, QTimerEvent* event) {
     auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
+    if (vqpointingdevice) {
         vqpointingdevice->timerEvent(event);
     } else {
-        ((VirtualQPointingDevice*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPointingDevice::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPointingDevice_SuperTimerEvent(QPointingDevice* self, QTimerEvent* event) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_TimerEvent_IsBase(true);
-        vqpointingdevice->timerEvent(event);
-    } else {
-        ((VirtualQPointingDevice*)self)->timerEvent(event);
-    }
+    if (auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self)) {
+        vqpointingdevice->QPointingDevice::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPointingDevice::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPointingDevice_OnTimerEvent(QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice)
-        vqpointingdevice->setQPointingDevice_TimerEvent_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_TimerEvent_Callback>(slot));
+    if (auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self))
+        vqpointingdevice->qpointingdevice_timerevent_callback = reinterpret_cast<VirtualQPointingDevice::QPointingDevice_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPointingDevice_ChildEvent(QPointingDevice* self, QChildEvent* event) {
     auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
+    if (vqpointingdevice) {
         vqpointingdevice->childEvent(event);
     } else {
-        ((VirtualQPointingDevice*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPointingDevice::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPointingDevice_SuperChildEvent(QPointingDevice* self, QChildEvent* event) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_ChildEvent_IsBase(true);
-        vqpointingdevice->childEvent(event);
-    } else {
-        ((VirtualQPointingDevice*)self)->childEvent(event);
-    }
+    if (auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self)) {
+        vqpointingdevice->QPointingDevice::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPointingDevice::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPointingDevice_OnChildEvent(QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice)
-        vqpointingdevice->setQPointingDevice_ChildEvent_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_ChildEvent_Callback>(slot));
+    if (auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self))
+        vqpointingdevice->qpointingdevice_childevent_callback = reinterpret_cast<VirtualQPointingDevice::QPointingDevice_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPointingDevice_CustomEvent(QPointingDevice* self, QEvent* event) {
     auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
+    if (vqpointingdevice) {
         vqpointingdevice->customEvent(event);
     } else {
-        ((VirtualQPointingDevice*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPointingDevice::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPointingDevice_SuperCustomEvent(QPointingDevice* self, QEvent* event) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_CustomEvent_IsBase(true);
-        vqpointingdevice->customEvent(event);
-    } else {
-        ((VirtualQPointingDevice*)self)->customEvent(event);
-    }
+    if (auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self)) {
+        vqpointingdevice->QPointingDevice::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPointingDevice::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPointingDevice_OnCustomEvent(QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice)
-        vqpointingdevice->setQPointingDevice_CustomEvent_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_CustomEvent_Callback>(slot));
+    if (auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self))
+        vqpointingdevice->qpointingdevice_customevent_callback = reinterpret_cast<VirtualQPointingDevice::QPointingDevice_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPointingDevice_ConnectNotify(QPointingDevice* self, const QMetaMethod* signal) {
     auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
+    if (vqpointingdevice) {
         vqpointingdevice->connectNotify(*signal);
     } else {
-        ((VirtualQPointingDevice*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPointingDevice::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPointingDevice_SuperConnectNotify(QPointingDevice* self, const QMetaMethod* signal) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_ConnectNotify_IsBase(true);
-        vqpointingdevice->connectNotify(*signal);
-    } else {
-        ((VirtualQPointingDevice*)self)->connectNotify(*signal);
-    }
+    if (auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self)) {
+        vqpointingdevice->QPointingDevice::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPointingDevice::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPointingDevice_OnConnectNotify(QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice)
-        vqpointingdevice->setQPointingDevice_ConnectNotify_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_ConnectNotify_Callback>(slot));
+    if (auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self))
+        vqpointingdevice->qpointingdevice_connectnotify_callback = reinterpret_cast<VirtualQPointingDevice::QPointingDevice_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPointingDevice_DisconnectNotify(QPointingDevice* self, const QMetaMethod* signal) {
     auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
+    if (vqpointingdevice) {
         vqpointingdevice->disconnectNotify(*signal);
     } else {
-        ((VirtualQPointingDevice*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPointingDevice::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPointingDevice_SuperDisconnectNotify(QPointingDevice* self, const QMetaMethod* signal) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_DisconnectNotify_IsBase(true);
-        vqpointingdevice->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPointingDevice*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self)) {
+        vqpointingdevice->QPointingDevice::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPointingDevice::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPointingDevice_OnDisconnectNotify(QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice)
-        vqpointingdevice->setQPointingDevice_DisconnectNotify_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_DisconnectNotify_Callback>(slot));
+    if (auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self))
+        vqpointingdevice->qpointingdevice_disconnectnotify_callback = reinterpret_cast<VirtualQPointingDevice::QPointingDevice_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPointingDevice_Sender(const QPointingDevice* self) {
-    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        return vqpointingdevice->sender();
-    } else {
-        return ((VirtualQPointingDevice*)self)->sender();
-    }
+    if (auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self))) {
+        return vqpointingdevice->VirtualQPointingDevice::sender();
+    } else
+        qFatal("Error: Protected method QPointingDevice::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPointingDevice_SuperSender(const QPointingDevice* self) {
-    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_Sender_IsBase(true);
-        return vqpointingdevice->sender();
-    } else {
-        return ((VirtualQPointingDevice*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPointingDevice_OnSender(const QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice)
-        vqpointingdevice->setQPointingDevice_Sender_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPointingDevice_SenderSignalIndex(const QPointingDevice* self) {
-    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        return vqpointingdevice->senderSignalIndex();
-    } else {
-        return ((VirtualQPointingDevice*)self)->senderSignalIndex();
-    }
+    if (auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self))) {
+        return vqpointingdevice->VirtualQPointingDevice::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPointingDevice::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPointingDevice_SuperSenderSignalIndex(const QPointingDevice* self) {
-    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_SenderSignalIndex_IsBase(true);
-        return vqpointingdevice->senderSignalIndex();
-    } else {
-        return ((VirtualQPointingDevice*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPointingDevice_OnSenderSignalIndex(const QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice)
-        vqpointingdevice->setQPointingDevice_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPointingDevice_Receivers(const QPointingDevice* self, const char* signal) {
-    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        return vqpointingdevice->receivers(signal);
-    } else {
-        return ((VirtualQPointingDevice*)self)->receivers(signal);
-    }
+    if (auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self))) {
+        return vqpointingdevice->VirtualQPointingDevice::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPointingDevice::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPointingDevice_SuperReceivers(const QPointingDevice* self, const char* signal) {
-    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_Receivers_IsBase(true);
-        return vqpointingdevice->receivers(signal);
-    } else {
-        return ((VirtualQPointingDevice*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPointingDevice_OnReceivers(const QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice)
-        vqpointingdevice->setQPointingDevice_Receivers_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPointingDevice_IsSignalConnected(const QPointingDevice* self, const QMetaMethod* signal) {
-    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        return vqpointingdevice->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPointingDevice*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QPointingDevice_SuperIsSignalConnected(const QPointingDevice* self, const QMetaMethod* signal) {
-    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        vqpointingdevice->setQPointingDevice_IsSignalConnected_IsBase(true);
-        return vqpointingdevice->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPointingDevice*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPointingDevice_OnIsSignalConnected(const QPointingDevice* self, intptr_t slot) {
-    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice)
-        vqpointingdevice->setQPointingDevice_IsSignalConnected_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_IsSignalConnected_Callback>(slot));
+    if (auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self))) {
+        return vqpointingdevice->VirtualQPointingDevice::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPointingDevice::isSignalConnected called without a directly constructed type");
 }
 
 void QPointingDevice_Delete(QPointingDevice* self) {

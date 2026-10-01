@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QVideoSink so that we can call protected methods
+// This class is a subclass of QVideoSink
 class VirtualQVideoSink final : public QVideoSink {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQVideoSink = true;
-
-    // Virtual class public types (including callbacks)
-    using QVideoSink_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QVideoSink_MetaObject_Callback = QMetaObject* (*)(const QVideoSink*);
     using QVideoSink_Metacast_Callback = void* (*)(QVideoSink*, const char*);
     using QVideoSink_Metacall_Callback = int (*)(QVideoSink*, int, int, void**);
     using QVideoSink_Event_Callback = bool (*)(QVideoSink*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQVideoSink final : public QVideoSink {
     using QVideoSink_CustomEvent_Callback = void (*)(QVideoSink*, QEvent*);
     using QVideoSink_ConnectNotify_Callback = void (*)(QVideoSink*, QMetaMethod*);
     using QVideoSink_DisconnectNotify_Callback = void (*)(QVideoSink*, QMetaMethod*);
-    using QVideoSink_Sender_Callback = QObject* (*)();
-    using QVideoSink_SenderSignalIndex_Callback = int (*)();
-    using QVideoSink_Receivers_Callback = int (*)(const QVideoSink*, const char*);
-    using QVideoSink_IsSignalConnected_Callback = bool (*)(const QVideoSink*, QMetaMethod*);
+    using QVideoSink::isSignalConnected;
+    using QVideoSink::receivers;
+    using QVideoSink::sender;
+    using QVideoSink::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QVideoSink_MetaObject_Callback qvideosink_metaobject_callback = nullptr;
     QVideoSink_Metacast_Callback qvideosink_metacast_callback = nullptr;
@@ -44,72 +39,23 @@ class VirtualQVideoSink final : public QVideoSink {
     QVideoSink_CustomEvent_Callback qvideosink_customevent_callback = nullptr;
     QVideoSink_ConnectNotify_Callback qvideosink_connectnotify_callback = nullptr;
     QVideoSink_DisconnectNotify_Callback qvideosink_disconnectnotify_callback = nullptr;
-    QVideoSink_Sender_Callback qvideosink_sender_callback = nullptr;
-    QVideoSink_SenderSignalIndex_Callback qvideosink_sendersignalindex_callback = nullptr;
-    QVideoSink_Receivers_Callback qvideosink_receivers_callback = nullptr;
-    QVideoSink_IsSignalConnected_Callback qvideosink_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qvideosink_metaobject_isbase = false;
-    mutable bool qvideosink_metacast_isbase = false;
-    mutable bool qvideosink_metacall_isbase = false;
-    mutable bool qvideosink_event_isbase = false;
-    mutable bool qvideosink_eventfilter_isbase = false;
-    mutable bool qvideosink_timerevent_isbase = false;
-    mutable bool qvideosink_childevent_isbase = false;
-    mutable bool qvideosink_customevent_isbase = false;
-    mutable bool qvideosink_connectnotify_isbase = false;
-    mutable bool qvideosink_disconnectnotify_isbase = false;
-    mutable bool qvideosink_sender_isbase = false;
-    mutable bool qvideosink_sendersignalindex_isbase = false;
-    mutable bool qvideosink_receivers_isbase = false;
-    mutable bool qvideosink_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QVideoSink {
+        using QVideoSink::childEvent;
+        using QVideoSink::connectNotify;
+        using QVideoSink::customEvent;
+        using QVideoSink::disconnectNotify;
+        using QVideoSink::timerEvent;
+    };
 
-  public:
     VirtualQVideoSink() : QVideoSink() {};
     VirtualQVideoSink(QObject* parent) : QVideoSink(parent) {};
 
-    // Callback setters
-    inline void setQVideoSink_MetaObject_Callback(QVideoSink_MetaObject_Callback cb) { qvideosink_metaobject_callback = cb; }
-    inline void setQVideoSink_Metacast_Callback(QVideoSink_Metacast_Callback cb) { qvideosink_metacast_callback = cb; }
-    inline void setQVideoSink_Metacall_Callback(QVideoSink_Metacall_Callback cb) { qvideosink_metacall_callback = cb; }
-    inline void setQVideoSink_Event_Callback(QVideoSink_Event_Callback cb) { qvideosink_event_callback = cb; }
-    inline void setQVideoSink_EventFilter_Callback(QVideoSink_EventFilter_Callback cb) { qvideosink_eventfilter_callback = cb; }
-    inline void setQVideoSink_TimerEvent_Callback(QVideoSink_TimerEvent_Callback cb) { qvideosink_timerevent_callback = cb; }
-    inline void setQVideoSink_ChildEvent_Callback(QVideoSink_ChildEvent_Callback cb) { qvideosink_childevent_callback = cb; }
-    inline void setQVideoSink_CustomEvent_Callback(QVideoSink_CustomEvent_Callback cb) { qvideosink_customevent_callback = cb; }
-    inline void setQVideoSink_ConnectNotify_Callback(QVideoSink_ConnectNotify_Callback cb) { qvideosink_connectnotify_callback = cb; }
-    inline void setQVideoSink_DisconnectNotify_Callback(QVideoSink_DisconnectNotify_Callback cb) { qvideosink_disconnectnotify_callback = cb; }
-    inline void setQVideoSink_Sender_Callback(QVideoSink_Sender_Callback cb) { qvideosink_sender_callback = cb; }
-    inline void setQVideoSink_SenderSignalIndex_Callback(QVideoSink_SenderSignalIndex_Callback cb) { qvideosink_sendersignalindex_callback = cb; }
-    inline void setQVideoSink_Receivers_Callback(QVideoSink_Receivers_Callback cb) { qvideosink_receivers_callback = cb; }
-    inline void setQVideoSink_IsSignalConnected_Callback(QVideoSink_IsSignalConnected_Callback cb) { qvideosink_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQVideoSink_MetaObject_IsBase(bool value) const { qvideosink_metaobject_isbase = value; }
-    inline void setQVideoSink_Metacast_IsBase(bool value) const { qvideosink_metacast_isbase = value; }
-    inline void setQVideoSink_Metacall_IsBase(bool value) const { qvideosink_metacall_isbase = value; }
-    inline void setQVideoSink_Event_IsBase(bool value) const { qvideosink_event_isbase = value; }
-    inline void setQVideoSink_EventFilter_IsBase(bool value) const { qvideosink_eventfilter_isbase = value; }
-    inline void setQVideoSink_TimerEvent_IsBase(bool value) const { qvideosink_timerevent_isbase = value; }
-    inline void setQVideoSink_ChildEvent_IsBase(bool value) const { qvideosink_childevent_isbase = value; }
-    inline void setQVideoSink_CustomEvent_IsBase(bool value) const { qvideosink_customevent_isbase = value; }
-    inline void setQVideoSink_ConnectNotify_IsBase(bool value) const { qvideosink_connectnotify_isbase = value; }
-    inline void setQVideoSink_DisconnectNotify_IsBase(bool value) const { qvideosink_disconnectnotify_isbase = value; }
-    inline void setQVideoSink_Sender_IsBase(bool value) const { qvideosink_sender_isbase = value; }
-    inline void setQVideoSink_SenderSignalIndex_IsBase(bool value) const { qvideosink_sendersignalindex_isbase = value; }
-    inline void setQVideoSink_Receivers_IsBase(bool value) const { qvideosink_receivers_isbase = value; }
-    inline void setQVideoSink_IsSignalConnected_IsBase(bool value) const { qvideosink_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qvideosink_metaobject_isbase) {
-            qvideosink_metaobject_isbase = false;
-            return QVideoSink::metaObject();
-        }
-        auto metaobject_cb = qvideosink_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qvideosink_metaobject_callback) {
+            QMetaObject* callback_ret = qvideosink_metaobject_callback(this);
             return callback_ret;
         }
         return QVideoSink::metaObject();
@@ -117,14 +63,9 @@ class VirtualQVideoSink final : public QVideoSink {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qvideosink_metacast_isbase) {
-            qvideosink_metacast_isbase = false;
-            return QVideoSink::qt_metacast(param1);
-        }
-        auto metacast_cb = qvideosink_metacast_callback;
-        if (metacast_cb) {
+        if (qvideosink_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qvideosink_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QVideoSink::qt_metacast(param1);
@@ -132,16 +73,11 @@ class VirtualQVideoSink final : public QVideoSink {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qvideosink_metacall_isbase) {
-            qvideosink_metacall_isbase = false;
-            return QVideoSink::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qvideosink_metacall_callback;
-        if (metacall_cb) {
+        if (qvideosink_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qvideosink_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QVideoSink::qt_metacall(param1, param2, param3);
@@ -149,14 +85,9 @@ class VirtualQVideoSink final : public QVideoSink {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qvideosink_event_isbase) {
-            qvideosink_event_isbase = false;
-            return QVideoSink::event(event);
-        }
-        auto event_cb = qvideosink_event_callback;
-        if (event_cb) {
+        if (qvideosink_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qvideosink_event_callback(this, cbval1);
             return callback_ret;
         }
         return QVideoSink::event(event);
@@ -164,15 +95,10 @@ class VirtualQVideoSink final : public QVideoSink {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qvideosink_eventfilter_isbase) {
-            qvideosink_eventfilter_isbase = false;
-            return QVideoSink::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qvideosink_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qvideosink_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qvideosink_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QVideoSink::eventFilter(watched, event);
@@ -180,15 +106,9 @@ class VirtualQVideoSink final : public QVideoSink {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qvideosink_timerevent_isbase) {
-            qvideosink_timerevent_isbase = false;
-            QVideoSink::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qvideosink_timerevent_callback;
-        if (timerevent_cb) {
+        if (qvideosink_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qvideosink_timerevent_callback(this, cbval1);
             return;
         }
         QVideoSink::timerEvent(event);
@@ -196,15 +116,9 @@ class VirtualQVideoSink final : public QVideoSink {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qvideosink_childevent_isbase) {
-            qvideosink_childevent_isbase = false;
-            QVideoSink::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qvideosink_childevent_callback;
-        if (childevent_cb) {
+        if (qvideosink_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qvideosink_childevent_callback(this, cbval1);
             return;
         }
         QVideoSink::childEvent(event);
@@ -212,15 +126,9 @@ class VirtualQVideoSink final : public QVideoSink {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qvideosink_customevent_isbase) {
-            qvideosink_customevent_isbase = false;
-            QVideoSink::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qvideosink_customevent_callback;
-        if (customevent_cb) {
+        if (qvideosink_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qvideosink_customevent_callback(this, cbval1);
             return;
         }
         QVideoSink::customEvent(event);
@@ -228,17 +136,11 @@ class VirtualQVideoSink final : public QVideoSink {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qvideosink_connectnotify_isbase) {
-            qvideosink_connectnotify_isbase = false;
-            QVideoSink::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qvideosink_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qvideosink_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qvideosink_connectnotify_callback(this, cbval1);
             return;
         }
         QVideoSink::connectNotify(signal);
@@ -246,101 +148,22 @@ class VirtualQVideoSink final : public QVideoSink {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qvideosink_disconnectnotify_isbase) {
-            qvideosink_disconnectnotify_isbase = false;
-            QVideoSink::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qvideosink_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qvideosink_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qvideosink_disconnectnotify_callback(this, cbval1);
             return;
         }
         QVideoSink::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qvideosink_sender_isbase) {
-            qvideosink_sender_isbase = false;
-            return QVideoSink::sender();
-        }
-        auto sender_cb = qvideosink_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QVideoSink::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qvideosink_sendersignalindex_isbase) {
-            qvideosink_sendersignalindex_isbase = false;
-            return QVideoSink::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qvideosink_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QVideoSink::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qvideosink_receivers_isbase) {
-            qvideosink_receivers_isbase = false;
-            return QVideoSink::receivers(signal);
-        }
-        auto receivers_cb = qvideosink_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QVideoSink::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qvideosink_issignalconnected_isbase) {
-            qvideosink_issignalconnected_isbase = false;
-            return QVideoSink::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qvideosink_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QVideoSink::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QVideoSink_TimerEvent(QVideoSink* self, QTimerEvent* event);
     friend void QVideoSink_SuperTimerEvent(QVideoSink* self, QTimerEvent* event);
-    friend void QVideoSink_ChildEvent(QVideoSink* self, QChildEvent* event);
     friend void QVideoSink_SuperChildEvent(QVideoSink* self, QChildEvent* event);
-    friend void QVideoSink_CustomEvent(QVideoSink* self, QEvent* event);
     friend void QVideoSink_SuperCustomEvent(QVideoSink* self, QEvent* event);
-    friend void QVideoSink_ConnectNotify(QVideoSink* self, const QMetaMethod* signal);
     friend void QVideoSink_SuperConnectNotify(QVideoSink* self, const QMetaMethod* signal);
-    friend void QVideoSink_DisconnectNotify(QVideoSink* self, const QMetaMethod* signal);
     friend void QVideoSink_SuperDisconnectNotify(QVideoSink* self, const QMetaMethod* signal);
-    friend QObject* QVideoSink_Sender(const QVideoSink* self);
-    friend QObject* QVideoSink_SuperSender(const QVideoSink* self);
-    friend int QVideoSink_SenderSignalIndex(const QVideoSink* self);
-    friend int QVideoSink_SuperSenderSignalIndex(const QVideoSink* self);
-    friend int QVideoSink_Receivers(const QVideoSink* self, const char* signal);
-    friend int QVideoSink_SuperReceivers(const QVideoSink* self, const char* signal);
-    friend bool QVideoSink_IsSignalConnected(const QVideoSink* self, const QMetaMethod* signal);
-    friend bool QVideoSink_SuperIsSignalConnected(const QVideoSink* self, const QMetaMethod* signal);
 };
 
 #endif

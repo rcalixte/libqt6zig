@@ -9,28 +9,24 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QFocusFrame so that we can call protected methods
+// This class is a subclass of QFocusFrame
 class VirtualQFocusFrame final : public QFocusFrame {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQFocusFrame = true;
-
-    // Virtual class public types (including callbacks)
-    using QFocusFrame_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QFocusFrame_MetaObject_Callback = QMetaObject* (*)(const QFocusFrame*);
     using QFocusFrame_Metacast_Callback = void* (*)(QFocusFrame*, const char*);
     using QFocusFrame_Metacall_Callback = int (*)(QFocusFrame*, int, int, void**);
     using QFocusFrame_Event_Callback = bool (*)(QFocusFrame*, QEvent*);
     using QFocusFrame_EventFilter_Callback = bool (*)(QFocusFrame*, QObject*, QEvent*);
     using QFocusFrame_PaintEvent_Callback = void (*)(QFocusFrame*, QPaintEvent*);
     using QFocusFrame_InitStyleOption_Callback = void (*)(const QFocusFrame*, QStyleOption*);
-    using QFocusFrame_DevType_Callback = int (*)();
+    using QFocusFrame_DevType_Callback = int (*)(const QFocusFrame*);
     using QFocusFrame_SetVisible_Callback = void (*)(QFocusFrame*, bool);
-    using QFocusFrame_SizeHint_Callback = QSize* (*)();
-    using QFocusFrame_MinimumSizeHint_Callback = QSize* (*)();
+    using QFocusFrame_SizeHint_Callback = QSize* (*)(const QFocusFrame*);
+    using QFocusFrame_MinimumSizeHint_Callback = QSize* (*)(const QFocusFrame*);
     using QFocusFrame_HeightForWidth_Callback = int (*)(const QFocusFrame*, int);
-    using QFocusFrame_HasHeightForWidth_Callback = bool (*)();
-    using QFocusFrame_PaintEngine_Callback = QPaintEngine* (*)();
+    using QFocusFrame_HasHeightForWidth_Callback = bool (*)(const QFocusFrame*);
+    using QFocusFrame_PaintEngine_Callback = QPaintEngine* (*)(const QFocusFrame*);
     using QFocusFrame_MousePressEvent_Callback = void (*)(QFocusFrame*, QMouseEvent*);
     using QFocusFrame_MouseReleaseEvent_Callback = void (*)(QFocusFrame*, QMouseEvent*);
     using QFocusFrame_MouseDoubleClickEvent_Callback = void (*)(QFocusFrame*, QMouseEvent*);
@@ -59,7 +55,7 @@ class VirtualQFocusFrame final : public QFocusFrame {
     using QFocusFrame_Metric_Callback = int (*)(const QFocusFrame*, int);
     using QFocusFrame_InitPainter_Callback = void (*)(const QFocusFrame*, QPainter*);
     using QFocusFrame_Redirected_Callback = QPaintDevice* (*)(const QFocusFrame*, QPoint*);
-    using QFocusFrame_SharedPainter_Callback = QPainter* (*)();
+    using QFocusFrame_SharedPainter_Callback = QPainter* (*)(const QFocusFrame*);
     using QFocusFrame_InputMethodEvent_Callback = void (*)(QFocusFrame*, QInputMethodEvent*);
     using QFocusFrame_InputMethodQuery_Callback = QVariant* (*)(const QFocusFrame*, int);
     using QFocusFrame_FocusNextPrevChild_Callback = bool (*)(QFocusFrame*, bool);
@@ -68,18 +64,17 @@ class VirtualQFocusFrame final : public QFocusFrame {
     using QFocusFrame_CustomEvent_Callback = void (*)(QFocusFrame*, QEvent*);
     using QFocusFrame_ConnectNotify_Callback = void (*)(QFocusFrame*, QMetaMethod*);
     using QFocusFrame_DisconnectNotify_Callback = void (*)(QFocusFrame*, QMetaMethod*);
-    using QFocusFrame_UpdateMicroFocus_Callback = void (*)();
-    using QFocusFrame_Create_Callback = void (*)();
-    using QFocusFrame_Destroy_Callback = void (*)();
-    using QFocusFrame_FocusNextChild_Callback = bool (*)();
-    using QFocusFrame_FocusPreviousChild_Callback = bool (*)();
-    using QFocusFrame_Sender_Callback = QObject* (*)();
-    using QFocusFrame_SenderSignalIndex_Callback = int (*)();
-    using QFocusFrame_Receivers_Callback = int (*)(const QFocusFrame*, const char*);
-    using QFocusFrame_IsSignalConnected_Callback = bool (*)(const QFocusFrame*, QMetaMethod*);
-    using QFocusFrame_GetDecodedMetricF_Callback = double (*)(const QFocusFrame*, int, int);
+    using QFocusFrame::create;
+    using QFocusFrame::destroy;
+    using QFocusFrame::focusNextChild;
+    using QFocusFrame::focusPreviousChild;
+    using QFocusFrame::getDecodedMetricF;
+    using QFocusFrame::isSignalConnected;
+    using QFocusFrame::receivers;
+    using QFocusFrame::sender;
+    using QFocusFrame::senderSignalIndex;
+    using QFocusFrame::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QFocusFrame_MetaObject_Callback qfocusframe_metaobject_callback = nullptr;
     QFocusFrame_Metacast_Callback qfocusframe_metacast_callback = nullptr;
@@ -132,219 +127,58 @@ class VirtualQFocusFrame final : public QFocusFrame {
     QFocusFrame_CustomEvent_Callback qfocusframe_customevent_callback = nullptr;
     QFocusFrame_ConnectNotify_Callback qfocusframe_connectnotify_callback = nullptr;
     QFocusFrame_DisconnectNotify_Callback qfocusframe_disconnectnotify_callback = nullptr;
-    QFocusFrame_UpdateMicroFocus_Callback qfocusframe_updatemicrofocus_callback = nullptr;
-    QFocusFrame_Create_Callback qfocusframe_create_callback = nullptr;
-    QFocusFrame_Destroy_Callback qfocusframe_destroy_callback = nullptr;
-    QFocusFrame_FocusNextChild_Callback qfocusframe_focusnextchild_callback = nullptr;
-    QFocusFrame_FocusPreviousChild_Callback qfocusframe_focuspreviouschild_callback = nullptr;
-    QFocusFrame_Sender_Callback qfocusframe_sender_callback = nullptr;
-    QFocusFrame_SenderSignalIndex_Callback qfocusframe_sendersignalindex_callback = nullptr;
-    QFocusFrame_Receivers_Callback qfocusframe_receivers_callback = nullptr;
-    QFocusFrame_IsSignalConnected_Callback qfocusframe_issignalconnected_callback = nullptr;
-    QFocusFrame_GetDecodedMetricF_Callback qfocusframe_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qfocusframe_metaobject_isbase = false;
-    mutable bool qfocusframe_metacast_isbase = false;
-    mutable bool qfocusframe_metacall_isbase = false;
-    mutable bool qfocusframe_event_isbase = false;
-    mutable bool qfocusframe_eventfilter_isbase = false;
-    mutable bool qfocusframe_paintevent_isbase = false;
-    mutable bool qfocusframe_initstyleoption_isbase = false;
-    mutable bool qfocusframe_devtype_isbase = false;
-    mutable bool qfocusframe_setvisible_isbase = false;
-    mutable bool qfocusframe_sizehint_isbase = false;
-    mutable bool qfocusframe_minimumsizehint_isbase = false;
-    mutable bool qfocusframe_heightforwidth_isbase = false;
-    mutable bool qfocusframe_hasheightforwidth_isbase = false;
-    mutable bool qfocusframe_paintengine_isbase = false;
-    mutable bool qfocusframe_mousepressevent_isbase = false;
-    mutable bool qfocusframe_mousereleaseevent_isbase = false;
-    mutable bool qfocusframe_mousedoubleclickevent_isbase = false;
-    mutable bool qfocusframe_mousemoveevent_isbase = false;
-    mutable bool qfocusframe_wheelevent_isbase = false;
-    mutable bool qfocusframe_keypressevent_isbase = false;
-    mutable bool qfocusframe_keyreleaseevent_isbase = false;
-    mutable bool qfocusframe_focusinevent_isbase = false;
-    mutable bool qfocusframe_focusoutevent_isbase = false;
-    mutable bool qfocusframe_enterevent_isbase = false;
-    mutable bool qfocusframe_leaveevent_isbase = false;
-    mutable bool qfocusframe_moveevent_isbase = false;
-    mutable bool qfocusframe_resizeevent_isbase = false;
-    mutable bool qfocusframe_closeevent_isbase = false;
-    mutable bool qfocusframe_contextmenuevent_isbase = false;
-    mutable bool qfocusframe_tabletevent_isbase = false;
-    mutable bool qfocusframe_actionevent_isbase = false;
-    mutable bool qfocusframe_dragenterevent_isbase = false;
-    mutable bool qfocusframe_dragmoveevent_isbase = false;
-    mutable bool qfocusframe_dragleaveevent_isbase = false;
-    mutable bool qfocusframe_dropevent_isbase = false;
-    mutable bool qfocusframe_showevent_isbase = false;
-    mutable bool qfocusframe_hideevent_isbase = false;
-    mutable bool qfocusframe_nativeevent_isbase = false;
-    mutable bool qfocusframe_changeevent_isbase = false;
-    mutable bool qfocusframe_metric_isbase = false;
-    mutable bool qfocusframe_initpainter_isbase = false;
-    mutable bool qfocusframe_redirected_isbase = false;
-    mutable bool qfocusframe_sharedpainter_isbase = false;
-    mutable bool qfocusframe_inputmethodevent_isbase = false;
-    mutable bool qfocusframe_inputmethodquery_isbase = false;
-    mutable bool qfocusframe_focusnextprevchild_isbase = false;
-    mutable bool qfocusframe_timerevent_isbase = false;
-    mutable bool qfocusframe_childevent_isbase = false;
-    mutable bool qfocusframe_customevent_isbase = false;
-    mutable bool qfocusframe_connectnotify_isbase = false;
-    mutable bool qfocusframe_disconnectnotify_isbase = false;
-    mutable bool qfocusframe_updatemicrofocus_isbase = false;
-    mutable bool qfocusframe_create_isbase = false;
-    mutable bool qfocusframe_destroy_isbase = false;
-    mutable bool qfocusframe_focusnextchild_isbase = false;
-    mutable bool qfocusframe_focuspreviouschild_isbase = false;
-    mutable bool qfocusframe_sender_isbase = false;
-    mutable bool qfocusframe_sendersignalindex_isbase = false;
-    mutable bool qfocusframe_receivers_isbase = false;
-    mutable bool qfocusframe_issignalconnected_isbase = false;
-    mutable bool qfocusframe_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QFocusFrame {
+        using QFocusFrame::actionEvent;
+        using QFocusFrame::changeEvent;
+        using QFocusFrame::childEvent;
+        using QFocusFrame::closeEvent;
+        using QFocusFrame::connectNotify;
+        using QFocusFrame::contextMenuEvent;
+        using QFocusFrame::customEvent;
+        using QFocusFrame::disconnectNotify;
+        using QFocusFrame::dragEnterEvent;
+        using QFocusFrame::dragLeaveEvent;
+        using QFocusFrame::dragMoveEvent;
+        using QFocusFrame::dropEvent;
+        using QFocusFrame::enterEvent;
+        using QFocusFrame::event;
+        using QFocusFrame::eventFilter;
+        using QFocusFrame::focusInEvent;
+        using QFocusFrame::focusNextPrevChild;
+        using QFocusFrame::focusOutEvent;
+        using QFocusFrame::hideEvent;
+        using QFocusFrame::initPainter;
+        using QFocusFrame::initStyleOption;
+        using QFocusFrame::inputMethodEvent;
+        using QFocusFrame::keyPressEvent;
+        using QFocusFrame::keyReleaseEvent;
+        using QFocusFrame::leaveEvent;
+        using QFocusFrame::metric;
+        using QFocusFrame::mouseDoubleClickEvent;
+        using QFocusFrame::mouseMoveEvent;
+        using QFocusFrame::mousePressEvent;
+        using QFocusFrame::mouseReleaseEvent;
+        using QFocusFrame::moveEvent;
+        using QFocusFrame::nativeEvent;
+        using QFocusFrame::paintEvent;
+        using QFocusFrame::redirected;
+        using QFocusFrame::resizeEvent;
+        using QFocusFrame::sharedPainter;
+        using QFocusFrame::showEvent;
+        using QFocusFrame::tabletEvent;
+        using QFocusFrame::timerEvent;
+        using QFocusFrame::wheelEvent;
+    };
 
-  public:
     VirtualQFocusFrame(QWidget* parent) : QFocusFrame(parent) {};
     VirtualQFocusFrame() : QFocusFrame() {};
 
-    // Callback setters
-    inline void setQFocusFrame_MetaObject_Callback(QFocusFrame_MetaObject_Callback cb) { qfocusframe_metaobject_callback = cb; }
-    inline void setQFocusFrame_Metacast_Callback(QFocusFrame_Metacast_Callback cb) { qfocusframe_metacast_callback = cb; }
-    inline void setQFocusFrame_Metacall_Callback(QFocusFrame_Metacall_Callback cb) { qfocusframe_metacall_callback = cb; }
-    inline void setQFocusFrame_Event_Callback(QFocusFrame_Event_Callback cb) { qfocusframe_event_callback = cb; }
-    inline void setQFocusFrame_EventFilter_Callback(QFocusFrame_EventFilter_Callback cb) { qfocusframe_eventfilter_callback = cb; }
-    inline void setQFocusFrame_PaintEvent_Callback(QFocusFrame_PaintEvent_Callback cb) { qfocusframe_paintevent_callback = cb; }
-    inline void setQFocusFrame_InitStyleOption_Callback(QFocusFrame_InitStyleOption_Callback cb) { qfocusframe_initstyleoption_callback = cb; }
-    inline void setQFocusFrame_DevType_Callback(QFocusFrame_DevType_Callback cb) { qfocusframe_devtype_callback = cb; }
-    inline void setQFocusFrame_SetVisible_Callback(QFocusFrame_SetVisible_Callback cb) { qfocusframe_setvisible_callback = cb; }
-    inline void setQFocusFrame_SizeHint_Callback(QFocusFrame_SizeHint_Callback cb) { qfocusframe_sizehint_callback = cb; }
-    inline void setQFocusFrame_MinimumSizeHint_Callback(QFocusFrame_MinimumSizeHint_Callback cb) { qfocusframe_minimumsizehint_callback = cb; }
-    inline void setQFocusFrame_HeightForWidth_Callback(QFocusFrame_HeightForWidth_Callback cb) { qfocusframe_heightforwidth_callback = cb; }
-    inline void setQFocusFrame_HasHeightForWidth_Callback(QFocusFrame_HasHeightForWidth_Callback cb) { qfocusframe_hasheightforwidth_callback = cb; }
-    inline void setQFocusFrame_PaintEngine_Callback(QFocusFrame_PaintEngine_Callback cb) { qfocusframe_paintengine_callback = cb; }
-    inline void setQFocusFrame_MousePressEvent_Callback(QFocusFrame_MousePressEvent_Callback cb) { qfocusframe_mousepressevent_callback = cb; }
-    inline void setQFocusFrame_MouseReleaseEvent_Callback(QFocusFrame_MouseReleaseEvent_Callback cb) { qfocusframe_mousereleaseevent_callback = cb; }
-    inline void setQFocusFrame_MouseDoubleClickEvent_Callback(QFocusFrame_MouseDoubleClickEvent_Callback cb) { qfocusframe_mousedoubleclickevent_callback = cb; }
-    inline void setQFocusFrame_MouseMoveEvent_Callback(QFocusFrame_MouseMoveEvent_Callback cb) { qfocusframe_mousemoveevent_callback = cb; }
-    inline void setQFocusFrame_WheelEvent_Callback(QFocusFrame_WheelEvent_Callback cb) { qfocusframe_wheelevent_callback = cb; }
-    inline void setQFocusFrame_KeyPressEvent_Callback(QFocusFrame_KeyPressEvent_Callback cb) { qfocusframe_keypressevent_callback = cb; }
-    inline void setQFocusFrame_KeyReleaseEvent_Callback(QFocusFrame_KeyReleaseEvent_Callback cb) { qfocusframe_keyreleaseevent_callback = cb; }
-    inline void setQFocusFrame_FocusInEvent_Callback(QFocusFrame_FocusInEvent_Callback cb) { qfocusframe_focusinevent_callback = cb; }
-    inline void setQFocusFrame_FocusOutEvent_Callback(QFocusFrame_FocusOutEvent_Callback cb) { qfocusframe_focusoutevent_callback = cb; }
-    inline void setQFocusFrame_EnterEvent_Callback(QFocusFrame_EnterEvent_Callback cb) { qfocusframe_enterevent_callback = cb; }
-    inline void setQFocusFrame_LeaveEvent_Callback(QFocusFrame_LeaveEvent_Callback cb) { qfocusframe_leaveevent_callback = cb; }
-    inline void setQFocusFrame_MoveEvent_Callback(QFocusFrame_MoveEvent_Callback cb) { qfocusframe_moveevent_callback = cb; }
-    inline void setQFocusFrame_ResizeEvent_Callback(QFocusFrame_ResizeEvent_Callback cb) { qfocusframe_resizeevent_callback = cb; }
-    inline void setQFocusFrame_CloseEvent_Callback(QFocusFrame_CloseEvent_Callback cb) { qfocusframe_closeevent_callback = cb; }
-    inline void setQFocusFrame_ContextMenuEvent_Callback(QFocusFrame_ContextMenuEvent_Callback cb) { qfocusframe_contextmenuevent_callback = cb; }
-    inline void setQFocusFrame_TabletEvent_Callback(QFocusFrame_TabletEvent_Callback cb) { qfocusframe_tabletevent_callback = cb; }
-    inline void setQFocusFrame_ActionEvent_Callback(QFocusFrame_ActionEvent_Callback cb) { qfocusframe_actionevent_callback = cb; }
-    inline void setQFocusFrame_DragEnterEvent_Callback(QFocusFrame_DragEnterEvent_Callback cb) { qfocusframe_dragenterevent_callback = cb; }
-    inline void setQFocusFrame_DragMoveEvent_Callback(QFocusFrame_DragMoveEvent_Callback cb) { qfocusframe_dragmoveevent_callback = cb; }
-    inline void setQFocusFrame_DragLeaveEvent_Callback(QFocusFrame_DragLeaveEvent_Callback cb) { qfocusframe_dragleaveevent_callback = cb; }
-    inline void setQFocusFrame_DropEvent_Callback(QFocusFrame_DropEvent_Callback cb) { qfocusframe_dropevent_callback = cb; }
-    inline void setQFocusFrame_ShowEvent_Callback(QFocusFrame_ShowEvent_Callback cb) { qfocusframe_showevent_callback = cb; }
-    inline void setQFocusFrame_HideEvent_Callback(QFocusFrame_HideEvent_Callback cb) { qfocusframe_hideevent_callback = cb; }
-    inline void setQFocusFrame_NativeEvent_Callback(QFocusFrame_NativeEvent_Callback cb) { qfocusframe_nativeevent_callback = cb; }
-    inline void setQFocusFrame_ChangeEvent_Callback(QFocusFrame_ChangeEvent_Callback cb) { qfocusframe_changeevent_callback = cb; }
-    inline void setQFocusFrame_Metric_Callback(QFocusFrame_Metric_Callback cb) { qfocusframe_metric_callback = cb; }
-    inline void setQFocusFrame_InitPainter_Callback(QFocusFrame_InitPainter_Callback cb) { qfocusframe_initpainter_callback = cb; }
-    inline void setQFocusFrame_Redirected_Callback(QFocusFrame_Redirected_Callback cb) { qfocusframe_redirected_callback = cb; }
-    inline void setQFocusFrame_SharedPainter_Callback(QFocusFrame_SharedPainter_Callback cb) { qfocusframe_sharedpainter_callback = cb; }
-    inline void setQFocusFrame_InputMethodEvent_Callback(QFocusFrame_InputMethodEvent_Callback cb) { qfocusframe_inputmethodevent_callback = cb; }
-    inline void setQFocusFrame_InputMethodQuery_Callback(QFocusFrame_InputMethodQuery_Callback cb) { qfocusframe_inputmethodquery_callback = cb; }
-    inline void setQFocusFrame_FocusNextPrevChild_Callback(QFocusFrame_FocusNextPrevChild_Callback cb) { qfocusframe_focusnextprevchild_callback = cb; }
-    inline void setQFocusFrame_TimerEvent_Callback(QFocusFrame_TimerEvent_Callback cb) { qfocusframe_timerevent_callback = cb; }
-    inline void setQFocusFrame_ChildEvent_Callback(QFocusFrame_ChildEvent_Callback cb) { qfocusframe_childevent_callback = cb; }
-    inline void setQFocusFrame_CustomEvent_Callback(QFocusFrame_CustomEvent_Callback cb) { qfocusframe_customevent_callback = cb; }
-    inline void setQFocusFrame_ConnectNotify_Callback(QFocusFrame_ConnectNotify_Callback cb) { qfocusframe_connectnotify_callback = cb; }
-    inline void setQFocusFrame_DisconnectNotify_Callback(QFocusFrame_DisconnectNotify_Callback cb) { qfocusframe_disconnectnotify_callback = cb; }
-    inline void setQFocusFrame_UpdateMicroFocus_Callback(QFocusFrame_UpdateMicroFocus_Callback cb) { qfocusframe_updatemicrofocus_callback = cb; }
-    inline void setQFocusFrame_Create_Callback(QFocusFrame_Create_Callback cb) { qfocusframe_create_callback = cb; }
-    inline void setQFocusFrame_Destroy_Callback(QFocusFrame_Destroy_Callback cb) { qfocusframe_destroy_callback = cb; }
-    inline void setQFocusFrame_FocusNextChild_Callback(QFocusFrame_FocusNextChild_Callback cb) { qfocusframe_focusnextchild_callback = cb; }
-    inline void setQFocusFrame_FocusPreviousChild_Callback(QFocusFrame_FocusPreviousChild_Callback cb) { qfocusframe_focuspreviouschild_callback = cb; }
-    inline void setQFocusFrame_Sender_Callback(QFocusFrame_Sender_Callback cb) { qfocusframe_sender_callback = cb; }
-    inline void setQFocusFrame_SenderSignalIndex_Callback(QFocusFrame_SenderSignalIndex_Callback cb) { qfocusframe_sendersignalindex_callback = cb; }
-    inline void setQFocusFrame_Receivers_Callback(QFocusFrame_Receivers_Callback cb) { qfocusframe_receivers_callback = cb; }
-    inline void setQFocusFrame_IsSignalConnected_Callback(QFocusFrame_IsSignalConnected_Callback cb) { qfocusframe_issignalconnected_callback = cb; }
-    inline void setQFocusFrame_GetDecodedMetricF_Callback(QFocusFrame_GetDecodedMetricF_Callback cb) { qfocusframe_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQFocusFrame_MetaObject_IsBase(bool value) const { qfocusframe_metaobject_isbase = value; }
-    inline void setQFocusFrame_Metacast_IsBase(bool value) const { qfocusframe_metacast_isbase = value; }
-    inline void setQFocusFrame_Metacall_IsBase(bool value) const { qfocusframe_metacall_isbase = value; }
-    inline void setQFocusFrame_Event_IsBase(bool value) const { qfocusframe_event_isbase = value; }
-    inline void setQFocusFrame_EventFilter_IsBase(bool value) const { qfocusframe_eventfilter_isbase = value; }
-    inline void setQFocusFrame_PaintEvent_IsBase(bool value) const { qfocusframe_paintevent_isbase = value; }
-    inline void setQFocusFrame_InitStyleOption_IsBase(bool value) const { qfocusframe_initstyleoption_isbase = value; }
-    inline void setQFocusFrame_DevType_IsBase(bool value) const { qfocusframe_devtype_isbase = value; }
-    inline void setQFocusFrame_SetVisible_IsBase(bool value) const { qfocusframe_setvisible_isbase = value; }
-    inline void setQFocusFrame_SizeHint_IsBase(bool value) const { qfocusframe_sizehint_isbase = value; }
-    inline void setQFocusFrame_MinimumSizeHint_IsBase(bool value) const { qfocusframe_minimumsizehint_isbase = value; }
-    inline void setQFocusFrame_HeightForWidth_IsBase(bool value) const { qfocusframe_heightforwidth_isbase = value; }
-    inline void setQFocusFrame_HasHeightForWidth_IsBase(bool value) const { qfocusframe_hasheightforwidth_isbase = value; }
-    inline void setQFocusFrame_PaintEngine_IsBase(bool value) const { qfocusframe_paintengine_isbase = value; }
-    inline void setQFocusFrame_MousePressEvent_IsBase(bool value) const { qfocusframe_mousepressevent_isbase = value; }
-    inline void setQFocusFrame_MouseReleaseEvent_IsBase(bool value) const { qfocusframe_mousereleaseevent_isbase = value; }
-    inline void setQFocusFrame_MouseDoubleClickEvent_IsBase(bool value) const { qfocusframe_mousedoubleclickevent_isbase = value; }
-    inline void setQFocusFrame_MouseMoveEvent_IsBase(bool value) const { qfocusframe_mousemoveevent_isbase = value; }
-    inline void setQFocusFrame_WheelEvent_IsBase(bool value) const { qfocusframe_wheelevent_isbase = value; }
-    inline void setQFocusFrame_KeyPressEvent_IsBase(bool value) const { qfocusframe_keypressevent_isbase = value; }
-    inline void setQFocusFrame_KeyReleaseEvent_IsBase(bool value) const { qfocusframe_keyreleaseevent_isbase = value; }
-    inline void setQFocusFrame_FocusInEvent_IsBase(bool value) const { qfocusframe_focusinevent_isbase = value; }
-    inline void setQFocusFrame_FocusOutEvent_IsBase(bool value) const { qfocusframe_focusoutevent_isbase = value; }
-    inline void setQFocusFrame_EnterEvent_IsBase(bool value) const { qfocusframe_enterevent_isbase = value; }
-    inline void setQFocusFrame_LeaveEvent_IsBase(bool value) const { qfocusframe_leaveevent_isbase = value; }
-    inline void setQFocusFrame_MoveEvent_IsBase(bool value) const { qfocusframe_moveevent_isbase = value; }
-    inline void setQFocusFrame_ResizeEvent_IsBase(bool value) const { qfocusframe_resizeevent_isbase = value; }
-    inline void setQFocusFrame_CloseEvent_IsBase(bool value) const { qfocusframe_closeevent_isbase = value; }
-    inline void setQFocusFrame_ContextMenuEvent_IsBase(bool value) const { qfocusframe_contextmenuevent_isbase = value; }
-    inline void setQFocusFrame_TabletEvent_IsBase(bool value) const { qfocusframe_tabletevent_isbase = value; }
-    inline void setQFocusFrame_ActionEvent_IsBase(bool value) const { qfocusframe_actionevent_isbase = value; }
-    inline void setQFocusFrame_DragEnterEvent_IsBase(bool value) const { qfocusframe_dragenterevent_isbase = value; }
-    inline void setQFocusFrame_DragMoveEvent_IsBase(bool value) const { qfocusframe_dragmoveevent_isbase = value; }
-    inline void setQFocusFrame_DragLeaveEvent_IsBase(bool value) const { qfocusframe_dragleaveevent_isbase = value; }
-    inline void setQFocusFrame_DropEvent_IsBase(bool value) const { qfocusframe_dropevent_isbase = value; }
-    inline void setQFocusFrame_ShowEvent_IsBase(bool value) const { qfocusframe_showevent_isbase = value; }
-    inline void setQFocusFrame_HideEvent_IsBase(bool value) const { qfocusframe_hideevent_isbase = value; }
-    inline void setQFocusFrame_NativeEvent_IsBase(bool value) const { qfocusframe_nativeevent_isbase = value; }
-    inline void setQFocusFrame_ChangeEvent_IsBase(bool value) const { qfocusframe_changeevent_isbase = value; }
-    inline void setQFocusFrame_Metric_IsBase(bool value) const { qfocusframe_metric_isbase = value; }
-    inline void setQFocusFrame_InitPainter_IsBase(bool value) const { qfocusframe_initpainter_isbase = value; }
-    inline void setQFocusFrame_Redirected_IsBase(bool value) const { qfocusframe_redirected_isbase = value; }
-    inline void setQFocusFrame_SharedPainter_IsBase(bool value) const { qfocusframe_sharedpainter_isbase = value; }
-    inline void setQFocusFrame_InputMethodEvent_IsBase(bool value) const { qfocusframe_inputmethodevent_isbase = value; }
-    inline void setQFocusFrame_InputMethodQuery_IsBase(bool value) const { qfocusframe_inputmethodquery_isbase = value; }
-    inline void setQFocusFrame_FocusNextPrevChild_IsBase(bool value) const { qfocusframe_focusnextprevchild_isbase = value; }
-    inline void setQFocusFrame_TimerEvent_IsBase(bool value) const { qfocusframe_timerevent_isbase = value; }
-    inline void setQFocusFrame_ChildEvent_IsBase(bool value) const { qfocusframe_childevent_isbase = value; }
-    inline void setQFocusFrame_CustomEvent_IsBase(bool value) const { qfocusframe_customevent_isbase = value; }
-    inline void setQFocusFrame_ConnectNotify_IsBase(bool value) const { qfocusframe_connectnotify_isbase = value; }
-    inline void setQFocusFrame_DisconnectNotify_IsBase(bool value) const { qfocusframe_disconnectnotify_isbase = value; }
-    inline void setQFocusFrame_UpdateMicroFocus_IsBase(bool value) const { qfocusframe_updatemicrofocus_isbase = value; }
-    inline void setQFocusFrame_Create_IsBase(bool value) const { qfocusframe_create_isbase = value; }
-    inline void setQFocusFrame_Destroy_IsBase(bool value) const { qfocusframe_destroy_isbase = value; }
-    inline void setQFocusFrame_FocusNextChild_IsBase(bool value) const { qfocusframe_focusnextchild_isbase = value; }
-    inline void setQFocusFrame_FocusPreviousChild_IsBase(bool value) const { qfocusframe_focuspreviouschild_isbase = value; }
-    inline void setQFocusFrame_Sender_IsBase(bool value) const { qfocusframe_sender_isbase = value; }
-    inline void setQFocusFrame_SenderSignalIndex_IsBase(bool value) const { qfocusframe_sendersignalindex_isbase = value; }
-    inline void setQFocusFrame_Receivers_IsBase(bool value) const { qfocusframe_receivers_isbase = value; }
-    inline void setQFocusFrame_IsSignalConnected_IsBase(bool value) const { qfocusframe_issignalconnected_isbase = value; }
-    inline void setQFocusFrame_GetDecodedMetricF_IsBase(bool value) const { qfocusframe_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qfocusframe_metaobject_isbase) {
-            qfocusframe_metaobject_isbase = false;
-            return QFocusFrame::metaObject();
-        }
-        auto metaobject_cb = qfocusframe_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qfocusframe_metaobject_callback) {
+            QMetaObject* callback_ret = qfocusframe_metaobject_callback(this);
             return callback_ret;
         }
         return QFocusFrame::metaObject();
@@ -352,14 +186,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qfocusframe_metacast_isbase) {
-            qfocusframe_metacast_isbase = false;
-            return QFocusFrame::qt_metacast(param1);
-        }
-        auto metacast_cb = qfocusframe_metacast_callback;
-        if (metacast_cb) {
+        if (qfocusframe_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qfocusframe_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QFocusFrame::qt_metacast(param1);
@@ -367,16 +196,11 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qfocusframe_metacall_isbase) {
-            qfocusframe_metacall_isbase = false;
-            return QFocusFrame::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qfocusframe_metacall_callback;
-        if (metacall_cb) {
+        if (qfocusframe_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qfocusframe_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QFocusFrame::qt_metacall(param1, param2, param3);
@@ -384,14 +208,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* e) override {
-        if (qfocusframe_event_isbase) {
-            qfocusframe_event_isbase = false;
-            return QFocusFrame::event(e);
-        }
-        auto event_cb = qfocusframe_event_callback;
-        if (event_cb) {
+        if (qfocusframe_event_callback) {
             QEvent* cbval1 = e;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qfocusframe_event_callback(this, cbval1);
             return callback_ret;
         }
         return QFocusFrame::event(e);
@@ -399,15 +218,10 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (qfocusframe_eventfilter_isbase) {
-            qfocusframe_eventfilter_isbase = false;
-            return QFocusFrame::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = qfocusframe_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qfocusframe_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qfocusframe_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QFocusFrame::eventFilter(param1, param2);
@@ -415,15 +229,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* param1) override {
-        if (qfocusframe_paintevent_isbase) {
-            qfocusframe_paintevent_isbase = false;
-            QFocusFrame::paintEvent(param1);
-            return;
-        }
-        auto paintevent_cb = qfocusframe_paintevent_callback;
-        if (paintevent_cb) {
+        if (qfocusframe_paintevent_callback) {
             QPaintEvent* cbval1 = param1;
-            paintevent_cb(this, cbval1);
+            qfocusframe_paintevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::paintEvent(param1);
@@ -431,15 +239,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOption* option) const override {
-        if (qfocusframe_initstyleoption_isbase) {
-            qfocusframe_initstyleoption_isbase = false;
-            QFocusFrame::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = qfocusframe_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (qfocusframe_initstyleoption_callback) {
             QStyleOption* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            qfocusframe_initstyleoption_callback(this, cbval1);
             return;
         }
         QFocusFrame::initStyleOption(option);
@@ -447,13 +249,8 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qfocusframe_devtype_isbase) {
-            qfocusframe_devtype_isbase = false;
-            return QFocusFrame::devType();
-        }
-        auto devtype_cb = qfocusframe_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qfocusframe_devtype_callback) {
+            int callback_ret = qfocusframe_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QFocusFrame::devType();
@@ -461,15 +258,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qfocusframe_setvisible_isbase) {
-            qfocusframe_setvisible_isbase = false;
-            QFocusFrame::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qfocusframe_setvisible_callback;
-        if (setvisible_cb) {
+        if (qfocusframe_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qfocusframe_setvisible_callback(this, cbval1);
             return;
         }
         QFocusFrame::setVisible(visible);
@@ -477,13 +268,8 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qfocusframe_sizehint_isbase) {
-            qfocusframe_sizehint_isbase = false;
-            return QFocusFrame::sizeHint();
-        }
-        auto sizehint_cb = qfocusframe_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qfocusframe_sizehint_callback) {
+            QSize* callback_ret = qfocusframe_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -493,13 +279,8 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qfocusframe_minimumsizehint_isbase) {
-            qfocusframe_minimumsizehint_isbase = false;
-            return QFocusFrame::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qfocusframe_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qfocusframe_minimumsizehint_callback) {
+            QSize* callback_ret = qfocusframe_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -509,14 +290,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qfocusframe_heightforwidth_isbase) {
-            qfocusframe_heightforwidth_isbase = false;
-            return QFocusFrame::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qfocusframe_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qfocusframe_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qfocusframe_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QFocusFrame::heightForWidth(param1);
@@ -524,13 +300,8 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qfocusframe_hasheightforwidth_isbase) {
-            qfocusframe_hasheightforwidth_isbase = false;
-            return QFocusFrame::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qfocusframe_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qfocusframe_hasheightforwidth_callback) {
+            bool callback_ret = qfocusframe_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QFocusFrame::hasHeightForWidth();
@@ -538,13 +309,8 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qfocusframe_paintengine_isbase) {
-            qfocusframe_paintengine_isbase = false;
-            return QFocusFrame::paintEngine();
-        }
-        auto paintengine_cb = qfocusframe_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qfocusframe_paintengine_callback) {
+            QPaintEngine* callback_ret = qfocusframe_paintengine_callback(this);
             return callback_ret;
         }
         return QFocusFrame::paintEngine();
@@ -552,15 +318,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (qfocusframe_mousepressevent_isbase) {
-            qfocusframe_mousepressevent_isbase = false;
-            QFocusFrame::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qfocusframe_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qfocusframe_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qfocusframe_mousepressevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::mousePressEvent(event);
@@ -568,15 +328,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qfocusframe_mousereleaseevent_isbase) {
-            qfocusframe_mousereleaseevent_isbase = false;
-            QFocusFrame::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qfocusframe_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qfocusframe_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qfocusframe_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::mouseReleaseEvent(event);
@@ -584,15 +338,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qfocusframe_mousedoubleclickevent_isbase) {
-            qfocusframe_mousedoubleclickevent_isbase = false;
-            QFocusFrame::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qfocusframe_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qfocusframe_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qfocusframe_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::mouseDoubleClickEvent(event);
@@ -600,15 +348,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qfocusframe_mousemoveevent_isbase) {
-            qfocusframe_mousemoveevent_isbase = false;
-            QFocusFrame::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qfocusframe_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qfocusframe_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qfocusframe_mousemoveevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::mouseMoveEvent(event);
@@ -616,15 +358,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qfocusframe_wheelevent_isbase) {
-            qfocusframe_wheelevent_isbase = false;
-            QFocusFrame::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qfocusframe_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qfocusframe_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qfocusframe_wheelevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::wheelEvent(event);
@@ -632,15 +368,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qfocusframe_keypressevent_isbase) {
-            qfocusframe_keypressevent_isbase = false;
-            QFocusFrame::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qfocusframe_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qfocusframe_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qfocusframe_keypressevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::keyPressEvent(event);
@@ -648,15 +378,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qfocusframe_keyreleaseevent_isbase) {
-            qfocusframe_keyreleaseevent_isbase = false;
-            QFocusFrame::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qfocusframe_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qfocusframe_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qfocusframe_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::keyReleaseEvent(event);
@@ -664,15 +388,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qfocusframe_focusinevent_isbase) {
-            qfocusframe_focusinevent_isbase = false;
-            QFocusFrame::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qfocusframe_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qfocusframe_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qfocusframe_focusinevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::focusInEvent(event);
@@ -680,15 +398,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qfocusframe_focusoutevent_isbase) {
-            qfocusframe_focusoutevent_isbase = false;
-            QFocusFrame::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qfocusframe_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qfocusframe_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qfocusframe_focusoutevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::focusOutEvent(event);
@@ -696,15 +408,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qfocusframe_enterevent_isbase) {
-            qfocusframe_enterevent_isbase = false;
-            QFocusFrame::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qfocusframe_enterevent_callback;
-        if (enterevent_cb) {
+        if (qfocusframe_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qfocusframe_enterevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::enterEvent(event);
@@ -712,15 +418,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qfocusframe_leaveevent_isbase) {
-            qfocusframe_leaveevent_isbase = false;
-            QFocusFrame::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qfocusframe_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qfocusframe_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qfocusframe_leaveevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::leaveEvent(event);
@@ -728,15 +428,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qfocusframe_moveevent_isbase) {
-            qfocusframe_moveevent_isbase = false;
-            QFocusFrame::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qfocusframe_moveevent_callback;
-        if (moveevent_cb) {
+        if (qfocusframe_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qfocusframe_moveevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::moveEvent(event);
@@ -744,15 +438,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (qfocusframe_resizeevent_isbase) {
-            qfocusframe_resizeevent_isbase = false;
-            QFocusFrame::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = qfocusframe_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qfocusframe_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            qfocusframe_resizeevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::resizeEvent(event);
@@ -760,15 +448,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qfocusframe_closeevent_isbase) {
-            qfocusframe_closeevent_isbase = false;
-            QFocusFrame::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qfocusframe_closeevent_callback;
-        if (closeevent_cb) {
+        if (qfocusframe_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qfocusframe_closeevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::closeEvent(event);
@@ -776,15 +458,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (qfocusframe_contextmenuevent_isbase) {
-            qfocusframe_contextmenuevent_isbase = false;
-            QFocusFrame::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qfocusframe_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qfocusframe_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qfocusframe_contextmenuevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::contextMenuEvent(event);
@@ -792,15 +468,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qfocusframe_tabletevent_isbase) {
-            qfocusframe_tabletevent_isbase = false;
-            QFocusFrame::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qfocusframe_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qfocusframe_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qfocusframe_tabletevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::tabletEvent(event);
@@ -808,15 +478,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qfocusframe_actionevent_isbase) {
-            qfocusframe_actionevent_isbase = false;
-            QFocusFrame::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qfocusframe_actionevent_callback;
-        if (actionevent_cb) {
+        if (qfocusframe_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qfocusframe_actionevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::actionEvent(event);
@@ -824,15 +488,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qfocusframe_dragenterevent_isbase) {
-            qfocusframe_dragenterevent_isbase = false;
-            QFocusFrame::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qfocusframe_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qfocusframe_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qfocusframe_dragenterevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::dragEnterEvent(event);
@@ -840,15 +498,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qfocusframe_dragmoveevent_isbase) {
-            qfocusframe_dragmoveevent_isbase = false;
-            QFocusFrame::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qfocusframe_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qfocusframe_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qfocusframe_dragmoveevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::dragMoveEvent(event);
@@ -856,15 +508,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qfocusframe_dragleaveevent_isbase) {
-            qfocusframe_dragleaveevent_isbase = false;
-            QFocusFrame::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qfocusframe_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qfocusframe_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qfocusframe_dragleaveevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::dragLeaveEvent(event);
@@ -872,15 +518,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qfocusframe_dropevent_isbase) {
-            qfocusframe_dropevent_isbase = false;
-            QFocusFrame::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qfocusframe_dropevent_callback;
-        if (dropevent_cb) {
+        if (qfocusframe_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qfocusframe_dropevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::dropEvent(event);
@@ -888,15 +528,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (qfocusframe_showevent_isbase) {
-            qfocusframe_showevent_isbase = false;
-            QFocusFrame::showEvent(event);
-            return;
-        }
-        auto showevent_cb = qfocusframe_showevent_callback;
-        if (showevent_cb) {
+        if (qfocusframe_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            qfocusframe_showevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::showEvent(event);
@@ -904,15 +538,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qfocusframe_hideevent_isbase) {
-            qfocusframe_hideevent_isbase = false;
-            QFocusFrame::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qfocusframe_hideevent_callback;
-        if (hideevent_cb) {
+        if (qfocusframe_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qfocusframe_hideevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::hideEvent(event);
@@ -920,12 +548,7 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qfocusframe_nativeevent_isbase) {
-            qfocusframe_nativeevent_isbase = false;
-            return QFocusFrame::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qfocusframe_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qfocusframe_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -935,7 +558,7 @@ class VirtualQFocusFrame final : public QFocusFrame {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qfocusframe_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -944,15 +567,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (qfocusframe_changeevent_isbase) {
-            qfocusframe_changeevent_isbase = false;
-            QFocusFrame::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = qfocusframe_changeevent_callback;
-        if (changeevent_cb) {
+        if (qfocusframe_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            qfocusframe_changeevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::changeEvent(param1);
@@ -960,14 +577,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qfocusframe_metric_isbase) {
-            qfocusframe_metric_isbase = false;
-            return QFocusFrame::metric(param1);
-        }
-        auto metric_cb = qfocusframe_metric_callback;
-        if (metric_cb) {
+        if (qfocusframe_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qfocusframe_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QFocusFrame::metric(param1);
@@ -975,15 +587,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qfocusframe_initpainter_isbase) {
-            qfocusframe_initpainter_isbase = false;
-            QFocusFrame::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qfocusframe_initpainter_callback;
-        if (initpainter_cb) {
+        if (qfocusframe_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qfocusframe_initpainter_callback(this, cbval1);
             return;
         }
         QFocusFrame::initPainter(painter);
@@ -991,14 +597,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qfocusframe_redirected_isbase) {
-            qfocusframe_redirected_isbase = false;
-            return QFocusFrame::redirected(offset);
-        }
-        auto redirected_cb = qfocusframe_redirected_callback;
-        if (redirected_cb) {
+        if (qfocusframe_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qfocusframe_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QFocusFrame::redirected(offset);
@@ -1006,13 +607,8 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qfocusframe_sharedpainter_isbase) {
-            qfocusframe_sharedpainter_isbase = false;
-            return QFocusFrame::sharedPainter();
-        }
-        auto sharedpainter_cb = qfocusframe_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qfocusframe_sharedpainter_callback) {
+            QPainter* callback_ret = qfocusframe_sharedpainter_callback(this);
             return callback_ret;
         }
         return QFocusFrame::sharedPainter();
@@ -1020,15 +616,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qfocusframe_inputmethodevent_isbase) {
-            qfocusframe_inputmethodevent_isbase = false;
-            QFocusFrame::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qfocusframe_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qfocusframe_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qfocusframe_inputmethodevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::inputMethodEvent(param1);
@@ -1036,14 +626,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qfocusframe_inputmethodquery_isbase) {
-            qfocusframe_inputmethodquery_isbase = false;
-            return QFocusFrame::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qfocusframe_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qfocusframe_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qfocusframe_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1053,14 +638,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qfocusframe_focusnextprevchild_isbase) {
-            qfocusframe_focusnextprevchild_isbase = false;
-            return QFocusFrame::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qfocusframe_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qfocusframe_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qfocusframe_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QFocusFrame::focusNextPrevChild(next);
@@ -1068,15 +648,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qfocusframe_timerevent_isbase) {
-            qfocusframe_timerevent_isbase = false;
-            QFocusFrame::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qfocusframe_timerevent_callback;
-        if (timerevent_cb) {
+        if (qfocusframe_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qfocusframe_timerevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::timerEvent(event);
@@ -1084,15 +658,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qfocusframe_childevent_isbase) {
-            qfocusframe_childevent_isbase = false;
-            QFocusFrame::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qfocusframe_childevent_callback;
-        if (childevent_cb) {
+        if (qfocusframe_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qfocusframe_childevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::childEvent(event);
@@ -1100,15 +668,9 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qfocusframe_customevent_isbase) {
-            qfocusframe_customevent_isbase = false;
-            QFocusFrame::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qfocusframe_customevent_callback;
-        if (customevent_cb) {
+        if (qfocusframe_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qfocusframe_customevent_callback(this, cbval1);
             return;
         }
         QFocusFrame::customEvent(event);
@@ -1116,17 +678,11 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qfocusframe_connectnotify_isbase) {
-            qfocusframe_connectnotify_isbase = false;
-            QFocusFrame::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qfocusframe_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qfocusframe_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qfocusframe_connectnotify_callback(this, cbval1);
             return;
         }
         QFocusFrame::connectNotify(signal);
@@ -1134,272 +690,57 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qfocusframe_disconnectnotify_isbase) {
-            qfocusframe_disconnectnotify_isbase = false;
-            QFocusFrame::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qfocusframe_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qfocusframe_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qfocusframe_disconnectnotify_callback(this, cbval1);
             return;
         }
         QFocusFrame::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qfocusframe_updatemicrofocus_isbase) {
-            qfocusframe_updatemicrofocus_isbase = false;
-            QFocusFrame::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qfocusframe_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QFocusFrame::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qfocusframe_create_isbase) {
-            qfocusframe_create_isbase = false;
-            QFocusFrame::create();
-            return;
-        }
-        auto create_cb = qfocusframe_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QFocusFrame::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qfocusframe_destroy_isbase) {
-            qfocusframe_destroy_isbase = false;
-            QFocusFrame::destroy();
-            return;
-        }
-        auto destroy_cb = qfocusframe_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QFocusFrame::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qfocusframe_focusnextchild_isbase) {
-            qfocusframe_focusnextchild_isbase = false;
-            return QFocusFrame::focusNextChild();
-        }
-        auto focusnextchild_cb = qfocusframe_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QFocusFrame::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qfocusframe_focuspreviouschild_isbase) {
-            qfocusframe_focuspreviouschild_isbase = false;
-            return QFocusFrame::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qfocusframe_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QFocusFrame::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qfocusframe_sender_isbase) {
-            qfocusframe_sender_isbase = false;
-            return QFocusFrame::sender();
-        }
-        auto sender_cb = qfocusframe_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QFocusFrame::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qfocusframe_sendersignalindex_isbase) {
-            qfocusframe_sendersignalindex_isbase = false;
-            return QFocusFrame::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qfocusframe_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QFocusFrame::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qfocusframe_receivers_isbase) {
-            qfocusframe_receivers_isbase = false;
-            return QFocusFrame::receivers(signal);
-        }
-        auto receivers_cb = qfocusframe_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QFocusFrame::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qfocusframe_issignalconnected_isbase) {
-            qfocusframe_issignalconnected_isbase = false;
-            return QFocusFrame::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qfocusframe_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QFocusFrame::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qfocusframe_getdecodedmetricf_isbase) {
-            qfocusframe_getdecodedmetricf_isbase = false;
-            return QFocusFrame::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qfocusframe_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QFocusFrame::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool QFocusFrame_Event(QFocusFrame* self, QEvent* e);
     friend bool QFocusFrame_SuperEvent(QFocusFrame* self, QEvent* e);
-    friend bool QFocusFrame_EventFilter(QFocusFrame* self, QObject* param1, QEvent* param2);
     friend bool QFocusFrame_SuperEventFilter(QFocusFrame* self, QObject* param1, QEvent* param2);
-    friend void QFocusFrame_PaintEvent(QFocusFrame* self, QPaintEvent* param1);
     friend void QFocusFrame_SuperPaintEvent(QFocusFrame* self, QPaintEvent* param1);
-    friend void QFocusFrame_InitStyleOption(const QFocusFrame* self, QStyleOption* option);
     friend void QFocusFrame_SuperInitStyleOption(const QFocusFrame* self, QStyleOption* option);
-    friend void QFocusFrame_MousePressEvent(QFocusFrame* self, QMouseEvent* event);
     friend void QFocusFrame_SuperMousePressEvent(QFocusFrame* self, QMouseEvent* event);
-    friend void QFocusFrame_MouseReleaseEvent(QFocusFrame* self, QMouseEvent* event);
     friend void QFocusFrame_SuperMouseReleaseEvent(QFocusFrame* self, QMouseEvent* event);
-    friend void QFocusFrame_MouseDoubleClickEvent(QFocusFrame* self, QMouseEvent* event);
     friend void QFocusFrame_SuperMouseDoubleClickEvent(QFocusFrame* self, QMouseEvent* event);
-    friend void QFocusFrame_MouseMoveEvent(QFocusFrame* self, QMouseEvent* event);
     friend void QFocusFrame_SuperMouseMoveEvent(QFocusFrame* self, QMouseEvent* event);
-    friend void QFocusFrame_WheelEvent(QFocusFrame* self, QWheelEvent* event);
     friend void QFocusFrame_SuperWheelEvent(QFocusFrame* self, QWheelEvent* event);
-    friend void QFocusFrame_KeyPressEvent(QFocusFrame* self, QKeyEvent* event);
     friend void QFocusFrame_SuperKeyPressEvent(QFocusFrame* self, QKeyEvent* event);
-    friend void QFocusFrame_KeyReleaseEvent(QFocusFrame* self, QKeyEvent* event);
     friend void QFocusFrame_SuperKeyReleaseEvent(QFocusFrame* self, QKeyEvent* event);
-    friend void QFocusFrame_FocusInEvent(QFocusFrame* self, QFocusEvent* event);
     friend void QFocusFrame_SuperFocusInEvent(QFocusFrame* self, QFocusEvent* event);
-    friend void QFocusFrame_FocusOutEvent(QFocusFrame* self, QFocusEvent* event);
     friend void QFocusFrame_SuperFocusOutEvent(QFocusFrame* self, QFocusEvent* event);
-    friend void QFocusFrame_EnterEvent(QFocusFrame* self, QEnterEvent* event);
     friend void QFocusFrame_SuperEnterEvent(QFocusFrame* self, QEnterEvent* event);
-    friend void QFocusFrame_LeaveEvent(QFocusFrame* self, QEvent* event);
     friend void QFocusFrame_SuperLeaveEvent(QFocusFrame* self, QEvent* event);
-    friend void QFocusFrame_MoveEvent(QFocusFrame* self, QMoveEvent* event);
     friend void QFocusFrame_SuperMoveEvent(QFocusFrame* self, QMoveEvent* event);
-    friend void QFocusFrame_ResizeEvent(QFocusFrame* self, QResizeEvent* event);
     friend void QFocusFrame_SuperResizeEvent(QFocusFrame* self, QResizeEvent* event);
-    friend void QFocusFrame_CloseEvent(QFocusFrame* self, QCloseEvent* event);
     friend void QFocusFrame_SuperCloseEvent(QFocusFrame* self, QCloseEvent* event);
-    friend void QFocusFrame_ContextMenuEvent(QFocusFrame* self, QContextMenuEvent* event);
     friend void QFocusFrame_SuperContextMenuEvent(QFocusFrame* self, QContextMenuEvent* event);
-    friend void QFocusFrame_TabletEvent(QFocusFrame* self, QTabletEvent* event);
     friend void QFocusFrame_SuperTabletEvent(QFocusFrame* self, QTabletEvent* event);
-    friend void QFocusFrame_ActionEvent(QFocusFrame* self, QActionEvent* event);
     friend void QFocusFrame_SuperActionEvent(QFocusFrame* self, QActionEvent* event);
-    friend void QFocusFrame_DragEnterEvent(QFocusFrame* self, QDragEnterEvent* event);
     friend void QFocusFrame_SuperDragEnterEvent(QFocusFrame* self, QDragEnterEvent* event);
-    friend void QFocusFrame_DragMoveEvent(QFocusFrame* self, QDragMoveEvent* event);
     friend void QFocusFrame_SuperDragMoveEvent(QFocusFrame* self, QDragMoveEvent* event);
-    friend void QFocusFrame_DragLeaveEvent(QFocusFrame* self, QDragLeaveEvent* event);
     friend void QFocusFrame_SuperDragLeaveEvent(QFocusFrame* self, QDragLeaveEvent* event);
-    friend void QFocusFrame_DropEvent(QFocusFrame* self, QDropEvent* event);
     friend void QFocusFrame_SuperDropEvent(QFocusFrame* self, QDropEvent* event);
-    friend void QFocusFrame_ShowEvent(QFocusFrame* self, QShowEvent* event);
     friend void QFocusFrame_SuperShowEvent(QFocusFrame* self, QShowEvent* event);
-    friend void QFocusFrame_HideEvent(QFocusFrame* self, QHideEvent* event);
     friend void QFocusFrame_SuperHideEvent(QFocusFrame* self, QHideEvent* event);
-    friend bool QFocusFrame_NativeEvent(QFocusFrame* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QFocusFrame_SuperNativeEvent(QFocusFrame* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void QFocusFrame_ChangeEvent(QFocusFrame* self, QEvent* param1);
     friend void QFocusFrame_SuperChangeEvent(QFocusFrame* self, QEvent* param1);
-    friend int QFocusFrame_Metric(const QFocusFrame* self, int param1);
     friend int QFocusFrame_SuperMetric(const QFocusFrame* self, int param1);
-    friend void QFocusFrame_InitPainter(const QFocusFrame* self, QPainter* painter);
     friend void QFocusFrame_SuperInitPainter(const QFocusFrame* self, QPainter* painter);
-    friend QPaintDevice* QFocusFrame_Redirected(const QFocusFrame* self, QPoint* offset);
     friend QPaintDevice* QFocusFrame_SuperRedirected(const QFocusFrame* self, QPoint* offset);
-    friend QPainter* QFocusFrame_SharedPainter(const QFocusFrame* self);
     friend QPainter* QFocusFrame_SuperSharedPainter(const QFocusFrame* self);
-    friend void QFocusFrame_InputMethodEvent(QFocusFrame* self, QInputMethodEvent* param1);
     friend void QFocusFrame_SuperInputMethodEvent(QFocusFrame* self, QInputMethodEvent* param1);
-    friend bool QFocusFrame_FocusNextPrevChild(QFocusFrame* self, bool next);
     friend bool QFocusFrame_SuperFocusNextPrevChild(QFocusFrame* self, bool next);
-    friend void QFocusFrame_TimerEvent(QFocusFrame* self, QTimerEvent* event);
     friend void QFocusFrame_SuperTimerEvent(QFocusFrame* self, QTimerEvent* event);
-    friend void QFocusFrame_ChildEvent(QFocusFrame* self, QChildEvent* event);
     friend void QFocusFrame_SuperChildEvent(QFocusFrame* self, QChildEvent* event);
-    friend void QFocusFrame_CustomEvent(QFocusFrame* self, QEvent* event);
     friend void QFocusFrame_SuperCustomEvent(QFocusFrame* self, QEvent* event);
-    friend void QFocusFrame_ConnectNotify(QFocusFrame* self, const QMetaMethod* signal);
     friend void QFocusFrame_SuperConnectNotify(QFocusFrame* self, const QMetaMethod* signal);
-    friend void QFocusFrame_DisconnectNotify(QFocusFrame* self, const QMetaMethod* signal);
     friend void QFocusFrame_SuperDisconnectNotify(QFocusFrame* self, const QMetaMethod* signal);
-    friend void QFocusFrame_UpdateMicroFocus(QFocusFrame* self);
-    friend void QFocusFrame_SuperUpdateMicroFocus(QFocusFrame* self);
-    friend void QFocusFrame_Create(QFocusFrame* self);
-    friend void QFocusFrame_SuperCreate(QFocusFrame* self);
-    friend void QFocusFrame_Destroy(QFocusFrame* self);
-    friend void QFocusFrame_SuperDestroy(QFocusFrame* self);
-    friend bool QFocusFrame_FocusNextChild(QFocusFrame* self);
-    friend bool QFocusFrame_SuperFocusNextChild(QFocusFrame* self);
-    friend bool QFocusFrame_FocusPreviousChild(QFocusFrame* self);
-    friend bool QFocusFrame_SuperFocusPreviousChild(QFocusFrame* self);
-    friend QObject* QFocusFrame_Sender(const QFocusFrame* self);
-    friend QObject* QFocusFrame_SuperSender(const QFocusFrame* self);
-    friend int QFocusFrame_SenderSignalIndex(const QFocusFrame* self);
-    friend int QFocusFrame_SuperSenderSignalIndex(const QFocusFrame* self);
-    friend int QFocusFrame_Receivers(const QFocusFrame* self, const char* signal);
-    friend int QFocusFrame_SuperReceivers(const QFocusFrame* self, const char* signal);
-    friend bool QFocusFrame_IsSignalConnected(const QFocusFrame* self, const QMetaMethod* signal);
-    friend bool QFocusFrame_SuperIsSignalConnected(const QFocusFrame* self, const QMetaMethod* signal);
-    friend double QFocusFrame_GetDecodedMetricF(const QFocusFrame* self, int metricA, int metricB);
-    friend double QFocusFrame_SuperGetDecodedMetricF(const QFocusFrame* self, int metricA, int metricB);
 };
 
 #endif

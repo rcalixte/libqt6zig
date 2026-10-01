@@ -53,7 +53,7 @@ void QLibrary_SetLoadHints(QLibrary* self, int hints);
 int QLibrary_LoadHints(const QLibrary* self);
 libqt_string QLibrary_Tr2(const char* s, const char* c);
 libqt_string QLibrary_Tr3(const char* s, const char* c, int n);
-void QLibrary_OnMetaObject(const QLibrary* self, intptr_t slot);
+void QLibrary_OnMetaObject(QLibrary* self, intptr_t slot);
 QMetaObject* QLibrary_SuperMetaObject(const QLibrary* self);
 void QLibrary_OnMetacast(QLibrary* self, intptr_t slot);
 void* QLibrary_SuperMetacast(QLibrary* self, const char* param1);
@@ -81,17 +81,9 @@ void QLibrary_DisconnectNotify(QLibrary* self, const QMetaMethod* signal);
 void QLibrary_OnDisconnectNotify(QLibrary* self, intptr_t slot);
 void QLibrary_SuperDisconnectNotify(QLibrary* self, const QMetaMethod* signal);
 QObject* QLibrary_Sender(const QLibrary* self);
-void QLibrary_OnSender(const QLibrary* self, intptr_t slot);
-QObject* QLibrary_SuperSender(const QLibrary* self);
 int QLibrary_SenderSignalIndex(const QLibrary* self);
-void QLibrary_OnSenderSignalIndex(const QLibrary* self, intptr_t slot);
-int QLibrary_SuperSenderSignalIndex(const QLibrary* self);
 int QLibrary_Receivers(const QLibrary* self, const char* signal);
-void QLibrary_OnReceivers(const QLibrary* self, intptr_t slot);
-int QLibrary_SuperReceivers(const QLibrary* self, const char* signal);
 bool QLibrary_IsSignalConnected(const QLibrary* self, const QMetaMethod* signal);
-void QLibrary_OnIsSignalConnected(const QLibrary* self, intptr_t slot);
-bool QLibrary_SuperIsSignalConnected(const QLibrary* self, const QMetaMethod* signal);
 void QLibrary_Delete(QLibrary* self);
 
 #ifdef __cplusplus

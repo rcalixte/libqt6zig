@@ -130,9 +130,9 @@ pub const KBusyIndicatorWidget = extern struct {
     ///
     /// ` self: KBusyIndicatorWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KBusyIndicatorWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KBusyIndicatorWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KBusyIndicatorWidget, callback: *const fn (KBusyIndicatorWidget) callconv(.c) QMetaObject) void {
         qtc.KBusyIndicatorWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -303,11 +303,11 @@ pub const KBusyIndicatorWidget = extern struct {
     ///
     /// ` self: KBusyIndicatorWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KBusyIndicatorWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KBusyIndicatorWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KBusyIndicatorWidget, callback: *const fn (KBusyIndicatorWidget) callconv(.c) QSize) void {
         qtc.KBusyIndicatorWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6979,9 +6979,9 @@ pub const KBusyIndicatorWidget = extern struct {
     ///
     /// ` self: KBusyIndicatorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KBusyIndicatorWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KBusyIndicatorWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KBusyIndicatorWidget, callback: *const fn (KBusyIndicatorWidget) callconv(.c) i32) void {
         qtc.KBusyIndicatorWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7095,11 +7095,11 @@ pub const KBusyIndicatorWidget = extern struct {
     ///
     /// ` self: KBusyIndicatorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KBusyIndicatorWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KBusyIndicatorWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KBusyIndicatorWidget, callback: *const fn (KBusyIndicatorWidget) callconv(.c) QSize) void {
         qtc.KBusyIndicatorWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7213,9 +7213,9 @@ pub const KBusyIndicatorWidget = extern struct {
     ///
     /// ` self: KBusyIndicatorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KBusyIndicatorWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KBusyIndicatorWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KBusyIndicatorWidget, callback: *const fn (KBusyIndicatorWidget) callconv(.c) bool) void {
         qtc.KBusyIndicatorWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7269,9 +7269,9 @@ pub const KBusyIndicatorWidget = extern struct {
     ///
     /// ` self: KBusyIndicatorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KBusyIndicatorWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KBusyIndicatorWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KBusyIndicatorWidget, callback: *const fn (KBusyIndicatorWidget) callconv(.c) QPaintEngine) void {
         qtc.KBusyIndicatorWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8887,9 +8887,9 @@ pub const KBusyIndicatorWidget = extern struct {
     ///
     /// ` self: KBusyIndicatorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KBusyIndicatorWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KBusyIndicatorWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KBusyIndicatorWidget, callback: *const fn (KBusyIndicatorWidget) callconv(.c) QPainter) void {
         qtc.KBusyIndicatorWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9473,44 +9473,6 @@ pub const KBusyIndicatorWidget = extern struct {
         qtc.KBusyIndicatorWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBusyIndicatorWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: KBusyIndicatorWidget) void {
-        qtc.KBusyIndicatorWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBusyIndicatorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KBusyIndicatorWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KBusyIndicatorWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9527,44 +9489,6 @@ pub const KBusyIndicatorWidget = extern struct {
     ///
     pub fn create(self: KBusyIndicatorWidget) void {
         qtc.KBusyIndicatorWidget_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBusyIndicatorWidget `
-    ///
-    pub fn superCreate(self: KBusyIndicatorWidget) void {
-        qtc.KBusyIndicatorWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBusyIndicatorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KBusyIndicatorWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KBusyIndicatorWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9585,44 +9509,6 @@ pub const KBusyIndicatorWidget = extern struct {
         qtc.KBusyIndicatorWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBusyIndicatorWidget `
-    ///
-    pub fn superDestroy(self: KBusyIndicatorWidget) void {
-        qtc.KBusyIndicatorWidget_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBusyIndicatorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KBusyIndicatorWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KBusyIndicatorWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9639,44 +9525,6 @@ pub const KBusyIndicatorWidget = extern struct {
     ///
     pub fn focusNextChild(self: KBusyIndicatorWidget) bool {
         return qtc.KBusyIndicatorWidget_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBusyIndicatorWidget `
-    ///
-    pub fn superFocusNextChild(self: KBusyIndicatorWidget) bool {
-        return qtc.KBusyIndicatorWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBusyIndicatorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KBusyIndicatorWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.KBusyIndicatorWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -9697,44 +9545,6 @@ pub const KBusyIndicatorWidget = extern struct {
         return qtc.KBusyIndicatorWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBusyIndicatorWidget `
-    ///
-    pub fn superFocusPreviousChild(self: KBusyIndicatorWidget) bool {
-        return qtc.KBusyIndicatorWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBusyIndicatorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KBusyIndicatorWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.KBusyIndicatorWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -9753,44 +9563,6 @@ pub const KBusyIndicatorWidget = extern struct {
         return .{ .ptr = qtc.KBusyIndicatorWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBusyIndicatorWidget `
-    ///
-    pub fn superSender(self: KBusyIndicatorWidget) QObject {
-        return .{ .ptr = qtc.KBusyIndicatorWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBusyIndicatorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KBusyIndicatorWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KBusyIndicatorWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -9807,44 +9579,6 @@ pub const KBusyIndicatorWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: KBusyIndicatorWidget) i32 {
         return qtc.KBusyIndicatorWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBusyIndicatorWidget `
-    ///
-    pub fn superSenderSignalIndex(self: KBusyIndicatorWidget) i32 {
-        return qtc.KBusyIndicatorWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBusyIndicatorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KBusyIndicatorWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.KBusyIndicatorWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -9868,47 +9602,6 @@ pub const KBusyIndicatorWidget = extern struct {
         return qtc.KBusyIndicatorWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBusyIndicatorWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KBusyIndicatorWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KBusyIndicatorWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBusyIndicatorWidget`
-    ///
-    /// ` callback: *const fn (self: KBusyIndicatorWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KBusyIndicatorWidget, callback: *const fn (KBusyIndicatorWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KBusyIndicatorWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -9928,47 +9621,6 @@ pub const KBusyIndicatorWidget = extern struct {
     pub fn isSignalConnected(self: KBusyIndicatorWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KBusyIndicatorWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBusyIndicatorWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KBusyIndicatorWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KBusyIndicatorWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBusyIndicatorWidget`
-    ///
-    /// ` callback: *const fn (self: KBusyIndicatorWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KBusyIndicatorWidget, callback: *const fn (KBusyIndicatorWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.KBusyIndicatorWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -9991,48 +9643,6 @@ pub const KBusyIndicatorWidget = extern struct {
     ///
     pub fn getDecodedMetricF(self: KBusyIndicatorWidget, metricA: i32, metricB: i32) f64 {
         return qtc.KBusyIndicatorWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBusyIndicatorWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KBusyIndicatorWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.KBusyIndicatorWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBusyIndicatorWidget`
-    ///
-    /// ` callback: *const fn (self: KBusyIndicatorWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KBusyIndicatorWidget, callback: *const fn (KBusyIndicatorWidget, i32, i32) callconv(.c) f64) void {
-        qtc.KBusyIndicatorWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

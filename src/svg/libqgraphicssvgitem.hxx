@@ -9,21 +9,17 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QGraphicsSvgItem so that we can call protected methods
+// This class is a subclass of QGraphicsSvgItem
 class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQGraphicsSvgItem = true;
-
-    // Virtual class public types (including callbacks)
+    // Virtual class public types (including callbacks and access types)
     using QGraphicsItem::Extension;
-    using QGraphicsSvgItem_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsSvgItem_MetaObject_Callback = QMetaObject* (*)(const QGraphicsSvgItem*);
     using QGraphicsSvgItem_Metacast_Callback = void* (*)(QGraphicsSvgItem*, const char*);
     using QGraphicsSvgItem_Metacall_Callback = int (*)(QGraphicsSvgItem*, int, int, void**);
-    using QGraphicsSvgItem_BoundingRect_Callback = QRectF* (*)();
+    using QGraphicsSvgItem_BoundingRect_Callback = QRectF* (*)(const QGraphicsSvgItem*);
     using QGraphicsSvgItem_Paint_Callback = void (*)(QGraphicsSvgItem*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
-    using QGraphicsSvgItem_Type_Callback = int (*)();
+    using QGraphicsSvgItem_Type_Callback = int (*)(const QGraphicsSvgItem*);
     using QGraphicsSvgItem_Event_Callback = bool (*)(QGraphicsSvgItem*, QEvent*);
     using QGraphicsSvgItem_EventFilter_Callback = bool (*)(QGraphicsSvgItem*, QObject*, QEvent*);
     using QGraphicsSvgItem_TimerEvent_Callback = void (*)(QGraphicsSvgItem*, QTimerEvent*);
@@ -32,12 +28,12 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
     using QGraphicsSvgItem_ConnectNotify_Callback = void (*)(QGraphicsSvgItem*, QMetaMethod*);
     using QGraphicsSvgItem_DisconnectNotify_Callback = void (*)(QGraphicsSvgItem*, QMetaMethod*);
     using QGraphicsSvgItem_Advance_Callback = void (*)(QGraphicsSvgItem*, int);
-    using QGraphicsSvgItem_Shape_Callback = QPainterPath* (*)();
+    using QGraphicsSvgItem_Shape_Callback = QPainterPath* (*)(const QGraphicsSvgItem*);
     using QGraphicsSvgItem_Contains_Callback = bool (*)(const QGraphicsSvgItem*, QPointF*);
     using QGraphicsSvgItem_CollidesWithItem_Callback = bool (*)(const QGraphicsSvgItem*, QGraphicsItem*, int);
     using QGraphicsSvgItem_CollidesWithPath_Callback = bool (*)(const QGraphicsSvgItem*, QPainterPath*, int);
     using QGraphicsSvgItem_IsObscuredBy_Callback = bool (*)(const QGraphicsSvgItem*, QGraphicsItem*);
-    using QGraphicsSvgItem_OpaqueArea_Callback = QPainterPath* (*)();
+    using QGraphicsSvgItem_OpaqueArea_Callback = QPainterPath* (*)(const QGraphicsSvgItem*);
     using QGraphicsSvgItem_SceneEventFilter_Callback = bool (*)(QGraphicsSvgItem*, QGraphicsItem*, QEvent*);
     using QGraphicsSvgItem_SceneEvent_Callback = bool (*)(QGraphicsSvgItem*, QEvent*);
     using QGraphicsSvgItem_ContextMenuEvent_Callback = void (*)(QGraphicsSvgItem*, QGraphicsSceneContextMenuEvent*);
@@ -63,16 +59,15 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
     using QGraphicsSvgItem_SupportsExtension_Callback = bool (*)(const QGraphicsSvgItem*, int);
     using QGraphicsSvgItem_SetExtension_Callback = void (*)(QGraphicsSvgItem*, int, QVariant*);
     using QGraphicsSvgItem_Extension_Callback = QVariant* (*)(const QGraphicsSvgItem*, QVariant*);
-    using QGraphicsSvgItem_UpdateMicroFocus_Callback = void (*)();
-    using QGraphicsSvgItem_Sender_Callback = QObject* (*)();
-    using QGraphicsSvgItem_SenderSignalIndex_Callback = int (*)();
-    using QGraphicsSvgItem_Receivers_Callback = int (*)(const QGraphicsSvgItem*, const char*);
-    using QGraphicsSvgItem_IsSignalConnected_Callback = bool (*)(const QGraphicsSvgItem*, QMetaMethod*);
-    using QGraphicsSvgItem_AddToIndex_Callback = void (*)();
-    using QGraphicsSvgItem_RemoveFromIndex_Callback = void (*)();
-    using QGraphicsSvgItem_PrepareGeometryChange_Callback = void (*)();
+    using QGraphicsSvgItem::addToIndex;
+    using QGraphicsSvgItem::isSignalConnected;
+    using QGraphicsSvgItem::prepareGeometryChange;
+    using QGraphicsSvgItem::receivers;
+    using QGraphicsSvgItem::removeFromIndex;
+    using QGraphicsSvgItem::sender;
+    using QGraphicsSvgItem::senderSignalIndex;
+    using QGraphicsSvgItem::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QGraphicsSvgItem_MetaObject_Callback qgraphicssvgitem_metaobject_callback = nullptr;
     QGraphicsSvgItem_Metacast_Callback qgraphicssvgitem_metacast_callback = nullptr;
@@ -119,195 +114,51 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
     QGraphicsSvgItem_SupportsExtension_Callback qgraphicssvgitem_supportsextension_callback = nullptr;
     QGraphicsSvgItem_SetExtension_Callback qgraphicssvgitem_setextension_callback = nullptr;
     QGraphicsSvgItem_Extension_Callback qgraphicssvgitem_extension_callback = nullptr;
-    QGraphicsSvgItem_UpdateMicroFocus_Callback qgraphicssvgitem_updatemicrofocus_callback = nullptr;
-    QGraphicsSvgItem_Sender_Callback qgraphicssvgitem_sender_callback = nullptr;
-    QGraphicsSvgItem_SenderSignalIndex_Callback qgraphicssvgitem_sendersignalindex_callback = nullptr;
-    QGraphicsSvgItem_Receivers_Callback qgraphicssvgitem_receivers_callback = nullptr;
-    QGraphicsSvgItem_IsSignalConnected_Callback qgraphicssvgitem_issignalconnected_callback = nullptr;
-    QGraphicsSvgItem_AddToIndex_Callback qgraphicssvgitem_addtoindex_callback = nullptr;
-    QGraphicsSvgItem_RemoveFromIndex_Callback qgraphicssvgitem_removefromindex_callback = nullptr;
-    QGraphicsSvgItem_PrepareGeometryChange_Callback qgraphicssvgitem_preparegeometrychange_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qgraphicssvgitem_metaobject_isbase = false;
-    mutable bool qgraphicssvgitem_metacast_isbase = false;
-    mutable bool qgraphicssvgitem_metacall_isbase = false;
-    mutable bool qgraphicssvgitem_boundingrect_isbase = false;
-    mutable bool qgraphicssvgitem_paint_isbase = false;
-    mutable bool qgraphicssvgitem_type_isbase = false;
-    mutable bool qgraphicssvgitem_event_isbase = false;
-    mutable bool qgraphicssvgitem_eventfilter_isbase = false;
-    mutable bool qgraphicssvgitem_timerevent_isbase = false;
-    mutable bool qgraphicssvgitem_childevent_isbase = false;
-    mutable bool qgraphicssvgitem_customevent_isbase = false;
-    mutable bool qgraphicssvgitem_connectnotify_isbase = false;
-    mutable bool qgraphicssvgitem_disconnectnotify_isbase = false;
-    mutable bool qgraphicssvgitem_advance_isbase = false;
-    mutable bool qgraphicssvgitem_shape_isbase = false;
-    mutable bool qgraphicssvgitem_contains_isbase = false;
-    mutable bool qgraphicssvgitem_collideswithitem_isbase = false;
-    mutable bool qgraphicssvgitem_collideswithpath_isbase = false;
-    mutable bool qgraphicssvgitem_isobscuredby_isbase = false;
-    mutable bool qgraphicssvgitem_opaquearea_isbase = false;
-    mutable bool qgraphicssvgitem_sceneeventfilter_isbase = false;
-    mutable bool qgraphicssvgitem_sceneevent_isbase = false;
-    mutable bool qgraphicssvgitem_contextmenuevent_isbase = false;
-    mutable bool qgraphicssvgitem_dragenterevent_isbase = false;
-    mutable bool qgraphicssvgitem_dragleaveevent_isbase = false;
-    mutable bool qgraphicssvgitem_dragmoveevent_isbase = false;
-    mutable bool qgraphicssvgitem_dropevent_isbase = false;
-    mutable bool qgraphicssvgitem_focusinevent_isbase = false;
-    mutable bool qgraphicssvgitem_focusoutevent_isbase = false;
-    mutable bool qgraphicssvgitem_hoverenterevent_isbase = false;
-    mutable bool qgraphicssvgitem_hovermoveevent_isbase = false;
-    mutable bool qgraphicssvgitem_hoverleaveevent_isbase = false;
-    mutable bool qgraphicssvgitem_keypressevent_isbase = false;
-    mutable bool qgraphicssvgitem_keyreleaseevent_isbase = false;
-    mutable bool qgraphicssvgitem_mousepressevent_isbase = false;
-    mutable bool qgraphicssvgitem_mousemoveevent_isbase = false;
-    mutable bool qgraphicssvgitem_mousereleaseevent_isbase = false;
-    mutable bool qgraphicssvgitem_mousedoubleclickevent_isbase = false;
-    mutable bool qgraphicssvgitem_wheelevent_isbase = false;
-    mutable bool qgraphicssvgitem_inputmethodevent_isbase = false;
-    mutable bool qgraphicssvgitem_inputmethodquery_isbase = false;
-    mutable bool qgraphicssvgitem_itemchange_isbase = false;
-    mutable bool qgraphicssvgitem_supportsextension_isbase = false;
-    mutable bool qgraphicssvgitem_setextension_isbase = false;
-    mutable bool qgraphicssvgitem_extension_isbase = false;
-    mutable bool qgraphicssvgitem_updatemicrofocus_isbase = false;
-    mutable bool qgraphicssvgitem_sender_isbase = false;
-    mutable bool qgraphicssvgitem_sendersignalindex_isbase = false;
-    mutable bool qgraphicssvgitem_receivers_isbase = false;
-    mutable bool qgraphicssvgitem_issignalconnected_isbase = false;
-    mutable bool qgraphicssvgitem_addtoindex_isbase = false;
-    mutable bool qgraphicssvgitem_removefromindex_isbase = false;
-    mutable bool qgraphicssvgitem_preparegeometrychange_isbase = false;
+    // Access struct
+    struct Base : QGraphicsSvgItem {
+        using QGraphicsSvgItem::childEvent;
+        using QGraphicsSvgItem::connectNotify;
+        using QGraphicsSvgItem::contextMenuEvent;
+        using QGraphicsSvgItem::customEvent;
+        using QGraphicsSvgItem::disconnectNotify;
+        using QGraphicsSvgItem::dragEnterEvent;
+        using QGraphicsSvgItem::dragLeaveEvent;
+        using QGraphicsSvgItem::dragMoveEvent;
+        using QGraphicsSvgItem::dropEvent;
+        using QGraphicsSvgItem::event;
+        using QGraphicsSvgItem::extension;
+        using QGraphicsSvgItem::focusInEvent;
+        using QGraphicsSvgItem::focusOutEvent;
+        using QGraphicsSvgItem::hoverEnterEvent;
+        using QGraphicsSvgItem::hoverLeaveEvent;
+        using QGraphicsSvgItem::hoverMoveEvent;
+        using QGraphicsSvgItem::inputMethodEvent;
+        using QGraphicsSvgItem::inputMethodQuery;
+        using QGraphicsSvgItem::itemChange;
+        using QGraphicsSvgItem::keyPressEvent;
+        using QGraphicsSvgItem::keyReleaseEvent;
+        using QGraphicsSvgItem::mouseDoubleClickEvent;
+        using QGraphicsSvgItem::mouseMoveEvent;
+        using QGraphicsSvgItem::mousePressEvent;
+        using QGraphicsSvgItem::mouseReleaseEvent;
+        using QGraphicsSvgItem::sceneEvent;
+        using QGraphicsSvgItem::sceneEventFilter;
+        using QGraphicsSvgItem::setExtension;
+        using QGraphicsSvgItem::supportsExtension;
+        using QGraphicsSvgItem::timerEvent;
+        using QGraphicsSvgItem::wheelEvent;
+    };
 
-  public:
     VirtualQGraphicsSvgItem() : QGraphicsSvgItem() {};
     VirtualQGraphicsSvgItem(const QString& fileName) : QGraphicsSvgItem(fileName) {};
     VirtualQGraphicsSvgItem(QGraphicsItem* parentItem) : QGraphicsSvgItem(parentItem) {};
     VirtualQGraphicsSvgItem(const QString& fileName, QGraphicsItem* parentItem) : QGraphicsSvgItem(fileName, parentItem) {};
 
-    // Callback setters
-    inline void setQGraphicsSvgItem_MetaObject_Callback(QGraphicsSvgItem_MetaObject_Callback cb) { qgraphicssvgitem_metaobject_callback = cb; }
-    inline void setQGraphicsSvgItem_Metacast_Callback(QGraphicsSvgItem_Metacast_Callback cb) { qgraphicssvgitem_metacast_callback = cb; }
-    inline void setQGraphicsSvgItem_Metacall_Callback(QGraphicsSvgItem_Metacall_Callback cb) { qgraphicssvgitem_metacall_callback = cb; }
-    inline void setQGraphicsSvgItem_BoundingRect_Callback(QGraphicsSvgItem_BoundingRect_Callback cb) { qgraphicssvgitem_boundingrect_callback = cb; }
-    inline void setQGraphicsSvgItem_Paint_Callback(QGraphicsSvgItem_Paint_Callback cb) { qgraphicssvgitem_paint_callback = cb; }
-    inline void setQGraphicsSvgItem_Type_Callback(QGraphicsSvgItem_Type_Callback cb) { qgraphicssvgitem_type_callback = cb; }
-    inline void setQGraphicsSvgItem_Event_Callback(QGraphicsSvgItem_Event_Callback cb) { qgraphicssvgitem_event_callback = cb; }
-    inline void setQGraphicsSvgItem_EventFilter_Callback(QGraphicsSvgItem_EventFilter_Callback cb) { qgraphicssvgitem_eventfilter_callback = cb; }
-    inline void setQGraphicsSvgItem_TimerEvent_Callback(QGraphicsSvgItem_TimerEvent_Callback cb) { qgraphicssvgitem_timerevent_callback = cb; }
-    inline void setQGraphicsSvgItem_ChildEvent_Callback(QGraphicsSvgItem_ChildEvent_Callback cb) { qgraphicssvgitem_childevent_callback = cb; }
-    inline void setQGraphicsSvgItem_CustomEvent_Callback(QGraphicsSvgItem_CustomEvent_Callback cb) { qgraphicssvgitem_customevent_callback = cb; }
-    inline void setQGraphicsSvgItem_ConnectNotify_Callback(QGraphicsSvgItem_ConnectNotify_Callback cb) { qgraphicssvgitem_connectnotify_callback = cb; }
-    inline void setQGraphicsSvgItem_DisconnectNotify_Callback(QGraphicsSvgItem_DisconnectNotify_Callback cb) { qgraphicssvgitem_disconnectnotify_callback = cb; }
-    inline void setQGraphicsSvgItem_Advance_Callback(QGraphicsSvgItem_Advance_Callback cb) { qgraphicssvgitem_advance_callback = cb; }
-    inline void setQGraphicsSvgItem_Shape_Callback(QGraphicsSvgItem_Shape_Callback cb) { qgraphicssvgitem_shape_callback = cb; }
-    inline void setQGraphicsSvgItem_Contains_Callback(QGraphicsSvgItem_Contains_Callback cb) { qgraphicssvgitem_contains_callback = cb; }
-    inline void setQGraphicsSvgItem_CollidesWithItem_Callback(QGraphicsSvgItem_CollidesWithItem_Callback cb) { qgraphicssvgitem_collideswithitem_callback = cb; }
-    inline void setQGraphicsSvgItem_CollidesWithPath_Callback(QGraphicsSvgItem_CollidesWithPath_Callback cb) { qgraphicssvgitem_collideswithpath_callback = cb; }
-    inline void setQGraphicsSvgItem_IsObscuredBy_Callback(QGraphicsSvgItem_IsObscuredBy_Callback cb) { qgraphicssvgitem_isobscuredby_callback = cb; }
-    inline void setQGraphicsSvgItem_OpaqueArea_Callback(QGraphicsSvgItem_OpaqueArea_Callback cb) { qgraphicssvgitem_opaquearea_callback = cb; }
-    inline void setQGraphicsSvgItem_SceneEventFilter_Callback(QGraphicsSvgItem_SceneEventFilter_Callback cb) { qgraphicssvgitem_sceneeventfilter_callback = cb; }
-    inline void setQGraphicsSvgItem_SceneEvent_Callback(QGraphicsSvgItem_SceneEvent_Callback cb) { qgraphicssvgitem_sceneevent_callback = cb; }
-    inline void setQGraphicsSvgItem_ContextMenuEvent_Callback(QGraphicsSvgItem_ContextMenuEvent_Callback cb) { qgraphicssvgitem_contextmenuevent_callback = cb; }
-    inline void setQGraphicsSvgItem_DragEnterEvent_Callback(QGraphicsSvgItem_DragEnterEvent_Callback cb) { qgraphicssvgitem_dragenterevent_callback = cb; }
-    inline void setQGraphicsSvgItem_DragLeaveEvent_Callback(QGraphicsSvgItem_DragLeaveEvent_Callback cb) { qgraphicssvgitem_dragleaveevent_callback = cb; }
-    inline void setQGraphicsSvgItem_DragMoveEvent_Callback(QGraphicsSvgItem_DragMoveEvent_Callback cb) { qgraphicssvgitem_dragmoveevent_callback = cb; }
-    inline void setQGraphicsSvgItem_DropEvent_Callback(QGraphicsSvgItem_DropEvent_Callback cb) { qgraphicssvgitem_dropevent_callback = cb; }
-    inline void setQGraphicsSvgItem_FocusInEvent_Callback(QGraphicsSvgItem_FocusInEvent_Callback cb) { qgraphicssvgitem_focusinevent_callback = cb; }
-    inline void setQGraphicsSvgItem_FocusOutEvent_Callback(QGraphicsSvgItem_FocusOutEvent_Callback cb) { qgraphicssvgitem_focusoutevent_callback = cb; }
-    inline void setQGraphicsSvgItem_HoverEnterEvent_Callback(QGraphicsSvgItem_HoverEnterEvent_Callback cb) { qgraphicssvgitem_hoverenterevent_callback = cb; }
-    inline void setQGraphicsSvgItem_HoverMoveEvent_Callback(QGraphicsSvgItem_HoverMoveEvent_Callback cb) { qgraphicssvgitem_hovermoveevent_callback = cb; }
-    inline void setQGraphicsSvgItem_HoverLeaveEvent_Callback(QGraphicsSvgItem_HoverLeaveEvent_Callback cb) { qgraphicssvgitem_hoverleaveevent_callback = cb; }
-    inline void setQGraphicsSvgItem_KeyPressEvent_Callback(QGraphicsSvgItem_KeyPressEvent_Callback cb) { qgraphicssvgitem_keypressevent_callback = cb; }
-    inline void setQGraphicsSvgItem_KeyReleaseEvent_Callback(QGraphicsSvgItem_KeyReleaseEvent_Callback cb) { qgraphicssvgitem_keyreleaseevent_callback = cb; }
-    inline void setQGraphicsSvgItem_MousePressEvent_Callback(QGraphicsSvgItem_MousePressEvent_Callback cb) { qgraphicssvgitem_mousepressevent_callback = cb; }
-    inline void setQGraphicsSvgItem_MouseMoveEvent_Callback(QGraphicsSvgItem_MouseMoveEvent_Callback cb) { qgraphicssvgitem_mousemoveevent_callback = cb; }
-    inline void setQGraphicsSvgItem_MouseReleaseEvent_Callback(QGraphicsSvgItem_MouseReleaseEvent_Callback cb) { qgraphicssvgitem_mousereleaseevent_callback = cb; }
-    inline void setQGraphicsSvgItem_MouseDoubleClickEvent_Callback(QGraphicsSvgItem_MouseDoubleClickEvent_Callback cb) { qgraphicssvgitem_mousedoubleclickevent_callback = cb; }
-    inline void setQGraphicsSvgItem_WheelEvent_Callback(QGraphicsSvgItem_WheelEvent_Callback cb) { qgraphicssvgitem_wheelevent_callback = cb; }
-    inline void setQGraphicsSvgItem_InputMethodEvent_Callback(QGraphicsSvgItem_InputMethodEvent_Callback cb) { qgraphicssvgitem_inputmethodevent_callback = cb; }
-    inline void setQGraphicsSvgItem_InputMethodQuery_Callback(QGraphicsSvgItem_InputMethodQuery_Callback cb) { qgraphicssvgitem_inputmethodquery_callback = cb; }
-    inline void setQGraphicsSvgItem_ItemChange_Callback(QGraphicsSvgItem_ItemChange_Callback cb) { qgraphicssvgitem_itemchange_callback = cb; }
-    inline void setQGraphicsSvgItem_SupportsExtension_Callback(QGraphicsSvgItem_SupportsExtension_Callback cb) { qgraphicssvgitem_supportsextension_callback = cb; }
-    inline void setQGraphicsSvgItem_SetExtension_Callback(QGraphicsSvgItem_SetExtension_Callback cb) { qgraphicssvgitem_setextension_callback = cb; }
-    inline void setQGraphicsSvgItem_Extension_Callback(QGraphicsSvgItem_Extension_Callback cb) { qgraphicssvgitem_extension_callback = cb; }
-    inline void setQGraphicsSvgItem_UpdateMicroFocus_Callback(QGraphicsSvgItem_UpdateMicroFocus_Callback cb) { qgraphicssvgitem_updatemicrofocus_callback = cb; }
-    inline void setQGraphicsSvgItem_Sender_Callback(QGraphicsSvgItem_Sender_Callback cb) { qgraphicssvgitem_sender_callback = cb; }
-    inline void setQGraphicsSvgItem_SenderSignalIndex_Callback(QGraphicsSvgItem_SenderSignalIndex_Callback cb) { qgraphicssvgitem_sendersignalindex_callback = cb; }
-    inline void setQGraphicsSvgItem_Receivers_Callback(QGraphicsSvgItem_Receivers_Callback cb) { qgraphicssvgitem_receivers_callback = cb; }
-    inline void setQGraphicsSvgItem_IsSignalConnected_Callback(QGraphicsSvgItem_IsSignalConnected_Callback cb) { qgraphicssvgitem_issignalconnected_callback = cb; }
-    inline void setQGraphicsSvgItem_AddToIndex_Callback(QGraphicsSvgItem_AddToIndex_Callback cb) { qgraphicssvgitem_addtoindex_callback = cb; }
-    inline void setQGraphicsSvgItem_RemoveFromIndex_Callback(QGraphicsSvgItem_RemoveFromIndex_Callback cb) { qgraphicssvgitem_removefromindex_callback = cb; }
-    inline void setQGraphicsSvgItem_PrepareGeometryChange_Callback(QGraphicsSvgItem_PrepareGeometryChange_Callback cb) { qgraphicssvgitem_preparegeometrychange_callback = cb; }
-
-    // Base flag setters
-    inline void setQGraphicsSvgItem_MetaObject_IsBase(bool value) const { qgraphicssvgitem_metaobject_isbase = value; }
-    inline void setQGraphicsSvgItem_Metacast_IsBase(bool value) const { qgraphicssvgitem_metacast_isbase = value; }
-    inline void setQGraphicsSvgItem_Metacall_IsBase(bool value) const { qgraphicssvgitem_metacall_isbase = value; }
-    inline void setQGraphicsSvgItem_BoundingRect_IsBase(bool value) const { qgraphicssvgitem_boundingrect_isbase = value; }
-    inline void setQGraphicsSvgItem_Paint_IsBase(bool value) const { qgraphicssvgitem_paint_isbase = value; }
-    inline void setQGraphicsSvgItem_Type_IsBase(bool value) const { qgraphicssvgitem_type_isbase = value; }
-    inline void setQGraphicsSvgItem_Event_IsBase(bool value) const { qgraphicssvgitem_event_isbase = value; }
-    inline void setQGraphicsSvgItem_EventFilter_IsBase(bool value) const { qgraphicssvgitem_eventfilter_isbase = value; }
-    inline void setQGraphicsSvgItem_TimerEvent_IsBase(bool value) const { qgraphicssvgitem_timerevent_isbase = value; }
-    inline void setQGraphicsSvgItem_ChildEvent_IsBase(bool value) const { qgraphicssvgitem_childevent_isbase = value; }
-    inline void setQGraphicsSvgItem_CustomEvent_IsBase(bool value) const { qgraphicssvgitem_customevent_isbase = value; }
-    inline void setQGraphicsSvgItem_ConnectNotify_IsBase(bool value) const { qgraphicssvgitem_connectnotify_isbase = value; }
-    inline void setQGraphicsSvgItem_DisconnectNotify_IsBase(bool value) const { qgraphicssvgitem_disconnectnotify_isbase = value; }
-    inline void setQGraphicsSvgItem_Advance_IsBase(bool value) const { qgraphicssvgitem_advance_isbase = value; }
-    inline void setQGraphicsSvgItem_Shape_IsBase(bool value) const { qgraphicssvgitem_shape_isbase = value; }
-    inline void setQGraphicsSvgItem_Contains_IsBase(bool value) const { qgraphicssvgitem_contains_isbase = value; }
-    inline void setQGraphicsSvgItem_CollidesWithItem_IsBase(bool value) const { qgraphicssvgitem_collideswithitem_isbase = value; }
-    inline void setQGraphicsSvgItem_CollidesWithPath_IsBase(bool value) const { qgraphicssvgitem_collideswithpath_isbase = value; }
-    inline void setQGraphicsSvgItem_IsObscuredBy_IsBase(bool value) const { qgraphicssvgitem_isobscuredby_isbase = value; }
-    inline void setQGraphicsSvgItem_OpaqueArea_IsBase(bool value) const { qgraphicssvgitem_opaquearea_isbase = value; }
-    inline void setQGraphicsSvgItem_SceneEventFilter_IsBase(bool value) const { qgraphicssvgitem_sceneeventfilter_isbase = value; }
-    inline void setQGraphicsSvgItem_SceneEvent_IsBase(bool value) const { qgraphicssvgitem_sceneevent_isbase = value; }
-    inline void setQGraphicsSvgItem_ContextMenuEvent_IsBase(bool value) const { qgraphicssvgitem_contextmenuevent_isbase = value; }
-    inline void setQGraphicsSvgItem_DragEnterEvent_IsBase(bool value) const { qgraphicssvgitem_dragenterevent_isbase = value; }
-    inline void setQGraphicsSvgItem_DragLeaveEvent_IsBase(bool value) const { qgraphicssvgitem_dragleaveevent_isbase = value; }
-    inline void setQGraphicsSvgItem_DragMoveEvent_IsBase(bool value) const { qgraphicssvgitem_dragmoveevent_isbase = value; }
-    inline void setQGraphicsSvgItem_DropEvent_IsBase(bool value) const { qgraphicssvgitem_dropevent_isbase = value; }
-    inline void setQGraphicsSvgItem_FocusInEvent_IsBase(bool value) const { qgraphicssvgitem_focusinevent_isbase = value; }
-    inline void setQGraphicsSvgItem_FocusOutEvent_IsBase(bool value) const { qgraphicssvgitem_focusoutevent_isbase = value; }
-    inline void setQGraphicsSvgItem_HoverEnterEvent_IsBase(bool value) const { qgraphicssvgitem_hoverenterevent_isbase = value; }
-    inline void setQGraphicsSvgItem_HoverMoveEvent_IsBase(bool value) const { qgraphicssvgitem_hovermoveevent_isbase = value; }
-    inline void setQGraphicsSvgItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicssvgitem_hoverleaveevent_isbase = value; }
-    inline void setQGraphicsSvgItem_KeyPressEvent_IsBase(bool value) const { qgraphicssvgitem_keypressevent_isbase = value; }
-    inline void setQGraphicsSvgItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicssvgitem_keyreleaseevent_isbase = value; }
-    inline void setQGraphicsSvgItem_MousePressEvent_IsBase(bool value) const { qgraphicssvgitem_mousepressevent_isbase = value; }
-    inline void setQGraphicsSvgItem_MouseMoveEvent_IsBase(bool value) const { qgraphicssvgitem_mousemoveevent_isbase = value; }
-    inline void setQGraphicsSvgItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicssvgitem_mousereleaseevent_isbase = value; }
-    inline void setQGraphicsSvgItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicssvgitem_mousedoubleclickevent_isbase = value; }
-    inline void setQGraphicsSvgItem_WheelEvent_IsBase(bool value) const { qgraphicssvgitem_wheelevent_isbase = value; }
-    inline void setQGraphicsSvgItem_InputMethodEvent_IsBase(bool value) const { qgraphicssvgitem_inputmethodevent_isbase = value; }
-    inline void setQGraphicsSvgItem_InputMethodQuery_IsBase(bool value) const { qgraphicssvgitem_inputmethodquery_isbase = value; }
-    inline void setQGraphicsSvgItem_ItemChange_IsBase(bool value) const { qgraphicssvgitem_itemchange_isbase = value; }
-    inline void setQGraphicsSvgItem_SupportsExtension_IsBase(bool value) const { qgraphicssvgitem_supportsextension_isbase = value; }
-    inline void setQGraphicsSvgItem_SetExtension_IsBase(bool value) const { qgraphicssvgitem_setextension_isbase = value; }
-    inline void setQGraphicsSvgItem_Extension_IsBase(bool value) const { qgraphicssvgitem_extension_isbase = value; }
-    inline void setQGraphicsSvgItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicssvgitem_updatemicrofocus_isbase = value; }
-    inline void setQGraphicsSvgItem_Sender_IsBase(bool value) const { qgraphicssvgitem_sender_isbase = value; }
-    inline void setQGraphicsSvgItem_SenderSignalIndex_IsBase(bool value) const { qgraphicssvgitem_sendersignalindex_isbase = value; }
-    inline void setQGraphicsSvgItem_Receivers_IsBase(bool value) const { qgraphicssvgitem_receivers_isbase = value; }
-    inline void setQGraphicsSvgItem_IsSignalConnected_IsBase(bool value) const { qgraphicssvgitem_issignalconnected_isbase = value; }
-    inline void setQGraphicsSvgItem_AddToIndex_IsBase(bool value) const { qgraphicssvgitem_addtoindex_isbase = value; }
-    inline void setQGraphicsSvgItem_RemoveFromIndex_IsBase(bool value) const { qgraphicssvgitem_removefromindex_isbase = value; }
-    inline void setQGraphicsSvgItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicssvgitem_preparegeometrychange_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qgraphicssvgitem_metaobject_isbase) {
-            qgraphicssvgitem_metaobject_isbase = false;
-            return QGraphicsSvgItem::metaObject();
-        }
-        auto metaobject_cb = qgraphicssvgitem_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qgraphicssvgitem_metaobject_callback) {
+            QMetaObject* callback_ret = qgraphicssvgitem_metaobject_callback(this);
             return callback_ret;
         }
         return QGraphicsSvgItem::metaObject();
@@ -315,14 +166,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qgraphicssvgitem_metacast_isbase) {
-            qgraphicssvgitem_metacast_isbase = false;
-            return QGraphicsSvgItem::qt_metacast(param1);
-        }
-        auto metacast_cb = qgraphicssvgitem_metacast_callback;
-        if (metacast_cb) {
+        if (qgraphicssvgitem_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qgraphicssvgitem_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QGraphicsSvgItem::qt_metacast(param1);
@@ -330,16 +176,11 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qgraphicssvgitem_metacall_isbase) {
-            qgraphicssvgitem_metacall_isbase = false;
-            return QGraphicsSvgItem::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qgraphicssvgitem_metacall_callback;
-        if (metacall_cb) {
+        if (qgraphicssvgitem_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qgraphicssvgitem_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QGraphicsSvgItem::qt_metacall(param1, param2, param3);
@@ -347,13 +188,8 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
-        if (qgraphicssvgitem_boundingrect_isbase) {
-            qgraphicssvgitem_boundingrect_isbase = false;
-            return QGraphicsSvgItem::boundingRect();
-        }
-        auto boundingrect_cb = qgraphicssvgitem_boundingrect_callback;
-        if (boundingrect_cb) {
-            QRectF* callback_ret = boundingrect_cb();
+        if (qgraphicssvgitem_boundingrect_callback) {
+            QRectF* callback_ret = qgraphicssvgitem_boundingrect_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -363,17 +199,11 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override {
-        if (qgraphicssvgitem_paint_isbase) {
-            qgraphicssvgitem_paint_isbase = false;
-            QGraphicsSvgItem::paint(painter, option, widget);
-            return;
-        }
-        auto paint_cb = qgraphicssvgitem_paint_callback;
-        if (paint_cb) {
+        if (qgraphicssvgitem_paint_callback) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
-            paint_cb(this, cbval1, cbval2, cbval3);
+            qgraphicssvgitem_paint_callback(this, cbval1, cbval2, cbval3);
             return;
         }
         QGraphicsSvgItem::paint(painter, option, widget);
@@ -381,13 +211,8 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual int type() const override {
-        if (qgraphicssvgitem_type_isbase) {
-            qgraphicssvgitem_type_isbase = false;
-            return QGraphicsSvgItem::type();
-        }
-        auto type_cb = qgraphicssvgitem_type_callback;
-        if (type_cb) {
-            int callback_ret = type_cb();
+        if (qgraphicssvgitem_type_callback) {
+            int callback_ret = qgraphicssvgitem_type_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QGraphicsSvgItem::type();
@@ -395,14 +220,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* ev) override {
-        if (qgraphicssvgitem_event_isbase) {
-            qgraphicssvgitem_event_isbase = false;
-            return QGraphicsSvgItem::event(ev);
-        }
-        auto event_cb = qgraphicssvgitem_event_callback;
-        if (event_cb) {
+        if (qgraphicssvgitem_event_callback) {
             QEvent* cbval1 = ev;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qgraphicssvgitem_event_callback(this, cbval1);
             return callback_ret;
         }
         return QGraphicsSvgItem::event(ev);
@@ -410,15 +230,10 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qgraphicssvgitem_eventfilter_isbase) {
-            qgraphicssvgitem_eventfilter_isbase = false;
-            return QGraphicsSvgItem::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qgraphicssvgitem_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qgraphicssvgitem_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qgraphicssvgitem_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QGraphicsSvgItem::eventFilter(watched, event);
@@ -426,15 +241,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qgraphicssvgitem_timerevent_isbase) {
-            qgraphicssvgitem_timerevent_isbase = false;
-            QGraphicsSvgItem::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qgraphicssvgitem_timerevent_callback;
-        if (timerevent_cb) {
+        if (qgraphicssvgitem_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qgraphicssvgitem_timerevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::timerEvent(event);
@@ -442,15 +251,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qgraphicssvgitem_childevent_isbase) {
-            qgraphicssvgitem_childevent_isbase = false;
-            QGraphicsSvgItem::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qgraphicssvgitem_childevent_callback;
-        if (childevent_cb) {
+        if (qgraphicssvgitem_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qgraphicssvgitem_childevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::childEvent(event);
@@ -458,15 +261,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qgraphicssvgitem_customevent_isbase) {
-            qgraphicssvgitem_customevent_isbase = false;
-            QGraphicsSvgItem::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qgraphicssvgitem_customevent_callback;
-        if (customevent_cb) {
+        if (qgraphicssvgitem_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qgraphicssvgitem_customevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::customEvent(event);
@@ -474,17 +271,11 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qgraphicssvgitem_connectnotify_isbase) {
-            qgraphicssvgitem_connectnotify_isbase = false;
-            QGraphicsSvgItem::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qgraphicssvgitem_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qgraphicssvgitem_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qgraphicssvgitem_connectnotify_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::connectNotify(signal);
@@ -492,17 +283,11 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qgraphicssvgitem_disconnectnotify_isbase) {
-            qgraphicssvgitem_disconnectnotify_isbase = false;
-            QGraphicsSvgItem::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qgraphicssvgitem_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qgraphicssvgitem_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qgraphicssvgitem_disconnectnotify_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::disconnectNotify(signal);
@@ -510,15 +295,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void advance(int phase) override {
-        if (qgraphicssvgitem_advance_isbase) {
-            qgraphicssvgitem_advance_isbase = false;
-            QGraphicsSvgItem::advance(phase);
-            return;
-        }
-        auto advance_cb = qgraphicssvgitem_advance_callback;
-        if (advance_cb) {
+        if (qgraphicssvgitem_advance_callback) {
             int cbval1 = phase;
-            advance_cb(this, cbval1);
+            qgraphicssvgitem_advance_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::advance(phase);
@@ -526,13 +305,8 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainterPath shape() const override {
-        if (qgraphicssvgitem_shape_isbase) {
-            qgraphicssvgitem_shape_isbase = false;
-            return QGraphicsSvgItem::shape();
-        }
-        auto shape_cb = qgraphicssvgitem_shape_callback;
-        if (shape_cb) {
-            QPainterPath* callback_ret = shape_cb();
+        if (qgraphicssvgitem_shape_callback) {
+            QPainterPath* callback_ret = qgraphicssvgitem_shape_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -542,16 +316,11 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool contains(const QPointF& point) const override {
-        if (qgraphicssvgitem_contains_isbase) {
-            qgraphicssvgitem_contains_isbase = false;
-            return QGraphicsSvgItem::contains(point);
-        }
-        auto contains_cb = qgraphicssvgitem_contains_callback;
-        if (contains_cb) {
+        if (qgraphicssvgitem_contains_callback) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
-            bool callback_ret = contains_cb(this, cbval1);
+            bool callback_ret = qgraphicssvgitem_contains_callback(this, cbval1);
             return callback_ret;
         }
         return QGraphicsSvgItem::contains(point);
@@ -559,15 +328,10 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool collidesWithItem(const QGraphicsItem* other, Qt::ItemSelectionMode mode) const override {
-        if (qgraphicssvgitem_collideswithitem_isbase) {
-            qgraphicssvgitem_collideswithitem_isbase = false;
-            return QGraphicsSvgItem::collidesWithItem(other, mode);
-        }
-        auto collideswithitem_cb = qgraphicssvgitem_collideswithitem_callback;
-        if (collideswithitem_cb) {
+        if (qgraphicssvgitem_collideswithitem_callback) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
-            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
+            bool callback_ret = qgraphicssvgitem_collideswithitem_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QGraphicsSvgItem::collidesWithItem(other, mode);
@@ -575,17 +339,12 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool collidesWithPath(const QPainterPath& path, Qt::ItemSelectionMode mode) const override {
-        if (qgraphicssvgitem_collideswithpath_isbase) {
-            qgraphicssvgitem_collideswithpath_isbase = false;
-            return QGraphicsSvgItem::collidesWithPath(path, mode);
-        }
-        auto collideswithpath_cb = qgraphicssvgitem_collideswithpath_callback;
-        if (collideswithpath_cb) {
+        if (qgraphicssvgitem_collideswithpath_callback) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
-            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
+            bool callback_ret = qgraphicssvgitem_collideswithpath_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QGraphicsSvgItem::collidesWithPath(path, mode);
@@ -593,14 +352,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool isObscuredBy(const QGraphicsItem* item) const override {
-        if (qgraphicssvgitem_isobscuredby_isbase) {
-            qgraphicssvgitem_isobscuredby_isbase = false;
-            return QGraphicsSvgItem::isObscuredBy(item);
-        }
-        auto isobscuredby_cb = qgraphicssvgitem_isobscuredby_callback;
-        if (isobscuredby_cb) {
+        if (qgraphicssvgitem_isobscuredby_callback) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
-            bool callback_ret = isobscuredby_cb(this, cbval1);
+            bool callback_ret = qgraphicssvgitem_isobscuredby_callback(this, cbval1);
             return callback_ret;
         }
         return QGraphicsSvgItem::isObscuredBy(item);
@@ -608,13 +362,8 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainterPath opaqueArea() const override {
-        if (qgraphicssvgitem_opaquearea_isbase) {
-            qgraphicssvgitem_opaquearea_isbase = false;
-            return QGraphicsSvgItem::opaqueArea();
-        }
-        auto opaquearea_cb = qgraphicssvgitem_opaquearea_callback;
-        if (opaquearea_cb) {
-            QPainterPath* callback_ret = opaquearea_cb();
+        if (qgraphicssvgitem_opaquearea_callback) {
+            QPainterPath* callback_ret = qgraphicssvgitem_opaquearea_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -624,15 +373,10 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool sceneEventFilter(QGraphicsItem* watched, QEvent* event) override {
-        if (qgraphicssvgitem_sceneeventfilter_isbase) {
-            qgraphicssvgitem_sceneeventfilter_isbase = false;
-            return QGraphicsSvgItem::sceneEventFilter(watched, event);
-        }
-        auto sceneeventfilter_cb = qgraphicssvgitem_sceneeventfilter_callback;
-        if (sceneeventfilter_cb) {
+        if (qgraphicssvgitem_sceneeventfilter_callback) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qgraphicssvgitem_sceneeventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QGraphicsSvgItem::sceneEventFilter(watched, event);
@@ -640,14 +384,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool sceneEvent(QEvent* event) override {
-        if (qgraphicssvgitem_sceneevent_isbase) {
-            qgraphicssvgitem_sceneevent_isbase = false;
-            return QGraphicsSvgItem::sceneEvent(event);
-        }
-        auto sceneevent_cb = qgraphicssvgitem_sceneevent_callback;
-        if (sceneevent_cb) {
+        if (qgraphicssvgitem_sceneevent_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = sceneevent_cb(this, cbval1);
+            bool callback_ret = qgraphicssvgitem_sceneevent_callback(this, cbval1);
             return callback_ret;
         }
         return QGraphicsSvgItem::sceneEvent(event);
@@ -655,15 +394,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QGraphicsSceneContextMenuEvent* event) override {
-        if (qgraphicssvgitem_contextmenuevent_isbase) {
-            qgraphicssvgitem_contextmenuevent_isbase = false;
-            QGraphicsSvgItem::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qgraphicssvgitem_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qgraphicssvgitem_contextmenuevent_callback) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qgraphicssvgitem_contextmenuevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::contextMenuEvent(event);
@@ -671,15 +404,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QGraphicsSceneDragDropEvent* event) override {
-        if (qgraphicssvgitem_dragenterevent_isbase) {
-            qgraphicssvgitem_dragenterevent_isbase = false;
-            QGraphicsSvgItem::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qgraphicssvgitem_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qgraphicssvgitem_dragenterevent_callback) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qgraphicssvgitem_dragenterevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::dragEnterEvent(event);
@@ -687,15 +414,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QGraphicsSceneDragDropEvent* event) override {
-        if (qgraphicssvgitem_dragleaveevent_isbase) {
-            qgraphicssvgitem_dragleaveevent_isbase = false;
-            QGraphicsSvgItem::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qgraphicssvgitem_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qgraphicssvgitem_dragleaveevent_callback) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qgraphicssvgitem_dragleaveevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::dragLeaveEvent(event);
@@ -703,15 +424,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QGraphicsSceneDragDropEvent* event) override {
-        if (qgraphicssvgitem_dragmoveevent_isbase) {
-            qgraphicssvgitem_dragmoveevent_isbase = false;
-            QGraphicsSvgItem::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qgraphicssvgitem_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qgraphicssvgitem_dragmoveevent_callback) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qgraphicssvgitem_dragmoveevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::dragMoveEvent(event);
@@ -719,15 +434,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QGraphicsSceneDragDropEvent* event) override {
-        if (qgraphicssvgitem_dropevent_isbase) {
-            qgraphicssvgitem_dropevent_isbase = false;
-            QGraphicsSvgItem::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qgraphicssvgitem_dropevent_callback;
-        if (dropevent_cb) {
+        if (qgraphicssvgitem_dropevent_callback) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qgraphicssvgitem_dropevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::dropEvent(event);
@@ -735,15 +444,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qgraphicssvgitem_focusinevent_isbase) {
-            qgraphicssvgitem_focusinevent_isbase = false;
-            QGraphicsSvgItem::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qgraphicssvgitem_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qgraphicssvgitem_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qgraphicssvgitem_focusinevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::focusInEvent(event);
@@ -751,15 +454,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qgraphicssvgitem_focusoutevent_isbase) {
-            qgraphicssvgitem_focusoutevent_isbase = false;
-            QGraphicsSvgItem::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qgraphicssvgitem_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qgraphicssvgitem_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qgraphicssvgitem_focusoutevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::focusOutEvent(event);
@@ -767,15 +464,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void hoverEnterEvent(QGraphicsSceneHoverEvent* event) override {
-        if (qgraphicssvgitem_hoverenterevent_isbase) {
-            qgraphicssvgitem_hoverenterevent_isbase = false;
-            QGraphicsSvgItem::hoverEnterEvent(event);
-            return;
-        }
-        auto hoverenterevent_cb = qgraphicssvgitem_hoverenterevent_callback;
-        if (hoverenterevent_cb) {
+        if (qgraphicssvgitem_hoverenterevent_callback) {
             QGraphicsSceneHoverEvent* cbval1 = event;
-            hoverenterevent_cb(this, cbval1);
+            qgraphicssvgitem_hoverenterevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::hoverEnterEvent(event);
@@ -783,15 +474,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void hoverMoveEvent(QGraphicsSceneHoverEvent* event) override {
-        if (qgraphicssvgitem_hovermoveevent_isbase) {
-            qgraphicssvgitem_hovermoveevent_isbase = false;
-            QGraphicsSvgItem::hoverMoveEvent(event);
-            return;
-        }
-        auto hovermoveevent_cb = qgraphicssvgitem_hovermoveevent_callback;
-        if (hovermoveevent_cb) {
+        if (qgraphicssvgitem_hovermoveevent_callback) {
             QGraphicsSceneHoverEvent* cbval1 = event;
-            hovermoveevent_cb(this, cbval1);
+            qgraphicssvgitem_hovermoveevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::hoverMoveEvent(event);
@@ -799,15 +484,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void hoverLeaveEvent(QGraphicsSceneHoverEvent* event) override {
-        if (qgraphicssvgitem_hoverleaveevent_isbase) {
-            qgraphicssvgitem_hoverleaveevent_isbase = false;
-            QGraphicsSvgItem::hoverLeaveEvent(event);
-            return;
-        }
-        auto hoverleaveevent_cb = qgraphicssvgitem_hoverleaveevent_callback;
-        if (hoverleaveevent_cb) {
+        if (qgraphicssvgitem_hoverleaveevent_callback) {
             QGraphicsSceneHoverEvent* cbval1 = event;
-            hoverleaveevent_cb(this, cbval1);
+            qgraphicssvgitem_hoverleaveevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::hoverLeaveEvent(event);
@@ -815,15 +494,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qgraphicssvgitem_keypressevent_isbase) {
-            qgraphicssvgitem_keypressevent_isbase = false;
-            QGraphicsSvgItem::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qgraphicssvgitem_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qgraphicssvgitem_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qgraphicssvgitem_keypressevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::keyPressEvent(event);
@@ -831,15 +504,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qgraphicssvgitem_keyreleaseevent_isbase) {
-            qgraphicssvgitem_keyreleaseevent_isbase = false;
-            QGraphicsSvgItem::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qgraphicssvgitem_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qgraphicssvgitem_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qgraphicssvgitem_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::keyReleaseEvent(event);
@@ -847,15 +514,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QGraphicsSceneMouseEvent* event) override {
-        if (qgraphicssvgitem_mousepressevent_isbase) {
-            qgraphicssvgitem_mousepressevent_isbase = false;
-            QGraphicsSvgItem::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qgraphicssvgitem_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qgraphicssvgitem_mousepressevent_callback) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qgraphicssvgitem_mousepressevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::mousePressEvent(event);
@@ -863,15 +524,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent* event) override {
-        if (qgraphicssvgitem_mousemoveevent_isbase) {
-            qgraphicssvgitem_mousemoveevent_isbase = false;
-            QGraphicsSvgItem::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qgraphicssvgitem_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qgraphicssvgitem_mousemoveevent_callback) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qgraphicssvgitem_mousemoveevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::mouseMoveEvent(event);
@@ -879,15 +534,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override {
-        if (qgraphicssvgitem_mousereleaseevent_isbase) {
-            qgraphicssvgitem_mousereleaseevent_isbase = false;
-            QGraphicsSvgItem::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qgraphicssvgitem_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qgraphicssvgitem_mousereleaseevent_callback) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qgraphicssvgitem_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::mouseReleaseEvent(event);
@@ -895,15 +544,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) override {
-        if (qgraphicssvgitem_mousedoubleclickevent_isbase) {
-            qgraphicssvgitem_mousedoubleclickevent_isbase = false;
-            QGraphicsSvgItem::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qgraphicssvgitem_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qgraphicssvgitem_mousedoubleclickevent_callback) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qgraphicssvgitem_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::mouseDoubleClickEvent(event);
@@ -911,15 +554,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QGraphicsSceneWheelEvent* event) override {
-        if (qgraphicssvgitem_wheelevent_isbase) {
-            qgraphicssvgitem_wheelevent_isbase = false;
-            QGraphicsSvgItem::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qgraphicssvgitem_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qgraphicssvgitem_wheelevent_callback) {
             QGraphicsSceneWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qgraphicssvgitem_wheelevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::wheelEvent(event);
@@ -927,15 +564,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* event) override {
-        if (qgraphicssvgitem_inputmethodevent_isbase) {
-            qgraphicssvgitem_inputmethodevent_isbase = false;
-            QGraphicsSvgItem::inputMethodEvent(event);
-            return;
-        }
-        auto inputmethodevent_cb = qgraphicssvgitem_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qgraphicssvgitem_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = event;
-            inputmethodevent_cb(this, cbval1);
+            qgraphicssvgitem_inputmethodevent_callback(this, cbval1);
             return;
         }
         QGraphicsSvgItem::inputMethodEvent(event);
@@ -943,14 +574,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery query) const override {
-        if (qgraphicssvgitem_inputmethodquery_isbase) {
-            qgraphicssvgitem_inputmethodquery_isbase = false;
-            return QGraphicsSvgItem::inputMethodQuery(query);
-        }
-        auto inputmethodquery_cb = qgraphicssvgitem_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qgraphicssvgitem_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(query);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qgraphicssvgitem_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -960,17 +586,12 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant itemChange(QGraphicsItem::GraphicsItemChange change, const QVariant& value) override {
-        if (qgraphicssvgitem_itemchange_isbase) {
-            qgraphicssvgitem_itemchange_isbase = false;
-            return QGraphicsSvgItem::itemChange(change, value);
-        }
-        auto itemchange_cb = qgraphicssvgitem_itemchange_callback;
-        if (itemchange_cb) {
+        if (qgraphicssvgitem_itemchange_callback) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
+            QVariant* callback_ret = qgraphicssvgitem_itemchange_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -980,14 +601,9 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool supportsExtension(QGraphicsItem::Extension extension) const override {
-        if (qgraphicssvgitem_supportsextension_isbase) {
-            qgraphicssvgitem_supportsextension_isbase = false;
-            return QGraphicsSvgItem::supportsExtension(extension);
-        }
-        auto supportsextension_cb = qgraphicssvgitem_supportsextension_callback;
-        if (supportsextension_cb) {
+        if (qgraphicssvgitem_supportsextension_callback) {
             int cbval1 = static_cast<int>(extension);
-            bool callback_ret = supportsextension_cb(this, cbval1);
+            bool callback_ret = qgraphicssvgitem_supportsextension_callback(this, cbval1);
             return callback_ret;
         }
         return QGraphicsSvgItem::supportsExtension(extension);
@@ -995,18 +611,12 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void setExtension(QGraphicsItem::Extension extension, const QVariant& variant) override {
-        if (qgraphicssvgitem_setextension_isbase) {
-            qgraphicssvgitem_setextension_isbase = false;
-            QGraphicsSvgItem::setExtension(extension, variant);
-            return;
-        }
-        auto setextension_cb = qgraphicssvgitem_setextension_callback;
-        if (setextension_cb) {
+        if (qgraphicssvgitem_setextension_callback) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
-            setextension_cb(this, cbval1, cbval2);
+            qgraphicssvgitem_setextension_callback(this, cbval1, cbval2);
             return;
         }
         QGraphicsSvgItem::setExtension(extension, variant);
@@ -1014,16 +624,11 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant extension(const QVariant& variant) const override {
-        if (qgraphicssvgitem_extension_isbase) {
-            qgraphicssvgitem_extension_isbase = false;
-            return QGraphicsSvgItem::extension(variant);
-        }
-        auto extension_cb = qgraphicssvgitem_extension_callback;
-        if (extension_cb) {
+        if (qgraphicssvgitem_extension_callback) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
-            QVariant* callback_ret = extension_cb(this, cbval1);
+            QVariant* callback_ret = qgraphicssvgitem_extension_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1031,205 +636,38 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
         return QGraphicsSvgItem::extension(variant);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qgraphicssvgitem_updatemicrofocus_isbase) {
-            qgraphicssvgitem_updatemicrofocus_isbase = false;
-            QGraphicsSvgItem::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qgraphicssvgitem_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QGraphicsSvgItem::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qgraphicssvgitem_sender_isbase) {
-            qgraphicssvgitem_sender_isbase = false;
-            return QGraphicsSvgItem::sender();
-        }
-        auto sender_cb = qgraphicssvgitem_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QGraphicsSvgItem::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qgraphicssvgitem_sendersignalindex_isbase) {
-            qgraphicssvgitem_sendersignalindex_isbase = false;
-            return QGraphicsSvgItem::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qgraphicssvgitem_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QGraphicsSvgItem::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qgraphicssvgitem_receivers_isbase) {
-            qgraphicssvgitem_receivers_isbase = false;
-            return QGraphicsSvgItem::receivers(signal);
-        }
-        auto receivers_cb = qgraphicssvgitem_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QGraphicsSvgItem::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qgraphicssvgitem_issignalconnected_isbase) {
-            qgraphicssvgitem_issignalconnected_isbase = false;
-            return QGraphicsSvgItem::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qgraphicssvgitem_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QGraphicsSvgItem::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void addToIndex() {
-        if (qgraphicssvgitem_addtoindex_isbase) {
-            qgraphicssvgitem_addtoindex_isbase = false;
-            QGraphicsSvgItem::addToIndex();
-            return;
-        }
-        auto addtoindex_cb = qgraphicssvgitem_addtoindex_callback;
-        if (addtoindex_cb) {
-            addtoindex_cb();
-            return;
-        }
-        QGraphicsSvgItem::addToIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void removeFromIndex() {
-        if (qgraphicssvgitem_removefromindex_isbase) {
-            qgraphicssvgitem_removefromindex_isbase = false;
-            QGraphicsSvgItem::removeFromIndex();
-            return;
-        }
-        auto removefromindex_cb = qgraphicssvgitem_removefromindex_callback;
-        if (removefromindex_cb) {
-            removefromindex_cb();
-            return;
-        }
-        QGraphicsSvgItem::removeFromIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void prepareGeometryChange() {
-        if (qgraphicssvgitem_preparegeometrychange_isbase) {
-            qgraphicssvgitem_preparegeometrychange_isbase = false;
-            QGraphicsSvgItem::prepareGeometryChange();
-            return;
-        }
-        auto preparegeometrychange_cb = qgraphicssvgitem_preparegeometrychange_callback;
-        if (preparegeometrychange_cb) {
-            preparegeometrychange_cb();
-            return;
-        }
-        QGraphicsSvgItem::prepareGeometryChange();
-    }
-
     // Friend functions
-    friend bool QGraphicsSvgItem_Event(QGraphicsSvgItem* self, QEvent* ev);
     friend bool QGraphicsSvgItem_SuperEvent(QGraphicsSvgItem* self, QEvent* ev);
-    friend void QGraphicsSvgItem_TimerEvent(QGraphicsSvgItem* self, QTimerEvent* event);
     friend void QGraphicsSvgItem_SuperTimerEvent(QGraphicsSvgItem* self, QTimerEvent* event);
-    friend void QGraphicsSvgItem_ChildEvent(QGraphicsSvgItem* self, QChildEvent* event);
     friend void QGraphicsSvgItem_SuperChildEvent(QGraphicsSvgItem* self, QChildEvent* event);
-    friend void QGraphicsSvgItem_CustomEvent(QGraphicsSvgItem* self, QEvent* event);
     friend void QGraphicsSvgItem_SuperCustomEvent(QGraphicsSvgItem* self, QEvent* event);
-    friend void QGraphicsSvgItem_ConnectNotify(QGraphicsSvgItem* self, const QMetaMethod* signal);
     friend void QGraphicsSvgItem_SuperConnectNotify(QGraphicsSvgItem* self, const QMetaMethod* signal);
-    friend void QGraphicsSvgItem_DisconnectNotify(QGraphicsSvgItem* self, const QMetaMethod* signal);
     friend void QGraphicsSvgItem_SuperDisconnectNotify(QGraphicsSvgItem* self, const QMetaMethod* signal);
-    friend bool QGraphicsSvgItem_SceneEventFilter(QGraphicsSvgItem* self, QGraphicsItem* watched, QEvent* event);
     friend bool QGraphicsSvgItem_SuperSceneEventFilter(QGraphicsSvgItem* self, QGraphicsItem* watched, QEvent* event);
-    friend bool QGraphicsSvgItem_SceneEvent(QGraphicsSvgItem* self, QEvent* event);
     friend bool QGraphicsSvgItem_SuperSceneEvent(QGraphicsSvgItem* self, QEvent* event);
-    friend void QGraphicsSvgItem_ContextMenuEvent(QGraphicsSvgItem* self, QGraphicsSceneContextMenuEvent* event);
     friend void QGraphicsSvgItem_SuperContextMenuEvent(QGraphicsSvgItem* self, QGraphicsSceneContextMenuEvent* event);
-    friend void QGraphicsSvgItem_DragEnterEvent(QGraphicsSvgItem* self, QGraphicsSceneDragDropEvent* event);
     friend void QGraphicsSvgItem_SuperDragEnterEvent(QGraphicsSvgItem* self, QGraphicsSceneDragDropEvent* event);
-    friend void QGraphicsSvgItem_DragLeaveEvent(QGraphicsSvgItem* self, QGraphicsSceneDragDropEvent* event);
     friend void QGraphicsSvgItem_SuperDragLeaveEvent(QGraphicsSvgItem* self, QGraphicsSceneDragDropEvent* event);
-    friend void QGraphicsSvgItem_DragMoveEvent(QGraphicsSvgItem* self, QGraphicsSceneDragDropEvent* event);
     friend void QGraphicsSvgItem_SuperDragMoveEvent(QGraphicsSvgItem* self, QGraphicsSceneDragDropEvent* event);
-    friend void QGraphicsSvgItem_DropEvent(QGraphicsSvgItem* self, QGraphicsSceneDragDropEvent* event);
     friend void QGraphicsSvgItem_SuperDropEvent(QGraphicsSvgItem* self, QGraphicsSceneDragDropEvent* event);
-    friend void QGraphicsSvgItem_FocusInEvent(QGraphicsSvgItem* self, QFocusEvent* event);
     friend void QGraphicsSvgItem_SuperFocusInEvent(QGraphicsSvgItem* self, QFocusEvent* event);
-    friend void QGraphicsSvgItem_FocusOutEvent(QGraphicsSvgItem* self, QFocusEvent* event);
     friend void QGraphicsSvgItem_SuperFocusOutEvent(QGraphicsSvgItem* self, QFocusEvent* event);
-    friend void QGraphicsSvgItem_HoverEnterEvent(QGraphicsSvgItem* self, QGraphicsSceneHoverEvent* event);
     friend void QGraphicsSvgItem_SuperHoverEnterEvent(QGraphicsSvgItem* self, QGraphicsSceneHoverEvent* event);
-    friend void QGraphicsSvgItem_HoverMoveEvent(QGraphicsSvgItem* self, QGraphicsSceneHoverEvent* event);
     friend void QGraphicsSvgItem_SuperHoverMoveEvent(QGraphicsSvgItem* self, QGraphicsSceneHoverEvent* event);
-    friend void QGraphicsSvgItem_HoverLeaveEvent(QGraphicsSvgItem* self, QGraphicsSceneHoverEvent* event);
     friend void QGraphicsSvgItem_SuperHoverLeaveEvent(QGraphicsSvgItem* self, QGraphicsSceneHoverEvent* event);
-    friend void QGraphicsSvgItem_KeyPressEvent(QGraphicsSvgItem* self, QKeyEvent* event);
     friend void QGraphicsSvgItem_SuperKeyPressEvent(QGraphicsSvgItem* self, QKeyEvent* event);
-    friend void QGraphicsSvgItem_KeyReleaseEvent(QGraphicsSvgItem* self, QKeyEvent* event);
     friend void QGraphicsSvgItem_SuperKeyReleaseEvent(QGraphicsSvgItem* self, QKeyEvent* event);
-    friend void QGraphicsSvgItem_MousePressEvent(QGraphicsSvgItem* self, QGraphicsSceneMouseEvent* event);
     friend void QGraphicsSvgItem_SuperMousePressEvent(QGraphicsSvgItem* self, QGraphicsSceneMouseEvent* event);
-    friend void QGraphicsSvgItem_MouseMoveEvent(QGraphicsSvgItem* self, QGraphicsSceneMouseEvent* event);
     friend void QGraphicsSvgItem_SuperMouseMoveEvent(QGraphicsSvgItem* self, QGraphicsSceneMouseEvent* event);
-    friend void QGraphicsSvgItem_MouseReleaseEvent(QGraphicsSvgItem* self, QGraphicsSceneMouseEvent* event);
     friend void QGraphicsSvgItem_SuperMouseReleaseEvent(QGraphicsSvgItem* self, QGraphicsSceneMouseEvent* event);
-    friend void QGraphicsSvgItem_MouseDoubleClickEvent(QGraphicsSvgItem* self, QGraphicsSceneMouseEvent* event);
     friend void QGraphicsSvgItem_SuperMouseDoubleClickEvent(QGraphicsSvgItem* self, QGraphicsSceneMouseEvent* event);
-    friend void QGraphicsSvgItem_WheelEvent(QGraphicsSvgItem* self, QGraphicsSceneWheelEvent* event);
     friend void QGraphicsSvgItem_SuperWheelEvent(QGraphicsSvgItem* self, QGraphicsSceneWheelEvent* event);
-    friend void QGraphicsSvgItem_InputMethodEvent(QGraphicsSvgItem* self, QInputMethodEvent* event);
     friend void QGraphicsSvgItem_SuperInputMethodEvent(QGraphicsSvgItem* self, QInputMethodEvent* event);
-    friend QVariant* QGraphicsSvgItem_InputMethodQuery(const QGraphicsSvgItem* self, int query);
     friend QVariant* QGraphicsSvgItem_SuperInputMethodQuery(const QGraphicsSvgItem* self, int query);
-    friend QVariant* QGraphicsSvgItem_ItemChange(QGraphicsSvgItem* self, int change, const QVariant* value);
     friend QVariant* QGraphicsSvgItem_SuperItemChange(QGraphicsSvgItem* self, int change, const QVariant* value);
-    friend bool QGraphicsSvgItem_SupportsExtension(const QGraphicsSvgItem* self, int extension);
     friend bool QGraphicsSvgItem_SuperSupportsExtension(const QGraphicsSvgItem* self, int extension);
-    friend void QGraphicsSvgItem_SetExtension(QGraphicsSvgItem* self, int extension, const QVariant* variant);
     friend void QGraphicsSvgItem_SuperSetExtension(QGraphicsSvgItem* self, int extension, const QVariant* variant);
-    friend QVariant* QGraphicsSvgItem_Extension(const QGraphicsSvgItem* self, const QVariant* variant);
     friend QVariant* QGraphicsSvgItem_SuperExtension(const QGraphicsSvgItem* self, const QVariant* variant);
-    friend void QGraphicsSvgItem_UpdateMicroFocus(QGraphicsSvgItem* self);
-    friend void QGraphicsSvgItem_SuperUpdateMicroFocus(QGraphicsSvgItem* self);
-    friend QObject* QGraphicsSvgItem_Sender(const QGraphicsSvgItem* self);
-    friend QObject* QGraphicsSvgItem_SuperSender(const QGraphicsSvgItem* self);
-    friend int QGraphicsSvgItem_SenderSignalIndex(const QGraphicsSvgItem* self);
-    friend int QGraphicsSvgItem_SuperSenderSignalIndex(const QGraphicsSvgItem* self);
-    friend int QGraphicsSvgItem_Receivers(const QGraphicsSvgItem* self, const char* signal);
-    friend int QGraphicsSvgItem_SuperReceivers(const QGraphicsSvgItem* self, const char* signal);
-    friend bool QGraphicsSvgItem_IsSignalConnected(const QGraphicsSvgItem* self, const QMetaMethod* signal);
-    friend bool QGraphicsSvgItem_SuperIsSignalConnected(const QGraphicsSvgItem* self, const QMetaMethod* signal);
-    friend void QGraphicsSvgItem_AddToIndex(QGraphicsSvgItem* self);
-    friend void QGraphicsSvgItem_SuperAddToIndex(QGraphicsSvgItem* self);
-    friend void QGraphicsSvgItem_RemoveFromIndex(QGraphicsSvgItem* self);
-    friend void QGraphicsSvgItem_SuperRemoveFromIndex(QGraphicsSvgItem* self);
-    friend void QGraphicsSvgItem_PrepareGeometryChange(QGraphicsSvgItem* self);
-    friend void QGraphicsSvgItem_SuperPrepareGeometryChange(QGraphicsSvgItem* self);
 };
 
 #endif

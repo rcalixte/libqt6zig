@@ -47,7 +47,7 @@ void QSignalMapper_Map(QSignalMapper* self);
 void QSignalMapper_Map2(QSignalMapper* self, QObject* sender);
 libqt_string QSignalMapper_Tr2(const char* s, const char* c);
 libqt_string QSignalMapper_Tr3(const char* s, const char* c, int n);
-void QSignalMapper_OnMetaObject(const QSignalMapper* self, intptr_t slot);
+void QSignalMapper_OnMetaObject(QSignalMapper* self, intptr_t slot);
 QMetaObject* QSignalMapper_SuperMetaObject(const QSignalMapper* self);
 void QSignalMapper_OnMetacast(QSignalMapper* self, intptr_t slot);
 void* QSignalMapper_SuperMetacast(QSignalMapper* self, const char* param1);
@@ -75,17 +75,9 @@ void QSignalMapper_DisconnectNotify(QSignalMapper* self, const QMetaMethod* sign
 void QSignalMapper_OnDisconnectNotify(QSignalMapper* self, intptr_t slot);
 void QSignalMapper_SuperDisconnectNotify(QSignalMapper* self, const QMetaMethod* signal);
 QObject* QSignalMapper_Sender(const QSignalMapper* self);
-void QSignalMapper_OnSender(const QSignalMapper* self, intptr_t slot);
-QObject* QSignalMapper_SuperSender(const QSignalMapper* self);
 int QSignalMapper_SenderSignalIndex(const QSignalMapper* self);
-void QSignalMapper_OnSenderSignalIndex(const QSignalMapper* self, intptr_t slot);
-int QSignalMapper_SuperSenderSignalIndex(const QSignalMapper* self);
 int QSignalMapper_Receivers(const QSignalMapper* self, const char* signal);
-void QSignalMapper_OnReceivers(const QSignalMapper* self, intptr_t slot);
-int QSignalMapper_SuperReceivers(const QSignalMapper* self, const char* signal);
 bool QSignalMapper_IsSignalConnected(const QSignalMapper* self, const QMetaMethod* signal);
-void QSignalMapper_OnIsSignalConnected(const QSignalMapper* self, intptr_t slot);
-bool QSignalMapper_SuperIsSignalConnected(const QSignalMapper* self, const QMetaMethod* signal);
 void QSignalMapper_Delete(QSignalMapper* self);
 
 #ifdef __cplusplus

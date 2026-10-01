@@ -37,7 +37,7 @@ int QBoxPlotLegendMarker_Type(QBoxPlotLegendMarker* self);
 QBoxPlotSeries* QBoxPlotLegendMarker_Series(QBoxPlotLegendMarker* self);
 libqt_string QBoxPlotLegendMarker_Tr2(const char* s, const char* c);
 libqt_string QBoxPlotLegendMarker_Tr3(const char* s, const char* c, int n);
-void QBoxPlotLegendMarker_OnMetaObject(const QBoxPlotLegendMarker* self, intptr_t slot);
+void QBoxPlotLegendMarker_OnMetaObject(QBoxPlotLegendMarker* self, intptr_t slot);
 QMetaObject* QBoxPlotLegendMarker_SuperMetaObject(const QBoxPlotLegendMarker* self);
 void QBoxPlotLegendMarker_OnMetacast(QBoxPlotLegendMarker* self, intptr_t slot);
 void* QBoxPlotLegendMarker_SuperMetacast(QBoxPlotLegendMarker* self, const char* param1);
@@ -69,17 +69,9 @@ void QBoxPlotLegendMarker_DisconnectNotify(QBoxPlotLegendMarker* self, const QMe
 void QBoxPlotLegendMarker_OnDisconnectNotify(QBoxPlotLegendMarker* self, intptr_t slot);
 void QBoxPlotLegendMarker_SuperDisconnectNotify(QBoxPlotLegendMarker* self, const QMetaMethod* signal);
 QObject* QBoxPlotLegendMarker_Sender(const QBoxPlotLegendMarker* self);
-void QBoxPlotLegendMarker_OnSender(const QBoxPlotLegendMarker* self, intptr_t slot);
-QObject* QBoxPlotLegendMarker_SuperSender(const QBoxPlotLegendMarker* self);
 int QBoxPlotLegendMarker_SenderSignalIndex(const QBoxPlotLegendMarker* self);
-void QBoxPlotLegendMarker_OnSenderSignalIndex(const QBoxPlotLegendMarker* self, intptr_t slot);
-int QBoxPlotLegendMarker_SuperSenderSignalIndex(const QBoxPlotLegendMarker* self);
 int QBoxPlotLegendMarker_Receivers(const QBoxPlotLegendMarker* self, const char* signal);
-void QBoxPlotLegendMarker_OnReceivers(const QBoxPlotLegendMarker* self, intptr_t slot);
-int QBoxPlotLegendMarker_SuperReceivers(const QBoxPlotLegendMarker* self, const char* signal);
 bool QBoxPlotLegendMarker_IsSignalConnected(const QBoxPlotLegendMarker* self, const QMetaMethod* signal);
-void QBoxPlotLegendMarker_OnIsSignalConnected(const QBoxPlotLegendMarker* self, intptr_t slot);
-bool QBoxPlotLegendMarker_SuperIsSignalConnected(const QBoxPlotLegendMarker* self, const QMetaMethod* signal);
 void QBoxPlotLegendMarker_Delete(QBoxPlotLegendMarker* self);
 
 #ifdef __cplusplus

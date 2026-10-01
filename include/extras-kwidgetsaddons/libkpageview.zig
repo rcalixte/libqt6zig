@@ -135,9 +135,9 @@ pub const KPageView = extern struct {
     ///
     /// ` self: KPageView `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KPageView) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KPageView, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KPageView, callback: *const fn (KPageView) callconv(.c) QMetaObject) void {
         qtc.KPageView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -550,9 +550,9 @@ pub const KPageView = extern struct {
     ///
     /// ` self: KPageView `
     ///
-    /// ` callback: *const fn () callconv(.c) QAbstractItemView `
+    /// ` callback: *const fn (self: KPageView) callconv(.c) QAbstractItemView `
     ///
-    pub fn onCreateView(self: KPageView, callback: *const fn () callconv(.c) QAbstractItemView) void {
+    pub fn onCreateView(self: KPageView, callback: *const fn (KPageView) callconv(.c) QAbstractItemView) void {
         qtc.KPageView_OnCreateView(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -598,9 +598,9 @@ pub const KPageView = extern struct {
     ///
     /// ` self: KPageView `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageView) callconv(.c) bool `
     ///
-    pub fn onShowPageHeader(self: KPageView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onShowPageHeader(self: KPageView, callback: *const fn (KPageView) callconv(.c) bool) void {
         qtc.KPageView_OnShowPageHeader(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -650,9 +650,9 @@ pub const KPageView = extern struct {
     ///
     /// ` self: KPageView `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPageView) callconv(.c) i32 `
     ///
-    pub fn onViewPosition(self: KPageView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onViewPosition(self: KPageView, callback: *const fn (KPageView) callconv(.c) i32) void {
         qtc.KPageView_OnViewPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6986,9 +6986,9 @@ pub const KPageView = extern struct {
     ///
     /// ` self: KPageView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPageView) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KPageView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KPageView, callback: *const fn (KPageView) callconv(.c) i32) void {
         qtc.KPageView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7102,11 +7102,11 @@ pub const KPageView = extern struct {
     ///
     /// ` self: KPageView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KPageView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KPageView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KPageView, callback: *const fn (KPageView) callconv(.c) QSize) void {
         qtc.KPageView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7160,11 +7160,11 @@ pub const KPageView = extern struct {
     ///
     /// ` self: KPageView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KPageView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KPageView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KPageView, callback: *const fn (KPageView) callconv(.c) QSize) void {
         qtc.KPageView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7278,9 +7278,9 @@ pub const KPageView = extern struct {
     ///
     /// ` self: KPageView`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageView) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KPageView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KPageView, callback: *const fn (KPageView) callconv(.c) bool) void {
         qtc.KPageView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7334,9 +7334,9 @@ pub const KPageView = extern struct {
     ///
     /// ` self: KPageView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KPageView) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KPageView, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KPageView, callback: *const fn (KPageView) callconv(.c) QPaintEngine) void {
         qtc.KPageView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9262,9 +9262,9 @@ pub const KPageView = extern struct {
     ///
     /// ` self: KPageView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KPageView) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KPageView, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KPageView, callback: *const fn (KPageView) callconv(.c) QPainter) void {
         qtc.KPageView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9848,44 +9848,6 @@ pub const KPageView = extern struct {
         qtc.KPageView_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageView `
-    ///
-    pub fn superUpdateMicroFocus(self: KPageView) void {
-        qtc.KPageView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KPageView, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9902,44 +9864,6 @@ pub const KPageView = extern struct {
     ///
     pub fn create(self: KPageView) void {
         qtc.KPageView_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageView `
-    ///
-    pub fn superCreate(self: KPageView) void {
-        qtc.KPageView_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KPageView, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9960,44 +9884,6 @@ pub const KPageView = extern struct {
         qtc.KPageView_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageView `
-    ///
-    pub fn superDestroy(self: KPageView) void {
-        qtc.KPageView_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KPageView, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -10014,44 +9900,6 @@ pub const KPageView = extern struct {
     ///
     pub fn focusNextChild(self: KPageView) bool {
         return qtc.KPageView_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageView `
-    ///
-    pub fn superFocusNextChild(self: KPageView) bool {
-        return qtc.KPageView_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KPageView, callback: *const fn () callconv(.c) bool) void {
-        qtc.KPageView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -10072,44 +9920,6 @@ pub const KPageView = extern struct {
         return qtc.KPageView_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageView `
-    ///
-    pub fn superFocusPreviousChild(self: KPageView) bool {
-        return qtc.KPageView_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KPageView, callback: *const fn () callconv(.c) bool) void {
-        qtc.KPageView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10128,44 +9938,6 @@ pub const KPageView = extern struct {
         return .{ .ptr = qtc.KPageView_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageView `
-    ///
-    pub fn superSender(self: KPageView) QObject {
-        return .{ .ptr = qtc.KPageView_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KPageView, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KPageView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10182,44 +9954,6 @@ pub const KPageView = extern struct {
     ///
     pub fn senderSignalIndex(self: KPageView) i32 {
         return qtc.KPageView_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageView `
-    ///
-    pub fn superSenderSignalIndex(self: KPageView) i32 {
-        return qtc.KPageView_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KPageView, callback: *const fn () callconv(.c) i32) void {
-        qtc.KPageView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10243,47 +9977,6 @@ pub const KPageView = extern struct {
         return qtc.KPageView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageView `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KPageView, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KPageView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageView`
-    ///
-    /// ` callback: *const fn (self: KPageView, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KPageView, callback: *const fn (KPageView, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KPageView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10303,47 +9996,6 @@ pub const KPageView = extern struct {
     pub fn isSignalConnected(self: KPageView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPageView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageView `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KPageView, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KPageView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageView`
-    ///
-    /// ` callback: *const fn (self: KPageView, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KPageView, callback: *const fn (KPageView, QMetaMethod) callconv(.c) bool) void {
-        qtc.KPageView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10366,48 +10018,6 @@ pub const KPageView = extern struct {
     ///
     pub fn getDecodedMetricF(self: KPageView, metricA: i32, metricB: i32) f64 {
         return qtc.KPageView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPageView `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KPageView, metricA: i32, metricB: i32) f64 {
-        return qtc.KPageView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPageView`
-    ///
-    /// ` callback: *const fn (self: KPageView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KPageView, callback: *const fn (KPageView, i32, i32) callconv(.c) f64) void {
-        qtc.KPageView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

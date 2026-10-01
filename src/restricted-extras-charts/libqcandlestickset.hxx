@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QCandlestickSet so that we can call protected methods
+// This class is a subclass of QCandlestickSet
 class VirtualQCandlestickSet final : public QCandlestickSet {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQCandlestickSet = true;
-
-    // Virtual class public types (including callbacks)
-    using QCandlestickSet_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QCandlestickSet_MetaObject_Callback = QMetaObject* (*)(const QCandlestickSet*);
     using QCandlestickSet_Metacast_Callback = void* (*)(QCandlestickSet*, const char*);
     using QCandlestickSet_Metacall_Callback = int (*)(QCandlestickSet*, int, int, void**);
     using QCandlestickSet_Event_Callback = bool (*)(QCandlestickSet*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
     using QCandlestickSet_CustomEvent_Callback = void (*)(QCandlestickSet*, QEvent*);
     using QCandlestickSet_ConnectNotify_Callback = void (*)(QCandlestickSet*, QMetaMethod*);
     using QCandlestickSet_DisconnectNotify_Callback = void (*)(QCandlestickSet*, QMetaMethod*);
-    using QCandlestickSet_Sender_Callback = QObject* (*)();
-    using QCandlestickSet_SenderSignalIndex_Callback = int (*)();
-    using QCandlestickSet_Receivers_Callback = int (*)(const QCandlestickSet*, const char*);
-    using QCandlestickSet_IsSignalConnected_Callback = bool (*)(const QCandlestickSet*, QMetaMethod*);
+    using QCandlestickSet::isSignalConnected;
+    using QCandlestickSet::receivers;
+    using QCandlestickSet::sender;
+    using QCandlestickSet::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QCandlestickSet_MetaObject_Callback qcandlestickset_metaobject_callback = nullptr;
     QCandlestickSet_Metacast_Callback qcandlestickset_metacast_callback = nullptr;
@@ -44,28 +39,16 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
     QCandlestickSet_CustomEvent_Callback qcandlestickset_customevent_callback = nullptr;
     QCandlestickSet_ConnectNotify_Callback qcandlestickset_connectnotify_callback = nullptr;
     QCandlestickSet_DisconnectNotify_Callback qcandlestickset_disconnectnotify_callback = nullptr;
-    QCandlestickSet_Sender_Callback qcandlestickset_sender_callback = nullptr;
-    QCandlestickSet_SenderSignalIndex_Callback qcandlestickset_sendersignalindex_callback = nullptr;
-    QCandlestickSet_Receivers_Callback qcandlestickset_receivers_callback = nullptr;
-    QCandlestickSet_IsSignalConnected_Callback qcandlestickset_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qcandlestickset_metaobject_isbase = false;
-    mutable bool qcandlestickset_metacast_isbase = false;
-    mutable bool qcandlestickset_metacall_isbase = false;
-    mutable bool qcandlestickset_event_isbase = false;
-    mutable bool qcandlestickset_eventfilter_isbase = false;
-    mutable bool qcandlestickset_timerevent_isbase = false;
-    mutable bool qcandlestickset_childevent_isbase = false;
-    mutable bool qcandlestickset_customevent_isbase = false;
-    mutable bool qcandlestickset_connectnotify_isbase = false;
-    mutable bool qcandlestickset_disconnectnotify_isbase = false;
-    mutable bool qcandlestickset_sender_isbase = false;
-    mutable bool qcandlestickset_sendersignalindex_isbase = false;
-    mutable bool qcandlestickset_receivers_isbase = false;
-    mutable bool qcandlestickset_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QCandlestickSet {
+        using QCandlestickSet::childEvent;
+        using QCandlestickSet::connectNotify;
+        using QCandlestickSet::customEvent;
+        using QCandlestickSet::disconnectNotify;
+        using QCandlestickSet::timerEvent;
+    };
 
-  public:
     VirtualQCandlestickSet() : QCandlestickSet() {};
     VirtualQCandlestickSet(qreal open, qreal high, qreal low, qreal close) : QCandlestickSet(open, high, low, close) {};
     VirtualQCandlestickSet(qreal timestamp) : QCandlestickSet(timestamp) {};
@@ -73,47 +56,10 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
     VirtualQCandlestickSet(qreal open, qreal high, qreal low, qreal close, qreal timestamp) : QCandlestickSet(open, high, low, close, timestamp) {};
     VirtualQCandlestickSet(qreal open, qreal high, qreal low, qreal close, qreal timestamp, QObject* parent) : QCandlestickSet(open, high, low, close, timestamp, parent) {};
 
-    // Callback setters
-    inline void setQCandlestickSet_MetaObject_Callback(QCandlestickSet_MetaObject_Callback cb) { qcandlestickset_metaobject_callback = cb; }
-    inline void setQCandlestickSet_Metacast_Callback(QCandlestickSet_Metacast_Callback cb) { qcandlestickset_metacast_callback = cb; }
-    inline void setQCandlestickSet_Metacall_Callback(QCandlestickSet_Metacall_Callback cb) { qcandlestickset_metacall_callback = cb; }
-    inline void setQCandlestickSet_Event_Callback(QCandlestickSet_Event_Callback cb) { qcandlestickset_event_callback = cb; }
-    inline void setQCandlestickSet_EventFilter_Callback(QCandlestickSet_EventFilter_Callback cb) { qcandlestickset_eventfilter_callback = cb; }
-    inline void setQCandlestickSet_TimerEvent_Callback(QCandlestickSet_TimerEvent_Callback cb) { qcandlestickset_timerevent_callback = cb; }
-    inline void setQCandlestickSet_ChildEvent_Callback(QCandlestickSet_ChildEvent_Callback cb) { qcandlestickset_childevent_callback = cb; }
-    inline void setQCandlestickSet_CustomEvent_Callback(QCandlestickSet_CustomEvent_Callback cb) { qcandlestickset_customevent_callback = cb; }
-    inline void setQCandlestickSet_ConnectNotify_Callback(QCandlestickSet_ConnectNotify_Callback cb) { qcandlestickset_connectnotify_callback = cb; }
-    inline void setQCandlestickSet_DisconnectNotify_Callback(QCandlestickSet_DisconnectNotify_Callback cb) { qcandlestickset_disconnectnotify_callback = cb; }
-    inline void setQCandlestickSet_Sender_Callback(QCandlestickSet_Sender_Callback cb) { qcandlestickset_sender_callback = cb; }
-    inline void setQCandlestickSet_SenderSignalIndex_Callback(QCandlestickSet_SenderSignalIndex_Callback cb) { qcandlestickset_sendersignalindex_callback = cb; }
-    inline void setQCandlestickSet_Receivers_Callback(QCandlestickSet_Receivers_Callback cb) { qcandlestickset_receivers_callback = cb; }
-    inline void setQCandlestickSet_IsSignalConnected_Callback(QCandlestickSet_IsSignalConnected_Callback cb) { qcandlestickset_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQCandlestickSet_MetaObject_IsBase(bool value) const { qcandlestickset_metaobject_isbase = value; }
-    inline void setQCandlestickSet_Metacast_IsBase(bool value) const { qcandlestickset_metacast_isbase = value; }
-    inline void setQCandlestickSet_Metacall_IsBase(bool value) const { qcandlestickset_metacall_isbase = value; }
-    inline void setQCandlestickSet_Event_IsBase(bool value) const { qcandlestickset_event_isbase = value; }
-    inline void setQCandlestickSet_EventFilter_IsBase(bool value) const { qcandlestickset_eventfilter_isbase = value; }
-    inline void setQCandlestickSet_TimerEvent_IsBase(bool value) const { qcandlestickset_timerevent_isbase = value; }
-    inline void setQCandlestickSet_ChildEvent_IsBase(bool value) const { qcandlestickset_childevent_isbase = value; }
-    inline void setQCandlestickSet_CustomEvent_IsBase(bool value) const { qcandlestickset_customevent_isbase = value; }
-    inline void setQCandlestickSet_ConnectNotify_IsBase(bool value) const { qcandlestickset_connectnotify_isbase = value; }
-    inline void setQCandlestickSet_DisconnectNotify_IsBase(bool value) const { qcandlestickset_disconnectnotify_isbase = value; }
-    inline void setQCandlestickSet_Sender_IsBase(bool value) const { qcandlestickset_sender_isbase = value; }
-    inline void setQCandlestickSet_SenderSignalIndex_IsBase(bool value) const { qcandlestickset_sendersignalindex_isbase = value; }
-    inline void setQCandlestickSet_Receivers_IsBase(bool value) const { qcandlestickset_receivers_isbase = value; }
-    inline void setQCandlestickSet_IsSignalConnected_IsBase(bool value) const { qcandlestickset_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qcandlestickset_metaobject_isbase) {
-            qcandlestickset_metaobject_isbase = false;
-            return QCandlestickSet::metaObject();
-        }
-        auto metaobject_cb = qcandlestickset_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qcandlestickset_metaobject_callback) {
+            QMetaObject* callback_ret = qcandlestickset_metaobject_callback(this);
             return callback_ret;
         }
         return QCandlestickSet::metaObject();
@@ -121,14 +67,9 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qcandlestickset_metacast_isbase) {
-            qcandlestickset_metacast_isbase = false;
-            return QCandlestickSet::qt_metacast(param1);
-        }
-        auto metacast_cb = qcandlestickset_metacast_callback;
-        if (metacast_cb) {
+        if (qcandlestickset_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qcandlestickset_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QCandlestickSet::qt_metacast(param1);
@@ -136,16 +77,11 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qcandlestickset_metacall_isbase) {
-            qcandlestickset_metacall_isbase = false;
-            return QCandlestickSet::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qcandlestickset_metacall_callback;
-        if (metacall_cb) {
+        if (qcandlestickset_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qcandlestickset_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QCandlestickSet::qt_metacall(param1, param2, param3);
@@ -153,14 +89,9 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qcandlestickset_event_isbase) {
-            qcandlestickset_event_isbase = false;
-            return QCandlestickSet::event(event);
-        }
-        auto event_cb = qcandlestickset_event_callback;
-        if (event_cb) {
+        if (qcandlestickset_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qcandlestickset_event_callback(this, cbval1);
             return callback_ret;
         }
         return QCandlestickSet::event(event);
@@ -168,15 +99,10 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qcandlestickset_eventfilter_isbase) {
-            qcandlestickset_eventfilter_isbase = false;
-            return QCandlestickSet::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qcandlestickset_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qcandlestickset_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qcandlestickset_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QCandlestickSet::eventFilter(watched, event);
@@ -184,15 +110,9 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qcandlestickset_timerevent_isbase) {
-            qcandlestickset_timerevent_isbase = false;
-            QCandlestickSet::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qcandlestickset_timerevent_callback;
-        if (timerevent_cb) {
+        if (qcandlestickset_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qcandlestickset_timerevent_callback(this, cbval1);
             return;
         }
         QCandlestickSet::timerEvent(event);
@@ -200,15 +120,9 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qcandlestickset_childevent_isbase) {
-            qcandlestickset_childevent_isbase = false;
-            QCandlestickSet::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qcandlestickset_childevent_callback;
-        if (childevent_cb) {
+        if (qcandlestickset_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qcandlestickset_childevent_callback(this, cbval1);
             return;
         }
         QCandlestickSet::childEvent(event);
@@ -216,15 +130,9 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qcandlestickset_customevent_isbase) {
-            qcandlestickset_customevent_isbase = false;
-            QCandlestickSet::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qcandlestickset_customevent_callback;
-        if (customevent_cb) {
+        if (qcandlestickset_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qcandlestickset_customevent_callback(this, cbval1);
             return;
         }
         QCandlestickSet::customEvent(event);
@@ -232,17 +140,11 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qcandlestickset_connectnotify_isbase) {
-            qcandlestickset_connectnotify_isbase = false;
-            QCandlestickSet::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qcandlestickset_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qcandlestickset_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qcandlestickset_connectnotify_callback(this, cbval1);
             return;
         }
         QCandlestickSet::connectNotify(signal);
@@ -250,101 +152,22 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qcandlestickset_disconnectnotify_isbase) {
-            qcandlestickset_disconnectnotify_isbase = false;
-            QCandlestickSet::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qcandlestickset_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qcandlestickset_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qcandlestickset_disconnectnotify_callback(this, cbval1);
             return;
         }
         QCandlestickSet::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qcandlestickset_sender_isbase) {
-            qcandlestickset_sender_isbase = false;
-            return QCandlestickSet::sender();
-        }
-        auto sender_cb = qcandlestickset_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QCandlestickSet::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qcandlestickset_sendersignalindex_isbase) {
-            qcandlestickset_sendersignalindex_isbase = false;
-            return QCandlestickSet::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qcandlestickset_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QCandlestickSet::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qcandlestickset_receivers_isbase) {
-            qcandlestickset_receivers_isbase = false;
-            return QCandlestickSet::receivers(signal);
-        }
-        auto receivers_cb = qcandlestickset_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QCandlestickSet::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qcandlestickset_issignalconnected_isbase) {
-            qcandlestickset_issignalconnected_isbase = false;
-            return QCandlestickSet::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qcandlestickset_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QCandlestickSet::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QCandlestickSet_TimerEvent(QCandlestickSet* self, QTimerEvent* event);
     friend void QCandlestickSet_SuperTimerEvent(QCandlestickSet* self, QTimerEvent* event);
-    friend void QCandlestickSet_ChildEvent(QCandlestickSet* self, QChildEvent* event);
     friend void QCandlestickSet_SuperChildEvent(QCandlestickSet* self, QChildEvent* event);
-    friend void QCandlestickSet_CustomEvent(QCandlestickSet* self, QEvent* event);
     friend void QCandlestickSet_SuperCustomEvent(QCandlestickSet* self, QEvent* event);
-    friend void QCandlestickSet_ConnectNotify(QCandlestickSet* self, const QMetaMethod* signal);
     friend void QCandlestickSet_SuperConnectNotify(QCandlestickSet* self, const QMetaMethod* signal);
-    friend void QCandlestickSet_DisconnectNotify(QCandlestickSet* self, const QMetaMethod* signal);
     friend void QCandlestickSet_SuperDisconnectNotify(QCandlestickSet* self, const QMetaMethod* signal);
-    friend QObject* QCandlestickSet_Sender(const QCandlestickSet* self);
-    friend QObject* QCandlestickSet_SuperSender(const QCandlestickSet* self);
-    friend int QCandlestickSet_SenderSignalIndex(const QCandlestickSet* self);
-    friend int QCandlestickSet_SuperSenderSignalIndex(const QCandlestickSet* self);
-    friend int QCandlestickSet_Receivers(const QCandlestickSet* self, const char* signal);
-    friend int QCandlestickSet_SuperReceivers(const QCandlestickSet* self, const char* signal);
-    friend bool QCandlestickSet_IsSignalConnected(const QCandlestickSet* self, const QMetaMethod* signal);
-    friend bool QCandlestickSet_SuperIsSignalConnected(const QCandlestickSet* self, const QMetaMethod* signal);
 };
 
 #endif

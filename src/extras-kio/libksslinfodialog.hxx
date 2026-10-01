@@ -9,35 +9,31 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KSslInfoDialog so that we can call protected methods
+// This class is a subclass of KSslInfoDialog
 class VirtualKSslInfoDialog final : public KSslInfoDialog {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKSslInfoDialog = true;
-
-    // Virtual class public types (including callbacks)
-    using KSslInfoDialog_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KSslInfoDialog_MetaObject_Callback = QMetaObject* (*)(const KSslInfoDialog*);
     using KSslInfoDialog_Metacast_Callback = void* (*)(KSslInfoDialog*, const char*);
     using KSslInfoDialog_Metacall_Callback = int (*)(KSslInfoDialog*, int, int, void**);
     using KSslInfoDialog_SetVisible_Callback = void (*)(KSslInfoDialog*, bool);
-    using KSslInfoDialog_SizeHint_Callback = QSize* (*)();
-    using KSslInfoDialog_MinimumSizeHint_Callback = QSize* (*)();
-    using KSslInfoDialog_Open_Callback = void (*)();
-    using KSslInfoDialog_Exec_Callback = int (*)();
+    using KSslInfoDialog_SizeHint_Callback = QSize* (*)(const KSslInfoDialog*);
+    using KSslInfoDialog_MinimumSizeHint_Callback = QSize* (*)(const KSslInfoDialog*);
+    using KSslInfoDialog_Open_Callback = void (*)(KSslInfoDialog*);
+    using KSslInfoDialog_Exec_Callback = int (*)(KSslInfoDialog*);
     using KSslInfoDialog_Done_Callback = void (*)(KSslInfoDialog*, int);
-    using KSslInfoDialog_Accept_Callback = void (*)();
-    using KSslInfoDialog_Reject_Callback = void (*)();
+    using KSslInfoDialog_Accept_Callback = void (*)(KSslInfoDialog*);
+    using KSslInfoDialog_Reject_Callback = void (*)(KSslInfoDialog*);
     using KSslInfoDialog_KeyPressEvent_Callback = void (*)(KSslInfoDialog*, QKeyEvent*);
     using KSslInfoDialog_CloseEvent_Callback = void (*)(KSslInfoDialog*, QCloseEvent*);
     using KSslInfoDialog_ShowEvent_Callback = void (*)(KSslInfoDialog*, QShowEvent*);
     using KSslInfoDialog_ResizeEvent_Callback = void (*)(KSslInfoDialog*, QResizeEvent*);
     using KSslInfoDialog_ContextMenuEvent_Callback = void (*)(KSslInfoDialog*, QContextMenuEvent*);
     using KSslInfoDialog_EventFilter_Callback = bool (*)(KSslInfoDialog*, QObject*, QEvent*);
-    using KSslInfoDialog_DevType_Callback = int (*)();
+    using KSslInfoDialog_DevType_Callback = int (*)(const KSslInfoDialog*);
     using KSslInfoDialog_HeightForWidth_Callback = int (*)(const KSslInfoDialog*, int);
-    using KSslInfoDialog_HasHeightForWidth_Callback = bool (*)();
-    using KSslInfoDialog_PaintEngine_Callback = QPaintEngine* (*)();
+    using KSslInfoDialog_HasHeightForWidth_Callback = bool (*)(const KSslInfoDialog*);
+    using KSslInfoDialog_PaintEngine_Callback = QPaintEngine* (*)(const KSslInfoDialog*);
     using KSslInfoDialog_Event_Callback = bool (*)(KSslInfoDialog*, QEvent*);
     using KSslInfoDialog_MousePressEvent_Callback = void (*)(KSslInfoDialog*, QMouseEvent*);
     using KSslInfoDialog_MouseReleaseEvent_Callback = void (*)(KSslInfoDialog*, QMouseEvent*);
@@ -63,7 +59,7 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
     using KSslInfoDialog_Metric_Callback = int (*)(const KSslInfoDialog*, int);
     using KSslInfoDialog_InitPainter_Callback = void (*)(const KSslInfoDialog*, QPainter*);
     using KSslInfoDialog_Redirected_Callback = QPaintDevice* (*)(const KSslInfoDialog*, QPoint*);
-    using KSslInfoDialog_SharedPainter_Callback = QPainter* (*)();
+    using KSslInfoDialog_SharedPainter_Callback = QPainter* (*)(const KSslInfoDialog*);
     using KSslInfoDialog_InputMethodEvent_Callback = void (*)(KSslInfoDialog*, QInputMethodEvent*);
     using KSslInfoDialog_InputMethodQuery_Callback = QVariant* (*)(const KSslInfoDialog*, int);
     using KSslInfoDialog_FocusNextPrevChild_Callback = bool (*)(KSslInfoDialog*, bool);
@@ -72,19 +68,18 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
     using KSslInfoDialog_CustomEvent_Callback = void (*)(KSslInfoDialog*, QEvent*);
     using KSslInfoDialog_ConnectNotify_Callback = void (*)(KSslInfoDialog*, QMetaMethod*);
     using KSslInfoDialog_DisconnectNotify_Callback = void (*)(KSslInfoDialog*, QMetaMethod*);
-    using KSslInfoDialog_AdjustPosition_Callback = void (*)(KSslInfoDialog*, QWidget*);
-    using KSslInfoDialog_UpdateMicroFocus_Callback = void (*)();
-    using KSslInfoDialog_Create_Callback = void (*)();
-    using KSslInfoDialog_Destroy_Callback = void (*)();
-    using KSslInfoDialog_FocusNextChild_Callback = bool (*)();
-    using KSslInfoDialog_FocusPreviousChild_Callback = bool (*)();
-    using KSslInfoDialog_Sender_Callback = QObject* (*)();
-    using KSslInfoDialog_SenderSignalIndex_Callback = int (*)();
-    using KSslInfoDialog_Receivers_Callback = int (*)(const KSslInfoDialog*, const char*);
-    using KSslInfoDialog_IsSignalConnected_Callback = bool (*)(const KSslInfoDialog*, QMetaMethod*);
-    using KSslInfoDialog_GetDecodedMetricF_Callback = double (*)(const KSslInfoDialog*, int, int);
+    using KSslInfoDialog::adjustPosition;
+    using KSslInfoDialog::create;
+    using KSslInfoDialog::destroy;
+    using KSslInfoDialog::focusNextChild;
+    using KSslInfoDialog::focusPreviousChild;
+    using KSslInfoDialog::getDecodedMetricF;
+    using KSslInfoDialog::isSignalConnected;
+    using KSslInfoDialog::receivers;
+    using KSslInfoDialog::sender;
+    using KSslInfoDialog::senderSignalIndex;
+    using KSslInfoDialog::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     KSslInfoDialog_MetaObject_Callback ksslinfodialog_metaobject_callback = nullptr;
     KSslInfoDialog_Metacast_Callback ksslinfodialog_metacast_callback = nullptr;
@@ -141,235 +136,57 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
     KSslInfoDialog_CustomEvent_Callback ksslinfodialog_customevent_callback = nullptr;
     KSslInfoDialog_ConnectNotify_Callback ksslinfodialog_connectnotify_callback = nullptr;
     KSslInfoDialog_DisconnectNotify_Callback ksslinfodialog_disconnectnotify_callback = nullptr;
-    KSslInfoDialog_AdjustPosition_Callback ksslinfodialog_adjustposition_callback = nullptr;
-    KSslInfoDialog_UpdateMicroFocus_Callback ksslinfodialog_updatemicrofocus_callback = nullptr;
-    KSslInfoDialog_Create_Callback ksslinfodialog_create_callback = nullptr;
-    KSslInfoDialog_Destroy_Callback ksslinfodialog_destroy_callback = nullptr;
-    KSslInfoDialog_FocusNextChild_Callback ksslinfodialog_focusnextchild_callback = nullptr;
-    KSslInfoDialog_FocusPreviousChild_Callback ksslinfodialog_focuspreviouschild_callback = nullptr;
-    KSslInfoDialog_Sender_Callback ksslinfodialog_sender_callback = nullptr;
-    KSslInfoDialog_SenderSignalIndex_Callback ksslinfodialog_sendersignalindex_callback = nullptr;
-    KSslInfoDialog_Receivers_Callback ksslinfodialog_receivers_callback = nullptr;
-    KSslInfoDialog_IsSignalConnected_Callback ksslinfodialog_issignalconnected_callback = nullptr;
-    KSslInfoDialog_GetDecodedMetricF_Callback ksslinfodialog_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool ksslinfodialog_metaobject_isbase = false;
-    mutable bool ksslinfodialog_metacast_isbase = false;
-    mutable bool ksslinfodialog_metacall_isbase = false;
-    mutable bool ksslinfodialog_setvisible_isbase = false;
-    mutable bool ksslinfodialog_sizehint_isbase = false;
-    mutable bool ksslinfodialog_minimumsizehint_isbase = false;
-    mutable bool ksslinfodialog_open_isbase = false;
-    mutable bool ksslinfodialog_exec_isbase = false;
-    mutable bool ksslinfodialog_done_isbase = false;
-    mutable bool ksslinfodialog_accept_isbase = false;
-    mutable bool ksslinfodialog_reject_isbase = false;
-    mutable bool ksslinfodialog_keypressevent_isbase = false;
-    mutable bool ksslinfodialog_closeevent_isbase = false;
-    mutable bool ksslinfodialog_showevent_isbase = false;
-    mutable bool ksslinfodialog_resizeevent_isbase = false;
-    mutable bool ksslinfodialog_contextmenuevent_isbase = false;
-    mutable bool ksslinfodialog_eventfilter_isbase = false;
-    mutable bool ksslinfodialog_devtype_isbase = false;
-    mutable bool ksslinfodialog_heightforwidth_isbase = false;
-    mutable bool ksslinfodialog_hasheightforwidth_isbase = false;
-    mutable bool ksslinfodialog_paintengine_isbase = false;
-    mutable bool ksslinfodialog_event_isbase = false;
-    mutable bool ksslinfodialog_mousepressevent_isbase = false;
-    mutable bool ksslinfodialog_mousereleaseevent_isbase = false;
-    mutable bool ksslinfodialog_mousedoubleclickevent_isbase = false;
-    mutable bool ksslinfodialog_mousemoveevent_isbase = false;
-    mutable bool ksslinfodialog_wheelevent_isbase = false;
-    mutable bool ksslinfodialog_keyreleaseevent_isbase = false;
-    mutable bool ksslinfodialog_focusinevent_isbase = false;
-    mutable bool ksslinfodialog_focusoutevent_isbase = false;
-    mutable bool ksslinfodialog_enterevent_isbase = false;
-    mutable bool ksslinfodialog_leaveevent_isbase = false;
-    mutable bool ksslinfodialog_paintevent_isbase = false;
-    mutable bool ksslinfodialog_moveevent_isbase = false;
-    mutable bool ksslinfodialog_tabletevent_isbase = false;
-    mutable bool ksslinfodialog_actionevent_isbase = false;
-    mutable bool ksslinfodialog_dragenterevent_isbase = false;
-    mutable bool ksslinfodialog_dragmoveevent_isbase = false;
-    mutable bool ksslinfodialog_dragleaveevent_isbase = false;
-    mutable bool ksslinfodialog_dropevent_isbase = false;
-    mutable bool ksslinfodialog_hideevent_isbase = false;
-    mutable bool ksslinfodialog_nativeevent_isbase = false;
-    mutable bool ksslinfodialog_changeevent_isbase = false;
-    mutable bool ksslinfodialog_metric_isbase = false;
-    mutable bool ksslinfodialog_initpainter_isbase = false;
-    mutable bool ksslinfodialog_redirected_isbase = false;
-    mutable bool ksslinfodialog_sharedpainter_isbase = false;
-    mutable bool ksslinfodialog_inputmethodevent_isbase = false;
-    mutable bool ksslinfodialog_inputmethodquery_isbase = false;
-    mutable bool ksslinfodialog_focusnextprevchild_isbase = false;
-    mutable bool ksslinfodialog_timerevent_isbase = false;
-    mutable bool ksslinfodialog_childevent_isbase = false;
-    mutable bool ksslinfodialog_customevent_isbase = false;
-    mutable bool ksslinfodialog_connectnotify_isbase = false;
-    mutable bool ksslinfodialog_disconnectnotify_isbase = false;
-    mutable bool ksslinfodialog_adjustposition_isbase = false;
-    mutable bool ksslinfodialog_updatemicrofocus_isbase = false;
-    mutable bool ksslinfodialog_create_isbase = false;
-    mutable bool ksslinfodialog_destroy_isbase = false;
-    mutable bool ksslinfodialog_focusnextchild_isbase = false;
-    mutable bool ksslinfodialog_focuspreviouschild_isbase = false;
-    mutable bool ksslinfodialog_sender_isbase = false;
-    mutable bool ksslinfodialog_sendersignalindex_isbase = false;
-    mutable bool ksslinfodialog_receivers_isbase = false;
-    mutable bool ksslinfodialog_issignalconnected_isbase = false;
-    mutable bool ksslinfodialog_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KSslInfoDialog {
+        using KSslInfoDialog::actionEvent;
+        using KSslInfoDialog::changeEvent;
+        using KSslInfoDialog::childEvent;
+        using KSslInfoDialog::closeEvent;
+        using KSslInfoDialog::connectNotify;
+        using KSslInfoDialog::contextMenuEvent;
+        using KSslInfoDialog::customEvent;
+        using KSslInfoDialog::disconnectNotify;
+        using KSslInfoDialog::dragEnterEvent;
+        using KSslInfoDialog::dragLeaveEvent;
+        using KSslInfoDialog::dragMoveEvent;
+        using KSslInfoDialog::dropEvent;
+        using KSslInfoDialog::enterEvent;
+        using KSslInfoDialog::event;
+        using KSslInfoDialog::eventFilter;
+        using KSslInfoDialog::focusInEvent;
+        using KSslInfoDialog::focusNextPrevChild;
+        using KSslInfoDialog::focusOutEvent;
+        using KSslInfoDialog::hideEvent;
+        using KSslInfoDialog::initPainter;
+        using KSslInfoDialog::inputMethodEvent;
+        using KSslInfoDialog::keyPressEvent;
+        using KSslInfoDialog::keyReleaseEvent;
+        using KSslInfoDialog::leaveEvent;
+        using KSslInfoDialog::metric;
+        using KSslInfoDialog::mouseDoubleClickEvent;
+        using KSslInfoDialog::mouseMoveEvent;
+        using KSslInfoDialog::mousePressEvent;
+        using KSslInfoDialog::mouseReleaseEvent;
+        using KSslInfoDialog::moveEvent;
+        using KSslInfoDialog::nativeEvent;
+        using KSslInfoDialog::paintEvent;
+        using KSslInfoDialog::redirected;
+        using KSslInfoDialog::resizeEvent;
+        using KSslInfoDialog::sharedPainter;
+        using KSslInfoDialog::showEvent;
+        using KSslInfoDialog::tabletEvent;
+        using KSslInfoDialog::timerEvent;
+        using KSslInfoDialog::wheelEvent;
+    };
 
-  public:
     VirtualKSslInfoDialog(QWidget* parent) : KSslInfoDialog(parent) {};
     VirtualKSslInfoDialog() : KSslInfoDialog() {};
 
-    // Callback setters
-    inline void setKSslInfoDialog_MetaObject_Callback(KSslInfoDialog_MetaObject_Callback cb) { ksslinfodialog_metaobject_callback = cb; }
-    inline void setKSslInfoDialog_Metacast_Callback(KSslInfoDialog_Metacast_Callback cb) { ksslinfodialog_metacast_callback = cb; }
-    inline void setKSslInfoDialog_Metacall_Callback(KSslInfoDialog_Metacall_Callback cb) { ksslinfodialog_metacall_callback = cb; }
-    inline void setKSslInfoDialog_SetVisible_Callback(KSslInfoDialog_SetVisible_Callback cb) { ksslinfodialog_setvisible_callback = cb; }
-    inline void setKSslInfoDialog_SizeHint_Callback(KSslInfoDialog_SizeHint_Callback cb) { ksslinfodialog_sizehint_callback = cb; }
-    inline void setKSslInfoDialog_MinimumSizeHint_Callback(KSslInfoDialog_MinimumSizeHint_Callback cb) { ksslinfodialog_minimumsizehint_callback = cb; }
-    inline void setKSslInfoDialog_Open_Callback(KSslInfoDialog_Open_Callback cb) { ksslinfodialog_open_callback = cb; }
-    inline void setKSslInfoDialog_Exec_Callback(KSslInfoDialog_Exec_Callback cb) { ksslinfodialog_exec_callback = cb; }
-    inline void setKSslInfoDialog_Done_Callback(KSslInfoDialog_Done_Callback cb) { ksslinfodialog_done_callback = cb; }
-    inline void setKSslInfoDialog_Accept_Callback(KSslInfoDialog_Accept_Callback cb) { ksslinfodialog_accept_callback = cb; }
-    inline void setKSslInfoDialog_Reject_Callback(KSslInfoDialog_Reject_Callback cb) { ksslinfodialog_reject_callback = cb; }
-    inline void setKSslInfoDialog_KeyPressEvent_Callback(KSslInfoDialog_KeyPressEvent_Callback cb) { ksslinfodialog_keypressevent_callback = cb; }
-    inline void setKSslInfoDialog_CloseEvent_Callback(KSslInfoDialog_CloseEvent_Callback cb) { ksslinfodialog_closeevent_callback = cb; }
-    inline void setKSslInfoDialog_ShowEvent_Callback(KSslInfoDialog_ShowEvent_Callback cb) { ksslinfodialog_showevent_callback = cb; }
-    inline void setKSslInfoDialog_ResizeEvent_Callback(KSslInfoDialog_ResizeEvent_Callback cb) { ksslinfodialog_resizeevent_callback = cb; }
-    inline void setKSslInfoDialog_ContextMenuEvent_Callback(KSslInfoDialog_ContextMenuEvent_Callback cb) { ksslinfodialog_contextmenuevent_callback = cb; }
-    inline void setKSslInfoDialog_EventFilter_Callback(KSslInfoDialog_EventFilter_Callback cb) { ksslinfodialog_eventfilter_callback = cb; }
-    inline void setKSslInfoDialog_DevType_Callback(KSslInfoDialog_DevType_Callback cb) { ksslinfodialog_devtype_callback = cb; }
-    inline void setKSslInfoDialog_HeightForWidth_Callback(KSslInfoDialog_HeightForWidth_Callback cb) { ksslinfodialog_heightforwidth_callback = cb; }
-    inline void setKSslInfoDialog_HasHeightForWidth_Callback(KSslInfoDialog_HasHeightForWidth_Callback cb) { ksslinfodialog_hasheightforwidth_callback = cb; }
-    inline void setKSslInfoDialog_PaintEngine_Callback(KSslInfoDialog_PaintEngine_Callback cb) { ksslinfodialog_paintengine_callback = cb; }
-    inline void setKSslInfoDialog_Event_Callback(KSslInfoDialog_Event_Callback cb) { ksslinfodialog_event_callback = cb; }
-    inline void setKSslInfoDialog_MousePressEvent_Callback(KSslInfoDialog_MousePressEvent_Callback cb) { ksslinfodialog_mousepressevent_callback = cb; }
-    inline void setKSslInfoDialog_MouseReleaseEvent_Callback(KSslInfoDialog_MouseReleaseEvent_Callback cb) { ksslinfodialog_mousereleaseevent_callback = cb; }
-    inline void setKSslInfoDialog_MouseDoubleClickEvent_Callback(KSslInfoDialog_MouseDoubleClickEvent_Callback cb) { ksslinfodialog_mousedoubleclickevent_callback = cb; }
-    inline void setKSslInfoDialog_MouseMoveEvent_Callback(KSslInfoDialog_MouseMoveEvent_Callback cb) { ksslinfodialog_mousemoveevent_callback = cb; }
-    inline void setKSslInfoDialog_WheelEvent_Callback(KSslInfoDialog_WheelEvent_Callback cb) { ksslinfodialog_wheelevent_callback = cb; }
-    inline void setKSslInfoDialog_KeyReleaseEvent_Callback(KSslInfoDialog_KeyReleaseEvent_Callback cb) { ksslinfodialog_keyreleaseevent_callback = cb; }
-    inline void setKSslInfoDialog_FocusInEvent_Callback(KSslInfoDialog_FocusInEvent_Callback cb) { ksslinfodialog_focusinevent_callback = cb; }
-    inline void setKSslInfoDialog_FocusOutEvent_Callback(KSslInfoDialog_FocusOutEvent_Callback cb) { ksslinfodialog_focusoutevent_callback = cb; }
-    inline void setKSslInfoDialog_EnterEvent_Callback(KSslInfoDialog_EnterEvent_Callback cb) { ksslinfodialog_enterevent_callback = cb; }
-    inline void setKSslInfoDialog_LeaveEvent_Callback(KSslInfoDialog_LeaveEvent_Callback cb) { ksslinfodialog_leaveevent_callback = cb; }
-    inline void setKSslInfoDialog_PaintEvent_Callback(KSslInfoDialog_PaintEvent_Callback cb) { ksslinfodialog_paintevent_callback = cb; }
-    inline void setKSslInfoDialog_MoveEvent_Callback(KSslInfoDialog_MoveEvent_Callback cb) { ksslinfodialog_moveevent_callback = cb; }
-    inline void setKSslInfoDialog_TabletEvent_Callback(KSslInfoDialog_TabletEvent_Callback cb) { ksslinfodialog_tabletevent_callback = cb; }
-    inline void setKSslInfoDialog_ActionEvent_Callback(KSslInfoDialog_ActionEvent_Callback cb) { ksslinfodialog_actionevent_callback = cb; }
-    inline void setKSslInfoDialog_DragEnterEvent_Callback(KSslInfoDialog_DragEnterEvent_Callback cb) { ksslinfodialog_dragenterevent_callback = cb; }
-    inline void setKSslInfoDialog_DragMoveEvent_Callback(KSslInfoDialog_DragMoveEvent_Callback cb) { ksslinfodialog_dragmoveevent_callback = cb; }
-    inline void setKSslInfoDialog_DragLeaveEvent_Callback(KSslInfoDialog_DragLeaveEvent_Callback cb) { ksslinfodialog_dragleaveevent_callback = cb; }
-    inline void setKSslInfoDialog_DropEvent_Callback(KSslInfoDialog_DropEvent_Callback cb) { ksslinfodialog_dropevent_callback = cb; }
-    inline void setKSslInfoDialog_HideEvent_Callback(KSslInfoDialog_HideEvent_Callback cb) { ksslinfodialog_hideevent_callback = cb; }
-    inline void setKSslInfoDialog_NativeEvent_Callback(KSslInfoDialog_NativeEvent_Callback cb) { ksslinfodialog_nativeevent_callback = cb; }
-    inline void setKSslInfoDialog_ChangeEvent_Callback(KSslInfoDialog_ChangeEvent_Callback cb) { ksslinfodialog_changeevent_callback = cb; }
-    inline void setKSslInfoDialog_Metric_Callback(KSslInfoDialog_Metric_Callback cb) { ksslinfodialog_metric_callback = cb; }
-    inline void setKSslInfoDialog_InitPainter_Callback(KSslInfoDialog_InitPainter_Callback cb) { ksslinfodialog_initpainter_callback = cb; }
-    inline void setKSslInfoDialog_Redirected_Callback(KSslInfoDialog_Redirected_Callback cb) { ksslinfodialog_redirected_callback = cb; }
-    inline void setKSslInfoDialog_SharedPainter_Callback(KSslInfoDialog_SharedPainter_Callback cb) { ksslinfodialog_sharedpainter_callback = cb; }
-    inline void setKSslInfoDialog_InputMethodEvent_Callback(KSslInfoDialog_InputMethodEvent_Callback cb) { ksslinfodialog_inputmethodevent_callback = cb; }
-    inline void setKSslInfoDialog_InputMethodQuery_Callback(KSslInfoDialog_InputMethodQuery_Callback cb) { ksslinfodialog_inputmethodquery_callback = cb; }
-    inline void setKSslInfoDialog_FocusNextPrevChild_Callback(KSslInfoDialog_FocusNextPrevChild_Callback cb) { ksslinfodialog_focusnextprevchild_callback = cb; }
-    inline void setKSslInfoDialog_TimerEvent_Callback(KSslInfoDialog_TimerEvent_Callback cb) { ksslinfodialog_timerevent_callback = cb; }
-    inline void setKSslInfoDialog_ChildEvent_Callback(KSslInfoDialog_ChildEvent_Callback cb) { ksslinfodialog_childevent_callback = cb; }
-    inline void setKSslInfoDialog_CustomEvent_Callback(KSslInfoDialog_CustomEvent_Callback cb) { ksslinfodialog_customevent_callback = cb; }
-    inline void setKSslInfoDialog_ConnectNotify_Callback(KSslInfoDialog_ConnectNotify_Callback cb) { ksslinfodialog_connectnotify_callback = cb; }
-    inline void setKSslInfoDialog_DisconnectNotify_Callback(KSslInfoDialog_DisconnectNotify_Callback cb) { ksslinfodialog_disconnectnotify_callback = cb; }
-    inline void setKSslInfoDialog_AdjustPosition_Callback(KSslInfoDialog_AdjustPosition_Callback cb) { ksslinfodialog_adjustposition_callback = cb; }
-    inline void setKSslInfoDialog_UpdateMicroFocus_Callback(KSslInfoDialog_UpdateMicroFocus_Callback cb) { ksslinfodialog_updatemicrofocus_callback = cb; }
-    inline void setKSslInfoDialog_Create_Callback(KSslInfoDialog_Create_Callback cb) { ksslinfodialog_create_callback = cb; }
-    inline void setKSslInfoDialog_Destroy_Callback(KSslInfoDialog_Destroy_Callback cb) { ksslinfodialog_destroy_callback = cb; }
-    inline void setKSslInfoDialog_FocusNextChild_Callback(KSslInfoDialog_FocusNextChild_Callback cb) { ksslinfodialog_focusnextchild_callback = cb; }
-    inline void setKSslInfoDialog_FocusPreviousChild_Callback(KSslInfoDialog_FocusPreviousChild_Callback cb) { ksslinfodialog_focuspreviouschild_callback = cb; }
-    inline void setKSslInfoDialog_Sender_Callback(KSslInfoDialog_Sender_Callback cb) { ksslinfodialog_sender_callback = cb; }
-    inline void setKSslInfoDialog_SenderSignalIndex_Callback(KSslInfoDialog_SenderSignalIndex_Callback cb) { ksslinfodialog_sendersignalindex_callback = cb; }
-    inline void setKSslInfoDialog_Receivers_Callback(KSslInfoDialog_Receivers_Callback cb) { ksslinfodialog_receivers_callback = cb; }
-    inline void setKSslInfoDialog_IsSignalConnected_Callback(KSslInfoDialog_IsSignalConnected_Callback cb) { ksslinfodialog_issignalconnected_callback = cb; }
-    inline void setKSslInfoDialog_GetDecodedMetricF_Callback(KSslInfoDialog_GetDecodedMetricF_Callback cb) { ksslinfodialog_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKSslInfoDialog_MetaObject_IsBase(bool value) const { ksslinfodialog_metaobject_isbase = value; }
-    inline void setKSslInfoDialog_Metacast_IsBase(bool value) const { ksslinfodialog_metacast_isbase = value; }
-    inline void setKSslInfoDialog_Metacall_IsBase(bool value) const { ksslinfodialog_metacall_isbase = value; }
-    inline void setKSslInfoDialog_SetVisible_IsBase(bool value) const { ksslinfodialog_setvisible_isbase = value; }
-    inline void setKSslInfoDialog_SizeHint_IsBase(bool value) const { ksslinfodialog_sizehint_isbase = value; }
-    inline void setKSslInfoDialog_MinimumSizeHint_IsBase(bool value) const { ksslinfodialog_minimumsizehint_isbase = value; }
-    inline void setKSslInfoDialog_Open_IsBase(bool value) const { ksslinfodialog_open_isbase = value; }
-    inline void setKSslInfoDialog_Exec_IsBase(bool value) const { ksslinfodialog_exec_isbase = value; }
-    inline void setKSslInfoDialog_Done_IsBase(bool value) const { ksslinfodialog_done_isbase = value; }
-    inline void setKSslInfoDialog_Accept_IsBase(bool value) const { ksslinfodialog_accept_isbase = value; }
-    inline void setKSslInfoDialog_Reject_IsBase(bool value) const { ksslinfodialog_reject_isbase = value; }
-    inline void setKSslInfoDialog_KeyPressEvent_IsBase(bool value) const { ksslinfodialog_keypressevent_isbase = value; }
-    inline void setKSslInfoDialog_CloseEvent_IsBase(bool value) const { ksslinfodialog_closeevent_isbase = value; }
-    inline void setKSslInfoDialog_ShowEvent_IsBase(bool value) const { ksslinfodialog_showevent_isbase = value; }
-    inline void setKSslInfoDialog_ResizeEvent_IsBase(bool value) const { ksslinfodialog_resizeevent_isbase = value; }
-    inline void setKSslInfoDialog_ContextMenuEvent_IsBase(bool value) const { ksslinfodialog_contextmenuevent_isbase = value; }
-    inline void setKSslInfoDialog_EventFilter_IsBase(bool value) const { ksslinfodialog_eventfilter_isbase = value; }
-    inline void setKSslInfoDialog_DevType_IsBase(bool value) const { ksslinfodialog_devtype_isbase = value; }
-    inline void setKSslInfoDialog_HeightForWidth_IsBase(bool value) const { ksslinfodialog_heightforwidth_isbase = value; }
-    inline void setKSslInfoDialog_HasHeightForWidth_IsBase(bool value) const { ksslinfodialog_hasheightforwidth_isbase = value; }
-    inline void setKSslInfoDialog_PaintEngine_IsBase(bool value) const { ksslinfodialog_paintengine_isbase = value; }
-    inline void setKSslInfoDialog_Event_IsBase(bool value) const { ksslinfodialog_event_isbase = value; }
-    inline void setKSslInfoDialog_MousePressEvent_IsBase(bool value) const { ksslinfodialog_mousepressevent_isbase = value; }
-    inline void setKSslInfoDialog_MouseReleaseEvent_IsBase(bool value) const { ksslinfodialog_mousereleaseevent_isbase = value; }
-    inline void setKSslInfoDialog_MouseDoubleClickEvent_IsBase(bool value) const { ksslinfodialog_mousedoubleclickevent_isbase = value; }
-    inline void setKSslInfoDialog_MouseMoveEvent_IsBase(bool value) const { ksslinfodialog_mousemoveevent_isbase = value; }
-    inline void setKSslInfoDialog_WheelEvent_IsBase(bool value) const { ksslinfodialog_wheelevent_isbase = value; }
-    inline void setKSslInfoDialog_KeyReleaseEvent_IsBase(bool value) const { ksslinfodialog_keyreleaseevent_isbase = value; }
-    inline void setKSslInfoDialog_FocusInEvent_IsBase(bool value) const { ksslinfodialog_focusinevent_isbase = value; }
-    inline void setKSslInfoDialog_FocusOutEvent_IsBase(bool value) const { ksslinfodialog_focusoutevent_isbase = value; }
-    inline void setKSslInfoDialog_EnterEvent_IsBase(bool value) const { ksslinfodialog_enterevent_isbase = value; }
-    inline void setKSslInfoDialog_LeaveEvent_IsBase(bool value) const { ksslinfodialog_leaveevent_isbase = value; }
-    inline void setKSslInfoDialog_PaintEvent_IsBase(bool value) const { ksslinfodialog_paintevent_isbase = value; }
-    inline void setKSslInfoDialog_MoveEvent_IsBase(bool value) const { ksslinfodialog_moveevent_isbase = value; }
-    inline void setKSslInfoDialog_TabletEvent_IsBase(bool value) const { ksslinfodialog_tabletevent_isbase = value; }
-    inline void setKSslInfoDialog_ActionEvent_IsBase(bool value) const { ksslinfodialog_actionevent_isbase = value; }
-    inline void setKSslInfoDialog_DragEnterEvent_IsBase(bool value) const { ksslinfodialog_dragenterevent_isbase = value; }
-    inline void setKSslInfoDialog_DragMoveEvent_IsBase(bool value) const { ksslinfodialog_dragmoveevent_isbase = value; }
-    inline void setKSslInfoDialog_DragLeaveEvent_IsBase(bool value) const { ksslinfodialog_dragleaveevent_isbase = value; }
-    inline void setKSslInfoDialog_DropEvent_IsBase(bool value) const { ksslinfodialog_dropevent_isbase = value; }
-    inline void setKSslInfoDialog_HideEvent_IsBase(bool value) const { ksslinfodialog_hideevent_isbase = value; }
-    inline void setKSslInfoDialog_NativeEvent_IsBase(bool value) const { ksslinfodialog_nativeevent_isbase = value; }
-    inline void setKSslInfoDialog_ChangeEvent_IsBase(bool value) const { ksslinfodialog_changeevent_isbase = value; }
-    inline void setKSslInfoDialog_Metric_IsBase(bool value) const { ksslinfodialog_metric_isbase = value; }
-    inline void setKSslInfoDialog_InitPainter_IsBase(bool value) const { ksslinfodialog_initpainter_isbase = value; }
-    inline void setKSslInfoDialog_Redirected_IsBase(bool value) const { ksslinfodialog_redirected_isbase = value; }
-    inline void setKSslInfoDialog_SharedPainter_IsBase(bool value) const { ksslinfodialog_sharedpainter_isbase = value; }
-    inline void setKSslInfoDialog_InputMethodEvent_IsBase(bool value) const { ksslinfodialog_inputmethodevent_isbase = value; }
-    inline void setKSslInfoDialog_InputMethodQuery_IsBase(bool value) const { ksslinfodialog_inputmethodquery_isbase = value; }
-    inline void setKSslInfoDialog_FocusNextPrevChild_IsBase(bool value) const { ksslinfodialog_focusnextprevchild_isbase = value; }
-    inline void setKSslInfoDialog_TimerEvent_IsBase(bool value) const { ksslinfodialog_timerevent_isbase = value; }
-    inline void setKSslInfoDialog_ChildEvent_IsBase(bool value) const { ksslinfodialog_childevent_isbase = value; }
-    inline void setKSslInfoDialog_CustomEvent_IsBase(bool value) const { ksslinfodialog_customevent_isbase = value; }
-    inline void setKSslInfoDialog_ConnectNotify_IsBase(bool value) const { ksslinfodialog_connectnotify_isbase = value; }
-    inline void setKSslInfoDialog_DisconnectNotify_IsBase(bool value) const { ksslinfodialog_disconnectnotify_isbase = value; }
-    inline void setKSslInfoDialog_AdjustPosition_IsBase(bool value) const { ksslinfodialog_adjustposition_isbase = value; }
-    inline void setKSslInfoDialog_UpdateMicroFocus_IsBase(bool value) const { ksslinfodialog_updatemicrofocus_isbase = value; }
-    inline void setKSslInfoDialog_Create_IsBase(bool value) const { ksslinfodialog_create_isbase = value; }
-    inline void setKSslInfoDialog_Destroy_IsBase(bool value) const { ksslinfodialog_destroy_isbase = value; }
-    inline void setKSslInfoDialog_FocusNextChild_IsBase(bool value) const { ksslinfodialog_focusnextchild_isbase = value; }
-    inline void setKSslInfoDialog_FocusPreviousChild_IsBase(bool value) const { ksslinfodialog_focuspreviouschild_isbase = value; }
-    inline void setKSslInfoDialog_Sender_IsBase(bool value) const { ksslinfodialog_sender_isbase = value; }
-    inline void setKSslInfoDialog_SenderSignalIndex_IsBase(bool value) const { ksslinfodialog_sendersignalindex_isbase = value; }
-    inline void setKSslInfoDialog_Receivers_IsBase(bool value) const { ksslinfodialog_receivers_isbase = value; }
-    inline void setKSslInfoDialog_IsSignalConnected_IsBase(bool value) const { ksslinfodialog_issignalconnected_isbase = value; }
-    inline void setKSslInfoDialog_GetDecodedMetricF_IsBase(bool value) const { ksslinfodialog_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (ksslinfodialog_metaobject_isbase) {
-            ksslinfodialog_metaobject_isbase = false;
-            return KSslInfoDialog::metaObject();
-        }
-        auto metaobject_cb = ksslinfodialog_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (ksslinfodialog_metaobject_callback) {
+            QMetaObject* callback_ret = ksslinfodialog_metaobject_callback(this);
             return callback_ret;
         }
         return KSslInfoDialog::metaObject();
@@ -377,14 +194,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (ksslinfodialog_metacast_isbase) {
-            ksslinfodialog_metacast_isbase = false;
-            return KSslInfoDialog::qt_metacast(param1);
-        }
-        auto metacast_cb = ksslinfodialog_metacast_callback;
-        if (metacast_cb) {
+        if (ksslinfodialog_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = ksslinfodialog_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KSslInfoDialog::qt_metacast(param1);
@@ -392,16 +204,11 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (ksslinfodialog_metacall_isbase) {
-            ksslinfodialog_metacall_isbase = false;
-            return KSslInfoDialog::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = ksslinfodialog_metacall_callback;
-        if (metacall_cb) {
+        if (ksslinfodialog_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = ksslinfodialog_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KSslInfoDialog::qt_metacall(param1, param2, param3);
@@ -409,15 +216,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (ksslinfodialog_setvisible_isbase) {
-            ksslinfodialog_setvisible_isbase = false;
-            KSslInfoDialog::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = ksslinfodialog_setvisible_callback;
-        if (setvisible_cb) {
+        if (ksslinfodialog_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            ksslinfodialog_setvisible_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::setVisible(visible);
@@ -425,13 +226,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (ksslinfodialog_sizehint_isbase) {
-            ksslinfodialog_sizehint_isbase = false;
-            return KSslInfoDialog::sizeHint();
-        }
-        auto sizehint_cb = ksslinfodialog_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (ksslinfodialog_sizehint_callback) {
+            QSize* callback_ret = ksslinfodialog_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -441,13 +237,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (ksslinfodialog_minimumsizehint_isbase) {
-            ksslinfodialog_minimumsizehint_isbase = false;
-            return KSslInfoDialog::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = ksslinfodialog_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (ksslinfodialog_minimumsizehint_callback) {
+            QSize* callback_ret = ksslinfodialog_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -457,14 +248,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void open() override {
-        if (ksslinfodialog_open_isbase) {
-            ksslinfodialog_open_isbase = false;
-            KSslInfoDialog::open();
-            return;
-        }
-        auto open_cb = ksslinfodialog_open_callback;
-        if (open_cb) {
-            open_cb();
+        if (ksslinfodialog_open_callback) {
+            ksslinfodialog_open_callback(this);
             return;
         }
         KSslInfoDialog::open();
@@ -472,13 +257,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int exec() override {
-        if (ksslinfodialog_exec_isbase) {
-            ksslinfodialog_exec_isbase = false;
-            return KSslInfoDialog::exec();
-        }
-        auto exec_cb = ksslinfodialog_exec_callback;
-        if (exec_cb) {
-            int callback_ret = exec_cb();
+        if (ksslinfodialog_exec_callback) {
+            int callback_ret = ksslinfodialog_exec_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KSslInfoDialog::exec();
@@ -486,15 +266,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void done(int param1) override {
-        if (ksslinfodialog_done_isbase) {
-            ksslinfodialog_done_isbase = false;
-            KSslInfoDialog::done(param1);
-            return;
-        }
-        auto done_cb = ksslinfodialog_done_callback;
-        if (done_cb) {
+        if (ksslinfodialog_done_callback) {
             int cbval1 = param1;
-            done_cb(this, cbval1);
+            ksslinfodialog_done_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::done(param1);
@@ -502,14 +276,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void accept() override {
-        if (ksslinfodialog_accept_isbase) {
-            ksslinfodialog_accept_isbase = false;
-            KSslInfoDialog::accept();
-            return;
-        }
-        auto accept_cb = ksslinfodialog_accept_callback;
-        if (accept_cb) {
-            accept_cb();
+        if (ksslinfodialog_accept_callback) {
+            ksslinfodialog_accept_callback(this);
             return;
         }
         KSslInfoDialog::accept();
@@ -517,14 +285,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void reject() override {
-        if (ksslinfodialog_reject_isbase) {
-            ksslinfodialog_reject_isbase = false;
-            KSslInfoDialog::reject();
-            return;
-        }
-        auto reject_cb = ksslinfodialog_reject_callback;
-        if (reject_cb) {
-            reject_cb();
+        if (ksslinfodialog_reject_callback) {
+            ksslinfodialog_reject_callback(this);
             return;
         }
         KSslInfoDialog::reject();
@@ -532,15 +294,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* param1) override {
-        if (ksslinfodialog_keypressevent_isbase) {
-            ksslinfodialog_keypressevent_isbase = false;
-            KSslInfoDialog::keyPressEvent(param1);
-            return;
-        }
-        auto keypressevent_cb = ksslinfodialog_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (ksslinfodialog_keypressevent_callback) {
             QKeyEvent* cbval1 = param1;
-            keypressevent_cb(this, cbval1);
+            ksslinfodialog_keypressevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::keyPressEvent(param1);
@@ -548,15 +304,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* param1) override {
-        if (ksslinfodialog_closeevent_isbase) {
-            ksslinfodialog_closeevent_isbase = false;
-            KSslInfoDialog::closeEvent(param1);
-            return;
-        }
-        auto closeevent_cb = ksslinfodialog_closeevent_callback;
-        if (closeevent_cb) {
+        if (ksslinfodialog_closeevent_callback) {
             QCloseEvent* cbval1 = param1;
-            closeevent_cb(this, cbval1);
+            ksslinfodialog_closeevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::closeEvent(param1);
@@ -564,15 +314,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* param1) override {
-        if (ksslinfodialog_showevent_isbase) {
-            ksslinfodialog_showevent_isbase = false;
-            KSslInfoDialog::showEvent(param1);
-            return;
-        }
-        auto showevent_cb = ksslinfodialog_showevent_callback;
-        if (showevent_cb) {
+        if (ksslinfodialog_showevent_callback) {
             QShowEvent* cbval1 = param1;
-            showevent_cb(this, cbval1);
+            ksslinfodialog_showevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::showEvent(param1);
@@ -580,15 +324,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* param1) override {
-        if (ksslinfodialog_resizeevent_isbase) {
-            ksslinfodialog_resizeevent_isbase = false;
-            KSslInfoDialog::resizeEvent(param1);
-            return;
-        }
-        auto resizeevent_cb = ksslinfodialog_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (ksslinfodialog_resizeevent_callback) {
             QResizeEvent* cbval1 = param1;
-            resizeevent_cb(this, cbval1);
+            ksslinfodialog_resizeevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::resizeEvent(param1);
@@ -596,15 +334,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* param1) override {
-        if (ksslinfodialog_contextmenuevent_isbase) {
-            ksslinfodialog_contextmenuevent_isbase = false;
-            KSslInfoDialog::contextMenuEvent(param1);
-            return;
-        }
-        auto contextmenuevent_cb = ksslinfodialog_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (ksslinfodialog_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = param1;
-            contextmenuevent_cb(this, cbval1);
+            ksslinfodialog_contextmenuevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::contextMenuEvent(param1);
@@ -612,15 +344,10 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (ksslinfodialog_eventfilter_isbase) {
-            ksslinfodialog_eventfilter_isbase = false;
-            return KSslInfoDialog::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = ksslinfodialog_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (ksslinfodialog_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = ksslinfodialog_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KSslInfoDialog::eventFilter(param1, param2);
@@ -628,13 +355,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (ksslinfodialog_devtype_isbase) {
-            ksslinfodialog_devtype_isbase = false;
-            return KSslInfoDialog::devType();
-        }
-        auto devtype_cb = ksslinfodialog_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (ksslinfodialog_devtype_callback) {
+            int callback_ret = ksslinfodialog_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KSslInfoDialog::devType();
@@ -642,14 +364,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (ksslinfodialog_heightforwidth_isbase) {
-            ksslinfodialog_heightforwidth_isbase = false;
-            return KSslInfoDialog::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = ksslinfodialog_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (ksslinfodialog_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = ksslinfodialog_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KSslInfoDialog::heightForWidth(param1);
@@ -657,13 +374,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (ksslinfodialog_hasheightforwidth_isbase) {
-            ksslinfodialog_hasheightforwidth_isbase = false;
-            return KSslInfoDialog::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = ksslinfodialog_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (ksslinfodialog_hasheightforwidth_callback) {
+            bool callback_ret = ksslinfodialog_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KSslInfoDialog::hasHeightForWidth();
@@ -671,13 +383,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (ksslinfodialog_paintengine_isbase) {
-            ksslinfodialog_paintengine_isbase = false;
-            return KSslInfoDialog::paintEngine();
-        }
-        auto paintengine_cb = ksslinfodialog_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (ksslinfodialog_paintengine_callback) {
+            QPaintEngine* callback_ret = ksslinfodialog_paintengine_callback(this);
             return callback_ret;
         }
         return KSslInfoDialog::paintEngine();
@@ -685,14 +392,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (ksslinfodialog_event_isbase) {
-            ksslinfodialog_event_isbase = false;
-            return KSslInfoDialog::event(event);
-        }
-        auto event_cb = ksslinfodialog_event_callback;
-        if (event_cb) {
+        if (ksslinfodialog_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = ksslinfodialog_event_callback(this, cbval1);
             return callback_ret;
         }
         return KSslInfoDialog::event(event);
@@ -700,15 +402,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (ksslinfodialog_mousepressevent_isbase) {
-            ksslinfodialog_mousepressevent_isbase = false;
-            KSslInfoDialog::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = ksslinfodialog_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (ksslinfodialog_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            ksslinfodialog_mousepressevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::mousePressEvent(event);
@@ -716,15 +412,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (ksslinfodialog_mousereleaseevent_isbase) {
-            ksslinfodialog_mousereleaseevent_isbase = false;
-            KSslInfoDialog::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = ksslinfodialog_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (ksslinfodialog_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            ksslinfodialog_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::mouseReleaseEvent(event);
@@ -732,15 +422,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (ksslinfodialog_mousedoubleclickevent_isbase) {
-            ksslinfodialog_mousedoubleclickevent_isbase = false;
-            KSslInfoDialog::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = ksslinfodialog_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (ksslinfodialog_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            ksslinfodialog_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::mouseDoubleClickEvent(event);
@@ -748,15 +432,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (ksslinfodialog_mousemoveevent_isbase) {
-            ksslinfodialog_mousemoveevent_isbase = false;
-            KSslInfoDialog::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = ksslinfodialog_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (ksslinfodialog_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            ksslinfodialog_mousemoveevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::mouseMoveEvent(event);
@@ -764,15 +442,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (ksslinfodialog_wheelevent_isbase) {
-            ksslinfodialog_wheelevent_isbase = false;
-            KSslInfoDialog::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = ksslinfodialog_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (ksslinfodialog_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            ksslinfodialog_wheelevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::wheelEvent(event);
@@ -780,15 +452,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (ksslinfodialog_keyreleaseevent_isbase) {
-            ksslinfodialog_keyreleaseevent_isbase = false;
-            KSslInfoDialog::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = ksslinfodialog_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (ksslinfodialog_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            ksslinfodialog_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::keyReleaseEvent(event);
@@ -796,15 +462,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (ksslinfodialog_focusinevent_isbase) {
-            ksslinfodialog_focusinevent_isbase = false;
-            KSslInfoDialog::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = ksslinfodialog_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (ksslinfodialog_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            ksslinfodialog_focusinevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::focusInEvent(event);
@@ -812,15 +472,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (ksslinfodialog_focusoutevent_isbase) {
-            ksslinfodialog_focusoutevent_isbase = false;
-            KSslInfoDialog::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = ksslinfodialog_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (ksslinfodialog_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            ksslinfodialog_focusoutevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::focusOutEvent(event);
@@ -828,15 +482,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (ksslinfodialog_enterevent_isbase) {
-            ksslinfodialog_enterevent_isbase = false;
-            KSslInfoDialog::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = ksslinfodialog_enterevent_callback;
-        if (enterevent_cb) {
+        if (ksslinfodialog_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            ksslinfodialog_enterevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::enterEvent(event);
@@ -844,15 +492,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (ksslinfodialog_leaveevent_isbase) {
-            ksslinfodialog_leaveevent_isbase = false;
-            KSslInfoDialog::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = ksslinfodialog_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (ksslinfodialog_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            ksslinfodialog_leaveevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::leaveEvent(event);
@@ -860,15 +502,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (ksslinfodialog_paintevent_isbase) {
-            ksslinfodialog_paintevent_isbase = false;
-            KSslInfoDialog::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = ksslinfodialog_paintevent_callback;
-        if (paintevent_cb) {
+        if (ksslinfodialog_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            ksslinfodialog_paintevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::paintEvent(event);
@@ -876,15 +512,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (ksslinfodialog_moveevent_isbase) {
-            ksslinfodialog_moveevent_isbase = false;
-            KSslInfoDialog::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = ksslinfodialog_moveevent_callback;
-        if (moveevent_cb) {
+        if (ksslinfodialog_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            ksslinfodialog_moveevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::moveEvent(event);
@@ -892,15 +522,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (ksslinfodialog_tabletevent_isbase) {
-            ksslinfodialog_tabletevent_isbase = false;
-            KSslInfoDialog::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = ksslinfodialog_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (ksslinfodialog_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            ksslinfodialog_tabletevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::tabletEvent(event);
@@ -908,15 +532,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (ksslinfodialog_actionevent_isbase) {
-            ksslinfodialog_actionevent_isbase = false;
-            KSslInfoDialog::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = ksslinfodialog_actionevent_callback;
-        if (actionevent_cb) {
+        if (ksslinfodialog_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            ksslinfodialog_actionevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::actionEvent(event);
@@ -924,15 +542,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (ksslinfodialog_dragenterevent_isbase) {
-            ksslinfodialog_dragenterevent_isbase = false;
-            KSslInfoDialog::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = ksslinfodialog_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (ksslinfodialog_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            ksslinfodialog_dragenterevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::dragEnterEvent(event);
@@ -940,15 +552,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (ksslinfodialog_dragmoveevent_isbase) {
-            ksslinfodialog_dragmoveevent_isbase = false;
-            KSslInfoDialog::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = ksslinfodialog_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (ksslinfodialog_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            ksslinfodialog_dragmoveevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::dragMoveEvent(event);
@@ -956,15 +562,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (ksslinfodialog_dragleaveevent_isbase) {
-            ksslinfodialog_dragleaveevent_isbase = false;
-            KSslInfoDialog::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = ksslinfodialog_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (ksslinfodialog_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            ksslinfodialog_dragleaveevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::dragLeaveEvent(event);
@@ -972,15 +572,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (ksslinfodialog_dropevent_isbase) {
-            ksslinfodialog_dropevent_isbase = false;
-            KSslInfoDialog::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = ksslinfodialog_dropevent_callback;
-        if (dropevent_cb) {
+        if (ksslinfodialog_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            ksslinfodialog_dropevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::dropEvent(event);
@@ -988,15 +582,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (ksslinfodialog_hideevent_isbase) {
-            ksslinfodialog_hideevent_isbase = false;
-            KSslInfoDialog::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = ksslinfodialog_hideevent_callback;
-        if (hideevent_cb) {
+        if (ksslinfodialog_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            ksslinfodialog_hideevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::hideEvent(event);
@@ -1004,12 +592,7 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (ksslinfodialog_nativeevent_isbase) {
-            ksslinfodialog_nativeevent_isbase = false;
-            return KSslInfoDialog::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = ksslinfodialog_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (ksslinfodialog_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1019,7 +602,7 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = ksslinfodialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1028,15 +611,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (ksslinfodialog_changeevent_isbase) {
-            ksslinfodialog_changeevent_isbase = false;
-            KSslInfoDialog::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = ksslinfodialog_changeevent_callback;
-        if (changeevent_cb) {
+        if (ksslinfodialog_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            ksslinfodialog_changeevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::changeEvent(param1);
@@ -1044,14 +621,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (ksslinfodialog_metric_isbase) {
-            ksslinfodialog_metric_isbase = false;
-            return KSslInfoDialog::metric(param1);
-        }
-        auto metric_cb = ksslinfodialog_metric_callback;
-        if (metric_cb) {
+        if (ksslinfodialog_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = ksslinfodialog_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KSslInfoDialog::metric(param1);
@@ -1059,15 +631,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (ksslinfodialog_initpainter_isbase) {
-            ksslinfodialog_initpainter_isbase = false;
-            KSslInfoDialog::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = ksslinfodialog_initpainter_callback;
-        if (initpainter_cb) {
+        if (ksslinfodialog_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            ksslinfodialog_initpainter_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::initPainter(painter);
@@ -1075,14 +641,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (ksslinfodialog_redirected_isbase) {
-            ksslinfodialog_redirected_isbase = false;
-            return KSslInfoDialog::redirected(offset);
-        }
-        auto redirected_cb = ksslinfodialog_redirected_callback;
-        if (redirected_cb) {
+        if (ksslinfodialog_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = ksslinfodialog_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KSslInfoDialog::redirected(offset);
@@ -1090,13 +651,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (ksslinfodialog_sharedpainter_isbase) {
-            ksslinfodialog_sharedpainter_isbase = false;
-            return KSslInfoDialog::sharedPainter();
-        }
-        auto sharedpainter_cb = ksslinfodialog_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (ksslinfodialog_sharedpainter_callback) {
+            QPainter* callback_ret = ksslinfodialog_sharedpainter_callback(this);
             return callback_ret;
         }
         return KSslInfoDialog::sharedPainter();
@@ -1104,15 +660,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (ksslinfodialog_inputmethodevent_isbase) {
-            ksslinfodialog_inputmethodevent_isbase = false;
-            KSslInfoDialog::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = ksslinfodialog_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (ksslinfodialog_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            ksslinfodialog_inputmethodevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::inputMethodEvent(param1);
@@ -1120,14 +670,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (ksslinfodialog_inputmethodquery_isbase) {
-            ksslinfodialog_inputmethodquery_isbase = false;
-            return KSslInfoDialog::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = ksslinfodialog_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (ksslinfodialog_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = ksslinfodialog_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1137,14 +682,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (ksslinfodialog_focusnextprevchild_isbase) {
-            ksslinfodialog_focusnextprevchild_isbase = false;
-            return KSslInfoDialog::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = ksslinfodialog_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (ksslinfodialog_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = ksslinfodialog_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KSslInfoDialog::focusNextPrevChild(next);
@@ -1152,15 +692,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (ksslinfodialog_timerevent_isbase) {
-            ksslinfodialog_timerevent_isbase = false;
-            KSslInfoDialog::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = ksslinfodialog_timerevent_callback;
-        if (timerevent_cb) {
+        if (ksslinfodialog_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            ksslinfodialog_timerevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::timerEvent(event);
@@ -1168,15 +702,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (ksslinfodialog_childevent_isbase) {
-            ksslinfodialog_childevent_isbase = false;
-            KSslInfoDialog::childEvent(event);
-            return;
-        }
-        auto childevent_cb = ksslinfodialog_childevent_callback;
-        if (childevent_cb) {
+        if (ksslinfodialog_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            ksslinfodialog_childevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::childEvent(event);
@@ -1184,15 +712,9 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (ksslinfodialog_customevent_isbase) {
-            ksslinfodialog_customevent_isbase = false;
-            KSslInfoDialog::customEvent(event);
-            return;
-        }
-        auto customevent_cb = ksslinfodialog_customevent_callback;
-        if (customevent_cb) {
+        if (ksslinfodialog_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            ksslinfodialog_customevent_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::customEvent(event);
@@ -1200,17 +722,11 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (ksslinfodialog_connectnotify_isbase) {
-            ksslinfodialog_connectnotify_isbase = false;
-            KSslInfoDialog::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = ksslinfodialog_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (ksslinfodialog_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            ksslinfodialog_connectnotify_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::connectNotify(signal);
@@ -1218,288 +734,56 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (ksslinfodialog_disconnectnotify_isbase) {
-            ksslinfodialog_disconnectnotify_isbase = false;
-            KSslInfoDialog::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = ksslinfodialog_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (ksslinfodialog_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            ksslinfodialog_disconnectnotify_callback(this, cbval1);
             return;
         }
         KSslInfoDialog::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void adjustPosition(QWidget* param1) {
-        if (ksslinfodialog_adjustposition_isbase) {
-            ksslinfodialog_adjustposition_isbase = false;
-            KSslInfoDialog::adjustPosition(param1);
-            return;
-        }
-        auto adjustposition_cb = ksslinfodialog_adjustposition_callback;
-        if (adjustposition_cb) {
-            QWidget* cbval1 = param1;
-            adjustposition_cb(this, cbval1);
-            return;
-        }
-        KSslInfoDialog::adjustPosition(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (ksslinfodialog_updatemicrofocus_isbase) {
-            ksslinfodialog_updatemicrofocus_isbase = false;
-            KSslInfoDialog::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = ksslinfodialog_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KSslInfoDialog::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (ksslinfodialog_create_isbase) {
-            ksslinfodialog_create_isbase = false;
-            KSslInfoDialog::create();
-            return;
-        }
-        auto create_cb = ksslinfodialog_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KSslInfoDialog::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (ksslinfodialog_destroy_isbase) {
-            ksslinfodialog_destroy_isbase = false;
-            KSslInfoDialog::destroy();
-            return;
-        }
-        auto destroy_cb = ksslinfodialog_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KSslInfoDialog::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (ksslinfodialog_focusnextchild_isbase) {
-            ksslinfodialog_focusnextchild_isbase = false;
-            return KSslInfoDialog::focusNextChild();
-        }
-        auto focusnextchild_cb = ksslinfodialog_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KSslInfoDialog::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (ksslinfodialog_focuspreviouschild_isbase) {
-            ksslinfodialog_focuspreviouschild_isbase = false;
-            return KSslInfoDialog::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = ksslinfodialog_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KSslInfoDialog::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (ksslinfodialog_sender_isbase) {
-            ksslinfodialog_sender_isbase = false;
-            return KSslInfoDialog::sender();
-        }
-        auto sender_cb = ksslinfodialog_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KSslInfoDialog::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (ksslinfodialog_sendersignalindex_isbase) {
-            ksslinfodialog_sendersignalindex_isbase = false;
-            return KSslInfoDialog::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = ksslinfodialog_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KSslInfoDialog::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (ksslinfodialog_receivers_isbase) {
-            ksslinfodialog_receivers_isbase = false;
-            return KSslInfoDialog::receivers(signal);
-        }
-        auto receivers_cb = ksslinfodialog_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KSslInfoDialog::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (ksslinfodialog_issignalconnected_isbase) {
-            ksslinfodialog_issignalconnected_isbase = false;
-            return KSslInfoDialog::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = ksslinfodialog_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KSslInfoDialog::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (ksslinfodialog_getdecodedmetricf_isbase) {
-            ksslinfodialog_getdecodedmetricf_isbase = false;
-            return KSslInfoDialog::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = ksslinfodialog_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KSslInfoDialog::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void KSslInfoDialog_KeyPressEvent(KSslInfoDialog* self, QKeyEvent* param1);
     friend void KSslInfoDialog_SuperKeyPressEvent(KSslInfoDialog* self, QKeyEvent* param1);
-    friend void KSslInfoDialog_CloseEvent(KSslInfoDialog* self, QCloseEvent* param1);
     friend void KSslInfoDialog_SuperCloseEvent(KSslInfoDialog* self, QCloseEvent* param1);
-    friend void KSslInfoDialog_ShowEvent(KSslInfoDialog* self, QShowEvent* param1);
     friend void KSslInfoDialog_SuperShowEvent(KSslInfoDialog* self, QShowEvent* param1);
-    friend void KSslInfoDialog_ResizeEvent(KSslInfoDialog* self, QResizeEvent* param1);
     friend void KSslInfoDialog_SuperResizeEvent(KSslInfoDialog* self, QResizeEvent* param1);
-    friend void KSslInfoDialog_ContextMenuEvent(KSslInfoDialog* self, QContextMenuEvent* param1);
     friend void KSslInfoDialog_SuperContextMenuEvent(KSslInfoDialog* self, QContextMenuEvent* param1);
-    friend bool KSslInfoDialog_EventFilter(KSslInfoDialog* self, QObject* param1, QEvent* param2);
     friend bool KSslInfoDialog_SuperEventFilter(KSslInfoDialog* self, QObject* param1, QEvent* param2);
-    friend bool KSslInfoDialog_Event(KSslInfoDialog* self, QEvent* event);
     friend bool KSslInfoDialog_SuperEvent(KSslInfoDialog* self, QEvent* event);
-    friend void KSslInfoDialog_MousePressEvent(KSslInfoDialog* self, QMouseEvent* event);
     friend void KSslInfoDialog_SuperMousePressEvent(KSslInfoDialog* self, QMouseEvent* event);
-    friend void KSslInfoDialog_MouseReleaseEvent(KSslInfoDialog* self, QMouseEvent* event);
     friend void KSslInfoDialog_SuperMouseReleaseEvent(KSslInfoDialog* self, QMouseEvent* event);
-    friend void KSslInfoDialog_MouseDoubleClickEvent(KSslInfoDialog* self, QMouseEvent* event);
     friend void KSslInfoDialog_SuperMouseDoubleClickEvent(KSslInfoDialog* self, QMouseEvent* event);
-    friend void KSslInfoDialog_MouseMoveEvent(KSslInfoDialog* self, QMouseEvent* event);
     friend void KSslInfoDialog_SuperMouseMoveEvent(KSslInfoDialog* self, QMouseEvent* event);
-    friend void KSslInfoDialog_WheelEvent(KSslInfoDialog* self, QWheelEvent* event);
     friend void KSslInfoDialog_SuperWheelEvent(KSslInfoDialog* self, QWheelEvent* event);
-    friend void KSslInfoDialog_KeyReleaseEvent(KSslInfoDialog* self, QKeyEvent* event);
     friend void KSslInfoDialog_SuperKeyReleaseEvent(KSslInfoDialog* self, QKeyEvent* event);
-    friend void KSslInfoDialog_FocusInEvent(KSslInfoDialog* self, QFocusEvent* event);
     friend void KSslInfoDialog_SuperFocusInEvent(KSslInfoDialog* self, QFocusEvent* event);
-    friend void KSslInfoDialog_FocusOutEvent(KSslInfoDialog* self, QFocusEvent* event);
     friend void KSslInfoDialog_SuperFocusOutEvent(KSslInfoDialog* self, QFocusEvent* event);
-    friend void KSslInfoDialog_EnterEvent(KSslInfoDialog* self, QEnterEvent* event);
     friend void KSslInfoDialog_SuperEnterEvent(KSslInfoDialog* self, QEnterEvent* event);
-    friend void KSslInfoDialog_LeaveEvent(KSslInfoDialog* self, QEvent* event);
     friend void KSslInfoDialog_SuperLeaveEvent(KSslInfoDialog* self, QEvent* event);
-    friend void KSslInfoDialog_PaintEvent(KSslInfoDialog* self, QPaintEvent* event);
     friend void KSslInfoDialog_SuperPaintEvent(KSslInfoDialog* self, QPaintEvent* event);
-    friend void KSslInfoDialog_MoveEvent(KSslInfoDialog* self, QMoveEvent* event);
     friend void KSslInfoDialog_SuperMoveEvent(KSslInfoDialog* self, QMoveEvent* event);
-    friend void KSslInfoDialog_TabletEvent(KSslInfoDialog* self, QTabletEvent* event);
     friend void KSslInfoDialog_SuperTabletEvent(KSslInfoDialog* self, QTabletEvent* event);
-    friend void KSslInfoDialog_ActionEvent(KSslInfoDialog* self, QActionEvent* event);
     friend void KSslInfoDialog_SuperActionEvent(KSslInfoDialog* self, QActionEvent* event);
-    friend void KSslInfoDialog_DragEnterEvent(KSslInfoDialog* self, QDragEnterEvent* event);
     friend void KSslInfoDialog_SuperDragEnterEvent(KSslInfoDialog* self, QDragEnterEvent* event);
-    friend void KSslInfoDialog_DragMoveEvent(KSslInfoDialog* self, QDragMoveEvent* event);
     friend void KSslInfoDialog_SuperDragMoveEvent(KSslInfoDialog* self, QDragMoveEvent* event);
-    friend void KSslInfoDialog_DragLeaveEvent(KSslInfoDialog* self, QDragLeaveEvent* event);
     friend void KSslInfoDialog_SuperDragLeaveEvent(KSslInfoDialog* self, QDragLeaveEvent* event);
-    friend void KSslInfoDialog_DropEvent(KSslInfoDialog* self, QDropEvent* event);
     friend void KSslInfoDialog_SuperDropEvent(KSslInfoDialog* self, QDropEvent* event);
-    friend void KSslInfoDialog_HideEvent(KSslInfoDialog* self, QHideEvent* event);
     friend void KSslInfoDialog_SuperHideEvent(KSslInfoDialog* self, QHideEvent* event);
-    friend bool KSslInfoDialog_NativeEvent(KSslInfoDialog* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KSslInfoDialog_SuperNativeEvent(KSslInfoDialog* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void KSslInfoDialog_ChangeEvent(KSslInfoDialog* self, QEvent* param1);
     friend void KSslInfoDialog_SuperChangeEvent(KSslInfoDialog* self, QEvent* param1);
-    friend int KSslInfoDialog_Metric(const KSslInfoDialog* self, int param1);
     friend int KSslInfoDialog_SuperMetric(const KSslInfoDialog* self, int param1);
-    friend void KSslInfoDialog_InitPainter(const KSslInfoDialog* self, QPainter* painter);
     friend void KSslInfoDialog_SuperInitPainter(const KSslInfoDialog* self, QPainter* painter);
-    friend QPaintDevice* KSslInfoDialog_Redirected(const KSslInfoDialog* self, QPoint* offset);
     friend QPaintDevice* KSslInfoDialog_SuperRedirected(const KSslInfoDialog* self, QPoint* offset);
-    friend QPainter* KSslInfoDialog_SharedPainter(const KSslInfoDialog* self);
     friend QPainter* KSslInfoDialog_SuperSharedPainter(const KSslInfoDialog* self);
-    friend void KSslInfoDialog_InputMethodEvent(KSslInfoDialog* self, QInputMethodEvent* param1);
     friend void KSslInfoDialog_SuperInputMethodEvent(KSslInfoDialog* self, QInputMethodEvent* param1);
-    friend bool KSslInfoDialog_FocusNextPrevChild(KSslInfoDialog* self, bool next);
     friend bool KSslInfoDialog_SuperFocusNextPrevChild(KSslInfoDialog* self, bool next);
-    friend void KSslInfoDialog_TimerEvent(KSslInfoDialog* self, QTimerEvent* event);
     friend void KSslInfoDialog_SuperTimerEvent(KSslInfoDialog* self, QTimerEvent* event);
-    friend void KSslInfoDialog_ChildEvent(KSslInfoDialog* self, QChildEvent* event);
     friend void KSslInfoDialog_SuperChildEvent(KSslInfoDialog* self, QChildEvent* event);
-    friend void KSslInfoDialog_CustomEvent(KSslInfoDialog* self, QEvent* event);
     friend void KSslInfoDialog_SuperCustomEvent(KSslInfoDialog* self, QEvent* event);
-    friend void KSslInfoDialog_ConnectNotify(KSslInfoDialog* self, const QMetaMethod* signal);
     friend void KSslInfoDialog_SuperConnectNotify(KSslInfoDialog* self, const QMetaMethod* signal);
-    friend void KSslInfoDialog_DisconnectNotify(KSslInfoDialog* self, const QMetaMethod* signal);
     friend void KSslInfoDialog_SuperDisconnectNotify(KSslInfoDialog* self, const QMetaMethod* signal);
-    friend void KSslInfoDialog_AdjustPosition(KSslInfoDialog* self, QWidget* param1);
-    friend void KSslInfoDialog_SuperAdjustPosition(KSslInfoDialog* self, QWidget* param1);
-    friend void KSslInfoDialog_UpdateMicroFocus(KSslInfoDialog* self);
-    friend void KSslInfoDialog_SuperUpdateMicroFocus(KSslInfoDialog* self);
-    friend void KSslInfoDialog_Create(KSslInfoDialog* self);
-    friend void KSslInfoDialog_SuperCreate(KSslInfoDialog* self);
-    friend void KSslInfoDialog_Destroy(KSslInfoDialog* self);
-    friend void KSslInfoDialog_SuperDestroy(KSslInfoDialog* self);
-    friend bool KSslInfoDialog_FocusNextChild(KSslInfoDialog* self);
-    friend bool KSslInfoDialog_SuperFocusNextChild(KSslInfoDialog* self);
-    friend bool KSslInfoDialog_FocusPreviousChild(KSslInfoDialog* self);
-    friend bool KSslInfoDialog_SuperFocusPreviousChild(KSslInfoDialog* self);
-    friend QObject* KSslInfoDialog_Sender(const KSslInfoDialog* self);
-    friend QObject* KSslInfoDialog_SuperSender(const KSslInfoDialog* self);
-    friend int KSslInfoDialog_SenderSignalIndex(const KSslInfoDialog* self);
-    friend int KSslInfoDialog_SuperSenderSignalIndex(const KSslInfoDialog* self);
-    friend int KSslInfoDialog_Receivers(const KSslInfoDialog* self, const char* signal);
-    friend int KSslInfoDialog_SuperReceivers(const KSslInfoDialog* self, const char* signal);
-    friend bool KSslInfoDialog_IsSignalConnected(const KSslInfoDialog* self, const QMetaMethod* signal);
-    friend bool KSslInfoDialog_SuperIsSignalConnected(const KSslInfoDialog* self, const QMetaMethod* signal);
-    friend double KSslInfoDialog_GetDecodedMetricF(const KSslInfoDialog* self, int metricA, int metricB);
-    friend double KSslInfoDialog_SuperGetDecodedMetricF(const KSslInfoDialog* self, int metricA, int metricB);
 };
 
 #endif

@@ -44,7 +44,7 @@ void TextTranslator__TranslatorMenu_Translate(TextTranslator__TranslatorMenu* se
 void TextTranslator__TranslatorMenu_Connect_Translate(TextTranslator__TranslatorMenu* self, intptr_t slot);
 libqt_string TextTranslator__TranslatorMenu_Tr2(const char* s, const char* c);
 libqt_string TextTranslator__TranslatorMenu_Tr3(const char* s, const char* c, int n);
-void TextTranslator__TranslatorMenu_OnMetaObject(const TextTranslator__TranslatorMenu* self, intptr_t slot);
+void TextTranslator__TranslatorMenu_OnMetaObject(TextTranslator__TranslatorMenu* self, intptr_t slot);
 QMetaObject* TextTranslator__TranslatorMenu_SuperMetaObject(const TextTranslator__TranslatorMenu* self);
 void TextTranslator__TranslatorMenu_OnMetacast(TextTranslator__TranslatorMenu* self, intptr_t slot);
 void* TextTranslator__TranslatorMenu_SuperMetacast(TextTranslator__TranslatorMenu* self, const char* param1);
@@ -72,17 +72,9 @@ void TextTranslator__TranslatorMenu_DisconnectNotify(TextTranslator__TranslatorM
 void TextTranslator__TranslatorMenu_OnDisconnectNotify(TextTranslator__TranslatorMenu* self, intptr_t slot);
 void TextTranslator__TranslatorMenu_SuperDisconnectNotify(TextTranslator__TranslatorMenu* self, const QMetaMethod* signal);
 QObject* TextTranslator__TranslatorMenu_Sender(const TextTranslator__TranslatorMenu* self);
-void TextTranslator__TranslatorMenu_OnSender(const TextTranslator__TranslatorMenu* self, intptr_t slot);
-QObject* TextTranslator__TranslatorMenu_SuperSender(const TextTranslator__TranslatorMenu* self);
 int TextTranslator__TranslatorMenu_SenderSignalIndex(const TextTranslator__TranslatorMenu* self);
-void TextTranslator__TranslatorMenu_OnSenderSignalIndex(const TextTranslator__TranslatorMenu* self, intptr_t slot);
-int TextTranslator__TranslatorMenu_SuperSenderSignalIndex(const TextTranslator__TranslatorMenu* self);
 int TextTranslator__TranslatorMenu_Receivers(const TextTranslator__TranslatorMenu* self, const char* signal);
-void TextTranslator__TranslatorMenu_OnReceivers(const TextTranslator__TranslatorMenu* self, intptr_t slot);
-int TextTranslator__TranslatorMenu_SuperReceivers(const TextTranslator__TranslatorMenu* self, const char* signal);
 bool TextTranslator__TranslatorMenu_IsSignalConnected(const TextTranslator__TranslatorMenu* self, const QMetaMethod* signal);
-void TextTranslator__TranslatorMenu_OnIsSignalConnected(const TextTranslator__TranslatorMenu* self, intptr_t slot);
-bool TextTranslator__TranslatorMenu_SuperIsSignalConnected(const TextTranslator__TranslatorMenu* self, const QMetaMethod* signal);
 void TextTranslator__TranslatorMenu_Delete(TextTranslator__TranslatorMenu* self);
 
 #ifdef __cplusplus

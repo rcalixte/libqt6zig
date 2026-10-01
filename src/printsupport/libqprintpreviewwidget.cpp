@@ -239,1644 +239,1168 @@ void QPrintPreviewWidget_ZoomOut1(QPrintPreviewWidget* self, double zoom) {
 
 // Base class handler implementation
 QMetaObject* QPrintPreviewWidget_SuperMetaObject(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vqprintpreviewwidget->metaObject();
-    } else {
-        return (QMetaObject*)self->QPrintPreviewWidget::metaObject();
-    }
+    return (QMetaObject*)self->QPrintPreviewWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnMetaObject(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_MetaObject_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MetaObject_Callback>(slot));
+void QPrintPreviewWidget_OnMetaObject(QPrintPreviewWidget* self, intptr_t slot) {
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self)))
+        vqprintpreviewwidget->qprintpreviewwidget_metaobject_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPrintPreviewWidget_SuperMetacast(QPrintPreviewWidget* self, const char* param1) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_Metacast_IsBase(true);
-        return vqprintpreviewwidget->qt_metacast(param1);
-    } else {
-        return self->QPrintPreviewWidget::qt_metacast(param1);
-    }
+    return self->QPrintPreviewWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMetacast(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_Metacast_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Metacast_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_metacast_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPrintPreviewWidget_SuperMetacall(QPrintPreviewWidget* self, int param1, int param2, void** param3) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_Metacall_IsBase(true);
-        return vqprintpreviewwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPrintPreviewWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPrintPreviewWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMetacall(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_Metacall_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Metacall_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_metacall_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperSetVisible(QPrintPreviewWidget* self, bool visible) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_SetVisible_IsBase(true);
-        vqprintpreviewwidget->setVisible(visible);
-    } else {
-        self->QPrintPreviewWidget::setVisible(visible);
-    }
+    self->QPrintPreviewWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnSetVisible(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_SetVisible_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SetVisible_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_setvisible_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPrintPreviewWidget_DevType(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return vqprintpreviewwidget->devType();
-    } else {
-        return self->QPrintPreviewWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QPrintPreviewWidget_SuperDevType(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_DevType_IsBase(true);
-        return vqprintpreviewwidget->devType();
-    } else {
-        return self->QPrintPreviewWidget::devType();
-    }
+    return self->QPrintPreviewWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnDevType(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_DevType_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DevType_Callback>(slot));
+void QPrintPreviewWidget_OnDevType(QPrintPreviewWidget* self, intptr_t slot) {
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self)))
+        vqprintpreviewwidget->qprintpreviewwidget_devtype_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QPrintPreviewWidget_SizeHint(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return new QSize(vqprintpreviewwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQPrintPreviewWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QPrintPreviewWidget_SuperSizeHint(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_SizeHint_IsBase(true);
-        return new QSize(vqprintpreviewwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQPrintPreviewWidget*)self)->sizeHint());
-    }
+    return new QSize(self->QPrintPreviewWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnSizeHint(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_SizeHint_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SizeHint_Callback>(slot));
+void QPrintPreviewWidget_OnSizeHint(QPrintPreviewWidget* self, intptr_t slot) {
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self)))
+        vqprintpreviewwidget->qprintpreviewwidget_sizehint_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QPrintPreviewWidget_MinimumSizeHint(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return new QSize(vqprintpreviewwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQPrintPreviewWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QPrintPreviewWidget_SuperMinimumSizeHint(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vqprintpreviewwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQPrintPreviewWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QPrintPreviewWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnMinimumSizeHint(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MinimumSizeHint_Callback>(slot));
+void QPrintPreviewWidget_OnMinimumSizeHint(QPrintPreviewWidget* self, intptr_t slot) {
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self)))
+        vqprintpreviewwidget->qprintpreviewwidget_minimumsizehint_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPrintPreviewWidget_HeightForWidth(const QPrintPreviewWidget* self, int param1) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return vqprintpreviewwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QPrintPreviewWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QPrintPreviewWidget_SuperHeightForWidth(const QPrintPreviewWidget* self, int param1) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_HeightForWidth_IsBase(true);
-        return vqprintpreviewwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QPrintPreviewWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QPrintPreviewWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnHeightForWidth(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_HeightForWidth_Callback>(slot));
+void QPrintPreviewWidget_OnHeightForWidth(QPrintPreviewWidget* self, intptr_t slot) {
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self)))
+        vqprintpreviewwidget->qprintpreviewwidget_heightforwidth_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPrintPreviewWidget_HasHeightForWidth(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return vqprintpreviewwidget->hasHeightForWidth();
-    } else {
-        return self->QPrintPreviewWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QPrintPreviewWidget_SuperHasHeightForWidth(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_HasHeightForWidth_IsBase(true);
-        return vqprintpreviewwidget->hasHeightForWidth();
-    } else {
-        return self->QPrintPreviewWidget::hasHeightForWidth();
-    }
+    return self->QPrintPreviewWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnHasHeightForWidth(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_HasHeightForWidth_Callback>(slot));
+void QPrintPreviewWidget_OnHasHeightForWidth(QPrintPreviewWidget* self, intptr_t slot) {
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self)))
+        vqprintpreviewwidget->qprintpreviewwidget_hasheightforwidth_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QPrintPreviewWidget_PaintEngine(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return vqprintpreviewwidget->paintEngine();
-    } else {
-        return self->QPrintPreviewWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QPrintPreviewWidget_SuperPaintEngine(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_PaintEngine_IsBase(true);
-        return vqprintpreviewwidget->paintEngine();
-    } else {
-        return self->QPrintPreviewWidget::paintEngine();
-    }
+    return self->QPrintPreviewWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnPaintEngine(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_PaintEngine_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_PaintEngine_Callback>(slot));
+void QPrintPreviewWidget_OnPaintEngine(QPrintPreviewWidget* self, intptr_t slot) {
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self)))
+        vqprintpreviewwidget->qprintpreviewwidget_paintengine_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPrintPreviewWidget_Event(QPrintPreviewWidget* self, QEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         return vqprintpreviewwidget->event(event);
     } else {
-        return ((VirtualQPrintPreviewWidget*)self)->event(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPrintPreviewWidget_SuperEvent(QPrintPreviewWidget* self, QEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_Event_IsBase(true);
-        return vqprintpreviewwidget->event(event);
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->event(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        return vqprintpreviewwidget->QPrintPreviewWidget::event(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_Event_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Event_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_event_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_MousePressEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->mousePressEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperMousePressEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_MousePressEvent_IsBase(true);
-        vqprintpreviewwidget->mousePressEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMousePressEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MousePressEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_mousepressevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_MouseReleaseEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperMouseReleaseEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_MouseReleaseEvent_IsBase(true);
-        vqprintpreviewwidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMouseReleaseEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_mousereleaseevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_MouseDoubleClickEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperMouseDoubleClickEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_MouseDoubleClickEvent_IsBase(true);
-        vqprintpreviewwidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMouseDoubleClickEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_MouseMoveEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->mouseMoveEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperMouseMoveEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_MouseMoveEvent_IsBase(true);
-        vqprintpreviewwidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMouseMoveEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_mousemoveevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_WheelEvent(QPrintPreviewWidget* self, QWheelEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->wheelEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperWheelEvent(QPrintPreviewWidget* self, QWheelEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_WheelEvent_IsBase(true);
-        vqprintpreviewwidget->wheelEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnWheelEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_WheelEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_WheelEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_wheelevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_KeyPressEvent(QPrintPreviewWidget* self, QKeyEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->keyPressEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperKeyPressEvent(QPrintPreviewWidget* self, QKeyEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_KeyPressEvent_IsBase(true);
-        vqprintpreviewwidget->keyPressEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnKeyPressEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_keypressevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_KeyReleaseEvent(QPrintPreviewWidget* self, QKeyEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->keyReleaseEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperKeyReleaseEvent(QPrintPreviewWidget* self, QKeyEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_KeyReleaseEvent_IsBase(true);
-        vqprintpreviewwidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnKeyReleaseEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_keyreleaseevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_FocusInEvent(QPrintPreviewWidget* self, QFocusEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->focusInEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperFocusInEvent(QPrintPreviewWidget* self, QFocusEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_FocusInEvent_IsBase(true);
-        vqprintpreviewwidget->focusInEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnFocusInEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_FocusInEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_focusinevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_FocusOutEvent(QPrintPreviewWidget* self, QFocusEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->focusOutEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperFocusOutEvent(QPrintPreviewWidget* self, QFocusEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_FocusOutEvent_IsBase(true);
-        vqprintpreviewwidget->focusOutEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnFocusOutEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_focusoutevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_EnterEvent(QPrintPreviewWidget* self, QEnterEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->enterEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperEnterEvent(QPrintPreviewWidget* self, QEnterEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_EnterEvent_IsBase(true);
-        vqprintpreviewwidget->enterEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->enterEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnEnterEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_EnterEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_EnterEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_enterevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_LeaveEvent(QPrintPreviewWidget* self, QEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->leaveEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperLeaveEvent(QPrintPreviewWidget* self, QEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_LeaveEvent_IsBase(true);
-        vqprintpreviewwidget->leaveEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnLeaveEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_LeaveEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_leaveevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_PaintEvent(QPrintPreviewWidget* self, QPaintEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->paintEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperPaintEvent(QPrintPreviewWidget* self, QPaintEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_PaintEvent_IsBase(true);
-        vqprintpreviewwidget->paintEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->paintEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnPaintEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_PaintEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_PaintEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_paintevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_MoveEvent(QPrintPreviewWidget* self, QMoveEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->moveEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperMoveEvent(QPrintPreviewWidget* self, QMoveEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_MoveEvent_IsBase(true);
-        vqprintpreviewwidget->moveEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->moveEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMoveEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_MoveEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MoveEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_moveevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_ResizeEvent(QPrintPreviewWidget* self, QResizeEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->resizeEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperResizeEvent(QPrintPreviewWidget* self, QResizeEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_ResizeEvent_IsBase(true);
-        vqprintpreviewwidget->resizeEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnResizeEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ResizeEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_resizeevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_CloseEvent(QPrintPreviewWidget* self, QCloseEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->closeEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperCloseEvent(QPrintPreviewWidget* self, QCloseEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_CloseEvent_IsBase(true);
-        vqprintpreviewwidget->closeEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->closeEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnCloseEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_CloseEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_CloseEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_closeevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_ContextMenuEvent(QPrintPreviewWidget* self, QContextMenuEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->contextMenuEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperContextMenuEvent(QPrintPreviewWidget* self, QContextMenuEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_ContextMenuEvent_IsBase(true);
-        vqprintpreviewwidget->contextMenuEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnContextMenuEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_contextmenuevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_TabletEvent(QPrintPreviewWidget* self, QTabletEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->tabletEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperTabletEvent(QPrintPreviewWidget* self, QTabletEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_TabletEvent_IsBase(true);
-        vqprintpreviewwidget->tabletEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnTabletEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_TabletEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_TabletEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_tabletevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_ActionEvent(QPrintPreviewWidget* self, QActionEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->actionEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperActionEvent(QPrintPreviewWidget* self, QActionEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_ActionEvent_IsBase(true);
-        vqprintpreviewwidget->actionEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->actionEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnActionEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_ActionEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ActionEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_actionevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_DragEnterEvent(QPrintPreviewWidget* self, QDragEnterEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->dragEnterEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperDragEnterEvent(QPrintPreviewWidget* self, QDragEnterEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_DragEnterEvent_IsBase(true);
-        vqprintpreviewwidget->dragEnterEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnDragEnterEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_dragenterevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_DragMoveEvent(QPrintPreviewWidget* self, QDragMoveEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->dragMoveEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperDragMoveEvent(QPrintPreviewWidget* self, QDragMoveEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_DragMoveEvent_IsBase(true);
-        vqprintpreviewwidget->dragMoveEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnDragMoveEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_dragmoveevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_DragLeaveEvent(QPrintPreviewWidget* self, QDragLeaveEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->dragLeaveEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperDragLeaveEvent(QPrintPreviewWidget* self, QDragLeaveEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_DragLeaveEvent_IsBase(true);
-        vqprintpreviewwidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnDragLeaveEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_dragleaveevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_DropEvent(QPrintPreviewWidget* self, QDropEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->dropEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperDropEvent(QPrintPreviewWidget* self, QDropEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_DropEvent_IsBase(true);
-        vqprintpreviewwidget->dropEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->dropEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnDropEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_DropEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DropEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_dropevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_ShowEvent(QPrintPreviewWidget* self, QShowEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->showEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperShowEvent(QPrintPreviewWidget* self, QShowEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_ShowEvent_IsBase(true);
-        vqprintpreviewwidget->showEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->showEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnShowEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_ShowEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ShowEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_showevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_HideEvent(QPrintPreviewWidget* self, QHideEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->hideEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperHideEvent(QPrintPreviewWidget* self, QHideEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_HideEvent_IsBase(true);
-        vqprintpreviewwidget->hideEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->hideEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnHideEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_HideEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_HideEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_hideevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPrintPreviewWidget_NativeEvent(QPrintPreviewWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
+    if (vqprintpreviewwidget) {
         return vqprintpreviewwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQPrintPreviewWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPrintPreviewWidget_SuperNativeEvent(QPrintPreviewWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_NativeEvent_IsBase(true);
-        return vqprintpreviewwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        return vqprintpreviewwidget->QPrintPreviewWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnNativeEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_NativeEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_NativeEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_nativeevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_ChangeEvent(QPrintPreviewWidget* self, QEvent* param1) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->changeEvent(param1);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperChangeEvent(QPrintPreviewWidget* self, QEvent* param1) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_ChangeEvent_IsBase(true);
-        vqprintpreviewwidget->changeEvent(param1);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnChangeEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ChangeEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_changeevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPrintPreviewWidget_Metric(const QPrintPreviewWidget* self, int param1) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         return vqprintpreviewwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQPrintPreviewWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QPrintPreviewWidget_SuperMetric(const QPrintPreviewWidget* self, int param1) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_Metric_IsBase(true);
-        return vqprintpreviewwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self))) {
+        return vqprintpreviewwidget->QPrintPreviewWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnMetric(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_Metric_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Metric_Callback>(slot));
+void QPrintPreviewWidget_OnMetric(QPrintPreviewWidget* self, intptr_t slot) {
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self)))
+        vqprintpreviewwidget->qprintpreviewwidget_metric_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_InitPainter(const QPrintPreviewWidget* self, QPainter* painter) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->initPainter(painter);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperInitPainter(const QPrintPreviewWidget* self, QPainter* painter) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_InitPainter_IsBase(true);
-        vqprintpreviewwidget->initPainter(painter);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->initPainter(painter);
-    }
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self))) {
+        vqprintpreviewwidget->QPrintPreviewWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnInitPainter(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_InitPainter_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_InitPainter_Callback>(slot));
+void QPrintPreviewWidget_OnInitPainter(QPrintPreviewWidget* self, intptr_t slot) {
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self)))
+        vqprintpreviewwidget->qprintpreviewwidget_initpainter_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QPrintPreviewWidget_Redirected(const QPrintPreviewWidget* self, QPoint* offset) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         return vqprintpreviewwidget->redirected(offset);
     } else {
-        return ((VirtualQPrintPreviewWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QPrintPreviewWidget_SuperRedirected(const QPrintPreviewWidget* self, QPoint* offset) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_Redirected_IsBase(true);
-        return vqprintpreviewwidget->redirected(offset);
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->redirected(offset);
-    }
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self))) {
+        return vqprintpreviewwidget->QPrintPreviewWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnRedirected(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_Redirected_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Redirected_Callback>(slot));
+void QPrintPreviewWidget_OnRedirected(QPrintPreviewWidget* self, intptr_t slot) {
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self)))
+        vqprintpreviewwidget->qprintpreviewwidget_redirected_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QPrintPreviewWidget_SharedPainter(const QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         return vqprintpreviewwidget->sharedPainter();
     } else {
-        return ((VirtualQPrintPreviewWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QPrintPreviewWidget_SuperSharedPainter(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_SharedPainter_IsBase(true);
-        return vqprintpreviewwidget->sharedPainter();
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->sharedPainter();
-    }
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self))) {
+        return vqprintpreviewwidget->QPrintPreviewWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnSharedPainter(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_SharedPainter_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SharedPainter_Callback>(slot));
+void QPrintPreviewWidget_OnSharedPainter(QPrintPreviewWidget* self, intptr_t slot) {
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self)))
+        vqprintpreviewwidget->qprintpreviewwidget_sharedpainter_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_InputMethodEvent(QPrintPreviewWidget* self, QInputMethodEvent* param1) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->inputMethodEvent(param1);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperInputMethodEvent(QPrintPreviewWidget* self, QInputMethodEvent* param1) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_InputMethodEvent_IsBase(true);
-        vqprintpreviewwidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnInputMethodEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_inputmethodevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QPrintPreviewWidget_InputMethodQuery(const QPrintPreviewWidget* self, int param1) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return new QVariant(vqprintpreviewwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQPrintPreviewWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QPrintPreviewWidget_SuperInputMethodQuery(const QPrintPreviewWidget* self, int param1) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vqprintpreviewwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQPrintPreviewWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QPrintPreviewWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnInputMethodQuery(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_InputMethodQuery_Callback>(slot));
+void QPrintPreviewWidget_OnInputMethodQuery(QPrintPreviewWidget* self, intptr_t slot) {
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self)))
+        vqprintpreviewwidget->qprintpreviewwidget_inputmethodquery_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPrintPreviewWidget_FocusNextPrevChild(QPrintPreviewWidget* self, bool next) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         return vqprintpreviewwidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualQPrintPreviewWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPrintPreviewWidget_SuperFocusNextPrevChild(QPrintPreviewWidget* self, bool next) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_FocusNextPrevChild_IsBase(true);
-        return vqprintpreviewwidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        return vqprintpreviewwidget->QPrintPreviewWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnFocusNextPrevChild(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_focusnextprevchild_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPrintPreviewWidget_EventFilter(QPrintPreviewWidget* self, QObject* watched, QEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return vqprintpreviewwidget->eventFilter(watched, event);
-    } else {
-        return self->QPrintPreviewWidget::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QPrintPreviewWidget_SuperEventFilter(QPrintPreviewWidget* self, QObject* watched, QEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_EventFilter_IsBase(true);
-        return vqprintpreviewwidget->eventFilter(watched, event);
-    } else {
-        return self->QPrintPreviewWidget::eventFilter(watched, event);
-    }
+    return self->QPrintPreviewWidget::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnEventFilter(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_EventFilter_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_EventFilter_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_eventfilter_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_TimerEvent(QPrintPreviewWidget* self, QTimerEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->timerEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperTimerEvent(QPrintPreviewWidget* self, QTimerEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_TimerEvent_IsBase(true);
-        vqprintpreviewwidget->timerEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->timerEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnTimerEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_TimerEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_TimerEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_timerevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_ChildEvent(QPrintPreviewWidget* self, QChildEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->childEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperChildEvent(QPrintPreviewWidget* self, QChildEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_ChildEvent_IsBase(true);
-        vqprintpreviewwidget->childEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->childEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnChildEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_ChildEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ChildEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_childevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_CustomEvent(QPrintPreviewWidget* self, QEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->customEvent(event);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperCustomEvent(QPrintPreviewWidget* self, QEvent* event) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_CustomEvent_IsBase(true);
-        vqprintpreviewwidget->customEvent(event);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->customEvent(event);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnCustomEvent(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_CustomEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_CustomEvent_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_customevent_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_ConnectNotify(QPrintPreviewWidget* self, const QMetaMethod* signal) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->connectNotify(*signal);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperConnectNotify(QPrintPreviewWidget* self, const QMetaMethod* signal) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_ConnectNotify_IsBase(true);
-        vqprintpreviewwidget->connectNotify(*signal);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnConnectNotify(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ConnectNotify_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_connectnotify_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrintPreviewWidget_DisconnectNotify(QPrintPreviewWidget* self, const QMetaMethod* signal) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget) {
         vqprintpreviewwidget->disconnectNotify(*signal);
     } else {
-        ((VirtualQPrintPreviewWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrintPreviewWidget_SuperDisconnectNotify(QPrintPreviewWidget* self, const QMetaMethod* signal) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_DisconnectNotify_IsBase(true);
-        vqprintpreviewwidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->QPrintPreviewWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPrintPreviewWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnDisconnectNotify(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self))
+        vqprintpreviewwidget->qprintpreviewwidget_disconnectnotify_callback = reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPrintPreviewWidget_UpdateMicroFocus(QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->updateMicroFocus();
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->VirtualQPrintPreviewWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QPrintPreviewWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPrintPreviewWidget_SuperUpdateMicroFocus(QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_UpdateMicroFocus_IsBase(true);
-        vqprintpreviewwidget->updateMicroFocus();
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnUpdateMicroFocus(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPrintPreviewWidget_Create(QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->create();
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->create();
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->VirtualQPrintPreviewWidget::create();
+    } else
+        qFatal("Error: Protected method QPrintPreviewWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPrintPreviewWidget_SuperCreate(QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_Create_IsBase(true);
-        vqprintpreviewwidget->create();
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnCreate(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_Create_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPrintPreviewWidget_Destroy(QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->destroy();
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->destroy();
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        vqprintpreviewwidget->VirtualQPrintPreviewWidget::destroy();
+    } else
+        qFatal("Error: Protected method QPrintPreviewWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPrintPreviewWidget_SuperDestroy(QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_Destroy_IsBase(true);
-        vqprintpreviewwidget->destroy();
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnDestroy(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_Destroy_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPrintPreviewWidget_FocusNextChild(QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return vqprintpreviewwidget->focusNextChild();
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->focusNextChild();
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        return vqprintpreviewwidget->VirtualQPrintPreviewWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method QPrintPreviewWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPrintPreviewWidget_SuperFocusNextChild(QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_FocusNextChild_IsBase(true);
-        return vqprintpreviewwidget->focusNextChild();
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnFocusNextChild(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPrintPreviewWidget_FocusPreviousChild(QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return vqprintpreviewwidget->focusPreviousChild();
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self)) {
+        return vqprintpreviewwidget->VirtualQPrintPreviewWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QPrintPreviewWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPrintPreviewWidget_SuperFocusPreviousChild(QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_FocusPreviousChild_IsBase(true);
-        return vqprintpreviewwidget->focusPreviousChild();
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnFocusPreviousChild(QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPrintPreviewWidget_Sender(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return vqprintpreviewwidget->sender();
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->sender();
-    }
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self))) {
+        return vqprintpreviewwidget->VirtualQPrintPreviewWidget::sender();
+    } else
+        qFatal("Error: Protected method QPrintPreviewWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPrintPreviewWidget_SuperSender(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_Sender_IsBase(true);
-        return vqprintpreviewwidget->sender();
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnSender(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_Sender_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPrintPreviewWidget_SenderSignalIndex(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return vqprintpreviewwidget->senderSignalIndex();
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self))) {
+        return vqprintpreviewwidget->VirtualQPrintPreviewWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPrintPreviewWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPrintPreviewWidget_SuperSenderSignalIndex(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_SenderSignalIndex_IsBase(true);
-        return vqprintpreviewwidget->senderSignalIndex();
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnSenderSignalIndex(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPrintPreviewWidget_Receivers(const QPrintPreviewWidget* self, const char* signal) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return vqprintpreviewwidget->receivers(signal);
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->receivers(signal);
-    }
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self))) {
+        return vqprintpreviewwidget->VirtualQPrintPreviewWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPrintPreviewWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPrintPreviewWidget_SuperReceivers(const QPrintPreviewWidget* self, const char* signal) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_Receivers_IsBase(true);
-        return vqprintpreviewwidget->receivers(signal);
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnReceivers(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_Receivers_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPrintPreviewWidget_IsSignalConnected(const QPrintPreviewWidget* self, const QMetaMethod* signal) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return vqprintpreviewwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self))) {
+        return vqprintpreviewwidget->VirtualQPrintPreviewWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPrintPreviewWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPrintPreviewWidget_SuperIsSignalConnected(const QPrintPreviewWidget* self, const QMetaMethod* signal) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_IsSignalConnected_IsBase(true);
-        return vqprintpreviewwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnIsSignalConnected(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QPrintPreviewWidget_GetDecodedMetricF(const QPrintPreviewWidget* self, int metricA, int metricB) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return vqprintpreviewwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QPrintPreviewWidget_SuperGetDecodedMetricF(const QPrintPreviewWidget* self, int metricA, int metricB) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        vqprintpreviewwidget->setQPrintPreviewWidget_GetDecodedMetricF_IsBase(true);
-        return vqprintpreviewwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrintPreviewWidget_OnGetDecodedMetricF(const QPrintPreviewWidget* self, intptr_t slot) {
-    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
-        vqprintpreviewwidget->setQPrintPreviewWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self))) {
+        return vqprintpreviewwidget->VirtualQPrintPreviewWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QPrintPreviewWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void QPrintPreviewWidget_Delete(QPrintPreviewWidget* self) {

@@ -235,17 +235,17 @@ void KActionSelector_SetButtonsEnabled(KActionSelector* self) {
 
 void KActionSelector_KeyPressEvent(KActionSelector* self, QKeyEvent* param1) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->keyPressEvent(param1);
     }
 }
 
 bool KActionSelector_EventFilter(KActionSelector* self, QObject* param1, QEvent* param2) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         return vkactionselector->eventFilter(param1, param2);
     }
-    return {};
+    qFatal("Error: Protected method KActionSelector::eventFilter called without a directly constructed type");
 }
 
 libqt_string KActionSelector_Tr2(const char* s, const char* c) {
@@ -274,1634 +274,1161 @@ libqt_string KActionSelector_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KActionSelector_SuperMetaObject(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_MetaObject_IsBase(true);
-        return (QMetaObject*)vkactionselector->metaObject();
-    } else {
-        return (QMetaObject*)self->KActionSelector::metaObject();
-    }
+    return (QMetaObject*)self->KActionSelector::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KActionSelector_OnMetaObject(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_MetaObject_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MetaObject_Callback>(slot));
+void KActionSelector_OnMetaObject(KActionSelector* self, intptr_t slot) {
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self)))
+        vkactionselector->kactionselector_metaobject_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KActionSelector_SuperMetacast(KActionSelector* self, const char* param1) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_Metacast_IsBase(true);
-        return vkactionselector->qt_metacast(param1);
-    } else {
-        return self->KActionSelector::qt_metacast(param1);
-    }
+    return self->KActionSelector::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMetacast(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_Metacast_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Metacast_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_metacast_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KActionSelector_SuperMetacall(KActionSelector* self, int param1, int param2, void** param3) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_Metacall_IsBase(true);
-        return vkactionselector->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KActionSelector::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KActionSelector::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMetacall(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_Metacall_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Metacall_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_metacall_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KActionSelector_SuperKeyPressEvent(KActionSelector* self, QKeyEvent* param1) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_KeyPressEvent_IsBase(true);
-        vkactionselector->keyPressEvent(param1);
-    } else {
-        ((VirtualKActionSelector*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnKeyPressEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_KeyPressEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_KeyPressEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_keypressevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KActionSelector_SuperEventFilter(KActionSelector* self, QObject* param1, QEvent* param2) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_EventFilter_IsBase(true);
-        return vkactionselector->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKActionSelector*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        return vkactionselector->KActionSelector::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnEventFilter(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_EventFilter_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_EventFilter_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_eventfilter_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KActionSelector_DevType(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return vkactionselector->devType();
-    } else {
-        return self->KActionSelector::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KActionSelector_SuperDevType(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_DevType_IsBase(true);
-        return vkactionselector->devType();
-    } else {
-        return self->KActionSelector::devType();
-    }
+    return self->KActionSelector::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KActionSelector_OnDevType(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_DevType_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_DevType_Callback>(slot));
+void KActionSelector_OnDevType(KActionSelector* self, intptr_t slot) {
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self)))
+        vkactionselector->kactionselector_devtype_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_SetVisible(KActionSelector* self, bool visible) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setVisible(visible);
-    } else {
-        self->KActionSelector::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KActionSelector_SuperSetVisible(KActionSelector* self, bool visible) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_SetVisible_IsBase(true);
-        vkactionselector->setVisible(visible);
-    } else {
-        self->KActionSelector::setVisible(visible);
-    }
+    self->KActionSelector::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnSetVisible(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_SetVisible_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_SetVisible_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_setvisible_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KActionSelector_SizeHint(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return new QSize(vkactionselector->sizeHint());
-    } else {
-        return new QSize(((VirtualKActionSelector*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KActionSelector_SuperSizeHint(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_SizeHint_IsBase(true);
-        return new QSize(vkactionselector->sizeHint());
-    } else {
-        return new QSize(((VirtualKActionSelector*)self)->sizeHint());
-    }
+    return new QSize(self->KActionSelector::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KActionSelector_OnSizeHint(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_SizeHint_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_SizeHint_Callback>(slot));
+void KActionSelector_OnSizeHint(KActionSelector* self, intptr_t slot) {
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self)))
+        vkactionselector->kactionselector_sizehint_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KActionSelector_MinimumSizeHint(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return new QSize(vkactionselector->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKActionSelector*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KActionSelector_SuperMinimumSizeHint(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_MinimumSizeHint_IsBase(true);
-        return new QSize(vkactionselector->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKActionSelector*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KActionSelector::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KActionSelector_OnMinimumSizeHint(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_MinimumSizeHint_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MinimumSizeHint_Callback>(slot));
+void KActionSelector_OnMinimumSizeHint(KActionSelector* self, intptr_t slot) {
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self)))
+        vkactionselector->kactionselector_minimumsizehint_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KActionSelector_HeightForWidth(const KActionSelector* self, int param1) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return vkactionselector->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KActionSelector::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KActionSelector_SuperHeightForWidth(const KActionSelector* self, int param1) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_HeightForWidth_IsBase(true);
-        return vkactionselector->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KActionSelector::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KActionSelector::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KActionSelector_OnHeightForWidth(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_HeightForWidth_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_HeightForWidth_Callback>(slot));
+void KActionSelector_OnHeightForWidth(KActionSelector* self, intptr_t slot) {
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self)))
+        vkactionselector->kactionselector_heightforwidth_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KActionSelector_HasHeightForWidth(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return vkactionselector->hasHeightForWidth();
-    } else {
-        return self->KActionSelector::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KActionSelector_SuperHasHeightForWidth(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_HasHeightForWidth_IsBase(true);
-        return vkactionselector->hasHeightForWidth();
-    } else {
-        return self->KActionSelector::hasHeightForWidth();
-    }
+    return self->KActionSelector::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KActionSelector_OnHasHeightForWidth(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_HasHeightForWidth_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_HasHeightForWidth_Callback>(slot));
+void KActionSelector_OnHasHeightForWidth(KActionSelector* self, intptr_t slot) {
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self)))
+        vkactionselector->kactionselector_hasheightforwidth_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KActionSelector_PaintEngine(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return vkactionselector->paintEngine();
-    } else {
-        return self->KActionSelector::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KActionSelector_SuperPaintEngine(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_PaintEngine_IsBase(true);
-        return vkactionselector->paintEngine();
-    } else {
-        return self->KActionSelector::paintEngine();
-    }
+    return self->KActionSelector::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KActionSelector_OnPaintEngine(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_PaintEngine_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_PaintEngine_Callback>(slot));
+void KActionSelector_OnPaintEngine(KActionSelector* self, intptr_t slot) {
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self)))
+        vkactionselector->kactionselector_paintengine_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KActionSelector_Event(KActionSelector* self, QEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         return vkactionselector->event(event);
     } else {
-        return ((VirtualKActionSelector*)self)->event(event);
+        qFatal("Error: Protected virtual method KActionSelector::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KActionSelector_SuperEvent(KActionSelector* self, QEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_Event_IsBase(true);
-        return vkactionselector->event(event);
-    } else {
-        return ((VirtualKActionSelector*)self)->event(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        return vkactionselector->KActionSelector::event(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_Event_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Event_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_event_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_MousePressEvent(KActionSelector* self, QMouseEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->mousePressEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperMousePressEvent(KActionSelector* self, QMouseEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_MousePressEvent_IsBase(true);
-        vkactionselector->mousePressEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->mousePressEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMousePressEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_MousePressEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MousePressEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_mousepressevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_MouseReleaseEvent(KActionSelector* self, QMouseEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->mouseReleaseEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperMouseReleaseEvent(KActionSelector* self, QMouseEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_MouseReleaseEvent_IsBase(true);
-        vkactionselector->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMouseReleaseEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_mousereleaseevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_MouseDoubleClickEvent(KActionSelector* self, QMouseEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperMouseDoubleClickEvent(KActionSelector* self, QMouseEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_MouseDoubleClickEvent_IsBase(true);
-        vkactionselector->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMouseDoubleClickEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_mousedoubleclickevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_MouseMoveEvent(KActionSelector* self, QMouseEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->mouseMoveEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperMouseMoveEvent(KActionSelector* self, QMouseEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_MouseMoveEvent_IsBase(true);
-        vkactionselector->mouseMoveEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMouseMoveEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_MouseMoveEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MouseMoveEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_mousemoveevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_WheelEvent(KActionSelector* self, QWheelEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->wheelEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperWheelEvent(KActionSelector* self, QWheelEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_WheelEvent_IsBase(true);
-        vkactionselector->wheelEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->wheelEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnWheelEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_WheelEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_WheelEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_wheelevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_KeyReleaseEvent(KActionSelector* self, QKeyEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->keyReleaseEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperKeyReleaseEvent(KActionSelector* self, QKeyEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_KeyReleaseEvent_IsBase(true);
-        vkactionselector->keyReleaseEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnKeyReleaseEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_keyreleaseevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_FocusInEvent(KActionSelector* self, QFocusEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->focusInEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperFocusInEvent(KActionSelector* self, QFocusEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_FocusInEvent_IsBase(true);
-        vkactionselector->focusInEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->focusInEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnFocusInEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_FocusInEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_FocusInEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_focusinevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_FocusOutEvent(KActionSelector* self, QFocusEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->focusOutEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperFocusOutEvent(KActionSelector* self, QFocusEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_FocusOutEvent_IsBase(true);
-        vkactionselector->focusOutEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->focusOutEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnFocusOutEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_FocusOutEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_FocusOutEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_focusoutevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_EnterEvent(KActionSelector* self, QEnterEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->enterEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperEnterEvent(KActionSelector* self, QEnterEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_EnterEvent_IsBase(true);
-        vkactionselector->enterEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->enterEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnEnterEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_EnterEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_EnterEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_enterevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_LeaveEvent(KActionSelector* self, QEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->leaveEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperLeaveEvent(KActionSelector* self, QEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_LeaveEvent_IsBase(true);
-        vkactionselector->leaveEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->leaveEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnLeaveEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_LeaveEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_LeaveEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_leaveevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_PaintEvent(KActionSelector* self, QPaintEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->paintEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperPaintEvent(KActionSelector* self, QPaintEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_PaintEvent_IsBase(true);
-        vkactionselector->paintEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->paintEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnPaintEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_PaintEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_PaintEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_paintevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_MoveEvent(KActionSelector* self, QMoveEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->moveEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperMoveEvent(KActionSelector* self, QMoveEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_MoveEvent_IsBase(true);
-        vkactionselector->moveEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->moveEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMoveEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_MoveEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MoveEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_moveevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_ResizeEvent(KActionSelector* self, QResizeEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->resizeEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperResizeEvent(KActionSelector* self, QResizeEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_ResizeEvent_IsBase(true);
-        vkactionselector->resizeEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->resizeEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnResizeEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_ResizeEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_ResizeEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_resizeevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_CloseEvent(KActionSelector* self, QCloseEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->closeEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperCloseEvent(KActionSelector* self, QCloseEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_CloseEvent_IsBase(true);
-        vkactionselector->closeEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->closeEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnCloseEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_CloseEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_CloseEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_closeevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_ContextMenuEvent(KActionSelector* self, QContextMenuEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->contextMenuEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperContextMenuEvent(KActionSelector* self, QContextMenuEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_ContextMenuEvent_IsBase(true);
-        vkactionselector->contextMenuEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnContextMenuEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_ContextMenuEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_ContextMenuEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_contextmenuevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_TabletEvent(KActionSelector* self, QTabletEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->tabletEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperTabletEvent(KActionSelector* self, QTabletEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_TabletEvent_IsBase(true);
-        vkactionselector->tabletEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->tabletEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnTabletEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_TabletEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_TabletEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_tabletevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_ActionEvent(KActionSelector* self, QActionEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->actionEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperActionEvent(KActionSelector* self, QActionEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_ActionEvent_IsBase(true);
-        vkactionselector->actionEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->actionEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnActionEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_ActionEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_ActionEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_actionevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_DragEnterEvent(KActionSelector* self, QDragEnterEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->dragEnterEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperDragEnterEvent(KActionSelector* self, QDragEnterEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_DragEnterEvent_IsBase(true);
-        vkactionselector->dragEnterEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnDragEnterEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_DragEnterEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_DragEnterEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_dragenterevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_DragMoveEvent(KActionSelector* self, QDragMoveEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->dragMoveEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperDragMoveEvent(KActionSelector* self, QDragMoveEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_DragMoveEvent_IsBase(true);
-        vkactionselector->dragMoveEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnDragMoveEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_DragMoveEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_DragMoveEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_dragmoveevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_DragLeaveEvent(KActionSelector* self, QDragLeaveEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->dragLeaveEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperDragLeaveEvent(KActionSelector* self, QDragLeaveEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_DragLeaveEvent_IsBase(true);
-        vkactionselector->dragLeaveEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnDragLeaveEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_DragLeaveEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_DragLeaveEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_dragleaveevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_DropEvent(KActionSelector* self, QDropEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->dropEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperDropEvent(KActionSelector* self, QDropEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_DropEvent_IsBase(true);
-        vkactionselector->dropEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->dropEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnDropEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_DropEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_DropEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_dropevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_ShowEvent(KActionSelector* self, QShowEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->showEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperShowEvent(KActionSelector* self, QShowEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_ShowEvent_IsBase(true);
-        vkactionselector->showEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->showEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnShowEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_ShowEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_ShowEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_showevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_HideEvent(KActionSelector* self, QHideEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->hideEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperHideEvent(KActionSelector* self, QHideEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_HideEvent_IsBase(true);
-        vkactionselector->hideEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->hideEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnHideEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_HideEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_HideEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_hideevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KActionSelector_NativeEvent(KActionSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
+    if (vkactionselector) {
         return vkactionselector->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKActionSelector*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KActionSelector::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KActionSelector_SuperNativeEvent(KActionSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_NativeEvent_IsBase(true);
-        return vkactionselector->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKActionSelector*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        return vkactionselector->KActionSelector::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnNativeEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_NativeEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_NativeEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_nativeevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_ChangeEvent(KActionSelector* self, QEvent* param1) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->changeEvent(param1);
     } else {
-        ((VirtualKActionSelector*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KActionSelector::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperChangeEvent(KActionSelector* self, QEvent* param1) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_ChangeEvent_IsBase(true);
-        vkactionselector->changeEvent(param1);
-    } else {
-        ((VirtualKActionSelector*)self)->changeEvent(param1);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnChangeEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_ChangeEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_ChangeEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_changeevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KActionSelector_Metric(const KActionSelector* self, int param1) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         return vkactionselector->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKActionSelector*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KActionSelector::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KActionSelector_SuperMetric(const KActionSelector* self, int param1) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_Metric_IsBase(true);
-        return vkactionselector->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKActionSelector*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self))) {
+        return vkactionselector->KActionSelector::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KActionSelector_OnMetric(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_Metric_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Metric_Callback>(slot));
+void KActionSelector_OnMetric(KActionSelector* self, intptr_t slot) {
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self)))
+        vkactionselector->kactionselector_metric_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_InitPainter(const KActionSelector* self, QPainter* painter) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->initPainter(painter);
     } else {
-        ((VirtualKActionSelector*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KActionSelector::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperInitPainter(const KActionSelector* self, QPainter* painter) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_InitPainter_IsBase(true);
-        vkactionselector->initPainter(painter);
-    } else {
-        ((VirtualKActionSelector*)self)->initPainter(painter);
-    }
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self))) {
+        vkactionselector->KActionSelector::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KActionSelector_OnInitPainter(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_InitPainter_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_InitPainter_Callback>(slot));
+void KActionSelector_OnInitPainter(KActionSelector* self, intptr_t slot) {
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self)))
+        vkactionselector->kactionselector_initpainter_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KActionSelector_Redirected(const KActionSelector* self, QPoint* offset) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         return vkactionselector->redirected(offset);
     } else {
-        return ((VirtualKActionSelector*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KActionSelector::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KActionSelector_SuperRedirected(const KActionSelector* self, QPoint* offset) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_Redirected_IsBase(true);
-        return vkactionselector->redirected(offset);
-    } else {
-        return ((VirtualKActionSelector*)self)->redirected(offset);
-    }
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self))) {
+        return vkactionselector->KActionSelector::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KActionSelector_OnRedirected(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_Redirected_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Redirected_Callback>(slot));
+void KActionSelector_OnRedirected(KActionSelector* self, intptr_t slot) {
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self)))
+        vkactionselector->kactionselector_redirected_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KActionSelector_SharedPainter(const KActionSelector* self) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         return vkactionselector->sharedPainter();
     } else {
-        return ((VirtualKActionSelector*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KActionSelector::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KActionSelector_SuperSharedPainter(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_SharedPainter_IsBase(true);
-        return vkactionselector->sharedPainter();
-    } else {
-        return ((VirtualKActionSelector*)self)->sharedPainter();
-    }
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self))) {
+        return vkactionselector->KActionSelector::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KActionSelector_OnSharedPainter(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_SharedPainter_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_SharedPainter_Callback>(slot));
+void KActionSelector_OnSharedPainter(KActionSelector* self, intptr_t slot) {
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self)))
+        vkactionselector->kactionselector_sharedpainter_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_InputMethodEvent(KActionSelector* self, QInputMethodEvent* param1) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->inputMethodEvent(param1);
     } else {
-        ((VirtualKActionSelector*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KActionSelector::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperInputMethodEvent(KActionSelector* self, QInputMethodEvent* param1) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_InputMethodEvent_IsBase(true);
-        vkactionselector->inputMethodEvent(param1);
-    } else {
-        ((VirtualKActionSelector*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnInputMethodEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_InputMethodEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_InputMethodEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_inputmethodevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KActionSelector_InputMethodQuery(const KActionSelector* self, int param1) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return new QVariant(vkactionselector->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKActionSelector*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KActionSelector_SuperInputMethodQuery(const KActionSelector* self, int param1) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_InputMethodQuery_IsBase(true);
-        return new QVariant(vkactionselector->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKActionSelector*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KActionSelector::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KActionSelector_OnInputMethodQuery(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_InputMethodQuery_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_InputMethodQuery_Callback>(slot));
+void KActionSelector_OnInputMethodQuery(KActionSelector* self, intptr_t slot) {
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self)))
+        vkactionselector->kactionselector_inputmethodquery_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KActionSelector_FocusNextPrevChild(KActionSelector* self, bool next) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         return vkactionselector->focusNextPrevChild(next);
     } else {
-        return ((VirtualKActionSelector*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KActionSelector::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KActionSelector_SuperFocusNextPrevChild(KActionSelector* self, bool next) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_FocusNextPrevChild_IsBase(true);
-        return vkactionselector->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKActionSelector*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        return vkactionselector->KActionSelector::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnFocusNextPrevChild(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_focusnextprevchild_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_TimerEvent(KActionSelector* self, QTimerEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->timerEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperTimerEvent(KActionSelector* self, QTimerEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_TimerEvent_IsBase(true);
-        vkactionselector->timerEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->timerEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnTimerEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_TimerEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_TimerEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_timerevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_ChildEvent(KActionSelector* self, QChildEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->childEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperChildEvent(KActionSelector* self, QChildEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_ChildEvent_IsBase(true);
-        vkactionselector->childEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->childEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnChildEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_ChildEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_ChildEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_childevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_CustomEvent(KActionSelector* self, QEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->customEvent(event);
     } else {
-        ((VirtualKActionSelector*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KActionSelector::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperCustomEvent(KActionSelector* self, QEvent* event) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_CustomEvent_IsBase(true);
-        vkactionselector->customEvent(event);
-    } else {
-        ((VirtualKActionSelector*)self)->customEvent(event);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnCustomEvent(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_CustomEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_CustomEvent_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_customevent_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_ConnectNotify(KActionSelector* self, const QMetaMethod* signal) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->connectNotify(*signal);
     } else {
-        ((VirtualKActionSelector*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KActionSelector::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperConnectNotify(KActionSelector* self, const QMetaMethod* signal) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_ConnectNotify_IsBase(true);
-        vkactionselector->connectNotify(*signal);
-    } else {
-        ((VirtualKActionSelector*)self)->connectNotify(*signal);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnConnectNotify(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_ConnectNotify_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_ConnectNotify_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_connectnotify_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionSelector_DisconnectNotify(KActionSelector* self, const QMetaMethod* signal) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector) {
         vkactionselector->disconnectNotify(*signal);
     } else {
-        ((VirtualKActionSelector*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KActionSelector::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionSelector_SuperDisconnectNotify(KActionSelector* self, const QMetaMethod* signal) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_DisconnectNotify_IsBase(true);
-        vkactionselector->disconnectNotify(*signal);
-    } else {
-        ((VirtualKActionSelector*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->KActionSelector::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KActionSelector::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnDisconnectNotify(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_DisconnectNotify_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_DisconnectNotify_Callback>(slot));
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self))
+        vkactionselector->kactionselector_disconnectnotify_callback = reinterpret_cast<VirtualKActionSelector::KActionSelector_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KActionSelector_UpdateMicroFocus(KActionSelector* self) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->updateMicroFocus();
-    } else {
-        ((VirtualKActionSelector*)self)->updateMicroFocus();
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->VirtualKActionSelector::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KActionSelector::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KActionSelector_SuperUpdateMicroFocus(KActionSelector* self) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_UpdateMicroFocus_IsBase(true);
-        vkactionselector->updateMicroFocus();
-    } else {
-        ((VirtualKActionSelector*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KActionSelector_OnUpdateMicroFocus(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KActionSelector_Create(KActionSelector* self) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->create();
-    } else {
-        ((VirtualKActionSelector*)self)->create();
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->VirtualKActionSelector::create();
+    } else
+        qFatal("Error: Protected method KActionSelector::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KActionSelector_SuperCreate(KActionSelector* self) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_Create_IsBase(true);
-        vkactionselector->create();
-    } else {
-        ((VirtualKActionSelector*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KActionSelector_OnCreate(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_Create_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KActionSelector_Destroy(KActionSelector* self) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->destroy();
-    } else {
-        ((VirtualKActionSelector*)self)->destroy();
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        vkactionselector->VirtualKActionSelector::destroy();
+    } else
+        qFatal("Error: Protected method KActionSelector::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KActionSelector_SuperDestroy(KActionSelector* self) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_Destroy_IsBase(true);
-        vkactionselector->destroy();
-    } else {
-        ((VirtualKActionSelector*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KActionSelector_OnDestroy(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_Destroy_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KActionSelector_FocusNextChild(KActionSelector* self) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return vkactionselector->focusNextChild();
-    } else {
-        return ((VirtualKActionSelector*)self)->focusNextChild();
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        return vkactionselector->VirtualKActionSelector::focusNextChild();
+    } else
+        qFatal("Error: Protected method KActionSelector::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KActionSelector_SuperFocusNextChild(KActionSelector* self) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_FocusNextChild_IsBase(true);
-        return vkactionselector->focusNextChild();
-    } else {
-        return ((VirtualKActionSelector*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KActionSelector_OnFocusNextChild(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_FocusNextChild_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KActionSelector_FocusPreviousChild(KActionSelector* self) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return vkactionselector->focusPreviousChild();
-    } else {
-        return ((VirtualKActionSelector*)self)->focusPreviousChild();
-    }
+    if (auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self)) {
+        return vkactionselector->VirtualKActionSelector::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KActionSelector::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KActionSelector_SuperFocusPreviousChild(KActionSelector* self) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_FocusPreviousChild_IsBase(true);
-        return vkactionselector->focusPreviousChild();
-    } else {
-        return ((VirtualKActionSelector*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KActionSelector_OnFocusPreviousChild(KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_FocusPreviousChild_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KActionSelector_Sender(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return vkactionselector->sender();
-    } else {
-        return ((VirtualKActionSelector*)self)->sender();
-    }
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self))) {
+        return vkactionselector->VirtualKActionSelector::sender();
+    } else
+        qFatal("Error: Protected method KActionSelector::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KActionSelector_SuperSender(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_Sender_IsBase(true);
-        return vkactionselector->sender();
-    } else {
-        return ((VirtualKActionSelector*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KActionSelector_OnSender(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_Sender_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KActionSelector_SenderSignalIndex(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return vkactionselector->senderSignalIndex();
-    } else {
-        return ((VirtualKActionSelector*)self)->senderSignalIndex();
-    }
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self))) {
+        return vkactionselector->VirtualKActionSelector::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KActionSelector::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KActionSelector_SuperSenderSignalIndex(const KActionSelector* self) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_SenderSignalIndex_IsBase(true);
-        return vkactionselector->senderSignalIndex();
-    } else {
-        return ((VirtualKActionSelector*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KActionSelector_OnSenderSignalIndex(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_SenderSignalIndex_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KActionSelector_Receivers(const KActionSelector* self, const char* signal) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return vkactionselector->receivers(signal);
-    } else {
-        return ((VirtualKActionSelector*)self)->receivers(signal);
-    }
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self))) {
+        return vkactionselector->VirtualKActionSelector::receivers(signal);
+    } else
+        qFatal("Error: Protected method KActionSelector::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KActionSelector_SuperReceivers(const KActionSelector* self, const char* signal) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_Receivers_IsBase(true);
-        return vkactionselector->receivers(signal);
-    } else {
-        return ((VirtualKActionSelector*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KActionSelector_OnReceivers(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_Receivers_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KActionSelector_IsSignalConnected(const KActionSelector* self, const QMetaMethod* signal) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return vkactionselector->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKActionSelector*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self))) {
+        return vkactionselector->VirtualKActionSelector::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KActionSelector::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KActionSelector_SuperIsSignalConnected(const KActionSelector* self, const QMetaMethod* signal) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_IsSignalConnected_IsBase(true);
-        return vkactionselector->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKActionSelector*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KActionSelector_OnIsSignalConnected(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_IsSignalConnected_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KActionSelector_GetDecodedMetricF(const KActionSelector* self, int metricA, int metricB) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return vkactionselector->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKActionSelector*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KActionSelector_SuperGetDecodedMetricF(const KActionSelector* self, int metricA, int metricB) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        vkactionselector->setKActionSelector_GetDecodedMetricF_IsBase(true);
-        return vkactionselector->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKActionSelector*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KActionSelector_OnGetDecodedMetricF(const KActionSelector* self, intptr_t slot) {
-    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
-        vkactionselector->setKActionSelector_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self))) {
+        return vkactionselector->VirtualKActionSelector::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KActionSelector::getDecodedMetricF called without a directly constructed type");
 }
 
 void KActionSelector_Delete(KActionSelector* self) {

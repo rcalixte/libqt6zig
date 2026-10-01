@@ -109,410 +109,233 @@ libqt_string QQuickTransform_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QQuickTransform_SuperMetaObject(const QQuickTransform* self) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_MetaObject_IsBase(true);
-        return (QMetaObject*)vqquicktransform->metaObject();
-    } else {
-        return (QMetaObject*)self->QQuickTransform::metaObject();
-    }
+    return (QMetaObject*)self->QQuickTransform::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickTransform_OnMetaObject(const QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_MetaObject_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_MetaObject_Callback>(slot));
+void QQuickTransform_OnMetaObject(QQuickTransform* self, intptr_t slot) {
+    if (auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self)))
+        vqquicktransform->qquicktransform_metaobject_callback = reinterpret_cast<VirtualQQuickTransform::QQuickTransform_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQuickTransform_SuperMetacast(QQuickTransform* self, const char* param1) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_Metacast_IsBase(true);
-        return vqquicktransform->qt_metacast(param1);
-    } else {
-        return self->QQuickTransform::qt_metacast(param1);
-    }
+    return self->QQuickTransform::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTransform_OnMetacast(QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_Metacast_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_Metacast_Callback>(slot));
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self))
+        vqquicktransform->qquicktransform_metacast_callback = reinterpret_cast<VirtualQQuickTransform::QQuickTransform_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQuickTransform_SuperMetacall(QQuickTransform* self, int param1, int param2, void** param3) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_Metacall_IsBase(true);
-        return vqquicktransform->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQuickTransform::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQuickTransform::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTransform_OnMetacall(QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_Metacall_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-void QQuickTransform_SuperApplyTo(const QQuickTransform* self, QMatrix4x4* matrix) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_ApplyTo_IsBase(true);
-        vqquicktransform->applyTo(matrix);
-    } else {
-        ((VirtualQQuickTransform*)self)->applyTo(matrix);
-    }
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self))
+        vqquicktransform->qquicktransform_metacall_callback = reinterpret_cast<VirtualQQuickTransform::QQuickTransform_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickTransform_OnApplyTo(const QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_ApplyTo_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_ApplyTo_Callback>(slot));
+void QQuickTransform_OnApplyTo(QQuickTransform* self, intptr_t slot) {
+    if (auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self)))
+        vqquicktransform->qquicktransform_applyto_callback = reinterpret_cast<VirtualQQuickTransform::QQuickTransform_ApplyTo_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickTransform_Event(QQuickTransform* self, QEvent* event) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        return vqquicktransform->event(event);
-    } else {
-        return self->QQuickTransform::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QQuickTransform_SuperEvent(QQuickTransform* self, QEvent* event) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_Event_IsBase(true);
-        return vqquicktransform->event(event);
-    } else {
-        return self->QQuickTransform::event(event);
-    }
+    return self->QQuickTransform::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTransform_OnEvent(QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_Event_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_Event_Callback>(slot));
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self))
+        vqquicktransform->qquicktransform_event_callback = reinterpret_cast<VirtualQQuickTransform::QQuickTransform_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickTransform_EventFilter(QQuickTransform* self, QObject* watched, QEvent* event) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        return vqquicktransform->eventFilter(watched, event);
-    } else {
-        return self->QQuickTransform::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQuickTransform_SuperEventFilter(QQuickTransform* self, QObject* watched, QEvent* event) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_EventFilter_IsBase(true);
-        return vqquicktransform->eventFilter(watched, event);
-    } else {
-        return self->QQuickTransform::eventFilter(watched, event);
-    }
+    return self->QQuickTransform::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTransform_OnEventFilter(QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_EventFilter_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_EventFilter_Callback>(slot));
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self))
+        vqquicktransform->qquicktransform_eventfilter_callback = reinterpret_cast<VirtualQQuickTransform::QQuickTransform_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickTransform_TimerEvent(QQuickTransform* self, QTimerEvent* event) {
     auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
+    if (vqquicktransform) {
         vqquicktransform->timerEvent(event);
     } else {
-        ((VirtualQQuickTransform*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQuickTransform::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickTransform_SuperTimerEvent(QQuickTransform* self, QTimerEvent* event) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_TimerEvent_IsBase(true);
-        vqquicktransform->timerEvent(event);
-    } else {
-        ((VirtualQQuickTransform*)self)->timerEvent(event);
-    }
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self)) {
+        vqquicktransform->QQuickTransform::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickTransform::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTransform_OnTimerEvent(QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_TimerEvent_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_TimerEvent_Callback>(slot));
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self))
+        vqquicktransform->qquicktransform_timerevent_callback = reinterpret_cast<VirtualQQuickTransform::QQuickTransform_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickTransform_ChildEvent(QQuickTransform* self, QChildEvent* event) {
     auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
+    if (vqquicktransform) {
         vqquicktransform->childEvent(event);
     } else {
-        ((VirtualQQuickTransform*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQuickTransform::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickTransform_SuperChildEvent(QQuickTransform* self, QChildEvent* event) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_ChildEvent_IsBase(true);
-        vqquicktransform->childEvent(event);
-    } else {
-        ((VirtualQQuickTransform*)self)->childEvent(event);
-    }
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self)) {
+        vqquicktransform->QQuickTransform::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickTransform::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTransform_OnChildEvent(QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_ChildEvent_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_ChildEvent_Callback>(slot));
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self))
+        vqquicktransform->qquicktransform_childevent_callback = reinterpret_cast<VirtualQQuickTransform::QQuickTransform_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickTransform_CustomEvent(QQuickTransform* self, QEvent* event) {
     auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
+    if (vqquicktransform) {
         vqquicktransform->customEvent(event);
     } else {
-        ((VirtualQQuickTransform*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQuickTransform::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickTransform_SuperCustomEvent(QQuickTransform* self, QEvent* event) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_CustomEvent_IsBase(true);
-        vqquicktransform->customEvent(event);
-    } else {
-        ((VirtualQQuickTransform*)self)->customEvent(event);
-    }
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self)) {
+        vqquicktransform->QQuickTransform::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickTransform::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTransform_OnCustomEvent(QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_CustomEvent_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_CustomEvent_Callback>(slot));
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self))
+        vqquicktransform->qquicktransform_customevent_callback = reinterpret_cast<VirtualQQuickTransform::QQuickTransform_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickTransform_ConnectNotify(QQuickTransform* self, const QMetaMethod* signal) {
     auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
+    if (vqquicktransform) {
         vqquicktransform->connectNotify(*signal);
     } else {
-        ((VirtualQQuickTransform*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuickTransform::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickTransform_SuperConnectNotify(QQuickTransform* self, const QMetaMethod* signal) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_ConnectNotify_IsBase(true);
-        vqquicktransform->connectNotify(*signal);
-    } else {
-        ((VirtualQQuickTransform*)self)->connectNotify(*signal);
-    }
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self)) {
+        vqquicktransform->QQuickTransform::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuickTransform::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTransform_OnConnectNotify(QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_ConnectNotify_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_ConnectNotify_Callback>(slot));
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self))
+        vqquicktransform->qquicktransform_connectnotify_callback = reinterpret_cast<VirtualQQuickTransform::QQuickTransform_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickTransform_DisconnectNotify(QQuickTransform* self, const QMetaMethod* signal) {
     auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
+    if (vqquicktransform) {
         vqquicktransform->disconnectNotify(*signal);
     } else {
-        ((VirtualQQuickTransform*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuickTransform::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickTransform_SuperDisconnectNotify(QQuickTransform* self, const QMetaMethod* signal) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_DisconnectNotify_IsBase(true);
-        vqquicktransform->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQuickTransform*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self)) {
+        vqquicktransform->QQuickTransform::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuickTransform::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTransform_OnDisconnectNotify(QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_DisconnectNotify_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_DisconnectNotify_Callback>(slot));
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self))
+        vqquicktransform->qquicktransform_disconnectnotify_callback = reinterpret_cast<VirtualQQuickTransform::QQuickTransform_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QQuickTransform_Update(QQuickTransform* self) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->update();
-    } else {
-        ((VirtualQQuickTransform*)self)->update();
-    }
+    if (auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self)) {
+        vqquicktransform->VirtualQQuickTransform::update();
+    } else
+        qFatal("Error: Protected method QQuickTransform::update called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QQuickTransform_SuperUpdate(QQuickTransform* self) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_Update_IsBase(true);
-        vqquicktransform->update();
-    } else {
-        ((VirtualQQuickTransform*)self)->update();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickTransform_OnUpdate(QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = dynamic_cast<VirtualQQuickTransform*>(self);
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_Update_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_Update_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQuickTransform_Sender(const QQuickTransform* self) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        return vqquicktransform->sender();
-    } else {
-        return ((VirtualQQuickTransform*)self)->sender();
-    }
+    if (auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self))) {
+        return vqquicktransform->VirtualQQuickTransform::sender();
+    } else
+        qFatal("Error: Protected method QQuickTransform::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQuickTransform_SuperSender(const QQuickTransform* self) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_Sender_IsBase(true);
-        return vqquicktransform->sender();
-    } else {
-        return ((VirtualQQuickTransform*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickTransform_OnSender(const QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_Sender_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuickTransform_SenderSignalIndex(const QQuickTransform* self) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        return vqquicktransform->senderSignalIndex();
-    } else {
-        return ((VirtualQQuickTransform*)self)->senderSignalIndex();
-    }
+    if (auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self))) {
+        return vqquicktransform->VirtualQQuickTransform::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQuickTransform::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuickTransform_SuperSenderSignalIndex(const QQuickTransform* self) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_SenderSignalIndex_IsBase(true);
-        return vqquicktransform->senderSignalIndex();
-    } else {
-        return ((VirtualQQuickTransform*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickTransform_OnSenderSignalIndex(const QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuickTransform_Receivers(const QQuickTransform* self, const char* signal) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        return vqquicktransform->receivers(signal);
-    } else {
-        return ((VirtualQQuickTransform*)self)->receivers(signal);
-    }
+    if (auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self))) {
+        return vqquicktransform->VirtualQQuickTransform::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQuickTransform::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuickTransform_SuperReceivers(const QQuickTransform* self, const char* signal) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_Receivers_IsBase(true);
-        return vqquicktransform->receivers(signal);
-    } else {
-        return ((VirtualQQuickTransform*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickTransform_OnReceivers(const QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_Receivers_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuickTransform_IsSignalConnected(const QQuickTransform* self, const QMetaMethod* signal) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        return vqquicktransform->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuickTransform*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQuickTransform_SuperIsSignalConnected(const QQuickTransform* self, const QMetaMethod* signal) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform) {
-        vqquicktransform->setQQuickTransform_IsSignalConnected_IsBase(true);
-        return vqquicktransform->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuickTransform*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickTransform_OnIsSignalConnected(const QQuickTransform* self, intptr_t slot) {
-    auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self));
-    if (vqquicktransform && vqquicktransform->isVirtualQQuickTransform)
-        vqquicktransform->setQQuickTransform_IsSignalConnected_Callback(reinterpret_cast<VirtualQQuickTransform::QQuickTransform_IsSignalConnected_Callback>(slot));
+    if (auto* vqquicktransform = const_cast<VirtualQQuickTransform*>(dynamic_cast<const VirtualQQuickTransform*>(self))) {
+        return vqquicktransform->VirtualQQuickTransform::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQuickTransform::isSignalConnected called without a directly constructed type");
 }
 
 void QQuickTransform_Delete(QQuickTransform* self) {
@@ -1491,206 +1314,206 @@ void QQuickItem_Connect_PaletteCreated(QQuickItem* self, intptr_t slot) {
 
 bool QQuickItem_Event(QQuickItem* self, QEvent* param1) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         return vqquickitem->event(param1);
     }
-    return {};
+    qFatal("Error: Protected method QQuickItem::event called without a directly constructed type");
 }
 
 void QQuickItem_ItemChange(QQuickItem* self, int param1, const QQuickItem__ItemChangeData* param2) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->itemChange(static_cast<QQuickItem::ItemChange>(param1), *param2);
     }
 }
 
 void QQuickItem_GeometryChange(QQuickItem* self, const QRectF* newGeometry, const QRectF* oldGeometry) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->geometryChange(*newGeometry, *oldGeometry);
     }
 }
 
 void QQuickItem_ClassBegin(QQuickItem* self) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->classBegin();
     }
 }
 
 void QQuickItem_ComponentComplete(QQuickItem* self) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->componentComplete();
     }
 }
 
 void QQuickItem_KeyPressEvent(QQuickItem* self, QKeyEvent* event) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->keyPressEvent(event);
     }
 }
 
 void QQuickItem_KeyReleaseEvent(QQuickItem* self, QKeyEvent* event) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->keyReleaseEvent(event);
     }
 }
 
 void QQuickItem_InputMethodEvent(QQuickItem* self, QInputMethodEvent* param1) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->inputMethodEvent(param1);
     }
 }
 
 void QQuickItem_FocusInEvent(QQuickItem* self, QFocusEvent* param1) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->focusInEvent(param1);
     }
 }
 
 void QQuickItem_FocusOutEvent(QQuickItem* self, QFocusEvent* param1) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->focusOutEvent(param1);
     }
 }
 
 void QQuickItem_MousePressEvent(QQuickItem* self, QMouseEvent* event) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->mousePressEvent(event);
     }
 }
 
 void QQuickItem_MouseMoveEvent(QQuickItem* self, QMouseEvent* event) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->mouseMoveEvent(event);
     }
 }
 
 void QQuickItem_MouseReleaseEvent(QQuickItem* self, QMouseEvent* event) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->mouseReleaseEvent(event);
     }
 }
 
 void QQuickItem_MouseDoubleClickEvent(QQuickItem* self, QMouseEvent* event) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->mouseDoubleClickEvent(event);
     }
 }
 
 void QQuickItem_MouseUngrabEvent(QQuickItem* self) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->mouseUngrabEvent();
     }
 }
 
 void QQuickItem_TouchUngrabEvent(QQuickItem* self) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->touchUngrabEvent();
     }
 }
 
 void QQuickItem_WheelEvent(QQuickItem* self, QWheelEvent* event) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->wheelEvent(event);
     }
 }
 
 void QQuickItem_TouchEvent(QQuickItem* self, QTouchEvent* event) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->touchEvent(event);
     }
 }
 
 void QQuickItem_HoverEnterEvent(QQuickItem* self, QHoverEvent* event) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->hoverEnterEvent(event);
     }
 }
 
 void QQuickItem_HoverMoveEvent(QQuickItem* self, QHoverEvent* event) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->hoverMoveEvent(event);
     }
 }
 
 void QQuickItem_HoverLeaveEvent(QQuickItem* self, QHoverEvent* event) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->hoverLeaveEvent(event);
     }
 }
 
 void QQuickItem_DragEnterEvent(QQuickItem* self, QDragEnterEvent* param1) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->dragEnterEvent(param1);
     }
 }
 
 void QQuickItem_DragMoveEvent(QQuickItem* self, QDragMoveEvent* param1) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->dragMoveEvent(param1);
     }
 }
 
 void QQuickItem_DragLeaveEvent(QQuickItem* self, QDragLeaveEvent* param1) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->dragLeaveEvent(param1);
     }
 }
 
 void QQuickItem_DropEvent(QQuickItem* self, QDropEvent* param1) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->dropEvent(param1);
     }
 }
 
 bool QQuickItem_ChildMouseEventFilter(QQuickItem* self, QQuickItem* param1, QEvent* param2) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         return vqquickitem->childMouseEventFilter(param1, param2);
     }
-    return {};
+    qFatal("Error: Protected method QQuickItem::childMouseEventFilter called without a directly constructed type");
 }
 
 QSGNode* QQuickItem_UpdatePaintNode(QQuickItem* self, QSGNode* param1, QQuickItem__UpdatePaintNodeData* param2) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         return vqquickitem->updatePaintNode(param1, param2);
     }
-    return {};
+    qFatal("Error: Protected method QQuickItem::updatePaintNode called without a directly constructed type");
 }
 
 void QQuickItem_ReleaseResources(QQuickItem* self) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->releaseResources();
     }
 }
 
 void QQuickItem_UpdatePolish(QQuickItem* self) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->updatePolish();
     }
 }
@@ -1733,1134 +1556,723 @@ QQuickItem* QQuickItem_NextItemInFocusChain1(QQuickItem* self, bool forward) {
 
 // Base class handler implementation
 QMetaObject* QQuickItem_SuperMetaObject(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_MetaObject_IsBase(true);
-        return (QMetaObject*)vqquickitem->metaObject();
-    } else {
-        return (QMetaObject*)self->QQuickItem::metaObject();
-    }
+    return (QMetaObject*)self->QQuickItem::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickItem_OnMetaObject(const QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_MetaObject_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_MetaObject_Callback>(slot));
+void QQuickItem_OnMetaObject(QQuickItem* self, intptr_t slot) {
+    if (auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self)))
+        vqquickitem->qquickitem_metaobject_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQuickItem_SuperMetacast(QQuickItem* self, const char* param1) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_Metacast_IsBase(true);
-        return vqquickitem->qt_metacast(param1);
-    } else {
-        return self->QQuickItem::qt_metacast(param1);
-    }
+    return self->QQuickItem::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnMetacast(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_Metacast_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_Metacast_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_metacast_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQuickItem_SuperMetacall(QQuickItem* self, int param1, int param2, void** param3) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_Metacall_IsBase(true);
-        return vqquickitem->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQuickItem::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQuickItem::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnMetacall(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_Metacall_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_Metacall_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_metacall_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QRectF* QQuickItem_SuperBoundingRect(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_BoundingRect_IsBase(true);
-        return new QRectF(vqquickitem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQQuickItem*)self)->boundingRect());
-    }
+    return new QRectF(self->QQuickItem::boundingRect());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickItem_OnBoundingRect(const QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_BoundingRect_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_BoundingRect_Callback>(slot));
+void QQuickItem_OnBoundingRect(QQuickItem* self, intptr_t slot) {
+    if (auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self)))
+        vqquickitem->qquickitem_boundingrect_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_BoundingRect_Callback>(slot);
 }
 
 // Base class handler implementation
 QRectF* QQuickItem_SuperClipRect(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_ClipRect_IsBase(true);
-        return new QRectF(vqquickitem->clipRect());
-    } else {
-        return new QRectF(((VirtualQQuickItem*)self)->clipRect());
-    }
+    return new QRectF(self->QQuickItem::clipRect());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickItem_OnClipRect(const QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_ClipRect_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_ClipRect_Callback>(slot));
+void QQuickItem_OnClipRect(QQuickItem* self, intptr_t slot) {
+    if (auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self)))
+        vqquickitem->qquickitem_cliprect_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_ClipRect_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QQuickItem_SuperContains(const QQuickItem* self, const QPointF* point) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_Contains_IsBase(true);
-        return vqquickitem->contains(*point);
-    } else {
-        return self->QQuickItem::contains(*point);
-    }
+    return self->QQuickItem::contains(*point);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickItem_OnContains(const QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_Contains_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_Contains_Callback>(slot));
+void QQuickItem_OnContains(QQuickItem* self, intptr_t slot) {
+    if (auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self)))
+        vqquickitem->qquickitem_contains_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_Contains_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QQuickItem_SuperInputMethodQuery(const QQuickItem* self, int query) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_InputMethodQuery_IsBase(true);
-        return new QVariant(vqquickitem->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQQuickItem*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->QQuickItem::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickItem_OnInputMethodQuery(const QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_InputMethodQuery_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_InputMethodQuery_Callback>(slot));
+void QQuickItem_OnInputMethodQuery(QQuickItem* self, intptr_t slot) {
+    if (auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self)))
+        vqquickitem->qquickitem_inputmethodquery_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_InputMethodQuery_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QQuickItem_SuperIsTextureProvider(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_IsTextureProvider_IsBase(true);
-        return vqquickitem->isTextureProvider();
-    } else {
-        return self->QQuickItem::isTextureProvider();
-    }
+    return self->QQuickItem::isTextureProvider();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickItem_OnIsTextureProvider(const QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_IsTextureProvider_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_IsTextureProvider_Callback>(slot));
+void QQuickItem_OnIsTextureProvider(QQuickItem* self, intptr_t slot) {
+    if (auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self)))
+        vqquickitem->qquickitem_istextureprovider_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_IsTextureProvider_Callback>(slot);
 }
 
 // Base class handler implementation
 QSGTextureProvider* QQuickItem_SuperTextureProvider(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_TextureProvider_IsBase(true);
-        return vqquickitem->textureProvider();
-    } else {
-        return self->QQuickItem::textureProvider();
-    }
+    return self->QQuickItem::textureProvider();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickItem_OnTextureProvider(const QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_TextureProvider_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_TextureProvider_Callback>(slot));
+void QQuickItem_OnTextureProvider(QQuickItem* self, intptr_t slot) {
+    if (auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self)))
+        vqquickitem->qquickitem_textureprovider_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_TextureProvider_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QQuickItem_SuperEvent(QQuickItem* self, QEvent* param1) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_Event_IsBase(true);
-        return vqquickitem->event(param1);
-    } else {
-        return ((VirtualQQuickItem*)self)->event(param1);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        return vqquickitem->QQuickItem::event(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_Event_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_Event_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_event_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperItemChange(QQuickItem* self, int param1, const QQuickItem__ItemChangeData* param2) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_ItemChange_IsBase(true);
-        vqquickitem->itemChange(static_cast<QQuickItem::ItemChange>(param1), *param2);
-    } else {
-        ((VirtualQQuickItem*)self)->itemChange(static_cast<QQuickItem::ItemChange>(param1), *param2);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::itemChange(static_cast<QQuickItem::ItemChange>(param1), *param2);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::itemChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnItemChange(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_ItemChange_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_ItemChange_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_itemchange_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_ItemChange_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperGeometryChange(QQuickItem* self, const QRectF* newGeometry, const QRectF* oldGeometry) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_GeometryChange_IsBase(true);
-        vqquickitem->geometryChange(*newGeometry, *oldGeometry);
-    } else {
-        ((VirtualQQuickItem*)self)->geometryChange(*newGeometry, *oldGeometry);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::geometryChange(*newGeometry, *oldGeometry);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::geometryChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnGeometryChange(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_GeometryChange_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_GeometryChange_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_geometrychange_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_GeometryChange_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperClassBegin(QQuickItem* self) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_ClassBegin_IsBase(true);
-        vqquickitem->classBegin();
-    } else {
-        ((VirtualQQuickItem*)self)->classBegin();
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::classBegin();
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::classBegin called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnClassBegin(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_ClassBegin_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_ClassBegin_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_classbegin_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_ClassBegin_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperComponentComplete(QQuickItem* self) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_ComponentComplete_IsBase(true);
-        vqquickitem->componentComplete();
-    } else {
-        ((VirtualQQuickItem*)self)->componentComplete();
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::componentComplete();
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::componentComplete called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnComponentComplete(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_ComponentComplete_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_ComponentComplete_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_componentcomplete_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_ComponentComplete_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperKeyPressEvent(QQuickItem* self, QKeyEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_KeyPressEvent_IsBase(true);
-        vqquickitem->keyPressEvent(event);
-    } else {
-        ((VirtualQQuickItem*)self)->keyPressEvent(event);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnKeyPressEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_KeyPressEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_KeyPressEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_keypressevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperKeyReleaseEvent(QQuickItem* self, QKeyEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_KeyReleaseEvent_IsBase(true);
-        vqquickitem->keyReleaseEvent(event);
-    } else {
-        ((VirtualQQuickItem*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnKeyReleaseEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_keyreleaseevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_KeyReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperInputMethodEvent(QQuickItem* self, QInputMethodEvent* param1) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_InputMethodEvent_IsBase(true);
-        vqquickitem->inputMethodEvent(param1);
-    } else {
-        ((VirtualQQuickItem*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnInputMethodEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_InputMethodEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_InputMethodEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_inputmethodevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_InputMethodEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperFocusInEvent(QQuickItem* self, QFocusEvent* param1) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_FocusInEvent_IsBase(true);
-        vqquickitem->focusInEvent(param1);
-    } else {
-        ((VirtualQQuickItem*)self)->focusInEvent(param1);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::focusInEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnFocusInEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_FocusInEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_FocusInEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_focusinevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_FocusInEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperFocusOutEvent(QQuickItem* self, QFocusEvent* param1) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_FocusOutEvent_IsBase(true);
-        vqquickitem->focusOutEvent(param1);
-    } else {
-        ((VirtualQQuickItem*)self)->focusOutEvent(param1);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::focusOutEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnFocusOutEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_FocusOutEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_FocusOutEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_focusoutevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_FocusOutEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperMousePressEvent(QQuickItem* self, QMouseEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_MousePressEvent_IsBase(true);
-        vqquickitem->mousePressEvent(event);
-    } else {
-        ((VirtualQQuickItem*)self)->mousePressEvent(event);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnMousePressEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_MousePressEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_MousePressEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_mousepressevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperMouseMoveEvent(QQuickItem* self, QMouseEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_MouseMoveEvent_IsBase(true);
-        vqquickitem->mouseMoveEvent(event);
-    } else {
-        ((VirtualQQuickItem*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnMouseMoveEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_MouseMoveEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_MouseMoveEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_mousemoveevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperMouseReleaseEvent(QQuickItem* self, QMouseEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_MouseReleaseEvent_IsBase(true);
-        vqquickitem->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQQuickItem*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnMouseReleaseEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_mousereleaseevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperMouseDoubleClickEvent(QQuickItem* self, QMouseEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_MouseDoubleClickEvent_IsBase(true);
-        vqquickitem->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQQuickItem*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnMouseDoubleClickEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_mousedoubleclickevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperMouseUngrabEvent(QQuickItem* self) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_MouseUngrabEvent_IsBase(true);
-        vqquickitem->mouseUngrabEvent();
-    } else {
-        ((VirtualQQuickItem*)self)->mouseUngrabEvent();
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::mouseUngrabEvent();
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::mouseUngrabEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnMouseUngrabEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_MouseUngrabEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_MouseUngrabEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_mouseungrabevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_MouseUngrabEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperTouchUngrabEvent(QQuickItem* self) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_TouchUngrabEvent_IsBase(true);
-        vqquickitem->touchUngrabEvent();
-    } else {
-        ((VirtualQQuickItem*)self)->touchUngrabEvent();
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::touchUngrabEvent();
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::touchUngrabEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnTouchUngrabEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_TouchUngrabEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_TouchUngrabEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_touchungrabevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_TouchUngrabEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperWheelEvent(QQuickItem* self, QWheelEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_WheelEvent_IsBase(true);
-        vqquickitem->wheelEvent(event);
-    } else {
-        ((VirtualQQuickItem*)self)->wheelEvent(event);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnWheelEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_WheelEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_WheelEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_wheelevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_WheelEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperTouchEvent(QQuickItem* self, QTouchEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_TouchEvent_IsBase(true);
-        vqquickitem->touchEvent(event);
-    } else {
-        ((VirtualQQuickItem*)self)->touchEvent(event);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::touchEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::touchEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnTouchEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_TouchEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_TouchEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_touchevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_TouchEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperHoverEnterEvent(QQuickItem* self, QHoverEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_HoverEnterEvent_IsBase(true);
-        vqquickitem->hoverEnterEvent(event);
-    } else {
-        ((VirtualQQuickItem*)self)->hoverEnterEvent(event);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::hoverEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::hoverEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnHoverEnterEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_HoverEnterEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_HoverEnterEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_hoverenterevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_HoverEnterEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperHoverMoveEvent(QQuickItem* self, QHoverEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_HoverMoveEvent_IsBase(true);
-        vqquickitem->hoverMoveEvent(event);
-    } else {
-        ((VirtualQQuickItem*)self)->hoverMoveEvent(event);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::hoverMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::hoverMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnHoverMoveEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_HoverMoveEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_HoverMoveEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_hovermoveevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_HoverMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperHoverLeaveEvent(QQuickItem* self, QHoverEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_HoverLeaveEvent_IsBase(true);
-        vqquickitem->hoverLeaveEvent(event);
-    } else {
-        ((VirtualQQuickItem*)self)->hoverLeaveEvent(event);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::hoverLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::hoverLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnHoverLeaveEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_HoverLeaveEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_HoverLeaveEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_hoverleaveevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_HoverLeaveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperDragEnterEvent(QQuickItem* self, QDragEnterEvent* param1) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_DragEnterEvent_IsBase(true);
-        vqquickitem->dragEnterEvent(param1);
-    } else {
-        ((VirtualQQuickItem*)self)->dragEnterEvent(param1);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::dragEnterEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnDragEnterEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_DragEnterEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_DragEnterEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_dragenterevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_DragEnterEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperDragMoveEvent(QQuickItem* self, QDragMoveEvent* param1) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_DragMoveEvent_IsBase(true);
-        vqquickitem->dragMoveEvent(param1);
-    } else {
-        ((VirtualQQuickItem*)self)->dragMoveEvent(param1);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::dragMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnDragMoveEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_DragMoveEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_DragMoveEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_dragmoveevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_DragMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperDragLeaveEvent(QQuickItem* self, QDragLeaveEvent* param1) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_DragLeaveEvent_IsBase(true);
-        vqquickitem->dragLeaveEvent(param1);
-    } else {
-        ((VirtualQQuickItem*)self)->dragLeaveEvent(param1);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::dragLeaveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnDragLeaveEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_DragLeaveEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_DragLeaveEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_dragleaveevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_DragLeaveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperDropEvent(QQuickItem* self, QDropEvent* param1) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_DropEvent_IsBase(true);
-        vqquickitem->dropEvent(param1);
-    } else {
-        ((VirtualQQuickItem*)self)->dropEvent(param1);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::dropEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnDropEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_DropEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_DropEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_dropevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_DropEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QQuickItem_SuperChildMouseEventFilter(QQuickItem* self, QQuickItem* param1, QEvent* param2) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_ChildMouseEventFilter_IsBase(true);
-        return vqquickitem->childMouseEventFilter(param1, param2);
-    } else {
-        return ((VirtualQQuickItem*)self)->childMouseEventFilter(param1, param2);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        return vqquickitem->QQuickItem::childMouseEventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::childMouseEventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnChildMouseEventFilter(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_ChildMouseEventFilter_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_ChildMouseEventFilter_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_childmouseeventfilter_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_ChildMouseEventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 QSGNode* QQuickItem_SuperUpdatePaintNode(QQuickItem* self, QSGNode* param1, QQuickItem__UpdatePaintNodeData* param2) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_UpdatePaintNode_IsBase(true);
-        return vqquickitem->updatePaintNode(param1, param2);
-    } else {
-        return ((VirtualQQuickItem*)self)->updatePaintNode(param1, param2);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        return vqquickitem->QQuickItem::updatePaintNode(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::updatePaintNode called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnUpdatePaintNode(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_UpdatePaintNode_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_UpdatePaintNode_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_updatepaintnode_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_UpdatePaintNode_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperReleaseResources(QQuickItem* self) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_ReleaseResources_IsBase(true);
-        vqquickitem->releaseResources();
-    } else {
-        ((VirtualQQuickItem*)self)->releaseResources();
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::releaseResources();
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::releaseResources called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnReleaseResources(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_ReleaseResources_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_ReleaseResources_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_releaseresources_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_ReleaseResources_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickItem_SuperUpdatePolish(QQuickItem* self) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_UpdatePolish_IsBase(true);
-        vqquickitem->updatePolish();
-    } else {
-        ((VirtualQQuickItem*)self)->updatePolish();
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::updatePolish();
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::updatePolish called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnUpdatePolish(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_UpdatePolish_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_UpdatePolish_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_updatepolish_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_UpdatePolish_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickItem_EventFilter(QQuickItem* self, QObject* watched, QEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        return vqquickitem->eventFilter(watched, event);
-    } else {
-        return self->QQuickItem::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQuickItem_SuperEventFilter(QQuickItem* self, QObject* watched, QEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_EventFilter_IsBase(true);
-        return vqquickitem->eventFilter(watched, event);
-    } else {
-        return self->QQuickItem::eventFilter(watched, event);
-    }
+    return self->QQuickItem::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnEventFilter(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_EventFilter_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_EventFilter_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_eventfilter_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickItem_TimerEvent(QQuickItem* self, QTimerEvent* event) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->timerEvent(event);
     } else {
-        ((VirtualQQuickItem*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQuickItem::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickItem_SuperTimerEvent(QQuickItem* self, QTimerEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_TimerEvent_IsBase(true);
-        vqquickitem->timerEvent(event);
-    } else {
-        ((VirtualQQuickItem*)self)->timerEvent(event);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnTimerEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_TimerEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_TimerEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_timerevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickItem_ChildEvent(QQuickItem* self, QChildEvent* event) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->childEvent(event);
     } else {
-        ((VirtualQQuickItem*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQuickItem::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickItem_SuperChildEvent(QQuickItem* self, QChildEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_ChildEvent_IsBase(true);
-        vqquickitem->childEvent(event);
-    } else {
-        ((VirtualQQuickItem*)self)->childEvent(event);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnChildEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_ChildEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_ChildEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_childevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickItem_CustomEvent(QQuickItem* self, QEvent* event) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->customEvent(event);
     } else {
-        ((VirtualQQuickItem*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQuickItem::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickItem_SuperCustomEvent(QQuickItem* self, QEvent* event) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_CustomEvent_IsBase(true);
-        vqquickitem->customEvent(event);
-    } else {
-        ((VirtualQQuickItem*)self)->customEvent(event);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnCustomEvent(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_CustomEvent_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_CustomEvent_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_customevent_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickItem_ConnectNotify(QQuickItem* self, const QMetaMethod* signal) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->connectNotify(*signal);
     } else {
-        ((VirtualQQuickItem*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuickItem::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickItem_SuperConnectNotify(QQuickItem* self, const QMetaMethod* signal) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_ConnectNotify_IsBase(true);
-        vqquickitem->connectNotify(*signal);
-    } else {
-        ((VirtualQQuickItem*)self)->connectNotify(*signal);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnConnectNotify(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_ConnectNotify_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_ConnectNotify_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_connectnotify_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickItem_DisconnectNotify(QQuickItem* self, const QMetaMethod* signal) {
     auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
+    if (vqquickitem) {
         vqquickitem->disconnectNotify(*signal);
     } else {
-        ((VirtualQQuickItem*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuickItem::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickItem_SuperDisconnectNotify(QQuickItem* self, const QMetaMethod* signal) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_DisconnectNotify_IsBase(true);
-        vqquickitem->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQuickItem*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->QQuickItem::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuickItem::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickItem_OnDisconnectNotify(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_DisconnectNotify_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_DisconnectNotify_Callback>(slot));
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self))
+        vqquickitem->qquickitem_disconnectnotify_callback = reinterpret_cast<VirtualQQuickItem::QQuickItem_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuickItem_IsComponentComplete(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        return vqquickitem->isComponentComplete();
-    } else {
-        return ((VirtualQQuickItem*)self)->isComponentComplete();
-    }
+    if (auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self))) {
+        return vqquickitem->VirtualQQuickItem::isComponentComplete();
+    } else
+        qFatal("Error: Protected method QQuickItem::isComponentComplete called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QQuickItem_SuperIsComponentComplete(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_IsComponentComplete_IsBase(true);
-        return vqquickitem->isComponentComplete();
-    } else {
-        return ((VirtualQQuickItem*)self)->isComponentComplete();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickItem_OnIsComponentComplete(const QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_IsComponentComplete_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_IsComponentComplete_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QQuickItem_UpdateInputMethod(QQuickItem* self) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->updateInputMethod();
-    } else {
-        ((VirtualQQuickItem*)self)->updateInputMethod();
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->VirtualQQuickItem::updateInputMethod();
+    } else
+        qFatal("Error: Protected method QQuickItem::updateInputMethod called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QQuickItem_SuperUpdateInputMethod(QQuickItem* self) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_UpdateInputMethod_IsBase(true);
-        vqquickitem->updateInputMethod();
-    } else {
-        ((VirtualQQuickItem*)self)->updateInputMethod();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickItem_OnUpdateInputMethod(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_UpdateInputMethod_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_UpdateInputMethod_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuickItem_WidthValid(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        return vqquickitem->widthValid();
-    } else {
-        return ((VirtualQQuickItem*)self)->widthValid();
-    }
+    if (auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self))) {
+        return vqquickitem->VirtualQQuickItem::widthValid();
+    } else
+        qFatal("Error: Protected method QQuickItem::widthValid called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QQuickItem_SuperWidthValid(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_WidthValid_IsBase(true);
-        return vqquickitem->widthValid();
-    } else {
-        return ((VirtualQQuickItem*)self)->widthValid();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickItem_OnWidthValid(const QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_WidthValid_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_WidthValid_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuickItem_HeightValid(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        return vqquickitem->heightValid();
-    } else {
-        return ((VirtualQQuickItem*)self)->heightValid();
-    }
+    if (auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self))) {
+        return vqquickitem->VirtualQQuickItem::heightValid();
+    } else
+        qFatal("Error: Protected method QQuickItem::heightValid called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QQuickItem_SuperHeightValid(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_HeightValid_IsBase(true);
-        return vqquickitem->heightValid();
-    } else {
-        return ((VirtualQQuickItem*)self)->heightValid();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickItem_OnHeightValid(const QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_HeightValid_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_HeightValid_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QQuickItem_SetImplicitSize(QQuickItem* self, double param1, double param2) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setImplicitSize(static_cast<qreal>(param1), static_cast<qreal>(param2));
-    } else {
-        ((VirtualQQuickItem*)self)->setImplicitSize(static_cast<qreal>(param1), static_cast<qreal>(param2));
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->VirtualQQuickItem::setImplicitSize(static_cast<qreal>(param1), static_cast<qreal>(param2));
+    } else
+        qFatal("Error: Protected method QQuickItem::setImplicitSize called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QQuickItem_SuperSetImplicitSize(QQuickItem* self, double param1, double param2) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_SetImplicitSize_IsBase(true);
-        vqquickitem->setImplicitSize(static_cast<qreal>(param1), static_cast<qreal>(param2));
-    } else {
-        ((VirtualQQuickItem*)self)->setImplicitSize(static_cast<qreal>(param1), static_cast<qreal>(param2));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickItem_OnSetImplicitSize(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_SetImplicitSize_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_SetImplicitSize_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QQuickItem_UpdateInputMethod1(QQuickItem* self, int queries) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->updateInputMethod(static_cast<Qt::InputMethodQueries>(queries));
-    } else {
-        ((VirtualQQuickItem*)self)->updateInputMethod(static_cast<Qt::InputMethodQueries>(queries));
-    }
+    if (auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self)) {
+        vqquickitem->VirtualQQuickItem::updateInputMethod(static_cast<Qt::InputMethodQueries>(queries));
+    } else
+        qFatal("Error: Protected method QQuickItem::updateInputMethod1 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QQuickItem_SuperUpdateInputMethod1(QQuickItem* self, int queries) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_UpdateInputMethod1_IsBase(true);
-        vqquickitem->updateInputMethod(static_cast<Qt::InputMethodQueries>(queries));
-    } else {
-        ((VirtualQQuickItem*)self)->updateInputMethod(static_cast<Qt::InputMethodQueries>(queries));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickItem_OnUpdateInputMethod1(QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = dynamic_cast<VirtualQQuickItem*>(self);
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_UpdateInputMethod1_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_UpdateInputMethod1_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQuickItem_Sender(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        return vqquickitem->sender();
-    } else {
-        return ((VirtualQQuickItem*)self)->sender();
-    }
+    if (auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self))) {
+        return vqquickitem->VirtualQQuickItem::sender();
+    } else
+        qFatal("Error: Protected method QQuickItem::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQuickItem_SuperSender(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_Sender_IsBase(true);
-        return vqquickitem->sender();
-    } else {
-        return ((VirtualQQuickItem*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickItem_OnSender(const QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_Sender_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuickItem_SenderSignalIndex(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        return vqquickitem->senderSignalIndex();
-    } else {
-        return ((VirtualQQuickItem*)self)->senderSignalIndex();
-    }
+    if (auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self))) {
+        return vqquickitem->VirtualQQuickItem::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQuickItem::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuickItem_SuperSenderSignalIndex(const QQuickItem* self) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_SenderSignalIndex_IsBase(true);
-        return vqquickitem->senderSignalIndex();
-    } else {
-        return ((VirtualQQuickItem*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickItem_OnSenderSignalIndex(const QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuickItem_Receivers(const QQuickItem* self, const char* signal) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        return vqquickitem->receivers(signal);
-    } else {
-        return ((VirtualQQuickItem*)self)->receivers(signal);
-    }
+    if (auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self))) {
+        return vqquickitem->VirtualQQuickItem::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQuickItem::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuickItem_SuperReceivers(const QQuickItem* self, const char* signal) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_Receivers_IsBase(true);
-        return vqquickitem->receivers(signal);
-    } else {
-        return ((VirtualQQuickItem*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickItem_OnReceivers(const QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_Receivers_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuickItem_IsSignalConnected(const QQuickItem* self, const QMetaMethod* signal) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        return vqquickitem->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuickItem*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQuickItem_SuperIsSignalConnected(const QQuickItem* self, const QMetaMethod* signal) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem) {
-        vqquickitem->setQQuickItem_IsSignalConnected_IsBase(true);
-        return vqquickitem->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuickItem*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickItem_OnIsSignalConnected(const QQuickItem* self, intptr_t slot) {
-    auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self));
-    if (vqquickitem && vqquickitem->isVirtualQQuickItem)
-        vqquickitem->setQQuickItem_IsSignalConnected_Callback(reinterpret_cast<VirtualQQuickItem::QQuickItem_IsSignalConnected_Callback>(slot));
+    if (auto* vqquickitem = const_cast<VirtualQQuickItem*>(dynamic_cast<const VirtualQQuickItem*>(self))) {
+        return vqquickitem->VirtualQQuickItem::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQuickItem::isSignalConnected called without a directly constructed type");
 }
 
 void QQuickItem_Delete(QQuickItem* self) {

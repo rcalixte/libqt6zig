@@ -174,9 +174,9 @@ pub const KDatePickerPopup = extern struct {
     ///
     /// ` self: KDatePickerPopup `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KDatePickerPopup) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KDatePickerPopup, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KDatePickerPopup, callback: *const fn (KDatePickerPopup) callconv(.c) QMetaObject) void {
         qtc.KDatePickerPopup_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7846,11 +7846,11 @@ pub const KDatePickerPopup = extern struct {
     ///
     /// ` self: KDatePickerPopup`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KDatePickerPopup) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KDatePickerPopup, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KDatePickerPopup, callback: *const fn (KDatePickerPopup) callconv(.c) QSize) void {
         qtc.KDatePickerPopup_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8838,9 +8838,9 @@ pub const KDatePickerPopup = extern struct {
     ///
     /// ` self: KDatePickerPopup`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KDatePickerPopup) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KDatePickerPopup, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KDatePickerPopup, callback: *const fn (KDatePickerPopup) callconv(.c) i32) void {
         qtc.KDatePickerPopup_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8954,11 +8954,11 @@ pub const KDatePickerPopup = extern struct {
     ///
     /// ` self: KDatePickerPopup`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KDatePickerPopup) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KDatePickerPopup, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KDatePickerPopup, callback: *const fn (KDatePickerPopup) callconv(.c) QSize) void {
         qtc.KDatePickerPopup_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9072,9 +9072,9 @@ pub const KDatePickerPopup = extern struct {
     ///
     /// ` self: KDatePickerPopup`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KDatePickerPopup) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KDatePickerPopup, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KDatePickerPopup, callback: *const fn (KDatePickerPopup) callconv(.c) bool) void {
         qtc.KDatePickerPopup_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9128,9 +9128,9 @@ pub const KDatePickerPopup = extern struct {
     ///
     /// ` self: KDatePickerPopup`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KDatePickerPopup) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KDatePickerPopup, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KDatePickerPopup, callback: *const fn (KDatePickerPopup) callconv(.c) QPaintEngine) void {
         qtc.KDatePickerPopup_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10312,9 +10312,9 @@ pub const KDatePickerPopup = extern struct {
     ///
     /// ` self: KDatePickerPopup`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KDatePickerPopup) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KDatePickerPopup, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KDatePickerPopup, callback: *const fn (KDatePickerPopup) callconv(.c) QPainter) void {
         qtc.KDatePickerPopup_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10776,44 +10776,6 @@ pub const KDatePickerPopup = extern struct {
         return qtc.KDatePickerPopup_ColumnCount(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superColumnCount` instead
-    ///
-    pub const SuperColumnCount = superColumnCount;
-
-    /// Inherited from QMenu
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#columnCount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePickerPopup `
-    ///
-    pub fn superColumnCount(self: KDatePickerPopup) i32 {
-        return qtc.KDatePickerPopup_SuperColumnCount(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onColumnCount` instead
-    ///
-    pub const OnColumnCount = onColumnCount;
-
-    /// Inherited from QMenu
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#columnCount)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePickerPopup`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onColumnCount(self: KDatePickerPopup, callback: *const fn () callconv(.c) i32) void {
-        qtc.KDatePickerPopup_OnColumnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -10830,44 +10792,6 @@ pub const KDatePickerPopup = extern struct {
     ///
     pub fn updateMicroFocus(self: KDatePickerPopup) void {
         qtc.KDatePickerPopup_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePickerPopup `
-    ///
-    pub fn superUpdateMicroFocus(self: KDatePickerPopup) void {
-        qtc.KDatePickerPopup_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePickerPopup`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KDatePickerPopup, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePickerPopup_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -10888,44 +10812,6 @@ pub const KDatePickerPopup = extern struct {
         qtc.KDatePickerPopup_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePickerPopup `
-    ///
-    pub fn superCreate(self: KDatePickerPopup) void {
-        qtc.KDatePickerPopup_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePickerPopup`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KDatePickerPopup, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePickerPopup_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10942,44 +10828,6 @@ pub const KDatePickerPopup = extern struct {
     ///
     pub fn destroy(self: KDatePickerPopup) void {
         qtc.KDatePickerPopup_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePickerPopup `
-    ///
-    pub fn superDestroy(self: KDatePickerPopup) void {
-        qtc.KDatePickerPopup_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePickerPopup`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KDatePickerPopup, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePickerPopup_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -11000,44 +10848,6 @@ pub const KDatePickerPopup = extern struct {
         return qtc.KDatePickerPopup_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePickerPopup `
-    ///
-    pub fn superFocusNextChild(self: KDatePickerPopup) bool {
-        return qtc.KDatePickerPopup_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePickerPopup`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KDatePickerPopup, callback: *const fn () callconv(.c) bool) void {
-        qtc.KDatePickerPopup_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -11054,44 +10864,6 @@ pub const KDatePickerPopup = extern struct {
     ///
     pub fn focusPreviousChild(self: KDatePickerPopup) bool {
         return qtc.KDatePickerPopup_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePickerPopup `
-    ///
-    pub fn superFocusPreviousChild(self: KDatePickerPopup) bool {
-        return qtc.KDatePickerPopup_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePickerPopup`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KDatePickerPopup, callback: *const fn () callconv(.c) bool) void {
-        qtc.KDatePickerPopup_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -11112,44 +10884,6 @@ pub const KDatePickerPopup = extern struct {
         return .{ .ptr = qtc.KDatePickerPopup_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePickerPopup `
-    ///
-    pub fn superSender(self: KDatePickerPopup) QObject {
-        return .{ .ptr = qtc.KDatePickerPopup_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePickerPopup`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KDatePickerPopup, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KDatePickerPopup_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -11166,44 +10900,6 @@ pub const KDatePickerPopup = extern struct {
     ///
     pub fn senderSignalIndex(self: KDatePickerPopup) i32 {
         return qtc.KDatePickerPopup_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePickerPopup `
-    ///
-    pub fn superSenderSignalIndex(self: KDatePickerPopup) i32 {
-        return qtc.KDatePickerPopup_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePickerPopup`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KDatePickerPopup, callback: *const fn () callconv(.c) i32) void {
-        qtc.KDatePickerPopup_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -11227,47 +10923,6 @@ pub const KDatePickerPopup = extern struct {
         return qtc.KDatePickerPopup_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePickerPopup `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KDatePickerPopup, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KDatePickerPopup_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePickerPopup`
-    ///
-    /// ` callback: *const fn (self: KDatePickerPopup, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KDatePickerPopup, callback: *const fn (KDatePickerPopup, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KDatePickerPopup_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -11287,47 +10942,6 @@ pub const KDatePickerPopup = extern struct {
     pub fn isSignalConnected(self: KDatePickerPopup, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KDatePickerPopup_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePickerPopup `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KDatePickerPopup, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KDatePickerPopup_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePickerPopup`
-    ///
-    /// ` callback: *const fn (self: KDatePickerPopup, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KDatePickerPopup, callback: *const fn (KDatePickerPopup, QMetaMethod) callconv(.c) bool) void {
-        qtc.KDatePickerPopup_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -11350,48 +10964,6 @@ pub const KDatePickerPopup = extern struct {
     ///
     pub fn getDecodedMetricF(self: KDatePickerPopup, metricA: i32, metricB: i32) f64 {
         return qtc.KDatePickerPopup_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePickerPopup `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KDatePickerPopup, metricA: i32, metricB: i32) f64 {
-        return qtc.KDatePickerPopup_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePickerPopup`
-    ///
-    /// ` callback: *const fn (self: KDatePickerPopup, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KDatePickerPopup, callback: *const fn (KDatePickerPopup, i32, i32) callconv(.c) f64) void {
-        qtc.KDatePickerPopup_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

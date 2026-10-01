@@ -28,6 +28,8 @@ pub const KTextEditor__SessionConfigInterface = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html#readSessionConfig)
     ///
+    /// This method must be implemented with `onReadSessionConfig` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__SessionConfigInterface `
@@ -57,30 +59,13 @@ pub const KTextEditor__SessionConfigInterface = extern struct {
         qtc.KTextEditor__SessionConfigInterface_OnReadSessionConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superReadSessionConfig` instead
-    ///
-    pub const SuperReadSessionConfig = superReadSessionConfig;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html#readSessionConfig)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__SessionConfigInterface `
-    ///
-    /// ` config: KConfigGroup `
-    ///
-    pub fn superReadSessionConfig(self: KTextEditor__SessionConfigInterface, config: anytype) void {
-        comptime _ = @TypeOf(config)._is_KConfigGroup;
-        qtc.KTextEditor__SessionConfigInterface_SuperReadSessionConfig(@ptrCast(self.ptr), @ptrCast(config.ptr));
-    }
-
     /// ### DEPRECATED: Use `writeSessionConfig` instead
     ///
     pub const WriteSessionConfig = writeSessionConfig;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html#writeSessionConfig)
+    ///
+    /// This method must be implemented with `onWriteSessionConfig` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -109,25 +94,6 @@ pub const KTextEditor__SessionConfigInterface = extern struct {
     ///
     pub fn onWriteSessionConfig(self: KTextEditor__SessionConfigInterface, callback: *const fn (KTextEditor__SessionConfigInterface, KConfigGroup) callconv(.c) void) void {
         qtc.KTextEditor__SessionConfigInterface_OnWriteSessionConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superWriteSessionConfig` instead
-    ///
-    pub const SuperWriteSessionConfig = superWriteSessionConfig;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html#writeSessionConfig)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__SessionConfigInterface `
-    ///
-    /// ` config: KConfigGroup `
-    ///
-    pub fn superWriteSessionConfig(self: KTextEditor__SessionConfigInterface, config: anytype) void {
-        comptime _ = @TypeOf(config)._is_KConfigGroup;
-        qtc.KTextEditor__SessionConfigInterface_SuperWriteSessionConfig(@ptrCast(self.ptr), @ptrCast(config.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead

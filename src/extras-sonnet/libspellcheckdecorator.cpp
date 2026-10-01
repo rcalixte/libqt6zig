@@ -55,19 +55,19 @@ Sonnet__Highlighter* Sonnet__SpellCheckDecorator_Highlighter(const Sonnet__Spell
 
 bool Sonnet__SpellCheckDecorator_EventFilter(Sonnet__SpellCheckDecorator* self, QObject* obj, QEvent* event) {
     auto* vsonnet__spellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnet__spellcheckdecorator && vsonnet__spellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnet__spellcheckdecorator) {
         return vsonnet__spellcheckdecorator->eventFilter(obj, event);
     }
-    return {};
+    qFatal("Error: Protected method Sonnet::SpellCheckDecorator::eventFilter called without a directly constructed type");
 }
 
 bool Sonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock(const Sonnet__SpellCheckDecorator* self, const libqt_string textBlock) {
     QString textBlock_QString = QString::fromUtf8(textBlock.data, textBlock.len);
     auto* vsonnet__spellcheckdecorator = dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnet__spellcheckdecorator && vsonnet__spellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnet__spellcheckdecorator) {
         return vsonnet__spellcheckdecorator->isSpellCheckingEnabledForBlock(textBlock_QString);
     }
-    return {};
+    qFatal("Error: Protected method Sonnet::SpellCheckDecorator::isSpellCheckingEnabledForBlock called without a directly constructed type");
 }
 
 libqt_string Sonnet__SpellCheckDecorator_Tr2(const char* s, const char* c) {
@@ -96,373 +96,232 @@ libqt_string Sonnet__SpellCheckDecorator_Tr3(const char* s, const char* c, int n
 
 // Base class handler implementation
 QMetaObject* Sonnet__SpellCheckDecorator_SuperMetaObject(const Sonnet__SpellCheckDecorator* self) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_MetaObject_IsBase(true);
-        return (QMetaObject*)vsonnetspellcheckdecorator->metaObject();
-    } else {
-        return (QMetaObject*)self->Sonnet::SpellCheckDecorator::metaObject();
-    }
+    return (QMetaObject*)self->Sonnet::SpellCheckDecorator::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__SpellCheckDecorator_OnMetaObject(const Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_MetaObject_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_MetaObject_Callback>(slot));
+void Sonnet__SpellCheckDecorator_OnMetaObject(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
+    if (auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self)))
+        vsonnetspellcheckdecorator->sonnet__spellcheckdecorator_metaobject_callback = reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* Sonnet__SpellCheckDecorator_SuperMetacast(Sonnet__SpellCheckDecorator* self, const char* param1) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Metacast_IsBase(true);
-        return vsonnetspellcheckdecorator->qt_metacast(param1);
-    } else {
-        return self->Sonnet::SpellCheckDecorator::qt_metacast(param1);
-    }
+    return self->Sonnet::SpellCheckDecorator::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnMetacast(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Metacast_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_Metacast_Callback>(slot));
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self))
+        vsonnetspellcheckdecorator->sonnet__spellcheckdecorator_metacast_callback = reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int Sonnet__SpellCheckDecorator_SuperMetacall(Sonnet__SpellCheckDecorator* self, int param1, int param2, void** param3) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Metacall_IsBase(true);
-        return vsonnetspellcheckdecorator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->Sonnet::SpellCheckDecorator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->Sonnet::SpellCheckDecorator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnMetacall(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Metacall_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_Metacall_Callback>(slot));
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self))
+        vsonnetspellcheckdecorator->sonnet__spellcheckdecorator_metacall_callback = reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool Sonnet__SpellCheckDecorator_SuperEventFilter(Sonnet__SpellCheckDecorator* self, QObject* obj, QEvent* event) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_EventFilter_IsBase(true);
-        return vsonnetspellcheckdecorator->eventFilter(obj, event);
-    } else {
-        return ((VirtualSonnetSpellCheckDecorator*)self)->eventFilter(obj, event);
-    }
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self)) {
+        return vsonnetspellcheckdecorator->Sonnet::SpellCheckDecorator::eventFilter(obj, event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::SpellCheckDecorator::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnEventFilter(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_EventFilter_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_EventFilter_Callback>(slot));
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self))
+        vsonnetspellcheckdecorator->sonnet__spellcheckdecorator_eventfilter_callback = reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 bool Sonnet__SpellCheckDecorator_SuperIsSpellCheckingEnabledForBlock(const Sonnet__SpellCheckDecorator* self, const libqt_string textBlock) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
     QString textBlock_QString = QString::fromUtf8(textBlock.data, textBlock.len);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock_IsBase(true);
-        return vsonnetspellcheckdecorator->isSpellCheckingEnabledForBlock(textBlock_QString);
-    } else {
-        return ((VirtualSonnetSpellCheckDecorator*)self)->isSpellCheckingEnabledForBlock(textBlock_QString);
-    }
+    if (auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self))) {
+        return vsonnetspellcheckdecorator->Sonnet::SpellCheckDecorator::isSpellCheckingEnabledForBlock(textBlock_QString);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::SpellCheckDecorator::isSpellCheckingEnabledForBlock called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__SpellCheckDecorator_OnIsSpellCheckingEnabledForBlock(const Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock_Callback>(slot));
+void Sonnet__SpellCheckDecorator_OnIsSpellCheckingEnabledForBlock(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
+    if (auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self)))
+        vsonnetspellcheckdecorator->sonnet__spellcheckdecorator_isspellcheckingenabledforblock_callback = reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__SpellCheckDecorator_Event(Sonnet__SpellCheckDecorator* self, QEvent* event) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        return vsonnetspellcheckdecorator->event(event);
-    } else {
-        return self->Sonnet::SpellCheckDecorator::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool Sonnet__SpellCheckDecorator_SuperEvent(Sonnet__SpellCheckDecorator* self, QEvent* event) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Event_IsBase(true);
-        return vsonnetspellcheckdecorator->event(event);
-    } else {
-        return self->Sonnet::SpellCheckDecorator::event(event);
-    }
+    return self->Sonnet::SpellCheckDecorator::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnEvent(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Event_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_Event_Callback>(slot));
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self))
+        vsonnetspellcheckdecorator->sonnet__spellcheckdecorator_event_callback = reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__SpellCheckDecorator_TimerEvent(Sonnet__SpellCheckDecorator* self, QTimerEvent* event) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator) {
         vsonnetspellcheckdecorator->timerEvent(event);
     } else {
-        ((VirtualSonnetSpellCheckDecorator*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::SpellCheckDecorator::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__SpellCheckDecorator_SuperTimerEvent(Sonnet__SpellCheckDecorator* self, QTimerEvent* event) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_TimerEvent_IsBase(true);
-        vsonnetspellcheckdecorator->timerEvent(event);
-    } else {
-        ((VirtualSonnetSpellCheckDecorator*)self)->timerEvent(event);
-    }
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self)) {
+        vsonnetspellcheckdecorator->Sonnet::SpellCheckDecorator::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::SpellCheckDecorator::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnTimerEvent(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_TimerEvent_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_TimerEvent_Callback>(slot));
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self))
+        vsonnetspellcheckdecorator->sonnet__spellcheckdecorator_timerevent_callback = reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__SpellCheckDecorator_ChildEvent(Sonnet__SpellCheckDecorator* self, QChildEvent* event) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator) {
         vsonnetspellcheckdecorator->childEvent(event);
     } else {
-        ((VirtualSonnetSpellCheckDecorator*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::SpellCheckDecorator::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__SpellCheckDecorator_SuperChildEvent(Sonnet__SpellCheckDecorator* self, QChildEvent* event) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_ChildEvent_IsBase(true);
-        vsonnetspellcheckdecorator->childEvent(event);
-    } else {
-        ((VirtualSonnetSpellCheckDecorator*)self)->childEvent(event);
-    }
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self)) {
+        vsonnetspellcheckdecorator->Sonnet::SpellCheckDecorator::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::SpellCheckDecorator::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnChildEvent(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_ChildEvent_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_ChildEvent_Callback>(slot));
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self))
+        vsonnetspellcheckdecorator->sonnet__spellcheckdecorator_childevent_callback = reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__SpellCheckDecorator_CustomEvent(Sonnet__SpellCheckDecorator* self, QEvent* event) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator) {
         vsonnetspellcheckdecorator->customEvent(event);
     } else {
-        ((VirtualSonnetSpellCheckDecorator*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::SpellCheckDecorator::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__SpellCheckDecorator_SuperCustomEvent(Sonnet__SpellCheckDecorator* self, QEvent* event) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_CustomEvent_IsBase(true);
-        vsonnetspellcheckdecorator->customEvent(event);
-    } else {
-        ((VirtualSonnetSpellCheckDecorator*)self)->customEvent(event);
-    }
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self)) {
+        vsonnetspellcheckdecorator->Sonnet::SpellCheckDecorator::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::SpellCheckDecorator::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnCustomEvent(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_CustomEvent_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_CustomEvent_Callback>(slot));
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self))
+        vsonnetspellcheckdecorator->sonnet__spellcheckdecorator_customevent_callback = reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__SpellCheckDecorator_ConnectNotify(Sonnet__SpellCheckDecorator* self, const QMetaMethod* signal) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator) {
         vsonnetspellcheckdecorator->connectNotify(*signal);
     } else {
-        ((VirtualSonnetSpellCheckDecorator*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method Sonnet::SpellCheckDecorator::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__SpellCheckDecorator_SuperConnectNotify(Sonnet__SpellCheckDecorator* self, const QMetaMethod* signal) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_ConnectNotify_IsBase(true);
-        vsonnetspellcheckdecorator->connectNotify(*signal);
-    } else {
-        ((VirtualSonnetSpellCheckDecorator*)self)->connectNotify(*signal);
-    }
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self)) {
+        vsonnetspellcheckdecorator->Sonnet::SpellCheckDecorator::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::SpellCheckDecorator::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnConnectNotify(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_ConnectNotify_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_ConnectNotify_Callback>(slot));
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self))
+        vsonnetspellcheckdecorator->sonnet__spellcheckdecorator_connectnotify_callback = reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__SpellCheckDecorator_DisconnectNotify(Sonnet__SpellCheckDecorator* self, const QMetaMethod* signal) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator) {
         vsonnetspellcheckdecorator->disconnectNotify(*signal);
     } else {
-        ((VirtualSonnetSpellCheckDecorator*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method Sonnet::SpellCheckDecorator::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__SpellCheckDecorator_SuperDisconnectNotify(Sonnet__SpellCheckDecorator* self, const QMetaMethod* signal) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_DisconnectNotify_IsBase(true);
-        vsonnetspellcheckdecorator->disconnectNotify(*signal);
-    } else {
-        ((VirtualSonnetSpellCheckDecorator*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self)) {
+        vsonnetspellcheckdecorator->Sonnet::SpellCheckDecorator::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::SpellCheckDecorator::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnDisconnectNotify(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_DisconnectNotify_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_DisconnectNotify_Callback>(slot));
+    if (auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self))
+        vsonnetspellcheckdecorator->sonnet__spellcheckdecorator_disconnectnotify_callback = reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* Sonnet__SpellCheckDecorator_Sender(const Sonnet__SpellCheckDecorator* self) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        return vsonnetspellcheckdecorator->sender();
-    } else {
-        return ((VirtualSonnetSpellCheckDecorator*)self)->sender();
-    }
+    if (auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self))) {
+        return vsonnetspellcheckdecorator->VirtualSonnetSpellCheckDecorator::sender();
+    } else
+        qFatal("Error: Protected method Sonnet::SpellCheckDecorator::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* Sonnet__SpellCheckDecorator_SuperSender(const Sonnet__SpellCheckDecorator* self) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Sender_IsBase(true);
-        return vsonnetspellcheckdecorator->sender();
-    } else {
-        return ((VirtualSonnetSpellCheckDecorator*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__SpellCheckDecorator_OnSender(const Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Sender_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Sonnet__SpellCheckDecorator_SenderSignalIndex(const Sonnet__SpellCheckDecorator* self) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        return vsonnetspellcheckdecorator->senderSignalIndex();
-    } else {
-        return ((VirtualSonnetSpellCheckDecorator*)self)->senderSignalIndex();
-    }
+    if (auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self))) {
+        return vsonnetspellcheckdecorator->VirtualSonnetSpellCheckDecorator::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method Sonnet::SpellCheckDecorator::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Sonnet__SpellCheckDecorator_SuperSenderSignalIndex(const Sonnet__SpellCheckDecorator* self) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_SenderSignalIndex_IsBase(true);
-        return vsonnetspellcheckdecorator->senderSignalIndex();
-    } else {
-        return ((VirtualSonnetSpellCheckDecorator*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__SpellCheckDecorator_OnSenderSignalIndex(const Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_SenderSignalIndex_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Sonnet__SpellCheckDecorator_Receivers(const Sonnet__SpellCheckDecorator* self, const char* signal) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        return vsonnetspellcheckdecorator->receivers(signal);
-    } else {
-        return ((VirtualSonnetSpellCheckDecorator*)self)->receivers(signal);
-    }
+    if (auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self))) {
+        return vsonnetspellcheckdecorator->VirtualSonnetSpellCheckDecorator::receivers(signal);
+    } else
+        qFatal("Error: Protected method Sonnet::SpellCheckDecorator::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Sonnet__SpellCheckDecorator_SuperReceivers(const Sonnet__SpellCheckDecorator* self, const char* signal) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Receivers_IsBase(true);
-        return vsonnetspellcheckdecorator->receivers(signal);
-    } else {
-        return ((VirtualSonnetSpellCheckDecorator*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__SpellCheckDecorator_OnReceivers(const Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Receivers_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Sonnet__SpellCheckDecorator_IsSignalConnected(const Sonnet__SpellCheckDecorator* self, const QMetaMethod* signal) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        return vsonnetspellcheckdecorator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualSonnetSpellCheckDecorator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool Sonnet__SpellCheckDecorator_SuperIsSignalConnected(const Sonnet__SpellCheckDecorator* self, const QMetaMethod* signal) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_IsSignalConnected_IsBase(true);
-        return vsonnetspellcheckdecorator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualSonnetSpellCheckDecorator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__SpellCheckDecorator_OnIsSignalConnected(const Sonnet__SpellCheckDecorator* self, intptr_t slot) {
-    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
-        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_IsSignalConnected_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_IsSignalConnected_Callback>(slot));
+    if (auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self))) {
+        return vsonnetspellcheckdecorator->VirtualSonnetSpellCheckDecorator::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method Sonnet::SpellCheckDecorator::isSignalConnected called without a directly constructed type");
 }
 
 void Sonnet__SpellCheckDecorator_Delete(Sonnet__SpellCheckDecorator* self) {

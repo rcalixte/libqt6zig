@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QCamera so that we can call protected methods
+// This class is a subclass of QCamera
 class VirtualQCamera final : public QCamera {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQCamera = true;
-
-    // Virtual class public types (including callbacks)
-    using QCamera_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QCamera_MetaObject_Callback = QMetaObject* (*)(const QCamera*);
     using QCamera_Metacast_Callback = void* (*)(QCamera*, const char*);
     using QCamera_Metacall_Callback = int (*)(QCamera*, int, int, void**);
     using QCamera_Event_Callback = bool (*)(QCamera*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQCamera final : public QCamera {
     using QCamera_CustomEvent_Callback = void (*)(QCamera*, QEvent*);
     using QCamera_ConnectNotify_Callback = void (*)(QCamera*, QMetaMethod*);
     using QCamera_DisconnectNotify_Callback = void (*)(QCamera*, QMetaMethod*);
-    using QCamera_Sender_Callback = QObject* (*)();
-    using QCamera_SenderSignalIndex_Callback = int (*)();
-    using QCamera_Receivers_Callback = int (*)(const QCamera*, const char*);
-    using QCamera_IsSignalConnected_Callback = bool (*)(const QCamera*, QMetaMethod*);
+    using QCamera::isSignalConnected;
+    using QCamera::receivers;
+    using QCamera::sender;
+    using QCamera::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QCamera_MetaObject_Callback qcamera_metaobject_callback = nullptr;
     QCamera_Metacast_Callback qcamera_metacast_callback = nullptr;
@@ -44,28 +39,16 @@ class VirtualQCamera final : public QCamera {
     QCamera_CustomEvent_Callback qcamera_customevent_callback = nullptr;
     QCamera_ConnectNotify_Callback qcamera_connectnotify_callback = nullptr;
     QCamera_DisconnectNotify_Callback qcamera_disconnectnotify_callback = nullptr;
-    QCamera_Sender_Callback qcamera_sender_callback = nullptr;
-    QCamera_SenderSignalIndex_Callback qcamera_sendersignalindex_callback = nullptr;
-    QCamera_Receivers_Callback qcamera_receivers_callback = nullptr;
-    QCamera_IsSignalConnected_Callback qcamera_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qcamera_metaobject_isbase = false;
-    mutable bool qcamera_metacast_isbase = false;
-    mutable bool qcamera_metacall_isbase = false;
-    mutable bool qcamera_event_isbase = false;
-    mutable bool qcamera_eventfilter_isbase = false;
-    mutable bool qcamera_timerevent_isbase = false;
-    mutable bool qcamera_childevent_isbase = false;
-    mutable bool qcamera_customevent_isbase = false;
-    mutable bool qcamera_connectnotify_isbase = false;
-    mutable bool qcamera_disconnectnotify_isbase = false;
-    mutable bool qcamera_sender_isbase = false;
-    mutable bool qcamera_sendersignalindex_isbase = false;
-    mutable bool qcamera_receivers_isbase = false;
-    mutable bool qcamera_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QCamera {
+        using QCamera::childEvent;
+        using QCamera::connectNotify;
+        using QCamera::customEvent;
+        using QCamera::disconnectNotify;
+        using QCamera::timerEvent;
+    };
 
-  public:
     VirtualQCamera() : QCamera() {};
     VirtualQCamera(const QCameraDevice& cameraDevice) : QCamera(cameraDevice) {};
     VirtualQCamera(QCameraDevice::Position position) : QCamera(position) {};
@@ -73,47 +56,10 @@ class VirtualQCamera final : public QCamera {
     VirtualQCamera(const QCameraDevice& cameraDevice, QObject* parent) : QCamera(cameraDevice, parent) {};
     VirtualQCamera(QCameraDevice::Position position, QObject* parent) : QCamera(position, parent) {};
 
-    // Callback setters
-    inline void setQCamera_MetaObject_Callback(QCamera_MetaObject_Callback cb) { qcamera_metaobject_callback = cb; }
-    inline void setQCamera_Metacast_Callback(QCamera_Metacast_Callback cb) { qcamera_metacast_callback = cb; }
-    inline void setQCamera_Metacall_Callback(QCamera_Metacall_Callback cb) { qcamera_metacall_callback = cb; }
-    inline void setQCamera_Event_Callback(QCamera_Event_Callback cb) { qcamera_event_callback = cb; }
-    inline void setQCamera_EventFilter_Callback(QCamera_EventFilter_Callback cb) { qcamera_eventfilter_callback = cb; }
-    inline void setQCamera_TimerEvent_Callback(QCamera_TimerEvent_Callback cb) { qcamera_timerevent_callback = cb; }
-    inline void setQCamera_ChildEvent_Callback(QCamera_ChildEvent_Callback cb) { qcamera_childevent_callback = cb; }
-    inline void setQCamera_CustomEvent_Callback(QCamera_CustomEvent_Callback cb) { qcamera_customevent_callback = cb; }
-    inline void setQCamera_ConnectNotify_Callback(QCamera_ConnectNotify_Callback cb) { qcamera_connectnotify_callback = cb; }
-    inline void setQCamera_DisconnectNotify_Callback(QCamera_DisconnectNotify_Callback cb) { qcamera_disconnectnotify_callback = cb; }
-    inline void setQCamera_Sender_Callback(QCamera_Sender_Callback cb) { qcamera_sender_callback = cb; }
-    inline void setQCamera_SenderSignalIndex_Callback(QCamera_SenderSignalIndex_Callback cb) { qcamera_sendersignalindex_callback = cb; }
-    inline void setQCamera_Receivers_Callback(QCamera_Receivers_Callback cb) { qcamera_receivers_callback = cb; }
-    inline void setQCamera_IsSignalConnected_Callback(QCamera_IsSignalConnected_Callback cb) { qcamera_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQCamera_MetaObject_IsBase(bool value) const { qcamera_metaobject_isbase = value; }
-    inline void setQCamera_Metacast_IsBase(bool value) const { qcamera_metacast_isbase = value; }
-    inline void setQCamera_Metacall_IsBase(bool value) const { qcamera_metacall_isbase = value; }
-    inline void setQCamera_Event_IsBase(bool value) const { qcamera_event_isbase = value; }
-    inline void setQCamera_EventFilter_IsBase(bool value) const { qcamera_eventfilter_isbase = value; }
-    inline void setQCamera_TimerEvent_IsBase(bool value) const { qcamera_timerevent_isbase = value; }
-    inline void setQCamera_ChildEvent_IsBase(bool value) const { qcamera_childevent_isbase = value; }
-    inline void setQCamera_CustomEvent_IsBase(bool value) const { qcamera_customevent_isbase = value; }
-    inline void setQCamera_ConnectNotify_IsBase(bool value) const { qcamera_connectnotify_isbase = value; }
-    inline void setQCamera_DisconnectNotify_IsBase(bool value) const { qcamera_disconnectnotify_isbase = value; }
-    inline void setQCamera_Sender_IsBase(bool value) const { qcamera_sender_isbase = value; }
-    inline void setQCamera_SenderSignalIndex_IsBase(bool value) const { qcamera_sendersignalindex_isbase = value; }
-    inline void setQCamera_Receivers_IsBase(bool value) const { qcamera_receivers_isbase = value; }
-    inline void setQCamera_IsSignalConnected_IsBase(bool value) const { qcamera_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qcamera_metaobject_isbase) {
-            qcamera_metaobject_isbase = false;
-            return QCamera::metaObject();
-        }
-        auto metaobject_cb = qcamera_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qcamera_metaobject_callback) {
+            QMetaObject* callback_ret = qcamera_metaobject_callback(this);
             return callback_ret;
         }
         return QCamera::metaObject();
@@ -121,14 +67,9 @@ class VirtualQCamera final : public QCamera {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qcamera_metacast_isbase) {
-            qcamera_metacast_isbase = false;
-            return QCamera::qt_metacast(param1);
-        }
-        auto metacast_cb = qcamera_metacast_callback;
-        if (metacast_cb) {
+        if (qcamera_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qcamera_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QCamera::qt_metacast(param1);
@@ -136,16 +77,11 @@ class VirtualQCamera final : public QCamera {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qcamera_metacall_isbase) {
-            qcamera_metacall_isbase = false;
-            return QCamera::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qcamera_metacall_callback;
-        if (metacall_cb) {
+        if (qcamera_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qcamera_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QCamera::qt_metacall(param1, param2, param3);
@@ -153,14 +89,9 @@ class VirtualQCamera final : public QCamera {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qcamera_event_isbase) {
-            qcamera_event_isbase = false;
-            return QCamera::event(event);
-        }
-        auto event_cb = qcamera_event_callback;
-        if (event_cb) {
+        if (qcamera_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qcamera_event_callback(this, cbval1);
             return callback_ret;
         }
         return QCamera::event(event);
@@ -168,15 +99,10 @@ class VirtualQCamera final : public QCamera {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qcamera_eventfilter_isbase) {
-            qcamera_eventfilter_isbase = false;
-            return QCamera::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qcamera_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qcamera_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qcamera_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QCamera::eventFilter(watched, event);
@@ -184,15 +110,9 @@ class VirtualQCamera final : public QCamera {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qcamera_timerevent_isbase) {
-            qcamera_timerevent_isbase = false;
-            QCamera::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qcamera_timerevent_callback;
-        if (timerevent_cb) {
+        if (qcamera_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qcamera_timerevent_callback(this, cbval1);
             return;
         }
         QCamera::timerEvent(event);
@@ -200,15 +120,9 @@ class VirtualQCamera final : public QCamera {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qcamera_childevent_isbase) {
-            qcamera_childevent_isbase = false;
-            QCamera::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qcamera_childevent_callback;
-        if (childevent_cb) {
+        if (qcamera_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qcamera_childevent_callback(this, cbval1);
             return;
         }
         QCamera::childEvent(event);
@@ -216,15 +130,9 @@ class VirtualQCamera final : public QCamera {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qcamera_customevent_isbase) {
-            qcamera_customevent_isbase = false;
-            QCamera::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qcamera_customevent_callback;
-        if (customevent_cb) {
+        if (qcamera_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qcamera_customevent_callback(this, cbval1);
             return;
         }
         QCamera::customEvent(event);
@@ -232,17 +140,11 @@ class VirtualQCamera final : public QCamera {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qcamera_connectnotify_isbase) {
-            qcamera_connectnotify_isbase = false;
-            QCamera::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qcamera_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qcamera_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qcamera_connectnotify_callback(this, cbval1);
             return;
         }
         QCamera::connectNotify(signal);
@@ -250,101 +152,22 @@ class VirtualQCamera final : public QCamera {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qcamera_disconnectnotify_isbase) {
-            qcamera_disconnectnotify_isbase = false;
-            QCamera::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qcamera_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qcamera_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qcamera_disconnectnotify_callback(this, cbval1);
             return;
         }
         QCamera::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qcamera_sender_isbase) {
-            qcamera_sender_isbase = false;
-            return QCamera::sender();
-        }
-        auto sender_cb = qcamera_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QCamera::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qcamera_sendersignalindex_isbase) {
-            qcamera_sendersignalindex_isbase = false;
-            return QCamera::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qcamera_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QCamera::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qcamera_receivers_isbase) {
-            qcamera_receivers_isbase = false;
-            return QCamera::receivers(signal);
-        }
-        auto receivers_cb = qcamera_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QCamera::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qcamera_issignalconnected_isbase) {
-            qcamera_issignalconnected_isbase = false;
-            return QCamera::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qcamera_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QCamera::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QCamera_TimerEvent(QCamera* self, QTimerEvent* event);
     friend void QCamera_SuperTimerEvent(QCamera* self, QTimerEvent* event);
-    friend void QCamera_ChildEvent(QCamera* self, QChildEvent* event);
     friend void QCamera_SuperChildEvent(QCamera* self, QChildEvent* event);
-    friend void QCamera_CustomEvent(QCamera* self, QEvent* event);
     friend void QCamera_SuperCustomEvent(QCamera* self, QEvent* event);
-    friend void QCamera_ConnectNotify(QCamera* self, const QMetaMethod* signal);
     friend void QCamera_SuperConnectNotify(QCamera* self, const QMetaMethod* signal);
-    friend void QCamera_DisconnectNotify(QCamera* self, const QMetaMethod* signal);
     friend void QCamera_SuperDisconnectNotify(QCamera* self, const QMetaMethod* signal);
-    friend QObject* QCamera_Sender(const QCamera* self);
-    friend QObject* QCamera_SuperSender(const QCamera* self);
-    friend int QCamera_SenderSignalIndex(const QCamera* self);
-    friend int QCamera_SuperSenderSignalIndex(const QCamera* self);
-    friend int QCamera_Receivers(const QCamera* self, const char* signal);
-    friend int QCamera_SuperReceivers(const QCamera* self, const char* signal);
-    friend bool QCamera_IsSignalConnected(const QCamera* self, const QMetaMethod* signal);
-    friend bool QCamera_SuperIsSignalConnected(const QCamera* self, const QMetaMethod* signal);
 };
 
 #endif

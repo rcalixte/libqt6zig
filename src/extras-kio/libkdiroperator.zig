@@ -165,9 +165,9 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KDirOperator, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) QMetaObject) void {
         qtc.KDirOperator_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2088,40 +2088,6 @@ pub const KDirOperator = extern struct {
         qtc.KDirOperator_SetupActions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetupActions` instead
-    ///
-    pub const OnSetupActions = onSetupActions;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setupActions)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSetupActions(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnSetupActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetupActions` instead
-    ///
-    pub const SuperSetupActions = superSetupActions;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setupActions)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superSetupActions(self: KDirOperator) void {
-        qtc.KDirOperator_SuperSetupActions(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `updateSortActions` instead
     ///
     pub const UpdateSortActions = updateSortActions;
@@ -2134,40 +2100,6 @@ pub const KDirOperator = extern struct {
     ///
     pub fn updateSortActions(self: KDirOperator) void {
         qtc.KDirOperator_UpdateSortActions(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateSortActions` instead
-    ///
-    pub const OnUpdateSortActions = onUpdateSortActions;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#updateSortActions)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateSortActions(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnUpdateSortActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateSortActions` instead
-    ///
-    pub const SuperUpdateSortActions = superUpdateSortActions;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#updateSortActions)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superUpdateSortActions(self: KDirOperator) void {
-        qtc.KDirOperator_SuperUpdateSortActions(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `updateViewActions` instead
@@ -2184,40 +2116,6 @@ pub const KDirOperator = extern struct {
         qtc.KDirOperator_UpdateViewActions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onUpdateViewActions` instead
-    ///
-    pub const OnUpdateViewActions = onUpdateViewActions;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#updateViewActions)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateViewActions(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnUpdateViewActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateViewActions` instead
-    ///
-    pub const SuperUpdateViewActions = superUpdateViewActions;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#updateViewActions)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superUpdateViewActions(self: KDirOperator) void {
-        qtc.KDirOperator_SuperUpdateViewActions(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `setupMenu2` instead
     ///
     pub const SetupMenu2 = setupMenu2;
@@ -2230,40 +2128,6 @@ pub const KDirOperator = extern struct {
     ///
     pub fn setupMenu2(self: KDirOperator) void {
         qtc.KDirOperator_SetupMenu2(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetupMenu2` instead
-    ///
-    pub const OnSetupMenu2 = onSetupMenu2;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setupMenu)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSetupMenu2(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnSetupMenu2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetupMenu2` instead
-    ///
-    pub const SuperSetupMenu2 = superSetupMenu2;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setupMenu)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superSetupMenu2(self: KDirOperator) void {
-        qtc.KDirOperator_SuperSetupMenu2(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `prepareCompletionObjects` instead
@@ -2280,40 +2144,6 @@ pub const KDirOperator = extern struct {
         qtc.KDirOperator_PrepareCompletionObjects(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onPrepareCompletionObjects` instead
-    ///
-    pub const OnPrepareCompletionObjects = onPrepareCompletionObjects;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#prepareCompletionObjects)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onPrepareCompletionObjects(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnPrepareCompletionObjects(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superPrepareCompletionObjects` instead
-    ///
-    pub const SuperPrepareCompletionObjects = superPrepareCompletionObjects;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#prepareCompletionObjects)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superPrepareCompletionObjects(self: KDirOperator) void {
-        qtc.KDirOperator_SuperPrepareCompletionObjects(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `checkPreviewSupport` instead
     ///
     pub const CheckPreviewSupport = checkPreviewSupport;
@@ -2326,40 +2156,6 @@ pub const KDirOperator = extern struct {
     ///
     pub fn checkPreviewSupport(self: KDirOperator) bool {
         return qtc.KDirOperator_CheckPreviewSupport(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCheckPreviewSupport` instead
-    ///
-    pub const OnCheckPreviewSupport = onCheckPreviewSupport;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#checkPreviewSupport)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onCheckPreviewSupport(self: KDirOperator, callback: *const fn () callconv(.c) bool) void {
-        qtc.KDirOperator_OnCheckPreviewSupport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCheckPreviewSupport` instead
-    ///
-    pub const SuperCheckPreviewSupport = superCheckPreviewSupport;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#checkPreviewSupport)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superCheckPreviewSupport(self: KDirOperator) bool {
-        return qtc.KDirOperator_SuperCheckPreviewSupport(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `activatedMenu` instead
@@ -2562,9 +2358,9 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) void `
     ///
-    pub fn onBack(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onBack(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) void) void {
         qtc.KDirOperator_OnBack(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2610,9 +2406,9 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) void `
     ///
-    pub fn onForward(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onForward(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) void) void {
         qtc.KDirOperator_OnForward(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2658,9 +2454,9 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) void `
     ///
-    pub fn onHome(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onHome(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) void) void {
         qtc.KDirOperator_OnHome(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2706,9 +2502,9 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) void `
     ///
-    pub fn onCdUp(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onCdUp(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) void) void {
         qtc.KDirOperator_OnCdUp(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2768,9 +2564,9 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) void `
     ///
-    pub fn onRereadDir(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onRereadDir(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) void) void {
         qtc.KDirOperator_OnRereadDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2816,9 +2612,9 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) void `
     ///
-    pub fn onMkdir(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onMkdir(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) void) void {
         qtc.KDirOperator_OnMkdir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2864,9 +2660,9 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) void `
     ///
-    pub fn onDeleteSelected(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onDeleteSelected(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) void) void {
         qtc.KDirOperator_OnDeleteSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2992,9 +2788,9 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) void `
     ///
-    pub fn onTrashSelected(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onTrashSelected(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) void) void {
         qtc.KDirOperator_OnTrashSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3073,40 +2869,6 @@ pub const KDirOperator = extern struct {
         qtc.KDirOperator_ResetCursor(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onResetCursor` instead
-    ///
-    pub const OnResetCursor = onResetCursor;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#resetCursor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onResetCursor(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnResetCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superResetCursor` instead
-    ///
-    pub const SuperResetCursor = superResetCursor;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#resetCursor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superResetCursor(self: KDirOperator) void {
-        qtc.KDirOperator_SuperResetCursor(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `pathChanged` instead
     ///
     pub const PathChanged = pathChanged;
@@ -3119,40 +2881,6 @@ pub const KDirOperator = extern struct {
     ///
     pub fn pathChanged(self: KDirOperator) void {
         qtc.KDirOperator_PathChanged(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onPathChanged` instead
-    ///
-    pub const OnPathChanged = onPathChanged;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#pathChanged)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onPathChanged(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnPathChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superPathChanged` instead
-    ///
-    pub const SuperPathChanged = superPathChanged;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#pathChanged)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superPathChanged(self: KDirOperator) void {
-        qtc.KDirOperator_SuperPathChanged(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `selectDir` instead
@@ -3226,43 +2954,6 @@ pub const KDirOperator = extern struct {
         qtc.KDirOperator_SelectFile(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSelectFile` instead
-    ///
-    pub const OnSelectFile = onSelectFile;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#selectFile)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn (self: KDirOperator, item: KFileItem) callconv(.c) void `
-    ///
-    pub fn onSelectFile(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem) callconv(.c) void) void {
-        qtc.KDirOperator_OnSelectFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSelectFile` instead
-    ///
-    pub const SuperSelectFile = superSelectFile;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#selectFile)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` item: KFileItem `
-    ///
-    pub fn superSelectFile(self: KDirOperator, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_KFileItem;
-        qtc.KDirOperator_SuperSelectFile(@ptrCast(self.ptr), @ptrCast(item.ptr));
-    }
-
     /// ### DEPRECATED: Use `highlightFile` instead
     ///
     pub const HighlightFile = highlightFile;
@@ -3280,43 +2971,6 @@ pub const KDirOperator = extern struct {
         qtc.KDirOperator_HighlightFile(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
-    /// ### DEPRECATED: Use `onHighlightFile` instead
-    ///
-    pub const OnHighlightFile = onHighlightFile;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#highlightFile)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn (self: KDirOperator, item: KFileItem) callconv(.c) void `
-    ///
-    pub fn onHighlightFile(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem) callconv(.c) void) void {
-        qtc.KDirOperator_OnHighlightFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHighlightFile` instead
-    ///
-    pub const SuperHighlightFile = superHighlightFile;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#highlightFile)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` item: KFileItem `
-    ///
-    pub fn superHighlightFile(self: KDirOperator, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_KFileItem;
-        qtc.KDirOperator_SuperHighlightFile(@ptrCast(self.ptr), @ptrCast(item.ptr));
-    }
-
     /// ### DEPRECATED: Use `sortByName` instead
     ///
     pub const SortByName = sortByName;
@@ -3329,40 +2983,6 @@ pub const KDirOperator = extern struct {
     ///
     pub fn sortByName(self: KDirOperator) void {
         qtc.KDirOperator_SortByName(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSortByName` instead
-    ///
-    pub const OnSortByName = onSortByName;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByName)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSortByName(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnSortByName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSortByName` instead
-    ///
-    pub const SuperSortByName = superSortByName;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByName)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superSortByName(self: KDirOperator) void {
-        qtc.KDirOperator_SuperSortByName(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `sortBySize` instead
@@ -3379,40 +2999,6 @@ pub const KDirOperator = extern struct {
         qtc.KDirOperator_SortBySize(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSortBySize` instead
-    ///
-    pub const OnSortBySize = onSortBySize;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortBySize)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSortBySize(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnSortBySize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSortBySize` instead
-    ///
-    pub const SuperSortBySize = superSortBySize;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortBySize)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superSortBySize(self: KDirOperator) void {
-        qtc.KDirOperator_SuperSortBySize(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `sortByDate` instead
     ///
     pub const SortByDate = sortByDate;
@@ -3425,40 +3011,6 @@ pub const KDirOperator = extern struct {
     ///
     pub fn sortByDate(self: KDirOperator) void {
         qtc.KDirOperator_SortByDate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSortByDate` instead
-    ///
-    pub const OnSortByDate = onSortByDate;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByDate)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSortByDate(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnSortByDate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSortByDate` instead
-    ///
-    pub const SuperSortByDate = superSortByDate;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByDate)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superSortByDate(self: KDirOperator) void {
-        qtc.KDirOperator_SuperSortByDate(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `sortByType` instead
@@ -3475,40 +3027,6 @@ pub const KDirOperator = extern struct {
         qtc.KDirOperator_SortByType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSortByType` instead
-    ///
-    pub const OnSortByType = onSortByType;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByType)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSortByType(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnSortByType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSortByType` instead
-    ///
-    pub const SuperSortByType = superSortByType;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByType)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superSortByType(self: KDirOperator) void {
-        qtc.KDirOperator_SuperSortByType(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `sortReversed` instead
     ///
     pub const SortReversed = sortReversed;
@@ -3521,40 +3039,6 @@ pub const KDirOperator = extern struct {
     ///
     pub fn sortReversed(self: KDirOperator) void {
         qtc.KDirOperator_SortReversed(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSortReversed` instead
-    ///
-    pub const OnSortReversed = onSortReversed;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortReversed)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSortReversed(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnSortReversed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSortReversed` instead
-    ///
-    pub const SuperSortReversed = superSortReversed;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortReversed)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superSortReversed(self: KDirOperator) void {
-        qtc.KDirOperator_SuperSortReversed(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `toggleDirsFirst` instead
@@ -3571,40 +3055,6 @@ pub const KDirOperator = extern struct {
         qtc.KDirOperator_ToggleDirsFirst(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onToggleDirsFirst` instead
-    ///
-    pub const OnToggleDirsFirst = onToggleDirsFirst;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#toggleDirsFirst)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onToggleDirsFirst(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnToggleDirsFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superToggleDirsFirst` instead
-    ///
-    pub const SuperToggleDirsFirst = superToggleDirsFirst;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#toggleDirsFirst)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superToggleDirsFirst(self: KDirOperator) void {
-        qtc.KDirOperator_SuperToggleDirsFirst(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `toggleIgnoreCase` instead
     ///
     pub const ToggleIgnoreCase = toggleIgnoreCase;
@@ -3617,40 +3067,6 @@ pub const KDirOperator = extern struct {
     ///
     pub fn toggleIgnoreCase(self: KDirOperator) void {
         qtc.KDirOperator_ToggleIgnoreCase(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onToggleIgnoreCase` instead
-    ///
-    pub const OnToggleIgnoreCase = onToggleIgnoreCase;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#toggleIgnoreCase)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onToggleIgnoreCase(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnToggleIgnoreCase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superToggleIgnoreCase` instead
-    ///
-    pub const SuperToggleIgnoreCase = superToggleIgnoreCase;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#toggleIgnoreCase)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superToggleIgnoreCase(self: KDirOperator) void {
-        qtc.KDirOperator_SuperToggleIgnoreCase(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `slotCompletionMatch` instead
@@ -3671,46 +3087,6 @@ pub const KDirOperator = extern struct {
             .data = match.ptr,
         };
         qtc.KDirOperator_SlotCompletionMatch(@ptrCast(self.ptr), match_str);
-    }
-
-    /// ### DEPRECATED: Use `onSlotCompletionMatch` instead
-    ///
-    pub const OnSlotCompletionMatch = onSlotCompletionMatch;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#slotCompletionMatch)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` callback: *const fn (self: KDirOperator, match: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSlotCompletionMatch(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) void) void {
-        qtc.KDirOperator_OnSlotCompletionMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSlotCompletionMatch` instead
-    ///
-    pub const SuperSlotCompletionMatch = superSlotCompletionMatch;
-
-    /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#slotCompletionMatch)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` match: []const u8 `
-    ///
-    pub fn superSlotCompletionMatch(self: KDirOperator, match: []const u8) void {
-        const match_str = qtc.libqt_string{
-            .len = match.len,
-            .data = match.ptr,
-        };
-        qtc.KDirOperator_SuperSlotCompletionMatch(@ptrCast(self.ptr), match_str);
     }
 
     /// ### DEPRECATED: Use `urlEntered` instead
@@ -10430,9 +9806,9 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KDirOperator, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) i32) void {
         qtc.KDirOperator_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10546,11 +9922,11 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KDirOperator, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) QSize) void {
         qtc.KDirOperator_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10604,11 +9980,11 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KDirOperator, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) QSize) void {
         qtc.KDirOperator_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10722,9 +10098,9 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KDirOperator, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) bool) void {
         qtc.KDirOperator_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10778,9 +10154,9 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KDirOperator, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) QPaintEngine) void {
         qtc.KDirOperator_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12582,9 +11958,9 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KDirOperator) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KDirOperator, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) QPainter) void {
         qtc.KDirOperator_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13100,44 +12476,6 @@ pub const KDirOperator = extern struct {
         qtc.KDirOperator_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superUpdateMicroFocus(self: KDirOperator) void {
-        qtc.KDirOperator_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -13154,44 +12492,6 @@ pub const KDirOperator = extern struct {
     ///
     pub fn create(self: KDirOperator) void {
         qtc.KDirOperator_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superCreate(self: KDirOperator) void {
-        qtc.KDirOperator_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -13212,44 +12512,6 @@ pub const KDirOperator = extern struct {
         qtc.KDirOperator_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superDestroy(self: KDirOperator) void {
-        qtc.KDirOperator_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -13266,44 +12528,6 @@ pub const KDirOperator = extern struct {
     ///
     pub fn focusNextChild(self: KDirOperator) bool {
         return qtc.KDirOperator_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superFocusNextChild(self: KDirOperator) bool {
-        return qtc.KDirOperator_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KDirOperator, callback: *const fn () callconv(.c) bool) void {
-        qtc.KDirOperator_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -13324,44 +12548,6 @@ pub const KDirOperator = extern struct {
         return qtc.KDirOperator_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superFocusPreviousChild(self: KDirOperator) bool {
-        return qtc.KDirOperator_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KDirOperator, callback: *const fn () callconv(.c) bool) void {
-        qtc.KDirOperator_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -13380,44 +12566,6 @@ pub const KDirOperator = extern struct {
         return .{ .ptr = qtc.KDirOperator_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superSender(self: KDirOperator) QObject {
-        return .{ .ptr = qtc.KDirOperator_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KDirOperator, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KDirOperator_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -13434,44 +12582,6 @@ pub const KDirOperator = extern struct {
     ///
     pub fn senderSignalIndex(self: KDirOperator) i32 {
         return qtc.KDirOperator_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn superSenderSignalIndex(self: KDirOperator) i32 {
-        return qtc.KDirOperator_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KDirOperator, callback: *const fn () callconv(.c) i32) void {
-        qtc.KDirOperator_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -13495,47 +12605,6 @@ pub const KDirOperator = extern struct {
         return qtc.KDirOperator_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KDirOperator, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KDirOperator_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator`
-    ///
-    /// ` callback: *const fn (self: KDirOperator, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KDirOperator_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -13555,47 +12624,6 @@ pub const KDirOperator = extern struct {
     pub fn isSignalConnected(self: KDirOperator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KDirOperator_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KDirOperator, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KDirOperator_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator`
-    ///
-    /// ` callback: *const fn (self: KDirOperator, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KDirOperator, callback: *const fn (KDirOperator, QMetaMethod) callconv(.c) bool) void {
-        qtc.KDirOperator_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -13618,48 +12646,6 @@ pub const KDirOperator = extern struct {
     ///
     pub fn getDecodedMetricF(self: KDirOperator, metricA: i32, metricB: i32) f64 {
         return qtc.KDirOperator_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KDirOperator, metricA: i32, metricB: i32) f64 {
-        return qtc.KDirOperator_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDirOperator`
-    ///
-    /// ` callback: *const fn (self: KDirOperator, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KDirOperator, callback: *const fn (KDirOperator, i32, i32) callconv(.c) f64) void {
-        qtc.KDirOperator_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

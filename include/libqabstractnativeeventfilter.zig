@@ -27,6 +27,8 @@ pub const QAbstractNativeEventFilter = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
     ///
+    /// This method must be implemented with `onNativeEventFilter` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractNativeEventFilter `
@@ -61,32 +63,6 @@ pub const QAbstractNativeEventFilter = extern struct {
     ///
     pub fn onNativeEventFilter(self: QAbstractNativeEventFilter, callback: *const fn (QAbstractNativeEventFilter, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QAbstractNativeEventFilter_OnNativeEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superNativeEventFilter` instead
-    ///
-    pub const SuperNativeEventFilter = superNativeEventFilter;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractNativeEventFilter `
-    ///
-    /// ` eventType: []u8 `
-    ///
-    /// ` message: ?*anyopaque `
-    ///
-    /// ` result: *isize `
-    ///
-    pub fn superNativeEventFilter(self: QAbstractNativeEventFilter, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.libqt_string{
-            .len = eventType.len,
-            .data = eventType.ptr,
-        };
-        return qtc.QAbstractNativeEventFilter_SuperNativeEventFilter(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `delete` instead

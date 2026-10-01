@@ -159,364 +159,219 @@ int QDrag_Exec1(QDrag* self, int supportedActions) {
 
 // Base class handler implementation
 QMetaObject* QDrag_SuperMetaObject(const QDrag* self) {
-    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdrag->metaObject();
-    } else {
-        return (QMetaObject*)self->QDrag::metaObject();
-    }
+    return (QMetaObject*)self->QDrag::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDrag_OnMetaObject(const QDrag* self, intptr_t slot) {
-    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag)
-        vqdrag->setQDrag_MetaObject_Callback(reinterpret_cast<VirtualQDrag::QDrag_MetaObject_Callback>(slot));
+void QDrag_OnMetaObject(QDrag* self, intptr_t slot) {
+    if (auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self)))
+        vqdrag->qdrag_metaobject_callback = reinterpret_cast<VirtualQDrag::QDrag_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDrag_SuperMetacast(QDrag* self, const char* param1) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_Metacast_IsBase(true);
-        return vqdrag->qt_metacast(param1);
-    } else {
-        return self->QDrag::qt_metacast(param1);
-    }
+    return self->QDrag::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnMetacast(QDrag* self, intptr_t slot) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag)
-        vqdrag->setQDrag_Metacast_Callback(reinterpret_cast<VirtualQDrag::QDrag_Metacast_Callback>(slot));
+    if (auto* vqdrag = dynamic_cast<VirtualQDrag*>(self))
+        vqdrag->qdrag_metacast_callback = reinterpret_cast<VirtualQDrag::QDrag_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDrag_SuperMetacall(QDrag* self, int param1, int param2, void** param3) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_Metacall_IsBase(true);
-        return vqdrag->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDrag::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDrag::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnMetacall(QDrag* self, intptr_t slot) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag)
-        vqdrag->setQDrag_Metacall_Callback(reinterpret_cast<VirtualQDrag::QDrag_Metacall_Callback>(slot));
+    if (auto* vqdrag = dynamic_cast<VirtualQDrag*>(self))
+        vqdrag->qdrag_metacall_callback = reinterpret_cast<VirtualQDrag::QDrag_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDrag_Event(QDrag* self, QEvent* event) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        return vqdrag->event(event);
-    } else {
-        return self->QDrag::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QDrag_SuperEvent(QDrag* self, QEvent* event) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_Event_IsBase(true);
-        return vqdrag->event(event);
-    } else {
-        return self->QDrag::event(event);
-    }
+    return self->QDrag::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnEvent(QDrag* self, intptr_t slot) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag)
-        vqdrag->setQDrag_Event_Callback(reinterpret_cast<VirtualQDrag::QDrag_Event_Callback>(slot));
+    if (auto* vqdrag = dynamic_cast<VirtualQDrag*>(self))
+        vqdrag->qdrag_event_callback = reinterpret_cast<VirtualQDrag::QDrag_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDrag_EventFilter(QDrag* self, QObject* watched, QEvent* event) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        return vqdrag->eventFilter(watched, event);
-    } else {
-        return self->QDrag::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDrag_SuperEventFilter(QDrag* self, QObject* watched, QEvent* event) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_EventFilter_IsBase(true);
-        return vqdrag->eventFilter(watched, event);
-    } else {
-        return self->QDrag::eventFilter(watched, event);
-    }
+    return self->QDrag::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnEventFilter(QDrag* self, intptr_t slot) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag)
-        vqdrag->setQDrag_EventFilter_Callback(reinterpret_cast<VirtualQDrag::QDrag_EventFilter_Callback>(slot));
+    if (auto* vqdrag = dynamic_cast<VirtualQDrag*>(self))
+        vqdrag->qdrag_eventfilter_callback = reinterpret_cast<VirtualQDrag::QDrag_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDrag_TimerEvent(QDrag* self, QTimerEvent* event) {
     auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag) {
         vqdrag->timerEvent(event);
     } else {
-        ((VirtualQDrag*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDrag::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDrag_SuperTimerEvent(QDrag* self, QTimerEvent* event) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_TimerEvent_IsBase(true);
-        vqdrag->timerEvent(event);
-    } else {
-        ((VirtualQDrag*)self)->timerEvent(event);
-    }
+    if (auto* vqdrag = dynamic_cast<VirtualQDrag*>(self)) {
+        vqdrag->QDrag::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDrag::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnTimerEvent(QDrag* self, intptr_t slot) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag)
-        vqdrag->setQDrag_TimerEvent_Callback(reinterpret_cast<VirtualQDrag::QDrag_TimerEvent_Callback>(slot));
+    if (auto* vqdrag = dynamic_cast<VirtualQDrag*>(self))
+        vqdrag->qdrag_timerevent_callback = reinterpret_cast<VirtualQDrag::QDrag_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDrag_ChildEvent(QDrag* self, QChildEvent* event) {
     auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag) {
         vqdrag->childEvent(event);
     } else {
-        ((VirtualQDrag*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDrag::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDrag_SuperChildEvent(QDrag* self, QChildEvent* event) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_ChildEvent_IsBase(true);
-        vqdrag->childEvent(event);
-    } else {
-        ((VirtualQDrag*)self)->childEvent(event);
-    }
+    if (auto* vqdrag = dynamic_cast<VirtualQDrag*>(self)) {
+        vqdrag->QDrag::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDrag::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnChildEvent(QDrag* self, intptr_t slot) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag)
-        vqdrag->setQDrag_ChildEvent_Callback(reinterpret_cast<VirtualQDrag::QDrag_ChildEvent_Callback>(slot));
+    if (auto* vqdrag = dynamic_cast<VirtualQDrag*>(self))
+        vqdrag->qdrag_childevent_callback = reinterpret_cast<VirtualQDrag::QDrag_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDrag_CustomEvent(QDrag* self, QEvent* event) {
     auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag) {
         vqdrag->customEvent(event);
     } else {
-        ((VirtualQDrag*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDrag::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDrag_SuperCustomEvent(QDrag* self, QEvent* event) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_CustomEvent_IsBase(true);
-        vqdrag->customEvent(event);
-    } else {
-        ((VirtualQDrag*)self)->customEvent(event);
-    }
+    if (auto* vqdrag = dynamic_cast<VirtualQDrag*>(self)) {
+        vqdrag->QDrag::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDrag::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnCustomEvent(QDrag* self, intptr_t slot) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag)
-        vqdrag->setQDrag_CustomEvent_Callback(reinterpret_cast<VirtualQDrag::QDrag_CustomEvent_Callback>(slot));
+    if (auto* vqdrag = dynamic_cast<VirtualQDrag*>(self))
+        vqdrag->qdrag_customevent_callback = reinterpret_cast<VirtualQDrag::QDrag_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDrag_ConnectNotify(QDrag* self, const QMetaMethod* signal) {
     auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag) {
         vqdrag->connectNotify(*signal);
     } else {
-        ((VirtualQDrag*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDrag::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDrag_SuperConnectNotify(QDrag* self, const QMetaMethod* signal) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_ConnectNotify_IsBase(true);
-        vqdrag->connectNotify(*signal);
-    } else {
-        ((VirtualQDrag*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdrag = dynamic_cast<VirtualQDrag*>(self)) {
+        vqdrag->QDrag::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDrag::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnConnectNotify(QDrag* self, intptr_t slot) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag)
-        vqdrag->setQDrag_ConnectNotify_Callback(reinterpret_cast<VirtualQDrag::QDrag_ConnectNotify_Callback>(slot));
+    if (auto* vqdrag = dynamic_cast<VirtualQDrag*>(self))
+        vqdrag->qdrag_connectnotify_callback = reinterpret_cast<VirtualQDrag::QDrag_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDrag_DisconnectNotify(QDrag* self, const QMetaMethod* signal) {
     auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag) {
         vqdrag->disconnectNotify(*signal);
     } else {
-        ((VirtualQDrag*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDrag::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDrag_SuperDisconnectNotify(QDrag* self, const QMetaMethod* signal) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_DisconnectNotify_IsBase(true);
-        vqdrag->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDrag*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdrag = dynamic_cast<VirtualQDrag*>(self)) {
+        vqdrag->QDrag::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDrag::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnDisconnectNotify(QDrag* self, intptr_t slot) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag)
-        vqdrag->setQDrag_DisconnectNotify_Callback(reinterpret_cast<VirtualQDrag::QDrag_DisconnectNotify_Callback>(slot));
+    if (auto* vqdrag = dynamic_cast<VirtualQDrag*>(self))
+        vqdrag->qdrag_disconnectnotify_callback = reinterpret_cast<VirtualQDrag::QDrag_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDrag_Sender(const QDrag* self) {
-    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        return vqdrag->sender();
-    } else {
-        return ((VirtualQDrag*)self)->sender();
-    }
+    if (auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self))) {
+        return vqdrag->VirtualQDrag::sender();
+    } else
+        qFatal("Error: Protected method QDrag::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDrag_SuperSender(const QDrag* self) {
-    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_Sender_IsBase(true);
-        return vqdrag->sender();
-    } else {
-        return ((VirtualQDrag*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDrag_OnSender(const QDrag* self, intptr_t slot) {
-    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag)
-        vqdrag->setQDrag_Sender_Callback(reinterpret_cast<VirtualQDrag::QDrag_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDrag_SenderSignalIndex(const QDrag* self) {
-    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        return vqdrag->senderSignalIndex();
-    } else {
-        return ((VirtualQDrag*)self)->senderSignalIndex();
-    }
+    if (auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self))) {
+        return vqdrag->VirtualQDrag::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDrag::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDrag_SuperSenderSignalIndex(const QDrag* self) {
-    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_SenderSignalIndex_IsBase(true);
-        return vqdrag->senderSignalIndex();
-    } else {
-        return ((VirtualQDrag*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDrag_OnSenderSignalIndex(const QDrag* self, intptr_t slot) {
-    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag)
-        vqdrag->setQDrag_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDrag::QDrag_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDrag_Receivers(const QDrag* self, const char* signal) {
-    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        return vqdrag->receivers(signal);
-    } else {
-        return ((VirtualQDrag*)self)->receivers(signal);
-    }
+    if (auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self))) {
+        return vqdrag->VirtualQDrag::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDrag::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDrag_SuperReceivers(const QDrag* self, const char* signal) {
-    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_Receivers_IsBase(true);
-        return vqdrag->receivers(signal);
-    } else {
-        return ((VirtualQDrag*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDrag_OnReceivers(const QDrag* self, intptr_t slot) {
-    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag)
-        vqdrag->setQDrag_Receivers_Callback(reinterpret_cast<VirtualQDrag::QDrag_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDrag_IsSignalConnected(const QDrag* self, const QMetaMethod* signal) {
-    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        return vqdrag->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDrag*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QDrag_SuperIsSignalConnected(const QDrag* self, const QMetaMethod* signal) {
-    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        vqdrag->setQDrag_IsSignalConnected_IsBase(true);
-        return vqdrag->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDrag*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDrag_OnIsSignalConnected(const QDrag* self, intptr_t slot) {
-    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag)
-        vqdrag->setQDrag_IsSignalConnected_Callback(reinterpret_cast<VirtualQDrag::QDrag_IsSignalConnected_Callback>(slot));
+    if (auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self))) {
+        return vqdrag->VirtualQDrag::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDrag::isSignalConnected called without a directly constructed type");
 }
 
 void QDrag_Delete(QDrag* self) {

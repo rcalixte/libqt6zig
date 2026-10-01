@@ -303,382 +303,230 @@ libqt_string QBarCategoryAxis_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QBarCategoryAxis_SuperMetaObject(const QBarCategoryAxis* self) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_MetaObject_IsBase(true);
-        return (QMetaObject*)vqbarcategoryaxis->metaObject();
-    } else {
-        return (QMetaObject*)self->QBarCategoryAxis::metaObject();
-    }
+    return (QMetaObject*)self->QBarCategoryAxis::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QBarCategoryAxis_OnMetaObject(const QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_MetaObject_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_MetaObject_Callback>(slot));
+void QBarCategoryAxis_OnMetaObject(QBarCategoryAxis* self, intptr_t slot) {
+    if (auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self)))
+        vqbarcategoryaxis->qbarcategoryaxis_metaobject_callback = reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QBarCategoryAxis_SuperMetacast(QBarCategoryAxis* self, const char* param1) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_Metacast_IsBase(true);
-        return vqbarcategoryaxis->qt_metacast(param1);
-    } else {
-        return self->QBarCategoryAxis::qt_metacast(param1);
-    }
+    return self->QBarCategoryAxis::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarCategoryAxis_OnMetacast(QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_Metacast_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_Metacast_Callback>(slot));
+    if (auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self))
+        vqbarcategoryaxis->qbarcategoryaxis_metacast_callback = reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QBarCategoryAxis_SuperMetacall(QBarCategoryAxis* self, int param1, int param2, void** param3) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_Metacall_IsBase(true);
-        return vqbarcategoryaxis->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QBarCategoryAxis::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QBarCategoryAxis::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarCategoryAxis_OnMetacall(QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_Metacall_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_Metacall_Callback>(slot));
+    if (auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self))
+        vqbarcategoryaxis->qbarcategoryaxis_metacall_callback = reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QBarCategoryAxis_SuperType(const QBarCategoryAxis* self) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_Type_IsBase(true);
-        return static_cast<int>(vqbarcategoryaxis->type());
-    } else {
-        return static_cast<int>(self->QBarCategoryAxis::type());
-    }
+    return static_cast<int>(self->QBarCategoryAxis::type());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QBarCategoryAxis_OnType(const QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_Type_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_Type_Callback>(slot));
+void QBarCategoryAxis_OnType(QBarCategoryAxis* self, intptr_t slot) {
+    if (auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self)))
+        vqbarcategoryaxis->qbarcategoryaxis_type_callback = reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_Type_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QBarCategoryAxis_Event(QBarCategoryAxis* self, QEvent* event) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        return vqbarcategoryaxis->event(event);
-    } else {
-        return self->QBarCategoryAxis::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QBarCategoryAxis_SuperEvent(QBarCategoryAxis* self, QEvent* event) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_Event_IsBase(true);
-        return vqbarcategoryaxis->event(event);
-    } else {
-        return self->QBarCategoryAxis::event(event);
-    }
+    return self->QBarCategoryAxis::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarCategoryAxis_OnEvent(QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_Event_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_Event_Callback>(slot));
+    if (auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self))
+        vqbarcategoryaxis->qbarcategoryaxis_event_callback = reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QBarCategoryAxis_EventFilter(QBarCategoryAxis* self, QObject* watched, QEvent* event) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        return vqbarcategoryaxis->eventFilter(watched, event);
-    } else {
-        return self->QBarCategoryAxis::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QBarCategoryAxis_SuperEventFilter(QBarCategoryAxis* self, QObject* watched, QEvent* event) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_EventFilter_IsBase(true);
-        return vqbarcategoryaxis->eventFilter(watched, event);
-    } else {
-        return self->QBarCategoryAxis::eventFilter(watched, event);
-    }
+    return self->QBarCategoryAxis::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarCategoryAxis_OnEventFilter(QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_EventFilter_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_EventFilter_Callback>(slot));
+    if (auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self))
+        vqbarcategoryaxis->qbarcategoryaxis_eventfilter_callback = reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBarCategoryAxis_TimerEvent(QBarCategoryAxis* self, QTimerEvent* event) {
     auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
+    if (vqbarcategoryaxis) {
         vqbarcategoryaxis->timerEvent(event);
     } else {
-        ((VirtualQBarCategoryAxis*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QBarCategoryAxis::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBarCategoryAxis_SuperTimerEvent(QBarCategoryAxis* self, QTimerEvent* event) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_TimerEvent_IsBase(true);
-        vqbarcategoryaxis->timerEvent(event);
-    } else {
-        ((VirtualQBarCategoryAxis*)self)->timerEvent(event);
-    }
+    if (auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self)) {
+        vqbarcategoryaxis->QBarCategoryAxis::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBarCategoryAxis::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarCategoryAxis_OnTimerEvent(QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_TimerEvent_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_TimerEvent_Callback>(slot));
+    if (auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self))
+        vqbarcategoryaxis->qbarcategoryaxis_timerevent_callback = reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBarCategoryAxis_ChildEvent(QBarCategoryAxis* self, QChildEvent* event) {
     auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
+    if (vqbarcategoryaxis) {
         vqbarcategoryaxis->childEvent(event);
     } else {
-        ((VirtualQBarCategoryAxis*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QBarCategoryAxis::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBarCategoryAxis_SuperChildEvent(QBarCategoryAxis* self, QChildEvent* event) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_ChildEvent_IsBase(true);
-        vqbarcategoryaxis->childEvent(event);
-    } else {
-        ((VirtualQBarCategoryAxis*)self)->childEvent(event);
-    }
+    if (auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self)) {
+        vqbarcategoryaxis->QBarCategoryAxis::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBarCategoryAxis::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarCategoryAxis_OnChildEvent(QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_ChildEvent_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_ChildEvent_Callback>(slot));
+    if (auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self))
+        vqbarcategoryaxis->qbarcategoryaxis_childevent_callback = reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBarCategoryAxis_CustomEvent(QBarCategoryAxis* self, QEvent* event) {
     auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
+    if (vqbarcategoryaxis) {
         vqbarcategoryaxis->customEvent(event);
     } else {
-        ((VirtualQBarCategoryAxis*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QBarCategoryAxis::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBarCategoryAxis_SuperCustomEvent(QBarCategoryAxis* self, QEvent* event) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_CustomEvent_IsBase(true);
-        vqbarcategoryaxis->customEvent(event);
-    } else {
-        ((VirtualQBarCategoryAxis*)self)->customEvent(event);
-    }
+    if (auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self)) {
+        vqbarcategoryaxis->QBarCategoryAxis::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBarCategoryAxis::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarCategoryAxis_OnCustomEvent(QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_CustomEvent_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_CustomEvent_Callback>(slot));
+    if (auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self))
+        vqbarcategoryaxis->qbarcategoryaxis_customevent_callback = reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBarCategoryAxis_ConnectNotify(QBarCategoryAxis* self, const QMetaMethod* signal) {
     auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
+    if (vqbarcategoryaxis) {
         vqbarcategoryaxis->connectNotify(*signal);
     } else {
-        ((VirtualQBarCategoryAxis*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QBarCategoryAxis::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBarCategoryAxis_SuperConnectNotify(QBarCategoryAxis* self, const QMetaMethod* signal) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_ConnectNotify_IsBase(true);
-        vqbarcategoryaxis->connectNotify(*signal);
-    } else {
-        ((VirtualQBarCategoryAxis*)self)->connectNotify(*signal);
-    }
+    if (auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self)) {
+        vqbarcategoryaxis->QBarCategoryAxis::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QBarCategoryAxis::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarCategoryAxis_OnConnectNotify(QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_ConnectNotify_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_ConnectNotify_Callback>(slot));
+    if (auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self))
+        vqbarcategoryaxis->qbarcategoryaxis_connectnotify_callback = reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBarCategoryAxis_DisconnectNotify(QBarCategoryAxis* self, const QMetaMethod* signal) {
     auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
+    if (vqbarcategoryaxis) {
         vqbarcategoryaxis->disconnectNotify(*signal);
     } else {
-        ((VirtualQBarCategoryAxis*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QBarCategoryAxis::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBarCategoryAxis_SuperDisconnectNotify(QBarCategoryAxis* self, const QMetaMethod* signal) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_DisconnectNotify_IsBase(true);
-        vqbarcategoryaxis->disconnectNotify(*signal);
-    } else {
-        ((VirtualQBarCategoryAxis*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self)) {
+        vqbarcategoryaxis->QBarCategoryAxis::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QBarCategoryAxis::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarCategoryAxis_OnDisconnectNotify(QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_DisconnectNotify_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_DisconnectNotify_Callback>(slot));
+    if (auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self))
+        vqbarcategoryaxis->qbarcategoryaxis_disconnectnotify_callback = reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QBarCategoryAxis_Sender(const QBarCategoryAxis* self) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        return vqbarcategoryaxis->sender();
-    } else {
-        return ((VirtualQBarCategoryAxis*)self)->sender();
-    }
+    if (auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self))) {
+        return vqbarcategoryaxis->VirtualQBarCategoryAxis::sender();
+    } else
+        qFatal("Error: Protected method QBarCategoryAxis::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QBarCategoryAxis_SuperSender(const QBarCategoryAxis* self) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_Sender_IsBase(true);
-        return vqbarcategoryaxis->sender();
-    } else {
-        return ((VirtualQBarCategoryAxis*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBarCategoryAxis_OnSender(const QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_Sender_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QBarCategoryAxis_SenderSignalIndex(const QBarCategoryAxis* self) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        return vqbarcategoryaxis->senderSignalIndex();
-    } else {
-        return ((VirtualQBarCategoryAxis*)self)->senderSignalIndex();
-    }
+    if (auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self))) {
+        return vqbarcategoryaxis->VirtualQBarCategoryAxis::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QBarCategoryAxis::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QBarCategoryAxis_SuperSenderSignalIndex(const QBarCategoryAxis* self) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_SenderSignalIndex_IsBase(true);
-        return vqbarcategoryaxis->senderSignalIndex();
-    } else {
-        return ((VirtualQBarCategoryAxis*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBarCategoryAxis_OnSenderSignalIndex(const QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QBarCategoryAxis_Receivers(const QBarCategoryAxis* self, const char* signal) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        return vqbarcategoryaxis->receivers(signal);
-    } else {
-        return ((VirtualQBarCategoryAxis*)self)->receivers(signal);
-    }
+    if (auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self))) {
+        return vqbarcategoryaxis->VirtualQBarCategoryAxis::receivers(signal);
+    } else
+        qFatal("Error: Protected method QBarCategoryAxis::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QBarCategoryAxis_SuperReceivers(const QBarCategoryAxis* self, const char* signal) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_Receivers_IsBase(true);
-        return vqbarcategoryaxis->receivers(signal);
-    } else {
-        return ((VirtualQBarCategoryAxis*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBarCategoryAxis_OnReceivers(const QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_Receivers_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QBarCategoryAxis_IsSignalConnected(const QBarCategoryAxis* self, const QMetaMethod* signal) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        return vqbarcategoryaxis->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQBarCategoryAxis*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QBarCategoryAxis_SuperIsSignalConnected(const QBarCategoryAxis* self, const QMetaMethod* signal) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        vqbarcategoryaxis->setQBarCategoryAxis_IsSignalConnected_IsBase(true);
-        return vqbarcategoryaxis->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQBarCategoryAxis*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBarCategoryAxis_OnIsSignalConnected(const QBarCategoryAxis* self, intptr_t slot) {
-    auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis)
-        vqbarcategoryaxis->setQBarCategoryAxis_IsSignalConnected_Callback(reinterpret_cast<VirtualQBarCategoryAxis::QBarCategoryAxis_IsSignalConnected_Callback>(slot));
+    if (auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self))) {
+        return vqbarcategoryaxis->VirtualQBarCategoryAxis::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QBarCategoryAxis::isSignalConnected called without a directly constructed type");
 }
 
 void QBarCategoryAxis_Delete(QBarCategoryAxis* self) {

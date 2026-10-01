@@ -20,6 +20,8 @@ pub const QDesignerPromotionInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpromotioninterface.html#promotedClasses)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerPromotionInterface `
@@ -42,6 +44,8 @@ pub const QDesignerPromotionInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpromotioninterface.html#referencedPromotedClassNames)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerPromotionInterface `
@@ -63,6 +67,8 @@ pub const QDesignerPromotionInterface = extern struct {
     pub const PromotionBaseClasses = promotionBaseClasses;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpromotioninterface.html#promotionBaseClasses)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

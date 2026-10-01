@@ -104,21 +104,21 @@ void KParts__MainWindow_ConfigureToolbars(KParts__MainWindow* self) {
 void KParts__MainWindow_SlotSetStatusBarText(KParts__MainWindow* self, const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     auto* vkparts__mainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkparts__mainwindow && vkparts__mainwindow->isVirtualKPartsMainWindow) {
+    if (vkparts__mainwindow) {
         vkparts__mainwindow->slotSetStatusBarText(param1_QString);
     }
 }
 
 void KParts__MainWindow_SaveNewToolbarConfig(KParts__MainWindow* self) {
     auto* vkparts__mainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkparts__mainwindow && vkparts__mainwindow->isVirtualKPartsMainWindow) {
+    if (vkparts__mainwindow) {
         vkparts__mainwindow->saveNewToolbarConfig();
     }
 }
 
 void KParts__MainWindow_CreateShellGUI(KParts__MainWindow* self, bool create) {
     auto* vkparts__mainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkparts__mainwindow && vkparts__mainwindow->isVirtualKPartsMainWindow) {
+    if (vkparts__mainwindow) {
         vkparts__mainwindow->createShellGUI(create);
     }
 }
@@ -149,2992 +149,1975 @@ libqt_string KParts__MainWindow_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KParts__MainWindow_SuperMetaObject(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_MetaObject_IsBase(true);
-        return (QMetaObject*)vkpartsmainwindow->metaObject();
-    } else {
-        return (QMetaObject*)self->KParts::MainWindow::metaObject();
-    }
+    return (QMetaObject*)self->KParts::MainWindow::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnMetaObject(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_MetaObject_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MetaObject_Callback>(slot));
+void KParts__MainWindow_OnMetaObject(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_metaobject_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KParts__MainWindow_SuperMetacast(KParts__MainWindow* self, const char* param1) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_Metacast_IsBase(true);
-        return vkpartsmainwindow->qt_metacast(param1);
-    } else {
-        return self->KParts::MainWindow::qt_metacast(param1);
-    }
+    return self->KParts::MainWindow::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnMetacast(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_Metacast_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Metacast_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_metacast_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KParts__MainWindow_SuperMetacall(KParts__MainWindow* self, int param1, int param2, void** param3) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_Metacall_IsBase(true);
-        return vkpartsmainwindow->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KParts::MainWindow::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KParts::MainWindow::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnMetacall(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_Metacall_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Metacall_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_metacall_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperConfigureToolbars(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ConfigureToolbars_IsBase(true);
-        vkpartsmainwindow->configureToolbars();
-    } else {
-        self->KParts::MainWindow::configureToolbars();
-    }
+    self->KParts::MainWindow::configureToolbars();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnConfigureToolbars(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ConfigureToolbars_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ConfigureToolbars_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_configuretoolbars_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ConfigureToolbars_Callback>(slot);
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperSlotSetStatusBarText(KParts__MainWindow* self, const libqt_string param1) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SlotSetStatusBarText_IsBase(true);
-        vkpartsmainwindow->slotSetStatusBarText(param1_QString);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->slotSetStatusBarText(param1_QString);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::slotSetStatusBarText(param1_QString);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::slotSetStatusBarText called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnSlotSetStatusBarText(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SlotSetStatusBarText_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SlotSetStatusBarText_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_slotsetstatusbartext_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SlotSetStatusBarText_Callback>(slot);
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperSaveNewToolbarConfig(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SaveNewToolbarConfig_IsBase(true);
-        vkpartsmainwindow->saveNewToolbarConfig();
-    } else {
-        ((VirtualKPartsMainWindow*)self)->saveNewToolbarConfig();
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::saveNewToolbarConfig();
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::saveNewToolbarConfig called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnSaveNewToolbarConfig(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SaveNewToolbarConfig_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SaveNewToolbarConfig_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_savenewtoolbarconfig_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SaveNewToolbarConfig_Callback>(slot);
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperCreateShellGUI(KParts__MainWindow* self, bool create) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_CreateShellGUI_IsBase(true);
-        vkpartsmainwindow->createShellGUI(create);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->createShellGUI(create);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::createShellGUI(create);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::createShellGUI called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnCreateShellGUI(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_CreateShellGUI_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CreateShellGUI_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_createshellgui_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CreateShellGUI_Callback>(slot);
 }
 
 // Derived class handler implementation
 KXMLGUIFactory* KParts__MainWindow_GuiFactory(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->guiFactory();
-    } else {
-        return self->KParts::MainWindow::guiFactory();
-    }
+    return self->guiFactory();
 }
 
 // Base class handler implementation
 KXMLGUIFactory* KParts__MainWindow_SuperGuiFactory(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_GuiFactory_IsBase(true);
-        return vkpartsmainwindow->guiFactory();
-    } else {
-        return self->KParts::MainWindow::guiFactory();
-    }
+    return self->KParts::MainWindow::guiFactory();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnGuiFactory(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_GuiFactory_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_GuiFactory_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_guifactory_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_GuiFactory_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_ApplyMainWindowSettings(KParts__MainWindow* self, const KConfigGroup* config) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->applyMainWindowSettings(*config);
-    } else {
-        self->KParts::MainWindow::applyMainWindowSettings(*config);
-    }
+    self->applyMainWindowSettings(*config);
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperApplyMainWindowSettings(KParts__MainWindow* self, const KConfigGroup* config) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ApplyMainWindowSettings_IsBase(true);
-        vkpartsmainwindow->applyMainWindowSettings(*config);
-    } else {
-        self->KParts::MainWindow::applyMainWindowSettings(*config);
-    }
+    self->KParts::MainWindow::applyMainWindowSettings(*config);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnApplyMainWindowSettings(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ApplyMainWindowSettings_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ApplyMainWindowSettings_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_applymainwindowsettings_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ApplyMainWindowSettings_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_SlotStateChanged(KParts__MainWindow* self, const libqt_string newstate) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->slotStateChanged(newstate_QString);
-    } else {
-        self->KParts::MainWindow::slotStateChanged(newstate_QString);
-    }
+    self->slotStateChanged(newstate_QString);
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperSlotStateChanged(KParts__MainWindow* self, const libqt_string newstate) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SlotStateChanged_IsBase(true);
-        vkpartsmainwindow->slotStateChanged(newstate_QString);
-    } else {
-        self->KParts::MainWindow::slotStateChanged(newstate_QString);
-    }
+    self->KParts::MainWindow::slotStateChanged(newstate_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnSlotStateChanged(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SlotStateChanged_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SlotStateChanged_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_slotstatechanged_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SlotStateChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KParts__MainWindow_Event(KParts__MainWindow* self, QEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         return vkpartsmainwindow->event(event);
     } else {
-        return ((VirtualKPartsMainWindow*)self)->event(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KParts__MainWindow_SuperEvent(KParts__MainWindow* self, QEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_Event_IsBase(true);
-        return vkpartsmainwindow->event(event);
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->event(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        return vkpartsmainwindow->KParts::MainWindow::event(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_Event_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Event_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_event_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_SetCaption(KParts__MainWindow* self, const libqt_string caption) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setCaption(caption_QString);
-    } else {
-        self->KParts::MainWindow::setCaption(caption_QString);
-    }
+    self->setCaption(caption_QString);
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperSetCaption(KParts__MainWindow* self, const libqt_string caption) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SetCaption_IsBase(true);
-        vkpartsmainwindow->setCaption(caption_QString);
-    } else {
-        self->KParts::MainWindow::setCaption(caption_QString);
-    }
+    self->KParts::MainWindow::setCaption(caption_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnSetCaption(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SetCaption_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetCaption_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_setcaption_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetCaption_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_SetPlainCaption(KParts__MainWindow* self, const libqt_string caption) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setPlainCaption(caption_QString);
-    } else {
-        self->KParts::MainWindow::setPlainCaption(caption_QString);
-    }
+    self->setPlainCaption(caption_QString);
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperSetPlainCaption(KParts__MainWindow* self, const libqt_string caption) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SetPlainCaption_IsBase(true);
-        vkpartsmainwindow->setPlainCaption(caption_QString);
-    } else {
-        self->KParts::MainWindow::setPlainCaption(caption_QString);
-    }
+    self->KParts::MainWindow::setPlainCaption(caption_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnSetPlainCaption(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SetPlainCaption_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetPlainCaption_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_setplaincaption_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetPlainCaption_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_KeyPressEvent(KParts__MainWindow* self, QKeyEvent* keyEvent) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->keyPressEvent(keyEvent);
     } else {
-        ((VirtualKPartsMainWindow*)self)->keyPressEvent(keyEvent);
+        qFatal("Error: Protected virtual method KParts::MainWindow::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperKeyPressEvent(KParts__MainWindow* self, QKeyEvent* keyEvent) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_KeyPressEvent_IsBase(true);
-        vkpartsmainwindow->keyPressEvent(keyEvent);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->keyPressEvent(keyEvent);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::keyPressEvent(keyEvent);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnKeyPressEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_KeyPressEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_KeyPressEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_keypressevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_CloseEvent(KParts__MainWindow* self, QCloseEvent* param1) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->closeEvent(param1);
     } else {
-        ((VirtualKPartsMainWindow*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method KParts::MainWindow::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperCloseEvent(KParts__MainWindow* self, QCloseEvent* param1) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_CloseEvent_IsBase(true);
-        vkpartsmainwindow->closeEvent(param1);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->closeEvent(param1);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnCloseEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_CloseEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CloseEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_closeevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KParts__MainWindow_QueryClose(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         return vkpartsmainwindow->queryClose();
     } else {
-        return ((VirtualKPartsMainWindow*)self)->queryClose();
+        qFatal("Error: Protected virtual method KParts::MainWindow::queryClose called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KParts__MainWindow_SuperQueryClose(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_QueryClose_IsBase(true);
-        return vkpartsmainwindow->queryClose();
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->queryClose();
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        return vkpartsmainwindow->KParts::MainWindow::queryClose();
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::queryClose called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnQueryClose(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_QueryClose_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_QueryClose_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_queryclose_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_QueryClose_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_SaveProperties(KParts__MainWindow* self, KConfigGroup* param1) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->saveProperties(*param1);
     } else {
-        ((VirtualKPartsMainWindow*)self)->saveProperties(*param1);
+        qFatal("Error: Protected virtual method KParts::MainWindow::saveProperties called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperSaveProperties(KParts__MainWindow* self, KConfigGroup* param1) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SaveProperties_IsBase(true);
-        vkpartsmainwindow->saveProperties(*param1);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->saveProperties(*param1);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::saveProperties(*param1);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::saveProperties called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnSaveProperties(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SaveProperties_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SaveProperties_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_saveproperties_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SaveProperties_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_ReadProperties(KParts__MainWindow* self, const KConfigGroup* param1) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->readProperties(*param1);
     } else {
-        ((VirtualKPartsMainWindow*)self)->readProperties(*param1);
+        qFatal("Error: Protected virtual method KParts::MainWindow::readProperties called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperReadProperties(KParts__MainWindow* self, const KConfigGroup* param1) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ReadProperties_IsBase(true);
-        vkpartsmainwindow->readProperties(*param1);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->readProperties(*param1);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::readProperties(*param1);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::readProperties called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnReadProperties(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ReadProperties_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ReadProperties_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_readproperties_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ReadProperties_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_SaveGlobalProperties(KParts__MainWindow* self, KConfig* sessionConfig) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->saveGlobalProperties(sessionConfig);
     } else {
-        ((VirtualKPartsMainWindow*)self)->saveGlobalProperties(sessionConfig);
+        qFatal("Error: Protected virtual method KParts::MainWindow::saveGlobalProperties called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperSaveGlobalProperties(KParts__MainWindow* self, KConfig* sessionConfig) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SaveGlobalProperties_IsBase(true);
-        vkpartsmainwindow->saveGlobalProperties(sessionConfig);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->saveGlobalProperties(sessionConfig);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::saveGlobalProperties(sessionConfig);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::saveGlobalProperties called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnSaveGlobalProperties(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SaveGlobalProperties_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SaveGlobalProperties_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_saveglobalproperties_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SaveGlobalProperties_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_ReadGlobalProperties(KParts__MainWindow* self, KConfig* sessionConfig) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->readGlobalProperties(sessionConfig);
     } else {
-        ((VirtualKPartsMainWindow*)self)->readGlobalProperties(sessionConfig);
+        qFatal("Error: Protected virtual method KParts::MainWindow::readGlobalProperties called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperReadGlobalProperties(KParts__MainWindow* self, KConfig* sessionConfig) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ReadGlobalProperties_IsBase(true);
-        vkpartsmainwindow->readGlobalProperties(sessionConfig);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->readGlobalProperties(sessionConfig);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::readGlobalProperties(sessionConfig);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::readGlobalProperties called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnReadGlobalProperties(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ReadGlobalProperties_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ReadGlobalProperties_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_readglobalproperties_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ReadGlobalProperties_Callback>(slot);
 }
 
 // Derived class handler implementation
 QMenu* KParts__MainWindow_CreatePopupMenu(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->createPopupMenu();
-    } else {
-        return self->KParts::MainWindow::createPopupMenu();
-    }
+    return self->createPopupMenu();
 }
 
 // Base class handler implementation
 QMenu* KParts__MainWindow_SuperCreatePopupMenu(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_CreatePopupMenu_IsBase(true);
-        return vkpartsmainwindow->createPopupMenu();
-    } else {
-        return self->KParts::MainWindow::createPopupMenu();
-    }
+    return self->KParts::MainWindow::createPopupMenu();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnCreatePopupMenu(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_CreatePopupMenu_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CreatePopupMenu_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_createpopupmenu_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CreatePopupMenu_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_ContextMenuEvent(KParts__MainWindow* self, QContextMenuEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->contextMenuEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperContextMenuEvent(KParts__MainWindow* self, QContextMenuEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ContextMenuEvent_IsBase(true);
-        vkpartsmainwindow->contextMenuEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnContextMenuEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ContextMenuEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_contextmenuevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KParts__MainWindow_DevType(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->devType();
-    } else {
-        return self->KParts::MainWindow::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KParts__MainWindow_SuperDevType(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_DevType_IsBase(true);
-        return vkpartsmainwindow->devType();
-    } else {
-        return self->KParts::MainWindow::devType();
-    }
+    return self->KParts::MainWindow::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnDevType(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_DevType_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_DevType_Callback>(slot));
+void KParts__MainWindow_OnDevType(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_devtype_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_SetVisible(KParts__MainWindow* self, bool visible) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setVisible(visible);
-    } else {
-        self->KParts::MainWindow::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperSetVisible(KParts__MainWindow* self, bool visible) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SetVisible_IsBase(true);
-        vkpartsmainwindow->setVisible(visible);
-    } else {
-        self->KParts::MainWindow::setVisible(visible);
-    }
+    self->KParts::MainWindow::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnSetVisible(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SetVisible_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetVisible_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_setvisible_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KParts__MainWindow_SizeHint(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return new QSize(vkpartsmainwindow->sizeHint());
-    } else {
-        return new QSize(((VirtualKPartsMainWindow*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KParts__MainWindow_SuperSizeHint(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SizeHint_IsBase(true);
-        return new QSize(vkpartsmainwindow->sizeHint());
-    } else {
-        return new QSize(((VirtualKPartsMainWindow*)self)->sizeHint());
-    }
+    return new QSize(self->KParts::MainWindow::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnSizeHint(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SizeHint_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SizeHint_Callback>(slot));
+void KParts__MainWindow_OnSizeHint(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_sizehint_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KParts__MainWindow_MinimumSizeHint(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return new QSize(vkpartsmainwindow->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPartsMainWindow*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KParts__MainWindow_SuperMinimumSizeHint(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_MinimumSizeHint_IsBase(true);
-        return new QSize(vkpartsmainwindow->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPartsMainWindow*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KParts::MainWindow::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnMinimumSizeHint(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MinimumSizeHint_Callback>(slot));
+void KParts__MainWindow_OnMinimumSizeHint(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_minimumsizehint_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KParts__MainWindow_HeightForWidth(const KParts__MainWindow* self, int param1) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KParts::MainWindow::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KParts__MainWindow_SuperHeightForWidth(const KParts__MainWindow* self, int param1) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_HeightForWidth_IsBase(true);
-        return vkpartsmainwindow->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KParts::MainWindow::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KParts::MainWindow::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnHeightForWidth(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_HeightForWidth_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_HeightForWidth_Callback>(slot));
+void KParts__MainWindow_OnHeightForWidth(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_heightforwidth_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KParts__MainWindow_HasHeightForWidth(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->hasHeightForWidth();
-    } else {
-        return self->KParts::MainWindow::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KParts__MainWindow_SuperHasHeightForWidth(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_HasHeightForWidth_IsBase(true);
-        return vkpartsmainwindow->hasHeightForWidth();
-    } else {
-        return self->KParts::MainWindow::hasHeightForWidth();
-    }
+    return self->KParts::MainWindow::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnHasHeightForWidth(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_HasHeightForWidth_Callback>(slot));
+void KParts__MainWindow_OnHasHeightForWidth(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_hasheightforwidth_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KParts__MainWindow_PaintEngine(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->paintEngine();
-    } else {
-        return self->KParts::MainWindow::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KParts__MainWindow_SuperPaintEngine(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_PaintEngine_IsBase(true);
-        return vkpartsmainwindow->paintEngine();
-    } else {
-        return self->KParts::MainWindow::paintEngine();
-    }
+    return self->KParts::MainWindow::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnPaintEngine(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_PaintEngine_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_PaintEngine_Callback>(slot));
+void KParts__MainWindow_OnPaintEngine(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_paintengine_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_MousePressEvent(KParts__MainWindow* self, QMouseEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->mousePressEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperMousePressEvent(KParts__MainWindow* self, QMouseEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_MousePressEvent_IsBase(true);
-        vkpartsmainwindow->mousePressEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->mousePressEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnMousePressEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_MousePressEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MousePressEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_mousepressevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_MouseReleaseEvent(KParts__MainWindow* self, QMouseEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->mouseReleaseEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperMouseReleaseEvent(KParts__MainWindow* self, QMouseEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_MouseReleaseEvent_IsBase(true);
-        vkpartsmainwindow->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnMouseReleaseEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_mousereleaseevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_MouseDoubleClickEvent(KParts__MainWindow* self, QMouseEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperMouseDoubleClickEvent(KParts__MainWindow* self, QMouseEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_MouseDoubleClickEvent_IsBase(true);
-        vkpartsmainwindow->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnMouseDoubleClickEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_mousedoubleclickevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_MouseMoveEvent(KParts__MainWindow* self, QMouseEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->mouseMoveEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperMouseMoveEvent(KParts__MainWindow* self, QMouseEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_MouseMoveEvent_IsBase(true);
-        vkpartsmainwindow->mouseMoveEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnMouseMoveEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MouseMoveEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_mousemoveevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_WheelEvent(KParts__MainWindow* self, QWheelEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->wheelEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperWheelEvent(KParts__MainWindow* self, QWheelEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_WheelEvent_IsBase(true);
-        vkpartsmainwindow->wheelEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->wheelEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnWheelEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_WheelEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_WheelEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_wheelevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_KeyReleaseEvent(KParts__MainWindow* self, QKeyEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->keyReleaseEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperKeyReleaseEvent(KParts__MainWindow* self, QKeyEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_KeyReleaseEvent_IsBase(true);
-        vkpartsmainwindow->keyReleaseEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnKeyReleaseEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_keyreleaseevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_FocusInEvent(KParts__MainWindow* self, QFocusEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->focusInEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperFocusInEvent(KParts__MainWindow* self, QFocusEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_FocusInEvent_IsBase(true);
-        vkpartsmainwindow->focusInEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->focusInEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnFocusInEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_FocusInEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_FocusInEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_focusinevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_FocusOutEvent(KParts__MainWindow* self, QFocusEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->focusOutEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperFocusOutEvent(KParts__MainWindow* self, QFocusEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_FocusOutEvent_IsBase(true);
-        vkpartsmainwindow->focusOutEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->focusOutEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnFocusOutEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_FocusOutEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_FocusOutEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_focusoutevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_EnterEvent(KParts__MainWindow* self, QEnterEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->enterEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperEnterEvent(KParts__MainWindow* self, QEnterEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_EnterEvent_IsBase(true);
-        vkpartsmainwindow->enterEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->enterEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnEnterEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_EnterEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_EnterEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_enterevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_LeaveEvent(KParts__MainWindow* self, QEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->leaveEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperLeaveEvent(KParts__MainWindow* self, QEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_LeaveEvent_IsBase(true);
-        vkpartsmainwindow->leaveEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->leaveEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnLeaveEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_LeaveEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_LeaveEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_leaveevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_PaintEvent(KParts__MainWindow* self, QPaintEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->paintEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperPaintEvent(KParts__MainWindow* self, QPaintEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_PaintEvent_IsBase(true);
-        vkpartsmainwindow->paintEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->paintEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnPaintEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_PaintEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_PaintEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_paintevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_MoveEvent(KParts__MainWindow* self, QMoveEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->moveEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperMoveEvent(KParts__MainWindow* self, QMoveEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_MoveEvent_IsBase(true);
-        vkpartsmainwindow->moveEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->moveEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnMoveEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_MoveEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MoveEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_moveevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_ResizeEvent(KParts__MainWindow* self, QResizeEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->resizeEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperResizeEvent(KParts__MainWindow* self, QResizeEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ResizeEvent_IsBase(true);
-        vkpartsmainwindow->resizeEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->resizeEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnResizeEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ResizeEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ResizeEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_resizeevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_TabletEvent(KParts__MainWindow* self, QTabletEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->tabletEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperTabletEvent(KParts__MainWindow* self, QTabletEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_TabletEvent_IsBase(true);
-        vkpartsmainwindow->tabletEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->tabletEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnTabletEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_TabletEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_TabletEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_tabletevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_ActionEvent(KParts__MainWindow* self, QActionEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->actionEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperActionEvent(KParts__MainWindow* self, QActionEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ActionEvent_IsBase(true);
-        vkpartsmainwindow->actionEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->actionEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnActionEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ActionEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ActionEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_actionevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_DragEnterEvent(KParts__MainWindow* self, QDragEnterEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->dragEnterEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperDragEnterEvent(KParts__MainWindow* self, QDragEnterEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_DragEnterEvent_IsBase(true);
-        vkpartsmainwindow->dragEnterEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnDragEnterEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_DragEnterEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_DragEnterEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_dragenterevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_DragMoveEvent(KParts__MainWindow* self, QDragMoveEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->dragMoveEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperDragMoveEvent(KParts__MainWindow* self, QDragMoveEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_DragMoveEvent_IsBase(true);
-        vkpartsmainwindow->dragMoveEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnDragMoveEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_DragMoveEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_DragMoveEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_dragmoveevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_DragLeaveEvent(KParts__MainWindow* self, QDragLeaveEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->dragLeaveEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperDragLeaveEvent(KParts__MainWindow* self, QDragLeaveEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_DragLeaveEvent_IsBase(true);
-        vkpartsmainwindow->dragLeaveEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnDragLeaveEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_DragLeaveEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_dragleaveevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_DropEvent(KParts__MainWindow* self, QDropEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->dropEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperDropEvent(KParts__MainWindow* self, QDropEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_DropEvent_IsBase(true);
-        vkpartsmainwindow->dropEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->dropEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnDropEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_DropEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_DropEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_dropevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_ShowEvent(KParts__MainWindow* self, QShowEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->showEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperShowEvent(KParts__MainWindow* self, QShowEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ShowEvent_IsBase(true);
-        vkpartsmainwindow->showEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->showEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnShowEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ShowEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ShowEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_showevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_HideEvent(KParts__MainWindow* self, QHideEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->hideEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperHideEvent(KParts__MainWindow* self, QHideEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_HideEvent_IsBase(true);
-        vkpartsmainwindow->hideEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->hideEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnHideEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_HideEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_HideEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_hideevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KParts__MainWindow_NativeEvent(KParts__MainWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
+    if (vkpartsmainwindow) {
         return vkpartsmainwindow->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKPartsMainWindow*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KParts::MainWindow::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KParts__MainWindow_SuperNativeEvent(KParts__MainWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_NativeEvent_IsBase(true);
-        return vkpartsmainwindow->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        return vkpartsmainwindow->KParts::MainWindow::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnNativeEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_NativeEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_NativeEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_nativeevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_ChangeEvent(KParts__MainWindow* self, QEvent* param1) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->changeEvent(param1);
     } else {
-        ((VirtualKPartsMainWindow*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KParts::MainWindow::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperChangeEvent(KParts__MainWindow* self, QEvent* param1) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ChangeEvent_IsBase(true);
-        vkpartsmainwindow->changeEvent(param1);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->changeEvent(param1);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnChangeEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ChangeEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ChangeEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_changeevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KParts__MainWindow_Metric(const KParts__MainWindow* self, int param1) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         return vkpartsmainwindow->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKPartsMainWindow*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KParts::MainWindow::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KParts__MainWindow_SuperMetric(const KParts__MainWindow* self, int param1) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_Metric_IsBase(true);
-        return vkpartsmainwindow->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self))) {
+        return vkpartsmainwindow->KParts::MainWindow::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnMetric(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_Metric_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Metric_Callback>(slot));
+void KParts__MainWindow_OnMetric(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_metric_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_InitPainter(const KParts__MainWindow* self, QPainter* painter) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->initPainter(painter);
     } else {
-        ((VirtualKPartsMainWindow*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KParts::MainWindow::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperInitPainter(const KParts__MainWindow* self, QPainter* painter) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_InitPainter_IsBase(true);
-        vkpartsmainwindow->initPainter(painter);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->initPainter(painter);
-    }
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self))) {
+        vkpartsmainwindow->KParts::MainWindow::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnInitPainter(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_InitPainter_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_InitPainter_Callback>(slot));
+void KParts__MainWindow_OnInitPainter(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_initpainter_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KParts__MainWindow_Redirected(const KParts__MainWindow* self, QPoint* offset) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         return vkpartsmainwindow->redirected(offset);
     } else {
-        return ((VirtualKPartsMainWindow*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KParts::MainWindow::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KParts__MainWindow_SuperRedirected(const KParts__MainWindow* self, QPoint* offset) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_Redirected_IsBase(true);
-        return vkpartsmainwindow->redirected(offset);
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->redirected(offset);
-    }
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self))) {
+        return vkpartsmainwindow->KParts::MainWindow::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnRedirected(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_Redirected_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Redirected_Callback>(slot));
+void KParts__MainWindow_OnRedirected(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_redirected_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KParts__MainWindow_SharedPainter(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         return vkpartsmainwindow->sharedPainter();
     } else {
-        return ((VirtualKPartsMainWindow*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KParts::MainWindow::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KParts__MainWindow_SuperSharedPainter(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SharedPainter_IsBase(true);
-        return vkpartsmainwindow->sharedPainter();
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->sharedPainter();
-    }
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self))) {
+        return vkpartsmainwindow->KParts::MainWindow::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnSharedPainter(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SharedPainter_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SharedPainter_Callback>(slot));
+void KParts__MainWindow_OnSharedPainter(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_sharedpainter_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_InputMethodEvent(KParts__MainWindow* self, QInputMethodEvent* param1) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->inputMethodEvent(param1);
     } else {
-        ((VirtualKPartsMainWindow*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KParts::MainWindow::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperInputMethodEvent(KParts__MainWindow* self, QInputMethodEvent* param1) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_InputMethodEvent_IsBase(true);
-        vkpartsmainwindow->inputMethodEvent(param1);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnInputMethodEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_InputMethodEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_InputMethodEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_inputmethodevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KParts__MainWindow_InputMethodQuery(const KParts__MainWindow* self, int param1) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return new QVariant(vkpartsmainwindow->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPartsMainWindow*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KParts__MainWindow_SuperInputMethodQuery(const KParts__MainWindow* self, int param1) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_InputMethodQuery_IsBase(true);
-        return new QVariant(vkpartsmainwindow->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPartsMainWindow*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KParts::MainWindow::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnInputMethodQuery(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_InputMethodQuery_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_InputMethodQuery_Callback>(slot));
+void KParts__MainWindow_OnInputMethodQuery(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_inputmethodquery_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KParts__MainWindow_FocusNextPrevChild(KParts__MainWindow* self, bool next) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         return vkpartsmainwindow->focusNextPrevChild(next);
     } else {
-        return ((VirtualKPartsMainWindow*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KParts::MainWindow::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KParts__MainWindow_SuperFocusNextPrevChild(KParts__MainWindow* self, bool next) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_FocusNextPrevChild_IsBase(true);
-        return vkpartsmainwindow->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        return vkpartsmainwindow->KParts::MainWindow::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnFocusNextPrevChild(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_focusnextprevchild_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KParts__MainWindow_EventFilter(KParts__MainWindow* self, QObject* watched, QEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->eventFilter(watched, event);
-    } else {
-        return self->KParts::MainWindow::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KParts__MainWindow_SuperEventFilter(KParts__MainWindow* self, QObject* watched, QEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_EventFilter_IsBase(true);
-        return vkpartsmainwindow->eventFilter(watched, event);
-    } else {
-        return self->KParts::MainWindow::eventFilter(watched, event);
-    }
+    return self->KParts::MainWindow::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnEventFilter(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_EventFilter_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_EventFilter_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_eventfilter_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_TimerEvent(KParts__MainWindow* self, QTimerEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->timerEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperTimerEvent(KParts__MainWindow* self, QTimerEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_TimerEvent_IsBase(true);
-        vkpartsmainwindow->timerEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->timerEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnTimerEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_TimerEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_TimerEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_timerevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_ChildEvent(KParts__MainWindow* self, QChildEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->childEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperChildEvent(KParts__MainWindow* self, QChildEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ChildEvent_IsBase(true);
-        vkpartsmainwindow->childEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->childEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnChildEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ChildEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ChildEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_childevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_CustomEvent(KParts__MainWindow* self, QEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->customEvent(event);
     } else {
-        ((VirtualKPartsMainWindow*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KParts::MainWindow::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperCustomEvent(KParts__MainWindow* self, QEvent* event) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_CustomEvent_IsBase(true);
-        vkpartsmainwindow->customEvent(event);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->customEvent(event);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnCustomEvent(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_CustomEvent_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CustomEvent_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_customevent_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_ConnectNotify(KParts__MainWindow* self, const QMetaMethod* signal) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->connectNotify(*signal);
     } else {
-        ((VirtualKPartsMainWindow*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KParts::MainWindow::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperConnectNotify(KParts__MainWindow* self, const QMetaMethod* signal) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ConnectNotify_IsBase(true);
-        vkpartsmainwindow->connectNotify(*signal);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->connectNotify(*signal);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnConnectNotify(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ConnectNotify_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ConnectNotify_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_connectnotify_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_DisconnectNotify(KParts__MainWindow* self, const QMetaMethod* signal) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->disconnectNotify(*signal);
     } else {
-        ((VirtualKPartsMainWindow*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KParts::MainWindow::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperDisconnectNotify(KParts__MainWindow* self, const QMetaMethod* signal) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_DisconnectNotify_IsBase(true);
-        vkpartsmainwindow->disconnectNotify(*signal);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnDisconnectNotify(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_DisconnectNotify_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_DisconnectNotify_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_disconnectnotify_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of libqt_string */ KParts__MainWindow_ContainerTags(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        QList<QString> _ret = vkpartsmainwindow->containerTags();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->KParts::MainWindow::containerTags();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->containerTags();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ KParts__MainWindow_SuperContainerTags(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ContainerTags_IsBase(true);
-        QList<QString> _ret = vkpartsmainwindow->containerTags();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->KParts::MainWindow::containerTags();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->KParts::MainWindow::containerTags();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnContainerTags(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ContainerTags_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ContainerTags_Callback>(slot));
+void KParts__MainWindow_OnContainerTags(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_containertags_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ContainerTags_Callback>(slot);
 }
 
 // Derived class handler implementation
 QWidget* KParts__MainWindow_CreateContainer(KParts__MainWindow* self, QWidget* parent, int index, const QDomElement* element, QAction** containerAction) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->createContainer(parent, static_cast<int>(index), *element, *containerAction);
-    } else {
-        return self->KParts::MainWindow::createContainer(parent, static_cast<int>(index), *element, *containerAction);
-    }
+    return self->createContainer(parent, static_cast<int>(index), *element, *containerAction);
 }
 
 // Base class handler implementation
 QWidget* KParts__MainWindow_SuperCreateContainer(KParts__MainWindow* self, QWidget* parent, int index, const QDomElement* element, QAction** containerAction) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_CreateContainer_IsBase(true);
-        return vkpartsmainwindow->createContainer(parent, static_cast<int>(index), *element, *containerAction);
-    } else {
-        return self->KParts::MainWindow::createContainer(parent, static_cast<int>(index), *element, *containerAction);
-    }
+    return self->KParts::MainWindow::createContainer(parent, static_cast<int>(index), *element, *containerAction);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnCreateContainer(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_CreateContainer_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CreateContainer_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_createcontainer_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CreateContainer_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_RemoveContainer(KParts__MainWindow* self, QWidget* container, QWidget* parent, QDomElement* element, QAction* containerAction) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->removeContainer(container, parent, *element, containerAction);
-    } else {
-        self->KParts::MainWindow::removeContainer(container, parent, *element, containerAction);
-    }
+    self->removeContainer(container, parent, *element, containerAction);
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperRemoveContainer(KParts__MainWindow* self, QWidget* container, QWidget* parent, QDomElement* element, QAction* containerAction) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_RemoveContainer_IsBase(true);
-        vkpartsmainwindow->removeContainer(container, parent, *element, containerAction);
-    } else {
-        self->KParts::MainWindow::removeContainer(container, parent, *element, containerAction);
-    }
+    self->KParts::MainWindow::removeContainer(container, parent, *element, containerAction);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnRemoveContainer(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_RemoveContainer_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_RemoveContainer_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_removecontainer_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_RemoveContainer_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of libqt_string */ KParts__MainWindow_CustomTags(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        QList<QString> _ret = vkpartsmainwindow->customTags();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->KParts::MainWindow::customTags();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->customTags();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ KParts__MainWindow_SuperCustomTags(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_CustomTags_IsBase(true);
-        QList<QString> _ret = vkpartsmainwindow->customTags();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->KParts::MainWindow::customTags();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->KParts::MainWindow::customTags();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnCustomTags(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_CustomTags_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CustomTags_Callback>(slot));
+void KParts__MainWindow_OnCustomTags(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_customtags_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CustomTags_Callback>(slot);
 }
 
 // Derived class handler implementation
 QAction* KParts__MainWindow_CreateCustomElement(KParts__MainWindow* self, QWidget* parent, int index, const QDomElement* element) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->createCustomElement(parent, static_cast<int>(index), *element);
-    } else {
-        return self->KParts::MainWindow::createCustomElement(parent, static_cast<int>(index), *element);
-    }
+    return self->createCustomElement(parent, static_cast<int>(index), *element);
 }
 
 // Base class handler implementation
 QAction* KParts__MainWindow_SuperCreateCustomElement(KParts__MainWindow* self, QWidget* parent, int index, const QDomElement* element) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_CreateCustomElement_IsBase(true);
-        return vkpartsmainwindow->createCustomElement(parent, static_cast<int>(index), *element);
-    } else {
-        return self->KParts::MainWindow::createCustomElement(parent, static_cast<int>(index), *element);
-    }
+    return self->KParts::MainWindow::createCustomElement(parent, static_cast<int>(index), *element);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnCreateCustomElement(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_CreateCustomElement_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CreateCustomElement_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_createcustomelement_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CreateCustomElement_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_FinalizeGUI(KParts__MainWindow* self, KXMLGUIClient* client) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->finalizeGUI(client);
-    } else {
-        self->KParts::MainWindow::finalizeGUI(client);
-    }
+    self->finalizeGUI(client);
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperFinalizeGUI(KParts__MainWindow* self, KXMLGUIClient* client) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_FinalizeGUI_IsBase(true);
-        vkpartsmainwindow->finalizeGUI(client);
-    } else {
-        self->KParts::MainWindow::finalizeGUI(client);
-    }
+    self->KParts::MainWindow::finalizeGUI(client);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnFinalizeGUI(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_FinalizeGUI_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_FinalizeGUI_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_finalizegui_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_FinalizeGUI_Callback>(slot);
 }
 
 // Derived class handler implementation
 QAction* KParts__MainWindow_Action2(const KParts__MainWindow* self, const QDomElement* element) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->action(*element);
-    } else {
-        return self->KParts::MainWindow::action(*element);
-    }
+    return self->action(*element);
 }
 
 // Base class handler implementation
 QAction* KParts__MainWindow_SuperAction2(const KParts__MainWindow* self, const QDomElement* element) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_Action2_IsBase(true);
-        return vkpartsmainwindow->action(*element);
-    } else {
-        return self->KParts::MainWindow::action(*element);
-    }
+    return self->KParts::MainWindow::action(*element);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnAction2(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_Action2_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Action2_Callback>(slot));
+void KParts__MainWindow_OnAction2(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_action2_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Action2_Callback>(slot);
 }
 
 // Derived class handler implementation
 KActionCollection* KParts__MainWindow_ActionCollection(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->actionCollection();
-    } else {
-        return self->KParts::MainWindow::actionCollection();
-    }
+    return self->actionCollection();
 }
 
 // Base class handler implementation
 KActionCollection* KParts__MainWindow_SuperActionCollection(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ActionCollection_IsBase(true);
-        return vkpartsmainwindow->actionCollection();
-    } else {
-        return self->KParts::MainWindow::actionCollection();
-    }
+    return self->KParts::MainWindow::actionCollection();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnActionCollection(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ActionCollection_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ActionCollection_Callback>(slot));
+void KParts__MainWindow_OnActionCollection(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_actioncollection_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ActionCollection_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KParts__MainWindow_ComponentName(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        auto _ret = vkpartsmainwindow->componentName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KParts::MainWindow::componentName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->componentName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KParts__MainWindow_SuperComponentName(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ComponentName_IsBase(true);
-        auto _ret = vkpartsmainwindow->componentName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KParts::MainWindow::componentName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KParts::MainWindow::componentName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnComponentName(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ComponentName_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ComponentName_Callback>(slot));
+void KParts__MainWindow_OnComponentName(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_componentname_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ComponentName_Callback>(slot);
 }
 
 // Derived class handler implementation
 QDomDocument* KParts__MainWindow_DomDocument(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return new QDomDocument(vkpartsmainwindow->domDocument());
-    } else {
-        return new QDomDocument(((VirtualKPartsMainWindow*)self)->domDocument());
-    }
+    return new QDomDocument(self->domDocument());
 }
 
 // Base class handler implementation
 QDomDocument* KParts__MainWindow_SuperDomDocument(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_DomDocument_IsBase(true);
-        return new QDomDocument(vkpartsmainwindow->domDocument());
-    } else {
-        return new QDomDocument(((VirtualKPartsMainWindow*)self)->domDocument());
-    }
+    return new QDomDocument(self->KParts::MainWindow::domDocument());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnDomDocument(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_DomDocument_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_DomDocument_Callback>(slot));
+void KParts__MainWindow_OnDomDocument(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_domdocument_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_DomDocument_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KParts__MainWindow_XmlFile(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        auto _ret = vkpartsmainwindow->xmlFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KParts::MainWindow::xmlFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->xmlFile();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KParts__MainWindow_SuperXmlFile(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_XmlFile_IsBase(true);
-        auto _ret = vkpartsmainwindow->xmlFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KParts::MainWindow::xmlFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KParts::MainWindow::xmlFile();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnXmlFile(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_XmlFile_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_XmlFile_Callback>(slot));
+void KParts__MainWindow_OnXmlFile(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_xmlfile_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_XmlFile_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KParts__MainWindow_LocalXMLFile(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        auto _ret = vkpartsmainwindow->localXMLFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KParts::MainWindow::localXMLFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->localXMLFile();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KParts__MainWindow_SuperLocalXMLFile(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_LocalXMLFile_IsBase(true);
-        auto _ret = vkpartsmainwindow->localXMLFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KParts::MainWindow::localXMLFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KParts::MainWindow::localXMLFile();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnLocalXMLFile(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_LocalXMLFile_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_LocalXMLFile_Callback>(slot));
+void KParts__MainWindow_OnLocalXMLFile(KParts__MainWindow* self, intptr_t slot) {
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self)))
+        vkpartsmainwindow->kparts__mainwindow_localxmlfile_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_LocalXMLFile_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_SetComponentName(KParts__MainWindow* self, const libqt_string componentName, const libqt_string componentDisplayName) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString componentName_QString = QString::fromUtf8(componentName.data, componentName.len);
     QString componentDisplayName_QString = QString::fromUtf8(componentDisplayName.data, componentDisplayName.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->setComponentName(componentName_QString, componentDisplayName_QString);
     } else {
-        ((VirtualKPartsMainWindow*)self)->setComponentName(componentName_QString, componentDisplayName_QString);
+        qFatal("Error: Protected virtual method KParts::MainWindow::setComponentName called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperSetComponentName(KParts__MainWindow* self, const libqt_string componentName, const libqt_string componentDisplayName) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString componentName_QString = QString::fromUtf8(componentName.data, componentName.len);
     QString componentDisplayName_QString = QString::fromUtf8(componentDisplayName.data, componentDisplayName.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SetComponentName_IsBase(true);
-        vkpartsmainwindow->setComponentName(componentName_QString, componentDisplayName_QString);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->setComponentName(componentName_QString, componentDisplayName_QString);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::setComponentName(componentName_QString, componentDisplayName_QString);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::setComponentName called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnSetComponentName(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SetComponentName_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetComponentName_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_setcomponentname_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetComponentName_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_SetXMLFile(KParts__MainWindow* self, const libqt_string file, bool merge, bool setXMLDoc) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->setXMLFile(file_QString, merge, setXMLDoc);
     } else {
-        ((VirtualKPartsMainWindow*)self)->setXMLFile(file_QString, merge, setXMLDoc);
+        qFatal("Error: Protected virtual method KParts::MainWindow::setXMLFile called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperSetXMLFile(KParts__MainWindow* self, const libqt_string file, bool merge, bool setXMLDoc) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SetXMLFile_IsBase(true);
-        vkpartsmainwindow->setXMLFile(file_QString, merge, setXMLDoc);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->setXMLFile(file_QString, merge, setXMLDoc);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::setXMLFile(file_QString, merge, setXMLDoc);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::setXMLFile called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnSetXMLFile(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SetXMLFile_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetXMLFile_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_setxmlfile_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetXMLFile_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_SetLocalXMLFile(KParts__MainWindow* self, const libqt_string file) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->setLocalXMLFile(file_QString);
     } else {
-        ((VirtualKPartsMainWindow*)self)->setLocalXMLFile(file_QString);
+        qFatal("Error: Protected virtual method KParts::MainWindow::setLocalXMLFile called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperSetLocalXMLFile(KParts__MainWindow* self, const libqt_string file) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SetLocalXMLFile_IsBase(true);
-        vkpartsmainwindow->setLocalXMLFile(file_QString);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->setLocalXMLFile(file_QString);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::setLocalXMLFile(file_QString);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::setLocalXMLFile called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnSetLocalXMLFile(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SetLocalXMLFile_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetLocalXMLFile_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_setlocalxmlfile_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetLocalXMLFile_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_SetXML(KParts__MainWindow* self, const libqt_string document, bool merge) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString document_QString = QString::fromUtf8(document.data, document.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->setXML(document_QString, merge);
     } else {
-        ((VirtualKPartsMainWindow*)self)->setXML(document_QString, merge);
+        qFatal("Error: Protected virtual method KParts::MainWindow::setXML called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperSetXML(KParts__MainWindow* self, const libqt_string document, bool merge) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString document_QString = QString::fromUtf8(document.data, document.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SetXML_IsBase(true);
-        vkpartsmainwindow->setXML(document_QString, merge);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->setXML(document_QString, merge);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::setXML(document_QString, merge);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::setXML called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnSetXML(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SetXML_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetXML_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_setxml_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetXML_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_SetDOMDocument(KParts__MainWindow* self, const QDomDocument* document, bool merge) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->setDOMDocument(*document, merge);
     } else {
-        ((VirtualKPartsMainWindow*)self)->setDOMDocument(*document, merge);
+        qFatal("Error: Protected virtual method KParts::MainWindow::setDOMDocument called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperSetDOMDocument(KParts__MainWindow* self, const QDomDocument* document, bool merge) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SetDOMDocument_IsBase(true);
-        vkpartsmainwindow->setDOMDocument(*document, merge);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->setDOMDocument(*document, merge);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::setDOMDocument(*document, merge);
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::setDOMDocument called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnSetDOMDocument(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SetDOMDocument_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetDOMDocument_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_setdomdocument_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetDOMDocument_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__MainWindow_StateChanged(KParts__MainWindow* self, const libqt_string newstate, int reverse) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
+    if (vkpartsmainwindow) {
         vkpartsmainwindow->stateChanged(newstate_QString, static_cast<KXMLGUIClient::ReverseStateChange>(reverse));
     } else {
-        ((VirtualKPartsMainWindow*)self)->stateChanged(newstate_QString, static_cast<KXMLGUIClient::ReverseStateChange>(reverse));
+        qFatal("Error: Protected virtual method KParts::MainWindow::stateChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__MainWindow_SuperStateChanged(KParts__MainWindow* self, const libqt_string newstate, int reverse) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_StateChanged_IsBase(true);
-        vkpartsmainwindow->stateChanged(newstate_QString, static_cast<KXMLGUIClient::ReverseStateChange>(reverse));
-    } else {
-        ((VirtualKPartsMainWindow*)self)->stateChanged(newstate_QString, static_cast<KXMLGUIClient::ReverseStateChange>(reverse));
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->KParts::MainWindow::stateChanged(newstate_QString, static_cast<KXMLGUIClient::ReverseStateChange>(reverse));
+    } else
+        qFatal("Error: Protected virtual method KParts::MainWindow::stateChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__MainWindow_OnStateChanged(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_StateChanged_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_StateChanged_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self))
+        vkpartsmainwindow->kparts__mainwindow_statechanged_callback = reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_StateChanged_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KParts__MainWindow_CreateGUI(KParts__MainWindow* self, KParts__Part* part) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->createGUI(part);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->createGUI(part);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->VirtualKPartsMainWindow::createGUI(part);
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::createGUI called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KParts__MainWindow_SuperCreateGUI(KParts__MainWindow* self, KParts__Part* part) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_CreateGUI_IsBase(true);
-        vkpartsmainwindow->createGUI(part);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->createGUI(part);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnCreateGUI(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_CreateGUI_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CreateGUI_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KParts__MainWindow_SetWindowTitleHandling(KParts__MainWindow* self, bool enabled) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setWindowTitleHandling(enabled);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->setWindowTitleHandling(enabled);
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->VirtualKPartsMainWindow::setWindowTitleHandling(enabled);
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::setWindowTitleHandling called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KParts__MainWindow_SuperSetWindowTitleHandling(KParts__MainWindow* self, bool enabled) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SetWindowTitleHandling_IsBase(true);
-        vkpartsmainwindow->setWindowTitleHandling(enabled);
-    } else {
-        ((VirtualKPartsMainWindow*)self)->setWindowTitleHandling(enabled);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnSetWindowTitleHandling(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SetWindowTitleHandling_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SetWindowTitleHandling_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KParts__MainWindow_CheckAmbiguousShortcuts(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->checkAmbiguousShortcuts();
-    } else {
-        ((VirtualKPartsMainWindow*)self)->checkAmbiguousShortcuts();
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->VirtualKPartsMainWindow::checkAmbiguousShortcuts();
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::checkAmbiguousShortcuts called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KParts__MainWindow_SuperCheckAmbiguousShortcuts(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_CheckAmbiguousShortcuts_IsBase(true);
-        vkpartsmainwindow->checkAmbiguousShortcuts();
-    } else {
-        ((VirtualKPartsMainWindow*)self)->checkAmbiguousShortcuts();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnCheckAmbiguousShortcuts(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_CheckAmbiguousShortcuts_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_CheckAmbiguousShortcuts_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KParts__MainWindow_SavePropertiesInternal(KParts__MainWindow* self, KConfig* param1, int param2) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->savePropertiesInternal(param1, static_cast<int>(param2));
-    } else {
-        ((VirtualKPartsMainWindow*)self)->savePropertiesInternal(param1, static_cast<int>(param2));
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->VirtualKPartsMainWindow::savePropertiesInternal(param1, static_cast<int>(param2));
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::savePropertiesInternal called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KParts__MainWindow_SuperSavePropertiesInternal(KParts__MainWindow* self, KConfig* param1, int param2) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SavePropertiesInternal_IsBase(true);
-        vkpartsmainwindow->savePropertiesInternal(param1, static_cast<int>(param2));
-    } else {
-        ((VirtualKPartsMainWindow*)self)->savePropertiesInternal(param1, static_cast<int>(param2));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnSavePropertiesInternal(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SavePropertiesInternal_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SavePropertiesInternal_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KParts__MainWindow_ReadPropertiesInternal(KParts__MainWindow* self, KConfig* param1, int param2) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->readPropertiesInternal(param1, static_cast<int>(param2));
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->readPropertiesInternal(param1, static_cast<int>(param2));
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        return vkpartsmainwindow->VirtualKPartsMainWindow::readPropertiesInternal(param1, static_cast<int>(param2));
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::readPropertiesInternal called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KParts__MainWindow_SuperReadPropertiesInternal(KParts__MainWindow* self, KConfig* param1, int param2) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_ReadPropertiesInternal_IsBase(true);
-        return vkpartsmainwindow->readPropertiesInternal(param1, static_cast<int>(param2));
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->readPropertiesInternal(param1, static_cast<int>(param2));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnReadPropertiesInternal(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_ReadPropertiesInternal_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_ReadPropertiesInternal_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KParts__MainWindow_SettingsDirty(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->settingsDirty();
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->settingsDirty();
-    }
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self))) {
+        return vkpartsmainwindow->VirtualKPartsMainWindow::settingsDirty();
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::settingsDirty called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KParts__MainWindow_SuperSettingsDirty(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SettingsDirty_IsBase(true);
-        return vkpartsmainwindow->settingsDirty();
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->settingsDirty();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnSettingsDirty(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SettingsDirty_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SettingsDirty_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KParts__MainWindow_SaveAutoSaveSettings(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->saveAutoSaveSettings();
-    } else {
-        ((VirtualKPartsMainWindow*)self)->saveAutoSaveSettings();
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->VirtualKPartsMainWindow::saveAutoSaveSettings();
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::saveAutoSaveSettings called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KParts__MainWindow_SuperSaveAutoSaveSettings(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SaveAutoSaveSettings_IsBase(true);
-        vkpartsmainwindow->saveAutoSaveSettings();
-    } else {
-        ((VirtualKPartsMainWindow*)self)->saveAutoSaveSettings();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnSaveAutoSaveSettings(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SaveAutoSaveSettings_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SaveAutoSaveSettings_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KParts__MainWindow_UpdateMicroFocus(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->updateMicroFocus();
-    } else {
-        ((VirtualKPartsMainWindow*)self)->updateMicroFocus();
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->VirtualKPartsMainWindow::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KParts__MainWindow_SuperUpdateMicroFocus(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_UpdateMicroFocus_IsBase(true);
-        vkpartsmainwindow->updateMicroFocus();
-    } else {
-        ((VirtualKPartsMainWindow*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnUpdateMicroFocus(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KParts__MainWindow_Create(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->create();
-    } else {
-        ((VirtualKPartsMainWindow*)self)->create();
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->VirtualKPartsMainWindow::create();
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KParts__MainWindow_SuperCreate(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_Create_IsBase(true);
-        vkpartsmainwindow->create();
-    } else {
-        ((VirtualKPartsMainWindow*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnCreate(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_Create_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KParts__MainWindow_Destroy(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->destroy();
-    } else {
-        ((VirtualKPartsMainWindow*)self)->destroy();
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->VirtualKPartsMainWindow::destroy();
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KParts__MainWindow_SuperDestroy(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_Destroy_IsBase(true);
-        vkpartsmainwindow->destroy();
-    } else {
-        ((VirtualKPartsMainWindow*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnDestroy(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_Destroy_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KParts__MainWindow_FocusNextChild(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->focusNextChild();
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->focusNextChild();
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        return vkpartsmainwindow->VirtualKPartsMainWindow::focusNextChild();
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KParts__MainWindow_SuperFocusNextChild(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_FocusNextChild_IsBase(true);
-        return vkpartsmainwindow->focusNextChild();
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnFocusNextChild(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_FocusNextChild_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KParts__MainWindow_FocusPreviousChild(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->focusPreviousChild();
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->focusPreviousChild();
-    }
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        return vkpartsmainwindow->VirtualKPartsMainWindow::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KParts__MainWindow_SuperFocusPreviousChild(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_FocusPreviousChild_IsBase(true);
-        return vkpartsmainwindow->focusPreviousChild();
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnFocusPreviousChild(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KParts__MainWindow_Sender(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->sender();
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->sender();
-    }
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self))) {
+        return vkpartsmainwindow->VirtualKPartsMainWindow::sender();
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KParts__MainWindow_SuperSender(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_Sender_IsBase(true);
-        return vkpartsmainwindow->sender();
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnSender(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_Sender_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KParts__MainWindow_SenderSignalIndex(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->senderSignalIndex();
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->senderSignalIndex();
-    }
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self))) {
+        return vkpartsmainwindow->VirtualKPartsMainWindow::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KParts__MainWindow_SuperSenderSignalIndex(const KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_SenderSignalIndex_IsBase(true);
-        return vkpartsmainwindow->senderSignalIndex();
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnSenderSignalIndex(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KParts__MainWindow_Receivers(const KParts__MainWindow* self, const char* signal) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->receivers(signal);
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->receivers(signal);
-    }
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self))) {
+        return vkpartsmainwindow->VirtualKPartsMainWindow::receivers(signal);
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KParts__MainWindow_SuperReceivers(const KParts__MainWindow* self, const char* signal) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_Receivers_IsBase(true);
-        return vkpartsmainwindow->receivers(signal);
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnReceivers(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_Receivers_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KParts__MainWindow_IsSignalConnected(const KParts__MainWindow* self, const QMetaMethod* signal) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self))) {
+        return vkpartsmainwindow->VirtualKPartsMainWindow::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KParts__MainWindow_SuperIsSignalConnected(const KParts__MainWindow* self, const QMetaMethod* signal) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_IsSignalConnected_IsBase(true);
-        return vkpartsmainwindow->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnIsSignalConnected(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_IsSignalConnected_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KParts__MainWindow_GetDecodedMetricF(const KParts__MainWindow* self, int metricA, int metricB) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        return vkpartsmainwindow->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
+    if (auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self))) {
+        return vkpartsmainwindow->VirtualKPartsMainWindow::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::getDecodedMetricF called without a directly constructed type");
 }
 
-// Base class handler implementation
-double KParts__MainWindow_SuperGetDecodedMetricF(const KParts__MainWindow* self, int metricA, int metricB) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_GetDecodedMetricF_IsBase(true);
-        return vkpartsmainwindow->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnGetDecodedMetricF(const KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_GetDecodedMetricF_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string KParts__MainWindow_StandardsXmlFileLocation(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        auto _ret = vkpartsmainwindow->standardsXmlFileLocation();
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        auto _ret = vkpartsmainwindow->VirtualKPartsMainWindow::standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -3143,79 +2126,16 @@ libqt_string KParts__MainWindow_StandardsXmlFileLocation(KParts__MainWindow* sel
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualKPartsMainWindow*)self)->standardsXmlFileLocation();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::standardsXmlFileLocation called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string KParts__MainWindow_SuperStandardsXmlFileLocation(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_StandardsXmlFileLocation_IsBase(true);
-        auto _ret = vkpartsmainwindow->standardsXmlFileLocation();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKPartsMainWindow*)self)->standardsXmlFileLocation();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnStandardsXmlFileLocation(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_StandardsXmlFileLocation_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_StandardsXmlFileLocation_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KParts__MainWindow_LoadStandardsXmlFile(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->loadStandardsXmlFile();
-    } else {
-        ((VirtualKPartsMainWindow*)self)->loadStandardsXmlFile();
-    }
-}
-
-// Base class handler implementation
-void KParts__MainWindow_SuperLoadStandardsXmlFile(KParts__MainWindow* self) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        vkpartsmainwindow->setKParts__MainWindow_LoadStandardsXmlFile_IsBase(true);
-        vkpartsmainwindow->loadStandardsXmlFile();
-    } else {
-        ((VirtualKPartsMainWindow*)self)->loadStandardsXmlFile();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__MainWindow_OnLoadStandardsXmlFile(KParts__MainWindow* self, intptr_t slot) {
-    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow)
-        vkpartsmainwindow->setKParts__MainWindow_LoadStandardsXmlFile_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_LoadStandardsXmlFile_Callback>(slot));
+    if (auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self)) {
+        vkpartsmainwindow->VirtualKPartsMainWindow::loadStandardsXmlFile();
+    } else
+        qFatal("Error: Protected method KParts::MainWindow::loadStandardsXmlFile called without a directly constructed type");
 }
 
 void KParts__MainWindow_Delete(KParts__MainWindow* self) {

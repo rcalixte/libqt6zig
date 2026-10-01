@@ -86,7 +86,7 @@ libqt_string QTextToSpeech_Tr3(const char* s, const char* c, int n);
 bool QTextToSpeech_SetEngine2(QTextToSpeech* self, const libqt_string engine, const libqt_map /* of libqt_string to QVariant* */ params);
 void QTextToSpeech_Stop1(QTextToSpeech* self, int boundaryHint);
 void QTextToSpeech_Pause1(QTextToSpeech* self, int boundaryHint);
-void QTextToSpeech_OnMetaObject(const QTextToSpeech* self, intptr_t slot);
+void QTextToSpeech_OnMetaObject(QTextToSpeech* self, intptr_t slot);
 QMetaObject* QTextToSpeech_SuperMetaObject(const QTextToSpeech* self);
 void QTextToSpeech_OnMetacast(QTextToSpeech* self, intptr_t slot);
 void* QTextToSpeech_SuperMetacast(QTextToSpeech* self, const char* param1);
@@ -114,20 +114,10 @@ void QTextToSpeech_DisconnectNotify(QTextToSpeech* self, const QMetaMethod* sign
 void QTextToSpeech_OnDisconnectNotify(QTextToSpeech* self, intptr_t slot);
 void QTextToSpeech_SuperDisconnectNotify(QTextToSpeech* self, const QMetaMethod* signal);
 libqt_list /* of QVoice* */ QTextToSpeech_AllVoices(const QTextToSpeech* self, const QLocale* locale);
-void QTextToSpeech_OnAllVoices(const QTextToSpeech* self, intptr_t slot);
-libqt_list /* of QVoice* */ QTextToSpeech_SuperAllVoices(const QTextToSpeech* self, const QLocale* locale);
 QObject* QTextToSpeech_Sender(const QTextToSpeech* self);
-void QTextToSpeech_OnSender(const QTextToSpeech* self, intptr_t slot);
-QObject* QTextToSpeech_SuperSender(const QTextToSpeech* self);
 int QTextToSpeech_SenderSignalIndex(const QTextToSpeech* self);
-void QTextToSpeech_OnSenderSignalIndex(const QTextToSpeech* self, intptr_t slot);
-int QTextToSpeech_SuperSenderSignalIndex(const QTextToSpeech* self);
 int QTextToSpeech_Receivers(const QTextToSpeech* self, const char* signal);
-void QTextToSpeech_OnReceivers(const QTextToSpeech* self, intptr_t slot);
-int QTextToSpeech_SuperReceivers(const QTextToSpeech* self, const char* signal);
 bool QTextToSpeech_IsSignalConnected(const QTextToSpeech* self, const QMetaMethod* signal);
-void QTextToSpeech_OnIsSignalConnected(const QTextToSpeech* self, intptr_t slot);
-bool QTextToSpeech_SuperIsSignalConnected(const QTextToSpeech* self, const QMetaMethod* signal);
 void QTextToSpeech_Delete(QTextToSpeech* self);
 
 #ifdef __cplusplus

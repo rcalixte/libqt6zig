@@ -1,7 +1,5 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const QDesignerFormEditorInterface = @import("libqt6").QDesignerFormEditorInterface;
-const QWidget = @import("libqt6").QWidget;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerextrainfoextension.html)
@@ -13,34 +11,6 @@ pub const QDesignerExtraInfoExtension = extern struct {
     ptr: QtC.QDesignerExtraInfoExtension,
 
     pub const _is_QDesignerExtraInfoExtension = {};
-
-    /// ### DEPRECATED: Use `core` instead
-    ///
-    pub const Core = core;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerextrainfoextension.html#core)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerExtraInfoExtension `
-    ///
-    pub fn core(self: QDesignerExtraInfoExtension) QDesignerFormEditorInterface {
-        return .{ .ptr = qtc.QDesignerExtraInfoExtension_Core(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `widget` instead
-    ///
-    pub const Widget = widget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerextrainfoextension.html#widget)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerExtraInfoExtension `
-    ///
-    pub fn widget(self: QDesignerExtraInfoExtension) QWidget {
-        return .{ .ptr = qtc.QDesignerExtraInfoExtension_Widget(@ptrCast(self.ptr)) };
-    }
 
     /// ### DEPRECATED: Use `workingDirectory` instead
     ///

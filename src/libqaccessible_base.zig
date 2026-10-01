@@ -1533,22 +1533,6 @@ pub const QAccessible__ActivationObserver = extern struct {
 
     pub const _is_QAccessible__ActivationObserver = {};
 
-    /// ### DEPRECATED: Use `accessibilityActiveChanged` instead
-    ///
-    pub const AccessibilityActiveChanged = accessibilityActiveChanged;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-activationobserver.html#accessibilityActiveChanged)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessible__ActivationObserver `
-    ///
-    /// ` _active: bool `
-    ///
-    pub fn accessibilityActiveChanged(self: QAccessible__ActivationObserver, _active: bool) void {
-        qtc.QAccessible__ActivationObserver_AccessibilityActiveChanged(@ptrCast(self.ptr), _active);
-    }
-
     /// ### DEPRECATED: Use `operatorAssign` instead
     ///
     pub const OperatorAssign = operatorAssign;

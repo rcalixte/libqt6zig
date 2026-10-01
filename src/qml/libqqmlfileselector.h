@@ -38,7 +38,7 @@ void QQmlFileSelector_SetExtraSelectors(QQmlFileSelector* self, const libqt_list
 QQmlFileSelector* QQmlFileSelector_Get(QQmlEngine* param1);
 libqt_string QQmlFileSelector_Tr2(const char* s, const char* c);
 libqt_string QQmlFileSelector_Tr3(const char* s, const char* c, int n);
-void QQmlFileSelector_OnMetaObject(const QQmlFileSelector* self, intptr_t slot);
+void QQmlFileSelector_OnMetaObject(QQmlFileSelector* self, intptr_t slot);
 QMetaObject* QQmlFileSelector_SuperMetaObject(const QQmlFileSelector* self);
 void QQmlFileSelector_OnMetacast(QQmlFileSelector* self, intptr_t slot);
 void* QQmlFileSelector_SuperMetacast(QQmlFileSelector* self, const char* param1);
@@ -66,17 +66,9 @@ void QQmlFileSelector_DisconnectNotify(QQmlFileSelector* self, const QMetaMethod
 void QQmlFileSelector_OnDisconnectNotify(QQmlFileSelector* self, intptr_t slot);
 void QQmlFileSelector_SuperDisconnectNotify(QQmlFileSelector* self, const QMetaMethod* signal);
 QObject* QQmlFileSelector_Sender(const QQmlFileSelector* self);
-void QQmlFileSelector_OnSender(const QQmlFileSelector* self, intptr_t slot);
-QObject* QQmlFileSelector_SuperSender(const QQmlFileSelector* self);
 int QQmlFileSelector_SenderSignalIndex(const QQmlFileSelector* self);
-void QQmlFileSelector_OnSenderSignalIndex(const QQmlFileSelector* self, intptr_t slot);
-int QQmlFileSelector_SuperSenderSignalIndex(const QQmlFileSelector* self);
 int QQmlFileSelector_Receivers(const QQmlFileSelector* self, const char* signal);
-void QQmlFileSelector_OnReceivers(const QQmlFileSelector* self, intptr_t slot);
-int QQmlFileSelector_SuperReceivers(const QQmlFileSelector* self, const char* signal);
 bool QQmlFileSelector_IsSignalConnected(const QQmlFileSelector* self, const QMetaMethod* signal);
-void QQmlFileSelector_OnIsSignalConnected(const QQmlFileSelector* self, intptr_t slot);
-bool QQmlFileSelector_SuperIsSignalConnected(const QQmlFileSelector* self, const QMetaMethod* signal);
 void QQmlFileSelector_Delete(QQmlFileSelector* self);
 
 #ifdef __cplusplus

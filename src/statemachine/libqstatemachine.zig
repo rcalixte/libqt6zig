@@ -118,9 +118,9 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QStateMachine) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QStateMachine, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) QMetaObject) void {
         qtc.QStateMachine_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2783,44 +2783,6 @@ pub const QStateMachine = extern struct {
         return .{ .ptr = qtc.QStateMachine_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStateMachine `
-    ///
-    pub fn superSender(self: QStateMachine) QObject {
-        return .{ .ptr = qtc.QStateMachine_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStateMachine`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QStateMachine, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QStateMachine_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2837,44 +2799,6 @@ pub const QStateMachine = extern struct {
     ///
     pub fn senderSignalIndex(self: QStateMachine) i32 {
         return qtc.QStateMachine_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStateMachine `
-    ///
-    pub fn superSenderSignalIndex(self: QStateMachine) i32 {
-        return qtc.QStateMachine_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStateMachine`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QStateMachine, callback: *const fn () callconv(.c) i32) void {
-        qtc.QStateMachine_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2898,47 +2822,6 @@ pub const QStateMachine = extern struct {
         return qtc.QStateMachine_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStateMachine `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QStateMachine, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QStateMachine_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStateMachine`
-    ///
-    /// ` callback: *const fn (self: QStateMachine, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QStateMachine, callback: *const fn (QStateMachine, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QStateMachine_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2958,47 +2841,6 @@ pub const QStateMachine = extern struct {
     pub fn isSignalConnected(self: QStateMachine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QStateMachine_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStateMachine `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QStateMachine, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QStateMachine_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStateMachine`
-    ///
-    /// ` callback: *const fn (self: QStateMachine, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QStateMachine, callback: *const fn (QStateMachine, QMetaMethod) callconv(.c) bool) void {
-        qtc.QStateMachine_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onStarted` instead
@@ -3602,9 +3444,9 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` self: QStateMachine__SignalEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: QStateMachine__SignalEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: QStateMachine__SignalEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QStateMachine__SignalEvent, callback: *const fn (QStateMachine__SignalEvent) callconv(.c) QEvent) void {
         qtc.QStateMachine__SignalEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3984,9 +3826,9 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` self: QStateMachine__WrappedEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: QStateMachine__WrappedEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: QStateMachine__WrappedEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QStateMachine__WrappedEvent, callback: *const fn (QStateMachine__WrappedEvent) callconv(.c) QEvent) void {
         qtc.QStateMachine__WrappedEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

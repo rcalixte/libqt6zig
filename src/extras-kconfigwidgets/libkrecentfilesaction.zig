@@ -127,9 +127,9 @@ pub const KRecentFilesAction = extern struct {
     ///
     /// ` self: KRecentFilesAction `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KRecentFilesAction) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KRecentFilesAction, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KRecentFilesAction, callback: *const fn (KRecentFilesAction) callconv(.c) QMetaObject) void {
         qtc.KRecentFilesAction_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -529,9 +529,9 @@ pub const KRecentFilesAction = extern struct {
     ///
     /// ` self: KRecentFilesAction `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KRecentFilesAction) callconv(.c) void `
     ///
-    pub fn onClear(self: KRecentFilesAction, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: KRecentFilesAction, callback: *const fn (KRecentFilesAction) callconv(.c) void) void {
         qtc.KRecentFilesAction_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4456,46 +4456,6 @@ pub const KRecentFilesAction = extern struct {
         qtc.KRecentFilesAction_SlotToggled(@ptrCast(self.ptr), param1);
     }
 
-    /// ### DEPRECATED: Use `superSlotToggled` instead
-    ///
-    pub const SuperSlotToggled = superSlotToggled;
-
-    /// Inherited from KSelectAction
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRecentFilesAction `
-    ///
-    /// ` param1: bool `
-    ///
-    pub fn superSlotToggled(self: KRecentFilesAction, param1: bool) void {
-        qtc.KRecentFilesAction_SuperSlotToggled(@ptrCast(self.ptr), param1);
-    }
-
-    /// ### DEPRECATED: Use `onSlotToggled` instead
-    ///
-    pub const OnSlotToggled = onSlotToggled;
-
-    /// Inherited from KSelectAction
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRecentFilesAction`
-    ///
-    /// ` callback: *const fn (self: KRecentFilesAction, param1: bool) callconv(.c) void `
-    ///
-    pub fn onSlotToggled(self: KRecentFilesAction, callback: *const fn (KRecentFilesAction, bool) callconv(.c) void) void {
-        qtc.KRecentFilesAction_OnSlotToggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `createdWidgets` instead
     ///
     pub const CreatedWidgets = createdWidgets;
@@ -4522,58 +4482,6 @@ pub const KRecentFilesAction = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superCreatedWidgets` instead
-    ///
-    pub const SuperCreatedWidgets = superCreatedWidgets;
-
-    /// Inherited from QWidgetAction
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRecentFilesAction `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superCreatedWidgets(self: KRecentFilesAction, allocator: std.mem.Allocator) []QWidget {
-        const _arr: qtc.libqt_list = qtc.KRecentFilesAction_SuperCreatedWidgets(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KRecentFilesAction.createdWidgets: Memory allocation failed");
-        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onCreatedWidgets` instead
-    ///
-    pub const OnCreatedWidgets = onCreatedWidgets;
-
-    /// Inherited from QWidgetAction
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRecentFilesAction`
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of []QWidget `
-    ///
-    pub fn onCreatedWidgets(self: KRecentFilesAction, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KRecentFilesAction_OnCreatedWidgets(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -4592,44 +4500,6 @@ pub const KRecentFilesAction = extern struct {
         return .{ .ptr = qtc.KRecentFilesAction_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRecentFilesAction `
-    ///
-    pub fn superSender(self: KRecentFilesAction) QObject {
-        return .{ .ptr = qtc.KRecentFilesAction_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRecentFilesAction`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KRecentFilesAction, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KRecentFilesAction_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4646,44 +4516,6 @@ pub const KRecentFilesAction = extern struct {
     ///
     pub fn senderSignalIndex(self: KRecentFilesAction) i32 {
         return qtc.KRecentFilesAction_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRecentFilesAction `
-    ///
-    pub fn superSenderSignalIndex(self: KRecentFilesAction) i32 {
-        return qtc.KRecentFilesAction_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRecentFilesAction`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KRecentFilesAction, callback: *const fn () callconv(.c) i32) void {
-        qtc.KRecentFilesAction_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4707,47 +4539,6 @@ pub const KRecentFilesAction = extern struct {
         return qtc.KRecentFilesAction_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRecentFilesAction `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KRecentFilesAction, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KRecentFilesAction_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRecentFilesAction`
-    ///
-    /// ` callback: *const fn (self: KRecentFilesAction, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KRecentFilesAction, callback: *const fn (KRecentFilesAction, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KRecentFilesAction_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4767,47 +4558,6 @@ pub const KRecentFilesAction = extern struct {
     pub fn isSignalConnected(self: KRecentFilesAction, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KRecentFilesAction_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRecentFilesAction `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KRecentFilesAction, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KRecentFilesAction_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRecentFilesAction`
-    ///
-    /// ` callback: *const fn (self: KRecentFilesAction, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KRecentFilesAction, callback: *const fn (KRecentFilesAction, QMetaMethod) callconv(.c) bool) void {
-        qtc.KRecentFilesAction_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

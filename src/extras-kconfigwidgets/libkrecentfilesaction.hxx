@@ -9,19 +9,15 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KRecentFilesAction so that we can call protected methods
+// This class is a subclass of KRecentFilesAction
 class VirtualKRecentFilesAction final : public KRecentFilesAction {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKRecentFilesAction = true;
-
-    // Virtual class public types (including callbacks)
-    using KRecentFilesAction_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KRecentFilesAction_MetaObject_Callback = QMetaObject* (*)(const KRecentFilesAction*);
     using KRecentFilesAction_Metacast_Callback = void* (*)(KRecentFilesAction*, const char*);
     using KRecentFilesAction_Metacall_Callback = int (*)(KRecentFilesAction*, int, int, void**);
     using KRecentFilesAction_RemoveAction_Callback = QAction* (*)(KRecentFilesAction*, QAction*);
-    using KRecentFilesAction_Clear_Callback = void (*)();
+    using KRecentFilesAction_Clear_Callback = void (*)(KRecentFilesAction*);
     using KRecentFilesAction_InsertAction_Callback = void (*)(KRecentFilesAction*, QAction*, QAction*);
     using KRecentFilesAction_SlotActionTriggered_Callback = void (*)(KRecentFilesAction*, QAction*);
     using KRecentFilesAction_CreateWidget_Callback = QWidget* (*)(KRecentFilesAction*, QWidget*);
@@ -33,14 +29,13 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
     using KRecentFilesAction_CustomEvent_Callback = void (*)(KRecentFilesAction*, QEvent*);
     using KRecentFilesAction_ConnectNotify_Callback = void (*)(KRecentFilesAction*, QMetaMethod*);
     using KRecentFilesAction_DisconnectNotify_Callback = void (*)(KRecentFilesAction*, QMetaMethod*);
-    using KRecentFilesAction_SlotToggled_Callback = void (*)(KRecentFilesAction*, bool);
-    using KRecentFilesAction_CreatedWidgets_Callback = libqt_list /* of QWidget* */ (*)();
-    using KRecentFilesAction_Sender_Callback = QObject* (*)();
-    using KRecentFilesAction_SenderSignalIndex_Callback = int (*)();
-    using KRecentFilesAction_Receivers_Callback = int (*)(const KRecentFilesAction*, const char*);
-    using KRecentFilesAction_IsSignalConnected_Callback = bool (*)(const KRecentFilesAction*, QMetaMethod*);
+    using KRecentFilesAction::createdWidgets;
+    using KRecentFilesAction::isSignalConnected;
+    using KRecentFilesAction::receivers;
+    using KRecentFilesAction::sender;
+    using KRecentFilesAction::senderSignalIndex;
+    using KRecentFilesAction::slotToggled;
 
-  protected:
     // Instance callback storage
     KRecentFilesAction_MetaObject_Callback krecentfilesaction_metaobject_callback = nullptr;
     KRecentFilesAction_Metacast_Callback krecentfilesaction_metacast_callback = nullptr;
@@ -58,99 +53,29 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
     KRecentFilesAction_CustomEvent_Callback krecentfilesaction_customevent_callback = nullptr;
     KRecentFilesAction_ConnectNotify_Callback krecentfilesaction_connectnotify_callback = nullptr;
     KRecentFilesAction_DisconnectNotify_Callback krecentfilesaction_disconnectnotify_callback = nullptr;
-    KRecentFilesAction_SlotToggled_Callback krecentfilesaction_slottoggled_callback = nullptr;
-    KRecentFilesAction_CreatedWidgets_Callback krecentfilesaction_createdwidgets_callback = nullptr;
-    KRecentFilesAction_Sender_Callback krecentfilesaction_sender_callback = nullptr;
-    KRecentFilesAction_SenderSignalIndex_Callback krecentfilesaction_sendersignalindex_callback = nullptr;
-    KRecentFilesAction_Receivers_Callback krecentfilesaction_receivers_callback = nullptr;
-    KRecentFilesAction_IsSignalConnected_Callback krecentfilesaction_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool krecentfilesaction_metaobject_isbase = false;
-    mutable bool krecentfilesaction_metacast_isbase = false;
-    mutable bool krecentfilesaction_metacall_isbase = false;
-    mutable bool krecentfilesaction_removeaction_isbase = false;
-    mutable bool krecentfilesaction_clear_isbase = false;
-    mutable bool krecentfilesaction_insertaction_isbase = false;
-    mutable bool krecentfilesaction_slotactiontriggered_isbase = false;
-    mutable bool krecentfilesaction_createwidget_isbase = false;
-    mutable bool krecentfilesaction_deletewidget_isbase = false;
-    mutable bool krecentfilesaction_event_isbase = false;
-    mutable bool krecentfilesaction_eventfilter_isbase = false;
-    mutable bool krecentfilesaction_timerevent_isbase = false;
-    mutable bool krecentfilesaction_childevent_isbase = false;
-    mutable bool krecentfilesaction_customevent_isbase = false;
-    mutable bool krecentfilesaction_connectnotify_isbase = false;
-    mutable bool krecentfilesaction_disconnectnotify_isbase = false;
-    mutable bool krecentfilesaction_slottoggled_isbase = false;
-    mutable bool krecentfilesaction_createdwidgets_isbase = false;
-    mutable bool krecentfilesaction_sender_isbase = false;
-    mutable bool krecentfilesaction_sendersignalindex_isbase = false;
-    mutable bool krecentfilesaction_receivers_isbase = false;
-    mutable bool krecentfilesaction_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KRecentFilesAction {
+        using KRecentFilesAction::childEvent;
+        using KRecentFilesAction::connectNotify;
+        using KRecentFilesAction::createWidget;
+        using KRecentFilesAction::customEvent;
+        using KRecentFilesAction::deleteWidget;
+        using KRecentFilesAction::disconnectNotify;
+        using KRecentFilesAction::event;
+        using KRecentFilesAction::eventFilter;
+        using KRecentFilesAction::slotActionTriggered;
+        using KRecentFilesAction::timerEvent;
+    };
 
-  public:
     VirtualKRecentFilesAction(QObject* parent) : KRecentFilesAction(parent) {};
     VirtualKRecentFilesAction(const QString& text, QObject* parent) : KRecentFilesAction(text, parent) {};
     VirtualKRecentFilesAction(const QIcon& icon, const QString& text, QObject* parent) : KRecentFilesAction(icon, text, parent) {};
 
-    // Callback setters
-    inline void setKRecentFilesAction_MetaObject_Callback(KRecentFilesAction_MetaObject_Callback cb) { krecentfilesaction_metaobject_callback = cb; }
-    inline void setKRecentFilesAction_Metacast_Callback(KRecentFilesAction_Metacast_Callback cb) { krecentfilesaction_metacast_callback = cb; }
-    inline void setKRecentFilesAction_Metacall_Callback(KRecentFilesAction_Metacall_Callback cb) { krecentfilesaction_metacall_callback = cb; }
-    inline void setKRecentFilesAction_RemoveAction_Callback(KRecentFilesAction_RemoveAction_Callback cb) { krecentfilesaction_removeaction_callback = cb; }
-    inline void setKRecentFilesAction_Clear_Callback(KRecentFilesAction_Clear_Callback cb) { krecentfilesaction_clear_callback = cb; }
-    inline void setKRecentFilesAction_InsertAction_Callback(KRecentFilesAction_InsertAction_Callback cb) { krecentfilesaction_insertaction_callback = cb; }
-    inline void setKRecentFilesAction_SlotActionTriggered_Callback(KRecentFilesAction_SlotActionTriggered_Callback cb) { krecentfilesaction_slotactiontriggered_callback = cb; }
-    inline void setKRecentFilesAction_CreateWidget_Callback(KRecentFilesAction_CreateWidget_Callback cb) { krecentfilesaction_createwidget_callback = cb; }
-    inline void setKRecentFilesAction_DeleteWidget_Callback(KRecentFilesAction_DeleteWidget_Callback cb) { krecentfilesaction_deletewidget_callback = cb; }
-    inline void setKRecentFilesAction_Event_Callback(KRecentFilesAction_Event_Callback cb) { krecentfilesaction_event_callback = cb; }
-    inline void setKRecentFilesAction_EventFilter_Callback(KRecentFilesAction_EventFilter_Callback cb) { krecentfilesaction_eventfilter_callback = cb; }
-    inline void setKRecentFilesAction_TimerEvent_Callback(KRecentFilesAction_TimerEvent_Callback cb) { krecentfilesaction_timerevent_callback = cb; }
-    inline void setKRecentFilesAction_ChildEvent_Callback(KRecentFilesAction_ChildEvent_Callback cb) { krecentfilesaction_childevent_callback = cb; }
-    inline void setKRecentFilesAction_CustomEvent_Callback(KRecentFilesAction_CustomEvent_Callback cb) { krecentfilesaction_customevent_callback = cb; }
-    inline void setKRecentFilesAction_ConnectNotify_Callback(KRecentFilesAction_ConnectNotify_Callback cb) { krecentfilesaction_connectnotify_callback = cb; }
-    inline void setKRecentFilesAction_DisconnectNotify_Callback(KRecentFilesAction_DisconnectNotify_Callback cb) { krecentfilesaction_disconnectnotify_callback = cb; }
-    inline void setKRecentFilesAction_SlotToggled_Callback(KRecentFilesAction_SlotToggled_Callback cb) { krecentfilesaction_slottoggled_callback = cb; }
-    inline void setKRecentFilesAction_CreatedWidgets_Callback(KRecentFilesAction_CreatedWidgets_Callback cb) { krecentfilesaction_createdwidgets_callback = cb; }
-    inline void setKRecentFilesAction_Sender_Callback(KRecentFilesAction_Sender_Callback cb) { krecentfilesaction_sender_callback = cb; }
-    inline void setKRecentFilesAction_SenderSignalIndex_Callback(KRecentFilesAction_SenderSignalIndex_Callback cb) { krecentfilesaction_sendersignalindex_callback = cb; }
-    inline void setKRecentFilesAction_Receivers_Callback(KRecentFilesAction_Receivers_Callback cb) { krecentfilesaction_receivers_callback = cb; }
-    inline void setKRecentFilesAction_IsSignalConnected_Callback(KRecentFilesAction_IsSignalConnected_Callback cb) { krecentfilesaction_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKRecentFilesAction_MetaObject_IsBase(bool value) const { krecentfilesaction_metaobject_isbase = value; }
-    inline void setKRecentFilesAction_Metacast_IsBase(bool value) const { krecentfilesaction_metacast_isbase = value; }
-    inline void setKRecentFilesAction_Metacall_IsBase(bool value) const { krecentfilesaction_metacall_isbase = value; }
-    inline void setKRecentFilesAction_RemoveAction_IsBase(bool value) const { krecentfilesaction_removeaction_isbase = value; }
-    inline void setKRecentFilesAction_Clear_IsBase(bool value) const { krecentfilesaction_clear_isbase = value; }
-    inline void setKRecentFilesAction_InsertAction_IsBase(bool value) const { krecentfilesaction_insertaction_isbase = value; }
-    inline void setKRecentFilesAction_SlotActionTriggered_IsBase(bool value) const { krecentfilesaction_slotactiontriggered_isbase = value; }
-    inline void setKRecentFilesAction_CreateWidget_IsBase(bool value) const { krecentfilesaction_createwidget_isbase = value; }
-    inline void setKRecentFilesAction_DeleteWidget_IsBase(bool value) const { krecentfilesaction_deletewidget_isbase = value; }
-    inline void setKRecentFilesAction_Event_IsBase(bool value) const { krecentfilesaction_event_isbase = value; }
-    inline void setKRecentFilesAction_EventFilter_IsBase(bool value) const { krecentfilesaction_eventfilter_isbase = value; }
-    inline void setKRecentFilesAction_TimerEvent_IsBase(bool value) const { krecentfilesaction_timerevent_isbase = value; }
-    inline void setKRecentFilesAction_ChildEvent_IsBase(bool value) const { krecentfilesaction_childevent_isbase = value; }
-    inline void setKRecentFilesAction_CustomEvent_IsBase(bool value) const { krecentfilesaction_customevent_isbase = value; }
-    inline void setKRecentFilesAction_ConnectNotify_IsBase(bool value) const { krecentfilesaction_connectnotify_isbase = value; }
-    inline void setKRecentFilesAction_DisconnectNotify_IsBase(bool value) const { krecentfilesaction_disconnectnotify_isbase = value; }
-    inline void setKRecentFilesAction_SlotToggled_IsBase(bool value) const { krecentfilesaction_slottoggled_isbase = value; }
-    inline void setKRecentFilesAction_CreatedWidgets_IsBase(bool value) const { krecentfilesaction_createdwidgets_isbase = value; }
-    inline void setKRecentFilesAction_Sender_IsBase(bool value) const { krecentfilesaction_sender_isbase = value; }
-    inline void setKRecentFilesAction_SenderSignalIndex_IsBase(bool value) const { krecentfilesaction_sendersignalindex_isbase = value; }
-    inline void setKRecentFilesAction_Receivers_IsBase(bool value) const { krecentfilesaction_receivers_isbase = value; }
-    inline void setKRecentFilesAction_IsSignalConnected_IsBase(bool value) const { krecentfilesaction_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (krecentfilesaction_metaobject_isbase) {
-            krecentfilesaction_metaobject_isbase = false;
-            return KRecentFilesAction::metaObject();
-        }
-        auto metaobject_cb = krecentfilesaction_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (krecentfilesaction_metaobject_callback) {
+            QMetaObject* callback_ret = krecentfilesaction_metaobject_callback(this);
             return callback_ret;
         }
         return KRecentFilesAction::metaObject();
@@ -158,14 +83,9 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (krecentfilesaction_metacast_isbase) {
-            krecentfilesaction_metacast_isbase = false;
-            return KRecentFilesAction::qt_metacast(param1);
-        }
-        auto metacast_cb = krecentfilesaction_metacast_callback;
-        if (metacast_cb) {
+        if (krecentfilesaction_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = krecentfilesaction_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KRecentFilesAction::qt_metacast(param1);
@@ -173,16 +93,11 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (krecentfilesaction_metacall_isbase) {
-            krecentfilesaction_metacall_isbase = false;
-            return KRecentFilesAction::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = krecentfilesaction_metacall_callback;
-        if (metacall_cb) {
+        if (krecentfilesaction_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = krecentfilesaction_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KRecentFilesAction::qt_metacall(param1, param2, param3);
@@ -190,14 +105,9 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual QAction* removeAction(QAction* action) override {
-        if (krecentfilesaction_removeaction_isbase) {
-            krecentfilesaction_removeaction_isbase = false;
-            return KRecentFilesAction::removeAction(action);
-        }
-        auto removeaction_cb = krecentfilesaction_removeaction_callback;
-        if (removeaction_cb) {
+        if (krecentfilesaction_removeaction_callback) {
             QAction* cbval1 = action;
-            QAction* callback_ret = removeaction_cb(this, cbval1);
+            QAction* callback_ret = krecentfilesaction_removeaction_callback(this, cbval1);
             return callback_ret;
         }
         return KRecentFilesAction::removeAction(action);
@@ -205,14 +115,8 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void clear() override {
-        if (krecentfilesaction_clear_isbase) {
-            krecentfilesaction_clear_isbase = false;
-            KRecentFilesAction::clear();
-            return;
-        }
-        auto clear_cb = krecentfilesaction_clear_callback;
-        if (clear_cb) {
-            clear_cb();
+        if (krecentfilesaction_clear_callback) {
+            krecentfilesaction_clear_callback(this);
             return;
         }
         KRecentFilesAction::clear();
@@ -220,16 +124,10 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void insertAction(QAction* before, QAction* action) override {
-        if (krecentfilesaction_insertaction_isbase) {
-            krecentfilesaction_insertaction_isbase = false;
-            KRecentFilesAction::insertAction(before, action);
-            return;
-        }
-        auto insertaction_cb = krecentfilesaction_insertaction_callback;
-        if (insertaction_cb) {
+        if (krecentfilesaction_insertaction_callback) {
             QAction* cbval1 = before;
             QAction* cbval2 = action;
-            insertaction_cb(this, cbval1, cbval2);
+            krecentfilesaction_insertaction_callback(this, cbval1, cbval2);
             return;
         }
         KRecentFilesAction::insertAction(before, action);
@@ -237,15 +135,9 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void slotActionTriggered(QAction* action) override {
-        if (krecentfilesaction_slotactiontriggered_isbase) {
-            krecentfilesaction_slotactiontriggered_isbase = false;
-            KRecentFilesAction::slotActionTriggered(action);
-            return;
-        }
-        auto slotactiontriggered_cb = krecentfilesaction_slotactiontriggered_callback;
-        if (slotactiontriggered_cb) {
+        if (krecentfilesaction_slotactiontriggered_callback) {
             QAction* cbval1 = action;
-            slotactiontriggered_cb(this, cbval1);
+            krecentfilesaction_slotactiontriggered_callback(this, cbval1);
             return;
         }
         KRecentFilesAction::slotActionTriggered(action);
@@ -253,14 +145,9 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual QWidget* createWidget(QWidget* parent) override {
-        if (krecentfilesaction_createwidget_isbase) {
-            krecentfilesaction_createwidget_isbase = false;
-            return KRecentFilesAction::createWidget(parent);
-        }
-        auto createwidget_cb = krecentfilesaction_createwidget_callback;
-        if (createwidget_cb) {
+        if (krecentfilesaction_createwidget_callback) {
             QWidget* cbval1 = parent;
-            QWidget* callback_ret = createwidget_cb(this, cbval1);
+            QWidget* callback_ret = krecentfilesaction_createwidget_callback(this, cbval1);
             return callback_ret;
         }
         return KRecentFilesAction::createWidget(parent);
@@ -268,15 +155,9 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void deleteWidget(QWidget* widget) override {
-        if (krecentfilesaction_deletewidget_isbase) {
-            krecentfilesaction_deletewidget_isbase = false;
-            KRecentFilesAction::deleteWidget(widget);
-            return;
-        }
-        auto deletewidget_cb = krecentfilesaction_deletewidget_callback;
-        if (deletewidget_cb) {
+        if (krecentfilesaction_deletewidget_callback) {
             QWidget* cbval1 = widget;
-            deletewidget_cb(this, cbval1);
+            krecentfilesaction_deletewidget_callback(this, cbval1);
             return;
         }
         KRecentFilesAction::deleteWidget(widget);
@@ -284,14 +165,9 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (krecentfilesaction_event_isbase) {
-            krecentfilesaction_event_isbase = false;
-            return KRecentFilesAction::event(event);
-        }
-        auto event_cb = krecentfilesaction_event_callback;
-        if (event_cb) {
+        if (krecentfilesaction_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = krecentfilesaction_event_callback(this, cbval1);
             return callback_ret;
         }
         return KRecentFilesAction::event(event);
@@ -299,15 +175,10 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (krecentfilesaction_eventfilter_isbase) {
-            krecentfilesaction_eventfilter_isbase = false;
-            return KRecentFilesAction::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = krecentfilesaction_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (krecentfilesaction_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = krecentfilesaction_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KRecentFilesAction::eventFilter(watched, event);
@@ -315,15 +186,9 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (krecentfilesaction_timerevent_isbase) {
-            krecentfilesaction_timerevent_isbase = false;
-            KRecentFilesAction::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = krecentfilesaction_timerevent_callback;
-        if (timerevent_cb) {
+        if (krecentfilesaction_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            krecentfilesaction_timerevent_callback(this, cbval1);
             return;
         }
         KRecentFilesAction::timerEvent(event);
@@ -331,15 +196,9 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (krecentfilesaction_childevent_isbase) {
-            krecentfilesaction_childevent_isbase = false;
-            KRecentFilesAction::childEvent(event);
-            return;
-        }
-        auto childevent_cb = krecentfilesaction_childevent_callback;
-        if (childevent_cb) {
+        if (krecentfilesaction_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            krecentfilesaction_childevent_callback(this, cbval1);
             return;
         }
         KRecentFilesAction::childEvent(event);
@@ -347,15 +206,9 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (krecentfilesaction_customevent_isbase) {
-            krecentfilesaction_customevent_isbase = false;
-            KRecentFilesAction::customEvent(event);
-            return;
-        }
-        auto customevent_cb = krecentfilesaction_customevent_callback;
-        if (customevent_cb) {
+        if (krecentfilesaction_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            krecentfilesaction_customevent_callback(this, cbval1);
             return;
         }
         KRecentFilesAction::customEvent(event);
@@ -363,17 +216,11 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (krecentfilesaction_connectnotify_isbase) {
-            krecentfilesaction_connectnotify_isbase = false;
-            KRecentFilesAction::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = krecentfilesaction_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (krecentfilesaction_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            krecentfilesaction_connectnotify_callback(this, cbval1);
             return;
         }
         KRecentFilesAction::connectNotify(signal);
@@ -381,152 +228,27 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (krecentfilesaction_disconnectnotify_isbase) {
-            krecentfilesaction_disconnectnotify_isbase = false;
-            KRecentFilesAction::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = krecentfilesaction_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (krecentfilesaction_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            krecentfilesaction_disconnectnotify_callback(this, cbval1);
             return;
         }
         KRecentFilesAction::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void slotToggled(bool param1) {
-        if (krecentfilesaction_slottoggled_isbase) {
-            krecentfilesaction_slottoggled_isbase = false;
-            KRecentFilesAction::slotToggled(param1);
-            return;
-        }
-        auto slottoggled_cb = krecentfilesaction_slottoggled_callback;
-        if (slottoggled_cb) {
-            bool cbval1 = param1;
-            slottoggled_cb(this, cbval1);
-            return;
-        }
-        KRecentFilesAction::slotToggled(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QList<QWidget*> createdWidgets() const {
-        if (krecentfilesaction_createdwidgets_isbase) {
-            krecentfilesaction_createdwidgets_isbase = false;
-            return KRecentFilesAction::createdWidgets();
-        }
-        auto createdwidgets_cb = krecentfilesaction_createdwidgets_callback;
-        if (createdwidgets_cb) {
-            libqt_list /* of QWidget* */ callback_ret = createdwidgets_cb();
-            QList<QWidget*> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(callback_ret_arr[i]);
-            }
-            libqt_free(callback_ret.data);
-            return callback_ret_QList;
-        }
-        return KRecentFilesAction::createdWidgets();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (krecentfilesaction_sender_isbase) {
-            krecentfilesaction_sender_isbase = false;
-            return KRecentFilesAction::sender();
-        }
-        auto sender_cb = krecentfilesaction_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KRecentFilesAction::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (krecentfilesaction_sendersignalindex_isbase) {
-            krecentfilesaction_sendersignalindex_isbase = false;
-            return KRecentFilesAction::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = krecentfilesaction_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KRecentFilesAction::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (krecentfilesaction_receivers_isbase) {
-            krecentfilesaction_receivers_isbase = false;
-            return KRecentFilesAction::receivers(signal);
-        }
-        auto receivers_cb = krecentfilesaction_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KRecentFilesAction::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (krecentfilesaction_issignalconnected_isbase) {
-            krecentfilesaction_issignalconnected_isbase = false;
-            return KRecentFilesAction::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = krecentfilesaction_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KRecentFilesAction::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KRecentFilesAction_SlotActionTriggered(KRecentFilesAction* self, QAction* action);
     friend void KRecentFilesAction_SuperSlotActionTriggered(KRecentFilesAction* self, QAction* action);
-    friend QWidget* KRecentFilesAction_CreateWidget(KRecentFilesAction* self, QWidget* parent);
     friend QWidget* KRecentFilesAction_SuperCreateWidget(KRecentFilesAction* self, QWidget* parent);
-    friend void KRecentFilesAction_DeleteWidget(KRecentFilesAction* self, QWidget* widget);
     friend void KRecentFilesAction_SuperDeleteWidget(KRecentFilesAction* self, QWidget* widget);
-    friend bool KRecentFilesAction_Event(KRecentFilesAction* self, QEvent* event);
     friend bool KRecentFilesAction_SuperEvent(KRecentFilesAction* self, QEvent* event);
-    friend bool KRecentFilesAction_EventFilter(KRecentFilesAction* self, QObject* watched, QEvent* event);
     friend bool KRecentFilesAction_SuperEventFilter(KRecentFilesAction* self, QObject* watched, QEvent* event);
-    friend void KRecentFilesAction_TimerEvent(KRecentFilesAction* self, QTimerEvent* event);
     friend void KRecentFilesAction_SuperTimerEvent(KRecentFilesAction* self, QTimerEvent* event);
-    friend void KRecentFilesAction_ChildEvent(KRecentFilesAction* self, QChildEvent* event);
     friend void KRecentFilesAction_SuperChildEvent(KRecentFilesAction* self, QChildEvent* event);
-    friend void KRecentFilesAction_CustomEvent(KRecentFilesAction* self, QEvent* event);
     friend void KRecentFilesAction_SuperCustomEvent(KRecentFilesAction* self, QEvent* event);
-    friend void KRecentFilesAction_ConnectNotify(KRecentFilesAction* self, const QMetaMethod* signal);
     friend void KRecentFilesAction_SuperConnectNotify(KRecentFilesAction* self, const QMetaMethod* signal);
-    friend void KRecentFilesAction_DisconnectNotify(KRecentFilesAction* self, const QMetaMethod* signal);
     friend void KRecentFilesAction_SuperDisconnectNotify(KRecentFilesAction* self, const QMetaMethod* signal);
-    friend void KRecentFilesAction_SlotToggled(KRecentFilesAction* self, bool param1);
-    friend void KRecentFilesAction_SuperSlotToggled(KRecentFilesAction* self, bool param1);
-    friend libqt_list /* of QWidget* */ KRecentFilesAction_CreatedWidgets(const KRecentFilesAction* self);
-    friend libqt_list /* of QWidget* */ KRecentFilesAction_SuperCreatedWidgets(const KRecentFilesAction* self);
-    friend QObject* KRecentFilesAction_Sender(const KRecentFilesAction* self);
-    friend QObject* KRecentFilesAction_SuperSender(const KRecentFilesAction* self);
-    friend int KRecentFilesAction_SenderSignalIndex(const KRecentFilesAction* self);
-    friend int KRecentFilesAction_SuperSenderSignalIndex(const KRecentFilesAction* self);
-    friend int KRecentFilesAction_Receivers(const KRecentFilesAction* self, const char* signal);
-    friend int KRecentFilesAction_SuperReceivers(const KRecentFilesAction* self, const char* signal);
-    friend bool KRecentFilesAction_IsSignalConnected(const KRecentFilesAction* self, const QMetaMethod* signal);
-    friend bool KRecentFilesAction_SuperIsSignalConnected(const KRecentFilesAction* self, const QMetaMethod* signal);
 };
 
 #endif

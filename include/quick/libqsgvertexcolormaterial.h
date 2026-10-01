@@ -25,11 +25,11 @@ QSGVertexColorMaterial* QSGVertexColorMaterial_new();
 int QSGVertexColorMaterial_Compare(const QSGVertexColorMaterial* self, const QSGMaterial* other);
 QSGMaterialType* QSGVertexColorMaterial_Type(const QSGVertexColorMaterial* self);
 QSGMaterialShader* QSGVertexColorMaterial_CreateShader(const QSGVertexColorMaterial* self, int renderMode);
-void QSGVertexColorMaterial_OnCompare(const QSGVertexColorMaterial* self, intptr_t slot);
+void QSGVertexColorMaterial_OnCompare(QSGVertexColorMaterial* self, intptr_t slot);
 int QSGVertexColorMaterial_SuperCompare(const QSGVertexColorMaterial* self, const QSGMaterial* other);
-void QSGVertexColorMaterial_OnType(const QSGVertexColorMaterial* self, intptr_t slot);
+void QSGVertexColorMaterial_OnType(QSGVertexColorMaterial* self, intptr_t slot);
 QSGMaterialType* QSGVertexColorMaterial_SuperType(const QSGVertexColorMaterial* self);
-void QSGVertexColorMaterial_OnCreateShader(const QSGVertexColorMaterial* self, intptr_t slot);
+void QSGVertexColorMaterial_OnCreateShader(QSGVertexColorMaterial* self, intptr_t slot);
 QSGMaterialShader* QSGVertexColorMaterial_SuperCreateShader(const QSGVertexColorMaterial* self, int renderMode);
 void QSGVertexColorMaterial_Delete(QSGVertexColorMaterial* self);
 

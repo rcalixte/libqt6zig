@@ -224,1654 +224,1173 @@ void KLanguageButton_InsertSeparator1(KLanguageButton* self, int index) {
 
 // Base class handler implementation
 QMetaObject* KLanguageButton_SuperMetaObject(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_MetaObject_IsBase(true);
-        return (QMetaObject*)vklanguagebutton->metaObject();
-    } else {
-        return (QMetaObject*)self->KLanguageButton::metaObject();
-    }
+    return (QMetaObject*)self->KLanguageButton::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnMetaObject(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_MetaObject_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MetaObject_Callback>(slot));
+void KLanguageButton_OnMetaObject(KLanguageButton* self, intptr_t slot) {
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self)))
+        vklanguagebutton->klanguagebutton_metaobject_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KLanguageButton_SuperMetacast(KLanguageButton* self, const char* param1) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_Metacast_IsBase(true);
-        return vklanguagebutton->qt_metacast(param1);
-    } else {
-        return self->KLanguageButton::qt_metacast(param1);
-    }
+    return self->KLanguageButton::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMetacast(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_Metacast_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Metacast_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_metacast_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KLanguageButton_SuperMetacall(KLanguageButton* self, int param1, int param2, void** param3) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_Metacall_IsBase(true);
-        return vklanguagebutton->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KLanguageButton::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KLanguageButton::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMetacall(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_Metacall_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Metacall_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_metacall_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KLanguageButton_DevType(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return vklanguagebutton->devType();
-    } else {
-        return self->KLanguageButton::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KLanguageButton_SuperDevType(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_DevType_IsBase(true);
-        return vklanguagebutton->devType();
-    } else {
-        return self->KLanguageButton::devType();
-    }
+    return self->KLanguageButton::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnDevType(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_DevType_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DevType_Callback>(slot));
+void KLanguageButton_OnDevType(KLanguageButton* self, intptr_t slot) {
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self)))
+        vklanguagebutton->klanguagebutton_devtype_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_SetVisible(KLanguageButton* self, bool visible) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setVisible(visible);
-    } else {
-        self->KLanguageButton::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperSetVisible(KLanguageButton* self, bool visible) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_SetVisible_IsBase(true);
-        vklanguagebutton->setVisible(visible);
-    } else {
-        self->KLanguageButton::setVisible(visible);
-    }
+    self->KLanguageButton::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnSetVisible(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_SetVisible_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_SetVisible_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_setvisible_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KLanguageButton_SizeHint(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return new QSize(vklanguagebutton->sizeHint());
-    } else {
-        return new QSize(((VirtualKLanguageButton*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KLanguageButton_SuperSizeHint(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_SizeHint_IsBase(true);
-        return new QSize(vklanguagebutton->sizeHint());
-    } else {
-        return new QSize(((VirtualKLanguageButton*)self)->sizeHint());
-    }
+    return new QSize(self->KLanguageButton::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnSizeHint(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_SizeHint_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_SizeHint_Callback>(slot));
+void KLanguageButton_OnSizeHint(KLanguageButton* self, intptr_t slot) {
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self)))
+        vklanguagebutton->klanguagebutton_sizehint_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KLanguageButton_MinimumSizeHint(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return new QSize(vklanguagebutton->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKLanguageButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KLanguageButton_SuperMinimumSizeHint(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_MinimumSizeHint_IsBase(true);
-        return new QSize(vklanguagebutton->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKLanguageButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KLanguageButton::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnMinimumSizeHint(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MinimumSizeHint_Callback>(slot));
+void KLanguageButton_OnMinimumSizeHint(KLanguageButton* self, intptr_t slot) {
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self)))
+        vklanguagebutton->klanguagebutton_minimumsizehint_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KLanguageButton_HeightForWidth(const KLanguageButton* self, int param1) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return vklanguagebutton->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KLanguageButton::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KLanguageButton_SuperHeightForWidth(const KLanguageButton* self, int param1) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_HeightForWidth_IsBase(true);
-        return vklanguagebutton->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KLanguageButton::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KLanguageButton::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnHeightForWidth(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_HeightForWidth_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_HeightForWidth_Callback>(slot));
+void KLanguageButton_OnHeightForWidth(KLanguageButton* self, intptr_t slot) {
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self)))
+        vklanguagebutton->klanguagebutton_heightforwidth_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLanguageButton_HasHeightForWidth(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return vklanguagebutton->hasHeightForWidth();
-    } else {
-        return self->KLanguageButton::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KLanguageButton_SuperHasHeightForWidth(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_HasHeightForWidth_IsBase(true);
-        return vklanguagebutton->hasHeightForWidth();
-    } else {
-        return self->KLanguageButton::hasHeightForWidth();
-    }
+    return self->KLanguageButton::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnHasHeightForWidth(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_HasHeightForWidth_Callback>(slot));
+void KLanguageButton_OnHasHeightForWidth(KLanguageButton* self, intptr_t slot) {
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self)))
+        vklanguagebutton->klanguagebutton_hasheightforwidth_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KLanguageButton_PaintEngine(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return vklanguagebutton->paintEngine();
-    } else {
-        return self->KLanguageButton::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KLanguageButton_SuperPaintEngine(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_PaintEngine_IsBase(true);
-        return vklanguagebutton->paintEngine();
-    } else {
-        return self->KLanguageButton::paintEngine();
-    }
+    return self->KLanguageButton::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnPaintEngine(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_PaintEngine_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_PaintEngine_Callback>(slot));
+void KLanguageButton_OnPaintEngine(KLanguageButton* self, intptr_t slot) {
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self)))
+        vklanguagebutton->klanguagebutton_paintengine_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLanguageButton_Event(KLanguageButton* self, QEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         return vklanguagebutton->event(event);
     } else {
-        return ((VirtualKLanguageButton*)self)->event(event);
+        qFatal("Error: Protected virtual method KLanguageButton::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KLanguageButton_SuperEvent(KLanguageButton* self, QEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_Event_IsBase(true);
-        return vklanguagebutton->event(event);
-    } else {
-        return ((VirtualKLanguageButton*)self)->event(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        return vklanguagebutton->KLanguageButton::event(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_Event_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Event_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_event_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_MousePressEvent(KLanguageButton* self, QMouseEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->mousePressEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperMousePressEvent(KLanguageButton* self, QMouseEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_MousePressEvent_IsBase(true);
-        vklanguagebutton->mousePressEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->mousePressEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMousePressEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_MousePressEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MousePressEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_mousepressevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_MouseReleaseEvent(KLanguageButton* self, QMouseEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->mouseReleaseEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperMouseReleaseEvent(KLanguageButton* self, QMouseEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_MouseReleaseEvent_IsBase(true);
-        vklanguagebutton->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMouseReleaseEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MouseReleaseEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_mousereleaseevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_MouseDoubleClickEvent(KLanguageButton* self, QMouseEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperMouseDoubleClickEvent(KLanguageButton* self, QMouseEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_MouseDoubleClickEvent_IsBase(true);
-        vklanguagebutton->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMouseDoubleClickEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_mousedoubleclickevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_MouseMoveEvent(KLanguageButton* self, QMouseEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->mouseMoveEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperMouseMoveEvent(KLanguageButton* self, QMouseEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_MouseMoveEvent_IsBase(true);
-        vklanguagebutton->mouseMoveEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMouseMoveEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MouseMoveEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_mousemoveevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_WheelEvent(KLanguageButton* self, QWheelEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->wheelEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperWheelEvent(KLanguageButton* self, QWheelEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_WheelEvent_IsBase(true);
-        vklanguagebutton->wheelEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->wheelEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnWheelEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_WheelEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_WheelEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_wheelevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_KeyPressEvent(KLanguageButton* self, QKeyEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->keyPressEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperKeyPressEvent(KLanguageButton* self, QKeyEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_KeyPressEvent_IsBase(true);
-        vklanguagebutton->keyPressEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->keyPressEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnKeyPressEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_KeyPressEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_KeyPressEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_keypressevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_KeyReleaseEvent(KLanguageButton* self, QKeyEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->keyReleaseEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperKeyReleaseEvent(KLanguageButton* self, QKeyEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_KeyReleaseEvent_IsBase(true);
-        vklanguagebutton->keyReleaseEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnKeyReleaseEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_KeyReleaseEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_keyreleaseevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_FocusInEvent(KLanguageButton* self, QFocusEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->focusInEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperFocusInEvent(KLanguageButton* self, QFocusEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_FocusInEvent_IsBase(true);
-        vklanguagebutton->focusInEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->focusInEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnFocusInEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_FocusInEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_FocusInEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_focusinevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_FocusOutEvent(KLanguageButton* self, QFocusEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->focusOutEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperFocusOutEvent(KLanguageButton* self, QFocusEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_FocusOutEvent_IsBase(true);
-        vklanguagebutton->focusOutEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->focusOutEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnFocusOutEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_FocusOutEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_FocusOutEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_focusoutevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_EnterEvent(KLanguageButton* self, QEnterEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->enterEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperEnterEvent(KLanguageButton* self, QEnterEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_EnterEvent_IsBase(true);
-        vklanguagebutton->enterEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->enterEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnEnterEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_EnterEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_EnterEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_enterevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_LeaveEvent(KLanguageButton* self, QEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->leaveEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperLeaveEvent(KLanguageButton* self, QEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_LeaveEvent_IsBase(true);
-        vklanguagebutton->leaveEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->leaveEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnLeaveEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_LeaveEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_LeaveEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_leaveevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_PaintEvent(KLanguageButton* self, QPaintEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->paintEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperPaintEvent(KLanguageButton* self, QPaintEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_PaintEvent_IsBase(true);
-        vklanguagebutton->paintEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->paintEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnPaintEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_PaintEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_PaintEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_paintevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_MoveEvent(KLanguageButton* self, QMoveEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->moveEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperMoveEvent(KLanguageButton* self, QMoveEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_MoveEvent_IsBase(true);
-        vklanguagebutton->moveEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->moveEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMoveEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_MoveEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MoveEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_moveevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_ResizeEvent(KLanguageButton* self, QResizeEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->resizeEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperResizeEvent(KLanguageButton* self, QResizeEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_ResizeEvent_IsBase(true);
-        vklanguagebutton->resizeEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->resizeEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnResizeEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_ResizeEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ResizeEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_resizeevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_CloseEvent(KLanguageButton* self, QCloseEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->closeEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperCloseEvent(KLanguageButton* self, QCloseEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_CloseEvent_IsBase(true);
-        vklanguagebutton->closeEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->closeEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnCloseEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_CloseEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_CloseEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_closeevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_ContextMenuEvent(KLanguageButton* self, QContextMenuEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->contextMenuEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperContextMenuEvent(KLanguageButton* self, QContextMenuEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_ContextMenuEvent_IsBase(true);
-        vklanguagebutton->contextMenuEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->contextMenuEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnContextMenuEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ContextMenuEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_contextmenuevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_TabletEvent(KLanguageButton* self, QTabletEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->tabletEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperTabletEvent(KLanguageButton* self, QTabletEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_TabletEvent_IsBase(true);
-        vklanguagebutton->tabletEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->tabletEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnTabletEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_TabletEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_TabletEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_tabletevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_ActionEvent(KLanguageButton* self, QActionEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->actionEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperActionEvent(KLanguageButton* self, QActionEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_ActionEvent_IsBase(true);
-        vklanguagebutton->actionEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->actionEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnActionEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_ActionEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ActionEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_actionevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_DragEnterEvent(KLanguageButton* self, QDragEnterEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->dragEnterEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperDragEnterEvent(KLanguageButton* self, QDragEnterEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_DragEnterEvent_IsBase(true);
-        vklanguagebutton->dragEnterEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->dragEnterEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnDragEnterEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_DragEnterEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DragEnterEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_dragenterevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_DragMoveEvent(KLanguageButton* self, QDragMoveEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->dragMoveEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperDragMoveEvent(KLanguageButton* self, QDragMoveEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_DragMoveEvent_IsBase(true);
-        vklanguagebutton->dragMoveEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->dragMoveEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnDragMoveEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_DragMoveEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DragMoveEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_dragmoveevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_DragLeaveEvent(KLanguageButton* self, QDragLeaveEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->dragLeaveEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperDragLeaveEvent(KLanguageButton* self, QDragLeaveEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_DragLeaveEvent_IsBase(true);
-        vklanguagebutton->dragLeaveEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnDragLeaveEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DragLeaveEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_dragleaveevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_DropEvent(KLanguageButton* self, QDropEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->dropEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperDropEvent(KLanguageButton* self, QDropEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_DropEvent_IsBase(true);
-        vklanguagebutton->dropEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->dropEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnDropEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_DropEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DropEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_dropevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_ShowEvent(KLanguageButton* self, QShowEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->showEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperShowEvent(KLanguageButton* self, QShowEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_ShowEvent_IsBase(true);
-        vklanguagebutton->showEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->showEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnShowEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_ShowEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ShowEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_showevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_HideEvent(KLanguageButton* self, QHideEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->hideEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperHideEvent(KLanguageButton* self, QHideEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_HideEvent_IsBase(true);
-        vklanguagebutton->hideEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->hideEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnHideEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_HideEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_HideEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_hideevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLanguageButton_NativeEvent(KLanguageButton* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
+    if (vklanguagebutton) {
         return vklanguagebutton->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKLanguageButton*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KLanguageButton::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KLanguageButton_SuperNativeEvent(KLanguageButton* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_NativeEvent_IsBase(true);
-        return vklanguagebutton->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKLanguageButton*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        return vklanguagebutton->KLanguageButton::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnNativeEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_NativeEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_NativeEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_nativeevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_ChangeEvent(KLanguageButton* self, QEvent* param1) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->changeEvent(param1);
     } else {
-        ((VirtualKLanguageButton*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KLanguageButton::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperChangeEvent(KLanguageButton* self, QEvent* param1) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_ChangeEvent_IsBase(true);
-        vklanguagebutton->changeEvent(param1);
-    } else {
-        ((VirtualKLanguageButton*)self)->changeEvent(param1);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnChangeEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_ChangeEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ChangeEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_changeevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KLanguageButton_Metric(const KLanguageButton* self, int param1) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         return vklanguagebutton->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKLanguageButton*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KLanguageButton::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KLanguageButton_SuperMetric(const KLanguageButton* self, int param1) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_Metric_IsBase(true);
-        return vklanguagebutton->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKLanguageButton*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self))) {
+        return vklanguagebutton->KLanguageButton::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnMetric(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_Metric_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Metric_Callback>(slot));
+void KLanguageButton_OnMetric(KLanguageButton* self, intptr_t slot) {
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self)))
+        vklanguagebutton->klanguagebutton_metric_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_InitPainter(const KLanguageButton* self, QPainter* painter) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->initPainter(painter);
     } else {
-        ((VirtualKLanguageButton*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KLanguageButton::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperInitPainter(const KLanguageButton* self, QPainter* painter) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_InitPainter_IsBase(true);
-        vklanguagebutton->initPainter(painter);
-    } else {
-        ((VirtualKLanguageButton*)self)->initPainter(painter);
-    }
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self))) {
+        vklanguagebutton->KLanguageButton::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnInitPainter(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_InitPainter_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_InitPainter_Callback>(slot));
+void KLanguageButton_OnInitPainter(KLanguageButton* self, intptr_t slot) {
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self)))
+        vklanguagebutton->klanguagebutton_initpainter_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KLanguageButton_Redirected(const KLanguageButton* self, QPoint* offset) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         return vklanguagebutton->redirected(offset);
     } else {
-        return ((VirtualKLanguageButton*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KLanguageButton::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KLanguageButton_SuperRedirected(const KLanguageButton* self, QPoint* offset) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_Redirected_IsBase(true);
-        return vklanguagebutton->redirected(offset);
-    } else {
-        return ((VirtualKLanguageButton*)self)->redirected(offset);
-    }
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self))) {
+        return vklanguagebutton->KLanguageButton::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnRedirected(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_Redirected_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Redirected_Callback>(slot));
+void KLanguageButton_OnRedirected(KLanguageButton* self, intptr_t slot) {
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self)))
+        vklanguagebutton->klanguagebutton_redirected_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KLanguageButton_SharedPainter(const KLanguageButton* self) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         return vklanguagebutton->sharedPainter();
     } else {
-        return ((VirtualKLanguageButton*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KLanguageButton::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KLanguageButton_SuperSharedPainter(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_SharedPainter_IsBase(true);
-        return vklanguagebutton->sharedPainter();
-    } else {
-        return ((VirtualKLanguageButton*)self)->sharedPainter();
-    }
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self))) {
+        return vklanguagebutton->KLanguageButton::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnSharedPainter(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_SharedPainter_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_SharedPainter_Callback>(slot));
+void KLanguageButton_OnSharedPainter(KLanguageButton* self, intptr_t slot) {
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self)))
+        vklanguagebutton->klanguagebutton_sharedpainter_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_InputMethodEvent(KLanguageButton* self, QInputMethodEvent* param1) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->inputMethodEvent(param1);
     } else {
-        ((VirtualKLanguageButton*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KLanguageButton::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperInputMethodEvent(KLanguageButton* self, QInputMethodEvent* param1) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_InputMethodEvent_IsBase(true);
-        vklanguagebutton->inputMethodEvent(param1);
-    } else {
-        ((VirtualKLanguageButton*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnInputMethodEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_InputMethodEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_InputMethodEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_inputmethodevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KLanguageButton_InputMethodQuery(const KLanguageButton* self, int param1) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return new QVariant(vklanguagebutton->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKLanguageButton*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KLanguageButton_SuperInputMethodQuery(const KLanguageButton* self, int param1) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_InputMethodQuery_IsBase(true);
-        return new QVariant(vklanguagebutton->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKLanguageButton*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KLanguageButton::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnInputMethodQuery(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_InputMethodQuery_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_InputMethodQuery_Callback>(slot));
+void KLanguageButton_OnInputMethodQuery(KLanguageButton* self, intptr_t slot) {
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self)))
+        vklanguagebutton->klanguagebutton_inputmethodquery_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLanguageButton_FocusNextPrevChild(KLanguageButton* self, bool next) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         return vklanguagebutton->focusNextPrevChild(next);
     } else {
-        return ((VirtualKLanguageButton*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KLanguageButton::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KLanguageButton_SuperFocusNextPrevChild(KLanguageButton* self, bool next) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_FocusNextPrevChild_IsBase(true);
-        return vklanguagebutton->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKLanguageButton*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        return vklanguagebutton->KLanguageButton::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnFocusNextPrevChild(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_FocusNextPrevChild_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_focusnextprevchild_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLanguageButton_EventFilter(KLanguageButton* self, QObject* watched, QEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return vklanguagebutton->eventFilter(watched, event);
-    } else {
-        return self->KLanguageButton::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KLanguageButton_SuperEventFilter(KLanguageButton* self, QObject* watched, QEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_EventFilter_IsBase(true);
-        return vklanguagebutton->eventFilter(watched, event);
-    } else {
-        return self->KLanguageButton::eventFilter(watched, event);
-    }
+    return self->KLanguageButton::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnEventFilter(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_EventFilter_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_EventFilter_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_eventfilter_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_TimerEvent(KLanguageButton* self, QTimerEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->timerEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperTimerEvent(KLanguageButton* self, QTimerEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_TimerEvent_IsBase(true);
-        vklanguagebutton->timerEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->timerEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnTimerEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_TimerEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_TimerEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_timerevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_ChildEvent(KLanguageButton* self, QChildEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->childEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperChildEvent(KLanguageButton* self, QChildEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_ChildEvent_IsBase(true);
-        vklanguagebutton->childEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->childEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnChildEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_ChildEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ChildEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_childevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_CustomEvent(KLanguageButton* self, QEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->customEvent(event);
     } else {
-        ((VirtualKLanguageButton*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KLanguageButton::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperCustomEvent(KLanguageButton* self, QEvent* event) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_CustomEvent_IsBase(true);
-        vklanguagebutton->customEvent(event);
-    } else {
-        ((VirtualKLanguageButton*)self)->customEvent(event);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnCustomEvent(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_CustomEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_CustomEvent_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_customevent_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_ConnectNotify(KLanguageButton* self, const QMetaMethod* signal) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->connectNotify(*signal);
     } else {
-        ((VirtualKLanguageButton*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KLanguageButton::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperConnectNotify(KLanguageButton* self, const QMetaMethod* signal) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_ConnectNotify_IsBase(true);
-        vklanguagebutton->connectNotify(*signal);
-    } else {
-        ((VirtualKLanguageButton*)self)->connectNotify(*signal);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnConnectNotify(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_ConnectNotify_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ConnectNotify_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_connectnotify_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLanguageButton_DisconnectNotify(KLanguageButton* self, const QMetaMethod* signal) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton) {
         vklanguagebutton->disconnectNotify(*signal);
     } else {
-        ((VirtualKLanguageButton*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KLanguageButton::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLanguageButton_SuperDisconnectNotify(KLanguageButton* self, const QMetaMethod* signal) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_DisconnectNotify_IsBase(true);
-        vklanguagebutton->disconnectNotify(*signal);
-    } else {
-        ((VirtualKLanguageButton*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->KLanguageButton::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KLanguageButton::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnDisconnectNotify(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_DisconnectNotify_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DisconnectNotify_Callback>(slot));
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self))
+        vklanguagebutton->klanguagebutton_disconnectnotify_callback = reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KLanguageButton_UpdateMicroFocus(KLanguageButton* self) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->updateMicroFocus();
-    } else {
-        ((VirtualKLanguageButton*)self)->updateMicroFocus();
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->VirtualKLanguageButton::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KLanguageButton::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KLanguageButton_SuperUpdateMicroFocus(KLanguageButton* self) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_UpdateMicroFocus_IsBase(true);
-        vklanguagebutton->updateMicroFocus();
-    } else {
-        ((VirtualKLanguageButton*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnUpdateMicroFocus(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KLanguageButton_Create(KLanguageButton* self) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->create();
-    } else {
-        ((VirtualKLanguageButton*)self)->create();
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->VirtualKLanguageButton::create();
+    } else
+        qFatal("Error: Protected method KLanguageButton::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KLanguageButton_SuperCreate(KLanguageButton* self) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_Create_IsBase(true);
-        vklanguagebutton->create();
-    } else {
-        ((VirtualKLanguageButton*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnCreate(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_Create_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KLanguageButton_Destroy(KLanguageButton* self) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->destroy();
-    } else {
-        ((VirtualKLanguageButton*)self)->destroy();
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        vklanguagebutton->VirtualKLanguageButton::destroy();
+    } else
+        qFatal("Error: Protected method KLanguageButton::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KLanguageButton_SuperDestroy(KLanguageButton* self) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_Destroy_IsBase(true);
-        vklanguagebutton->destroy();
-    } else {
-        ((VirtualKLanguageButton*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnDestroy(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_Destroy_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KLanguageButton_FocusNextChild(KLanguageButton* self) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return vklanguagebutton->focusNextChild();
-    } else {
-        return ((VirtualKLanguageButton*)self)->focusNextChild();
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        return vklanguagebutton->VirtualKLanguageButton::focusNextChild();
+    } else
+        qFatal("Error: Protected method KLanguageButton::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KLanguageButton_SuperFocusNextChild(KLanguageButton* self) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_FocusNextChild_IsBase(true);
-        return vklanguagebutton->focusNextChild();
-    } else {
-        return ((VirtualKLanguageButton*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnFocusNextChild(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_FocusNextChild_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KLanguageButton_FocusPreviousChild(KLanguageButton* self) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return vklanguagebutton->focusPreviousChild();
-    } else {
-        return ((VirtualKLanguageButton*)self)->focusPreviousChild();
-    }
+    if (auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self)) {
+        return vklanguagebutton->VirtualKLanguageButton::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KLanguageButton::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KLanguageButton_SuperFocusPreviousChild(KLanguageButton* self) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_FocusPreviousChild_IsBase(true);
-        return vklanguagebutton->focusPreviousChild();
-    } else {
-        return ((VirtualKLanguageButton*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnFocusPreviousChild(KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KLanguageButton_Sender(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return vklanguagebutton->sender();
-    } else {
-        return ((VirtualKLanguageButton*)self)->sender();
-    }
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self))) {
+        return vklanguagebutton->VirtualKLanguageButton::sender();
+    } else
+        qFatal("Error: Protected method KLanguageButton::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KLanguageButton_SuperSender(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_Sender_IsBase(true);
-        return vklanguagebutton->sender();
-    } else {
-        return ((VirtualKLanguageButton*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnSender(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_Sender_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KLanguageButton_SenderSignalIndex(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return vklanguagebutton->senderSignalIndex();
-    } else {
-        return ((VirtualKLanguageButton*)self)->senderSignalIndex();
-    }
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self))) {
+        return vklanguagebutton->VirtualKLanguageButton::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KLanguageButton::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KLanguageButton_SuperSenderSignalIndex(const KLanguageButton* self) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_SenderSignalIndex_IsBase(true);
-        return vklanguagebutton->senderSignalIndex();
-    } else {
-        return ((VirtualKLanguageButton*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnSenderSignalIndex(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KLanguageButton_Receivers(const KLanguageButton* self, const char* signal) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return vklanguagebutton->receivers(signal);
-    } else {
-        return ((VirtualKLanguageButton*)self)->receivers(signal);
-    }
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self))) {
+        return vklanguagebutton->VirtualKLanguageButton::receivers(signal);
+    } else
+        qFatal("Error: Protected method KLanguageButton::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KLanguageButton_SuperReceivers(const KLanguageButton* self, const char* signal) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_Receivers_IsBase(true);
-        return vklanguagebutton->receivers(signal);
-    } else {
-        return ((VirtualKLanguageButton*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnReceivers(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_Receivers_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KLanguageButton_IsSignalConnected(const KLanguageButton* self, const QMetaMethod* signal) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return vklanguagebutton->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKLanguageButton*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self))) {
+        return vklanguagebutton->VirtualKLanguageButton::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KLanguageButton::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KLanguageButton_SuperIsSignalConnected(const KLanguageButton* self, const QMetaMethod* signal) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_IsSignalConnected_IsBase(true);
-        return vklanguagebutton->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKLanguageButton*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnIsSignalConnected(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_IsSignalConnected_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KLanguageButton_GetDecodedMetricF(const KLanguageButton* self, int metricA, int metricB) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return vklanguagebutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKLanguageButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KLanguageButton_SuperGetDecodedMetricF(const KLanguageButton* self, int metricA, int metricB) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        vklanguagebutton->setKLanguageButton_GetDecodedMetricF_IsBase(true);
-        return vklanguagebutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKLanguageButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLanguageButton_OnGetDecodedMetricF(const KLanguageButton* self, intptr_t slot) {
-    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
-        vklanguagebutton->setKLanguageButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_GetDecodedMetricF_Callback>(slot));
+    if (auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self))) {
+        return vklanguagebutton->VirtualKLanguageButton::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KLanguageButton::getDecodedMetricF called without a directly constructed type");
 }
 
 void KLanguageButton_Delete(KLanguageButton* self) {

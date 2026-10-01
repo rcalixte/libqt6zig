@@ -40,7 +40,7 @@ void KFileCopyToMenu_Error(KFileCopyToMenu* self, int errorCode, const libqt_str
 void KFileCopyToMenu_Connect_Error(KFileCopyToMenu* self, intptr_t slot);
 libqt_string KFileCopyToMenu_Tr2(const char* s, const char* c);
 libqt_string KFileCopyToMenu_Tr3(const char* s, const char* c, int n);
-void KFileCopyToMenu_OnMetaObject(const KFileCopyToMenu* self, intptr_t slot);
+void KFileCopyToMenu_OnMetaObject(KFileCopyToMenu* self, intptr_t slot);
 QMetaObject* KFileCopyToMenu_SuperMetaObject(const KFileCopyToMenu* self);
 void KFileCopyToMenu_OnMetacast(KFileCopyToMenu* self, intptr_t slot);
 void* KFileCopyToMenu_SuperMetacast(KFileCopyToMenu* self, const char* param1);
@@ -68,17 +68,9 @@ void KFileCopyToMenu_DisconnectNotify(KFileCopyToMenu* self, const QMetaMethod* 
 void KFileCopyToMenu_OnDisconnectNotify(KFileCopyToMenu* self, intptr_t slot);
 void KFileCopyToMenu_SuperDisconnectNotify(KFileCopyToMenu* self, const QMetaMethod* signal);
 QObject* KFileCopyToMenu_Sender(const KFileCopyToMenu* self);
-void KFileCopyToMenu_OnSender(const KFileCopyToMenu* self, intptr_t slot);
-QObject* KFileCopyToMenu_SuperSender(const KFileCopyToMenu* self);
 int KFileCopyToMenu_SenderSignalIndex(const KFileCopyToMenu* self);
-void KFileCopyToMenu_OnSenderSignalIndex(const KFileCopyToMenu* self, intptr_t slot);
-int KFileCopyToMenu_SuperSenderSignalIndex(const KFileCopyToMenu* self);
 int KFileCopyToMenu_Receivers(const KFileCopyToMenu* self, const char* signal);
-void KFileCopyToMenu_OnReceivers(const KFileCopyToMenu* self, intptr_t slot);
-int KFileCopyToMenu_SuperReceivers(const KFileCopyToMenu* self, const char* signal);
 bool KFileCopyToMenu_IsSignalConnected(const KFileCopyToMenu* self, const QMetaMethod* signal);
-void KFileCopyToMenu_OnIsSignalConnected(const KFileCopyToMenu* self, intptr_t slot);
-bool KFileCopyToMenu_SuperIsSignalConnected(const KFileCopyToMenu* self, const QMetaMethod* signal);
 void KFileCopyToMenu_Delete(KFileCopyToMenu* self);
 
 #ifdef __cplusplus

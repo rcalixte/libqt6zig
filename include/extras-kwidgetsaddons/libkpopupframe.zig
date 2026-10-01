@@ -133,9 +133,9 @@ pub const KPopupFrame = extern struct {
     ///
     /// ` self: KPopupFrame `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KPopupFrame) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KPopupFrame, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KPopupFrame, callback: *const fn (KPopupFrame) callconv(.c) QMetaObject) void {
         qtc.KPopupFrame_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7080,11 +7080,11 @@ pub const KPopupFrame = extern struct {
     ///
     /// ` self: KPopupFrame`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KPopupFrame) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KPopupFrame, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KPopupFrame, callback: *const fn (KPopupFrame) callconv(.c) QSize) void {
         qtc.KPopupFrame_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7386,9 +7386,9 @@ pub const KPopupFrame = extern struct {
     ///
     /// ` self: KPopupFrame`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPopupFrame) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KPopupFrame, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KPopupFrame, callback: *const fn (KPopupFrame) callconv(.c) i32) void {
         qtc.KPopupFrame_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7502,11 +7502,11 @@ pub const KPopupFrame = extern struct {
     ///
     /// ` self: KPopupFrame`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KPopupFrame) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KPopupFrame, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KPopupFrame, callback: *const fn (KPopupFrame) callconv(.c) QSize) void {
         qtc.KPopupFrame_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7620,9 +7620,9 @@ pub const KPopupFrame = extern struct {
     ///
     /// ` self: KPopupFrame`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KPopupFrame) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KPopupFrame, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KPopupFrame, callback: *const fn (KPopupFrame) callconv(.c) bool) void {
         qtc.KPopupFrame_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7676,9 +7676,9 @@ pub const KPopupFrame = extern struct {
     ///
     /// ` self: KPopupFrame`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KPopupFrame) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KPopupFrame, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KPopupFrame, callback: *const fn (KPopupFrame) callconv(.c) QPaintEngine) void {
         qtc.KPopupFrame_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9232,9 +9232,9 @@ pub const KPopupFrame = extern struct {
     ///
     /// ` self: KPopupFrame`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KPopupFrame) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KPopupFrame, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KPopupFrame, callback: *const fn (KPopupFrame) callconv(.c) QPainter) void {
         qtc.KPopupFrame_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9821,47 +9821,6 @@ pub const KPopupFrame = extern struct {
         qtc.KPopupFrame_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPopupFrame `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: KPopupFrame, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.KPopupFrame_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPopupFrame`
-    ///
-    /// ` callback: *const fn (self: KPopupFrame, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: KPopupFrame, callback: *const fn (KPopupFrame, QPainter) callconv(.c) void) void {
-        qtc.KPopupFrame_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -9878,44 +9837,6 @@ pub const KPopupFrame = extern struct {
     ///
     pub fn updateMicroFocus(self: KPopupFrame) void {
         qtc.KPopupFrame_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPopupFrame `
-    ///
-    pub fn superUpdateMicroFocus(self: KPopupFrame) void {
-        qtc.KPopupFrame_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPopupFrame`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KPopupFrame, callback: *const fn () callconv(.c) void) void {
-        qtc.KPopupFrame_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -9936,44 +9857,6 @@ pub const KPopupFrame = extern struct {
         qtc.KPopupFrame_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPopupFrame `
-    ///
-    pub fn superCreate(self: KPopupFrame) void {
-        qtc.KPopupFrame_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPopupFrame`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KPopupFrame, callback: *const fn () callconv(.c) void) void {
-        qtc.KPopupFrame_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -9990,44 +9873,6 @@ pub const KPopupFrame = extern struct {
     ///
     pub fn destroy(self: KPopupFrame) void {
         qtc.KPopupFrame_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPopupFrame `
-    ///
-    pub fn superDestroy(self: KPopupFrame) void {
-        qtc.KPopupFrame_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPopupFrame`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KPopupFrame, callback: *const fn () callconv(.c) void) void {
-        qtc.KPopupFrame_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10048,44 +9893,6 @@ pub const KPopupFrame = extern struct {
         return qtc.KPopupFrame_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPopupFrame `
-    ///
-    pub fn superFocusNextChild(self: KPopupFrame) bool {
-        return qtc.KPopupFrame_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPopupFrame`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KPopupFrame, callback: *const fn () callconv(.c) bool) void {
-        qtc.KPopupFrame_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10102,44 +9909,6 @@ pub const KPopupFrame = extern struct {
     ///
     pub fn focusPreviousChild(self: KPopupFrame) bool {
         return qtc.KPopupFrame_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPopupFrame `
-    ///
-    pub fn superFocusPreviousChild(self: KPopupFrame) bool {
-        return qtc.KPopupFrame_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPopupFrame`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KPopupFrame, callback: *const fn () callconv(.c) bool) void {
-        qtc.KPopupFrame_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10160,44 +9929,6 @@ pub const KPopupFrame = extern struct {
         return .{ .ptr = qtc.KPopupFrame_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPopupFrame `
-    ///
-    pub fn superSender(self: KPopupFrame) QObject {
-        return .{ .ptr = qtc.KPopupFrame_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPopupFrame`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KPopupFrame, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KPopupFrame_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10214,44 +9945,6 @@ pub const KPopupFrame = extern struct {
     ///
     pub fn senderSignalIndex(self: KPopupFrame) i32 {
         return qtc.KPopupFrame_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPopupFrame `
-    ///
-    pub fn superSenderSignalIndex(self: KPopupFrame) i32 {
-        return qtc.KPopupFrame_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPopupFrame`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KPopupFrame, callback: *const fn () callconv(.c) i32) void {
-        qtc.KPopupFrame_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10275,47 +9968,6 @@ pub const KPopupFrame = extern struct {
         return qtc.KPopupFrame_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPopupFrame `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KPopupFrame, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KPopupFrame_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPopupFrame`
-    ///
-    /// ` callback: *const fn (self: KPopupFrame, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KPopupFrame, callback: *const fn (KPopupFrame, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KPopupFrame_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10335,47 +9987,6 @@ pub const KPopupFrame = extern struct {
     pub fn isSignalConnected(self: KPopupFrame, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPopupFrame_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPopupFrame `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KPopupFrame, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KPopupFrame_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPopupFrame`
-    ///
-    /// ` callback: *const fn (self: KPopupFrame, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KPopupFrame, callback: *const fn (KPopupFrame, QMetaMethod) callconv(.c) bool) void {
-        qtc.KPopupFrame_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10398,48 +10009,6 @@ pub const KPopupFrame = extern struct {
     ///
     pub fn getDecodedMetricF(self: KPopupFrame, metricA: i32, metricB: i32) f64 {
         return qtc.KPopupFrame_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPopupFrame `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KPopupFrame, metricA: i32, metricB: i32) f64 {
-        return qtc.KPopupFrame_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPopupFrame`
-    ///
-    /// ` callback: *const fn (self: KPopupFrame, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KPopupFrame, callback: *const fn (KPopupFrame, i32, i32) callconv(.c) f64) void {
-        qtc.KPopupFrame_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

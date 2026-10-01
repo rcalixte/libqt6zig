@@ -52,7 +52,7 @@ QColor* TextGrammarCheck__LanguageToolManager_GrammarColorForError(TextGrammarCh
 bool TextGrammarCheck__LanguageToolManager_AllowToGetListOfLanguages(const TextGrammarCheck__LanguageToolManager* self);
 libqt_string TextGrammarCheck__LanguageToolManager_Tr2(const char* s, const char* c);
 libqt_string TextGrammarCheck__LanguageToolManager_Tr3(const char* s, const char* c, int n);
-void TextGrammarCheck__LanguageToolManager_OnMetaObject(const TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+void TextGrammarCheck__LanguageToolManager_OnMetaObject(TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
 QMetaObject* TextGrammarCheck__LanguageToolManager_SuperMetaObject(const TextGrammarCheck__LanguageToolManager* self);
 void TextGrammarCheck__LanguageToolManager_OnMetacast(TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
 void* TextGrammarCheck__LanguageToolManager_SuperMetacast(TextGrammarCheck__LanguageToolManager* self, const char* param1);
@@ -80,17 +80,9 @@ void TextGrammarCheck__LanguageToolManager_DisconnectNotify(TextGrammarCheck__La
 void TextGrammarCheck__LanguageToolManager_OnDisconnectNotify(TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
 void TextGrammarCheck__LanguageToolManager_SuperDisconnectNotify(TextGrammarCheck__LanguageToolManager* self, const QMetaMethod* signal);
 QObject* TextGrammarCheck__LanguageToolManager_Sender(const TextGrammarCheck__LanguageToolManager* self);
-void TextGrammarCheck__LanguageToolManager_OnSender(const TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
-QObject* TextGrammarCheck__LanguageToolManager_SuperSender(const TextGrammarCheck__LanguageToolManager* self);
 int TextGrammarCheck__LanguageToolManager_SenderSignalIndex(const TextGrammarCheck__LanguageToolManager* self);
-void TextGrammarCheck__LanguageToolManager_OnSenderSignalIndex(const TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
-int TextGrammarCheck__LanguageToolManager_SuperSenderSignalIndex(const TextGrammarCheck__LanguageToolManager* self);
 int TextGrammarCheck__LanguageToolManager_Receivers(const TextGrammarCheck__LanguageToolManager* self, const char* signal);
-void TextGrammarCheck__LanguageToolManager_OnReceivers(const TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
-int TextGrammarCheck__LanguageToolManager_SuperReceivers(const TextGrammarCheck__LanguageToolManager* self, const char* signal);
 bool TextGrammarCheck__LanguageToolManager_IsSignalConnected(const TextGrammarCheck__LanguageToolManager* self, const QMetaMethod* signal);
-void TextGrammarCheck__LanguageToolManager_OnIsSignalConnected(const TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
-bool TextGrammarCheck__LanguageToolManager_SuperIsSignalConnected(const TextGrammarCheck__LanguageToolManager* self, const QMetaMethod* signal);
 void TextGrammarCheck__LanguageToolManager_Delete(TextGrammarCheck__LanguageToolManager* self);
 
 #ifdef __cplusplus

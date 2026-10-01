@@ -216,9 +216,9 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QUndoView, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) QMetaObject) void {
         qtc.QUndoView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9408,9 +9408,9 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) void `
     ///
-    pub fn onDoItemsLayout(self: QUndoView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoItemsLayout(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) void) void {
         qtc.QUndoView_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9464,9 +9464,9 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) void `
     ///
-    pub fn onReset(self: QUndoView, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) void) void {
         qtc.QUndoView_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10608,9 +10608,9 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) i32 `
     ///
-    pub fn onHorizontalOffset(self: QUndoView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHorizontalOffset(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) i32) void {
         qtc.QUndoView_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10664,9 +10664,9 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) i32 `
     ///
-    pub fn onVerticalOffset(self: QUndoView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onVerticalOffset(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) i32) void {
         qtc.QUndoView_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10934,13 +10934,13 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn onSelectedIndexes(self: QUndoView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectedIndexes(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) qtc.libqt_list) void {
         qtc.QUndoView_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10994,9 +10994,9 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) void `
     ///
-    pub fn onUpdateGeometries(self: QUndoView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometries(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) void) void {
         qtc.QUndoView_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11248,11 +11248,11 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: QUndoView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) QSize) void {
         qtc.QUndoView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11742,9 +11742,9 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) void `
     ///
-    pub fn onSelectAll(self: QUndoView, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectAll(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) void) void {
         qtc.QUndoView_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11798,9 +11798,9 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorData(self: QUndoView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorData(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) void) void {
         qtc.QUndoView_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11854,9 +11854,9 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorGeometries(self: QUndoView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorGeometries(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) void) void {
         qtc.QUndoView_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13112,11 +13112,11 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QUndoView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) QSize) void {
         qtc.QUndoView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13170,11 +13170,11 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QUndoView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) QSize) void {
         qtc.QUndoView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13476,9 +13476,9 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QUndoView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) i32) void {
         qtc.QUndoView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13652,9 +13652,9 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QUndoView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) bool) void {
         qtc.QUndoView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13708,9 +13708,9 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QUndoView, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) QPaintEngine) void {
         qtc.QUndoView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14582,9 +14582,9 @@ pub const QUndoView = extern struct {
     ///
     /// ` self: QUndoView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QUndoView) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QUndoView, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QUndoView, callback: *const fn (QUndoView) callconv(.c) QPainter) void {
         qtc.QUndoView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14858,48 +14858,6 @@ pub const QUndoView = extern struct {
         qtc.QUndoView_ResizeContents(@ptrCast(self.ptr), @bitCast(_width), @bitCast(_height));
     }
 
-    /// ### DEPRECATED: Use `superResizeContents` instead
-    ///
-    pub const SuperResizeContents = superResizeContents;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    /// ` _width: i32 `
-    ///
-    /// ` _height: i32 `
-    ///
-    pub fn superResizeContents(self: QUndoView, _width: i32, _height: i32) void {
-        qtc.QUndoView_SuperResizeContents(@ptrCast(self.ptr), @bitCast(_width), @bitCast(_height));
-    }
-
-    /// ### DEPRECATED: Use `onResizeContents` instead
-    ///
-    pub const OnResizeContents = onResizeContents;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn (self: QUndoView, width: i32, height: i32) callconv(.c) void `
-    ///
-    pub fn onResizeContents(self: QUndoView, callback: *const fn (QUndoView, i32, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnResizeContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `contentsSize` instead
     ///
     pub const ContentsSize = contentsSize;
@@ -14916,46 +14874,6 @@ pub const QUndoView = extern struct {
     ///
     pub fn contentsSize(self: QUndoView) QSize {
         return .{ .ptr = qtc.QUndoView_ContentsSize(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superContentsSize` instead
-    ///
-    pub const SuperContentsSize = superContentsSize;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superContentsSize(self: QUndoView) QSize {
-        return .{ .ptr = qtc.QUndoView_SuperContentsSize(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onContentsSize` instead
-    ///
-    pub const OnContentsSize = onContentsSize;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QSize `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onContentsSize(self: QUndoView, callback: *const fn () callconv(.c) QSize) void {
-        qtc.QUndoView_OnContentsSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `rectForIndex` instead
@@ -14977,49 +14895,6 @@ pub const QUndoView = extern struct {
     pub fn rectForIndex(self: QUndoView, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QUndoView_RectForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superRectForIndex` instead
-    ///
-    pub const SuperRectForIndex = superRectForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superRectForIndex(self: QUndoView, index: anytype) QRect {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QUndoView_SuperRectForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onRectForIndex` instead
-    ///
-    pub const OnRectForIndex = onRectForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn (self: QUndoView, index: QModelIndex) callconv(.c) QRect `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onRectForIndex(self: QUndoView, callback: *const fn (QUndoView, QModelIndex) callconv(.c) QRect) void {
-        qtc.QUndoView_OnRectForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setPositionForIndex` instead
@@ -15046,50 +14921,6 @@ pub const QUndoView = extern struct {
         qtc.QUndoView_SetPositionForIndex(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetPositionForIndex` instead
-    ///
-    pub const SuperSetPositionForIndex = superSetPositionForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    /// ` position: QPoint `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superSetPositionForIndex(self: QUndoView, position: anytype, index: anytype) void {
-        comptime _ = @TypeOf(position)._is_QPoint;
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        qtc.QUndoView_SuperSetPositionForIndex(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(index.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetPositionForIndex` instead
-    ///
-    pub const OnSetPositionForIndex = onSetPositionForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn (self: QUndoView, position: QPoint, index: QModelIndex) callconv(.c) void `
-    ///
-    pub fn onSetPositionForIndex(self: QUndoView, callback: *const fn (QUndoView, QPoint, QModelIndex) callconv(.c) void) void {
-        qtc.QUndoView_OnSetPositionForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `state` instead
     ///
     pub const State = state;
@@ -15112,48 +14943,6 @@ pub const QUndoView = extern struct {
         return qtc.QUndoView_State(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superState` instead
-    ///
-    pub const SuperState = superState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.State `
-    ///
-    pub fn superState(self: QUndoView) i32 {
-        return qtc.QUndoView_SuperState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onState` instead
-    ///
-    pub const OnState = onState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onState(self: QUndoView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QUndoView_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setState` instead
     ///
     pub const SetState = setState;
@@ -15174,46 +14963,6 @@ pub const QUndoView = extern struct {
         qtc.QUndoView_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `superSetState` instead
-    ///
-    pub const SuperSetState = superSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    /// ` _state: qabstractitemview_enums.State `
-    ///
-    pub fn superSetState(self: QUndoView, _state: i32) void {
-        qtc.QUndoView_SuperSetState(@ptrCast(self.ptr), @bitCast(_state));
-    }
-
-    /// ### DEPRECATED: Use `onSetState` instead
-    ///
-    pub const OnSetState = onSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn (self: QUndoView, state: qabstractitemview_enums.State) callconv(.c) void `
-    ///
-    pub fn onSetState(self: QUndoView, callback: *const fn (QUndoView, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `scheduleDelayedItemsLayout` instead
     ///
     pub const ScheduleDelayedItemsLayout = scheduleDelayedItemsLayout;
@@ -15232,44 +14981,6 @@ pub const QUndoView = extern struct {
         qtc.QUndoView_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superScheduleDelayedItemsLayout` instead
-    ///
-    pub const SuperScheduleDelayedItemsLayout = superScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superScheduleDelayedItemsLayout(self: QUndoView) void {
-        qtc.QUndoView_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onScheduleDelayedItemsLayout` instead
-    ///
-    pub const OnScheduleDelayedItemsLayout = onScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onScheduleDelayedItemsLayout(self: QUndoView, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `executeDelayedItemsLayout` instead
     ///
     pub const ExecuteDelayedItemsLayout = executeDelayedItemsLayout;
@@ -15286,44 +14997,6 @@ pub const QUndoView = extern struct {
     ///
     pub fn executeDelayedItemsLayout(self: QUndoView) void {
         qtc.QUndoView_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superExecuteDelayedItemsLayout` instead
-    ///
-    pub const SuperExecuteDelayedItemsLayout = superExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superExecuteDelayedItemsLayout(self: QUndoView) void {
-        qtc.QUndoView_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onExecuteDelayedItemsLayout` instead
-    ///
-    pub const OnExecuteDelayedItemsLayout = onExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onExecuteDelayedItemsLayout(self: QUndoView, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setDirtyRegion` instead
@@ -15345,47 +15018,6 @@ pub const QUndoView = extern struct {
     pub fn setDirtyRegion(self: QUndoView, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QUndoView_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSetDirtyRegion` instead
-    ///
-    pub const SuperSetDirtyRegion = superSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    /// ` region: QRegion `
-    ///
-    pub fn superSetDirtyRegion(self: QUndoView, region: anytype) void {
-        comptime _ = @TypeOf(region)._is_QRegion;
-        qtc.QUndoView_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDirtyRegion` instead
-    ///
-    pub const OnSetDirtyRegion = onSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn (self: QUndoView, region: QRegion) callconv(.c) void `
-    ///
-    pub fn onSetDirtyRegion(self: QUndoView, callback: *const fn (QUndoView, QRegion) callconv(.c) void) void {
-        qtc.QUndoView_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `scrollDirtyRegion` instead
@@ -15410,48 +15042,6 @@ pub const QUndoView = extern struct {
         qtc.QUndoView_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `superScrollDirtyRegion` instead
-    ///
-    pub const SuperScrollDirtyRegion = superScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    /// ` dx: i32 `
-    ///
-    /// ` dy: i32 `
-    ///
-    pub fn superScrollDirtyRegion(self: QUndoView, dx: i32, dy: i32) void {
-        qtc.QUndoView_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
-    }
-
-    /// ### DEPRECATED: Use `onScrollDirtyRegion` instead
-    ///
-    pub const OnScrollDirtyRegion = onScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn (self: QUndoView, dx: i32, dy: i32) callconv(.c) void `
-    ///
-    pub fn onScrollDirtyRegion(self: QUndoView, callback: *const fn (QUndoView, i32, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `dirtyRegionOffset` instead
     ///
     pub const DirtyRegionOffset = dirtyRegionOffset;
@@ -15468,46 +15058,6 @@ pub const QUndoView = extern struct {
     ///
     pub fn dirtyRegionOffset(self: QUndoView) QPoint {
         return .{ .ptr = qtc.QUndoView_DirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superDirtyRegionOffset` instead
-    ///
-    pub const SuperDirtyRegionOffset = superDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superDirtyRegionOffset(self: QUndoView) QPoint {
-        return .{ .ptr = qtc.QUndoView_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDirtyRegionOffset` instead
-    ///
-    pub const OnDirtyRegionOffset = onDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QPoint `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onDirtyRegionOffset(self: QUndoView, callback: *const fn () callconv(.c) QPoint) void {
-        qtc.QUndoView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `startAutoScroll` instead
@@ -15528,44 +15078,6 @@ pub const QUndoView = extern struct {
         qtc.QUndoView_StartAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStartAutoScroll` instead
-    ///
-    pub const SuperStartAutoScroll = superStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superStartAutoScroll(self: QUndoView) void {
-        qtc.QUndoView_SuperStartAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStartAutoScroll` instead
-    ///
-    pub const OnStartAutoScroll = onStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStartAutoScroll(self: QUndoView, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `stopAutoScroll` instead
     ///
     pub const StopAutoScroll = stopAutoScroll;
@@ -15584,44 +15096,6 @@ pub const QUndoView = extern struct {
         qtc.QUndoView_StopAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStopAutoScroll` instead
-    ///
-    pub const SuperStopAutoScroll = superStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superStopAutoScroll(self: QUndoView) void {
-        qtc.QUndoView_SuperStopAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStopAutoScroll` instead
-    ///
-    pub const OnStopAutoScroll = onStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStopAutoScroll(self: QUndoView, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `doAutoScroll` instead
     ///
     pub const DoAutoScroll = doAutoScroll;
@@ -15638,44 +15112,6 @@ pub const QUndoView = extern struct {
     ///
     pub fn doAutoScroll(self: QUndoView) void {
         qtc.QUndoView_DoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDoAutoScroll` instead
-    ///
-    pub const SuperDoAutoScroll = superDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superDoAutoScroll(self: QUndoView) void {
-        qtc.QUndoView_SuperDoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDoAutoScroll` instead
-    ///
-    pub const OnDoAutoScroll = onDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDoAutoScroll(self: QUndoView, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `dropIndicatorPosition` instead
@@ -15698,48 +15134,6 @@ pub const QUndoView = extern struct {
     ///
     pub fn dropIndicatorPosition(self: QUndoView) i32 {
         return qtc.QUndoView_DropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDropIndicatorPosition` instead
-    ///
-    pub const SuperDropIndicatorPosition = superDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.DropIndicatorPosition `
-    ///
-    pub fn superDropIndicatorPosition(self: QUndoView) i32 {
-        return qtc.QUndoView_SuperDropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDropIndicatorPosition` instead
-    ///
-    pub const OnDropIndicatorPosition = onDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onDropIndicatorPosition(self: QUndoView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QUndoView_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setViewportMargins` instead
@@ -15768,52 +15162,6 @@ pub const QUndoView = extern struct {
         qtc.QUndoView_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: QUndoView, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QUndoView_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn (self: QUndoView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: QUndoView, callback: *const fn (QUndoView, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QUndoView_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -15830,46 +15178,6 @@ pub const QUndoView = extern struct {
     ///
     pub fn viewportMargins(self: QUndoView) QMargins {
         return .{ .ptr = qtc.QUndoView_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superViewportMargins(self: QUndoView) QMargins {
-        return .{ .ptr = qtc.QUndoView_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: QUndoView, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.QUndoView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -15893,47 +15201,6 @@ pub const QUndoView = extern struct {
         qtc.QUndoView_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: QUndoView, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.QUndoView_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn (self: QUndoView, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: QUndoView, callback: *const fn (QUndoView, QPainter) callconv(.c) void) void {
-        qtc.QUndoView_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -15950,44 +15217,6 @@ pub const QUndoView = extern struct {
     ///
     pub fn updateMicroFocus(self: QUndoView) void {
         qtc.QUndoView_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superUpdateMicroFocus(self: QUndoView) void {
-        qtc.QUndoView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QUndoView, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -16008,44 +15237,6 @@ pub const QUndoView = extern struct {
         qtc.QUndoView_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superCreate(self: QUndoView) void {
-        qtc.QUndoView_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QUndoView, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -16062,44 +15253,6 @@ pub const QUndoView = extern struct {
     ///
     pub fn destroy(self: QUndoView) void {
         qtc.QUndoView_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superDestroy(self: QUndoView) void {
-        qtc.QUndoView_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QUndoView, callback: *const fn () callconv(.c) void) void {
-        qtc.QUndoView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -16120,44 +15273,6 @@ pub const QUndoView = extern struct {
         return qtc.QUndoView_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superFocusNextChild(self: QUndoView) bool {
-        return qtc.QUndoView_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QUndoView, callback: *const fn () callconv(.c) bool) void {
-        qtc.QUndoView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -16174,44 +15289,6 @@ pub const QUndoView = extern struct {
     ///
     pub fn focusPreviousChild(self: QUndoView) bool {
         return qtc.QUndoView_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superFocusPreviousChild(self: QUndoView) bool {
-        return qtc.QUndoView_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QUndoView, callback: *const fn () callconv(.c) bool) void {
-        qtc.QUndoView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -16232,44 +15309,6 @@ pub const QUndoView = extern struct {
         return .{ .ptr = qtc.QUndoView_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superSender(self: QUndoView) QObject {
-        return .{ .ptr = qtc.QUndoView_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QUndoView, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QUndoView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -16286,44 +15325,6 @@ pub const QUndoView = extern struct {
     ///
     pub fn senderSignalIndex(self: QUndoView) i32 {
         return qtc.QUndoView_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    pub fn superSenderSignalIndex(self: QUndoView) i32 {
-        return qtc.QUndoView_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QUndoView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QUndoView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -16347,47 +15348,6 @@ pub const QUndoView = extern struct {
         return qtc.QUndoView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QUndoView, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QUndoView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn (self: QUndoView, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QUndoView, callback: *const fn (QUndoView, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QUndoView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -16407,47 +15367,6 @@ pub const QUndoView = extern struct {
     pub fn isSignalConnected(self: QUndoView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QUndoView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QUndoView, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QUndoView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn (self: QUndoView, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QUndoView, callback: *const fn (QUndoView, QMetaMethod) callconv(.c) bool) void {
-        qtc.QUndoView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -16470,48 +15389,6 @@ pub const QUndoView = extern struct {
     ///
     pub fn getDecodedMetricF(self: QUndoView, metricA: i32, metricB: i32) f64 {
         return qtc.QUndoView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoView `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QUndoView, metricA: i32, metricB: i32) f64 {
-        return qtc.QUndoView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QUndoView`
-    ///
-    /// ` callback: *const fn (self: QUndoView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QUndoView, callback: *const fn (QUndoView, i32, i32) callconv(.c) f64) void {
-        qtc.QUndoView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

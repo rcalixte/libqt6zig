@@ -106,25 +106,25 @@ void TextCustomEditor__TextGoToLineWidget_Connect_HideGotoLine(TextCustomEditor_
 
 bool TextCustomEditor__TextGoToLineWidget_Event(TextCustomEditor__TextGoToLineWidget* self, QEvent* e) {
     auto* vtextcustomeditor__textgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditor__textgotolinewidget && vtextcustomeditor__textgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditor__textgotolinewidget) {
         return vtextcustomeditor__textgotolinewidget->event(e);
     }
-    return {};
+    qFatal("Error: Protected method TextCustomEditor::TextGoToLineWidget::event called without a directly constructed type");
 }
 
 void TextCustomEditor__TextGoToLineWidget_ShowEvent(TextCustomEditor__TextGoToLineWidget* self, QShowEvent* e) {
     auto* vtextcustomeditor__textgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditor__textgotolinewidget && vtextcustomeditor__textgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditor__textgotolinewidget) {
         vtextcustomeditor__textgotolinewidget->showEvent(e);
     }
 }
 
 bool TextCustomEditor__TextGoToLineWidget_EventFilter(TextCustomEditor__TextGoToLineWidget* self, QObject* obj, QEvent* event) {
     auto* vtextcustomeditor__textgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditor__textgotolinewidget && vtextcustomeditor__textgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditor__textgotolinewidget) {
         return vtextcustomeditor__textgotolinewidget->eventFilter(obj, event);
     }
-    return {};
+    qFatal("Error: Protected method TextCustomEditor::TextGoToLineWidget::eventFilter called without a directly constructed type");
 }
 
 void TextCustomEditor__TextGoToLineWidget_SlotBlockCountChanged(TextCustomEditor__TextGoToLineWidget* self, int numberBlockCount) {
@@ -157,1624 +157,1151 @@ libqt_string TextCustomEditor__TextGoToLineWidget_Tr3(const char* s, const char*
 
 // Base class handler implementation
 QMetaObject* TextCustomEditor__TextGoToLineWidget_SuperMetaObject(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vtextcustomeditortextgotolinewidget->metaObject();
-    } else {
-        return (QMetaObject*)self->TextCustomEditor::TextGoToLineWidget::metaObject();
-    }
+    return (QMetaObject*)self->TextCustomEditor::TextGoToLineWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnMetaObject(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MetaObject_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MetaObject_Callback>(slot));
+void TextCustomEditor__TextGoToLineWidget_OnMetaObject(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self)))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_metaobject_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextCustomEditor__TextGoToLineWidget_SuperMetacast(TextCustomEditor__TextGoToLineWidget* self, const char* param1) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Metacast_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->qt_metacast(param1);
-    } else {
-        return self->TextCustomEditor::TextGoToLineWidget::qt_metacast(param1);
-    }
+    return self->TextCustomEditor::TextGoToLineWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMetacast(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Metacast_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Metacast_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_metacast_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextCustomEditor__TextGoToLineWidget_SuperMetacall(TextCustomEditor__TextGoToLineWidget* self, int param1, int param2, void** param3) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Metacall_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextCustomEditor::TextGoToLineWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextCustomEditor::TextGoToLineWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMetacall(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Metacall_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Metacall_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_metacall_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool TextCustomEditor__TextGoToLineWidget_SuperEvent(TextCustomEditor__TextGoToLineWidget* self, QEvent* e) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Event_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->event(e);
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->event(e);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        return vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::event(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Event_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Event_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_event_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperShowEvent(TextCustomEditor__TextGoToLineWidget* self, QShowEvent* e) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ShowEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->showEvent(e);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->showEvent(e);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::showEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnShowEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ShowEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ShowEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_showevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool TextCustomEditor__TextGoToLineWidget_SuperEventFilter(TextCustomEditor__TextGoToLineWidget* self, QObject* obj, QEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_EventFilter_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->eventFilter(obj, event);
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->eventFilter(obj, event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        return vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::eventFilter(obj, event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnEventFilter(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_EventFilter_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_EventFilter_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_eventfilter_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextCustomEditor__TextGoToLineWidget_DevType(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return vtextcustomeditortextgotolinewidget->devType();
-    } else {
-        return self->TextCustomEditor::TextGoToLineWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int TextCustomEditor__TextGoToLineWidget_SuperDevType(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DevType_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->devType();
-    } else {
-        return self->TextCustomEditor::TextGoToLineWidget::devType();
-    }
+    return self->TextCustomEditor::TextGoToLineWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnDevType(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DevType_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DevType_Callback>(slot));
+void TextCustomEditor__TextGoToLineWidget_OnDevType(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self)))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_devtype_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SetVisible(TextCustomEditor__TextGoToLineWidget* self, bool visible) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setVisible(visible);
-    } else {
-        self->TextCustomEditor::TextGoToLineWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperSetVisible(TextCustomEditor__TextGoToLineWidget* self, bool visible) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_SetVisible_IsBase(true);
-        vtextcustomeditortextgotolinewidget->setVisible(visible);
-    } else {
-        self->TextCustomEditor::TextGoToLineWidget::setVisible(visible);
-    }
+    self->TextCustomEditor::TextGoToLineWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnSetVisible(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_SetVisible_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_SetVisible_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_setvisible_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextCustomEditor__TextGoToLineWidget_SizeHint(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return new QSize(vtextcustomeditortextgotolinewidget->sizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorTextGoToLineWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* TextCustomEditor__TextGoToLineWidget_SuperSizeHint(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_SizeHint_IsBase(true);
-        return new QSize(vtextcustomeditortextgotolinewidget->sizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorTextGoToLineWidget*)self)->sizeHint());
-    }
+    return new QSize(self->TextCustomEditor::TextGoToLineWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnSizeHint(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_SizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_SizeHint_Callback>(slot));
+void TextCustomEditor__TextGoToLineWidget_OnSizeHint(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self)))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_sizehint_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextCustomEditor__TextGoToLineWidget_MinimumSizeHint(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return new QSize(vtextcustomeditortextgotolinewidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorTextGoToLineWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* TextCustomEditor__TextGoToLineWidget_SuperMinimumSizeHint(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vtextcustomeditortextgotolinewidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorTextGoToLineWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->TextCustomEditor::TextGoToLineWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnMinimumSizeHint(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MinimumSizeHint_Callback>(slot));
+void TextCustomEditor__TextGoToLineWidget_OnMinimumSizeHint(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self)))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_minimumsizehint_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextCustomEditor__TextGoToLineWidget_HeightForWidth(const TextCustomEditor__TextGoToLineWidget* self, int param1) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return vtextcustomeditortextgotolinewidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextCustomEditor::TextGoToLineWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int TextCustomEditor__TextGoToLineWidget_SuperHeightForWidth(const TextCustomEditor__TextGoToLineWidget* self, int param1) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_HeightForWidth_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextCustomEditor::TextGoToLineWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->TextCustomEditor::TextGoToLineWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnHeightForWidth(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_HeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_HeightForWidth_Callback>(slot));
+void TextCustomEditor__TextGoToLineWidget_OnHeightForWidth(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self)))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_heightforwidth_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__TextGoToLineWidget_HasHeightForWidth(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return vtextcustomeditortextgotolinewidget->hasHeightForWidth();
-    } else {
-        return self->TextCustomEditor::TextGoToLineWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool TextCustomEditor__TextGoToLineWidget_SuperHasHeightForWidth(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_HasHeightForWidth_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->hasHeightForWidth();
-    } else {
-        return self->TextCustomEditor::TextGoToLineWidget::hasHeightForWidth();
-    }
+    return self->TextCustomEditor::TextGoToLineWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnHasHeightForWidth(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_HasHeightForWidth_Callback>(slot));
+void TextCustomEditor__TextGoToLineWidget_OnHasHeightForWidth(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self)))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_hasheightforwidth_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* TextCustomEditor__TextGoToLineWidget_PaintEngine(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return vtextcustomeditortextgotolinewidget->paintEngine();
-    } else {
-        return self->TextCustomEditor::TextGoToLineWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* TextCustomEditor__TextGoToLineWidget_SuperPaintEngine(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_PaintEngine_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->paintEngine();
-    } else {
-        return self->TextCustomEditor::TextGoToLineWidget::paintEngine();
-    }
+    return self->TextCustomEditor::TextGoToLineWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnPaintEngine(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_PaintEngine_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_PaintEngine_Callback>(slot));
+void TextCustomEditor__TextGoToLineWidget_OnPaintEngine(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self)))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_paintengine_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_MousePressEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->mousePressEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperMousePressEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MousePressEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->mousePressEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMousePressEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MousePressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MousePressEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_mousepressevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_MouseReleaseEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperMouseReleaseEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MouseReleaseEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMouseReleaseEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_mousereleaseevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_MouseDoubleClickEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperMouseDoubleClickEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MouseDoubleClickEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMouseDoubleClickEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_MouseMoveEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->mouseMoveEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperMouseMoveEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MouseMoveEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMouseMoveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_mousemoveevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_WheelEvent(TextCustomEditor__TextGoToLineWidget* self, QWheelEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->wheelEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperWheelEvent(TextCustomEditor__TextGoToLineWidget* self, QWheelEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_WheelEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->wheelEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnWheelEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_WheelEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_WheelEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_wheelevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_KeyPressEvent(TextCustomEditor__TextGoToLineWidget* self, QKeyEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->keyPressEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperKeyPressEvent(TextCustomEditor__TextGoToLineWidget* self, QKeyEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_KeyPressEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->keyPressEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnKeyPressEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_keypressevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_KeyReleaseEvent(TextCustomEditor__TextGoToLineWidget* self, QKeyEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->keyReleaseEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperKeyReleaseEvent(TextCustomEditor__TextGoToLineWidget* self, QKeyEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_KeyReleaseEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnKeyReleaseEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_keyreleaseevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_FocusInEvent(TextCustomEditor__TextGoToLineWidget* self, QFocusEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->focusInEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperFocusInEvent(TextCustomEditor__TextGoToLineWidget* self, QFocusEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusInEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->focusInEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnFocusInEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusInEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_FocusInEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_focusinevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_FocusOutEvent(TextCustomEditor__TextGoToLineWidget* self, QFocusEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->focusOutEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperFocusOutEvent(TextCustomEditor__TextGoToLineWidget* self, QFocusEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusOutEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->focusOutEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnFocusOutEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_focusoutevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_EnterEvent(TextCustomEditor__TextGoToLineWidget* self, QEnterEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->enterEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperEnterEvent(TextCustomEditor__TextGoToLineWidget* self, QEnterEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_EnterEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->enterEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->enterEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnEnterEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_EnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_EnterEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_enterevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_LeaveEvent(TextCustomEditor__TextGoToLineWidget* self, QEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->leaveEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperLeaveEvent(TextCustomEditor__TextGoToLineWidget* self, QEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_LeaveEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->leaveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnLeaveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_LeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_LeaveEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_leaveevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_PaintEvent(TextCustomEditor__TextGoToLineWidget* self, QPaintEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->paintEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperPaintEvent(TextCustomEditor__TextGoToLineWidget* self, QPaintEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_PaintEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->paintEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->paintEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnPaintEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_PaintEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_PaintEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_paintevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_MoveEvent(TextCustomEditor__TextGoToLineWidget* self, QMoveEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->moveEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperMoveEvent(TextCustomEditor__TextGoToLineWidget* self, QMoveEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MoveEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->moveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->moveEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMoveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MoveEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_moveevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_ResizeEvent(TextCustomEditor__TextGoToLineWidget* self, QResizeEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->resizeEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperResizeEvent(TextCustomEditor__TextGoToLineWidget* self, QResizeEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ResizeEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->resizeEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnResizeEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ResizeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ResizeEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_resizeevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_CloseEvent(TextCustomEditor__TextGoToLineWidget* self, QCloseEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->closeEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperCloseEvent(TextCustomEditor__TextGoToLineWidget* self, QCloseEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_CloseEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->closeEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->closeEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnCloseEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_CloseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_CloseEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_closeevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_ContextMenuEvent(TextCustomEditor__TextGoToLineWidget* self, QContextMenuEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->contextMenuEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperContextMenuEvent(TextCustomEditor__TextGoToLineWidget* self, QContextMenuEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ContextMenuEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->contextMenuEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnContextMenuEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_contextmenuevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_TabletEvent(TextCustomEditor__TextGoToLineWidget* self, QTabletEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->tabletEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperTabletEvent(TextCustomEditor__TextGoToLineWidget* self, QTabletEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_TabletEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->tabletEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnTabletEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_TabletEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_TabletEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_tabletevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_ActionEvent(TextCustomEditor__TextGoToLineWidget* self, QActionEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->actionEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperActionEvent(TextCustomEditor__TextGoToLineWidget* self, QActionEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ActionEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->actionEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->actionEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnActionEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ActionEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ActionEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_actionevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_DragEnterEvent(TextCustomEditor__TextGoToLineWidget* self, QDragEnterEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->dragEnterEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperDragEnterEvent(TextCustomEditor__TextGoToLineWidget* self, QDragEnterEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DragEnterEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->dragEnterEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnDragEnterEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_dragenterevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_DragMoveEvent(TextCustomEditor__TextGoToLineWidget* self, QDragMoveEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->dragMoveEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperDragMoveEvent(TextCustomEditor__TextGoToLineWidget* self, QDragMoveEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DragMoveEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->dragMoveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnDragMoveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_dragmoveevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_DragLeaveEvent(TextCustomEditor__TextGoToLineWidget* self, QDragLeaveEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->dragLeaveEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperDragLeaveEvent(TextCustomEditor__TextGoToLineWidget* self, QDragLeaveEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DragLeaveEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnDragLeaveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_dragleaveevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_DropEvent(TextCustomEditor__TextGoToLineWidget* self, QDropEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->dropEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperDropEvent(TextCustomEditor__TextGoToLineWidget* self, QDropEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DropEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->dropEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->dropEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnDropEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DropEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DropEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_dropevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_HideEvent(TextCustomEditor__TextGoToLineWidget* self, QHideEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->hideEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperHideEvent(TextCustomEditor__TextGoToLineWidget* self, QHideEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_HideEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->hideEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->hideEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnHideEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_HideEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_HideEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_hideevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__TextGoToLineWidget_NativeEvent(TextCustomEditor__TextGoToLineWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
+    if (vtextcustomeditortextgotolinewidget) {
         return vtextcustomeditortextgotolinewidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextCustomEditor__TextGoToLineWidget_SuperNativeEvent(TextCustomEditor__TextGoToLineWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_NativeEvent_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        return vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnNativeEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_NativeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_NativeEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_nativeevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_ChangeEvent(TextCustomEditor__TextGoToLineWidget* self, QEvent* param1) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->changeEvent(param1);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperChangeEvent(TextCustomEditor__TextGoToLineWidget* self, QEvent* param1) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ChangeEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->changeEvent(param1);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnChangeEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ChangeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ChangeEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_changeevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextCustomEditor__TextGoToLineWidget_Metric(const TextCustomEditor__TextGoToLineWidget* self, int param1) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         return vtextcustomeditortextgotolinewidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int TextCustomEditor__TextGoToLineWidget_SuperMetric(const TextCustomEditor__TextGoToLineWidget* self, int param1) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Metric_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self))) {
+        return vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnMetric(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Metric_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Metric_Callback>(slot));
+void TextCustomEditor__TextGoToLineWidget_OnMetric(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self)))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_metric_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_InitPainter(const TextCustomEditor__TextGoToLineWidget* self, QPainter* painter) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->initPainter(painter);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperInitPainter(const TextCustomEditor__TextGoToLineWidget* self, QPainter* painter) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_InitPainter_IsBase(true);
-        vtextcustomeditortextgotolinewidget->initPainter(painter);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->initPainter(painter);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self))) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnInitPainter(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_InitPainter_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_InitPainter_Callback>(slot));
+void TextCustomEditor__TextGoToLineWidget_OnInitPainter(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self)))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_initpainter_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* TextCustomEditor__TextGoToLineWidget_Redirected(const TextCustomEditor__TextGoToLineWidget* self, QPoint* offset) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         return vtextcustomeditortextgotolinewidget->redirected(offset);
     } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* TextCustomEditor__TextGoToLineWidget_SuperRedirected(const TextCustomEditor__TextGoToLineWidget* self, QPoint* offset) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Redirected_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->redirected(offset);
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->redirected(offset);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self))) {
+        return vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnRedirected(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Redirected_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Redirected_Callback>(slot));
+void TextCustomEditor__TextGoToLineWidget_OnRedirected(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self)))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_redirected_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* TextCustomEditor__TextGoToLineWidget_SharedPainter(const TextCustomEditor__TextGoToLineWidget* self) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         return vtextcustomeditortextgotolinewidget->sharedPainter();
     } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* TextCustomEditor__TextGoToLineWidget_SuperSharedPainter(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_SharedPainter_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->sharedPainter();
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->sharedPainter();
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self))) {
+        return vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnSharedPainter(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_SharedPainter_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_SharedPainter_Callback>(slot));
+void TextCustomEditor__TextGoToLineWidget_OnSharedPainter(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self)))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_sharedpainter_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_InputMethodEvent(TextCustomEditor__TextGoToLineWidget* self, QInputMethodEvent* param1) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->inputMethodEvent(param1);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperInputMethodEvent(TextCustomEditor__TextGoToLineWidget* self, QInputMethodEvent* param1) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_InputMethodEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnInputMethodEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_inputmethodevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* TextCustomEditor__TextGoToLineWidget_InputMethodQuery(const TextCustomEditor__TextGoToLineWidget* self, int param1) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return new QVariant(vtextcustomeditortextgotolinewidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextCustomEditorTextGoToLineWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* TextCustomEditor__TextGoToLineWidget_SuperInputMethodQuery(const TextCustomEditor__TextGoToLineWidget* self, int param1) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vtextcustomeditortextgotolinewidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextCustomEditorTextGoToLineWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->TextCustomEditor::TextGoToLineWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnInputMethodQuery(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_InputMethodQuery_Callback>(slot));
+void TextCustomEditor__TextGoToLineWidget_OnInputMethodQuery(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self)))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_inputmethodquery_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__TextGoToLineWidget_FocusNextPrevChild(TextCustomEditor__TextGoToLineWidget* self, bool next) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         return vtextcustomeditortextgotolinewidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextCustomEditor__TextGoToLineWidget_SuperFocusNextPrevChild(TextCustomEditor__TextGoToLineWidget* self, bool next) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusNextPrevChild_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        return vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnFocusNextPrevChild(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_focusnextprevchild_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_TimerEvent(TextCustomEditor__TextGoToLineWidget* self, QTimerEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->timerEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperTimerEvent(TextCustomEditor__TextGoToLineWidget* self, QTimerEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_TimerEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->timerEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->timerEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnTimerEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_TimerEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_TimerEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_timerevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_ChildEvent(TextCustomEditor__TextGoToLineWidget* self, QChildEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->childEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperChildEvent(TextCustomEditor__TextGoToLineWidget* self, QChildEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ChildEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->childEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->childEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnChildEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ChildEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ChildEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_childevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_CustomEvent(TextCustomEditor__TextGoToLineWidget* self, QEvent* event) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->customEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperCustomEvent(TextCustomEditor__TextGoToLineWidget* self, QEvent* event) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_CustomEvent_IsBase(true);
-        vtextcustomeditortextgotolinewidget->customEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->customEvent(event);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnCustomEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_CustomEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_CustomEvent_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_customevent_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_ConnectNotify(TextCustomEditor__TextGoToLineWidget* self, const QMetaMethod* signal) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->connectNotify(*signal);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperConnectNotify(TextCustomEditor__TextGoToLineWidget* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ConnectNotify_IsBase(true);
-        vtextcustomeditortextgotolinewidget->connectNotify(*signal);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnConnectNotify(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ConnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ConnectNotify_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_connectnotify_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextGoToLineWidget_DisconnectNotify(TextCustomEditor__TextGoToLineWidget* self, const QMetaMethod* signal) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget) {
         vtextcustomeditortextgotolinewidget->disconnectNotify(*signal);
     } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextGoToLineWidget_SuperDisconnectNotify(TextCustomEditor__TextGoToLineWidget* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DisconnectNotify_IsBase(true);
-        vtextcustomeditortextgotolinewidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->TextCustomEditor::TextGoToLineWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextGoToLineWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnDisconnectNotify(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self))
+        vtextcustomeditortextgotolinewidget->textcustomeditor__textgotolinewidget_disconnectnotify_callback = reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__TextGoToLineWidget_UpdateMicroFocus(TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->updateMicroFocus();
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->VirtualTextCustomEditorTextGoToLineWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextGoToLineWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__TextGoToLineWidget_SuperUpdateMicroFocus(TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_UpdateMicroFocus_IsBase(true);
-        vtextcustomeditortextgotolinewidget->updateMicroFocus();
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnUpdateMicroFocus(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__TextGoToLineWidget_Create(TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->create();
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->create();
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->VirtualTextCustomEditorTextGoToLineWidget::create();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextGoToLineWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__TextGoToLineWidget_SuperCreate(TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Create_IsBase(true);
-        vtextcustomeditortextgotolinewidget->create();
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnCreate(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Create_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__TextGoToLineWidget_Destroy(TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->destroy();
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->destroy();
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        vtextcustomeditortextgotolinewidget->VirtualTextCustomEditorTextGoToLineWidget::destroy();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextGoToLineWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__TextGoToLineWidget_SuperDestroy(TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Destroy_IsBase(true);
-        vtextcustomeditortextgotolinewidget->destroy();
-    } else {
-        ((VirtualTextCustomEditorTextGoToLineWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnDestroy(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Destroy_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextCustomEditor__TextGoToLineWidget_FocusNextChild(TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return vtextcustomeditortextgotolinewidget->focusNextChild();
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->focusNextChild();
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        return vtextcustomeditortextgotolinewidget->VirtualTextCustomEditorTextGoToLineWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextGoToLineWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextCustomEditor__TextGoToLineWidget_SuperFocusNextChild(TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusNextChild_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->focusNextChild();
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnFocusNextChild(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusNextChild_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextCustomEditor__TextGoToLineWidget_FocusPreviousChild(TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return vtextcustomeditortextgotolinewidget->focusPreviousChild();
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self)) {
+        return vtextcustomeditortextgotolinewidget->VirtualTextCustomEditorTextGoToLineWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextGoToLineWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextCustomEditor__TextGoToLineWidget_SuperFocusPreviousChild(TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusPreviousChild_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->focusPreviousChild();
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnFocusPreviousChild(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextCustomEditor__TextGoToLineWidget_Sender(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return vtextcustomeditortextgotolinewidget->sender();
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->sender();
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self))) {
+        return vtextcustomeditortextgotolinewidget->VirtualTextCustomEditorTextGoToLineWidget::sender();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextGoToLineWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextCustomEditor__TextGoToLineWidget_SuperSender(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Sender_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->sender();
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnSender(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Sender_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextCustomEditor__TextGoToLineWidget_SenderSignalIndex(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return vtextcustomeditortextgotolinewidget->senderSignalIndex();
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self))) {
+        return vtextcustomeditortextgotolinewidget->VirtualTextCustomEditorTextGoToLineWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextGoToLineWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextCustomEditor__TextGoToLineWidget_SuperSenderSignalIndex(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_SenderSignalIndex_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->senderSignalIndex();
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnSenderSignalIndex(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextCustomEditor__TextGoToLineWidget_Receivers(const TextCustomEditor__TextGoToLineWidget* self, const char* signal) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return vtextcustomeditortextgotolinewidget->receivers(signal);
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->receivers(signal);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self))) {
+        return vtextcustomeditortextgotolinewidget->VirtualTextCustomEditorTextGoToLineWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextGoToLineWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextCustomEditor__TextGoToLineWidget_SuperReceivers(const TextCustomEditor__TextGoToLineWidget* self, const char* signal) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Receivers_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->receivers(signal);
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnReceivers(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Receivers_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextCustomEditor__TextGoToLineWidget_IsSignalConnected(const TextCustomEditor__TextGoToLineWidget* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return vtextcustomeditortextgotolinewidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self))) {
+        return vtextcustomeditortextgotolinewidget->VirtualTextCustomEditorTextGoToLineWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextGoToLineWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextCustomEditor__TextGoToLineWidget_SuperIsSignalConnected(const TextCustomEditor__TextGoToLineWidget* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_IsSignalConnected_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnIsSignalConnected(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double TextCustomEditor__TextGoToLineWidget_GetDecodedMetricF(const TextCustomEditor__TextGoToLineWidget* self, int metricA, int metricB) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return vtextcustomeditortextgotolinewidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double TextCustomEditor__TextGoToLineWidget_SuperGetDecodedMetricF(const TextCustomEditor__TextGoToLineWidget* self, int metricA, int metricB) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_GetDecodedMetricF_IsBase(true);
-        return vtextcustomeditortextgotolinewidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextGoToLineWidget_OnGetDecodedMetricF(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
-    auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
-        vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self))) {
+        return vtextcustomeditortextgotolinewidget->VirtualTextCustomEditorTextGoToLineWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextGoToLineWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void TextCustomEditor__TextGoToLineWidget_Delete(TextCustomEditor__TextGoToLineWidget* self) {

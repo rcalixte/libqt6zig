@@ -138,9 +138,9 @@ pub const QQuickWindow = extern struct {
     ///
     /// ` self: QQuickWindow `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QQuickWindow) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QQuickWindow, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QQuickWindow, callback: *const fn (QQuickWindow) callconv(.c) QMetaObject) void {
         qtc.QQuickWindow_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -339,9 +339,9 @@ pub const QQuickWindow = extern struct {
     ///
     /// ` self: QQuickWindow `
     ///
-    /// ` callback: *const fn () callconv(.c) QObject `
+    /// ` callback: *const fn (self: QQuickWindow) callconv(.c) QObject `
     ///
-    pub fn onFocusObject(self: QQuickWindow, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onFocusObject(self: QQuickWindow, callback: *const fn (QQuickWindow) callconv(.c) QObject) void {
         qtc.QQuickWindow_OnFocusObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -502,9 +502,9 @@ pub const QQuickWindow = extern struct {
     ///
     /// ` self: QQuickWindow `
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QQuickWindow) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onAccessibleRoot(self: QQuickWindow, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onAccessibleRoot(self: QQuickWindow, callback: *const fn (QQuickWindow) callconv(.c) QAccessibleInterface) void {
         qtc.QQuickWindow_OnAccessibleRoot(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6098,9 +6098,9 @@ pub const QQuickWindow = extern struct {
     ///
     /// ` self: QQuickWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QQuickWindow) callconv(.c) i32 `
     ///
-    pub fn onSurfaceType(self: QQuickWindow, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSurfaceType(self: QQuickWindow, callback: *const fn (QQuickWindow) callconv(.c) i32) void {
         qtc.QQuickWindow_OnSurfaceType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6154,11 +6154,11 @@ pub const QQuickWindow = extern struct {
     ///
     /// ` self: QQuickWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QSurfaceFormat `
+    /// ` callback: *const fn (self: QQuickWindow) callconv(.c) QSurfaceFormat `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onFormat(self: QQuickWindow, callback: *const fn () callconv(.c) QSurfaceFormat) void {
+    pub fn onFormat(self: QQuickWindow, callback: *const fn (QQuickWindow) callconv(.c) QSurfaceFormat) void {
         qtc.QQuickWindow_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6212,11 +6212,11 @@ pub const QQuickWindow = extern struct {
     ///
     /// ` self: QQuickWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QQuickWindow) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSize(self: QQuickWindow, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSize(self: QQuickWindow, callback: *const fn (QQuickWindow) callconv(.c) QSize) void {
         qtc.QQuickWindow_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6883,49 +6883,6 @@ pub const QQuickWindow = extern struct {
         return qtc.QQuickWindow_ResolveInterface(@ptrCast(self.ptr), name_Cstring, @bitCast(revision));
     }
 
-    /// ### DEPRECATED: Use `superResolveInterface` instead
-    ///
-    pub const SuperResolveInterface = superResolveInterface;
-
-    /// Inherited from QWindow
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickWindow `
-    ///
-    /// ` name: [:0]const u8 `
-    ///
-    /// ` revision: i32 `
-    ///
-    pub fn superResolveInterface(self: QQuickWindow, name: [:0]const u8, revision: i32) ?*anyopaque {
-        const name_Cstring = name.ptr;
-        return qtc.QQuickWindow_SuperResolveInterface(@ptrCast(self.ptr), name_Cstring, @bitCast(revision));
-    }
-
-    /// ### DEPRECATED: Use `onResolveInterface` instead
-    ///
-    pub const OnResolveInterface = onResolveInterface;
-
-    /// Inherited from QWindow
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickWindow`
-    ///
-    /// ` callback: *const fn (self: QQuickWindow, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque `
-    ///
-    pub fn onResolveInterface(self: QQuickWindow, callback: *const fn (QQuickWindow, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
-        qtc.QQuickWindow_OnResolveInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -6944,44 +6901,6 @@ pub const QQuickWindow = extern struct {
         return .{ .ptr = qtc.QQuickWindow_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickWindow `
-    ///
-    pub fn superSender(self: QQuickWindow) QObject {
-        return .{ .ptr = qtc.QQuickWindow_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QQuickWindow, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QQuickWindow_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -6998,44 +6917,6 @@ pub const QQuickWindow = extern struct {
     ///
     pub fn senderSignalIndex(self: QQuickWindow) i32 {
         return qtc.QQuickWindow_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickWindow `
-    ///
-    pub fn superSenderSignalIndex(self: QQuickWindow) i32 {
-        return qtc.QQuickWindow_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QQuickWindow, callback: *const fn () callconv(.c) i32) void {
-        qtc.QQuickWindow_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -7059,47 +6940,6 @@ pub const QQuickWindow = extern struct {
         return qtc.QQuickWindow_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickWindow `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QQuickWindow, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QQuickWindow_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickWindow`
-    ///
-    /// ` callback: *const fn (self: QQuickWindow, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QQuickWindow, callback: *const fn (QQuickWindow, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QQuickWindow_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -7119,47 +6959,6 @@ pub const QQuickWindow = extern struct {
     pub fn isSignalConnected(self: QQuickWindow, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QQuickWindow_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickWindow `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QQuickWindow, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QQuickWindow_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickWindow`
-    ///
-    /// ` callback: *const fn (self: QQuickWindow, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QQuickWindow, callback: *const fn (QQuickWindow, QMetaMethod) callconv(.c) bool) void {
-        qtc.QQuickWindow_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

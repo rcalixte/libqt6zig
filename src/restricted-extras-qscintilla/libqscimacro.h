@@ -39,7 +39,7 @@ void QsciMacro_StartRecording(QsciMacro* self);
 void QsciMacro_EndRecording(QsciMacro* self);
 libqt_string QsciMacro_Tr2(const char* s, const char* c);
 libqt_string QsciMacro_Tr3(const char* s, const char* c, int n);
-void QsciMacro_OnMetaObject(const QsciMacro* self, intptr_t slot);
+void QsciMacro_OnMetaObject(QsciMacro* self, intptr_t slot);
 QMetaObject* QsciMacro_SuperMetaObject(const QsciMacro* self);
 void QsciMacro_OnMetacast(QsciMacro* self, intptr_t slot);
 void* QsciMacro_SuperMetacast(QsciMacro* self, const char* param1);
@@ -73,17 +73,9 @@ void QsciMacro_DisconnectNotify(QsciMacro* self, const QMetaMethod* signal);
 void QsciMacro_OnDisconnectNotify(QsciMacro* self, intptr_t slot);
 void QsciMacro_SuperDisconnectNotify(QsciMacro* self, const QMetaMethod* signal);
 QObject* QsciMacro_Sender(const QsciMacro* self);
-void QsciMacro_OnSender(const QsciMacro* self, intptr_t slot);
-QObject* QsciMacro_SuperSender(const QsciMacro* self);
 int QsciMacro_SenderSignalIndex(const QsciMacro* self);
-void QsciMacro_OnSenderSignalIndex(const QsciMacro* self, intptr_t slot);
-int QsciMacro_SuperSenderSignalIndex(const QsciMacro* self);
 int QsciMacro_Receivers(const QsciMacro* self, const char* signal);
-void QsciMacro_OnReceivers(const QsciMacro* self, intptr_t slot);
-int QsciMacro_SuperReceivers(const QsciMacro* self, const char* signal);
 bool QsciMacro_IsSignalConnected(const QsciMacro* self, const QMetaMethod* signal);
-void QsciMacro_OnIsSignalConnected(const QsciMacro* self, intptr_t slot);
-bool QsciMacro_SuperIsSignalConnected(const QsciMacro* self, const QMetaMethod* signal);
 void QsciMacro_Delete(QsciMacro* self);
 
 #ifdef __cplusplus

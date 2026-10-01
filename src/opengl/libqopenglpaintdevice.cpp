@@ -75,194 +75,137 @@ void QOpenGLPaintDevice_EnsureActiveTarget(QOpenGLPaintDevice* self) {
 
 int QOpenGLPaintDevice_Metric(const QOpenGLPaintDevice* self, int metric) {
     auto* vqopenglpaintdevice = dynamic_cast<const VirtualQOpenGLPaintDevice*>(self);
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
+    if (vqopenglpaintdevice) {
         return vqopenglpaintdevice->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
     }
-    return {};
+    qFatal("Error: Protected method QOpenGLPaintDevice::metric called without a directly constructed type");
 }
 
 // Base class handler implementation
 int QOpenGLPaintDevice_SuperDevType(const QOpenGLPaintDevice* self) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
-        vqopenglpaintdevice->setQOpenGLPaintDevice_DevType_IsBase(true);
-        return vqopenglpaintdevice->devType();
-    } else {
-        return self->QOpenGLPaintDevice::devType();
-    }
+    return self->QOpenGLPaintDevice::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLPaintDevice_OnDevType(const QOpenGLPaintDevice* self, intptr_t slot) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
-        vqopenglpaintdevice->setQOpenGLPaintDevice_DevType_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_DevType_Callback>(slot));
+void QOpenGLPaintDevice_OnDevType(QOpenGLPaintDevice* self, intptr_t slot) {
+    if (auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self)))
+        vqopenglpaintdevice->qopenglpaintdevice_devtype_callback = reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_DevType_Callback>(slot);
 }
 
 // Base class handler implementation
 QPaintEngine* QOpenGLPaintDevice_SuperPaintEngine(const QOpenGLPaintDevice* self) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
-        vqopenglpaintdevice->setQOpenGLPaintDevice_PaintEngine_IsBase(true);
-        return vqopenglpaintdevice->paintEngine();
-    } else {
-        return self->QOpenGLPaintDevice::paintEngine();
-    }
+    return self->QOpenGLPaintDevice::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLPaintDevice_OnPaintEngine(const QOpenGLPaintDevice* self, intptr_t slot) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
-        vqopenglpaintdevice->setQOpenGLPaintDevice_PaintEngine_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_PaintEngine_Callback>(slot));
+void QOpenGLPaintDevice_OnPaintEngine(QOpenGLPaintDevice* self, intptr_t slot) {
+    if (auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self)))
+        vqopenglpaintdevice->qopenglpaintdevice_paintengine_callback = reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_PaintEngine_Callback>(slot);
 }
 
 // Base class handler implementation
 void QOpenGLPaintDevice_SuperEnsureActiveTarget(QOpenGLPaintDevice* self) {
-    auto* vqopenglpaintdevice = dynamic_cast<VirtualQOpenGLPaintDevice*>(self);
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
-        vqopenglpaintdevice->setQOpenGLPaintDevice_EnsureActiveTarget_IsBase(true);
-        vqopenglpaintdevice->ensureActiveTarget();
-    } else {
-        self->QOpenGLPaintDevice::ensureActiveTarget();
-    }
+    self->QOpenGLPaintDevice::ensureActiveTarget();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLPaintDevice_OnEnsureActiveTarget(QOpenGLPaintDevice* self, intptr_t slot) {
-    auto* vqopenglpaintdevice = dynamic_cast<VirtualQOpenGLPaintDevice*>(self);
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
-        vqopenglpaintdevice->setQOpenGLPaintDevice_EnsureActiveTarget_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_EnsureActiveTarget_Callback>(slot));
+    if (auto* vqopenglpaintdevice = dynamic_cast<VirtualQOpenGLPaintDevice*>(self))
+        vqopenglpaintdevice->qopenglpaintdevice_ensureactivetarget_callback = reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_EnsureActiveTarget_Callback>(slot);
 }
 
 // Base class handler implementation
 int QOpenGLPaintDevice_SuperMetric(const QOpenGLPaintDevice* self, int metric) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
-        vqopenglpaintdevice->setQOpenGLPaintDevice_Metric_IsBase(true);
-        return vqopenglpaintdevice->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
-    } else {
-        return ((VirtualQOpenGLPaintDevice*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
-    }
+    if (auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self))) {
+        return vqopenglpaintdevice->QOpenGLPaintDevice::metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
+    } else
+        qFatal("Error: Protected virtual method QOpenGLPaintDevice::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLPaintDevice_OnMetric(const QOpenGLPaintDevice* self, intptr_t slot) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
-        vqopenglpaintdevice->setQOpenGLPaintDevice_Metric_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_Metric_Callback>(slot));
+void QOpenGLPaintDevice_OnMetric(QOpenGLPaintDevice* self, intptr_t slot) {
+    if (auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self)))
+        vqopenglpaintdevice->qopenglpaintdevice_metric_callback = reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLPaintDevice_InitPainter(const QOpenGLPaintDevice* self, QPainter* painter) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
+    if (vqopenglpaintdevice) {
         vqopenglpaintdevice->initPainter(painter);
     } else {
-        ((VirtualQOpenGLPaintDevice*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QOpenGLPaintDevice::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLPaintDevice_SuperInitPainter(const QOpenGLPaintDevice* self, QPainter* painter) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
-        vqopenglpaintdevice->setQOpenGLPaintDevice_InitPainter_IsBase(true);
-        vqopenglpaintdevice->initPainter(painter);
-    } else {
-        ((VirtualQOpenGLPaintDevice*)self)->initPainter(painter);
-    }
+    if (auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self))) {
+        vqopenglpaintdevice->QOpenGLPaintDevice::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLPaintDevice::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLPaintDevice_OnInitPainter(const QOpenGLPaintDevice* self, intptr_t slot) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
-        vqopenglpaintdevice->setQOpenGLPaintDevice_InitPainter_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_InitPainter_Callback>(slot));
+void QOpenGLPaintDevice_OnInitPainter(QOpenGLPaintDevice* self, intptr_t slot) {
+    if (auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self)))
+        vqopenglpaintdevice->qopenglpaintdevice_initpainter_callback = reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QOpenGLPaintDevice_Redirected(const QOpenGLPaintDevice* self, QPoint* offset) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
+    if (vqopenglpaintdevice) {
         return vqopenglpaintdevice->redirected(offset);
     } else {
-        return ((VirtualQOpenGLPaintDevice*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QOpenGLPaintDevice::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QOpenGLPaintDevice_SuperRedirected(const QOpenGLPaintDevice* self, QPoint* offset) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
-        vqopenglpaintdevice->setQOpenGLPaintDevice_Redirected_IsBase(true);
-        return vqopenglpaintdevice->redirected(offset);
-    } else {
-        return ((VirtualQOpenGLPaintDevice*)self)->redirected(offset);
-    }
+    if (auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self))) {
+        return vqopenglpaintdevice->QOpenGLPaintDevice::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLPaintDevice::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLPaintDevice_OnRedirected(const QOpenGLPaintDevice* self, intptr_t slot) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
-        vqopenglpaintdevice->setQOpenGLPaintDevice_Redirected_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_Redirected_Callback>(slot));
+void QOpenGLPaintDevice_OnRedirected(QOpenGLPaintDevice* self, intptr_t slot) {
+    if (auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self)))
+        vqopenglpaintdevice->qopenglpaintdevice_redirected_callback = reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QOpenGLPaintDevice_SharedPainter(const QOpenGLPaintDevice* self) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
+    if (vqopenglpaintdevice) {
         return vqopenglpaintdevice->sharedPainter();
     } else {
-        return ((VirtualQOpenGLPaintDevice*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QOpenGLPaintDevice::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QOpenGLPaintDevice_SuperSharedPainter(const QOpenGLPaintDevice* self) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
-        vqopenglpaintdevice->setQOpenGLPaintDevice_SharedPainter_IsBase(true);
-        return vqopenglpaintdevice->sharedPainter();
-    } else {
-        return ((VirtualQOpenGLPaintDevice*)self)->sharedPainter();
-    }
+    if (auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self))) {
+        return vqopenglpaintdevice->QOpenGLPaintDevice::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QOpenGLPaintDevice::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLPaintDevice_OnSharedPainter(const QOpenGLPaintDevice* self, intptr_t slot) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
-        vqopenglpaintdevice->setQOpenGLPaintDevice_SharedPainter_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_SharedPainter_Callback>(slot));
+void QOpenGLPaintDevice_OnSharedPainter(QOpenGLPaintDevice* self, intptr_t slot) {
+    if (auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self)))
+        vqopenglpaintdevice->qopenglpaintdevice_sharedpainter_callback = reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_SharedPainter_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QOpenGLPaintDevice_GetDecodedMetricF(const QOpenGLPaintDevice* self, int metricA, int metricB) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
-        return vqopenglpaintdevice->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQOpenGLPaintDevice*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QOpenGLPaintDevice_SuperGetDecodedMetricF(const QOpenGLPaintDevice* self, int metricA, int metricB) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
-        vqopenglpaintdevice->setQOpenGLPaintDevice_GetDecodedMetricF_IsBase(true);
-        return vqopenglpaintdevice->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQOpenGLPaintDevice*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLPaintDevice_OnGetDecodedMetricF(const QOpenGLPaintDevice* self, intptr_t slot) {
-    auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
-        vqopenglpaintdevice->setQOpenGLPaintDevice_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self))) {
+        return vqopenglpaintdevice->VirtualQOpenGLPaintDevice::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QOpenGLPaintDevice::getDecodedMetricF called without a directly constructed type");
 }
 
 void QOpenGLPaintDevice_Delete(QOpenGLPaintDevice* self) {

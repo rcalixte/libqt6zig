@@ -28,6 +28,8 @@ pub const QQmlPropertyValueSource = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlpropertyvaluesource.html#setTarget)
     ///
+    /// This method must be implemented with `onSetTarget` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QQmlPropertyValueSource `
@@ -55,25 +57,6 @@ pub const QQmlPropertyValueSource = extern struct {
     ///
     pub fn onSetTarget(self: QQmlPropertyValueSource, callback: *const fn (QQmlPropertyValueSource, QQmlProperty) callconv(.c) void) void {
         qtc.QQmlPropertyValueSource_OnSetTarget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetTarget` instead
-    ///
-    pub const SuperSetTarget = superSetTarget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlpropertyvaluesource.html#setTarget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlPropertyValueSource `
-    ///
-    /// ` target: QQmlProperty `
-    ///
-    pub fn superSetTarget(self: QQmlPropertyValueSource, target: anytype) void {
-        comptime _ = @TypeOf(target)._is_QQmlProperty;
-        qtc.QQmlPropertyValueSource_SuperSetTarget(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// ### DEPRECATED: Use `operatorAssign` instead

@@ -54,7 +54,7 @@ void QGeoSatelliteInfoSource_ErrorOccurred(QGeoSatelliteInfoSource* self, int pa
 void QGeoSatelliteInfoSource_Connect_ErrorOccurred(QGeoSatelliteInfoSource* self, intptr_t slot);
 libqt_string QGeoSatelliteInfoSource_Tr2(const char* s, const char* c);
 libqt_string QGeoSatelliteInfoSource_Tr3(const char* s, const char* c, int n);
-void QGeoSatelliteInfoSource_OnMetaObject(const QGeoSatelliteInfoSource* self, intptr_t slot);
+void QGeoSatelliteInfoSource_OnMetaObject(QGeoSatelliteInfoSource* self, intptr_t slot);
 QMetaObject* QGeoSatelliteInfoSource_SuperMetaObject(const QGeoSatelliteInfoSource* self);
 void QGeoSatelliteInfoSource_OnMetacast(QGeoSatelliteInfoSource* self, intptr_t slot);
 void* QGeoSatelliteInfoSource_SuperMetacast(QGeoSatelliteInfoSource* self, const char* param1);
@@ -62,20 +62,15 @@ void QGeoSatelliteInfoSource_OnMetacall(QGeoSatelliteInfoSource* self, intptr_t 
 int QGeoSatelliteInfoSource_SuperMetacall(QGeoSatelliteInfoSource* self, int param1, int param2, void** param3);
 void QGeoSatelliteInfoSource_OnSetUpdateInterval(QGeoSatelliteInfoSource* self, intptr_t slot);
 void QGeoSatelliteInfoSource_SuperSetUpdateInterval(QGeoSatelliteInfoSource* self, int msec);
-void QGeoSatelliteInfoSource_OnMinimumUpdateInterval(const QGeoSatelliteInfoSource* self, intptr_t slot);
-int QGeoSatelliteInfoSource_SuperMinimumUpdateInterval(const QGeoSatelliteInfoSource* self);
-void QGeoSatelliteInfoSource_OnError(const QGeoSatelliteInfoSource* self, intptr_t slot);
-int QGeoSatelliteInfoSource_SuperError(const QGeoSatelliteInfoSource* self);
+void QGeoSatelliteInfoSource_OnMinimumUpdateInterval(QGeoSatelliteInfoSource* self, intptr_t slot);
+void QGeoSatelliteInfoSource_OnError(QGeoSatelliteInfoSource* self, intptr_t slot);
 void QGeoSatelliteInfoSource_OnSetBackendProperty(QGeoSatelliteInfoSource* self, intptr_t slot);
 bool QGeoSatelliteInfoSource_SuperSetBackendProperty(QGeoSatelliteInfoSource* self, const libqt_string name, const QVariant* value);
-void QGeoSatelliteInfoSource_OnBackendProperty(const QGeoSatelliteInfoSource* self, intptr_t slot);
+void QGeoSatelliteInfoSource_OnBackendProperty(QGeoSatelliteInfoSource* self, intptr_t slot);
 QVariant* QGeoSatelliteInfoSource_SuperBackendProperty(const QGeoSatelliteInfoSource* self, const libqt_string name);
 void QGeoSatelliteInfoSource_OnStartUpdates(QGeoSatelliteInfoSource* self, intptr_t slot);
-void QGeoSatelliteInfoSource_SuperStartUpdates(QGeoSatelliteInfoSource* self);
 void QGeoSatelliteInfoSource_OnStopUpdates(QGeoSatelliteInfoSource* self, intptr_t slot);
-void QGeoSatelliteInfoSource_SuperStopUpdates(QGeoSatelliteInfoSource* self);
 void QGeoSatelliteInfoSource_OnRequestUpdate(QGeoSatelliteInfoSource* self, intptr_t slot);
-void QGeoSatelliteInfoSource_SuperRequestUpdate(QGeoSatelliteInfoSource* self, int timeout);
 bool QGeoSatelliteInfoSource_Event(QGeoSatelliteInfoSource* self, QEvent* event);
 void QGeoSatelliteInfoSource_OnEvent(QGeoSatelliteInfoSource* self, intptr_t slot);
 bool QGeoSatelliteInfoSource_SuperEvent(QGeoSatelliteInfoSource* self, QEvent* event);
@@ -98,17 +93,9 @@ void QGeoSatelliteInfoSource_DisconnectNotify(QGeoSatelliteInfoSource* self, con
 void QGeoSatelliteInfoSource_OnDisconnectNotify(QGeoSatelliteInfoSource* self, intptr_t slot);
 void QGeoSatelliteInfoSource_SuperDisconnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal);
 QObject* QGeoSatelliteInfoSource_Sender(const QGeoSatelliteInfoSource* self);
-void QGeoSatelliteInfoSource_OnSender(const QGeoSatelliteInfoSource* self, intptr_t slot);
-QObject* QGeoSatelliteInfoSource_SuperSender(const QGeoSatelliteInfoSource* self);
 int QGeoSatelliteInfoSource_SenderSignalIndex(const QGeoSatelliteInfoSource* self);
-void QGeoSatelliteInfoSource_OnSenderSignalIndex(const QGeoSatelliteInfoSource* self, intptr_t slot);
-int QGeoSatelliteInfoSource_SuperSenderSignalIndex(const QGeoSatelliteInfoSource* self);
 int QGeoSatelliteInfoSource_Receivers(const QGeoSatelliteInfoSource* self, const char* signal);
-void QGeoSatelliteInfoSource_OnReceivers(const QGeoSatelliteInfoSource* self, intptr_t slot);
-int QGeoSatelliteInfoSource_SuperReceivers(const QGeoSatelliteInfoSource* self, const char* signal);
 bool QGeoSatelliteInfoSource_IsSignalConnected(const QGeoSatelliteInfoSource* self, const QMetaMethod* signal);
-void QGeoSatelliteInfoSource_OnIsSignalConnected(const QGeoSatelliteInfoSource* self, intptr_t slot);
-bool QGeoSatelliteInfoSource_SuperIsSignalConnected(const QGeoSatelliteInfoSource* self, const QMetaMethod* signal);
 void QGeoSatelliteInfoSource_Delete(QGeoSatelliteInfoSource* self);
 
 #ifdef __cplusplus

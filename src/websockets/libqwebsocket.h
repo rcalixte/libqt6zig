@@ -141,7 +141,7 @@ libqt_string QWebSocket_Tr3(const char* s, const char* c, int n);
 void QWebSocket_Close1(QWebSocket* self, int closeCode);
 void QWebSocket_Close2(QWebSocket* self, int closeCode, const libqt_string reason);
 void QWebSocket_Ping1(QWebSocket* self, const libqt_string payload);
-void QWebSocket_OnMetaObject(const QWebSocket* self, intptr_t slot);
+void QWebSocket_OnMetaObject(QWebSocket* self, intptr_t slot);
 QMetaObject* QWebSocket_SuperMetaObject(const QWebSocket* self);
 void QWebSocket_OnMetacast(QWebSocket* self, intptr_t slot);
 void* QWebSocket_SuperMetacast(QWebSocket* self, const char* param1);
@@ -169,17 +169,9 @@ void QWebSocket_DisconnectNotify(QWebSocket* self, const QMetaMethod* signal);
 void QWebSocket_OnDisconnectNotify(QWebSocket* self, intptr_t slot);
 void QWebSocket_SuperDisconnectNotify(QWebSocket* self, const QMetaMethod* signal);
 QObject* QWebSocket_Sender(const QWebSocket* self);
-void QWebSocket_OnSender(const QWebSocket* self, intptr_t slot);
-QObject* QWebSocket_SuperSender(const QWebSocket* self);
 int QWebSocket_SenderSignalIndex(const QWebSocket* self);
-void QWebSocket_OnSenderSignalIndex(const QWebSocket* self, intptr_t slot);
-int QWebSocket_SuperSenderSignalIndex(const QWebSocket* self);
 int QWebSocket_Receivers(const QWebSocket* self, const char* signal);
-void QWebSocket_OnReceivers(const QWebSocket* self, intptr_t slot);
-int QWebSocket_SuperReceivers(const QWebSocket* self, const char* signal);
 bool QWebSocket_IsSignalConnected(const QWebSocket* self, const QMetaMethod* signal);
-void QWebSocket_OnIsSignalConnected(const QWebSocket* self, intptr_t slot);
-bool QWebSocket_SuperIsSignalConnected(const QWebSocket* self, const QMetaMethod* signal);
 void QWebSocket_Delete(QWebSocket* self);
 
 #ifdef __cplusplus

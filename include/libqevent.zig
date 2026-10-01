@@ -104,9 +104,9 @@ pub const QInputEvent = extern struct {
     ///
     /// ` self: QInputEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QInputEvent `
+    /// ` callback: *const fn (self: QInputEvent) callconv(.c) QInputEvent `
     ///
-    pub fn onClone(self: QInputEvent, callback: *const fn () callconv(.c) QInputEvent) void {
+    pub fn onClone(self: QInputEvent, callback: *const fn (QInputEvent) callconv(.c) QInputEvent) void {
         qtc.QInputEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -596,9 +596,9 @@ pub const QPointerEvent = extern struct {
     ///
     /// ` self: QPointerEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QPointerEvent `
+    /// ` callback: *const fn (self: QPointerEvent) callconv(.c) QPointerEvent `
     ///
-    pub fn onClone(self: QPointerEvent, callback: *const fn () callconv(.c) QPointerEvent) void {
+    pub fn onClone(self: QPointerEvent, callback: *const fn (QPointerEvent) callconv(.c) QPointerEvent) void {
         qtc.QPointerEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -810,9 +810,9 @@ pub const QPointerEvent = extern struct {
     ///
     /// ` self: QPointerEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QPointerEvent) callconv(.c) bool `
     ///
-    pub fn onIsBeginEvent(self: QPointerEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsBeginEvent(self: QPointerEvent, callback: *const fn (QPointerEvent) callconv(.c) bool) void {
         qtc.QPointerEvent_OnIsBeginEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -858,9 +858,9 @@ pub const QPointerEvent = extern struct {
     ///
     /// ` self: QPointerEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QPointerEvent) callconv(.c) bool `
     ///
-    pub fn onIsUpdateEvent(self: QPointerEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsUpdateEvent(self: QPointerEvent, callback: *const fn (QPointerEvent) callconv(.c) bool) void {
         qtc.QPointerEvent_OnIsUpdateEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -906,9 +906,9 @@ pub const QPointerEvent = extern struct {
     ///
     /// ` self: QPointerEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QPointerEvent) callconv(.c) bool `
     ///
-    pub fn onIsEndEvent(self: QPointerEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEndEvent(self: QPointerEvent, callback: *const fn (QPointerEvent) callconv(.c) bool) void {
         qtc.QPointerEvent_OnIsEndEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2173,9 +2173,9 @@ pub const QEnterEvent = extern struct {
     ///
     /// ` self: QEnterEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QEnterEvent `
+    /// ` callback: *const fn (self: QEnterEvent) callconv(.c) QEnterEvent `
     ///
-    pub fn onClone(self: QEnterEvent, callback: *const fn () callconv(.c) QEnterEvent) void {
+    pub fn onClone(self: QEnterEvent, callback: *const fn (QEnterEvent) callconv(.c) QEnterEvent) void {
         qtc.QEnterEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2994,9 +2994,9 @@ pub const QEnterEvent = extern struct {
     ///
     /// ` self: QEnterEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QEnterEvent) callconv(.c) bool `
     ///
-    pub fn onIsBeginEvent(self: QEnterEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsBeginEvent(self: QEnterEvent, callback: *const fn (QEnterEvent) callconv(.c) bool) void {
         qtc.QEnterEvent_OnIsBeginEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3050,9 +3050,9 @@ pub const QEnterEvent = extern struct {
     ///
     /// ` self: QEnterEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QEnterEvent) callconv(.c) bool `
     ///
-    pub fn onIsUpdateEvent(self: QEnterEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsUpdateEvent(self: QEnterEvent, callback: *const fn (QEnterEvent) callconv(.c) bool) void {
         qtc.QEnterEvent_OnIsUpdateEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3106,9 +3106,9 @@ pub const QEnterEvent = extern struct {
     ///
     /// ` self: QEnterEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QEnterEvent) callconv(.c) bool `
     ///
-    pub fn onIsEndEvent(self: QEnterEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEndEvent(self: QEnterEvent, callback: *const fn (QEnterEvent) callconv(.c) bool) void {
         qtc.QEnterEvent_OnIsEndEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3519,9 +3519,9 @@ pub const QMouseEvent = extern struct {
     ///
     /// ` self: QMouseEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QMouseEvent `
+    /// ` callback: *const fn (self: QMouseEvent) callconv(.c) QMouseEvent `
     ///
-    pub fn onClone(self: QMouseEvent, callback: *const fn () callconv(.c) QMouseEvent) void {
+    pub fn onClone(self: QMouseEvent, callback: *const fn (QMouseEvent) callconv(.c) QMouseEvent) void {
         qtc.QMouseEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4376,9 +4376,9 @@ pub const QMouseEvent = extern struct {
     ///
     /// ` self: QMouseEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QMouseEvent) callconv(.c) bool `
     ///
-    pub fn onIsBeginEvent(self: QMouseEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsBeginEvent(self: QMouseEvent, callback: *const fn (QMouseEvent) callconv(.c) bool) void {
         qtc.QMouseEvent_OnIsBeginEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4432,9 +4432,9 @@ pub const QMouseEvent = extern struct {
     ///
     /// ` self: QMouseEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QMouseEvent) callconv(.c) bool `
     ///
-    pub fn onIsUpdateEvent(self: QMouseEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsUpdateEvent(self: QMouseEvent, callback: *const fn (QMouseEvent) callconv(.c) bool) void {
         qtc.QMouseEvent_OnIsUpdateEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4488,9 +4488,9 @@ pub const QMouseEvent = extern struct {
     ///
     /// ` self: QMouseEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QMouseEvent) callconv(.c) bool `
     ///
-    pub fn onIsEndEvent(self: QMouseEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEndEvent(self: QMouseEvent, callback: *const fn (QMouseEvent) callconv(.c) bool) void {
         qtc.QMouseEvent_OnIsEndEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4814,9 +4814,9 @@ pub const QHoverEvent = extern struct {
     ///
     /// ` self: QHoverEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QHoverEvent `
+    /// ` callback: *const fn (self: QHoverEvent) callconv(.c) QHoverEvent `
     ///
-    pub fn onClone(self: QHoverEvent, callback: *const fn () callconv(.c) QHoverEvent) void {
+    pub fn onClone(self: QHoverEvent, callback: *const fn (QHoverEvent) callconv(.c) QHoverEvent) void {
         qtc.QHoverEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4890,9 +4890,9 @@ pub const QHoverEvent = extern struct {
     ///
     /// ` self: QHoverEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QHoverEvent) callconv(.c) bool `
     ///
-    pub fn onIsUpdateEvent(self: QHoverEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsUpdateEvent(self: QHoverEvent, callback: *const fn (QHoverEvent) callconv(.c) bool) void {
         qtc.QHoverEvent_OnIsUpdateEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5613,9 +5613,9 @@ pub const QHoverEvent = extern struct {
     ///
     /// ` self: QHoverEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QHoverEvent) callconv(.c) bool `
     ///
-    pub fn onIsBeginEvent(self: QHoverEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsBeginEvent(self: QHoverEvent, callback: *const fn (QHoverEvent) callconv(.c) bool) void {
         qtc.QHoverEvent_OnIsBeginEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5669,9 +5669,9 @@ pub const QHoverEvent = extern struct {
     ///
     /// ` self: QHoverEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QHoverEvent) callconv(.c) bool `
     ///
-    pub fn onIsEndEvent(self: QHoverEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEndEvent(self: QHoverEvent, callback: *const fn (QHoverEvent) callconv(.c) bool) void {
         qtc.QHoverEvent_OnIsEndEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5955,9 +5955,9 @@ pub const QWheelEvent = extern struct {
     ///
     /// ` self: QWheelEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QWheelEvent `
+    /// ` callback: *const fn (self: QWheelEvent) callconv(.c) QWheelEvent `
     ///
-    pub fn onClone(self: QWheelEvent, callback: *const fn () callconv(.c) QWheelEvent) void {
+    pub fn onClone(self: QWheelEvent, callback: *const fn (QWheelEvent) callconv(.c) QWheelEvent) void {
         qtc.QWheelEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6091,9 +6091,9 @@ pub const QWheelEvent = extern struct {
     ///
     /// ` self: QWheelEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QWheelEvent) callconv(.c) bool `
     ///
-    pub fn onIsBeginEvent(self: QWheelEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsBeginEvent(self: QWheelEvent, callback: *const fn (QWheelEvent) callconv(.c) bool) void {
         qtc.QWheelEvent_OnIsBeginEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6139,9 +6139,9 @@ pub const QWheelEvent = extern struct {
     ///
     /// ` self: QWheelEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QWheelEvent) callconv(.c) bool `
     ///
-    pub fn onIsUpdateEvent(self: QWheelEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsUpdateEvent(self: QWheelEvent, callback: *const fn (QWheelEvent) callconv(.c) bool) void {
         qtc.QWheelEvent_OnIsUpdateEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6187,9 +6187,9 @@ pub const QWheelEvent = extern struct {
     ///
     /// ` self: QWheelEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QWheelEvent) callconv(.c) bool `
     ///
-    pub fn onIsEndEvent(self: QWheelEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEndEvent(self: QWheelEvent, callback: *const fn (QWheelEvent) callconv(.c) bool) void {
         qtc.QWheelEvent_OnIsEndEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7068,9 +7068,9 @@ pub const QTabletEvent = extern struct {
     ///
     /// ` self: QTabletEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QTabletEvent `
+    /// ` callback: *const fn (self: QTabletEvent) callconv(.c) QTabletEvent `
     ///
-    pub fn onClone(self: QTabletEvent, callback: *const fn () callconv(.c) QTabletEvent) void {
+    pub fn onClone(self: QTabletEvent, callback: *const fn (QTabletEvent) callconv(.c) QTabletEvent) void {
         qtc.QTabletEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8001,9 +8001,9 @@ pub const QTabletEvent = extern struct {
     ///
     /// ` self: QTabletEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTabletEvent) callconv(.c) bool `
     ///
-    pub fn onIsBeginEvent(self: QTabletEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsBeginEvent(self: QTabletEvent, callback: *const fn (QTabletEvent) callconv(.c) bool) void {
         qtc.QTabletEvent_OnIsBeginEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8057,9 +8057,9 @@ pub const QTabletEvent = extern struct {
     ///
     /// ` self: QTabletEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTabletEvent) callconv(.c) bool `
     ///
-    pub fn onIsUpdateEvent(self: QTabletEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsUpdateEvent(self: QTabletEvent, callback: *const fn (QTabletEvent) callconv(.c) bool) void {
         qtc.QTabletEvent_OnIsUpdateEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8113,9 +8113,9 @@ pub const QTabletEvent = extern struct {
     ///
     /// ` self: QTabletEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTabletEvent) callconv(.c) bool `
     ///
-    pub fn onIsEndEvent(self: QTabletEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEndEvent(self: QTabletEvent, callback: *const fn (QTabletEvent) callconv(.c) bool) void {
         qtc.QTabletEvent_OnIsEndEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8396,9 +8396,9 @@ pub const QNativeGestureEvent = extern struct {
     ///
     /// ` self: QNativeGestureEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QNativeGestureEvent `
+    /// ` callback: *const fn (self: QNativeGestureEvent) callconv(.c) QNativeGestureEvent `
     ///
-    pub fn onClone(self: QNativeGestureEvent, callback: *const fn () callconv(.c) QNativeGestureEvent) void {
+    pub fn onClone(self: QNativeGestureEvent, callback: *const fn (QNativeGestureEvent) callconv(.c) QNativeGestureEvent) void {
         qtc.QNativeGestureEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9221,9 +9221,9 @@ pub const QNativeGestureEvent = extern struct {
     ///
     /// ` self: QNativeGestureEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QNativeGestureEvent) callconv(.c) bool `
     ///
-    pub fn onIsBeginEvent(self: QNativeGestureEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsBeginEvent(self: QNativeGestureEvent, callback: *const fn (QNativeGestureEvent) callconv(.c) bool) void {
         qtc.QNativeGestureEvent_OnIsBeginEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9277,9 +9277,9 @@ pub const QNativeGestureEvent = extern struct {
     ///
     /// ` self: QNativeGestureEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QNativeGestureEvent) callconv(.c) bool `
     ///
-    pub fn onIsUpdateEvent(self: QNativeGestureEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsUpdateEvent(self: QNativeGestureEvent, callback: *const fn (QNativeGestureEvent) callconv(.c) bool) void {
         qtc.QNativeGestureEvent_OnIsUpdateEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9333,9 +9333,9 @@ pub const QNativeGestureEvent = extern struct {
     ///
     /// ` self: QNativeGestureEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QNativeGestureEvent) callconv(.c) bool `
     ///
-    pub fn onIsEndEvent(self: QNativeGestureEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEndEvent(self: QNativeGestureEvent, callback: *const fn (QNativeGestureEvent) callconv(.c) bool) void {
         qtc.QNativeGestureEvent_OnIsEndEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9767,9 +9767,9 @@ pub const QKeyEvent = extern struct {
     ///
     /// ` self: QKeyEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QKeyEvent `
+    /// ` callback: *const fn (self: QKeyEvent) callconv(.c) QKeyEvent `
     ///
-    pub fn onClone(self: QKeyEvent, callback: *const fn () callconv(.c) QKeyEvent) void {
+    pub fn onClone(self: QKeyEvent, callback: *const fn (QKeyEvent) callconv(.c) QKeyEvent) void {
         qtc.QKeyEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10377,9 +10377,9 @@ pub const QFocusEvent = extern struct {
     ///
     /// ` self: QFocusEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QFocusEvent `
+    /// ` callback: *const fn (self: QFocusEvent) callconv(.c) QFocusEvent `
     ///
-    pub fn onClone(self: QFocusEvent, callback: *const fn () callconv(.c) QFocusEvent) void {
+    pub fn onClone(self: QFocusEvent, callback: *const fn (QFocusEvent) callconv(.c) QFocusEvent) void {
         qtc.QFocusEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10751,9 +10751,9 @@ pub const QPaintEvent = extern struct {
     ///
     /// ` self: QPaintEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEvent `
+    /// ` callback: *const fn (self: QPaintEvent) callconv(.c) QPaintEvent `
     ///
-    pub fn onClone(self: QPaintEvent, callback: *const fn () callconv(.c) QPaintEvent) void {
+    pub fn onClone(self: QPaintEvent, callback: *const fn (QPaintEvent) callconv(.c) QPaintEvent) void {
         qtc.QPaintEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11095,9 +11095,9 @@ pub const QMoveEvent = extern struct {
     ///
     /// ` self: QMoveEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QMoveEvent `
+    /// ` callback: *const fn (self: QMoveEvent) callconv(.c) QMoveEvent `
     ///
-    pub fn onClone(self: QMoveEvent, callback: *const fn () callconv(.c) QMoveEvent) void {
+    pub fn onClone(self: QMoveEvent, callback: *const fn (QMoveEvent) callconv(.c) QMoveEvent) void {
         qtc.QMoveEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11436,9 +11436,9 @@ pub const QExposeEvent = extern struct {
     ///
     /// ` self: QExposeEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QExposeEvent `
+    /// ` callback: *const fn (self: QExposeEvent) callconv(.c) QExposeEvent `
     ///
-    pub fn onClone(self: QExposeEvent, callback: *const fn () callconv(.c) QExposeEvent) void {
+    pub fn onClone(self: QExposeEvent, callback: *const fn (QExposeEvent) callconv(.c) QExposeEvent) void {
         qtc.QExposeEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11762,9 +11762,9 @@ pub const QPlatformSurfaceEvent = extern struct {
     ///
     /// ` self: QPlatformSurfaceEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QPlatformSurfaceEvent `
+    /// ` callback: *const fn (self: QPlatformSurfaceEvent) callconv(.c) QPlatformSurfaceEvent `
     ///
-    pub fn onClone(self: QPlatformSurfaceEvent, callback: *const fn () callconv(.c) QPlatformSurfaceEvent) void {
+    pub fn onClone(self: QPlatformSurfaceEvent, callback: *const fn (QPlatformSurfaceEvent) callconv(.c) QPlatformSurfaceEvent) void {
         qtc.QPlatformSurfaceEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12096,9 +12096,9 @@ pub const QResizeEvent = extern struct {
     ///
     /// ` self: QResizeEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QResizeEvent `
+    /// ` callback: *const fn (self: QResizeEvent) callconv(.c) QResizeEvent `
     ///
-    pub fn onClone(self: QResizeEvent, callback: *const fn () callconv(.c) QResizeEvent) void {
+    pub fn onClone(self: QResizeEvent, callback: *const fn (QResizeEvent) callconv(.c) QResizeEvent) void {
         qtc.QResizeEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12432,9 +12432,9 @@ pub const QCloseEvent = extern struct {
     ///
     /// ` self: QCloseEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QCloseEvent `
+    /// ` callback: *const fn (self: QCloseEvent) callconv(.c) QCloseEvent `
     ///
-    pub fn onClone(self: QCloseEvent, callback: *const fn () callconv(.c) QCloseEvent) void {
+    pub fn onClone(self: QCloseEvent, callback: *const fn (QCloseEvent) callconv(.c) QCloseEvent) void {
         qtc.QCloseEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12740,9 +12740,9 @@ pub const QIconDragEvent = extern struct {
     ///
     /// ` self: QIconDragEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QIconDragEvent `
+    /// ` callback: *const fn (self: QIconDragEvent) callconv(.c) QIconDragEvent `
     ///
-    pub fn onClone(self: QIconDragEvent, callback: *const fn () callconv(.c) QIconDragEvent) void {
+    pub fn onClone(self: QIconDragEvent, callback: *const fn (QIconDragEvent) callconv(.c) QIconDragEvent) void {
         qtc.QIconDragEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13048,9 +13048,9 @@ pub const QShowEvent = extern struct {
     ///
     /// ` self: QShowEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QShowEvent `
+    /// ` callback: *const fn (self: QShowEvent) callconv(.c) QShowEvent `
     ///
-    pub fn onClone(self: QShowEvent, callback: *const fn () callconv(.c) QShowEvent) void {
+    pub fn onClone(self: QShowEvent, callback: *const fn (QShowEvent) callconv(.c) QShowEvent) void {
         qtc.QShowEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13356,9 +13356,9 @@ pub const QHideEvent = extern struct {
     ///
     /// ` self: QHideEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QHideEvent `
+    /// ` callback: *const fn (self: QHideEvent) callconv(.c) QHideEvent `
     ///
-    pub fn onClone(self: QHideEvent, callback: *const fn () callconv(.c) QHideEvent) void {
+    pub fn onClone(self: QHideEvent, callback: *const fn (QHideEvent) callconv(.c) QHideEvent) void {
         qtc.QHideEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13714,9 +13714,9 @@ pub const QContextMenuEvent = extern struct {
     ///
     /// ` self: QContextMenuEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QContextMenuEvent `
+    /// ` callback: *const fn (self: QContextMenuEvent) callconv(.c) QContextMenuEvent `
     ///
-    pub fn onClone(self: QContextMenuEvent, callback: *const fn () callconv(.c) QContextMenuEvent) void {
+    pub fn onClone(self: QContextMenuEvent, callback: *const fn (QContextMenuEvent) callconv(.c) QContextMenuEvent) void {
         qtc.QContextMenuEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14298,9 +14298,9 @@ pub const QInputMethodEvent = extern struct {
     ///
     /// ` self: QInputMethodEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QInputMethodEvent `
+    /// ` callback: *const fn (self: QInputMethodEvent) callconv(.c) QInputMethodEvent `
     ///
-    pub fn onClone(self: QInputMethodEvent, callback: *const fn () callconv(.c) QInputMethodEvent) void {
+    pub fn onClone(self: QInputMethodEvent, callback: *const fn (QInputMethodEvent) callconv(.c) QInputMethodEvent) void {
         qtc.QInputMethodEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14766,9 +14766,9 @@ pub const QInputMethodQueryEvent = extern struct {
     ///
     /// ` self: QInputMethodQueryEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QInputMethodQueryEvent `
+    /// ` callback: *const fn (self: QInputMethodQueryEvent) callconv(.c) QInputMethodQueryEvent `
     ///
-    pub fn onClone(self: QInputMethodQueryEvent, callback: *const fn () callconv(.c) QInputMethodQueryEvent) void {
+    pub fn onClone(self: QInputMethodQueryEvent, callback: *const fn (QInputMethodQueryEvent) callconv(.c) QInputMethodQueryEvent) void {
         qtc.QInputMethodQueryEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -15167,9 +15167,9 @@ pub const QDropEvent = extern struct {
     ///
     /// ` self: QDropEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QDropEvent `
+    /// ` callback: *const fn (self: QDropEvent) callconv(.c) QDropEvent `
     ///
-    pub fn onClone(self: QDropEvent, callback: *const fn () callconv(.c) QDropEvent) void {
+    pub fn onClone(self: QDropEvent, callback: *const fn (QDropEvent) callconv(.c) QDropEvent) void {
         qtc.QDropEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -15742,9 +15742,9 @@ pub const QDragMoveEvent = extern struct {
     ///
     /// ` self: QDragMoveEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QDragMoveEvent `
+    /// ` callback: *const fn (self: QDragMoveEvent) callconv(.c) QDragMoveEvent `
     ///
-    pub fn onClone(self: QDragMoveEvent, callback: *const fn () callconv(.c) QDragMoveEvent) void {
+    pub fn onClone(self: QDragMoveEvent, callback: *const fn (QDragMoveEvent) callconv(.c) QDragMoveEvent) void {
         qtc.QDragMoveEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -16364,9 +16364,9 @@ pub const QDragEnterEvent = extern struct {
     ///
     /// ` self: QDragEnterEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QDragEnterEvent `
+    /// ` callback: *const fn (self: QDragEnterEvent) callconv(.c) QDragEnterEvent `
     ///
-    pub fn onClone(self: QDragEnterEvent, callback: *const fn () callconv(.c) QDragEnterEvent) void {
+    pub fn onClone(self: QDragEnterEvent, callback: *const fn (QDragEnterEvent) callconv(.c) QDragEnterEvent) void {
         qtc.QDragEnterEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -16980,9 +16980,9 @@ pub const QDragLeaveEvent = extern struct {
     ///
     /// ` self: QDragLeaveEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QDragLeaveEvent `
+    /// ` callback: *const fn (self: QDragLeaveEvent) callconv(.c) QDragLeaveEvent `
     ///
-    pub fn onClone(self: QDragLeaveEvent, callback: *const fn () callconv(.c) QDragLeaveEvent) void {
+    pub fn onClone(self: QDragLeaveEvent, callback: *const fn (QDragLeaveEvent) callconv(.c) QDragLeaveEvent) void {
         qtc.QDragLeaveEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -17298,9 +17298,9 @@ pub const QHelpEvent = extern struct {
     ///
     /// ` self: QHelpEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QHelpEvent `
+    /// ` callback: *const fn (self: QHelpEvent) callconv(.c) QHelpEvent `
     ///
-    pub fn onClone(self: QHelpEvent, callback: *const fn () callconv(.c) QHelpEvent) void {
+    pub fn onClone(self: QHelpEvent, callback: *const fn (QHelpEvent) callconv(.c) QHelpEvent) void {
         qtc.QHelpEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -17698,9 +17698,9 @@ pub const QStatusTipEvent = extern struct {
     ///
     /// ` self: QStatusTipEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QStatusTipEvent `
+    /// ` callback: *const fn (self: QStatusTipEvent) callconv(.c) QStatusTipEvent `
     ///
-    pub fn onClone(self: QStatusTipEvent, callback: *const fn () callconv(.c) QStatusTipEvent) void {
+    pub fn onClone(self: QStatusTipEvent, callback: *const fn (QStatusTipEvent) callconv(.c) QStatusTipEvent) void {
         qtc.QStatusTipEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18034,9 +18034,9 @@ pub const QWhatsThisClickedEvent = extern struct {
     ///
     /// ` self: QWhatsThisClickedEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QWhatsThisClickedEvent `
+    /// ` callback: *const fn (self: QWhatsThisClickedEvent) callconv(.c) QWhatsThisClickedEvent `
     ///
-    pub fn onClone(self: QWhatsThisClickedEvent, callback: *const fn () callconv(.c) QWhatsThisClickedEvent) void {
+    pub fn onClone(self: QWhatsThisClickedEvent, callback: *const fn (QWhatsThisClickedEvent) callconv(.c) QWhatsThisClickedEvent) void {
         qtc.QWhatsThisClickedEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18389,9 +18389,9 @@ pub const QActionEvent = extern struct {
     ///
     /// ` self: QActionEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QActionEvent `
+    /// ` callback: *const fn (self: QActionEvent) callconv(.c) QActionEvent `
     ///
-    pub fn onClone(self: QActionEvent, callback: *const fn () callconv(.c) QActionEvent) void {
+    pub fn onClone(self: QActionEvent, callback: *const fn (QActionEvent) callconv(.c) QActionEvent) void {
         qtc.QActionEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18748,9 +18748,9 @@ pub const QFileOpenEvent = extern struct {
     ///
     /// ` self: QFileOpenEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QFileOpenEvent `
+    /// ` callback: *const fn (self: QFileOpenEvent) callconv(.c) QFileOpenEvent `
     ///
-    pub fn onClone(self: QFileOpenEvent, callback: *const fn () callconv(.c) QFileOpenEvent) void {
+    pub fn onClone(self: QFileOpenEvent, callback: *const fn (QFileOpenEvent) callconv(.c) QFileOpenEvent) void {
         qtc.QFileOpenEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -19113,9 +19113,9 @@ pub const QToolBarChangeEvent = extern struct {
     ///
     /// ` self: QToolBarChangeEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QToolBarChangeEvent `
+    /// ` callback: *const fn (self: QToolBarChangeEvent) callconv(.c) QToolBarChangeEvent `
     ///
-    pub fn onClone(self: QToolBarChangeEvent, callback: *const fn () callconv(.c) QToolBarChangeEvent) void {
+    pub fn onClone(self: QToolBarChangeEvent, callback: *const fn (QToolBarChangeEvent) callconv(.c) QToolBarChangeEvent) void {
         qtc.QToolBarChangeEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -19514,9 +19514,9 @@ pub const QShortcutEvent = extern struct {
     ///
     /// ` self: QShortcutEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QShortcutEvent `
+    /// ` callback: *const fn (self: QShortcutEvent) callconv(.c) QShortcutEvent `
     ///
-    pub fn onClone(self: QShortcutEvent, callback: *const fn () callconv(.c) QShortcutEvent) void {
+    pub fn onClone(self: QShortcutEvent, callback: *const fn (QShortcutEvent) callconv(.c) QShortcutEvent) void {
         qtc.QShortcutEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -19884,9 +19884,9 @@ pub const QWindowStateChangeEvent = extern struct {
     ///
     /// ` self: QWindowStateChangeEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QWindowStateChangeEvent `
+    /// ` callback: *const fn (self: QWindowStateChangeEvent) callconv(.c) QWindowStateChangeEvent `
     ///
-    pub fn onClone(self: QWindowStateChangeEvent, callback: *const fn () callconv(.c) QWindowStateChangeEvent) void {
+    pub fn onClone(self: QWindowStateChangeEvent, callback: *const fn (QWindowStateChangeEvent) callconv(.c) QWindowStateChangeEvent) void {
         qtc.QWindowStateChangeEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20339,9 +20339,9 @@ pub const QTouchEvent = extern struct {
     ///
     /// ` self: QTouchEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QTouchEvent `
+    /// ` callback: *const fn (self: QTouchEvent) callconv(.c) QTouchEvent `
     ///
-    pub fn onClone(self: QTouchEvent, callback: *const fn () callconv(.c) QTouchEvent) void {
+    pub fn onClone(self: QTouchEvent, callback: *const fn (QTouchEvent) callconv(.c) QTouchEvent) void {
         qtc.QTouchEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20441,9 +20441,9 @@ pub const QTouchEvent = extern struct {
     ///
     /// ` self: QTouchEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTouchEvent) callconv(.c) bool `
     ///
-    pub fn onIsBeginEvent(self: QTouchEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsBeginEvent(self: QTouchEvent, callback: *const fn (QTouchEvent) callconv(.c) bool) void {
         qtc.QTouchEvent_OnIsBeginEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20489,9 +20489,9 @@ pub const QTouchEvent = extern struct {
     ///
     /// ` self: QTouchEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTouchEvent) callconv(.c) bool `
     ///
-    pub fn onIsUpdateEvent(self: QTouchEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsUpdateEvent(self: QTouchEvent, callback: *const fn (QTouchEvent) callconv(.c) bool) void {
         qtc.QTouchEvent_OnIsUpdateEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20537,9 +20537,9 @@ pub const QTouchEvent = extern struct {
     ///
     /// ` self: QTouchEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTouchEvent) callconv(.c) bool `
     ///
-    pub fn onIsEndEvent(self: QTouchEvent, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEndEvent(self: QTouchEvent, callback: *const fn (QTouchEvent) callconv(.c) bool) void {
         qtc.QTouchEvent_OnIsEndEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -21248,9 +21248,9 @@ pub const QScrollPrepareEvent = extern struct {
     ///
     /// ` self: QScrollPrepareEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QScrollPrepareEvent `
+    /// ` callback: *const fn (self: QScrollPrepareEvent) callconv(.c) QScrollPrepareEvent `
     ///
-    pub fn onClone(self: QScrollPrepareEvent, callback: *const fn () callconv(.c) QScrollPrepareEvent) void {
+    pub fn onClone(self: QScrollPrepareEvent, callback: *const fn (QScrollPrepareEvent) callconv(.c) QScrollPrepareEvent) void {
         qtc.QScrollPrepareEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -21673,9 +21673,9 @@ pub const QScrollEvent = extern struct {
     ///
     /// ` self: QScrollEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QScrollEvent `
+    /// ` callback: *const fn (self: QScrollEvent) callconv(.c) QScrollEvent `
     ///
-    pub fn onClone(self: QScrollEvent, callback: *const fn () callconv(.c) QScrollEvent) void {
+    pub fn onClone(self: QScrollEvent, callback: *const fn (QScrollEvent) callconv(.c) QScrollEvent) void {
         qtc.QScrollEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -22034,9 +22034,9 @@ pub const QScreenOrientationChangeEvent = extern struct {
     ///
     /// ` self: QScreenOrientationChangeEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QScreenOrientationChangeEvent `
+    /// ` callback: *const fn (self: QScreenOrientationChangeEvent) callconv(.c) QScreenOrientationChangeEvent `
     ///
-    pub fn onClone(self: QScreenOrientationChangeEvent, callback: *const fn () callconv(.c) QScreenOrientationChangeEvent) void {
+    pub fn onClone(self: QScreenOrientationChangeEvent, callback: *const fn (QScreenOrientationChangeEvent) callconv(.c) QScreenOrientationChangeEvent) void {
         qtc.QScreenOrientationChangeEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -22378,9 +22378,9 @@ pub const QApplicationStateChangeEvent = extern struct {
     ///
     /// ` self: QApplicationStateChangeEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QApplicationStateChangeEvent `
+    /// ` callback: *const fn (self: QApplicationStateChangeEvent) callconv(.c) QApplicationStateChangeEvent `
     ///
-    pub fn onClone(self: QApplicationStateChangeEvent, callback: *const fn () callconv(.c) QApplicationStateChangeEvent) void {
+    pub fn onClone(self: QApplicationStateChangeEvent, callback: *const fn (QApplicationStateChangeEvent) callconv(.c) QApplicationStateChangeEvent) void {
         qtc.QApplicationStateChangeEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -22711,9 +22711,9 @@ pub const QChildWindowEvent = extern struct {
     ///
     /// ` self: QChildWindowEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QChildWindowEvent `
+    /// ` callback: *const fn (self: QChildWindowEvent) callconv(.c) QChildWindowEvent `
     ///
-    pub fn onClone(self: QChildWindowEvent, callback: *const fn () callconv(.c) QChildWindowEvent) void {
+    pub fn onClone(self: QChildWindowEvent, callback: *const fn (QChildWindowEvent) callconv(.c) QChildWindowEvent) void {
         qtc.QChildWindowEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

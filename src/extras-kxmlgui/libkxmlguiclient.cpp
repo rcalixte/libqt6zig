@@ -215,7 +215,7 @@ void KXMLGUIClient_SetComponentName(KXMLGUIClient* self, const libqt_string comp
     QString componentName_QString = QString::fromUtf8(componentName.data, componentName.len);
     QString componentDisplayName_QString = QString::fromUtf8(componentDisplayName.data, componentDisplayName.len);
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient) {
         vkxmlguiclient->setComponentName(componentName_QString, componentDisplayName_QString);
     }
 }
@@ -223,7 +223,7 @@ void KXMLGUIClient_SetComponentName(KXMLGUIClient* self, const libqt_string comp
 void KXMLGUIClient_SetXMLFile(KXMLGUIClient* self, const libqt_string file, bool merge, bool setXMLDoc) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient) {
         vkxmlguiclient->setXMLFile(file_QString, merge, setXMLDoc);
     }
 }
@@ -231,7 +231,7 @@ void KXMLGUIClient_SetXMLFile(KXMLGUIClient* self, const libqt_string file, bool
 void KXMLGUIClient_SetLocalXMLFile(KXMLGUIClient* self, const libqt_string file) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient) {
         vkxmlguiclient->setLocalXMLFile(file_QString);
     }
 }
@@ -239,14 +239,14 @@ void KXMLGUIClient_SetLocalXMLFile(KXMLGUIClient* self, const libqt_string file)
 void KXMLGUIClient_SetXML(KXMLGUIClient* self, const libqt_string document, bool merge) {
     QString document_QString = QString::fromUtf8(document.data, document.len);
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient) {
         vkxmlguiclient->setXML(document_QString, merge);
     }
 }
 
 void KXMLGUIClient_SetDOMDocument(KXMLGUIClient* self, const QDomDocument* document, bool merge) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient) {
         vkxmlguiclient->setDOMDocument(*document, merge);
     }
 }
@@ -254,7 +254,7 @@ void KXMLGUIClient_SetDOMDocument(KXMLGUIClient* self, const QDomDocument* docum
 void KXMLGUIClient_StateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse) {
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient) {
         vkxmlguiclient->stateChanged(newstate_QString, static_cast<KXMLGUIClient::ReverseStateChange>(reverse));
     }
 }
@@ -267,279 +267,188 @@ void KXMLGUIClient_ReplaceXMLFile3(KXMLGUIClient* self, const libqt_string xmlfi
 
 // Base class handler implementation
 QAction* KXMLGUIClient_SuperAction2(const KXMLGUIClient* self, const QDomElement* element) {
-    auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_Action2_IsBase(true);
-        return vkxmlguiclient->action(*element);
-    } else {
-        return self->KXMLGUIClient::action(*element);
-    }
+    return self->KXMLGUIClient::action(*element);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXMLGUIClient_OnAction2(const KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
-        vkxmlguiclient->setKXMLGUIClient_Action2_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_Action2_Callback>(slot));
+void KXMLGUIClient_OnAction2(KXMLGUIClient* self, intptr_t slot) {
+    if (auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self)))
+        vkxmlguiclient->kxmlguiclient_action2_callback = reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_Action2_Callback>(slot);
 }
 
 // Base class handler implementation
 KActionCollection* KXMLGUIClient_SuperActionCollection(const KXMLGUIClient* self) {
-    auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_ActionCollection_IsBase(true);
-        return vkxmlguiclient->actionCollection();
-    } else {
-        return self->KXMLGUIClient::actionCollection();
-    }
+    return self->KXMLGUIClient::actionCollection();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXMLGUIClient_OnActionCollection(const KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
-        vkxmlguiclient->setKXMLGUIClient_ActionCollection_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_ActionCollection_Callback>(slot));
+void KXMLGUIClient_OnActionCollection(KXMLGUIClient* self, intptr_t slot) {
+    if (auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self)))
+        vkxmlguiclient->kxmlguiclient_actioncollection_callback = reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_ActionCollection_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string KXMLGUIClient_SuperComponentName(const KXMLGUIClient* self) {
-    auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_ComponentName_IsBase(true);
-        auto _ret = vkxmlguiclient->componentName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KXMLGUIClient::componentName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KXMLGUIClient::componentName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXMLGUIClient_OnComponentName(const KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
-        vkxmlguiclient->setKXMLGUIClient_ComponentName_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_ComponentName_Callback>(slot));
+void KXMLGUIClient_OnComponentName(KXMLGUIClient* self, intptr_t slot) {
+    if (auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self)))
+        vkxmlguiclient->kxmlguiclient_componentname_callback = reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_ComponentName_Callback>(slot);
 }
 
 // Base class handler implementation
 QDomDocument* KXMLGUIClient_SuperDomDocument(const KXMLGUIClient* self) {
-    auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_DomDocument_IsBase(true);
-        return new QDomDocument(vkxmlguiclient->domDocument());
-    } else {
-        return new QDomDocument(((VirtualKXMLGUIClient*)self)->domDocument());
-    }
+    return new QDomDocument(self->KXMLGUIClient::domDocument());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXMLGUIClient_OnDomDocument(const KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
-        vkxmlguiclient->setKXMLGUIClient_DomDocument_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_DomDocument_Callback>(slot));
+void KXMLGUIClient_OnDomDocument(KXMLGUIClient* self, intptr_t slot) {
+    if (auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self)))
+        vkxmlguiclient->kxmlguiclient_domdocument_callback = reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_DomDocument_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string KXMLGUIClient_SuperXmlFile(const KXMLGUIClient* self) {
-    auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_XmlFile_IsBase(true);
-        auto _ret = vkxmlguiclient->xmlFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KXMLGUIClient::xmlFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KXMLGUIClient::xmlFile();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXMLGUIClient_OnXmlFile(const KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
-        vkxmlguiclient->setKXMLGUIClient_XmlFile_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_XmlFile_Callback>(slot));
+void KXMLGUIClient_OnXmlFile(KXMLGUIClient* self, intptr_t slot) {
+    if (auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self)))
+        vkxmlguiclient->kxmlguiclient_xmlfile_callback = reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_XmlFile_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string KXMLGUIClient_SuperLocalXMLFile(const KXMLGUIClient* self) {
-    auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_LocalXMLFile_IsBase(true);
-        auto _ret = vkxmlguiclient->localXMLFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KXMLGUIClient::localXMLFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KXMLGUIClient::localXMLFile();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXMLGUIClient_OnLocalXMLFile(const KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
-        vkxmlguiclient->setKXMLGUIClient_LocalXMLFile_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_LocalXMLFile_Callback>(slot));
+void KXMLGUIClient_OnLocalXMLFile(KXMLGUIClient* self, intptr_t slot) {
+    if (auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self)))
+        vkxmlguiclient->kxmlguiclient_localxmlfile_callback = reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_LocalXMLFile_Callback>(slot);
 }
 
 // Base class handler implementation
 void KXMLGUIClient_SuperSetComponentName(KXMLGUIClient* self, const libqt_string componentName, const libqt_string componentDisplayName) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
     QString componentName_QString = QString::fromUtf8(componentName.data, componentName.len);
     QString componentDisplayName_QString = QString::fromUtf8(componentDisplayName.data, componentDisplayName.len);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_SetComponentName_IsBase(true);
-        vkxmlguiclient->setComponentName(componentName_QString, componentDisplayName_QString);
-    } else {
-        ((VirtualKXMLGUIClient*)self)->setComponentName(componentName_QString, componentDisplayName_QString);
-    }
+    if (auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self)) {
+        vkxmlguiclient->KXMLGUIClient::setComponentName(componentName_QString, componentDisplayName_QString);
+    } else
+        qFatal("Error: Protected virtual method KXMLGUIClient::setComponentName called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnSetComponentName(KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
-        vkxmlguiclient->setKXMLGUIClient_SetComponentName_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetComponentName_Callback>(slot));
+    if (auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self))
+        vkxmlguiclient->kxmlguiclient_setcomponentname_callback = reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetComponentName_Callback>(slot);
 }
 
 // Base class handler implementation
 void KXMLGUIClient_SuperSetXMLFile(KXMLGUIClient* self, const libqt_string file, bool merge, bool setXMLDoc) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_SetXMLFile_IsBase(true);
-        vkxmlguiclient->setXMLFile(file_QString, merge, setXMLDoc);
-    } else {
-        ((VirtualKXMLGUIClient*)self)->setXMLFile(file_QString, merge, setXMLDoc);
-    }
+    if (auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self)) {
+        vkxmlguiclient->KXMLGUIClient::setXMLFile(file_QString, merge, setXMLDoc);
+    } else
+        qFatal("Error: Protected virtual method KXMLGUIClient::setXMLFile called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnSetXMLFile(KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
-        vkxmlguiclient->setKXMLGUIClient_SetXMLFile_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetXMLFile_Callback>(slot));
+    if (auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self))
+        vkxmlguiclient->kxmlguiclient_setxmlfile_callback = reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetXMLFile_Callback>(slot);
 }
 
 // Base class handler implementation
 void KXMLGUIClient_SuperSetLocalXMLFile(KXMLGUIClient* self, const libqt_string file) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_SetLocalXMLFile_IsBase(true);
-        vkxmlguiclient->setLocalXMLFile(file_QString);
-    } else {
-        ((VirtualKXMLGUIClient*)self)->setLocalXMLFile(file_QString);
-    }
+    if (auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self)) {
+        vkxmlguiclient->KXMLGUIClient::setLocalXMLFile(file_QString);
+    } else
+        qFatal("Error: Protected virtual method KXMLGUIClient::setLocalXMLFile called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnSetLocalXMLFile(KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
-        vkxmlguiclient->setKXMLGUIClient_SetLocalXMLFile_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetLocalXMLFile_Callback>(slot));
+    if (auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self))
+        vkxmlguiclient->kxmlguiclient_setlocalxmlfile_callback = reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetLocalXMLFile_Callback>(slot);
 }
 
 // Base class handler implementation
 void KXMLGUIClient_SuperSetXML(KXMLGUIClient* self, const libqt_string document, bool merge) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
     QString document_QString = QString::fromUtf8(document.data, document.len);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_SetXML_IsBase(true);
-        vkxmlguiclient->setXML(document_QString, merge);
-    } else {
-        ((VirtualKXMLGUIClient*)self)->setXML(document_QString, merge);
-    }
+    if (auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self)) {
+        vkxmlguiclient->KXMLGUIClient::setXML(document_QString, merge);
+    } else
+        qFatal("Error: Protected virtual method KXMLGUIClient::setXML called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnSetXML(KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
-        vkxmlguiclient->setKXMLGUIClient_SetXML_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetXML_Callback>(slot));
+    if (auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self))
+        vkxmlguiclient->kxmlguiclient_setxml_callback = reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetXML_Callback>(slot);
 }
 
 // Base class handler implementation
 void KXMLGUIClient_SuperSetDOMDocument(KXMLGUIClient* self, const QDomDocument* document, bool merge) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_SetDOMDocument_IsBase(true);
-        vkxmlguiclient->setDOMDocument(*document, merge);
-    } else {
-        ((VirtualKXMLGUIClient*)self)->setDOMDocument(*document, merge);
-    }
+    if (auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self)) {
+        vkxmlguiclient->KXMLGUIClient::setDOMDocument(*document, merge);
+    } else
+        qFatal("Error: Protected virtual method KXMLGUIClient::setDOMDocument called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnSetDOMDocument(KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
-        vkxmlguiclient->setKXMLGUIClient_SetDOMDocument_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetDOMDocument_Callback>(slot));
+    if (auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self))
+        vkxmlguiclient->kxmlguiclient_setdomdocument_callback = reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetDOMDocument_Callback>(slot);
 }
 
 // Base class handler implementation
 void KXMLGUIClient_SuperStateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_StateChanged_IsBase(true);
-        vkxmlguiclient->stateChanged(newstate_QString, static_cast<KXMLGUIClient::ReverseStateChange>(reverse));
-    } else {
-        ((VirtualKXMLGUIClient*)self)->stateChanged(newstate_QString, static_cast<KXMLGUIClient::ReverseStateChange>(reverse));
-    }
+    if (auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self)) {
+        vkxmlguiclient->KXMLGUIClient::stateChanged(newstate_QString, static_cast<KXMLGUIClient::ReverseStateChange>(reverse));
+    } else
+        qFatal("Error: Protected virtual method KXMLGUIClient::stateChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnStateChanged(KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
-        vkxmlguiclient->setKXMLGUIClient_StateChanged_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_StateChanged_Callback>(slot));
+    if (auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self))
+        vkxmlguiclient->kxmlguiclient_statechanged_callback = reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_StateChanged_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string KXMLGUIClient_StandardsXmlFileLocation(KXMLGUIClient* self) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        auto _ret = vkxmlguiclient->standardsXmlFileLocation();
+    if (auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self)) {
+        auto _ret = vkxmlguiclient->VirtualKXMLGUIClient::standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -548,79 +457,16 @@ libqt_string KXMLGUIClient_StandardsXmlFileLocation(KXMLGUIClient* self) {
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualKXMLGUIClient*)self)->standardsXmlFileLocation();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method KXMLGUIClient::standardsXmlFileLocation called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string KXMLGUIClient_SuperStandardsXmlFileLocation(KXMLGUIClient* self) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_StandardsXmlFileLocation_IsBase(true);
-        auto _ret = vkxmlguiclient->standardsXmlFileLocation();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKXMLGUIClient*)self)->standardsXmlFileLocation();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXMLGUIClient_OnStandardsXmlFileLocation(KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
-        vkxmlguiclient->setKXMLGUIClient_StandardsXmlFileLocation_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_StandardsXmlFileLocation_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KXMLGUIClient_LoadStandardsXmlFile(KXMLGUIClient* self) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->loadStandardsXmlFile();
-    } else {
-        ((VirtualKXMLGUIClient*)self)->loadStandardsXmlFile();
-    }
-}
-
-// Base class handler implementation
-void KXMLGUIClient_SuperLoadStandardsXmlFile(KXMLGUIClient* self) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_LoadStandardsXmlFile_IsBase(true);
-        vkxmlguiclient->loadStandardsXmlFile();
-    } else {
-        ((VirtualKXMLGUIClient*)self)->loadStandardsXmlFile();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXMLGUIClient_OnLoadStandardsXmlFile(KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
-        vkxmlguiclient->setKXMLGUIClient_LoadStandardsXmlFile_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_LoadStandardsXmlFile_Callback>(slot));
+    if (auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self)) {
+        vkxmlguiclient->VirtualKXMLGUIClient::loadStandardsXmlFile();
+    } else
+        qFatal("Error: Protected method KXMLGUIClient::loadStandardsXmlFile called without a directly constructed type");
 }
 
 void KXMLGUIClient_Delete(KXMLGUIClient* self) {

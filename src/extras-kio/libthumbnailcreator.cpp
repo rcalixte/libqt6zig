@@ -162,382 +162,225 @@ libqt_string KIO__ThumbnailCreator_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KIO__ThumbnailCreator_SuperMetaObject(const KIO__ThumbnailCreator* self) {
-    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_MetaObject_IsBase(true);
-        return (QMetaObject*)vkiothumbnailcreator->metaObject();
-    } else {
-        return (QMetaObject*)self->KIO::ThumbnailCreator::metaObject();
-    }
+    return (QMetaObject*)self->KIO::ThumbnailCreator::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIO__ThumbnailCreator_OnMetaObject(const KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_MetaObject_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_MetaObject_Callback>(slot));
+void KIO__ThumbnailCreator_OnMetaObject(KIO__ThumbnailCreator* self, intptr_t slot) {
+    if (auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self)))
+        vkiothumbnailcreator->kio__thumbnailcreator_metaobject_callback = reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KIO__ThumbnailCreator_SuperMetacast(KIO__ThumbnailCreator* self, const char* param1) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_Metacast_IsBase(true);
-        return vkiothumbnailcreator->qt_metacast(param1);
-    } else {
-        return self->KIO::ThumbnailCreator::qt_metacast(param1);
-    }
+    return self->KIO::ThumbnailCreator::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnMetacast(KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_Metacast_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Metacast_Callback>(slot));
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self))
+        vkiothumbnailcreator->kio__thumbnailcreator_metacast_callback = reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KIO__ThumbnailCreator_SuperMetacall(KIO__ThumbnailCreator* self, int param1, int param2, void** param3) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_Metacall_IsBase(true);
-        return vkiothumbnailcreator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KIO::ThumbnailCreator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KIO::ThumbnailCreator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnMetacall(KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_Metacall_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-KIO__ThumbnailResult* KIO__ThumbnailCreator_SuperCreate(KIO__ThumbnailCreator* self, const KIO__ThumbnailRequest* request) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_Create_IsBase(true);
-        return new KIO::ThumbnailResult(vkiothumbnailcreator->create(*request));
-    } else {
-        return new KIO::ThumbnailResult(((VirtualKIOThumbnailCreator*)self)->create(*request));
-    }
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self))
+        vkiothumbnailcreator->kio__thumbnailcreator_metacall_callback = reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnCreate(KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_Create_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Create_Callback>(slot));
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self))
+        vkiothumbnailcreator->kio__thumbnailcreator_create_callback = reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Create_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__ThumbnailCreator_Event(KIO__ThumbnailCreator* self, QEvent* event) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        return vkiothumbnailcreator->event(event);
-    } else {
-        return self->KIO::ThumbnailCreator::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KIO__ThumbnailCreator_SuperEvent(KIO__ThumbnailCreator* self, QEvent* event) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_Event_IsBase(true);
-        return vkiothumbnailcreator->event(event);
-    } else {
-        return self->KIO::ThumbnailCreator::event(event);
-    }
+    return self->KIO::ThumbnailCreator::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnEvent(KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_Event_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Event_Callback>(slot));
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self))
+        vkiothumbnailcreator->kio__thumbnailcreator_event_callback = reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__ThumbnailCreator_EventFilter(KIO__ThumbnailCreator* self, QObject* watched, QEvent* event) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        return vkiothumbnailcreator->eventFilter(watched, event);
-    } else {
-        return self->KIO::ThumbnailCreator::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KIO__ThumbnailCreator_SuperEventFilter(KIO__ThumbnailCreator* self, QObject* watched, QEvent* event) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_EventFilter_IsBase(true);
-        return vkiothumbnailcreator->eventFilter(watched, event);
-    } else {
-        return self->KIO::ThumbnailCreator::eventFilter(watched, event);
-    }
+    return self->KIO::ThumbnailCreator::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnEventFilter(KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_EventFilter_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_EventFilter_Callback>(slot));
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self))
+        vkiothumbnailcreator->kio__thumbnailcreator_eventfilter_callback = reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__ThumbnailCreator_TimerEvent(KIO__ThumbnailCreator* self, QTimerEvent* event) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator) {
         vkiothumbnailcreator->timerEvent(event);
     } else {
-        ((VirtualKIOThumbnailCreator*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KIO::ThumbnailCreator::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__ThumbnailCreator_SuperTimerEvent(KIO__ThumbnailCreator* self, QTimerEvent* event) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_TimerEvent_IsBase(true);
-        vkiothumbnailcreator->timerEvent(event);
-    } else {
-        ((VirtualKIOThumbnailCreator*)self)->timerEvent(event);
-    }
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self)) {
+        vkiothumbnailcreator->KIO::ThumbnailCreator::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::ThumbnailCreator::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnTimerEvent(KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_TimerEvent_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_TimerEvent_Callback>(slot));
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self))
+        vkiothumbnailcreator->kio__thumbnailcreator_timerevent_callback = reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__ThumbnailCreator_ChildEvent(KIO__ThumbnailCreator* self, QChildEvent* event) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator) {
         vkiothumbnailcreator->childEvent(event);
     } else {
-        ((VirtualKIOThumbnailCreator*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KIO::ThumbnailCreator::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__ThumbnailCreator_SuperChildEvent(KIO__ThumbnailCreator* self, QChildEvent* event) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_ChildEvent_IsBase(true);
-        vkiothumbnailcreator->childEvent(event);
-    } else {
-        ((VirtualKIOThumbnailCreator*)self)->childEvent(event);
-    }
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self)) {
+        vkiothumbnailcreator->KIO::ThumbnailCreator::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::ThumbnailCreator::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnChildEvent(KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_ChildEvent_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_ChildEvent_Callback>(slot));
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self))
+        vkiothumbnailcreator->kio__thumbnailcreator_childevent_callback = reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__ThumbnailCreator_CustomEvent(KIO__ThumbnailCreator* self, QEvent* event) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator) {
         vkiothumbnailcreator->customEvent(event);
     } else {
-        ((VirtualKIOThumbnailCreator*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KIO::ThumbnailCreator::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__ThumbnailCreator_SuperCustomEvent(KIO__ThumbnailCreator* self, QEvent* event) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_CustomEvent_IsBase(true);
-        vkiothumbnailcreator->customEvent(event);
-    } else {
-        ((VirtualKIOThumbnailCreator*)self)->customEvent(event);
-    }
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self)) {
+        vkiothumbnailcreator->KIO::ThumbnailCreator::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::ThumbnailCreator::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnCustomEvent(KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_CustomEvent_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_CustomEvent_Callback>(slot));
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self))
+        vkiothumbnailcreator->kio__thumbnailcreator_customevent_callback = reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__ThumbnailCreator_ConnectNotify(KIO__ThumbnailCreator* self, const QMetaMethod* signal) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator) {
         vkiothumbnailcreator->connectNotify(*signal);
     } else {
-        ((VirtualKIOThumbnailCreator*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::ThumbnailCreator::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__ThumbnailCreator_SuperConnectNotify(KIO__ThumbnailCreator* self, const QMetaMethod* signal) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_ConnectNotify_IsBase(true);
-        vkiothumbnailcreator->connectNotify(*signal);
-    } else {
-        ((VirtualKIOThumbnailCreator*)self)->connectNotify(*signal);
-    }
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self)) {
+        vkiothumbnailcreator->KIO::ThumbnailCreator::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::ThumbnailCreator::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnConnectNotify(KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_ConnectNotify_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_ConnectNotify_Callback>(slot));
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self))
+        vkiothumbnailcreator->kio__thumbnailcreator_connectnotify_callback = reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__ThumbnailCreator_DisconnectNotify(KIO__ThumbnailCreator* self, const QMetaMethod* signal) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator) {
         vkiothumbnailcreator->disconnectNotify(*signal);
     } else {
-        ((VirtualKIOThumbnailCreator*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::ThumbnailCreator::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__ThumbnailCreator_SuperDisconnectNotify(KIO__ThumbnailCreator* self, const QMetaMethod* signal) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_DisconnectNotify_IsBase(true);
-        vkiothumbnailcreator->disconnectNotify(*signal);
-    } else {
-        ((VirtualKIOThumbnailCreator*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self)) {
+        vkiothumbnailcreator->KIO::ThumbnailCreator::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::ThumbnailCreator::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnDisconnectNotify(KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_DisconnectNotify_Callback>(slot));
+    if (auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self))
+        vkiothumbnailcreator->kio__thumbnailcreator_disconnectnotify_callback = reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KIO__ThumbnailCreator_Sender(const KIO__ThumbnailCreator* self) {
-    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        return vkiothumbnailcreator->sender();
-    } else {
-        return ((VirtualKIOThumbnailCreator*)self)->sender();
-    }
+    if (auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self))) {
+        return vkiothumbnailcreator->VirtualKIOThumbnailCreator::sender();
+    } else
+        qFatal("Error: Protected method KIO::ThumbnailCreator::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KIO__ThumbnailCreator_SuperSender(const KIO__ThumbnailCreator* self) {
-    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_Sender_IsBase(true);
-        return vkiothumbnailcreator->sender();
-    } else {
-        return ((VirtualKIOThumbnailCreator*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__ThumbnailCreator_OnSender(const KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_Sender_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__ThumbnailCreator_SenderSignalIndex(const KIO__ThumbnailCreator* self) {
-    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        return vkiothumbnailcreator->senderSignalIndex();
-    } else {
-        return ((VirtualKIOThumbnailCreator*)self)->senderSignalIndex();
-    }
+    if (auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self))) {
+        return vkiothumbnailcreator->VirtualKIOThumbnailCreator::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KIO::ThumbnailCreator::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__ThumbnailCreator_SuperSenderSignalIndex(const KIO__ThumbnailCreator* self) {
-    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_SenderSignalIndex_IsBase(true);
-        return vkiothumbnailcreator->senderSignalIndex();
-    } else {
-        return ((VirtualKIOThumbnailCreator*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__ThumbnailCreator_OnSenderSignalIndex(const KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__ThumbnailCreator_Receivers(const KIO__ThumbnailCreator* self, const char* signal) {
-    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        return vkiothumbnailcreator->receivers(signal);
-    } else {
-        return ((VirtualKIOThumbnailCreator*)self)->receivers(signal);
-    }
+    if (auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self))) {
+        return vkiothumbnailcreator->VirtualKIOThumbnailCreator::receivers(signal);
+    } else
+        qFatal("Error: Protected method KIO::ThumbnailCreator::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__ThumbnailCreator_SuperReceivers(const KIO__ThumbnailCreator* self, const char* signal) {
-    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_Receivers_IsBase(true);
-        return vkiothumbnailcreator->receivers(signal);
-    } else {
-        return ((VirtualKIOThumbnailCreator*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__ThumbnailCreator_OnReceivers(const KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_Receivers_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__ThumbnailCreator_IsSignalConnected(const KIO__ThumbnailCreator* self, const QMetaMethod* signal) {
-    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        return vkiothumbnailcreator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIOThumbnailCreator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KIO__ThumbnailCreator_SuperIsSignalConnected(const KIO__ThumbnailCreator* self, const QMetaMethod* signal) {
-    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_IsSignalConnected_IsBase(true);
-        return vkiothumbnailcreator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIOThumbnailCreator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__ThumbnailCreator_OnIsSignalConnected(const KIO__ThumbnailCreator* self, intptr_t slot) {
-    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
-        vkiothumbnailcreator->setKIO__ThumbnailCreator_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_IsSignalConnected_Callback>(slot));
+    if (auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self))) {
+        return vkiothumbnailcreator->VirtualKIOThumbnailCreator::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KIO::ThumbnailCreator::isSignalConnected called without a directly constructed type");
 }
 
 void KIO__ThumbnailCreator_Delete(KIO__ThumbnailCreator* self) {

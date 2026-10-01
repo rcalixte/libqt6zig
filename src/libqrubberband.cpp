@@ -101,50 +101,50 @@ void QRubberBand_Resize2(QRubberBand* self, const QSize* s) {
 
 bool QRubberBand_Event(QRubberBand* self, QEvent* e) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         return vqrubberband->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QRubberBand::event called without a directly constructed type");
 }
 
 void QRubberBand_PaintEvent(QRubberBand* self, QPaintEvent* param1) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->paintEvent(param1);
     }
 }
 
 void QRubberBand_ChangeEvent(QRubberBand* self, QEvent* param1) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->changeEvent(param1);
     }
 }
 
 void QRubberBand_ShowEvent(QRubberBand* self, QShowEvent* param1) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->showEvent(param1);
     }
 }
 
 void QRubberBand_ResizeEvent(QRubberBand* self, QResizeEvent* param1) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->resizeEvent(param1);
     }
 }
 
 void QRubberBand_MoveEvent(QRubberBand* self, QMoveEvent* param1) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->moveEvent(param1);
     }
 }
 
 void QRubberBand_InitStyleOption(const QRubberBand* self, QStyleOptionRubberBand* option) {
     auto* vqrubberband = dynamic_cast<const VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->initStyleOption(option);
     }
 }
@@ -175,1612 +175,1127 @@ libqt_string QRubberBand_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QRubberBand_SuperMetaObject(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_MetaObject_IsBase(true);
-        return (QMetaObject*)vqrubberband->metaObject();
-    } else {
-        return (QMetaObject*)self->QRubberBand::metaObject();
-    }
+    return (QMetaObject*)self->QRubberBand::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRubberBand_OnMetaObject(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_MetaObject_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MetaObject_Callback>(slot));
+void QRubberBand_OnMetaObject(QRubberBand* self, intptr_t slot) {
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self)))
+        vqrubberband->qrubberband_metaobject_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QRubberBand_SuperMetacast(QRubberBand* self, const char* param1) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_Metacast_IsBase(true);
-        return vqrubberband->qt_metacast(param1);
-    } else {
-        return self->QRubberBand::qt_metacast(param1);
-    }
+    return self->QRubberBand::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMetacast(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_Metacast_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Metacast_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_metacast_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QRubberBand_SuperMetacall(QRubberBand* self, int param1, int param2, void** param3) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_Metacall_IsBase(true);
-        return vqrubberband->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QRubberBand::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QRubberBand::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMetacall(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_Metacall_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Metacall_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_metacall_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QRubberBand_SuperEvent(QRubberBand* self, QEvent* e) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_Event_IsBase(true);
-        return vqrubberband->event(e);
-    } else {
-        return ((VirtualQRubberBand*)self)->event(e);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        return vqrubberband->QRubberBand::event(e);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_Event_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Event_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_event_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QRubberBand_SuperPaintEvent(QRubberBand* self, QPaintEvent* param1) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_PaintEvent_IsBase(true);
-        vqrubberband->paintEvent(param1);
-    } else {
-        ((VirtualQRubberBand*)self)->paintEvent(param1);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnPaintEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_PaintEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_PaintEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_paintevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QRubberBand_SuperChangeEvent(QRubberBand* self, QEvent* param1) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_ChangeEvent_IsBase(true);
-        vqrubberband->changeEvent(param1);
-    } else {
-        ((VirtualQRubberBand*)self)->changeEvent(param1);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnChangeEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_ChangeEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_ChangeEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_changeevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_ChangeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QRubberBand_SuperShowEvent(QRubberBand* self, QShowEvent* param1) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_ShowEvent_IsBase(true);
-        vqrubberband->showEvent(param1);
-    } else {
-        ((VirtualQRubberBand*)self)->showEvent(param1);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnShowEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_ShowEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_ShowEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_showevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QRubberBand_SuperResizeEvent(QRubberBand* self, QResizeEvent* param1) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_ResizeEvent_IsBase(true);
-        vqrubberband->resizeEvent(param1);
-    } else {
-        ((VirtualQRubberBand*)self)->resizeEvent(param1);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnResizeEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_ResizeEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_ResizeEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_resizeevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QRubberBand_SuperMoveEvent(QRubberBand* self, QMoveEvent* param1) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_MoveEvent_IsBase(true);
-        vqrubberband->moveEvent(param1);
-    } else {
-        ((VirtualQRubberBand*)self)->moveEvent(param1);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::moveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMoveEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_MoveEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MoveEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_moveevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_MoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QRubberBand_SuperInitStyleOption(const QRubberBand* self, QStyleOptionRubberBand* option) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_InitStyleOption_IsBase(true);
-        vqrubberband->initStyleOption(option);
-    } else {
-        ((VirtualQRubberBand*)self)->initStyleOption(option);
-    }
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self))) {
+        vqrubberband->QRubberBand::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRubberBand_OnInitStyleOption(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_InitStyleOption_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_InitStyleOption_Callback>(slot));
+void QRubberBand_OnInitStyleOption(QRubberBand* self, intptr_t slot) {
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self)))
+        vqrubberband->qrubberband_initstyleoption_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QRubberBand_DevType(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return vqrubberband->devType();
-    } else {
-        return self->QRubberBand::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QRubberBand_SuperDevType(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_DevType_IsBase(true);
-        return vqrubberband->devType();
-    } else {
-        return self->QRubberBand::devType();
-    }
+    return self->QRubberBand::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRubberBand_OnDevType(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_DevType_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_DevType_Callback>(slot));
+void QRubberBand_OnDevType(QRubberBand* self, intptr_t slot) {
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self)))
+        vqrubberband->qrubberband_devtype_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_SetVisible(QRubberBand* self, bool visible) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setVisible(visible);
-    } else {
-        self->QRubberBand::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QRubberBand_SuperSetVisible(QRubberBand* self, bool visible) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_SetVisible_IsBase(true);
-        vqrubberband->setVisible(visible);
-    } else {
-        self->QRubberBand::setVisible(visible);
-    }
+    self->QRubberBand::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnSetVisible(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_SetVisible_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_SetVisible_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_setvisible_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QRubberBand_SizeHint(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return new QSize(vqrubberband->sizeHint());
-    } else {
-        return new QSize(((VirtualQRubberBand*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QRubberBand_SuperSizeHint(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_SizeHint_IsBase(true);
-        return new QSize(vqrubberband->sizeHint());
-    } else {
-        return new QSize(((VirtualQRubberBand*)self)->sizeHint());
-    }
+    return new QSize(self->QRubberBand::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRubberBand_OnSizeHint(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_SizeHint_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_SizeHint_Callback>(slot));
+void QRubberBand_OnSizeHint(QRubberBand* self, intptr_t slot) {
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self)))
+        vqrubberband->qrubberband_sizehint_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QRubberBand_MinimumSizeHint(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return new QSize(vqrubberband->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQRubberBand*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QRubberBand_SuperMinimumSizeHint(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_MinimumSizeHint_IsBase(true);
-        return new QSize(vqrubberband->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQRubberBand*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QRubberBand::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRubberBand_OnMinimumSizeHint(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_MinimumSizeHint_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MinimumSizeHint_Callback>(slot));
+void QRubberBand_OnMinimumSizeHint(QRubberBand* self, intptr_t slot) {
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self)))
+        vqrubberband->qrubberband_minimumsizehint_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QRubberBand_HeightForWidth(const QRubberBand* self, int param1) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return vqrubberband->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QRubberBand::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QRubberBand_SuperHeightForWidth(const QRubberBand* self, int param1) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_HeightForWidth_IsBase(true);
-        return vqrubberband->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QRubberBand::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QRubberBand::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRubberBand_OnHeightForWidth(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_HeightForWidth_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_HeightForWidth_Callback>(slot));
+void QRubberBand_OnHeightForWidth(QRubberBand* self, intptr_t slot) {
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self)))
+        vqrubberband->qrubberband_heightforwidth_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QRubberBand_HasHeightForWidth(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return vqrubberband->hasHeightForWidth();
-    } else {
-        return self->QRubberBand::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QRubberBand_SuperHasHeightForWidth(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_HasHeightForWidth_IsBase(true);
-        return vqrubberband->hasHeightForWidth();
-    } else {
-        return self->QRubberBand::hasHeightForWidth();
-    }
+    return self->QRubberBand::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRubberBand_OnHasHeightForWidth(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_HasHeightForWidth_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_HasHeightForWidth_Callback>(slot));
+void QRubberBand_OnHasHeightForWidth(QRubberBand* self, intptr_t slot) {
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self)))
+        vqrubberband->qrubberband_hasheightforwidth_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QRubberBand_PaintEngine(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return vqrubberband->paintEngine();
-    } else {
-        return self->QRubberBand::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QRubberBand_SuperPaintEngine(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_PaintEngine_IsBase(true);
-        return vqrubberband->paintEngine();
-    } else {
-        return self->QRubberBand::paintEngine();
-    }
+    return self->QRubberBand::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRubberBand_OnPaintEngine(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_PaintEngine_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_PaintEngine_Callback>(slot));
+void QRubberBand_OnPaintEngine(QRubberBand* self, intptr_t slot) {
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self)))
+        vqrubberband->qrubberband_paintengine_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_MousePressEvent(QRubberBand* self, QMouseEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->mousePressEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperMousePressEvent(QRubberBand* self, QMouseEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_MousePressEvent_IsBase(true);
-        vqrubberband->mousePressEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->mousePressEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMousePressEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_MousePressEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MousePressEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_mousepressevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_MouseReleaseEvent(QRubberBand* self, QMouseEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->mouseReleaseEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperMouseReleaseEvent(QRubberBand* self, QMouseEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_MouseReleaseEvent_IsBase(true);
-        vqrubberband->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMouseReleaseEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_mousereleaseevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_MouseDoubleClickEvent(QRubberBand* self, QMouseEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperMouseDoubleClickEvent(QRubberBand* self, QMouseEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_MouseDoubleClickEvent_IsBase(true);
-        vqrubberband->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMouseDoubleClickEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_mousedoubleclickevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_MouseMoveEvent(QRubberBand* self, QMouseEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->mouseMoveEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperMouseMoveEvent(QRubberBand* self, QMouseEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_MouseMoveEvent_IsBase(true);
-        vqrubberband->mouseMoveEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMouseMoveEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_MouseMoveEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MouseMoveEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_mousemoveevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_WheelEvent(QRubberBand* self, QWheelEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->wheelEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperWheelEvent(QRubberBand* self, QWheelEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_WheelEvent_IsBase(true);
-        vqrubberband->wheelEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->wheelEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnWheelEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_WheelEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_WheelEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_wheelevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_KeyPressEvent(QRubberBand* self, QKeyEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->keyPressEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperKeyPressEvent(QRubberBand* self, QKeyEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_KeyPressEvent_IsBase(true);
-        vqrubberband->keyPressEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->keyPressEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnKeyPressEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_KeyPressEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_KeyPressEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_keypressevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_KeyReleaseEvent(QRubberBand* self, QKeyEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->keyReleaseEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperKeyReleaseEvent(QRubberBand* self, QKeyEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_KeyReleaseEvent_IsBase(true);
-        vqrubberband->keyReleaseEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnKeyReleaseEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_keyreleaseevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_FocusInEvent(QRubberBand* self, QFocusEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->focusInEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperFocusInEvent(QRubberBand* self, QFocusEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_FocusInEvent_IsBase(true);
-        vqrubberband->focusInEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->focusInEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnFocusInEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_FocusInEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_FocusInEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_focusinevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_FocusOutEvent(QRubberBand* self, QFocusEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->focusOutEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperFocusOutEvent(QRubberBand* self, QFocusEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_FocusOutEvent_IsBase(true);
-        vqrubberband->focusOutEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->focusOutEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnFocusOutEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_FocusOutEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_FocusOutEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_focusoutevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_EnterEvent(QRubberBand* self, QEnterEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->enterEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperEnterEvent(QRubberBand* self, QEnterEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_EnterEvent_IsBase(true);
-        vqrubberband->enterEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->enterEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnEnterEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_EnterEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_EnterEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_enterevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_LeaveEvent(QRubberBand* self, QEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->leaveEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperLeaveEvent(QRubberBand* self, QEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_LeaveEvent_IsBase(true);
-        vqrubberband->leaveEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->leaveEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnLeaveEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_LeaveEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_LeaveEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_leaveevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_CloseEvent(QRubberBand* self, QCloseEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->closeEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperCloseEvent(QRubberBand* self, QCloseEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_CloseEvent_IsBase(true);
-        vqrubberband->closeEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->closeEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnCloseEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_CloseEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_CloseEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_closeevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_ContextMenuEvent(QRubberBand* self, QContextMenuEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->contextMenuEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperContextMenuEvent(QRubberBand* self, QContextMenuEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_ContextMenuEvent_IsBase(true);
-        vqrubberband->contextMenuEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnContextMenuEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_ContextMenuEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_ContextMenuEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_contextmenuevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_TabletEvent(QRubberBand* self, QTabletEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->tabletEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperTabletEvent(QRubberBand* self, QTabletEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_TabletEvent_IsBase(true);
-        vqrubberband->tabletEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->tabletEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnTabletEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_TabletEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_TabletEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_tabletevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_ActionEvent(QRubberBand* self, QActionEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->actionEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperActionEvent(QRubberBand* self, QActionEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_ActionEvent_IsBase(true);
-        vqrubberband->actionEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->actionEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnActionEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_ActionEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_ActionEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_actionevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_DragEnterEvent(QRubberBand* self, QDragEnterEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->dragEnterEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperDragEnterEvent(QRubberBand* self, QDragEnterEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_DragEnterEvent_IsBase(true);
-        vqrubberband->dragEnterEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnDragEnterEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_DragEnterEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_DragEnterEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_dragenterevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_DragMoveEvent(QRubberBand* self, QDragMoveEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->dragMoveEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperDragMoveEvent(QRubberBand* self, QDragMoveEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_DragMoveEvent_IsBase(true);
-        vqrubberband->dragMoveEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnDragMoveEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_DragMoveEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_DragMoveEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_dragmoveevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_DragLeaveEvent(QRubberBand* self, QDragLeaveEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->dragLeaveEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperDragLeaveEvent(QRubberBand* self, QDragLeaveEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_DragLeaveEvent_IsBase(true);
-        vqrubberband->dragLeaveEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnDragLeaveEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_DragLeaveEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_DragLeaveEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_dragleaveevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_DropEvent(QRubberBand* self, QDropEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->dropEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperDropEvent(QRubberBand* self, QDropEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_DropEvent_IsBase(true);
-        vqrubberband->dropEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->dropEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnDropEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_DropEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_DropEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_dropevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_HideEvent(QRubberBand* self, QHideEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->hideEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperHideEvent(QRubberBand* self, QHideEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_HideEvent_IsBase(true);
-        vqrubberband->hideEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->hideEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnHideEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_HideEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_HideEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_hideevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QRubberBand_NativeEvent(QRubberBand* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
+    if (vqrubberband) {
         return vqrubberband->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQRubberBand*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QRubberBand::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QRubberBand_SuperNativeEvent(QRubberBand* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_NativeEvent_IsBase(true);
-        return vqrubberband->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQRubberBand*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        return vqrubberband->QRubberBand::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnNativeEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_NativeEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_NativeEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_nativeevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QRubberBand_Metric(const QRubberBand* self, int param1) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         return vqrubberband->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQRubberBand*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QRubberBand::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QRubberBand_SuperMetric(const QRubberBand* self, int param1) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_Metric_IsBase(true);
-        return vqrubberband->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQRubberBand*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self))) {
+        return vqrubberband->QRubberBand::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRubberBand_OnMetric(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_Metric_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Metric_Callback>(slot));
+void QRubberBand_OnMetric(QRubberBand* self, intptr_t slot) {
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self)))
+        vqrubberband->qrubberband_metric_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_InitPainter(const QRubberBand* self, QPainter* painter) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->initPainter(painter);
     } else {
-        ((VirtualQRubberBand*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QRubberBand::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperInitPainter(const QRubberBand* self, QPainter* painter) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_InitPainter_IsBase(true);
-        vqrubberband->initPainter(painter);
-    } else {
-        ((VirtualQRubberBand*)self)->initPainter(painter);
-    }
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self))) {
+        vqrubberband->QRubberBand::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRubberBand_OnInitPainter(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_InitPainter_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_InitPainter_Callback>(slot));
+void QRubberBand_OnInitPainter(QRubberBand* self, intptr_t slot) {
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self)))
+        vqrubberband->qrubberband_initpainter_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QRubberBand_Redirected(const QRubberBand* self, QPoint* offset) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         return vqrubberband->redirected(offset);
     } else {
-        return ((VirtualQRubberBand*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QRubberBand::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QRubberBand_SuperRedirected(const QRubberBand* self, QPoint* offset) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_Redirected_IsBase(true);
-        return vqrubberband->redirected(offset);
-    } else {
-        return ((VirtualQRubberBand*)self)->redirected(offset);
-    }
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self))) {
+        return vqrubberband->QRubberBand::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRubberBand_OnRedirected(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_Redirected_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Redirected_Callback>(slot));
+void QRubberBand_OnRedirected(QRubberBand* self, intptr_t slot) {
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self)))
+        vqrubberband->qrubberband_redirected_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QRubberBand_SharedPainter(const QRubberBand* self) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         return vqrubberband->sharedPainter();
     } else {
-        return ((VirtualQRubberBand*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QRubberBand::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QRubberBand_SuperSharedPainter(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_SharedPainter_IsBase(true);
-        return vqrubberband->sharedPainter();
-    } else {
-        return ((VirtualQRubberBand*)self)->sharedPainter();
-    }
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self))) {
+        return vqrubberband->QRubberBand::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRubberBand_OnSharedPainter(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_SharedPainter_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_SharedPainter_Callback>(slot));
+void QRubberBand_OnSharedPainter(QRubberBand* self, intptr_t slot) {
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self)))
+        vqrubberband->qrubberband_sharedpainter_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_InputMethodEvent(QRubberBand* self, QInputMethodEvent* param1) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->inputMethodEvent(param1);
     } else {
-        ((VirtualQRubberBand*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QRubberBand::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperInputMethodEvent(QRubberBand* self, QInputMethodEvent* param1) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_InputMethodEvent_IsBase(true);
-        vqrubberband->inputMethodEvent(param1);
-    } else {
-        ((VirtualQRubberBand*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnInputMethodEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_InputMethodEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_InputMethodEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_inputmethodevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QRubberBand_InputMethodQuery(const QRubberBand* self, int param1) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return new QVariant(vqrubberband->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQRubberBand*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QRubberBand_SuperInputMethodQuery(const QRubberBand* self, int param1) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_InputMethodQuery_IsBase(true);
-        return new QVariant(vqrubberband->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQRubberBand*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QRubberBand::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRubberBand_OnInputMethodQuery(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_InputMethodQuery_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_InputMethodQuery_Callback>(slot));
+void QRubberBand_OnInputMethodQuery(QRubberBand* self, intptr_t slot) {
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self)))
+        vqrubberband->qrubberband_inputmethodquery_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QRubberBand_FocusNextPrevChild(QRubberBand* self, bool next) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         return vqrubberband->focusNextPrevChild(next);
     } else {
-        return ((VirtualQRubberBand*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QRubberBand::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QRubberBand_SuperFocusNextPrevChild(QRubberBand* self, bool next) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_FocusNextPrevChild_IsBase(true);
-        return vqrubberband->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQRubberBand*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        return vqrubberband->QRubberBand::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnFocusNextPrevChild(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_focusnextprevchild_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QRubberBand_EventFilter(QRubberBand* self, QObject* watched, QEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return vqrubberband->eventFilter(watched, event);
-    } else {
-        return self->QRubberBand::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QRubberBand_SuperEventFilter(QRubberBand* self, QObject* watched, QEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_EventFilter_IsBase(true);
-        return vqrubberband->eventFilter(watched, event);
-    } else {
-        return self->QRubberBand::eventFilter(watched, event);
-    }
+    return self->QRubberBand::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnEventFilter(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_EventFilter_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_EventFilter_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_eventfilter_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_TimerEvent(QRubberBand* self, QTimerEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->timerEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperTimerEvent(QRubberBand* self, QTimerEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_TimerEvent_IsBase(true);
-        vqrubberband->timerEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->timerEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnTimerEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_TimerEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_TimerEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_timerevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_ChildEvent(QRubberBand* self, QChildEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->childEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperChildEvent(QRubberBand* self, QChildEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_ChildEvent_IsBase(true);
-        vqrubberband->childEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->childEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnChildEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_ChildEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_ChildEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_childevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_CustomEvent(QRubberBand* self, QEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->customEvent(event);
     } else {
-        ((VirtualQRubberBand*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QRubberBand::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperCustomEvent(QRubberBand* self, QEvent* event) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_CustomEvent_IsBase(true);
-        vqrubberband->customEvent(event);
-    } else {
-        ((VirtualQRubberBand*)self)->customEvent(event);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnCustomEvent(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_CustomEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_CustomEvent_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_customevent_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_ConnectNotify(QRubberBand* self, const QMetaMethod* signal) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->connectNotify(*signal);
     } else {
-        ((VirtualQRubberBand*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QRubberBand::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperConnectNotify(QRubberBand* self, const QMetaMethod* signal) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_ConnectNotify_IsBase(true);
-        vqrubberband->connectNotify(*signal);
-    } else {
-        ((VirtualQRubberBand*)self)->connectNotify(*signal);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnConnectNotify(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_ConnectNotify_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_ConnectNotify_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_connectnotify_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRubberBand_DisconnectNotify(QRubberBand* self, const QMetaMethod* signal) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband) {
         vqrubberband->disconnectNotify(*signal);
     } else {
-        ((VirtualQRubberBand*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QRubberBand::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRubberBand_SuperDisconnectNotify(QRubberBand* self, const QMetaMethod* signal) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_DisconnectNotify_IsBase(true);
-        vqrubberband->disconnectNotify(*signal);
-    } else {
-        ((VirtualQRubberBand*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->QRubberBand::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QRubberBand::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnDisconnectNotify(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_DisconnectNotify_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_DisconnectNotify_Callback>(slot));
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self))
+        vqrubberband->qrubberband_disconnectnotify_callback = reinterpret_cast<VirtualQRubberBand::QRubberBand_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QRubberBand_UpdateMicroFocus(QRubberBand* self) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->updateMicroFocus();
-    } else {
-        ((VirtualQRubberBand*)self)->updateMicroFocus();
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->VirtualQRubberBand::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QRubberBand::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QRubberBand_SuperUpdateMicroFocus(QRubberBand* self) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_UpdateMicroFocus_IsBase(true);
-        vqrubberband->updateMicroFocus();
-    } else {
-        ((VirtualQRubberBand*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRubberBand_OnUpdateMicroFocus(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QRubberBand_Create(QRubberBand* self) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->create();
-    } else {
-        ((VirtualQRubberBand*)self)->create();
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->VirtualQRubberBand::create();
+    } else
+        qFatal("Error: Protected method QRubberBand::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QRubberBand_SuperCreate(QRubberBand* self) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_Create_IsBase(true);
-        vqrubberband->create();
-    } else {
-        ((VirtualQRubberBand*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRubberBand_OnCreate(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_Create_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QRubberBand_Destroy(QRubberBand* self) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->destroy();
-    } else {
-        ((VirtualQRubberBand*)self)->destroy();
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        vqrubberband->VirtualQRubberBand::destroy();
+    } else
+        qFatal("Error: Protected method QRubberBand::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QRubberBand_SuperDestroy(QRubberBand* self) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_Destroy_IsBase(true);
-        vqrubberband->destroy();
-    } else {
-        ((VirtualQRubberBand*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRubberBand_OnDestroy(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_Destroy_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QRubberBand_FocusNextChild(QRubberBand* self) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return vqrubberband->focusNextChild();
-    } else {
-        return ((VirtualQRubberBand*)self)->focusNextChild();
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        return vqrubberband->VirtualQRubberBand::focusNextChild();
+    } else
+        qFatal("Error: Protected method QRubberBand::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QRubberBand_SuperFocusNextChild(QRubberBand* self) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_FocusNextChild_IsBase(true);
-        return vqrubberband->focusNextChild();
-    } else {
-        return ((VirtualQRubberBand*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRubberBand_OnFocusNextChild(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_FocusNextChild_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QRubberBand_FocusPreviousChild(QRubberBand* self) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return vqrubberband->focusPreviousChild();
-    } else {
-        return ((VirtualQRubberBand*)self)->focusPreviousChild();
-    }
+    if (auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self)) {
+        return vqrubberband->VirtualQRubberBand::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QRubberBand::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QRubberBand_SuperFocusPreviousChild(QRubberBand* self) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_FocusPreviousChild_IsBase(true);
-        return vqrubberband->focusPreviousChild();
-    } else {
-        return ((VirtualQRubberBand*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRubberBand_OnFocusPreviousChild(QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_FocusPreviousChild_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QRubberBand_Sender(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return vqrubberband->sender();
-    } else {
-        return ((VirtualQRubberBand*)self)->sender();
-    }
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self))) {
+        return vqrubberband->VirtualQRubberBand::sender();
+    } else
+        qFatal("Error: Protected method QRubberBand::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QRubberBand_SuperSender(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_Sender_IsBase(true);
-        return vqrubberband->sender();
-    } else {
-        return ((VirtualQRubberBand*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRubberBand_OnSender(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_Sender_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QRubberBand_SenderSignalIndex(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return vqrubberband->senderSignalIndex();
-    } else {
-        return ((VirtualQRubberBand*)self)->senderSignalIndex();
-    }
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self))) {
+        return vqrubberband->VirtualQRubberBand::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QRubberBand::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QRubberBand_SuperSenderSignalIndex(const QRubberBand* self) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_SenderSignalIndex_IsBase(true);
-        return vqrubberband->senderSignalIndex();
-    } else {
-        return ((VirtualQRubberBand*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRubberBand_OnSenderSignalIndex(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_SenderSignalIndex_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QRubberBand_Receivers(const QRubberBand* self, const char* signal) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return vqrubberband->receivers(signal);
-    } else {
-        return ((VirtualQRubberBand*)self)->receivers(signal);
-    }
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self))) {
+        return vqrubberband->VirtualQRubberBand::receivers(signal);
+    } else
+        qFatal("Error: Protected method QRubberBand::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QRubberBand_SuperReceivers(const QRubberBand* self, const char* signal) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_Receivers_IsBase(true);
-        return vqrubberband->receivers(signal);
-    } else {
-        return ((VirtualQRubberBand*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRubberBand_OnReceivers(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_Receivers_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QRubberBand_IsSignalConnected(const QRubberBand* self, const QMetaMethod* signal) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return vqrubberband->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQRubberBand*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self))) {
+        return vqrubberband->VirtualQRubberBand::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QRubberBand::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QRubberBand_SuperIsSignalConnected(const QRubberBand* self, const QMetaMethod* signal) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_IsSignalConnected_IsBase(true);
-        return vqrubberband->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQRubberBand*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRubberBand_OnIsSignalConnected(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_IsSignalConnected_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QRubberBand_GetDecodedMetricF(const QRubberBand* self, int metricA, int metricB) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        return vqrubberband->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQRubberBand*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QRubberBand_SuperGetDecodedMetricF(const QRubberBand* self, int metricA, int metricB) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
-        vqrubberband->setQRubberBand_GetDecodedMetricF_IsBase(true);
-        return vqrubberband->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQRubberBand*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRubberBand_OnGetDecodedMetricF(const QRubberBand* self, intptr_t slot) {
-    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
-        vqrubberband->setQRubberBand_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self))) {
+        return vqrubberband->VirtualQRubberBand::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QRubberBand::getDecodedMetricF called without a directly constructed type");
 }
 
 void QRubberBand_Delete(QRubberBand* self) {

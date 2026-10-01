@@ -37,14 +37,13 @@ void KAbstractFileItemActionPlugin_Error(KAbstractFileItemActionPlugin* self, co
 void KAbstractFileItemActionPlugin_Connect_Error(KAbstractFileItemActionPlugin* self, intptr_t slot);
 libqt_string KAbstractFileItemActionPlugin_Tr2(const char* s, const char* c);
 libqt_string KAbstractFileItemActionPlugin_Tr3(const char* s, const char* c, int n);
-void KAbstractFileItemActionPlugin_OnMetaObject(const KAbstractFileItemActionPlugin* self, intptr_t slot);
+void KAbstractFileItemActionPlugin_OnMetaObject(KAbstractFileItemActionPlugin* self, intptr_t slot);
 QMetaObject* KAbstractFileItemActionPlugin_SuperMetaObject(const KAbstractFileItemActionPlugin* self);
 void KAbstractFileItemActionPlugin_OnMetacast(KAbstractFileItemActionPlugin* self, intptr_t slot);
 void* KAbstractFileItemActionPlugin_SuperMetacast(KAbstractFileItemActionPlugin* self, const char* param1);
 void KAbstractFileItemActionPlugin_OnMetacall(KAbstractFileItemActionPlugin* self, intptr_t slot);
 int KAbstractFileItemActionPlugin_SuperMetacall(KAbstractFileItemActionPlugin* self, int param1, int param2, void** param3);
 void KAbstractFileItemActionPlugin_OnActions(KAbstractFileItemActionPlugin* self, intptr_t slot);
-libqt_list /* of QAction* */ KAbstractFileItemActionPlugin_SuperActions(KAbstractFileItemActionPlugin* self, const KFileItemListProperties* fileItemInfos, QWidget* parentWidget);
 bool KAbstractFileItemActionPlugin_Event(KAbstractFileItemActionPlugin* self, QEvent* event);
 void KAbstractFileItemActionPlugin_OnEvent(KAbstractFileItemActionPlugin* self, intptr_t slot);
 bool KAbstractFileItemActionPlugin_SuperEvent(KAbstractFileItemActionPlugin* self, QEvent* event);
@@ -67,17 +66,9 @@ void KAbstractFileItemActionPlugin_DisconnectNotify(KAbstractFileItemActionPlugi
 void KAbstractFileItemActionPlugin_OnDisconnectNotify(KAbstractFileItemActionPlugin* self, intptr_t slot);
 void KAbstractFileItemActionPlugin_SuperDisconnectNotify(KAbstractFileItemActionPlugin* self, const QMetaMethod* signal);
 QObject* KAbstractFileItemActionPlugin_Sender(const KAbstractFileItemActionPlugin* self);
-void KAbstractFileItemActionPlugin_OnSender(const KAbstractFileItemActionPlugin* self, intptr_t slot);
-QObject* KAbstractFileItemActionPlugin_SuperSender(const KAbstractFileItemActionPlugin* self);
 int KAbstractFileItemActionPlugin_SenderSignalIndex(const KAbstractFileItemActionPlugin* self);
-void KAbstractFileItemActionPlugin_OnSenderSignalIndex(const KAbstractFileItemActionPlugin* self, intptr_t slot);
-int KAbstractFileItemActionPlugin_SuperSenderSignalIndex(const KAbstractFileItemActionPlugin* self);
 int KAbstractFileItemActionPlugin_Receivers(const KAbstractFileItemActionPlugin* self, const char* signal);
-void KAbstractFileItemActionPlugin_OnReceivers(const KAbstractFileItemActionPlugin* self, intptr_t slot);
-int KAbstractFileItemActionPlugin_SuperReceivers(const KAbstractFileItemActionPlugin* self, const char* signal);
 bool KAbstractFileItemActionPlugin_IsSignalConnected(const KAbstractFileItemActionPlugin* self, const QMetaMethod* signal);
-void KAbstractFileItemActionPlugin_OnIsSignalConnected(const KAbstractFileItemActionPlugin* self, intptr_t slot);
-bool KAbstractFileItemActionPlugin_SuperIsSignalConnected(const KAbstractFileItemActionPlugin* self, const QMetaMethod* signal);
 void KAbstractFileItemActionPlugin_Delete(KAbstractFileItemActionPlugin* self);
 
 #ifdef __cplusplus

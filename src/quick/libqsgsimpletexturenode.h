@@ -39,7 +39,7 @@ int QSGSimpleTextureNode_TextureCoordinatesTransform(const QSGSimpleTextureNode*
 void QSGSimpleTextureNode_SetOwnsTexture(QSGSimpleTextureNode* self, bool owns);
 bool QSGSimpleTextureNode_OwnsTexture(const QSGSimpleTextureNode* self);
 bool QSGSimpleTextureNode_IsSubtreeBlocked(const QSGSimpleTextureNode* self);
-void QSGSimpleTextureNode_OnIsSubtreeBlocked(const QSGSimpleTextureNode* self, intptr_t slot);
+void QSGSimpleTextureNode_OnIsSubtreeBlocked(QSGSimpleTextureNode* self, intptr_t slot);
 bool QSGSimpleTextureNode_SuperIsSubtreeBlocked(const QSGSimpleTextureNode* self);
 void QSGSimpleTextureNode_Preprocess(QSGSimpleTextureNode* self);
 void QSGSimpleTextureNode_OnPreprocess(QSGSimpleTextureNode* self, intptr_t slot);

@@ -36,56 +36,30 @@ void QGestureRecognizer_OperatorAssign(QGestureRecognizer* self, const QGestureR
 
 // Base class handler implementation
 QGesture* QGestureRecognizer_SuperCreate(QGestureRecognizer* self, QObject* target) {
-    auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self);
-    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer) {
-        vqgesturerecognizer->setQGestureRecognizer_Create_IsBase(true);
-        return vqgesturerecognizer->create(target);
-    } else {
-        return self->QGestureRecognizer::create(target);
-    }
+    return self->QGestureRecognizer::create(target);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGestureRecognizer_OnCreate(QGestureRecognizer* self, intptr_t slot) {
-    auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self);
-    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer)
-        vqgesturerecognizer->setQGestureRecognizer_Create_Callback(reinterpret_cast<VirtualQGestureRecognizer::QGestureRecognizer_Create_Callback>(slot));
-}
-
-// Base class handler implementation
-int QGestureRecognizer_SuperRecognize(QGestureRecognizer* self, QGesture* state, QObject* watched, QEvent* event) {
-    auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self);
-    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer) {
-        vqgesturerecognizer->setQGestureRecognizer_Recognize_IsBase(true);
-        return static_cast<int>(vqgesturerecognizer->recognize(state, watched, event));
-    } else {
-        return static_cast<int>(((VirtualQGestureRecognizer*)self)->recognize(state, watched, event));
-    }
+    if (auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self))
+        vqgesturerecognizer->qgesturerecognizer_create_callback = reinterpret_cast<VirtualQGestureRecognizer::QGestureRecognizer_Create_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGestureRecognizer_OnRecognize(QGestureRecognizer* self, intptr_t slot) {
-    auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self);
-    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer)
-        vqgesturerecognizer->setQGestureRecognizer_Recognize_Callback(reinterpret_cast<VirtualQGestureRecognizer::QGestureRecognizer_Recognize_Callback>(slot));
+    if (auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self))
+        vqgesturerecognizer->qgesturerecognizer_recognize_callback = reinterpret_cast<VirtualQGestureRecognizer::QGestureRecognizer_Recognize_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGestureRecognizer_SuperReset(QGestureRecognizer* self, QGesture* state) {
-    auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self);
-    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer) {
-        vqgesturerecognizer->setQGestureRecognizer_Reset_IsBase(true);
-        vqgesturerecognizer->reset(state);
-    } else {
-        self->QGestureRecognizer::reset(state);
-    }
+    self->QGestureRecognizer::reset(state);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGestureRecognizer_OnReset(QGestureRecognizer* self, intptr_t slot) {
-    auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self);
-    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer)
-        vqgesturerecognizer->setQGestureRecognizer_Reset_Callback(reinterpret_cast<VirtualQGestureRecognizer::QGestureRecognizer_Reset_Callback>(slot));
+    if (auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self))
+        vqgesturerecognizer->qgesturerecognizer_reset_callback = reinterpret_cast<VirtualQGestureRecognizer::QGestureRecognizer_Reset_Callback>(slot);
 }
 
 void QGestureRecognizer_Delete(QGestureRecognizer* self) {

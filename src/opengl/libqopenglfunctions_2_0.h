@@ -600,14 +600,8 @@ void QOpenGLFunctions_2_0_GlVertexAttrib1d(QOpenGLFunctions_2_0* self, uint32_t 
 void QOpenGLFunctions_2_0_OnInitializeOpenGLFunctions(QOpenGLFunctions_2_0* self, intptr_t slot);
 bool QOpenGLFunctions_2_0_SuperInitializeOpenGLFunctions(QOpenGLFunctions_2_0* self);
 bool QOpenGLFunctions_2_0_IsInitialized(const QOpenGLFunctions_2_0* self);
-void QOpenGLFunctions_2_0_OnIsInitialized(const QOpenGLFunctions_2_0* self, intptr_t slot);
-bool QOpenGLFunctions_2_0_SuperIsInitialized(const QOpenGLFunctions_2_0* self);
 void QOpenGLFunctions_2_0_SetOwningContext(QOpenGLFunctions_2_0* self, const QOpenGLContext* context);
-void QOpenGLFunctions_2_0_OnSetOwningContext(QOpenGLFunctions_2_0* self, intptr_t slot);
-void QOpenGLFunctions_2_0_SuperSetOwningContext(QOpenGLFunctions_2_0* self, const QOpenGLContext* context);
 QOpenGLContext* QOpenGLFunctions_2_0_OwningContext(const QOpenGLFunctions_2_0* self);
-void QOpenGLFunctions_2_0_OnOwningContext(const QOpenGLFunctions_2_0* self, intptr_t slot);
-QOpenGLContext* QOpenGLFunctions_2_0_SuperOwningContext(const QOpenGLFunctions_2_0* self);
 void QOpenGLFunctions_2_0_Delete(QOpenGLFunctions_2_0* self);
 
 #ifdef __cplusplus

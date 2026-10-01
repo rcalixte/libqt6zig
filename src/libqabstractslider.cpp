@@ -250,43 +250,43 @@ void QAbstractSlider_Connect_ActionTriggered(QAbstractSlider* self, intptr_t slo
 
 bool QAbstractSlider_Event(QAbstractSlider* self, QEvent* e) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         return vqabstractslider->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QAbstractSlider::event called without a directly constructed type");
 }
 
 void QAbstractSlider_SliderChange(QAbstractSlider* self, int change) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->sliderChange(static_cast<VirtualQAbstractSlider::SliderChange>(change));
     }
 }
 
 void QAbstractSlider_KeyPressEvent(QAbstractSlider* self, QKeyEvent* ev) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->keyPressEvent(ev);
     }
 }
 
 void QAbstractSlider_TimerEvent(QAbstractSlider* self, QTimerEvent* param1) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->timerEvent(param1);
     }
 }
 
 void QAbstractSlider_WheelEvent(QAbstractSlider* self, QWheelEvent* e) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->wheelEvent(e);
     }
 }
 
 void QAbstractSlider_ChangeEvent(QAbstractSlider* self, QEvent* e) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->changeEvent(e);
     }
 }
@@ -317,1734 +317,1169 @@ libqt_string QAbstractSlider_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QAbstractSlider_SuperMetaObject(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_MetaObject_IsBase(true);
-        return (QMetaObject*)vqabstractslider->metaObject();
-    } else {
-        return (QMetaObject*)self->QAbstractSlider::metaObject();
-    }
+    return (QMetaObject*)self->QAbstractSlider::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnMetaObject(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_MetaObject_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MetaObject_Callback>(slot));
+void QAbstractSlider_OnMetaObject(QAbstractSlider* self, intptr_t slot) {
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self)))
+        vqabstractslider->qabstractslider_metaobject_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QAbstractSlider_SuperMetacast(QAbstractSlider* self, const char* param1) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_Metacast_IsBase(true);
-        return vqabstractslider->qt_metacast(param1);
-    } else {
-        return self->QAbstractSlider::qt_metacast(param1);
-    }
+    return self->QAbstractSlider::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMetacast(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_Metacast_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Metacast_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_metacast_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAbstractSlider_SuperMetacall(QAbstractSlider* self, int param1, int param2, void** param3) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_Metacall_IsBase(true);
-        return vqabstractslider->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QAbstractSlider::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QAbstractSlider::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMetacall(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_Metacall_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Metacall_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_metacall_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QAbstractSlider_SuperEvent(QAbstractSlider* self, QEvent* e) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_Event_IsBase(true);
-        return vqabstractslider->event(e);
-    } else {
-        return ((VirtualQAbstractSlider*)self)->event(e);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        return vqabstractslider->QAbstractSlider::event(e);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_Event_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Event_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_event_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperSliderChange(QAbstractSlider* self, int change) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_SliderChange_IsBase(true);
-        vqabstractslider->sliderChange(static_cast<VirtualQAbstractSlider::SliderChange>(change));
-    } else {
-        ((VirtualQAbstractSlider*)self)->sliderChange(static_cast<VirtualQAbstractSlider::SliderChange>(change));
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::sliderChange(static_cast<VirtualQAbstractSlider::SliderChange>(change));
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::sliderChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnSliderChange(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_SliderChange_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SliderChange_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_sliderchange_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SliderChange_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperKeyPressEvent(QAbstractSlider* self, QKeyEvent* ev) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_KeyPressEvent_IsBase(true);
-        vqabstractslider->keyPressEvent(ev);
-    } else {
-        ((VirtualQAbstractSlider*)self)->keyPressEvent(ev);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::keyPressEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnKeyPressEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_KeyPressEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_KeyPressEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_keypressevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperTimerEvent(QAbstractSlider* self, QTimerEvent* param1) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_TimerEvent_IsBase(true);
-        vqabstractslider->timerEvent(param1);
-    } else {
-        ((VirtualQAbstractSlider*)self)->timerEvent(param1);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::timerEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnTimerEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_TimerEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_TimerEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_timerevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_TimerEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperWheelEvent(QAbstractSlider* self, QWheelEvent* e) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_WheelEvent_IsBase(true);
-        vqabstractslider->wheelEvent(e);
-    } else {
-        ((VirtualQAbstractSlider*)self)->wheelEvent(e);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::wheelEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnWheelEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_WheelEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_WheelEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_wheelevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_WheelEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperChangeEvent(QAbstractSlider* self, QEvent* e) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_ChangeEvent_IsBase(true);
-        vqabstractslider->changeEvent(e);
-    } else {
-        ((VirtualQAbstractSlider*)self)->changeEvent(e);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnChangeEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_ChangeEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ChangeEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_changeevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QAbstractSlider_DevType(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return vqabstractslider->devType();
-    } else {
-        return self->QAbstractSlider::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QAbstractSlider_SuperDevType(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_DevType_IsBase(true);
-        return vqabstractslider->devType();
-    } else {
-        return self->QAbstractSlider::devType();
-    }
+    return self->QAbstractSlider::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnDevType(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_DevType_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DevType_Callback>(slot));
+void QAbstractSlider_OnDevType(QAbstractSlider* self, intptr_t slot) {
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self)))
+        vqabstractslider->qabstractslider_devtype_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_SetVisible(QAbstractSlider* self, bool visible) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setVisible(visible);
-    } else {
-        self->QAbstractSlider::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperSetVisible(QAbstractSlider* self, bool visible) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_SetVisible_IsBase(true);
-        vqabstractslider->setVisible(visible);
-    } else {
-        self->QAbstractSlider::setVisible(visible);
-    }
+    self->QAbstractSlider::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnSetVisible(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_SetVisible_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SetVisible_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_setvisible_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QAbstractSlider_SizeHint(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return new QSize(vqabstractslider->sizeHint());
-    } else {
-        return new QSize(((VirtualQAbstractSlider*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QAbstractSlider_SuperSizeHint(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_SizeHint_IsBase(true);
-        return new QSize(vqabstractslider->sizeHint());
-    } else {
-        return new QSize(((VirtualQAbstractSlider*)self)->sizeHint());
-    }
+    return new QSize(self->QAbstractSlider::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnSizeHint(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_SizeHint_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SizeHint_Callback>(slot));
+void QAbstractSlider_OnSizeHint(QAbstractSlider* self, intptr_t slot) {
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self)))
+        vqabstractslider->qabstractslider_sizehint_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QAbstractSlider_MinimumSizeHint(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return new QSize(vqabstractslider->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQAbstractSlider*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QAbstractSlider_SuperMinimumSizeHint(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_MinimumSizeHint_IsBase(true);
-        return new QSize(vqabstractslider->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQAbstractSlider*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QAbstractSlider::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnMinimumSizeHint(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_MinimumSizeHint_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MinimumSizeHint_Callback>(slot));
+void QAbstractSlider_OnMinimumSizeHint(QAbstractSlider* self, intptr_t slot) {
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self)))
+        vqabstractslider->qabstractslider_minimumsizehint_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QAbstractSlider_HeightForWidth(const QAbstractSlider* self, int param1) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return vqabstractslider->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QAbstractSlider::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QAbstractSlider_SuperHeightForWidth(const QAbstractSlider* self, int param1) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_HeightForWidth_IsBase(true);
-        return vqabstractslider->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QAbstractSlider::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QAbstractSlider::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnHeightForWidth(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_HeightForWidth_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_HeightForWidth_Callback>(slot));
+void QAbstractSlider_OnHeightForWidth(QAbstractSlider* self, intptr_t slot) {
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self)))
+        vqabstractslider->qabstractslider_heightforwidth_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractSlider_HasHeightForWidth(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return vqabstractslider->hasHeightForWidth();
-    } else {
-        return self->QAbstractSlider::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QAbstractSlider_SuperHasHeightForWidth(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_HasHeightForWidth_IsBase(true);
-        return vqabstractslider->hasHeightForWidth();
-    } else {
-        return self->QAbstractSlider::hasHeightForWidth();
-    }
+    return self->QAbstractSlider::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnHasHeightForWidth(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_HasHeightForWidth_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_HasHeightForWidth_Callback>(slot));
+void QAbstractSlider_OnHasHeightForWidth(QAbstractSlider* self, intptr_t slot) {
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self)))
+        vqabstractslider->qabstractslider_hasheightforwidth_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QAbstractSlider_PaintEngine(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return vqabstractslider->paintEngine();
-    } else {
-        return self->QAbstractSlider::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QAbstractSlider_SuperPaintEngine(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_PaintEngine_IsBase(true);
-        return vqabstractslider->paintEngine();
-    } else {
-        return self->QAbstractSlider::paintEngine();
-    }
+    return self->QAbstractSlider::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnPaintEngine(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_PaintEngine_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_PaintEngine_Callback>(slot));
+void QAbstractSlider_OnPaintEngine(QAbstractSlider* self, intptr_t slot) {
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self)))
+        vqabstractslider->qabstractslider_paintengine_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_MousePressEvent(QAbstractSlider* self, QMouseEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->mousePressEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperMousePressEvent(QAbstractSlider* self, QMouseEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_MousePressEvent_IsBase(true);
-        vqabstractslider->mousePressEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->mousePressEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMousePressEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_MousePressEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MousePressEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_mousepressevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_MouseReleaseEvent(QAbstractSlider* self, QMouseEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->mouseReleaseEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperMouseReleaseEvent(QAbstractSlider* self, QMouseEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_MouseReleaseEvent_IsBase(true);
-        vqabstractslider->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMouseReleaseEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_mousereleaseevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_MouseDoubleClickEvent(QAbstractSlider* self, QMouseEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperMouseDoubleClickEvent(QAbstractSlider* self, QMouseEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_MouseDoubleClickEvent_IsBase(true);
-        vqabstractslider->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMouseDoubleClickEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_mousedoubleclickevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_MouseMoveEvent(QAbstractSlider* self, QMouseEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->mouseMoveEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperMouseMoveEvent(QAbstractSlider* self, QMouseEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_MouseMoveEvent_IsBase(true);
-        vqabstractslider->mouseMoveEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMouseMoveEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_MouseMoveEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MouseMoveEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_mousemoveevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_KeyReleaseEvent(QAbstractSlider* self, QKeyEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->keyReleaseEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperKeyReleaseEvent(QAbstractSlider* self, QKeyEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_KeyReleaseEvent_IsBase(true);
-        vqabstractslider->keyReleaseEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnKeyReleaseEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_keyreleaseevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_FocusInEvent(QAbstractSlider* self, QFocusEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->focusInEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperFocusInEvent(QAbstractSlider* self, QFocusEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_FocusInEvent_IsBase(true);
-        vqabstractslider->focusInEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->focusInEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnFocusInEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_FocusInEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_FocusInEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_focusinevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_FocusOutEvent(QAbstractSlider* self, QFocusEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->focusOutEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperFocusOutEvent(QAbstractSlider* self, QFocusEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_FocusOutEvent_IsBase(true);
-        vqabstractslider->focusOutEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->focusOutEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnFocusOutEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_FocusOutEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_FocusOutEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_focusoutevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_EnterEvent(QAbstractSlider* self, QEnterEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->enterEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperEnterEvent(QAbstractSlider* self, QEnterEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_EnterEvent_IsBase(true);
-        vqabstractslider->enterEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->enterEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnEnterEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_EnterEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_EnterEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_enterevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_LeaveEvent(QAbstractSlider* self, QEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->leaveEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperLeaveEvent(QAbstractSlider* self, QEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_LeaveEvent_IsBase(true);
-        vqabstractslider->leaveEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->leaveEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnLeaveEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_LeaveEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_LeaveEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_leaveevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_PaintEvent(QAbstractSlider* self, QPaintEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->paintEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperPaintEvent(QAbstractSlider* self, QPaintEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_PaintEvent_IsBase(true);
-        vqabstractslider->paintEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->paintEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnPaintEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_PaintEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_PaintEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_paintevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_MoveEvent(QAbstractSlider* self, QMoveEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->moveEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperMoveEvent(QAbstractSlider* self, QMoveEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_MoveEvent_IsBase(true);
-        vqabstractslider->moveEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->moveEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMoveEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_MoveEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MoveEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_moveevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_ResizeEvent(QAbstractSlider* self, QResizeEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->resizeEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperResizeEvent(QAbstractSlider* self, QResizeEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_ResizeEvent_IsBase(true);
-        vqabstractslider->resizeEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->resizeEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnResizeEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_ResizeEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ResizeEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_resizeevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_CloseEvent(QAbstractSlider* self, QCloseEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->closeEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperCloseEvent(QAbstractSlider* self, QCloseEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_CloseEvent_IsBase(true);
-        vqabstractslider->closeEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->closeEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnCloseEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_CloseEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_CloseEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_closeevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_ContextMenuEvent(QAbstractSlider* self, QContextMenuEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->contextMenuEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperContextMenuEvent(QAbstractSlider* self, QContextMenuEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_ContextMenuEvent_IsBase(true);
-        vqabstractslider->contextMenuEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnContextMenuEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_ContextMenuEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ContextMenuEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_contextmenuevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_TabletEvent(QAbstractSlider* self, QTabletEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->tabletEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperTabletEvent(QAbstractSlider* self, QTabletEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_TabletEvent_IsBase(true);
-        vqabstractslider->tabletEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->tabletEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnTabletEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_TabletEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_TabletEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_tabletevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_ActionEvent(QAbstractSlider* self, QActionEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->actionEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperActionEvent(QAbstractSlider* self, QActionEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_ActionEvent_IsBase(true);
-        vqabstractslider->actionEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->actionEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnActionEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_ActionEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ActionEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_actionevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_DragEnterEvent(QAbstractSlider* self, QDragEnterEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->dragEnterEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperDragEnterEvent(QAbstractSlider* self, QDragEnterEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_DragEnterEvent_IsBase(true);
-        vqabstractslider->dragEnterEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnDragEnterEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_DragEnterEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DragEnterEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_dragenterevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_DragMoveEvent(QAbstractSlider* self, QDragMoveEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->dragMoveEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperDragMoveEvent(QAbstractSlider* self, QDragMoveEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_DragMoveEvent_IsBase(true);
-        vqabstractslider->dragMoveEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnDragMoveEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_DragMoveEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DragMoveEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_dragmoveevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_DragLeaveEvent(QAbstractSlider* self, QDragLeaveEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->dragLeaveEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperDragLeaveEvent(QAbstractSlider* self, QDragLeaveEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_DragLeaveEvent_IsBase(true);
-        vqabstractslider->dragLeaveEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnDragLeaveEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_DragLeaveEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DragLeaveEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_dragleaveevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_DropEvent(QAbstractSlider* self, QDropEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->dropEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperDropEvent(QAbstractSlider* self, QDropEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_DropEvent_IsBase(true);
-        vqabstractslider->dropEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->dropEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnDropEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_DropEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DropEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_dropevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_ShowEvent(QAbstractSlider* self, QShowEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->showEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperShowEvent(QAbstractSlider* self, QShowEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_ShowEvent_IsBase(true);
-        vqabstractslider->showEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->showEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnShowEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_ShowEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ShowEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_showevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_HideEvent(QAbstractSlider* self, QHideEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->hideEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperHideEvent(QAbstractSlider* self, QHideEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_HideEvent_IsBase(true);
-        vqabstractslider->hideEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->hideEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnHideEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_HideEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_HideEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_hideevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractSlider_NativeEvent(QAbstractSlider* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
+    if (vqabstractslider) {
         return vqabstractslider->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQAbstractSlider*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QAbstractSlider::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QAbstractSlider_SuperNativeEvent(QAbstractSlider* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_NativeEvent_IsBase(true);
-        return vqabstractslider->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQAbstractSlider*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        return vqabstractslider->QAbstractSlider::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnNativeEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_NativeEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_NativeEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_nativeevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QAbstractSlider_Metric(const QAbstractSlider* self, int param1) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         return vqabstractslider->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQAbstractSlider*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QAbstractSlider::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QAbstractSlider_SuperMetric(const QAbstractSlider* self, int param1) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_Metric_IsBase(true);
-        return vqabstractslider->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQAbstractSlider*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self))) {
+        return vqabstractslider->QAbstractSlider::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnMetric(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_Metric_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Metric_Callback>(slot));
+void QAbstractSlider_OnMetric(QAbstractSlider* self, intptr_t slot) {
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self)))
+        vqabstractslider->qabstractslider_metric_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_InitPainter(const QAbstractSlider* self, QPainter* painter) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->initPainter(painter);
     } else {
-        ((VirtualQAbstractSlider*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QAbstractSlider::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperInitPainter(const QAbstractSlider* self, QPainter* painter) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_InitPainter_IsBase(true);
-        vqabstractslider->initPainter(painter);
-    } else {
-        ((VirtualQAbstractSlider*)self)->initPainter(painter);
-    }
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self))) {
+        vqabstractslider->QAbstractSlider::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnInitPainter(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_InitPainter_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_InitPainter_Callback>(slot));
+void QAbstractSlider_OnInitPainter(QAbstractSlider* self, intptr_t slot) {
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self)))
+        vqabstractslider->qabstractslider_initpainter_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QAbstractSlider_Redirected(const QAbstractSlider* self, QPoint* offset) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         return vqabstractslider->redirected(offset);
     } else {
-        return ((VirtualQAbstractSlider*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QAbstractSlider::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QAbstractSlider_SuperRedirected(const QAbstractSlider* self, QPoint* offset) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_Redirected_IsBase(true);
-        return vqabstractslider->redirected(offset);
-    } else {
-        return ((VirtualQAbstractSlider*)self)->redirected(offset);
-    }
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self))) {
+        return vqabstractslider->QAbstractSlider::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnRedirected(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_Redirected_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Redirected_Callback>(slot));
+void QAbstractSlider_OnRedirected(QAbstractSlider* self, intptr_t slot) {
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self)))
+        vqabstractslider->qabstractslider_redirected_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QAbstractSlider_SharedPainter(const QAbstractSlider* self) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         return vqabstractslider->sharedPainter();
     } else {
-        return ((VirtualQAbstractSlider*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QAbstractSlider::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QAbstractSlider_SuperSharedPainter(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_SharedPainter_IsBase(true);
-        return vqabstractslider->sharedPainter();
-    } else {
-        return ((VirtualQAbstractSlider*)self)->sharedPainter();
-    }
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self))) {
+        return vqabstractslider->QAbstractSlider::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnSharedPainter(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_SharedPainter_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SharedPainter_Callback>(slot));
+void QAbstractSlider_OnSharedPainter(QAbstractSlider* self, intptr_t slot) {
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self)))
+        vqabstractslider->qabstractslider_sharedpainter_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_InputMethodEvent(QAbstractSlider* self, QInputMethodEvent* param1) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->inputMethodEvent(param1);
     } else {
-        ((VirtualQAbstractSlider*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QAbstractSlider::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperInputMethodEvent(QAbstractSlider* self, QInputMethodEvent* param1) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_InputMethodEvent_IsBase(true);
-        vqabstractslider->inputMethodEvent(param1);
-    } else {
-        ((VirtualQAbstractSlider*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnInputMethodEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_InputMethodEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_InputMethodEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_inputmethodevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QAbstractSlider_InputMethodQuery(const QAbstractSlider* self, int param1) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return new QVariant(vqabstractslider->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQAbstractSlider*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QAbstractSlider_SuperInputMethodQuery(const QAbstractSlider* self, int param1) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_InputMethodQuery_IsBase(true);
-        return new QVariant(vqabstractslider->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQAbstractSlider*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QAbstractSlider::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnInputMethodQuery(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_InputMethodQuery_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_InputMethodQuery_Callback>(slot));
+void QAbstractSlider_OnInputMethodQuery(QAbstractSlider* self, intptr_t slot) {
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self)))
+        vqabstractslider->qabstractslider_inputmethodquery_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractSlider_FocusNextPrevChild(QAbstractSlider* self, bool next) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         return vqabstractslider->focusNextPrevChild(next);
     } else {
-        return ((VirtualQAbstractSlider*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QAbstractSlider::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QAbstractSlider_SuperFocusNextPrevChild(QAbstractSlider* self, bool next) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_FocusNextPrevChild_IsBase(true);
-        return vqabstractslider->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQAbstractSlider*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        return vqabstractslider->QAbstractSlider::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnFocusNextPrevChild(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_focusnextprevchild_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractSlider_EventFilter(QAbstractSlider* self, QObject* watched, QEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return vqabstractslider->eventFilter(watched, event);
-    } else {
-        return self->QAbstractSlider::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QAbstractSlider_SuperEventFilter(QAbstractSlider* self, QObject* watched, QEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_EventFilter_IsBase(true);
-        return vqabstractslider->eventFilter(watched, event);
-    } else {
-        return self->QAbstractSlider::eventFilter(watched, event);
-    }
+    return self->QAbstractSlider::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnEventFilter(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_EventFilter_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_EventFilter_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_eventfilter_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_ChildEvent(QAbstractSlider* self, QChildEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->childEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperChildEvent(QAbstractSlider* self, QChildEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_ChildEvent_IsBase(true);
-        vqabstractslider->childEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->childEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnChildEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_ChildEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ChildEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_childevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_CustomEvent(QAbstractSlider* self, QEvent* event) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->customEvent(event);
     } else {
-        ((VirtualQAbstractSlider*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSlider::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperCustomEvent(QAbstractSlider* self, QEvent* event) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_CustomEvent_IsBase(true);
-        vqabstractslider->customEvent(event);
-    } else {
-        ((VirtualQAbstractSlider*)self)->customEvent(event);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnCustomEvent(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_CustomEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_CustomEvent_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_customevent_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_ConnectNotify(QAbstractSlider* self, const QMetaMethod* signal) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->connectNotify(*signal);
     } else {
-        ((VirtualQAbstractSlider*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QAbstractSlider::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperConnectNotify(QAbstractSlider* self, const QMetaMethod* signal) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_ConnectNotify_IsBase(true);
-        vqabstractslider->connectNotify(*signal);
-    } else {
-        ((VirtualQAbstractSlider*)self)->connectNotify(*signal);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnConnectNotify(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_ConnectNotify_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ConnectNotify_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_connectnotify_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSlider_DisconnectNotify(QAbstractSlider* self, const QMetaMethod* signal) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider) {
         vqabstractslider->disconnectNotify(*signal);
     } else {
-        ((VirtualQAbstractSlider*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QAbstractSlider::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSlider_SuperDisconnectNotify(QAbstractSlider* self, const QMetaMethod* signal) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_DisconnectNotify_IsBase(true);
-        vqabstractslider->disconnectNotify(*signal);
-    } else {
-        ((VirtualQAbstractSlider*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->QAbstractSlider::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSlider::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnDisconnectNotify(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_DisconnectNotify_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DisconnectNotify_Callback>(slot));
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self))
+        vqabstractslider->qabstractslider_disconnectnotify_callback = reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractSlider_SetRepeatAction(QAbstractSlider* self, int action) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    } else {
-        ((VirtualQAbstractSlider*)self)->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->VirtualQAbstractSlider::setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
+    } else
+        qFatal("Error: Protected method QAbstractSlider::setRepeatAction called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractSlider_SuperSetRepeatAction(QAbstractSlider* self, int action) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_SetRepeatAction_IsBase(true);
-        vqabstractslider->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    } else {
-        ((VirtualQAbstractSlider*)self)->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnSetRepeatAction(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_SetRepeatAction_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SetRepeatAction_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAbstractSlider_RepeatAction(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return static_cast<int>(vqabstractslider->repeatAction());
-    } else {
-        return static_cast<int>(((VirtualQAbstractSlider*)self)->repeatAction());
-    }
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self))) {
+        return static_cast<int>(vqabstractslider->VirtualQAbstractSlider::repeatAction());
+    } else
+        qFatal("Error: Protected method QAbstractSlider::repeatAction called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAbstractSlider_SuperRepeatAction(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_RepeatAction_IsBase(true);
-        return static_cast<int>(vqabstractslider->repeatAction());
-    } else {
-        return static_cast<int>(((VirtualQAbstractSlider*)self)->repeatAction());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnRepeatAction(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_RepeatAction_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_RepeatAction_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractSlider_SetRepeatAction2(QAbstractSlider* self, int action, int thresholdTime) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action), static_cast<int>(thresholdTime));
-    } else {
-        ((VirtualQAbstractSlider*)self)->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action), static_cast<int>(thresholdTime));
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->VirtualQAbstractSlider::setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action), static_cast<int>(thresholdTime));
+    } else
+        qFatal("Error: Protected method QAbstractSlider::setRepeatAction2 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractSlider_SuperSetRepeatAction2(QAbstractSlider* self, int action, int thresholdTime) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_SetRepeatAction2_IsBase(true);
-        vqabstractslider->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action), static_cast<int>(thresholdTime));
-    } else {
-        ((VirtualQAbstractSlider*)self)->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action), static_cast<int>(thresholdTime));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnSetRepeatAction2(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_SetRepeatAction2_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SetRepeatAction2_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractSlider_SetRepeatAction3(QAbstractSlider* self, int action, int thresholdTime, int repeatTime) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action), static_cast<int>(thresholdTime), static_cast<int>(repeatTime));
-    } else {
-        ((VirtualQAbstractSlider*)self)->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action), static_cast<int>(thresholdTime), static_cast<int>(repeatTime));
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->VirtualQAbstractSlider::setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action), static_cast<int>(thresholdTime), static_cast<int>(repeatTime));
+    } else
+        qFatal("Error: Protected method QAbstractSlider::setRepeatAction3 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractSlider_SuperSetRepeatAction3(QAbstractSlider* self, int action, int thresholdTime, int repeatTime) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_SetRepeatAction3_IsBase(true);
-        vqabstractslider->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action), static_cast<int>(thresholdTime), static_cast<int>(repeatTime));
-    } else {
-        ((VirtualQAbstractSlider*)self)->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action), static_cast<int>(thresholdTime), static_cast<int>(repeatTime));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnSetRepeatAction3(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_SetRepeatAction3_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SetRepeatAction3_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractSlider_UpdateMicroFocus(QAbstractSlider* self) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->updateMicroFocus();
-    } else {
-        ((VirtualQAbstractSlider*)self)->updateMicroFocus();
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->VirtualQAbstractSlider::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QAbstractSlider::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractSlider_SuperUpdateMicroFocus(QAbstractSlider* self) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_UpdateMicroFocus_IsBase(true);
-        vqabstractslider->updateMicroFocus();
-    } else {
-        ((VirtualQAbstractSlider*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnUpdateMicroFocus(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractSlider_Create(QAbstractSlider* self) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->create();
-    } else {
-        ((VirtualQAbstractSlider*)self)->create();
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->VirtualQAbstractSlider::create();
+    } else
+        qFatal("Error: Protected method QAbstractSlider::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractSlider_SuperCreate(QAbstractSlider* self) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_Create_IsBase(true);
-        vqabstractslider->create();
-    } else {
-        ((VirtualQAbstractSlider*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnCreate(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_Create_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractSlider_Destroy(QAbstractSlider* self) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->destroy();
-    } else {
-        ((VirtualQAbstractSlider*)self)->destroy();
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        vqabstractslider->VirtualQAbstractSlider::destroy();
+    } else
+        qFatal("Error: Protected method QAbstractSlider::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractSlider_SuperDestroy(QAbstractSlider* self) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_Destroy_IsBase(true);
-        vqabstractslider->destroy();
-    } else {
-        ((VirtualQAbstractSlider*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnDestroy(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_Destroy_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAbstractSlider_FocusNextChild(QAbstractSlider* self) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return vqabstractslider->focusNextChild();
-    } else {
-        return ((VirtualQAbstractSlider*)self)->focusNextChild();
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        return vqabstractslider->VirtualQAbstractSlider::focusNextChild();
+    } else
+        qFatal("Error: Protected method QAbstractSlider::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QAbstractSlider_SuperFocusNextChild(QAbstractSlider* self) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_FocusNextChild_IsBase(true);
-        return vqabstractslider->focusNextChild();
-    } else {
-        return ((VirtualQAbstractSlider*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnFocusNextChild(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_FocusNextChild_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAbstractSlider_FocusPreviousChild(QAbstractSlider* self) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return vqabstractslider->focusPreviousChild();
-    } else {
-        return ((VirtualQAbstractSlider*)self)->focusPreviousChild();
-    }
+    if (auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self)) {
+        return vqabstractslider->VirtualQAbstractSlider::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QAbstractSlider::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QAbstractSlider_SuperFocusPreviousChild(QAbstractSlider* self) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_FocusPreviousChild_IsBase(true);
-        return vqabstractslider->focusPreviousChild();
-    } else {
-        return ((VirtualQAbstractSlider*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnFocusPreviousChild(QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_FocusPreviousChild_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QAbstractSlider_Sender(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return vqabstractslider->sender();
-    } else {
-        return ((VirtualQAbstractSlider*)self)->sender();
-    }
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self))) {
+        return vqabstractslider->VirtualQAbstractSlider::sender();
+    } else
+        qFatal("Error: Protected method QAbstractSlider::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QAbstractSlider_SuperSender(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_Sender_IsBase(true);
-        return vqabstractslider->sender();
-    } else {
-        return ((VirtualQAbstractSlider*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnSender(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_Sender_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAbstractSlider_SenderSignalIndex(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return vqabstractslider->senderSignalIndex();
-    } else {
-        return ((VirtualQAbstractSlider*)self)->senderSignalIndex();
-    }
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self))) {
+        return vqabstractslider->VirtualQAbstractSlider::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QAbstractSlider::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAbstractSlider_SuperSenderSignalIndex(const QAbstractSlider* self) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_SenderSignalIndex_IsBase(true);
-        return vqabstractslider->senderSignalIndex();
-    } else {
-        return ((VirtualQAbstractSlider*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnSenderSignalIndex(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAbstractSlider_Receivers(const QAbstractSlider* self, const char* signal) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return vqabstractslider->receivers(signal);
-    } else {
-        return ((VirtualQAbstractSlider*)self)->receivers(signal);
-    }
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self))) {
+        return vqabstractslider->VirtualQAbstractSlider::receivers(signal);
+    } else
+        qFatal("Error: Protected method QAbstractSlider::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAbstractSlider_SuperReceivers(const QAbstractSlider* self, const char* signal) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_Receivers_IsBase(true);
-        return vqabstractslider->receivers(signal);
-    } else {
-        return ((VirtualQAbstractSlider*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnReceivers(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_Receivers_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAbstractSlider_IsSignalConnected(const QAbstractSlider* self, const QMetaMethod* signal) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return vqabstractslider->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAbstractSlider*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self))) {
+        return vqabstractslider->VirtualQAbstractSlider::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QAbstractSlider::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QAbstractSlider_SuperIsSignalConnected(const QAbstractSlider* self, const QMetaMethod* signal) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_IsSignalConnected_IsBase(true);
-        return vqabstractslider->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAbstractSlider*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnIsSignalConnected(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_IsSignalConnected_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QAbstractSlider_GetDecodedMetricF(const QAbstractSlider* self, int metricA, int metricB) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return vqabstractslider->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQAbstractSlider*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QAbstractSlider_SuperGetDecodedMetricF(const QAbstractSlider* self, int metricA, int metricB) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        vqabstractslider->setQAbstractSlider_GetDecodedMetricF_IsBase(true);
-        return vqabstractslider->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQAbstractSlider*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSlider_OnGetDecodedMetricF(const QAbstractSlider* self, intptr_t slot) {
-    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
-        vqabstractslider->setQAbstractSlider_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self))) {
+        return vqabstractslider->VirtualQAbstractSlider::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QAbstractSlider::getDecodedMetricF called without a directly constructed type");
 }
 
 void QAbstractSlider_Delete(QAbstractSlider* self) {

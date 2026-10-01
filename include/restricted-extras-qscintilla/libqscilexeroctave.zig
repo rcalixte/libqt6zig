@@ -83,9 +83,9 @@ pub const QsciLexerOctave = extern struct {
     ///
     /// ` self: QsciLexerOctave `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QsciLexerOctave) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QsciLexerOctave, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave) callconv(.c) QMetaObject) void {
         qtc.QsciLexerOctave_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1799,9 +1799,9 @@ pub const QsciLexerOctave = extern struct {
     ///
     /// ` self: QsciLexerOctave`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciLexerOctave) callconv(.c) i32 `
     ///
-    pub fn onLexerId(self: QsciLexerOctave, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLexerId(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave) callconv(.c) i32) void {
         qtc.QsciLexerOctave_OnLexerId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1857,9 +1857,9 @@ pub const QsciLexerOctave = extern struct {
     ///
     /// ` self: QsciLexerOctave`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QsciLexerOctave) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onAutoCompletionFillups(self: QsciLexerOctave, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onAutoCompletionFillups(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerOctave_OnAutoCompletionFillups(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1947,9 +1947,9 @@ pub const QsciLexerOctave = extern struct {
     ///
     /// ` self: QsciLexerOctave`
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: QsciLexerOctave) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onAutoCompletionWordSeparators(self: QsciLexerOctave, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onAutoCompletionWordSeparators(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QsciLexerOctave_OnAutoCompletionWordSeparators(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2065,9 +2065,9 @@ pub const QsciLexerOctave = extern struct {
     ///
     /// ` self: QsciLexerOctave`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciLexerOctave) callconv(.c) i32 `
     ///
-    pub fn onBlockLookback(self: QsciLexerOctave, callback: *const fn () callconv(.c) i32) void {
+    pub fn onBlockLookback(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave) callconv(.c) i32) void {
         qtc.QsciLexerOctave_OnBlockLookback(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2245,9 +2245,9 @@ pub const QsciLexerOctave = extern struct {
     ///
     /// ` self: QsciLexerOctave`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciLexerOctave) callconv(.c) i32 `
     ///
-    pub fn onBraceStyle(self: QsciLexerOctave, callback: *const fn () callconv(.c) i32) void {
+    pub fn onBraceStyle(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave) callconv(.c) i32) void {
         qtc.QsciLexerOctave_OnBraceStyle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2301,9 +2301,9 @@ pub const QsciLexerOctave = extern struct {
     ///
     /// ` self: QsciLexerOctave`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciLexerOctave) callconv(.c) bool `
     ///
-    pub fn onCaseSensitive(self: QsciLexerOctave, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCaseSensitive(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave) callconv(.c) bool) void {
         qtc.QsciLexerOctave_OnCaseSensitive(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2541,9 +2541,9 @@ pub const QsciLexerOctave = extern struct {
     ///
     /// ` self: QsciLexerOctave`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciLexerOctave) callconv(.c) i32 `
     ///
-    pub fn onIndentationGuideView(self: QsciLexerOctave, callback: *const fn () callconv(.c) i32) void {
+    pub fn onIndentationGuideView(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave) callconv(.c) i32) void {
         qtc.QsciLexerOctave_OnIndentationGuideView(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2597,9 +2597,9 @@ pub const QsciLexerOctave = extern struct {
     ///
     /// ` self: QsciLexerOctave`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciLexerOctave) callconv(.c) i32 `
     ///
-    pub fn onDefaultStyle(self: QsciLexerOctave, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDefaultStyle(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave) callconv(.c) i32) void {
         qtc.QsciLexerOctave_OnDefaultStyle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2613,6 +2613,8 @@ pub const QsciLexerOctave = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onDescription` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QsciLexerOctave `
@@ -2623,32 +2625,6 @@ pub const QsciLexerOctave = extern struct {
     ///
     pub fn description(self: QsciLexerOctave, allocator: std.mem.Allocator, style: i32) []const u8 {
         var _str = qtc.QsciLexerOctave_Description(@ptrCast(self.ptr), @bitCast(style));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerOctave.description: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `superDescription` instead
-    ///
-    pub const SuperDescription = superDescription;
-
-    /// Inherited from QsciLexer
-    ///
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerOctave `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` style: i32 `
-    ///
-    pub fn superDescription(self: QsciLexerOctave, allocator: std.mem.Allocator, style: i32) []const u8 {
-        var _str = qtc.QsciLexerOctave_SuperDescription(@ptrCast(self.ptr), @bitCast(style));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerOctave.description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3095,9 +3071,9 @@ pub const QsciLexerOctave = extern struct {
     ///
     /// ` self: QsciLexerOctave`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerOctave) callconv(.c) void `
     ///
-    pub fn onRefreshProperties(self: QsciLexerOctave, callback: *const fn () callconv(.c) void) void {
+    pub fn onRefreshProperties(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave) callconv(.c) void) void {
         qtc.QsciLexerOctave_OnRefreshProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3151,9 +3127,9 @@ pub const QsciLexerOctave = extern struct {
     ///
     /// ` self: QsciLexerOctave`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciLexerOctave) callconv(.c) i32 `
     ///
-    pub fn onStyleBitsNeeded(self: QsciLexerOctave, callback: *const fn () callconv(.c) i32) void {
+    pub fn onStyleBitsNeeded(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave) callconv(.c) i32) void {
         qtc.QsciLexerOctave_OnStyleBitsNeeded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3209,9 +3185,9 @@ pub const QsciLexerOctave = extern struct {
     ///
     /// ` self: QsciLexerOctave`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QsciLexerOctave) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onWordCharacters(self: QsciLexerOctave, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onWordCharacters(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerOctave_OnWordCharacters(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4155,56 +4131,6 @@ pub const QsciLexerOctave = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superTextAsBytes` instead
-    ///
-    pub const SuperTextAsBytes = superTextAsBytes;
-
-    /// Inherited from QsciLexer
-    ///
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerOctave `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn superTextAsBytes(self: QsciLexerOctave, allocator: std.mem.Allocator, text: []const u8) []u8 {
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        var _bytearray: qtc.libqt_string = qtc.QsciLexerOctave_SuperTextAsBytes(@ptrCast(self.ptr), text_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciLexerOctave.textAsBytes: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onTextAsBytes` instead
-    ///
-    pub const OnTextAsBytes = onTextAsBytes;
-
-    /// Inherited from QsciLexer
-    ///
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciLexerOctave`
-    ///
-    /// ` callback: *const fn (self: QsciLexerOctave, text: [*:0]const u8) callconv(.c) qtc.libqt_string `
-    ///
-    pub fn onTextAsBytes(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave, [*:0]const u8) callconv(.c) qtc.libqt_string) void {
-        qtc.QsciLexerOctave_OnTextAsBytes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `bytesAsText` instead
     ///
     pub const BytesAsText = bytesAsText;
@@ -4234,55 +4160,6 @@ pub const QsciLexerOctave = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superBytesAsText` instead
-    ///
-    pub const SuperBytesAsText = superBytesAsText;
-
-    /// Inherited from QsciLexer
-    ///
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerOctave `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` bytes: [:0]const u8 `
-    ///
-    /// ` size: i32 `
-    ///
-    pub fn superBytesAsText(self: QsciLexerOctave, allocator: std.mem.Allocator, bytes: [:0]const u8, size: i32) []const u8 {
-        const bytes_Cstring = bytes.ptr;
-        var _str = qtc.QsciLexerOctave_SuperBytesAsText(@ptrCast(self.ptr), bytes_Cstring, @bitCast(size));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerOctave.bytesAsText: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onBytesAsText` instead
-    ///
-    pub const OnBytesAsText = onBytesAsText;
-
-    /// Inherited from QsciLexer
-    ///
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciLexerOctave`
-    ///
-    /// ` callback: *const fn (self: QsciLexerOctave, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onBytesAsText(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerOctave_OnBytesAsText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -4301,44 +4178,6 @@ pub const QsciLexerOctave = extern struct {
         return .{ .ptr = qtc.QsciLexerOctave_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerOctave `
-    ///
-    pub fn superSender(self: QsciLexerOctave) QObject {
-        return .{ .ptr = qtc.QsciLexerOctave_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciLexerOctave`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QsciLexerOctave, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QsciLexerOctave_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4355,44 +4194,6 @@ pub const QsciLexerOctave = extern struct {
     ///
     pub fn senderSignalIndex(self: QsciLexerOctave) i32 {
         return qtc.QsciLexerOctave_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerOctave `
-    ///
-    pub fn superSenderSignalIndex(self: QsciLexerOctave) i32 {
-        return qtc.QsciLexerOctave_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciLexerOctave`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QsciLexerOctave, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerOctave_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4416,47 +4217,6 @@ pub const QsciLexerOctave = extern struct {
         return qtc.QsciLexerOctave_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerOctave `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QsciLexerOctave, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QsciLexerOctave_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciLexerOctave`
-    ///
-    /// ` callback: *const fn (self: QsciLexerOctave, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QsciLexerOctave_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4476,47 +4236,6 @@ pub const QsciLexerOctave = extern struct {
     pub fn isSignalConnected(self: QsciLexerOctave, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QsciLexerOctave_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerOctave `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QsciLexerOctave, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QsciLexerOctave_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciLexerOctave`
-    ///
-    /// ` callback: *const fn (self: QsciLexerOctave, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QsciLexerOctave, callback: *const fn (QsciLexerOctave, QMetaMethod) callconv(.c) bool) void {
-        qtc.QsciLexerOctave_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

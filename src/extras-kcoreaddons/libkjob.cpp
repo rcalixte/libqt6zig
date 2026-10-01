@@ -77,26 +77,26 @@ bool KJob_Resume(KJob* self) {
 
 bool KJob_DoKill(KJob* self) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob) {
         return vkjob->doKill();
     }
-    return {};
+    qFatal("Error: Protected method KJob::doKill called without a directly constructed type");
 }
 
 bool KJob_DoSuspend(KJob* self) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob) {
         return vkjob->doSuspend();
     }
-    return {};
+    qFatal("Error: Protected method KJob::doSuspend called without a directly constructed type");
 }
 
 bool KJob_DoResume(KJob* self) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob) {
         return vkjob->doResume();
     }
-    return {};
+    qFatal("Error: Protected method KJob::doResume called without a directly constructed type");
 }
 
 bool KJob_Exec(KJob* self) {
@@ -294,808 +294,383 @@ void KJob_SetFinishedNotificationHidden1(KJob* self, bool hide) {
 
 // Base class handler implementation
 QMetaObject* KJob_SuperMetaObject(const KJob* self) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_MetaObject_IsBase(true);
-        return (QMetaObject*)vkjob->metaObject();
-    } else {
-        return (QMetaObject*)self->KJob::metaObject();
-    }
+    return (QMetaObject*)self->KJob::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KJob_OnMetaObject(const KJob* self, intptr_t slot) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_MetaObject_Callback(reinterpret_cast<VirtualKJob::KJob_MetaObject_Callback>(slot));
+void KJob_OnMetaObject(KJob* self, intptr_t slot) {
+    if (auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self)))
+        vkjob->kjob_metaobject_callback = reinterpret_cast<VirtualKJob::KJob_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KJob_SuperMetacast(KJob* self, const char* param1) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_Metacast_IsBase(true);
-        return vkjob->qt_metacast(param1);
-    } else {
-        return self->KJob::qt_metacast(param1);
-    }
+    return self->KJob::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KJob_OnMetacast(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_Metacast_Callback(reinterpret_cast<VirtualKJob::KJob_Metacast_Callback>(slot));
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self))
+        vkjob->kjob_metacast_callback = reinterpret_cast<VirtualKJob::KJob_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KJob_SuperMetacall(KJob* self, int param1, int param2, void** param3) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_Metacall_IsBase(true);
-        return vkjob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KJob_OnMetacall(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_Metacall_Callback(reinterpret_cast<VirtualKJob::KJob_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-void KJob_SuperStart(KJob* self) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_Start_IsBase(true);
-        vkjob->start();
-    } else {
-        ((VirtualKJob*)self)->start();
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self))
+        vkjob->kjob_metacall_callback = reinterpret_cast<VirtualKJob::KJob_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KJob_OnStart(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_Start_Callback(reinterpret_cast<VirtualKJob::KJob_Start_Callback>(slot));
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self))
+        vkjob->kjob_start_callback = reinterpret_cast<VirtualKJob::KJob_Start_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KJob_SuperDoKill(KJob* self) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_DoKill_IsBase(true);
-        return vkjob->doKill();
-    } else {
-        return ((VirtualKJob*)self)->doKill();
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        return vkjob->KJob::doKill();
+    } else
+        qFatal("Error: Protected virtual method KJob::doKill called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KJob_OnDoKill(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_DoKill_Callback(reinterpret_cast<VirtualKJob::KJob_DoKill_Callback>(slot));
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self))
+        vkjob->kjob_dokill_callback = reinterpret_cast<VirtualKJob::KJob_DoKill_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KJob_SuperDoSuspend(KJob* self) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_DoSuspend_IsBase(true);
-        return vkjob->doSuspend();
-    } else {
-        return ((VirtualKJob*)self)->doSuspend();
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        return vkjob->KJob::doSuspend();
+    } else
+        qFatal("Error: Protected virtual method KJob::doSuspend called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KJob_OnDoSuspend(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_DoSuspend_Callback(reinterpret_cast<VirtualKJob::KJob_DoSuspend_Callback>(slot));
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self))
+        vkjob->kjob_dosuspend_callback = reinterpret_cast<VirtualKJob::KJob_DoSuspend_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KJob_SuperDoResume(KJob* self) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_DoResume_IsBase(true);
-        return vkjob->doResume();
-    } else {
-        return ((VirtualKJob*)self)->doResume();
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        return vkjob->KJob::doResume();
+    } else
+        qFatal("Error: Protected virtual method KJob::doResume called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KJob_OnDoResume(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_DoResume_Callback(reinterpret_cast<VirtualKJob::KJob_DoResume_Callback>(slot));
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self))
+        vkjob->kjob_doresume_callback = reinterpret_cast<VirtualKJob::KJob_DoResume_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string KJob_SuperErrorString(const KJob* self) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_ErrorString_IsBase(true);
-        auto _ret = vkjob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KJob::errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KJob_OnErrorString(const KJob* self, intptr_t slot) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_ErrorString_Callback(reinterpret_cast<VirtualKJob::KJob_ErrorString_Callback>(slot));
+void KJob_OnErrorString(KJob* self, intptr_t slot) {
+    if (auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self)))
+        vkjob->kjob_errorstring_callback = reinterpret_cast<VirtualKJob::KJob_ErrorString_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KJob_Event(KJob* self, QEvent* event) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        return vkjob->event(event);
-    } else {
-        return self->KJob::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KJob_SuperEvent(KJob* self, QEvent* event) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_Event_IsBase(true);
-        return vkjob->event(event);
-    } else {
-        return self->KJob::event(event);
-    }
+    return self->KJob::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KJob_OnEvent(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_Event_Callback(reinterpret_cast<VirtualKJob::KJob_Event_Callback>(slot));
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self))
+        vkjob->kjob_event_callback = reinterpret_cast<VirtualKJob::KJob_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KJob_EventFilter(KJob* self, QObject* watched, QEvent* event) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        return vkjob->eventFilter(watched, event);
-    } else {
-        return self->KJob::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KJob_SuperEventFilter(KJob* self, QObject* watched, QEvent* event) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_EventFilter_IsBase(true);
-        return vkjob->eventFilter(watched, event);
-    } else {
-        return self->KJob::eventFilter(watched, event);
-    }
+    return self->KJob::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KJob_OnEventFilter(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_EventFilter_Callback(reinterpret_cast<VirtualKJob::KJob_EventFilter_Callback>(slot));
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self))
+        vkjob->kjob_eventfilter_callback = reinterpret_cast<VirtualKJob::KJob_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KJob_TimerEvent(KJob* self, QTimerEvent* event) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob) {
         vkjob->timerEvent(event);
     } else {
-        ((VirtualKJob*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KJob::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KJob_SuperTimerEvent(KJob* self, QTimerEvent* event) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_TimerEvent_IsBase(true);
-        vkjob->timerEvent(event);
-    } else {
-        ((VirtualKJob*)self)->timerEvent(event);
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->KJob::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KJob::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KJob_OnTimerEvent(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_TimerEvent_Callback(reinterpret_cast<VirtualKJob::KJob_TimerEvent_Callback>(slot));
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self))
+        vkjob->kjob_timerevent_callback = reinterpret_cast<VirtualKJob::KJob_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KJob_ChildEvent(KJob* self, QChildEvent* event) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob) {
         vkjob->childEvent(event);
     } else {
-        ((VirtualKJob*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KJob::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KJob_SuperChildEvent(KJob* self, QChildEvent* event) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_ChildEvent_IsBase(true);
-        vkjob->childEvent(event);
-    } else {
-        ((VirtualKJob*)self)->childEvent(event);
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->KJob::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KJob::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KJob_OnChildEvent(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_ChildEvent_Callback(reinterpret_cast<VirtualKJob::KJob_ChildEvent_Callback>(slot));
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self))
+        vkjob->kjob_childevent_callback = reinterpret_cast<VirtualKJob::KJob_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KJob_CustomEvent(KJob* self, QEvent* event) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob) {
         vkjob->customEvent(event);
     } else {
-        ((VirtualKJob*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KJob::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KJob_SuperCustomEvent(KJob* self, QEvent* event) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_CustomEvent_IsBase(true);
-        vkjob->customEvent(event);
-    } else {
-        ((VirtualKJob*)self)->customEvent(event);
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->KJob::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KJob::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KJob_OnCustomEvent(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_CustomEvent_Callback(reinterpret_cast<VirtualKJob::KJob_CustomEvent_Callback>(slot));
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self))
+        vkjob->kjob_customevent_callback = reinterpret_cast<VirtualKJob::KJob_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KJob_ConnectNotify(KJob* self, const QMetaMethod* signal) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob) {
         vkjob->connectNotify(*signal);
     } else {
-        ((VirtualKJob*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KJob::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KJob_SuperConnectNotify(KJob* self, const QMetaMethod* signal) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_ConnectNotify_IsBase(true);
-        vkjob->connectNotify(*signal);
-    } else {
-        ((VirtualKJob*)self)->connectNotify(*signal);
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->KJob::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KJob::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KJob_OnConnectNotify(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_ConnectNotify_Callback(reinterpret_cast<VirtualKJob::KJob_ConnectNotify_Callback>(slot));
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self))
+        vkjob->kjob_connectnotify_callback = reinterpret_cast<VirtualKJob::KJob_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KJob_DisconnectNotify(KJob* self, const QMetaMethod* signal) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob) {
         vkjob->disconnectNotify(*signal);
     } else {
-        ((VirtualKJob*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KJob::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KJob_SuperDisconnectNotify(KJob* self, const QMetaMethod* signal) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_DisconnectNotify_IsBase(true);
-        vkjob->disconnectNotify(*signal);
-    } else {
-        ((VirtualKJob*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->KJob::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KJob::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KJob_OnDisconnectNotify(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKJob::KJob_DisconnectNotify_Callback>(slot));
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self))
+        vkjob->kjob_disconnectnotify_callback = reinterpret_cast<VirtualKJob::KJob_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KJob_SetCapabilities(KJob* self, int capabilities) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->VirtualKJob::setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
+    } else
+        qFatal("Error: Protected method KJob::setCapabilities called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KJob_SuperSetCapabilities(KJob* self, int capabilities) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_SetCapabilities_IsBase(true);
-        vkjob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnSetCapabilities(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_SetCapabilities_Callback(reinterpret_cast<VirtualKJob::KJob_SetCapabilities_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KJob_IsFinished(const KJob* self) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
-        return vkjob->isFinished();
-    } else {
-        return ((VirtualKJob*)self)->isFinished();
-    }
+    if (auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self))) {
+        return vkjob->VirtualKJob::isFinished();
+    } else
+        qFatal("Error: Protected method KJob::isFinished called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KJob_SuperIsFinished(const KJob* self) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_IsFinished_IsBase(true);
-        return vkjob->isFinished();
-    } else {
-        return ((VirtualKJob*)self)->isFinished();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnIsFinished(const KJob* self, intptr_t slot) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_IsFinished_Callback(reinterpret_cast<VirtualKJob::KJob_IsFinished_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KJob_SetError(KJob* self, int errorCode) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKJob*)self)->setError(static_cast<int>(errorCode));
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->VirtualKJob::setError(static_cast<int>(errorCode));
+    } else
+        qFatal("Error: Protected method KJob::setError called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KJob_SuperSetError(KJob* self, int errorCode) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_SetError_IsBase(true);
-        vkjob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKJob*)self)->setError(static_cast<int>(errorCode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnSetError(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_SetError_Callback(reinterpret_cast<VirtualKJob::KJob_SetError_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KJob_SetErrorText(KJob* self, const libqt_string errorText) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKJob*)self)->setErrorText(errorText_QString);
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
+        vkjob->VirtualKJob::setErrorText(errorText_QString);
+    } else
+        qFatal("Error: Protected method KJob::setErrorText called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KJob_SuperSetErrorText(KJob* self, const libqt_string errorText) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_SetErrorText_IsBase(true);
-        vkjob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKJob*)self)->setErrorText(errorText_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnSetErrorText(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_SetErrorText_Callback(reinterpret_cast<VirtualKJob::KJob_SetErrorText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KJob_SetProcessedAmount(KJob* self, int unit, unsigned long long amount) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->VirtualKJob::setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KJob::setProcessedAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KJob_SuperSetProcessedAmount(KJob* self, int unit, unsigned long long amount) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_SetProcessedAmount_IsBase(true);
-        vkjob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnSetProcessedAmount(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKJob::KJob_SetProcessedAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KJob_SetTotalAmount(KJob* self, int unit, unsigned long long amount) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->VirtualKJob::setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KJob::setTotalAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KJob_SuperSetTotalAmount(KJob* self, int unit, unsigned long long amount) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_SetTotalAmount_IsBase(true);
-        vkjob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnSetTotalAmount(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKJob::KJob_SetTotalAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KJob_SetProgressUnit(KJob* self, int unit) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->VirtualKJob::setProgressUnit(static_cast<KJob::Unit>(unit));
+    } else
+        qFatal("Error: Protected method KJob::setProgressUnit called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KJob_SuperSetProgressUnit(KJob* self, int unit) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_SetProgressUnit_IsBase(true);
-        vkjob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnSetProgressUnit(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKJob::KJob_SetProgressUnit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KJob_SetPercent(KJob* self, unsigned long percentage) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->VirtualKJob::setPercent(static_cast<unsigned long>(percentage));
+    } else
+        qFatal("Error: Protected method KJob::setPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KJob_SuperSetPercent(KJob* self, unsigned long percentage) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_SetPercent_IsBase(true);
-        vkjob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnSetPercent(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_SetPercent_Callback(reinterpret_cast<VirtualKJob::KJob_SetPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KJob_EmitResult(KJob* self) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->emitResult();
-    } else {
-        ((VirtualKJob*)self)->emitResult();
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->VirtualKJob::emitResult();
+    } else
+        qFatal("Error: Protected method KJob::emitResult called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KJob_SuperEmitResult(KJob* self) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_EmitResult_IsBase(true);
-        vkjob->emitResult();
-    } else {
-        ((VirtualKJob*)self)->emitResult();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnEmitResult(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_EmitResult_Callback(reinterpret_cast<VirtualKJob::KJob_EmitResult_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KJob_EmitPercent(KJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->VirtualKJob::emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
+    } else
+        qFatal("Error: Protected method KJob::emitPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KJob_SuperEmitPercent(KJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_EmitPercent_IsBase(true);
-        vkjob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnEmitPercent(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_EmitPercent_Callback(reinterpret_cast<VirtualKJob::KJob_EmitPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KJob_EmitSpeed(KJob* self, unsigned long speed) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->VirtualKJob::emitSpeed(static_cast<unsigned long>(speed));
+    } else
+        qFatal("Error: Protected method KJob::emitSpeed called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KJob_SuperEmitSpeed(KJob* self, unsigned long speed) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_EmitSpeed_IsBase(true);
-        vkjob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnEmitSpeed(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_EmitSpeed_Callback(reinterpret_cast<VirtualKJob::KJob_EmitSpeed_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KJob_StartElapsedTimer(KJob* self) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->startElapsedTimer();
-    } else {
-        ((VirtualKJob*)self)->startElapsedTimer();
-    }
+    if (auto* vkjob = dynamic_cast<VirtualKJob*>(self)) {
+        vkjob->VirtualKJob::startElapsedTimer();
+    } else
+        qFatal("Error: Protected method KJob::startElapsedTimer called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KJob_SuperStartElapsedTimer(KJob* self) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_StartElapsedTimer_IsBase(true);
-        vkjob->startElapsedTimer();
-    } else {
-        ((VirtualKJob*)self)->startElapsedTimer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnStartElapsedTimer(KJob* self, intptr_t slot) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKJob::KJob_StartElapsedTimer_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KJob_Sender(const KJob* self) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
-        return vkjob->sender();
-    } else {
-        return ((VirtualKJob*)self)->sender();
-    }
+    if (auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self))) {
+        return vkjob->VirtualKJob::sender();
+    } else
+        qFatal("Error: Protected method KJob::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KJob_SuperSender(const KJob* self) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_Sender_IsBase(true);
-        return vkjob->sender();
-    } else {
-        return ((VirtualKJob*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnSender(const KJob* self, intptr_t slot) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_Sender_Callback(reinterpret_cast<VirtualKJob::KJob_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KJob_SenderSignalIndex(const KJob* self) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
-        return vkjob->senderSignalIndex();
-    } else {
-        return ((VirtualKJob*)self)->senderSignalIndex();
-    }
+    if (auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self))) {
+        return vkjob->VirtualKJob::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KJob::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KJob_SuperSenderSignalIndex(const KJob* self) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_SenderSignalIndex_IsBase(true);
-        return vkjob->senderSignalIndex();
-    } else {
-        return ((VirtualKJob*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnSenderSignalIndex(const KJob* self, intptr_t slot) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKJob::KJob_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KJob_Receivers(const KJob* self, const char* signal) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
-        return vkjob->receivers(signal);
-    } else {
-        return ((VirtualKJob*)self)->receivers(signal);
-    }
+    if (auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self))) {
+        return vkjob->VirtualKJob::receivers(signal);
+    } else
+        qFatal("Error: Protected method KJob::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KJob_SuperReceivers(const KJob* self, const char* signal) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_Receivers_IsBase(true);
-        return vkjob->receivers(signal);
-    } else {
-        return ((VirtualKJob*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnReceivers(const KJob* self, intptr_t slot) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_Receivers_Callback(reinterpret_cast<VirtualKJob::KJob_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KJob_IsSignalConnected(const KJob* self, const QMetaMethod* signal) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
-        return vkjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KJob_SuperIsSignalConnected(const KJob* self, const QMetaMethod* signal) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->setKJob_IsSignalConnected_IsBase(true);
-        return vkjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KJob_OnIsSignalConnected(const KJob* self, intptr_t slot) {
-    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob)
-        vkjob->setKJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKJob::KJob_IsSignalConnected_Callback>(slot));
+    if (auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self))) {
+        return vkjob->VirtualKJob::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KJob::isSignalConnected called without a directly constructed type");
 }
 
 void KJob_Connect_Finished(KJob* self, intptr_t slot) {

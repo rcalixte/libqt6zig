@@ -71,7 +71,7 @@ void QSoundEffect_Play(QSoundEffect* self);
 void QSoundEffect_Stop(QSoundEffect* self);
 libqt_string QSoundEffect_Tr2(const char* s, const char* c);
 libqt_string QSoundEffect_Tr3(const char* s, const char* c, int n);
-void QSoundEffect_OnMetaObject(const QSoundEffect* self, intptr_t slot);
+void QSoundEffect_OnMetaObject(QSoundEffect* self, intptr_t slot);
 QMetaObject* QSoundEffect_SuperMetaObject(const QSoundEffect* self);
 void QSoundEffect_OnMetacast(QSoundEffect* self, intptr_t slot);
 void* QSoundEffect_SuperMetacast(QSoundEffect* self, const char* param1);
@@ -99,17 +99,9 @@ void QSoundEffect_DisconnectNotify(QSoundEffect* self, const QMetaMethod* signal
 void QSoundEffect_OnDisconnectNotify(QSoundEffect* self, intptr_t slot);
 void QSoundEffect_SuperDisconnectNotify(QSoundEffect* self, const QMetaMethod* signal);
 QObject* QSoundEffect_Sender(const QSoundEffect* self);
-void QSoundEffect_OnSender(const QSoundEffect* self, intptr_t slot);
-QObject* QSoundEffect_SuperSender(const QSoundEffect* self);
 int QSoundEffect_SenderSignalIndex(const QSoundEffect* self);
-void QSoundEffect_OnSenderSignalIndex(const QSoundEffect* self, intptr_t slot);
-int QSoundEffect_SuperSenderSignalIndex(const QSoundEffect* self);
 int QSoundEffect_Receivers(const QSoundEffect* self, const char* signal);
-void QSoundEffect_OnReceivers(const QSoundEffect* self, intptr_t slot);
-int QSoundEffect_SuperReceivers(const QSoundEffect* self, const char* signal);
 bool QSoundEffect_IsSignalConnected(const QSoundEffect* self, const QMetaMethod* signal);
-void QSoundEffect_OnIsSignalConnected(const QSoundEffect* self, intptr_t slot);
-bool QSoundEffect_SuperIsSignalConnected(const QSoundEffect* self, const QMetaMethod* signal);
 void QSoundEffect_Delete(QSoundEffect* self);
 
 #ifdef __cplusplus

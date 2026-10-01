@@ -142,91 +142,91 @@ void KFilePlacesView_SetModel(KFilePlacesView* self, QAbstractItemModel* model) 
 
 void KFilePlacesView_KeyPressEvent(KFilePlacesView* self, QKeyEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->keyPressEvent(event);
     }
 }
 
 void KFilePlacesView_ContextMenuEvent(KFilePlacesView* self, QContextMenuEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->contextMenuEvent(event);
     }
 }
 
 void KFilePlacesView_ResizeEvent(KFilePlacesView* self, QResizeEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->resizeEvent(event);
     }
 }
 
 void KFilePlacesView_ShowEvent(KFilePlacesView* self, QShowEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->showEvent(event);
     }
 }
 
 void KFilePlacesView_HideEvent(KFilePlacesView* self, QHideEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->hideEvent(event);
     }
 }
 
 void KFilePlacesView_DragEnterEvent(KFilePlacesView* self, QDragEnterEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->dragEnterEvent(event);
     }
 }
 
 void KFilePlacesView_DragLeaveEvent(KFilePlacesView* self, QDragLeaveEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->dragLeaveEvent(event);
     }
 }
 
 void KFilePlacesView_DragMoveEvent(KFilePlacesView* self, QDragMoveEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->dragMoveEvent(event);
     }
 }
 
 void KFilePlacesView_DropEvent(KFilePlacesView* self, QDropEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->dropEvent(event);
     }
 }
 
 void KFilePlacesView_PaintEvent(KFilePlacesView* self, QPaintEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->paintEvent(event);
     }
 }
 
 void KFilePlacesView_StartDrag(KFilePlacesView* self, int supportedActions) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->startDrag(static_cast<Qt::DropActions>(supportedActions));
     }
 }
 
 void KFilePlacesView_MousePressEvent(KFilePlacesView* self, QMouseEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->mousePressEvent(event);
     }
 }
 
 void KFilePlacesView_RowsInserted(KFilePlacesView* self, const QModelIndex* parent, int start, int end) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
     }
 }
@@ -239,7 +239,7 @@ void KFilePlacesView_DataChanged(KFilePlacesView* self, const QModelIndex* topLe
         roles_QList.push_back(static_cast<int>(roles_arr[i]));
     }
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->dataChanged(*topLeft, *bottomRight, roles_QList);
     }
 }
@@ -399,884 +399,661 @@ libqt_string KFilePlacesView_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KFilePlacesView_SuperMetaObject(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_MetaObject_IsBase(true);
-        return (QMetaObject*)vkfileplacesview->metaObject();
-    } else {
-        return (QMetaObject*)self->KFilePlacesView::metaObject();
-    }
+    return (QMetaObject*)self->KFilePlacesView::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnMetaObject(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_MetaObject_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MetaObject_Callback>(slot));
+void KFilePlacesView_OnMetaObject(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_metaobject_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KFilePlacesView_SuperMetacast(KFilePlacesView* self, const char* param1) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_Metacast_IsBase(true);
-        return vkfileplacesview->qt_metacast(param1);
-    } else {
-        return self->KFilePlacesView::qt_metacast(param1);
-    }
+    return self->KFilePlacesView::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMetacast(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_Metacast_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Metacast_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_metacast_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KFilePlacesView_SuperMetacall(KFilePlacesView* self, int param1, int param2, void** param3) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_Metacall_IsBase(true);
-        return vkfileplacesview->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KFilePlacesView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KFilePlacesView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMetacall(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_Metacall_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Metacall_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_metacall_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KFilePlacesView_SuperSizeHint(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SizeHint_IsBase(true);
-        return new QSize(vkfileplacesview->sizeHint());
-    } else {
-        return new QSize(((VirtualKFilePlacesView*)self)->sizeHint());
-    }
+    return new QSize(self->KFilePlacesView::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnSizeHint(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SizeHint_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SizeHint_Callback>(slot));
+void KFilePlacesView_OnSizeHint(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_sizehint_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperSetModel(KFilePlacesView* self, QAbstractItemModel* model) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SetModel_IsBase(true);
-        vkfileplacesview->setModel(model);
-    } else {
-        self->KFilePlacesView::setModel(model);
-    }
+    self->KFilePlacesView::setModel(model);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetModel(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SetModel_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetModel_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_setmodel_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetModel_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperKeyPressEvent(KFilePlacesView* self, QKeyEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_KeyPressEvent_IsBase(true);
-        vkfileplacesview->keyPressEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->keyPressEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnKeyPressEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_KeyPressEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_KeyPressEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_keypressevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperContextMenuEvent(KFilePlacesView* self, QContextMenuEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ContextMenuEvent_IsBase(true);
-        vkfileplacesview->contextMenuEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnContextMenuEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ContextMenuEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ContextMenuEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_contextmenuevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ContextMenuEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperResizeEvent(KFilePlacesView* self, QResizeEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ResizeEvent_IsBase(true);
-        vkfileplacesview->resizeEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->resizeEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnResizeEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ResizeEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ResizeEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_resizeevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperShowEvent(KFilePlacesView* self, QShowEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ShowEvent_IsBase(true);
-        vkfileplacesview->showEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->showEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnShowEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ShowEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ShowEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_showevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperHideEvent(KFilePlacesView* self, QHideEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_HideEvent_IsBase(true);
-        vkfileplacesview->hideEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->hideEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnHideEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_HideEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HideEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_hideevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HideEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperDragEnterEvent(KFilePlacesView* self, QDragEnterEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_DragEnterEvent_IsBase(true);
-        vkfileplacesview->dragEnterEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDragEnterEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_DragEnterEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DragEnterEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_dragenterevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DragEnterEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperDragLeaveEvent(KFilePlacesView* self, QDragLeaveEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_DragLeaveEvent_IsBase(true);
-        vkfileplacesview->dragLeaveEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDragLeaveEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_DragLeaveEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DragLeaveEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_dragleaveevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DragLeaveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperDragMoveEvent(KFilePlacesView* self, QDragMoveEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_DragMoveEvent_IsBase(true);
-        vkfileplacesview->dragMoveEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDragMoveEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_DragMoveEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DragMoveEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_dragmoveevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DragMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperDropEvent(KFilePlacesView* self, QDropEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_DropEvent_IsBase(true);
-        vkfileplacesview->dropEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->dropEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDropEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_DropEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DropEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_dropevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DropEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperPaintEvent(KFilePlacesView* self, QPaintEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_PaintEvent_IsBase(true);
-        vkfileplacesview->paintEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->paintEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnPaintEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_PaintEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_PaintEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_paintevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperStartDrag(KFilePlacesView* self, int supportedActions) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_StartDrag_IsBase(true);
-        vkfileplacesview->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    } else {
-        ((VirtualKFilePlacesView*)self)->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::startDrag(static_cast<Qt::DropActions>(supportedActions));
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::startDrag called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnStartDrag(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_StartDrag_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_StartDrag_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_startdrag_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_StartDrag_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperMousePressEvent(KFilePlacesView* self, QMouseEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_MousePressEvent_IsBase(true);
-        vkfileplacesview->mousePressEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->mousePressEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMousePressEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_MousePressEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MousePressEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_mousepressevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperRowsInserted(KFilePlacesView* self, const QModelIndex* parent, int start, int end) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_RowsInserted_IsBase(true);
-        vkfileplacesview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualKFilePlacesView*)self)->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::rowsInserted called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnRowsInserted(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_RowsInserted_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_RowsInserted_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_rowsinserted_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_RowsInserted_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperDataChanged(KFilePlacesView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
     int* roles_arr = static_cast<int*>(roles.data);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QList.push_back(static_cast<int>(roles_arr[i]));
     }
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_DataChanged_IsBase(true);
-        vkfileplacesview->dataChanged(*topLeft, *bottomRight, roles_QList);
-    } else {
-        ((VirtualKFilePlacesView*)self)->dataChanged(*topLeft, *bottomRight, roles_QList);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::dataChanged(*topLeft, *bottomRight, roles_QList);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::dataChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDataChanged(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_DataChanged_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DataChanged_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_datachanged_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DataChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRect* KFilePlacesView_VisualRect(const KFilePlacesView* self, const QModelIndex* index) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return new QRect(vkfileplacesview->visualRect(*index));
-    } else {
-        return new QRect(((VirtualKFilePlacesView*)self)->visualRect(*index));
-    }
+    return new QRect(self->visualRect(*index));
 }
 
 // Base class handler implementation
 QRect* KFilePlacesView_SuperVisualRect(const KFilePlacesView* self, const QModelIndex* index) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_VisualRect_IsBase(true);
-        return new QRect(vkfileplacesview->visualRect(*index));
-    } else {
-        return new QRect(((VirtualKFilePlacesView*)self)->visualRect(*index));
-    }
+    return new QRect(self->KFilePlacesView::visualRect(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnVisualRect(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_VisualRect_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VisualRect_Callback>(slot));
+void KFilePlacesView_OnVisualRect(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_visualrect_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VisualRect_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_ScrollTo(KFilePlacesView* self, const QModelIndex* index, int hint) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        self->KFilePlacesView::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    self->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperScrollTo(KFilePlacesView* self, const QModelIndex* index, int hint) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ScrollTo_IsBase(true);
-        vkfileplacesview->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        self->KFilePlacesView::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    self->KFilePlacesView::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnScrollTo(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ScrollTo_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ScrollTo_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_scrollto_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ScrollTo_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* KFilePlacesView_IndexAt(const KFilePlacesView* self, const QPoint* p) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return new QModelIndex(vkfileplacesview->indexAt(*p));
-    } else {
-        return new QModelIndex(((VirtualKFilePlacesView*)self)->indexAt(*p));
-    }
+    return new QModelIndex(self->indexAt(*p));
 }
 
 // Base class handler implementation
 QModelIndex* KFilePlacesView_SuperIndexAt(const KFilePlacesView* self, const QPoint* p) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_IndexAt_IsBase(true);
-        return new QModelIndex(vkfileplacesview->indexAt(*p));
-    } else {
-        return new QModelIndex(((VirtualKFilePlacesView*)self)->indexAt(*p));
-    }
+    return new QModelIndex(self->KFilePlacesView::indexAt(*p));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnIndexAt(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_IndexAt_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_IndexAt_Callback>(slot));
+void KFilePlacesView_OnIndexAt(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_indexat_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_IndexAt_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_DoItemsLayout(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->doItemsLayout();
-    } else {
-        self->KFilePlacesView::doItemsLayout();
-    }
+    self->doItemsLayout();
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperDoItemsLayout(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_DoItemsLayout_IsBase(true);
-        vkfileplacesview->doItemsLayout();
-    } else {
-        self->KFilePlacesView::doItemsLayout();
-    }
+    self->KFilePlacesView::doItemsLayout();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDoItemsLayout(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_DoItemsLayout_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DoItemsLayout_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_doitemslayout_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DoItemsLayout_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_Reset(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->reset();
-    } else {
-        self->KFilePlacesView::reset();
-    }
+    self->reset();
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperReset(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_Reset_IsBase(true);
-        vkfileplacesview->reset();
-    } else {
-        self->KFilePlacesView::reset();
-    }
+    self->KFilePlacesView::reset();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnReset(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_Reset_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Reset_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_reset_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Reset_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_SetRootIndex(KFilePlacesView* self, const QModelIndex* index) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setRootIndex(*index);
-    } else {
-        self->KFilePlacesView::setRootIndex(*index);
-    }
+    self->setRootIndex(*index);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperSetRootIndex(KFilePlacesView* self, const QModelIndex* index) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SetRootIndex_IsBase(true);
-        vkfileplacesview->setRootIndex(*index);
-    } else {
-        self->KFilePlacesView::setRootIndex(*index);
-    }
+    self->KFilePlacesView::setRootIndex(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetRootIndex(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SetRootIndex_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetRootIndex_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_setrootindex_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetRootIndex_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePlacesView_Event(KFilePlacesView* self, QEvent* e) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         return vkfileplacesview->event(e);
     } else {
-        return ((VirtualKFilePlacesView*)self)->event(e);
+        qFatal("Error: Protected virtual method KFilePlacesView::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFilePlacesView_SuperEvent(KFilePlacesView* self, QEvent* e) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_Event_IsBase(true);
-        return vkfileplacesview->event(e);
-    } else {
-        return ((VirtualKFilePlacesView*)self)->event(e);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        return vkfileplacesview->KFilePlacesView::event(e);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_Event_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Event_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_event_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_ScrollContentsBy(KFilePlacesView* self, int dx, int dy) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     } else {
-        ((VirtualKFilePlacesView*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+        qFatal("Error: Protected virtual method KFilePlacesView::scrollContentsBy called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperScrollContentsBy(KFilePlacesView* self, int dx, int dy) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ScrollContentsBy_IsBase(true);
-        vkfileplacesview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualKFilePlacesView*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::scrollContentsBy called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnScrollContentsBy(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ScrollContentsBy_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ScrollContentsBy_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_scrollcontentsby_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ScrollContentsBy_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_RowsAboutToBeRemoved(KFilePlacesView* self, const QModelIndex* parent, int start, int end) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
     } else {
-        ((VirtualKFilePlacesView*)self)->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+        qFatal("Error: Protected virtual method KFilePlacesView::rowsAboutToBeRemoved called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperRowsAboutToBeRemoved(KFilePlacesView* self, const QModelIndex* parent, int start, int end) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_RowsAboutToBeRemoved_IsBase(true);
-        vkfileplacesview->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualKFilePlacesView*)self)->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::rowsAboutToBeRemoved called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnRowsAboutToBeRemoved(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_RowsAboutToBeRemoved_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_rowsabouttoberemoved_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_RowsAboutToBeRemoved_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_MouseMoveEvent(KFilePlacesView* self, QMouseEvent* e) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->mouseMoveEvent(e);
     } else {
-        ((VirtualKFilePlacesView*)self)->mouseMoveEvent(e);
+        qFatal("Error: Protected virtual method KFilePlacesView::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperMouseMoveEvent(KFilePlacesView* self, QMouseEvent* e) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_MouseMoveEvent_IsBase(true);
-        vkfileplacesview->mouseMoveEvent(e);
-    } else {
-        ((VirtualKFilePlacesView*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMouseMoveEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_MouseMoveEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MouseMoveEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_mousemoveevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_MouseReleaseEvent(KFilePlacesView* self, QMouseEvent* e) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->mouseReleaseEvent(e);
     } else {
-        ((VirtualKFilePlacesView*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method KFilePlacesView::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperMouseReleaseEvent(KFilePlacesView* self, QMouseEvent* e) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_MouseReleaseEvent_IsBase(true);
-        vkfileplacesview->mouseReleaseEvent(e);
-    } else {
-        ((VirtualKFilePlacesView*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMouseReleaseEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_mousereleaseevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_WheelEvent(KFilePlacesView* self, QWheelEvent* e) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->wheelEvent(e);
     } else {
-        ((VirtualKFilePlacesView*)self)->wheelEvent(e);
+        qFatal("Error: Protected virtual method KFilePlacesView::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperWheelEvent(KFilePlacesView* self, QWheelEvent* e) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_WheelEvent_IsBase(true);
-        vkfileplacesview->wheelEvent(e);
-    } else {
-        ((VirtualKFilePlacesView*)self)->wheelEvent(e);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::wheelEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnWheelEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_WheelEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_WheelEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_wheelevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_TimerEvent(KFilePlacesView* self, QTimerEvent* e) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->timerEvent(e);
     } else {
-        ((VirtualKFilePlacesView*)self)->timerEvent(e);
+        qFatal("Error: Protected virtual method KFilePlacesView::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperTimerEvent(KFilePlacesView* self, QTimerEvent* e) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_TimerEvent_IsBase(true);
-        vkfileplacesview->timerEvent(e);
-    } else {
-        ((VirtualKFilePlacesView*)self)->timerEvent(e);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::timerEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnTimerEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_TimerEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_TimerEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_timerevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_InitViewItemOption(const KFilePlacesView* self, QStyleOptionViewItem* option) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->initViewItemOption(option);
     } else {
-        ((VirtualKFilePlacesView*)self)->initViewItemOption(option);
+        qFatal("Error: Protected virtual method KFilePlacesView::initViewItemOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperInitViewItemOption(const KFilePlacesView* self, QStyleOptionViewItem* option) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_InitViewItemOption_IsBase(true);
-        vkfileplacesview->initViewItemOption(option);
-    } else {
-        ((VirtualKFilePlacesView*)self)->initViewItemOption(option);
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        vkfileplacesview->KFilePlacesView::initViewItemOption(option);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::initViewItemOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnInitViewItemOption(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_InitViewItemOption_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InitViewItemOption_Callback>(slot));
+void KFilePlacesView_OnInitViewItemOption(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_initviewitemoption_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InitViewItemOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFilePlacesView_HorizontalOffset(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         return vkfileplacesview->horizontalOffset();
     } else {
-        return ((VirtualKFilePlacesView*)self)->horizontalOffset();
+        qFatal("Error: Protected virtual method KFilePlacesView::horizontalOffset called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KFilePlacesView_SuperHorizontalOffset(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_HorizontalOffset_IsBase(true);
-        return vkfileplacesview->horizontalOffset();
-    } else {
-        return ((VirtualKFilePlacesView*)self)->horizontalOffset();
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        return vkfileplacesview->KFilePlacesView::horizontalOffset();
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::horizontalOffset called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnHorizontalOffset(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_HorizontalOffset_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HorizontalOffset_Callback>(slot));
+void KFilePlacesView_OnHorizontalOffset(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_horizontaloffset_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HorizontalOffset_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFilePlacesView_VerticalOffset(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         return vkfileplacesview->verticalOffset();
     } else {
-        return ((VirtualKFilePlacesView*)self)->verticalOffset();
+        qFatal("Error: Protected virtual method KFilePlacesView::verticalOffset called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KFilePlacesView_SuperVerticalOffset(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_VerticalOffset_IsBase(true);
-        return vkfileplacesview->verticalOffset();
-    } else {
-        return ((VirtualKFilePlacesView*)self)->verticalOffset();
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        return vkfileplacesview->KFilePlacesView::verticalOffset();
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::verticalOffset called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnVerticalOffset(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_VerticalOffset_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VerticalOffset_Callback>(slot));
+void KFilePlacesView_OnVerticalOffset(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_verticaloffset_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VerticalOffset_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* KFilePlacesView_MoveCursor(KFilePlacesView* self, int cursorAction, int modifiers) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return new QModelIndex(vkfileplacesview->moveCursor(static_cast<VirtualKFilePlacesView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
-    }
-    return {};
+    return new QModelIndex((self->*&VirtualKFilePlacesView::Base::moveCursor)(static_cast<VirtualKFilePlacesView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
 }
 
 // Base class handler implementation
 QModelIndex* KFilePlacesView_SuperMoveCursor(KFilePlacesView* self, int cursorAction, int modifiers) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_MoveCursor_IsBase(true);
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
         return new QModelIndex(vkfileplacesview->moveCursor(static_cast<VirtualKFilePlacesView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
-    }
-    return {};
+    qFatal("Error: Protected virtual method KFilePlacesView::moveCursor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMoveCursor(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_MoveCursor_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MoveCursor_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_movecursor_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MoveCursor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_SetSelection(KFilePlacesView* self, const QRect* rect, int command) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
     } else {
-        ((VirtualKFilePlacesView*)self)->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
+        qFatal("Error: Protected virtual method KFilePlacesView::setSelection called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperSetSelection(KFilePlacesView* self, const QRect* rect, int command) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SetSelection_IsBase(true);
-        vkfileplacesview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        ((VirtualKFilePlacesView*)self)->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::setSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetSelection(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SetSelection_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetSelection_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_setselection_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetSelection_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRegion* KFilePlacesView_VisualRegionForSelection(const KFilePlacesView* self, const QItemSelection* selection) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return new QRegion(vkfileplacesview->visualRegionForSelection(*selection));
-    }
-    return {};
+    return new QRegion((self->*&VirtualKFilePlacesView::Base::visualRegionForSelection)(*selection));
 }
 
 // Base class handler implementation
 QRegion* KFilePlacesView_SuperVisualRegionForSelection(const KFilePlacesView* self, const QItemSelection* selection) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_VisualRegionForSelection_IsBase(true);
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
         return new QRegion(vkfileplacesview->visualRegionForSelection(*selection));
-    }
-    return {};
+    qFatal("Error: Protected virtual method KFilePlacesView::visualRegionForSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnVisualRegionForSelection(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VisualRegionForSelection_Callback>(slot));
+void KFilePlacesView_OnVisualRegionForSelection(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_visualregionforselection_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VisualRegionForSelection_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of QModelIndex* */ KFilePlacesView_SelectedIndexes(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         QList<QModelIndex> _ret = vkfileplacesview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
@@ -1288,25 +1065,14 @@ libqt_list /* of QModelIndex* */ KFilePlacesView_SelectedIndexes(const KFilePlac
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QList<QModelIndex> _ret = ((VirtualKFilePlacesView*)self)->selectedIndexes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+        qFatal("Error: Protected virtual method KFilePlacesView::selectedIndexes called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 libqt_list /* of QModelIndex* */ KFilePlacesView_SuperSelectedIndexes(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SelectedIndexes_IsBase(true);
-        QList<QModelIndex> _ret = vkfileplacesview->selectedIndexes();
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        QList<QModelIndex> _ret = vkfileplacesview->KFilePlacesView::selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -1316,2343 +1082,1440 @@ libqt_list /* of QModelIndex* */ KFilePlacesView_SuperSelectedIndexes(const KFil
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualKFilePlacesView*)self)->selectedIndexes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::selectedIndexes called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnSelectedIndexes(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SelectedIndexes_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SelectedIndexes_Callback>(slot));
+void KFilePlacesView_OnSelectedIndexes(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_selectedindexes_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SelectedIndexes_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_UpdateGeometries(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->updateGeometries();
     } else {
-        ((VirtualKFilePlacesView*)self)->updateGeometries();
+        qFatal("Error: Protected virtual method KFilePlacesView::updateGeometries called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperUpdateGeometries(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_UpdateGeometries_IsBase(true);
-        vkfileplacesview->updateGeometries();
-    } else {
-        ((VirtualKFilePlacesView*)self)->updateGeometries();
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::updateGeometries();
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::updateGeometries called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnUpdateGeometries(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_UpdateGeometries_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_UpdateGeometries_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_updategeometries_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_UpdateGeometries_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePlacesView_IsIndexHidden(const KFilePlacesView* self, const QModelIndex* index) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         return vkfileplacesview->isIndexHidden(*index);
     } else {
-        return ((VirtualKFilePlacesView*)self)->isIndexHidden(*index);
+        qFatal("Error: Protected virtual method KFilePlacesView::isIndexHidden called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFilePlacesView_SuperIsIndexHidden(const KFilePlacesView* self, const QModelIndex* index) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_IsIndexHidden_IsBase(true);
-        return vkfileplacesview->isIndexHidden(*index);
-    } else {
-        return ((VirtualKFilePlacesView*)self)->isIndexHidden(*index);
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        return vkfileplacesview->KFilePlacesView::isIndexHidden(*index);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::isIndexHidden called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnIsIndexHidden(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_IsIndexHidden_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_IsIndexHidden_Callback>(slot));
+void KFilePlacesView_OnIsIndexHidden(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_isindexhidden_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_IsIndexHidden_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_SelectionChanged(KFilePlacesView* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->selectionChanged(*selected, *deselected);
     } else {
-        ((VirtualKFilePlacesView*)self)->selectionChanged(*selected, *deselected);
+        qFatal("Error: Protected virtual method KFilePlacesView::selectionChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperSelectionChanged(KFilePlacesView* self, const QItemSelection* selected, const QItemSelection* deselected) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SelectionChanged_IsBase(true);
-        vkfileplacesview->selectionChanged(*selected, *deselected);
-    } else {
-        ((VirtualKFilePlacesView*)self)->selectionChanged(*selected, *deselected);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::selectionChanged(*selected, *deselected);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::selectionChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSelectionChanged(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SelectionChanged_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SelectionChanged_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_selectionchanged_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SelectionChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_CurrentChanged(KFilePlacesView* self, const QModelIndex* current, const QModelIndex* previous) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->currentChanged(*current, *previous);
     } else {
-        ((VirtualKFilePlacesView*)self)->currentChanged(*current, *previous);
+        qFatal("Error: Protected virtual method KFilePlacesView::currentChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperCurrentChanged(KFilePlacesView* self, const QModelIndex* current, const QModelIndex* previous) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_CurrentChanged_IsBase(true);
-        vkfileplacesview->currentChanged(*current, *previous);
-    } else {
-        ((VirtualKFilePlacesView*)self)->currentChanged(*current, *previous);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::currentChanged(*current, *previous);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::currentChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnCurrentChanged(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_CurrentChanged_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CurrentChanged_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_currentchanged_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CurrentChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KFilePlacesView_ViewportSizeHint(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return new QSize(vkfileplacesview->viewportSizeHint());
-    }
-    return {};
+    return new QSize((self->*&VirtualKFilePlacesView::Base::viewportSizeHint)());
 }
 
 // Base class handler implementation
 QSize* KFilePlacesView_SuperViewportSizeHint(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ViewportSizeHint_IsBase(true);
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
         return new QSize(vkfileplacesview->viewportSizeHint());
-    }
-    return {};
+    qFatal("Error: Protected virtual method KFilePlacesView::viewportSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnViewportSizeHint(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ViewportSizeHint_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ViewportSizeHint_Callback>(slot));
+void KFilePlacesView_OnViewportSizeHint(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_viewportsizehint_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ViewportSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_SetSelectionModel(KFilePlacesView* self, QItemSelectionModel* selectionModel) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setSelectionModel(selectionModel);
-    } else {
-        self->KFilePlacesView::setSelectionModel(selectionModel);
-    }
+    self->setSelectionModel(selectionModel);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperSetSelectionModel(KFilePlacesView* self, QItemSelectionModel* selectionModel) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SetSelectionModel_IsBase(true);
-        vkfileplacesview->setSelectionModel(selectionModel);
-    } else {
-        self->KFilePlacesView::setSelectionModel(selectionModel);
-    }
+    self->KFilePlacesView::setSelectionModel(selectionModel);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetSelectionModel(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SetSelectionModel_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetSelectionModel_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_setselectionmodel_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetSelectionModel_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_KeyboardSearch(KFilePlacesView* self, const libqt_string search) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->keyboardSearch(search_QString);
-    } else {
-        self->KFilePlacesView::keyboardSearch(search_QString);
-    }
+    self->keyboardSearch(search_QString);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperKeyboardSearch(KFilePlacesView* self, const libqt_string search) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_KeyboardSearch_IsBase(true);
-        vkfileplacesview->keyboardSearch(search_QString);
-    } else {
-        self->KFilePlacesView::keyboardSearch(search_QString);
-    }
+    self->KFilePlacesView::keyboardSearch(search_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnKeyboardSearch(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_KeyboardSearch_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_KeyboardSearch_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_keyboardsearch_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_KeyboardSearch_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFilePlacesView_SizeHintForRow(const KFilePlacesView* self, int row) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return vkfileplacesview->sizeHintForRow(static_cast<int>(row));
-    } else {
-        return self->KFilePlacesView::sizeHintForRow(static_cast<int>(row));
-    }
+    return self->sizeHintForRow(static_cast<int>(row));
 }
 
 // Base class handler implementation
 int KFilePlacesView_SuperSizeHintForRow(const KFilePlacesView* self, int row) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SizeHintForRow_IsBase(true);
-        return vkfileplacesview->sizeHintForRow(static_cast<int>(row));
-    } else {
-        return self->KFilePlacesView::sizeHintForRow(static_cast<int>(row));
-    }
+    return self->KFilePlacesView::sizeHintForRow(static_cast<int>(row));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnSizeHintForRow(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SizeHintForRow_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SizeHintForRow_Callback>(slot));
+void KFilePlacesView_OnSizeHintForRow(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_sizehintforrow_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SizeHintForRow_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFilePlacesView_SizeHintForColumn(const KFilePlacesView* self, int column) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return vkfileplacesview->sizeHintForColumn(static_cast<int>(column));
-    } else {
-        return self->KFilePlacesView::sizeHintForColumn(static_cast<int>(column));
-    }
+    return self->sizeHintForColumn(static_cast<int>(column));
 }
 
 // Base class handler implementation
 int KFilePlacesView_SuperSizeHintForColumn(const KFilePlacesView* self, int column) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SizeHintForColumn_IsBase(true);
-        return vkfileplacesview->sizeHintForColumn(static_cast<int>(column));
-    } else {
-        return self->KFilePlacesView::sizeHintForColumn(static_cast<int>(column));
-    }
+    return self->KFilePlacesView::sizeHintForColumn(static_cast<int>(column));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnSizeHintForColumn(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SizeHintForColumn_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SizeHintForColumn_Callback>(slot));
+void KFilePlacesView_OnSizeHintForColumn(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_sizehintforcolumn_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SizeHintForColumn_Callback>(slot);
 }
 
 // Derived class handler implementation
 QAbstractItemDelegate* KFilePlacesView_ItemDelegateForIndex(const KFilePlacesView* self, const QModelIndex* index) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return vkfileplacesview->itemDelegateForIndex(*index);
-    } else {
-        return self->KFilePlacesView::itemDelegateForIndex(*index);
-    }
+    return self->itemDelegateForIndex(*index);
 }
 
 // Base class handler implementation
 QAbstractItemDelegate* KFilePlacesView_SuperItemDelegateForIndex(const KFilePlacesView* self, const QModelIndex* index) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ItemDelegateForIndex_IsBase(true);
-        return vkfileplacesview->itemDelegateForIndex(*index);
-    } else {
-        return self->KFilePlacesView::itemDelegateForIndex(*index);
-    }
+    return self->KFilePlacesView::itemDelegateForIndex(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnItemDelegateForIndex(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ItemDelegateForIndex_Callback>(slot));
+void KFilePlacesView_OnItemDelegateForIndex(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_itemdelegateforindex_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ItemDelegateForIndex_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KFilePlacesView_InputMethodQuery(const KFilePlacesView* self, int query) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return new QVariant(vkfileplacesview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualKFilePlacesView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Base class handler implementation
 QVariant* KFilePlacesView_SuperInputMethodQuery(const KFilePlacesView* self, int query) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_InputMethodQuery_IsBase(true);
-        return new QVariant(vkfileplacesview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualKFilePlacesView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->KFilePlacesView::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnInputMethodQuery(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_InputMethodQuery_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InputMethodQuery_Callback>(slot));
+void KFilePlacesView_OnInputMethodQuery(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_inputmethodquery_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_SelectAll(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->selectAll();
-    } else {
-        self->KFilePlacesView::selectAll();
-    }
+    self->selectAll();
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperSelectAll(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SelectAll_IsBase(true);
-        vkfileplacesview->selectAll();
-    } else {
-        self->KFilePlacesView::selectAll();
-    }
+    self->KFilePlacesView::selectAll();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSelectAll(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SelectAll_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SelectAll_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_selectall_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SelectAll_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_UpdateEditorData(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->updateEditorData();
     } else {
-        ((VirtualKFilePlacesView*)self)->updateEditorData();
+        qFatal("Error: Protected virtual method KFilePlacesView::updateEditorData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperUpdateEditorData(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_UpdateEditorData_IsBase(true);
-        vkfileplacesview->updateEditorData();
-    } else {
-        ((VirtualKFilePlacesView*)self)->updateEditorData();
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::updateEditorData();
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::updateEditorData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnUpdateEditorData(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_UpdateEditorData_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_UpdateEditorData_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_updateeditordata_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_UpdateEditorData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_UpdateEditorGeometries(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->updateEditorGeometries();
     } else {
-        ((VirtualKFilePlacesView*)self)->updateEditorGeometries();
+        qFatal("Error: Protected virtual method KFilePlacesView::updateEditorGeometries called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperUpdateEditorGeometries(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_UpdateEditorGeometries_IsBase(true);
-        vkfileplacesview->updateEditorGeometries();
-    } else {
-        ((VirtualKFilePlacesView*)self)->updateEditorGeometries();
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::updateEditorGeometries();
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::updateEditorGeometries called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnUpdateEditorGeometries(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_UpdateEditorGeometries_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_updateeditorgeometries_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_UpdateEditorGeometries_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_VerticalScrollbarAction(KFilePlacesView* self, int action) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->verticalScrollbarAction(static_cast<int>(action));
     } else {
-        ((VirtualKFilePlacesView*)self)->verticalScrollbarAction(static_cast<int>(action));
+        qFatal("Error: Protected virtual method KFilePlacesView::verticalScrollbarAction called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperVerticalScrollbarAction(KFilePlacesView* self, int action) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_VerticalScrollbarAction_IsBase(true);
-        vkfileplacesview->verticalScrollbarAction(static_cast<int>(action));
-    } else {
-        ((VirtualKFilePlacesView*)self)->verticalScrollbarAction(static_cast<int>(action));
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::verticalScrollbarAction(static_cast<int>(action));
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::verticalScrollbarAction called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnVerticalScrollbarAction(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VerticalScrollbarAction_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_verticalscrollbaraction_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VerticalScrollbarAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_HorizontalScrollbarAction(KFilePlacesView* self, int action) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->horizontalScrollbarAction(static_cast<int>(action));
     } else {
-        ((VirtualKFilePlacesView*)self)->horizontalScrollbarAction(static_cast<int>(action));
+        qFatal("Error: Protected virtual method KFilePlacesView::horizontalScrollbarAction called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperHorizontalScrollbarAction(KFilePlacesView* self, int action) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_HorizontalScrollbarAction_IsBase(true);
-        vkfileplacesview->horizontalScrollbarAction(static_cast<int>(action));
-    } else {
-        ((VirtualKFilePlacesView*)self)->horizontalScrollbarAction(static_cast<int>(action));
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::horizontalScrollbarAction(static_cast<int>(action));
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::horizontalScrollbarAction called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnHorizontalScrollbarAction(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HorizontalScrollbarAction_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_horizontalscrollbaraction_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HorizontalScrollbarAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_VerticalScrollbarValueChanged(KFilePlacesView* self, int value) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->verticalScrollbarValueChanged(static_cast<int>(value));
     } else {
-        ((VirtualKFilePlacesView*)self)->verticalScrollbarValueChanged(static_cast<int>(value));
+        qFatal("Error: Protected virtual method KFilePlacesView::verticalScrollbarValueChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperVerticalScrollbarValueChanged(KFilePlacesView* self, int value) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_VerticalScrollbarValueChanged_IsBase(true);
-        vkfileplacesview->verticalScrollbarValueChanged(static_cast<int>(value));
-    } else {
-        ((VirtualKFilePlacesView*)self)->verticalScrollbarValueChanged(static_cast<int>(value));
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::verticalScrollbarValueChanged(static_cast<int>(value));
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::verticalScrollbarValueChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnVerticalScrollbarValueChanged(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VerticalScrollbarValueChanged_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_verticalscrollbarvaluechanged_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VerticalScrollbarValueChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_HorizontalScrollbarValueChanged(KFilePlacesView* self, int value) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->horizontalScrollbarValueChanged(static_cast<int>(value));
     } else {
-        ((VirtualKFilePlacesView*)self)->horizontalScrollbarValueChanged(static_cast<int>(value));
+        qFatal("Error: Protected virtual method KFilePlacesView::horizontalScrollbarValueChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperHorizontalScrollbarValueChanged(KFilePlacesView* self, int value) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_HorizontalScrollbarValueChanged_IsBase(true);
-        vkfileplacesview->horizontalScrollbarValueChanged(static_cast<int>(value));
-    } else {
-        ((VirtualKFilePlacesView*)self)->horizontalScrollbarValueChanged(static_cast<int>(value));
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::horizontalScrollbarValueChanged(static_cast<int>(value));
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::horizontalScrollbarValueChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnHorizontalScrollbarValueChanged(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HorizontalScrollbarValueChanged_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_horizontalscrollbarvaluechanged_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HorizontalScrollbarValueChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_CloseEditor(KFilePlacesView* self, QWidget* editor, int hint) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
     } else {
-        ((VirtualKFilePlacesView*)self)->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
+        qFatal("Error: Protected virtual method KFilePlacesView::closeEditor called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperCloseEditor(KFilePlacesView* self, QWidget* editor, int hint) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_CloseEditor_IsBase(true);
-        vkfileplacesview->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
-    } else {
-        ((VirtualKFilePlacesView*)self)->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::closeEditor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnCloseEditor(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_CloseEditor_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CloseEditor_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_closeeditor_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CloseEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_CommitData(KFilePlacesView* self, QWidget* editor) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->commitData(editor);
     } else {
-        ((VirtualKFilePlacesView*)self)->commitData(editor);
+        qFatal("Error: Protected virtual method KFilePlacesView::commitData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperCommitData(KFilePlacesView* self, QWidget* editor) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_CommitData_IsBase(true);
-        vkfileplacesview->commitData(editor);
-    } else {
-        ((VirtualKFilePlacesView*)self)->commitData(editor);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::commitData(editor);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::commitData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnCommitData(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_CommitData_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CommitData_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_commitdata_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CommitData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_EditorDestroyed(KFilePlacesView* self, QObject* editor) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->editorDestroyed(editor);
     } else {
-        ((VirtualKFilePlacesView*)self)->editorDestroyed(editor);
+        qFatal("Error: Protected virtual method KFilePlacesView::editorDestroyed called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperEditorDestroyed(KFilePlacesView* self, QObject* editor) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_EditorDestroyed_IsBase(true);
-        vkfileplacesview->editorDestroyed(editor);
-    } else {
-        ((VirtualKFilePlacesView*)self)->editorDestroyed(editor);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::editorDestroyed(editor);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::editorDestroyed called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnEditorDestroyed(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_EditorDestroyed_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_EditorDestroyed_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_editordestroyed_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_EditorDestroyed_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePlacesView_Edit2(KFilePlacesView* self, const QModelIndex* index, int trigger, QEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         return vkfileplacesview->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
     } else {
-        return ((VirtualKFilePlacesView*)self)->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
+        qFatal("Error: Protected virtual method KFilePlacesView::edit2 called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFilePlacesView_SuperEdit2(KFilePlacesView* self, const QModelIndex* index, int trigger, QEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_Edit2_IsBase(true);
-        return vkfileplacesview->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
-    } else {
-        return ((VirtualKFilePlacesView*)self)->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        return vkfileplacesview->KFilePlacesView::edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::edit2 called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnEdit2(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_Edit2_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Edit2_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_edit2_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Edit2_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFilePlacesView_SelectionCommand(const KFilePlacesView* self, const QModelIndex* index, const QEvent* event) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         return static_cast<int>(vkfileplacesview->selectionCommand(*index, event));
     } else {
-        return static_cast<int>(((VirtualKFilePlacesView*)self)->selectionCommand(*index, event));
+        qFatal("Error: Protected virtual method KFilePlacesView::selectionCommand called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KFilePlacesView_SuperSelectionCommand(const KFilePlacesView* self, const QModelIndex* index, const QEvent* event) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SelectionCommand_IsBase(true);
-        return static_cast<int>(vkfileplacesview->selectionCommand(*index, event));
-    } else {
-        return static_cast<int>(((VirtualKFilePlacesView*)self)->selectionCommand(*index, event));
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        return static_cast<int>(vkfileplacesview->KFilePlacesView::selectionCommand(*index, event));
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::selectionCommand called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnSelectionCommand(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SelectionCommand_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SelectionCommand_Callback>(slot));
+void KFilePlacesView_OnSelectionCommand(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_selectioncommand_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SelectionCommand_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePlacesView_FocusNextPrevChild(KFilePlacesView* self, bool next) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         return vkfileplacesview->focusNextPrevChild(next);
     } else {
-        return ((VirtualKFilePlacesView*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KFilePlacesView::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFilePlacesView_SuperFocusNextPrevChild(KFilePlacesView* self, bool next) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_FocusNextPrevChild_IsBase(true);
-        return vkfileplacesview->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKFilePlacesView*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        return vkfileplacesview->KFilePlacesView::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnFocusNextPrevChild(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_focusnextprevchild_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePlacesView_ViewportEvent(KFilePlacesView* self, QEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         return vkfileplacesview->viewportEvent(event);
     } else {
-        return ((VirtualKFilePlacesView*)self)->viewportEvent(event);
+        qFatal("Error: Protected virtual method KFilePlacesView::viewportEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFilePlacesView_SuperViewportEvent(KFilePlacesView* self, QEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ViewportEvent_IsBase(true);
-        return vkfileplacesview->viewportEvent(event);
-    } else {
-        return ((VirtualKFilePlacesView*)self)->viewportEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        return vkfileplacesview->KFilePlacesView::viewportEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::viewportEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnViewportEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ViewportEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ViewportEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_viewportevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ViewportEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_MouseDoubleClickEvent(KFilePlacesView* self, QMouseEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKFilePlacesView*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KFilePlacesView::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperMouseDoubleClickEvent(KFilePlacesView* self, QMouseEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_MouseDoubleClickEvent_IsBase(true);
-        vkfileplacesview->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMouseDoubleClickEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_mousedoubleclickevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_FocusInEvent(KFilePlacesView* self, QFocusEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->focusInEvent(event);
     } else {
-        ((VirtualKFilePlacesView*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KFilePlacesView::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperFocusInEvent(KFilePlacesView* self, QFocusEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_FocusInEvent_IsBase(true);
-        vkfileplacesview->focusInEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->focusInEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnFocusInEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_FocusInEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_FocusInEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_focusinevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_FocusOutEvent(KFilePlacesView* self, QFocusEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->focusOutEvent(event);
     } else {
-        ((VirtualKFilePlacesView*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KFilePlacesView::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperFocusOutEvent(KFilePlacesView* self, QFocusEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_FocusOutEvent_IsBase(true);
-        vkfileplacesview->focusOutEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->focusOutEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnFocusOutEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_FocusOutEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_FocusOutEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_focusoutevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_InputMethodEvent(KFilePlacesView* self, QInputMethodEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->inputMethodEvent(event);
     } else {
-        ((VirtualKFilePlacesView*)self)->inputMethodEvent(event);
+        qFatal("Error: Protected virtual method KFilePlacesView::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperInputMethodEvent(KFilePlacesView* self, QInputMethodEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_InputMethodEvent_IsBase(true);
-        vkfileplacesview->inputMethodEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->inputMethodEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::inputMethodEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnInputMethodEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_InputMethodEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InputMethodEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_inputmethodevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePlacesView_EventFilter(KFilePlacesView* self, QObject* object, QEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         return vkfileplacesview->eventFilter(object, event);
     } else {
-        return ((VirtualKFilePlacesView*)self)->eventFilter(object, event);
+        qFatal("Error: Protected virtual method KFilePlacesView::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFilePlacesView_SuperEventFilter(KFilePlacesView* self, QObject* object, QEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_EventFilter_IsBase(true);
-        return vkfileplacesview->eventFilter(object, event);
-    } else {
-        return ((VirtualKFilePlacesView*)self)->eventFilter(object, event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        return vkfileplacesview->KFilePlacesView::eventFilter(object, event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnEventFilter(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_EventFilter_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_EventFilter_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_eventfilter_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KFilePlacesView_MinimumSizeHint(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return new QSize(vkfileplacesview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKFilePlacesView*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KFilePlacesView_SuperMinimumSizeHint(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_MinimumSizeHint_IsBase(true);
-        return new QSize(vkfileplacesview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKFilePlacesView*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KFilePlacesView::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnMinimumSizeHint(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_MinimumSizeHint_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MinimumSizeHint_Callback>(slot));
+void KFilePlacesView_OnMinimumSizeHint(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_minimumsizehint_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_SetupViewport(KFilePlacesView* self, QWidget* viewport) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setupViewport(viewport);
-    } else {
-        self->KFilePlacesView::setupViewport(viewport);
-    }
+    self->setupViewport(viewport);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperSetupViewport(KFilePlacesView* self, QWidget* viewport) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SetupViewport_IsBase(true);
-        vkfileplacesview->setupViewport(viewport);
-    } else {
-        self->KFilePlacesView::setupViewport(viewport);
-    }
+    self->KFilePlacesView::setupViewport(viewport);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetupViewport(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SetupViewport_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetupViewport_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_setupviewport_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetupViewport_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_ChangeEvent(KFilePlacesView* self, QEvent* param1) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->changeEvent(param1);
     } else {
-        ((VirtualKFilePlacesView*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KFilePlacesView::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperChangeEvent(KFilePlacesView* self, QEvent* param1) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ChangeEvent_IsBase(true);
-        vkfileplacesview->changeEvent(param1);
-    } else {
-        ((VirtualKFilePlacesView*)self)->changeEvent(param1);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnChangeEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ChangeEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ChangeEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_changeevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_InitStyleOption(const KFilePlacesView* self, QStyleOptionFrame* option) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->initStyleOption(option);
     } else {
-        ((VirtualKFilePlacesView*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KFilePlacesView::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperInitStyleOption(const KFilePlacesView* self, QStyleOptionFrame* option) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_InitStyleOption_IsBase(true);
-        vkfileplacesview->initStyleOption(option);
-    } else {
-        ((VirtualKFilePlacesView*)self)->initStyleOption(option);
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        vkfileplacesview->KFilePlacesView::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnInitStyleOption(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_InitStyleOption_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InitStyleOption_Callback>(slot));
+void KFilePlacesView_OnInitStyleOption(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_initstyleoption_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFilePlacesView_DevType(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return vkfileplacesview->devType();
-    } else {
-        return self->KFilePlacesView::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KFilePlacesView_SuperDevType(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_DevType_IsBase(true);
-        return vkfileplacesview->devType();
-    } else {
-        return self->KFilePlacesView::devType();
-    }
+    return self->KFilePlacesView::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnDevType(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_DevType_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DevType_Callback>(slot));
+void KFilePlacesView_OnDevType(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_devtype_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_SetVisible(KFilePlacesView* self, bool visible) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setVisible(visible);
-    } else {
-        self->KFilePlacesView::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperSetVisible(KFilePlacesView* self, bool visible) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SetVisible_IsBase(true);
-        vkfileplacesview->setVisible(visible);
-    } else {
-        self->KFilePlacesView::setVisible(visible);
-    }
+    self->KFilePlacesView::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetVisible(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SetVisible_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetVisible_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_setvisible_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFilePlacesView_HeightForWidth(const KFilePlacesView* self, int param1) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return vkfileplacesview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KFilePlacesView::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KFilePlacesView_SuperHeightForWidth(const KFilePlacesView* self, int param1) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_HeightForWidth_IsBase(true);
-        return vkfileplacesview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KFilePlacesView::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KFilePlacesView::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnHeightForWidth(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_HeightForWidth_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HeightForWidth_Callback>(slot));
+void KFilePlacesView_OnHeightForWidth(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_heightforwidth_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePlacesView_HasHeightForWidth(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return vkfileplacesview->hasHeightForWidth();
-    } else {
-        return self->KFilePlacesView::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KFilePlacesView_SuperHasHeightForWidth(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_HasHeightForWidth_IsBase(true);
-        return vkfileplacesview->hasHeightForWidth();
-    } else {
-        return self->KFilePlacesView::hasHeightForWidth();
-    }
+    return self->KFilePlacesView::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnHasHeightForWidth(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_HasHeightForWidth_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HasHeightForWidth_Callback>(slot));
+void KFilePlacesView_OnHasHeightForWidth(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_hasheightforwidth_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KFilePlacesView_PaintEngine(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return vkfileplacesview->paintEngine();
-    } else {
-        return self->KFilePlacesView::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KFilePlacesView_SuperPaintEngine(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_PaintEngine_IsBase(true);
-        return vkfileplacesview->paintEngine();
-    } else {
-        return self->KFilePlacesView::paintEngine();
-    }
+    return self->KFilePlacesView::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnPaintEngine(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_PaintEngine_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_PaintEngine_Callback>(slot));
+void KFilePlacesView_OnPaintEngine(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_paintengine_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_KeyReleaseEvent(KFilePlacesView* self, QKeyEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->keyReleaseEvent(event);
     } else {
-        ((VirtualKFilePlacesView*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KFilePlacesView::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperKeyReleaseEvent(KFilePlacesView* self, QKeyEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_KeyReleaseEvent_IsBase(true);
-        vkfileplacesview->keyReleaseEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnKeyReleaseEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_keyreleaseevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_EnterEvent(KFilePlacesView* self, QEnterEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->enterEvent(event);
     } else {
-        ((VirtualKFilePlacesView*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KFilePlacesView::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperEnterEvent(KFilePlacesView* self, QEnterEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_EnterEvent_IsBase(true);
-        vkfileplacesview->enterEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->enterEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnEnterEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_EnterEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_EnterEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_enterevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_LeaveEvent(KFilePlacesView* self, QEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->leaveEvent(event);
     } else {
-        ((VirtualKFilePlacesView*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KFilePlacesView::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperLeaveEvent(KFilePlacesView* self, QEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_LeaveEvent_IsBase(true);
-        vkfileplacesview->leaveEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->leaveEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnLeaveEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_LeaveEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_LeaveEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_leaveevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_MoveEvent(KFilePlacesView* self, QMoveEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->moveEvent(event);
     } else {
-        ((VirtualKFilePlacesView*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KFilePlacesView::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperMoveEvent(KFilePlacesView* self, QMoveEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_MoveEvent_IsBase(true);
-        vkfileplacesview->moveEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->moveEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMoveEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_MoveEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MoveEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_moveevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_CloseEvent(KFilePlacesView* self, QCloseEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->closeEvent(event);
     } else {
-        ((VirtualKFilePlacesView*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KFilePlacesView::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperCloseEvent(KFilePlacesView* self, QCloseEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_CloseEvent_IsBase(true);
-        vkfileplacesview->closeEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->closeEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnCloseEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_CloseEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CloseEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_closeevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_TabletEvent(KFilePlacesView* self, QTabletEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->tabletEvent(event);
     } else {
-        ((VirtualKFilePlacesView*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KFilePlacesView::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperTabletEvent(KFilePlacesView* self, QTabletEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_TabletEvent_IsBase(true);
-        vkfileplacesview->tabletEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->tabletEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnTabletEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_TabletEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_TabletEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_tabletevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_ActionEvent(KFilePlacesView* self, QActionEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->actionEvent(event);
     } else {
-        ((VirtualKFilePlacesView*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KFilePlacesView::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperActionEvent(KFilePlacesView* self, QActionEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ActionEvent_IsBase(true);
-        vkfileplacesview->actionEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->actionEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnActionEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ActionEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ActionEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_actionevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePlacesView_NativeEvent(KFilePlacesView* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
+    if (vkfileplacesview) {
         return vkfileplacesview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKFilePlacesView*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KFilePlacesView::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFilePlacesView_SuperNativeEvent(KFilePlacesView* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_NativeEvent_IsBase(true);
-        return vkfileplacesview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKFilePlacesView*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        return vkfileplacesview->KFilePlacesView::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnNativeEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_NativeEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_NativeEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_nativeevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFilePlacesView_Metric(const KFilePlacesView* self, int param1) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         return vkfileplacesview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKFilePlacesView*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KFilePlacesView::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KFilePlacesView_SuperMetric(const KFilePlacesView* self, int param1) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_Metric_IsBase(true);
-        return vkfileplacesview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKFilePlacesView*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        return vkfileplacesview->KFilePlacesView::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnMetric(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_Metric_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Metric_Callback>(slot));
+void KFilePlacesView_OnMetric(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_metric_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_InitPainter(const KFilePlacesView* self, QPainter* painter) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->initPainter(painter);
     } else {
-        ((VirtualKFilePlacesView*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KFilePlacesView::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperInitPainter(const KFilePlacesView* self, QPainter* painter) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_InitPainter_IsBase(true);
-        vkfileplacesview->initPainter(painter);
-    } else {
-        ((VirtualKFilePlacesView*)self)->initPainter(painter);
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        vkfileplacesview->KFilePlacesView::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnInitPainter(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_InitPainter_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InitPainter_Callback>(slot));
+void KFilePlacesView_OnInitPainter(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_initpainter_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KFilePlacesView_Redirected(const KFilePlacesView* self, QPoint* offset) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         return vkfileplacesview->redirected(offset);
     } else {
-        return ((VirtualKFilePlacesView*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KFilePlacesView::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KFilePlacesView_SuperRedirected(const KFilePlacesView* self, QPoint* offset) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_Redirected_IsBase(true);
-        return vkfileplacesview->redirected(offset);
-    } else {
-        return ((VirtualKFilePlacesView*)self)->redirected(offset);
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        return vkfileplacesview->KFilePlacesView::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnRedirected(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_Redirected_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Redirected_Callback>(slot));
+void KFilePlacesView_OnRedirected(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_redirected_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KFilePlacesView_SharedPainter(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         return vkfileplacesview->sharedPainter();
     } else {
-        return ((VirtualKFilePlacesView*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KFilePlacesView::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KFilePlacesView_SuperSharedPainter(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SharedPainter_IsBase(true);
-        return vkfileplacesview->sharedPainter();
-    } else {
-        return ((VirtualKFilePlacesView*)self)->sharedPainter();
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        return vkfileplacesview->KFilePlacesView::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnSharedPainter(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SharedPainter_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SharedPainter_Callback>(slot));
+void KFilePlacesView_OnSharedPainter(KFilePlacesView* self, intptr_t slot) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
+        vkfileplacesview->kfileplacesview_sharedpainter_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_ChildEvent(KFilePlacesView* self, QChildEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->childEvent(event);
     } else {
-        ((VirtualKFilePlacesView*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KFilePlacesView::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperChildEvent(KFilePlacesView* self, QChildEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ChildEvent_IsBase(true);
-        vkfileplacesview->childEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->childEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnChildEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ChildEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ChildEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_childevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_CustomEvent(KFilePlacesView* self, QEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->customEvent(event);
     } else {
-        ((VirtualKFilePlacesView*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KFilePlacesView::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperCustomEvent(KFilePlacesView* self, QEvent* event) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_CustomEvent_IsBase(true);
-        vkfileplacesview->customEvent(event);
-    } else {
-        ((VirtualKFilePlacesView*)self)->customEvent(event);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnCustomEvent(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_CustomEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CustomEvent_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_customevent_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_ConnectNotify(KFilePlacesView* self, const QMetaMethod* signal) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->connectNotify(*signal);
     } else {
-        ((VirtualKFilePlacesView*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KFilePlacesView::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperConnectNotify(KFilePlacesView* self, const QMetaMethod* signal) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ConnectNotify_IsBase(true);
-        vkfileplacesview->connectNotify(*signal);
-    } else {
-        ((VirtualKFilePlacesView*)self)->connectNotify(*signal);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnConnectNotify(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ConnectNotify_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ConnectNotify_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_connectnotify_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlacesView_DisconnectNotify(KFilePlacesView* self, const QMetaMethod* signal) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview) {
         vkfileplacesview->disconnectNotify(*signal);
     } else {
-        ((VirtualKFilePlacesView*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KFilePlacesView::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlacesView_SuperDisconnectNotify(KFilePlacesView* self, const QMetaMethod* signal) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_DisconnectNotify_IsBase(true);
-        vkfileplacesview->disconnectNotify(*signal);
-    } else {
-        ((VirtualKFilePlacesView*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->KFilePlacesView::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFilePlacesView::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDisconnectNotify(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_DisconnectNotify_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DisconnectNotify_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self))
+        vkfileplacesview->kfileplacesview_disconnectnotify_callback = reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_ResizeContents(KFilePlacesView* self, int width, int height) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->resizeContents(static_cast<int>(width), static_cast<int>(height));
-    } else {
-        ((VirtualKFilePlacesView*)self)->resizeContents(static_cast<int>(width), static_cast<int>(height));
-    }
-}
-
-// Base class handler implementation
-void KFilePlacesView_SuperResizeContents(KFilePlacesView* self, int width, int height) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ResizeContents_IsBase(true);
-        vkfileplacesview->resizeContents(static_cast<int>(width), static_cast<int>(height));
-    } else {
-        ((VirtualKFilePlacesView*)self)->resizeContents(static_cast<int>(width), static_cast<int>(height));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnResizeContents(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ResizeContents_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ResizeContents_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::resizeContents(static_cast<int>(width), static_cast<int>(height));
+    } else
+        qFatal("Error: Protected method KFilePlacesView::resizeContents called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QSize* KFilePlacesView_ContentsSize(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
         return new QSize(vkfileplacesview->contentsSize());
-    }
-    return {};
-}
-
-// Base class handler implementation
-QSize* KFilePlacesView_SuperContentsSize(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ContentsSize_IsBase(true);
-        return new QSize(vkfileplacesview->contentsSize());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnContentsSize(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ContentsSize_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ContentsSize_Callback>(slot));
+    qFatal("Error: Protected method KFilePlacesView::contentsSize called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QRect* KFilePlacesView_RectForIndex(const KFilePlacesView* self, const QModelIndex* index) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
         return new QRect(vkfileplacesview->rectForIndex(*index));
-    }
-    return {};
+    qFatal("Error: Protected method KFilePlacesView::rectForIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-QRect* KFilePlacesView_SuperRectForIndex(const KFilePlacesView* self, const QModelIndex* index) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_RectForIndex_IsBase(true);
-        return new QRect(vkfileplacesview->rectForIndex(*index));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnRectForIndex(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_RectForIndex_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_RectForIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_SetPositionForIndex(KFilePlacesView* self, const QPoint* position, const QModelIndex* index) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setPositionForIndex(*position, *index);
-    } else {
-        ((VirtualKFilePlacesView*)self)->setPositionForIndex(*position, *index);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::setPositionForIndex(*position, *index);
+    } else
+        qFatal("Error: Protected method KFilePlacesView::setPositionForIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlacesView_SuperSetPositionForIndex(KFilePlacesView* self, const QPoint* position, const QModelIndex* index) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SetPositionForIndex_IsBase(true);
-        vkfileplacesview->setPositionForIndex(*position, *index);
-    } else {
-        ((VirtualKFilePlacesView*)self)->setPositionForIndex(*position, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnSetPositionForIndex(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SetPositionForIndex_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetPositionForIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFilePlacesView_State(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return static_cast<int>(vkfileplacesview->state());
-    } else {
-        return static_cast<int>(((VirtualKFilePlacesView*)self)->state());
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        return static_cast<int>(vkfileplacesview->VirtualKFilePlacesView::state());
+    } else
+        qFatal("Error: Protected method KFilePlacesView::state called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFilePlacesView_SuperState(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_State_IsBase(true);
-        return static_cast<int>(vkfileplacesview->state());
-    } else {
-        return static_cast<int>(((VirtualKFilePlacesView*)self)->state());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnState(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_State_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_State_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_SetState(KFilePlacesView* self, int state) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setState(static_cast<VirtualKFilePlacesView::State>(state));
-    } else {
-        ((VirtualKFilePlacesView*)self)->setState(static_cast<VirtualKFilePlacesView::State>(state));
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::setState(static_cast<VirtualKFilePlacesView::State>(state));
+    } else
+        qFatal("Error: Protected method KFilePlacesView::setState called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlacesView_SuperSetState(KFilePlacesView* self, int state) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SetState_IsBase(true);
-        vkfileplacesview->setState(static_cast<VirtualKFilePlacesView::State>(state));
-    } else {
-        ((VirtualKFilePlacesView*)self)->setState(static_cast<VirtualKFilePlacesView::State>(state));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnSetState(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SetState_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetState_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_ScheduleDelayedItemsLayout(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->scheduleDelayedItemsLayout();
-    } else {
-        ((VirtualKFilePlacesView*)self)->scheduleDelayedItemsLayout();
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::scheduleDelayedItemsLayout();
+    } else
+        qFatal("Error: Protected method KFilePlacesView::scheduleDelayedItemsLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlacesView_SuperScheduleDelayedItemsLayout(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ScheduleDelayedItemsLayout_IsBase(true);
-        vkfileplacesview->scheduleDelayedItemsLayout();
-    } else {
-        ((VirtualKFilePlacesView*)self)->scheduleDelayedItemsLayout();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnScheduleDelayedItemsLayout(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ScheduleDelayedItemsLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_ExecuteDelayedItemsLayout(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->executeDelayedItemsLayout();
-    } else {
-        ((VirtualKFilePlacesView*)self)->executeDelayedItemsLayout();
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::executeDelayedItemsLayout();
+    } else
+        qFatal("Error: Protected method KFilePlacesView::executeDelayedItemsLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlacesView_SuperExecuteDelayedItemsLayout(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ExecuteDelayedItemsLayout_IsBase(true);
-        vkfileplacesview->executeDelayedItemsLayout();
-    } else {
-        ((VirtualKFilePlacesView*)self)->executeDelayedItemsLayout();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnExecuteDelayedItemsLayout(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ExecuteDelayedItemsLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_SetDirtyRegion(KFilePlacesView* self, const QRegion* region) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setDirtyRegion(*region);
-    } else {
-        ((VirtualKFilePlacesView*)self)->setDirtyRegion(*region);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::setDirtyRegion(*region);
+    } else
+        qFatal("Error: Protected method KFilePlacesView::setDirtyRegion called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlacesView_SuperSetDirtyRegion(KFilePlacesView* self, const QRegion* region) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SetDirtyRegion_IsBase(true);
-        vkfileplacesview->setDirtyRegion(*region);
-    } else {
-        ((VirtualKFilePlacesView*)self)->setDirtyRegion(*region);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnSetDirtyRegion(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SetDirtyRegion_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetDirtyRegion_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_ScrollDirtyRegion(KFilePlacesView* self, int dx, int dy) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualKFilePlacesView*)self)->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Base class handler implementation
-void KFilePlacesView_SuperScrollDirtyRegion(KFilePlacesView* self, int dx, int dy) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ScrollDirtyRegion_IsBase(true);
-        vkfileplacesview->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualKFilePlacesView*)self)->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnScrollDirtyRegion(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ScrollDirtyRegion_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected method KFilePlacesView::scrollDirtyRegion called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QPoint* KFilePlacesView_DirtyRegionOffset(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
         return new QPoint(vkfileplacesview->dirtyRegionOffset());
-    }
-    return {};
+    qFatal("Error: Protected method KFilePlacesView::dirtyRegionOffset called without a directly constructed type");
 }
 
-// Base class handler implementation
-QPoint* KFilePlacesView_SuperDirtyRegionOffset(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_DirtyRegionOffset_IsBase(true);
-        return new QPoint(vkfileplacesview->dirtyRegionOffset());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnDirtyRegionOffset(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_DirtyRegionOffset_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DirtyRegionOffset_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_StartAutoScroll(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->startAutoScroll();
-    } else {
-        ((VirtualKFilePlacesView*)self)->startAutoScroll();
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::startAutoScroll();
+    } else
+        qFatal("Error: Protected method KFilePlacesView::startAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlacesView_SuperStartAutoScroll(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_StartAutoScroll_IsBase(true);
-        vkfileplacesview->startAutoScroll();
-    } else {
-        ((VirtualKFilePlacesView*)self)->startAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnStartAutoScroll(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_StartAutoScroll_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_StartAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_StopAutoScroll(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->stopAutoScroll();
-    } else {
-        ((VirtualKFilePlacesView*)self)->stopAutoScroll();
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::stopAutoScroll();
+    } else
+        qFatal("Error: Protected method KFilePlacesView::stopAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlacesView_SuperStopAutoScroll(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_StopAutoScroll_IsBase(true);
-        vkfileplacesview->stopAutoScroll();
-    } else {
-        ((VirtualKFilePlacesView*)self)->stopAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnStopAutoScroll(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_StopAutoScroll_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_StopAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_DoAutoScroll(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->doAutoScroll();
-    } else {
-        ((VirtualKFilePlacesView*)self)->doAutoScroll();
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::doAutoScroll();
+    } else
+        qFatal("Error: Protected method KFilePlacesView::doAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlacesView_SuperDoAutoScroll(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_DoAutoScroll_IsBase(true);
-        vkfileplacesview->doAutoScroll();
-    } else {
-        ((VirtualKFilePlacesView*)self)->doAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnDoAutoScroll(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_DoAutoScroll_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DoAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFilePlacesView_DropIndicatorPosition(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return static_cast<int>(vkfileplacesview->dropIndicatorPosition());
-    } else {
-        return static_cast<int>(((VirtualKFilePlacesView*)self)->dropIndicatorPosition());
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        return static_cast<int>(vkfileplacesview->VirtualKFilePlacesView::dropIndicatorPosition());
+    } else
+        qFatal("Error: Protected method KFilePlacesView::dropIndicatorPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFilePlacesView_SuperDropIndicatorPosition(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_DropIndicatorPosition_IsBase(true);
-        return static_cast<int>(vkfileplacesview->dropIndicatorPosition());
-    } else {
-        return static_cast<int>(((VirtualKFilePlacesView*)self)->dropIndicatorPosition());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnDropIndicatorPosition(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_DropIndicatorPosition_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DropIndicatorPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_SetViewportMargins(KFilePlacesView* self, int left, int top, int right, int bottom) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualKFilePlacesView*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Base class handler implementation
-void KFilePlacesView_SuperSetViewportMargins(KFilePlacesView* self, int left, int top, int right, int bottom) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SetViewportMargins_IsBase(true);
-        vkfileplacesview->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualKFilePlacesView*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnSetViewportMargins(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SetViewportMargins_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetViewportMargins_Callback>(slot));
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+    } else
+        qFatal("Error: Protected method KFilePlacesView::setViewportMargins called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMargins* KFilePlacesView_ViewportMargins(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self)))
         return new QMargins(vkfileplacesview->viewportMargins());
-    }
-    return {};
+    qFatal("Error: Protected method KFilePlacesView::viewportMargins called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMargins* KFilePlacesView_SuperViewportMargins(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_ViewportMargins_IsBase(true);
-        return new QMargins(vkfileplacesview->viewportMargins());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnViewportMargins(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_ViewportMargins_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ViewportMargins_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_DrawFrame(KFilePlacesView* self, QPainter* param1) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->drawFrame(param1);
-    } else {
-        ((VirtualKFilePlacesView*)self)->drawFrame(param1);
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method KFilePlacesView::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlacesView_SuperDrawFrame(KFilePlacesView* self, QPainter* param1) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_DrawFrame_IsBase(true);
-        vkfileplacesview->drawFrame(param1);
-    } else {
-        ((VirtualKFilePlacesView*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnDrawFrame(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_DrawFrame_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_UpdateMicroFocus(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->updateMicroFocus();
-    } else {
-        ((VirtualKFilePlacesView*)self)->updateMicroFocus();
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KFilePlacesView::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlacesView_SuperUpdateMicroFocus(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_UpdateMicroFocus_IsBase(true);
-        vkfileplacesview->updateMicroFocus();
-    } else {
-        ((VirtualKFilePlacesView*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnUpdateMicroFocus(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_Create(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->create();
-    } else {
-        ((VirtualKFilePlacesView*)self)->create();
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::create();
+    } else
+        qFatal("Error: Protected method KFilePlacesView::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlacesView_SuperCreate(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_Create_IsBase(true);
-        vkfileplacesview->create();
-    } else {
-        ((VirtualKFilePlacesView*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnCreate(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_Create_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlacesView_Destroy(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->destroy();
-    } else {
-        ((VirtualKFilePlacesView*)self)->destroy();
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        vkfileplacesview->VirtualKFilePlacesView::destroy();
+    } else
+        qFatal("Error: Protected method KFilePlacesView::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlacesView_SuperDestroy(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_Destroy_IsBase(true);
-        vkfileplacesview->destroy();
-    } else {
-        ((VirtualKFilePlacesView*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnDestroy(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_Destroy_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFilePlacesView_FocusNextChild(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return vkfileplacesview->focusNextChild();
-    } else {
-        return ((VirtualKFilePlacesView*)self)->focusNextChild();
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        return vkfileplacesview->VirtualKFilePlacesView::focusNextChild();
+    } else
+        qFatal("Error: Protected method KFilePlacesView::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFilePlacesView_SuperFocusNextChild(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_FocusNextChild_IsBase(true);
-        return vkfileplacesview->focusNextChild();
-    } else {
-        return ((VirtualKFilePlacesView*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnFocusNextChild(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_FocusNextChild_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFilePlacesView_FocusPreviousChild(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return vkfileplacesview->focusPreviousChild();
-    } else {
-        return ((VirtualKFilePlacesView*)self)->focusPreviousChild();
-    }
+    if (auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self)) {
+        return vkfileplacesview->VirtualKFilePlacesView::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KFilePlacesView::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFilePlacesView_SuperFocusPreviousChild(KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_FocusPreviousChild_IsBase(true);
-        return vkfileplacesview->focusPreviousChild();
-    } else {
-        return ((VirtualKFilePlacesView*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnFocusPreviousChild(KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_FocusPreviousChild_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KFilePlacesView_Sender(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return vkfileplacesview->sender();
-    } else {
-        return ((VirtualKFilePlacesView*)self)->sender();
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        return vkfileplacesview->VirtualKFilePlacesView::sender();
+    } else
+        qFatal("Error: Protected method KFilePlacesView::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KFilePlacesView_SuperSender(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_Sender_IsBase(true);
-        return vkfileplacesview->sender();
-    } else {
-        return ((VirtualKFilePlacesView*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnSender(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_Sender_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFilePlacesView_SenderSignalIndex(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return vkfileplacesview->senderSignalIndex();
-    } else {
-        return ((VirtualKFilePlacesView*)self)->senderSignalIndex();
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        return vkfileplacesview->VirtualKFilePlacesView::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KFilePlacesView::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFilePlacesView_SuperSenderSignalIndex(const KFilePlacesView* self) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_SenderSignalIndex_IsBase(true);
-        return vkfileplacesview->senderSignalIndex();
-    } else {
-        return ((VirtualKFilePlacesView*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnSenderSignalIndex(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFilePlacesView_Receivers(const KFilePlacesView* self, const char* signal) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return vkfileplacesview->receivers(signal);
-    } else {
-        return ((VirtualKFilePlacesView*)self)->receivers(signal);
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        return vkfileplacesview->VirtualKFilePlacesView::receivers(signal);
+    } else
+        qFatal("Error: Protected method KFilePlacesView::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFilePlacesView_SuperReceivers(const KFilePlacesView* self, const char* signal) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_Receivers_IsBase(true);
-        return vkfileplacesview->receivers(signal);
-    } else {
-        return ((VirtualKFilePlacesView*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnReceivers(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_Receivers_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFilePlacesView_IsSignalConnected(const KFilePlacesView* self, const QMetaMethod* signal) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return vkfileplacesview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFilePlacesView*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        return vkfileplacesview->VirtualKFilePlacesView::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KFilePlacesView::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFilePlacesView_SuperIsSignalConnected(const KFilePlacesView* self, const QMetaMethod* signal) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_IsSignalConnected_IsBase(true);
-        return vkfileplacesview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFilePlacesView*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnIsSignalConnected(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_IsSignalConnected_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KFilePlacesView_GetDecodedMetricF(const KFilePlacesView* self, int metricA, int metricB) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return vkfileplacesview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKFilePlacesView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KFilePlacesView_SuperGetDecodedMetricF(const KFilePlacesView* self, int metricA, int metricB) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        vkfileplacesview->setKFilePlacesView_GetDecodedMetricF_IsBase(true);
-        return vkfileplacesview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKFilePlacesView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlacesView_OnGetDecodedMetricF(const KFilePlacesView* self, intptr_t slot) {
-    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
-        vkfileplacesview->setKFilePlacesView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self))) {
+        return vkfileplacesview->VirtualKFilePlacesView::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KFilePlacesView::getDecodedMetricF called without a directly constructed type");
 }
 
 void KFilePlacesView_Delete(KFilePlacesView* self) {

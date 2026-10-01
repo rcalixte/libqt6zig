@@ -142,21 +142,21 @@ void KSqueezedTextLabel_Clear(KSqueezedTextLabel* self) {
 
 void KSqueezedTextLabel_MouseReleaseEvent(KSqueezedTextLabel* self, QMouseEvent* param1) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->mouseReleaseEvent(param1);
     }
 }
 
 void KSqueezedTextLabel_ResizeEvent(KSqueezedTextLabel* self, QResizeEvent* param1) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->resizeEvent(param1);
     }
 }
 
 void KSqueezedTextLabel_ContextMenuEvent(KSqueezedTextLabel* self, QContextMenuEvent* param1) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->contextMenuEvent(param1);
     }
 }
@@ -187,1706 +187,1184 @@ libqt_string KSqueezedTextLabel_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KSqueezedTextLabel_SuperMetaObject(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_MetaObject_IsBase(true);
-        return (QMetaObject*)vksqueezedtextlabel->metaObject();
-    } else {
-        return (QMetaObject*)self->KSqueezedTextLabel::metaObject();
-    }
+    return (QMetaObject*)self->KSqueezedTextLabel::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnMetaObject(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_MetaObject_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MetaObject_Callback>(slot));
+void KSqueezedTextLabel_OnMetaObject(KSqueezedTextLabel* self, intptr_t slot) {
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self)))
+        vksqueezedtextlabel->ksqueezedtextlabel_metaobject_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KSqueezedTextLabel_SuperMetacast(KSqueezedTextLabel* self, const char* param1) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_Metacast_IsBase(true);
-        return vksqueezedtextlabel->qt_metacast(param1);
-    } else {
-        return self->KSqueezedTextLabel::qt_metacast(param1);
-    }
+    return self->KSqueezedTextLabel::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMetacast(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_Metacast_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Metacast_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_metacast_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KSqueezedTextLabel_SuperMetacall(KSqueezedTextLabel* self, int param1, int param2, void** param3) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_Metacall_IsBase(true);
-        return vksqueezedtextlabel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KSqueezedTextLabel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KSqueezedTextLabel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMetacall(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_Metacall_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Metacall_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_metacall_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KSqueezedTextLabel_SuperMinimumSizeHint(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_MinimumSizeHint_IsBase(true);
-        return new QSize(vksqueezedtextlabel->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKSqueezedTextLabel*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KSqueezedTextLabel::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnMinimumSizeHint(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_MinimumSizeHint_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MinimumSizeHint_Callback>(slot));
+void KSqueezedTextLabel_OnMinimumSizeHint(KSqueezedTextLabel* self, intptr_t slot) {
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self)))
+        vksqueezedtextlabel->ksqueezedtextlabel_minimumsizehint_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KSqueezedTextLabel_SuperSizeHint(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_SizeHint_IsBase(true);
-        return new QSize(vksqueezedtextlabel->sizeHint());
-    } else {
-        return new QSize(((VirtualKSqueezedTextLabel*)self)->sizeHint());
-    }
+    return new QSize(self->KSqueezedTextLabel::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnSizeHint(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_SizeHint_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SizeHint_Callback>(slot));
+void KSqueezedTextLabel_OnSizeHint(KSqueezedTextLabel* self, intptr_t slot) {
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self)))
+        vksqueezedtextlabel->ksqueezedtextlabel_sizehint_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperSetAlignment(KSqueezedTextLabel* self, int alignment) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_SetAlignment_IsBase(true);
-        vksqueezedtextlabel->setAlignment(static_cast<Qt::Alignment>(alignment));
-    } else {
-        self->KSqueezedTextLabel::setAlignment(static_cast<Qt::Alignment>(alignment));
-    }
+    self->KSqueezedTextLabel::setAlignment(static_cast<Qt::Alignment>(alignment));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnSetAlignment(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_SetAlignment_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SetAlignment_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_setalignment_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SetAlignment_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperMouseReleaseEvent(KSqueezedTextLabel* self, QMouseEvent* param1) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_MouseReleaseEvent_IsBase(true);
-        vksqueezedtextlabel->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMouseReleaseEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MouseReleaseEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_mousereleaseevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperResizeEvent(KSqueezedTextLabel* self, QResizeEvent* param1) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_ResizeEvent_IsBase(true);
-        vksqueezedtextlabel->resizeEvent(param1);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->resizeEvent(param1);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnResizeEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_ResizeEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ResizeEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_resizeevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperContextMenuEvent(KSqueezedTextLabel* self, QContextMenuEvent* param1) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_ContextMenuEvent_IsBase(true);
-        vksqueezedtextlabel->contextMenuEvent(param1);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnContextMenuEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_ContextMenuEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ContextMenuEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_contextmenuevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSqueezedTextLabel_HeightForWidth(const KSqueezedTextLabel* self, int param1) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return vksqueezedtextlabel->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KSqueezedTextLabel::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KSqueezedTextLabel_SuperHeightForWidth(const KSqueezedTextLabel* self, int param1) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_HeightForWidth_IsBase(true);
-        return vksqueezedtextlabel->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KSqueezedTextLabel::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KSqueezedTextLabel::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnHeightForWidth(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_HeightForWidth_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_HeightForWidth_Callback>(slot));
+void KSqueezedTextLabel_OnHeightForWidth(KSqueezedTextLabel* self, intptr_t slot) {
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self)))
+        vksqueezedtextlabel->ksqueezedtextlabel_heightforwidth_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSqueezedTextLabel_Event(KSqueezedTextLabel* self, QEvent* e) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         return vksqueezedtextlabel->event(e);
     } else {
-        return ((VirtualKSqueezedTextLabel*)self)->event(e);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSqueezedTextLabel_SuperEvent(KSqueezedTextLabel* self, QEvent* e) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_Event_IsBase(true);
-        return vksqueezedtextlabel->event(e);
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->event(e);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        return vksqueezedtextlabel->KSqueezedTextLabel::event(e);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_Event_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Event_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_event_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_KeyPressEvent(KSqueezedTextLabel* self, QKeyEvent* ev) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->keyPressEvent(ev);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->keyPressEvent(ev);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperKeyPressEvent(KSqueezedTextLabel* self, QKeyEvent* ev) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_KeyPressEvent_IsBase(true);
-        vksqueezedtextlabel->keyPressEvent(ev);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->keyPressEvent(ev);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::keyPressEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnKeyPressEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_KeyPressEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_KeyPressEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_keypressevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_PaintEvent(KSqueezedTextLabel* self, QPaintEvent* param1) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->paintEvent(param1);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->paintEvent(param1);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperPaintEvent(KSqueezedTextLabel* self, QPaintEvent* param1) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_PaintEvent_IsBase(true);
-        vksqueezedtextlabel->paintEvent(param1);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->paintEvent(param1);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnPaintEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_PaintEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_PaintEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_paintevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_ChangeEvent(KSqueezedTextLabel* self, QEvent* param1) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->changeEvent(param1);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperChangeEvent(KSqueezedTextLabel* self, QEvent* param1) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_ChangeEvent_IsBase(true);
-        vksqueezedtextlabel->changeEvent(param1);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->changeEvent(param1);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnChangeEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_ChangeEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ChangeEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_changeevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_MousePressEvent(KSqueezedTextLabel* self, QMouseEvent* ev) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->mousePressEvent(ev);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->mousePressEvent(ev);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperMousePressEvent(KSqueezedTextLabel* self, QMouseEvent* ev) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_MousePressEvent_IsBase(true);
-        vksqueezedtextlabel->mousePressEvent(ev);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->mousePressEvent(ev);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::mousePressEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMousePressEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_MousePressEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MousePressEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_mousepressevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_MouseMoveEvent(KSqueezedTextLabel* self, QMouseEvent* ev) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->mouseMoveEvent(ev);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->mouseMoveEvent(ev);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperMouseMoveEvent(KSqueezedTextLabel* self, QMouseEvent* ev) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_MouseMoveEvent_IsBase(true);
-        vksqueezedtextlabel->mouseMoveEvent(ev);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->mouseMoveEvent(ev);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::mouseMoveEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMouseMoveEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_MouseMoveEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MouseMoveEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_mousemoveevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_FocusInEvent(KSqueezedTextLabel* self, QFocusEvent* ev) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->focusInEvent(ev);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->focusInEvent(ev);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperFocusInEvent(KSqueezedTextLabel* self, QFocusEvent* ev) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_FocusInEvent_IsBase(true);
-        vksqueezedtextlabel->focusInEvent(ev);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->focusInEvent(ev);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::focusInEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnFocusInEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_FocusInEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_FocusInEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_focusinevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_FocusOutEvent(KSqueezedTextLabel* self, QFocusEvent* ev) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->focusOutEvent(ev);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->focusOutEvent(ev);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperFocusOutEvent(KSqueezedTextLabel* self, QFocusEvent* ev) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_FocusOutEvent_IsBase(true);
-        vksqueezedtextlabel->focusOutEvent(ev);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->focusOutEvent(ev);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::focusOutEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnFocusOutEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_FocusOutEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_FocusOutEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_focusoutevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSqueezedTextLabel_FocusNextPrevChild(KSqueezedTextLabel* self, bool next) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         return vksqueezedtextlabel->focusNextPrevChild(next);
     } else {
-        return ((VirtualKSqueezedTextLabel*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSqueezedTextLabel_SuperFocusNextPrevChild(KSqueezedTextLabel* self, bool next) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_FocusNextPrevChild_IsBase(true);
-        return vksqueezedtextlabel->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        return vksqueezedtextlabel->KSqueezedTextLabel::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnFocusNextPrevChild(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_FocusNextPrevChild_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_focusnextprevchild_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_InitStyleOption(const KSqueezedTextLabel* self, QStyleOptionFrame* option) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->initStyleOption(option);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperInitStyleOption(const KSqueezedTextLabel* self, QStyleOptionFrame* option) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_InitStyleOption_IsBase(true);
-        vksqueezedtextlabel->initStyleOption(option);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->initStyleOption(option);
-    }
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self))) {
+        vksqueezedtextlabel->KSqueezedTextLabel::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnInitStyleOption(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_InitStyleOption_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_InitStyleOption_Callback>(slot));
+void KSqueezedTextLabel_OnInitStyleOption(KSqueezedTextLabel* self, intptr_t slot) {
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self)))
+        vksqueezedtextlabel->ksqueezedtextlabel_initstyleoption_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSqueezedTextLabel_DevType(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return vksqueezedtextlabel->devType();
-    } else {
-        return self->KSqueezedTextLabel::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KSqueezedTextLabel_SuperDevType(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_DevType_IsBase(true);
-        return vksqueezedtextlabel->devType();
-    } else {
-        return self->KSqueezedTextLabel::devType();
-    }
+    return self->KSqueezedTextLabel::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnDevType(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_DevType_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DevType_Callback>(slot));
+void KSqueezedTextLabel_OnDevType(KSqueezedTextLabel* self, intptr_t slot) {
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self)))
+        vksqueezedtextlabel->ksqueezedtextlabel_devtype_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_SetVisible(KSqueezedTextLabel* self, bool visible) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setVisible(visible);
-    } else {
-        self->KSqueezedTextLabel::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperSetVisible(KSqueezedTextLabel* self, bool visible) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_SetVisible_IsBase(true);
-        vksqueezedtextlabel->setVisible(visible);
-    } else {
-        self->KSqueezedTextLabel::setVisible(visible);
-    }
+    self->KSqueezedTextLabel::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnSetVisible(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_SetVisible_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SetVisible_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_setvisible_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSqueezedTextLabel_HasHeightForWidth(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return vksqueezedtextlabel->hasHeightForWidth();
-    } else {
-        return self->KSqueezedTextLabel::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KSqueezedTextLabel_SuperHasHeightForWidth(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_HasHeightForWidth_IsBase(true);
-        return vksqueezedtextlabel->hasHeightForWidth();
-    } else {
-        return self->KSqueezedTextLabel::hasHeightForWidth();
-    }
+    return self->KSqueezedTextLabel::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnHasHeightForWidth(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_HasHeightForWidth_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_HasHeightForWidth_Callback>(slot));
+void KSqueezedTextLabel_OnHasHeightForWidth(KSqueezedTextLabel* self, intptr_t slot) {
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self)))
+        vksqueezedtextlabel->ksqueezedtextlabel_hasheightforwidth_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KSqueezedTextLabel_PaintEngine(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return vksqueezedtextlabel->paintEngine();
-    } else {
-        return self->KSqueezedTextLabel::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KSqueezedTextLabel_SuperPaintEngine(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_PaintEngine_IsBase(true);
-        return vksqueezedtextlabel->paintEngine();
-    } else {
-        return self->KSqueezedTextLabel::paintEngine();
-    }
+    return self->KSqueezedTextLabel::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnPaintEngine(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_PaintEngine_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_PaintEngine_Callback>(slot));
+void KSqueezedTextLabel_OnPaintEngine(KSqueezedTextLabel* self, intptr_t slot) {
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self)))
+        vksqueezedtextlabel->ksqueezedtextlabel_paintengine_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_MouseDoubleClickEvent(KSqueezedTextLabel* self, QMouseEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperMouseDoubleClickEvent(KSqueezedTextLabel* self, QMouseEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_MouseDoubleClickEvent_IsBase(true);
-        vksqueezedtextlabel->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMouseDoubleClickEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_mousedoubleclickevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_WheelEvent(KSqueezedTextLabel* self, QWheelEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->wheelEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperWheelEvent(KSqueezedTextLabel* self, QWheelEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_WheelEvent_IsBase(true);
-        vksqueezedtextlabel->wheelEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->wheelEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnWheelEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_WheelEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_WheelEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_wheelevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_KeyReleaseEvent(KSqueezedTextLabel* self, QKeyEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->keyReleaseEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperKeyReleaseEvent(KSqueezedTextLabel* self, QKeyEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_KeyReleaseEvent_IsBase(true);
-        vksqueezedtextlabel->keyReleaseEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnKeyReleaseEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_KeyReleaseEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_keyreleaseevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_EnterEvent(KSqueezedTextLabel* self, QEnterEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->enterEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperEnterEvent(KSqueezedTextLabel* self, QEnterEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_EnterEvent_IsBase(true);
-        vksqueezedtextlabel->enterEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->enterEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnEnterEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_EnterEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_EnterEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_enterevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_LeaveEvent(KSqueezedTextLabel* self, QEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->leaveEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperLeaveEvent(KSqueezedTextLabel* self, QEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_LeaveEvent_IsBase(true);
-        vksqueezedtextlabel->leaveEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->leaveEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnLeaveEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_LeaveEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_LeaveEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_leaveevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_MoveEvent(KSqueezedTextLabel* self, QMoveEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->moveEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperMoveEvent(KSqueezedTextLabel* self, QMoveEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_MoveEvent_IsBase(true);
-        vksqueezedtextlabel->moveEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->moveEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMoveEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_MoveEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MoveEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_moveevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_CloseEvent(KSqueezedTextLabel* self, QCloseEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->closeEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperCloseEvent(KSqueezedTextLabel* self, QCloseEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_CloseEvent_IsBase(true);
-        vksqueezedtextlabel->closeEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->closeEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnCloseEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_CloseEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_CloseEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_closeevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_TabletEvent(KSqueezedTextLabel* self, QTabletEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->tabletEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperTabletEvent(KSqueezedTextLabel* self, QTabletEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_TabletEvent_IsBase(true);
-        vksqueezedtextlabel->tabletEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->tabletEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnTabletEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_TabletEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_TabletEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_tabletevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_ActionEvent(KSqueezedTextLabel* self, QActionEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->actionEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperActionEvent(KSqueezedTextLabel* self, QActionEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_ActionEvent_IsBase(true);
-        vksqueezedtextlabel->actionEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->actionEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnActionEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_ActionEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ActionEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_actionevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_DragEnterEvent(KSqueezedTextLabel* self, QDragEnterEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->dragEnterEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperDragEnterEvent(KSqueezedTextLabel* self, QDragEnterEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_DragEnterEvent_IsBase(true);
-        vksqueezedtextlabel->dragEnterEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->dragEnterEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnDragEnterEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_DragEnterEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DragEnterEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_dragenterevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_DragMoveEvent(KSqueezedTextLabel* self, QDragMoveEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->dragMoveEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperDragMoveEvent(KSqueezedTextLabel* self, QDragMoveEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_DragMoveEvent_IsBase(true);
-        vksqueezedtextlabel->dragMoveEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->dragMoveEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnDragMoveEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_DragMoveEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DragMoveEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_dragmoveevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_DragLeaveEvent(KSqueezedTextLabel* self, QDragLeaveEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->dragLeaveEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperDragLeaveEvent(KSqueezedTextLabel* self, QDragLeaveEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_DragLeaveEvent_IsBase(true);
-        vksqueezedtextlabel->dragLeaveEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnDragLeaveEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_DragLeaveEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DragLeaveEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_dragleaveevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_DropEvent(KSqueezedTextLabel* self, QDropEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->dropEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperDropEvent(KSqueezedTextLabel* self, QDropEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_DropEvent_IsBase(true);
-        vksqueezedtextlabel->dropEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->dropEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnDropEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_DropEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DropEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_dropevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_ShowEvent(KSqueezedTextLabel* self, QShowEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->showEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperShowEvent(KSqueezedTextLabel* self, QShowEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_ShowEvent_IsBase(true);
-        vksqueezedtextlabel->showEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->showEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnShowEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_ShowEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ShowEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_showevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_HideEvent(KSqueezedTextLabel* self, QHideEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->hideEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperHideEvent(KSqueezedTextLabel* self, QHideEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_HideEvent_IsBase(true);
-        vksqueezedtextlabel->hideEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->hideEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnHideEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_HideEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_HideEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_hideevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSqueezedTextLabel_NativeEvent(KSqueezedTextLabel* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
+    if (vksqueezedtextlabel) {
         return vksqueezedtextlabel->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKSqueezedTextLabel*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSqueezedTextLabel_SuperNativeEvent(KSqueezedTextLabel* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_NativeEvent_IsBase(true);
-        return vksqueezedtextlabel->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        return vksqueezedtextlabel->KSqueezedTextLabel::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnNativeEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_NativeEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_NativeEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_nativeevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSqueezedTextLabel_Metric(const KSqueezedTextLabel* self, int param1) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         return vksqueezedtextlabel->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKSqueezedTextLabel*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KSqueezedTextLabel_SuperMetric(const KSqueezedTextLabel* self, int param1) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_Metric_IsBase(true);
-        return vksqueezedtextlabel->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self))) {
+        return vksqueezedtextlabel->KSqueezedTextLabel::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnMetric(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_Metric_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Metric_Callback>(slot));
+void KSqueezedTextLabel_OnMetric(KSqueezedTextLabel* self, intptr_t slot) {
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self)))
+        vksqueezedtextlabel->ksqueezedtextlabel_metric_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_InitPainter(const KSqueezedTextLabel* self, QPainter* painter) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->initPainter(painter);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperInitPainter(const KSqueezedTextLabel* self, QPainter* painter) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_InitPainter_IsBase(true);
-        vksqueezedtextlabel->initPainter(painter);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->initPainter(painter);
-    }
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self))) {
+        vksqueezedtextlabel->KSqueezedTextLabel::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnInitPainter(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_InitPainter_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_InitPainter_Callback>(slot));
+void KSqueezedTextLabel_OnInitPainter(KSqueezedTextLabel* self, intptr_t slot) {
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self)))
+        vksqueezedtextlabel->ksqueezedtextlabel_initpainter_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KSqueezedTextLabel_Redirected(const KSqueezedTextLabel* self, QPoint* offset) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         return vksqueezedtextlabel->redirected(offset);
     } else {
-        return ((VirtualKSqueezedTextLabel*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KSqueezedTextLabel_SuperRedirected(const KSqueezedTextLabel* self, QPoint* offset) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_Redirected_IsBase(true);
-        return vksqueezedtextlabel->redirected(offset);
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->redirected(offset);
-    }
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self))) {
+        return vksqueezedtextlabel->KSqueezedTextLabel::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnRedirected(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_Redirected_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Redirected_Callback>(slot));
+void KSqueezedTextLabel_OnRedirected(KSqueezedTextLabel* self, intptr_t slot) {
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self)))
+        vksqueezedtextlabel->ksqueezedtextlabel_redirected_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KSqueezedTextLabel_SharedPainter(const KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         return vksqueezedtextlabel->sharedPainter();
     } else {
-        return ((VirtualKSqueezedTextLabel*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KSqueezedTextLabel_SuperSharedPainter(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_SharedPainter_IsBase(true);
-        return vksqueezedtextlabel->sharedPainter();
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->sharedPainter();
-    }
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self))) {
+        return vksqueezedtextlabel->KSqueezedTextLabel::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnSharedPainter(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_SharedPainter_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SharedPainter_Callback>(slot));
+void KSqueezedTextLabel_OnSharedPainter(KSqueezedTextLabel* self, intptr_t slot) {
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self)))
+        vksqueezedtextlabel->ksqueezedtextlabel_sharedpainter_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_InputMethodEvent(KSqueezedTextLabel* self, QInputMethodEvent* param1) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->inputMethodEvent(param1);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperInputMethodEvent(KSqueezedTextLabel* self, QInputMethodEvent* param1) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_InputMethodEvent_IsBase(true);
-        vksqueezedtextlabel->inputMethodEvent(param1);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnInputMethodEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_InputMethodEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_InputMethodEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_inputmethodevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KSqueezedTextLabel_InputMethodQuery(const KSqueezedTextLabel* self, int param1) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return new QVariant(vksqueezedtextlabel->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKSqueezedTextLabel*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KSqueezedTextLabel_SuperInputMethodQuery(const KSqueezedTextLabel* self, int param1) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_InputMethodQuery_IsBase(true);
-        return new QVariant(vksqueezedtextlabel->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKSqueezedTextLabel*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KSqueezedTextLabel::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnInputMethodQuery(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_InputMethodQuery_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_InputMethodQuery_Callback>(slot));
+void KSqueezedTextLabel_OnInputMethodQuery(KSqueezedTextLabel* self, intptr_t slot) {
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self)))
+        vksqueezedtextlabel->ksqueezedtextlabel_inputmethodquery_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSqueezedTextLabel_EventFilter(KSqueezedTextLabel* self, QObject* watched, QEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return vksqueezedtextlabel->eventFilter(watched, event);
-    } else {
-        return self->KSqueezedTextLabel::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KSqueezedTextLabel_SuperEventFilter(KSqueezedTextLabel* self, QObject* watched, QEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_EventFilter_IsBase(true);
-        return vksqueezedtextlabel->eventFilter(watched, event);
-    } else {
-        return self->KSqueezedTextLabel::eventFilter(watched, event);
-    }
+    return self->KSqueezedTextLabel::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnEventFilter(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_EventFilter_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_EventFilter_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_eventfilter_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_TimerEvent(KSqueezedTextLabel* self, QTimerEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->timerEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperTimerEvent(KSqueezedTextLabel* self, QTimerEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_TimerEvent_IsBase(true);
-        vksqueezedtextlabel->timerEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->timerEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnTimerEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_TimerEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_TimerEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_timerevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_ChildEvent(KSqueezedTextLabel* self, QChildEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->childEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperChildEvent(KSqueezedTextLabel* self, QChildEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_ChildEvent_IsBase(true);
-        vksqueezedtextlabel->childEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->childEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnChildEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_ChildEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ChildEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_childevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_CustomEvent(KSqueezedTextLabel* self, QEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->customEvent(event);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperCustomEvent(KSqueezedTextLabel* self, QEvent* event) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_CustomEvent_IsBase(true);
-        vksqueezedtextlabel->customEvent(event);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->customEvent(event);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnCustomEvent(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_CustomEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_CustomEvent_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_customevent_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_ConnectNotify(KSqueezedTextLabel* self, const QMetaMethod* signal) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->connectNotify(*signal);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperConnectNotify(KSqueezedTextLabel* self, const QMetaMethod* signal) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_ConnectNotify_IsBase(true);
-        vksqueezedtextlabel->connectNotify(*signal);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->connectNotify(*signal);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnConnectNotify(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_ConnectNotify_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ConnectNotify_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_connectnotify_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSqueezedTextLabel_DisconnectNotify(KSqueezedTextLabel* self, const QMetaMethod* signal) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel) {
         vksqueezedtextlabel->disconnectNotify(*signal);
     } else {
-        ((VirtualKSqueezedTextLabel*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSqueezedTextLabel_SuperDisconnectNotify(KSqueezedTextLabel* self, const QMetaMethod* signal) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_DisconnectNotify_IsBase(true);
-        vksqueezedtextlabel->disconnectNotify(*signal);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->KSqueezedTextLabel::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSqueezedTextLabel::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnDisconnectNotify(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_DisconnectNotify_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DisconnectNotify_Callback>(slot));
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self))
+        vksqueezedtextlabel->ksqueezedtextlabel_disconnectnotify_callback = reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSqueezedTextLabel_SqueezeTextToLabel(KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->squeezeTextToLabel();
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->squeezeTextToLabel();
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->VirtualKSqueezedTextLabel::squeezeTextToLabel();
+    } else
+        qFatal("Error: Protected method KSqueezedTextLabel::squeezeTextToLabel called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSqueezedTextLabel_SuperSqueezeTextToLabel(KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_SqueezeTextToLabel_IsBase(true);
-        vksqueezedtextlabel->squeezeTextToLabel();
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->squeezeTextToLabel();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnSqueezeTextToLabel(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_SqueezeTextToLabel_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SqueezeTextToLabel_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSqueezedTextLabel_DrawFrame(KSqueezedTextLabel* self, QPainter* param1) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->drawFrame(param1);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->drawFrame(param1);
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->VirtualKSqueezedTextLabel::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method KSqueezedTextLabel::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSqueezedTextLabel_SuperDrawFrame(KSqueezedTextLabel* self, QPainter* param1) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_DrawFrame_IsBase(true);
-        vksqueezedtextlabel->drawFrame(param1);
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnDrawFrame(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_DrawFrame_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSqueezedTextLabel_UpdateMicroFocus(KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->updateMicroFocus();
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->updateMicroFocus();
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->VirtualKSqueezedTextLabel::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KSqueezedTextLabel::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSqueezedTextLabel_SuperUpdateMicroFocus(KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_UpdateMicroFocus_IsBase(true);
-        vksqueezedtextlabel->updateMicroFocus();
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnUpdateMicroFocus(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSqueezedTextLabel_Create(KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->create();
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->create();
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->VirtualKSqueezedTextLabel::create();
+    } else
+        qFatal("Error: Protected method KSqueezedTextLabel::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSqueezedTextLabel_SuperCreate(KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_Create_IsBase(true);
-        vksqueezedtextlabel->create();
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnCreate(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_Create_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSqueezedTextLabel_Destroy(KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->destroy();
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->destroy();
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        vksqueezedtextlabel->VirtualKSqueezedTextLabel::destroy();
+    } else
+        qFatal("Error: Protected method KSqueezedTextLabel::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSqueezedTextLabel_SuperDestroy(KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_Destroy_IsBase(true);
-        vksqueezedtextlabel->destroy();
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnDestroy(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_Destroy_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSqueezedTextLabel_FocusNextChild(KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return vksqueezedtextlabel->focusNextChild();
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->focusNextChild();
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        return vksqueezedtextlabel->VirtualKSqueezedTextLabel::focusNextChild();
+    } else
+        qFatal("Error: Protected method KSqueezedTextLabel::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSqueezedTextLabel_SuperFocusNextChild(KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_FocusNextChild_IsBase(true);
-        return vksqueezedtextlabel->focusNextChild();
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnFocusNextChild(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_FocusNextChild_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSqueezedTextLabel_FocusPreviousChild(KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return vksqueezedtextlabel->focusPreviousChild();
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->focusPreviousChild();
-    }
+    if (auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self)) {
+        return vksqueezedtextlabel->VirtualKSqueezedTextLabel::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KSqueezedTextLabel::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSqueezedTextLabel_SuperFocusPreviousChild(KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_FocusPreviousChild_IsBase(true);
-        return vksqueezedtextlabel->focusPreviousChild();
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnFocusPreviousChild(KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_FocusPreviousChild_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KSqueezedTextLabel_Sender(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return vksqueezedtextlabel->sender();
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->sender();
-    }
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self))) {
+        return vksqueezedtextlabel->VirtualKSqueezedTextLabel::sender();
+    } else
+        qFatal("Error: Protected method KSqueezedTextLabel::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KSqueezedTextLabel_SuperSender(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_Sender_IsBase(true);
-        return vksqueezedtextlabel->sender();
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnSender(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_Sender_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSqueezedTextLabel_SenderSignalIndex(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return vksqueezedtextlabel->senderSignalIndex();
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->senderSignalIndex();
-    }
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self))) {
+        return vksqueezedtextlabel->VirtualKSqueezedTextLabel::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KSqueezedTextLabel::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSqueezedTextLabel_SuperSenderSignalIndex(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_SenderSignalIndex_IsBase(true);
-        return vksqueezedtextlabel->senderSignalIndex();
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnSenderSignalIndex(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSqueezedTextLabel_Receivers(const KSqueezedTextLabel* self, const char* signal) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return vksqueezedtextlabel->receivers(signal);
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->receivers(signal);
-    }
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self))) {
+        return vksqueezedtextlabel->VirtualKSqueezedTextLabel::receivers(signal);
+    } else
+        qFatal("Error: Protected method KSqueezedTextLabel::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSqueezedTextLabel_SuperReceivers(const KSqueezedTextLabel* self, const char* signal) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_Receivers_IsBase(true);
-        return vksqueezedtextlabel->receivers(signal);
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnReceivers(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_Receivers_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSqueezedTextLabel_IsSignalConnected(const KSqueezedTextLabel* self, const QMetaMethod* signal) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return vksqueezedtextlabel->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self))) {
+        return vksqueezedtextlabel->VirtualKSqueezedTextLabel::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KSqueezedTextLabel::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSqueezedTextLabel_SuperIsSignalConnected(const KSqueezedTextLabel* self, const QMetaMethod* signal) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_IsSignalConnected_IsBase(true);
-        return vksqueezedtextlabel->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnIsSignalConnected(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_IsSignalConnected_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KSqueezedTextLabel_GetDecodedMetricF(const KSqueezedTextLabel* self, int metricA, int metricB) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return vksqueezedtextlabel->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KSqueezedTextLabel_SuperGetDecodedMetricF(const KSqueezedTextLabel* self, int metricA, int metricB) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        vksqueezedtextlabel->setKSqueezedTextLabel_GetDecodedMetricF_IsBase(true);
-        return vksqueezedtextlabel->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSqueezedTextLabel_OnGetDecodedMetricF(const KSqueezedTextLabel* self, intptr_t slot) {
-    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
-        vksqueezedtextlabel->setKSqueezedTextLabel_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_GetDecodedMetricF_Callback>(slot));
+    if (auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self))) {
+        return vksqueezedtextlabel->VirtualKSqueezedTextLabel::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KSqueezedTextLabel::getDecodedMetricF called without a directly constructed type");
 }
 
 void KSqueezedTextLabel_Delete(KSqueezedTextLabel* self) {

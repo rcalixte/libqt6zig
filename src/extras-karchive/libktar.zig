@@ -573,9 +573,9 @@ pub const KTar = extern struct {
     ///
     /// ` self: KTar `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KTar) callconv(.c) bool `
     ///
-    pub fn onCloseArchive(self: KTar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCloseArchive(self: KTar, callback: *const fn (KTar) callconv(.c) bool) void {
         qtc.KTar_OnCloseArchive(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2062,9 +2062,9 @@ pub const KTar = extern struct {
     ///
     /// ` self: KTar`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KTar) callconv(.c) bool `
     ///
-    pub fn onClose(self: KTar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onClose(self: KTar, callback: *const fn (KTar) callconv(.c) bool) void {
         qtc.KTar_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2118,9 +2118,9 @@ pub const KTar = extern struct {
     ///
     /// ` self: KTar`
     ///
-    /// ` callback: *const fn () callconv(.c) KArchiveDirectory `
+    /// ` callback: *const fn (self: KTar) callconv(.c) KArchiveDirectory `
     ///
-    pub fn onRootDir(self: KTar, callback: *const fn () callconv(.c) KArchiveDirectory) void {
+    pub fn onRootDir(self: KTar, callback: *const fn (KTar) callconv(.c) KArchiveDirectory) void {
         qtc.KTar_OnRootDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2214,50 +2214,6 @@ pub const KTar = extern struct {
         qtc.KTar_SetErrorString(@ptrCast(self.ptr), errorStr_str);
     }
 
-    /// ### DEPRECATED: Use `superSetErrorString` instead
-    ///
-    pub const SuperSetErrorString = superSetErrorString;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setErrorString)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTar `
-    ///
-    /// ` errorStr: []const u8 `
-    ///
-    pub fn superSetErrorString(self: KTar, errorStr: []const u8) void {
-        const errorStr_str = qtc.libqt_string{
-            .len = errorStr.len,
-            .data = errorStr.ptr,
-        };
-        qtc.KTar_SuperSetErrorString(@ptrCast(self.ptr), errorStr_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorString` instead
-    ///
-    pub const OnSetErrorString = onSetErrorString;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setErrorString)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTar`
-    ///
-    /// ` callback: *const fn (self: KTar, errorStr: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorString(self: KTar, callback: *const fn (KTar, [*:0]const u8) callconv(.c) void) void {
-        qtc.KTar_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `findOrCreate` instead
     ///
     pub const FindOrCreate = findOrCreate;
@@ -2282,50 +2238,6 @@ pub const KTar = extern struct {
         return .{ .ptr = qtc.KTar_FindOrCreate(@ptrCast(self.ptr), path_str) };
     }
 
-    /// ### DEPRECATED: Use `superFindOrCreate` instead
-    ///
-    pub const SuperFindOrCreate = superFindOrCreate;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#findOrCreate)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTar `
-    ///
-    /// ` path: []const u8 `
-    ///
-    pub fn superFindOrCreate(self: KTar, path: []const u8) KArchiveDirectory {
-        const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
-        };
-        return .{ .ptr = qtc.KTar_SuperFindOrCreate(@ptrCast(self.ptr), path_str) };
-    }
-
-    /// ### DEPRECATED: Use `onFindOrCreate` instead
-    ///
-    pub const OnFindOrCreate = onFindOrCreate;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#findOrCreate)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTar`
-    ///
-    /// ` callback: *const fn (self: KTar, path: [*:0]const u8) callconv(.c) KArchiveDirectory `
-    ///
-    pub fn onFindOrCreate(self: KTar, callback: *const fn (KTar, [*:0]const u8) callconv(.c) KArchiveDirectory) void {
-        qtc.KTar_OnFindOrCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setDevice` instead
     ///
     pub const SetDevice = setDevice;
@@ -2347,47 +2259,6 @@ pub const KTar = extern struct {
         qtc.KTar_SetDevice(@ptrCast(self.ptr), @ptrCast(dev.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetDevice` instead
-    ///
-    pub const SuperSetDevice = superSetDevice;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setDevice)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTar `
-    ///
-    /// ` dev: QIODevice `
-    ///
-    pub fn superSetDevice(self: KTar, dev: anytype) void {
-        comptime _ = @TypeOf(dev)._is_QIODevice;
-        qtc.KTar_SuperSetDevice(@ptrCast(self.ptr), @ptrCast(dev.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDevice` instead
-    ///
-    pub const OnSetDevice = onSetDevice;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setDevice)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTar`
-    ///
-    /// ` callback: *const fn (self: KTar, dev: QIODevice) callconv(.c) void `
-    ///
-    pub fn onSetDevice(self: KTar, callback: *const fn (KTar, QIODevice) callconv(.c) void) void {
-        qtc.KTar_OnSetDevice(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setRootDir` instead
     ///
     pub const SetRootDir = setRootDir;
@@ -2407,47 +2278,6 @@ pub const KTar = extern struct {
     pub fn setRootDir(self: KTar, _rootDir: anytype) void {
         comptime _ = @TypeOf(_rootDir)._is_KArchiveDirectory;
         qtc.KTar_SetRootDir(@ptrCast(self.ptr), @ptrCast(_rootDir.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSetRootDir` instead
-    ///
-    pub const SuperSetRootDir = superSetRootDir;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setRootDir)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTar `
-    ///
-    /// ` _rootDir: KArchiveDirectory `
-    ///
-    pub fn superSetRootDir(self: KTar, _rootDir: anytype) void {
-        comptime _ = @TypeOf(_rootDir)._is_KArchiveDirectory;
-        qtc.KTar_SuperSetRootDir(@ptrCast(self.ptr), @ptrCast(_rootDir.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetRootDir` instead
-    ///
-    pub const OnSetRootDir = onSetRootDir;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setRootDir)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTar`
-    ///
-    /// ` callback: *const fn (self: KTar, rootDir: KArchiveDirectory) callconv(.c) void `
-    ///
-    pub fn onSetRootDir(self: KTar, callback: *const fn (KTar, KArchiveDirectory) callconv(.c) void) void {
-        qtc.KTar_OnSetRootDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

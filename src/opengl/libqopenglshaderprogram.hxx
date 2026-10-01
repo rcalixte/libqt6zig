@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QOpenGLShader so that we can call protected methods
+// This class is a subclass of QOpenGLShader
 class VirtualQOpenGLShader final : public QOpenGLShader {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQOpenGLShader = true;
-
-    // Virtual class public types (including callbacks)
-    using QOpenGLShader_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QOpenGLShader_MetaObject_Callback = QMetaObject* (*)(const QOpenGLShader*);
     using QOpenGLShader_Metacast_Callback = void* (*)(QOpenGLShader*, const char*);
     using QOpenGLShader_Metacall_Callback = int (*)(QOpenGLShader*, int, int, void**);
     using QOpenGLShader_Event_Callback = bool (*)(QOpenGLShader*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
     using QOpenGLShader_CustomEvent_Callback = void (*)(QOpenGLShader*, QEvent*);
     using QOpenGLShader_ConnectNotify_Callback = void (*)(QOpenGLShader*, QMetaMethod*);
     using QOpenGLShader_DisconnectNotify_Callback = void (*)(QOpenGLShader*, QMetaMethod*);
-    using QOpenGLShader_Sender_Callback = QObject* (*)();
-    using QOpenGLShader_SenderSignalIndex_Callback = int (*)();
-    using QOpenGLShader_Receivers_Callback = int (*)(const QOpenGLShader*, const char*);
-    using QOpenGLShader_IsSignalConnected_Callback = bool (*)(const QOpenGLShader*, QMetaMethod*);
+    using QOpenGLShader::isSignalConnected;
+    using QOpenGLShader::receivers;
+    using QOpenGLShader::sender;
+    using QOpenGLShader::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QOpenGLShader_MetaObject_Callback qopenglshader_metaobject_callback = nullptr;
     QOpenGLShader_Metacast_Callback qopenglshader_metacast_callback = nullptr;
@@ -44,72 +39,23 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
     QOpenGLShader_CustomEvent_Callback qopenglshader_customevent_callback = nullptr;
     QOpenGLShader_ConnectNotify_Callback qopenglshader_connectnotify_callback = nullptr;
     QOpenGLShader_DisconnectNotify_Callback qopenglshader_disconnectnotify_callback = nullptr;
-    QOpenGLShader_Sender_Callback qopenglshader_sender_callback = nullptr;
-    QOpenGLShader_SenderSignalIndex_Callback qopenglshader_sendersignalindex_callback = nullptr;
-    QOpenGLShader_Receivers_Callback qopenglshader_receivers_callback = nullptr;
-    QOpenGLShader_IsSignalConnected_Callback qopenglshader_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qopenglshader_metaobject_isbase = false;
-    mutable bool qopenglshader_metacast_isbase = false;
-    mutable bool qopenglshader_metacall_isbase = false;
-    mutable bool qopenglshader_event_isbase = false;
-    mutable bool qopenglshader_eventfilter_isbase = false;
-    mutable bool qopenglshader_timerevent_isbase = false;
-    mutable bool qopenglshader_childevent_isbase = false;
-    mutable bool qopenglshader_customevent_isbase = false;
-    mutable bool qopenglshader_connectnotify_isbase = false;
-    mutable bool qopenglshader_disconnectnotify_isbase = false;
-    mutable bool qopenglshader_sender_isbase = false;
-    mutable bool qopenglshader_sendersignalindex_isbase = false;
-    mutable bool qopenglshader_receivers_isbase = false;
-    mutable bool qopenglshader_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QOpenGLShader {
+        using QOpenGLShader::childEvent;
+        using QOpenGLShader::connectNotify;
+        using QOpenGLShader::customEvent;
+        using QOpenGLShader::disconnectNotify;
+        using QOpenGLShader::timerEvent;
+    };
 
-  public:
     VirtualQOpenGLShader(QOpenGLShader::ShaderType typeVal) : QOpenGLShader(typeVal) {};
     VirtualQOpenGLShader(QOpenGLShader::ShaderType typeVal, QObject* parent) : QOpenGLShader(typeVal, parent) {};
 
-    // Callback setters
-    inline void setQOpenGLShader_MetaObject_Callback(QOpenGLShader_MetaObject_Callback cb) { qopenglshader_metaobject_callback = cb; }
-    inline void setQOpenGLShader_Metacast_Callback(QOpenGLShader_Metacast_Callback cb) { qopenglshader_metacast_callback = cb; }
-    inline void setQOpenGLShader_Metacall_Callback(QOpenGLShader_Metacall_Callback cb) { qopenglshader_metacall_callback = cb; }
-    inline void setQOpenGLShader_Event_Callback(QOpenGLShader_Event_Callback cb) { qopenglshader_event_callback = cb; }
-    inline void setQOpenGLShader_EventFilter_Callback(QOpenGLShader_EventFilter_Callback cb) { qopenglshader_eventfilter_callback = cb; }
-    inline void setQOpenGLShader_TimerEvent_Callback(QOpenGLShader_TimerEvent_Callback cb) { qopenglshader_timerevent_callback = cb; }
-    inline void setQOpenGLShader_ChildEvent_Callback(QOpenGLShader_ChildEvent_Callback cb) { qopenglshader_childevent_callback = cb; }
-    inline void setQOpenGLShader_CustomEvent_Callback(QOpenGLShader_CustomEvent_Callback cb) { qopenglshader_customevent_callback = cb; }
-    inline void setQOpenGLShader_ConnectNotify_Callback(QOpenGLShader_ConnectNotify_Callback cb) { qopenglshader_connectnotify_callback = cb; }
-    inline void setQOpenGLShader_DisconnectNotify_Callback(QOpenGLShader_DisconnectNotify_Callback cb) { qopenglshader_disconnectnotify_callback = cb; }
-    inline void setQOpenGLShader_Sender_Callback(QOpenGLShader_Sender_Callback cb) { qopenglshader_sender_callback = cb; }
-    inline void setQOpenGLShader_SenderSignalIndex_Callback(QOpenGLShader_SenderSignalIndex_Callback cb) { qopenglshader_sendersignalindex_callback = cb; }
-    inline void setQOpenGLShader_Receivers_Callback(QOpenGLShader_Receivers_Callback cb) { qopenglshader_receivers_callback = cb; }
-    inline void setQOpenGLShader_IsSignalConnected_Callback(QOpenGLShader_IsSignalConnected_Callback cb) { qopenglshader_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQOpenGLShader_MetaObject_IsBase(bool value) const { qopenglshader_metaobject_isbase = value; }
-    inline void setQOpenGLShader_Metacast_IsBase(bool value) const { qopenglshader_metacast_isbase = value; }
-    inline void setQOpenGLShader_Metacall_IsBase(bool value) const { qopenglshader_metacall_isbase = value; }
-    inline void setQOpenGLShader_Event_IsBase(bool value) const { qopenglshader_event_isbase = value; }
-    inline void setQOpenGLShader_EventFilter_IsBase(bool value) const { qopenglshader_eventfilter_isbase = value; }
-    inline void setQOpenGLShader_TimerEvent_IsBase(bool value) const { qopenglshader_timerevent_isbase = value; }
-    inline void setQOpenGLShader_ChildEvent_IsBase(bool value) const { qopenglshader_childevent_isbase = value; }
-    inline void setQOpenGLShader_CustomEvent_IsBase(bool value) const { qopenglshader_customevent_isbase = value; }
-    inline void setQOpenGLShader_ConnectNotify_IsBase(bool value) const { qopenglshader_connectnotify_isbase = value; }
-    inline void setQOpenGLShader_DisconnectNotify_IsBase(bool value) const { qopenglshader_disconnectnotify_isbase = value; }
-    inline void setQOpenGLShader_Sender_IsBase(bool value) const { qopenglshader_sender_isbase = value; }
-    inline void setQOpenGLShader_SenderSignalIndex_IsBase(bool value) const { qopenglshader_sendersignalindex_isbase = value; }
-    inline void setQOpenGLShader_Receivers_IsBase(bool value) const { qopenglshader_receivers_isbase = value; }
-    inline void setQOpenGLShader_IsSignalConnected_IsBase(bool value) const { qopenglshader_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qopenglshader_metaobject_isbase) {
-            qopenglshader_metaobject_isbase = false;
-            return QOpenGLShader::metaObject();
-        }
-        auto metaobject_cb = qopenglshader_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qopenglshader_metaobject_callback) {
+            QMetaObject* callback_ret = qopenglshader_metaobject_callback(this);
             return callback_ret;
         }
         return QOpenGLShader::metaObject();
@@ -117,14 +63,9 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qopenglshader_metacast_isbase) {
-            qopenglshader_metacast_isbase = false;
-            return QOpenGLShader::qt_metacast(param1);
-        }
-        auto metacast_cb = qopenglshader_metacast_callback;
-        if (metacast_cb) {
+        if (qopenglshader_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qopenglshader_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QOpenGLShader::qt_metacast(param1);
@@ -132,16 +73,11 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qopenglshader_metacall_isbase) {
-            qopenglshader_metacall_isbase = false;
-            return QOpenGLShader::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qopenglshader_metacall_callback;
-        if (metacall_cb) {
+        if (qopenglshader_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qopenglshader_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QOpenGLShader::qt_metacall(param1, param2, param3);
@@ -149,14 +85,9 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qopenglshader_event_isbase) {
-            qopenglshader_event_isbase = false;
-            return QOpenGLShader::event(event);
-        }
-        auto event_cb = qopenglshader_event_callback;
-        if (event_cb) {
+        if (qopenglshader_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qopenglshader_event_callback(this, cbval1);
             return callback_ret;
         }
         return QOpenGLShader::event(event);
@@ -164,15 +95,10 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qopenglshader_eventfilter_isbase) {
-            qopenglshader_eventfilter_isbase = false;
-            return QOpenGLShader::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qopenglshader_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qopenglshader_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qopenglshader_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QOpenGLShader::eventFilter(watched, event);
@@ -180,15 +106,9 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qopenglshader_timerevent_isbase) {
-            qopenglshader_timerevent_isbase = false;
-            QOpenGLShader::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qopenglshader_timerevent_callback;
-        if (timerevent_cb) {
+        if (qopenglshader_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qopenglshader_timerevent_callback(this, cbval1);
             return;
         }
         QOpenGLShader::timerEvent(event);
@@ -196,15 +116,9 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qopenglshader_childevent_isbase) {
-            qopenglshader_childevent_isbase = false;
-            QOpenGLShader::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qopenglshader_childevent_callback;
-        if (childevent_cb) {
+        if (qopenglshader_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qopenglshader_childevent_callback(this, cbval1);
             return;
         }
         QOpenGLShader::childEvent(event);
@@ -212,15 +126,9 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qopenglshader_customevent_isbase) {
-            qopenglshader_customevent_isbase = false;
-            QOpenGLShader::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qopenglshader_customevent_callback;
-        if (customevent_cb) {
+        if (qopenglshader_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qopenglshader_customevent_callback(this, cbval1);
             return;
         }
         QOpenGLShader::customEvent(event);
@@ -228,17 +136,11 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qopenglshader_connectnotify_isbase) {
-            qopenglshader_connectnotify_isbase = false;
-            QOpenGLShader::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qopenglshader_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qopenglshader_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qopenglshader_connectnotify_callback(this, cbval1);
             return;
         }
         QOpenGLShader::connectNotify(signal);
@@ -246,115 +148,32 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qopenglshader_disconnectnotify_isbase) {
-            qopenglshader_disconnectnotify_isbase = false;
-            QOpenGLShader::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qopenglshader_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qopenglshader_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qopenglshader_disconnectnotify_callback(this, cbval1);
             return;
         }
         QOpenGLShader::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qopenglshader_sender_isbase) {
-            qopenglshader_sender_isbase = false;
-            return QOpenGLShader::sender();
-        }
-        auto sender_cb = qopenglshader_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QOpenGLShader::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qopenglshader_sendersignalindex_isbase) {
-            qopenglshader_sendersignalindex_isbase = false;
-            return QOpenGLShader::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qopenglshader_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QOpenGLShader::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qopenglshader_receivers_isbase) {
-            qopenglshader_receivers_isbase = false;
-            return QOpenGLShader::receivers(signal);
-        }
-        auto receivers_cb = qopenglshader_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QOpenGLShader::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qopenglshader_issignalconnected_isbase) {
-            qopenglshader_issignalconnected_isbase = false;
-            return QOpenGLShader::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qopenglshader_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QOpenGLShader::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QOpenGLShader_TimerEvent(QOpenGLShader* self, QTimerEvent* event);
     friend void QOpenGLShader_SuperTimerEvent(QOpenGLShader* self, QTimerEvent* event);
-    friend void QOpenGLShader_ChildEvent(QOpenGLShader* self, QChildEvent* event);
     friend void QOpenGLShader_SuperChildEvent(QOpenGLShader* self, QChildEvent* event);
-    friend void QOpenGLShader_CustomEvent(QOpenGLShader* self, QEvent* event);
     friend void QOpenGLShader_SuperCustomEvent(QOpenGLShader* self, QEvent* event);
-    friend void QOpenGLShader_ConnectNotify(QOpenGLShader* self, const QMetaMethod* signal);
     friend void QOpenGLShader_SuperConnectNotify(QOpenGLShader* self, const QMetaMethod* signal);
-    friend void QOpenGLShader_DisconnectNotify(QOpenGLShader* self, const QMetaMethod* signal);
     friend void QOpenGLShader_SuperDisconnectNotify(QOpenGLShader* self, const QMetaMethod* signal);
-    friend QObject* QOpenGLShader_Sender(const QOpenGLShader* self);
-    friend QObject* QOpenGLShader_SuperSender(const QOpenGLShader* self);
-    friend int QOpenGLShader_SenderSignalIndex(const QOpenGLShader* self);
-    friend int QOpenGLShader_SuperSenderSignalIndex(const QOpenGLShader* self);
-    friend int QOpenGLShader_Receivers(const QOpenGLShader* self, const char* signal);
-    friend int QOpenGLShader_SuperReceivers(const QOpenGLShader* self, const char* signal);
-    friend bool QOpenGLShader_IsSignalConnected(const QOpenGLShader* self, const QMetaMethod* signal);
-    friend bool QOpenGLShader_SuperIsSignalConnected(const QOpenGLShader* self, const QMetaMethod* signal);
 };
 
-// This class is a subclass of QOpenGLShaderProgram so that we can call protected methods
+// This class is a subclass of QOpenGLShaderProgram
 class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQOpenGLShaderProgram = true;
-
-    // Virtual class public types (including callbacks)
-    using QOpenGLShaderProgram_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QOpenGLShaderProgram_MetaObject_Callback = QMetaObject* (*)(const QOpenGLShaderProgram*);
     using QOpenGLShaderProgram_Metacast_Callback = void* (*)(QOpenGLShaderProgram*, const char*);
     using QOpenGLShaderProgram_Metacall_Callback = int (*)(QOpenGLShaderProgram*, int, int, void**);
-    using QOpenGLShaderProgram_Link_Callback = bool (*)();
+    using QOpenGLShaderProgram_Link_Callback = bool (*)(QOpenGLShaderProgram*);
     using QOpenGLShaderProgram_Event_Callback = bool (*)(QOpenGLShaderProgram*, QEvent*);
     using QOpenGLShaderProgram_EventFilter_Callback = bool (*)(QOpenGLShaderProgram*, QObject*, QEvent*);
     using QOpenGLShaderProgram_TimerEvent_Callback = void (*)(QOpenGLShaderProgram*, QTimerEvent*);
@@ -362,12 +181,11 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
     using QOpenGLShaderProgram_CustomEvent_Callback = void (*)(QOpenGLShaderProgram*, QEvent*);
     using QOpenGLShaderProgram_ConnectNotify_Callback = void (*)(QOpenGLShaderProgram*, QMetaMethod*);
     using QOpenGLShaderProgram_DisconnectNotify_Callback = void (*)(QOpenGLShaderProgram*, QMetaMethod*);
-    using QOpenGLShaderProgram_Sender_Callback = QObject* (*)();
-    using QOpenGLShaderProgram_SenderSignalIndex_Callback = int (*)();
-    using QOpenGLShaderProgram_Receivers_Callback = int (*)(const QOpenGLShaderProgram*, const char*);
-    using QOpenGLShaderProgram_IsSignalConnected_Callback = bool (*)(const QOpenGLShaderProgram*, QMetaMethod*);
+    using QOpenGLShaderProgram::isSignalConnected;
+    using QOpenGLShaderProgram::receivers;
+    using QOpenGLShaderProgram::sender;
+    using QOpenGLShaderProgram::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QOpenGLShaderProgram_MetaObject_Callback qopenglshaderprogram_metaobject_callback = nullptr;
     QOpenGLShaderProgram_Metacast_Callback qopenglshaderprogram_metacast_callback = nullptr;
@@ -380,75 +198,23 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
     QOpenGLShaderProgram_CustomEvent_Callback qopenglshaderprogram_customevent_callback = nullptr;
     QOpenGLShaderProgram_ConnectNotify_Callback qopenglshaderprogram_connectnotify_callback = nullptr;
     QOpenGLShaderProgram_DisconnectNotify_Callback qopenglshaderprogram_disconnectnotify_callback = nullptr;
-    QOpenGLShaderProgram_Sender_Callback qopenglshaderprogram_sender_callback = nullptr;
-    QOpenGLShaderProgram_SenderSignalIndex_Callback qopenglshaderprogram_sendersignalindex_callback = nullptr;
-    QOpenGLShaderProgram_Receivers_Callback qopenglshaderprogram_receivers_callback = nullptr;
-    QOpenGLShaderProgram_IsSignalConnected_Callback qopenglshaderprogram_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qopenglshaderprogram_metaobject_isbase = false;
-    mutable bool qopenglshaderprogram_metacast_isbase = false;
-    mutable bool qopenglshaderprogram_metacall_isbase = false;
-    mutable bool qopenglshaderprogram_link_isbase = false;
-    mutable bool qopenglshaderprogram_event_isbase = false;
-    mutable bool qopenglshaderprogram_eventfilter_isbase = false;
-    mutable bool qopenglshaderprogram_timerevent_isbase = false;
-    mutable bool qopenglshaderprogram_childevent_isbase = false;
-    mutable bool qopenglshaderprogram_customevent_isbase = false;
-    mutable bool qopenglshaderprogram_connectnotify_isbase = false;
-    mutable bool qopenglshaderprogram_disconnectnotify_isbase = false;
-    mutable bool qopenglshaderprogram_sender_isbase = false;
-    mutable bool qopenglshaderprogram_sendersignalindex_isbase = false;
-    mutable bool qopenglshaderprogram_receivers_isbase = false;
-    mutable bool qopenglshaderprogram_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QOpenGLShaderProgram {
+        using QOpenGLShaderProgram::childEvent;
+        using QOpenGLShaderProgram::connectNotify;
+        using QOpenGLShaderProgram::customEvent;
+        using QOpenGLShaderProgram::disconnectNotify;
+        using QOpenGLShaderProgram::timerEvent;
+    };
 
-  public:
     VirtualQOpenGLShaderProgram() : QOpenGLShaderProgram() {};
     VirtualQOpenGLShaderProgram(QObject* parent) : QOpenGLShaderProgram(parent) {};
 
-    // Callback setters
-    inline void setQOpenGLShaderProgram_MetaObject_Callback(QOpenGLShaderProgram_MetaObject_Callback cb) { qopenglshaderprogram_metaobject_callback = cb; }
-    inline void setQOpenGLShaderProgram_Metacast_Callback(QOpenGLShaderProgram_Metacast_Callback cb) { qopenglshaderprogram_metacast_callback = cb; }
-    inline void setQOpenGLShaderProgram_Metacall_Callback(QOpenGLShaderProgram_Metacall_Callback cb) { qopenglshaderprogram_metacall_callback = cb; }
-    inline void setQOpenGLShaderProgram_Link_Callback(QOpenGLShaderProgram_Link_Callback cb) { qopenglshaderprogram_link_callback = cb; }
-    inline void setQOpenGLShaderProgram_Event_Callback(QOpenGLShaderProgram_Event_Callback cb) { qopenglshaderprogram_event_callback = cb; }
-    inline void setQOpenGLShaderProgram_EventFilter_Callback(QOpenGLShaderProgram_EventFilter_Callback cb) { qopenglshaderprogram_eventfilter_callback = cb; }
-    inline void setQOpenGLShaderProgram_TimerEvent_Callback(QOpenGLShaderProgram_TimerEvent_Callback cb) { qopenglshaderprogram_timerevent_callback = cb; }
-    inline void setQOpenGLShaderProgram_ChildEvent_Callback(QOpenGLShaderProgram_ChildEvent_Callback cb) { qopenglshaderprogram_childevent_callback = cb; }
-    inline void setQOpenGLShaderProgram_CustomEvent_Callback(QOpenGLShaderProgram_CustomEvent_Callback cb) { qopenglshaderprogram_customevent_callback = cb; }
-    inline void setQOpenGLShaderProgram_ConnectNotify_Callback(QOpenGLShaderProgram_ConnectNotify_Callback cb) { qopenglshaderprogram_connectnotify_callback = cb; }
-    inline void setQOpenGLShaderProgram_DisconnectNotify_Callback(QOpenGLShaderProgram_DisconnectNotify_Callback cb) { qopenglshaderprogram_disconnectnotify_callback = cb; }
-    inline void setQOpenGLShaderProgram_Sender_Callback(QOpenGLShaderProgram_Sender_Callback cb) { qopenglshaderprogram_sender_callback = cb; }
-    inline void setQOpenGLShaderProgram_SenderSignalIndex_Callback(QOpenGLShaderProgram_SenderSignalIndex_Callback cb) { qopenglshaderprogram_sendersignalindex_callback = cb; }
-    inline void setQOpenGLShaderProgram_Receivers_Callback(QOpenGLShaderProgram_Receivers_Callback cb) { qopenglshaderprogram_receivers_callback = cb; }
-    inline void setQOpenGLShaderProgram_IsSignalConnected_Callback(QOpenGLShaderProgram_IsSignalConnected_Callback cb) { qopenglshaderprogram_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQOpenGLShaderProgram_MetaObject_IsBase(bool value) const { qopenglshaderprogram_metaobject_isbase = value; }
-    inline void setQOpenGLShaderProgram_Metacast_IsBase(bool value) const { qopenglshaderprogram_metacast_isbase = value; }
-    inline void setQOpenGLShaderProgram_Metacall_IsBase(bool value) const { qopenglshaderprogram_metacall_isbase = value; }
-    inline void setQOpenGLShaderProgram_Link_IsBase(bool value) const { qopenglshaderprogram_link_isbase = value; }
-    inline void setQOpenGLShaderProgram_Event_IsBase(bool value) const { qopenglshaderprogram_event_isbase = value; }
-    inline void setQOpenGLShaderProgram_EventFilter_IsBase(bool value) const { qopenglshaderprogram_eventfilter_isbase = value; }
-    inline void setQOpenGLShaderProgram_TimerEvent_IsBase(bool value) const { qopenglshaderprogram_timerevent_isbase = value; }
-    inline void setQOpenGLShaderProgram_ChildEvent_IsBase(bool value) const { qopenglshaderprogram_childevent_isbase = value; }
-    inline void setQOpenGLShaderProgram_CustomEvent_IsBase(bool value) const { qopenglshaderprogram_customevent_isbase = value; }
-    inline void setQOpenGLShaderProgram_ConnectNotify_IsBase(bool value) const { qopenglshaderprogram_connectnotify_isbase = value; }
-    inline void setQOpenGLShaderProgram_DisconnectNotify_IsBase(bool value) const { qopenglshaderprogram_disconnectnotify_isbase = value; }
-    inline void setQOpenGLShaderProgram_Sender_IsBase(bool value) const { qopenglshaderprogram_sender_isbase = value; }
-    inline void setQOpenGLShaderProgram_SenderSignalIndex_IsBase(bool value) const { qopenglshaderprogram_sendersignalindex_isbase = value; }
-    inline void setQOpenGLShaderProgram_Receivers_IsBase(bool value) const { qopenglshaderprogram_receivers_isbase = value; }
-    inline void setQOpenGLShaderProgram_IsSignalConnected_IsBase(bool value) const { qopenglshaderprogram_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qopenglshaderprogram_metaobject_isbase) {
-            qopenglshaderprogram_metaobject_isbase = false;
-            return QOpenGLShaderProgram::metaObject();
-        }
-        auto metaobject_cb = qopenglshaderprogram_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qopenglshaderprogram_metaobject_callback) {
+            QMetaObject* callback_ret = qopenglshaderprogram_metaobject_callback(this);
             return callback_ret;
         }
         return QOpenGLShaderProgram::metaObject();
@@ -456,14 +222,9 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qopenglshaderprogram_metacast_isbase) {
-            qopenglshaderprogram_metacast_isbase = false;
-            return QOpenGLShaderProgram::qt_metacast(param1);
-        }
-        auto metacast_cb = qopenglshaderprogram_metacast_callback;
-        if (metacast_cb) {
+        if (qopenglshaderprogram_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qopenglshaderprogram_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QOpenGLShaderProgram::qt_metacast(param1);
@@ -471,16 +232,11 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qopenglshaderprogram_metacall_isbase) {
-            qopenglshaderprogram_metacall_isbase = false;
-            return QOpenGLShaderProgram::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qopenglshaderprogram_metacall_callback;
-        if (metacall_cb) {
+        if (qopenglshaderprogram_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qopenglshaderprogram_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QOpenGLShaderProgram::qt_metacall(param1, param2, param3);
@@ -488,13 +244,8 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
 
     // Virtual method for C ABI access and custom callback
     virtual bool link() override {
-        if (qopenglshaderprogram_link_isbase) {
-            qopenglshaderprogram_link_isbase = false;
-            return QOpenGLShaderProgram::link();
-        }
-        auto link_cb = qopenglshaderprogram_link_callback;
-        if (link_cb) {
-            bool callback_ret = link_cb();
+        if (qopenglshaderprogram_link_callback) {
+            bool callback_ret = qopenglshaderprogram_link_callback(this);
             return callback_ret;
         }
         return QOpenGLShaderProgram::link();
@@ -502,14 +253,9 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qopenglshaderprogram_event_isbase) {
-            qopenglshaderprogram_event_isbase = false;
-            return QOpenGLShaderProgram::event(event);
-        }
-        auto event_cb = qopenglshaderprogram_event_callback;
-        if (event_cb) {
+        if (qopenglshaderprogram_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qopenglshaderprogram_event_callback(this, cbval1);
             return callback_ret;
         }
         return QOpenGLShaderProgram::event(event);
@@ -517,15 +263,10 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qopenglshaderprogram_eventfilter_isbase) {
-            qopenglshaderprogram_eventfilter_isbase = false;
-            return QOpenGLShaderProgram::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qopenglshaderprogram_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qopenglshaderprogram_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qopenglshaderprogram_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QOpenGLShaderProgram::eventFilter(watched, event);
@@ -533,15 +274,9 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qopenglshaderprogram_timerevent_isbase) {
-            qopenglshaderprogram_timerevent_isbase = false;
-            QOpenGLShaderProgram::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qopenglshaderprogram_timerevent_callback;
-        if (timerevent_cb) {
+        if (qopenglshaderprogram_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qopenglshaderprogram_timerevent_callback(this, cbval1);
             return;
         }
         QOpenGLShaderProgram::timerEvent(event);
@@ -549,15 +284,9 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qopenglshaderprogram_childevent_isbase) {
-            qopenglshaderprogram_childevent_isbase = false;
-            QOpenGLShaderProgram::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qopenglshaderprogram_childevent_callback;
-        if (childevent_cb) {
+        if (qopenglshaderprogram_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qopenglshaderprogram_childevent_callback(this, cbval1);
             return;
         }
         QOpenGLShaderProgram::childEvent(event);
@@ -565,15 +294,9 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qopenglshaderprogram_customevent_isbase) {
-            qopenglshaderprogram_customevent_isbase = false;
-            QOpenGLShaderProgram::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qopenglshaderprogram_customevent_callback;
-        if (customevent_cb) {
+        if (qopenglshaderprogram_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qopenglshaderprogram_customevent_callback(this, cbval1);
             return;
         }
         QOpenGLShaderProgram::customEvent(event);
@@ -581,17 +304,11 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qopenglshaderprogram_connectnotify_isbase) {
-            qopenglshaderprogram_connectnotify_isbase = false;
-            QOpenGLShaderProgram::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qopenglshaderprogram_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qopenglshaderprogram_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qopenglshaderprogram_connectnotify_callback(this, cbval1);
             return;
         }
         QOpenGLShaderProgram::connectNotify(signal);
@@ -599,101 +316,22 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qopenglshaderprogram_disconnectnotify_isbase) {
-            qopenglshaderprogram_disconnectnotify_isbase = false;
-            QOpenGLShaderProgram::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qopenglshaderprogram_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qopenglshaderprogram_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qopenglshaderprogram_disconnectnotify_callback(this, cbval1);
             return;
         }
         QOpenGLShaderProgram::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qopenglshaderprogram_sender_isbase) {
-            qopenglshaderprogram_sender_isbase = false;
-            return QOpenGLShaderProgram::sender();
-        }
-        auto sender_cb = qopenglshaderprogram_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QOpenGLShaderProgram::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qopenglshaderprogram_sendersignalindex_isbase) {
-            qopenglshaderprogram_sendersignalindex_isbase = false;
-            return QOpenGLShaderProgram::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qopenglshaderprogram_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QOpenGLShaderProgram::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qopenglshaderprogram_receivers_isbase) {
-            qopenglshaderprogram_receivers_isbase = false;
-            return QOpenGLShaderProgram::receivers(signal);
-        }
-        auto receivers_cb = qopenglshaderprogram_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QOpenGLShaderProgram::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qopenglshaderprogram_issignalconnected_isbase) {
-            qopenglshaderprogram_issignalconnected_isbase = false;
-            return QOpenGLShaderProgram::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qopenglshaderprogram_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QOpenGLShaderProgram::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QOpenGLShaderProgram_TimerEvent(QOpenGLShaderProgram* self, QTimerEvent* event);
     friend void QOpenGLShaderProgram_SuperTimerEvent(QOpenGLShaderProgram* self, QTimerEvent* event);
-    friend void QOpenGLShaderProgram_ChildEvent(QOpenGLShaderProgram* self, QChildEvent* event);
     friend void QOpenGLShaderProgram_SuperChildEvent(QOpenGLShaderProgram* self, QChildEvent* event);
-    friend void QOpenGLShaderProgram_CustomEvent(QOpenGLShaderProgram* self, QEvent* event);
     friend void QOpenGLShaderProgram_SuperCustomEvent(QOpenGLShaderProgram* self, QEvent* event);
-    friend void QOpenGLShaderProgram_ConnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal);
     friend void QOpenGLShaderProgram_SuperConnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal);
-    friend void QOpenGLShaderProgram_DisconnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal);
     friend void QOpenGLShaderProgram_SuperDisconnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal);
-    friend QObject* QOpenGLShaderProgram_Sender(const QOpenGLShaderProgram* self);
-    friend QObject* QOpenGLShaderProgram_SuperSender(const QOpenGLShaderProgram* self);
-    friend int QOpenGLShaderProgram_SenderSignalIndex(const QOpenGLShaderProgram* self);
-    friend int QOpenGLShaderProgram_SuperSenderSignalIndex(const QOpenGLShaderProgram* self);
-    friend int QOpenGLShaderProgram_Receivers(const QOpenGLShaderProgram* self, const char* signal);
-    friend int QOpenGLShaderProgram_SuperReceivers(const QOpenGLShaderProgram* self, const char* signal);
-    friend bool QOpenGLShaderProgram_IsSignalConnected(const QOpenGLShaderProgram* self, const QMetaMethod* signal);
-    friend bool QOpenGLShaderProgram_SuperIsSignalConnected(const QOpenGLShaderProgram* self, const QMetaMethod* signal);
 };
 
 #endif

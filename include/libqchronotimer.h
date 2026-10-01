@@ -46,7 +46,7 @@ void QChronoTimer_Stop(QChronoTimer* self);
 void QChronoTimer_TimerEvent(QChronoTimer* self, QTimerEvent* param1);
 libqt_string QChronoTimer_Tr2(const char* s, const char* c);
 libqt_string QChronoTimer_Tr3(const char* s, const char* c, int n);
-void QChronoTimer_OnMetaObject(const QChronoTimer* self, intptr_t slot);
+void QChronoTimer_OnMetaObject(QChronoTimer* self, intptr_t slot);
 QMetaObject* QChronoTimer_SuperMetaObject(const QChronoTimer* self);
 void QChronoTimer_OnMetacast(QChronoTimer* self, intptr_t slot);
 void* QChronoTimer_SuperMetacast(QChronoTimer* self, const char* param1);
@@ -73,17 +73,9 @@ void QChronoTimer_DisconnectNotify(QChronoTimer* self, const QMetaMethod* signal
 void QChronoTimer_OnDisconnectNotify(QChronoTimer* self, intptr_t slot);
 void QChronoTimer_SuperDisconnectNotify(QChronoTimer* self, const QMetaMethod* signal);
 QObject* QChronoTimer_Sender(const QChronoTimer* self);
-void QChronoTimer_OnSender(const QChronoTimer* self, intptr_t slot);
-QObject* QChronoTimer_SuperSender(const QChronoTimer* self);
 int QChronoTimer_SenderSignalIndex(const QChronoTimer* self);
-void QChronoTimer_OnSenderSignalIndex(const QChronoTimer* self, intptr_t slot);
-int QChronoTimer_SuperSenderSignalIndex(const QChronoTimer* self);
 int QChronoTimer_Receivers(const QChronoTimer* self, const char* signal);
-void QChronoTimer_OnReceivers(const QChronoTimer* self, intptr_t slot);
-int QChronoTimer_SuperReceivers(const QChronoTimer* self, const char* signal);
 bool QChronoTimer_IsSignalConnected(const QChronoTimer* self, const QMetaMethod* signal);
-void QChronoTimer_OnIsSignalConnected(const QChronoTimer* self, intptr_t slot);
-bool QChronoTimer_SuperIsSignalConnected(const QChronoTimer* self, const QMetaMethod* signal);
 void QChronoTimer_Connect_Timeout(QChronoTimer* self, intptr_t slot);
 void QChronoTimer_Delete(QChronoTimer* self);
 

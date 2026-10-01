@@ -181,9 +181,9 @@ pub const KHistoryComboBox = extern struct {
     ///
     /// ` self: KHistoryComboBox `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KHistoryComboBox) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KHistoryComboBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox) callconv(.c) QMetaObject) void {
         qtc.KHistoryComboBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -669,55 +669,6 @@ pub const KHistoryComboBox = extern struct {
         qtc.KHistoryComboBox_InsertItems(@ptrCast(self.ptr), items_list);
     }
 
-    /// ### DEPRECATED: Use `onInsertItems` instead
-    ///
-    pub const OnInsertItems = onInsertItems;
-
-    /// ### [Upstream resources](https://api.kde.org/khistorycombobox.html#insertItems)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    /// ` callback: *const fn (self: KHistoryComboBox, items: ?[*:null]?[*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onInsertItems(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.KHistoryComboBox_OnInsertItems(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superInsertItems` instead
-    ///
-    pub const SuperInsertItems = superInsertItems;
-
-    /// ### [Upstream resources](https://api.kde.org/khistorycombobox.html#insertItems)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` items: []const []const u8 `
-    ///
-    pub fn superInsertItems(self: KHistoryComboBox, allocator: std.mem.Allocator, items: []const []const u8) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KHistoryComboBox.insertItems: Memory allocation failed");
-        defer allocator.free(items_arr);
-        for (items, 0..items.len) |str_item, i|
-            items_arr[i] = .{
-                .len = str_item.len,
-                .data = str_item.ptr,
-            };
-        const items_list = qtc.libqt_list{
-            .len = items.len,
-            .data = items_arr.ptr,
-        };
-        qtc.KHistoryComboBox_SuperInsertItems(@ptrCast(self.ptr), items_list);
-    }
-
     /// ### DEPRECATED: Use `useCompletion` instead
     ///
     pub const UseCompletion = useCompletion;
@@ -730,40 +681,6 @@ pub const KHistoryComboBox = extern struct {
     ///
     pub fn useCompletion(self: KHistoryComboBox) bool {
         return qtc.KHistoryComboBox_UseCompletion(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUseCompletion` instead
-    ///
-    pub const OnUseCompletion = onUseCompletion;
-
-    /// ### [Upstream resources](https://api.kde.org/khistorycombobox.html#useCompletion)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onUseCompletion(self: KHistoryComboBox, callback: *const fn () callconv(.c) bool) void {
-        qtc.KHistoryComboBox_OnUseCompletion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUseCompletion` instead
-    ///
-    pub const SuperUseCompletion = superUseCompletion;
-
-    /// ### [Upstream resources](https://api.kde.org/khistorycombobox.html#useCompletion)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    pub fn superUseCompletion(self: KHistoryComboBox) bool {
-        return qtc.KHistoryComboBox_SuperUseCompletion(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -9708,11 +9625,11 @@ pub const KHistoryComboBox = extern struct {
     ///
     /// ` self: KHistoryComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KHistoryComboBox) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KHistoryComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox) callconv(.c) QSize) void {
         qtc.KHistoryComboBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10054,11 +9971,11 @@ pub const KHistoryComboBox = extern struct {
     ///
     /// ` self: KHistoryComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KHistoryComboBox) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KHistoryComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox) callconv(.c) QSize) void {
         qtc.KHistoryComboBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10112,9 +10029,9 @@ pub const KHistoryComboBox = extern struct {
     ///
     /// ` self: KHistoryComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KHistoryComboBox) callconv(.c) void `
     ///
-    pub fn onShowPopup(self: KHistoryComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowPopup(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox) callconv(.c) void) void {
         qtc.KHistoryComboBox_OnShowPopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10168,9 +10085,9 @@ pub const KHistoryComboBox = extern struct {
     ///
     /// ` self: KHistoryComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KHistoryComboBox) callconv(.c) void `
     ///
-    pub fn onHidePopup(self: KHistoryComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onHidePopup(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox) callconv(.c) void) void {
         qtc.KHistoryComboBox_OnHidePopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11154,9 +11071,9 @@ pub const KHistoryComboBox = extern struct {
     ///
     /// ` self: KHistoryComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KHistoryComboBox) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KHistoryComboBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox) callconv(.c) i32) void {
         qtc.KHistoryComboBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11330,9 +11247,9 @@ pub const KHistoryComboBox = extern struct {
     ///
     /// ` self: KHistoryComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KHistoryComboBox) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KHistoryComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox) callconv(.c) bool) void {
         qtc.KHistoryComboBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11386,9 +11303,9 @@ pub const KHistoryComboBox = extern struct {
     ///
     /// ` self: KHistoryComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KHistoryComboBox) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KHistoryComboBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox) callconv(.c) QPaintEngine) void {
         qtc.KHistoryComboBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12446,9 +12363,9 @@ pub const KHistoryComboBox = extern struct {
     ///
     /// ` self: KHistoryComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KHistoryComboBox) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KHistoryComboBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox) callconv(.c) QPainter) void {
         qtc.KHistoryComboBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13158,44 +13075,6 @@ pub const KHistoryComboBox = extern struct {
         qtc.KHistoryComboBox_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    pub fn superUpdateMicroFocus(self: KHistoryComboBox) void {
-        qtc.KHistoryComboBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KHistoryComboBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KHistoryComboBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -13212,44 +13091,6 @@ pub const KHistoryComboBox = extern struct {
     ///
     pub fn create(self: KHistoryComboBox) void {
         qtc.KHistoryComboBox_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    pub fn superCreate(self: KHistoryComboBox) void {
-        qtc.KHistoryComboBox_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KHistoryComboBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KHistoryComboBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -13270,44 +13111,6 @@ pub const KHistoryComboBox = extern struct {
         qtc.KHistoryComboBox_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    pub fn superDestroy(self: KHistoryComboBox) void {
-        qtc.KHistoryComboBox_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KHistoryComboBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KHistoryComboBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -13324,44 +13127,6 @@ pub const KHistoryComboBox = extern struct {
     ///
     pub fn focusNextChild(self: KHistoryComboBox) bool {
         return qtc.KHistoryComboBox_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    pub fn superFocusNextChild(self: KHistoryComboBox) bool {
-        return qtc.KHistoryComboBox_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KHistoryComboBox, callback: *const fn () callconv(.c) bool) void {
-        qtc.KHistoryComboBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -13382,44 +13147,6 @@ pub const KHistoryComboBox = extern struct {
         return qtc.KHistoryComboBox_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    pub fn superFocusPreviousChild(self: KHistoryComboBox) bool {
-        return qtc.KHistoryComboBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KHistoryComboBox, callback: *const fn () callconv(.c) bool) void {
-        qtc.KHistoryComboBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -13438,44 +13165,6 @@ pub const KHistoryComboBox = extern struct {
         return .{ .ptr = qtc.KHistoryComboBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    pub fn superSender(self: KHistoryComboBox) QObject {
-        return .{ .ptr = qtc.KHistoryComboBox_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KHistoryComboBox, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KHistoryComboBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -13492,44 +13181,6 @@ pub const KHistoryComboBox = extern struct {
     ///
     pub fn senderSignalIndex(self: KHistoryComboBox) i32 {
         return qtc.KHistoryComboBox_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    pub fn superSenderSignalIndex(self: KHistoryComboBox) i32 {
-        return qtc.KHistoryComboBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KHistoryComboBox, callback: *const fn () callconv(.c) i32) void {
-        qtc.KHistoryComboBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -13553,47 +13204,6 @@ pub const KHistoryComboBox = extern struct {
         return qtc.KHistoryComboBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KHistoryComboBox, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KHistoryComboBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox`
-    ///
-    /// ` callback: *const fn (self: KHistoryComboBox, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KHistoryComboBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -13613,47 +13223,6 @@ pub const KHistoryComboBox = extern struct {
     pub fn isSignalConnected(self: KHistoryComboBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KHistoryComboBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KHistoryComboBox, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KHistoryComboBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox`
-    ///
-    /// ` callback: *const fn (self: KHistoryComboBox, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox, QMetaMethod) callconv(.c) bool) void {
-        qtc.KHistoryComboBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -13676,48 +13245,6 @@ pub const KHistoryComboBox = extern struct {
     ///
     pub fn getDecodedMetricF(self: KHistoryComboBox, metricA: i32, metricB: i32) f64 {
         return qtc.KHistoryComboBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KHistoryComboBox, metricA: i32, metricB: i32) f64 {
-        return qtc.KHistoryComboBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox`
-    ///
-    /// ` callback: *const fn (self: KHistoryComboBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox, i32, i32) callconv(.c) f64) void {
-        qtc.KHistoryComboBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `keyBindingMap` instead
@@ -13767,77 +13294,6 @@ pub const KHistoryComboBox = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superKeyBindingMap` instead
-    ///
-    pub const SuperKeyBindingMap = superKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
-    ///
-    pub fn superKeyBindingMap(self: KHistoryComboBox, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
-        const _map: qtc.libqt_map = qtc.KHistoryComboBox_SuperKeyBindingMap(@ptrCast(self.ptr));
-        var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KHistoryComboBox.keyBindingMap: Total capacity allocation failed");
-        defer {
-            const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
-            for (0.._map.len) |i| {
-                qtc.libqt_free(_values[i].data);
-            }
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KHistoryComboBox.keyBindingMap: Memory allocation failed");
-            const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
-            for (0.._value.len) |j|
-                _value_slice[j] = .{ .ptr = _value_data[j] };
-            _ret.putAssumeCapacity(_key, _value_slice);
-        }
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onKeyBindingMap` instead
-    ///
-    pub const OnKeyBindingMap = onKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of ArrayMap_i32_SliceQKeySequence `
-    ///
-    pub fn onKeyBindingMap(self: KHistoryComboBox, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.KHistoryComboBox_OnKeyBindingMap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setKeyBindingMap` instead
     ///
     pub const SetKeyBindingMap = setKeyBindingMap;
@@ -13881,69 +13337,6 @@ pub const KHistoryComboBox = extern struct {
         qtc.KHistoryComboBox_SetKeyBindingMap(@ptrCast(self.ptr), keyBindingMap_map);
     }
 
-    /// ### DEPRECATED: Use `superSetKeyBindingMap` instead
-    ///
-    pub const SuperSetKeyBindingMap = superSetKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` _keyBindingMap: ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
-    ///
-    pub fn superSetKeyBindingMap(self: KHistoryComboBox, allocator: std.mem.Allocator, _keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
-        const keyBindingMap_count = _keyBindingMap.count();
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KHistoryComboBox.setKeyBindingMap: Memory allocation failed");
-        defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KHistoryComboBox.setKeyBindingMap: Memory allocation failed");
-        defer allocator.free(keyBindingMap_values);
-        var keyBindingMap_i: usize = 0;
-        var keyBindingMap_it = _keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |it_entry| : (keyBindingMap_i += 1) {
-            const keyBindingMap_key = it_entry.key_ptr.*;
-            keyBindingMap_keys[keyBindingMap_i] = @bitCast(keyBindingMap_key);
-            const value = it_entry.value_ptr.*;
-            keyBindingMap_values[keyBindingMap_i] = qtc.libqt_list{
-                .len = value.len,
-                .data = @ptrCast(value.ptr),
-            };
-        }
-        const keyBindingMap_map = qtc.libqt_map{
-            .len = keyBindingMap_count,
-            .keys = @ptrCast(keyBindingMap_keys.ptr),
-            .values = @ptrCast(keyBindingMap_values.ptr),
-        };
-        qtc.KHistoryComboBox_SuperSetKeyBindingMap(@ptrCast(self.ptr), keyBindingMap_map);
-    }
-
-    /// ### DEPRECATED: Use `onSetKeyBindingMap` instead
-    ///
-    pub const OnSetKeyBindingMap = onSetKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox`
-    ///
-    /// ` callback: *const fn (self: KHistoryComboBox, keyBindingMap: qtc.libqt_map (ArrayMap_i32_SliceQKeySequence)) callconv(.c) void `
-    ///
-    pub fn onSetKeyBindingMap(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox, qtc.libqt_map) callconv(.c) void) void {
-        qtc.KHistoryComboBox_OnSetKeyBindingMap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setDelegate` instead
     ///
     pub const SetDelegate = setDelegate;
@@ -13966,48 +13359,6 @@ pub const KHistoryComboBox = extern struct {
         qtc.KHistoryComboBox_SetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate_.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetDelegate` instead
-    ///
-    pub const SuperSetDelegate = superSetDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    /// ` _delegate: KCompletionBase `
-    ///
-    pub fn superSetDelegate(self: KHistoryComboBox, _delegate: anytype) void {
-        comptime _ = @TypeOf(_delegate)._is_KCompletionBase;
-        const _delegate_ = if (@hasDecl(@TypeOf(_delegate), "asKCompletionBase")) _delegate.asKCompletionBase() else _delegate;
-        qtc.KHistoryComboBox_SuperSetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate_.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDelegate` instead
-    ///
-    pub const OnSetDelegate = onSetDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox`
-    ///
-    /// ` callback: *const fn (self: KHistoryComboBox, delegate: KCompletionBase) callconv(.c) void `
-    ///
-    pub fn onSetDelegate(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox, KCompletionBase) callconv(.c) void) void {
-        qtc.KHistoryComboBox_OnSetDelegate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `delegate` instead
     ///
     pub const Delegate = delegate;
@@ -14024,44 +13375,6 @@ pub const KHistoryComboBox = extern struct {
     ///
     pub fn delegate(self: KHistoryComboBox) KCompletionBase {
         return .{ .ptr = qtc.KHistoryComboBox_Delegate(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superDelegate` instead
-    ///
-    pub const SuperDelegate = superDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KHistoryComboBox `
-    ///
-    pub fn superDelegate(self: KHistoryComboBox) KCompletionBase {
-        return .{ .ptr = qtc.KHistoryComboBox_SuperDelegate(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDelegate` instead
-    ///
-    pub const OnDelegate = onDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KHistoryComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) KCompletionBase `
-    ///
-    pub fn onDelegate(self: KHistoryComboBox, callback: *const fn () callconv(.c) KCompletionBase) void {
-        qtc.KHistoryComboBox_OnDelegate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

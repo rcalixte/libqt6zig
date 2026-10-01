@@ -143,9 +143,9 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KReplace) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KReplace, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KReplace, callback: *const fn (KReplace) callconv(.c) QMetaObject) void {
         qtc.KReplace_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -330,9 +330,9 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KReplace) callconv(.c) void `
     ///
-    pub fn onResetCounts(self: KReplace, callback: *const fn () callconv(.c) void) void {
+    pub fn onResetCounts(self: KReplace, callback: *const fn (KReplace) callconv(.c) void) void {
         qtc.KReplace_OnResetCounts(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -516,9 +516,9 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KReplace) callconv(.c) void `
     ///
-    pub fn onDisplayFinalDialog(self: KReplace, callback: *const fn () callconv(.c) void) void {
+    pub fn onDisplayFinalDialog(self: KReplace, callback: *const fn (KReplace) callconv(.c) void) void {
         qtc.KReplace_OnDisplayFinalDialog(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2704,44 +2704,6 @@ pub const KReplace = extern struct {
         return .{ .ptr = qtc.KReplace_ParentWidget(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superParentWidget` instead
-    ///
-    pub const SuperParentWidget = superParentWidget;
-
-    /// Inherited from KFind
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kfind.html#parentWidget)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KReplace `
-    ///
-    pub fn superParentWidget(self: KReplace) QWidget {
-        return .{ .ptr = qtc.KReplace_SuperParentWidget(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onParentWidget` instead
-    ///
-    pub const OnParentWidget = onParentWidget;
-
-    /// Inherited from KFind
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kfind.html#parentWidget)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KReplace`
-    ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
-    ///
-    pub fn onParentWidget(self: KReplace, callback: *const fn () callconv(.c) QWidget) void {
-        qtc.KReplace_OnParentWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `dialogsParent` instead
     ///
     pub const DialogsParent = dialogsParent;
@@ -2758,44 +2720,6 @@ pub const KReplace = extern struct {
     ///
     pub fn dialogsParent(self: KReplace) QWidget {
         return .{ .ptr = qtc.KReplace_DialogsParent(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superDialogsParent` instead
-    ///
-    pub const SuperDialogsParent = superDialogsParent;
-
-    /// Inherited from KFind
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kfind.html#dialogsParent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KReplace `
-    ///
-    pub fn superDialogsParent(self: KReplace) QWidget {
-        return .{ .ptr = qtc.KReplace_SuperDialogsParent(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDialogsParent` instead
-    ///
-    pub const OnDialogsParent = onDialogsParent;
-
-    /// Inherited from KFind
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kfind.html#dialogsParent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KReplace`
-    ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
-    ///
-    pub fn onDialogsParent(self: KReplace, callback: *const fn () callconv(.c) QWidget) void {
-        qtc.KReplace_OnDialogsParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -2816,44 +2740,6 @@ pub const KReplace = extern struct {
         return .{ .ptr = qtc.KReplace_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KReplace `
-    ///
-    pub fn superSender(self: KReplace) QObject {
-        return .{ .ptr = qtc.KReplace_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KReplace`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KReplace, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KReplace_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2870,44 +2756,6 @@ pub const KReplace = extern struct {
     ///
     pub fn senderSignalIndex(self: KReplace) i32 {
         return qtc.KReplace_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KReplace `
-    ///
-    pub fn superSenderSignalIndex(self: KReplace) i32 {
-        return qtc.KReplace_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KReplace`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KReplace, callback: *const fn () callconv(.c) i32) void {
-        qtc.KReplace_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2931,47 +2779,6 @@ pub const KReplace = extern struct {
         return qtc.KReplace_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KReplace `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KReplace, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KReplace_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KReplace`
-    ///
-    /// ` callback: *const fn (self: KReplace, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KReplace, callback: *const fn (KReplace, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KReplace_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2991,47 +2798,6 @@ pub const KReplace = extern struct {
     pub fn isSignalConnected(self: KReplace, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KReplace_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KReplace `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KReplace, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KReplace_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KReplace`
-    ///
-    /// ` callback: *const fn (self: KReplace, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KReplace, callback: *const fn (KReplace, QMetaMethod) callconv(.c) bool) void {
-        qtc.KReplace_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

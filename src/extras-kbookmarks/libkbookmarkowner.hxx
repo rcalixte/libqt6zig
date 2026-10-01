@@ -9,26 +9,21 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KBookmarkOwner so that we can call protected methods
+// This class is a subclass of KBookmarkOwner
 class VirtualKBookmarkOwner : public KBookmarkOwner {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKBookmarkOwner = true;
-
-    // Virtual class public types (including callbacks)
-    using KBookmarkOwner_CurrentTitle_Callback = const char* (*)();
-    using KBookmarkOwner_CurrentUrl_Callback = QUrl* (*)();
-    using KBookmarkOwner_CurrentIcon_Callback = const char* (*)();
-    using KBookmarkOwner_SupportsTabs_Callback = bool (*)();
-    using KBookmarkOwner_CurrentBookmarkList_Callback = libqt_list /* of KBookmarkOwner__FutureBookmark* */ (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KBookmarkOwner_CurrentTitle_Callback = const char* (*)(const KBookmarkOwner*);
+    using KBookmarkOwner_CurrentUrl_Callback = QUrl* (*)(const KBookmarkOwner*);
+    using KBookmarkOwner_CurrentIcon_Callback = const char* (*)(const KBookmarkOwner*);
+    using KBookmarkOwner_SupportsTabs_Callback = bool (*)(const KBookmarkOwner*);
+    using KBookmarkOwner_CurrentBookmarkList_Callback = libqt_list /* of KBookmarkOwner__FutureBookmark* */ (*)(const KBookmarkOwner*);
     using KBookmarkOwner_EnableOption_Callback = bool (*)(const KBookmarkOwner*, int);
     using KBookmarkOwner_OpenBookmark_Callback = void (*)(KBookmarkOwner*, KBookmark*, int, int);
     using KBookmarkOwner_OpenFolderinTabs_Callback = void (*)(KBookmarkOwner*, KBookmarkGroup*);
     using KBookmarkOwner_OpenInNewTab_Callback = void (*)(KBookmarkOwner*, KBookmark*);
     using KBookmarkOwner_OpenInNewWindow_Callback = void (*)(KBookmarkOwner*, KBookmark*);
 
-  protected:
     // Instance callback storage
     KBookmarkOwner_CurrentTitle_Callback kbookmarkowner_currenttitle_callback = nullptr;
     KBookmarkOwner_CurrentUrl_Callback kbookmarkowner_currenturl_callback = nullptr;
@@ -41,54 +36,12 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
     KBookmarkOwner_OpenInNewTab_Callback kbookmarkowner_openinnewtab_callback = nullptr;
     KBookmarkOwner_OpenInNewWindow_Callback kbookmarkowner_openinnewwindow_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kbookmarkowner_currenttitle_isbase = false;
-    mutable bool kbookmarkowner_currenturl_isbase = false;
-    mutable bool kbookmarkowner_currenticon_isbase = false;
-    mutable bool kbookmarkowner_supportstabs_isbase = false;
-    mutable bool kbookmarkowner_currentbookmarklist_isbase = false;
-    mutable bool kbookmarkowner_enableoption_isbase = false;
-    mutable bool kbookmarkowner_openbookmark_isbase = false;
-    mutable bool kbookmarkowner_openfolderintabs_isbase = false;
-    mutable bool kbookmarkowner_openinnewtab_isbase = false;
-    mutable bool kbookmarkowner_openinnewwindow_isbase = false;
-
-  public:
     VirtualKBookmarkOwner() : KBookmarkOwner() {};
-
-    // Callback setters
-    inline void setKBookmarkOwner_CurrentTitle_Callback(KBookmarkOwner_CurrentTitle_Callback cb) { kbookmarkowner_currenttitle_callback = cb; }
-    inline void setKBookmarkOwner_CurrentUrl_Callback(KBookmarkOwner_CurrentUrl_Callback cb) { kbookmarkowner_currenturl_callback = cb; }
-    inline void setKBookmarkOwner_CurrentIcon_Callback(KBookmarkOwner_CurrentIcon_Callback cb) { kbookmarkowner_currenticon_callback = cb; }
-    inline void setKBookmarkOwner_SupportsTabs_Callback(KBookmarkOwner_SupportsTabs_Callback cb) { kbookmarkowner_supportstabs_callback = cb; }
-    inline void setKBookmarkOwner_CurrentBookmarkList_Callback(KBookmarkOwner_CurrentBookmarkList_Callback cb) { kbookmarkowner_currentbookmarklist_callback = cb; }
-    inline void setKBookmarkOwner_EnableOption_Callback(KBookmarkOwner_EnableOption_Callback cb) { kbookmarkowner_enableoption_callback = cb; }
-    inline void setKBookmarkOwner_OpenBookmark_Callback(KBookmarkOwner_OpenBookmark_Callback cb) { kbookmarkowner_openbookmark_callback = cb; }
-    inline void setKBookmarkOwner_OpenFolderinTabs_Callback(KBookmarkOwner_OpenFolderinTabs_Callback cb) { kbookmarkowner_openfolderintabs_callback = cb; }
-    inline void setKBookmarkOwner_OpenInNewTab_Callback(KBookmarkOwner_OpenInNewTab_Callback cb) { kbookmarkowner_openinnewtab_callback = cb; }
-    inline void setKBookmarkOwner_OpenInNewWindow_Callback(KBookmarkOwner_OpenInNewWindow_Callback cb) { kbookmarkowner_openinnewwindow_callback = cb; }
-
-    // Base flag setters
-    inline void setKBookmarkOwner_CurrentTitle_IsBase(bool value) const { kbookmarkowner_currenttitle_isbase = value; }
-    inline void setKBookmarkOwner_CurrentUrl_IsBase(bool value) const { kbookmarkowner_currenturl_isbase = value; }
-    inline void setKBookmarkOwner_CurrentIcon_IsBase(bool value) const { kbookmarkowner_currenticon_isbase = value; }
-    inline void setKBookmarkOwner_SupportsTabs_IsBase(bool value) const { kbookmarkowner_supportstabs_isbase = value; }
-    inline void setKBookmarkOwner_CurrentBookmarkList_IsBase(bool value) const { kbookmarkowner_currentbookmarklist_isbase = value; }
-    inline void setKBookmarkOwner_EnableOption_IsBase(bool value) const { kbookmarkowner_enableoption_isbase = value; }
-    inline void setKBookmarkOwner_OpenBookmark_IsBase(bool value) const { kbookmarkowner_openbookmark_isbase = value; }
-    inline void setKBookmarkOwner_OpenFolderinTabs_IsBase(bool value) const { kbookmarkowner_openfolderintabs_isbase = value; }
-    inline void setKBookmarkOwner_OpenInNewTab_IsBase(bool value) const { kbookmarkowner_openinnewtab_isbase = value; }
-    inline void setKBookmarkOwner_OpenInNewWindow_IsBase(bool value) const { kbookmarkowner_openinnewwindow_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QString currentTitle() const override {
-        if (kbookmarkowner_currenttitle_isbase) {
-            kbookmarkowner_currenttitle_isbase = false;
-            return KBookmarkOwner::currentTitle();
-        }
-        auto currenttitle_cb = kbookmarkowner_currenttitle_callback;
-        if (currenttitle_cb) {
-            const char* callback_ret = currenttitle_cb();
+        if (kbookmarkowner_currenttitle_callback) {
+            const char* callback_ret = kbookmarkowner_currenttitle_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -97,13 +50,8 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
 
     // Virtual method for C ABI access and custom callback
     virtual QUrl currentUrl() const override {
-        if (kbookmarkowner_currenturl_isbase) {
-            kbookmarkowner_currenturl_isbase = false;
-            return KBookmarkOwner::currentUrl();
-        }
-        auto currenturl_cb = kbookmarkowner_currenturl_callback;
-        if (currenturl_cb) {
-            QUrl* callback_ret = currenturl_cb();
+        if (kbookmarkowner_currenturl_callback) {
+            QUrl* callback_ret = kbookmarkowner_currenturl_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -113,13 +61,8 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
 
     // Virtual method for C ABI access and custom callback
     virtual QString currentIcon() const override {
-        if (kbookmarkowner_currenticon_isbase) {
-            kbookmarkowner_currenticon_isbase = false;
-            return KBookmarkOwner::currentIcon();
-        }
-        auto currenticon_cb = kbookmarkowner_currenticon_callback;
-        if (currenticon_cb) {
-            const char* callback_ret = currenticon_cb();
+        if (kbookmarkowner_currenticon_callback) {
+            const char* callback_ret = kbookmarkowner_currenticon_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -128,13 +71,8 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
 
     // Virtual method for C ABI access and custom callback
     virtual bool supportsTabs() const override {
-        if (kbookmarkowner_supportstabs_isbase) {
-            kbookmarkowner_supportstabs_isbase = false;
-            return KBookmarkOwner::supportsTabs();
-        }
-        auto supportstabs_cb = kbookmarkowner_supportstabs_callback;
-        if (supportstabs_cb) {
-            bool callback_ret = supportstabs_cb();
+        if (kbookmarkowner_supportstabs_callback) {
+            bool callback_ret = kbookmarkowner_supportstabs_callback(this);
             return callback_ret;
         }
         return KBookmarkOwner::supportsTabs();
@@ -142,13 +80,8 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
 
     // Virtual method for C ABI access and custom callback
     virtual QList<KBookmarkOwner::FutureBookmark> currentBookmarkList() const override {
-        if (kbookmarkowner_currentbookmarklist_isbase) {
-            kbookmarkowner_currentbookmarklist_isbase = false;
-            return KBookmarkOwner::currentBookmarkList();
-        }
-        auto currentbookmarklist_cb = kbookmarkowner_currentbookmarklist_callback;
-        if (currentbookmarklist_cb) {
-            libqt_list /* of KBookmarkOwner__FutureBookmark* */ callback_ret = currentbookmarklist_cb();
+        if (kbookmarkowner_currentbookmarklist_callback) {
+            libqt_list /* of KBookmarkOwner__FutureBookmark* */ callback_ret = kbookmarkowner_currentbookmarklist_callback(this);
             QList<KBookmarkOwner::FutureBookmark> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             KBookmarkOwner__FutureBookmark** callback_ret_arr = static_cast<KBookmarkOwner__FutureBookmark**>(callback_ret.data);
@@ -163,14 +96,9 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
 
     // Virtual method for C ABI access and custom callback
     virtual bool enableOption(KBookmarkOwner::BookmarkOption option) const override {
-        if (kbookmarkowner_enableoption_isbase) {
-            kbookmarkowner_enableoption_isbase = false;
-            return KBookmarkOwner::enableOption(option);
-        }
-        auto enableoption_cb = kbookmarkowner_enableoption_callback;
-        if (enableoption_cb) {
+        if (kbookmarkowner_enableoption_callback) {
             int cbval1 = static_cast<int>(option);
-            bool callback_ret = enableoption_cb(this, cbval1);
+            bool callback_ret = kbookmarkowner_enableoption_callback(this, cbval1);
             return callback_ret;
         }
         return KBookmarkOwner::enableOption(option);
@@ -178,30 +106,26 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
 
     // Virtual method for C ABI access and custom callback
     virtual void openBookmark(const KBookmark& bm, Qt::MouseButtons mb, Qt::KeyboardModifiers km) override {
-        auto openbookmark_cb = kbookmarkowner_openbookmark_callback;
-        if (openbookmark_cb) {
+        if (kbookmarkowner_openbookmark_callback) {
             const KBookmark& bm_ret = bm;
             // Cast returned reference into pointer
             KBookmark* cbval1 = const_cast<KBookmark*>(&bm_ret);
             int cbval2 = static_cast<int>(mb);
             int cbval3 = static_cast<int>(km);
-            openbookmark_cb(this, cbval1, cbval2, cbval3);
+            kbookmarkowner_openbookmark_callback(this, cbval1, cbval2, cbval3);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method KBookmarkOwner::openBookmark called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void openFolderinTabs(const KBookmarkGroup& bm) override {
-        if (kbookmarkowner_openfolderintabs_isbase) {
-            kbookmarkowner_openfolderintabs_isbase = false;
-            KBookmarkOwner::openFolderinTabs(bm);
-            return;
-        }
-        auto openfolderintabs_cb = kbookmarkowner_openfolderintabs_callback;
-        if (openfolderintabs_cb) {
+        if (kbookmarkowner_openfolderintabs_callback) {
             const KBookmarkGroup& bm_ret = bm;
             // Cast returned reference into pointer
             KBookmarkGroup* cbval1 = const_cast<KBookmarkGroup*>(&bm_ret);
-            openfolderintabs_cb(this, cbval1);
+            kbookmarkowner_openfolderintabs_callback(this, cbval1);
             return;
         }
         KBookmarkOwner::openFolderinTabs(bm);
@@ -209,17 +133,11 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
 
     // Virtual method for C ABI access and custom callback
     virtual void openInNewTab(const KBookmark& bm) override {
-        if (kbookmarkowner_openinnewtab_isbase) {
-            kbookmarkowner_openinnewtab_isbase = false;
-            KBookmarkOwner::openInNewTab(bm);
-            return;
-        }
-        auto openinnewtab_cb = kbookmarkowner_openinnewtab_callback;
-        if (openinnewtab_cb) {
+        if (kbookmarkowner_openinnewtab_callback) {
             const KBookmark& bm_ret = bm;
             // Cast returned reference into pointer
             KBookmark* cbval1 = const_cast<KBookmark*>(&bm_ret);
-            openinnewtab_cb(this, cbval1);
+            kbookmarkowner_openinnewtab_callback(this, cbval1);
             return;
         }
         KBookmarkOwner::openInNewTab(bm);
@@ -227,17 +145,11 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
 
     // Virtual method for C ABI access and custom callback
     virtual void openInNewWindow(const KBookmark& bm) override {
-        if (kbookmarkowner_openinnewwindow_isbase) {
-            kbookmarkowner_openinnewwindow_isbase = false;
-            KBookmarkOwner::openInNewWindow(bm);
-            return;
-        }
-        auto openinnewwindow_cb = kbookmarkowner_openinnewwindow_callback;
-        if (openinnewwindow_cb) {
+        if (kbookmarkowner_openinnewwindow_callback) {
             const KBookmark& bm_ret = bm;
             // Cast returned reference into pointer
             KBookmark* cbval1 = const_cast<KBookmark*>(&bm_ret);
-            openinnewwindow_cb(this, cbval1);
+            kbookmarkowner_openinnewwindow_callback(this, cbval1);
             return;
         }
         KBookmarkOwner::openInNewWindow(bm);

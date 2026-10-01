@@ -478,14 +478,8 @@ void QOpenGLFunctions_4_3_Core_GlClearBufferData(QOpenGLFunctions_4_3_Core* self
 void QOpenGLFunctions_4_3_Core_OnInitializeOpenGLFunctions(QOpenGLFunctions_4_3_Core* self, intptr_t slot);
 bool QOpenGLFunctions_4_3_Core_SuperInitializeOpenGLFunctions(QOpenGLFunctions_4_3_Core* self);
 bool QOpenGLFunctions_4_3_Core_IsInitialized(const QOpenGLFunctions_4_3_Core* self);
-void QOpenGLFunctions_4_3_Core_OnIsInitialized(const QOpenGLFunctions_4_3_Core* self, intptr_t slot);
-bool QOpenGLFunctions_4_3_Core_SuperIsInitialized(const QOpenGLFunctions_4_3_Core* self);
 void QOpenGLFunctions_4_3_Core_SetOwningContext(QOpenGLFunctions_4_3_Core* self, const QOpenGLContext* context);
-void QOpenGLFunctions_4_3_Core_OnSetOwningContext(QOpenGLFunctions_4_3_Core* self, intptr_t slot);
-void QOpenGLFunctions_4_3_Core_SuperSetOwningContext(QOpenGLFunctions_4_3_Core* self, const QOpenGLContext* context);
 QOpenGLContext* QOpenGLFunctions_4_3_Core_OwningContext(const QOpenGLFunctions_4_3_Core* self);
-void QOpenGLFunctions_4_3_Core_OnOwningContext(const QOpenGLFunctions_4_3_Core* self, intptr_t slot);
-QOpenGLContext* QOpenGLFunctions_4_3_Core_SuperOwningContext(const QOpenGLFunctions_4_3_Core* self);
 void QOpenGLFunctions_4_3_Core_Delete(QOpenGLFunctions_4_3_Core* self);
 
 #ifdef __cplusplus

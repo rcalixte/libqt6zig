@@ -124,1644 +124,1168 @@ libqt_string KPixmapSequenceWidget_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KPixmapSequenceWidget_SuperMetaObject(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vkpixmapsequencewidget->metaObject();
-    } else {
-        return (QMetaObject*)self->KPixmapSequenceWidget::metaObject();
-    }
+    return (QMetaObject*)self->KPixmapSequenceWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnMetaObject(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_MetaObject_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MetaObject_Callback>(slot));
+void KPixmapSequenceWidget_OnMetaObject(KPixmapSequenceWidget* self, intptr_t slot) {
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self)))
+        vkpixmapsequencewidget->kpixmapsequencewidget_metaobject_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KPixmapSequenceWidget_SuperMetacast(KPixmapSequenceWidget* self, const char* param1) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Metacast_IsBase(true);
-        return vkpixmapsequencewidget->qt_metacast(param1);
-    } else {
-        return self->KPixmapSequenceWidget::qt_metacast(param1);
-    }
+    return self->KPixmapSequenceWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMetacast(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Metacast_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Metacast_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_metacast_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KPixmapSequenceWidget_SuperMetacall(KPixmapSequenceWidget* self, int param1, int param2, void** param3) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Metacall_IsBase(true);
-        return vkpixmapsequencewidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KPixmapSequenceWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KPixmapSequenceWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMetacall(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Metacall_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Metacall_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_metacall_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KPixmapSequenceWidget_SuperSizeHint(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_SizeHint_IsBase(true);
-        return new QSize(vkpixmapsequencewidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKPixmapSequenceWidget*)self)->sizeHint());
-    }
+    return new QSize(self->KPixmapSequenceWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnSizeHint(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_SizeHint_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_SizeHint_Callback>(slot));
+void KPixmapSequenceWidget_OnSizeHint(KPixmapSequenceWidget* self, intptr_t slot) {
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self)))
+        vkpixmapsequencewidget->kpixmapsequencewidget_sizehint_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPixmapSequenceWidget_DevType(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return vkpixmapsequencewidget->devType();
-    } else {
-        return self->KPixmapSequenceWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KPixmapSequenceWidget_SuperDevType(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_DevType_IsBase(true);
-        return vkpixmapsequencewidget->devType();
-    } else {
-        return self->KPixmapSequenceWidget::devType();
-    }
+    return self->KPixmapSequenceWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnDevType(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_DevType_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DevType_Callback>(slot));
+void KPixmapSequenceWidget_OnDevType(KPixmapSequenceWidget* self, intptr_t slot) {
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self)))
+        vkpixmapsequencewidget->kpixmapsequencewidget_devtype_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_SetVisible(KPixmapSequenceWidget* self, bool visible) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setVisible(visible);
-    } else {
-        self->KPixmapSequenceWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperSetVisible(KPixmapSequenceWidget* self, bool visible) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_SetVisible_IsBase(true);
-        vkpixmapsequencewidget->setVisible(visible);
-    } else {
-        self->KPixmapSequenceWidget::setVisible(visible);
-    }
+    self->KPixmapSequenceWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnSetVisible(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_SetVisible_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_SetVisible_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_setvisible_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KPixmapSequenceWidget_MinimumSizeHint(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return new QSize(vkpixmapsequencewidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPixmapSequenceWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KPixmapSequenceWidget_SuperMinimumSizeHint(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vkpixmapsequencewidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPixmapSequenceWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KPixmapSequenceWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnMinimumSizeHint(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MinimumSizeHint_Callback>(slot));
+void KPixmapSequenceWidget_OnMinimumSizeHint(KPixmapSequenceWidget* self, intptr_t slot) {
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self)))
+        vkpixmapsequencewidget->kpixmapsequencewidget_minimumsizehint_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPixmapSequenceWidget_HeightForWidth(const KPixmapSequenceWidget* self, int param1) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return vkpixmapsequencewidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KPixmapSequenceWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KPixmapSequenceWidget_SuperHeightForWidth(const KPixmapSequenceWidget* self, int param1) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_HeightForWidth_IsBase(true);
-        return vkpixmapsequencewidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KPixmapSequenceWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KPixmapSequenceWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnHeightForWidth(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_HeightForWidth_Callback>(slot));
+void KPixmapSequenceWidget_OnHeightForWidth(KPixmapSequenceWidget* self, intptr_t slot) {
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self)))
+        vkpixmapsequencewidget->kpixmapsequencewidget_heightforwidth_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPixmapSequenceWidget_HasHeightForWidth(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return vkpixmapsequencewidget->hasHeightForWidth();
-    } else {
-        return self->KPixmapSequenceWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KPixmapSequenceWidget_SuperHasHeightForWidth(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_HasHeightForWidth_IsBase(true);
-        return vkpixmapsequencewidget->hasHeightForWidth();
-    } else {
-        return self->KPixmapSequenceWidget::hasHeightForWidth();
-    }
+    return self->KPixmapSequenceWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnHasHeightForWidth(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_HasHeightForWidth_Callback>(slot));
+void KPixmapSequenceWidget_OnHasHeightForWidth(KPixmapSequenceWidget* self, intptr_t slot) {
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self)))
+        vkpixmapsequencewidget->kpixmapsequencewidget_hasheightforwidth_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KPixmapSequenceWidget_PaintEngine(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return vkpixmapsequencewidget->paintEngine();
-    } else {
-        return self->KPixmapSequenceWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KPixmapSequenceWidget_SuperPaintEngine(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_PaintEngine_IsBase(true);
-        return vkpixmapsequencewidget->paintEngine();
-    } else {
-        return self->KPixmapSequenceWidget::paintEngine();
-    }
+    return self->KPixmapSequenceWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnPaintEngine(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_PaintEngine_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_PaintEngine_Callback>(slot));
+void KPixmapSequenceWidget_OnPaintEngine(KPixmapSequenceWidget* self, intptr_t slot) {
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self)))
+        vkpixmapsequencewidget->kpixmapsequencewidget_paintengine_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPixmapSequenceWidget_Event(KPixmapSequenceWidget* self, QEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         return vkpixmapsequencewidget->event(event);
     } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->event(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPixmapSequenceWidget_SuperEvent(KPixmapSequenceWidget* self, QEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Event_IsBase(true);
-        return vkpixmapsequencewidget->event(event);
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->event(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        return vkpixmapsequencewidget->KPixmapSequenceWidget::event(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Event_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Event_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_event_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_MousePressEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->mousePressEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperMousePressEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_MousePressEvent_IsBase(true);
-        vkpixmapsequencewidget->mousePressEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMousePressEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MousePressEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_mousepressevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_MouseReleaseEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperMouseReleaseEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_MouseReleaseEvent_IsBase(true);
-        vkpixmapsequencewidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMouseReleaseEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_mousereleaseevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_MouseDoubleClickEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperMouseDoubleClickEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_MouseDoubleClickEvent_IsBase(true);
-        vkpixmapsequencewidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMouseDoubleClickEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_MouseMoveEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->mouseMoveEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperMouseMoveEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_MouseMoveEvent_IsBase(true);
-        vkpixmapsequencewidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMouseMoveEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_mousemoveevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_WheelEvent(KPixmapSequenceWidget* self, QWheelEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->wheelEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperWheelEvent(KPixmapSequenceWidget* self, QWheelEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_WheelEvent_IsBase(true);
-        vkpixmapsequencewidget->wheelEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnWheelEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_WheelEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_WheelEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_wheelevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_KeyPressEvent(KPixmapSequenceWidget* self, QKeyEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->keyPressEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperKeyPressEvent(KPixmapSequenceWidget* self, QKeyEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_KeyPressEvent_IsBase(true);
-        vkpixmapsequencewidget->keyPressEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnKeyPressEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_keypressevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_KeyReleaseEvent(KPixmapSequenceWidget* self, QKeyEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->keyReleaseEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperKeyReleaseEvent(KPixmapSequenceWidget* self, QKeyEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_KeyReleaseEvent_IsBase(true);
-        vkpixmapsequencewidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnKeyReleaseEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_keyreleaseevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_FocusInEvent(KPixmapSequenceWidget* self, QFocusEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->focusInEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperFocusInEvent(KPixmapSequenceWidget* self, QFocusEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusInEvent_IsBase(true);
-        vkpixmapsequencewidget->focusInEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnFocusInEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_FocusInEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_focusinevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_FocusOutEvent(KPixmapSequenceWidget* self, QFocusEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->focusOutEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperFocusOutEvent(KPixmapSequenceWidget* self, QFocusEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusOutEvent_IsBase(true);
-        vkpixmapsequencewidget->focusOutEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnFocusOutEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_focusoutevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_EnterEvent(KPixmapSequenceWidget* self, QEnterEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->enterEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperEnterEvent(KPixmapSequenceWidget* self, QEnterEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_EnterEvent_IsBase(true);
-        vkpixmapsequencewidget->enterEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->enterEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnEnterEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_EnterEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_EnterEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_enterevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_LeaveEvent(KPixmapSequenceWidget* self, QEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->leaveEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperLeaveEvent(KPixmapSequenceWidget* self, QEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_LeaveEvent_IsBase(true);
-        vkpixmapsequencewidget->leaveEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnLeaveEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_LeaveEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_leaveevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_PaintEvent(KPixmapSequenceWidget* self, QPaintEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->paintEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperPaintEvent(KPixmapSequenceWidget* self, QPaintEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_PaintEvent_IsBase(true);
-        vkpixmapsequencewidget->paintEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->paintEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnPaintEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_PaintEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_PaintEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_paintevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_MoveEvent(KPixmapSequenceWidget* self, QMoveEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->moveEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperMoveEvent(KPixmapSequenceWidget* self, QMoveEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_MoveEvent_IsBase(true);
-        vkpixmapsequencewidget->moveEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->moveEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMoveEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_MoveEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MoveEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_moveevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_ResizeEvent(KPixmapSequenceWidget* self, QResizeEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->resizeEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperResizeEvent(KPixmapSequenceWidget* self, QResizeEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_ResizeEvent_IsBase(true);
-        vkpixmapsequencewidget->resizeEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnResizeEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ResizeEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_resizeevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_CloseEvent(KPixmapSequenceWidget* self, QCloseEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->closeEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperCloseEvent(KPixmapSequenceWidget* self, QCloseEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_CloseEvent_IsBase(true);
-        vkpixmapsequencewidget->closeEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->closeEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnCloseEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_CloseEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_CloseEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_closeevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_ContextMenuEvent(KPixmapSequenceWidget* self, QContextMenuEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->contextMenuEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperContextMenuEvent(KPixmapSequenceWidget* self, QContextMenuEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_ContextMenuEvent_IsBase(true);
-        vkpixmapsequencewidget->contextMenuEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnContextMenuEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_contextmenuevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_TabletEvent(KPixmapSequenceWidget* self, QTabletEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->tabletEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperTabletEvent(KPixmapSequenceWidget* self, QTabletEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_TabletEvent_IsBase(true);
-        vkpixmapsequencewidget->tabletEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnTabletEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_TabletEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_TabletEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_tabletevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_ActionEvent(KPixmapSequenceWidget* self, QActionEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->actionEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperActionEvent(KPixmapSequenceWidget* self, QActionEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_ActionEvent_IsBase(true);
-        vkpixmapsequencewidget->actionEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->actionEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnActionEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_ActionEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ActionEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_actionevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_DragEnterEvent(KPixmapSequenceWidget* self, QDragEnterEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->dragEnterEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperDragEnterEvent(KPixmapSequenceWidget* self, QDragEnterEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_DragEnterEvent_IsBase(true);
-        vkpixmapsequencewidget->dragEnterEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnDragEnterEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_dragenterevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_DragMoveEvent(KPixmapSequenceWidget* self, QDragMoveEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->dragMoveEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperDragMoveEvent(KPixmapSequenceWidget* self, QDragMoveEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_DragMoveEvent_IsBase(true);
-        vkpixmapsequencewidget->dragMoveEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnDragMoveEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_dragmoveevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_DragLeaveEvent(KPixmapSequenceWidget* self, QDragLeaveEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->dragLeaveEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperDragLeaveEvent(KPixmapSequenceWidget* self, QDragLeaveEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_DragLeaveEvent_IsBase(true);
-        vkpixmapsequencewidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnDragLeaveEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_dragleaveevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_DropEvent(KPixmapSequenceWidget* self, QDropEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->dropEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperDropEvent(KPixmapSequenceWidget* self, QDropEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_DropEvent_IsBase(true);
-        vkpixmapsequencewidget->dropEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->dropEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnDropEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_DropEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DropEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_dropevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_ShowEvent(KPixmapSequenceWidget* self, QShowEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->showEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperShowEvent(KPixmapSequenceWidget* self, QShowEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_ShowEvent_IsBase(true);
-        vkpixmapsequencewidget->showEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->showEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnShowEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_ShowEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ShowEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_showevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_HideEvent(KPixmapSequenceWidget* self, QHideEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->hideEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperHideEvent(KPixmapSequenceWidget* self, QHideEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_HideEvent_IsBase(true);
-        vkpixmapsequencewidget->hideEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->hideEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnHideEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_HideEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_HideEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_hideevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPixmapSequenceWidget_NativeEvent(KPixmapSequenceWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
+    if (vkpixmapsequencewidget) {
         return vkpixmapsequencewidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPixmapSequenceWidget_SuperNativeEvent(KPixmapSequenceWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_NativeEvent_IsBase(true);
-        return vkpixmapsequencewidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        return vkpixmapsequencewidget->KPixmapSequenceWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnNativeEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_NativeEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_NativeEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_nativeevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_ChangeEvent(KPixmapSequenceWidget* self, QEvent* param1) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->changeEvent(param1);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperChangeEvent(KPixmapSequenceWidget* self, QEvent* param1) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_ChangeEvent_IsBase(true);
-        vkpixmapsequencewidget->changeEvent(param1);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnChangeEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ChangeEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_changeevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPixmapSequenceWidget_Metric(const KPixmapSequenceWidget* self, int param1) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         return vkpixmapsequencewidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KPixmapSequenceWidget_SuperMetric(const KPixmapSequenceWidget* self, int param1) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Metric_IsBase(true);
-        return vkpixmapsequencewidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self))) {
+        return vkpixmapsequencewidget->KPixmapSequenceWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnMetric(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Metric_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Metric_Callback>(slot));
+void KPixmapSequenceWidget_OnMetric(KPixmapSequenceWidget* self, intptr_t slot) {
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self)))
+        vkpixmapsequencewidget->kpixmapsequencewidget_metric_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_InitPainter(const KPixmapSequenceWidget* self, QPainter* painter) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->initPainter(painter);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperInitPainter(const KPixmapSequenceWidget* self, QPainter* painter) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_InitPainter_IsBase(true);
-        vkpixmapsequencewidget->initPainter(painter);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->initPainter(painter);
-    }
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self))) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnInitPainter(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_InitPainter_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_InitPainter_Callback>(slot));
+void KPixmapSequenceWidget_OnInitPainter(KPixmapSequenceWidget* self, intptr_t slot) {
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self)))
+        vkpixmapsequencewidget->kpixmapsequencewidget_initpainter_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KPixmapSequenceWidget_Redirected(const KPixmapSequenceWidget* self, QPoint* offset) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         return vkpixmapsequencewidget->redirected(offset);
     } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KPixmapSequenceWidget_SuperRedirected(const KPixmapSequenceWidget* self, QPoint* offset) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Redirected_IsBase(true);
-        return vkpixmapsequencewidget->redirected(offset);
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->redirected(offset);
-    }
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self))) {
+        return vkpixmapsequencewidget->KPixmapSequenceWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnRedirected(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Redirected_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Redirected_Callback>(slot));
+void KPixmapSequenceWidget_OnRedirected(KPixmapSequenceWidget* self, intptr_t slot) {
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self)))
+        vkpixmapsequencewidget->kpixmapsequencewidget_redirected_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KPixmapSequenceWidget_SharedPainter(const KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         return vkpixmapsequencewidget->sharedPainter();
     } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KPixmapSequenceWidget_SuperSharedPainter(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_SharedPainter_IsBase(true);
-        return vkpixmapsequencewidget->sharedPainter();
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->sharedPainter();
-    }
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self))) {
+        return vkpixmapsequencewidget->KPixmapSequenceWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnSharedPainter(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_SharedPainter_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_SharedPainter_Callback>(slot));
+void KPixmapSequenceWidget_OnSharedPainter(KPixmapSequenceWidget* self, intptr_t slot) {
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self)))
+        vkpixmapsequencewidget->kpixmapsequencewidget_sharedpainter_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_InputMethodEvent(KPixmapSequenceWidget* self, QInputMethodEvent* param1) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->inputMethodEvent(param1);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperInputMethodEvent(KPixmapSequenceWidget* self, QInputMethodEvent* param1) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_InputMethodEvent_IsBase(true);
-        vkpixmapsequencewidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnInputMethodEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_inputmethodevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KPixmapSequenceWidget_InputMethodQuery(const KPixmapSequenceWidget* self, int param1) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return new QVariant(vkpixmapsequencewidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPixmapSequenceWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KPixmapSequenceWidget_SuperInputMethodQuery(const KPixmapSequenceWidget* self, int param1) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vkpixmapsequencewidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPixmapSequenceWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KPixmapSequenceWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnInputMethodQuery(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_InputMethodQuery_Callback>(slot));
+void KPixmapSequenceWidget_OnInputMethodQuery(KPixmapSequenceWidget* self, intptr_t slot) {
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self)))
+        vkpixmapsequencewidget->kpixmapsequencewidget_inputmethodquery_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPixmapSequenceWidget_FocusNextPrevChild(KPixmapSequenceWidget* self, bool next) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         return vkpixmapsequencewidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPixmapSequenceWidget_SuperFocusNextPrevChild(KPixmapSequenceWidget* self, bool next) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusNextPrevChild_IsBase(true);
-        return vkpixmapsequencewidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        return vkpixmapsequencewidget->KPixmapSequenceWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnFocusNextPrevChild(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_focusnextprevchild_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPixmapSequenceWidget_EventFilter(KPixmapSequenceWidget* self, QObject* watched, QEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return vkpixmapsequencewidget->eventFilter(watched, event);
-    } else {
-        return self->KPixmapSequenceWidget::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KPixmapSequenceWidget_SuperEventFilter(KPixmapSequenceWidget* self, QObject* watched, QEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_EventFilter_IsBase(true);
-        return vkpixmapsequencewidget->eventFilter(watched, event);
-    } else {
-        return self->KPixmapSequenceWidget::eventFilter(watched, event);
-    }
+    return self->KPixmapSequenceWidget::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnEventFilter(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_EventFilter_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_EventFilter_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_eventfilter_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_TimerEvent(KPixmapSequenceWidget* self, QTimerEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->timerEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperTimerEvent(KPixmapSequenceWidget* self, QTimerEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_TimerEvent_IsBase(true);
-        vkpixmapsequencewidget->timerEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->timerEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnTimerEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_TimerEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_TimerEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_timerevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_ChildEvent(KPixmapSequenceWidget* self, QChildEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->childEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperChildEvent(KPixmapSequenceWidget* self, QChildEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_ChildEvent_IsBase(true);
-        vkpixmapsequencewidget->childEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->childEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnChildEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_ChildEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ChildEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_childevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_CustomEvent(KPixmapSequenceWidget* self, QEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->customEvent(event);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperCustomEvent(KPixmapSequenceWidget* self, QEvent* event) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_CustomEvent_IsBase(true);
-        vkpixmapsequencewidget->customEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->customEvent(event);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnCustomEvent(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_CustomEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_CustomEvent_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_customevent_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_ConnectNotify(KPixmapSequenceWidget* self, const QMetaMethod* signal) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->connectNotify(*signal);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperConnectNotify(KPixmapSequenceWidget* self, const QMetaMethod* signal) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_ConnectNotify_IsBase(true);
-        vkpixmapsequencewidget->connectNotify(*signal);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnConnectNotify(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ConnectNotify_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_connectnotify_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceWidget_DisconnectNotify(KPixmapSequenceWidget* self, const QMetaMethod* signal) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget) {
         vkpixmapsequencewidget->disconnectNotify(*signal);
     } else {
-        ((VirtualKPixmapSequenceWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceWidget_SuperDisconnectNotify(KPixmapSequenceWidget* self, const QMetaMethod* signal) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_DisconnectNotify_IsBase(true);
-        vkpixmapsequencewidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->KPixmapSequenceWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnDisconnectNotify(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self))
+        vkpixmapsequencewidget->kpixmapsequencewidget_disconnectnotify_callback = reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPixmapSequenceWidget_UpdateMicroFocus(KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->updateMicroFocus();
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->VirtualKPixmapSequenceWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KPixmapSequenceWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPixmapSequenceWidget_SuperUpdateMicroFocus(KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_UpdateMicroFocus_IsBase(true);
-        vkpixmapsequencewidget->updateMicroFocus();
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnUpdateMicroFocus(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPixmapSequenceWidget_Create(KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->create();
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->create();
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->VirtualKPixmapSequenceWidget::create();
+    } else
+        qFatal("Error: Protected method KPixmapSequenceWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPixmapSequenceWidget_SuperCreate(KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Create_IsBase(true);
-        vkpixmapsequencewidget->create();
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnCreate(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Create_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPixmapSequenceWidget_Destroy(KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->destroy();
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->destroy();
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        vkpixmapsequencewidget->VirtualKPixmapSequenceWidget::destroy();
+    } else
+        qFatal("Error: Protected method KPixmapSequenceWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPixmapSequenceWidget_SuperDestroy(KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Destroy_IsBase(true);
-        vkpixmapsequencewidget->destroy();
-    } else {
-        ((VirtualKPixmapSequenceWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnDestroy(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Destroy_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPixmapSequenceWidget_FocusNextChild(KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return vkpixmapsequencewidget->focusNextChild();
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->focusNextChild();
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        return vkpixmapsequencewidget->VirtualKPixmapSequenceWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method KPixmapSequenceWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPixmapSequenceWidget_SuperFocusNextChild(KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusNextChild_IsBase(true);
-        return vkpixmapsequencewidget->focusNextChild();
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnFocusNextChild(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPixmapSequenceWidget_FocusPreviousChild(KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return vkpixmapsequencewidget->focusPreviousChild();
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self)) {
+        return vkpixmapsequencewidget->VirtualKPixmapSequenceWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KPixmapSequenceWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPixmapSequenceWidget_SuperFocusPreviousChild(KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusPreviousChild_IsBase(true);
-        return vkpixmapsequencewidget->focusPreviousChild();
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnFocusPreviousChild(KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KPixmapSequenceWidget_Sender(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return vkpixmapsequencewidget->sender();
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->sender();
-    }
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self))) {
+        return vkpixmapsequencewidget->VirtualKPixmapSequenceWidget::sender();
+    } else
+        qFatal("Error: Protected method KPixmapSequenceWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KPixmapSequenceWidget_SuperSender(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Sender_IsBase(true);
-        return vkpixmapsequencewidget->sender();
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnSender(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Sender_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPixmapSequenceWidget_SenderSignalIndex(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return vkpixmapsequencewidget->senderSignalIndex();
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self))) {
+        return vkpixmapsequencewidget->VirtualKPixmapSequenceWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KPixmapSequenceWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPixmapSequenceWidget_SuperSenderSignalIndex(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_SenderSignalIndex_IsBase(true);
-        return vkpixmapsequencewidget->senderSignalIndex();
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnSenderSignalIndex(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPixmapSequenceWidget_Receivers(const KPixmapSequenceWidget* self, const char* signal) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return vkpixmapsequencewidget->receivers(signal);
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->receivers(signal);
-    }
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self))) {
+        return vkpixmapsequencewidget->VirtualKPixmapSequenceWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method KPixmapSequenceWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPixmapSequenceWidget_SuperReceivers(const KPixmapSequenceWidget* self, const char* signal) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Receivers_IsBase(true);
-        return vkpixmapsequencewidget->receivers(signal);
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnReceivers(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_Receivers_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPixmapSequenceWidget_IsSignalConnected(const KPixmapSequenceWidget* self, const QMetaMethod* signal) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return vkpixmapsequencewidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self))) {
+        return vkpixmapsequencewidget->VirtualKPixmapSequenceWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KPixmapSequenceWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPixmapSequenceWidget_SuperIsSignalConnected(const KPixmapSequenceWidget* self, const QMetaMethod* signal) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_IsSignalConnected_IsBase(true);
-        return vkpixmapsequencewidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnIsSignalConnected(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KPixmapSequenceWidget_GetDecodedMetricF(const KPixmapSequenceWidget* self, int metricA, int metricB) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return vkpixmapsequencewidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KPixmapSequenceWidget_SuperGetDecodedMetricF(const KPixmapSequenceWidget* self, int metricA, int metricB) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_GetDecodedMetricF_IsBase(true);
-        return vkpixmapsequencewidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapSequenceWidget_OnGetDecodedMetricF(const KPixmapSequenceWidget* self, intptr_t slot) {
-    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
-        vkpixmapsequencewidget->setKPixmapSequenceWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self))) {
+        return vkpixmapsequencewidget->VirtualKPixmapSequenceWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KPixmapSequenceWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void KPixmapSequenceWidget_Delete(KPixmapSequenceWidget* self) {

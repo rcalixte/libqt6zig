@@ -57,13 +57,13 @@ libqt_string QLocalServer_Tr2(const char* s, const char* c);
 libqt_string QLocalServer_Tr3(const char* s, const char* c, int n);
 bool QLocalServer_WaitForNewConnection1(QLocalServer* self, int msec);
 bool QLocalServer_WaitForNewConnection2(QLocalServer* self, int msec, bool* timedOut);
-void QLocalServer_OnMetaObject(const QLocalServer* self, intptr_t slot);
+void QLocalServer_OnMetaObject(QLocalServer* self, intptr_t slot);
 QMetaObject* QLocalServer_SuperMetaObject(const QLocalServer* self);
 void QLocalServer_OnMetacast(QLocalServer* self, intptr_t slot);
 void* QLocalServer_SuperMetacast(QLocalServer* self, const char* param1);
 void QLocalServer_OnMetacall(QLocalServer* self, intptr_t slot);
 int QLocalServer_SuperMetacall(QLocalServer* self, int param1, int param2, void** param3);
-void QLocalServer_OnHasPendingConnections(const QLocalServer* self, intptr_t slot);
+void QLocalServer_OnHasPendingConnections(QLocalServer* self, intptr_t slot);
 bool QLocalServer_SuperHasPendingConnections(const QLocalServer* self);
 void QLocalServer_OnNextPendingConnection(QLocalServer* self, intptr_t slot);
 QLocalSocket* QLocalServer_SuperNextPendingConnection(QLocalServer* self);
@@ -91,20 +91,10 @@ void QLocalServer_DisconnectNotify(QLocalServer* self, const QMetaMethod* signal
 void QLocalServer_OnDisconnectNotify(QLocalServer* self, intptr_t slot);
 void QLocalServer_SuperDisconnectNotify(QLocalServer* self, const QMetaMethod* signal);
 void QLocalServer_AddPendingConnection(QLocalServer* self, QLocalSocket* socket);
-void QLocalServer_OnAddPendingConnection(QLocalServer* self, intptr_t slot);
-void QLocalServer_SuperAddPendingConnection(QLocalServer* self, QLocalSocket* socket);
 QObject* QLocalServer_Sender(const QLocalServer* self);
-void QLocalServer_OnSender(const QLocalServer* self, intptr_t slot);
-QObject* QLocalServer_SuperSender(const QLocalServer* self);
 int QLocalServer_SenderSignalIndex(const QLocalServer* self);
-void QLocalServer_OnSenderSignalIndex(const QLocalServer* self, intptr_t slot);
-int QLocalServer_SuperSenderSignalIndex(const QLocalServer* self);
 int QLocalServer_Receivers(const QLocalServer* self, const char* signal);
-void QLocalServer_OnReceivers(const QLocalServer* self, intptr_t slot);
-int QLocalServer_SuperReceivers(const QLocalServer* self, const char* signal);
 bool QLocalServer_IsSignalConnected(const QLocalServer* self, const QMetaMethod* signal);
-void QLocalServer_OnIsSignalConnected(const QLocalServer* self, intptr_t slot);
-bool QLocalServer_SuperIsSignalConnected(const QLocalServer* self, const QMetaMethod* signal);
 void QLocalServer_Delete(QLocalServer* self);
 
 #ifdef __cplusplus

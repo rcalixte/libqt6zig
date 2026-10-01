@@ -149,2120 +149,1503 @@ libqt_list /* of QAbstractAxis* */ QPolarChart_Axes2(const QPolarChart* self, in
 
 // Base class handler implementation
 QMetaObject* QPolarChart_SuperMetaObject(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_MetaObject_IsBase(true);
-        return (QMetaObject*)vqpolarchart->metaObject();
-    } else {
-        return (QMetaObject*)self->QPolarChart::metaObject();
-    }
+    return (QMetaObject*)self->QPolarChart::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnMetaObject(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_MetaObject_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_MetaObject_Callback>(slot));
+void QPolarChart_OnMetaObject(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_metaobject_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPolarChart_SuperMetacast(QPolarChart* self, const char* param1) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_Metacast_IsBase(true);
-        return vqpolarchart->qt_metacast(param1);
-    } else {
-        return self->QPolarChart::qt_metacast(param1);
-    }
+    return self->QPolarChart::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMetacast(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_Metacast_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Metacast_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_metacast_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPolarChart_SuperMetacall(QPolarChart* self, int param1, int param2, void** param3) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_Metacall_IsBase(true);
-        return vqpolarchart->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPolarChart::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPolarChart::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMetacall(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_Metacall_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Metacall_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_metacall_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_SetGeometry(QPolarChart* self, const QRectF* rect) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setGeometry(*rect);
-    } else {
-        self->QPolarChart::setGeometry(*rect);
-    }
+    self->setGeometry(*rect);
 }
 
 // Base class handler implementation
 void QPolarChart_SuperSetGeometry(QPolarChart* self, const QRectF* rect) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_SetGeometry_IsBase(true);
-        vqpolarchart->setGeometry(*rect);
-    } else {
-        self->QPolarChart::setGeometry(*rect);
-    }
+    self->QPolarChart::setGeometry(*rect);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnSetGeometry(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_SetGeometry_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SetGeometry_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_setgeometry_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_SetGeometry_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_GetContentsMargins(const QPolarChart* self, double* left, double* top, double* right, double* bottom) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    } else {
-        self->QPolarChart::getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    }
+    self->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
 }
 
 // Base class handler implementation
 void QPolarChart_SuperGetContentsMargins(const QPolarChart* self, double* left, double* top, double* right, double* bottom) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_GetContentsMargins_IsBase(true);
-        vqpolarchart->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    } else {
-        self->QPolarChart::getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    }
+    self->QPolarChart::getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnGetContentsMargins(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_GetContentsMargins_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_GetContentsMargins_Callback>(slot));
+void QPolarChart_OnGetContentsMargins(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_getcontentsmargins_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_GetContentsMargins_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPolarChart_Type(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return vqpolarchart->type();
-    } else {
-        return self->QPolarChart::type();
-    }
+    return self->type();
 }
 
 // Base class handler implementation
 int QPolarChart_SuperType(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_Type_IsBase(true);
-        return vqpolarchart->type();
-    } else {
-        return self->QPolarChart::type();
-    }
+    return self->QPolarChart::type();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnType(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_Type_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Type_Callback>(slot));
+void QPolarChart_OnType(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_type_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_Type_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_Paint(QPolarChart* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->paint(painter, option, widget);
-    } else {
-        self->QPolarChart::paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 // Base class handler implementation
 void QPolarChart_SuperPaint(QPolarChart* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_Paint_IsBase(true);
-        vqpolarchart->paint(painter, option, widget);
-    } else {
-        self->QPolarChart::paint(painter, option, widget);
-    }
+    self->QPolarChart::paint(painter, option, widget);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnPaint(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_Paint_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Paint_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_paint_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_Paint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_PaintWindowFrame(QPolarChart* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->paintWindowFrame(painter, option, widget);
-    } else {
-        self->QPolarChart::paintWindowFrame(painter, option, widget);
-    }
+    self->paintWindowFrame(painter, option, widget);
 }
 
 // Base class handler implementation
 void QPolarChart_SuperPaintWindowFrame(QPolarChart* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_PaintWindowFrame_IsBase(true);
-        vqpolarchart->paintWindowFrame(painter, option, widget);
-    } else {
-        self->QPolarChart::paintWindowFrame(painter, option, widget);
-    }
+    self->QPolarChart::paintWindowFrame(painter, option, widget);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnPaintWindowFrame(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_PaintWindowFrame_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_PaintWindowFrame_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_paintwindowframe_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_PaintWindowFrame_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRectF* QPolarChart_BoundingRect(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return new QRectF(vqpolarchart->boundingRect());
-    } else {
-        return new QRectF(((VirtualQPolarChart*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 // Base class handler implementation
 QRectF* QPolarChart_SuperBoundingRect(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_BoundingRect_IsBase(true);
-        return new QRectF(vqpolarchart->boundingRect());
-    } else {
-        return new QRectF(((VirtualQPolarChart*)self)->boundingRect());
-    }
+    return new QRectF(self->QPolarChart::boundingRect());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnBoundingRect(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_BoundingRect_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_BoundingRect_Callback>(slot));
+void QPolarChart_OnBoundingRect(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_boundingrect_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_BoundingRect_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainterPath* QPolarChart_Shape(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return new QPainterPath(vqpolarchart->shape());
-    } else {
-        return new QPainterPath(((VirtualQPolarChart*)self)->shape());
-    }
+    return new QPainterPath(self->shape());
 }
 
 // Base class handler implementation
 QPainterPath* QPolarChart_SuperShape(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_Shape_IsBase(true);
-        return new QPainterPath(vqpolarchart->shape());
-    } else {
-        return new QPainterPath(((VirtualQPolarChart*)self)->shape());
-    }
+    return new QPainterPath(self->QPolarChart::shape());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnShape(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_Shape_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Shape_Callback>(slot));
+void QPolarChart_OnShape(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_shape_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_Shape_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_InitStyleOption(const QPolarChart* self, QStyleOption* option) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->initStyleOption(option);
     } else {
-        ((VirtualQPolarChart*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method QPolarChart::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperInitStyleOption(const QPolarChart* self, QStyleOption* option) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_InitStyleOption_IsBase(true);
-        vqpolarchart->initStyleOption(option);
-    } else {
-        ((VirtualQPolarChart*)self)->initStyleOption(option);
-    }
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self))) {
+        vqpolarchart->QPolarChart::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnInitStyleOption(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_InitStyleOption_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_InitStyleOption_Callback>(slot));
+void QPolarChart_OnInitStyleOption(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_initstyleoption_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSizeF* QPolarChart_SizeHint(const QPolarChart* self, int which, const QSizeF* constraint) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return new QSizeF(vqpolarchart->sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
-    }
-    return {};
+    return new QSizeF((self->*&VirtualQPolarChart::Base::sizeHint)(static_cast<Qt::SizeHint>(which), *constraint));
 }
 
 // Base class handler implementation
 QSizeF* QPolarChart_SuperSizeHint(const QPolarChart* self, int which, const QSizeF* constraint) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_SizeHint_IsBase(true);
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
         return new QSizeF(vqpolarchart->sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QPolarChart::sizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnSizeHint(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_SizeHint_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SizeHint_Callback>(slot));
+void QPolarChart_OnSizeHint(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_sizehint_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_UpdateGeometry(QPolarChart* self) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->updateGeometry();
     } else {
-        ((VirtualQPolarChart*)self)->updateGeometry();
+        qFatal("Error: Protected virtual method QPolarChart::updateGeometry called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperUpdateGeometry(QPolarChart* self) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_UpdateGeometry_IsBase(true);
-        vqpolarchart->updateGeometry();
-    } else {
-        ((VirtualQPolarChart*)self)->updateGeometry();
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::updateGeometry();
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::updateGeometry called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnUpdateGeometry(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_UpdateGeometry_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_UpdateGeometry_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_updategeometry_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_UpdateGeometry_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QPolarChart_ItemChange(QPolarChart* self, int change, const QVariant* value) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return new QVariant(vqpolarchart->itemChange(static_cast<QGraphicsItem::GraphicsItemChange>(change), *value));
-    }
-    return {};
+    return new QVariant((self->*&VirtualQPolarChart::Base::itemChange)(static_cast<QGraphicsItem::GraphicsItemChange>(change), *value));
 }
 
 // Base class handler implementation
 QVariant* QPolarChart_SuperItemChange(QPolarChart* self, int change, const QVariant* value) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_ItemChange_IsBase(true);
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
         return new QVariant(vqpolarchart->itemChange(static_cast<QGraphicsItem::GraphicsItemChange>(change), *value));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QPolarChart::itemChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnItemChange(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_ItemChange_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_ItemChange_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_itemchange_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_ItemChange_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QPolarChart_PropertyChange(QPolarChart* self, const libqt_string propertyName, const QVariant* value) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     QString propertyName_QString = QString::fromUtf8(propertyName.data, propertyName.len);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return new QVariant(vqpolarchart->propertyChange(propertyName_QString, *value));
-    }
-    return {};
+    return new QVariant((self->*&VirtualQPolarChart::Base::propertyChange)(propertyName_QString, *value));
 }
 
 // Base class handler implementation
 QVariant* QPolarChart_SuperPropertyChange(QPolarChart* self, const libqt_string propertyName, const QVariant* value) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     QString propertyName_QString = QString::fromUtf8(propertyName.data, propertyName.len);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_PropertyChange_IsBase(true);
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
         return new QVariant(vqpolarchart->propertyChange(propertyName_QString, *value));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QPolarChart::propertyChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnPropertyChange(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_PropertyChange_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_PropertyChange_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_propertychange_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_PropertyChange_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPolarChart_SceneEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         return vqpolarchart->sceneEvent(event);
     } else {
-        return ((VirtualQPolarChart*)self)->sceneEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::sceneEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPolarChart_SuperSceneEvent(QPolarChart* self, QEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_SceneEvent_IsBase(true);
-        return vqpolarchart->sceneEvent(event);
-    } else {
-        return ((VirtualQPolarChart*)self)->sceneEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        return vqpolarchart->QPolarChart::sceneEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::sceneEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnSceneEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_SceneEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SceneEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_sceneevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_SceneEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPolarChart_WindowFrameEvent(QPolarChart* self, QEvent* e) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         return vqpolarchart->windowFrameEvent(e);
     } else {
-        return ((VirtualQPolarChart*)self)->windowFrameEvent(e);
+        qFatal("Error: Protected virtual method QPolarChart::windowFrameEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPolarChart_SuperWindowFrameEvent(QPolarChart* self, QEvent* e) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_WindowFrameEvent_IsBase(true);
-        return vqpolarchart->windowFrameEvent(e);
-    } else {
-        return ((VirtualQPolarChart*)self)->windowFrameEvent(e);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        return vqpolarchart->QPolarChart::windowFrameEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::windowFrameEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnWindowFrameEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_WindowFrameEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_WindowFrameEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_windowframeevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_WindowFrameEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPolarChart_WindowFrameSectionAt(const QPolarChart* self, const QPointF* pos) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         return static_cast<int>(vqpolarchart->windowFrameSectionAt(*pos));
     } else {
-        return static_cast<int>(((VirtualQPolarChart*)self)->windowFrameSectionAt(*pos));
+        qFatal("Error: Protected virtual method QPolarChart::windowFrameSectionAt called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QPolarChart_SuperWindowFrameSectionAt(const QPolarChart* self, const QPointF* pos) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_WindowFrameSectionAt_IsBase(true);
-        return static_cast<int>(vqpolarchart->windowFrameSectionAt(*pos));
-    } else {
-        return static_cast<int>(((VirtualQPolarChart*)self)->windowFrameSectionAt(*pos));
-    }
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self))) {
+        return static_cast<int>(vqpolarchart->QPolarChart::windowFrameSectionAt(*pos));
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::windowFrameSectionAt called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnWindowFrameSectionAt(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_WindowFrameSectionAt_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_WindowFrameSectionAt_Callback>(slot));
+void QPolarChart_OnWindowFrameSectionAt(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_windowframesectionat_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_WindowFrameSectionAt_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPolarChart_Event(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         return vqpolarchart->event(event);
     } else {
-        return ((VirtualQPolarChart*)self)->event(event);
+        qFatal("Error: Protected virtual method QPolarChart::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPolarChart_SuperEvent(QPolarChart* self, QEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_Event_IsBase(true);
-        return vqpolarchart->event(event);
-    } else {
-        return ((VirtualQPolarChart*)self)->event(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        return vqpolarchart->QPolarChart::event(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_Event_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Event_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_event_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_ChangeEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->changeEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->changeEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperChangeEvent(QPolarChart* self, QEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_ChangeEvent_IsBase(true);
-        vqpolarchart->changeEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->changeEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::changeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnChangeEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_ChangeEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_ChangeEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_changeevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_CloseEvent(QPolarChart* self, QCloseEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->closeEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperCloseEvent(QPolarChart* self, QCloseEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_CloseEvent_IsBase(true);
-        vqpolarchart->closeEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->closeEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnCloseEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_CloseEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_CloseEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_closeevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_FocusInEvent(QPolarChart* self, QFocusEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->focusInEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperFocusInEvent(QPolarChart* self, QFocusEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_FocusInEvent_IsBase(true);
-        vqpolarchart->focusInEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->focusInEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnFocusInEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_FocusInEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_FocusInEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_focusinevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPolarChart_FocusNextPrevChild(QPolarChart* self, bool next) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         return vqpolarchart->focusNextPrevChild(next);
     } else {
-        return ((VirtualQPolarChart*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QPolarChart::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPolarChart_SuperFocusNextPrevChild(QPolarChart* self, bool next) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_FocusNextPrevChild_IsBase(true);
-        return vqpolarchart->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQPolarChart*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        return vqpolarchart->QPolarChart::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnFocusNextPrevChild(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_focusnextprevchild_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_FocusOutEvent(QPolarChart* self, QFocusEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->focusOutEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperFocusOutEvent(QPolarChart* self, QFocusEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_FocusOutEvent_IsBase(true);
-        vqpolarchart->focusOutEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->focusOutEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnFocusOutEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_FocusOutEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_FocusOutEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_focusoutevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_HideEvent(QPolarChart* self, QHideEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->hideEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperHideEvent(QPolarChart* self, QHideEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_HideEvent_IsBase(true);
-        vqpolarchart->hideEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->hideEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnHideEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_HideEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_HideEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_hideevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_MoveEvent(QPolarChart* self, QGraphicsSceneMoveEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->moveEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperMoveEvent(QPolarChart* self, QGraphicsSceneMoveEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_MoveEvent_IsBase(true);
-        vqpolarchart->moveEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->moveEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMoveEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_MoveEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_MoveEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_moveevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_PolishEvent(QPolarChart* self) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->polishEvent();
     } else {
-        ((VirtualQPolarChart*)self)->polishEvent();
+        qFatal("Error: Protected virtual method QPolarChart::polishEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperPolishEvent(QPolarChart* self) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_PolishEvent_IsBase(true);
-        vqpolarchart->polishEvent();
-    } else {
-        ((VirtualQPolarChart*)self)->polishEvent();
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::polishEvent();
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::polishEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnPolishEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_PolishEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_PolishEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_polishevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_PolishEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_ResizeEvent(QPolarChart* self, QGraphicsSceneResizeEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->resizeEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperResizeEvent(QPolarChart* self, QGraphicsSceneResizeEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_ResizeEvent_IsBase(true);
-        vqpolarchart->resizeEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->resizeEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnResizeEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_ResizeEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_ResizeEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_resizeevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_ShowEvent(QPolarChart* self, QShowEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->showEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperShowEvent(QPolarChart* self, QShowEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_ShowEvent_IsBase(true);
-        vqpolarchart->showEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->showEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnShowEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_ShowEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_ShowEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_showevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_HoverMoveEvent(QPolarChart* self, QGraphicsSceneHoverEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->hoverMoveEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->hoverMoveEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::hoverMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperHoverMoveEvent(QPolarChart* self, QGraphicsSceneHoverEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_HoverMoveEvent_IsBase(true);
-        vqpolarchart->hoverMoveEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->hoverMoveEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::hoverMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::hoverMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnHoverMoveEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_HoverMoveEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_HoverMoveEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_hovermoveevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_HoverMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_HoverLeaveEvent(QPolarChart* self, QGraphicsSceneHoverEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->hoverLeaveEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->hoverLeaveEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::hoverLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperHoverLeaveEvent(QPolarChart* self, QGraphicsSceneHoverEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_HoverLeaveEvent_IsBase(true);
-        vqpolarchart->hoverLeaveEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->hoverLeaveEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::hoverLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::hoverLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnHoverLeaveEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_HoverLeaveEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_HoverLeaveEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_hoverleaveevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_HoverLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_GrabMouseEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->grabMouseEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->grabMouseEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::grabMouseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperGrabMouseEvent(QPolarChart* self, QEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_GrabMouseEvent_IsBase(true);
-        vqpolarchart->grabMouseEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->grabMouseEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::grabMouseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::grabMouseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnGrabMouseEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_GrabMouseEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_GrabMouseEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_grabmouseevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_GrabMouseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_UngrabMouseEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->ungrabMouseEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->ungrabMouseEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::ungrabMouseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperUngrabMouseEvent(QPolarChart* self, QEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_UngrabMouseEvent_IsBase(true);
-        vqpolarchart->ungrabMouseEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->ungrabMouseEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::ungrabMouseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::ungrabMouseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnUngrabMouseEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_UngrabMouseEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_UngrabMouseEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_ungrabmouseevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_UngrabMouseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_GrabKeyboardEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->grabKeyboardEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->grabKeyboardEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::grabKeyboardEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperGrabKeyboardEvent(QPolarChart* self, QEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_GrabKeyboardEvent_IsBase(true);
-        vqpolarchart->grabKeyboardEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->grabKeyboardEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::grabKeyboardEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::grabKeyboardEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnGrabKeyboardEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_GrabKeyboardEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_GrabKeyboardEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_grabkeyboardevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_GrabKeyboardEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_UngrabKeyboardEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->ungrabKeyboardEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->ungrabKeyboardEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::ungrabKeyboardEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperUngrabKeyboardEvent(QPolarChart* self, QEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_UngrabKeyboardEvent_IsBase(true);
-        vqpolarchart->ungrabKeyboardEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->ungrabKeyboardEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::ungrabKeyboardEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::ungrabKeyboardEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnUngrabKeyboardEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_UngrabKeyboardEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_UngrabKeyboardEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_ungrabkeyboardevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_UngrabKeyboardEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPolarChart_EventFilter(QPolarChart* self, QObject* watched, QEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return vqpolarchart->eventFilter(watched, event);
-    } else {
-        return self->QPolarChart::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QPolarChart_SuperEventFilter(QPolarChart* self, QObject* watched, QEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_EventFilter_IsBase(true);
-        return vqpolarchart->eventFilter(watched, event);
-    } else {
-        return self->QPolarChart::eventFilter(watched, event);
-    }
+    return self->QPolarChart::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnEventFilter(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_EventFilter_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_EventFilter_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_eventfilter_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_TimerEvent(QPolarChart* self, QTimerEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->timerEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperTimerEvent(QPolarChart* self, QTimerEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_TimerEvent_IsBase(true);
-        vqpolarchart->timerEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->timerEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnTimerEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_TimerEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_TimerEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_timerevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_ChildEvent(QPolarChart* self, QChildEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->childEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperChildEvent(QPolarChart* self, QChildEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_ChildEvent_IsBase(true);
-        vqpolarchart->childEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->childEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnChildEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_ChildEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_ChildEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_childevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_CustomEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->customEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperCustomEvent(QPolarChart* self, QEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_CustomEvent_IsBase(true);
-        vqpolarchart->customEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->customEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnCustomEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_CustomEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_CustomEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_customevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_ConnectNotify(QPolarChart* self, const QMetaMethod* signal) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->connectNotify(*signal);
     } else {
-        ((VirtualQPolarChart*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPolarChart::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperConnectNotify(QPolarChart* self, const QMetaMethod* signal) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_ConnectNotify_IsBase(true);
-        vqpolarchart->connectNotify(*signal);
-    } else {
-        ((VirtualQPolarChart*)self)->connectNotify(*signal);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnConnectNotify(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_ConnectNotify_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_ConnectNotify_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_connectnotify_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_DisconnectNotify(QPolarChart* self, const QMetaMethod* signal) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->disconnectNotify(*signal);
     } else {
-        ((VirtualQPolarChart*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPolarChart::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperDisconnectNotify(QPolarChart* self, const QMetaMethod* signal) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_DisconnectNotify_IsBase(true);
-        vqpolarchart->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPolarChart*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnDisconnectNotify(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_DisconnectNotify_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_DisconnectNotify_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_disconnectnotify_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_Advance(QPolarChart* self, int phase) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->advance(static_cast<int>(phase));
-    } else {
-        self->QPolarChart::advance(static_cast<int>(phase));
-    }
+    self->advance(static_cast<int>(phase));
 }
 
 // Base class handler implementation
 void QPolarChart_SuperAdvance(QPolarChart* self, int phase) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_Advance_IsBase(true);
-        vqpolarchart->advance(static_cast<int>(phase));
-    } else {
-        self->QPolarChart::advance(static_cast<int>(phase));
-    }
+    self->QPolarChart::advance(static_cast<int>(phase));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnAdvance(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_Advance_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Advance_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_advance_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_Advance_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPolarChart_Contains(const QPolarChart* self, const QPointF* point) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return vqpolarchart->contains(*point);
-    } else {
-        return self->QPolarChart::contains(*point);
-    }
+    return self->contains(*point);
 }
 
 // Base class handler implementation
 bool QPolarChart_SuperContains(const QPolarChart* self, const QPointF* point) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_Contains_IsBase(true);
-        return vqpolarchart->contains(*point);
-    } else {
-        return self->QPolarChart::contains(*point);
-    }
+    return self->QPolarChart::contains(*point);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnContains(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_Contains_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Contains_Callback>(slot));
+void QPolarChart_OnContains(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_contains_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_Contains_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPolarChart_CollidesWithItem(const QPolarChart* self, const QGraphicsItem* other, int mode) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return vqpolarchart->collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
-    } else {
-        return self->QPolarChart::collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
-    }
+    return self->collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
 }
 
 // Base class handler implementation
 bool QPolarChart_SuperCollidesWithItem(const QPolarChart* self, const QGraphicsItem* other, int mode) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_CollidesWithItem_IsBase(true);
-        return vqpolarchart->collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
-    } else {
-        return self->QPolarChart::collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
-    }
+    return self->QPolarChart::collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnCollidesWithItem(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_CollidesWithItem_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_CollidesWithItem_Callback>(slot));
+void QPolarChart_OnCollidesWithItem(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_collideswithitem_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_CollidesWithItem_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPolarChart_CollidesWithPath(const QPolarChart* self, const QPainterPath* path, int mode) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return vqpolarchart->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
-    } else {
-        return self->QPolarChart::collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
-    }
+    return self->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
 }
 
 // Base class handler implementation
 bool QPolarChart_SuperCollidesWithPath(const QPolarChart* self, const QPainterPath* path, int mode) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_CollidesWithPath_IsBase(true);
-        return vqpolarchart->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
-    } else {
-        return self->QPolarChart::collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
-    }
+    return self->QPolarChart::collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnCollidesWithPath(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_CollidesWithPath_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_CollidesWithPath_Callback>(slot));
+void QPolarChart_OnCollidesWithPath(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_collideswithpath_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_CollidesWithPath_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPolarChart_IsObscuredBy(const QPolarChart* self, const QGraphicsItem* item) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return vqpolarchart->isObscuredBy(item);
-    } else {
-        return self->QPolarChart::isObscuredBy(item);
-    }
+    return self->isObscuredBy(item);
 }
 
 // Base class handler implementation
 bool QPolarChart_SuperIsObscuredBy(const QPolarChart* self, const QGraphicsItem* item) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_IsObscuredBy_IsBase(true);
-        return vqpolarchart->isObscuredBy(item);
-    } else {
-        return self->QPolarChart::isObscuredBy(item);
-    }
+    return self->QPolarChart::isObscuredBy(item);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnIsObscuredBy(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_IsObscuredBy_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_IsObscuredBy_Callback>(slot));
+void QPolarChart_OnIsObscuredBy(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_isobscuredby_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_IsObscuredBy_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainterPath* QPolarChart_OpaqueArea(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return new QPainterPath(vqpolarchart->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQPolarChart*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->opaqueArea());
 }
 
 // Base class handler implementation
 QPainterPath* QPolarChart_SuperOpaqueArea(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_OpaqueArea_IsBase(true);
-        return new QPainterPath(vqpolarchart->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQPolarChart*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->QPolarChart::opaqueArea());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnOpaqueArea(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_OpaqueArea_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_OpaqueArea_Callback>(slot));
+void QPolarChart_OnOpaqueArea(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_opaquearea_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_OpaqueArea_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPolarChart_SceneEventFilter(QPolarChart* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         return vqpolarchart->sceneEventFilter(watched, event);
     } else {
-        return ((VirtualQPolarChart*)self)->sceneEventFilter(watched, event);
+        qFatal("Error: Protected virtual method QPolarChart::sceneEventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPolarChart_SuperSceneEventFilter(QPolarChart* self, QGraphicsItem* watched, QEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_SceneEventFilter_IsBase(true);
-        return vqpolarchart->sceneEventFilter(watched, event);
-    } else {
-        return ((VirtualQPolarChart*)self)->sceneEventFilter(watched, event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        return vqpolarchart->QPolarChart::sceneEventFilter(watched, event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::sceneEventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnSceneEventFilter(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_SceneEventFilter_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SceneEventFilter_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_sceneeventfilter_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_SceneEventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_ContextMenuEvent(QPolarChart* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->contextMenuEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperContextMenuEvent(QPolarChart* self, QGraphicsSceneContextMenuEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_ContextMenuEvent_IsBase(true);
-        vqpolarchart->contextMenuEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnContextMenuEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_ContextMenuEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_ContextMenuEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_contextmenuevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_DragEnterEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->dragEnterEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperDragEnterEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_DragEnterEvent_IsBase(true);
-        vqpolarchart->dragEnterEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnDragEnterEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_DragEnterEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_DragEnterEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_dragenterevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_DragLeaveEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->dragLeaveEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperDragLeaveEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_DragLeaveEvent_IsBase(true);
-        vqpolarchart->dragLeaveEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnDragLeaveEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_DragLeaveEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_DragLeaveEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_dragleaveevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_DragMoveEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->dragMoveEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperDragMoveEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_DragMoveEvent_IsBase(true);
-        vqpolarchart->dragMoveEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnDragMoveEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_DragMoveEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_DragMoveEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_dragmoveevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_DropEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->dropEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperDropEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_DropEvent_IsBase(true);
-        vqpolarchart->dropEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->dropEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnDropEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_DropEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_DropEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_dropevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_HoverEnterEvent(QPolarChart* self, QGraphicsSceneHoverEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->hoverEnterEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->hoverEnterEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::hoverEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperHoverEnterEvent(QPolarChart* self, QGraphicsSceneHoverEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_HoverEnterEvent_IsBase(true);
-        vqpolarchart->hoverEnterEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->hoverEnterEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::hoverEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::hoverEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnHoverEnterEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_HoverEnterEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_HoverEnterEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_hoverenterevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_HoverEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_KeyPressEvent(QPolarChart* self, QKeyEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->keyPressEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperKeyPressEvent(QPolarChart* self, QKeyEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_KeyPressEvent_IsBase(true);
-        vqpolarchart->keyPressEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->keyPressEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnKeyPressEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_KeyPressEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_KeyPressEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_keypressevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_KeyReleaseEvent(QPolarChart* self, QKeyEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->keyReleaseEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperKeyReleaseEvent(QPolarChart* self, QKeyEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_KeyReleaseEvent_IsBase(true);
-        vqpolarchart->keyReleaseEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnKeyReleaseEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_keyreleaseevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_MousePressEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->mousePressEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperMousePressEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_MousePressEvent_IsBase(true);
-        vqpolarchart->mousePressEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->mousePressEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMousePressEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_MousePressEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_MousePressEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_mousepressevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_MouseMoveEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->mouseMoveEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperMouseMoveEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_MouseMoveEvent_IsBase(true);
-        vqpolarchart->mouseMoveEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMouseMoveEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_MouseMoveEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_MouseMoveEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_mousemoveevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_MouseReleaseEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->mouseReleaseEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperMouseReleaseEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_MouseReleaseEvent_IsBase(true);
-        vqpolarchart->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMouseReleaseEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_mousereleaseevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_MouseDoubleClickEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperMouseDoubleClickEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_MouseDoubleClickEvent_IsBase(true);
-        vqpolarchart->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMouseDoubleClickEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_mousedoubleclickevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_WheelEvent(QPolarChart* self, QGraphicsSceneWheelEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->wheelEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperWheelEvent(QPolarChart* self, QGraphicsSceneWheelEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_WheelEvent_IsBase(true);
-        vqpolarchart->wheelEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->wheelEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnWheelEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_WheelEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_WheelEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_wheelevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_InputMethodEvent(QPolarChart* self, QInputMethodEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->inputMethodEvent(event);
     } else {
-        ((VirtualQPolarChart*)self)->inputMethodEvent(event);
+        qFatal("Error: Protected virtual method QPolarChart::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperInputMethodEvent(QPolarChart* self, QInputMethodEvent* event) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_InputMethodEvent_IsBase(true);
-        vqpolarchart->inputMethodEvent(event);
-    } else {
-        ((VirtualQPolarChart*)self)->inputMethodEvent(event);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::inputMethodEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnInputMethodEvent(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_InputMethodEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_InputMethodEvent_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_inputmethodevent_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QPolarChart_InputMethodQuery(const QPolarChart* self, int query) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return new QVariant(vqpolarchart->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
-    return {};
+    return new QVariant((self->*&VirtualQPolarChart::Base::inputMethodQuery)(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Base class handler implementation
 QVariant* QPolarChart_SuperInputMethodQuery(const QPolarChart* self, int query) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_InputMethodQuery_IsBase(true);
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
         return new QVariant(vqpolarchart->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QPolarChart::inputMethodQuery called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnInputMethodQuery(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_InputMethodQuery_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_InputMethodQuery_Callback>(slot));
+void QPolarChart_OnInputMethodQuery(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_inputmethodquery_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPolarChart_SupportsExtension(const QPolarChart* self, int extension) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         return vqpolarchart->supportsExtension(static_cast<VirtualQPolarChart::Extension>(extension));
     } else {
-        return ((VirtualQPolarChart*)self)->supportsExtension(static_cast<VirtualQPolarChart::Extension>(extension));
+        qFatal("Error: Protected virtual method QPolarChart::supportsExtension called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPolarChart_SuperSupportsExtension(const QPolarChart* self, int extension) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_SupportsExtension_IsBase(true);
-        return vqpolarchart->supportsExtension(static_cast<VirtualQPolarChart::Extension>(extension));
-    } else {
-        return ((VirtualQPolarChart*)self)->supportsExtension(static_cast<VirtualQPolarChart::Extension>(extension));
-    }
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self))) {
+        return vqpolarchart->QPolarChart::supportsExtension(static_cast<VirtualQPolarChart::Extension>(extension));
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::supportsExtension called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnSupportsExtension(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_SupportsExtension_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SupportsExtension_Callback>(slot));
+void QPolarChart_OnSupportsExtension(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_supportsextension_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_SupportsExtension_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPolarChart_SetExtension(QPolarChart* self, int extension, const QVariant* variant) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart) {
         vqpolarchart->setExtension(static_cast<VirtualQPolarChart::Extension>(extension), *variant);
     } else {
-        ((VirtualQPolarChart*)self)->setExtension(static_cast<VirtualQPolarChart::Extension>(extension), *variant);
+        qFatal("Error: Protected virtual method QPolarChart::setExtension called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPolarChart_SuperSetExtension(QPolarChart* self, int extension, const QVariant* variant) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_SetExtension_IsBase(true);
-        vqpolarchart->setExtension(static_cast<VirtualQPolarChart::Extension>(extension), *variant);
-    } else {
-        ((VirtualQPolarChart*)self)->setExtension(static_cast<VirtualQPolarChart::Extension>(extension), *variant);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->QPolarChart::setExtension(static_cast<VirtualQPolarChart::Extension>(extension), *variant);
+    } else
+        qFatal("Error: Protected virtual method QPolarChart::setExtension called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnSetExtension(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_SetExtension_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SetExtension_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self))
+        vqpolarchart->qpolarchart_setextension_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_SetExtension_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QPolarChart_Extension(const QPolarChart* self, const QVariant* variant) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return new QVariant(vqpolarchart->extension(*variant));
-    }
-    return {};
+    return new QVariant((self->*&VirtualQPolarChart::Base::extension)(*variant));
 }
 
 // Base class handler implementation
 QVariant* QPolarChart_SuperExtension(const QPolarChart* self, const QVariant* variant) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_Extension_IsBase(true);
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
         return new QVariant(vqpolarchart->extension(*variant));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QPolarChart::extension called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnExtension(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_Extension_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Extension_Callback>(slot));
+void QPolarChart_OnExtension(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_extension_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_Extension_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPolarChart_IsEmpty(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return vqpolarchart->isEmpty();
-    } else {
-        return self->QPolarChart::isEmpty();
-    }
+    return self->isEmpty();
 }
 
 // Base class handler implementation
 bool QPolarChart_SuperIsEmpty(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_IsEmpty_IsBase(true);
-        return vqpolarchart->isEmpty();
-    } else {
-        return self->QPolarChart::isEmpty();
-    }
+    return self->QPolarChart::isEmpty();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPolarChart_OnIsEmpty(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_IsEmpty_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_IsEmpty_Callback>(slot));
+void QPolarChart_OnIsEmpty(QPolarChart* self, intptr_t slot) {
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self)))
+        vqpolarchart->qpolarchart_isempty_callback = reinterpret_cast<VirtualQPolarChart::QPolarChart_IsEmpty_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPolarChart_UpdateMicroFocus(QPolarChart* self) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->updateMicroFocus();
-    } else {
-        ((VirtualQPolarChart*)self)->updateMicroFocus();
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->VirtualQPolarChart::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QPolarChart::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPolarChart_SuperUpdateMicroFocus(QPolarChart* self) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_UpdateMicroFocus_IsBase(true);
-        vqpolarchart->updateMicroFocus();
-    } else {
-        ((VirtualQPolarChart*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPolarChart_OnUpdateMicroFocus(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPolarChart_Sender(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return vqpolarchart->sender();
-    } else {
-        return ((VirtualQPolarChart*)self)->sender();
-    }
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self))) {
+        return vqpolarchart->VirtualQPolarChart::sender();
+    } else
+        qFatal("Error: Protected method QPolarChart::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPolarChart_SuperSender(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_Sender_IsBase(true);
-        return vqpolarchart->sender();
-    } else {
-        return ((VirtualQPolarChart*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPolarChart_OnSender(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_Sender_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPolarChart_SenderSignalIndex(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return vqpolarchart->senderSignalIndex();
-    } else {
-        return ((VirtualQPolarChart*)self)->senderSignalIndex();
-    }
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self))) {
+        return vqpolarchart->VirtualQPolarChart::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPolarChart::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPolarChart_SuperSenderSignalIndex(const QPolarChart* self) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_SenderSignalIndex_IsBase(true);
-        return vqpolarchart->senderSignalIndex();
-    } else {
-        return ((VirtualQPolarChart*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPolarChart_OnSenderSignalIndex(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPolarChart_Receivers(const QPolarChart* self, const char* signal) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return vqpolarchart->receivers(signal);
-    } else {
-        return ((VirtualQPolarChart*)self)->receivers(signal);
-    }
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self))) {
+        return vqpolarchart->VirtualQPolarChart::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPolarChart::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPolarChart_SuperReceivers(const QPolarChart* self, const char* signal) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_Receivers_IsBase(true);
-        return vqpolarchart->receivers(signal);
-    } else {
-        return ((VirtualQPolarChart*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPolarChart_OnReceivers(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_Receivers_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPolarChart_IsSignalConnected(const QPolarChart* self, const QMetaMethod* signal) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return vqpolarchart->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPolarChart*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self))) {
+        return vqpolarchart->VirtualQPolarChart::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPolarChart::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPolarChart_SuperIsSignalConnected(const QPolarChart* self, const QMetaMethod* signal) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_IsSignalConnected_IsBase(true);
-        return vqpolarchart->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPolarChart*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPolarChart_OnIsSignalConnected(const QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_IsSignalConnected_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPolarChart_AddToIndex(QPolarChart* self) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->addToIndex();
-    } else {
-        ((VirtualQPolarChart*)self)->addToIndex();
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->VirtualQPolarChart::addToIndex();
+    } else
+        qFatal("Error: Protected method QPolarChart::addToIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPolarChart_SuperAddToIndex(QPolarChart* self) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_AddToIndex_IsBase(true);
-        vqpolarchart->addToIndex();
-    } else {
-        ((VirtualQPolarChart*)self)->addToIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPolarChart_OnAddToIndex(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_AddToIndex_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_AddToIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPolarChart_RemoveFromIndex(QPolarChart* self) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->removeFromIndex();
-    } else {
-        ((VirtualQPolarChart*)self)->removeFromIndex();
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->VirtualQPolarChart::removeFromIndex();
+    } else
+        qFatal("Error: Protected method QPolarChart::removeFromIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPolarChart_SuperRemoveFromIndex(QPolarChart* self) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_RemoveFromIndex_IsBase(true);
-        vqpolarchart->removeFromIndex();
-    } else {
-        ((VirtualQPolarChart*)self)->removeFromIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPolarChart_OnRemoveFromIndex(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_RemoveFromIndex_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_RemoveFromIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPolarChart_PrepareGeometryChange(QPolarChart* self) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->prepareGeometryChange();
-    } else {
-        ((VirtualQPolarChart*)self)->prepareGeometryChange();
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->VirtualQPolarChart::prepareGeometryChange();
+    } else
+        qFatal("Error: Protected method QPolarChart::prepareGeometryChange called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPolarChart_SuperPrepareGeometryChange(QPolarChart* self) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_PrepareGeometryChange_IsBase(true);
-        vqpolarchart->prepareGeometryChange();
-    } else {
-        ((VirtualQPolarChart*)self)->prepareGeometryChange();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPolarChart_OnPrepareGeometryChange(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_PrepareGeometryChange_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_PrepareGeometryChange_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPolarChart_SetGraphicsItem(QPolarChart* self, QGraphicsItem* item) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setGraphicsItem(item);
-    } else {
-        ((VirtualQPolarChart*)self)->setGraphicsItem(item);
-    }
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->VirtualQPolarChart::setGraphicsItem(item);
+    } else
+        qFatal("Error: Protected method QPolarChart::setGraphicsItem called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPolarChart_SuperSetGraphicsItem(QPolarChart* self, QGraphicsItem* item) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_SetGraphicsItem_IsBase(true);
-        vqpolarchart->setGraphicsItem(item);
-    } else {
-        ((VirtualQPolarChart*)self)->setGraphicsItem(item);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPolarChart_OnSetGraphicsItem(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_SetGraphicsItem_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SetGraphicsItem_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPolarChart_SetOwnedByLayout(QPolarChart* self, bool ownedByLayout) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setOwnedByLayout(ownedByLayout);
-    } else {
-        ((VirtualQPolarChart*)self)->setOwnedByLayout(ownedByLayout);
-    }
-}
-
-// Base class handler implementation
-void QPolarChart_SuperSetOwnedByLayout(QPolarChart* self, bool ownedByLayout) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        vqpolarchart->setQPolarChart_SetOwnedByLayout_IsBase(true);
-        vqpolarchart->setOwnedByLayout(ownedByLayout);
-    } else {
-        ((VirtualQPolarChart*)self)->setOwnedByLayout(ownedByLayout);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPolarChart_OnSetOwnedByLayout(QPolarChart* self, intptr_t slot) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
-        vqpolarchart->setQPolarChart_SetOwnedByLayout_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SetOwnedByLayout_Callback>(slot));
+    if (auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self)) {
+        vqpolarchart->VirtualQPolarChart::setOwnedByLayout(ownedByLayout);
+    } else
+        qFatal("Error: Protected method QPolarChart::setOwnedByLayout called without a directly constructed type");
 }
 
 void QPolarChart_Delete(QPolarChart* self) {

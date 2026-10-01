@@ -33,6 +33,8 @@ pub const QSGMaterial = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgmaterial.html#type)
     ///
+    /// This method must be implemented with `onType` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGMaterial `
@@ -53,26 +55,10 @@ pub const QSGMaterial = extern struct {
     ///
     /// ` self: QSGMaterial `
     ///
-    /// ` callback: *const fn () callconv(.c) QSGMaterialType `
+    /// ` callback: *const fn (self: QSGMaterial) callconv(.c) QSGMaterialType `
     ///
-    pub fn onType(self: QSGMaterial, callback: *const fn () callconv(.c) QSGMaterialType) void {
+    pub fn onType(self: QSGMaterial, callback: *const fn (QSGMaterial) callconv(.c) QSGMaterialType) void {
         qtc.QSGMaterial_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superType` instead
-    ///
-    pub const SuperType = superType;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgmaterial.html#type)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGMaterial `
-    ///
-    pub fn superType(self: QSGMaterial) QSGMaterialType {
-        return .{ .ptr = qtc.QSGMaterial_SuperType(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `createShader` instead
@@ -80,6 +66,8 @@ pub const QSGMaterial = extern struct {
     pub const CreateShader = createShader;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgmaterial.html#createShader)
+    ///
+    /// This method must be implemented with `onCreateShader` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -107,24 +95,6 @@ pub const QSGMaterial = extern struct {
     ///
     pub fn onCreateShader(self: QSGMaterial, callback: *const fn (QSGMaterial, i32) callconv(.c) QSGMaterialShader) void {
         qtc.QSGMaterial_OnCreateShader(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreateShader` instead
-    ///
-    pub const SuperCreateShader = superCreateShader;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgmaterial.html#createShader)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGMaterial `
-    ///
-    /// ` renderMode: qsgrendererinterface_enums.RenderMode `
-    ///
-    pub fn superCreateShader(self: QSGMaterial, renderMode: i32) QSGMaterialShader {
-        return .{ .ptr = qtc.QSGMaterial_SuperCreateShader(@ptrCast(self.ptr), @bitCast(renderMode)) };
     }
 
     /// ### DEPRECATED: Use `compare` instead

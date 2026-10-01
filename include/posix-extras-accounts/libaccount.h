@@ -56,7 +56,7 @@ void Accounts__Watch_Notify(Accounts__Watch* self, const char* key);
 void Accounts__Watch_Connect_Notify(Accounts__Watch* self, intptr_t slot);
 libqt_string Accounts__Watch_Tr2(const char* s, const char* c);
 libqt_string Accounts__Watch_Tr3(const char* s, const char* c, int n);
-void Accounts__Watch_OnMetaObject(const Accounts__Watch* self, intptr_t slot);
+void Accounts__Watch_OnMetaObject(Accounts__Watch* self, intptr_t slot);
 QMetaObject* Accounts__Watch_SuperMetaObject(const Accounts__Watch* self);
 void Accounts__Watch_OnMetacast(Accounts__Watch* self, intptr_t slot);
 void* Accounts__Watch_SuperMetacast(Accounts__Watch* self, const char* param1);
@@ -84,17 +84,9 @@ void Accounts__Watch_DisconnectNotify(Accounts__Watch* self, const QMetaMethod* 
 void Accounts__Watch_OnDisconnectNotify(Accounts__Watch* self, intptr_t slot);
 void Accounts__Watch_SuperDisconnectNotify(Accounts__Watch* self, const QMetaMethod* signal);
 QObject* Accounts__Watch_Sender(const Accounts__Watch* self);
-void Accounts__Watch_OnSender(const Accounts__Watch* self, intptr_t slot);
-QObject* Accounts__Watch_SuperSender(const Accounts__Watch* self);
 int Accounts__Watch_SenderSignalIndex(const Accounts__Watch* self);
-void Accounts__Watch_OnSenderSignalIndex(const Accounts__Watch* self, intptr_t slot);
-int Accounts__Watch_SuperSenderSignalIndex(const Accounts__Watch* self);
 int Accounts__Watch_Receivers(const Accounts__Watch* self, const char* signal);
-void Accounts__Watch_OnReceivers(const Accounts__Watch* self, intptr_t slot);
-int Accounts__Watch_SuperReceivers(const Accounts__Watch* self, const char* signal);
 bool Accounts__Watch_IsSignalConnected(const Accounts__Watch* self, const QMetaMethod* signal);
-void Accounts__Watch_OnIsSignalConnected(const Accounts__Watch* self, intptr_t slot);
-bool Accounts__Watch_SuperIsSignalConnected(const Accounts__Watch* self, const QMetaMethod* signal);
 void Accounts__Watch_Delete(Accounts__Watch* self);
 
 Accounts__Account* Accounts__Account_new(Accounts__Manager* manager, const libqt_string provider);
@@ -170,7 +162,7 @@ unsigned long long Accounts__Account_ValueAsUInt643(const Accounts__Account* sel
 bool Accounts__Account_ValueAsBool2(const Accounts__Account* self, const libqt_string key, bool default_value);
 bool Accounts__Account_ValueAsBool3(const Accounts__Account* self, const libqt_string key, bool default_value, int* source);
 Accounts__Watch* Accounts__Account_WatchKey1(Accounts__Account* self, const libqt_string key);
-void Accounts__Account_OnMetaObject(const Accounts__Account* self, intptr_t slot);
+void Accounts__Account_OnMetaObject(Accounts__Account* self, intptr_t slot);
 QMetaObject* Accounts__Account_SuperMetaObject(const Accounts__Account* self);
 void Accounts__Account_OnMetacast(Accounts__Account* self, intptr_t slot);
 void* Accounts__Account_SuperMetacast(Accounts__Account* self, const char* param1);
@@ -198,17 +190,9 @@ void Accounts__Account_DisconnectNotify(Accounts__Account* self, const QMetaMeth
 void Accounts__Account_OnDisconnectNotify(Accounts__Account* self, intptr_t slot);
 void Accounts__Account_SuperDisconnectNotify(Accounts__Account* self, const QMetaMethod* signal);
 QObject* Accounts__Account_Sender(const Accounts__Account* self);
-void Accounts__Account_OnSender(const Accounts__Account* self, intptr_t slot);
-QObject* Accounts__Account_SuperSender(const Accounts__Account* self);
 int Accounts__Account_SenderSignalIndex(const Accounts__Account* self);
-void Accounts__Account_OnSenderSignalIndex(const Accounts__Account* self, intptr_t slot);
-int Accounts__Account_SuperSenderSignalIndex(const Accounts__Account* self);
 int Accounts__Account_Receivers(const Accounts__Account* self, const char* signal);
-void Accounts__Account_OnReceivers(const Accounts__Account* self, intptr_t slot);
-int Accounts__Account_SuperReceivers(const Accounts__Account* self, const char* signal);
 bool Accounts__Account_IsSignalConnected(const Accounts__Account* self, const QMetaMethod* signal);
-void Accounts__Account_OnIsSignalConnected(const Accounts__Account* self, intptr_t slot);
-bool Accounts__Account_SuperIsSignalConnected(const Accounts__Account* self, const QMetaMethod* signal);
 void Accounts__Account_Delete(Accounts__Account* self);
 
 #ifdef __cplusplus

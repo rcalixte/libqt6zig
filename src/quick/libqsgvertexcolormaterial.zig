@@ -109,9 +109,9 @@ pub const QSGVertexColorMaterial = extern struct {
     ///
     /// ` self: QSGVertexColorMaterial `
     ///
-    /// ` callback: *const fn () callconv(.c) QSGMaterialType `
+    /// ` callback: *const fn (self: QSGVertexColorMaterial) callconv(.c) QSGMaterialType `
     ///
-    pub fn onType(self: QSGVertexColorMaterial, callback: *const fn () callconv(.c) QSGMaterialType) void {
+    pub fn onType(self: QSGVertexColorMaterial, callback: *const fn (QSGVertexColorMaterial) callconv(.c) QSGMaterialType) void {
         qtc.QSGVertexColorMaterial_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

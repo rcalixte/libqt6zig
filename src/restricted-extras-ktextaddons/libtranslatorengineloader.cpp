@@ -216,364 +216,219 @@ libqt_string TextTranslator__TranslatorEngineLoader_Tr3(const char* s, const cha
 
 // Base class handler implementation
 QMetaObject* TextTranslator__TranslatorEngineLoader_SuperMetaObject(const TextTranslator__TranslatorEngineLoader* self) {
-    auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self));
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_MetaObject_IsBase(true);
-        return (QMetaObject*)vtexttranslatortranslatorengineloader->metaObject();
-    } else {
-        return (QMetaObject*)self->TextTranslator::TranslatorEngineLoader::metaObject();
-    }
+    return (QMetaObject*)self->TextTranslator::TranslatorEngineLoader::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEngineLoader_OnMetaObject(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self));
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader)
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_MetaObject_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_MetaObject_Callback>(slot));
+void TextTranslator__TranslatorEngineLoader_OnMetaObject(TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self)))
+        vtexttranslatortranslatorengineloader->texttranslator__translatorengineloader_metaobject_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextTranslator__TranslatorEngineLoader_SuperMetacast(TextTranslator__TranslatorEngineLoader* self, const char* param1) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_Metacast_IsBase(true);
-        return vtexttranslatortranslatorengineloader->qt_metacast(param1);
-    } else {
-        return self->TextTranslator::TranslatorEngineLoader::qt_metacast(param1);
-    }
+    return self->TextTranslator::TranslatorEngineLoader::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineLoader_OnMetacast(TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader)
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_Metacast_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_Metacast_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self))
+        vtexttranslatortranslatorengineloader->texttranslator__translatorengineloader_metacast_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextTranslator__TranslatorEngineLoader_SuperMetacall(TextTranslator__TranslatorEngineLoader* self, int param1, int param2, void** param3) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_Metacall_IsBase(true);
-        return vtexttranslatortranslatorengineloader->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextTranslator::TranslatorEngineLoader::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextTranslator::TranslatorEngineLoader::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineLoader_OnMetacall(TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader)
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_Metacall_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_Metacall_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self))
+        vtexttranslatortranslatorengineloader->texttranslator__translatorengineloader_metacall_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorEngineLoader_Event(TextTranslator__TranslatorEngineLoader* self, QEvent* event) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        return vtexttranslatortranslatorengineloader->event(event);
-    } else {
-        return self->TextTranslator::TranslatorEngineLoader::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorEngineLoader_SuperEvent(TextTranslator__TranslatorEngineLoader* self, QEvent* event) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_Event_IsBase(true);
-        return vtexttranslatortranslatorengineloader->event(event);
-    } else {
-        return self->TextTranslator::TranslatorEngineLoader::event(event);
-    }
+    return self->TextTranslator::TranslatorEngineLoader::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineLoader_OnEvent(TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader)
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_Event_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_Event_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self))
+        vtexttranslatortranslatorengineloader->texttranslator__translatorengineloader_event_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorEngineLoader_EventFilter(TextTranslator__TranslatorEngineLoader* self, QObject* watched, QEvent* event) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        return vtexttranslatortranslatorengineloader->eventFilter(watched, event);
-    } else {
-        return self->TextTranslator::TranslatorEngineLoader::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorEngineLoader_SuperEventFilter(TextTranslator__TranslatorEngineLoader* self, QObject* watched, QEvent* event) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_EventFilter_IsBase(true);
-        return vtexttranslatortranslatorengineloader->eventFilter(watched, event);
-    } else {
-        return self->TextTranslator::TranslatorEngineLoader::eventFilter(watched, event);
-    }
+    return self->TextTranslator::TranslatorEngineLoader::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineLoader_OnEventFilter(TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader)
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_EventFilter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_EventFilter_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self))
+        vtexttranslatortranslatorengineloader->texttranslator__translatorengineloader_eventfilter_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEngineLoader_TimerEvent(TextTranslator__TranslatorEngineLoader* self, QTimerEvent* event) {
     auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
+    if (vtexttranslatortranslatorengineloader) {
         vtexttranslatortranslatorengineloader->timerEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorEngineLoader*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineLoader::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEngineLoader_SuperTimerEvent(TextTranslator__TranslatorEngineLoader* self, QTimerEvent* event) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_TimerEvent_IsBase(true);
-        vtexttranslatortranslatorengineloader->timerEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorEngineLoader*)self)->timerEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self)) {
+        vtexttranslatortranslatorengineloader->TextTranslator::TranslatorEngineLoader::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineLoader::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineLoader_OnTimerEvent(TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader)
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_TimerEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_TimerEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self))
+        vtexttranslatortranslatorengineloader->texttranslator__translatorengineloader_timerevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEngineLoader_ChildEvent(TextTranslator__TranslatorEngineLoader* self, QChildEvent* event) {
     auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
+    if (vtexttranslatortranslatorengineloader) {
         vtexttranslatortranslatorengineloader->childEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorEngineLoader*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineLoader::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEngineLoader_SuperChildEvent(TextTranslator__TranslatorEngineLoader* self, QChildEvent* event) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_ChildEvent_IsBase(true);
-        vtexttranslatortranslatorengineloader->childEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorEngineLoader*)self)->childEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self)) {
+        vtexttranslatortranslatorengineloader->TextTranslator::TranslatorEngineLoader::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineLoader::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineLoader_OnChildEvent(TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader)
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_ChildEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_ChildEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self))
+        vtexttranslatortranslatorengineloader->texttranslator__translatorengineloader_childevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEngineLoader_CustomEvent(TextTranslator__TranslatorEngineLoader* self, QEvent* event) {
     auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
+    if (vtexttranslatortranslatorengineloader) {
         vtexttranslatortranslatorengineloader->customEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorEngineLoader*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineLoader::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEngineLoader_SuperCustomEvent(TextTranslator__TranslatorEngineLoader* self, QEvent* event) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_CustomEvent_IsBase(true);
-        vtexttranslatortranslatorengineloader->customEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorEngineLoader*)self)->customEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self)) {
+        vtexttranslatortranslatorengineloader->TextTranslator::TranslatorEngineLoader::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineLoader::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineLoader_OnCustomEvent(TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader)
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_CustomEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_CustomEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self))
+        vtexttranslatortranslatorengineloader->texttranslator__translatorengineloader_customevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEngineLoader_ConnectNotify(TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal) {
     auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
+    if (vtexttranslatortranslatorengineloader) {
         vtexttranslatortranslatorengineloader->connectNotify(*signal);
     } else {
-        ((VirtualTextTranslatorTranslatorEngineLoader*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineLoader::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEngineLoader_SuperConnectNotify(TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_ConnectNotify_IsBase(true);
-        vtexttranslatortranslatorengineloader->connectNotify(*signal);
-    } else {
-        ((VirtualTextTranslatorTranslatorEngineLoader*)self)->connectNotify(*signal);
-    }
+    if (auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self)) {
+        vtexttranslatortranslatorengineloader->TextTranslator::TranslatorEngineLoader::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineLoader::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineLoader_OnConnectNotify(TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader)
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_ConnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_ConnectNotify_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self))
+        vtexttranslatortranslatorengineloader->texttranslator__translatorengineloader_connectnotify_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEngineLoader_DisconnectNotify(TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal) {
     auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
+    if (vtexttranslatortranslatorengineloader) {
         vtexttranslatortranslatorengineloader->disconnectNotify(*signal);
     } else {
-        ((VirtualTextTranslatorTranslatorEngineLoader*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineLoader::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEngineLoader_SuperDisconnectNotify(TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_DisconnectNotify_IsBase(true);
-        vtexttranslatortranslatorengineloader->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextTranslatorTranslatorEngineLoader*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self)) {
+        vtexttranslatortranslatorengineloader->TextTranslator::TranslatorEngineLoader::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineLoader::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineLoader_OnDisconnectNotify(TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader)
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_DisconnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_DisconnectNotify_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self))
+        vtexttranslatortranslatorengineloader->texttranslator__translatorengineloader_disconnectnotify_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextTranslator__TranslatorEngineLoader_Sender(const TextTranslator__TranslatorEngineLoader* self) {
-    auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self));
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        return vtexttranslatortranslatorengineloader->sender();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineLoader*)self)->sender();
-    }
+    if (auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self))) {
+        return vtexttranslatortranslatorengineloader->VirtualTextTranslatorTranslatorEngineLoader::sender();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEngineLoader::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextTranslator__TranslatorEngineLoader_SuperSender(const TextTranslator__TranslatorEngineLoader* self) {
-    auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self));
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_Sender_IsBase(true);
-        return vtexttranslatortranslatorengineloader->sender();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineLoader*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEngineLoader_OnSender(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self));
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader)
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_Sender_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextTranslator__TranslatorEngineLoader_SenderSignalIndex(const TextTranslator__TranslatorEngineLoader* self) {
-    auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self));
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        return vtexttranslatortranslatorengineloader->senderSignalIndex();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineLoader*)self)->senderSignalIndex();
-    }
+    if (auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self))) {
+        return vtexttranslatortranslatorengineloader->VirtualTextTranslatorTranslatorEngineLoader::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEngineLoader::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextTranslator__TranslatorEngineLoader_SuperSenderSignalIndex(const TextTranslator__TranslatorEngineLoader* self) {
-    auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self));
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_SenderSignalIndex_IsBase(true);
-        return vtexttranslatortranslatorengineloader->senderSignalIndex();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineLoader*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEngineLoader_OnSenderSignalIndex(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self));
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader)
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextTranslator__TranslatorEngineLoader_Receivers(const TextTranslator__TranslatorEngineLoader* self, const char* signal) {
-    auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self));
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        return vtexttranslatortranslatorengineloader->receivers(signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineLoader*)self)->receivers(signal);
-    }
+    if (auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self))) {
+        return vtexttranslatortranslatorengineloader->VirtualTextTranslatorTranslatorEngineLoader::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEngineLoader::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextTranslator__TranslatorEngineLoader_SuperReceivers(const TextTranslator__TranslatorEngineLoader* self, const char* signal) {
-    auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self));
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_Receivers_IsBase(true);
-        return vtexttranslatortranslatorengineloader->receivers(signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineLoader*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEngineLoader_OnReceivers(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self));
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader)
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_Receivers_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextTranslator__TranslatorEngineLoader_IsSignalConnected(const TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self));
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        return vtexttranslatortranslatorengineloader->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineLoader*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool TextTranslator__TranslatorEngineLoader_SuperIsSignalConnected(const TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self));
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_IsSignalConnected_IsBase(true);
-        return vtexttranslatortranslatorengineloader->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineLoader*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEngineLoader_OnIsSignalConnected(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self));
-    if (vtexttranslatortranslatorengineloader && vtexttranslatortranslatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader)
-        vtexttranslatortranslatorengineloader->setTextTranslator__TranslatorEngineLoader_IsSignalConnected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineLoader::TextTranslator__TranslatorEngineLoader_IsSignalConnected_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineloader = const_cast<VirtualTextTranslatorTranslatorEngineLoader*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self))) {
+        return vtexttranslatortranslatorengineloader->VirtualTextTranslatorTranslatorEngineLoader::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEngineLoader::isSignalConnected called without a directly constructed type");
 }
 
 void TextTranslator__TranslatorEngineLoader_Delete(TextTranslator__TranslatorEngineLoader* self) {

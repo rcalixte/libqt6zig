@@ -92,59 +92,22 @@ libqt_map /* of int to libqt_string */ KFileMetaData__ExtractionResult_ImageData
     return _out;
 }
 
-// Base class handler implementation
-void KFileMetaData__ExtractionResult_SuperAppend(KFileMetaData__ExtractionResult* self, const libqt_string text) {
-    auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult) {
-        vkfilemetadataextractionresult->setKFileMetaData__ExtractionResult_Append_IsBase(true);
-        vkfilemetadataextractionresult->append(text_QString);
-    } else {
-        ((VirtualKFileMetaDataExtractionResult*)self)->append(text_QString);
-    }
-}
-
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractionResult_OnAppend(KFileMetaData__ExtractionResult* self, intptr_t slot) {
-    auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
-    if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult)
-        vkfilemetadataextractionresult->setKFileMetaData__ExtractionResult_Append_Callback(reinterpret_cast<VirtualKFileMetaDataExtractionResult::KFileMetaData__ExtractionResult_Append_Callback>(slot));
-}
-
-// Base class handler implementation
-void KFileMetaData__ExtractionResult_SuperAdd(KFileMetaData__ExtractionResult* self, int property, const QVariant* value) {
-    auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
-    if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult) {
-        vkfilemetadataextractionresult->setKFileMetaData__ExtractionResult_Add_IsBase(true);
-        vkfilemetadataextractionresult->add(static_cast<KFileMetaData::Property::Property>(property), *value);
-    } else {
-        ((VirtualKFileMetaDataExtractionResult*)self)->add(static_cast<KFileMetaData::Property::Property>(property), *value);
-    }
+    if (auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self))
+        vkfilemetadataextractionresult->kfilemetadata__extractionresult_append_callback = reinterpret_cast<VirtualKFileMetaDataExtractionResult::KFileMetaData__ExtractionResult_Append_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractionResult_OnAdd(KFileMetaData__ExtractionResult* self, intptr_t slot) {
-    auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
-    if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult)
-        vkfilemetadataextractionresult->setKFileMetaData__ExtractionResult_Add_Callback(reinterpret_cast<VirtualKFileMetaDataExtractionResult::KFileMetaData__ExtractionResult_Add_Callback>(slot));
-}
-
-// Base class handler implementation
-void KFileMetaData__ExtractionResult_SuperAddType(KFileMetaData__ExtractionResult* self, int typeVal) {
-    auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
-    if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult) {
-        vkfilemetadataextractionresult->setKFileMetaData__ExtractionResult_AddType_IsBase(true);
-        vkfilemetadataextractionresult->addType(static_cast<KFileMetaData::Type::Type>(typeVal));
-    } else {
-        ((VirtualKFileMetaDataExtractionResult*)self)->addType(static_cast<KFileMetaData::Type::Type>(typeVal));
-    }
+    if (auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self))
+        vkfilemetadataextractionresult->kfilemetadata__extractionresult_add_callback = reinterpret_cast<VirtualKFileMetaDataExtractionResult::KFileMetaData__ExtractionResult_Add_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractionResult_OnAddType(KFileMetaData__ExtractionResult* self, intptr_t slot) {
-    auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
-    if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult)
-        vkfilemetadataextractionresult->setKFileMetaData__ExtractionResult_AddType_Callback(reinterpret_cast<VirtualKFileMetaDataExtractionResult::KFileMetaData__ExtractionResult_AddType_Callback>(slot));
+    if (auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self))
+        vkfilemetadataextractionresult->kfilemetadata__extractionresult_addtype_callback = reinterpret_cast<VirtualKFileMetaDataExtractionResult::KFileMetaData__ExtractionResult_AddType_Callback>(slot);
 }
 
 void KFileMetaData__ExtractionResult_Delete(KFileMetaData__ExtractionResult* self) {

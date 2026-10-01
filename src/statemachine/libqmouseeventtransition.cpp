@@ -80,17 +80,17 @@ void QMouseEventTransition_SetHitTestPath(QMouseEventTransition* self, const QPa
 
 void QMouseEventTransition_OnTransition(QMouseEventTransition* self, QEvent* event) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition) {
         vqmouseeventtransition->onTransition(event);
     }
 }
 
 bool QMouseEventTransition_EventTest(QMouseEventTransition* self, QEvent* event) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition) {
         return vqmouseeventtransition->eventTest(event);
     }
-    return {};
+    qFatal("Error: Protected method QMouseEventTransition::eventTest called without a directly constructed type");
 }
 
 libqt_string QMouseEventTransition_Tr2(const char* s, const char* c) {
@@ -119,400 +119,255 @@ libqt_string QMouseEventTransition_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QMouseEventTransition_SuperMetaObject(const QMouseEventTransition* self) {
-    auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_MetaObject_IsBase(true);
-        return (QMetaObject*)vqmouseeventtransition->metaObject();
-    } else {
-        return (QMetaObject*)self->QMouseEventTransition::metaObject();
-    }
+    return (QMetaObject*)self->QMouseEventTransition::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMouseEventTransition_OnMetaObject(const QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_MetaObject_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_MetaObject_Callback>(slot));
+void QMouseEventTransition_OnMetaObject(QMouseEventTransition* self, intptr_t slot) {
+    if (auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self)))
+        vqmouseeventtransition->qmouseeventtransition_metaobject_callback = reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QMouseEventTransition_SuperMetacast(QMouseEventTransition* self, const char* param1) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_Metacast_IsBase(true);
-        return vqmouseeventtransition->qt_metacast(param1);
-    } else {
-        return self->QMouseEventTransition::qt_metacast(param1);
-    }
+    return self->QMouseEventTransition::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnMetacast(QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_Metacast_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_Metacast_Callback>(slot));
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self))
+        vqmouseeventtransition->qmouseeventtransition_metacast_callback = reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QMouseEventTransition_SuperMetacall(QMouseEventTransition* self, int param1, int param2, void** param3) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_Metacall_IsBase(true);
-        return vqmouseeventtransition->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QMouseEventTransition::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QMouseEventTransition::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnMetacall(QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_Metacall_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_Metacall_Callback>(slot));
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self))
+        vqmouseeventtransition->qmouseeventtransition_metacall_callback = reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMouseEventTransition_SuperOnTransition(QMouseEventTransition* self, QEvent* event) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_OnTransition_IsBase(true);
-        vqmouseeventtransition->onTransition(event);
-    } else {
-        ((VirtualQMouseEventTransition*)self)->onTransition(event);
-    }
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self)) {
+        vqmouseeventtransition->QMouseEventTransition::onTransition(event);
+    } else
+        qFatal("Error: Protected virtual method QMouseEventTransition::onTransition called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnOnTransition(QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_OnTransition_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_OnTransition_Callback>(slot));
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self))
+        vqmouseeventtransition->qmouseeventtransition_ontransition_callback = reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_OnTransition_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QMouseEventTransition_SuperEventTest(QMouseEventTransition* self, QEvent* event) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_EventTest_IsBase(true);
-        return vqmouseeventtransition->eventTest(event);
-    } else {
-        return ((VirtualQMouseEventTransition*)self)->eventTest(event);
-    }
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self)) {
+        return vqmouseeventtransition->QMouseEventTransition::eventTest(event);
+    } else
+        qFatal("Error: Protected virtual method QMouseEventTransition::eventTest called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnEventTest(QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_EventTest_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_EventTest_Callback>(slot));
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self))
+        vqmouseeventtransition->qmouseeventtransition_eventtest_callback = reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_EventTest_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMouseEventTransition_Event(QMouseEventTransition* self, QEvent* e) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition) {
         return vqmouseeventtransition->event(e);
     } else {
-        return ((VirtualQMouseEventTransition*)self)->event(e);
+        qFatal("Error: Protected virtual method QMouseEventTransition::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QMouseEventTransition_SuperEvent(QMouseEventTransition* self, QEvent* e) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_Event_IsBase(true);
-        return vqmouseeventtransition->event(e);
-    } else {
-        return ((VirtualQMouseEventTransition*)self)->event(e);
-    }
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self)) {
+        return vqmouseeventtransition->QMouseEventTransition::event(e);
+    } else
+        qFatal("Error: Protected virtual method QMouseEventTransition::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnEvent(QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_Event_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_Event_Callback>(slot));
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self))
+        vqmouseeventtransition->qmouseeventtransition_event_callback = reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMouseEventTransition_EventFilter(QMouseEventTransition* self, QObject* watched, QEvent* event) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        return vqmouseeventtransition->eventFilter(watched, event);
-    } else {
-        return self->QMouseEventTransition::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QMouseEventTransition_SuperEventFilter(QMouseEventTransition* self, QObject* watched, QEvent* event) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_EventFilter_IsBase(true);
-        return vqmouseeventtransition->eventFilter(watched, event);
-    } else {
-        return self->QMouseEventTransition::eventFilter(watched, event);
-    }
+    return self->QMouseEventTransition::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnEventFilter(QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_EventFilter_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_EventFilter_Callback>(slot));
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self))
+        vqmouseeventtransition->qmouseeventtransition_eventfilter_callback = reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMouseEventTransition_TimerEvent(QMouseEventTransition* self, QTimerEvent* event) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition) {
         vqmouseeventtransition->timerEvent(event);
     } else {
-        ((VirtualQMouseEventTransition*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QMouseEventTransition::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMouseEventTransition_SuperTimerEvent(QMouseEventTransition* self, QTimerEvent* event) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_TimerEvent_IsBase(true);
-        vqmouseeventtransition->timerEvent(event);
-    } else {
-        ((VirtualQMouseEventTransition*)self)->timerEvent(event);
-    }
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self)) {
+        vqmouseeventtransition->QMouseEventTransition::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMouseEventTransition::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnTimerEvent(QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_TimerEvent_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_TimerEvent_Callback>(slot));
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self))
+        vqmouseeventtransition->qmouseeventtransition_timerevent_callback = reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMouseEventTransition_ChildEvent(QMouseEventTransition* self, QChildEvent* event) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition) {
         vqmouseeventtransition->childEvent(event);
     } else {
-        ((VirtualQMouseEventTransition*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QMouseEventTransition::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMouseEventTransition_SuperChildEvent(QMouseEventTransition* self, QChildEvent* event) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_ChildEvent_IsBase(true);
-        vqmouseeventtransition->childEvent(event);
-    } else {
-        ((VirtualQMouseEventTransition*)self)->childEvent(event);
-    }
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self)) {
+        vqmouseeventtransition->QMouseEventTransition::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMouseEventTransition::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnChildEvent(QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_ChildEvent_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_ChildEvent_Callback>(slot));
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self))
+        vqmouseeventtransition->qmouseeventtransition_childevent_callback = reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMouseEventTransition_CustomEvent(QMouseEventTransition* self, QEvent* event) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition) {
         vqmouseeventtransition->customEvent(event);
     } else {
-        ((VirtualQMouseEventTransition*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QMouseEventTransition::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMouseEventTransition_SuperCustomEvent(QMouseEventTransition* self, QEvent* event) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_CustomEvent_IsBase(true);
-        vqmouseeventtransition->customEvent(event);
-    } else {
-        ((VirtualQMouseEventTransition*)self)->customEvent(event);
-    }
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self)) {
+        vqmouseeventtransition->QMouseEventTransition::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMouseEventTransition::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnCustomEvent(QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_CustomEvent_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_CustomEvent_Callback>(slot));
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self))
+        vqmouseeventtransition->qmouseeventtransition_customevent_callback = reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMouseEventTransition_ConnectNotify(QMouseEventTransition* self, const QMetaMethod* signal) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition) {
         vqmouseeventtransition->connectNotify(*signal);
     } else {
-        ((VirtualQMouseEventTransition*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QMouseEventTransition::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMouseEventTransition_SuperConnectNotify(QMouseEventTransition* self, const QMetaMethod* signal) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_ConnectNotify_IsBase(true);
-        vqmouseeventtransition->connectNotify(*signal);
-    } else {
-        ((VirtualQMouseEventTransition*)self)->connectNotify(*signal);
-    }
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self)) {
+        vqmouseeventtransition->QMouseEventTransition::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QMouseEventTransition::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnConnectNotify(QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_ConnectNotify_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_ConnectNotify_Callback>(slot));
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self))
+        vqmouseeventtransition->qmouseeventtransition_connectnotify_callback = reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMouseEventTransition_DisconnectNotify(QMouseEventTransition* self, const QMetaMethod* signal) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition) {
         vqmouseeventtransition->disconnectNotify(*signal);
     } else {
-        ((VirtualQMouseEventTransition*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QMouseEventTransition::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMouseEventTransition_SuperDisconnectNotify(QMouseEventTransition* self, const QMetaMethod* signal) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_DisconnectNotify_IsBase(true);
-        vqmouseeventtransition->disconnectNotify(*signal);
-    } else {
-        ((VirtualQMouseEventTransition*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self)) {
+        vqmouseeventtransition->QMouseEventTransition::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QMouseEventTransition::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnDisconnectNotify(QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_DisconnectNotify_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_DisconnectNotify_Callback>(slot));
+    if (auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self))
+        vqmouseeventtransition->qmouseeventtransition_disconnectnotify_callback = reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QMouseEventTransition_Sender(const QMouseEventTransition* self) {
-    auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        return vqmouseeventtransition->sender();
-    } else {
-        return ((VirtualQMouseEventTransition*)self)->sender();
-    }
+    if (auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self))) {
+        return vqmouseeventtransition->VirtualQMouseEventTransition::sender();
+    } else
+        qFatal("Error: Protected method QMouseEventTransition::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QMouseEventTransition_SuperSender(const QMouseEventTransition* self) {
-    auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_Sender_IsBase(true);
-        return vqmouseeventtransition->sender();
-    } else {
-        return ((VirtualQMouseEventTransition*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMouseEventTransition_OnSender(const QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_Sender_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QMouseEventTransition_SenderSignalIndex(const QMouseEventTransition* self) {
-    auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        return vqmouseeventtransition->senderSignalIndex();
-    } else {
-        return ((VirtualQMouseEventTransition*)self)->senderSignalIndex();
-    }
+    if (auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self))) {
+        return vqmouseeventtransition->VirtualQMouseEventTransition::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QMouseEventTransition::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QMouseEventTransition_SuperSenderSignalIndex(const QMouseEventTransition* self) {
-    auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_SenderSignalIndex_IsBase(true);
-        return vqmouseeventtransition->senderSignalIndex();
-    } else {
-        return ((VirtualQMouseEventTransition*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMouseEventTransition_OnSenderSignalIndex(const QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QMouseEventTransition_Receivers(const QMouseEventTransition* self, const char* signal) {
-    auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        return vqmouseeventtransition->receivers(signal);
-    } else {
-        return ((VirtualQMouseEventTransition*)self)->receivers(signal);
-    }
+    if (auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self))) {
+        return vqmouseeventtransition->VirtualQMouseEventTransition::receivers(signal);
+    } else
+        qFatal("Error: Protected method QMouseEventTransition::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QMouseEventTransition_SuperReceivers(const QMouseEventTransition* self, const char* signal) {
-    auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_Receivers_IsBase(true);
-        return vqmouseeventtransition->receivers(signal);
-    } else {
-        return ((VirtualQMouseEventTransition*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMouseEventTransition_OnReceivers(const QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_Receivers_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QMouseEventTransition_IsSignalConnected(const QMouseEventTransition* self, const QMetaMethod* signal) {
-    auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        return vqmouseeventtransition->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQMouseEventTransition*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QMouseEventTransition_SuperIsSignalConnected(const QMouseEventTransition* self, const QMetaMethod* signal) {
-    auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        vqmouseeventtransition->setQMouseEventTransition_IsSignalConnected_IsBase(true);
-        return vqmouseeventtransition->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQMouseEventTransition*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMouseEventTransition_OnIsSignalConnected(const QMouseEventTransition* self, intptr_t slot) {
-    auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
-        vqmouseeventtransition->setQMouseEventTransition_IsSignalConnected_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_IsSignalConnected_Callback>(slot));
+    if (auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self))) {
+        return vqmouseeventtransition->VirtualQMouseEventTransition::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QMouseEventTransition::isSignalConnected called without a directly constructed type");
 }
 
 void QMouseEventTransition_Delete(QMouseEventTransition* self) {

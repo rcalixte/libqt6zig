@@ -98,9 +98,9 @@ pub const QBoxPlotLegendMarker = extern struct {
     ///
     /// ` self: QBoxPlotLegendMarker `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QBoxPlotLegendMarker) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QBoxPlotLegendMarker, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QBoxPlotLegendMarker, callback: *const fn (QBoxPlotLegendMarker) callconv(.c) QMetaObject) void {
         qtc.QBoxPlotLegendMarker_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -277,9 +277,9 @@ pub const QBoxPlotLegendMarker = extern struct {
     ///
     /// ` self: QBoxPlotLegendMarker `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QBoxPlotLegendMarker) callconv(.c) i32 `
     ///
-    pub fn onType(self: QBoxPlotLegendMarker, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QBoxPlotLegendMarker, callback: *const fn (QBoxPlotLegendMarker) callconv(.c) i32) void {
         qtc.QBoxPlotLegendMarker_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -329,9 +329,9 @@ pub const QBoxPlotLegendMarker = extern struct {
     ///
     /// ` self: QBoxPlotLegendMarker `
     ///
-    /// ` callback: *const fn () callconv(.c) QBoxPlotSeries `
+    /// ` callback: *const fn (self: QBoxPlotLegendMarker) callconv(.c) QBoxPlotSeries `
     ///
-    pub fn onSeries(self: QBoxPlotLegendMarker, callback: *const fn () callconv(.c) QBoxPlotSeries) void {
+    pub fn onSeries(self: QBoxPlotLegendMarker, callback: *const fn (QBoxPlotLegendMarker) callconv(.c) QBoxPlotSeries) void {
         qtc.QBoxPlotLegendMarker_OnSeries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2392,44 +2392,6 @@ pub const QBoxPlotLegendMarker = extern struct {
         return .{ .ptr = qtc.QBoxPlotLegendMarker_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBoxPlotLegendMarker `
-    ///
-    pub fn superSender(self: QBoxPlotLegendMarker) QObject {
-        return .{ .ptr = qtc.QBoxPlotLegendMarker_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QBoxPlotLegendMarker`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QBoxPlotLegendMarker, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QBoxPlotLegendMarker_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2446,44 +2408,6 @@ pub const QBoxPlotLegendMarker = extern struct {
     ///
     pub fn senderSignalIndex(self: QBoxPlotLegendMarker) i32 {
         return qtc.QBoxPlotLegendMarker_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBoxPlotLegendMarker `
-    ///
-    pub fn superSenderSignalIndex(self: QBoxPlotLegendMarker) i32 {
-        return qtc.QBoxPlotLegendMarker_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QBoxPlotLegendMarker`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QBoxPlotLegendMarker, callback: *const fn () callconv(.c) i32) void {
-        qtc.QBoxPlotLegendMarker_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2507,47 +2431,6 @@ pub const QBoxPlotLegendMarker = extern struct {
         return qtc.QBoxPlotLegendMarker_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBoxPlotLegendMarker `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QBoxPlotLegendMarker, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QBoxPlotLegendMarker_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QBoxPlotLegendMarker`
-    ///
-    /// ` callback: *const fn (self: QBoxPlotLegendMarker, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QBoxPlotLegendMarker, callback: *const fn (QBoxPlotLegendMarker, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QBoxPlotLegendMarker_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2567,47 +2450,6 @@ pub const QBoxPlotLegendMarker = extern struct {
     pub fn isSignalConnected(self: QBoxPlotLegendMarker, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QBoxPlotLegendMarker_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBoxPlotLegendMarker `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QBoxPlotLegendMarker, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QBoxPlotLegendMarker_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QBoxPlotLegendMarker`
-    ///
-    /// ` callback: *const fn (self: QBoxPlotLegendMarker, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QBoxPlotLegendMarker, callback: *const fn (QBoxPlotLegendMarker, QMetaMethod) callconv(.c) bool) void {
-        qtc.QBoxPlotLegendMarker_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -111,894 +111,446 @@ long long KIO__CommandLauncherJob_Pid(const KIO__CommandLauncherJob* self) {
 
 // Base class handler implementation
 void KIO__CommandLauncherJob_SuperStart(KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_Start_IsBase(true);
-        vkiocommandlauncherjob->start();
-    } else {
-        self->KIO::CommandLauncherJob::start();
-    }
+    self->KIO::CommandLauncherJob::start();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnStart(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_Start_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Start_Callback>(slot));
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self))
+        vkiocommandlauncherjob->kio__commandlauncherjob_start_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Start_Callback>(slot);
 }
 
 // Derived class handler implementation
 QMetaObject* KIO__CommandLauncherJob_MetaObject(const KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        return (QMetaObject*)vkiocommandlauncherjob->metaObject();
-    } else {
-        return (QMetaObject*)self->KIO::CommandLauncherJob::metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 // Base class handler implementation
 QMetaObject* KIO__CommandLauncherJob_SuperMetaObject(const KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_MetaObject_IsBase(true);
-        return (QMetaObject*)vkiocommandlauncherjob->metaObject();
-    } else {
-        return (QMetaObject*)self->KIO::CommandLauncherJob::metaObject();
-    }
+    return (QMetaObject*)self->KIO::CommandLauncherJob::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnMetaObject(const KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_MetaObject_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_MetaObject_Callback>(slot));
+void KIO__CommandLauncherJob_OnMetaObject(KIO__CommandLauncherJob* self, intptr_t slot) {
+    if (auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self)))
+        vkiocommandlauncherjob->kio__commandlauncherjob_metaobject_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_MetaObject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void* KIO__CommandLauncherJob_Metacast(KIO__CommandLauncherJob* self, const char* param1) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        return vkiocommandlauncherjob->qt_metacast(param1);
-    } else {
-        return self->KIO::CommandLauncherJob::qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 // Base class handler implementation
 void* KIO__CommandLauncherJob_SuperMetacast(KIO__CommandLauncherJob* self, const char* param1) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_Metacast_IsBase(true);
-        return vkiocommandlauncherjob->qt_metacast(param1);
-    } else {
-        return self->KIO::CommandLauncherJob::qt_metacast(param1);
-    }
+    return self->KIO::CommandLauncherJob::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnMetacast(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_Metacast_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Metacast_Callback>(slot));
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self))
+        vkiocommandlauncherjob->kio__commandlauncherjob_metacast_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Metacast_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KIO__CommandLauncherJob_Metacall(KIO__CommandLauncherJob* self, int param1, int param2, void** param3) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        return vkiocommandlauncherjob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KIO::CommandLauncherJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Base class handler implementation
 int KIO__CommandLauncherJob_SuperMetacall(KIO__CommandLauncherJob* self, int param1, int param2, void** param3) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_Metacall_IsBase(true);
-        return vkiocommandlauncherjob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KIO::CommandLauncherJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KIO::CommandLauncherJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnMetacall(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_Metacall_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Metacall_Callback>(slot));
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self))
+        vkiocommandlauncherjob->kio__commandlauncherjob_metacall_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__CommandLauncherJob_DoKill(KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob) {
         return vkiocommandlauncherjob->doKill();
     } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->doKill();
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::doKill called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__CommandLauncherJob_SuperDoKill(KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_DoKill_IsBase(true);
-        return vkiocommandlauncherjob->doKill();
-    } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->doKill();
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        return vkiocommandlauncherjob->KIO::CommandLauncherJob::doKill();
+    } else
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::doKill called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnDoKill(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_DoKill_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_DoKill_Callback>(slot));
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self))
+        vkiocommandlauncherjob->kio__commandlauncherjob_dokill_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_DoKill_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__CommandLauncherJob_DoSuspend(KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob) {
         return vkiocommandlauncherjob->doSuspend();
     } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->doSuspend();
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::doSuspend called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__CommandLauncherJob_SuperDoSuspend(KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_DoSuspend_IsBase(true);
-        return vkiocommandlauncherjob->doSuspend();
-    } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->doSuspend();
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        return vkiocommandlauncherjob->KIO::CommandLauncherJob::doSuspend();
+    } else
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::doSuspend called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnDoSuspend(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_DoSuspend_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_DoSuspend_Callback>(slot));
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self))
+        vkiocommandlauncherjob->kio__commandlauncherjob_dosuspend_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_DoSuspend_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__CommandLauncherJob_DoResume(KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob) {
         return vkiocommandlauncherjob->doResume();
     } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->doResume();
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::doResume called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__CommandLauncherJob_SuperDoResume(KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_DoResume_IsBase(true);
-        return vkiocommandlauncherjob->doResume();
-    } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->doResume();
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        return vkiocommandlauncherjob->KIO::CommandLauncherJob::doResume();
+    } else
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::doResume called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnDoResume(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_DoResume_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_DoResume_Callback>(slot));
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self))
+        vkiocommandlauncherjob->kio__commandlauncherjob_doresume_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_DoResume_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KIO__CommandLauncherJob_ErrorString(const KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        auto _ret = vkiocommandlauncherjob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KIO::CommandLauncherJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KIO__CommandLauncherJob_SuperErrorString(const KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_ErrorString_IsBase(true);
-        auto _ret = vkiocommandlauncherjob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KIO::CommandLauncherJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KIO::CommandLauncherJob::errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnErrorString(const KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_ErrorString_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_ErrorString_Callback>(slot));
+void KIO__CommandLauncherJob_OnErrorString(KIO__CommandLauncherJob* self, intptr_t slot) {
+    if (auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self)))
+        vkiocommandlauncherjob->kio__commandlauncherjob_errorstring_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_ErrorString_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__CommandLauncherJob_Event(KIO__CommandLauncherJob* self, QEvent* event) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        return vkiocommandlauncherjob->event(event);
-    } else {
-        return self->KIO::CommandLauncherJob::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KIO__CommandLauncherJob_SuperEvent(KIO__CommandLauncherJob* self, QEvent* event) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_Event_IsBase(true);
-        return vkiocommandlauncherjob->event(event);
-    } else {
-        return self->KIO::CommandLauncherJob::event(event);
-    }
+    return self->KIO::CommandLauncherJob::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnEvent(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_Event_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Event_Callback>(slot));
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self))
+        vkiocommandlauncherjob->kio__commandlauncherjob_event_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__CommandLauncherJob_EventFilter(KIO__CommandLauncherJob* self, QObject* watched, QEvent* event) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        return vkiocommandlauncherjob->eventFilter(watched, event);
-    } else {
-        return self->KIO::CommandLauncherJob::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KIO__CommandLauncherJob_SuperEventFilter(KIO__CommandLauncherJob* self, QObject* watched, QEvent* event) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_EventFilter_IsBase(true);
-        return vkiocommandlauncherjob->eventFilter(watched, event);
-    } else {
-        return self->KIO::CommandLauncherJob::eventFilter(watched, event);
-    }
+    return self->KIO::CommandLauncherJob::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnEventFilter(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_EventFilter_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_EventFilter_Callback>(slot));
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self))
+        vkiocommandlauncherjob->kio__commandlauncherjob_eventfilter_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__CommandLauncherJob_TimerEvent(KIO__CommandLauncherJob* self, QTimerEvent* event) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob) {
         vkiocommandlauncherjob->timerEvent(event);
     } else {
-        ((VirtualKIOCommandLauncherJob*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__CommandLauncherJob_SuperTimerEvent(KIO__CommandLauncherJob* self, QTimerEvent* event) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_TimerEvent_IsBase(true);
-        vkiocommandlauncherjob->timerEvent(event);
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->timerEvent(event);
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->KIO::CommandLauncherJob::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnTimerEvent(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_TimerEvent_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_TimerEvent_Callback>(slot));
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self))
+        vkiocommandlauncherjob->kio__commandlauncherjob_timerevent_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__CommandLauncherJob_ChildEvent(KIO__CommandLauncherJob* self, QChildEvent* event) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob) {
         vkiocommandlauncherjob->childEvent(event);
     } else {
-        ((VirtualKIOCommandLauncherJob*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__CommandLauncherJob_SuperChildEvent(KIO__CommandLauncherJob* self, QChildEvent* event) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_ChildEvent_IsBase(true);
-        vkiocommandlauncherjob->childEvent(event);
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->childEvent(event);
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->KIO::CommandLauncherJob::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnChildEvent(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_ChildEvent_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_ChildEvent_Callback>(slot));
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self))
+        vkiocommandlauncherjob->kio__commandlauncherjob_childevent_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__CommandLauncherJob_CustomEvent(KIO__CommandLauncherJob* self, QEvent* event) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob) {
         vkiocommandlauncherjob->customEvent(event);
     } else {
-        ((VirtualKIOCommandLauncherJob*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__CommandLauncherJob_SuperCustomEvent(KIO__CommandLauncherJob* self, QEvent* event) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_CustomEvent_IsBase(true);
-        vkiocommandlauncherjob->customEvent(event);
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->customEvent(event);
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->KIO::CommandLauncherJob::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnCustomEvent(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_CustomEvent_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_CustomEvent_Callback>(slot));
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self))
+        vkiocommandlauncherjob->kio__commandlauncherjob_customevent_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__CommandLauncherJob_ConnectNotify(KIO__CommandLauncherJob* self, const QMetaMethod* signal) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob) {
         vkiocommandlauncherjob->connectNotify(*signal);
     } else {
-        ((VirtualKIOCommandLauncherJob*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__CommandLauncherJob_SuperConnectNotify(KIO__CommandLauncherJob* self, const QMetaMethod* signal) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_ConnectNotify_IsBase(true);
-        vkiocommandlauncherjob->connectNotify(*signal);
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->connectNotify(*signal);
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->KIO::CommandLauncherJob::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnConnectNotify(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_ConnectNotify_Callback>(slot));
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self))
+        vkiocommandlauncherjob->kio__commandlauncherjob_connectnotify_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__CommandLauncherJob_DisconnectNotify(KIO__CommandLauncherJob* self, const QMetaMethod* signal) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob) {
         vkiocommandlauncherjob->disconnectNotify(*signal);
     } else {
-        ((VirtualKIOCommandLauncherJob*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__CommandLauncherJob_SuperDisconnectNotify(KIO__CommandLauncherJob* self, const QMetaMethod* signal) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_DisconnectNotify_IsBase(true);
-        vkiocommandlauncherjob->disconnectNotify(*signal);
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->KIO::CommandLauncherJob::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::CommandLauncherJob::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnDisconnectNotify(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_DisconnectNotify_Callback>(slot));
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self))
+        vkiocommandlauncherjob->kio__commandlauncherjob_disconnectnotify_callback = reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__CommandLauncherJob_SetCapabilities(KIO__CommandLauncherJob* self, int capabilities) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::setCapabilities called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__CommandLauncherJob_SuperSetCapabilities(KIO__CommandLauncherJob* self, int capabilities) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetCapabilities_IsBase(true);
-        vkiocommandlauncherjob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnSetCapabilities(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SetCapabilities_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__CommandLauncherJob_IsFinished(const KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        return vkiocommandlauncherjob->isFinished();
-    } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->isFinished();
-    }
+    if (auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self))) {
+        return vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::isFinished();
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::isFinished called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KIO__CommandLauncherJob_SuperIsFinished(const KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_IsFinished_IsBase(true);
-        return vkiocommandlauncherjob->isFinished();
-    } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->isFinished();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnIsFinished(const KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_IsFinished_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_IsFinished_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__CommandLauncherJob_SetError(KIO__CommandLauncherJob* self, int errorCode) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->setError(static_cast<int>(errorCode));
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::setError(static_cast<int>(errorCode));
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::setError called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__CommandLauncherJob_SuperSetError(KIO__CommandLauncherJob* self, int errorCode) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetError_IsBase(true);
-        vkiocommandlauncherjob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->setError(static_cast<int>(errorCode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnSetError(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetError_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SetError_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__CommandLauncherJob_SetErrorText(KIO__CommandLauncherJob* self, const libqt_string errorText) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->setErrorText(errorText_QString);
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
+        vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::setErrorText(errorText_QString);
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::setErrorText called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__CommandLauncherJob_SuperSetErrorText(KIO__CommandLauncherJob* self, const libqt_string errorText) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetErrorText_IsBase(true);
-        vkiocommandlauncherjob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->setErrorText(errorText_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnSetErrorText(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetErrorText_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SetErrorText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__CommandLauncherJob_SetProcessedAmount(KIO__CommandLauncherJob* self, int unit, unsigned long long amount) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::setProcessedAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__CommandLauncherJob_SuperSetProcessedAmount(KIO__CommandLauncherJob* self, int unit, unsigned long long amount) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetProcessedAmount_IsBase(true);
-        vkiocommandlauncherjob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnSetProcessedAmount(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SetProcessedAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__CommandLauncherJob_SetTotalAmount(KIO__CommandLauncherJob* self, int unit, unsigned long long amount) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::setTotalAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__CommandLauncherJob_SuperSetTotalAmount(KIO__CommandLauncherJob* self, int unit, unsigned long long amount) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetTotalAmount_IsBase(true);
-        vkiocommandlauncherjob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnSetTotalAmount(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SetTotalAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__CommandLauncherJob_SetProgressUnit(KIO__CommandLauncherJob* self, int unit) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::setProgressUnit(static_cast<KJob::Unit>(unit));
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::setProgressUnit called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__CommandLauncherJob_SuperSetProgressUnit(KIO__CommandLauncherJob* self, int unit) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetProgressUnit_IsBase(true);
-        vkiocommandlauncherjob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnSetProgressUnit(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SetProgressUnit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__CommandLauncherJob_SetPercent(KIO__CommandLauncherJob* self, unsigned long percentage) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::setPercent(static_cast<unsigned long>(percentage));
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::setPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__CommandLauncherJob_SuperSetPercent(KIO__CommandLauncherJob* self, unsigned long percentage) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetPercent_IsBase(true);
-        vkiocommandlauncherjob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnSetPercent(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetPercent_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SetPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__CommandLauncherJob_EmitResult(KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->emitResult();
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->emitResult();
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::emitResult();
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::emitResult called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__CommandLauncherJob_SuperEmitResult(KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_EmitResult_IsBase(true);
-        vkiocommandlauncherjob->emitResult();
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->emitResult();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnEmitResult(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_EmitResult_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_EmitResult_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__CommandLauncherJob_EmitPercent(KIO__CommandLauncherJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::emitPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__CommandLauncherJob_SuperEmitPercent(KIO__CommandLauncherJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_EmitPercent_IsBase(true);
-        vkiocommandlauncherjob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnEmitPercent(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_EmitPercent_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_EmitPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__CommandLauncherJob_EmitSpeed(KIO__CommandLauncherJob* self, unsigned long speed) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::emitSpeed(static_cast<unsigned long>(speed));
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::emitSpeed called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__CommandLauncherJob_SuperEmitSpeed(KIO__CommandLauncherJob* self, unsigned long speed) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_EmitSpeed_IsBase(true);
-        vkiocommandlauncherjob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnEmitSpeed(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_EmitSpeed_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__CommandLauncherJob_StartElapsedTimer(KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->startElapsedTimer();
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->startElapsedTimer();
-    }
+    if (auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self)) {
+        vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::startElapsedTimer();
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::startElapsedTimer called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__CommandLauncherJob_SuperStartElapsedTimer(KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_StartElapsedTimer_IsBase(true);
-        vkiocommandlauncherjob->startElapsedTimer();
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->startElapsedTimer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnStartElapsedTimer(KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_StartElapsedTimer_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KIO__CommandLauncherJob_Sender(const KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        return vkiocommandlauncherjob->sender();
-    } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->sender();
-    }
+    if (auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self))) {
+        return vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::sender();
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KIO__CommandLauncherJob_SuperSender(const KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_Sender_IsBase(true);
-        return vkiocommandlauncherjob->sender();
-    } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnSender(const KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_Sender_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__CommandLauncherJob_SenderSignalIndex(const KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        return vkiocommandlauncherjob->senderSignalIndex();
-    } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->senderSignalIndex();
-    }
+    if (auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self))) {
+        return vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__CommandLauncherJob_SuperSenderSignalIndex(const KIO__CommandLauncherJob* self) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SenderSignalIndex_IsBase(true);
-        return vkiocommandlauncherjob->senderSignalIndex();
-    } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnSenderSignalIndex(const KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__CommandLauncherJob_Receivers(const KIO__CommandLauncherJob* self, const char* signal) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        return vkiocommandlauncherjob->receivers(signal);
-    } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->receivers(signal);
-    }
+    if (auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self))) {
+        return vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::receivers(signal);
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__CommandLauncherJob_SuperReceivers(const KIO__CommandLauncherJob* self, const char* signal) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_Receivers_IsBase(true);
-        return vkiocommandlauncherjob->receivers(signal);
-    } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnReceivers(const KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_Receivers_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__CommandLauncherJob_IsSignalConnected(const KIO__CommandLauncherJob* self, const QMetaMethod* signal) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        return vkiocommandlauncherjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KIO__CommandLauncherJob_SuperIsSignalConnected(const KIO__CommandLauncherJob* self, const QMetaMethod* signal) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_IsSignalConnected_IsBase(true);
-        return vkiocommandlauncherjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIOCommandLauncherJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__CommandLauncherJob_OnIsSignalConnected(const KIO__CommandLauncherJob* self, intptr_t slot) {
-    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
-        vkiocommandlauncherjob->setKIO__CommandLauncherJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_IsSignalConnected_Callback>(slot));
+    if (auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self))) {
+        return vkiocommandlauncherjob->VirtualKIOCommandLauncherJob::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KIO::CommandLauncherJob::isSignalConnected called without a directly constructed type");
 }
 
 void KIO__CommandLauncherJob_Delete(KIO__CommandLauncherJob* self) {

@@ -42,7 +42,7 @@ void KModelIndexProxyMapper_IsConnectedChanged(KModelIndexProxyMapper* self);
 void KModelIndexProxyMapper_Connect_IsConnectedChanged(KModelIndexProxyMapper* self, intptr_t slot);
 libqt_string KModelIndexProxyMapper_Tr2(const char* s, const char* c);
 libqt_string KModelIndexProxyMapper_Tr3(const char* s, const char* c, int n);
-void KModelIndexProxyMapper_OnMetaObject(const KModelIndexProxyMapper* self, intptr_t slot);
+void KModelIndexProxyMapper_OnMetaObject(KModelIndexProxyMapper* self, intptr_t slot);
 QMetaObject* KModelIndexProxyMapper_SuperMetaObject(const KModelIndexProxyMapper* self);
 void KModelIndexProxyMapper_OnMetacast(KModelIndexProxyMapper* self, intptr_t slot);
 void* KModelIndexProxyMapper_SuperMetacast(KModelIndexProxyMapper* self, const char* param1);
@@ -70,17 +70,9 @@ void KModelIndexProxyMapper_DisconnectNotify(KModelIndexProxyMapper* self, const
 void KModelIndexProxyMapper_OnDisconnectNotify(KModelIndexProxyMapper* self, intptr_t slot);
 void KModelIndexProxyMapper_SuperDisconnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal);
 QObject* KModelIndexProxyMapper_Sender(const KModelIndexProxyMapper* self);
-void KModelIndexProxyMapper_OnSender(const KModelIndexProxyMapper* self, intptr_t slot);
-QObject* KModelIndexProxyMapper_SuperSender(const KModelIndexProxyMapper* self);
 int KModelIndexProxyMapper_SenderSignalIndex(const KModelIndexProxyMapper* self);
-void KModelIndexProxyMapper_OnSenderSignalIndex(const KModelIndexProxyMapper* self, intptr_t slot);
-int KModelIndexProxyMapper_SuperSenderSignalIndex(const KModelIndexProxyMapper* self);
 int KModelIndexProxyMapper_Receivers(const KModelIndexProxyMapper* self, const char* signal);
-void KModelIndexProxyMapper_OnReceivers(const KModelIndexProxyMapper* self, intptr_t slot);
-int KModelIndexProxyMapper_SuperReceivers(const KModelIndexProxyMapper* self, const char* signal);
 bool KModelIndexProxyMapper_IsSignalConnected(const KModelIndexProxyMapper* self, const QMetaMethod* signal);
-void KModelIndexProxyMapper_OnIsSignalConnected(const KModelIndexProxyMapper* self, intptr_t slot);
-bool KModelIndexProxyMapper_SuperIsSignalConnected(const KModelIndexProxyMapper* self, const QMetaMethod* signal);
 void KModelIndexProxyMapper_Delete(KModelIndexProxyMapper* self);
 
 #ifdef __cplusplus

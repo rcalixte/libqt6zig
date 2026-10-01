@@ -133,9 +133,9 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer) callconv(.c) QMetaObject) void {
         qtc.TextAddonsWidgets__SlideContainer_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -337,11 +337,11 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer) callconv(.c) QSize) void {
         qtc.TextAddonsWidgets__SlideContainer_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -387,11 +387,11 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer) callconv(.c) QSize) void {
         qtc.TextAddonsWidgets__SlideContainer_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7430,9 +7430,9 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer) callconv(.c) i32) void {
         qtc.TextAddonsWidgets__SlideContainer_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7606,9 +7606,9 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer) callconv(.c) bool) void {
         qtc.TextAddonsWidgets__SlideContainer_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7662,9 +7662,9 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer) callconv(.c) QPaintEngine) void {
         qtc.TextAddonsWidgets__SlideContainer_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9342,9 +9342,9 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer) callconv(.c) QPainter) void {
         qtc.TextAddonsWidgets__SlideContainer_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9863,47 +9863,6 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
         qtc.TextAddonsWidgets__SlideContainer_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.TextAddonsWidgets__SlideContainer_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer`
-    ///
-    /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QPainter) callconv(.c) void) void {
-        qtc.TextAddonsWidgets__SlideContainer_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -9920,44 +9879,6 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     pub fn updateMicroFocus(self: TextAddonsWidgets__SlideContainer) void {
         qtc.TextAddonsWidgets__SlideContainer_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    pub fn superUpdateMicroFocus(self: TextAddonsWidgets__SlideContainer) void {
-        qtc.TextAddonsWidgets__SlideContainer_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) void) void {
-        qtc.TextAddonsWidgets__SlideContainer_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -9978,44 +9899,6 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
         qtc.TextAddonsWidgets__SlideContainer_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    pub fn superCreate(self: TextAddonsWidgets__SlideContainer) void {
-        qtc.TextAddonsWidgets__SlideContainer_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) void) void {
-        qtc.TextAddonsWidgets__SlideContainer_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10032,44 +9915,6 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     pub fn destroy(self: TextAddonsWidgets__SlideContainer) void {
         qtc.TextAddonsWidgets__SlideContainer_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    pub fn superDestroy(self: TextAddonsWidgets__SlideContainer) void {
-        qtc.TextAddonsWidgets__SlideContainer_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) void) void {
-        qtc.TextAddonsWidgets__SlideContainer_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10090,44 +9935,6 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
         return qtc.TextAddonsWidgets__SlideContainer_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    pub fn superFocusNextChild(self: TextAddonsWidgets__SlideContainer) bool {
-        return qtc.TextAddonsWidgets__SlideContainer_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextAddonsWidgets__SlideContainer_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10144,44 +9951,6 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     pub fn focusPreviousChild(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.TextAddonsWidgets__SlideContainer_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    pub fn superFocusPreviousChild(self: TextAddonsWidgets__SlideContainer) bool {
-        return qtc.TextAddonsWidgets__SlideContainer_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextAddonsWidgets__SlideContainer_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10202,44 +9971,6 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    pub fn superSender(self: TextAddonsWidgets__SlideContainer) QObject {
-        return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextAddonsWidgets__SlideContainer_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10256,44 +9987,6 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     pub fn senderSignalIndex(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.TextAddonsWidgets__SlideContainer_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    pub fn superSenderSignalIndex(self: TextAddonsWidgets__SlideContainer) i32 {
-        return qtc.TextAddonsWidgets__SlideContainer_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextAddonsWidgets__SlideContainer_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10317,47 +10010,6 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
         return qtc.TextAddonsWidgets__SlideContainer_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextAddonsWidgets__SlideContainer, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextAddonsWidgets__SlideContainer_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer`
-    ///
-    /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextAddonsWidgets__SlideContainer_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10377,47 +10029,6 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     pub fn isSignalConnected(self: TextAddonsWidgets__SlideContainer, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextAddonsWidgets__SlideContainer_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextAddonsWidgets__SlideContainer, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextAddonsWidgets__SlideContainer_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer`
-    ///
-    /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextAddonsWidgets__SlideContainer_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10440,48 +10051,6 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     pub fn getDecodedMetricF(self: TextAddonsWidgets__SlideContainer, metricA: i32, metricB: i32) f64 {
         return qtc.TextAddonsWidgets__SlideContainer_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: TextAddonsWidgets__SlideContainer, metricA: i32, metricB: i32) f64 {
-        return qtc.TextAddonsWidgets__SlideContainer_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer`
-    ///
-    /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, i32, i32) callconv(.c) f64) void {
-        qtc.TextAddonsWidgets__SlideContainer_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

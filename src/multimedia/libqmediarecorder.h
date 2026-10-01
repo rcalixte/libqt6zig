@@ -110,7 +110,7 @@ void QMediaRecorder_AutoStopChanged(QMediaRecorder* self);
 void QMediaRecorder_Connect_AutoStopChanged(QMediaRecorder* self, intptr_t slot);
 libqt_string QMediaRecorder_Tr2(const char* s, const char* c);
 libqt_string QMediaRecorder_Tr3(const char* s, const char* c, int n);
-void QMediaRecorder_OnMetaObject(const QMediaRecorder* self, intptr_t slot);
+void QMediaRecorder_OnMetaObject(QMediaRecorder* self, intptr_t slot);
 QMetaObject* QMediaRecorder_SuperMetaObject(const QMediaRecorder* self);
 void QMediaRecorder_OnMetacast(QMediaRecorder* self, intptr_t slot);
 void* QMediaRecorder_SuperMetacast(QMediaRecorder* self, const char* param1);
@@ -138,17 +138,9 @@ void QMediaRecorder_DisconnectNotify(QMediaRecorder* self, const QMetaMethod* si
 void QMediaRecorder_OnDisconnectNotify(QMediaRecorder* self, intptr_t slot);
 void QMediaRecorder_SuperDisconnectNotify(QMediaRecorder* self, const QMetaMethod* signal);
 QObject* QMediaRecorder_Sender(const QMediaRecorder* self);
-void QMediaRecorder_OnSender(const QMediaRecorder* self, intptr_t slot);
-QObject* QMediaRecorder_SuperSender(const QMediaRecorder* self);
 int QMediaRecorder_SenderSignalIndex(const QMediaRecorder* self);
-void QMediaRecorder_OnSenderSignalIndex(const QMediaRecorder* self, intptr_t slot);
-int QMediaRecorder_SuperSenderSignalIndex(const QMediaRecorder* self);
 int QMediaRecorder_Receivers(const QMediaRecorder* self, const char* signal);
-void QMediaRecorder_OnReceivers(const QMediaRecorder* self, intptr_t slot);
-int QMediaRecorder_SuperReceivers(const QMediaRecorder* self, const char* signal);
 bool QMediaRecorder_IsSignalConnected(const QMediaRecorder* self, const QMetaMethod* signal);
-void QMediaRecorder_OnIsSignalConnected(const QMediaRecorder* self, intptr_t slot);
-bool QMediaRecorder_SuperIsSignalConnected(const QMediaRecorder* self, const QMetaMethod* signal);
 void QMediaRecorder_Delete(QMediaRecorder* self);
 
 #ifdef __cplusplus

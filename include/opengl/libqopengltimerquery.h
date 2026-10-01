@@ -43,7 +43,7 @@ bool QOpenGLTimerQuery_IsResultAvailable(const QOpenGLTimerQuery* self);
 uint64_t QOpenGLTimerQuery_WaitForResult(const QOpenGLTimerQuery* self);
 libqt_string QOpenGLTimerQuery_Tr2(const char* s, const char* c);
 libqt_string QOpenGLTimerQuery_Tr3(const char* s, const char* c, int n);
-void QOpenGLTimerQuery_OnMetaObject(const QOpenGLTimerQuery* self, intptr_t slot);
+void QOpenGLTimerQuery_OnMetaObject(QOpenGLTimerQuery* self, intptr_t slot);
 QMetaObject* QOpenGLTimerQuery_SuperMetaObject(const QOpenGLTimerQuery* self);
 void QOpenGLTimerQuery_OnMetacast(QOpenGLTimerQuery* self, intptr_t slot);
 void* QOpenGLTimerQuery_SuperMetacast(QOpenGLTimerQuery* self, const char* param1);
@@ -71,17 +71,9 @@ void QOpenGLTimerQuery_DisconnectNotify(QOpenGLTimerQuery* self, const QMetaMeth
 void QOpenGLTimerQuery_OnDisconnectNotify(QOpenGLTimerQuery* self, intptr_t slot);
 void QOpenGLTimerQuery_SuperDisconnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal);
 QObject* QOpenGLTimerQuery_Sender(const QOpenGLTimerQuery* self);
-void QOpenGLTimerQuery_OnSender(const QOpenGLTimerQuery* self, intptr_t slot);
-QObject* QOpenGLTimerQuery_SuperSender(const QOpenGLTimerQuery* self);
 int QOpenGLTimerQuery_SenderSignalIndex(const QOpenGLTimerQuery* self);
-void QOpenGLTimerQuery_OnSenderSignalIndex(const QOpenGLTimerQuery* self, intptr_t slot);
-int QOpenGLTimerQuery_SuperSenderSignalIndex(const QOpenGLTimerQuery* self);
 int QOpenGLTimerQuery_Receivers(const QOpenGLTimerQuery* self, const char* signal);
-void QOpenGLTimerQuery_OnReceivers(const QOpenGLTimerQuery* self, intptr_t slot);
-int QOpenGLTimerQuery_SuperReceivers(const QOpenGLTimerQuery* self, const char* signal);
 bool QOpenGLTimerQuery_IsSignalConnected(const QOpenGLTimerQuery* self, const QMetaMethod* signal);
-void QOpenGLTimerQuery_OnIsSignalConnected(const QOpenGLTimerQuery* self, intptr_t slot);
-bool QOpenGLTimerQuery_SuperIsSignalConnected(const QOpenGLTimerQuery* self, const QMetaMethod* signal);
 void QOpenGLTimerQuery_Delete(QOpenGLTimerQuery* self);
 
 QOpenGLTimeMonitor* QOpenGLTimeMonitor_new();
@@ -103,7 +95,7 @@ libqt_list /* of uint64_t */ QOpenGLTimeMonitor_WaitForIntervals(const QOpenGLTi
 void QOpenGLTimeMonitor_Reset(QOpenGLTimeMonitor* self);
 libqt_string QOpenGLTimeMonitor_Tr2(const char* s, const char* c);
 libqt_string QOpenGLTimeMonitor_Tr3(const char* s, const char* c, int n);
-void QOpenGLTimeMonitor_OnMetaObject(const QOpenGLTimeMonitor* self, intptr_t slot);
+void QOpenGLTimeMonitor_OnMetaObject(QOpenGLTimeMonitor* self, intptr_t slot);
 QMetaObject* QOpenGLTimeMonitor_SuperMetaObject(const QOpenGLTimeMonitor* self);
 void QOpenGLTimeMonitor_OnMetacast(QOpenGLTimeMonitor* self, intptr_t slot);
 void* QOpenGLTimeMonitor_SuperMetacast(QOpenGLTimeMonitor* self, const char* param1);
@@ -131,17 +123,9 @@ void QOpenGLTimeMonitor_DisconnectNotify(QOpenGLTimeMonitor* self, const QMetaMe
 void QOpenGLTimeMonitor_OnDisconnectNotify(QOpenGLTimeMonitor* self, intptr_t slot);
 void QOpenGLTimeMonitor_SuperDisconnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal);
 QObject* QOpenGLTimeMonitor_Sender(const QOpenGLTimeMonitor* self);
-void QOpenGLTimeMonitor_OnSender(const QOpenGLTimeMonitor* self, intptr_t slot);
-QObject* QOpenGLTimeMonitor_SuperSender(const QOpenGLTimeMonitor* self);
 int QOpenGLTimeMonitor_SenderSignalIndex(const QOpenGLTimeMonitor* self);
-void QOpenGLTimeMonitor_OnSenderSignalIndex(const QOpenGLTimeMonitor* self, intptr_t slot);
-int QOpenGLTimeMonitor_SuperSenderSignalIndex(const QOpenGLTimeMonitor* self);
 int QOpenGLTimeMonitor_Receivers(const QOpenGLTimeMonitor* self, const char* signal);
-void QOpenGLTimeMonitor_OnReceivers(const QOpenGLTimeMonitor* self, intptr_t slot);
-int QOpenGLTimeMonitor_SuperReceivers(const QOpenGLTimeMonitor* self, const char* signal);
 bool QOpenGLTimeMonitor_IsSignalConnected(const QOpenGLTimeMonitor* self, const QMetaMethod* signal);
-void QOpenGLTimeMonitor_OnIsSignalConnected(const QOpenGLTimeMonitor* self, intptr_t slot);
-bool QOpenGLTimeMonitor_SuperIsSignalConnected(const QOpenGLTimeMonitor* self, const QMetaMethod* signal);
 void QOpenGLTimeMonitor_Delete(QOpenGLTimeMonitor* self);
 
 #ifdef __cplusplus

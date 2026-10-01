@@ -123,9 +123,9 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QPdfWriter) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QPdfWriter, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPdfWriter, callback: *const fn (QPdfWriter) callconv(.c) QMetaObject) void {
         qtc.QPdfWriter_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -441,9 +441,9 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QPdfWriter) callconv(.c) bool `
     ///
-    pub fn onNewPage(self: QPdfWriter, callback: *const fn () callconv(.c) bool) void {
+    pub fn onNewPage(self: QPdfWriter, callback: *const fn (QPdfWriter) callconv(.c) bool) void {
         qtc.QPdfWriter_OnNewPage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -650,9 +650,9 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QPdfWriter) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QPdfWriter, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QPdfWriter, callback: *const fn (QPdfWriter) callconv(.c) QPaintEngine) void {
         qtc.QPdfWriter_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2847,9 +2847,9 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPdfWriter) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QPdfWriter, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QPdfWriter, callback: *const fn (QPdfWriter) callconv(.c) i32) void {
         qtc.QPdfWriter_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3027,9 +3027,9 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QPdfWriter) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QPdfWriter, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QPdfWriter, callback: *const fn (QPdfWriter) callconv(.c) QPainter) void {
         qtc.QPdfWriter_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3051,44 +3051,6 @@ pub const QPdfWriter = extern struct {
         return .{ .ptr = qtc.QPdfWriter_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPdfWriter `
-    ///
-    pub fn superSender(self: QPdfWriter) QObject {
-        return .{ .ptr = qtc.QPdfWriter_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPdfWriter`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QPdfWriter, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QPdfWriter_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3105,44 +3067,6 @@ pub const QPdfWriter = extern struct {
     ///
     pub fn senderSignalIndex(self: QPdfWriter) i32 {
         return qtc.QPdfWriter_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPdfWriter `
-    ///
-    pub fn superSenderSignalIndex(self: QPdfWriter) i32 {
-        return qtc.QPdfWriter_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPdfWriter`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QPdfWriter, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPdfWriter_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3166,47 +3090,6 @@ pub const QPdfWriter = extern struct {
         return qtc.QPdfWriter_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPdfWriter `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QPdfWriter, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QPdfWriter_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPdfWriter`
-    ///
-    /// ` callback: *const fn (self: QPdfWriter, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QPdfWriter, callback: *const fn (QPdfWriter, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPdfWriter_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3226,47 +3109,6 @@ pub const QPdfWriter = extern struct {
     pub fn isSignalConnected(self: QPdfWriter, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPdfWriter_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPdfWriter `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QPdfWriter, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QPdfWriter_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPdfWriter`
-    ///
-    /// ` callback: *const fn (self: QPdfWriter, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QPdfWriter, callback: *const fn (QPdfWriter, QMetaMethod) callconv(.c) bool) void {
-        qtc.QPdfWriter_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -3289,48 +3131,6 @@ pub const QPdfWriter = extern struct {
     ///
     pub fn getDecodedMetricF(self: QPdfWriter, metricA: i32, metricB: i32) f64 {
         return qtc.QPdfWriter_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPdfWriter `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QPdfWriter, metricA: i32, metricB: i32) f64 {
-        return qtc.QPdfWriter_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPdfWriter`
-    ///
-    /// ` callback: *const fn (self: QPdfWriter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QPdfWriter, callback: *const fn (QPdfWriter, i32, i32) callconv(.c) f64) void {
-        qtc.QPdfWriter_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

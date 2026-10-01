@@ -55,10 +55,10 @@ bool KZip_DoWriteSymLink(KZip* self, const libqt_string name, const libqt_string
     QString user_QString = QString::fromUtf8(user.data, user.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip) {
         return vkzip->doWriteSymLink(name_QString, target_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
     }
-    return {};
+    qFatal("Error: Protected method KZip::doWriteSymLink called without a directly constructed type");
 }
 
 bool KZip_DoPrepareWriting(KZip* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* creationTime) {
@@ -66,42 +66,42 @@ bool KZip_DoPrepareWriting(KZip* self, const libqt_string name, const libqt_stri
     QString user_QString = QString::fromUtf8(user.data, user.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip) {
         return vkzip->doPrepareWriting(name_QString, user_QString, group_QString, static_cast<qint64>(size), perm, *atime, *mtime, *creationTime);
     }
-    return {};
+    qFatal("Error: Protected method KZip::doPrepareWriting called without a directly constructed type");
 }
 
 bool KZip_DoFinishWriting(KZip* self, long long size) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip) {
         return vkzip->doFinishWriting(static_cast<qint64>(size));
     }
-    return {};
+    qFatal("Error: Protected method KZip::doFinishWriting called without a directly constructed type");
 }
 
 bool KZip_DoWriteData(KZip* self, const char* data, long long size) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip) {
         return vkzip->doWriteData(data, static_cast<qint64>(size));
     }
-    return {};
+    qFatal("Error: Protected method KZip::doWriteData called without a directly constructed type");
 }
 
 bool KZip_OpenArchive(KZip* self, int mode) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip) {
         return vkzip->openArchive(static_cast<QIODevice::OpenMode>(mode));
     }
-    return {};
+    qFatal("Error: Protected method KZip::openArchive called without a directly constructed type");
 }
 
 bool KZip_CloseArchive(KZip* self) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip) {
         return vkzip->closeArchive();
     }
-    return {};
+    qFatal("Error: Protected method KZip::closeArchive called without a directly constructed type");
 }
 
 bool KZip_DoWriteDir(KZip* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
@@ -109,15 +109,15 @@ bool KZip_DoWriteDir(KZip* self, const libqt_string name, const libqt_string use
     QString user_QString = QString::fromUtf8(user.data, user.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip) {
         return vkzip->doWriteDir(name_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
     }
-    return {};
+    qFatal("Error: Protected method KZip::doWriteDir called without a directly constructed type");
 }
 
 void KZip_VirtualHook(KZip* self, int id, void* data) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip) {
         vkzip->virtual_hook(static_cast<int>(id), data);
     }
 }
@@ -148,384 +148,238 @@ libqt_string KZip_Tr3(const char* sourceText, const char* disambiguation, int n)
 
 // Base class handler implementation
 bool KZip_SuperDoWriteSymLink(KZip* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString target_QString = QString::fromUtf8(target.data, target.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_DoWriteSymLink_IsBase(true);
-        return vkzip->doWriteSymLink(name_QString, target_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
-    } else {
-        return ((VirtualKZip*)self)->doWriteSymLink(name_QString, target_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
-    }
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self)) {
+        return vkzip->KZip::doWriteSymLink(name_QString, target_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
+    } else
+        qFatal("Error: Protected virtual method KZip::doWriteSymLink called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KZip_OnDoWriteSymLink(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_DoWriteSymLink_Callback(reinterpret_cast<VirtualKZip::KZip_DoWriteSymLink_Callback>(slot));
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self))
+        vkzip->kzip_dowritesymlink_callback = reinterpret_cast<VirtualKZip::KZip_DoWriteSymLink_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KZip_SuperDoPrepareWriting(KZip* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* creationTime) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_DoPrepareWriting_IsBase(true);
-        return vkzip->doPrepareWriting(name_QString, user_QString, group_QString, static_cast<qint64>(size), perm, *atime, *mtime, *creationTime);
-    } else {
-        return ((VirtualKZip*)self)->doPrepareWriting(name_QString, user_QString, group_QString, static_cast<qint64>(size), perm, *atime, *mtime, *creationTime);
-    }
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self)) {
+        return vkzip->KZip::doPrepareWriting(name_QString, user_QString, group_QString, static_cast<qint64>(size), perm, *atime, *mtime, *creationTime);
+    } else
+        qFatal("Error: Protected virtual method KZip::doPrepareWriting called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KZip_OnDoPrepareWriting(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_DoPrepareWriting_Callback(reinterpret_cast<VirtualKZip::KZip_DoPrepareWriting_Callback>(slot));
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self))
+        vkzip->kzip_dopreparewriting_callback = reinterpret_cast<VirtualKZip::KZip_DoPrepareWriting_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KZip_SuperDoFinishWriting(KZip* self, long long size) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_DoFinishWriting_IsBase(true);
-        return vkzip->doFinishWriting(static_cast<qint64>(size));
-    } else {
-        return ((VirtualKZip*)self)->doFinishWriting(static_cast<qint64>(size));
-    }
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self)) {
+        return vkzip->KZip::doFinishWriting(static_cast<qint64>(size));
+    } else
+        qFatal("Error: Protected virtual method KZip::doFinishWriting called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KZip_OnDoFinishWriting(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_DoFinishWriting_Callback(reinterpret_cast<VirtualKZip::KZip_DoFinishWriting_Callback>(slot));
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self))
+        vkzip->kzip_dofinishwriting_callback = reinterpret_cast<VirtualKZip::KZip_DoFinishWriting_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KZip_SuperDoWriteData(KZip* self, const char* data, long long size) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_DoWriteData_IsBase(true);
-        return vkzip->doWriteData(data, static_cast<qint64>(size));
-    } else {
-        return ((VirtualKZip*)self)->doWriteData(data, static_cast<qint64>(size));
-    }
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self)) {
+        return vkzip->KZip::doWriteData(data, static_cast<qint64>(size));
+    } else
+        qFatal("Error: Protected virtual method KZip::doWriteData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KZip_OnDoWriteData(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_DoWriteData_Callback(reinterpret_cast<VirtualKZip::KZip_DoWriteData_Callback>(slot));
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self))
+        vkzip->kzip_dowritedata_callback = reinterpret_cast<VirtualKZip::KZip_DoWriteData_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KZip_SuperOpenArchive(KZip* self, int mode) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_OpenArchive_IsBase(true);
-        return vkzip->openArchive(static_cast<QIODevice::OpenMode>(mode));
-    } else {
-        return ((VirtualKZip*)self)->openArchive(static_cast<QIODevice::OpenMode>(mode));
-    }
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self)) {
+        return vkzip->KZip::openArchive(static_cast<QIODevice::OpenMode>(mode));
+    } else
+        qFatal("Error: Protected virtual method KZip::openArchive called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KZip_OnOpenArchive(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_OpenArchive_Callback(reinterpret_cast<VirtualKZip::KZip_OpenArchive_Callback>(slot));
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self))
+        vkzip->kzip_openarchive_callback = reinterpret_cast<VirtualKZip::KZip_OpenArchive_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KZip_SuperCloseArchive(KZip* self) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_CloseArchive_IsBase(true);
-        return vkzip->closeArchive();
-    } else {
-        return ((VirtualKZip*)self)->closeArchive();
-    }
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self)) {
+        return vkzip->KZip::closeArchive();
+    } else
+        qFatal("Error: Protected virtual method KZip::closeArchive called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KZip_OnCloseArchive(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_CloseArchive_Callback(reinterpret_cast<VirtualKZip::KZip_CloseArchive_Callback>(slot));
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self))
+        vkzip->kzip_closearchive_callback = reinterpret_cast<VirtualKZip::KZip_CloseArchive_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KZip_SuperDoWriteDir(KZip* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_DoWriteDir_IsBase(true);
-        return vkzip->doWriteDir(name_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
-    } else {
-        return ((VirtualKZip*)self)->doWriteDir(name_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
-    }
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self)) {
+        return vkzip->KZip::doWriteDir(name_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
+    } else
+        qFatal("Error: Protected virtual method KZip::doWriteDir called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KZip_OnDoWriteDir(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_DoWriteDir_Callback(reinterpret_cast<VirtualKZip::KZip_DoWriteDir_Callback>(slot));
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self))
+        vkzip->kzip_dowritedir_callback = reinterpret_cast<VirtualKZip::KZip_DoWriteDir_Callback>(slot);
 }
 
 // Base class handler implementation
 void KZip_SuperVirtualHook(KZip* self, int id, void* data) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_VirtualHook_IsBase(true);
-        vkzip->virtual_hook(static_cast<int>(id), data);
-    } else {
-        ((VirtualKZip*)self)->virtual_hook(static_cast<int>(id), data);
-    }
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self)) {
+        vkzip->KZip::virtual_hook(static_cast<int>(id), data);
+    } else
+        qFatal("Error: Protected virtual method KZip::virtual_hook called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KZip_OnVirtualHook(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_VirtualHook_Callback(reinterpret_cast<VirtualKZip::KZip_VirtualHook_Callback>(slot));
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self))
+        vkzip->kzip_virtualhook_callback = reinterpret_cast<VirtualKZip::KZip_VirtualHook_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KZip_Open(KZip* self, int mode) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        return vkzip->open(static_cast<QIODevice::OpenMode>(mode));
-    } else {
-        return self->KZip::open(static_cast<QIODevice::OpenMode>(mode));
-    }
+    return self->open(static_cast<QIODevice::OpenMode>(mode));
 }
 
 // Base class handler implementation
 bool KZip_SuperOpen(KZip* self, int mode) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_Open_IsBase(true);
-        return vkzip->open(static_cast<QIODevice::OpenMode>(mode));
-    } else {
-        return self->KZip::open(static_cast<QIODevice::OpenMode>(mode));
-    }
+    return self->KZip::open(static_cast<QIODevice::OpenMode>(mode));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KZip_OnOpen(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_Open_Callback(reinterpret_cast<VirtualKZip::KZip_Open_Callback>(slot));
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self))
+        vkzip->kzip_open_callback = reinterpret_cast<VirtualKZip::KZip_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KZip_Close(KZip* self) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        return vkzip->close();
-    } else {
-        return self->KZip::close();
-    }
+    return self->close();
 }
 
 // Base class handler implementation
 bool KZip_SuperClose(KZip* self) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_Close_IsBase(true);
-        return vkzip->close();
-    } else {
-        return self->KZip::close();
-    }
+    return self->KZip::close();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KZip_OnClose(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_Close_Callback(reinterpret_cast<VirtualKZip::KZip_Close_Callback>(slot));
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self))
+        vkzip->kzip_close_callback = reinterpret_cast<VirtualKZip::KZip_Close_Callback>(slot);
 }
 
 // Derived class handler implementation
 KArchiveDirectory* KZip_RootDir(KZip* self) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip) {
         return vkzip->rootDir();
     } else {
-        return ((VirtualKZip*)self)->rootDir();
+        qFatal("Error: Protected virtual method KZip::rootDir called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 KArchiveDirectory* KZip_SuperRootDir(KZip* self) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_RootDir_IsBase(true);
-        return vkzip->rootDir();
-    } else {
-        return ((VirtualKZip*)self)->rootDir();
-    }
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self)) {
+        return vkzip->KZip::rootDir();
+    } else
+        qFatal("Error: Protected virtual method KZip::rootDir called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KZip_OnRootDir(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_RootDir_Callback(reinterpret_cast<VirtualKZip::KZip_RootDir_Callback>(slot));
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self))
+        vkzip->kzip_rootdir_callback = reinterpret_cast<VirtualKZip::KZip_RootDir_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KZip_CreateDevice(KZip* self, int mode) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip) {
         return vkzip->createDevice(static_cast<QIODevice::OpenMode>(mode));
     } else {
-        return ((VirtualKZip*)self)->createDevice(static_cast<QIODevice::OpenMode>(mode));
+        qFatal("Error: Protected virtual method KZip::createDevice called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KZip_SuperCreateDevice(KZip* self, int mode) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_CreateDevice_IsBase(true);
-        return vkzip->createDevice(static_cast<QIODevice::OpenMode>(mode));
-    } else {
-        return ((VirtualKZip*)self)->createDevice(static_cast<QIODevice::OpenMode>(mode));
-    }
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self)) {
+        return vkzip->KZip::createDevice(static_cast<QIODevice::OpenMode>(mode));
+    } else
+        qFatal("Error: Protected virtual method KZip::createDevice called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KZip_OnCreateDevice(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_CreateDevice_Callback(reinterpret_cast<VirtualKZip::KZip_CreateDevice_Callback>(slot));
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self))
+        vkzip->kzip_createdevice_callback = reinterpret_cast<VirtualKZip::KZip_CreateDevice_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KZip_SetErrorString(KZip* self, const libqt_string errorStr) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    QString errorStr_QString = QString::fromUtf8(errorStr.data, errorStr.len);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setErrorString(errorStr_QString);
-    } else {
-        ((VirtualKZip*)self)->setErrorString(errorStr_QString);
-    }
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self)) {
+        QString errorStr_QString = QString::fromUtf8(errorStr.data, errorStr.len);
+        vkzip->VirtualKZip::setErrorString(errorStr_QString);
+    } else
+        qFatal("Error: Protected method KZip::setErrorString called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KZip_SuperSetErrorString(KZip* self, const libqt_string errorStr) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    QString errorStr_QString = QString::fromUtf8(errorStr.data, errorStr.len);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_SetErrorString_IsBase(true);
-        vkzip->setErrorString(errorStr_QString);
-    } else {
-        ((VirtualKZip*)self)->setErrorString(errorStr_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KZip_OnSetErrorString(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_SetErrorString_Callback(reinterpret_cast<VirtualKZip::KZip_SetErrorString_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 KArchiveDirectory* KZip_FindOrCreate(KZip* self, const libqt_string path) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    QString path_QString = QString::fromUtf8(path.data, path.len);
-    if (vkzip && vkzip->isVirtualKZip) {
-        return vkzip->findOrCreate(path_QString);
-    } else {
-        return ((VirtualKZip*)self)->findOrCreate(path_QString);
-    }
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self)) {
+        QString path_QString = QString::fromUtf8(path.data, path.len);
+        return vkzip->VirtualKZip::findOrCreate(path_QString);
+    } else
+        qFatal("Error: Protected method KZip::findOrCreate called without a directly constructed type");
 }
 
-// Base class handler implementation
-KArchiveDirectory* KZip_SuperFindOrCreate(KZip* self, const libqt_string path) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    QString path_QString = QString::fromUtf8(path.data, path.len);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_FindOrCreate_IsBase(true);
-        return vkzip->findOrCreate(path_QString);
-    } else {
-        return ((VirtualKZip*)self)->findOrCreate(path_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KZip_OnFindOrCreate(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_FindOrCreate_Callback(reinterpret_cast<VirtualKZip::KZip_FindOrCreate_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KZip_SetDevice(KZip* self, QIODevice* dev) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setDevice(dev);
-    } else {
-        ((VirtualKZip*)self)->setDevice(dev);
-    }
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self)) {
+        vkzip->VirtualKZip::setDevice(dev);
+    } else
+        qFatal("Error: Protected method KZip::setDevice called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KZip_SuperSetDevice(KZip* self, QIODevice* dev) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_SetDevice_IsBase(true);
-        vkzip->setDevice(dev);
-    } else {
-        ((VirtualKZip*)self)->setDevice(dev);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KZip_OnSetDevice(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_SetDevice_Callback(reinterpret_cast<VirtualKZip::KZip_SetDevice_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KZip_SetRootDir(KZip* self, KArchiveDirectory* rootDir) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setRootDir(rootDir);
-    } else {
-        ((VirtualKZip*)self)->setRootDir(rootDir);
-    }
-}
-
-// Base class handler implementation
-void KZip_SuperSetRootDir(KZip* self, KArchiveDirectory* rootDir) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
-        vkzip->setKZip_SetRootDir_IsBase(true);
-        vkzip->setRootDir(rootDir);
-    } else {
-        ((VirtualKZip*)self)->setRootDir(rootDir);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KZip_OnSetRootDir(KZip* self, intptr_t slot) {
-    auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip)
-        vkzip->setKZip_SetRootDir_Callback(reinterpret_cast<VirtualKZip::KZip_SetRootDir_Callback>(slot));
+    if (auto* vkzip = dynamic_cast<VirtualKZip*>(self)) {
+        vkzip->VirtualKZip::setRootDir(rootDir);
+    } else
+        qFatal("Error: Protected method KZip::setRootDir called without a directly constructed type");
 }
 
 void KZip_Delete(KZip* self) {

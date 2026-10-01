@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KToggleAction so that we can call protected methods
+// This class is a subclass of KToggleAction
 class VirtualKToggleAction final : public KToggleAction {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKToggleAction = true;
-
-    // Virtual class public types (including callbacks)
-    using KToggleAction_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KToggleAction_MetaObject_Callback = QMetaObject* (*)(const KToggleAction*);
     using KToggleAction_Metacast_Callback = void* (*)(KToggleAction*, const char*);
     using KToggleAction_Metacall_Callback = int (*)(KToggleAction*, int, int, void**);
     using KToggleAction_SlotToggled_Callback = void (*)(KToggleAction*, bool);
@@ -28,12 +24,11 @@ class VirtualKToggleAction final : public KToggleAction {
     using KToggleAction_CustomEvent_Callback = void (*)(KToggleAction*, QEvent*);
     using KToggleAction_ConnectNotify_Callback = void (*)(KToggleAction*, QMetaMethod*);
     using KToggleAction_DisconnectNotify_Callback = void (*)(KToggleAction*, QMetaMethod*);
-    using KToggleAction_Sender_Callback = QObject* (*)();
-    using KToggleAction_SenderSignalIndex_Callback = int (*)();
-    using KToggleAction_Receivers_Callback = int (*)(const KToggleAction*, const char*);
-    using KToggleAction_IsSignalConnected_Callback = bool (*)(const KToggleAction*, QMetaMethod*);
+    using KToggleAction::isSignalConnected;
+    using KToggleAction::receivers;
+    using KToggleAction::sender;
+    using KToggleAction::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KToggleAction_MetaObject_Callback ktoggleaction_metaobject_callback = nullptr;
     KToggleAction_Metacast_Callback ktoggleaction_metacast_callback = nullptr;
@@ -46,76 +41,26 @@ class VirtualKToggleAction final : public KToggleAction {
     KToggleAction_CustomEvent_Callback ktoggleaction_customevent_callback = nullptr;
     KToggleAction_ConnectNotify_Callback ktoggleaction_connectnotify_callback = nullptr;
     KToggleAction_DisconnectNotify_Callback ktoggleaction_disconnectnotify_callback = nullptr;
-    KToggleAction_Sender_Callback ktoggleaction_sender_callback = nullptr;
-    KToggleAction_SenderSignalIndex_Callback ktoggleaction_sendersignalindex_callback = nullptr;
-    KToggleAction_Receivers_Callback ktoggleaction_receivers_callback = nullptr;
-    KToggleAction_IsSignalConnected_Callback ktoggleaction_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool ktoggleaction_metaobject_isbase = false;
-    mutable bool ktoggleaction_metacast_isbase = false;
-    mutable bool ktoggleaction_metacall_isbase = false;
-    mutable bool ktoggleaction_slottoggled_isbase = false;
-    mutable bool ktoggleaction_event_isbase = false;
-    mutable bool ktoggleaction_eventfilter_isbase = false;
-    mutable bool ktoggleaction_timerevent_isbase = false;
-    mutable bool ktoggleaction_childevent_isbase = false;
-    mutable bool ktoggleaction_customevent_isbase = false;
-    mutable bool ktoggleaction_connectnotify_isbase = false;
-    mutable bool ktoggleaction_disconnectnotify_isbase = false;
-    mutable bool ktoggleaction_sender_isbase = false;
-    mutable bool ktoggleaction_sendersignalindex_isbase = false;
-    mutable bool ktoggleaction_receivers_isbase = false;
-    mutable bool ktoggleaction_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KToggleAction {
+        using KToggleAction::childEvent;
+        using KToggleAction::connectNotify;
+        using KToggleAction::customEvent;
+        using KToggleAction::disconnectNotify;
+        using KToggleAction::event;
+        using KToggleAction::slotToggled;
+        using KToggleAction::timerEvent;
+    };
 
-  public:
     VirtualKToggleAction(QObject* parent) : KToggleAction(parent) {};
     VirtualKToggleAction(const QString& text, QObject* parent) : KToggleAction(text, parent) {};
     VirtualKToggleAction(const QIcon& icon, const QString& text, QObject* parent) : KToggleAction(icon, text, parent) {};
 
-    // Callback setters
-    inline void setKToggleAction_MetaObject_Callback(KToggleAction_MetaObject_Callback cb) { ktoggleaction_metaobject_callback = cb; }
-    inline void setKToggleAction_Metacast_Callback(KToggleAction_Metacast_Callback cb) { ktoggleaction_metacast_callback = cb; }
-    inline void setKToggleAction_Metacall_Callback(KToggleAction_Metacall_Callback cb) { ktoggleaction_metacall_callback = cb; }
-    inline void setKToggleAction_SlotToggled_Callback(KToggleAction_SlotToggled_Callback cb) { ktoggleaction_slottoggled_callback = cb; }
-    inline void setKToggleAction_Event_Callback(KToggleAction_Event_Callback cb) { ktoggleaction_event_callback = cb; }
-    inline void setKToggleAction_EventFilter_Callback(KToggleAction_EventFilter_Callback cb) { ktoggleaction_eventfilter_callback = cb; }
-    inline void setKToggleAction_TimerEvent_Callback(KToggleAction_TimerEvent_Callback cb) { ktoggleaction_timerevent_callback = cb; }
-    inline void setKToggleAction_ChildEvent_Callback(KToggleAction_ChildEvent_Callback cb) { ktoggleaction_childevent_callback = cb; }
-    inline void setKToggleAction_CustomEvent_Callback(KToggleAction_CustomEvent_Callback cb) { ktoggleaction_customevent_callback = cb; }
-    inline void setKToggleAction_ConnectNotify_Callback(KToggleAction_ConnectNotify_Callback cb) { ktoggleaction_connectnotify_callback = cb; }
-    inline void setKToggleAction_DisconnectNotify_Callback(KToggleAction_DisconnectNotify_Callback cb) { ktoggleaction_disconnectnotify_callback = cb; }
-    inline void setKToggleAction_Sender_Callback(KToggleAction_Sender_Callback cb) { ktoggleaction_sender_callback = cb; }
-    inline void setKToggleAction_SenderSignalIndex_Callback(KToggleAction_SenderSignalIndex_Callback cb) { ktoggleaction_sendersignalindex_callback = cb; }
-    inline void setKToggleAction_Receivers_Callback(KToggleAction_Receivers_Callback cb) { ktoggleaction_receivers_callback = cb; }
-    inline void setKToggleAction_IsSignalConnected_Callback(KToggleAction_IsSignalConnected_Callback cb) { ktoggleaction_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKToggleAction_MetaObject_IsBase(bool value) const { ktoggleaction_metaobject_isbase = value; }
-    inline void setKToggleAction_Metacast_IsBase(bool value) const { ktoggleaction_metacast_isbase = value; }
-    inline void setKToggleAction_Metacall_IsBase(bool value) const { ktoggleaction_metacall_isbase = value; }
-    inline void setKToggleAction_SlotToggled_IsBase(bool value) const { ktoggleaction_slottoggled_isbase = value; }
-    inline void setKToggleAction_Event_IsBase(bool value) const { ktoggleaction_event_isbase = value; }
-    inline void setKToggleAction_EventFilter_IsBase(bool value) const { ktoggleaction_eventfilter_isbase = value; }
-    inline void setKToggleAction_TimerEvent_IsBase(bool value) const { ktoggleaction_timerevent_isbase = value; }
-    inline void setKToggleAction_ChildEvent_IsBase(bool value) const { ktoggleaction_childevent_isbase = value; }
-    inline void setKToggleAction_CustomEvent_IsBase(bool value) const { ktoggleaction_customevent_isbase = value; }
-    inline void setKToggleAction_ConnectNotify_IsBase(bool value) const { ktoggleaction_connectnotify_isbase = value; }
-    inline void setKToggleAction_DisconnectNotify_IsBase(bool value) const { ktoggleaction_disconnectnotify_isbase = value; }
-    inline void setKToggleAction_Sender_IsBase(bool value) const { ktoggleaction_sender_isbase = value; }
-    inline void setKToggleAction_SenderSignalIndex_IsBase(bool value) const { ktoggleaction_sendersignalindex_isbase = value; }
-    inline void setKToggleAction_Receivers_IsBase(bool value) const { ktoggleaction_receivers_isbase = value; }
-    inline void setKToggleAction_IsSignalConnected_IsBase(bool value) const { ktoggleaction_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (ktoggleaction_metaobject_isbase) {
-            ktoggleaction_metaobject_isbase = false;
-            return KToggleAction::metaObject();
-        }
-        auto metaobject_cb = ktoggleaction_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (ktoggleaction_metaobject_callback) {
+            QMetaObject* callback_ret = ktoggleaction_metaobject_callback(this);
             return callback_ret;
         }
         return KToggleAction::metaObject();
@@ -123,14 +68,9 @@ class VirtualKToggleAction final : public KToggleAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (ktoggleaction_metacast_isbase) {
-            ktoggleaction_metacast_isbase = false;
-            return KToggleAction::qt_metacast(param1);
-        }
-        auto metacast_cb = ktoggleaction_metacast_callback;
-        if (metacast_cb) {
+        if (ktoggleaction_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = ktoggleaction_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KToggleAction::qt_metacast(param1);
@@ -138,16 +78,11 @@ class VirtualKToggleAction final : public KToggleAction {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (ktoggleaction_metacall_isbase) {
-            ktoggleaction_metacall_isbase = false;
-            return KToggleAction::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = ktoggleaction_metacall_callback;
-        if (metacall_cb) {
+        if (ktoggleaction_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = ktoggleaction_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KToggleAction::qt_metacall(param1, param2, param3);
@@ -155,15 +90,9 @@ class VirtualKToggleAction final : public KToggleAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void slotToggled(bool checked) override {
-        if (ktoggleaction_slottoggled_isbase) {
-            ktoggleaction_slottoggled_isbase = false;
-            KToggleAction::slotToggled(checked);
-            return;
-        }
-        auto slottoggled_cb = ktoggleaction_slottoggled_callback;
-        if (slottoggled_cb) {
+        if (ktoggleaction_slottoggled_callback) {
             bool cbval1 = checked;
-            slottoggled_cb(this, cbval1);
+            ktoggleaction_slottoggled_callback(this, cbval1);
             return;
         }
         KToggleAction::slotToggled(checked);
@@ -171,14 +100,9 @@ class VirtualKToggleAction final : public KToggleAction {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* param1) override {
-        if (ktoggleaction_event_isbase) {
-            ktoggleaction_event_isbase = false;
-            return KToggleAction::event(param1);
-        }
-        auto event_cb = ktoggleaction_event_callback;
-        if (event_cb) {
+        if (ktoggleaction_event_callback) {
             QEvent* cbval1 = param1;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = ktoggleaction_event_callback(this, cbval1);
             return callback_ret;
         }
         return KToggleAction::event(param1);
@@ -186,15 +110,10 @@ class VirtualKToggleAction final : public KToggleAction {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (ktoggleaction_eventfilter_isbase) {
-            ktoggleaction_eventfilter_isbase = false;
-            return KToggleAction::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = ktoggleaction_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (ktoggleaction_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = ktoggleaction_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KToggleAction::eventFilter(watched, event);
@@ -202,15 +121,9 @@ class VirtualKToggleAction final : public KToggleAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (ktoggleaction_timerevent_isbase) {
-            ktoggleaction_timerevent_isbase = false;
-            KToggleAction::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = ktoggleaction_timerevent_callback;
-        if (timerevent_cb) {
+        if (ktoggleaction_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            ktoggleaction_timerevent_callback(this, cbval1);
             return;
         }
         KToggleAction::timerEvent(event);
@@ -218,15 +131,9 @@ class VirtualKToggleAction final : public KToggleAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (ktoggleaction_childevent_isbase) {
-            ktoggleaction_childevent_isbase = false;
-            KToggleAction::childEvent(event);
-            return;
-        }
-        auto childevent_cb = ktoggleaction_childevent_callback;
-        if (childevent_cb) {
+        if (ktoggleaction_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            ktoggleaction_childevent_callback(this, cbval1);
             return;
         }
         KToggleAction::childEvent(event);
@@ -234,15 +141,9 @@ class VirtualKToggleAction final : public KToggleAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (ktoggleaction_customevent_isbase) {
-            ktoggleaction_customevent_isbase = false;
-            KToggleAction::customEvent(event);
-            return;
-        }
-        auto customevent_cb = ktoggleaction_customevent_callback;
-        if (customevent_cb) {
+        if (ktoggleaction_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            ktoggleaction_customevent_callback(this, cbval1);
             return;
         }
         KToggleAction::customEvent(event);
@@ -250,17 +151,11 @@ class VirtualKToggleAction final : public KToggleAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (ktoggleaction_connectnotify_isbase) {
-            ktoggleaction_connectnotify_isbase = false;
-            KToggleAction::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = ktoggleaction_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (ktoggleaction_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            ktoggleaction_connectnotify_callback(this, cbval1);
             return;
         }
         KToggleAction::connectNotify(signal);
@@ -268,105 +163,24 @@ class VirtualKToggleAction final : public KToggleAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (ktoggleaction_disconnectnotify_isbase) {
-            ktoggleaction_disconnectnotify_isbase = false;
-            KToggleAction::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = ktoggleaction_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (ktoggleaction_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            ktoggleaction_disconnectnotify_callback(this, cbval1);
             return;
         }
         KToggleAction::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (ktoggleaction_sender_isbase) {
-            ktoggleaction_sender_isbase = false;
-            return KToggleAction::sender();
-        }
-        auto sender_cb = ktoggleaction_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KToggleAction::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (ktoggleaction_sendersignalindex_isbase) {
-            ktoggleaction_sendersignalindex_isbase = false;
-            return KToggleAction::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = ktoggleaction_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KToggleAction::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (ktoggleaction_receivers_isbase) {
-            ktoggleaction_receivers_isbase = false;
-            return KToggleAction::receivers(signal);
-        }
-        auto receivers_cb = ktoggleaction_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KToggleAction::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (ktoggleaction_issignalconnected_isbase) {
-            ktoggleaction_issignalconnected_isbase = false;
-            return KToggleAction::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = ktoggleaction_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KToggleAction::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KToggleAction_SlotToggled(KToggleAction* self, bool checked);
     friend void KToggleAction_SuperSlotToggled(KToggleAction* self, bool checked);
-    friend bool KToggleAction_Event(KToggleAction* self, QEvent* param1);
     friend bool KToggleAction_SuperEvent(KToggleAction* self, QEvent* param1);
-    friend void KToggleAction_TimerEvent(KToggleAction* self, QTimerEvent* event);
     friend void KToggleAction_SuperTimerEvent(KToggleAction* self, QTimerEvent* event);
-    friend void KToggleAction_ChildEvent(KToggleAction* self, QChildEvent* event);
     friend void KToggleAction_SuperChildEvent(KToggleAction* self, QChildEvent* event);
-    friend void KToggleAction_CustomEvent(KToggleAction* self, QEvent* event);
     friend void KToggleAction_SuperCustomEvent(KToggleAction* self, QEvent* event);
-    friend void KToggleAction_ConnectNotify(KToggleAction* self, const QMetaMethod* signal);
     friend void KToggleAction_SuperConnectNotify(KToggleAction* self, const QMetaMethod* signal);
-    friend void KToggleAction_DisconnectNotify(KToggleAction* self, const QMetaMethod* signal);
     friend void KToggleAction_SuperDisconnectNotify(KToggleAction* self, const QMetaMethod* signal);
-    friend QObject* KToggleAction_Sender(const KToggleAction* self);
-    friend QObject* KToggleAction_SuperSender(const KToggleAction* self);
-    friend int KToggleAction_SenderSignalIndex(const KToggleAction* self);
-    friend int KToggleAction_SuperSenderSignalIndex(const KToggleAction* self);
-    friend int KToggleAction_Receivers(const KToggleAction* self, const char* signal);
-    friend int KToggleAction_SuperReceivers(const KToggleAction* self, const char* signal);
-    friend bool KToggleAction_IsSignalConnected(const KToggleAction* self, const QMetaMethod* signal);
-    friend bool KToggleAction_SuperIsSignalConnected(const KToggleAction* self, const QMetaMethod* signal);
 };
 
 #endif

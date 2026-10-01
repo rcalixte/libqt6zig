@@ -100,1221 +100,741 @@ libqt_string QsciLexerDiff_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QsciLexerDiff_SuperMetaObject(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_MetaObject_IsBase(true);
-        return (QMetaObject*)vqscilexerdiff->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerDiff*)self)->metaObject();
-    }
+    return (QMetaObject*)self->QsciLexerDiff::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnMetaObject(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_MetaObject_Callback>(slot));
+void QsciLexerDiff_OnMetaObject(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_metaobject_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QsciLexerDiff_SuperMetacast(QsciLexerDiff* self, const char* param1) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Metacast_IsBase(true);
-        return vqscilexerdiff->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->qt_metacast(param1);
-    }
+    return self->QsciLexerDiff::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnMetacast(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_Metacast_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Metacast_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_metacast_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QsciLexerDiff_SuperMetacall(QsciLexerDiff* self, int param1, int param2, void** param3) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Metacall_IsBase(true);
-        return vqscilexerdiff->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QsciLexerDiff::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnMetacall(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_Metacall_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Metacall_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_metacall_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerDiff_LexerId(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->lexerId();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->lexerId();
-    }
+    return self->lexerId();
 }
 
 // Base class handler implementation
 int QsciLexerDiff_SuperLexerId(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_LexerId_IsBase(true);
-        return vqscilexerdiff->lexerId();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->lexerId();
-    }
+    return self->QsciLexerDiff::lexerId();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnLexerId(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_LexerId_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_LexerId_Callback>(slot));
+void QsciLexerDiff_OnLexerId(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_lexerid_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_LexerId_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerDiff_AutoCompletionFillups(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return (const char*)vqscilexerdiff->autoCompletionFillups();
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->autoCompletionFillups();
-    }
+    return (const char*)self->autoCompletionFillups();
 }
 
 // Base class handler implementation
 const char* QsciLexerDiff_SuperAutoCompletionFillups(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_AutoCompletionFillups_IsBase(true);
-        return (const char*)vqscilexerdiff->autoCompletionFillups();
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->autoCompletionFillups();
-    }
+    return (const char*)self->QsciLexerDiff::autoCompletionFillups();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnAutoCompletionFillups(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_AutoCompletionFillups_Callback>(slot));
+void QsciLexerDiff_OnAutoCompletionFillups(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_autocompletionfillups_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_AutoCompletionFillups_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of libqt_string */ QsciLexerDiff_AutoCompletionWordSeparators(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        QList<QString> _ret = vqscilexerdiff->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQsciLexerDiff*)self)->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->autoCompletionWordSeparators();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QsciLexerDiff_SuperAutoCompletionWordSeparators(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_AutoCompletionWordSeparators_IsBase(true);
-        QList<QString> _ret = vqscilexerdiff->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQsciLexerDiff*)self)->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->QsciLexerDiff::autoCompletionWordSeparators();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnAutoCompletionWordSeparators(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_AutoCompletionWordSeparators_Callback>(slot));
+void QsciLexerDiff_OnAutoCompletionWordSeparators(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_autocompletionwordseparators_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_AutoCompletionWordSeparators_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerDiff_BlockEnd(const QsciLexerDiff* self, int* style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return (const char*)vqscilexerdiff->blockEnd(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->blockEnd(static_cast<int*>(style));
-    }
+    return (const char*)self->blockEnd(static_cast<int*>(style));
 }
 
 // Base class handler implementation
 const char* QsciLexerDiff_SuperBlockEnd(const QsciLexerDiff* self, int* style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_BlockEnd_IsBase(true);
-        return (const char*)vqscilexerdiff->blockEnd(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->blockEnd(static_cast<int*>(style));
-    }
+    return (const char*)self->QsciLexerDiff::blockEnd(static_cast<int*>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnBlockEnd(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_BlockEnd_Callback>(slot));
+void QsciLexerDiff_OnBlockEnd(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_blockend_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_BlockEnd_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerDiff_BlockLookback(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->blockLookback();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->blockLookback();
-    }
+    return self->blockLookback();
 }
 
 // Base class handler implementation
 int QsciLexerDiff_SuperBlockLookback(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_BlockLookback_IsBase(true);
-        return vqscilexerdiff->blockLookback();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->blockLookback();
-    }
+    return self->QsciLexerDiff::blockLookback();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnBlockLookback(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_BlockLookback_Callback>(slot));
+void QsciLexerDiff_OnBlockLookback(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_blocklookback_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_BlockLookback_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerDiff_BlockStart(const QsciLexerDiff* self, int* style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return (const char*)vqscilexerdiff->blockStart(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->blockStart(static_cast<int*>(style));
-    }
+    return (const char*)self->blockStart(static_cast<int*>(style));
 }
 
 // Base class handler implementation
 const char* QsciLexerDiff_SuperBlockStart(const QsciLexerDiff* self, int* style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_BlockStart_IsBase(true);
-        return (const char*)vqscilexerdiff->blockStart(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->blockStart(static_cast<int*>(style));
-    }
+    return (const char*)self->QsciLexerDiff::blockStart(static_cast<int*>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnBlockStart(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_BlockStart_Callback>(slot));
+void QsciLexerDiff_OnBlockStart(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_blockstart_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_BlockStart_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerDiff_BlockStartKeyword(const QsciLexerDiff* self, int* style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return (const char*)vqscilexerdiff->blockStartKeyword(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->blockStartKeyword(static_cast<int*>(style));
-    }
+    return (const char*)self->blockStartKeyword(static_cast<int*>(style));
 }
 
 // Base class handler implementation
 const char* QsciLexerDiff_SuperBlockStartKeyword(const QsciLexerDiff* self, int* style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_BlockStartKeyword_IsBase(true);
-        return (const char*)vqscilexerdiff->blockStartKeyword(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->blockStartKeyword(static_cast<int*>(style));
-    }
+    return (const char*)self->QsciLexerDiff::blockStartKeyword(static_cast<int*>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnBlockStartKeyword(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_BlockStartKeyword_Callback>(slot));
+void QsciLexerDiff_OnBlockStartKeyword(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_blockstartkeyword_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_BlockStartKeyword_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerDiff_BraceStyle(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->braceStyle();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->braceStyle();
-    }
+    return self->braceStyle();
 }
 
 // Base class handler implementation
 int QsciLexerDiff_SuperBraceStyle(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_BraceStyle_IsBase(true);
-        return vqscilexerdiff->braceStyle();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->braceStyle();
-    }
+    return self->QsciLexerDiff::braceStyle();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnBraceStyle(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_BraceStyle_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_BraceStyle_Callback>(slot));
+void QsciLexerDiff_OnBraceStyle(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_bracestyle_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_BraceStyle_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerDiff_CaseSensitive(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->caseSensitive();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->caseSensitive();
-    }
+    return self->caseSensitive();
 }
 
 // Base class handler implementation
 bool QsciLexerDiff_SuperCaseSensitive(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_CaseSensitive_IsBase(true);
-        return vqscilexerdiff->caseSensitive();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->caseSensitive();
-    }
+    return self->QsciLexerDiff::caseSensitive();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnCaseSensitive(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_CaseSensitive_Callback>(slot));
+void QsciLexerDiff_OnCaseSensitive(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_casesensitive_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_CaseSensitive_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerDiff_Color(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return new QColor(vqscilexerdiff->color(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerDiff*)self)->color(static_cast<int>(style)));
-    }
+    return new QColor(self->color(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerDiff_SuperColor(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Color_IsBase(true);
-        return new QColor(vqscilexerdiff->color(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerDiff*)self)->color(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerDiff::color(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnColor(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_Color_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Color_Callback>(slot));
+void QsciLexerDiff_OnColor(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_color_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Color_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerDiff_EolFill(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->eolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->eolFill(static_cast<int>(style));
-    }
+    return self->eolFill(static_cast<int>(style));
 }
 
 // Base class handler implementation
 bool QsciLexerDiff_SuperEolFill(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_EolFill_IsBase(true);
-        return vqscilexerdiff->eolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->eolFill(static_cast<int>(style));
-    }
+    return self->QsciLexerDiff::eolFill(static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnEolFill(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_EolFill_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_EolFill_Callback>(slot));
+void QsciLexerDiff_OnEolFill(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_eolfill_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_EolFill_Callback>(slot);
 }
 
 // Derived class handler implementation
 QFont* QsciLexerDiff_Font(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return new QFont(vqscilexerdiff->font(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerDiff*)self)->font(static_cast<int>(style)));
-    }
+    return new QFont(self->font(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QFont* QsciLexerDiff_SuperFont(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Font_IsBase(true);
-        return new QFont(vqscilexerdiff->font(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerDiff*)self)->font(static_cast<int>(style)));
-    }
+    return new QFont(self->QsciLexerDiff::font(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnFont(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_Font_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Font_Callback>(slot));
+void QsciLexerDiff_OnFont(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_font_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Font_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerDiff_IndentationGuideView(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->indentationGuideView();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->indentationGuideView();
-    }
+    return self->indentationGuideView();
 }
 
 // Base class handler implementation
 int QsciLexerDiff_SuperIndentationGuideView(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_IndentationGuideView_IsBase(true);
-        return vqscilexerdiff->indentationGuideView();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->indentationGuideView();
-    }
+    return self->QsciLexerDiff::indentationGuideView();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnIndentationGuideView(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_IndentationGuideView_Callback>(slot));
+void QsciLexerDiff_OnIndentationGuideView(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_indentationguideview_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_IndentationGuideView_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerDiff_Keywords(const QsciLexerDiff* self, int set) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return (const char*)vqscilexerdiff->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->keywords(static_cast<int>(set));
-    }
+    return (const char*)self->keywords(static_cast<int>(set));
 }
 
 // Base class handler implementation
 const char* QsciLexerDiff_SuperKeywords(const QsciLexerDiff* self, int set) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Keywords_IsBase(true);
-        return (const char*)vqscilexerdiff->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexerDiff*)self)->keywords(static_cast<int>(set));
-    }
+    return (const char*)self->QsciLexerDiff::keywords(static_cast<int>(set));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnKeywords(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_Keywords_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Keywords_Callback>(slot));
+void QsciLexerDiff_OnKeywords(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_keywords_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Keywords_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerDiff_DefaultStyle(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->defaultStyle();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->defaultStyle();
-    }
+    return self->defaultStyle();
 }
 
 // Base class handler implementation
 int QsciLexerDiff_SuperDefaultStyle(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_DefaultStyle_IsBase(true);
-        return vqscilexerdiff->defaultStyle();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->defaultStyle();
-    }
+    return self->QsciLexerDiff::defaultStyle();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnDefaultStyle(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultStyle_Callback>(slot));
+void QsciLexerDiff_OnDefaultStyle(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_defaultstyle_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultStyle_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerDiff_Paper(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return new QColor(vqscilexerdiff->paper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerDiff*)self)->paper(static_cast<int>(style)));
-    }
+    return new QColor(self->paper(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerDiff_SuperPaper(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Paper_IsBase(true);
-        return new QColor(vqscilexerdiff->paper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerDiff*)self)->paper(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerDiff::paper(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnPaper(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_Paper_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Paper_Callback>(slot));
+void QsciLexerDiff_OnPaper(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_paper_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Paper_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerDiff_DefaultColor2(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return new QColor(vqscilexerdiff->defaultColor(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerDiff*)self)->defaultColor(static_cast<int>(style)));
-    }
+    return new QColor(self->defaultColor(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerDiff_SuperDefaultColor2(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_DefaultColor2_IsBase(true);
-        return new QColor(vqscilexerdiff->defaultColor(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerDiff*)self)->defaultColor(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerDiff::defaultColor(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnDefaultColor2(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultColor2_Callback>(slot));
+void QsciLexerDiff_OnDefaultColor2(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_defaultcolor2_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultColor2_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerDiff_DefaultEolFill(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->defaultEolFill(static_cast<int>(style));
-    }
+    return self->defaultEolFill(static_cast<int>(style));
 }
 
 // Base class handler implementation
 bool QsciLexerDiff_SuperDefaultEolFill(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_DefaultEolFill_IsBase(true);
-        return vqscilexerdiff->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->defaultEolFill(static_cast<int>(style));
-    }
+    return self->QsciLexerDiff::defaultEolFill(static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnDefaultEolFill(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultEolFill_Callback>(slot));
+void QsciLexerDiff_OnDefaultEolFill(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_defaulteolfill_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultEolFill_Callback>(slot);
 }
 
 // Derived class handler implementation
 QFont* QsciLexerDiff_DefaultFont2(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return new QFont(vqscilexerdiff->defaultFont(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerDiff*)self)->defaultFont(static_cast<int>(style)));
-    }
+    return new QFont(self->defaultFont(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QFont* QsciLexerDiff_SuperDefaultFont2(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_DefaultFont2_IsBase(true);
-        return new QFont(vqscilexerdiff->defaultFont(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerDiff*)self)->defaultFont(static_cast<int>(style)));
-    }
+    return new QFont(self->QsciLexerDiff::defaultFont(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnDefaultFont2(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultFont2_Callback>(slot));
+void QsciLexerDiff_OnDefaultFont2(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_defaultfont2_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultFont2_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerDiff_DefaultPaper2(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return new QColor(vqscilexerdiff->defaultPaper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerDiff*)self)->defaultPaper(static_cast<int>(style)));
-    }
+    return new QColor(self->defaultPaper(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerDiff_SuperDefaultPaper2(const QsciLexerDiff* self, int style) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_DefaultPaper2_IsBase(true);
-        return new QColor(vqscilexerdiff->defaultPaper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerDiff*)self)->defaultPaper(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerDiff::defaultPaper(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnDefaultPaper2(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultPaper2_Callback>(slot));
+void QsciLexerDiff_OnDefaultPaper2(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_defaultpaper2_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultPaper2_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerDiff_SetEditor(QsciLexerDiff* self, QsciScintilla* editor) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setEditor(editor);
-    } else {
-        ((VirtualQsciLexerDiff*)self)->setEditor(editor);
-    }
+    self->setEditor(editor);
 }
 
 // Base class handler implementation
 void QsciLexerDiff_SuperSetEditor(QsciLexerDiff* self, QsciScintilla* editor) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_SetEditor_IsBase(true);
-        vqscilexerdiff->setEditor(editor);
-    } else {
-        ((VirtualQsciLexerDiff*)self)->setEditor(editor);
-    }
+    self->QsciLexerDiff::setEditor(editor);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnSetEditor(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_SetEditor_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_seteditor_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_SetEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerDiff_RefreshProperties(QsciLexerDiff* self) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->refreshProperties();
-    } else {
-        ((VirtualQsciLexerDiff*)self)->refreshProperties();
-    }
+    self->refreshProperties();
 }
 
 // Base class handler implementation
 void QsciLexerDiff_SuperRefreshProperties(QsciLexerDiff* self) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_RefreshProperties_IsBase(true);
-        vqscilexerdiff->refreshProperties();
-    } else {
-        ((VirtualQsciLexerDiff*)self)->refreshProperties();
-    }
+    self->QsciLexerDiff::refreshProperties();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnRefreshProperties(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_RefreshProperties_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_RefreshProperties_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_refreshproperties_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_RefreshProperties_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerDiff_StyleBitsNeeded(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->styleBitsNeeded();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->styleBitsNeeded();
-    }
+    return self->styleBitsNeeded();
 }
 
 // Base class handler implementation
 int QsciLexerDiff_SuperStyleBitsNeeded(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_StyleBitsNeeded_IsBase(true);
-        return vqscilexerdiff->styleBitsNeeded();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->styleBitsNeeded();
-    }
+    return self->QsciLexerDiff::styleBitsNeeded();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnStyleBitsNeeded(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_StyleBitsNeeded_Callback>(slot));
+void QsciLexerDiff_OnStyleBitsNeeded(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_stylebitsneeded_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_StyleBitsNeeded_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerDiff_SetAutoIndentStyle(QsciLexerDiff* self, int autoindentstyle) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    } else {
-        ((VirtualQsciLexerDiff*)self)->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    }
+    self->setAutoIndentStyle(static_cast<int>(autoindentstyle));
 }
 
 // Base class handler implementation
 void QsciLexerDiff_SuperSetAutoIndentStyle(QsciLexerDiff* self, int autoindentstyle) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_SetAutoIndentStyle_IsBase(true);
-        vqscilexerdiff->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    } else {
-        ((VirtualQsciLexerDiff*)self)->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    }
+    self->QsciLexerDiff::setAutoIndentStyle(static_cast<int>(autoindentstyle));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnSetAutoIndentStyle(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_SetAutoIndentStyle_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_setautoindentstyle_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_SetAutoIndentStyle_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerDiff_SetColor(QsciLexerDiff* self, const QColor* c, int style) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setColor(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerDiff*)self)->setColor(*c, static_cast<int>(style));
-    }
+    self->setColor(*c, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerDiff_SuperSetColor(QsciLexerDiff* self, const QColor* c, int style) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_SetColor_IsBase(true);
-        vqscilexerdiff->setColor(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerDiff*)self)->setColor(*c, static_cast<int>(style));
-    }
+    self->QsciLexerDiff::setColor(*c, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnSetColor(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_SetColor_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_SetColor_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_setcolor_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_SetColor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerDiff_SetEolFill(QsciLexerDiff* self, bool eoffill, int style) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setEolFill(eoffill, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerDiff*)self)->setEolFill(eoffill, static_cast<int>(style));
-    }
+    self->setEolFill(eoffill, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerDiff_SuperSetEolFill(QsciLexerDiff* self, bool eoffill, int style) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_SetEolFill_IsBase(true);
-        vqscilexerdiff->setEolFill(eoffill, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerDiff*)self)->setEolFill(eoffill, static_cast<int>(style));
-    }
+    self->QsciLexerDiff::setEolFill(eoffill, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnSetEolFill(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_SetEolFill_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_seteolfill_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_SetEolFill_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerDiff_SetFont(QsciLexerDiff* self, const QFont* f, int style) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setFont(*f, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerDiff*)self)->setFont(*f, static_cast<int>(style));
-    }
+    self->setFont(*f, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerDiff_SuperSetFont(QsciLexerDiff* self, const QFont* f, int style) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_SetFont_IsBase(true);
-        vqscilexerdiff->setFont(*f, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerDiff*)self)->setFont(*f, static_cast<int>(style));
-    }
+    self->QsciLexerDiff::setFont(*f, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnSetFont(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_SetFont_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_SetFont_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_setfont_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_SetFont_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerDiff_SetPaper(QsciLexerDiff* self, const QColor* c, int style) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setPaper(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerDiff*)self)->setPaper(*c, static_cast<int>(style));
-    }
+    self->setPaper(*c, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerDiff_SuperSetPaper(QsciLexerDiff* self, const QColor* c, int style) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_SetPaper_IsBase(true);
-        vqscilexerdiff->setPaper(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerDiff*)self)->setPaper(*c, static_cast<int>(style));
-    }
+    self->QsciLexerDiff::setPaper(*c, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnSetPaper(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_SetPaper_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_setpaper_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_SetPaper_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerDiff_ReadProperties(QsciLexerDiff* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
+    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
+    if (vqscilexerdiff) {
         return vqscilexerdiff->readProperties(*qs, prefix_QString);
     } else {
-        return ((VirtualQsciLexerDiff*)self)->readProperties(*qs, prefix_QString);
+        qFatal("Error: Protected virtual method QsciLexerDiff::readProperties called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QsciLexerDiff_SuperReadProperties(QsciLexerDiff* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_ReadProperties_IsBase(true);
-        return vqscilexerdiff->readProperties(*qs, prefix_QString);
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->readProperties(*qs, prefix_QString);
-    }
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self)) {
+        return vqscilexerdiff->QsciLexerDiff::readProperties(*qs, prefix_QString);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerDiff::readProperties called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnReadProperties(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_ReadProperties_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_readproperties_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_ReadProperties_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerDiff_WriteProperties(const QsciLexerDiff* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
+    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
+    if (vqscilexerdiff) {
         return vqscilexerdiff->writeProperties(*qs, prefix_QString);
     } else {
-        return ((VirtualQsciLexerDiff*)self)->writeProperties(*qs, prefix_QString);
+        qFatal("Error: Protected virtual method QsciLexerDiff::writeProperties called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QsciLexerDiff_SuperWriteProperties(const QsciLexerDiff* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_WriteProperties_IsBase(true);
-        return vqscilexerdiff->writeProperties(*qs, prefix_QString);
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->writeProperties(*qs, prefix_QString);
-    }
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self))) {
+        return vqscilexerdiff->QsciLexerDiff::writeProperties(*qs, prefix_QString);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerDiff::writeProperties called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnWriteProperties(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_WriteProperties_Callback>(slot));
+void QsciLexerDiff_OnWriteProperties(QsciLexerDiff* self, intptr_t slot) {
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self)))
+        vqscilexerdiff->qscilexerdiff_writeproperties_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_WriteProperties_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerDiff_Event(QsciLexerDiff* self, QEvent* event) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->event(event);
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QsciLexerDiff_SuperEvent(QsciLexerDiff* self, QEvent* event) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Event_IsBase(true);
-        return vqscilexerdiff->event(event);
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->event(event);
-    }
+    return self->QsciLexerDiff::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnEvent(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_Event_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Event_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_event_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerDiff_EventFilter(QsciLexerDiff* self, QObject* watched, QEvent* event) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->eventFilter(watched, event);
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QsciLexerDiff_SuperEventFilter(QsciLexerDiff* self, QObject* watched, QEvent* event) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_EventFilter_IsBase(true);
-        return vqscilexerdiff->eventFilter(watched, event);
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->eventFilter(watched, event);
-    }
+    return self->QsciLexerDiff::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnEventFilter(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_EventFilter_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_eventfilter_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerDiff_TimerEvent(QsciLexerDiff* self, QTimerEvent* event) {
     auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
+    if (vqscilexerdiff) {
         vqscilexerdiff->timerEvent(event);
     } else {
-        ((VirtualQsciLexerDiff*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QsciLexerDiff::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerDiff_SuperTimerEvent(QsciLexerDiff* self, QTimerEvent* event) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_TimerEvent_IsBase(true);
-        vqscilexerdiff->timerEvent(event);
-    } else {
-        ((VirtualQsciLexerDiff*)self)->timerEvent(event);
-    }
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self)) {
+        vqscilexerdiff->QsciLexerDiff::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerDiff::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnTimerEvent(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_TimerEvent_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_timerevent_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerDiff_ChildEvent(QsciLexerDiff* self, QChildEvent* event) {
     auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
+    if (vqscilexerdiff) {
         vqscilexerdiff->childEvent(event);
     } else {
-        ((VirtualQsciLexerDiff*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QsciLexerDiff::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerDiff_SuperChildEvent(QsciLexerDiff* self, QChildEvent* event) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_ChildEvent_IsBase(true);
-        vqscilexerdiff->childEvent(event);
-    } else {
-        ((VirtualQsciLexerDiff*)self)->childEvent(event);
-    }
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self)) {
+        vqscilexerdiff->QsciLexerDiff::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerDiff::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnChildEvent(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_ChildEvent_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_childevent_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerDiff_CustomEvent(QsciLexerDiff* self, QEvent* event) {
     auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
+    if (vqscilexerdiff) {
         vqscilexerdiff->customEvent(event);
     } else {
-        ((VirtualQsciLexerDiff*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QsciLexerDiff::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerDiff_SuperCustomEvent(QsciLexerDiff* self, QEvent* event) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_CustomEvent_IsBase(true);
-        vqscilexerdiff->customEvent(event);
-    } else {
-        ((VirtualQsciLexerDiff*)self)->customEvent(event);
-    }
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self)) {
+        vqscilexerdiff->QsciLexerDiff::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerDiff::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnCustomEvent(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_CustomEvent_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_customevent_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerDiff_ConnectNotify(QsciLexerDiff* self, const QMetaMethod* signal) {
     auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
+    if (vqscilexerdiff) {
         vqscilexerdiff->connectNotify(*signal);
     } else {
-        ((VirtualQsciLexerDiff*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QsciLexerDiff::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerDiff_SuperConnectNotify(QsciLexerDiff* self, const QMetaMethod* signal) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_ConnectNotify_IsBase(true);
-        vqscilexerdiff->connectNotify(*signal);
-    } else {
-        ((VirtualQsciLexerDiff*)self)->connectNotify(*signal);
-    }
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self)) {
+        vqscilexerdiff->QsciLexerDiff::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerDiff::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnConnectNotify(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_ConnectNotify_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_connectnotify_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerDiff_DisconnectNotify(QsciLexerDiff* self, const QMetaMethod* signal) {
     auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
+    if (vqscilexerdiff) {
         vqscilexerdiff->disconnectNotify(*signal);
     } else {
-        ((VirtualQsciLexerDiff*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QsciLexerDiff::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerDiff_SuperDisconnectNotify(QsciLexerDiff* self, const QMetaMethod* signal) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_DisconnectNotify_IsBase(true);
-        vqscilexerdiff->disconnectNotify(*signal);
-    } else {
-        ((VirtualQsciLexerDiff*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self)) {
+        vqscilexerdiff->QsciLexerDiff::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerDiff::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerDiff_OnDisconnectNotify(QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DisconnectNotify_Callback>(slot));
+    if (auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self))
+        vqscilexerdiff->qscilexerdiff_disconnectnotify_callback = reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string QsciLexerDiff_TextAsBytes(const QsciLexerDiff* self, const libqt_string text) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        QByteArray _qb = vqscilexerdiff->textAsBytes(text_QString);
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self))) {
+        QString text_QString = QString::fromUtf8(text.data, text.len);
+        QByteArray _qb = vqscilexerdiff->VirtualQsciLexerDiff::textAsBytes(text_QString);
         libqt_string _str;
         _str.len = _qb.length();
         _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
         return _str;
-    } else {
-        QByteArray _qb = ((VirtualQsciLexerDiff*)self)->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method QsciLexerDiff::textAsBytes called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string QsciLexerDiff_SuperTextAsBytes(const QsciLexerDiff* self, const libqt_string text) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_TextAsBytes_IsBase(true);
-        QByteArray _qb = vqscilexerdiff->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    } else {
-        QByteArray _qb = ((VirtualQsciLexerDiff*)self)->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnTextAsBytes(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_TextAsBytes_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string QsciLexerDiff_BytesAsText(const QsciLexerDiff* self, const char* bytes, int size) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        auto _ret = vqscilexerdiff->bytesAsText(bytes, static_cast<int>(size));
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self))) {
+        auto _ret = vqscilexerdiff->VirtualQsciLexerDiff::bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1323,163 +843,40 @@ libqt_string QsciLexerDiff_BytesAsText(const QsciLexerDiff* self, const char* by
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualQsciLexerDiff*)self)->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method QsciLexerDiff::bytesAsText called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string QsciLexerDiff_SuperBytesAsText(const QsciLexerDiff* self, const char* bytes, int size) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_BytesAsText_IsBase(true);
-        auto _ret = vqscilexerdiff->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQsciLexerDiff*)self)->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnBytesAsText(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_BytesAsText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QsciLexerDiff_Sender(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->sender();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->sender();
-    }
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self))) {
+        return vqscilexerdiff->VirtualQsciLexerDiff::sender();
+    } else
+        qFatal("Error: Protected method QsciLexerDiff::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QsciLexerDiff_SuperSender(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Sender_IsBase(true);
-        return vqscilexerdiff->sender();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnSender(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_Sender_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QsciLexerDiff_SenderSignalIndex(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->senderSignalIndex();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->senderSignalIndex();
-    }
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self))) {
+        return vqscilexerdiff->VirtualQsciLexerDiff::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QsciLexerDiff::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QsciLexerDiff_SuperSenderSignalIndex(const QsciLexerDiff* self) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_SenderSignalIndex_IsBase(true);
-        return vqscilexerdiff->senderSignalIndex();
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnSenderSignalIndex(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QsciLexerDiff_Receivers(const QsciLexerDiff* self, const char* signal) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->receivers(signal);
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->receivers(signal);
-    }
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self))) {
+        return vqscilexerdiff->VirtualQsciLexerDiff::receivers(signal);
+    } else
+        qFatal("Error: Protected method QsciLexerDiff::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QsciLexerDiff_SuperReceivers(const QsciLexerDiff* self, const char* signal) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_Receivers_IsBase(true);
-        return vqscilexerdiff->receivers(signal);
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnReceivers(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_Receivers_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QsciLexerDiff_IsSignalConnected(const QsciLexerDiff* self, const QMetaMethod* signal) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        return vqscilexerdiff->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QsciLexerDiff_SuperIsSignalConnected(const QsciLexerDiff* self, const QMetaMethod* signal) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_IsSignalConnected_IsBase(true);
-        return vqscilexerdiff->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQsciLexerDiff*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnIsSignalConnected(const QsciLexerDiff* self, intptr_t slot) {
-    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
-    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff)
-        vqscilexerdiff->setQsciLexerDiff_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_IsSignalConnected_Callback>(slot));
+    if (auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self))) {
+        return vqscilexerdiff->VirtualQsciLexerDiff::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QsciLexerDiff::isSignalConnected called without a directly constructed type");
 }
 
 void QsciLexerDiff_Delete(QsciLexerDiff* self) {

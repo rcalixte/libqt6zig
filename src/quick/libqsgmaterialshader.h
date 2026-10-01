@@ -47,11 +47,7 @@ void QSGMaterialShader_SuperUpdateSampledImage(QSGMaterialShader* self, QSGMater
 void QSGMaterialShader_OnUpdateGraphicsPipelineState(QSGMaterialShader* self, intptr_t slot);
 bool QSGMaterialShader_SuperUpdateGraphicsPipelineState(QSGMaterialShader* self, QSGMaterialShader__RenderState* state, QSGMaterialShader__GraphicsPipelineState* ps, QSGMaterial* newMaterial, QSGMaterial* oldMaterial);
 void QSGMaterialShader_SetShaderFileName(QSGMaterialShader* self, int stage, const libqt_string filename);
-void QSGMaterialShader_OnSetShaderFileName(QSGMaterialShader* self, intptr_t slot);
-void QSGMaterialShader_SuperSetShaderFileName(QSGMaterialShader* self, int stage, const libqt_string filename);
 void QSGMaterialShader_SetShaderFileName2(QSGMaterialShader* self, int stage, const libqt_string filename, int viewCount);
-void QSGMaterialShader_OnSetShaderFileName2(QSGMaterialShader* self, intptr_t slot);
-void QSGMaterialShader_SuperSetShaderFileName2(QSGMaterialShader* self, int stage, const libqt_string filename, int viewCount);
 void QSGMaterialShader_Delete(QSGMaterialShader* self);
 
 QSGMaterialShader__RenderState* QSGMaterialShader__RenderState_new();

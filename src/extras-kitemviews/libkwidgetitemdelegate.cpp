@@ -67,7 +67,7 @@ void KWidgetItemDelegate_ResetModel(KWidgetItemDelegate* self) {
 
 libqt_list /* of QWidget* */ KWidgetItemDelegate_CreateItemWidgets(const KWidgetItemDelegate* self, const QModelIndex* index) {
     auto* vkwidgetitemdelegate = dynamic_cast<const VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
+    if (vkwidgetitemdelegate) {
         QList<QWidget*> _ret = vkwidgetitemdelegate->createItemWidgets(*index);
         // Convert QList<> from C++ memory to manually-managed C memory
         QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
@@ -79,7 +79,7 @@ libqt_list /* of QWidget* */ KWidgetItemDelegate_CreateItemWidgets(const KWidget
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
-    return {};
+    qFatal("Error: Protected method KWidgetItemDelegate::createItemWidgets called without a directly constructed type");
 }
 
 void KWidgetItemDelegate_UpdateItemWidgets(const KWidgetItemDelegate* self, const libqt_list /* of QWidget* */ widgets, const QStyleOptionViewItem* option, const QPersistentModelIndex* index) {
@@ -90,7 +90,7 @@ void KWidgetItemDelegate_UpdateItemWidgets(const KWidgetItemDelegate* self, cons
         widgets_QList.push_back(widgets_arr[i]);
     }
     auto* vkwidgetitemdelegate = dynamic_cast<const VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
+    if (vkwidgetitemdelegate) {
         vkwidgetitemdelegate->updateItemWidgets(widgets_QList, *option, *index);
     }
 }
@@ -121,675 +121,387 @@ libqt_string KWidgetItemDelegate_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KWidgetItemDelegate_SuperMetaObject(const KWidgetItemDelegate* self) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_MetaObject_IsBase(true);
-        return (QMetaObject*)vkwidgetitemdelegate->metaObject();
-    } else {
-        return (QMetaObject*)self->KWidgetItemDelegate::metaObject();
-    }
+    return (QMetaObject*)self->KWidgetItemDelegate::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnMetaObject(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_MetaObject_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_MetaObject_Callback>(slot));
+void KWidgetItemDelegate_OnMetaObject(KWidgetItemDelegate* self, intptr_t slot) {
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self)))
+        vkwidgetitemdelegate->kwidgetitemdelegate_metaobject_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KWidgetItemDelegate_SuperMetacast(KWidgetItemDelegate* self, const char* param1) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_Metacast_IsBase(true);
-        return vkwidgetitemdelegate->qt_metacast(param1);
-    } else {
-        return self->KWidgetItemDelegate::qt_metacast(param1);
-    }
+    return self->KWidgetItemDelegate::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWidgetItemDelegate_OnMetacast(KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_Metacast_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_Metacast_Callback>(slot));
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self))
+        vkwidgetitemdelegate->kwidgetitemdelegate_metacast_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KWidgetItemDelegate_SuperMetacall(KWidgetItemDelegate* self, int param1, int param2, void** param3) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_Metacall_IsBase(true);
-        return vkwidgetitemdelegate->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KWidgetItemDelegate::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KWidgetItemDelegate::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWidgetItemDelegate_OnMetacall(KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_Metacall_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-libqt_list /* of QWidget* */ KWidgetItemDelegate_SuperCreateItemWidgets(const KWidgetItemDelegate* self, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_CreateItemWidgets_IsBase(true);
-        QList<QWidget*> _ret = vkwidgetitemdelegate->createItemWidgets(*index);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QWidget*> _ret = ((VirtualKWidgetItemDelegate*)self)->createItemWidgets(*index);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self))
+        vkwidgetitemdelegate->kwidgetitemdelegate_metacall_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnCreateItemWidgets(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_CreateItemWidgets_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_CreateItemWidgets_Callback>(slot));
-}
-
-// Base class handler implementation
-void KWidgetItemDelegate_SuperUpdateItemWidgets(const KWidgetItemDelegate* self, const libqt_list /* of QWidget* */ widgets, const QStyleOptionViewItem* option, const QPersistentModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    QList<QWidget*> widgets_QList;
-    widgets_QList.reserve(widgets.len);
-    QWidget** widgets_arr = static_cast<QWidget**>(widgets.data);
-    for (size_t i = 0; i < widgets.len; ++i) {
-        widgets_QList.push_back(widgets_arr[i]);
-    }
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_UpdateItemWidgets_IsBase(true);
-        vkwidgetitemdelegate->updateItemWidgets(widgets_QList, *option, *index);
-    } else {
-        ((VirtualKWidgetItemDelegate*)self)->updateItemWidgets(widgets_QList, *option, *index);
-    }
+void KWidgetItemDelegate_OnCreateItemWidgets(KWidgetItemDelegate* self, intptr_t slot) {
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self)))
+        vkwidgetitemdelegate->kwidgetitemdelegate_createitemwidgets_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_CreateItemWidgets_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnUpdateItemWidgets(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_UpdateItemWidgets_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_UpdateItemWidgets_Callback>(slot));
+void KWidgetItemDelegate_OnUpdateItemWidgets(KWidgetItemDelegate* self, intptr_t slot) {
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self)))
+        vkwidgetitemdelegate->kwidgetitemdelegate_updateitemwidgets_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_UpdateItemWidgets_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWidgetItemDelegate_Paint(const KWidgetItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->paint(painter, *option, *index);
-    } else {
-        ((VirtualKWidgetItemDelegate*)self)->paint(painter, *option, *index);
-    }
-}
-
-// Base class handler implementation
-void KWidgetItemDelegate_SuperPaint(const KWidgetItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_Paint_IsBase(true);
-        vkwidgetitemdelegate->paint(painter, *option, *index);
-    } else {
-        ((VirtualKWidgetItemDelegate*)self)->paint(painter, *option, *index);
-    }
+    self->paint(painter, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnPaint(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_Paint_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_Paint_Callback>(slot));
+void KWidgetItemDelegate_OnPaint(KWidgetItemDelegate* self, intptr_t slot) {
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self)))
+        vkwidgetitemdelegate->kwidgetitemdelegate_paint_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_Paint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KWidgetItemDelegate_SizeHint(const KWidgetItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        return new QSize(vkwidgetitemdelegate->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualKWidgetItemDelegate*)self)->sizeHint(*option, *index));
-    }
-}
-
-// Base class handler implementation
-QSize* KWidgetItemDelegate_SuperSizeHint(const KWidgetItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_SizeHint_IsBase(true);
-        return new QSize(vkwidgetitemdelegate->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualKWidgetItemDelegate*)self)->sizeHint(*option, *index));
-    }
+    return new QSize(self->sizeHint(*option, *index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnSizeHint(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_SizeHint_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_SizeHint_Callback>(slot));
+void KWidgetItemDelegate_OnSizeHint(KWidgetItemDelegate* self, intptr_t slot) {
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self)))
+        vkwidgetitemdelegate->kwidgetitemdelegate_sizehint_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QWidget* KWidgetItemDelegate_CreateEditor(const KWidgetItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        return vkwidgetitemdelegate->createEditor(parent, *option, *index);
-    } else {
-        return self->KWidgetItemDelegate::createEditor(parent, *option, *index);
-    }
+    return self->createEditor(parent, *option, *index);
 }
 
 // Base class handler implementation
 QWidget* KWidgetItemDelegate_SuperCreateEditor(const KWidgetItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_CreateEditor_IsBase(true);
-        return vkwidgetitemdelegate->createEditor(parent, *option, *index);
-    } else {
-        return self->KWidgetItemDelegate::createEditor(parent, *option, *index);
-    }
+    return self->KWidgetItemDelegate::createEditor(parent, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnCreateEditor(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_CreateEditor_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_CreateEditor_Callback>(slot));
+void KWidgetItemDelegate_OnCreateEditor(KWidgetItemDelegate* self, intptr_t slot) {
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self)))
+        vkwidgetitemdelegate->kwidgetitemdelegate_createeditor_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_CreateEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWidgetItemDelegate_DestroyEditor(const KWidgetItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->destroyEditor(editor, *index);
-    } else {
-        self->KWidgetItemDelegate::destroyEditor(editor, *index);
-    }
+    self->destroyEditor(editor, *index);
 }
 
 // Base class handler implementation
 void KWidgetItemDelegate_SuperDestroyEditor(const KWidgetItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_DestroyEditor_IsBase(true);
-        vkwidgetitemdelegate->destroyEditor(editor, *index);
-    } else {
-        self->KWidgetItemDelegate::destroyEditor(editor, *index);
-    }
+    self->KWidgetItemDelegate::destroyEditor(editor, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnDestroyEditor(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_DestroyEditor_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_DestroyEditor_Callback>(slot));
+void KWidgetItemDelegate_OnDestroyEditor(KWidgetItemDelegate* self, intptr_t slot) {
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self)))
+        vkwidgetitemdelegate->kwidgetitemdelegate_destroyeditor_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_DestroyEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWidgetItemDelegate_SetEditorData(const KWidgetItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setEditorData(editor, *index);
-    } else {
-        self->KWidgetItemDelegate::setEditorData(editor, *index);
-    }
+    self->setEditorData(editor, *index);
 }
 
 // Base class handler implementation
 void KWidgetItemDelegate_SuperSetEditorData(const KWidgetItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_SetEditorData_IsBase(true);
-        vkwidgetitemdelegate->setEditorData(editor, *index);
-    } else {
-        self->KWidgetItemDelegate::setEditorData(editor, *index);
-    }
+    self->KWidgetItemDelegate::setEditorData(editor, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnSetEditorData(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_SetEditorData_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_SetEditorData_Callback>(slot));
+void KWidgetItemDelegate_OnSetEditorData(KWidgetItemDelegate* self, intptr_t slot) {
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self)))
+        vkwidgetitemdelegate->kwidgetitemdelegate_seteditordata_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_SetEditorData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWidgetItemDelegate_SetModelData(const KWidgetItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setModelData(editor, model, *index);
-    } else {
-        self->KWidgetItemDelegate::setModelData(editor, model, *index);
-    }
+    self->setModelData(editor, model, *index);
 }
 
 // Base class handler implementation
 void KWidgetItemDelegate_SuperSetModelData(const KWidgetItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_SetModelData_IsBase(true);
-        vkwidgetitemdelegate->setModelData(editor, model, *index);
-    } else {
-        self->KWidgetItemDelegate::setModelData(editor, model, *index);
-    }
+    self->KWidgetItemDelegate::setModelData(editor, model, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnSetModelData(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_SetModelData_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_SetModelData_Callback>(slot));
+void KWidgetItemDelegate_OnSetModelData(KWidgetItemDelegate* self, intptr_t slot) {
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self)))
+        vkwidgetitemdelegate->kwidgetitemdelegate_setmodeldata_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_SetModelData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWidgetItemDelegate_UpdateEditorGeometry(const KWidgetItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->updateEditorGeometry(editor, *option, *index);
-    } else {
-        self->KWidgetItemDelegate::updateEditorGeometry(editor, *option, *index);
-    }
+    self->updateEditorGeometry(editor, *option, *index);
 }
 
 // Base class handler implementation
 void KWidgetItemDelegate_SuperUpdateEditorGeometry(const KWidgetItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_UpdateEditorGeometry_IsBase(true);
-        vkwidgetitemdelegate->updateEditorGeometry(editor, *option, *index);
-    } else {
-        self->KWidgetItemDelegate::updateEditorGeometry(editor, *option, *index);
-    }
+    self->KWidgetItemDelegate::updateEditorGeometry(editor, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnUpdateEditorGeometry(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_UpdateEditorGeometry_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_UpdateEditorGeometry_Callback>(slot));
+void KWidgetItemDelegate_OnUpdateEditorGeometry(KWidgetItemDelegate* self, intptr_t slot) {
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self)))
+        vkwidgetitemdelegate->kwidgetitemdelegate_updateeditorgeometry_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_UpdateEditorGeometry_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KWidgetItemDelegate_EditorEvent(KWidgetItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        return vkwidgetitemdelegate->editorEvent(event, model, *option, *index);
-    } else {
-        return self->KWidgetItemDelegate::editorEvent(event, model, *option, *index);
-    }
+    return self->editorEvent(event, model, *option, *index);
 }
 
 // Base class handler implementation
 bool KWidgetItemDelegate_SuperEditorEvent(KWidgetItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_EditorEvent_IsBase(true);
-        return vkwidgetitemdelegate->editorEvent(event, model, *option, *index);
-    } else {
-        return self->KWidgetItemDelegate::editorEvent(event, model, *option, *index);
-    }
+    return self->KWidgetItemDelegate::editorEvent(event, model, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWidgetItemDelegate_OnEditorEvent(KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_EditorEvent_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_EditorEvent_Callback>(slot));
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self))
+        vkwidgetitemdelegate->kwidgetitemdelegate_editorevent_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_EditorEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KWidgetItemDelegate_HelpEvent(KWidgetItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        return vkwidgetitemdelegate->helpEvent(event, view, *option, *index);
-    } else {
-        return self->KWidgetItemDelegate::helpEvent(event, view, *option, *index);
-    }
+    return self->helpEvent(event, view, *option, *index);
 }
 
 // Base class handler implementation
 bool KWidgetItemDelegate_SuperHelpEvent(KWidgetItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_HelpEvent_IsBase(true);
-        return vkwidgetitemdelegate->helpEvent(event, view, *option, *index);
-    } else {
-        return self->KWidgetItemDelegate::helpEvent(event, view, *option, *index);
-    }
+    return self->KWidgetItemDelegate::helpEvent(event, view, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWidgetItemDelegate_OnHelpEvent(KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_HelpEvent_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_HelpEvent_Callback>(slot));
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self))
+        vkwidgetitemdelegate->kwidgetitemdelegate_helpevent_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_HelpEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of int */ KWidgetItemDelegate_PaintingRoles(const KWidgetItemDelegate* self) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        QList<int> _ret = vkwidgetitemdelegate->paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<int> _ret = self->KWidgetItemDelegate::paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<int> _ret = self->paintingRoles();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of int */ KWidgetItemDelegate_SuperPaintingRoles(const KWidgetItemDelegate* self) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_PaintingRoles_IsBase(true);
-        QList<int> _ret = vkwidgetitemdelegate->paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<int> _ret = self->KWidgetItemDelegate::paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<int> _ret = self->KWidgetItemDelegate::paintingRoles();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnPaintingRoles(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_PaintingRoles_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_PaintingRoles_Callback>(slot));
+void KWidgetItemDelegate_OnPaintingRoles(KWidgetItemDelegate* self, intptr_t slot) {
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self)))
+        vkwidgetitemdelegate->kwidgetitemdelegate_paintingroles_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_PaintingRoles_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KWidgetItemDelegate_Event(KWidgetItemDelegate* self, QEvent* event) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        return vkwidgetitemdelegate->event(event);
-    } else {
-        return self->KWidgetItemDelegate::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KWidgetItemDelegate_SuperEvent(KWidgetItemDelegate* self, QEvent* event) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_Event_IsBase(true);
-        return vkwidgetitemdelegate->event(event);
-    } else {
-        return self->KWidgetItemDelegate::event(event);
-    }
+    return self->KWidgetItemDelegate::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWidgetItemDelegate_OnEvent(KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_Event_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_Event_Callback>(slot));
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self))
+        vkwidgetitemdelegate->kwidgetitemdelegate_event_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KWidgetItemDelegate_EventFilter(KWidgetItemDelegate* self, QObject* watched, QEvent* event) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        return vkwidgetitemdelegate->eventFilter(watched, event);
-    } else {
-        return self->KWidgetItemDelegate::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KWidgetItemDelegate_SuperEventFilter(KWidgetItemDelegate* self, QObject* watched, QEvent* event) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_EventFilter_IsBase(true);
-        return vkwidgetitemdelegate->eventFilter(watched, event);
-    } else {
-        return self->KWidgetItemDelegate::eventFilter(watched, event);
-    }
+    return self->KWidgetItemDelegate::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWidgetItemDelegate_OnEventFilter(KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_EventFilter_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_EventFilter_Callback>(slot));
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self))
+        vkwidgetitemdelegate->kwidgetitemdelegate_eventfilter_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWidgetItemDelegate_TimerEvent(KWidgetItemDelegate* self, QTimerEvent* event) {
     auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
+    if (vkwidgetitemdelegate) {
         vkwidgetitemdelegate->timerEvent(event);
     } else {
-        ((VirtualKWidgetItemDelegate*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KWidgetItemDelegate::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KWidgetItemDelegate_SuperTimerEvent(KWidgetItemDelegate* self, QTimerEvent* event) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_TimerEvent_IsBase(true);
-        vkwidgetitemdelegate->timerEvent(event);
-    } else {
-        ((VirtualKWidgetItemDelegate*)self)->timerEvent(event);
-    }
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self)) {
+        vkwidgetitemdelegate->KWidgetItemDelegate::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KWidgetItemDelegate::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWidgetItemDelegate_OnTimerEvent(KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_TimerEvent_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_TimerEvent_Callback>(slot));
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self))
+        vkwidgetitemdelegate->kwidgetitemdelegate_timerevent_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWidgetItemDelegate_ChildEvent(KWidgetItemDelegate* self, QChildEvent* event) {
     auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
+    if (vkwidgetitemdelegate) {
         vkwidgetitemdelegate->childEvent(event);
     } else {
-        ((VirtualKWidgetItemDelegate*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KWidgetItemDelegate::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KWidgetItemDelegate_SuperChildEvent(KWidgetItemDelegate* self, QChildEvent* event) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_ChildEvent_IsBase(true);
-        vkwidgetitemdelegate->childEvent(event);
-    } else {
-        ((VirtualKWidgetItemDelegate*)self)->childEvent(event);
-    }
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self)) {
+        vkwidgetitemdelegate->KWidgetItemDelegate::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KWidgetItemDelegate::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWidgetItemDelegate_OnChildEvent(KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_ChildEvent_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_ChildEvent_Callback>(slot));
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self))
+        vkwidgetitemdelegate->kwidgetitemdelegate_childevent_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWidgetItemDelegate_CustomEvent(KWidgetItemDelegate* self, QEvent* event) {
     auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
+    if (vkwidgetitemdelegate) {
         vkwidgetitemdelegate->customEvent(event);
     } else {
-        ((VirtualKWidgetItemDelegate*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KWidgetItemDelegate::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KWidgetItemDelegate_SuperCustomEvent(KWidgetItemDelegate* self, QEvent* event) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_CustomEvent_IsBase(true);
-        vkwidgetitemdelegate->customEvent(event);
-    } else {
-        ((VirtualKWidgetItemDelegate*)self)->customEvent(event);
-    }
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self)) {
+        vkwidgetitemdelegate->KWidgetItemDelegate::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KWidgetItemDelegate::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWidgetItemDelegate_OnCustomEvent(KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_CustomEvent_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_CustomEvent_Callback>(slot));
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self))
+        vkwidgetitemdelegate->kwidgetitemdelegate_customevent_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWidgetItemDelegate_ConnectNotify(KWidgetItemDelegate* self, const QMetaMethod* signal) {
     auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
+    if (vkwidgetitemdelegate) {
         vkwidgetitemdelegate->connectNotify(*signal);
     } else {
-        ((VirtualKWidgetItemDelegate*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KWidgetItemDelegate::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KWidgetItemDelegate_SuperConnectNotify(KWidgetItemDelegate* self, const QMetaMethod* signal) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_ConnectNotify_IsBase(true);
-        vkwidgetitemdelegate->connectNotify(*signal);
-    } else {
-        ((VirtualKWidgetItemDelegate*)self)->connectNotify(*signal);
-    }
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self)) {
+        vkwidgetitemdelegate->KWidgetItemDelegate::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KWidgetItemDelegate::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWidgetItemDelegate_OnConnectNotify(KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_ConnectNotify_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_ConnectNotify_Callback>(slot));
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self))
+        vkwidgetitemdelegate->kwidgetitemdelegate_connectnotify_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWidgetItemDelegate_DisconnectNotify(KWidgetItemDelegate* self, const QMetaMethod* signal) {
     auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
+    if (vkwidgetitemdelegate) {
         vkwidgetitemdelegate->disconnectNotify(*signal);
     } else {
-        ((VirtualKWidgetItemDelegate*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KWidgetItemDelegate::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KWidgetItemDelegate_SuperDisconnectNotify(KWidgetItemDelegate* self, const QMetaMethod* signal) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_DisconnectNotify_IsBase(true);
-        vkwidgetitemdelegate->disconnectNotify(*signal);
-    } else {
-        ((VirtualKWidgetItemDelegate*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self)) {
+        vkwidgetitemdelegate->KWidgetItemDelegate::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KWidgetItemDelegate::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWidgetItemDelegate_OnDisconnectNotify(KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_DisconnectNotify_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_DisconnectNotify_Callback>(slot));
+    if (auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self))
+        vkwidgetitemdelegate->kwidgetitemdelegate_disconnectnotify_callback = reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KWidgetItemDelegate_SetBlockedEventTypes(const KWidgetItemDelegate* self, QWidget* widget, const libqt_list /* of int */ types) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    QList<QEvent::Type> types_QList;
-    types_QList.reserve(types.len);
-    int* types_arr = static_cast<int*>(types.data);
-    for (size_t i = 0; i < types.len; ++i) {
-        types_QList.push_back(static_cast<QEvent::Type>(types_arr[i]));
-    }
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setBlockedEventTypes(widget, types_QList);
-    } else {
-        ((VirtualKWidgetItemDelegate*)self)->setBlockedEventTypes(widget, types_QList);
-    }
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self))) {
+        QList<QEvent::Type> types_QList;
+        types_QList.reserve(types.len);
+        int* types_arr = static_cast<int*>(types.data);
+        for (size_t i = 0; i < types.len; ++i) {
+            types_QList.push_back(static_cast<QEvent::Type>(types_arr[i]));
+        }
+        vkwidgetitemdelegate->VirtualKWidgetItemDelegate::setBlockedEventTypes(widget, types_QList);
+    } else
+        qFatal("Error: Protected method KWidgetItemDelegate::setBlockedEventTypes called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KWidgetItemDelegate_SuperSetBlockedEventTypes(const KWidgetItemDelegate* self, QWidget* widget, const libqt_list /* of int */ types) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    QList<QEvent::Type> types_QList;
-    types_QList.reserve(types.len);
-    int* types_arr = static_cast<int*>(types.data);
-    for (size_t i = 0; i < types.len; ++i) {
-        types_QList.push_back(static_cast<QEvent::Type>(types_arr[i]));
-    }
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_SetBlockedEventTypes_IsBase(true);
-        vkwidgetitemdelegate->setBlockedEventTypes(widget, types_QList);
-    } else {
-        ((VirtualKWidgetItemDelegate*)self)->setBlockedEventTypes(widget, types_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnSetBlockedEventTypes(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_SetBlockedEventTypes_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_SetBlockedEventTypes_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of int */ KWidgetItemDelegate_BlockedEventTypes(const KWidgetItemDelegate* self, QWidget* widget) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        QList<QEvent::Type> _ret = vkwidgetitemdelegate->blockedEventTypes(widget);
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self))) {
+        QList<QEvent::Type> _ret = vkwidgetitemdelegate->VirtualKWidgetItemDelegate::blockedEventTypes(widget);
         // Convert QList<> from C++ memory to manually-managed C memory
         int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -799,166 +511,40 @@ libqt_list /* of int */ KWidgetItemDelegate_BlockedEventTypes(const KWidgetItemD
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QEvent::Type> _ret = ((VirtualKWidgetItemDelegate*)self)->blockedEventTypes(widget);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = static_cast<int>(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KWidgetItemDelegate::blockedEventTypes called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of int */ KWidgetItemDelegate_SuperBlockedEventTypes(const KWidgetItemDelegate* self, QWidget* widget) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_BlockedEventTypes_IsBase(true);
-        QList<QEvent::Type> _ret = vkwidgetitemdelegate->blockedEventTypes(widget);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = static_cast<int>(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QEvent::Type> _ret = ((VirtualKWidgetItemDelegate*)self)->blockedEventTypes(widget);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = static_cast<int>(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnBlockedEventTypes(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_BlockedEventTypes_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_BlockedEventTypes_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KWidgetItemDelegate_Sender(const KWidgetItemDelegate* self) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        return vkwidgetitemdelegate->sender();
-    } else {
-        return ((VirtualKWidgetItemDelegate*)self)->sender();
-    }
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self))) {
+        return vkwidgetitemdelegate->VirtualKWidgetItemDelegate::sender();
+    } else
+        qFatal("Error: Protected method KWidgetItemDelegate::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KWidgetItemDelegate_SuperSender(const KWidgetItemDelegate* self) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_Sender_IsBase(true);
-        return vkwidgetitemdelegate->sender();
-    } else {
-        return ((VirtualKWidgetItemDelegate*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnSender(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_Sender_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KWidgetItemDelegate_SenderSignalIndex(const KWidgetItemDelegate* self) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        return vkwidgetitemdelegate->senderSignalIndex();
-    } else {
-        return ((VirtualKWidgetItemDelegate*)self)->senderSignalIndex();
-    }
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self))) {
+        return vkwidgetitemdelegate->VirtualKWidgetItemDelegate::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KWidgetItemDelegate::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KWidgetItemDelegate_SuperSenderSignalIndex(const KWidgetItemDelegate* self) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_SenderSignalIndex_IsBase(true);
-        return vkwidgetitemdelegate->senderSignalIndex();
-    } else {
-        return ((VirtualKWidgetItemDelegate*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnSenderSignalIndex(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_SenderSignalIndex_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KWidgetItemDelegate_Receivers(const KWidgetItemDelegate* self, const char* signal) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        return vkwidgetitemdelegate->receivers(signal);
-    } else {
-        return ((VirtualKWidgetItemDelegate*)self)->receivers(signal);
-    }
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self))) {
+        return vkwidgetitemdelegate->VirtualKWidgetItemDelegate::receivers(signal);
+    } else
+        qFatal("Error: Protected method KWidgetItemDelegate::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KWidgetItemDelegate_SuperReceivers(const KWidgetItemDelegate* self, const char* signal) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_Receivers_IsBase(true);
-        return vkwidgetitemdelegate->receivers(signal);
-    } else {
-        return ((VirtualKWidgetItemDelegate*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnReceivers(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_Receivers_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KWidgetItemDelegate_IsSignalConnected(const KWidgetItemDelegate* self, const QMetaMethod* signal) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        return vkwidgetitemdelegate->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKWidgetItemDelegate*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KWidgetItemDelegate_SuperIsSignalConnected(const KWidgetItemDelegate* self, const QMetaMethod* signal) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        vkwidgetitemdelegate->setKWidgetItemDelegate_IsSignalConnected_IsBase(true);
-        return vkwidgetitemdelegate->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKWidgetItemDelegate*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KWidgetItemDelegate_OnIsSignalConnected(const KWidgetItemDelegate* self, intptr_t slot) {
-    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate)
-        vkwidgetitemdelegate->setKWidgetItemDelegate_IsSignalConnected_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_IsSignalConnected_Callback>(slot));
+    if (auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self))) {
+        return vkwidgetitemdelegate->VirtualKWidgetItemDelegate::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KWidgetItemDelegate::isSignalConnected called without a directly constructed type");
 }
 
 void KWidgetItemDelegate_Delete(KWidgetItemDelegate* self) {

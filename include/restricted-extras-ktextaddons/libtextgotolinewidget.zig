@@ -130,9 +130,9 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__TextGoToLineWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextCustomEditor__TextGoToLineWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn (TextCustomEditor__TextGoToLineWidget) callconv(.c) QMetaObject) void {
         qtc.TextCustomEditor__TextGoToLineWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6863,9 +6863,9 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__TextGoToLineWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextCustomEditor__TextGoToLineWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn (TextCustomEditor__TextGoToLineWidget) callconv(.c) i32) void {
         qtc.TextCustomEditor__TextGoToLineWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6979,11 +6979,11 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__TextGoToLineWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextCustomEditor__TextGoToLineWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn (TextCustomEditor__TextGoToLineWidget) callconv(.c) QSize) void {
         qtc.TextCustomEditor__TextGoToLineWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7037,11 +7037,11 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__TextGoToLineWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextCustomEditor__TextGoToLineWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn (TextCustomEditor__TextGoToLineWidget) callconv(.c) QSize) void {
         qtc.TextCustomEditor__TextGoToLineWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7155,9 +7155,9 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__TextGoToLineWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextCustomEditor__TextGoToLineWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn (TextCustomEditor__TextGoToLineWidget) callconv(.c) bool) void {
         qtc.TextCustomEditor__TextGoToLineWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7211,9 +7211,9 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__TextGoToLineWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: TextCustomEditor__TextGoToLineWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn (TextCustomEditor__TextGoToLineWidget) callconv(.c) QPaintEngine) void {
         qtc.TextCustomEditor__TextGoToLineWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9015,9 +9015,9 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__TextGoToLineWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: TextCustomEditor__TextGoToLineWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn (TextCustomEditor__TextGoToLineWidget) callconv(.c) QPainter) void {
         qtc.TextCustomEditor__TextGoToLineWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9533,44 +9533,6 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
         qtc.TextCustomEditor__TextGoToLineWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: TextCustomEditor__TextGoToLineWidget) void {
-        qtc.TextCustomEditor__TextGoToLineWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextCustomEditor__TextGoToLineWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9587,44 +9549,6 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     ///
     pub fn create(self: TextCustomEditor__TextGoToLineWidget) void {
         qtc.TextCustomEditor__TextGoToLineWidget_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget `
-    ///
-    pub fn superCreate(self: TextCustomEditor__TextGoToLineWidget) void {
-        qtc.TextCustomEditor__TextGoToLineWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextCustomEditor__TextGoToLineWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9645,44 +9569,6 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
         qtc.TextCustomEditor__TextGoToLineWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget `
-    ///
-    pub fn superDestroy(self: TextCustomEditor__TextGoToLineWidget) void {
-        qtc.TextCustomEditor__TextGoToLineWidget_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextCustomEditor__TextGoToLineWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9699,44 +9585,6 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     ///
     pub fn focusNextChild(self: TextCustomEditor__TextGoToLineWidget) bool {
         return qtc.TextCustomEditor__TextGoToLineWidget_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget `
-    ///
-    pub fn superFocusNextChild(self: TextCustomEditor__TextGoToLineWidget) bool {
-        return qtc.TextCustomEditor__TextGoToLineWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextCustomEditor__TextGoToLineWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -9757,44 +9605,6 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
         return qtc.TextCustomEditor__TextGoToLineWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget `
-    ///
-    pub fn superFocusPreviousChild(self: TextCustomEditor__TextGoToLineWidget) bool {
-        return qtc.TextCustomEditor__TextGoToLineWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextCustomEditor__TextGoToLineWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -9813,44 +9623,6 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
         return .{ .ptr = qtc.TextCustomEditor__TextGoToLineWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget `
-    ///
-    pub fn superSender(self: TextCustomEditor__TextGoToLineWidget) QObject {
-        return .{ .ptr = qtc.TextCustomEditor__TextGoToLineWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextCustomEditor__TextGoToLineWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -9867,44 +9639,6 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: TextCustomEditor__TextGoToLineWidget) i32 {
         return qtc.TextCustomEditor__TextGoToLineWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget `
-    ///
-    pub fn superSenderSignalIndex(self: TextCustomEditor__TextGoToLineWidget) i32 {
-        return qtc.TextCustomEditor__TextGoToLineWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextCustomEditor__TextGoToLineWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -9928,47 +9662,6 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
         return qtc.TextCustomEditor__TextGoToLineWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextCustomEditor__TextGoToLineWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextCustomEditor__TextGoToLineWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__TextGoToLineWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn (TextCustomEditor__TextGoToLineWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextCustomEditor__TextGoToLineWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -9988,47 +9681,6 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     pub fn isSignalConnected(self: TextCustomEditor__TextGoToLineWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextCustomEditor__TextGoToLineWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextCustomEditor__TextGoToLineWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextCustomEditor__TextGoToLineWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__TextGoToLineWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn (TextCustomEditor__TextGoToLineWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextCustomEditor__TextGoToLineWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10051,48 +9703,6 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     ///
     pub fn getDecodedMetricF(self: TextCustomEditor__TextGoToLineWidget, metricA: i32, metricB: i32) f64 {
         return qtc.TextCustomEditor__TextGoToLineWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: TextCustomEditor__TextGoToLineWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.TextCustomEditor__TextGoToLineWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__TextGoToLineWidget`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__TextGoToLineWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn (TextCustomEditor__TextGoToLineWidget, i32, i32) callconv(.c) f64) void {
-        qtc.TextCustomEditor__TextGoToLineWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

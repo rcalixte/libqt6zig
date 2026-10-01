@@ -164,18 +164,18 @@ void QPdfWriter_SetOutputIntent(QPdfWriter* self, const QPdfOutputIntent* intent
 
 QPaintEngine* QPdfWriter_PaintEngine(const QPdfWriter* self) {
     auto* vqpdfwriter = dynamic_cast<const VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+    if (vqpdfwriter) {
         return vqpdfwriter->paintEngine();
     }
-    return {};
+    qFatal("Error: Protected method QPdfWriter::paintEngine called without a directly constructed type");
 }
 
 int QPdfWriter_Metric(const QPdfWriter* self, int id) {
     auto* vqpdfwriter = dynamic_cast<const VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+    if (vqpdfwriter) {
         return vqpdfwriter->metric(static_cast<QPaintDevice::PaintDeviceMetric>(id));
     }
-    return {};
+    qFatal("Error: Protected method QPdfWriter::metric called without a directly constructed type");
 }
 
 libqt_string QPdfWriter_Tr2(const char* s, const char* c) {
@@ -211,698 +211,434 @@ void QPdfWriter_AddFileAttachment3(QPdfWriter* self, const libqt_string fileName
 
 // Base class handler implementation
 QMetaObject* QPdfWriter_SuperMetaObject(const QPdfWriter* self) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_MetaObject_IsBase(true);
-        return (QMetaObject*)vqpdfwriter->metaObject();
-    } else {
-        return (QMetaObject*)self->QPdfWriter::metaObject();
-    }
+    return (QMetaObject*)self->QPdfWriter::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfWriter_OnMetaObject(const QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_MetaObject_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_MetaObject_Callback>(slot));
+void QPdfWriter_OnMetaObject(QPdfWriter* self, intptr_t slot) {
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self)))
+        vqpdfwriter->qpdfwriter_metaobject_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPdfWriter_SuperMetacast(QPdfWriter* self, const char* param1) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_Metacast_IsBase(true);
-        return vqpdfwriter->qt_metacast(param1);
-    } else {
-        return self->QPdfWriter::qt_metacast(param1);
-    }
+    return self->QPdfWriter::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnMetacast(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_Metacast_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Metacast_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_metacast_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPdfWriter_SuperMetacall(QPdfWriter* self, int param1, int param2, void** param3) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_Metacall_IsBase(true);
-        return vqpdfwriter->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPdfWriter::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPdfWriter::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnMetacall(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_Metacall_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Metacall_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_metacall_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QPdfWriter_SuperNewPage(QPdfWriter* self) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_NewPage_IsBase(true);
-        return vqpdfwriter->newPage();
-    } else {
-        return self->QPdfWriter::newPage();
-    }
+    return self->QPdfWriter::newPage();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnNewPage(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_NewPage_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_NewPage_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_newpage_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_NewPage_Callback>(slot);
 }
 
 // Base class handler implementation
 QPaintEngine* QPdfWriter_SuperPaintEngine(const QPdfWriter* self) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_PaintEngine_IsBase(true);
-        return vqpdfwriter->paintEngine();
-    } else {
-        return ((VirtualQPdfWriter*)self)->paintEngine();
-    }
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self))) {
+        return vqpdfwriter->QPdfWriter::paintEngine();
+    } else
+        qFatal("Error: Protected virtual method QPdfWriter::paintEngine called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfWriter_OnPaintEngine(const QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_PaintEngine_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_PaintEngine_Callback>(slot));
+void QPdfWriter_OnPaintEngine(QPdfWriter* self, intptr_t slot) {
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self)))
+        vqpdfwriter->qpdfwriter_paintengine_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_PaintEngine_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPdfWriter_SuperMetric(const QPdfWriter* self, int id) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_Metric_IsBase(true);
-        return vqpdfwriter->metric(static_cast<QPaintDevice::PaintDeviceMetric>(id));
-    } else {
-        return ((VirtualQPdfWriter*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(id));
-    }
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self))) {
+        return vqpdfwriter->QPdfWriter::metric(static_cast<QPaintDevice::PaintDeviceMetric>(id));
+    } else
+        qFatal("Error: Protected virtual method QPdfWriter::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfWriter_OnMetric(const QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_Metric_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Metric_Callback>(slot));
+void QPdfWriter_OnMetric(QPdfWriter* self, intptr_t slot) {
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self)))
+        vqpdfwriter->qpdfwriter_metric_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfWriter_Event(QPdfWriter* self, QEvent* event) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        return vqpdfwriter->event(event);
-    } else {
-        return self->QPdfWriter::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QPdfWriter_SuperEvent(QPdfWriter* self, QEvent* event) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_Event_IsBase(true);
-        return vqpdfwriter->event(event);
-    } else {
-        return self->QPdfWriter::event(event);
-    }
+    return self->QPdfWriter::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnEvent(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_Event_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Event_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_event_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfWriter_EventFilter(QPdfWriter* self, QObject* watched, QEvent* event) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        return vqpdfwriter->eventFilter(watched, event);
-    } else {
-        return self->QPdfWriter::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QPdfWriter_SuperEventFilter(QPdfWriter* self, QObject* watched, QEvent* event) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_EventFilter_IsBase(true);
-        return vqpdfwriter->eventFilter(watched, event);
-    } else {
-        return self->QPdfWriter::eventFilter(watched, event);
-    }
+    return self->QPdfWriter::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnEventFilter(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_EventFilter_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_EventFilter_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_eventfilter_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfWriter_TimerEvent(QPdfWriter* self, QTimerEvent* event) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+    if (vqpdfwriter) {
         vqpdfwriter->timerEvent(event);
     } else {
-        ((VirtualQPdfWriter*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPdfWriter::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfWriter_SuperTimerEvent(QPdfWriter* self, QTimerEvent* event) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_TimerEvent_IsBase(true);
-        vqpdfwriter->timerEvent(event);
-    } else {
-        ((VirtualQPdfWriter*)self)->timerEvent(event);
-    }
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self)) {
+        vqpdfwriter->QPdfWriter::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfWriter::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnTimerEvent(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_TimerEvent_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_TimerEvent_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_timerevent_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfWriter_ChildEvent(QPdfWriter* self, QChildEvent* event) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+    if (vqpdfwriter) {
         vqpdfwriter->childEvent(event);
     } else {
-        ((VirtualQPdfWriter*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPdfWriter::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfWriter_SuperChildEvent(QPdfWriter* self, QChildEvent* event) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_ChildEvent_IsBase(true);
-        vqpdfwriter->childEvent(event);
-    } else {
-        ((VirtualQPdfWriter*)self)->childEvent(event);
-    }
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self)) {
+        vqpdfwriter->QPdfWriter::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfWriter::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnChildEvent(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_ChildEvent_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_ChildEvent_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_childevent_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfWriter_CustomEvent(QPdfWriter* self, QEvent* event) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+    if (vqpdfwriter) {
         vqpdfwriter->customEvent(event);
     } else {
-        ((VirtualQPdfWriter*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPdfWriter::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfWriter_SuperCustomEvent(QPdfWriter* self, QEvent* event) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_CustomEvent_IsBase(true);
-        vqpdfwriter->customEvent(event);
-    } else {
-        ((VirtualQPdfWriter*)self)->customEvent(event);
-    }
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self)) {
+        vqpdfwriter->QPdfWriter::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfWriter::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnCustomEvent(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_CustomEvent_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_CustomEvent_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_customevent_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfWriter_ConnectNotify(QPdfWriter* self, const QMetaMethod* signal) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+    if (vqpdfwriter) {
         vqpdfwriter->connectNotify(*signal);
     } else {
-        ((VirtualQPdfWriter*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPdfWriter::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfWriter_SuperConnectNotify(QPdfWriter* self, const QMetaMethod* signal) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_ConnectNotify_IsBase(true);
-        vqpdfwriter->connectNotify(*signal);
-    } else {
-        ((VirtualQPdfWriter*)self)->connectNotify(*signal);
-    }
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self)) {
+        vqpdfwriter->QPdfWriter::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPdfWriter::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnConnectNotify(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_ConnectNotify_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_ConnectNotify_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_connectnotify_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfWriter_DisconnectNotify(QPdfWriter* self, const QMetaMethod* signal) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+    if (vqpdfwriter) {
         vqpdfwriter->disconnectNotify(*signal);
     } else {
-        ((VirtualQPdfWriter*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPdfWriter::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfWriter_SuperDisconnectNotify(QPdfWriter* self, const QMetaMethod* signal) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_DisconnectNotify_IsBase(true);
-        vqpdfwriter->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPdfWriter*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self)) {
+        vqpdfwriter->QPdfWriter::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPdfWriter::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnDisconnectNotify(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_DisconnectNotify_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_DisconnectNotify_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_disconnectnotify_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfWriter_SetPageLayout(QPdfWriter* self, const QPageLayout* pageLayout) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        return vqpdfwriter->setPageLayout(*pageLayout);
-    } else {
-        return self->QPdfWriter::setPageLayout(*pageLayout);
-    }
+    return self->setPageLayout(*pageLayout);
 }
 
 // Base class handler implementation
 bool QPdfWriter_SuperSetPageLayout(QPdfWriter* self, const QPageLayout* pageLayout) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_SetPageLayout_IsBase(true);
-        return vqpdfwriter->setPageLayout(*pageLayout);
-    } else {
-        return self->QPdfWriter::setPageLayout(*pageLayout);
-    }
+    return self->QPdfWriter::setPageLayout(*pageLayout);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnSetPageLayout(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_SetPageLayout_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_SetPageLayout_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_setpagelayout_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_SetPageLayout_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfWriter_SetPageSize(QPdfWriter* self, const QPageSize* pageSize) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        return vqpdfwriter->setPageSize(*pageSize);
-    } else {
-        return self->QPdfWriter::setPageSize(*pageSize);
-    }
+    return self->setPageSize(*pageSize);
 }
 
 // Base class handler implementation
 bool QPdfWriter_SuperSetPageSize(QPdfWriter* self, const QPageSize* pageSize) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_SetPageSize_IsBase(true);
-        return vqpdfwriter->setPageSize(*pageSize);
-    } else {
-        return self->QPdfWriter::setPageSize(*pageSize);
-    }
+    return self->QPdfWriter::setPageSize(*pageSize);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnSetPageSize(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_SetPageSize_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_SetPageSize_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_setpagesize_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_SetPageSize_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfWriter_SetPageOrientation(QPdfWriter* self, int orientation) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        return vqpdfwriter->setPageOrientation(static_cast<QPageLayout::Orientation>(orientation));
-    } else {
-        return self->QPdfWriter::setPageOrientation(static_cast<QPageLayout::Orientation>(orientation));
-    }
+    return self->setPageOrientation(static_cast<QPageLayout::Orientation>(orientation));
 }
 
 // Base class handler implementation
 bool QPdfWriter_SuperSetPageOrientation(QPdfWriter* self, int orientation) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_SetPageOrientation_IsBase(true);
-        return vqpdfwriter->setPageOrientation(static_cast<QPageLayout::Orientation>(orientation));
-    } else {
-        return self->QPdfWriter::setPageOrientation(static_cast<QPageLayout::Orientation>(orientation));
-    }
+    return self->QPdfWriter::setPageOrientation(static_cast<QPageLayout::Orientation>(orientation));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnSetPageOrientation(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_SetPageOrientation_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_SetPageOrientation_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_setpageorientation_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_SetPageOrientation_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfWriter_SetPageMargins(QPdfWriter* self, const QMarginsF* margins, int units) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        return vqpdfwriter->setPageMargins(*margins, static_cast<QPageLayout::Unit>(units));
-    } else {
-        return self->QPdfWriter::setPageMargins(*margins, static_cast<QPageLayout::Unit>(units));
-    }
+    return self->setPageMargins(*margins, static_cast<QPageLayout::Unit>(units));
 }
 
 // Base class handler implementation
 bool QPdfWriter_SuperSetPageMargins(QPdfWriter* self, const QMarginsF* margins, int units) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_SetPageMargins_IsBase(true);
-        return vqpdfwriter->setPageMargins(*margins, static_cast<QPageLayout::Unit>(units));
-    } else {
-        return self->QPdfWriter::setPageMargins(*margins, static_cast<QPageLayout::Unit>(units));
-    }
+    return self->QPdfWriter::setPageMargins(*margins, static_cast<QPageLayout::Unit>(units));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnSetPageMargins(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_SetPageMargins_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_SetPageMargins_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_setpagemargins_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_SetPageMargins_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfWriter_SetPageRanges(QPdfWriter* self, const QPageRanges* ranges) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setPageRanges(*ranges);
-    } else {
-        self->QPdfWriter::setPageRanges(*ranges);
-    }
+    self->setPageRanges(*ranges);
 }
 
 // Base class handler implementation
 void QPdfWriter_SuperSetPageRanges(QPdfWriter* self, const QPageRanges* ranges) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_SetPageRanges_IsBase(true);
-        vqpdfwriter->setPageRanges(*ranges);
-    } else {
-        self->QPdfWriter::setPageRanges(*ranges);
-    }
+    self->QPdfWriter::setPageRanges(*ranges);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfWriter_OnSetPageRanges(QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_SetPageRanges_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_SetPageRanges_Callback>(slot));
+    if (auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self))
+        vqpdfwriter->qpdfwriter_setpageranges_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_SetPageRanges_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPdfWriter_DevType(const QPdfWriter* self) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        return vqpdfwriter->devType();
-    } else {
-        return self->QPdfWriter::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QPdfWriter_SuperDevType(const QPdfWriter* self) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_DevType_IsBase(true);
-        return vqpdfwriter->devType();
-    } else {
-        return self->QPdfWriter::devType();
-    }
+    return self->QPdfWriter::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfWriter_OnDevType(const QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_DevType_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_DevType_Callback>(slot));
+void QPdfWriter_OnDevType(QPdfWriter* self, intptr_t slot) {
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self)))
+        vqpdfwriter->qpdfwriter_devtype_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfWriter_InitPainter(const QPdfWriter* self, QPainter* painter) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+    if (vqpdfwriter) {
         vqpdfwriter->initPainter(painter);
     } else {
-        ((VirtualQPdfWriter*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QPdfWriter::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfWriter_SuperInitPainter(const QPdfWriter* self, QPainter* painter) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_InitPainter_IsBase(true);
-        vqpdfwriter->initPainter(painter);
-    } else {
-        ((VirtualQPdfWriter*)self)->initPainter(painter);
-    }
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self))) {
+        vqpdfwriter->QPdfWriter::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QPdfWriter::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfWriter_OnInitPainter(const QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_InitPainter_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_InitPainter_Callback>(slot));
+void QPdfWriter_OnInitPainter(QPdfWriter* self, intptr_t slot) {
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self)))
+        vqpdfwriter->qpdfwriter_initpainter_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QPdfWriter_Redirected(const QPdfWriter* self, QPoint* offset) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+    if (vqpdfwriter) {
         return vqpdfwriter->redirected(offset);
     } else {
-        return ((VirtualQPdfWriter*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QPdfWriter::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QPdfWriter_SuperRedirected(const QPdfWriter* self, QPoint* offset) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_Redirected_IsBase(true);
-        return vqpdfwriter->redirected(offset);
-    } else {
-        return ((VirtualQPdfWriter*)self)->redirected(offset);
-    }
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self))) {
+        return vqpdfwriter->QPdfWriter::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QPdfWriter::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfWriter_OnRedirected(const QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_Redirected_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Redirected_Callback>(slot));
+void QPdfWriter_OnRedirected(QPdfWriter* self, intptr_t slot) {
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self)))
+        vqpdfwriter->qpdfwriter_redirected_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QPdfWriter_SharedPainter(const QPdfWriter* self) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+    if (vqpdfwriter) {
         return vqpdfwriter->sharedPainter();
     } else {
-        return ((VirtualQPdfWriter*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QPdfWriter::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QPdfWriter_SuperSharedPainter(const QPdfWriter* self) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_SharedPainter_IsBase(true);
-        return vqpdfwriter->sharedPainter();
-    } else {
-        return ((VirtualQPdfWriter*)self)->sharedPainter();
-    }
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self))) {
+        return vqpdfwriter->QPdfWriter::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QPdfWriter::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfWriter_OnSharedPainter(const QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_SharedPainter_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_SharedPainter_Callback>(slot));
+void QPdfWriter_OnSharedPainter(QPdfWriter* self, intptr_t slot) {
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self)))
+        vqpdfwriter->qpdfwriter_sharedpainter_callback = reinterpret_cast<VirtualQPdfWriter::QPdfWriter_SharedPainter_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPdfWriter_Sender(const QPdfWriter* self) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        return vqpdfwriter->sender();
-    } else {
-        return ((VirtualQPdfWriter*)self)->sender();
-    }
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self))) {
+        return vqpdfwriter->VirtualQPdfWriter::sender();
+    } else
+        qFatal("Error: Protected method QPdfWriter::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPdfWriter_SuperSender(const QPdfWriter* self) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_Sender_IsBase(true);
-        return vqpdfwriter->sender();
-    } else {
-        return ((VirtualQPdfWriter*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfWriter_OnSender(const QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_Sender_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPdfWriter_SenderSignalIndex(const QPdfWriter* self) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        return vqpdfwriter->senderSignalIndex();
-    } else {
-        return ((VirtualQPdfWriter*)self)->senderSignalIndex();
-    }
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self))) {
+        return vqpdfwriter->VirtualQPdfWriter::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPdfWriter::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPdfWriter_SuperSenderSignalIndex(const QPdfWriter* self) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_SenderSignalIndex_IsBase(true);
-        return vqpdfwriter->senderSignalIndex();
-    } else {
-        return ((VirtualQPdfWriter*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfWriter_OnSenderSignalIndex(const QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPdfWriter_Receivers(const QPdfWriter* self, const char* signal) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        return vqpdfwriter->receivers(signal);
-    } else {
-        return ((VirtualQPdfWriter*)self)->receivers(signal);
-    }
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self))) {
+        return vqpdfwriter->VirtualQPdfWriter::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPdfWriter::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPdfWriter_SuperReceivers(const QPdfWriter* self, const char* signal) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_Receivers_IsBase(true);
-        return vqpdfwriter->receivers(signal);
-    } else {
-        return ((VirtualQPdfWriter*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfWriter_OnReceivers(const QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_Receivers_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPdfWriter_IsSignalConnected(const QPdfWriter* self, const QMetaMethod* signal) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        return vqpdfwriter->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPdfWriter*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self))) {
+        return vqpdfwriter->VirtualQPdfWriter::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPdfWriter::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPdfWriter_SuperIsSignalConnected(const QPdfWriter* self, const QMetaMethod* signal) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_IsSignalConnected_IsBase(true);
-        return vqpdfwriter->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPdfWriter*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfWriter_OnIsSignalConnected(const QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_IsSignalConnected_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QPdfWriter_GetDecodedMetricF(const QPdfWriter* self, int metricA, int metricB) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        return vqpdfwriter->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQPdfWriter*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QPdfWriter_SuperGetDecodedMetricF(const QPdfWriter* self, int metricA, int metricB) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
-        vqpdfwriter->setQPdfWriter_GetDecodedMetricF_IsBase(true);
-        return vqpdfwriter->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQPdfWriter*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfWriter_OnGetDecodedMetricF(const QPdfWriter* self, intptr_t slot) {
-    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
-    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter)
-        vqpdfwriter->setQPdfWriter_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self))) {
+        return vqpdfwriter->VirtualQPdfWriter::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QPdfWriter::getDecodedMetricF called without a directly constructed type");
 }
 
 void QPdfWriter_Delete(QPdfWriter* self) {

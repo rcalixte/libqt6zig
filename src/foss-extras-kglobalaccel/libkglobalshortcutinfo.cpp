@@ -172,364 +172,219 @@ libqt_string KGlobalShortcutInfo_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KGlobalShortcutInfo_SuperMetaObject(const KGlobalShortcutInfo* self) {
-    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_MetaObject_IsBase(true);
-        return (QMetaObject*)vkglobalshortcutinfo->metaObject();
-    } else {
-        return (QMetaObject*)self->KGlobalShortcutInfo::metaObject();
-    }
+    return (QMetaObject*)self->KGlobalShortcutInfo::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KGlobalShortcutInfo_OnMetaObject(const KGlobalShortcutInfo* self, intptr_t slot) {
-    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_MetaObject_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_MetaObject_Callback>(slot));
+void KGlobalShortcutInfo_OnMetaObject(KGlobalShortcutInfo* self, intptr_t slot) {
+    if (auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self)))
+        vkglobalshortcutinfo->kglobalshortcutinfo_metaobject_callback = reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KGlobalShortcutInfo_SuperMetacast(KGlobalShortcutInfo* self, const char* param1) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_Metacast_IsBase(true);
-        return vkglobalshortcutinfo->qt_metacast(param1);
-    } else {
-        return self->KGlobalShortcutInfo::qt_metacast(param1);
-    }
+    return self->KGlobalShortcutInfo::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnMetacast(KGlobalShortcutInfo* self, intptr_t slot) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_Metacast_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_Metacast_Callback>(slot));
+    if (auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self))
+        vkglobalshortcutinfo->kglobalshortcutinfo_metacast_callback = reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KGlobalShortcutInfo_SuperMetacall(KGlobalShortcutInfo* self, int param1, int param2, void** param3) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_Metacall_IsBase(true);
-        return vkglobalshortcutinfo->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KGlobalShortcutInfo::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KGlobalShortcutInfo::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnMetacall(KGlobalShortcutInfo* self, intptr_t slot) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_Metacall_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_Metacall_Callback>(slot));
+    if (auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self))
+        vkglobalshortcutinfo->kglobalshortcutinfo_metacall_callback = reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KGlobalShortcutInfo_Event(KGlobalShortcutInfo* self, QEvent* event) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        return vkglobalshortcutinfo->event(event);
-    } else {
-        return self->KGlobalShortcutInfo::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KGlobalShortcutInfo_SuperEvent(KGlobalShortcutInfo* self, QEvent* event) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_Event_IsBase(true);
-        return vkglobalshortcutinfo->event(event);
-    } else {
-        return self->KGlobalShortcutInfo::event(event);
-    }
+    return self->KGlobalShortcutInfo::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnEvent(KGlobalShortcutInfo* self, intptr_t slot) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_Event_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_Event_Callback>(slot));
+    if (auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self))
+        vkglobalshortcutinfo->kglobalshortcutinfo_event_callback = reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KGlobalShortcutInfo_EventFilter(KGlobalShortcutInfo* self, QObject* watched, QEvent* event) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        return vkglobalshortcutinfo->eventFilter(watched, event);
-    } else {
-        return self->KGlobalShortcutInfo::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KGlobalShortcutInfo_SuperEventFilter(KGlobalShortcutInfo* self, QObject* watched, QEvent* event) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_EventFilter_IsBase(true);
-        return vkglobalshortcutinfo->eventFilter(watched, event);
-    } else {
-        return self->KGlobalShortcutInfo::eventFilter(watched, event);
-    }
+    return self->KGlobalShortcutInfo::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnEventFilter(KGlobalShortcutInfo* self, intptr_t slot) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_EventFilter_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_EventFilter_Callback>(slot));
+    if (auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self))
+        vkglobalshortcutinfo->kglobalshortcutinfo_eventfilter_callback = reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGlobalShortcutInfo_TimerEvent(KGlobalShortcutInfo* self, QTimerEvent* event) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo) {
         vkglobalshortcutinfo->timerEvent(event);
     } else {
-        ((VirtualKGlobalShortcutInfo*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KGlobalShortcutInfo::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGlobalShortcutInfo_SuperTimerEvent(KGlobalShortcutInfo* self, QTimerEvent* event) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_TimerEvent_IsBase(true);
-        vkglobalshortcutinfo->timerEvent(event);
-    } else {
-        ((VirtualKGlobalShortcutInfo*)self)->timerEvent(event);
-    }
+    if (auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self)) {
+        vkglobalshortcutinfo->KGlobalShortcutInfo::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGlobalShortcutInfo::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnTimerEvent(KGlobalShortcutInfo* self, intptr_t slot) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_TimerEvent_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_TimerEvent_Callback>(slot));
+    if (auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self))
+        vkglobalshortcutinfo->kglobalshortcutinfo_timerevent_callback = reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGlobalShortcutInfo_ChildEvent(KGlobalShortcutInfo* self, QChildEvent* event) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo) {
         vkglobalshortcutinfo->childEvent(event);
     } else {
-        ((VirtualKGlobalShortcutInfo*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KGlobalShortcutInfo::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGlobalShortcutInfo_SuperChildEvent(KGlobalShortcutInfo* self, QChildEvent* event) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_ChildEvent_IsBase(true);
-        vkglobalshortcutinfo->childEvent(event);
-    } else {
-        ((VirtualKGlobalShortcutInfo*)self)->childEvent(event);
-    }
+    if (auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self)) {
+        vkglobalshortcutinfo->KGlobalShortcutInfo::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGlobalShortcutInfo::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnChildEvent(KGlobalShortcutInfo* self, intptr_t slot) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_ChildEvent_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_ChildEvent_Callback>(slot));
+    if (auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self))
+        vkglobalshortcutinfo->kglobalshortcutinfo_childevent_callback = reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGlobalShortcutInfo_CustomEvent(KGlobalShortcutInfo* self, QEvent* event) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo) {
         vkglobalshortcutinfo->customEvent(event);
     } else {
-        ((VirtualKGlobalShortcutInfo*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KGlobalShortcutInfo::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGlobalShortcutInfo_SuperCustomEvent(KGlobalShortcutInfo* self, QEvent* event) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_CustomEvent_IsBase(true);
-        vkglobalshortcutinfo->customEvent(event);
-    } else {
-        ((VirtualKGlobalShortcutInfo*)self)->customEvent(event);
-    }
+    if (auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self)) {
+        vkglobalshortcutinfo->KGlobalShortcutInfo::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGlobalShortcutInfo::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnCustomEvent(KGlobalShortcutInfo* self, intptr_t slot) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_CustomEvent_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_CustomEvent_Callback>(slot));
+    if (auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self))
+        vkglobalshortcutinfo->kglobalshortcutinfo_customevent_callback = reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGlobalShortcutInfo_ConnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo) {
         vkglobalshortcutinfo->connectNotify(*signal);
     } else {
-        ((VirtualKGlobalShortcutInfo*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KGlobalShortcutInfo::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGlobalShortcutInfo_SuperConnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_ConnectNotify_IsBase(true);
-        vkglobalshortcutinfo->connectNotify(*signal);
-    } else {
-        ((VirtualKGlobalShortcutInfo*)self)->connectNotify(*signal);
-    }
+    if (auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self)) {
+        vkglobalshortcutinfo->KGlobalShortcutInfo::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KGlobalShortcutInfo::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnConnectNotify(KGlobalShortcutInfo* self, intptr_t slot) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_ConnectNotify_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_ConnectNotify_Callback>(slot));
+    if (auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self))
+        vkglobalshortcutinfo->kglobalshortcutinfo_connectnotify_callback = reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGlobalShortcutInfo_DisconnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo) {
         vkglobalshortcutinfo->disconnectNotify(*signal);
     } else {
-        ((VirtualKGlobalShortcutInfo*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KGlobalShortcutInfo::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGlobalShortcutInfo_SuperDisconnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_DisconnectNotify_IsBase(true);
-        vkglobalshortcutinfo->disconnectNotify(*signal);
-    } else {
-        ((VirtualKGlobalShortcutInfo*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self)) {
+        vkglobalshortcutinfo->KGlobalShortcutInfo::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KGlobalShortcutInfo::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnDisconnectNotify(KGlobalShortcutInfo* self, intptr_t slot) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_DisconnectNotify_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_DisconnectNotify_Callback>(slot));
+    if (auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self))
+        vkglobalshortcutinfo->kglobalshortcutinfo_disconnectnotify_callback = reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KGlobalShortcutInfo_Sender(const KGlobalShortcutInfo* self) {
-    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        return vkglobalshortcutinfo->sender();
-    } else {
-        return ((VirtualKGlobalShortcutInfo*)self)->sender();
-    }
+    if (auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self))) {
+        return vkglobalshortcutinfo->VirtualKGlobalShortcutInfo::sender();
+    } else
+        qFatal("Error: Protected method KGlobalShortcutInfo::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KGlobalShortcutInfo_SuperSender(const KGlobalShortcutInfo* self) {
-    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_Sender_IsBase(true);
-        return vkglobalshortcutinfo->sender();
-    } else {
-        return ((VirtualKGlobalShortcutInfo*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGlobalShortcutInfo_OnSender(const KGlobalShortcutInfo* self, intptr_t slot) {
-    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_Sender_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KGlobalShortcutInfo_SenderSignalIndex(const KGlobalShortcutInfo* self) {
-    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        return vkglobalshortcutinfo->senderSignalIndex();
-    } else {
-        return ((VirtualKGlobalShortcutInfo*)self)->senderSignalIndex();
-    }
+    if (auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self))) {
+        return vkglobalshortcutinfo->VirtualKGlobalShortcutInfo::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KGlobalShortcutInfo::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KGlobalShortcutInfo_SuperSenderSignalIndex(const KGlobalShortcutInfo* self) {
-    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_SenderSignalIndex_IsBase(true);
-        return vkglobalshortcutinfo->senderSignalIndex();
-    } else {
-        return ((VirtualKGlobalShortcutInfo*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGlobalShortcutInfo_OnSenderSignalIndex(const KGlobalShortcutInfo* self, intptr_t slot) {
-    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_SenderSignalIndex_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KGlobalShortcutInfo_Receivers(const KGlobalShortcutInfo* self, const char* signal) {
-    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        return vkglobalshortcutinfo->receivers(signal);
-    } else {
-        return ((VirtualKGlobalShortcutInfo*)self)->receivers(signal);
-    }
+    if (auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self))) {
+        return vkglobalshortcutinfo->VirtualKGlobalShortcutInfo::receivers(signal);
+    } else
+        qFatal("Error: Protected method KGlobalShortcutInfo::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KGlobalShortcutInfo_SuperReceivers(const KGlobalShortcutInfo* self, const char* signal) {
-    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_Receivers_IsBase(true);
-        return vkglobalshortcutinfo->receivers(signal);
-    } else {
-        return ((VirtualKGlobalShortcutInfo*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGlobalShortcutInfo_OnReceivers(const KGlobalShortcutInfo* self, intptr_t slot) {
-    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_Receivers_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KGlobalShortcutInfo_IsSignalConnected(const KGlobalShortcutInfo* self, const QMetaMethod* signal) {
-    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        return vkglobalshortcutinfo->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKGlobalShortcutInfo*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KGlobalShortcutInfo_SuperIsSignalConnected(const KGlobalShortcutInfo* self, const QMetaMethod* signal) {
-    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_IsSignalConnected_IsBase(true);
-        return vkglobalshortcutinfo->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKGlobalShortcutInfo*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGlobalShortcutInfo_OnIsSignalConnected(const KGlobalShortcutInfo* self, intptr_t slot) {
-    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
-        vkglobalshortcutinfo->setKGlobalShortcutInfo_IsSignalConnected_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_IsSignalConnected_Callback>(slot));
+    if (auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self))) {
+        return vkglobalshortcutinfo->VirtualKGlobalShortcutInfo::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KGlobalShortcutInfo::isSignalConnected called without a directly constructed type");
 }
 
 void KGlobalShortcutInfo_Delete(KGlobalShortcutInfo* self) {

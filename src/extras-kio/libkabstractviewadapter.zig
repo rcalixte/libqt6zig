@@ -52,6 +52,8 @@ pub const KAbstractViewAdapter = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#model)
     ///
+    /// This method must be implemented with `onModel` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KAbstractViewAdapter `
@@ -72,26 +74,10 @@ pub const KAbstractViewAdapter = extern struct {
     ///
     /// ` self: KAbstractViewAdapter `
     ///
-    /// ` callback: *const fn () callconv(.c) QAbstractItemModel `
+    /// ` callback: *const fn (self: KAbstractViewAdapter) callconv(.c) QAbstractItemModel `
     ///
-    pub fn onModel(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QAbstractItemModel) void {
+    pub fn onModel(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter) callconv(.c) QAbstractItemModel) void {
         qtc.KAbstractViewAdapter_OnModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superModel` instead
-    ///
-    pub const SuperModel = superModel;
-
-    /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#model)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAbstractViewAdapter `
-    ///
-    pub fn superModel(self: KAbstractViewAdapter) QAbstractItemModel {
-        return .{ .ptr = qtc.KAbstractViewAdapter_SuperModel(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `iconSize` instead
@@ -99,6 +85,8 @@ pub const KAbstractViewAdapter = extern struct {
     pub const IconSize = iconSize;
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#iconSize)
+    ///
+    /// This method must be implemented with `onIconSize` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -120,28 +108,12 @@ pub const KAbstractViewAdapter = extern struct {
     ///
     /// ` self: KAbstractViewAdapter `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KAbstractViewAdapter) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onIconSize(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onIconSize(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter) callconv(.c) QSize) void {
         qtc.KAbstractViewAdapter_OnIconSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superIconSize` instead
-    ///
-    pub const SuperIconSize = superIconSize;
-
-    /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#iconSize)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAbstractViewAdapter `
-    ///
-    pub fn superIconSize(self: KAbstractViewAdapter) QSize {
-        return .{ .ptr = qtc.KAbstractViewAdapter_SuperIconSize(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `palette` instead
@@ -149,6 +121,8 @@ pub const KAbstractViewAdapter = extern struct {
     pub const Palette = palette;
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#palette)
+    ///
+    /// This method must be implemented with `onPalette` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -170,28 +144,12 @@ pub const KAbstractViewAdapter = extern struct {
     ///
     /// ` self: KAbstractViewAdapter `
     ///
-    /// ` callback: *const fn () callconv(.c) QPalette `
+    /// ` callback: *const fn (self: KAbstractViewAdapter) callconv(.c) QPalette `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onPalette(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QPalette) void {
+    pub fn onPalette(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter) callconv(.c) QPalette) void {
         qtc.KAbstractViewAdapter_OnPalette(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superPalette` instead
-    ///
-    pub const SuperPalette = superPalette;
-
-    /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#palette)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAbstractViewAdapter `
-    ///
-    pub fn superPalette(self: KAbstractViewAdapter) QPalette {
-        return .{ .ptr = qtc.KAbstractViewAdapter_SuperPalette(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `visibleArea` instead
@@ -199,6 +157,8 @@ pub const KAbstractViewAdapter = extern struct {
     pub const VisibleArea = visibleArea;
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#visibleArea)
+    ///
+    /// This method must be implemented with `onVisibleArea` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -220,28 +180,12 @@ pub const KAbstractViewAdapter = extern struct {
     ///
     /// ` self: KAbstractViewAdapter `
     ///
-    /// ` callback: *const fn () callconv(.c) QRect `
+    /// ` callback: *const fn (self: KAbstractViewAdapter) callconv(.c) QRect `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onVisibleArea(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onVisibleArea(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter) callconv(.c) QRect) void {
         qtc.KAbstractViewAdapter_OnVisibleArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superVisibleArea` instead
-    ///
-    pub const SuperVisibleArea = superVisibleArea;
-
-    /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#visibleArea)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAbstractViewAdapter `
-    ///
-    pub fn superVisibleArea(self: KAbstractViewAdapter) QRect {
-        return .{ .ptr = qtc.KAbstractViewAdapter_SuperVisibleArea(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `visualRect` instead
@@ -249,6 +193,8 @@ pub const KAbstractViewAdapter = extern struct {
     pub const VisualRect = visualRect;
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#visualRect)
+    ///
+    /// This method must be implemented with `onVisualRect` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -281,30 +227,13 @@ pub const KAbstractViewAdapter = extern struct {
         qtc.KAbstractViewAdapter_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superVisualRect` instead
-    ///
-    pub const SuperVisualRect = superVisualRect;
-
-    /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#visualRect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAbstractViewAdapter `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superVisualRect(self: KAbstractViewAdapter, index: anytype) QRect {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KAbstractViewAdapter_SuperVisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `connect` instead
     ///
     pub const Connect = connect;
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#connect)
+    ///
+    /// This method must be implemented with `onConnect` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -338,30 +267,6 @@ pub const KAbstractViewAdapter = extern struct {
     ///
     pub fn onConnect(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, i32, QObject, [*:0]const u8) callconv(.c) void) void {
         qtc.KAbstractViewAdapter_OnConnect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superConnect` instead
-    ///
-    pub const SuperConnect = superConnect;
-
-    /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#connect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAbstractViewAdapter `
-    ///
-    /// ` signal: kabstractviewadapter_enums.Signal `
-    ///
-    /// ` receiver: QObject `
-    ///
-    /// ` slot: [:0]const u8 `
-    ///
-    pub fn superConnect(self: KAbstractViewAdapter, signal: i32, receiver: anytype, slot: [:0]const u8) void {
-        comptime _ = @TypeOf(receiver)._is_QObject;
-        const slot_Cstring = slot.ptr;
-        qtc.KAbstractViewAdapter_SuperConnect(@ptrCast(self.ptr), @bitCast(signal), @ptrCast(receiver.ptr), slot_Cstring);
     }
 
     /// ### DEPRECATED: Use `objectName` instead
@@ -1353,9 +1258,9 @@ pub const KAbstractViewAdapter = extern struct {
     ///
     /// ` self: KAbstractViewAdapter`
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KAbstractViewAdapter) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter) callconv(.c) QMetaObject) void {
         qtc.KAbstractViewAdapter_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1947,44 +1852,6 @@ pub const KAbstractViewAdapter = extern struct {
         return .{ .ptr = qtc.KAbstractViewAdapter_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAbstractViewAdapter `
-    ///
-    pub fn superSender(self: KAbstractViewAdapter) QObject {
-        return .{ .ptr = qtc.KAbstractViewAdapter_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KAbstractViewAdapter`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KAbstractViewAdapter_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2001,44 +1868,6 @@ pub const KAbstractViewAdapter = extern struct {
     ///
     pub fn senderSignalIndex(self: KAbstractViewAdapter) i32 {
         return qtc.KAbstractViewAdapter_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAbstractViewAdapter `
-    ///
-    pub fn superSenderSignalIndex(self: KAbstractViewAdapter) i32 {
-        return qtc.KAbstractViewAdapter_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KAbstractViewAdapter`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) i32) void {
-        qtc.KAbstractViewAdapter_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2062,47 +1891,6 @@ pub const KAbstractViewAdapter = extern struct {
         return qtc.KAbstractViewAdapter_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAbstractViewAdapter `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KAbstractViewAdapter, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KAbstractViewAdapter_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KAbstractViewAdapter`
-    ///
-    /// ` callback: *const fn (self: KAbstractViewAdapter, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KAbstractViewAdapter_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2122,47 +1910,6 @@ pub const KAbstractViewAdapter = extern struct {
     pub fn isSignalConnected(self: KAbstractViewAdapter, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KAbstractViewAdapter_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAbstractViewAdapter `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KAbstractViewAdapter, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KAbstractViewAdapter_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KAbstractViewAdapter`
-    ///
-    /// ` callback: *const fn (self: KAbstractViewAdapter, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, QMetaMethod) callconv(.c) bool) void {
-        qtc.KAbstractViewAdapter_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

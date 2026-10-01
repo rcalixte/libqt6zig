@@ -370,355 +370,215 @@ void KSvg__Svg_Paint6(KSvg__Svg* self, QPainter* painter, int x, int y, int widt
 
 // Base class handler implementation
 QMetaObject* KSvg__Svg_SuperMetaObject(const KSvg__Svg* self) {
-    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        vksvgsvg->setKSvg__Svg_MetaObject_IsBase(true);
-        return (QMetaObject*)vksvgsvg->metaObject();
-    } else {
-        return (QMetaObject*)self->KSvg::Svg::metaObject();
-    }
+    return (QMetaObject*)self->KSvg::Svg::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSvg__Svg_OnMetaObject(const KSvg__Svg* self, intptr_t slot) {
-    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg)
-        vksvgsvg->setKSvg__Svg_MetaObject_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_MetaObject_Callback>(slot));
+void KSvg__Svg_OnMetaObject(KSvg__Svg* self, intptr_t slot) {
+    if (auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self)))
+        vksvgsvg->ksvg__svg_metaobject_callback = reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KSvg__Svg_SuperMetacast(KSvg__Svg* self, const char* param1) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        vksvgsvg->setKSvg__Svg_Metacast_IsBase(true);
-        return vksvgsvg->qt_metacast(param1);
-    } else {
-        return self->KSvg::Svg::qt_metacast(param1);
-    }
+    return self->KSvg::Svg::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__Svg_OnMetacast(KSvg__Svg* self, intptr_t slot) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg)
-        vksvgsvg->setKSvg__Svg_Metacast_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_Metacast_Callback>(slot));
+    if (auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self))
+        vksvgsvg->ksvg__svg_metacast_callback = reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KSvg__Svg_SuperMetacall(KSvg__Svg* self, int param1, int param2, void** param3) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        vksvgsvg->setKSvg__Svg_Metacall_IsBase(true);
-        return vksvgsvg->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KSvg::Svg::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KSvg::Svg::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__Svg_OnMetacall(KSvg__Svg* self, intptr_t slot) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg)
-        vksvgsvg->setKSvg__Svg_Metacall_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_Metacall_Callback>(slot));
+    if (auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self))
+        vksvgsvg->ksvg__svg_metacall_callback = reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSvg__Svg_SuperSetImagePath(KSvg__Svg* self, const libqt_string svgFilePath) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
     QString svgFilePath_QString = QString::fromUtf8(svgFilePath.data, svgFilePath.len);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        vksvgsvg->setKSvg__Svg_SetImagePath_IsBase(true);
-        vksvgsvg->setImagePath(svgFilePath_QString);
-    } else {
-        self->KSvg::Svg::setImagePath(svgFilePath_QString);
-    }
+    self->KSvg::Svg::setImagePath(svgFilePath_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__Svg_OnSetImagePath(KSvg__Svg* self, intptr_t slot) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg)
-        vksvgsvg->setKSvg__Svg_SetImagePath_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_SetImagePath_Callback>(slot));
+    if (auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self))
+        vksvgsvg->ksvg__svg_setimagepath_callback = reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_SetImagePath_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSvg__Svg_Event(KSvg__Svg* self, QEvent* event) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        return vksvgsvg->event(event);
-    } else {
-        return self->KSvg::Svg::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KSvg__Svg_SuperEvent(KSvg__Svg* self, QEvent* event) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        vksvgsvg->setKSvg__Svg_Event_IsBase(true);
-        return vksvgsvg->event(event);
-    } else {
-        return self->KSvg::Svg::event(event);
-    }
+    return self->KSvg::Svg::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__Svg_OnEvent(KSvg__Svg* self, intptr_t slot) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg)
-        vksvgsvg->setKSvg__Svg_Event_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_Event_Callback>(slot));
+    if (auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self))
+        vksvgsvg->ksvg__svg_event_callback = reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSvg__Svg_TimerEvent(KSvg__Svg* self, QTimerEvent* event) {
     auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
+    if (vksvgsvg) {
         vksvgsvg->timerEvent(event);
     } else {
-        ((VirtualKSvgSvg*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KSvg::Svg::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSvg__Svg_SuperTimerEvent(KSvg__Svg* self, QTimerEvent* event) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        vksvgsvg->setKSvg__Svg_TimerEvent_IsBase(true);
-        vksvgsvg->timerEvent(event);
-    } else {
-        ((VirtualKSvgSvg*)self)->timerEvent(event);
-    }
+    if (auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self)) {
+        vksvgsvg->KSvg::Svg::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSvg::Svg::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__Svg_OnTimerEvent(KSvg__Svg* self, intptr_t slot) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg)
-        vksvgsvg->setKSvg__Svg_TimerEvent_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_TimerEvent_Callback>(slot));
+    if (auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self))
+        vksvgsvg->ksvg__svg_timerevent_callback = reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSvg__Svg_ChildEvent(KSvg__Svg* self, QChildEvent* event) {
     auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
+    if (vksvgsvg) {
         vksvgsvg->childEvent(event);
     } else {
-        ((VirtualKSvgSvg*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KSvg::Svg::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSvg__Svg_SuperChildEvent(KSvg__Svg* self, QChildEvent* event) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        vksvgsvg->setKSvg__Svg_ChildEvent_IsBase(true);
-        vksvgsvg->childEvent(event);
-    } else {
-        ((VirtualKSvgSvg*)self)->childEvent(event);
-    }
+    if (auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self)) {
+        vksvgsvg->KSvg::Svg::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSvg::Svg::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__Svg_OnChildEvent(KSvg__Svg* self, intptr_t slot) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg)
-        vksvgsvg->setKSvg__Svg_ChildEvent_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_ChildEvent_Callback>(slot));
+    if (auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self))
+        vksvgsvg->ksvg__svg_childevent_callback = reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSvg__Svg_CustomEvent(KSvg__Svg* self, QEvent* event) {
     auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
+    if (vksvgsvg) {
         vksvgsvg->customEvent(event);
     } else {
-        ((VirtualKSvgSvg*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KSvg::Svg::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSvg__Svg_SuperCustomEvent(KSvg__Svg* self, QEvent* event) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        vksvgsvg->setKSvg__Svg_CustomEvent_IsBase(true);
-        vksvgsvg->customEvent(event);
-    } else {
-        ((VirtualKSvgSvg*)self)->customEvent(event);
-    }
+    if (auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self)) {
+        vksvgsvg->KSvg::Svg::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSvg::Svg::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__Svg_OnCustomEvent(KSvg__Svg* self, intptr_t slot) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg)
-        vksvgsvg->setKSvg__Svg_CustomEvent_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_CustomEvent_Callback>(slot));
+    if (auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self))
+        vksvgsvg->ksvg__svg_customevent_callback = reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSvg__Svg_ConnectNotify(KSvg__Svg* self, const QMetaMethod* signal) {
     auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
+    if (vksvgsvg) {
         vksvgsvg->connectNotify(*signal);
     } else {
-        ((VirtualKSvgSvg*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KSvg::Svg::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSvg__Svg_SuperConnectNotify(KSvg__Svg* self, const QMetaMethod* signal) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        vksvgsvg->setKSvg__Svg_ConnectNotify_IsBase(true);
-        vksvgsvg->connectNotify(*signal);
-    } else {
-        ((VirtualKSvgSvg*)self)->connectNotify(*signal);
-    }
+    if (auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self)) {
+        vksvgsvg->KSvg::Svg::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSvg::Svg::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__Svg_OnConnectNotify(KSvg__Svg* self, intptr_t slot) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg)
-        vksvgsvg->setKSvg__Svg_ConnectNotify_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_ConnectNotify_Callback>(slot));
+    if (auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self))
+        vksvgsvg->ksvg__svg_connectnotify_callback = reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSvg__Svg_DisconnectNotify(KSvg__Svg* self, const QMetaMethod* signal) {
     auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
+    if (vksvgsvg) {
         vksvgsvg->disconnectNotify(*signal);
     } else {
-        ((VirtualKSvgSvg*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KSvg::Svg::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSvg__Svg_SuperDisconnectNotify(KSvg__Svg* self, const QMetaMethod* signal) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        vksvgsvg->setKSvg__Svg_DisconnectNotify_IsBase(true);
-        vksvgsvg->disconnectNotify(*signal);
-    } else {
-        ((VirtualKSvgSvg*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self)) {
+        vksvgsvg->KSvg::Svg::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSvg::Svg::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__Svg_OnDisconnectNotify(KSvg__Svg* self, intptr_t slot) {
-    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg)
-        vksvgsvg->setKSvg__Svg_DisconnectNotify_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_DisconnectNotify_Callback>(slot));
+    if (auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self))
+        vksvgsvg->ksvg__svg_disconnectnotify_callback = reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KSvg__Svg_Sender(const KSvg__Svg* self) {
-    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        return vksvgsvg->sender();
-    } else {
-        return ((VirtualKSvgSvg*)self)->sender();
-    }
+    if (auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self))) {
+        return vksvgsvg->VirtualKSvgSvg::sender();
+    } else
+        qFatal("Error: Protected method KSvg::Svg::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KSvg__Svg_SuperSender(const KSvg__Svg* self) {
-    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        vksvgsvg->setKSvg__Svg_Sender_IsBase(true);
-        return vksvgsvg->sender();
-    } else {
-        return ((VirtualKSvgSvg*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSvg__Svg_OnSender(const KSvg__Svg* self, intptr_t slot) {
-    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg)
-        vksvgsvg->setKSvg__Svg_Sender_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSvg__Svg_SenderSignalIndex(const KSvg__Svg* self) {
-    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        return vksvgsvg->senderSignalIndex();
-    } else {
-        return ((VirtualKSvgSvg*)self)->senderSignalIndex();
-    }
+    if (auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self))) {
+        return vksvgsvg->VirtualKSvgSvg::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KSvg::Svg::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSvg__Svg_SuperSenderSignalIndex(const KSvg__Svg* self) {
-    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        vksvgsvg->setKSvg__Svg_SenderSignalIndex_IsBase(true);
-        return vksvgsvg->senderSignalIndex();
-    } else {
-        return ((VirtualKSvgSvg*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSvg__Svg_OnSenderSignalIndex(const KSvg__Svg* self, intptr_t slot) {
-    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg)
-        vksvgsvg->setKSvg__Svg_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSvg__Svg_Receivers(const KSvg__Svg* self, const char* signal) {
-    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        return vksvgsvg->receivers(signal);
-    } else {
-        return ((VirtualKSvgSvg*)self)->receivers(signal);
-    }
+    if (auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self))) {
+        return vksvgsvg->VirtualKSvgSvg::receivers(signal);
+    } else
+        qFatal("Error: Protected method KSvg::Svg::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSvg__Svg_SuperReceivers(const KSvg__Svg* self, const char* signal) {
-    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        vksvgsvg->setKSvg__Svg_Receivers_IsBase(true);
-        return vksvgsvg->receivers(signal);
-    } else {
-        return ((VirtualKSvgSvg*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSvg__Svg_OnReceivers(const KSvg__Svg* self, intptr_t slot) {
-    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg)
-        vksvgsvg->setKSvg__Svg_Receivers_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSvg__Svg_IsSignalConnected(const KSvg__Svg* self, const QMetaMethod* signal) {
-    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        return vksvgsvg->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSvgSvg*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KSvg__Svg_SuperIsSignalConnected(const KSvg__Svg* self, const QMetaMethod* signal) {
-    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
-        vksvgsvg->setKSvg__Svg_IsSignalConnected_IsBase(true);
-        return vksvgsvg->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSvgSvg*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSvg__Svg_OnIsSignalConnected(const KSvg__Svg* self, intptr_t slot) {
-    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
-    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg)
-        vksvgsvg->setKSvg__Svg_IsSignalConnected_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_IsSignalConnected_Callback>(slot));
+    if (auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self))) {
+        return vksvgsvg->VirtualKSvgSvg::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KSvg::Svg::isSignalConnected called without a directly constructed type");
 }
 
 void KSvg__Svg_Delete(KSvg__Svg* self) {

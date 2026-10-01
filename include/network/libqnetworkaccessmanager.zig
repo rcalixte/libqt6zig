@@ -91,9 +91,9 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QNetworkAccessManager) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QNetworkAccessManager, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager) callconv(.c) QMetaObject) void {
         qtc.QNetworkAccessManager_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -282,9 +282,9 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: QNetworkAccessManager) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onSupportedSchemes(self: QNetworkAccessManager, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onSupportedSchemes(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QNetworkAccessManager_OnSupportedSchemes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1360,58 +1360,6 @@ pub const QNetworkAccessManager = extern struct {
     ///
     pub fn supportedSchemesImplementation(self: QNetworkAccessManager, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QNetworkAccessManager_SupportedSchemesImplementation(@ptrCast(self.ptr));
-        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
-        defer {
-            for (0.._arr.len) |i|
-                qtc.libqt_string_free(@ptrCast(&_str[i]));
-            qtc.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QNetworkAccessManager.supportedSchemesImplementation: Memory allocation failed");
-        for (0.._arr.len) |i| {
-            const _data_val = _str[i];
-            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QNetworkAccessManager.supportedSchemesImplementation: Memory allocation failed");
-            @memcpy(_buf, _data_val.data[0.._data_val.len]);
-            _ret[i] = _buf;
-        }
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onSupportedSchemesImplementation` instead
-    ///
-    pub const OnSupportedSchemesImplementation = onSupportedSchemesImplementation;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemesImplementation)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNetworkAccessManager `
-    ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
-    ///
-    pub fn onSupportedSchemesImplementation(self: QNetworkAccessManager, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QNetworkAccessManager_OnSupportedSchemesImplementation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSupportedSchemesImplementation` instead
-    ///
-    pub const SuperSupportedSchemesImplementation = superSupportedSchemesImplementation;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemesImplementation)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkAccessManager `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superSupportedSchemesImplementation(self: QNetworkAccessManager, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QNetworkAccessManager_SuperSupportedSchemesImplementation(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i|
@@ -3038,44 +2986,6 @@ pub const QNetworkAccessManager = extern struct {
         return .{ .ptr = qtc.QNetworkAccessManager_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkAccessManager `
-    ///
-    pub fn superSender(self: QNetworkAccessManager) QObject {
-        return .{ .ptr = qtc.QNetworkAccessManager_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNetworkAccessManager`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QNetworkAccessManager, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QNetworkAccessManager_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3092,44 +3002,6 @@ pub const QNetworkAccessManager = extern struct {
     ///
     pub fn senderSignalIndex(self: QNetworkAccessManager) i32 {
         return qtc.QNetworkAccessManager_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkAccessManager `
-    ///
-    pub fn superSenderSignalIndex(self: QNetworkAccessManager) i32 {
-        return qtc.QNetworkAccessManager_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNetworkAccessManager`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QNetworkAccessManager, callback: *const fn () callconv(.c) i32) void {
-        qtc.QNetworkAccessManager_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3153,47 +3025,6 @@ pub const QNetworkAccessManager = extern struct {
         return qtc.QNetworkAccessManager_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkAccessManager `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QNetworkAccessManager, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QNetworkAccessManager_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNetworkAccessManager`
-    ///
-    /// ` callback: *const fn (self: QNetworkAccessManager, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QNetworkAccessManager_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3213,47 +3044,6 @@ pub const QNetworkAccessManager = extern struct {
     pub fn isSignalConnected(self: QNetworkAccessManager, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QNetworkAccessManager_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkAccessManager `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QNetworkAccessManager, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QNetworkAccessManager_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNetworkAccessManager`
-    ///
-    /// ` callback: *const fn (self: QNetworkAccessManager, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QMetaMethod) callconv(.c) bool) void {
-        qtc.QNetworkAccessManager_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -140,6 +140,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#fileName)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -160,6 +162,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#absoluteDir)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -173,6 +177,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const Contents = contents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#contents)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -193,6 +199,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const CheckContents = checkContents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#checkContents)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -224,6 +232,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#features)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -242,6 +252,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#hasFeature)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -257,6 +269,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const Author = author;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#author)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -278,6 +292,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setAuthor)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -297,6 +313,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const Comment = comment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#comment)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -318,6 +336,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setComment)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -338,6 +358,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#layoutDefault)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -356,6 +378,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setLayoutDefault)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -373,6 +397,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const SetLayoutFunction = setLayoutFunction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setLayoutFunction)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -400,6 +426,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#pixmapFunction)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -419,6 +447,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const SetPixmapFunction = setPixmapFunction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setPixmapFunction)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -440,6 +470,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#exportMacro)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -460,6 +492,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setExportMacro)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -479,6 +513,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const IncludeHints = includeHints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#includeHints)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -510,6 +546,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setIncludeHints)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -539,6 +577,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#resourceFileSaveMode)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -556,6 +596,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const SetResourceFileSaveMode = setResourceFileSaveMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setResourceFileSaveMode)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -617,6 +659,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#cursor)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -630,6 +674,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const ToolCount = toolCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#toolCount)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -645,6 +691,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#currentTool)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -658,6 +706,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const SetCurrentTool = setCurrentTool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setCurrentTool)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -675,6 +725,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#tool)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -690,6 +742,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const RegisterTool = registerTool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#registerTool)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -708,6 +762,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#grid)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -722,6 +778,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#mainContainer)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -735,6 +793,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const SetMainContainer = setMainContainer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setMainContainer)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -753,6 +813,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#formContainer)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -766,6 +828,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const IsManaged = isManaged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#isManaged)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -783,6 +847,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const IsDirty = isDirty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#isDirty)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -828,6 +894,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#commandHistory)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -841,6 +909,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const BeginCommand = beginCommand;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#beginCommand)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -862,6 +932,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#endCommand)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -875,6 +947,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const SimplifySelection = simplifySelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#simplifySelection)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -896,6 +970,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#emitSelectionChanged)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -909,6 +985,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const ResourceFiles = resourceFiles;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#resourceFiles)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -940,6 +1018,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#addResourceFile)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -959,6 +1039,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const RemoveResourceFile = removeResourceFile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#removeResourceFile)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -980,6 +1062,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#ensureUniqueObjectName)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -996,6 +1080,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const ManageWidget = manageWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#manageWidget)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1014,6 +1100,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#unmanageWidget)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -1031,6 +1119,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setFeatures)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -1046,6 +1136,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const SetDirty = setDirty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setDirty)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1063,6 +1155,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#clearSelection)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -1078,6 +1172,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const SelectWidget = selectWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#selectWidget)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1098,6 +1194,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setGrid)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -1114,6 +1212,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const SetFileName = setFileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setFileName)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1135,6 +1235,8 @@ pub const QDesignerFormWindowInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setContents)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
@@ -1154,6 +1256,8 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const EditWidgets = editWidgets;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#editWidgets)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

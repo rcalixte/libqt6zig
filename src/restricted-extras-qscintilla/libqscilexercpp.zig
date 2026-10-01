@@ -99,9 +99,9 @@ pub const QsciLexerCPP = extern struct {
     ///
     /// ` self: QsciLexerCPP `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QsciLexerCPP) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QsciLexerCPP, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QsciLexerCPP, callback: *const fn (QsciLexerCPP) callconv(.c) QMetaObject) void {
         qtc.QsciLexerCPP_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1030,49 +1030,6 @@ pub const QsciLexerCPP = extern struct {
         return qtc.QsciLexerCPP_ReadProperties(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_str);
     }
 
-    /// ### DEPRECATED: Use `onReadProperties` instead
-    ///
-    pub const OnReadProperties = onReadProperties;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciLexerCPP `
-    ///
-    /// ` callback: *const fn (self: QsciLexerCPP, qs: QSettings, prefix: [*:0]const u8) callconv(.c) bool `
-    ///
-    pub fn onReadProperties(self: QsciLexerCPP, callback: *const fn (QsciLexerCPP, QSettings, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QsciLexerCPP_OnReadProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superReadProperties` instead
-    ///
-    pub const SuperReadProperties = superReadProperties;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerCPP `
-    ///
-    /// ` qs: QSettings `
-    ///
-    /// ` prefix: []const u8 `
-    ///
-    pub fn superReadProperties(self: QsciLexerCPP, qs: anytype, prefix: []const u8) bool {
-        comptime _ = @TypeOf(qs)._is_QSettings;
-        const prefix_str = qtc.libqt_string{
-            .len = prefix.len,
-            .data = prefix.ptr,
-        };
-        return qtc.QsciLexerCPP_SuperReadProperties(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_str);
-    }
-
     /// ### DEPRECATED: Use `writeProperties` instead
     ///
     pub const WriteProperties = writeProperties;
@@ -1094,49 +1051,6 @@ pub const QsciLexerCPP = extern struct {
             .data = prefix.ptr,
         };
         return qtc.QsciLexerCPP_WriteProperties(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_str);
-    }
-
-    /// ### DEPRECATED: Use `onWriteProperties` instead
-    ///
-    pub const OnWriteProperties = onWriteProperties;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciLexerCPP `
-    ///
-    /// ` callback: *const fn (self: QsciLexerCPP, qs: QSettings, prefix: [*:0]const u8) callconv(.c) bool `
-    ///
-    pub fn onWriteProperties(self: QsciLexerCPP, callback: *const fn (QsciLexerCPP, QSettings, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QsciLexerCPP_OnWriteProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superWriteProperties` instead
-    ///
-    pub const SuperWriteProperties = superWriteProperties;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCPP.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerCPP `
-    ///
-    /// ` qs: QSettings `
-    ///
-    /// ` prefix: []const u8 `
-    ///
-    pub fn superWriteProperties(self: QsciLexerCPP, qs: anytype, prefix: []const u8) bool {
-        comptime _ = @TypeOf(qs)._is_QSettings;
-        const prefix_str = qtc.libqt_string{
-            .len = prefix.len,
-            .data = prefix.ptr,
-        };
-        return qtc.QsciLexerCPP_SuperWriteProperties(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_str);
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2660,9 +2574,9 @@ pub const QsciLexerCPP = extern struct {
     ///
     /// ` self: QsciLexerCPP`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciLexerCPP) callconv(.c) i32 `
     ///
-    pub fn onLexerId(self: QsciLexerCPP, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLexerId(self: QsciLexerCPP, callback: *const fn (QsciLexerCPP) callconv(.c) i32) void {
         qtc.QsciLexerCPP_OnLexerId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2718,9 +2632,9 @@ pub const QsciLexerCPP = extern struct {
     ///
     /// ` self: QsciLexerCPP`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QsciLexerCPP) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onAutoCompletionFillups(self: QsciLexerCPP, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onAutoCompletionFillups(self: QsciLexerCPP, callback: *const fn (QsciLexerCPP) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerCPP_OnAutoCompletionFillups(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2774,9 +2688,9 @@ pub const QsciLexerCPP = extern struct {
     ///
     /// ` self: QsciLexerCPP`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciLexerCPP) callconv(.c) i32 `
     ///
-    pub fn onBlockLookback(self: QsciLexerCPP, callback: *const fn () callconv(.c) i32) void {
+    pub fn onBlockLookback(self: QsciLexerCPP, callback: *const fn (QsciLexerCPP) callconv(.c) i32) void {
         qtc.QsciLexerCPP_OnBlockLookback(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2830,9 +2744,9 @@ pub const QsciLexerCPP = extern struct {
     ///
     /// ` self: QsciLexerCPP`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciLexerCPP) callconv(.c) bool `
     ///
-    pub fn onCaseSensitive(self: QsciLexerCPP, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCaseSensitive(self: QsciLexerCPP, callback: *const fn (QsciLexerCPP) callconv(.c) bool) void {
         qtc.QsciLexerCPP_OnCaseSensitive(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3070,9 +2984,9 @@ pub const QsciLexerCPP = extern struct {
     ///
     /// ` self: QsciLexerCPP`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciLexerCPP) callconv(.c) i32 `
     ///
-    pub fn onIndentationGuideView(self: QsciLexerCPP, callback: *const fn () callconv(.c) i32) void {
+    pub fn onIndentationGuideView(self: QsciLexerCPP, callback: *const fn (QsciLexerCPP) callconv(.c) i32) void {
         qtc.QsciLexerCPP_OnIndentationGuideView(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3126,9 +3040,9 @@ pub const QsciLexerCPP = extern struct {
     ///
     /// ` self: QsciLexerCPP`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciLexerCPP) callconv(.c) i32 `
     ///
-    pub fn onDefaultStyle(self: QsciLexerCPP, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDefaultStyle(self: QsciLexerCPP, callback: *const fn (QsciLexerCPP) callconv(.c) i32) void {
         qtc.QsciLexerCPP_OnDefaultStyle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3492,9 +3406,9 @@ pub const QsciLexerCPP = extern struct {
     ///
     /// ` self: QsciLexerCPP`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciLexerCPP) callconv(.c) i32 `
     ///
-    pub fn onStyleBitsNeeded(self: QsciLexerCPP, callback: *const fn () callconv(.c) i32) void {
+    pub fn onStyleBitsNeeded(self: QsciLexerCPP, callback: *const fn (QsciLexerCPP) callconv(.c) i32) void {
         qtc.QsciLexerCPP_OnStyleBitsNeeded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4290,56 +4204,6 @@ pub const QsciLexerCPP = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superTextAsBytes` instead
-    ///
-    pub const SuperTextAsBytes = superTextAsBytes;
-
-    /// Inherited from QsciLexer
-    ///
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerCPP `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn superTextAsBytes(self: QsciLexerCPP, allocator: std.mem.Allocator, text: []const u8) []u8 {
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        var _bytearray: qtc.libqt_string = qtc.QsciLexerCPP_SuperTextAsBytes(@ptrCast(self.ptr), text_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciLexerCPP.textAsBytes: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onTextAsBytes` instead
-    ///
-    pub const OnTextAsBytes = onTextAsBytes;
-
-    /// Inherited from QsciLexer
-    ///
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciLexerCPP`
-    ///
-    /// ` callback: *const fn (self: QsciLexerCPP, text: [*:0]const u8) callconv(.c) qtc.libqt_string `
-    ///
-    pub fn onTextAsBytes(self: QsciLexerCPP, callback: *const fn (QsciLexerCPP, [*:0]const u8) callconv(.c) qtc.libqt_string) void {
-        qtc.QsciLexerCPP_OnTextAsBytes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `bytesAsText` instead
     ///
     pub const BytesAsText = bytesAsText;
@@ -4369,55 +4233,6 @@ pub const QsciLexerCPP = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superBytesAsText` instead
-    ///
-    pub const SuperBytesAsText = superBytesAsText;
-
-    /// Inherited from QsciLexer
-    ///
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerCPP `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` bytes: [:0]const u8 `
-    ///
-    /// ` size: i32 `
-    ///
-    pub fn superBytesAsText(self: QsciLexerCPP, allocator: std.mem.Allocator, bytes: [:0]const u8, size: i32) []const u8 {
-        const bytes_Cstring = bytes.ptr;
-        var _str = qtc.QsciLexerCPP_SuperBytesAsText(@ptrCast(self.ptr), bytes_Cstring, @bitCast(size));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerCPP.bytesAsText: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onBytesAsText` instead
-    ///
-    pub const OnBytesAsText = onBytesAsText;
-
-    /// Inherited from QsciLexer
-    ///
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciLexerCPP`
-    ///
-    /// ` callback: *const fn (self: QsciLexerCPP, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onBytesAsText(self: QsciLexerCPP, callback: *const fn (QsciLexerCPP, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerCPP_OnBytesAsText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -4436,44 +4251,6 @@ pub const QsciLexerCPP = extern struct {
         return .{ .ptr = qtc.QsciLexerCPP_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerCPP `
-    ///
-    pub fn superSender(self: QsciLexerCPP) QObject {
-        return .{ .ptr = qtc.QsciLexerCPP_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciLexerCPP`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QsciLexerCPP, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QsciLexerCPP_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4490,44 +4267,6 @@ pub const QsciLexerCPP = extern struct {
     ///
     pub fn senderSignalIndex(self: QsciLexerCPP) i32 {
         return qtc.QsciLexerCPP_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerCPP `
-    ///
-    pub fn superSenderSignalIndex(self: QsciLexerCPP) i32 {
-        return qtc.QsciLexerCPP_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciLexerCPP`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QsciLexerCPP, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerCPP_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4551,47 +4290,6 @@ pub const QsciLexerCPP = extern struct {
         return qtc.QsciLexerCPP_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerCPP `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QsciLexerCPP, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QsciLexerCPP_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciLexerCPP`
-    ///
-    /// ` callback: *const fn (self: QsciLexerCPP, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QsciLexerCPP, callback: *const fn (QsciLexerCPP, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QsciLexerCPP_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4611,47 +4309,6 @@ pub const QsciLexerCPP = extern struct {
     pub fn isSignalConnected(self: QsciLexerCPP, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QsciLexerCPP_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerCPP `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QsciLexerCPP, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QsciLexerCPP_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciLexerCPP`
-    ///
-    /// ` callback: *const fn (self: QsciLexerCPP, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QsciLexerCPP, callback: *const fn (QsciLexerCPP, QMetaMethod) callconv(.c) bool) void {
-        qtc.QsciLexerCPP_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

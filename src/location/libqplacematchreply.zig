@@ -80,9 +80,9 @@ pub const QPlaceMatchReply = extern struct {
     ///
     /// ` self: QPlaceMatchReply `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QPlaceMatchReply) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QPlaceMatchReply, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPlaceMatchReply, callback: *const fn (QPlaceMatchReply) callconv(.c) QMetaObject) void {
         qtc.QPlaceMatchReply_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -259,9 +259,9 @@ pub const QPlaceMatchReply = extern struct {
     ///
     /// ` self: QPlaceMatchReply `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPlaceMatchReply) callconv(.c) i32 `
     ///
-    pub fn onType(self: QPlaceMatchReply, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QPlaceMatchReply, callback: *const fn (QPlaceMatchReply) callconv(.c) i32) void {
         qtc.QPlaceMatchReply_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -341,46 +341,6 @@ pub const QPlaceMatchReply = extern struct {
         qtc.QPlaceMatchReply_SetPlaces(@ptrCast(self.ptr), results_list);
     }
 
-    /// ### DEPRECATED: Use `onSetPlaces` instead
-    ///
-    pub const OnSetPlaces = onSetPlaces;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacematchreply.html#setPlaces)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceMatchReply `
-    ///
-    /// ` callback: *const fn (self: QPlaceMatchReply, results: qtc.libqt_list ([]QPlace)) callconv(.c) void `
-    ///
-    pub fn onSetPlaces(self: QPlaceMatchReply, callback: *const fn (QPlaceMatchReply, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QPlaceMatchReply_OnSetPlaces(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetPlaces` instead
-    ///
-    pub const SuperSetPlaces = superSetPlaces;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacematchreply.html#setPlaces)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceMatchReply `
-    ///
-    /// ` results: []QPlace `
-    ///
-    pub fn superSetPlaces(self: QPlaceMatchReply, results: []QPlace) void {
-        const results_list = qtc.libqt_list{
-            .len = results.len,
-            .data = @ptrCast(results.ptr),
-        };
-        qtc.QPlaceMatchReply_SuperSetPlaces(@ptrCast(self.ptr), results_list);
-    }
-
     /// ### DEPRECATED: Use `setRequest` instead
     ///
     pub const SetRequest = setRequest;
@@ -396,43 +356,6 @@ pub const QPlaceMatchReply = extern struct {
     pub fn setRequest(self: QPlaceMatchReply, _request: anytype) void {
         comptime _ = @TypeOf(_request)._is_QPlaceMatchRequest;
         qtc.QPlaceMatchReply_SetRequest(@ptrCast(self.ptr), @ptrCast(_request.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetRequest` instead
-    ///
-    pub const OnSetRequest = onSetRequest;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacematchreply.html#setRequest)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceMatchReply `
-    ///
-    /// ` callback: *const fn (self: QPlaceMatchReply, request: QPlaceMatchRequest) callconv(.c) void `
-    ///
-    pub fn onSetRequest(self: QPlaceMatchReply, callback: *const fn (QPlaceMatchReply, QPlaceMatchRequest) callconv(.c) void) void {
-        qtc.QPlaceMatchReply_OnSetRequest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetRequest` instead
-    ///
-    pub const SuperSetRequest = superSetRequest;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacematchreply.html#setRequest)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceMatchReply `
-    ///
-    /// ` _request: QPlaceMatchRequest `
-    ///
-    pub fn superSetRequest(self: QPlaceMatchReply, _request: anytype) void {
-        comptime _ = @TypeOf(_request)._is_QPlaceMatchRequest;
-        qtc.QPlaceMatchReply_SuperSetRequest(@ptrCast(self.ptr), @ptrCast(_request.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1744,9 +1667,9 @@ pub const QPlaceMatchReply = extern struct {
     ///
     /// ` self: QPlaceMatchReply`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceMatchReply) callconv(.c) void `
     ///
-    pub fn onAbort(self: QPlaceMatchReply, callback: *const fn () callconv(.c) void) void {
+    pub fn onAbort(self: QPlaceMatchReply, callback: *const fn (QPlaceMatchReply) callconv(.c) void) void {
         qtc.QPlaceMatchReply_OnAbort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2210,46 +2133,6 @@ pub const QPlaceMatchReply = extern struct {
         qtc.QPlaceMatchReply_SetFinished(@ptrCast(self.ptr), _finished);
     }
 
-    /// ### DEPRECATED: Use `superSetFinished` instead
-    ///
-    pub const SuperSetFinished = superSetFinished;
-
-    /// Inherited from QPlaceReply
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#setFinished)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceMatchReply `
-    ///
-    /// ` _finished: bool `
-    ///
-    pub fn superSetFinished(self: QPlaceMatchReply, _finished: bool) void {
-        qtc.QPlaceMatchReply_SuperSetFinished(@ptrCast(self.ptr), _finished);
-    }
-
-    /// ### DEPRECATED: Use `onSetFinished` instead
-    ///
-    pub const OnSetFinished = onSetFinished;
-
-    /// Inherited from QPlaceReply
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#setFinished)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceMatchReply`
-    ///
-    /// ` callback: *const fn (self: QPlaceMatchReply, finished: bool) callconv(.c) void `
-    ///
-    pub fn onSetFinished(self: QPlaceMatchReply, callback: *const fn (QPlaceMatchReply, bool) callconv(.c) void) void {
-        qtc.QPlaceMatchReply_OnSetFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setError` instead
     ///
     pub const SetError = setError;
@@ -2276,52 +2159,6 @@ pub const QPlaceMatchReply = extern struct {
         qtc.QPlaceMatchReply_SetError(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `superSetError` instead
-    ///
-    pub const SuperSetError = superSetError;
-
-    /// Inherited from QPlaceReply
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#setError)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceMatchReply `
-    ///
-    /// ` errorVal: qplacereply_enums.Error `
-    ///
-    /// ` _errorString: []const u8 `
-    ///
-    pub fn superSetError(self: QPlaceMatchReply, errorVal: i32, _errorString: []const u8) void {
-        const errorString_str = qtc.libqt_string{
-            .len = _errorString.len,
-            .data = _errorString.ptr,
-        };
-        qtc.QPlaceMatchReply_SuperSetError(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetError` instead
-    ///
-    pub const OnSetError = onSetError;
-
-    /// Inherited from QPlaceReply
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#setError)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceMatchReply`
-    ///
-    /// ` callback: *const fn (self: QPlaceMatchReply, errorVal: qplacereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetError(self: QPlaceMatchReply, callback: *const fn (QPlaceMatchReply, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QPlaceMatchReply_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -2340,44 +2177,6 @@ pub const QPlaceMatchReply = extern struct {
         return .{ .ptr = qtc.QPlaceMatchReply_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceMatchReply `
-    ///
-    pub fn superSender(self: QPlaceMatchReply) QObject {
-        return .{ .ptr = qtc.QPlaceMatchReply_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceMatchReply`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QPlaceMatchReply, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QPlaceMatchReply_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2394,44 +2193,6 @@ pub const QPlaceMatchReply = extern struct {
     ///
     pub fn senderSignalIndex(self: QPlaceMatchReply) i32 {
         return qtc.QPlaceMatchReply_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceMatchReply `
-    ///
-    pub fn superSenderSignalIndex(self: QPlaceMatchReply) i32 {
-        return qtc.QPlaceMatchReply_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceMatchReply`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QPlaceMatchReply, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPlaceMatchReply_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2455,47 +2216,6 @@ pub const QPlaceMatchReply = extern struct {
         return qtc.QPlaceMatchReply_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceMatchReply `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QPlaceMatchReply, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QPlaceMatchReply_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceMatchReply`
-    ///
-    /// ` callback: *const fn (self: QPlaceMatchReply, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QPlaceMatchReply, callback: *const fn (QPlaceMatchReply, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPlaceMatchReply_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2515,47 +2235,6 @@ pub const QPlaceMatchReply = extern struct {
     pub fn isSignalConnected(self: QPlaceMatchReply, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPlaceMatchReply_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceMatchReply `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QPlaceMatchReply, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QPlaceMatchReply_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceMatchReply`
-    ///
-    /// ` callback: *const fn (self: QPlaceMatchReply, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QPlaceMatchReply, callback: *const fn (QPlaceMatchReply, QMetaMethod) callconv(.c) bool) void {
-        qtc.QPlaceMatchReply_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

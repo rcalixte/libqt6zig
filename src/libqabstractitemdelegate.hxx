@@ -9,15 +9,11 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QAbstractItemDelegate so that we can call protected methods
+// This class is a subclass of QAbstractItemDelegate
 class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQAbstractItemDelegate = true;
-
-    // Virtual class public types (including callbacks)
-    using QAbstractItemDelegate_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QAbstractItemDelegate_MetaObject_Callback = QMetaObject* (*)(const QAbstractItemDelegate*);
     using QAbstractItemDelegate_Metacast_Callback = void* (*)(QAbstractItemDelegate*, const char*);
     using QAbstractItemDelegate_Metacall_Callback = int (*)(QAbstractItemDelegate*, int, int, void**);
     using QAbstractItemDelegate_Paint_Callback = void (*)(const QAbstractItemDelegate*, QPainter*, QStyleOptionViewItem*, QModelIndex*);
@@ -29,7 +25,7 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
     using QAbstractItemDelegate_UpdateEditorGeometry_Callback = void (*)(const QAbstractItemDelegate*, QWidget*, QStyleOptionViewItem*, QModelIndex*);
     using QAbstractItemDelegate_EditorEvent_Callback = bool (*)(QAbstractItemDelegate*, QEvent*, QAbstractItemModel*, QStyleOptionViewItem*, QModelIndex*);
     using QAbstractItemDelegate_HelpEvent_Callback = bool (*)(QAbstractItemDelegate*, QHelpEvent*, QAbstractItemView*, QStyleOptionViewItem*, QModelIndex*);
-    using QAbstractItemDelegate_PaintingRoles_Callback = libqt_list /* of int */ (*)();
+    using QAbstractItemDelegate_PaintingRoles_Callback = libqt_list /* of int */ (*)(const QAbstractItemDelegate*);
     using QAbstractItemDelegate_Event_Callback = bool (*)(QAbstractItemDelegate*, QEvent*);
     using QAbstractItemDelegate_EventFilter_Callback = bool (*)(QAbstractItemDelegate*, QObject*, QEvent*);
     using QAbstractItemDelegate_TimerEvent_Callback = void (*)(QAbstractItemDelegate*, QTimerEvent*);
@@ -37,12 +33,11 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
     using QAbstractItemDelegate_CustomEvent_Callback = void (*)(QAbstractItemDelegate*, QEvent*);
     using QAbstractItemDelegate_ConnectNotify_Callback = void (*)(QAbstractItemDelegate*, QMetaMethod*);
     using QAbstractItemDelegate_DisconnectNotify_Callback = void (*)(QAbstractItemDelegate*, QMetaMethod*);
-    using QAbstractItemDelegate_Sender_Callback = QObject* (*)();
-    using QAbstractItemDelegate_SenderSignalIndex_Callback = int (*)();
-    using QAbstractItemDelegate_Receivers_Callback = int (*)(const QAbstractItemDelegate*, const char*);
-    using QAbstractItemDelegate_IsSignalConnected_Callback = bool (*)(const QAbstractItemDelegate*, QMetaMethod*);
+    using QAbstractItemDelegate::isSignalConnected;
+    using QAbstractItemDelegate::receivers;
+    using QAbstractItemDelegate::sender;
+    using QAbstractItemDelegate::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QAbstractItemDelegate_MetaObject_Callback qabstractitemdelegate_metaobject_callback = nullptr;
     QAbstractItemDelegate_Metacast_Callback qabstractitemdelegate_metacast_callback = nullptr;
@@ -64,102 +59,23 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
     QAbstractItemDelegate_CustomEvent_Callback qabstractitemdelegate_customevent_callback = nullptr;
     QAbstractItemDelegate_ConnectNotify_Callback qabstractitemdelegate_connectnotify_callback = nullptr;
     QAbstractItemDelegate_DisconnectNotify_Callback qabstractitemdelegate_disconnectnotify_callback = nullptr;
-    QAbstractItemDelegate_Sender_Callback qabstractitemdelegate_sender_callback = nullptr;
-    QAbstractItemDelegate_SenderSignalIndex_Callback qabstractitemdelegate_sendersignalindex_callback = nullptr;
-    QAbstractItemDelegate_Receivers_Callback qabstractitemdelegate_receivers_callback = nullptr;
-    QAbstractItemDelegate_IsSignalConnected_Callback qabstractitemdelegate_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qabstractitemdelegate_metaobject_isbase = false;
-    mutable bool qabstractitemdelegate_metacast_isbase = false;
-    mutable bool qabstractitemdelegate_metacall_isbase = false;
-    mutable bool qabstractitemdelegate_paint_isbase = false;
-    mutable bool qabstractitemdelegate_sizehint_isbase = false;
-    mutable bool qabstractitemdelegate_createeditor_isbase = false;
-    mutable bool qabstractitemdelegate_destroyeditor_isbase = false;
-    mutable bool qabstractitemdelegate_seteditordata_isbase = false;
-    mutable bool qabstractitemdelegate_setmodeldata_isbase = false;
-    mutable bool qabstractitemdelegate_updateeditorgeometry_isbase = false;
-    mutable bool qabstractitemdelegate_editorevent_isbase = false;
-    mutable bool qabstractitemdelegate_helpevent_isbase = false;
-    mutable bool qabstractitemdelegate_paintingroles_isbase = false;
-    mutable bool qabstractitemdelegate_event_isbase = false;
-    mutable bool qabstractitemdelegate_eventfilter_isbase = false;
-    mutable bool qabstractitemdelegate_timerevent_isbase = false;
-    mutable bool qabstractitemdelegate_childevent_isbase = false;
-    mutable bool qabstractitemdelegate_customevent_isbase = false;
-    mutable bool qabstractitemdelegate_connectnotify_isbase = false;
-    mutable bool qabstractitemdelegate_disconnectnotify_isbase = false;
-    mutable bool qabstractitemdelegate_sender_isbase = false;
-    mutable bool qabstractitemdelegate_sendersignalindex_isbase = false;
-    mutable bool qabstractitemdelegate_receivers_isbase = false;
-    mutable bool qabstractitemdelegate_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QAbstractItemDelegate {
+        using QAbstractItemDelegate::childEvent;
+        using QAbstractItemDelegate::connectNotify;
+        using QAbstractItemDelegate::customEvent;
+        using QAbstractItemDelegate::disconnectNotify;
+        using QAbstractItemDelegate::timerEvent;
+    };
 
-  public:
     VirtualQAbstractItemDelegate() : QAbstractItemDelegate() {};
     VirtualQAbstractItemDelegate(QObject* parent) : QAbstractItemDelegate(parent) {};
 
-    // Callback setters
-    inline void setQAbstractItemDelegate_MetaObject_Callback(QAbstractItemDelegate_MetaObject_Callback cb) { qabstractitemdelegate_metaobject_callback = cb; }
-    inline void setQAbstractItemDelegate_Metacast_Callback(QAbstractItemDelegate_Metacast_Callback cb) { qabstractitemdelegate_metacast_callback = cb; }
-    inline void setQAbstractItemDelegate_Metacall_Callback(QAbstractItemDelegate_Metacall_Callback cb) { qabstractitemdelegate_metacall_callback = cb; }
-    inline void setQAbstractItemDelegate_Paint_Callback(QAbstractItemDelegate_Paint_Callback cb) { qabstractitemdelegate_paint_callback = cb; }
-    inline void setQAbstractItemDelegate_SizeHint_Callback(QAbstractItemDelegate_SizeHint_Callback cb) { qabstractitemdelegate_sizehint_callback = cb; }
-    inline void setQAbstractItemDelegate_CreateEditor_Callback(QAbstractItemDelegate_CreateEditor_Callback cb) { qabstractitemdelegate_createeditor_callback = cb; }
-    inline void setQAbstractItemDelegate_DestroyEditor_Callback(QAbstractItemDelegate_DestroyEditor_Callback cb) { qabstractitemdelegate_destroyeditor_callback = cb; }
-    inline void setQAbstractItemDelegate_SetEditorData_Callback(QAbstractItemDelegate_SetEditorData_Callback cb) { qabstractitemdelegate_seteditordata_callback = cb; }
-    inline void setQAbstractItemDelegate_SetModelData_Callback(QAbstractItemDelegate_SetModelData_Callback cb) { qabstractitemdelegate_setmodeldata_callback = cb; }
-    inline void setQAbstractItemDelegate_UpdateEditorGeometry_Callback(QAbstractItemDelegate_UpdateEditorGeometry_Callback cb) { qabstractitemdelegate_updateeditorgeometry_callback = cb; }
-    inline void setQAbstractItemDelegate_EditorEvent_Callback(QAbstractItemDelegate_EditorEvent_Callback cb) { qabstractitemdelegate_editorevent_callback = cb; }
-    inline void setQAbstractItemDelegate_HelpEvent_Callback(QAbstractItemDelegate_HelpEvent_Callback cb) { qabstractitemdelegate_helpevent_callback = cb; }
-    inline void setQAbstractItemDelegate_PaintingRoles_Callback(QAbstractItemDelegate_PaintingRoles_Callback cb) { qabstractitemdelegate_paintingroles_callback = cb; }
-    inline void setQAbstractItemDelegate_Event_Callback(QAbstractItemDelegate_Event_Callback cb) { qabstractitemdelegate_event_callback = cb; }
-    inline void setQAbstractItemDelegate_EventFilter_Callback(QAbstractItemDelegate_EventFilter_Callback cb) { qabstractitemdelegate_eventfilter_callback = cb; }
-    inline void setQAbstractItemDelegate_TimerEvent_Callback(QAbstractItemDelegate_TimerEvent_Callback cb) { qabstractitemdelegate_timerevent_callback = cb; }
-    inline void setQAbstractItemDelegate_ChildEvent_Callback(QAbstractItemDelegate_ChildEvent_Callback cb) { qabstractitemdelegate_childevent_callback = cb; }
-    inline void setQAbstractItemDelegate_CustomEvent_Callback(QAbstractItemDelegate_CustomEvent_Callback cb) { qabstractitemdelegate_customevent_callback = cb; }
-    inline void setQAbstractItemDelegate_ConnectNotify_Callback(QAbstractItemDelegate_ConnectNotify_Callback cb) { qabstractitemdelegate_connectnotify_callback = cb; }
-    inline void setQAbstractItemDelegate_DisconnectNotify_Callback(QAbstractItemDelegate_DisconnectNotify_Callback cb) { qabstractitemdelegate_disconnectnotify_callback = cb; }
-    inline void setQAbstractItemDelegate_Sender_Callback(QAbstractItemDelegate_Sender_Callback cb) { qabstractitemdelegate_sender_callback = cb; }
-    inline void setQAbstractItemDelegate_SenderSignalIndex_Callback(QAbstractItemDelegate_SenderSignalIndex_Callback cb) { qabstractitemdelegate_sendersignalindex_callback = cb; }
-    inline void setQAbstractItemDelegate_Receivers_Callback(QAbstractItemDelegate_Receivers_Callback cb) { qabstractitemdelegate_receivers_callback = cb; }
-    inline void setQAbstractItemDelegate_IsSignalConnected_Callback(QAbstractItemDelegate_IsSignalConnected_Callback cb) { qabstractitemdelegate_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQAbstractItemDelegate_MetaObject_IsBase(bool value) const { qabstractitemdelegate_metaobject_isbase = value; }
-    inline void setQAbstractItemDelegate_Metacast_IsBase(bool value) const { qabstractitemdelegate_metacast_isbase = value; }
-    inline void setQAbstractItemDelegate_Metacall_IsBase(bool value) const { qabstractitemdelegate_metacall_isbase = value; }
-    inline void setQAbstractItemDelegate_Paint_IsBase(bool value) const { qabstractitemdelegate_paint_isbase = value; }
-    inline void setQAbstractItemDelegate_SizeHint_IsBase(bool value) const { qabstractitemdelegate_sizehint_isbase = value; }
-    inline void setQAbstractItemDelegate_CreateEditor_IsBase(bool value) const { qabstractitemdelegate_createeditor_isbase = value; }
-    inline void setQAbstractItemDelegate_DestroyEditor_IsBase(bool value) const { qabstractitemdelegate_destroyeditor_isbase = value; }
-    inline void setQAbstractItemDelegate_SetEditorData_IsBase(bool value) const { qabstractitemdelegate_seteditordata_isbase = value; }
-    inline void setQAbstractItemDelegate_SetModelData_IsBase(bool value) const { qabstractitemdelegate_setmodeldata_isbase = value; }
-    inline void setQAbstractItemDelegate_UpdateEditorGeometry_IsBase(bool value) const { qabstractitemdelegate_updateeditorgeometry_isbase = value; }
-    inline void setQAbstractItemDelegate_EditorEvent_IsBase(bool value) const { qabstractitemdelegate_editorevent_isbase = value; }
-    inline void setQAbstractItemDelegate_HelpEvent_IsBase(bool value) const { qabstractitemdelegate_helpevent_isbase = value; }
-    inline void setQAbstractItemDelegate_PaintingRoles_IsBase(bool value) const { qabstractitemdelegate_paintingroles_isbase = value; }
-    inline void setQAbstractItemDelegate_Event_IsBase(bool value) const { qabstractitemdelegate_event_isbase = value; }
-    inline void setQAbstractItemDelegate_EventFilter_IsBase(bool value) const { qabstractitemdelegate_eventfilter_isbase = value; }
-    inline void setQAbstractItemDelegate_TimerEvent_IsBase(bool value) const { qabstractitemdelegate_timerevent_isbase = value; }
-    inline void setQAbstractItemDelegate_ChildEvent_IsBase(bool value) const { qabstractitemdelegate_childevent_isbase = value; }
-    inline void setQAbstractItemDelegate_CustomEvent_IsBase(bool value) const { qabstractitemdelegate_customevent_isbase = value; }
-    inline void setQAbstractItemDelegate_ConnectNotify_IsBase(bool value) const { qabstractitemdelegate_connectnotify_isbase = value; }
-    inline void setQAbstractItemDelegate_DisconnectNotify_IsBase(bool value) const { qabstractitemdelegate_disconnectnotify_isbase = value; }
-    inline void setQAbstractItemDelegate_Sender_IsBase(bool value) const { qabstractitemdelegate_sender_isbase = value; }
-    inline void setQAbstractItemDelegate_SenderSignalIndex_IsBase(bool value) const { qabstractitemdelegate_sendersignalindex_isbase = value; }
-    inline void setQAbstractItemDelegate_Receivers_IsBase(bool value) const { qabstractitemdelegate_receivers_isbase = value; }
-    inline void setQAbstractItemDelegate_IsSignalConnected_IsBase(bool value) const { qabstractitemdelegate_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qabstractitemdelegate_metaobject_isbase) {
-            qabstractitemdelegate_metaobject_isbase = false;
-            return QAbstractItemDelegate::metaObject();
-        }
-        auto metaobject_cb = qabstractitemdelegate_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qabstractitemdelegate_metaobject_callback) {
+            QMetaObject* callback_ret = qabstractitemdelegate_metaobject_callback(this);
             return callback_ret;
         }
         return QAbstractItemDelegate::metaObject();
@@ -167,14 +83,9 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qabstractitemdelegate_metacast_isbase) {
-            qabstractitemdelegate_metacast_isbase = false;
-            return QAbstractItemDelegate::qt_metacast(param1);
-        }
-        auto metacast_cb = qabstractitemdelegate_metacast_callback;
-        if (metacast_cb) {
+        if (qabstractitemdelegate_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qabstractitemdelegate_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QAbstractItemDelegate::qt_metacast(param1);
@@ -182,16 +93,11 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qabstractitemdelegate_metacall_isbase) {
-            qabstractitemdelegate_metacall_isbase = false;
-            return QAbstractItemDelegate::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qabstractitemdelegate_metacall_callback;
-        if (metacall_cb) {
+        if (qabstractitemdelegate_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qabstractitemdelegate_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QAbstractItemDelegate::qt_metacall(param1, param2, param3);
@@ -199,8 +105,7 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const override {
-        auto paint_cb = qabstractitemdelegate_paint_callback;
-        if (paint_cb) {
+        if (qabstractitemdelegate_paint_callback) {
             QPainter* cbval1 = painter;
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
@@ -208,36 +113,34 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-            paint_cb(this, cbval1, cbval2, cbval3);
+            qabstractitemdelegate_paint_callback(this, cbval1, cbval2, cbval3);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QAbstractItemDelegate::paint called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const override {
-        auto sizehint_cb = qabstractitemdelegate_sizehint_callback;
-        if (sizehint_cb) {
+        if (qabstractitemdelegate_sizehint_callback) {
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
             QStyleOptionViewItem* cbval1 = const_cast<QStyleOptionViewItem*>(&option_ret);
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
-            QSize* callback_ret = sizehint_cb(this, cbval1, cbval2);
+            QSize* callback_ret = qabstractitemdelegate_sizehint_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QAbstractItemDelegate::sizeHint called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QWidget* createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const override {
-        if (qabstractitemdelegate_createeditor_isbase) {
-            qabstractitemdelegate_createeditor_isbase = false;
-            return QAbstractItemDelegate::createEditor(parent, option, index);
-        }
-        auto createeditor_cb = qabstractitemdelegate_createeditor_callback;
-        if (createeditor_cb) {
+        if (qabstractitemdelegate_createeditor_callback) {
             QWidget* cbval1 = parent;
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
@@ -245,7 +148,7 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-            QWidget* callback_ret = createeditor_cb(this, cbval1, cbval2, cbval3);
+            QWidget* callback_ret = qabstractitemdelegate_createeditor_callback(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
         return QAbstractItemDelegate::createEditor(parent, option, index);
@@ -253,18 +156,12 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual void destroyEditor(QWidget* editor, const QModelIndex& index) const override {
-        if (qabstractitemdelegate_destroyeditor_isbase) {
-            qabstractitemdelegate_destroyeditor_isbase = false;
-            QAbstractItemDelegate::destroyEditor(editor, index);
-            return;
-        }
-        auto destroyeditor_cb = qabstractitemdelegate_destroyeditor_callback;
-        if (destroyeditor_cb) {
+        if (qabstractitemdelegate_destroyeditor_callback) {
             QWidget* cbval1 = editor;
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
-            destroyeditor_cb(this, cbval1, cbval2);
+            qabstractitemdelegate_destroyeditor_callback(this, cbval1, cbval2);
             return;
         }
         QAbstractItemDelegate::destroyEditor(editor, index);
@@ -272,18 +169,12 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual void setEditorData(QWidget* editor, const QModelIndex& index) const override {
-        if (qabstractitemdelegate_seteditordata_isbase) {
-            qabstractitemdelegate_seteditordata_isbase = false;
-            QAbstractItemDelegate::setEditorData(editor, index);
-            return;
-        }
-        auto seteditordata_cb = qabstractitemdelegate_seteditordata_callback;
-        if (seteditordata_cb) {
+        if (qabstractitemdelegate_seteditordata_callback) {
             QWidget* cbval1 = editor;
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
-            seteditordata_cb(this, cbval1, cbval2);
+            qabstractitemdelegate_seteditordata_callback(this, cbval1, cbval2);
             return;
         }
         QAbstractItemDelegate::setEditorData(editor, index);
@@ -291,19 +182,13 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual void setModelData(QWidget* editor, QAbstractItemModel* model, const QModelIndex& index) const override {
-        if (qabstractitemdelegate_setmodeldata_isbase) {
-            qabstractitemdelegate_setmodeldata_isbase = false;
-            QAbstractItemDelegate::setModelData(editor, model, index);
-            return;
-        }
-        auto setmodeldata_cb = qabstractitemdelegate_setmodeldata_callback;
-        if (setmodeldata_cb) {
+        if (qabstractitemdelegate_setmodeldata_callback) {
             QWidget* cbval1 = editor;
             QAbstractItemModel* cbval2 = model;
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-            setmodeldata_cb(this, cbval1, cbval2, cbval3);
+            qabstractitemdelegate_setmodeldata_callback(this, cbval1, cbval2, cbval3);
             return;
         }
         QAbstractItemDelegate::setModelData(editor, model, index);
@@ -311,13 +196,7 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual void updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, const QModelIndex& index) const override {
-        if (qabstractitemdelegate_updateeditorgeometry_isbase) {
-            qabstractitemdelegate_updateeditorgeometry_isbase = false;
-            QAbstractItemDelegate::updateEditorGeometry(editor, option, index);
-            return;
-        }
-        auto updateeditorgeometry_cb = qabstractitemdelegate_updateeditorgeometry_callback;
-        if (updateeditorgeometry_cb) {
+        if (qabstractitemdelegate_updateeditorgeometry_callback) {
             QWidget* cbval1 = editor;
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
@@ -325,7 +204,7 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-            updateeditorgeometry_cb(this, cbval1, cbval2, cbval3);
+            qabstractitemdelegate_updateeditorgeometry_callback(this, cbval1, cbval2, cbval3);
             return;
         }
         QAbstractItemDelegate::updateEditorGeometry(editor, option, index);
@@ -333,12 +212,7 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual bool editorEvent(QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem& option, const QModelIndex& index) override {
-        if (qabstractitemdelegate_editorevent_isbase) {
-            qabstractitemdelegate_editorevent_isbase = false;
-            return QAbstractItemDelegate::editorEvent(event, model, option, index);
-        }
-        auto editorevent_cb = qabstractitemdelegate_editorevent_callback;
-        if (editorevent_cb) {
+        if (qabstractitemdelegate_editorevent_callback) {
             QEvent* cbval1 = event;
             QAbstractItemModel* cbval2 = model;
             const QStyleOptionViewItem& option_ret = option;
@@ -347,7 +221,7 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&index_ret);
-            bool callback_ret = editorevent_cb(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = qabstractitemdelegate_editorevent_callback(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
         return QAbstractItemDelegate::editorEvent(event, model, option, index);
@@ -355,12 +229,7 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual bool helpEvent(QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem& option, const QModelIndex& index) override {
-        if (qabstractitemdelegate_helpevent_isbase) {
-            qabstractitemdelegate_helpevent_isbase = false;
-            return QAbstractItemDelegate::helpEvent(event, view, option, index);
-        }
-        auto helpevent_cb = qabstractitemdelegate_helpevent_callback;
-        if (helpevent_cb) {
+        if (qabstractitemdelegate_helpevent_callback) {
             QHelpEvent* cbval1 = event;
             QAbstractItemView* cbval2 = view;
             const QStyleOptionViewItem& option_ret = option;
@@ -369,7 +238,7 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&index_ret);
-            bool callback_ret = helpevent_cb(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = qabstractitemdelegate_helpevent_callback(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
         return QAbstractItemDelegate::helpEvent(event, view, option, index);
@@ -377,13 +246,8 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual QList<int> paintingRoles() const override {
-        if (qabstractitemdelegate_paintingroles_isbase) {
-            qabstractitemdelegate_paintingroles_isbase = false;
-            return QAbstractItemDelegate::paintingRoles();
-        }
-        auto paintingroles_cb = qabstractitemdelegate_paintingroles_callback;
-        if (paintingroles_cb) {
-            libqt_list /* of int */ callback_ret = paintingroles_cb();
+        if (qabstractitemdelegate_paintingroles_callback) {
+            libqt_list /* of int */ callback_ret = qabstractitemdelegate_paintingroles_callback(this);
             QList<int> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             int* callback_ret_arr = static_cast<int*>(callback_ret.data);
@@ -398,14 +262,9 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qabstractitemdelegate_event_isbase) {
-            qabstractitemdelegate_event_isbase = false;
-            return QAbstractItemDelegate::event(event);
-        }
-        auto event_cb = qabstractitemdelegate_event_callback;
-        if (event_cb) {
+        if (qabstractitemdelegate_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qabstractitemdelegate_event_callback(this, cbval1);
             return callback_ret;
         }
         return QAbstractItemDelegate::event(event);
@@ -413,15 +272,10 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qabstractitemdelegate_eventfilter_isbase) {
-            qabstractitemdelegate_eventfilter_isbase = false;
-            return QAbstractItemDelegate::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qabstractitemdelegate_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qabstractitemdelegate_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qabstractitemdelegate_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QAbstractItemDelegate::eventFilter(watched, event);
@@ -429,15 +283,9 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qabstractitemdelegate_timerevent_isbase) {
-            qabstractitemdelegate_timerevent_isbase = false;
-            QAbstractItemDelegate::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qabstractitemdelegate_timerevent_callback;
-        if (timerevent_cb) {
+        if (qabstractitemdelegate_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qabstractitemdelegate_timerevent_callback(this, cbval1);
             return;
         }
         QAbstractItemDelegate::timerEvent(event);
@@ -445,15 +293,9 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qabstractitemdelegate_childevent_isbase) {
-            qabstractitemdelegate_childevent_isbase = false;
-            QAbstractItemDelegate::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qabstractitemdelegate_childevent_callback;
-        if (childevent_cb) {
+        if (qabstractitemdelegate_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qabstractitemdelegate_childevent_callback(this, cbval1);
             return;
         }
         QAbstractItemDelegate::childEvent(event);
@@ -461,15 +303,9 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qabstractitemdelegate_customevent_isbase) {
-            qabstractitemdelegate_customevent_isbase = false;
-            QAbstractItemDelegate::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qabstractitemdelegate_customevent_callback;
-        if (customevent_cb) {
+        if (qabstractitemdelegate_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qabstractitemdelegate_customevent_callback(this, cbval1);
             return;
         }
         QAbstractItemDelegate::customEvent(event);
@@ -477,17 +313,11 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qabstractitemdelegate_connectnotify_isbase) {
-            qabstractitemdelegate_connectnotify_isbase = false;
-            QAbstractItemDelegate::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qabstractitemdelegate_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qabstractitemdelegate_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qabstractitemdelegate_connectnotify_callback(this, cbval1);
             return;
         }
         QAbstractItemDelegate::connectNotify(signal);
@@ -495,101 +325,22 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qabstractitemdelegate_disconnectnotify_isbase) {
-            qabstractitemdelegate_disconnectnotify_isbase = false;
-            QAbstractItemDelegate::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qabstractitemdelegate_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qabstractitemdelegate_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qabstractitemdelegate_disconnectnotify_callback(this, cbval1);
             return;
         }
         QAbstractItemDelegate::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qabstractitemdelegate_sender_isbase) {
-            qabstractitemdelegate_sender_isbase = false;
-            return QAbstractItemDelegate::sender();
-        }
-        auto sender_cb = qabstractitemdelegate_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QAbstractItemDelegate::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qabstractitemdelegate_sendersignalindex_isbase) {
-            qabstractitemdelegate_sendersignalindex_isbase = false;
-            return QAbstractItemDelegate::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qabstractitemdelegate_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QAbstractItemDelegate::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qabstractitemdelegate_receivers_isbase) {
-            qabstractitemdelegate_receivers_isbase = false;
-            return QAbstractItemDelegate::receivers(signal);
-        }
-        auto receivers_cb = qabstractitemdelegate_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QAbstractItemDelegate::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qabstractitemdelegate_issignalconnected_isbase) {
-            qabstractitemdelegate_issignalconnected_isbase = false;
-            return QAbstractItemDelegate::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qabstractitemdelegate_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QAbstractItemDelegate::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QAbstractItemDelegate_TimerEvent(QAbstractItemDelegate* self, QTimerEvent* event);
     friend void QAbstractItemDelegate_SuperTimerEvent(QAbstractItemDelegate* self, QTimerEvent* event);
-    friend void QAbstractItemDelegate_ChildEvent(QAbstractItemDelegate* self, QChildEvent* event);
     friend void QAbstractItemDelegate_SuperChildEvent(QAbstractItemDelegate* self, QChildEvent* event);
-    friend void QAbstractItemDelegate_CustomEvent(QAbstractItemDelegate* self, QEvent* event);
     friend void QAbstractItemDelegate_SuperCustomEvent(QAbstractItemDelegate* self, QEvent* event);
-    friend void QAbstractItemDelegate_ConnectNotify(QAbstractItemDelegate* self, const QMetaMethod* signal);
     friend void QAbstractItemDelegate_SuperConnectNotify(QAbstractItemDelegate* self, const QMetaMethod* signal);
-    friend void QAbstractItemDelegate_DisconnectNotify(QAbstractItemDelegate* self, const QMetaMethod* signal);
     friend void QAbstractItemDelegate_SuperDisconnectNotify(QAbstractItemDelegate* self, const QMetaMethod* signal);
-    friend QObject* QAbstractItemDelegate_Sender(const QAbstractItemDelegate* self);
-    friend QObject* QAbstractItemDelegate_SuperSender(const QAbstractItemDelegate* self);
-    friend int QAbstractItemDelegate_SenderSignalIndex(const QAbstractItemDelegate* self);
-    friend int QAbstractItemDelegate_SuperSenderSignalIndex(const QAbstractItemDelegate* self);
-    friend int QAbstractItemDelegate_Receivers(const QAbstractItemDelegate* self, const char* signal);
-    friend int QAbstractItemDelegate_SuperReceivers(const QAbstractItemDelegate* self, const char* signal);
-    friend bool QAbstractItemDelegate_IsSignalConnected(const QAbstractItemDelegate* self, const QMetaMethod* signal);
-    friend bool QAbstractItemDelegate_SuperIsSignalConnected(const QAbstractItemDelegate* self, const QMetaMethod* signal);
 };
 
 #endif

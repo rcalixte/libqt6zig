@@ -204,9 +204,9 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KLineEdit) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KLineEdit, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) QMetaObject) void {
         qtc.KLineEdit_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -616,9 +616,9 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KLineEdit) callconv(.c) void `
     ///
-    pub fn onCopy(self: KLineEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onCopy(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) void) void {
         qtc.KLineEdit_OnCopy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1400,46 +1400,6 @@ pub const KLineEdit = extern struct {
         qtc.KLineEdit_UserCancelled(@ptrCast(self.ptr), cancelText_str);
     }
 
-    /// ### DEPRECATED: Use `onUserCancelled` instead
-    ///
-    pub const OnUserCancelled = onUserCancelled;
-
-    /// ### [Upstream resources](https://api.kde.org/klineedit.html#userCancelled)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit `
-    ///
-    /// ` callback: *const fn (self: KLineEdit, cancelText: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onUserCancelled(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
-        qtc.KLineEdit_OnUserCancelled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUserCancelled` instead
-    ///
-    pub const SuperUserCancelled = superUserCancelled;
-
-    /// ### [Upstream resources](https://api.kde.org/klineedit.html#userCancelled)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    /// ` cancelText: []const u8 `
-    ///
-    pub fn superUserCancelled(self: KLineEdit, cancelText: []const u8) void {
-        const cancelText_str = qtc.libqt_string{
-            .len = cancelText.len,
-            .data = cancelText.ptr,
-        };
-        qtc.KLineEdit_SuperUserCancelled(@ptrCast(self.ptr), cancelText_str);
-    }
-
     /// ### DEPRECATED: Use `event` instead
     ///
     pub const Event = event;
@@ -1832,40 +1792,6 @@ pub const KLineEdit = extern struct {
         return .{ .ptr = qtc.KLineEdit_CreateStandardContextMenu(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onCreateStandardContextMenu` instead
-    ///
-    pub const OnCreateStandardContextMenu = onCreateStandardContextMenu;
-
-    /// ### [Upstream resources](https://api.kde.org/klineedit.html#createStandardContextMenu)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit `
-    ///
-    /// ` callback: *const fn () callconv(.c) QMenu `
-    ///
-    pub fn onCreateStandardContextMenu(self: KLineEdit, callback: *const fn () callconv(.c) QMenu) void {
-        qtc.KLineEdit_OnCreateStandardContextMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreateStandardContextMenu` instead
-    ///
-    pub const SuperCreateStandardContextMenu = superCreateStandardContextMenu;
-
-    /// ### [Upstream resources](https://api.kde.org/klineedit.html#createStandardContextMenu)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    pub fn superCreateStandardContextMenu(self: KLineEdit) QMenu {
-        return .{ .ptr = qtc.KLineEdit_SuperCreateStandardContextMenu(@ptrCast(self.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `setCompletedText2` instead
     ///
     pub const SetCompletedText2 = setCompletedText2;
@@ -1946,42 +1872,6 @@ pub const KLineEdit = extern struct {
         qtc.KLineEdit_SetUserSelection(@ptrCast(self.ptr), userSelection);
     }
 
-    /// ### DEPRECATED: Use `onSetUserSelection` instead
-    ///
-    pub const OnSetUserSelection = onSetUserSelection;
-
-    /// ### [Upstream resources](https://api.kde.org/klineedit.html#setUserSelection)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit `
-    ///
-    /// ` callback: *const fn (self: KLineEdit, userSelection: bool) callconv(.c) void `
-    ///
-    pub fn onSetUserSelection(self: KLineEdit, callback: *const fn (KLineEdit, bool) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetUserSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetUserSelection` instead
-    ///
-    pub const SuperSetUserSelection = superSetUserSelection;
-
-    /// ### [Upstream resources](https://api.kde.org/klineedit.html#setUserSelection)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    /// ` userSelection: bool `
-    ///
-    pub fn superSetUserSelection(self: KLineEdit, userSelection: bool) void {
-        qtc.KLineEdit_SuperSetUserSelection(@ptrCast(self.ptr), userSelection);
-    }
-
     /// ### DEPRECATED: Use `autoSuggest` instead
     ///
     pub const AutoSuggest = autoSuggest;
@@ -1994,40 +1884,6 @@ pub const KLineEdit = extern struct {
     ///
     pub fn autoSuggest(self: KLineEdit) bool {
         return qtc.KLineEdit_AutoSuggest(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAutoSuggest` instead
-    ///
-    pub const OnAutoSuggest = onAutoSuggest;
-
-    /// ### [Upstream resources](https://api.kde.org/klineedit.html#autoSuggest)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onAutoSuggest(self: KLineEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.KLineEdit_OnAutoSuggest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAutoSuggest` instead
-    ///
-    pub const SuperAutoSuggest = superAutoSuggest;
-
-    /// ### [Upstream resources](https://api.kde.org/klineedit.html#autoSuggest)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    pub fn superAutoSuggest(self: KLineEdit) bool {
-        return qtc.KLineEdit_SuperAutoSuggest(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `paintEvent` instead
@@ -10008,11 +9864,11 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KLineEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KLineEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) QSize) void {
         qtc.KLineEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10066,11 +9922,11 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KLineEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KLineEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) QSize) void {
         qtc.KLineEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10930,9 +10786,9 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KLineEdit) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KLineEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) i32) void {
         qtc.KLineEdit_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11106,9 +10962,9 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KLineEdit) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KLineEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) bool) void {
         qtc.KLineEdit_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11162,9 +11018,9 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KLineEdit) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KLineEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) QPaintEngine) void {
         qtc.KLineEdit_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12036,9 +11892,9 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KLineEdit) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KLineEdit, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) QPainter) void {
         qtc.KLineEdit_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12560,46 +12416,6 @@ pub const KLineEdit = extern struct {
         return .{ .ptr = qtc.KLineEdit_CursorRect(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superCursorRect` instead
-    ///
-    pub const SuperCursorRect = superCursorRect;
-
-    /// Inherited from QLineEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#cursorRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    pub fn superCursorRect(self: KLineEdit) QRect {
-        return .{ .ptr = qtc.KLineEdit_SuperCursorRect(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onCursorRect` instead
-    ///
-    pub const OnCursorRect = onCursorRect;
-
-    /// Inherited from QLineEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#cursorRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QRect `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCursorRect(self: KLineEdit, callback: *const fn () callconv(.c) QRect) void {
-        qtc.KLineEdit_OnCursorRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -12616,44 +12432,6 @@ pub const KLineEdit = extern struct {
     ///
     pub fn updateMicroFocus(self: KLineEdit) void {
         qtc.KLineEdit_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    pub fn superUpdateMicroFocus(self: KLineEdit) void {
-        qtc.KLineEdit_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KLineEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.KLineEdit_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -12674,44 +12452,6 @@ pub const KLineEdit = extern struct {
         qtc.KLineEdit_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    pub fn superCreate(self: KLineEdit) void {
-        qtc.KLineEdit_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KLineEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.KLineEdit_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -12728,44 +12468,6 @@ pub const KLineEdit = extern struct {
     ///
     pub fn destroy(self: KLineEdit) void {
         qtc.KLineEdit_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    pub fn superDestroy(self: KLineEdit) void {
-        qtc.KLineEdit_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KLineEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.KLineEdit_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -12786,44 +12488,6 @@ pub const KLineEdit = extern struct {
         return qtc.KLineEdit_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    pub fn superFocusNextChild(self: KLineEdit) bool {
-        return qtc.KLineEdit_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KLineEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.KLineEdit_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -12840,44 +12504,6 @@ pub const KLineEdit = extern struct {
     ///
     pub fn focusPreviousChild(self: KLineEdit) bool {
         return qtc.KLineEdit_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    pub fn superFocusPreviousChild(self: KLineEdit) bool {
-        return qtc.KLineEdit_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KLineEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.KLineEdit_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -12898,44 +12524,6 @@ pub const KLineEdit = extern struct {
         return .{ .ptr = qtc.KLineEdit_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    pub fn superSender(self: KLineEdit) QObject {
-        return .{ .ptr = qtc.KLineEdit_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KLineEdit, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KLineEdit_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -12952,44 +12540,6 @@ pub const KLineEdit = extern struct {
     ///
     pub fn senderSignalIndex(self: KLineEdit) i32 {
         return qtc.KLineEdit_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    pub fn superSenderSignalIndex(self: KLineEdit) i32 {
-        return qtc.KLineEdit_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KLineEdit, callback: *const fn () callconv(.c) i32) void {
-        qtc.KLineEdit_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -13013,47 +12563,6 @@ pub const KLineEdit = extern struct {
         return qtc.KLineEdit_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KLineEdit, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KLineEdit_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn (self: KLineEdit, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KLineEdit_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -13073,47 +12582,6 @@ pub const KLineEdit = extern struct {
     pub fn isSignalConnected(self: KLineEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KLineEdit_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KLineEdit, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KLineEdit_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn (self: KLineEdit, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KLineEdit, callback: *const fn (KLineEdit, QMetaMethod) callconv(.c) bool) void {
-        qtc.KLineEdit_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -13136,48 +12604,6 @@ pub const KLineEdit = extern struct {
     ///
     pub fn getDecodedMetricF(self: KLineEdit, metricA: i32, metricB: i32) f64 {
         return qtc.KLineEdit_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KLineEdit, metricA: i32, metricB: i32) f64 {
-        return qtc.KLineEdit_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn (self: KLineEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KLineEdit, callback: *const fn (KLineEdit, i32, i32) callconv(.c) f64) void {
-        qtc.KLineEdit_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `keyBindingMap` instead
@@ -13227,77 +12653,6 @@ pub const KLineEdit = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superKeyBindingMap` instead
-    ///
-    pub const SuperKeyBindingMap = superKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
-    ///
-    pub fn superKeyBindingMap(self: KLineEdit, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
-        const _map: qtc.libqt_map = qtc.KLineEdit_SuperKeyBindingMap(@ptrCast(self.ptr));
-        var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KLineEdit.keyBindingMap: Total capacity allocation failed");
-        defer {
-            const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
-            for (0.._map.len) |i| {
-                qtc.libqt_free(_values[i].data);
-            }
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KLineEdit.keyBindingMap: Memory allocation failed");
-            const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
-            for (0.._value.len) |j|
-                _value_slice[j] = .{ .ptr = _value_data[j] };
-            _ret.putAssumeCapacity(_key, _value_slice);
-        }
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onKeyBindingMap` instead
-    ///
-    pub const OnKeyBindingMap = onKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of ArrayMap_i32_SliceQKeySequence `
-    ///
-    pub fn onKeyBindingMap(self: KLineEdit, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.KLineEdit_OnKeyBindingMap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setKeyBindingMap` instead
     ///
     pub const SetKeyBindingMap = setKeyBindingMap;
@@ -13341,69 +12696,6 @@ pub const KLineEdit = extern struct {
         qtc.KLineEdit_SetKeyBindingMap(@ptrCast(self.ptr), keyBindingMap_map);
     }
 
-    /// ### DEPRECATED: Use `superSetKeyBindingMap` instead
-    ///
-    pub const SuperSetKeyBindingMap = superSetKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` _keyBindingMap: ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
-    ///
-    pub fn superSetKeyBindingMap(self: KLineEdit, allocator: std.mem.Allocator, _keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
-        const keyBindingMap_count = _keyBindingMap.count();
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KLineEdit.setKeyBindingMap: Memory allocation failed");
-        defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KLineEdit.setKeyBindingMap: Memory allocation failed");
-        defer allocator.free(keyBindingMap_values);
-        var keyBindingMap_i: usize = 0;
-        var keyBindingMap_it = _keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |it_entry| : (keyBindingMap_i += 1) {
-            const keyBindingMap_key = it_entry.key_ptr.*;
-            keyBindingMap_keys[keyBindingMap_i] = @bitCast(keyBindingMap_key);
-            const value = it_entry.value_ptr.*;
-            keyBindingMap_values[keyBindingMap_i] = qtc.libqt_list{
-                .len = value.len,
-                .data = @ptrCast(value.ptr),
-            };
-        }
-        const keyBindingMap_map = qtc.libqt_map{
-            .len = keyBindingMap_count,
-            .keys = @ptrCast(keyBindingMap_keys.ptr),
-            .values = @ptrCast(keyBindingMap_values.ptr),
-        };
-        qtc.KLineEdit_SuperSetKeyBindingMap(@ptrCast(self.ptr), keyBindingMap_map);
-    }
-
-    /// ### DEPRECATED: Use `onSetKeyBindingMap` instead
-    ///
-    pub const OnSetKeyBindingMap = onSetKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn (self: KLineEdit, keyBindingMap: qtc.libqt_map (ArrayMap_i32_SliceQKeySequence)) callconv(.c) void `
-    ///
-    pub fn onSetKeyBindingMap(self: KLineEdit, callback: *const fn (KLineEdit, qtc.libqt_map) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetKeyBindingMap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setDelegate` instead
     ///
     pub const SetDelegate = setDelegate;
@@ -13426,48 +12718,6 @@ pub const KLineEdit = extern struct {
         qtc.KLineEdit_SetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate_.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetDelegate` instead
-    ///
-    pub const SuperSetDelegate = superSetDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    /// ` _delegate: KCompletionBase `
-    ///
-    pub fn superSetDelegate(self: KLineEdit, _delegate: anytype) void {
-        comptime _ = @TypeOf(_delegate)._is_KCompletionBase;
-        const _delegate_ = if (@hasDecl(@TypeOf(_delegate), "asKCompletionBase")) _delegate.asKCompletionBase() else _delegate;
-        qtc.KLineEdit_SuperSetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate_.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDelegate` instead
-    ///
-    pub const OnSetDelegate = onSetDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn (self: KLineEdit, delegate: KCompletionBase) callconv(.c) void `
-    ///
-    pub fn onSetDelegate(self: KLineEdit, callback: *const fn (KLineEdit, KCompletionBase) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetDelegate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `delegate` instead
     ///
     pub const Delegate = delegate;
@@ -13484,44 +12734,6 @@ pub const KLineEdit = extern struct {
     ///
     pub fn delegate(self: KLineEdit) KCompletionBase {
         return .{ .ptr = qtc.KLineEdit_Delegate(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superDelegate` instead
-    ///
-    pub const SuperDelegate = superDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    pub fn superDelegate(self: KLineEdit) KCompletionBase {
-        return .{ .ptr = qtc.KLineEdit_SuperDelegate(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDelegate` instead
-    ///
-    pub const OnDelegate = onDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KLineEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) KCompletionBase `
-    ///
-    pub fn onDelegate(self: KLineEdit, callback: *const fn () callconv(.c) KCompletionBase) void {
-        qtc.KLineEdit_OnDelegate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

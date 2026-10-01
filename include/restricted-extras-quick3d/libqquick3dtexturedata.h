@@ -52,7 +52,7 @@ void QQuick3DTextureData_Connect_TextureDataNodeDirty(QQuick3DTextureData* self,
 void QQuick3DTextureData_MarkAllDirty(QQuick3DTextureData* self);
 libqt_string QQuick3DTextureData_Tr2(const char* s, const char* c);
 libqt_string QQuick3DTextureData_Tr3(const char* s, const char* c, int n);
-void QQuick3DTextureData_OnMetaObject(const QQuick3DTextureData* self, intptr_t slot);
+void QQuick3DTextureData_OnMetaObject(QQuick3DTextureData* self, intptr_t slot);
 QMetaObject* QQuick3DTextureData_SuperMetaObject(const QQuick3DTextureData* self);
 void QQuick3DTextureData_OnMetacast(QQuick3DTextureData* self, intptr_t slot);
 void* QQuick3DTextureData_SuperMetacast(QQuick3DTextureData* self, const char* param1);
@@ -94,20 +94,10 @@ void QQuick3DTextureData_DisconnectNotify(QQuick3DTextureData* self, const QMeta
 void QQuick3DTextureData_OnDisconnectNotify(QQuick3DTextureData* self, intptr_t slot);
 void QQuick3DTextureData_SuperDisconnectNotify(QQuick3DTextureData* self, const QMetaMethod* signal);
 bool QQuick3DTextureData_IsComponentComplete(const QQuick3DTextureData* self);
-void QQuick3DTextureData_OnIsComponentComplete(const QQuick3DTextureData* self, intptr_t slot);
-bool QQuick3DTextureData_SuperIsComponentComplete(const QQuick3DTextureData* self);
 QObject* QQuick3DTextureData_Sender(const QQuick3DTextureData* self);
-void QQuick3DTextureData_OnSender(const QQuick3DTextureData* self, intptr_t slot);
-QObject* QQuick3DTextureData_SuperSender(const QQuick3DTextureData* self);
 int QQuick3DTextureData_SenderSignalIndex(const QQuick3DTextureData* self);
-void QQuick3DTextureData_OnSenderSignalIndex(const QQuick3DTextureData* self, intptr_t slot);
-int QQuick3DTextureData_SuperSenderSignalIndex(const QQuick3DTextureData* self);
 int QQuick3DTextureData_Receivers(const QQuick3DTextureData* self, const char* signal);
-void QQuick3DTextureData_OnReceivers(const QQuick3DTextureData* self, intptr_t slot);
-int QQuick3DTextureData_SuperReceivers(const QQuick3DTextureData* self, const char* signal);
 bool QQuick3DTextureData_IsSignalConnected(const QQuick3DTextureData* self, const QMetaMethod* signal);
-void QQuick3DTextureData_OnIsSignalConnected(const QQuick3DTextureData* self, intptr_t slot);
-bool QQuick3DTextureData_SuperIsSignalConnected(const QQuick3DTextureData* self, const QMetaMethod* signal);
 void QQuick3DTextureData_Delete(QQuick3DTextureData* self);
 
 #ifdef __cplusplus

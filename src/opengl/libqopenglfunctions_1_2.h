@@ -400,14 +400,8 @@ void QOpenGLFunctions_1_2_GlColorTable(QOpenGLFunctions_1_2* self, uint32_t targ
 void QOpenGLFunctions_1_2_OnInitializeOpenGLFunctions(QOpenGLFunctions_1_2* self, intptr_t slot);
 bool QOpenGLFunctions_1_2_SuperInitializeOpenGLFunctions(QOpenGLFunctions_1_2* self);
 bool QOpenGLFunctions_1_2_IsInitialized(const QOpenGLFunctions_1_2* self);
-void QOpenGLFunctions_1_2_OnIsInitialized(const QOpenGLFunctions_1_2* self, intptr_t slot);
-bool QOpenGLFunctions_1_2_SuperIsInitialized(const QOpenGLFunctions_1_2* self);
 void QOpenGLFunctions_1_2_SetOwningContext(QOpenGLFunctions_1_2* self, const QOpenGLContext* context);
-void QOpenGLFunctions_1_2_OnSetOwningContext(QOpenGLFunctions_1_2* self, intptr_t slot);
-void QOpenGLFunctions_1_2_SuperSetOwningContext(QOpenGLFunctions_1_2* self, const QOpenGLContext* context);
 QOpenGLContext* QOpenGLFunctions_1_2_OwningContext(const QOpenGLFunctions_1_2* self);
-void QOpenGLFunctions_1_2_OnOwningContext(const QOpenGLFunctions_1_2* self, intptr_t slot);
-QOpenGLContext* QOpenGLFunctions_1_2_SuperOwningContext(const QOpenGLFunctions_1_2* self);
 void QOpenGLFunctions_1_2_Delete(QOpenGLFunctions_1_2* self);
 
 #ifdef __cplusplus

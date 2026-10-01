@@ -245,65 +245,65 @@ void TextCustomEditor__RichTextEditor_SlotZoomReset(TextCustomEditor__RichTextEd
 
 void TextCustomEditor__RichTextEditor_AddExtraMenuEntry(TextCustomEditor__RichTextEditor* self, QMenu* menu, QPoint* pos) {
     auto* vtextcustomeditor__richtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditor__richtexteditor) {
         vtextcustomeditor__richtexteditor->addExtraMenuEntry(menu, *pos);
     }
 }
 
 void TextCustomEditor__RichTextEditor_ContextMenuEvent(TextCustomEditor__RichTextEditor* self, QContextMenuEvent* event) {
     auto* vtextcustomeditor__richtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditor__richtexteditor) {
         vtextcustomeditor__richtexteditor->contextMenuEvent(event);
     }
 }
 
 void TextCustomEditor__RichTextEditor_FocusInEvent(TextCustomEditor__RichTextEditor* self, QFocusEvent* event) {
     auto* vtextcustomeditor__richtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditor__richtexteditor) {
         vtextcustomeditor__richtexteditor->focusInEvent(event);
     }
 }
 
 bool TextCustomEditor__RichTextEditor_Event(TextCustomEditor__RichTextEditor* self, QEvent* ev) {
     auto* vtextcustomeditor__richtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditor__richtexteditor) {
         return vtextcustomeditor__richtexteditor->event(ev);
     }
-    return {};
+    qFatal("Error: Protected method TextCustomEditor::RichTextEditor::event called without a directly constructed type");
 }
 
 void TextCustomEditor__RichTextEditor_KeyPressEvent(TextCustomEditor__RichTextEditor* self, QKeyEvent* event) {
     auto* vtextcustomeditor__richtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditor__richtexteditor) {
         vtextcustomeditor__richtexteditor->keyPressEvent(event);
     }
 }
 
 void TextCustomEditor__RichTextEditor_WheelEvent(TextCustomEditor__RichTextEditor* self, QWheelEvent* e) {
     auto* vtextcustomeditor__richtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditor__richtexteditor) {
         vtextcustomeditor__richtexteditor->wheelEvent(e);
     }
 }
 
 Sonnet__SpellCheckDecorator* TextCustomEditor__RichTextEditor_CreateSpellCheckDecorator(TextCustomEditor__RichTextEditor* self) {
     auto* vtextcustomeditor__richtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditor__richtexteditor) {
         return vtextcustomeditor__richtexteditor->createSpellCheckDecorator();
     }
-    return {};
+    qFatal("Error: Protected method TextCustomEditor::RichTextEditor::createSpellCheckDecorator called without a directly constructed type");
 }
 
 void TextCustomEditor__RichTextEditor_UpdateHighLighter(TextCustomEditor__RichTextEditor* self) {
     auto* vtextcustomeditor__richtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditor__richtexteditor) {
         vtextcustomeditor__richtexteditor->updateHighLighter();
     }
 }
 
 void TextCustomEditor__RichTextEditor_ClearDecorator(TextCustomEditor__RichTextEditor* self) {
     auto* vtextcustomeditor__richtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditor__richtexteditor) {
         vtextcustomeditor__richtexteditor->clearDecorator();
     }
 }
@@ -502,2174 +502,1485 @@ libqt_string TextCustomEditor__RichTextEditor_Tr3(const char* s, const char* c, 
 
 // Base class handler implementation
 QMetaObject* TextCustomEditor__RichTextEditor_SuperMetaObject(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MetaObject_IsBase(true);
-        return (QMetaObject*)vtextcustomeditorrichtexteditor->metaObject();
-    } else {
-        return (QMetaObject*)self->TextCustomEditor::RichTextEditor::metaObject();
-    }
+    return (QMetaObject*)self->TextCustomEditor::RichTextEditor::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnMetaObject(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MetaObject_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MetaObject_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnMetaObject(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_metaobject_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextCustomEditor__RichTextEditor_SuperMetacast(TextCustomEditor__RichTextEditor* self, const char* param1) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Metacast_IsBase(true);
-        return vtextcustomeditorrichtexteditor->qt_metacast(param1);
-    } else {
-        return self->TextCustomEditor::RichTextEditor::qt_metacast(param1);
-    }
+    return self->TextCustomEditor::RichTextEditor::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnMetacast(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Metacast_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_Metacast_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_metacast_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextCustomEditor__RichTextEditor_SuperMetacall(TextCustomEditor__RichTextEditor* self, int param1, int param2, void** param3) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Metacall_IsBase(true);
-        return vtextcustomeditorrichtexteditor->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextCustomEditor::RichTextEditor::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextCustomEditor::RichTextEditor::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnMetacall(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Metacall_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_Metacall_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_metacall_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperSetReadOnly(TextCustomEditor__RichTextEditor* self, bool readOnly) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SetReadOnly_IsBase(true);
-        vtextcustomeditorrichtexteditor->setReadOnly(readOnly);
-    } else {
-        self->TextCustomEditor::RichTextEditor::setReadOnly(readOnly);
-    }
+    self->TextCustomEditor::RichTextEditor::setReadOnly(readOnly);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnSetReadOnly(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SetReadOnly_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_SetReadOnly_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_setreadonly_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_SetReadOnly_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperCreateHighlighter(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_CreateHighlighter_IsBase(true);
-        vtextcustomeditorrichtexteditor->createHighlighter();
-    } else {
-        self->TextCustomEditor::RichTextEditor::createHighlighter();
-    }
+    self->TextCustomEditor::RichTextEditor::createHighlighter();
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnCreateHighlighter(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_CreateHighlighter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_CreateHighlighter_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_createhighlighter_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_CreateHighlighter_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperForceAutoCorrection(TextCustomEditor__RichTextEditor* self, bool selectedText) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ForceAutoCorrection_IsBase(true);
-        vtextcustomeditorrichtexteditor->forceAutoCorrection(selectedText);
-    } else {
-        self->TextCustomEditor::RichTextEditor::forceAutoCorrection(selectedText);
-    }
+    self->TextCustomEditor::RichTextEditor::forceAutoCorrection(selectedText);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnForceAutoCorrection(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ForceAutoCorrection_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ForceAutoCorrection_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_forceautocorrection_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ForceAutoCorrection_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperAddExtraMenuEntry(TextCustomEditor__RichTextEditor* self, QMenu* menu, QPoint* pos) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_AddExtraMenuEntry_IsBase(true);
-        vtextcustomeditorrichtexteditor->addExtraMenuEntry(menu, *pos);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->addExtraMenuEntry(menu, *pos);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::addExtraMenuEntry(menu, *pos);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::addExtraMenuEntry called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnAddExtraMenuEntry(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_AddExtraMenuEntry_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_AddExtraMenuEntry_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_addextramenuentry_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_AddExtraMenuEntry_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperContextMenuEvent(TextCustomEditor__RichTextEditor* self, QContextMenuEvent* event) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ContextMenuEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->contextMenuEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->contextMenuEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnContextMenuEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ContextMenuEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_contextmenuevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ContextMenuEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperFocusInEvent(TextCustomEditor__RichTextEditor* self, QFocusEvent* event) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_FocusInEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->focusInEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->focusInEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnFocusInEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_FocusInEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_FocusInEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_focusinevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_FocusInEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextEditor_SuperEvent(TextCustomEditor__RichTextEditor* self, QEvent* ev) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Event_IsBase(true);
-        return vtextcustomeditorrichtexteditor->event(ev);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->event(ev);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        return vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::event(ev);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Event_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_Event_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_event_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperKeyPressEvent(TextCustomEditor__RichTextEditor* self, QKeyEvent* event) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_KeyPressEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->keyPressEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->keyPressEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnKeyPressEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_KeyPressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_KeyPressEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_keypressevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperWheelEvent(TextCustomEditor__RichTextEditor* self, QWheelEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_WheelEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->wheelEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->wheelEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::wheelEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnWheelEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_WheelEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_WheelEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_wheelevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_WheelEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 Sonnet__SpellCheckDecorator* TextCustomEditor__RichTextEditor_SuperCreateSpellCheckDecorator(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_CreateSpellCheckDecorator_IsBase(true);
-        return vtextcustomeditorrichtexteditor->createSpellCheckDecorator();
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->createSpellCheckDecorator();
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        return vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::createSpellCheckDecorator();
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::createSpellCheckDecorator called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnCreateSpellCheckDecorator(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_CreateSpellCheckDecorator_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_CreateSpellCheckDecorator_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_createspellcheckdecorator_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_CreateSpellCheckDecorator_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperUpdateHighLighter(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_UpdateHighLighter_IsBase(true);
-        vtextcustomeditorrichtexteditor->updateHighLighter();
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->updateHighLighter();
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::updateHighLighter();
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::updateHighLighter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnUpdateHighLighter(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_UpdateHighLighter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_UpdateHighLighter_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_updatehighlighter_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_UpdateHighLighter_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperClearDecorator(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ClearDecorator_IsBase(true);
-        vtextcustomeditorrichtexteditor->clearDecorator();
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->clearDecorator();
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::clearDecorator();
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::clearDecorator called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnClearDecorator(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ClearDecorator_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ClearDecorator_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_cleardecorator_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ClearDecorator_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* TextCustomEditor__RichTextEditor_LoadResource(TextCustomEditor__RichTextEditor* self, int typeVal, const QUrl* name) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return new QVariant(vtextcustomeditorrichtexteditor->loadResource(static_cast<int>(typeVal), *name));
-    } else {
-        return new QVariant(((VirtualTextCustomEditorRichTextEditor*)self)->loadResource(static_cast<int>(typeVal), *name));
-    }
+    return new QVariant(self->loadResource(static_cast<int>(typeVal), *name));
 }
 
 // Base class handler implementation
 QVariant* TextCustomEditor__RichTextEditor_SuperLoadResource(TextCustomEditor__RichTextEditor* self, int typeVal, const QUrl* name) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_LoadResource_IsBase(true);
-        return new QVariant(vtextcustomeditorrichtexteditor->loadResource(static_cast<int>(typeVal), *name));
-    } else {
-        return new QVariant(((VirtualTextCustomEditorRichTextEditor*)self)->loadResource(static_cast<int>(typeVal), *name));
-    }
+    return new QVariant(self->TextCustomEditor::RichTextEditor::loadResource(static_cast<int>(typeVal), *name));
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnLoadResource(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_LoadResource_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_LoadResource_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_loadresource_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_LoadResource_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* TextCustomEditor__RichTextEditor_InputMethodQuery(const TextCustomEditor__RichTextEditor* self, int property) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return new QVariant(vtextcustomeditorrichtexteditor->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    } else {
-        return new QVariant(((VirtualTextCustomEditorRichTextEditor*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
 }
 
 // Base class handler implementation
 QVariant* TextCustomEditor__RichTextEditor_SuperInputMethodQuery(const TextCustomEditor__RichTextEditor* self, int property) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_InputMethodQuery_IsBase(true);
-        return new QVariant(vtextcustomeditorrichtexteditor->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    } else {
-        return new QVariant(((VirtualTextCustomEditorRichTextEditor*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    }
+    return new QVariant(self->TextCustomEditor::RichTextEditor::inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnInputMethodQuery(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_InputMethodQuery_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_InputMethodQuery_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnInputMethodQuery(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_inputmethodquery_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_TimerEvent(TextCustomEditor__RichTextEditor* self, QTimerEvent* e) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->timerEvent(e);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->timerEvent(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperTimerEvent(TextCustomEditor__RichTextEditor* self, QTimerEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_TimerEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->timerEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->timerEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::timerEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnTimerEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_TimerEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_TimerEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_timerevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_KeyReleaseEvent(TextCustomEditor__RichTextEditor* self, QKeyEvent* e) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->keyReleaseEvent(e);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperKeyReleaseEvent(TextCustomEditor__RichTextEditor* self, QKeyEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_KeyReleaseEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->keyReleaseEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnKeyReleaseEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_KeyReleaseEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_keyreleaseevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_ResizeEvent(TextCustomEditor__RichTextEditor* self, QResizeEvent* e) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->resizeEvent(e);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->resizeEvent(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperResizeEvent(TextCustomEditor__RichTextEditor* self, QResizeEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ResizeEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->resizeEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->resizeEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::resizeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnResizeEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ResizeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ResizeEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_resizeevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_PaintEvent(TextCustomEditor__RichTextEditor* self, QPaintEvent* e) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->paintEvent(e);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->paintEvent(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperPaintEvent(TextCustomEditor__RichTextEditor* self, QPaintEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_PaintEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->paintEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->paintEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnPaintEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_PaintEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_PaintEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_paintevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_MousePressEvent(TextCustomEditor__RichTextEditor* self, QMouseEvent* e) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->mousePressEvent(e);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->mousePressEvent(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperMousePressEvent(TextCustomEditor__RichTextEditor* self, QMouseEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MousePressEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->mousePressEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->mousePressEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnMousePressEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MousePressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MousePressEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_mousepressevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_MouseMoveEvent(TextCustomEditor__RichTextEditor* self, QMouseEvent* e) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->mouseMoveEvent(e);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->mouseMoveEvent(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperMouseMoveEvent(TextCustomEditor__RichTextEditor* self, QMouseEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MouseMoveEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->mouseMoveEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnMouseMoveEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MouseMoveEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_mousemoveevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_MouseReleaseEvent(TextCustomEditor__RichTextEditor* self, QMouseEvent* e) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->mouseReleaseEvent(e);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperMouseReleaseEvent(TextCustomEditor__RichTextEditor* self, QMouseEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MouseReleaseEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->mouseReleaseEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnMouseReleaseEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MouseReleaseEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_mousereleaseevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_MouseDoubleClickEvent(TextCustomEditor__RichTextEditor* self, QMouseEvent* e) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->mouseDoubleClickEvent(e);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->mouseDoubleClickEvent(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperMouseDoubleClickEvent(TextCustomEditor__RichTextEditor* self, QMouseEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MouseDoubleClickEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->mouseDoubleClickEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->mouseDoubleClickEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::mouseDoubleClickEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnMouseDoubleClickEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_mousedoubleclickevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__RichTextEditor_FocusNextPrevChild(TextCustomEditor__RichTextEditor* self, bool next) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         return vtextcustomeditorrichtexteditor->focusNextPrevChild(next);
     } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextEditor_SuperFocusNextPrevChild(TextCustomEditor__RichTextEditor* self, bool next) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_FocusNextPrevChild_IsBase(true);
-        return vtextcustomeditorrichtexteditor->focusNextPrevChild(next);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        return vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnFocusNextPrevChild(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_FocusNextPrevChild_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_focusnextprevchild_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_DragEnterEvent(TextCustomEditor__RichTextEditor* self, QDragEnterEvent* e) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->dragEnterEvent(e);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->dragEnterEvent(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperDragEnterEvent(TextCustomEditor__RichTextEditor* self, QDragEnterEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DragEnterEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->dragEnterEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->dragEnterEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::dragEnterEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnDragEnterEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DragEnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DragEnterEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_dragenterevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_DragLeaveEvent(TextCustomEditor__RichTextEditor* self, QDragLeaveEvent* e) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->dragLeaveEvent(e);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->dragLeaveEvent(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperDragLeaveEvent(TextCustomEditor__RichTextEditor* self, QDragLeaveEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DragLeaveEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->dragLeaveEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->dragLeaveEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::dragLeaveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnDragLeaveEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DragLeaveEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_dragleaveevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_DragMoveEvent(TextCustomEditor__RichTextEditor* self, QDragMoveEvent* e) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->dragMoveEvent(e);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->dragMoveEvent(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperDragMoveEvent(TextCustomEditor__RichTextEditor* self, QDragMoveEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DragMoveEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->dragMoveEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->dragMoveEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::dragMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnDragMoveEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DragMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DragMoveEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_dragmoveevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_DropEvent(TextCustomEditor__RichTextEditor* self, QDropEvent* e) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->dropEvent(e);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->dropEvent(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperDropEvent(TextCustomEditor__RichTextEditor* self, QDropEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DropEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->dropEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->dropEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::dropEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnDropEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DropEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DropEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_dropevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_FocusOutEvent(TextCustomEditor__RichTextEditor* self, QFocusEvent* e) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->focusOutEvent(e);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->focusOutEvent(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperFocusOutEvent(TextCustomEditor__RichTextEditor* self, QFocusEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_FocusOutEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->focusOutEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->focusOutEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::focusOutEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnFocusOutEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_FocusOutEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_FocusOutEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_focusoutevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_ShowEvent(TextCustomEditor__RichTextEditor* self, QShowEvent* param1) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->showEvent(param1);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperShowEvent(TextCustomEditor__RichTextEditor* self, QShowEvent* param1) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ShowEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->showEvent(param1);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->showEvent(param1);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnShowEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ShowEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ShowEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_showevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_ChangeEvent(TextCustomEditor__RichTextEditor* self, QEvent* e) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->changeEvent(e);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->changeEvent(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperChangeEvent(TextCustomEditor__RichTextEditor* self, QEvent* e) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ChangeEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->changeEvent(e);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->changeEvent(e);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnChangeEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ChangeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ChangeEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_changeevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QMimeData* TextCustomEditor__RichTextEditor_CreateMimeDataFromSelection(const TextCustomEditor__RichTextEditor* self) {
     auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         return vtextcustomeditorrichtexteditor->createMimeDataFromSelection();
     } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->createMimeDataFromSelection();
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::createMimeDataFromSelection called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QMimeData* TextCustomEditor__RichTextEditor_SuperCreateMimeDataFromSelection(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_CreateMimeDataFromSelection_IsBase(true);
-        return vtextcustomeditorrichtexteditor->createMimeDataFromSelection();
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->createMimeDataFromSelection();
-    }
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self))) {
+        return vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::createMimeDataFromSelection();
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::createMimeDataFromSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnCreateMimeDataFromSelection(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_CreateMimeDataFromSelection_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_CreateMimeDataFromSelection_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnCreateMimeDataFromSelection(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_createmimedatafromselection_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_CreateMimeDataFromSelection_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__RichTextEditor_CanInsertFromMimeData(const TextCustomEditor__RichTextEditor* self, const QMimeData* source) {
     auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         return vtextcustomeditorrichtexteditor->canInsertFromMimeData(source);
     } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->canInsertFromMimeData(source);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::canInsertFromMimeData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextEditor_SuperCanInsertFromMimeData(const TextCustomEditor__RichTextEditor* self, const QMimeData* source) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_CanInsertFromMimeData_IsBase(true);
-        return vtextcustomeditorrichtexteditor->canInsertFromMimeData(source);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->canInsertFromMimeData(source);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self))) {
+        return vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::canInsertFromMimeData(source);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::canInsertFromMimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnCanInsertFromMimeData(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_CanInsertFromMimeData_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnCanInsertFromMimeData(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_caninsertfrommimedata_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_CanInsertFromMimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_InsertFromMimeData(TextCustomEditor__RichTextEditor* self, const QMimeData* source) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->insertFromMimeData(source);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->insertFromMimeData(source);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::insertFromMimeData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperInsertFromMimeData(TextCustomEditor__RichTextEditor* self, const QMimeData* source) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_InsertFromMimeData_IsBase(true);
-        vtextcustomeditorrichtexteditor->insertFromMimeData(source);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->insertFromMimeData(source);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::insertFromMimeData(source);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::insertFromMimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnInsertFromMimeData(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_InsertFromMimeData_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_InsertFromMimeData_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_insertfrommimedata_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_InsertFromMimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_InputMethodEvent(TextCustomEditor__RichTextEditor* self, QInputMethodEvent* param1) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->inputMethodEvent(param1);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperInputMethodEvent(TextCustomEditor__RichTextEditor* self, QInputMethodEvent* param1) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_InputMethodEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->inputMethodEvent(param1);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnInputMethodEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_InputMethodEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_InputMethodEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_inputmethodevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_ScrollContentsBy(TextCustomEditor__RichTextEditor* self, int dx, int dy) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::scrollContentsBy called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperScrollContentsBy(TextCustomEditor__RichTextEditor* self, int dx, int dy) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ScrollContentsBy_IsBase(true);
-        vtextcustomeditorrichtexteditor->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::scrollContentsBy called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnScrollContentsBy(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ScrollContentsBy_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ScrollContentsBy_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_scrollcontentsby_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ScrollContentsBy_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_DoSetTextCursor(TextCustomEditor__RichTextEditor* self, const QTextCursor* cursor) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->doSetTextCursor(*cursor);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->doSetTextCursor(*cursor);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::doSetTextCursor called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperDoSetTextCursor(TextCustomEditor__RichTextEditor* self, const QTextCursor* cursor) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DoSetTextCursor_IsBase(true);
-        vtextcustomeditorrichtexteditor->doSetTextCursor(*cursor);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->doSetTextCursor(*cursor);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::doSetTextCursor(*cursor);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::doSetTextCursor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnDoSetTextCursor(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DoSetTextCursor_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DoSetTextCursor_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_dosettextcursor_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DoSetTextCursor_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextCustomEditor__RichTextEditor_MinimumSizeHint(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return new QSize(vtextcustomeditorrichtexteditor->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorRichTextEditor*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* TextCustomEditor__RichTextEditor_SuperMinimumSizeHint(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MinimumSizeHint_IsBase(true);
-        return new QSize(vtextcustomeditorrichtexteditor->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorRichTextEditor*)self)->minimumSizeHint());
-    }
+    return new QSize(self->TextCustomEditor::RichTextEditor::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnMinimumSizeHint(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MinimumSizeHint_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnMinimumSizeHint(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_minimumsizehint_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextCustomEditor__RichTextEditor_SizeHint(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return new QSize(vtextcustomeditorrichtexteditor->sizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorRichTextEditor*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* TextCustomEditor__RichTextEditor_SuperSizeHint(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SizeHint_IsBase(true);
-        return new QSize(vtextcustomeditorrichtexteditor->sizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorRichTextEditor*)self)->sizeHint());
-    }
+    return new QSize(self->TextCustomEditor::RichTextEditor::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnSizeHint(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_SizeHint_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnSizeHint(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_sizehint_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_SetupViewport(TextCustomEditor__RichTextEditor* self, QWidget* viewport) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setupViewport(viewport);
-    } else {
-        self->TextCustomEditor::RichTextEditor::setupViewport(viewport);
-    }
+    self->setupViewport(viewport);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperSetupViewport(TextCustomEditor__RichTextEditor* self, QWidget* viewport) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SetupViewport_IsBase(true);
-        vtextcustomeditorrichtexteditor->setupViewport(viewport);
-    } else {
-        self->TextCustomEditor::RichTextEditor::setupViewport(viewport);
-    }
+    self->TextCustomEditor::RichTextEditor::setupViewport(viewport);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnSetupViewport(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SetupViewport_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_SetupViewport_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_setupviewport_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_SetupViewport_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__RichTextEditor_EventFilter(TextCustomEditor__RichTextEditor* self, QObject* param1, QEvent* param2) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         return vtextcustomeditorrichtexteditor->eventFilter(param1, param2);
     } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextEditor_SuperEventFilter(TextCustomEditor__RichTextEditor* self, QObject* param1, QEvent* param2) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_EventFilter_IsBase(true);
-        return vtextcustomeditorrichtexteditor->eventFilter(param1, param2);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        return vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnEventFilter(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_EventFilter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_EventFilter_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_eventfilter_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__RichTextEditor_ViewportEvent(TextCustomEditor__RichTextEditor* self, QEvent* param1) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         return vtextcustomeditorrichtexteditor->viewportEvent(param1);
     } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->viewportEvent(param1);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::viewportEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextEditor_SuperViewportEvent(TextCustomEditor__RichTextEditor* self, QEvent* param1) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ViewportEvent_IsBase(true);
-        return vtextcustomeditorrichtexteditor->viewportEvent(param1);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->viewportEvent(param1);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        return vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::viewportEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::viewportEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnViewportEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ViewportEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ViewportEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_viewportevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ViewportEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextCustomEditor__RichTextEditor_ViewportSizeHint(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return new QSize(vtextcustomeditorrichtexteditor->viewportSizeHint());
-    }
-    return {};
+    return new QSize((self->*&VirtualTextCustomEditorRichTextEditor::Base::viewportSizeHint)());
 }
 
 // Base class handler implementation
 QSize* TextCustomEditor__RichTextEditor_SuperViewportSizeHint(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ViewportSizeHint_IsBase(true);
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
         return new QSize(vtextcustomeditorrichtexteditor->viewportSizeHint());
-    }
-    return {};
+    qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::viewportSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnViewportSizeHint(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ViewportSizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ViewportSizeHint_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnViewportSizeHint(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_viewportsizehint_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ViewportSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_InitStyleOption(const TextCustomEditor__RichTextEditor* self, QStyleOptionFrame* option) {
     auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->initStyleOption(option);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperInitStyleOption(const TextCustomEditor__RichTextEditor* self, QStyleOptionFrame* option) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_InitStyleOption_IsBase(true);
-        vtextcustomeditorrichtexteditor->initStyleOption(option);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->initStyleOption(option);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self))) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnInitStyleOption(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_InitStyleOption_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_InitStyleOption_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnInitStyleOption(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_initstyleoption_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextCustomEditor__RichTextEditor_DevType(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return vtextcustomeditorrichtexteditor->devType();
-    } else {
-        return self->TextCustomEditor::RichTextEditor::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int TextCustomEditor__RichTextEditor_SuperDevType(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DevType_IsBase(true);
-        return vtextcustomeditorrichtexteditor->devType();
-    } else {
-        return self->TextCustomEditor::RichTextEditor::devType();
-    }
+    return self->TextCustomEditor::RichTextEditor::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnDevType(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DevType_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DevType_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnDevType(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_devtype_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_SetVisible(TextCustomEditor__RichTextEditor* self, bool visible) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setVisible(visible);
-    } else {
-        self->TextCustomEditor::RichTextEditor::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperSetVisible(TextCustomEditor__RichTextEditor* self, bool visible) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SetVisible_IsBase(true);
-        vtextcustomeditorrichtexteditor->setVisible(visible);
-    } else {
-        self->TextCustomEditor::RichTextEditor::setVisible(visible);
-    }
+    self->TextCustomEditor::RichTextEditor::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnSetVisible(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SetVisible_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_SetVisible_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_setvisible_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextCustomEditor__RichTextEditor_HeightForWidth(const TextCustomEditor__RichTextEditor* self, int param1) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return vtextcustomeditorrichtexteditor->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextCustomEditor::RichTextEditor::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int TextCustomEditor__RichTextEditor_SuperHeightForWidth(const TextCustomEditor__RichTextEditor* self, int param1) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_HeightForWidth_IsBase(true);
-        return vtextcustomeditorrichtexteditor->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextCustomEditor::RichTextEditor::heightForWidth(static_cast<int>(param1));
-    }
+    return self->TextCustomEditor::RichTextEditor::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnHeightForWidth(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_HeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_HeightForWidth_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnHeightForWidth(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_heightforwidth_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__RichTextEditor_HasHeightForWidth(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return vtextcustomeditorrichtexteditor->hasHeightForWidth();
-    } else {
-        return self->TextCustomEditor::RichTextEditor::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextEditor_SuperHasHeightForWidth(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_HasHeightForWidth_IsBase(true);
-        return vtextcustomeditorrichtexteditor->hasHeightForWidth();
-    } else {
-        return self->TextCustomEditor::RichTextEditor::hasHeightForWidth();
-    }
+    return self->TextCustomEditor::RichTextEditor::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnHasHeightForWidth(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_HasHeightForWidth_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnHasHeightForWidth(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_hasheightforwidth_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* TextCustomEditor__RichTextEditor_PaintEngine(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return vtextcustomeditorrichtexteditor->paintEngine();
-    } else {
-        return self->TextCustomEditor::RichTextEditor::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* TextCustomEditor__RichTextEditor_SuperPaintEngine(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_PaintEngine_IsBase(true);
-        return vtextcustomeditorrichtexteditor->paintEngine();
-    } else {
-        return self->TextCustomEditor::RichTextEditor::paintEngine();
-    }
+    return self->TextCustomEditor::RichTextEditor::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnPaintEngine(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_PaintEngine_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_PaintEngine_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnPaintEngine(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_paintengine_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_EnterEvent(TextCustomEditor__RichTextEditor* self, QEnterEvent* event) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->enterEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperEnterEvent(TextCustomEditor__RichTextEditor* self, QEnterEvent* event) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_EnterEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->enterEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->enterEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnEnterEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_EnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_EnterEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_enterevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_LeaveEvent(TextCustomEditor__RichTextEditor* self, QEvent* event) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->leaveEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperLeaveEvent(TextCustomEditor__RichTextEditor* self, QEvent* event) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_LeaveEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->leaveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->leaveEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnLeaveEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_LeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_LeaveEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_leaveevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_MoveEvent(TextCustomEditor__RichTextEditor* self, QMoveEvent* event) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->moveEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperMoveEvent(TextCustomEditor__RichTextEditor* self, QMoveEvent* event) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MoveEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->moveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->moveEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnMoveEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MoveEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_moveevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_CloseEvent(TextCustomEditor__RichTextEditor* self, QCloseEvent* event) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->closeEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperCloseEvent(TextCustomEditor__RichTextEditor* self, QCloseEvent* event) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_CloseEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->closeEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->closeEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnCloseEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_CloseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_CloseEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_closeevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_TabletEvent(TextCustomEditor__RichTextEditor* self, QTabletEvent* event) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->tabletEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperTabletEvent(TextCustomEditor__RichTextEditor* self, QTabletEvent* event) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_TabletEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->tabletEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->tabletEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnTabletEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_TabletEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_TabletEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_tabletevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_ActionEvent(TextCustomEditor__RichTextEditor* self, QActionEvent* event) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->actionEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperActionEvent(TextCustomEditor__RichTextEditor* self, QActionEvent* event) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ActionEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->actionEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->actionEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnActionEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ActionEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ActionEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_actionevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_HideEvent(TextCustomEditor__RichTextEditor* self, QHideEvent* event) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->hideEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperHideEvent(TextCustomEditor__RichTextEditor* self, QHideEvent* event) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_HideEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->hideEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->hideEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnHideEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_HideEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_HideEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_hideevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__RichTextEditor_NativeEvent(TextCustomEditor__RichTextEditor* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
+    if (vtextcustomeditorrichtexteditor) {
         return vtextcustomeditorrichtexteditor->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextEditor_SuperNativeEvent(TextCustomEditor__RichTextEditor* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_NativeEvent_IsBase(true);
-        return vtextcustomeditorrichtexteditor->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        return vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnNativeEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_NativeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_NativeEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_nativeevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextCustomEditor__RichTextEditor_Metric(const TextCustomEditor__RichTextEditor* self, int param1) {
     auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         return vtextcustomeditorrichtexteditor->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int TextCustomEditor__RichTextEditor_SuperMetric(const TextCustomEditor__RichTextEditor* self, int param1) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Metric_IsBase(true);
-        return vtextcustomeditorrichtexteditor->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self))) {
+        return vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnMetric(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Metric_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_Metric_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnMetric(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_metric_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_InitPainter(const TextCustomEditor__RichTextEditor* self, QPainter* painter) {
     auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->initPainter(painter);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperInitPainter(const TextCustomEditor__RichTextEditor* self, QPainter* painter) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_InitPainter_IsBase(true);
-        vtextcustomeditorrichtexteditor->initPainter(painter);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->initPainter(painter);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self))) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnInitPainter(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_InitPainter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_InitPainter_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnInitPainter(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_initpainter_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* TextCustomEditor__RichTextEditor_Redirected(const TextCustomEditor__RichTextEditor* self, QPoint* offset) {
     auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         return vtextcustomeditorrichtexteditor->redirected(offset);
     } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* TextCustomEditor__RichTextEditor_SuperRedirected(const TextCustomEditor__RichTextEditor* self, QPoint* offset) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Redirected_IsBase(true);
-        return vtextcustomeditorrichtexteditor->redirected(offset);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->redirected(offset);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self))) {
+        return vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnRedirected(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Redirected_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_Redirected_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnRedirected(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_redirected_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* TextCustomEditor__RichTextEditor_SharedPainter(const TextCustomEditor__RichTextEditor* self) {
     auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         return vtextcustomeditorrichtexteditor->sharedPainter();
     } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* TextCustomEditor__RichTextEditor_SuperSharedPainter(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SharedPainter_IsBase(true);
-        return vtextcustomeditorrichtexteditor->sharedPainter();
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->sharedPainter();
-    }
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self))) {
+        return vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnSharedPainter(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SharedPainter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_SharedPainter_Callback>(slot));
+void TextCustomEditor__RichTextEditor_OnSharedPainter(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_sharedpainter_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_ChildEvent(TextCustomEditor__RichTextEditor* self, QChildEvent* event) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->childEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperChildEvent(TextCustomEditor__RichTextEditor* self, QChildEvent* event) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ChildEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->childEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->childEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnChildEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ChildEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ChildEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_childevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_CustomEvent(TextCustomEditor__RichTextEditor* self, QEvent* event) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->customEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperCustomEvent(TextCustomEditor__RichTextEditor* self, QEvent* event) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_CustomEvent_IsBase(true);
-        vtextcustomeditorrichtexteditor->customEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->customEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnCustomEvent(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_CustomEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_CustomEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_customevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_ConnectNotify(TextCustomEditor__RichTextEditor* self, const QMetaMethod* signal) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->connectNotify(*signal);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperConnectNotify(TextCustomEditor__RichTextEditor* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ConnectNotify_IsBase(true);
-        vtextcustomeditorrichtexteditor->connectNotify(*signal);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->connectNotify(*signal);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnConnectNotify(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ConnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ConnectNotify_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_connectnotify_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextEditor_DisconnectNotify(TextCustomEditor__RichTextEditor* self, const QMetaMethod* signal) {
     auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (vtextcustomeditorrichtexteditor) {
         vtextcustomeditorrichtexteditor->disconnectNotify(*signal);
     } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextEditor_SuperDisconnectNotify(TextCustomEditor__RichTextEditor* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DisconnectNotify_IsBase(true);
-        vtextcustomeditorrichtexteditor->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->TextCustomEditor::RichTextEditor::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextEditor::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditor_OnDisconnectNotify(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DisconnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DisconnectNotify_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self))
+        vtextcustomeditorrichtexteditor->textcustomeditor__richtexteditor_disconnectnotify_callback = reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QMenu* TextCustomEditor__RichTextEditor_MousePopupMenu(TextCustomEditor__RichTextEditor* self, QPoint* pos) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return vtextcustomeditorrichtexteditor->mousePopupMenu(*pos);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->mousePopupMenu(*pos);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        return vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::mousePopupMenu(*pos);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::mousePopupMenu called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMenu* TextCustomEditor__RichTextEditor_SuperMousePopupMenu(TextCustomEditor__RichTextEditor* self, QPoint* pos) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MousePopupMenu_IsBase(true);
-        return vtextcustomeditorrichtexteditor->mousePopupMenu(*pos);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->mousePopupMenu(*pos);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnMousePopupMenu(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_MousePopupMenu_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_MousePopupMenu_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__RichTextEditor_SetHighlighter(TextCustomEditor__RichTextEditor* self, Sonnet__Highlighter* _highLighter) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setHighlighter(_highLighter);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->setHighlighter(_highLighter);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::setHighlighter(_highLighter);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::setHighlighter called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__RichTextEditor_SuperSetHighlighter(TextCustomEditor__RichTextEditor* self, Sonnet__Highlighter* _highLighter) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SetHighlighter_IsBase(true);
-        vtextcustomeditorrichtexteditor->setHighlighter(_highLighter);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->setHighlighter(_highLighter);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnSetHighlighter(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SetHighlighter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_SetHighlighter_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__RichTextEditor_ZoomInF(TextCustomEditor__RichTextEditor* self, float range) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->zoomInF(static_cast<float>(range));
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->zoomInF(static_cast<float>(range));
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::zoomInF(static_cast<float>(range));
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::zoomInF called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__RichTextEditor_SuperZoomInF(TextCustomEditor__RichTextEditor* self, float range) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ZoomInF_IsBase(true);
-        vtextcustomeditorrichtexteditor->zoomInF(static_cast<float>(range));
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->zoomInF(static_cast<float>(range));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnZoomInF(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ZoomInF_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ZoomInF_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__RichTextEditor_SetViewportMargins(TextCustomEditor__RichTextEditor* self, int left, int top, int right, int bottom) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Base class handler implementation
-void TextCustomEditor__RichTextEditor_SuperSetViewportMargins(TextCustomEditor__RichTextEditor* self, int left, int top, int right, int bottom) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SetViewportMargins_IsBase(true);
-        vtextcustomeditorrichtexteditor->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnSetViewportMargins(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SetViewportMargins_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_SetViewportMargins_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::setViewportMargins called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMargins* TextCustomEditor__RichTextEditor_ViewportMargins(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self)))
         return new QMargins(vtextcustomeditorrichtexteditor->viewportMargins());
-    }
-    return {};
+    qFatal("Error: Protected method TextCustomEditor::RichTextEditor::viewportMargins called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMargins* TextCustomEditor__RichTextEditor_SuperViewportMargins(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ViewportMargins_IsBase(true);
-        return new QMargins(vtextcustomeditorrichtexteditor->viewportMargins());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnViewportMargins(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_ViewportMargins_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_ViewportMargins_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__RichTextEditor_DrawFrame(TextCustomEditor__RichTextEditor* self, QPainter* param1) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->drawFrame(param1);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->drawFrame(param1);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__RichTextEditor_SuperDrawFrame(TextCustomEditor__RichTextEditor* self, QPainter* param1) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DrawFrame_IsBase(true);
-        vtextcustomeditorrichtexteditor->drawFrame(param1);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnDrawFrame(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_DrawFrame_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__RichTextEditor_UpdateMicroFocus(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->updateMicroFocus();
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->updateMicroFocus();
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__RichTextEditor_SuperUpdateMicroFocus(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_UpdateMicroFocus_IsBase(true);
-        vtextcustomeditorrichtexteditor->updateMicroFocus();
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnUpdateMicroFocus(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__RichTextEditor_Create(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->create();
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->create();
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::create();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__RichTextEditor_SuperCreate(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Create_IsBase(true);
-        vtextcustomeditorrichtexteditor->create();
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnCreate(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Create_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__RichTextEditor_Destroy(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->destroy();
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->destroy();
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::destroy();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__RichTextEditor_SuperDestroy(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Destroy_IsBase(true);
-        vtextcustomeditorrichtexteditor->destroy();
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnDestroy(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Destroy_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextCustomEditor__RichTextEditor_FocusNextChild(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return vtextcustomeditorrichtexteditor->focusNextChild();
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->focusNextChild();
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        return vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::focusNextChild();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextCustomEditor__RichTextEditor_SuperFocusNextChild(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_FocusNextChild_IsBase(true);
-        return vtextcustomeditorrichtexteditor->focusNextChild();
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnFocusNextChild(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_FocusNextChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextCustomEditor__RichTextEditor_FocusPreviousChild(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return vtextcustomeditorrichtexteditor->focusPreviousChild();
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->focusPreviousChild();
-    }
+    if (auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self)) {
+        return vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextCustomEditor__RichTextEditor_SuperFocusPreviousChild(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_FocusPreviousChild_IsBase(true);
-        return vtextcustomeditorrichtexteditor->focusPreviousChild();
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnFocusPreviousChild(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextCustomEditor__RichTextEditor_Sender(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return vtextcustomeditorrichtexteditor->sender();
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->sender();
-    }
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self))) {
+        return vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::sender();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextCustomEditor__RichTextEditor_SuperSender(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Sender_IsBase(true);
-        return vtextcustomeditorrichtexteditor->sender();
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnSender(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Sender_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextCustomEditor__RichTextEditor_SenderSignalIndex(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return vtextcustomeditorrichtexteditor->senderSignalIndex();
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->senderSignalIndex();
-    }
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self))) {
+        return vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextCustomEditor__RichTextEditor_SuperSenderSignalIndex(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SenderSignalIndex_IsBase(true);
-        return vtextcustomeditorrichtexteditor->senderSignalIndex();
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnSenderSignalIndex(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextCustomEditor__RichTextEditor_Receivers(const TextCustomEditor__RichTextEditor* self, const char* signal) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return vtextcustomeditorrichtexteditor->receivers(signal);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->receivers(signal);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self))) {
+        return vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextCustomEditor__RichTextEditor_SuperReceivers(const TextCustomEditor__RichTextEditor* self, const char* signal) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Receivers_IsBase(true);
-        return vtextcustomeditorrichtexteditor->receivers(signal);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnReceivers(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_Receivers_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextCustomEditor__RichTextEditor_IsSignalConnected(const TextCustomEditor__RichTextEditor* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return vtextcustomeditorrichtexteditor->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self))) {
+        return vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextCustomEditor__RichTextEditor_SuperIsSignalConnected(const TextCustomEditor__RichTextEditor* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_IsSignalConnected_IsBase(true);
-        return vtextcustomeditorrichtexteditor->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnIsSignalConnected(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_IsSignalConnected_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double TextCustomEditor__RichTextEditor_GetDecodedMetricF(const TextCustomEditor__RichTextEditor* self, int metricA, int metricB) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return vtextcustomeditorrichtexteditor->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double TextCustomEditor__RichTextEditor_SuperGetDecodedMetricF(const TextCustomEditor__RichTextEditor* self, int metricA, int metricB) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_GetDecodedMetricF_IsBase(true);
-        return vtextcustomeditorrichtexteditor->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextEditor_OnGetDecodedMetricF(const TextCustomEditor__RichTextEditor* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self));
-    if (vtextcustomeditorrichtexteditor && vtextcustomeditorrichtexteditor->isVirtualTextCustomEditorRichTextEditor)
-        vtextcustomeditorrichtexteditor->setTextCustomEditor__RichTextEditor_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditor::TextCustomEditor__RichTextEditor_GetDecodedMetricF_Callback>(slot));
+    if (auto* vtextcustomeditorrichtexteditor = const_cast<VirtualTextCustomEditorRichTextEditor*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self))) {
+        return vtextcustomeditorrichtexteditor->VirtualTextCustomEditorRichTextEditor::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextEditor::getDecodedMetricF called without a directly constructed type");
 }
 
 void TextCustomEditor__RichTextEditor_Delete(TextCustomEditor__RichTextEditor* self) {

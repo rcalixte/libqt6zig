@@ -428,64 +428,64 @@ void KUrlNavigator_Connect_LayoutChanged(KUrlNavigator* self, intptr_t slot) {
 
 void KUrlNavigator_KeyPressEvent(KUrlNavigator* self, QKeyEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->keyPressEvent(event);
     }
 }
 
 void KUrlNavigator_KeyReleaseEvent(KUrlNavigator* self, QKeyEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->keyReleaseEvent(event);
     }
 }
 
 void KUrlNavigator_MouseReleaseEvent(KUrlNavigator* self, QMouseEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->mouseReleaseEvent(event);
     }
 }
 
 void KUrlNavigator_MousePressEvent(KUrlNavigator* self, QMouseEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->mousePressEvent(event);
     }
 }
 
 void KUrlNavigator_ResizeEvent(KUrlNavigator* self, QResizeEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->resizeEvent(event);
     }
 }
 
 void KUrlNavigator_WheelEvent(KUrlNavigator* self, QWheelEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->wheelEvent(event);
     }
 }
 
 void KUrlNavigator_ShowEvent(KUrlNavigator* self, QShowEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->showEvent(event);
     }
 }
 
 bool KUrlNavigator_EventFilter(KUrlNavigator* self, QObject* watched, QEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         return vkurlnavigator->eventFilter(watched, event);
     }
-    return {};
+    qFatal("Error: Protected method KUrlNavigator::eventFilter called without a directly constructed type");
 }
 
 void KUrlNavigator_PaintEvent(KUrlNavigator* self, QPaintEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->paintEvent(event);
     }
 }
@@ -529,1564 +529,1091 @@ libqt_string KUrlNavigator_LocationState1(const KUrlNavigator* self, int history
 
 // Base class handler implementation
 QMetaObject* KUrlNavigator_SuperMetaObject(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_MetaObject_IsBase(true);
-        return (QMetaObject*)vkurlnavigator->metaObject();
-    } else {
-        return (QMetaObject*)self->KUrlNavigator::metaObject();
-    }
+    return (QMetaObject*)self->KUrlNavigator::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnMetaObject(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_MetaObject_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MetaObject_Callback>(slot));
+void KUrlNavigator_OnMetaObject(KUrlNavigator* self, intptr_t slot) {
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self)))
+        vkurlnavigator->kurlnavigator_metaobject_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KUrlNavigator_SuperMetacast(KUrlNavigator* self, const char* param1) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_Metacast_IsBase(true);
-        return vkurlnavigator->qt_metacast(param1);
-    } else {
-        return self->KUrlNavigator::qt_metacast(param1);
-    }
+    return self->KUrlNavigator::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMetacast(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_Metacast_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Metacast_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_metacast_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KUrlNavigator_SuperMetacall(KUrlNavigator* self, int param1, int param2, void** param3) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_Metacall_IsBase(true);
-        return vkurlnavigator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KUrlNavigator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KUrlNavigator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMetacall(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_Metacall_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Metacall_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_metacall_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperKeyPressEvent(KUrlNavigator* self, QKeyEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_KeyPressEvent_IsBase(true);
-        vkurlnavigator->keyPressEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->keyPressEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnKeyPressEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_KeyPressEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_KeyPressEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_keypressevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperKeyReleaseEvent(KUrlNavigator* self, QKeyEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_KeyReleaseEvent_IsBase(true);
-        vkurlnavigator->keyReleaseEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnKeyReleaseEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_keyreleaseevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_KeyReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperMouseReleaseEvent(KUrlNavigator* self, QMouseEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_MouseReleaseEvent_IsBase(true);
-        vkurlnavigator->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMouseReleaseEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_mousereleaseevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperMousePressEvent(KUrlNavigator* self, QMouseEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_MousePressEvent_IsBase(true);
-        vkurlnavigator->mousePressEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->mousePressEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMousePressEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_MousePressEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MousePressEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_mousepressevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperResizeEvent(KUrlNavigator* self, QResizeEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_ResizeEvent_IsBase(true);
-        vkurlnavigator->resizeEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->resizeEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnResizeEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_ResizeEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ResizeEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_resizeevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperWheelEvent(KUrlNavigator* self, QWheelEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_WheelEvent_IsBase(true);
-        vkurlnavigator->wheelEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->wheelEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnWheelEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_WheelEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_WheelEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_wheelevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_WheelEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperShowEvent(KUrlNavigator* self, QShowEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_ShowEvent_IsBase(true);
-        vkurlnavigator->showEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->showEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnShowEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_ShowEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ShowEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_showevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KUrlNavigator_SuperEventFilter(KUrlNavigator* self, QObject* watched, QEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_EventFilter_IsBase(true);
-        return vkurlnavigator->eventFilter(watched, event);
-    } else {
-        return ((VirtualKUrlNavigator*)self)->eventFilter(watched, event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        return vkurlnavigator->KUrlNavigator::eventFilter(watched, event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnEventFilter(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_EventFilter_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_EventFilter_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_eventfilter_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperPaintEvent(KUrlNavigator* self, QPaintEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_PaintEvent_IsBase(true);
-        vkurlnavigator->paintEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->paintEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnPaintEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_PaintEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_PaintEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_paintevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KUrlNavigator_DevType(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return vkurlnavigator->devType();
-    } else {
-        return self->KUrlNavigator::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KUrlNavigator_SuperDevType(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_DevType_IsBase(true);
-        return vkurlnavigator->devType();
-    } else {
-        return self->KUrlNavigator::devType();
-    }
+    return self->KUrlNavigator::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnDevType(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_DevType_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DevType_Callback>(slot));
+void KUrlNavigator_OnDevType(KUrlNavigator* self, intptr_t slot) {
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self)))
+        vkurlnavigator->kurlnavigator_devtype_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_SetVisible(KUrlNavigator* self, bool visible) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setVisible(visible);
-    } else {
-        self->KUrlNavigator::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperSetVisible(KUrlNavigator* self, bool visible) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_SetVisible_IsBase(true);
-        vkurlnavigator->setVisible(visible);
-    } else {
-        self->KUrlNavigator::setVisible(visible);
-    }
+    self->KUrlNavigator::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnSetVisible(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_SetVisible_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_SetVisible_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_setvisible_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KUrlNavigator_SizeHint(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return new QSize(vkurlnavigator->sizeHint());
-    } else {
-        return new QSize(((VirtualKUrlNavigator*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KUrlNavigator_SuperSizeHint(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_SizeHint_IsBase(true);
-        return new QSize(vkurlnavigator->sizeHint());
-    } else {
-        return new QSize(((VirtualKUrlNavigator*)self)->sizeHint());
-    }
+    return new QSize(self->KUrlNavigator::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnSizeHint(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_SizeHint_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_SizeHint_Callback>(slot));
+void KUrlNavigator_OnSizeHint(KUrlNavigator* self, intptr_t slot) {
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self)))
+        vkurlnavigator->kurlnavigator_sizehint_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KUrlNavigator_MinimumSizeHint(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return new QSize(vkurlnavigator->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKUrlNavigator*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KUrlNavigator_SuperMinimumSizeHint(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_MinimumSizeHint_IsBase(true);
-        return new QSize(vkurlnavigator->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKUrlNavigator*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KUrlNavigator::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnMinimumSizeHint(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_MinimumSizeHint_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MinimumSizeHint_Callback>(slot));
+void KUrlNavigator_OnMinimumSizeHint(KUrlNavigator* self, intptr_t slot) {
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self)))
+        vkurlnavigator->kurlnavigator_minimumsizehint_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KUrlNavigator_HeightForWidth(const KUrlNavigator* self, int param1) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return vkurlnavigator->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KUrlNavigator::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KUrlNavigator_SuperHeightForWidth(const KUrlNavigator* self, int param1) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_HeightForWidth_IsBase(true);
-        return vkurlnavigator->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KUrlNavigator::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KUrlNavigator::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnHeightForWidth(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_HeightForWidth_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_HeightForWidth_Callback>(slot));
+void KUrlNavigator_OnHeightForWidth(KUrlNavigator* self, intptr_t slot) {
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self)))
+        vkurlnavigator->kurlnavigator_heightforwidth_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KUrlNavigator_HasHeightForWidth(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return vkurlnavigator->hasHeightForWidth();
-    } else {
-        return self->KUrlNavigator::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KUrlNavigator_SuperHasHeightForWidth(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_HasHeightForWidth_IsBase(true);
-        return vkurlnavigator->hasHeightForWidth();
-    } else {
-        return self->KUrlNavigator::hasHeightForWidth();
-    }
+    return self->KUrlNavigator::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnHasHeightForWidth(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_HasHeightForWidth_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_HasHeightForWidth_Callback>(slot));
+void KUrlNavigator_OnHasHeightForWidth(KUrlNavigator* self, intptr_t slot) {
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self)))
+        vkurlnavigator->kurlnavigator_hasheightforwidth_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KUrlNavigator_PaintEngine(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return vkurlnavigator->paintEngine();
-    } else {
-        return self->KUrlNavigator::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KUrlNavigator_SuperPaintEngine(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_PaintEngine_IsBase(true);
-        return vkurlnavigator->paintEngine();
-    } else {
-        return self->KUrlNavigator::paintEngine();
-    }
+    return self->KUrlNavigator::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnPaintEngine(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_PaintEngine_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_PaintEngine_Callback>(slot));
+void KUrlNavigator_OnPaintEngine(KUrlNavigator* self, intptr_t slot) {
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self)))
+        vkurlnavigator->kurlnavigator_paintengine_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KUrlNavigator_Event(KUrlNavigator* self, QEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         return vkurlnavigator->event(event);
     } else {
-        return ((VirtualKUrlNavigator*)self)->event(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KUrlNavigator_SuperEvent(KUrlNavigator* self, QEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_Event_IsBase(true);
-        return vkurlnavigator->event(event);
-    } else {
-        return ((VirtualKUrlNavigator*)self)->event(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        return vkurlnavigator->KUrlNavigator::event(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_Event_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Event_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_event_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_MouseDoubleClickEvent(KUrlNavigator* self, QMouseEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperMouseDoubleClickEvent(KUrlNavigator* self, QMouseEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_MouseDoubleClickEvent_IsBase(true);
-        vkurlnavigator->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMouseDoubleClickEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_mousedoubleclickevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_MouseMoveEvent(KUrlNavigator* self, QMouseEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->mouseMoveEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperMouseMoveEvent(KUrlNavigator* self, QMouseEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_MouseMoveEvent_IsBase(true);
-        vkurlnavigator->mouseMoveEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMouseMoveEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_MouseMoveEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MouseMoveEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_mousemoveevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_FocusInEvent(KUrlNavigator* self, QFocusEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->focusInEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperFocusInEvent(KUrlNavigator* self, QFocusEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_FocusInEvent_IsBase(true);
-        vkurlnavigator->focusInEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->focusInEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnFocusInEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_FocusInEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_FocusInEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_focusinevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_FocusOutEvent(KUrlNavigator* self, QFocusEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->focusOutEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperFocusOutEvent(KUrlNavigator* self, QFocusEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_FocusOutEvent_IsBase(true);
-        vkurlnavigator->focusOutEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->focusOutEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnFocusOutEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_FocusOutEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_FocusOutEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_focusoutevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_EnterEvent(KUrlNavigator* self, QEnterEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->enterEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperEnterEvent(KUrlNavigator* self, QEnterEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_EnterEvent_IsBase(true);
-        vkurlnavigator->enterEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->enterEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnEnterEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_EnterEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_EnterEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_enterevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_LeaveEvent(KUrlNavigator* self, QEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->leaveEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperLeaveEvent(KUrlNavigator* self, QEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_LeaveEvent_IsBase(true);
-        vkurlnavigator->leaveEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->leaveEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnLeaveEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_LeaveEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_LeaveEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_leaveevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_MoveEvent(KUrlNavigator* self, QMoveEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->moveEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperMoveEvent(KUrlNavigator* self, QMoveEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_MoveEvent_IsBase(true);
-        vkurlnavigator->moveEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->moveEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMoveEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_MoveEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MoveEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_moveevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_CloseEvent(KUrlNavigator* self, QCloseEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->closeEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperCloseEvent(KUrlNavigator* self, QCloseEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_CloseEvent_IsBase(true);
-        vkurlnavigator->closeEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->closeEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnCloseEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_CloseEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_CloseEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_closeevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_ContextMenuEvent(KUrlNavigator* self, QContextMenuEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->contextMenuEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperContextMenuEvent(KUrlNavigator* self, QContextMenuEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_ContextMenuEvent_IsBase(true);
-        vkurlnavigator->contextMenuEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnContextMenuEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_ContextMenuEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ContextMenuEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_contextmenuevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_TabletEvent(KUrlNavigator* self, QTabletEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->tabletEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperTabletEvent(KUrlNavigator* self, QTabletEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_TabletEvent_IsBase(true);
-        vkurlnavigator->tabletEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->tabletEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnTabletEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_TabletEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_TabletEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_tabletevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_ActionEvent(KUrlNavigator* self, QActionEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->actionEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperActionEvent(KUrlNavigator* self, QActionEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_ActionEvent_IsBase(true);
-        vkurlnavigator->actionEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->actionEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnActionEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_ActionEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ActionEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_actionevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_DragEnterEvent(KUrlNavigator* self, QDragEnterEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->dragEnterEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperDragEnterEvent(KUrlNavigator* self, QDragEnterEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_DragEnterEvent_IsBase(true);
-        vkurlnavigator->dragEnterEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnDragEnterEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_DragEnterEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DragEnterEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_dragenterevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_DragMoveEvent(KUrlNavigator* self, QDragMoveEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->dragMoveEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperDragMoveEvent(KUrlNavigator* self, QDragMoveEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_DragMoveEvent_IsBase(true);
-        vkurlnavigator->dragMoveEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnDragMoveEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_DragMoveEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DragMoveEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_dragmoveevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_DragLeaveEvent(KUrlNavigator* self, QDragLeaveEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->dragLeaveEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperDragLeaveEvent(KUrlNavigator* self, QDragLeaveEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_DragLeaveEvent_IsBase(true);
-        vkurlnavigator->dragLeaveEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnDragLeaveEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_DragLeaveEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DragLeaveEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_dragleaveevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_DropEvent(KUrlNavigator* self, QDropEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->dropEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperDropEvent(KUrlNavigator* self, QDropEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_DropEvent_IsBase(true);
-        vkurlnavigator->dropEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->dropEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnDropEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_DropEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DropEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_dropevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_HideEvent(KUrlNavigator* self, QHideEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->hideEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperHideEvent(KUrlNavigator* self, QHideEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_HideEvent_IsBase(true);
-        vkurlnavigator->hideEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->hideEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnHideEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_HideEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_HideEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_hideevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KUrlNavigator_NativeEvent(KUrlNavigator* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
+    if (vkurlnavigator) {
         return vkurlnavigator->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKUrlNavigator*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KUrlNavigator::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KUrlNavigator_SuperNativeEvent(KUrlNavigator* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_NativeEvent_IsBase(true);
-        return vkurlnavigator->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKUrlNavigator*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        return vkurlnavigator->KUrlNavigator::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnNativeEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_NativeEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_NativeEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_nativeevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_ChangeEvent(KUrlNavigator* self, QEvent* param1) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->changeEvent(param1);
     } else {
-        ((VirtualKUrlNavigator*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KUrlNavigator::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperChangeEvent(KUrlNavigator* self, QEvent* param1) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_ChangeEvent_IsBase(true);
-        vkurlnavigator->changeEvent(param1);
-    } else {
-        ((VirtualKUrlNavigator*)self)->changeEvent(param1);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnChangeEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_ChangeEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ChangeEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_changeevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KUrlNavigator_Metric(const KUrlNavigator* self, int param1) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         return vkurlnavigator->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKUrlNavigator*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KUrlNavigator::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KUrlNavigator_SuperMetric(const KUrlNavigator* self, int param1) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_Metric_IsBase(true);
-        return vkurlnavigator->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKUrlNavigator*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self))) {
+        return vkurlnavigator->KUrlNavigator::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnMetric(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_Metric_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Metric_Callback>(slot));
+void KUrlNavigator_OnMetric(KUrlNavigator* self, intptr_t slot) {
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self)))
+        vkurlnavigator->kurlnavigator_metric_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_InitPainter(const KUrlNavigator* self, QPainter* painter) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->initPainter(painter);
     } else {
-        ((VirtualKUrlNavigator*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KUrlNavigator::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperInitPainter(const KUrlNavigator* self, QPainter* painter) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_InitPainter_IsBase(true);
-        vkurlnavigator->initPainter(painter);
-    } else {
-        ((VirtualKUrlNavigator*)self)->initPainter(painter);
-    }
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self))) {
+        vkurlnavigator->KUrlNavigator::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnInitPainter(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_InitPainter_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_InitPainter_Callback>(slot));
+void KUrlNavigator_OnInitPainter(KUrlNavigator* self, intptr_t slot) {
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self)))
+        vkurlnavigator->kurlnavigator_initpainter_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KUrlNavigator_Redirected(const KUrlNavigator* self, QPoint* offset) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         return vkurlnavigator->redirected(offset);
     } else {
-        return ((VirtualKUrlNavigator*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KUrlNavigator::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KUrlNavigator_SuperRedirected(const KUrlNavigator* self, QPoint* offset) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_Redirected_IsBase(true);
-        return vkurlnavigator->redirected(offset);
-    } else {
-        return ((VirtualKUrlNavigator*)self)->redirected(offset);
-    }
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self))) {
+        return vkurlnavigator->KUrlNavigator::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnRedirected(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_Redirected_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Redirected_Callback>(slot));
+void KUrlNavigator_OnRedirected(KUrlNavigator* self, intptr_t slot) {
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self)))
+        vkurlnavigator->kurlnavigator_redirected_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KUrlNavigator_SharedPainter(const KUrlNavigator* self) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         return vkurlnavigator->sharedPainter();
     } else {
-        return ((VirtualKUrlNavigator*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KUrlNavigator::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KUrlNavigator_SuperSharedPainter(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_SharedPainter_IsBase(true);
-        return vkurlnavigator->sharedPainter();
-    } else {
-        return ((VirtualKUrlNavigator*)self)->sharedPainter();
-    }
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self))) {
+        return vkurlnavigator->KUrlNavigator::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnSharedPainter(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_SharedPainter_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_SharedPainter_Callback>(slot));
+void KUrlNavigator_OnSharedPainter(KUrlNavigator* self, intptr_t slot) {
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self)))
+        vkurlnavigator->kurlnavigator_sharedpainter_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_InputMethodEvent(KUrlNavigator* self, QInputMethodEvent* param1) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->inputMethodEvent(param1);
     } else {
-        ((VirtualKUrlNavigator*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KUrlNavigator::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperInputMethodEvent(KUrlNavigator* self, QInputMethodEvent* param1) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_InputMethodEvent_IsBase(true);
-        vkurlnavigator->inputMethodEvent(param1);
-    } else {
-        ((VirtualKUrlNavigator*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnInputMethodEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_InputMethodEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_InputMethodEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_inputmethodevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KUrlNavigator_InputMethodQuery(const KUrlNavigator* self, int param1) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return new QVariant(vkurlnavigator->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKUrlNavigator*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KUrlNavigator_SuperInputMethodQuery(const KUrlNavigator* self, int param1) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_InputMethodQuery_IsBase(true);
-        return new QVariant(vkurlnavigator->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKUrlNavigator*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KUrlNavigator::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnInputMethodQuery(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_InputMethodQuery_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_InputMethodQuery_Callback>(slot));
+void KUrlNavigator_OnInputMethodQuery(KUrlNavigator* self, intptr_t slot) {
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self)))
+        vkurlnavigator->kurlnavigator_inputmethodquery_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KUrlNavigator_FocusNextPrevChild(KUrlNavigator* self, bool next) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         return vkurlnavigator->focusNextPrevChild(next);
     } else {
-        return ((VirtualKUrlNavigator*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KUrlNavigator::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KUrlNavigator_SuperFocusNextPrevChild(KUrlNavigator* self, bool next) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_FocusNextPrevChild_IsBase(true);
-        return vkurlnavigator->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKUrlNavigator*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        return vkurlnavigator->KUrlNavigator::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnFocusNextPrevChild(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_focusnextprevchild_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_TimerEvent(KUrlNavigator* self, QTimerEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->timerEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperTimerEvent(KUrlNavigator* self, QTimerEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_TimerEvent_IsBase(true);
-        vkurlnavigator->timerEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->timerEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnTimerEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_TimerEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_TimerEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_timerevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_ChildEvent(KUrlNavigator* self, QChildEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->childEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperChildEvent(KUrlNavigator* self, QChildEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_ChildEvent_IsBase(true);
-        vkurlnavigator->childEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->childEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnChildEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_ChildEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ChildEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_childevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_CustomEvent(KUrlNavigator* self, QEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->customEvent(event);
     } else {
-        ((VirtualKUrlNavigator*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KUrlNavigator::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperCustomEvent(KUrlNavigator* self, QEvent* event) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_CustomEvent_IsBase(true);
-        vkurlnavigator->customEvent(event);
-    } else {
-        ((VirtualKUrlNavigator*)self)->customEvent(event);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnCustomEvent(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_CustomEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_CustomEvent_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_customevent_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_ConnectNotify(KUrlNavigator* self, const QMetaMethod* signal) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->connectNotify(*signal);
     } else {
-        ((VirtualKUrlNavigator*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KUrlNavigator::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperConnectNotify(KUrlNavigator* self, const QMetaMethod* signal) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_ConnectNotify_IsBase(true);
-        vkurlnavigator->connectNotify(*signal);
-    } else {
-        ((VirtualKUrlNavigator*)self)->connectNotify(*signal);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnConnectNotify(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_ConnectNotify_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ConnectNotify_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_connectnotify_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlNavigator_DisconnectNotify(KUrlNavigator* self, const QMetaMethod* signal) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator) {
         vkurlnavigator->disconnectNotify(*signal);
     } else {
-        ((VirtualKUrlNavigator*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KUrlNavigator::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlNavigator_SuperDisconnectNotify(KUrlNavigator* self, const QMetaMethod* signal) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_DisconnectNotify_IsBase(true);
-        vkurlnavigator->disconnectNotify(*signal);
-    } else {
-        ((VirtualKUrlNavigator*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->KUrlNavigator::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KUrlNavigator::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnDisconnectNotify(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_DisconnectNotify_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DisconnectNotify_Callback>(slot));
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self))
+        vkurlnavigator->kurlnavigator_disconnectnotify_callback = reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUrlNavigator_UpdateMicroFocus(KUrlNavigator* self) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->updateMicroFocus();
-    } else {
-        ((VirtualKUrlNavigator*)self)->updateMicroFocus();
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->VirtualKUrlNavigator::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KUrlNavigator::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KUrlNavigator_SuperUpdateMicroFocus(KUrlNavigator* self) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_UpdateMicroFocus_IsBase(true);
-        vkurlnavigator->updateMicroFocus();
-    } else {
-        ((VirtualKUrlNavigator*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnUpdateMicroFocus(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUrlNavigator_Create(KUrlNavigator* self) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->create();
-    } else {
-        ((VirtualKUrlNavigator*)self)->create();
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->VirtualKUrlNavigator::create();
+    } else
+        qFatal("Error: Protected method KUrlNavigator::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KUrlNavigator_SuperCreate(KUrlNavigator* self) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_Create_IsBase(true);
-        vkurlnavigator->create();
-    } else {
-        ((VirtualKUrlNavigator*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnCreate(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_Create_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUrlNavigator_Destroy(KUrlNavigator* self) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->destroy();
-    } else {
-        ((VirtualKUrlNavigator*)self)->destroy();
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        vkurlnavigator->VirtualKUrlNavigator::destroy();
+    } else
+        qFatal("Error: Protected method KUrlNavigator::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KUrlNavigator_SuperDestroy(KUrlNavigator* self) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_Destroy_IsBase(true);
-        vkurlnavigator->destroy();
-    } else {
-        ((VirtualKUrlNavigator*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnDestroy(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_Destroy_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KUrlNavigator_FocusNextChild(KUrlNavigator* self) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return vkurlnavigator->focusNextChild();
-    } else {
-        return ((VirtualKUrlNavigator*)self)->focusNextChild();
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        return vkurlnavigator->VirtualKUrlNavigator::focusNextChild();
+    } else
+        qFatal("Error: Protected method KUrlNavigator::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KUrlNavigator_SuperFocusNextChild(KUrlNavigator* self) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_FocusNextChild_IsBase(true);
-        return vkurlnavigator->focusNextChild();
-    } else {
-        return ((VirtualKUrlNavigator*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnFocusNextChild(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_FocusNextChild_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KUrlNavigator_FocusPreviousChild(KUrlNavigator* self) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return vkurlnavigator->focusPreviousChild();
-    } else {
-        return ((VirtualKUrlNavigator*)self)->focusPreviousChild();
-    }
+    if (auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self)) {
+        return vkurlnavigator->VirtualKUrlNavigator::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KUrlNavigator::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KUrlNavigator_SuperFocusPreviousChild(KUrlNavigator* self) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_FocusPreviousChild_IsBase(true);
-        return vkurlnavigator->focusPreviousChild();
-    } else {
-        return ((VirtualKUrlNavigator*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnFocusPreviousChild(KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_FocusPreviousChild_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KUrlNavigator_Sender(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return vkurlnavigator->sender();
-    } else {
-        return ((VirtualKUrlNavigator*)self)->sender();
-    }
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self))) {
+        return vkurlnavigator->VirtualKUrlNavigator::sender();
+    } else
+        qFatal("Error: Protected method KUrlNavigator::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KUrlNavigator_SuperSender(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_Sender_IsBase(true);
-        return vkurlnavigator->sender();
-    } else {
-        return ((VirtualKUrlNavigator*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnSender(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_Sender_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KUrlNavigator_SenderSignalIndex(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return vkurlnavigator->senderSignalIndex();
-    } else {
-        return ((VirtualKUrlNavigator*)self)->senderSignalIndex();
-    }
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self))) {
+        return vkurlnavigator->VirtualKUrlNavigator::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KUrlNavigator::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KUrlNavigator_SuperSenderSignalIndex(const KUrlNavigator* self) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_SenderSignalIndex_IsBase(true);
-        return vkurlnavigator->senderSignalIndex();
-    } else {
-        return ((VirtualKUrlNavigator*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnSenderSignalIndex(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_SenderSignalIndex_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KUrlNavigator_Receivers(const KUrlNavigator* self, const char* signal) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return vkurlnavigator->receivers(signal);
-    } else {
-        return ((VirtualKUrlNavigator*)self)->receivers(signal);
-    }
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self))) {
+        return vkurlnavigator->VirtualKUrlNavigator::receivers(signal);
+    } else
+        qFatal("Error: Protected method KUrlNavigator::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KUrlNavigator_SuperReceivers(const KUrlNavigator* self, const char* signal) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_Receivers_IsBase(true);
-        return vkurlnavigator->receivers(signal);
-    } else {
-        return ((VirtualKUrlNavigator*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnReceivers(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_Receivers_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KUrlNavigator_IsSignalConnected(const KUrlNavigator* self, const QMetaMethod* signal) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return vkurlnavigator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKUrlNavigator*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self))) {
+        return vkurlnavigator->VirtualKUrlNavigator::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KUrlNavigator::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KUrlNavigator_SuperIsSignalConnected(const KUrlNavigator* self, const QMetaMethod* signal) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_IsSignalConnected_IsBase(true);
-        return vkurlnavigator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKUrlNavigator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnIsSignalConnected(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_IsSignalConnected_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KUrlNavigator_GetDecodedMetricF(const KUrlNavigator* self, int metricA, int metricB) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return vkurlnavigator->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKUrlNavigator*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KUrlNavigator_SuperGetDecodedMetricF(const KUrlNavigator* self, int metricA, int metricB) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        vkurlnavigator->setKUrlNavigator_GetDecodedMetricF_IsBase(true);
-        return vkurlnavigator->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKUrlNavigator*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlNavigator_OnGetDecodedMetricF(const KUrlNavigator* self, intptr_t slot) {
-    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
-        vkurlnavigator->setKUrlNavigator_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self))) {
+        return vkurlnavigator->VirtualKUrlNavigator::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KUrlNavigator::getDecodedMetricF called without a directly constructed type");
 }
 
 void KUrlNavigator_Delete(KUrlNavigator* self) {

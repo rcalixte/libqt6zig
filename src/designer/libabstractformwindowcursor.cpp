@@ -70,241 +70,82 @@ bool QDesignerFormWindowCursorInterface_IsWidgetSelected(const QDesignerFormWind
     return self->isWidgetSelected(widget);
 }
 
-// Base class handler implementation
-QDesignerFormWindowInterface* QDesignerFormWindowCursorInterface_SuperFormWindow(const QDesignerFormWindowCursorInterface* self) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_FormWindow_IsBase(true);
-        return vqdesignerformwindowcursorinterface->formWindow();
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->formWindow();
-    }
-}
-
 // Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowCursorInterface_OnFormWindow(const QDesignerFormWindowCursorInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface)
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_FormWindow_Callback(reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_FormWindow_Callback>(slot));
-}
-
-// Base class handler implementation
-bool QDesignerFormWindowCursorInterface_SuperMovePosition(QDesignerFormWindowCursorInterface* self, int op, int mode) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_MovePosition_IsBase(true);
-        return vqdesignerformwindowcursorinterface->movePosition(static_cast<QDesignerFormWindowCursorInterface::MoveOperation>(op), static_cast<QDesignerFormWindowCursorInterface::MoveMode>(mode));
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->movePosition(static_cast<QDesignerFormWindowCursorInterface::MoveOperation>(op), static_cast<QDesignerFormWindowCursorInterface::MoveMode>(mode));
-    }
+void QDesignerFormWindowCursorInterface_OnFormWindow(QDesignerFormWindowCursorInterface* self, intptr_t slot) {
+    if (auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self)))
+        vqdesignerformwindowcursorinterface->qdesignerformwindowcursorinterface_formwindow_callback = reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_FormWindow_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowCursorInterface_OnMovePosition(QDesignerFormWindowCursorInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface)
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_MovePosition_Callback(reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_MovePosition_Callback>(slot));
-}
-
-// Base class handler implementation
-int QDesignerFormWindowCursorInterface_SuperPosition(const QDesignerFormWindowCursorInterface* self) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_Position_IsBase(true);
-        return vqdesignerformwindowcursorinterface->position();
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->position();
-    }
+    if (auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self))
+        vqdesignerformwindowcursorinterface->qdesignerformwindowcursorinterface_moveposition_callback = reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_MovePosition_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowCursorInterface_OnPosition(const QDesignerFormWindowCursorInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface)
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_Position_Callback(reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_Position_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerFormWindowCursorInterface_SuperSetPosition(QDesignerFormWindowCursorInterface* self, int pos, int mode) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_SetPosition_IsBase(true);
-        vqdesignerformwindowcursorinterface->setPosition(static_cast<int>(pos), static_cast<QDesignerFormWindowCursorInterface::MoveMode>(mode));
-    } else {
-        ((VirtualQDesignerFormWindowCursorInterface*)self)->setPosition(static_cast<int>(pos), static_cast<QDesignerFormWindowCursorInterface::MoveMode>(mode));
-    }
+void QDesignerFormWindowCursorInterface_OnPosition(QDesignerFormWindowCursorInterface* self, intptr_t slot) {
+    if (auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self)))
+        vqdesignerformwindowcursorinterface->qdesignerformwindowcursorinterface_position_callback = reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_Position_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowCursorInterface_OnSetPosition(QDesignerFormWindowCursorInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface)
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_SetPosition_Callback(reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_SetPosition_Callback>(slot));
-}
-
-// Base class handler implementation
-QWidget* QDesignerFormWindowCursorInterface_SuperCurrent(const QDesignerFormWindowCursorInterface* self) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_Current_IsBase(true);
-        return vqdesignerformwindowcursorinterface->current();
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->current();
-    }
+    if (auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self))
+        vqdesignerformwindowcursorinterface->qdesignerformwindowcursorinterface_setposition_callback = reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_SetPosition_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowCursorInterface_OnCurrent(const QDesignerFormWindowCursorInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface)
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_Current_Callback(reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_Current_Callback>(slot));
-}
-
-// Base class handler implementation
-int QDesignerFormWindowCursorInterface_SuperWidgetCount(const QDesignerFormWindowCursorInterface* self) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_WidgetCount_IsBase(true);
-        return vqdesignerformwindowcursorinterface->widgetCount();
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->widgetCount();
-    }
+void QDesignerFormWindowCursorInterface_OnCurrent(QDesignerFormWindowCursorInterface* self, intptr_t slot) {
+    if (auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self)))
+        vqdesignerformwindowcursorinterface->qdesignerformwindowcursorinterface_current_callback = reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_Current_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowCursorInterface_OnWidgetCount(const QDesignerFormWindowCursorInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface)
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_WidgetCount_Callback(reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_WidgetCount_Callback>(slot));
-}
-
-// Base class handler implementation
-QWidget* QDesignerFormWindowCursorInterface_SuperWidget(const QDesignerFormWindowCursorInterface* self, int index) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_Widget_IsBase(true);
-        return vqdesignerformwindowcursorinterface->widget(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->widget(static_cast<int>(index));
-    }
+void QDesignerFormWindowCursorInterface_OnWidgetCount(QDesignerFormWindowCursorInterface* self, intptr_t slot) {
+    if (auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self)))
+        vqdesignerformwindowcursorinterface->qdesignerformwindowcursorinterface_widgetcount_callback = reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_WidgetCount_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowCursorInterface_OnWidget(const QDesignerFormWindowCursorInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface)
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_Widget_Callback(reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_Widget_Callback>(slot));
-}
-
-// Base class handler implementation
-bool QDesignerFormWindowCursorInterface_SuperHasSelection(const QDesignerFormWindowCursorInterface* self) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_HasSelection_IsBase(true);
-        return vqdesignerformwindowcursorinterface->hasSelection();
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->hasSelection();
-    }
+void QDesignerFormWindowCursorInterface_OnWidget(QDesignerFormWindowCursorInterface* self, intptr_t slot) {
+    if (auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self)))
+        vqdesignerformwindowcursorinterface->qdesignerformwindowcursorinterface_widget_callback = reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_Widget_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowCursorInterface_OnHasSelection(const QDesignerFormWindowCursorInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface)
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_HasSelection_Callback(reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_HasSelection_Callback>(slot));
-}
-
-// Base class handler implementation
-int QDesignerFormWindowCursorInterface_SuperSelectedWidgetCount(const QDesignerFormWindowCursorInterface* self) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_SelectedWidgetCount_IsBase(true);
-        return vqdesignerformwindowcursorinterface->selectedWidgetCount();
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->selectedWidgetCount();
-    }
+void QDesignerFormWindowCursorInterface_OnHasSelection(QDesignerFormWindowCursorInterface* self, intptr_t slot) {
+    if (auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self)))
+        vqdesignerformwindowcursorinterface->qdesignerformwindowcursorinterface_hasselection_callback = reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_HasSelection_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowCursorInterface_OnSelectedWidgetCount(const QDesignerFormWindowCursorInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface)
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_SelectedWidgetCount_Callback(reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_SelectedWidgetCount_Callback>(slot));
-}
-
-// Base class handler implementation
-QWidget* QDesignerFormWindowCursorInterface_SuperSelectedWidget(const QDesignerFormWindowCursorInterface* self, int index) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_SelectedWidget_IsBase(true);
-        return vqdesignerformwindowcursorinterface->selectedWidget(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->selectedWidget(static_cast<int>(index));
-    }
+void QDesignerFormWindowCursorInterface_OnSelectedWidgetCount(QDesignerFormWindowCursorInterface* self, intptr_t slot) {
+    if (auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self)))
+        vqdesignerformwindowcursorinterface->qdesignerformwindowcursorinterface_selectedwidgetcount_callback = reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_SelectedWidgetCount_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowCursorInterface_OnSelectedWidget(const QDesignerFormWindowCursorInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self));
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface)
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_SelectedWidget_Callback(reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_SelectedWidget_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerFormWindowCursorInterface_SuperSetProperty(QDesignerFormWindowCursorInterface* self, const libqt_string name, const QVariant* value) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_SetProperty_IsBase(true);
-        vqdesignerformwindowcursorinterface->setProperty(name_QString, *value);
-    } else {
-        ((VirtualQDesignerFormWindowCursorInterface*)self)->setProperty(name_QString, *value);
-    }
+void QDesignerFormWindowCursorInterface_OnSelectedWidget(QDesignerFormWindowCursorInterface* self, intptr_t slot) {
+    if (auto* vqdesignerformwindowcursorinterface = const_cast<VirtualQDesignerFormWindowCursorInterface*>(dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self)))
+        vqdesignerformwindowcursorinterface->qdesignerformwindowcursorinterface_selectedwidget_callback = reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_SelectedWidget_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowCursorInterface_OnSetProperty(QDesignerFormWindowCursorInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface)
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_SetProperty_Callback(reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_SetProperty_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerFormWindowCursorInterface_SuperSetWidgetProperty(QDesignerFormWindowCursorInterface* self, QWidget* widget, const libqt_string name, const QVariant* value) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_SetWidgetProperty_IsBase(true);
-        vqdesignerformwindowcursorinterface->setWidgetProperty(widget, name_QString, *value);
-    } else {
-        ((VirtualQDesignerFormWindowCursorInterface*)self)->setWidgetProperty(widget, name_QString, *value);
-    }
+    if (auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self))
+        vqdesignerformwindowcursorinterface->qdesignerformwindowcursorinterface_setproperty_callback = reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_SetProperty_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowCursorInterface_OnSetWidgetProperty(QDesignerFormWindowCursorInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface)
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_SetWidgetProperty_Callback(reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_SetWidgetProperty_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerFormWindowCursorInterface_SuperResetWidgetProperty(QDesignerFormWindowCursorInterface* self, QWidget* widget, const libqt_string name) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_ResetWidgetProperty_IsBase(true);
-        vqdesignerformwindowcursorinterface->resetWidgetProperty(widget, name_QString);
-    } else {
-        ((VirtualQDesignerFormWindowCursorInterface*)self)->resetWidgetProperty(widget, name_QString);
-    }
+    if (auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self))
+        vqdesignerformwindowcursorinterface->qdesignerformwindowcursorinterface_setwidgetproperty_callback = reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_SetWidgetProperty_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowCursorInterface_OnResetWidgetProperty(QDesignerFormWindowCursorInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface)
-        vqdesignerformwindowcursorinterface->setQDesignerFormWindowCursorInterface_ResetWidgetProperty_Callback(reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_ResetWidgetProperty_Callback>(slot));
+    if (auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self))
+        vqdesignerformwindowcursorinterface->qdesignerformwindowcursorinterface_resetwidgetproperty_callback = reinterpret_cast<VirtualQDesignerFormWindowCursorInterface::QDesignerFormWindowCursorInterface_ResetWidgetProperty_Callback>(slot);
 }
 
 void QDesignerFormWindowCursorInterface_Delete(QDesignerFormWindowCursorInterface* self) {

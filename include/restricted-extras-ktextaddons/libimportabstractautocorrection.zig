@@ -47,6 +47,8 @@ pub const TextAutoCorrectionCore__ImportAbstractAutocorrection = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportAbstractAutocorrection.html)
     ///
+    /// This method must be implemented with `onImport` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__ImportAbstractAutocorrection `
@@ -85,36 +87,6 @@ pub const TextAutoCorrectionCore__ImportAbstractAutocorrection = extern struct {
     ///
     pub fn onImport(self: TextAutoCorrectionCore__ImportAbstractAutocorrection, callback: *const fn (TextAutoCorrectionCore__ImportAbstractAutocorrection, [*:0]const u8, [*:0]const u8, i32) callconv(.c) bool) void {
         qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_OnImport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superImport` instead
-    ///
-    pub const SuperImport = superImport;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportAbstractAutocorrection.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionCore__ImportAbstractAutocorrection `
-    ///
-    /// ` fileName: []const u8 `
-    ///
-    /// ` errorMessage: []const u8 `
-    ///
-    /// ` loadAttribute: importabstractautocorrection_enums.LoadAttribute `
-    ///
-    pub fn superImport(self: TextAutoCorrectionCore__ImportAbstractAutocorrection, fileName: []const u8, errorMessage: []const u8, loadAttribute: i32) bool {
-        const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
-        };
-        const errorMessage_str = qtc.libqt_string{
-            .len = errorMessage.len,
-            .data = errorMessage.ptr,
-        };
-        return qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_SuperImport(@ptrCast(self.ptr), fileName_str, errorMessage_str, @bitCast(loadAttribute));
     }
 
     /// ### DEPRECATED: Use `upperCaseExceptions` instead

@@ -68,9 +68,9 @@ pub const KParts__ListingFilterExtension = extern struct {
     ///
     /// ` self: KParts__ListingFilterExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KParts__ListingFilterExtension) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KParts__ListingFilterExtension, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KParts__ListingFilterExtension, callback: *const fn (KParts__ListingFilterExtension) callconv(.c) QMetaObject) void {
         qtc.KParts__ListingFilterExtension_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -260,9 +260,9 @@ pub const KParts__ListingFilterExtension = extern struct {
     ///
     /// ` self: KParts__ListingFilterExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KParts__ListingFilterExtension) callconv(.c) i32 `
     ///
-    pub fn onSupportedFilterModes(self: KParts__ListingFilterExtension, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedFilterModes(self: KParts__ListingFilterExtension, callback: *const fn (KParts__ListingFilterExtension) callconv(.c) i32) void {
         qtc.KParts__ListingFilterExtension_OnSupportedFilterModes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -344,6 +344,8 @@ pub const KParts__ListingFilterExtension = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kparts-listingfilterextension.html#filter)
     ///
+    /// This method must be implemented with `onFilter` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KParts__ListingFilterExtension `
@@ -374,29 +376,13 @@ pub const KParts__ListingFilterExtension = extern struct {
         qtc.KParts__ListingFilterExtension_OnFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superFilter` instead
-    ///
-    pub const SuperFilter = superFilter;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-listingfilterextension.html#filter)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ListingFilterExtension `
-    ///
-    /// ` mode: listingfilterextension_enums.FilterMode `
-    ///
-    pub fn superFilter(self: KParts__ListingFilterExtension, mode: i32) QVariant {
-        return .{ .ptr = qtc.KParts__ListingFilterExtension_SuperFilter(@ptrCast(self.ptr), @bitCast(mode)) };
-    }
-
     /// ### DEPRECATED: Use `setFilter` instead
     ///
     pub const SetFilter = setFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-listingfilterextension.html#setFilter)
+    ///
+    /// This method must be implemented with `onSetFilter` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -427,27 +413,6 @@ pub const KParts__ListingFilterExtension = extern struct {
     ///
     pub fn onSetFilter(self: KParts__ListingFilterExtension, callback: *const fn (KParts__ListingFilterExtension, i32, QVariant) callconv(.c) void) void {
         qtc.KParts__ListingFilterExtension_OnSetFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetFilter` instead
-    ///
-    pub const SuperSetFilter = superSetFilter;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-listingfilterextension.html#setFilter)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ListingFilterExtension `
-    ///
-    /// ` mode: listingfilterextension_enums.FilterMode `
-    ///
-    /// ` _filter: QVariant `
-    ///
-    pub fn superSetFilter(self: KParts__ListingFilterExtension, mode: i32, _filter: anytype) void {
-        comptime _ = @TypeOf(_filter)._is_QVariant;
-        qtc.KParts__ListingFilterExtension_SuperSetFilter(@ptrCast(self.ptr), @bitCast(mode), @ptrCast(_filter.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1927,44 +1892,6 @@ pub const KParts__ListingFilterExtension = extern struct {
         return .{ .ptr = qtc.KParts__ListingFilterExtension_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ListingFilterExtension `
-    ///
-    pub fn superSender(self: KParts__ListingFilterExtension) QObject {
-        return .{ .ptr = qtc.KParts__ListingFilterExtension_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ListingFilterExtension`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KParts__ListingFilterExtension, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KParts__ListingFilterExtension_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1981,44 +1908,6 @@ pub const KParts__ListingFilterExtension = extern struct {
     ///
     pub fn senderSignalIndex(self: KParts__ListingFilterExtension) i32 {
         return qtc.KParts__ListingFilterExtension_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ListingFilterExtension `
-    ///
-    pub fn superSenderSignalIndex(self: KParts__ListingFilterExtension) i32 {
-        return qtc.KParts__ListingFilterExtension_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ListingFilterExtension`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KParts__ListingFilterExtension, callback: *const fn () callconv(.c) i32) void {
-        qtc.KParts__ListingFilterExtension_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2042,47 +1931,6 @@ pub const KParts__ListingFilterExtension = extern struct {
         return qtc.KParts__ListingFilterExtension_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ListingFilterExtension `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KParts__ListingFilterExtension, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KParts__ListingFilterExtension_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ListingFilterExtension`
-    ///
-    /// ` callback: *const fn (self: KParts__ListingFilterExtension, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KParts__ListingFilterExtension, callback: *const fn (KParts__ListingFilterExtension, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KParts__ListingFilterExtension_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2102,47 +1950,6 @@ pub const KParts__ListingFilterExtension = extern struct {
     pub fn isSignalConnected(self: KParts__ListingFilterExtension, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KParts__ListingFilterExtension_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__ListingFilterExtension `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KParts__ListingFilterExtension, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KParts__ListingFilterExtension_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__ListingFilterExtension`
-    ///
-    /// ` callback: *const fn (self: KParts__ListingFilterExtension, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KParts__ListingFilterExtension, callback: *const fn (KParts__ListingFilterExtension, QMetaMethod) callconv(.c) bool) void {
-        qtc.KParts__ListingFilterExtension_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

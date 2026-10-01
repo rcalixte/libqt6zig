@@ -70,9 +70,9 @@ pub const PackageKit__Transaction = extern struct {
     ///
     /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: PackageKit__Transaction, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) QMetaObject) void {
         qtc.PackageKit__Transaction_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1785,50 +1785,6 @@ pub const PackageKit__Transaction = extern struct {
         return qtc.PackageKit__Transaction_ParseError(@ptrCast(self.ptr), errorName_str);
     }
 
-    /// ### DEPRECATED: Use `onParseError` instead
-    ///
-    pub const OnParseError = onParseError;
-
-    /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: PackageKit__Transaction `
-    ///
-    /// ` callback: *const fn (self: PackageKit__Transaction, errorName: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onParseError(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, [*:0]const u8) callconv(.c) i32) void {
-        qtc.PackageKit__Transaction_OnParseError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superParseError` instead
-    ///
-    pub const SuperParseError = superParseError;
-
-    /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: PackageKit__Transaction `
-    ///
-    /// ` errorName: []const u8 `
-    ///
-    /// ## Returns:
-    ///
-    /// ` transaction_enums.InternalError `
-    ///
-    pub fn superParseError(self: PackageKit__Transaction, errorName: []const u8) i32 {
-        const errorName_str = qtc.libqt_string{
-            .len = errorName.len,
-            .data = errorName.ptr,
-        };
-        return qtc.PackageKit__Transaction_SuperParseError(@ptrCast(self.ptr), errorName_str);
-    }
-
     /// ### DEPRECATED: Use `connectNotify` instead
     ///
     pub const ConnectNotify = connectNotify;
@@ -3290,44 +3246,6 @@ pub const PackageKit__Transaction = extern struct {
         return .{ .ptr = qtc.PackageKit__Transaction_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: PackageKit__Transaction `
-    ///
-    pub fn superSender(self: PackageKit__Transaction) QObject {
-        return .{ .ptr = qtc.PackageKit__Transaction_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: PackageKit__Transaction`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: PackageKit__Transaction, callback: *const fn () callconv(.c) QObject) void {
-        qtc.PackageKit__Transaction_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3344,44 +3262,6 @@ pub const PackageKit__Transaction = extern struct {
     ///
     pub fn senderSignalIndex(self: PackageKit__Transaction) i32 {
         return qtc.PackageKit__Transaction_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: PackageKit__Transaction `
-    ///
-    pub fn superSenderSignalIndex(self: PackageKit__Transaction) i32 {
-        return qtc.PackageKit__Transaction_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: PackageKit__Transaction`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: PackageKit__Transaction, callback: *const fn () callconv(.c) i32) void {
-        qtc.PackageKit__Transaction_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3405,47 +3285,6 @@ pub const PackageKit__Transaction = extern struct {
         return qtc.PackageKit__Transaction_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: PackageKit__Transaction `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: PackageKit__Transaction, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.PackageKit__Transaction_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: PackageKit__Transaction`
-    ///
-    /// ` callback: *const fn (self: PackageKit__Transaction, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, [*:0]const u8) callconv(.c) i32) void {
-        qtc.PackageKit__Transaction_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3465,47 +3304,6 @@ pub const PackageKit__Transaction = extern struct {
     pub fn isSignalConnected(self: PackageKit__Transaction, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.PackageKit__Transaction_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: PackageKit__Transaction `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: PackageKit__Transaction, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.PackageKit__Transaction_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: PackageKit__Transaction`
-    ///
-    /// ` callback: *const fn (self: PackageKit__Transaction, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, QMetaMethod) callconv(.c) bool) void {
-        qtc.PackageKit__Transaction_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

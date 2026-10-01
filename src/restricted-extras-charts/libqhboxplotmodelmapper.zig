@@ -79,9 +79,9 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QHBoxPlotModelMapper) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) QMetaObject) void {
         qtc.QHBoxPlotModelMapper_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2065,44 +2065,6 @@ pub const QHBoxPlotModelMapper = extern struct {
         return qtc.QHBoxPlotModelMapper_First(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFirst` instead
-    ///
-    pub const SuperFirst = superFirst;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#first)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    pub fn superFirst(self: QHBoxPlotModelMapper) i32 {
-        return qtc.QHBoxPlotModelMapper_SuperFirst(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFirst` instead
-    ///
-    pub const OnFirst = onFirst;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#first)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBoxPlotModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onFirst(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHBoxPlotModelMapper_OnFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setFirst` instead
     ///
     pub const SetFirst = setFirst;
@@ -2123,46 +2085,6 @@ pub const QHBoxPlotModelMapper = extern struct {
         qtc.QHBoxPlotModelMapper_SetFirst(@ptrCast(self.ptr), @bitCast(_first));
     }
 
-    /// ### DEPRECATED: Use `superSetFirst` instead
-    ///
-    pub const SuperSetFirst = superSetFirst;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setFirst)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    /// ` _first: i32 `
-    ///
-    pub fn superSetFirst(self: QHBoxPlotModelMapper, _first: i32) void {
-        qtc.QHBoxPlotModelMapper_SuperSetFirst(@ptrCast(self.ptr), @bitCast(_first));
-    }
-
-    /// ### DEPRECATED: Use `onSetFirst` instead
-    ///
-    pub const OnSetFirst = onSetFirst;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setFirst)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBoxPlotModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHBoxPlotModelMapper, first: i32) callconv(.c) void `
-    ///
-    pub fn onSetFirst(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
-        qtc.QHBoxPlotModelMapper_OnSetFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `count` instead
     ///
     pub const Count = count;
@@ -2179,44 +2101,6 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     pub fn count(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_Count(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCount` instead
-    ///
-    pub const SuperCount = superCount;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#count)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    pub fn superCount(self: QHBoxPlotModelMapper) i32 {
-        return qtc.QHBoxPlotModelMapper_SuperCount(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCount` instead
-    ///
-    pub const OnCount = onCount;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#count)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBoxPlotModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onCount(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHBoxPlotModelMapper_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setCount` instead
@@ -2239,46 +2123,6 @@ pub const QHBoxPlotModelMapper = extern struct {
         qtc.QHBoxPlotModelMapper_SetCount(@ptrCast(self.ptr), @bitCast(_count));
     }
 
-    /// ### DEPRECATED: Use `superSetCount` instead
-    ///
-    pub const SuperSetCount = superSetCount;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setCount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    /// ` _count: i32 `
-    ///
-    pub fn superSetCount(self: QHBoxPlotModelMapper, _count: i32) void {
-        qtc.QHBoxPlotModelMapper_SuperSetCount(@ptrCast(self.ptr), @bitCast(_count));
-    }
-
-    /// ### DEPRECATED: Use `onSetCount` instead
-    ///
-    pub const OnSetCount = onSetCount;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setCount)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBoxPlotModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHBoxPlotModelMapper, count: i32) callconv(.c) void `
-    ///
-    pub fn onSetCount(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
-        qtc.QHBoxPlotModelMapper_OnSetCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `firstBoxSetSection` instead
     ///
     pub const FirstBoxSetSection = firstBoxSetSection;
@@ -2295,44 +2139,6 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     pub fn firstBoxSetSection(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_FirstBoxSetSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFirstBoxSetSection` instead
-    ///
-    pub const SuperFirstBoxSetSection = superFirstBoxSetSection;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#firstBoxSetSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    pub fn superFirstBoxSetSection(self: QHBoxPlotModelMapper) i32 {
-        return qtc.QHBoxPlotModelMapper_SuperFirstBoxSetSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFirstBoxSetSection` instead
-    ///
-    pub const OnFirstBoxSetSection = onFirstBoxSetSection;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#firstBoxSetSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBoxPlotModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onFirstBoxSetSection(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHBoxPlotModelMapper_OnFirstBoxSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setFirstBoxSetSection` instead
@@ -2355,46 +2161,6 @@ pub const QHBoxPlotModelMapper = extern struct {
         qtc.QHBoxPlotModelMapper_SetFirstBoxSetSection(@ptrCast(self.ptr), @bitCast(_firstBoxSetSection));
     }
 
-    /// ### DEPRECATED: Use `superSetFirstBoxSetSection` instead
-    ///
-    pub const SuperSetFirstBoxSetSection = superSetFirstBoxSetSection;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setFirstBoxSetSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    /// ` _firstBoxSetSection: i32 `
-    ///
-    pub fn superSetFirstBoxSetSection(self: QHBoxPlotModelMapper, _firstBoxSetSection: i32) void {
-        qtc.QHBoxPlotModelMapper_SuperSetFirstBoxSetSection(@ptrCast(self.ptr), @bitCast(_firstBoxSetSection));
-    }
-
-    /// ### DEPRECATED: Use `onSetFirstBoxSetSection` instead
-    ///
-    pub const OnSetFirstBoxSetSection = onSetFirstBoxSetSection;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setFirstBoxSetSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBoxPlotModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHBoxPlotModelMapper, firstBoxSetSection: i32) callconv(.c) void `
-    ///
-    pub fn onSetFirstBoxSetSection(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
-        qtc.QHBoxPlotModelMapper_OnSetFirstBoxSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `lastBoxSetSection` instead
     ///
     pub const LastBoxSetSection = lastBoxSetSection;
@@ -2411,44 +2177,6 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     pub fn lastBoxSetSection(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_LastBoxSetSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superLastBoxSetSection` instead
-    ///
-    pub const SuperLastBoxSetSection = superLastBoxSetSection;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#lastBoxSetSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    pub fn superLastBoxSetSection(self: QHBoxPlotModelMapper) i32 {
-        return qtc.QHBoxPlotModelMapper_SuperLastBoxSetSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onLastBoxSetSection` instead
-    ///
-    pub const OnLastBoxSetSection = onLastBoxSetSection;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#lastBoxSetSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBoxPlotModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onLastBoxSetSection(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHBoxPlotModelMapper_OnLastBoxSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setLastBoxSetSection` instead
@@ -2469,46 +2197,6 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     pub fn setLastBoxSetSection(self: QHBoxPlotModelMapper, _lastBoxSetSection: i32) void {
         qtc.QHBoxPlotModelMapper_SetLastBoxSetSection(@ptrCast(self.ptr), @bitCast(_lastBoxSetSection));
-    }
-
-    /// ### DEPRECATED: Use `superSetLastBoxSetSection` instead
-    ///
-    pub const SuperSetLastBoxSetSection = superSetLastBoxSetSection;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setLastBoxSetSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    /// ` _lastBoxSetSection: i32 `
-    ///
-    pub fn superSetLastBoxSetSection(self: QHBoxPlotModelMapper, _lastBoxSetSection: i32) void {
-        qtc.QHBoxPlotModelMapper_SuperSetLastBoxSetSection(@ptrCast(self.ptr), @bitCast(_lastBoxSetSection));
-    }
-
-    /// ### DEPRECATED: Use `onSetLastBoxSetSection` instead
-    ///
-    pub const OnSetLastBoxSetSection = onSetLastBoxSetSection;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setLastBoxSetSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBoxPlotModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHBoxPlotModelMapper, lastBoxSetSection: i32) callconv(.c) void `
-    ///
-    pub fn onSetLastBoxSetSection(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
-        qtc.QHBoxPlotModelMapper_OnSetLastBoxSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `orientation` instead
@@ -2533,48 +2221,6 @@ pub const QHBoxPlotModelMapper = extern struct {
         return qtc.QHBoxPlotModelMapper_Orientation(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superOrientation` instead
-    ///
-    pub const SuperOrientation = superOrientation;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#orientation)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qnamespace_enums.Orientation `
-    ///
-    pub fn superOrientation(self: QHBoxPlotModelMapper) i32 {
-        return qtc.QHBoxPlotModelMapper_SuperOrientation(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onOrientation` instead
-    ///
-    pub const OnOrientation = onOrientation;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#orientation)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBoxPlotModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onOrientation(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHBoxPlotModelMapper_OnOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setOrientation` instead
     ///
     pub const SetOrientation = setOrientation;
@@ -2595,46 +2241,6 @@ pub const QHBoxPlotModelMapper = extern struct {
         qtc.QHBoxPlotModelMapper_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
 
-    /// ### DEPRECATED: Use `superSetOrientation` instead
-    ///
-    pub const SuperSetOrientation = superSetOrientation;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setOrientation)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    /// ` _orientation: qnamespace_enums.Orientation `
-    ///
-    pub fn superSetOrientation(self: QHBoxPlotModelMapper, _orientation: i32) void {
-        qtc.QHBoxPlotModelMapper_SuperSetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
-    }
-
-    /// ### DEPRECATED: Use `onSetOrientation` instead
-    ///
-    pub const OnSetOrientation = onSetOrientation;
-
-    /// Inherited from QBoxPlotModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setOrientation)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBoxPlotModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHBoxPlotModelMapper, orientation: qnamespace_enums.Orientation) callconv(.c) void `
-    ///
-    pub fn onSetOrientation(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
-        qtc.QHBoxPlotModelMapper_OnSetOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -2653,44 +2259,6 @@ pub const QHBoxPlotModelMapper = extern struct {
         return .{ .ptr = qtc.QHBoxPlotModelMapper_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    pub fn superSender(self: QHBoxPlotModelMapper) QObject {
-        return .{ .ptr = qtc.QHBoxPlotModelMapper_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBoxPlotModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QHBoxPlotModelMapper_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2707,44 +2275,6 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     pub fn senderSignalIndex(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    pub fn superSenderSignalIndex(self: QHBoxPlotModelMapper) i32 {
-        return qtc.QHBoxPlotModelMapper_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBoxPlotModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHBoxPlotModelMapper_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2768,47 +2298,6 @@ pub const QHBoxPlotModelMapper = extern struct {
         return qtc.QHBoxPlotModelMapper_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QHBoxPlotModelMapper, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QHBoxPlotModelMapper_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBoxPlotModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHBoxPlotModelMapper, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QHBoxPlotModelMapper_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2828,47 +2317,6 @@ pub const QHBoxPlotModelMapper = extern struct {
     pub fn isSignalConnected(self: QHBoxPlotModelMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QHBoxPlotModelMapper_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QHBoxPlotModelMapper, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QHBoxPlotModelMapper_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBoxPlotModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHBoxPlotModelMapper, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QMetaMethod) callconv(.c) bool) void {
-        qtc.QHBoxPlotModelMapper_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

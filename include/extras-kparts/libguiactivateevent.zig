@@ -331,9 +331,9 @@ pub const KParts__GUIActivateEvent = extern struct {
     ///
     /// ` self: KParts__GUIActivateEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: KParts__GUIActivateEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: KParts__GUIActivateEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: KParts__GUIActivateEvent, callback: *const fn (KParts__GUIActivateEvent) callconv(.c) QEvent) void {
         qtc.KParts__GUIActivateEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

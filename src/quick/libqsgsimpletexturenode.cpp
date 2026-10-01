@@ -70,58 +70,34 @@ bool QSGSimpleTextureNode_OwnsTexture(const QSGSimpleTextureNode* self) {
 
 // Derived class handler implementation
 bool QSGSimpleTextureNode_IsSubtreeBlocked(const QSGSimpleTextureNode* self) {
-    auto* vqsgsimpletexturenode = const_cast<VirtualQSGSimpleTextureNode*>(dynamic_cast<const VirtualQSGSimpleTextureNode*>(self));
-    if (vqsgsimpletexturenode && vqsgsimpletexturenode->isVirtualQSGSimpleTextureNode) {
-        return vqsgsimpletexturenode->isSubtreeBlocked();
-    } else {
-        return self->QSGSimpleTextureNode::isSubtreeBlocked();
-    }
+    return self->isSubtreeBlocked();
 }
 
 // Base class handler implementation
 bool QSGSimpleTextureNode_SuperIsSubtreeBlocked(const QSGSimpleTextureNode* self) {
-    auto* vqsgsimpletexturenode = const_cast<VirtualQSGSimpleTextureNode*>(dynamic_cast<const VirtualQSGSimpleTextureNode*>(self));
-    if (vqsgsimpletexturenode && vqsgsimpletexturenode->isVirtualQSGSimpleTextureNode) {
-        vqsgsimpletexturenode->setQSGSimpleTextureNode_IsSubtreeBlocked_IsBase(true);
-        return vqsgsimpletexturenode->isSubtreeBlocked();
-    } else {
-        return self->QSGSimpleTextureNode::isSubtreeBlocked();
-    }
+    return self->QSGSimpleTextureNode::isSubtreeBlocked();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGSimpleTextureNode_OnIsSubtreeBlocked(const QSGSimpleTextureNode* self, intptr_t slot) {
-    auto* vqsgsimpletexturenode = const_cast<VirtualQSGSimpleTextureNode*>(dynamic_cast<const VirtualQSGSimpleTextureNode*>(self));
-    if (vqsgsimpletexturenode && vqsgsimpletexturenode->isVirtualQSGSimpleTextureNode)
-        vqsgsimpletexturenode->setQSGSimpleTextureNode_IsSubtreeBlocked_Callback(reinterpret_cast<VirtualQSGSimpleTextureNode::QSGSimpleTextureNode_IsSubtreeBlocked_Callback>(slot));
+void QSGSimpleTextureNode_OnIsSubtreeBlocked(QSGSimpleTextureNode* self, intptr_t slot) {
+    if (auto* vqsgsimpletexturenode = const_cast<VirtualQSGSimpleTextureNode*>(dynamic_cast<const VirtualQSGSimpleTextureNode*>(self)))
+        vqsgsimpletexturenode->qsgsimpletexturenode_issubtreeblocked_callback = reinterpret_cast<VirtualQSGSimpleTextureNode::QSGSimpleTextureNode_IsSubtreeBlocked_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSGSimpleTextureNode_Preprocess(QSGSimpleTextureNode* self) {
-    auto* vqsgsimpletexturenode = dynamic_cast<VirtualQSGSimpleTextureNode*>(self);
-    if (vqsgsimpletexturenode && vqsgsimpletexturenode->isVirtualQSGSimpleTextureNode) {
-        vqsgsimpletexturenode->preprocess();
-    } else {
-        self->QSGSimpleTextureNode::preprocess();
-    }
+    self->preprocess();
 }
 
 // Base class handler implementation
 void QSGSimpleTextureNode_SuperPreprocess(QSGSimpleTextureNode* self) {
-    auto* vqsgsimpletexturenode = dynamic_cast<VirtualQSGSimpleTextureNode*>(self);
-    if (vqsgsimpletexturenode && vqsgsimpletexturenode->isVirtualQSGSimpleTextureNode) {
-        vqsgsimpletexturenode->setQSGSimpleTextureNode_Preprocess_IsBase(true);
-        vqsgsimpletexturenode->preprocess();
-    } else {
-        self->QSGSimpleTextureNode::preprocess();
-    }
+    self->QSGSimpleTextureNode::preprocess();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSGSimpleTextureNode_OnPreprocess(QSGSimpleTextureNode* self, intptr_t slot) {
-    auto* vqsgsimpletexturenode = dynamic_cast<VirtualQSGSimpleTextureNode*>(self);
-    if (vqsgsimpletexturenode && vqsgsimpletexturenode->isVirtualQSGSimpleTextureNode)
-        vqsgsimpletexturenode->setQSGSimpleTextureNode_Preprocess_Callback(reinterpret_cast<VirtualQSGSimpleTextureNode::QSGSimpleTextureNode_Preprocess_Callback>(slot));
+    if (auto* vqsgsimpletexturenode = dynamic_cast<VirtualQSGSimpleTextureNode*>(self))
+        vqsgsimpletexturenode->qsgsimpletexturenode_preprocess_callback = reinterpret_cast<VirtualQSGSimpleTextureNode::QSGSimpleTextureNode_Preprocess_Callback>(slot);
 }
 
 void QSGSimpleTextureNode_Delete(QSGSimpleTextureNode* self) {

@@ -32,20 +32,18 @@ QIODevice* KArchiveFile_CreateDevice(const KArchiveFile* self);
 bool KArchiveFile_IsFile(const KArchiveFile* self);
 bool KArchiveFile_CopyTo(const KArchiveFile* self, const libqt_string dest);
 void KArchiveFile_VirtualHook(KArchiveFile* self, int id, void* data);
-void KArchiveFile_OnData(const KArchiveFile* self, intptr_t slot);
+void KArchiveFile_OnData(KArchiveFile* self, intptr_t slot);
 libqt_string KArchiveFile_SuperData(const KArchiveFile* self);
-void KArchiveFile_OnCreateDevice(const KArchiveFile* self, intptr_t slot);
+void KArchiveFile_OnCreateDevice(KArchiveFile* self, intptr_t slot);
 QIODevice* KArchiveFile_SuperCreateDevice(const KArchiveFile* self);
-void KArchiveFile_OnIsFile(const KArchiveFile* self, intptr_t slot);
+void KArchiveFile_OnIsFile(KArchiveFile* self, intptr_t slot);
 bool KArchiveFile_SuperIsFile(const KArchiveFile* self);
 void KArchiveFile_OnVirtualHook(KArchiveFile* self, intptr_t slot);
 void KArchiveFile_SuperVirtualHook(KArchiveFile* self, int id, void* data);
 bool KArchiveFile_IsDirectory(const KArchiveFile* self);
-void KArchiveFile_OnIsDirectory(const KArchiveFile* self, intptr_t slot);
+void KArchiveFile_OnIsDirectory(KArchiveFile* self, intptr_t slot);
 bool KArchiveFile_SuperIsDirectory(const KArchiveFile* self);
 KArchive* KArchiveFile_Archive(const KArchiveFile* self);
-void KArchiveFile_OnArchive(const KArchiveFile* self, intptr_t slot);
-KArchive* KArchiveFile_SuperArchive(const KArchiveFile* self);
 void KArchiveFile_Delete(KArchiveFile* self);
 
 #ifdef __cplusplus

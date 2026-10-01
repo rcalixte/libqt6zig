@@ -85,9 +85,9 @@ pub const KSyntaxHighlighting__DefinitionDownloader = extern struct {
     ///
     /// ` self: KSyntaxHighlighting__DefinitionDownloader `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KSyntaxHighlighting__DefinitionDownloader) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KSyntaxHighlighting__DefinitionDownloader, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KSyntaxHighlighting__DefinitionDownloader, callback: *const fn (KSyntaxHighlighting__DefinitionDownloader) callconv(.c) QMetaObject) void {
         qtc.KSyntaxHighlighting__DefinitionDownloader_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1789,44 +1789,6 @@ pub const KSyntaxHighlighting__DefinitionDownloader = extern struct {
         return .{ .ptr = qtc.KSyntaxHighlighting__DefinitionDownloader_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__DefinitionDownloader `
-    ///
-    pub fn superSender(self: KSyntaxHighlighting__DefinitionDownloader) QObject {
-        return .{ .ptr = qtc.KSyntaxHighlighting__DefinitionDownloader_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__DefinitionDownloader`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KSyntaxHighlighting__DefinitionDownloader, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KSyntaxHighlighting__DefinitionDownloader_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1843,44 +1805,6 @@ pub const KSyntaxHighlighting__DefinitionDownloader = extern struct {
     ///
     pub fn senderSignalIndex(self: KSyntaxHighlighting__DefinitionDownloader) i32 {
         return qtc.KSyntaxHighlighting__DefinitionDownloader_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__DefinitionDownloader `
-    ///
-    pub fn superSenderSignalIndex(self: KSyntaxHighlighting__DefinitionDownloader) i32 {
-        return qtc.KSyntaxHighlighting__DefinitionDownloader_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__DefinitionDownloader`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KSyntaxHighlighting__DefinitionDownloader, callback: *const fn () callconv(.c) i32) void {
-        qtc.KSyntaxHighlighting__DefinitionDownloader_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1904,47 +1828,6 @@ pub const KSyntaxHighlighting__DefinitionDownloader = extern struct {
         return qtc.KSyntaxHighlighting__DefinitionDownloader_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__DefinitionDownloader `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KSyntaxHighlighting__DefinitionDownloader, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KSyntaxHighlighting__DefinitionDownloader_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__DefinitionDownloader`
-    ///
-    /// ` callback: *const fn (self: KSyntaxHighlighting__DefinitionDownloader, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KSyntaxHighlighting__DefinitionDownloader, callback: *const fn (KSyntaxHighlighting__DefinitionDownloader, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KSyntaxHighlighting__DefinitionDownloader_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -1964,47 +1847,6 @@ pub const KSyntaxHighlighting__DefinitionDownloader = extern struct {
     pub fn isSignalConnected(self: KSyntaxHighlighting__DefinitionDownloader, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KSyntaxHighlighting__DefinitionDownloader_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__DefinitionDownloader `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KSyntaxHighlighting__DefinitionDownloader, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KSyntaxHighlighting__DefinitionDownloader_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__DefinitionDownloader`
-    ///
-    /// ` callback: *const fn (self: KSyntaxHighlighting__DefinitionDownloader, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KSyntaxHighlighting__DefinitionDownloader, callback: *const fn (KSyntaxHighlighting__DefinitionDownloader, QMetaMethod) callconv(.c) bool) void {
-        qtc.KSyntaxHighlighting__DefinitionDownloader_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

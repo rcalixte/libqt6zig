@@ -9,15 +9,11 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QToolBox so that we can call protected methods
+// This class is a subclass of QToolBox
 class VirtualQToolBox final : public QToolBox {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQToolBox = true;
-
-    // Virtual class public types (including callbacks)
-    using QToolBox_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QToolBox_MetaObject_Callback = QMetaObject* (*)(const QToolBox*);
     using QToolBox_Metacast_Callback = void* (*)(QToolBox*, const char*);
     using QToolBox_Metacall_Callback = int (*)(QToolBox*, int, int, void**);
     using QToolBox_Event_Callback = bool (*)(QToolBox*, QEvent*);
@@ -25,15 +21,15 @@ class VirtualQToolBox final : public QToolBox {
     using QToolBox_ItemRemoved_Callback = void (*)(QToolBox*, int);
     using QToolBox_ShowEvent_Callback = void (*)(QToolBox*, QShowEvent*);
     using QToolBox_ChangeEvent_Callback = void (*)(QToolBox*, QEvent*);
-    using QToolBox_SizeHint_Callback = QSize* (*)();
+    using QToolBox_SizeHint_Callback = QSize* (*)(const QToolBox*);
     using QToolBox_PaintEvent_Callback = void (*)(QToolBox*, QPaintEvent*);
     using QToolBox_InitStyleOption_Callback = void (*)(const QToolBox*, QStyleOptionFrame*);
-    using QToolBox_DevType_Callback = int (*)();
+    using QToolBox_DevType_Callback = int (*)(const QToolBox*);
     using QToolBox_SetVisible_Callback = void (*)(QToolBox*, bool);
-    using QToolBox_MinimumSizeHint_Callback = QSize* (*)();
+    using QToolBox_MinimumSizeHint_Callback = QSize* (*)(const QToolBox*);
     using QToolBox_HeightForWidth_Callback = int (*)(const QToolBox*, int);
-    using QToolBox_HasHeightForWidth_Callback = bool (*)();
-    using QToolBox_PaintEngine_Callback = QPaintEngine* (*)();
+    using QToolBox_HasHeightForWidth_Callback = bool (*)(const QToolBox*);
+    using QToolBox_PaintEngine_Callback = QPaintEngine* (*)(const QToolBox*);
     using QToolBox_MousePressEvent_Callback = void (*)(QToolBox*, QMouseEvent*);
     using QToolBox_MouseReleaseEvent_Callback = void (*)(QToolBox*, QMouseEvent*);
     using QToolBox_MouseDoubleClickEvent_Callback = void (*)(QToolBox*, QMouseEvent*);
@@ -60,7 +56,7 @@ class VirtualQToolBox final : public QToolBox {
     using QToolBox_Metric_Callback = int (*)(const QToolBox*, int);
     using QToolBox_InitPainter_Callback = void (*)(const QToolBox*, QPainter*);
     using QToolBox_Redirected_Callback = QPaintDevice* (*)(const QToolBox*, QPoint*);
-    using QToolBox_SharedPainter_Callback = QPainter* (*)();
+    using QToolBox_SharedPainter_Callback = QPainter* (*)(const QToolBox*);
     using QToolBox_InputMethodEvent_Callback = void (*)(QToolBox*, QInputMethodEvent*);
     using QToolBox_InputMethodQuery_Callback = QVariant* (*)(const QToolBox*, int);
     using QToolBox_FocusNextPrevChild_Callback = bool (*)(QToolBox*, bool);
@@ -70,19 +66,18 @@ class VirtualQToolBox final : public QToolBox {
     using QToolBox_CustomEvent_Callback = void (*)(QToolBox*, QEvent*);
     using QToolBox_ConnectNotify_Callback = void (*)(QToolBox*, QMetaMethod*);
     using QToolBox_DisconnectNotify_Callback = void (*)(QToolBox*, QMetaMethod*);
-    using QToolBox_DrawFrame_Callback = void (*)(QToolBox*, QPainter*);
-    using QToolBox_UpdateMicroFocus_Callback = void (*)();
-    using QToolBox_Create_Callback = void (*)();
-    using QToolBox_Destroy_Callback = void (*)();
-    using QToolBox_FocusNextChild_Callback = bool (*)();
-    using QToolBox_FocusPreviousChild_Callback = bool (*)();
-    using QToolBox_Sender_Callback = QObject* (*)();
-    using QToolBox_SenderSignalIndex_Callback = int (*)();
-    using QToolBox_Receivers_Callback = int (*)(const QToolBox*, const char*);
-    using QToolBox_IsSignalConnected_Callback = bool (*)(const QToolBox*, QMetaMethod*);
-    using QToolBox_GetDecodedMetricF_Callback = double (*)(const QToolBox*, int, int);
+    using QToolBox::create;
+    using QToolBox::destroy;
+    using QToolBox::drawFrame;
+    using QToolBox::focusNextChild;
+    using QToolBox::focusPreviousChild;
+    using QToolBox::getDecodedMetricF;
+    using QToolBox::isSignalConnected;
+    using QToolBox::receivers;
+    using QToolBox::sender;
+    using QToolBox::senderSignalIndex;
+    using QToolBox::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QToolBox_MetaObject_Callback qtoolbox_metaobject_callback = nullptr;
     QToolBox_Metacast_Callback qtoolbox_metacast_callback = nullptr;
@@ -137,230 +132,60 @@ class VirtualQToolBox final : public QToolBox {
     QToolBox_CustomEvent_Callback qtoolbox_customevent_callback = nullptr;
     QToolBox_ConnectNotify_Callback qtoolbox_connectnotify_callback = nullptr;
     QToolBox_DisconnectNotify_Callback qtoolbox_disconnectnotify_callback = nullptr;
-    QToolBox_DrawFrame_Callback qtoolbox_drawframe_callback = nullptr;
-    QToolBox_UpdateMicroFocus_Callback qtoolbox_updatemicrofocus_callback = nullptr;
-    QToolBox_Create_Callback qtoolbox_create_callback = nullptr;
-    QToolBox_Destroy_Callback qtoolbox_destroy_callback = nullptr;
-    QToolBox_FocusNextChild_Callback qtoolbox_focusnextchild_callback = nullptr;
-    QToolBox_FocusPreviousChild_Callback qtoolbox_focuspreviouschild_callback = nullptr;
-    QToolBox_Sender_Callback qtoolbox_sender_callback = nullptr;
-    QToolBox_SenderSignalIndex_Callback qtoolbox_sendersignalindex_callback = nullptr;
-    QToolBox_Receivers_Callback qtoolbox_receivers_callback = nullptr;
-    QToolBox_IsSignalConnected_Callback qtoolbox_issignalconnected_callback = nullptr;
-    QToolBox_GetDecodedMetricF_Callback qtoolbox_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qtoolbox_metaobject_isbase = false;
-    mutable bool qtoolbox_metacast_isbase = false;
-    mutable bool qtoolbox_metacall_isbase = false;
-    mutable bool qtoolbox_event_isbase = false;
-    mutable bool qtoolbox_iteminserted_isbase = false;
-    mutable bool qtoolbox_itemremoved_isbase = false;
-    mutable bool qtoolbox_showevent_isbase = false;
-    mutable bool qtoolbox_changeevent_isbase = false;
-    mutable bool qtoolbox_sizehint_isbase = false;
-    mutable bool qtoolbox_paintevent_isbase = false;
-    mutable bool qtoolbox_initstyleoption_isbase = false;
-    mutable bool qtoolbox_devtype_isbase = false;
-    mutable bool qtoolbox_setvisible_isbase = false;
-    mutable bool qtoolbox_minimumsizehint_isbase = false;
-    mutable bool qtoolbox_heightforwidth_isbase = false;
-    mutable bool qtoolbox_hasheightforwidth_isbase = false;
-    mutable bool qtoolbox_paintengine_isbase = false;
-    mutable bool qtoolbox_mousepressevent_isbase = false;
-    mutable bool qtoolbox_mousereleaseevent_isbase = false;
-    mutable bool qtoolbox_mousedoubleclickevent_isbase = false;
-    mutable bool qtoolbox_mousemoveevent_isbase = false;
-    mutable bool qtoolbox_wheelevent_isbase = false;
-    mutable bool qtoolbox_keypressevent_isbase = false;
-    mutable bool qtoolbox_keyreleaseevent_isbase = false;
-    mutable bool qtoolbox_focusinevent_isbase = false;
-    mutable bool qtoolbox_focusoutevent_isbase = false;
-    mutable bool qtoolbox_enterevent_isbase = false;
-    mutable bool qtoolbox_leaveevent_isbase = false;
-    mutable bool qtoolbox_moveevent_isbase = false;
-    mutable bool qtoolbox_resizeevent_isbase = false;
-    mutable bool qtoolbox_closeevent_isbase = false;
-    mutable bool qtoolbox_contextmenuevent_isbase = false;
-    mutable bool qtoolbox_tabletevent_isbase = false;
-    mutable bool qtoolbox_actionevent_isbase = false;
-    mutable bool qtoolbox_dragenterevent_isbase = false;
-    mutable bool qtoolbox_dragmoveevent_isbase = false;
-    mutable bool qtoolbox_dragleaveevent_isbase = false;
-    mutable bool qtoolbox_dropevent_isbase = false;
-    mutable bool qtoolbox_hideevent_isbase = false;
-    mutable bool qtoolbox_nativeevent_isbase = false;
-    mutable bool qtoolbox_metric_isbase = false;
-    mutable bool qtoolbox_initpainter_isbase = false;
-    mutable bool qtoolbox_redirected_isbase = false;
-    mutable bool qtoolbox_sharedpainter_isbase = false;
-    mutable bool qtoolbox_inputmethodevent_isbase = false;
-    mutable bool qtoolbox_inputmethodquery_isbase = false;
-    mutable bool qtoolbox_focusnextprevchild_isbase = false;
-    mutable bool qtoolbox_eventfilter_isbase = false;
-    mutable bool qtoolbox_timerevent_isbase = false;
-    mutable bool qtoolbox_childevent_isbase = false;
-    mutable bool qtoolbox_customevent_isbase = false;
-    mutable bool qtoolbox_connectnotify_isbase = false;
-    mutable bool qtoolbox_disconnectnotify_isbase = false;
-    mutable bool qtoolbox_drawframe_isbase = false;
-    mutable bool qtoolbox_updatemicrofocus_isbase = false;
-    mutable bool qtoolbox_create_isbase = false;
-    mutable bool qtoolbox_destroy_isbase = false;
-    mutable bool qtoolbox_focusnextchild_isbase = false;
-    mutable bool qtoolbox_focuspreviouschild_isbase = false;
-    mutable bool qtoolbox_sender_isbase = false;
-    mutable bool qtoolbox_sendersignalindex_isbase = false;
-    mutable bool qtoolbox_receivers_isbase = false;
-    mutable bool qtoolbox_issignalconnected_isbase = false;
-    mutable bool qtoolbox_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QToolBox {
+        using QToolBox::actionEvent;
+        using QToolBox::changeEvent;
+        using QToolBox::childEvent;
+        using QToolBox::closeEvent;
+        using QToolBox::connectNotify;
+        using QToolBox::contextMenuEvent;
+        using QToolBox::customEvent;
+        using QToolBox::disconnectNotify;
+        using QToolBox::dragEnterEvent;
+        using QToolBox::dragLeaveEvent;
+        using QToolBox::dragMoveEvent;
+        using QToolBox::dropEvent;
+        using QToolBox::enterEvent;
+        using QToolBox::event;
+        using QToolBox::focusInEvent;
+        using QToolBox::focusNextPrevChild;
+        using QToolBox::focusOutEvent;
+        using QToolBox::hideEvent;
+        using QToolBox::initPainter;
+        using QToolBox::initStyleOption;
+        using QToolBox::inputMethodEvent;
+        using QToolBox::itemInserted;
+        using QToolBox::itemRemoved;
+        using QToolBox::keyPressEvent;
+        using QToolBox::keyReleaseEvent;
+        using QToolBox::leaveEvent;
+        using QToolBox::metric;
+        using QToolBox::mouseDoubleClickEvent;
+        using QToolBox::mouseMoveEvent;
+        using QToolBox::mousePressEvent;
+        using QToolBox::mouseReleaseEvent;
+        using QToolBox::moveEvent;
+        using QToolBox::nativeEvent;
+        using QToolBox::paintEvent;
+        using QToolBox::redirected;
+        using QToolBox::resizeEvent;
+        using QToolBox::sharedPainter;
+        using QToolBox::showEvent;
+        using QToolBox::tabletEvent;
+        using QToolBox::timerEvent;
+        using QToolBox::wheelEvent;
+    };
 
-  public:
     VirtualQToolBox(QWidget* parent) : QToolBox(parent) {};
     VirtualQToolBox() : QToolBox() {};
     VirtualQToolBox(QWidget* parent, Qt::WindowFlags f) : QToolBox(parent, f) {};
 
-    // Callback setters
-    inline void setQToolBox_MetaObject_Callback(QToolBox_MetaObject_Callback cb) { qtoolbox_metaobject_callback = cb; }
-    inline void setQToolBox_Metacast_Callback(QToolBox_Metacast_Callback cb) { qtoolbox_metacast_callback = cb; }
-    inline void setQToolBox_Metacall_Callback(QToolBox_Metacall_Callback cb) { qtoolbox_metacall_callback = cb; }
-    inline void setQToolBox_Event_Callback(QToolBox_Event_Callback cb) { qtoolbox_event_callback = cb; }
-    inline void setQToolBox_ItemInserted_Callback(QToolBox_ItemInserted_Callback cb) { qtoolbox_iteminserted_callback = cb; }
-    inline void setQToolBox_ItemRemoved_Callback(QToolBox_ItemRemoved_Callback cb) { qtoolbox_itemremoved_callback = cb; }
-    inline void setQToolBox_ShowEvent_Callback(QToolBox_ShowEvent_Callback cb) { qtoolbox_showevent_callback = cb; }
-    inline void setQToolBox_ChangeEvent_Callback(QToolBox_ChangeEvent_Callback cb) { qtoolbox_changeevent_callback = cb; }
-    inline void setQToolBox_SizeHint_Callback(QToolBox_SizeHint_Callback cb) { qtoolbox_sizehint_callback = cb; }
-    inline void setQToolBox_PaintEvent_Callback(QToolBox_PaintEvent_Callback cb) { qtoolbox_paintevent_callback = cb; }
-    inline void setQToolBox_InitStyleOption_Callback(QToolBox_InitStyleOption_Callback cb) { qtoolbox_initstyleoption_callback = cb; }
-    inline void setQToolBox_DevType_Callback(QToolBox_DevType_Callback cb) { qtoolbox_devtype_callback = cb; }
-    inline void setQToolBox_SetVisible_Callback(QToolBox_SetVisible_Callback cb) { qtoolbox_setvisible_callback = cb; }
-    inline void setQToolBox_MinimumSizeHint_Callback(QToolBox_MinimumSizeHint_Callback cb) { qtoolbox_minimumsizehint_callback = cb; }
-    inline void setQToolBox_HeightForWidth_Callback(QToolBox_HeightForWidth_Callback cb) { qtoolbox_heightforwidth_callback = cb; }
-    inline void setQToolBox_HasHeightForWidth_Callback(QToolBox_HasHeightForWidth_Callback cb) { qtoolbox_hasheightforwidth_callback = cb; }
-    inline void setQToolBox_PaintEngine_Callback(QToolBox_PaintEngine_Callback cb) { qtoolbox_paintengine_callback = cb; }
-    inline void setQToolBox_MousePressEvent_Callback(QToolBox_MousePressEvent_Callback cb) { qtoolbox_mousepressevent_callback = cb; }
-    inline void setQToolBox_MouseReleaseEvent_Callback(QToolBox_MouseReleaseEvent_Callback cb) { qtoolbox_mousereleaseevent_callback = cb; }
-    inline void setQToolBox_MouseDoubleClickEvent_Callback(QToolBox_MouseDoubleClickEvent_Callback cb) { qtoolbox_mousedoubleclickevent_callback = cb; }
-    inline void setQToolBox_MouseMoveEvent_Callback(QToolBox_MouseMoveEvent_Callback cb) { qtoolbox_mousemoveevent_callback = cb; }
-    inline void setQToolBox_WheelEvent_Callback(QToolBox_WheelEvent_Callback cb) { qtoolbox_wheelevent_callback = cb; }
-    inline void setQToolBox_KeyPressEvent_Callback(QToolBox_KeyPressEvent_Callback cb) { qtoolbox_keypressevent_callback = cb; }
-    inline void setQToolBox_KeyReleaseEvent_Callback(QToolBox_KeyReleaseEvent_Callback cb) { qtoolbox_keyreleaseevent_callback = cb; }
-    inline void setQToolBox_FocusInEvent_Callback(QToolBox_FocusInEvent_Callback cb) { qtoolbox_focusinevent_callback = cb; }
-    inline void setQToolBox_FocusOutEvent_Callback(QToolBox_FocusOutEvent_Callback cb) { qtoolbox_focusoutevent_callback = cb; }
-    inline void setQToolBox_EnterEvent_Callback(QToolBox_EnterEvent_Callback cb) { qtoolbox_enterevent_callback = cb; }
-    inline void setQToolBox_LeaveEvent_Callback(QToolBox_LeaveEvent_Callback cb) { qtoolbox_leaveevent_callback = cb; }
-    inline void setQToolBox_MoveEvent_Callback(QToolBox_MoveEvent_Callback cb) { qtoolbox_moveevent_callback = cb; }
-    inline void setQToolBox_ResizeEvent_Callback(QToolBox_ResizeEvent_Callback cb) { qtoolbox_resizeevent_callback = cb; }
-    inline void setQToolBox_CloseEvent_Callback(QToolBox_CloseEvent_Callback cb) { qtoolbox_closeevent_callback = cb; }
-    inline void setQToolBox_ContextMenuEvent_Callback(QToolBox_ContextMenuEvent_Callback cb) { qtoolbox_contextmenuevent_callback = cb; }
-    inline void setQToolBox_TabletEvent_Callback(QToolBox_TabletEvent_Callback cb) { qtoolbox_tabletevent_callback = cb; }
-    inline void setQToolBox_ActionEvent_Callback(QToolBox_ActionEvent_Callback cb) { qtoolbox_actionevent_callback = cb; }
-    inline void setQToolBox_DragEnterEvent_Callback(QToolBox_DragEnterEvent_Callback cb) { qtoolbox_dragenterevent_callback = cb; }
-    inline void setQToolBox_DragMoveEvent_Callback(QToolBox_DragMoveEvent_Callback cb) { qtoolbox_dragmoveevent_callback = cb; }
-    inline void setQToolBox_DragLeaveEvent_Callback(QToolBox_DragLeaveEvent_Callback cb) { qtoolbox_dragleaveevent_callback = cb; }
-    inline void setQToolBox_DropEvent_Callback(QToolBox_DropEvent_Callback cb) { qtoolbox_dropevent_callback = cb; }
-    inline void setQToolBox_HideEvent_Callback(QToolBox_HideEvent_Callback cb) { qtoolbox_hideevent_callback = cb; }
-    inline void setQToolBox_NativeEvent_Callback(QToolBox_NativeEvent_Callback cb) { qtoolbox_nativeevent_callback = cb; }
-    inline void setQToolBox_Metric_Callback(QToolBox_Metric_Callback cb) { qtoolbox_metric_callback = cb; }
-    inline void setQToolBox_InitPainter_Callback(QToolBox_InitPainter_Callback cb) { qtoolbox_initpainter_callback = cb; }
-    inline void setQToolBox_Redirected_Callback(QToolBox_Redirected_Callback cb) { qtoolbox_redirected_callback = cb; }
-    inline void setQToolBox_SharedPainter_Callback(QToolBox_SharedPainter_Callback cb) { qtoolbox_sharedpainter_callback = cb; }
-    inline void setQToolBox_InputMethodEvent_Callback(QToolBox_InputMethodEvent_Callback cb) { qtoolbox_inputmethodevent_callback = cb; }
-    inline void setQToolBox_InputMethodQuery_Callback(QToolBox_InputMethodQuery_Callback cb) { qtoolbox_inputmethodquery_callback = cb; }
-    inline void setQToolBox_FocusNextPrevChild_Callback(QToolBox_FocusNextPrevChild_Callback cb) { qtoolbox_focusnextprevchild_callback = cb; }
-    inline void setQToolBox_EventFilter_Callback(QToolBox_EventFilter_Callback cb) { qtoolbox_eventfilter_callback = cb; }
-    inline void setQToolBox_TimerEvent_Callback(QToolBox_TimerEvent_Callback cb) { qtoolbox_timerevent_callback = cb; }
-    inline void setQToolBox_ChildEvent_Callback(QToolBox_ChildEvent_Callback cb) { qtoolbox_childevent_callback = cb; }
-    inline void setQToolBox_CustomEvent_Callback(QToolBox_CustomEvent_Callback cb) { qtoolbox_customevent_callback = cb; }
-    inline void setQToolBox_ConnectNotify_Callback(QToolBox_ConnectNotify_Callback cb) { qtoolbox_connectnotify_callback = cb; }
-    inline void setQToolBox_DisconnectNotify_Callback(QToolBox_DisconnectNotify_Callback cb) { qtoolbox_disconnectnotify_callback = cb; }
-    inline void setQToolBox_DrawFrame_Callback(QToolBox_DrawFrame_Callback cb) { qtoolbox_drawframe_callback = cb; }
-    inline void setQToolBox_UpdateMicroFocus_Callback(QToolBox_UpdateMicroFocus_Callback cb) { qtoolbox_updatemicrofocus_callback = cb; }
-    inline void setQToolBox_Create_Callback(QToolBox_Create_Callback cb) { qtoolbox_create_callback = cb; }
-    inline void setQToolBox_Destroy_Callback(QToolBox_Destroy_Callback cb) { qtoolbox_destroy_callback = cb; }
-    inline void setQToolBox_FocusNextChild_Callback(QToolBox_FocusNextChild_Callback cb) { qtoolbox_focusnextchild_callback = cb; }
-    inline void setQToolBox_FocusPreviousChild_Callback(QToolBox_FocusPreviousChild_Callback cb) { qtoolbox_focuspreviouschild_callback = cb; }
-    inline void setQToolBox_Sender_Callback(QToolBox_Sender_Callback cb) { qtoolbox_sender_callback = cb; }
-    inline void setQToolBox_SenderSignalIndex_Callback(QToolBox_SenderSignalIndex_Callback cb) { qtoolbox_sendersignalindex_callback = cb; }
-    inline void setQToolBox_Receivers_Callback(QToolBox_Receivers_Callback cb) { qtoolbox_receivers_callback = cb; }
-    inline void setQToolBox_IsSignalConnected_Callback(QToolBox_IsSignalConnected_Callback cb) { qtoolbox_issignalconnected_callback = cb; }
-    inline void setQToolBox_GetDecodedMetricF_Callback(QToolBox_GetDecodedMetricF_Callback cb) { qtoolbox_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQToolBox_MetaObject_IsBase(bool value) const { qtoolbox_metaobject_isbase = value; }
-    inline void setQToolBox_Metacast_IsBase(bool value) const { qtoolbox_metacast_isbase = value; }
-    inline void setQToolBox_Metacall_IsBase(bool value) const { qtoolbox_metacall_isbase = value; }
-    inline void setQToolBox_Event_IsBase(bool value) const { qtoolbox_event_isbase = value; }
-    inline void setQToolBox_ItemInserted_IsBase(bool value) const { qtoolbox_iteminserted_isbase = value; }
-    inline void setQToolBox_ItemRemoved_IsBase(bool value) const { qtoolbox_itemremoved_isbase = value; }
-    inline void setQToolBox_ShowEvent_IsBase(bool value) const { qtoolbox_showevent_isbase = value; }
-    inline void setQToolBox_ChangeEvent_IsBase(bool value) const { qtoolbox_changeevent_isbase = value; }
-    inline void setQToolBox_SizeHint_IsBase(bool value) const { qtoolbox_sizehint_isbase = value; }
-    inline void setQToolBox_PaintEvent_IsBase(bool value) const { qtoolbox_paintevent_isbase = value; }
-    inline void setQToolBox_InitStyleOption_IsBase(bool value) const { qtoolbox_initstyleoption_isbase = value; }
-    inline void setQToolBox_DevType_IsBase(bool value) const { qtoolbox_devtype_isbase = value; }
-    inline void setQToolBox_SetVisible_IsBase(bool value) const { qtoolbox_setvisible_isbase = value; }
-    inline void setQToolBox_MinimumSizeHint_IsBase(bool value) const { qtoolbox_minimumsizehint_isbase = value; }
-    inline void setQToolBox_HeightForWidth_IsBase(bool value) const { qtoolbox_heightforwidth_isbase = value; }
-    inline void setQToolBox_HasHeightForWidth_IsBase(bool value) const { qtoolbox_hasheightforwidth_isbase = value; }
-    inline void setQToolBox_PaintEngine_IsBase(bool value) const { qtoolbox_paintengine_isbase = value; }
-    inline void setQToolBox_MousePressEvent_IsBase(bool value) const { qtoolbox_mousepressevent_isbase = value; }
-    inline void setQToolBox_MouseReleaseEvent_IsBase(bool value) const { qtoolbox_mousereleaseevent_isbase = value; }
-    inline void setQToolBox_MouseDoubleClickEvent_IsBase(bool value) const { qtoolbox_mousedoubleclickevent_isbase = value; }
-    inline void setQToolBox_MouseMoveEvent_IsBase(bool value) const { qtoolbox_mousemoveevent_isbase = value; }
-    inline void setQToolBox_WheelEvent_IsBase(bool value) const { qtoolbox_wheelevent_isbase = value; }
-    inline void setQToolBox_KeyPressEvent_IsBase(bool value) const { qtoolbox_keypressevent_isbase = value; }
-    inline void setQToolBox_KeyReleaseEvent_IsBase(bool value) const { qtoolbox_keyreleaseevent_isbase = value; }
-    inline void setQToolBox_FocusInEvent_IsBase(bool value) const { qtoolbox_focusinevent_isbase = value; }
-    inline void setQToolBox_FocusOutEvent_IsBase(bool value) const { qtoolbox_focusoutevent_isbase = value; }
-    inline void setQToolBox_EnterEvent_IsBase(bool value) const { qtoolbox_enterevent_isbase = value; }
-    inline void setQToolBox_LeaveEvent_IsBase(bool value) const { qtoolbox_leaveevent_isbase = value; }
-    inline void setQToolBox_MoveEvent_IsBase(bool value) const { qtoolbox_moveevent_isbase = value; }
-    inline void setQToolBox_ResizeEvent_IsBase(bool value) const { qtoolbox_resizeevent_isbase = value; }
-    inline void setQToolBox_CloseEvent_IsBase(bool value) const { qtoolbox_closeevent_isbase = value; }
-    inline void setQToolBox_ContextMenuEvent_IsBase(bool value) const { qtoolbox_contextmenuevent_isbase = value; }
-    inline void setQToolBox_TabletEvent_IsBase(bool value) const { qtoolbox_tabletevent_isbase = value; }
-    inline void setQToolBox_ActionEvent_IsBase(bool value) const { qtoolbox_actionevent_isbase = value; }
-    inline void setQToolBox_DragEnterEvent_IsBase(bool value) const { qtoolbox_dragenterevent_isbase = value; }
-    inline void setQToolBox_DragMoveEvent_IsBase(bool value) const { qtoolbox_dragmoveevent_isbase = value; }
-    inline void setQToolBox_DragLeaveEvent_IsBase(bool value) const { qtoolbox_dragleaveevent_isbase = value; }
-    inline void setQToolBox_DropEvent_IsBase(bool value) const { qtoolbox_dropevent_isbase = value; }
-    inline void setQToolBox_HideEvent_IsBase(bool value) const { qtoolbox_hideevent_isbase = value; }
-    inline void setQToolBox_NativeEvent_IsBase(bool value) const { qtoolbox_nativeevent_isbase = value; }
-    inline void setQToolBox_Metric_IsBase(bool value) const { qtoolbox_metric_isbase = value; }
-    inline void setQToolBox_InitPainter_IsBase(bool value) const { qtoolbox_initpainter_isbase = value; }
-    inline void setQToolBox_Redirected_IsBase(bool value) const { qtoolbox_redirected_isbase = value; }
-    inline void setQToolBox_SharedPainter_IsBase(bool value) const { qtoolbox_sharedpainter_isbase = value; }
-    inline void setQToolBox_InputMethodEvent_IsBase(bool value) const { qtoolbox_inputmethodevent_isbase = value; }
-    inline void setQToolBox_InputMethodQuery_IsBase(bool value) const { qtoolbox_inputmethodquery_isbase = value; }
-    inline void setQToolBox_FocusNextPrevChild_IsBase(bool value) const { qtoolbox_focusnextprevchild_isbase = value; }
-    inline void setQToolBox_EventFilter_IsBase(bool value) const { qtoolbox_eventfilter_isbase = value; }
-    inline void setQToolBox_TimerEvent_IsBase(bool value) const { qtoolbox_timerevent_isbase = value; }
-    inline void setQToolBox_ChildEvent_IsBase(bool value) const { qtoolbox_childevent_isbase = value; }
-    inline void setQToolBox_CustomEvent_IsBase(bool value) const { qtoolbox_customevent_isbase = value; }
-    inline void setQToolBox_ConnectNotify_IsBase(bool value) const { qtoolbox_connectnotify_isbase = value; }
-    inline void setQToolBox_DisconnectNotify_IsBase(bool value) const { qtoolbox_disconnectnotify_isbase = value; }
-    inline void setQToolBox_DrawFrame_IsBase(bool value) const { qtoolbox_drawframe_isbase = value; }
-    inline void setQToolBox_UpdateMicroFocus_IsBase(bool value) const { qtoolbox_updatemicrofocus_isbase = value; }
-    inline void setQToolBox_Create_IsBase(bool value) const { qtoolbox_create_isbase = value; }
-    inline void setQToolBox_Destroy_IsBase(bool value) const { qtoolbox_destroy_isbase = value; }
-    inline void setQToolBox_FocusNextChild_IsBase(bool value) const { qtoolbox_focusnextchild_isbase = value; }
-    inline void setQToolBox_FocusPreviousChild_IsBase(bool value) const { qtoolbox_focuspreviouschild_isbase = value; }
-    inline void setQToolBox_Sender_IsBase(bool value) const { qtoolbox_sender_isbase = value; }
-    inline void setQToolBox_SenderSignalIndex_IsBase(bool value) const { qtoolbox_sendersignalindex_isbase = value; }
-    inline void setQToolBox_Receivers_IsBase(bool value) const { qtoolbox_receivers_isbase = value; }
-    inline void setQToolBox_IsSignalConnected_IsBase(bool value) const { qtoolbox_issignalconnected_isbase = value; }
-    inline void setQToolBox_GetDecodedMetricF_IsBase(bool value) const { qtoolbox_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qtoolbox_metaobject_isbase) {
-            qtoolbox_metaobject_isbase = false;
-            return QToolBox::metaObject();
-        }
-        auto metaobject_cb = qtoolbox_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qtoolbox_metaobject_callback) {
+            QMetaObject* callback_ret = qtoolbox_metaobject_callback(this);
             return callback_ret;
         }
         return QToolBox::metaObject();
@@ -368,14 +193,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qtoolbox_metacast_isbase) {
-            qtoolbox_metacast_isbase = false;
-            return QToolBox::qt_metacast(param1);
-        }
-        auto metacast_cb = qtoolbox_metacast_callback;
-        if (metacast_cb) {
+        if (qtoolbox_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qtoolbox_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QToolBox::qt_metacast(param1);
@@ -383,16 +203,11 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qtoolbox_metacall_isbase) {
-            qtoolbox_metacall_isbase = false;
-            return QToolBox::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qtoolbox_metacall_callback;
-        if (metacall_cb) {
+        if (qtoolbox_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qtoolbox_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QToolBox::qt_metacall(param1, param2, param3);
@@ -400,14 +215,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* e) override {
-        if (qtoolbox_event_isbase) {
-            qtoolbox_event_isbase = false;
-            return QToolBox::event(e);
-        }
-        auto event_cb = qtoolbox_event_callback;
-        if (event_cb) {
+        if (qtoolbox_event_callback) {
             QEvent* cbval1 = e;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qtoolbox_event_callback(this, cbval1);
             return callback_ret;
         }
         return QToolBox::event(e);
@@ -415,15 +225,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void itemInserted(int index) override {
-        if (qtoolbox_iteminserted_isbase) {
-            qtoolbox_iteminserted_isbase = false;
-            QToolBox::itemInserted(index);
-            return;
-        }
-        auto iteminserted_cb = qtoolbox_iteminserted_callback;
-        if (iteminserted_cb) {
+        if (qtoolbox_iteminserted_callback) {
             int cbval1 = index;
-            iteminserted_cb(this, cbval1);
+            qtoolbox_iteminserted_callback(this, cbval1);
             return;
         }
         QToolBox::itemInserted(index);
@@ -431,15 +235,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void itemRemoved(int index) override {
-        if (qtoolbox_itemremoved_isbase) {
-            qtoolbox_itemremoved_isbase = false;
-            QToolBox::itemRemoved(index);
-            return;
-        }
-        auto itemremoved_cb = qtoolbox_itemremoved_callback;
-        if (itemremoved_cb) {
+        if (qtoolbox_itemremoved_callback) {
             int cbval1 = index;
-            itemremoved_cb(this, cbval1);
+            qtoolbox_itemremoved_callback(this, cbval1);
             return;
         }
         QToolBox::itemRemoved(index);
@@ -447,15 +245,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* e) override {
-        if (qtoolbox_showevent_isbase) {
-            qtoolbox_showevent_isbase = false;
-            QToolBox::showEvent(e);
-            return;
-        }
-        auto showevent_cb = qtoolbox_showevent_callback;
-        if (showevent_cb) {
+        if (qtoolbox_showevent_callback) {
             QShowEvent* cbval1 = e;
-            showevent_cb(this, cbval1);
+            qtoolbox_showevent_callback(this, cbval1);
             return;
         }
         QToolBox::showEvent(e);
@@ -463,15 +255,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (qtoolbox_changeevent_isbase) {
-            qtoolbox_changeevent_isbase = false;
-            QToolBox::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = qtoolbox_changeevent_callback;
-        if (changeevent_cb) {
+        if (qtoolbox_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            qtoolbox_changeevent_callback(this, cbval1);
             return;
         }
         QToolBox::changeEvent(param1);
@@ -479,13 +265,8 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qtoolbox_sizehint_isbase) {
-            qtoolbox_sizehint_isbase = false;
-            return QToolBox::sizeHint();
-        }
-        auto sizehint_cb = qtoolbox_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qtoolbox_sizehint_callback) {
+            QSize* callback_ret = qtoolbox_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -495,15 +276,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* param1) override {
-        if (qtoolbox_paintevent_isbase) {
-            qtoolbox_paintevent_isbase = false;
-            QToolBox::paintEvent(param1);
-            return;
-        }
-        auto paintevent_cb = qtoolbox_paintevent_callback;
-        if (paintevent_cb) {
+        if (qtoolbox_paintevent_callback) {
             QPaintEvent* cbval1 = param1;
-            paintevent_cb(this, cbval1);
+            qtoolbox_paintevent_callback(this, cbval1);
             return;
         }
         QToolBox::paintEvent(param1);
@@ -511,15 +286,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionFrame* option) const override {
-        if (qtoolbox_initstyleoption_isbase) {
-            qtoolbox_initstyleoption_isbase = false;
-            QToolBox::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = qtoolbox_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (qtoolbox_initstyleoption_callback) {
             QStyleOptionFrame* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            qtoolbox_initstyleoption_callback(this, cbval1);
             return;
         }
         QToolBox::initStyleOption(option);
@@ -527,13 +296,8 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qtoolbox_devtype_isbase) {
-            qtoolbox_devtype_isbase = false;
-            return QToolBox::devType();
-        }
-        auto devtype_cb = qtoolbox_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qtoolbox_devtype_callback) {
+            int callback_ret = qtoolbox_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QToolBox::devType();
@@ -541,15 +305,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qtoolbox_setvisible_isbase) {
-            qtoolbox_setvisible_isbase = false;
-            QToolBox::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qtoolbox_setvisible_callback;
-        if (setvisible_cb) {
+        if (qtoolbox_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qtoolbox_setvisible_callback(this, cbval1);
             return;
         }
         QToolBox::setVisible(visible);
@@ -557,13 +315,8 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qtoolbox_minimumsizehint_isbase) {
-            qtoolbox_minimumsizehint_isbase = false;
-            return QToolBox::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qtoolbox_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qtoolbox_minimumsizehint_callback) {
+            QSize* callback_ret = qtoolbox_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -573,14 +326,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qtoolbox_heightforwidth_isbase) {
-            qtoolbox_heightforwidth_isbase = false;
-            return QToolBox::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qtoolbox_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qtoolbox_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qtoolbox_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QToolBox::heightForWidth(param1);
@@ -588,13 +336,8 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qtoolbox_hasheightforwidth_isbase) {
-            qtoolbox_hasheightforwidth_isbase = false;
-            return QToolBox::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qtoolbox_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qtoolbox_hasheightforwidth_callback) {
+            bool callback_ret = qtoolbox_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QToolBox::hasHeightForWidth();
@@ -602,13 +345,8 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qtoolbox_paintengine_isbase) {
-            qtoolbox_paintengine_isbase = false;
-            return QToolBox::paintEngine();
-        }
-        auto paintengine_cb = qtoolbox_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qtoolbox_paintengine_callback) {
+            QPaintEngine* callback_ret = qtoolbox_paintengine_callback(this);
             return callback_ret;
         }
         return QToolBox::paintEngine();
@@ -616,15 +354,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (qtoolbox_mousepressevent_isbase) {
-            qtoolbox_mousepressevent_isbase = false;
-            QToolBox::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qtoolbox_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qtoolbox_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qtoolbox_mousepressevent_callback(this, cbval1);
             return;
         }
         QToolBox::mousePressEvent(event);
@@ -632,15 +364,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qtoolbox_mousereleaseevent_isbase) {
-            qtoolbox_mousereleaseevent_isbase = false;
-            QToolBox::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qtoolbox_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qtoolbox_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qtoolbox_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QToolBox::mouseReleaseEvent(event);
@@ -648,15 +374,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qtoolbox_mousedoubleclickevent_isbase) {
-            qtoolbox_mousedoubleclickevent_isbase = false;
-            QToolBox::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qtoolbox_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qtoolbox_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qtoolbox_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QToolBox::mouseDoubleClickEvent(event);
@@ -664,15 +384,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qtoolbox_mousemoveevent_isbase) {
-            qtoolbox_mousemoveevent_isbase = false;
-            QToolBox::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qtoolbox_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qtoolbox_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qtoolbox_mousemoveevent_callback(this, cbval1);
             return;
         }
         QToolBox::mouseMoveEvent(event);
@@ -680,15 +394,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qtoolbox_wheelevent_isbase) {
-            qtoolbox_wheelevent_isbase = false;
-            QToolBox::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qtoolbox_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qtoolbox_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qtoolbox_wheelevent_callback(this, cbval1);
             return;
         }
         QToolBox::wheelEvent(event);
@@ -696,15 +404,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qtoolbox_keypressevent_isbase) {
-            qtoolbox_keypressevent_isbase = false;
-            QToolBox::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qtoolbox_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qtoolbox_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qtoolbox_keypressevent_callback(this, cbval1);
             return;
         }
         QToolBox::keyPressEvent(event);
@@ -712,15 +414,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qtoolbox_keyreleaseevent_isbase) {
-            qtoolbox_keyreleaseevent_isbase = false;
-            QToolBox::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qtoolbox_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qtoolbox_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qtoolbox_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QToolBox::keyReleaseEvent(event);
@@ -728,15 +424,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qtoolbox_focusinevent_isbase) {
-            qtoolbox_focusinevent_isbase = false;
-            QToolBox::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qtoolbox_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qtoolbox_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qtoolbox_focusinevent_callback(this, cbval1);
             return;
         }
         QToolBox::focusInEvent(event);
@@ -744,15 +434,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qtoolbox_focusoutevent_isbase) {
-            qtoolbox_focusoutevent_isbase = false;
-            QToolBox::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qtoolbox_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qtoolbox_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qtoolbox_focusoutevent_callback(this, cbval1);
             return;
         }
         QToolBox::focusOutEvent(event);
@@ -760,15 +444,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qtoolbox_enterevent_isbase) {
-            qtoolbox_enterevent_isbase = false;
-            QToolBox::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qtoolbox_enterevent_callback;
-        if (enterevent_cb) {
+        if (qtoolbox_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qtoolbox_enterevent_callback(this, cbval1);
             return;
         }
         QToolBox::enterEvent(event);
@@ -776,15 +454,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qtoolbox_leaveevent_isbase) {
-            qtoolbox_leaveevent_isbase = false;
-            QToolBox::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qtoolbox_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qtoolbox_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qtoolbox_leaveevent_callback(this, cbval1);
             return;
         }
         QToolBox::leaveEvent(event);
@@ -792,15 +464,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qtoolbox_moveevent_isbase) {
-            qtoolbox_moveevent_isbase = false;
-            QToolBox::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qtoolbox_moveevent_callback;
-        if (moveevent_cb) {
+        if (qtoolbox_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qtoolbox_moveevent_callback(this, cbval1);
             return;
         }
         QToolBox::moveEvent(event);
@@ -808,15 +474,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (qtoolbox_resizeevent_isbase) {
-            qtoolbox_resizeevent_isbase = false;
-            QToolBox::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = qtoolbox_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qtoolbox_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            qtoolbox_resizeevent_callback(this, cbval1);
             return;
         }
         QToolBox::resizeEvent(event);
@@ -824,15 +484,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qtoolbox_closeevent_isbase) {
-            qtoolbox_closeevent_isbase = false;
-            QToolBox::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qtoolbox_closeevent_callback;
-        if (closeevent_cb) {
+        if (qtoolbox_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qtoolbox_closeevent_callback(this, cbval1);
             return;
         }
         QToolBox::closeEvent(event);
@@ -840,15 +494,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (qtoolbox_contextmenuevent_isbase) {
-            qtoolbox_contextmenuevent_isbase = false;
-            QToolBox::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qtoolbox_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qtoolbox_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qtoolbox_contextmenuevent_callback(this, cbval1);
             return;
         }
         QToolBox::contextMenuEvent(event);
@@ -856,15 +504,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qtoolbox_tabletevent_isbase) {
-            qtoolbox_tabletevent_isbase = false;
-            QToolBox::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qtoolbox_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qtoolbox_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qtoolbox_tabletevent_callback(this, cbval1);
             return;
         }
         QToolBox::tabletEvent(event);
@@ -872,15 +514,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qtoolbox_actionevent_isbase) {
-            qtoolbox_actionevent_isbase = false;
-            QToolBox::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qtoolbox_actionevent_callback;
-        if (actionevent_cb) {
+        if (qtoolbox_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qtoolbox_actionevent_callback(this, cbval1);
             return;
         }
         QToolBox::actionEvent(event);
@@ -888,15 +524,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qtoolbox_dragenterevent_isbase) {
-            qtoolbox_dragenterevent_isbase = false;
-            QToolBox::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qtoolbox_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qtoolbox_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qtoolbox_dragenterevent_callback(this, cbval1);
             return;
         }
         QToolBox::dragEnterEvent(event);
@@ -904,15 +534,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qtoolbox_dragmoveevent_isbase) {
-            qtoolbox_dragmoveevent_isbase = false;
-            QToolBox::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qtoolbox_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qtoolbox_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qtoolbox_dragmoveevent_callback(this, cbval1);
             return;
         }
         QToolBox::dragMoveEvent(event);
@@ -920,15 +544,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qtoolbox_dragleaveevent_isbase) {
-            qtoolbox_dragleaveevent_isbase = false;
-            QToolBox::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qtoolbox_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qtoolbox_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qtoolbox_dragleaveevent_callback(this, cbval1);
             return;
         }
         QToolBox::dragLeaveEvent(event);
@@ -936,15 +554,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qtoolbox_dropevent_isbase) {
-            qtoolbox_dropevent_isbase = false;
-            QToolBox::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qtoolbox_dropevent_callback;
-        if (dropevent_cb) {
+        if (qtoolbox_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qtoolbox_dropevent_callback(this, cbval1);
             return;
         }
         QToolBox::dropEvent(event);
@@ -952,15 +564,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qtoolbox_hideevent_isbase) {
-            qtoolbox_hideevent_isbase = false;
-            QToolBox::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qtoolbox_hideevent_callback;
-        if (hideevent_cb) {
+        if (qtoolbox_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qtoolbox_hideevent_callback(this, cbval1);
             return;
         }
         QToolBox::hideEvent(event);
@@ -968,12 +574,7 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qtoolbox_nativeevent_isbase) {
-            qtoolbox_nativeevent_isbase = false;
-            return QToolBox::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qtoolbox_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qtoolbox_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -983,7 +584,7 @@ class VirtualQToolBox final : public QToolBox {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qtoolbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -992,14 +593,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qtoolbox_metric_isbase) {
-            qtoolbox_metric_isbase = false;
-            return QToolBox::metric(param1);
-        }
-        auto metric_cb = qtoolbox_metric_callback;
-        if (metric_cb) {
+        if (qtoolbox_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qtoolbox_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QToolBox::metric(param1);
@@ -1007,15 +603,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qtoolbox_initpainter_isbase) {
-            qtoolbox_initpainter_isbase = false;
-            QToolBox::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qtoolbox_initpainter_callback;
-        if (initpainter_cb) {
+        if (qtoolbox_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qtoolbox_initpainter_callback(this, cbval1);
             return;
         }
         QToolBox::initPainter(painter);
@@ -1023,14 +613,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qtoolbox_redirected_isbase) {
-            qtoolbox_redirected_isbase = false;
-            return QToolBox::redirected(offset);
-        }
-        auto redirected_cb = qtoolbox_redirected_callback;
-        if (redirected_cb) {
+        if (qtoolbox_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qtoolbox_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QToolBox::redirected(offset);
@@ -1038,13 +623,8 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qtoolbox_sharedpainter_isbase) {
-            qtoolbox_sharedpainter_isbase = false;
-            return QToolBox::sharedPainter();
-        }
-        auto sharedpainter_cb = qtoolbox_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qtoolbox_sharedpainter_callback) {
+            QPainter* callback_ret = qtoolbox_sharedpainter_callback(this);
             return callback_ret;
         }
         return QToolBox::sharedPainter();
@@ -1052,15 +632,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qtoolbox_inputmethodevent_isbase) {
-            qtoolbox_inputmethodevent_isbase = false;
-            QToolBox::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qtoolbox_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qtoolbox_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qtoolbox_inputmethodevent_callback(this, cbval1);
             return;
         }
         QToolBox::inputMethodEvent(param1);
@@ -1068,14 +642,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qtoolbox_inputmethodquery_isbase) {
-            qtoolbox_inputmethodquery_isbase = false;
-            return QToolBox::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qtoolbox_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qtoolbox_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qtoolbox_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1085,14 +654,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qtoolbox_focusnextprevchild_isbase) {
-            qtoolbox_focusnextprevchild_isbase = false;
-            return QToolBox::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qtoolbox_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qtoolbox_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qtoolbox_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QToolBox::focusNextPrevChild(next);
@@ -1100,15 +664,10 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qtoolbox_eventfilter_isbase) {
-            qtoolbox_eventfilter_isbase = false;
-            return QToolBox::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qtoolbox_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qtoolbox_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qtoolbox_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QToolBox::eventFilter(watched, event);
@@ -1116,15 +675,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qtoolbox_timerevent_isbase) {
-            qtoolbox_timerevent_isbase = false;
-            QToolBox::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qtoolbox_timerevent_callback;
-        if (timerevent_cb) {
+        if (qtoolbox_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qtoolbox_timerevent_callback(this, cbval1);
             return;
         }
         QToolBox::timerEvent(event);
@@ -1132,15 +685,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qtoolbox_childevent_isbase) {
-            qtoolbox_childevent_isbase = false;
-            QToolBox::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qtoolbox_childevent_callback;
-        if (childevent_cb) {
+        if (qtoolbox_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qtoolbox_childevent_callback(this, cbval1);
             return;
         }
         QToolBox::childEvent(event);
@@ -1148,15 +695,9 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qtoolbox_customevent_isbase) {
-            qtoolbox_customevent_isbase = false;
-            QToolBox::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qtoolbox_customevent_callback;
-        if (customevent_cb) {
+        if (qtoolbox_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qtoolbox_customevent_callback(this, cbval1);
             return;
         }
         QToolBox::customEvent(event);
@@ -1164,17 +705,11 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qtoolbox_connectnotify_isbase) {
-            qtoolbox_connectnotify_isbase = false;
-            QToolBox::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qtoolbox_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qtoolbox_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qtoolbox_connectnotify_callback(this, cbval1);
             return;
         }
         QToolBox::connectNotify(signal);
@@ -1182,292 +717,58 @@ class VirtualQToolBox final : public QToolBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qtoolbox_disconnectnotify_isbase) {
-            qtoolbox_disconnectnotify_isbase = false;
-            QToolBox::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qtoolbox_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qtoolbox_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qtoolbox_disconnectnotify_callback(this, cbval1);
             return;
         }
         QToolBox::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void drawFrame(QPainter* param1) {
-        if (qtoolbox_drawframe_isbase) {
-            qtoolbox_drawframe_isbase = false;
-            QToolBox::drawFrame(param1);
-            return;
-        }
-        auto drawframe_cb = qtoolbox_drawframe_callback;
-        if (drawframe_cb) {
-            QPainter* cbval1 = param1;
-            drawframe_cb(this, cbval1);
-            return;
-        }
-        QToolBox::drawFrame(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qtoolbox_updatemicrofocus_isbase) {
-            qtoolbox_updatemicrofocus_isbase = false;
-            QToolBox::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qtoolbox_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QToolBox::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qtoolbox_create_isbase) {
-            qtoolbox_create_isbase = false;
-            QToolBox::create();
-            return;
-        }
-        auto create_cb = qtoolbox_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QToolBox::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qtoolbox_destroy_isbase) {
-            qtoolbox_destroy_isbase = false;
-            QToolBox::destroy();
-            return;
-        }
-        auto destroy_cb = qtoolbox_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QToolBox::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qtoolbox_focusnextchild_isbase) {
-            qtoolbox_focusnextchild_isbase = false;
-            return QToolBox::focusNextChild();
-        }
-        auto focusnextchild_cb = qtoolbox_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QToolBox::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qtoolbox_focuspreviouschild_isbase) {
-            qtoolbox_focuspreviouschild_isbase = false;
-            return QToolBox::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qtoolbox_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QToolBox::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qtoolbox_sender_isbase) {
-            qtoolbox_sender_isbase = false;
-            return QToolBox::sender();
-        }
-        auto sender_cb = qtoolbox_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QToolBox::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qtoolbox_sendersignalindex_isbase) {
-            qtoolbox_sendersignalindex_isbase = false;
-            return QToolBox::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qtoolbox_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QToolBox::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qtoolbox_receivers_isbase) {
-            qtoolbox_receivers_isbase = false;
-            return QToolBox::receivers(signal);
-        }
-        auto receivers_cb = qtoolbox_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QToolBox::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qtoolbox_issignalconnected_isbase) {
-            qtoolbox_issignalconnected_isbase = false;
-            return QToolBox::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qtoolbox_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QToolBox::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qtoolbox_getdecodedmetricf_isbase) {
-            qtoolbox_getdecodedmetricf_isbase = false;
-            return QToolBox::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qtoolbox_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QToolBox::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool QToolBox_Event(QToolBox* self, QEvent* e);
     friend bool QToolBox_SuperEvent(QToolBox* self, QEvent* e);
-    friend void QToolBox_ItemInserted(QToolBox* self, int index);
     friend void QToolBox_SuperItemInserted(QToolBox* self, int index);
-    friend void QToolBox_ItemRemoved(QToolBox* self, int index);
     friend void QToolBox_SuperItemRemoved(QToolBox* self, int index);
-    friend void QToolBox_ShowEvent(QToolBox* self, QShowEvent* e);
     friend void QToolBox_SuperShowEvent(QToolBox* self, QShowEvent* e);
-    friend void QToolBox_ChangeEvent(QToolBox* self, QEvent* param1);
     friend void QToolBox_SuperChangeEvent(QToolBox* self, QEvent* param1);
-    friend void QToolBox_PaintEvent(QToolBox* self, QPaintEvent* param1);
     friend void QToolBox_SuperPaintEvent(QToolBox* self, QPaintEvent* param1);
-    friend void QToolBox_InitStyleOption(const QToolBox* self, QStyleOptionFrame* option);
     friend void QToolBox_SuperInitStyleOption(const QToolBox* self, QStyleOptionFrame* option);
-    friend void QToolBox_MousePressEvent(QToolBox* self, QMouseEvent* event);
     friend void QToolBox_SuperMousePressEvent(QToolBox* self, QMouseEvent* event);
-    friend void QToolBox_MouseReleaseEvent(QToolBox* self, QMouseEvent* event);
     friend void QToolBox_SuperMouseReleaseEvent(QToolBox* self, QMouseEvent* event);
-    friend void QToolBox_MouseDoubleClickEvent(QToolBox* self, QMouseEvent* event);
     friend void QToolBox_SuperMouseDoubleClickEvent(QToolBox* self, QMouseEvent* event);
-    friend void QToolBox_MouseMoveEvent(QToolBox* self, QMouseEvent* event);
     friend void QToolBox_SuperMouseMoveEvent(QToolBox* self, QMouseEvent* event);
-    friend void QToolBox_WheelEvent(QToolBox* self, QWheelEvent* event);
     friend void QToolBox_SuperWheelEvent(QToolBox* self, QWheelEvent* event);
-    friend void QToolBox_KeyPressEvent(QToolBox* self, QKeyEvent* event);
     friend void QToolBox_SuperKeyPressEvent(QToolBox* self, QKeyEvent* event);
-    friend void QToolBox_KeyReleaseEvent(QToolBox* self, QKeyEvent* event);
     friend void QToolBox_SuperKeyReleaseEvent(QToolBox* self, QKeyEvent* event);
-    friend void QToolBox_FocusInEvent(QToolBox* self, QFocusEvent* event);
     friend void QToolBox_SuperFocusInEvent(QToolBox* self, QFocusEvent* event);
-    friend void QToolBox_FocusOutEvent(QToolBox* self, QFocusEvent* event);
     friend void QToolBox_SuperFocusOutEvent(QToolBox* self, QFocusEvent* event);
-    friend void QToolBox_EnterEvent(QToolBox* self, QEnterEvent* event);
     friend void QToolBox_SuperEnterEvent(QToolBox* self, QEnterEvent* event);
-    friend void QToolBox_LeaveEvent(QToolBox* self, QEvent* event);
     friend void QToolBox_SuperLeaveEvent(QToolBox* self, QEvent* event);
-    friend void QToolBox_MoveEvent(QToolBox* self, QMoveEvent* event);
     friend void QToolBox_SuperMoveEvent(QToolBox* self, QMoveEvent* event);
-    friend void QToolBox_ResizeEvent(QToolBox* self, QResizeEvent* event);
     friend void QToolBox_SuperResizeEvent(QToolBox* self, QResizeEvent* event);
-    friend void QToolBox_CloseEvent(QToolBox* self, QCloseEvent* event);
     friend void QToolBox_SuperCloseEvent(QToolBox* self, QCloseEvent* event);
-    friend void QToolBox_ContextMenuEvent(QToolBox* self, QContextMenuEvent* event);
     friend void QToolBox_SuperContextMenuEvent(QToolBox* self, QContextMenuEvent* event);
-    friend void QToolBox_TabletEvent(QToolBox* self, QTabletEvent* event);
     friend void QToolBox_SuperTabletEvent(QToolBox* self, QTabletEvent* event);
-    friend void QToolBox_ActionEvent(QToolBox* self, QActionEvent* event);
     friend void QToolBox_SuperActionEvent(QToolBox* self, QActionEvent* event);
-    friend void QToolBox_DragEnterEvent(QToolBox* self, QDragEnterEvent* event);
     friend void QToolBox_SuperDragEnterEvent(QToolBox* self, QDragEnterEvent* event);
-    friend void QToolBox_DragMoveEvent(QToolBox* self, QDragMoveEvent* event);
     friend void QToolBox_SuperDragMoveEvent(QToolBox* self, QDragMoveEvent* event);
-    friend void QToolBox_DragLeaveEvent(QToolBox* self, QDragLeaveEvent* event);
     friend void QToolBox_SuperDragLeaveEvent(QToolBox* self, QDragLeaveEvent* event);
-    friend void QToolBox_DropEvent(QToolBox* self, QDropEvent* event);
     friend void QToolBox_SuperDropEvent(QToolBox* self, QDropEvent* event);
-    friend void QToolBox_HideEvent(QToolBox* self, QHideEvent* event);
     friend void QToolBox_SuperHideEvent(QToolBox* self, QHideEvent* event);
-    friend bool QToolBox_NativeEvent(QToolBox* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QToolBox_SuperNativeEvent(QToolBox* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int QToolBox_Metric(const QToolBox* self, int param1);
     friend int QToolBox_SuperMetric(const QToolBox* self, int param1);
-    friend void QToolBox_InitPainter(const QToolBox* self, QPainter* painter);
     friend void QToolBox_SuperInitPainter(const QToolBox* self, QPainter* painter);
-    friend QPaintDevice* QToolBox_Redirected(const QToolBox* self, QPoint* offset);
     friend QPaintDevice* QToolBox_SuperRedirected(const QToolBox* self, QPoint* offset);
-    friend QPainter* QToolBox_SharedPainter(const QToolBox* self);
     friend QPainter* QToolBox_SuperSharedPainter(const QToolBox* self);
-    friend void QToolBox_InputMethodEvent(QToolBox* self, QInputMethodEvent* param1);
     friend void QToolBox_SuperInputMethodEvent(QToolBox* self, QInputMethodEvent* param1);
-    friend bool QToolBox_FocusNextPrevChild(QToolBox* self, bool next);
     friend bool QToolBox_SuperFocusNextPrevChild(QToolBox* self, bool next);
-    friend void QToolBox_TimerEvent(QToolBox* self, QTimerEvent* event);
     friend void QToolBox_SuperTimerEvent(QToolBox* self, QTimerEvent* event);
-    friend void QToolBox_ChildEvent(QToolBox* self, QChildEvent* event);
     friend void QToolBox_SuperChildEvent(QToolBox* self, QChildEvent* event);
-    friend void QToolBox_CustomEvent(QToolBox* self, QEvent* event);
     friend void QToolBox_SuperCustomEvent(QToolBox* self, QEvent* event);
-    friend void QToolBox_ConnectNotify(QToolBox* self, const QMetaMethod* signal);
     friend void QToolBox_SuperConnectNotify(QToolBox* self, const QMetaMethod* signal);
-    friend void QToolBox_DisconnectNotify(QToolBox* self, const QMetaMethod* signal);
     friend void QToolBox_SuperDisconnectNotify(QToolBox* self, const QMetaMethod* signal);
-    friend void QToolBox_DrawFrame(QToolBox* self, QPainter* param1);
-    friend void QToolBox_SuperDrawFrame(QToolBox* self, QPainter* param1);
-    friend void QToolBox_UpdateMicroFocus(QToolBox* self);
-    friend void QToolBox_SuperUpdateMicroFocus(QToolBox* self);
-    friend void QToolBox_Create(QToolBox* self);
-    friend void QToolBox_SuperCreate(QToolBox* self);
-    friend void QToolBox_Destroy(QToolBox* self);
-    friend void QToolBox_SuperDestroy(QToolBox* self);
-    friend bool QToolBox_FocusNextChild(QToolBox* self);
-    friend bool QToolBox_SuperFocusNextChild(QToolBox* self);
-    friend bool QToolBox_FocusPreviousChild(QToolBox* self);
-    friend bool QToolBox_SuperFocusPreviousChild(QToolBox* self);
-    friend QObject* QToolBox_Sender(const QToolBox* self);
-    friend QObject* QToolBox_SuperSender(const QToolBox* self);
-    friend int QToolBox_SenderSignalIndex(const QToolBox* self);
-    friend int QToolBox_SuperSenderSignalIndex(const QToolBox* self);
-    friend int QToolBox_Receivers(const QToolBox* self, const char* signal);
-    friend int QToolBox_SuperReceivers(const QToolBox* self, const char* signal);
-    friend bool QToolBox_IsSignalConnected(const QToolBox* self, const QMetaMethod* signal);
-    friend bool QToolBox_SuperIsSignalConnected(const QToolBox* self, const QMetaMethod* signal);
-    friend double QToolBox_GetDecodedMetricF(const QToolBox* self, int metricA, int metricB);
-    friend double QToolBox_SuperGetDecodedMetricF(const QToolBox* self, int metricA, int metricB);
 };
 
 #endif

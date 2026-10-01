@@ -43,18 +43,17 @@ int KParts__FileInfoExtension_SupportedQueryModes(const KParts__FileInfoExtensio
 KFileItemList* KParts__FileInfoExtension_QueryFor(const KParts__FileInfoExtension* self, int mode);
 libqt_string KParts__FileInfoExtension_Tr2(const char* s, const char* c);
 libqt_string KParts__FileInfoExtension_Tr3(const char* s, const char* c, int n);
-void KParts__FileInfoExtension_OnMetaObject(const KParts__FileInfoExtension* self, intptr_t slot);
+void KParts__FileInfoExtension_OnMetaObject(KParts__FileInfoExtension* self, intptr_t slot);
 QMetaObject* KParts__FileInfoExtension_SuperMetaObject(const KParts__FileInfoExtension* self);
 void KParts__FileInfoExtension_OnMetacast(KParts__FileInfoExtension* self, intptr_t slot);
 void* KParts__FileInfoExtension_SuperMetacast(KParts__FileInfoExtension* self, const char* param1);
 void KParts__FileInfoExtension_OnMetacall(KParts__FileInfoExtension* self, intptr_t slot);
 int KParts__FileInfoExtension_SuperMetacall(KParts__FileInfoExtension* self, int param1, int param2, void** param3);
-void KParts__FileInfoExtension_OnHasSelection(const KParts__FileInfoExtension* self, intptr_t slot);
+void KParts__FileInfoExtension_OnHasSelection(KParts__FileInfoExtension* self, intptr_t slot);
 bool KParts__FileInfoExtension_SuperHasSelection(const KParts__FileInfoExtension* self);
-void KParts__FileInfoExtension_OnSupportedQueryModes(const KParts__FileInfoExtension* self, intptr_t slot);
+void KParts__FileInfoExtension_OnSupportedQueryModes(KParts__FileInfoExtension* self, intptr_t slot);
 int KParts__FileInfoExtension_SuperSupportedQueryModes(const KParts__FileInfoExtension* self);
-void KParts__FileInfoExtension_OnQueryFor(const KParts__FileInfoExtension* self, intptr_t slot);
-KFileItemList* KParts__FileInfoExtension_SuperQueryFor(const KParts__FileInfoExtension* self, int mode);
+void KParts__FileInfoExtension_OnQueryFor(KParts__FileInfoExtension* self, intptr_t slot);
 bool KParts__FileInfoExtension_Event(KParts__FileInfoExtension* self, QEvent* event);
 void KParts__FileInfoExtension_OnEvent(KParts__FileInfoExtension* self, intptr_t slot);
 bool KParts__FileInfoExtension_SuperEvent(KParts__FileInfoExtension* self, QEvent* event);
@@ -77,17 +76,9 @@ void KParts__FileInfoExtension_DisconnectNotify(KParts__FileInfoExtension* self,
 void KParts__FileInfoExtension_OnDisconnectNotify(KParts__FileInfoExtension* self, intptr_t slot);
 void KParts__FileInfoExtension_SuperDisconnectNotify(KParts__FileInfoExtension* self, const QMetaMethod* signal);
 QObject* KParts__FileInfoExtension_Sender(const KParts__FileInfoExtension* self);
-void KParts__FileInfoExtension_OnSender(const KParts__FileInfoExtension* self, intptr_t slot);
-QObject* KParts__FileInfoExtension_SuperSender(const KParts__FileInfoExtension* self);
 int KParts__FileInfoExtension_SenderSignalIndex(const KParts__FileInfoExtension* self);
-void KParts__FileInfoExtension_OnSenderSignalIndex(const KParts__FileInfoExtension* self, intptr_t slot);
-int KParts__FileInfoExtension_SuperSenderSignalIndex(const KParts__FileInfoExtension* self);
 int KParts__FileInfoExtension_Receivers(const KParts__FileInfoExtension* self, const char* signal);
-void KParts__FileInfoExtension_OnReceivers(const KParts__FileInfoExtension* self, intptr_t slot);
-int KParts__FileInfoExtension_SuperReceivers(const KParts__FileInfoExtension* self, const char* signal);
 bool KParts__FileInfoExtension_IsSignalConnected(const KParts__FileInfoExtension* self, const QMetaMethod* signal);
-void KParts__FileInfoExtension_OnIsSignalConnected(const KParts__FileInfoExtension* self, intptr_t slot);
-bool KParts__FileInfoExtension_SuperIsSignalConnected(const KParts__FileInfoExtension* self, const QMetaMethod* signal);
 void KParts__FileInfoExtension_Delete(KParts__FileInfoExtension* self);
 
 #ifdef __cplusplus

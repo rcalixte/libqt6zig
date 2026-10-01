@@ -9,24 +9,20 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of TextTranslator::TranslatorConfigureListsWidget so that we can call protected methods
+// This class is a subclass of TextTranslator::TranslatorConfigureListsWidget
 class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTranslator::TranslatorConfigureListsWidget {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualTextTranslatorTranslatorConfigureListsWidget = true;
-
-    // Virtual class public types (including callbacks)
-    using TextTranslator__TranslatorConfigureListsWidget_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using TextTranslator__TranslatorConfigureListsWidget_MetaObject_Callback = QMetaObject* (*)(const TextTranslator__TranslatorConfigureListsWidget*);
     using TextTranslator__TranslatorConfigureListsWidget_Metacast_Callback = void* (*)(TextTranslator__TranslatorConfigureListsWidget*, const char*);
     using TextTranslator__TranslatorConfigureListsWidget_Metacall_Callback = int (*)(TextTranslator__TranslatorConfigureListsWidget*, int, int, void**);
-    using TextTranslator__TranslatorConfigureListsWidget_DevType_Callback = int (*)();
+    using TextTranslator__TranslatorConfigureListsWidget_DevType_Callback = int (*)(const TextTranslator__TranslatorConfigureListsWidget*);
     using TextTranslator__TranslatorConfigureListsWidget_SetVisible_Callback = void (*)(TextTranslator__TranslatorConfigureListsWidget*, bool);
-    using TextTranslator__TranslatorConfigureListsWidget_SizeHint_Callback = QSize* (*)();
-    using TextTranslator__TranslatorConfigureListsWidget_MinimumSizeHint_Callback = QSize* (*)();
+    using TextTranslator__TranslatorConfigureListsWidget_SizeHint_Callback = QSize* (*)(const TextTranslator__TranslatorConfigureListsWidget*);
+    using TextTranslator__TranslatorConfigureListsWidget_MinimumSizeHint_Callback = QSize* (*)(const TextTranslator__TranslatorConfigureListsWidget*);
     using TextTranslator__TranslatorConfigureListsWidget_HeightForWidth_Callback = int (*)(const TextTranslator__TranslatorConfigureListsWidget*, int);
-    using TextTranslator__TranslatorConfigureListsWidget_HasHeightForWidth_Callback = bool (*)();
-    using TextTranslator__TranslatorConfigureListsWidget_PaintEngine_Callback = QPaintEngine* (*)();
+    using TextTranslator__TranslatorConfigureListsWidget_HasHeightForWidth_Callback = bool (*)(const TextTranslator__TranslatorConfigureListsWidget*);
+    using TextTranslator__TranslatorConfigureListsWidget_PaintEngine_Callback = QPaintEngine* (*)(const TextTranslator__TranslatorConfigureListsWidget*);
     using TextTranslator__TranslatorConfigureListsWidget_Event_Callback = bool (*)(TextTranslator__TranslatorConfigureListsWidget*, QEvent*);
     using TextTranslator__TranslatorConfigureListsWidget_MousePressEvent_Callback = void (*)(TextTranslator__TranslatorConfigureListsWidget*, QMouseEvent*);
     using TextTranslator__TranslatorConfigureListsWidget_MouseReleaseEvent_Callback = void (*)(TextTranslator__TranslatorConfigureListsWidget*, QMouseEvent*);
@@ -57,7 +53,7 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
     using TextTranslator__TranslatorConfigureListsWidget_Metric_Callback = int (*)(const TextTranslator__TranslatorConfigureListsWidget*, int);
     using TextTranslator__TranslatorConfigureListsWidget_InitPainter_Callback = void (*)(const TextTranslator__TranslatorConfigureListsWidget*, QPainter*);
     using TextTranslator__TranslatorConfigureListsWidget_Redirected_Callback = QPaintDevice* (*)(const TextTranslator__TranslatorConfigureListsWidget*, QPoint*);
-    using TextTranslator__TranslatorConfigureListsWidget_SharedPainter_Callback = QPainter* (*)();
+    using TextTranslator__TranslatorConfigureListsWidget_SharedPainter_Callback = QPainter* (*)(const TextTranslator__TranslatorConfigureListsWidget*);
     using TextTranslator__TranslatorConfigureListsWidget_InputMethodEvent_Callback = void (*)(TextTranslator__TranslatorConfigureListsWidget*, QInputMethodEvent*);
     using TextTranslator__TranslatorConfigureListsWidget_InputMethodQuery_Callback = QVariant* (*)(const TextTranslator__TranslatorConfigureListsWidget*, int);
     using TextTranslator__TranslatorConfigureListsWidget_FocusNextPrevChild_Callback = bool (*)(TextTranslator__TranslatorConfigureListsWidget*, bool);
@@ -67,18 +63,17 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
     using TextTranslator__TranslatorConfigureListsWidget_CustomEvent_Callback = void (*)(TextTranslator__TranslatorConfigureListsWidget*, QEvent*);
     using TextTranslator__TranslatorConfigureListsWidget_ConnectNotify_Callback = void (*)(TextTranslator__TranslatorConfigureListsWidget*, QMetaMethod*);
     using TextTranslator__TranslatorConfigureListsWidget_DisconnectNotify_Callback = void (*)(TextTranslator__TranslatorConfigureListsWidget*, QMetaMethod*);
-    using TextTranslator__TranslatorConfigureListsWidget_UpdateMicroFocus_Callback = void (*)();
-    using TextTranslator__TranslatorConfigureListsWidget_Create_Callback = void (*)();
-    using TextTranslator__TranslatorConfigureListsWidget_Destroy_Callback = void (*)();
-    using TextTranslator__TranslatorConfigureListsWidget_FocusNextChild_Callback = bool (*)();
-    using TextTranslator__TranslatorConfigureListsWidget_FocusPreviousChild_Callback = bool (*)();
-    using TextTranslator__TranslatorConfigureListsWidget_Sender_Callback = QObject* (*)();
-    using TextTranslator__TranslatorConfigureListsWidget_SenderSignalIndex_Callback = int (*)();
-    using TextTranslator__TranslatorConfigureListsWidget_Receivers_Callback = int (*)(const TextTranslator__TranslatorConfigureListsWidget*, const char*);
-    using TextTranslator__TranslatorConfigureListsWidget_IsSignalConnected_Callback = bool (*)(const TextTranslator__TranslatorConfigureListsWidget*, QMetaMethod*);
-    using TextTranslator__TranslatorConfigureListsWidget_GetDecodedMetricF_Callback = double (*)(const TextTranslator__TranslatorConfigureListsWidget*, int, int);
+    using TextTranslator::TranslatorConfigureListsWidget::create;
+    using TextTranslator::TranslatorConfigureListsWidget::destroy;
+    using TextTranslator::TranslatorConfigureListsWidget::focusNextChild;
+    using TextTranslator::TranslatorConfigureListsWidget::focusPreviousChild;
+    using TextTranslator::TranslatorConfigureListsWidget::getDecodedMetricF;
+    using TextTranslator::TranslatorConfigureListsWidget::isSignalConnected;
+    using TextTranslator::TranslatorConfigureListsWidget::receivers;
+    using TextTranslator::TranslatorConfigureListsWidget::sender;
+    using TextTranslator::TranslatorConfigureListsWidget::senderSignalIndex;
+    using TextTranslator::TranslatorConfigureListsWidget::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     TextTranslator__TranslatorConfigureListsWidget_MetaObject_Callback texttranslator__translatorconfigurelistswidget_metaobject_callback = nullptr;
     TextTranslator__TranslatorConfigureListsWidget_Metacast_Callback texttranslator__translatorconfigurelistswidget_metacast_callback = nullptr;
@@ -130,216 +125,56 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
     TextTranslator__TranslatorConfigureListsWidget_CustomEvent_Callback texttranslator__translatorconfigurelistswidget_customevent_callback = nullptr;
     TextTranslator__TranslatorConfigureListsWidget_ConnectNotify_Callback texttranslator__translatorconfigurelistswidget_connectnotify_callback = nullptr;
     TextTranslator__TranslatorConfigureListsWidget_DisconnectNotify_Callback texttranslator__translatorconfigurelistswidget_disconnectnotify_callback = nullptr;
-    TextTranslator__TranslatorConfigureListsWidget_UpdateMicroFocus_Callback texttranslator__translatorconfigurelistswidget_updatemicrofocus_callback = nullptr;
-    TextTranslator__TranslatorConfigureListsWidget_Create_Callback texttranslator__translatorconfigurelistswidget_create_callback = nullptr;
-    TextTranslator__TranslatorConfigureListsWidget_Destroy_Callback texttranslator__translatorconfigurelistswidget_destroy_callback = nullptr;
-    TextTranslator__TranslatorConfigureListsWidget_FocusNextChild_Callback texttranslator__translatorconfigurelistswidget_focusnextchild_callback = nullptr;
-    TextTranslator__TranslatorConfigureListsWidget_FocusPreviousChild_Callback texttranslator__translatorconfigurelistswidget_focuspreviouschild_callback = nullptr;
-    TextTranslator__TranslatorConfigureListsWidget_Sender_Callback texttranslator__translatorconfigurelistswidget_sender_callback = nullptr;
-    TextTranslator__TranslatorConfigureListsWidget_SenderSignalIndex_Callback texttranslator__translatorconfigurelistswidget_sendersignalindex_callback = nullptr;
-    TextTranslator__TranslatorConfigureListsWidget_Receivers_Callback texttranslator__translatorconfigurelistswidget_receivers_callback = nullptr;
-    TextTranslator__TranslatorConfigureListsWidget_IsSignalConnected_Callback texttranslator__translatorconfigurelistswidget_issignalconnected_callback = nullptr;
-    TextTranslator__TranslatorConfigureListsWidget_GetDecodedMetricF_Callback texttranslator__translatorconfigurelistswidget_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool texttranslator__translatorconfigurelistswidget_metaobject_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_metacast_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_metacall_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_devtype_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_setvisible_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_sizehint_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_minimumsizehint_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_heightforwidth_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_hasheightforwidth_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_paintengine_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_event_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_mousepressevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_mousereleaseevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_mousedoubleclickevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_mousemoveevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_wheelevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_keypressevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_keyreleaseevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_focusinevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_focusoutevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_enterevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_leaveevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_paintevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_moveevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_resizeevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_closeevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_contextmenuevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_tabletevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_actionevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_dragenterevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_dragmoveevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_dragleaveevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_dropevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_showevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_hideevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_nativeevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_changeevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_metric_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_initpainter_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_redirected_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_sharedpainter_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_inputmethodevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_inputmethodquery_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_focusnextprevchild_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_eventfilter_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_timerevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_childevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_customevent_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_connectnotify_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_disconnectnotify_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_updatemicrofocus_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_create_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_destroy_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_focusnextchild_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_focuspreviouschild_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_sender_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_sendersignalindex_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_receivers_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_issignalconnected_isbase = false;
-    mutable bool texttranslator__translatorconfigurelistswidget_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : TextTranslator::TranslatorConfigureListsWidget {
+        using TextTranslator::TranslatorConfigureListsWidget::actionEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::changeEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::childEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::closeEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::connectNotify;
+        using TextTranslator::TranslatorConfigureListsWidget::contextMenuEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::customEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::disconnectNotify;
+        using TextTranslator::TranslatorConfigureListsWidget::dragEnterEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::dragLeaveEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::dragMoveEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::dropEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::enterEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::event;
+        using TextTranslator::TranslatorConfigureListsWidget::focusInEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::focusNextPrevChild;
+        using TextTranslator::TranslatorConfigureListsWidget::focusOutEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::hideEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::initPainter;
+        using TextTranslator::TranslatorConfigureListsWidget::inputMethodEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::keyPressEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::keyReleaseEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::leaveEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::metric;
+        using TextTranslator::TranslatorConfigureListsWidget::mouseDoubleClickEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::mouseMoveEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::mousePressEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::mouseReleaseEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::moveEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::nativeEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::paintEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::redirected;
+        using TextTranslator::TranslatorConfigureListsWidget::resizeEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::sharedPainter;
+        using TextTranslator::TranslatorConfigureListsWidget::showEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::tabletEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::timerEvent;
+        using TextTranslator::TranslatorConfigureListsWidget::wheelEvent;
+    };
 
-  public:
     VirtualTextTranslatorTranslatorConfigureListsWidget(QWidget* parent) : TextTranslator::TranslatorConfigureListsWidget(parent) {};
     VirtualTextTranslatorTranslatorConfigureListsWidget() : TextTranslator::TranslatorConfigureListsWidget() {};
 
-    // Callback setters
-    inline void setTextTranslator__TranslatorConfigureListsWidget_MetaObject_Callback(TextTranslator__TranslatorConfigureListsWidget_MetaObject_Callback cb) { texttranslator__translatorconfigurelistswidget_metaobject_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Metacast_Callback(TextTranslator__TranslatorConfigureListsWidget_Metacast_Callback cb) { texttranslator__translatorconfigurelistswidget_metacast_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Metacall_Callback(TextTranslator__TranslatorConfigureListsWidget_Metacall_Callback cb) { texttranslator__translatorconfigurelistswidget_metacall_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_DevType_Callback(TextTranslator__TranslatorConfigureListsWidget_DevType_Callback cb) { texttranslator__translatorconfigurelistswidget_devtype_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_SetVisible_Callback(TextTranslator__TranslatorConfigureListsWidget_SetVisible_Callback cb) { texttranslator__translatorconfigurelistswidget_setvisible_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_SizeHint_Callback(TextTranslator__TranslatorConfigureListsWidget_SizeHint_Callback cb) { texttranslator__translatorconfigurelistswidget_sizehint_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_MinimumSizeHint_Callback(TextTranslator__TranslatorConfigureListsWidget_MinimumSizeHint_Callback cb) { texttranslator__translatorconfigurelistswidget_minimumsizehint_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_HeightForWidth_Callback(TextTranslator__TranslatorConfigureListsWidget_HeightForWidth_Callback cb) { texttranslator__translatorconfigurelistswidget_heightforwidth_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_HasHeightForWidth_Callback(TextTranslator__TranslatorConfigureListsWidget_HasHeightForWidth_Callback cb) { texttranslator__translatorconfigurelistswidget_hasheightforwidth_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_PaintEngine_Callback(TextTranslator__TranslatorConfigureListsWidget_PaintEngine_Callback cb) { texttranslator__translatorconfigurelistswidget_paintengine_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Event_Callback(TextTranslator__TranslatorConfigureListsWidget_Event_Callback cb) { texttranslator__translatorconfigurelistswidget_event_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_MousePressEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_MousePressEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_mousepressevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_MouseReleaseEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_MouseReleaseEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_mousereleaseevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_MouseDoubleClickEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_MouseDoubleClickEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_mousedoubleclickevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_MouseMoveEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_MouseMoveEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_mousemoveevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_WheelEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_WheelEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_wheelevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_KeyPressEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_KeyPressEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_keypressevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_KeyReleaseEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_KeyReleaseEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_keyreleaseevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_FocusInEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_FocusInEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_focusinevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_FocusOutEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_FocusOutEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_focusoutevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_EnterEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_EnterEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_enterevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_LeaveEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_LeaveEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_leaveevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_PaintEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_PaintEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_paintevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_MoveEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_MoveEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_moveevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_ResizeEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_ResizeEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_resizeevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_CloseEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_CloseEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_closeevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_ContextMenuEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_ContextMenuEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_contextmenuevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_TabletEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_TabletEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_tabletevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_ActionEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_ActionEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_actionevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_DragEnterEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_DragEnterEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_dragenterevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_DragMoveEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_DragMoveEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_dragmoveevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_DragLeaveEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_DragLeaveEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_dragleaveevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_DropEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_DropEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_dropevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_ShowEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_ShowEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_showevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_HideEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_HideEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_hideevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_NativeEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_NativeEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_nativeevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_ChangeEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_ChangeEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_changeevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Metric_Callback(TextTranslator__TranslatorConfigureListsWidget_Metric_Callback cb) { texttranslator__translatorconfigurelistswidget_metric_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_InitPainter_Callback(TextTranslator__TranslatorConfigureListsWidget_InitPainter_Callback cb) { texttranslator__translatorconfigurelistswidget_initpainter_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Redirected_Callback(TextTranslator__TranslatorConfigureListsWidget_Redirected_Callback cb) { texttranslator__translatorconfigurelistswidget_redirected_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_SharedPainter_Callback(TextTranslator__TranslatorConfigureListsWidget_SharedPainter_Callback cb) { texttranslator__translatorconfigurelistswidget_sharedpainter_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_InputMethodEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_InputMethodEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_inputmethodevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_InputMethodQuery_Callback(TextTranslator__TranslatorConfigureListsWidget_InputMethodQuery_Callback cb) { texttranslator__translatorconfigurelistswidget_inputmethodquery_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_FocusNextPrevChild_Callback(TextTranslator__TranslatorConfigureListsWidget_FocusNextPrevChild_Callback cb) { texttranslator__translatorconfigurelistswidget_focusnextprevchild_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_EventFilter_Callback(TextTranslator__TranslatorConfigureListsWidget_EventFilter_Callback cb) { texttranslator__translatorconfigurelistswidget_eventfilter_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_TimerEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_TimerEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_timerevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_ChildEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_ChildEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_childevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_CustomEvent_Callback(TextTranslator__TranslatorConfigureListsWidget_CustomEvent_Callback cb) { texttranslator__translatorconfigurelistswidget_customevent_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_ConnectNotify_Callback(TextTranslator__TranslatorConfigureListsWidget_ConnectNotify_Callback cb) { texttranslator__translatorconfigurelistswidget_connectnotify_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_DisconnectNotify_Callback(TextTranslator__TranslatorConfigureListsWidget_DisconnectNotify_Callback cb) { texttranslator__translatorconfigurelistswidget_disconnectnotify_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_UpdateMicroFocus_Callback(TextTranslator__TranslatorConfigureListsWidget_UpdateMicroFocus_Callback cb) { texttranslator__translatorconfigurelistswidget_updatemicrofocus_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Create_Callback(TextTranslator__TranslatorConfigureListsWidget_Create_Callback cb) { texttranslator__translatorconfigurelistswidget_create_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Destroy_Callback(TextTranslator__TranslatorConfigureListsWidget_Destroy_Callback cb) { texttranslator__translatorconfigurelistswidget_destroy_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_FocusNextChild_Callback(TextTranslator__TranslatorConfigureListsWidget_FocusNextChild_Callback cb) { texttranslator__translatorconfigurelistswidget_focusnextchild_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_FocusPreviousChild_Callback(TextTranslator__TranslatorConfigureListsWidget_FocusPreviousChild_Callback cb) { texttranslator__translatorconfigurelistswidget_focuspreviouschild_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Sender_Callback(TextTranslator__TranslatorConfigureListsWidget_Sender_Callback cb) { texttranslator__translatorconfigurelistswidget_sender_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_SenderSignalIndex_Callback(TextTranslator__TranslatorConfigureListsWidget_SenderSignalIndex_Callback cb) { texttranslator__translatorconfigurelistswidget_sendersignalindex_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Receivers_Callback(TextTranslator__TranslatorConfigureListsWidget_Receivers_Callback cb) { texttranslator__translatorconfigurelistswidget_receivers_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_IsSignalConnected_Callback(TextTranslator__TranslatorConfigureListsWidget_IsSignalConnected_Callback cb) { texttranslator__translatorconfigurelistswidget_issignalconnected_callback = cb; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_GetDecodedMetricF_Callback(TextTranslator__TranslatorConfigureListsWidget_GetDecodedMetricF_Callback cb) { texttranslator__translatorconfigurelistswidget_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setTextTranslator__TranslatorConfigureListsWidget_MetaObject_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_metaobject_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Metacast_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_metacast_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Metacall_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_metacall_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_DevType_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_devtype_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_SetVisible_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_setvisible_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_SizeHint_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_sizehint_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_MinimumSizeHint_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_minimumsizehint_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_HeightForWidth_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_heightforwidth_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_HasHeightForWidth_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_hasheightforwidth_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_PaintEngine_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_paintengine_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Event_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_event_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_MousePressEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_mousepressevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_MouseReleaseEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_mousereleaseevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_MouseDoubleClickEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_mousedoubleclickevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_MouseMoveEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_mousemoveevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_WheelEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_wheelevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_KeyPressEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_keypressevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_KeyReleaseEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_keyreleaseevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_FocusInEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_focusinevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_FocusOutEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_focusoutevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_EnterEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_enterevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_LeaveEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_leaveevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_PaintEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_paintevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_MoveEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_moveevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_ResizeEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_resizeevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_CloseEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_closeevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_ContextMenuEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_contextmenuevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_TabletEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_tabletevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_ActionEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_actionevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_DragEnterEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_dragenterevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_DragMoveEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_dragmoveevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_DragLeaveEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_dragleaveevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_DropEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_dropevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_ShowEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_showevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_HideEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_hideevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_NativeEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_nativeevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_ChangeEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_changeevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Metric_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_metric_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_InitPainter_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_initpainter_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Redirected_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_redirected_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_SharedPainter_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_sharedpainter_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_InputMethodEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_inputmethodevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_InputMethodQuery_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_inputmethodquery_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_FocusNextPrevChild_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_focusnextprevchild_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_EventFilter_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_eventfilter_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_TimerEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_timerevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_ChildEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_childevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_CustomEvent_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_customevent_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_ConnectNotify_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_connectnotify_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_DisconnectNotify_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_disconnectnotify_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_UpdateMicroFocus_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_updatemicrofocus_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Create_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_create_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Destroy_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_destroy_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_FocusNextChild_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_focusnextchild_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_FocusPreviousChild_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_focuspreviouschild_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Sender_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_sender_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_SenderSignalIndex_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_sendersignalindex_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_Receivers_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_receivers_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_IsSignalConnected_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_issignalconnected_isbase = value; }
-    inline void setTextTranslator__TranslatorConfigureListsWidget_GetDecodedMetricF_IsBase(bool value) const { texttranslator__translatorconfigurelistswidget_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (texttranslator__translatorconfigurelistswidget_metaobject_isbase) {
-            texttranslator__translatorconfigurelistswidget_metaobject_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::metaObject();
-        }
-        auto metaobject_cb = texttranslator__translatorconfigurelistswidget_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (texttranslator__translatorconfigurelistswidget_metaobject_callback) {
+            QMetaObject* callback_ret = texttranslator__translatorconfigurelistswidget_metaobject_callback(this);
             return callback_ret;
         }
         return TextTranslator__TranslatorConfigureListsWidget::metaObject();
@@ -347,14 +182,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (texttranslator__translatorconfigurelistswidget_metacast_isbase) {
-            texttranslator__translatorconfigurelistswidget_metacast_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::qt_metacast(param1);
-        }
-        auto metacast_cb = texttranslator__translatorconfigurelistswidget_metacast_callback;
-        if (metacast_cb) {
+        if (texttranslator__translatorconfigurelistswidget_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = texttranslator__translatorconfigurelistswidget_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return TextTranslator__TranslatorConfigureListsWidget::qt_metacast(param1);
@@ -362,16 +192,11 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (texttranslator__translatorconfigurelistswidget_metacall_isbase) {
-            texttranslator__translatorconfigurelistswidget_metacall_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = texttranslator__translatorconfigurelistswidget_metacall_callback;
-        if (metacall_cb) {
+        if (texttranslator__translatorconfigurelistswidget_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = texttranslator__translatorconfigurelistswidget_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return TextTranslator__TranslatorConfigureListsWidget::qt_metacall(param1, param2, param3);
@@ -379,13 +204,8 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (texttranslator__translatorconfigurelistswidget_devtype_isbase) {
-            texttranslator__translatorconfigurelistswidget_devtype_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::devType();
-        }
-        auto devtype_cb = texttranslator__translatorconfigurelistswidget_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (texttranslator__translatorconfigurelistswidget_devtype_callback) {
+            int callback_ret = texttranslator__translatorconfigurelistswidget_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return TextTranslator__TranslatorConfigureListsWidget::devType();
@@ -393,15 +213,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (texttranslator__translatorconfigurelistswidget_setvisible_isbase) {
-            texttranslator__translatorconfigurelistswidget_setvisible_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = texttranslator__translatorconfigurelistswidget_setvisible_callback;
-        if (setvisible_cb) {
+        if (texttranslator__translatorconfigurelistswidget_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_setvisible_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::setVisible(visible);
@@ -409,13 +223,8 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (texttranslator__translatorconfigurelistswidget_sizehint_isbase) {
-            texttranslator__translatorconfigurelistswidget_sizehint_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::sizeHint();
-        }
-        auto sizehint_cb = texttranslator__translatorconfigurelistswidget_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (texttranslator__translatorconfigurelistswidget_sizehint_callback) {
+            QSize* callback_ret = texttranslator__translatorconfigurelistswidget_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -425,13 +234,8 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (texttranslator__translatorconfigurelistswidget_minimumsizehint_isbase) {
-            texttranslator__translatorconfigurelistswidget_minimumsizehint_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = texttranslator__translatorconfigurelistswidget_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (texttranslator__translatorconfigurelistswidget_minimumsizehint_callback) {
+            QSize* callback_ret = texttranslator__translatorconfigurelistswidget_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -441,14 +245,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (texttranslator__translatorconfigurelistswidget_heightforwidth_isbase) {
-            texttranslator__translatorconfigurelistswidget_heightforwidth_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = texttranslator__translatorconfigurelistswidget_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (texttranslator__translatorconfigurelistswidget_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = texttranslator__translatorconfigurelistswidget_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return TextTranslator__TranslatorConfigureListsWidget::heightForWidth(param1);
@@ -456,13 +255,8 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (texttranslator__translatorconfigurelistswidget_hasheightforwidth_isbase) {
-            texttranslator__translatorconfigurelistswidget_hasheightforwidth_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = texttranslator__translatorconfigurelistswidget_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (texttranslator__translatorconfigurelistswidget_hasheightforwidth_callback) {
+            bool callback_ret = texttranslator__translatorconfigurelistswidget_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return TextTranslator__TranslatorConfigureListsWidget::hasHeightForWidth();
@@ -470,13 +264,8 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (texttranslator__translatorconfigurelistswidget_paintengine_isbase) {
-            texttranslator__translatorconfigurelistswidget_paintengine_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::paintEngine();
-        }
-        auto paintengine_cb = texttranslator__translatorconfigurelistswidget_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (texttranslator__translatorconfigurelistswidget_paintengine_callback) {
+            QPaintEngine* callback_ret = texttranslator__translatorconfigurelistswidget_paintengine_callback(this);
             return callback_ret;
         }
         return TextTranslator__TranslatorConfigureListsWidget::paintEngine();
@@ -484,14 +273,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_event_isbase) {
-            texttranslator__translatorconfigurelistswidget_event_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::event(event);
-        }
-        auto event_cb = texttranslator__translatorconfigurelistswidget_event_callback;
-        if (event_cb) {
+        if (texttranslator__translatorconfigurelistswidget_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = texttranslator__translatorconfigurelistswidget_event_callback(this, cbval1);
             return callback_ret;
         }
         return TextTranslator__TranslatorConfigureListsWidget::event(event);
@@ -499,15 +283,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_mousepressevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_mousepressevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = texttranslator__translatorconfigurelistswidget_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_mousepressevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::mousePressEvent(event);
@@ -515,15 +293,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_mousereleaseevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_mousereleaseevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = texttranslator__translatorconfigurelistswidget_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_mousereleaseevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::mouseReleaseEvent(event);
@@ -531,15 +303,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_mousedoubleclickevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_mousedoubleclickevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = texttranslator__translatorconfigurelistswidget_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::mouseDoubleClickEvent(event);
@@ -547,15 +313,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_mousemoveevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_mousemoveevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = texttranslator__translatorconfigurelistswidget_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_mousemoveevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::mouseMoveEvent(event);
@@ -563,15 +323,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_wheelevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_wheelevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = texttranslator__translatorconfigurelistswidget_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_wheelevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::wheelEvent(event);
@@ -579,15 +333,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_keypressevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_keypressevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = texttranslator__translatorconfigurelistswidget_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_keypressevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::keyPressEvent(event);
@@ -595,15 +343,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_keyreleaseevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_keyreleaseevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = texttranslator__translatorconfigurelistswidget_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_keyreleaseevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::keyReleaseEvent(event);
@@ -611,15 +353,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_focusinevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_focusinevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = texttranslator__translatorconfigurelistswidget_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_focusinevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::focusInEvent(event);
@@ -627,15 +363,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_focusoutevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_focusoutevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = texttranslator__translatorconfigurelistswidget_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_focusoutevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::focusOutEvent(event);
@@ -643,15 +373,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_enterevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_enterevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = texttranslator__translatorconfigurelistswidget_enterevent_callback;
-        if (enterevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_enterevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::enterEvent(event);
@@ -659,15 +383,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_leaveevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_leaveevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = texttranslator__translatorconfigurelistswidget_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_leaveevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::leaveEvent(event);
@@ -675,15 +393,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_paintevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_paintevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = texttranslator__translatorconfigurelistswidget_paintevent_callback;
-        if (paintevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_paintevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::paintEvent(event);
@@ -691,15 +403,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_moveevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_moveevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = texttranslator__translatorconfigurelistswidget_moveevent_callback;
-        if (moveevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_moveevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::moveEvent(event);
@@ -707,15 +413,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_resizeevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_resizeevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = texttranslator__translatorconfigurelistswidget_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_resizeevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::resizeEvent(event);
@@ -723,15 +423,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_closeevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_closeevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = texttranslator__translatorconfigurelistswidget_closeevent_callback;
-        if (closeevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_closeevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::closeEvent(event);
@@ -739,15 +433,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_contextmenuevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_contextmenuevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = texttranslator__translatorconfigurelistswidget_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_contextmenuevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::contextMenuEvent(event);
@@ -755,15 +443,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_tabletevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_tabletevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = texttranslator__translatorconfigurelistswidget_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_tabletevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::tabletEvent(event);
@@ -771,15 +453,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_actionevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_actionevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = texttranslator__translatorconfigurelistswidget_actionevent_callback;
-        if (actionevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_actionevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::actionEvent(event);
@@ -787,15 +463,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_dragenterevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_dragenterevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = texttranslator__translatorconfigurelistswidget_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_dragenterevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::dragEnterEvent(event);
@@ -803,15 +473,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_dragmoveevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_dragmoveevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = texttranslator__translatorconfigurelistswidget_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_dragmoveevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::dragMoveEvent(event);
@@ -819,15 +483,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_dragleaveevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_dragleaveevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = texttranslator__translatorconfigurelistswidget_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_dragleaveevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::dragLeaveEvent(event);
@@ -835,15 +493,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_dropevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_dropevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = texttranslator__translatorconfigurelistswidget_dropevent_callback;
-        if (dropevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_dropevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::dropEvent(event);
@@ -851,15 +503,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_showevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_showevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::showEvent(event);
-            return;
-        }
-        auto showevent_cb = texttranslator__translatorconfigurelistswidget_showevent_callback;
-        if (showevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_showevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::showEvent(event);
@@ -867,15 +513,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_hideevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_hideevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = texttranslator__translatorconfigurelistswidget_hideevent_callback;
-        if (hideevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_hideevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::hideEvent(event);
@@ -883,12 +523,7 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (texttranslator__translatorconfigurelistswidget_nativeevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_nativeevent_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = texttranslator__translatorconfigurelistswidget_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -898,7 +533,7 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = texttranslator__translatorconfigurelistswidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -907,15 +542,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (texttranslator__translatorconfigurelistswidget_changeevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_changeevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = texttranslator__translatorconfigurelistswidget_changeevent_callback;
-        if (changeevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_changeevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::changeEvent(param1);
@@ -923,14 +552,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (texttranslator__translatorconfigurelistswidget_metric_isbase) {
-            texttranslator__translatorconfigurelistswidget_metric_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::metric(param1);
-        }
-        auto metric_cb = texttranslator__translatorconfigurelistswidget_metric_callback;
-        if (metric_cb) {
+        if (texttranslator__translatorconfigurelistswidget_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = texttranslator__translatorconfigurelistswidget_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return TextTranslator__TranslatorConfigureListsWidget::metric(param1);
@@ -938,15 +562,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (texttranslator__translatorconfigurelistswidget_initpainter_isbase) {
-            texttranslator__translatorconfigurelistswidget_initpainter_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = texttranslator__translatorconfigurelistswidget_initpainter_callback;
-        if (initpainter_cb) {
+        if (texttranslator__translatorconfigurelistswidget_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_initpainter_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::initPainter(painter);
@@ -954,14 +572,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (texttranslator__translatorconfigurelistswidget_redirected_isbase) {
-            texttranslator__translatorconfigurelistswidget_redirected_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::redirected(offset);
-        }
-        auto redirected_cb = texttranslator__translatorconfigurelistswidget_redirected_callback;
-        if (redirected_cb) {
+        if (texttranslator__translatorconfigurelistswidget_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = texttranslator__translatorconfigurelistswidget_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return TextTranslator__TranslatorConfigureListsWidget::redirected(offset);
@@ -969,13 +582,8 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (texttranslator__translatorconfigurelistswidget_sharedpainter_isbase) {
-            texttranslator__translatorconfigurelistswidget_sharedpainter_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::sharedPainter();
-        }
-        auto sharedpainter_cb = texttranslator__translatorconfigurelistswidget_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (texttranslator__translatorconfigurelistswidget_sharedpainter_callback) {
+            QPainter* callback_ret = texttranslator__translatorconfigurelistswidget_sharedpainter_callback(this);
             return callback_ret;
         }
         return TextTranslator__TranslatorConfigureListsWidget::sharedPainter();
@@ -983,15 +591,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (texttranslator__translatorconfigurelistswidget_inputmethodevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_inputmethodevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = texttranslator__translatorconfigurelistswidget_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_inputmethodevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::inputMethodEvent(param1);
@@ -999,14 +601,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (texttranslator__translatorconfigurelistswidget_inputmethodquery_isbase) {
-            texttranslator__translatorconfigurelistswidget_inputmethodquery_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = texttranslator__translatorconfigurelistswidget_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (texttranslator__translatorconfigurelistswidget_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = texttranslator__translatorconfigurelistswidget_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1016,14 +613,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (texttranslator__translatorconfigurelistswidget_focusnextprevchild_isbase) {
-            texttranslator__translatorconfigurelistswidget_focusnextprevchild_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = texttranslator__translatorconfigurelistswidget_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (texttranslator__translatorconfigurelistswidget_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = texttranslator__translatorconfigurelistswidget_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return TextTranslator__TranslatorConfigureListsWidget::focusNextPrevChild(next);
@@ -1031,15 +623,10 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_eventfilter_isbase) {
-            texttranslator__translatorconfigurelistswidget_eventfilter_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = texttranslator__translatorconfigurelistswidget_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (texttranslator__translatorconfigurelistswidget_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = texttranslator__translatorconfigurelistswidget_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return TextTranslator__TranslatorConfigureListsWidget::eventFilter(watched, event);
@@ -1047,15 +634,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_timerevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_timerevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = texttranslator__translatorconfigurelistswidget_timerevent_callback;
-        if (timerevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_timerevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::timerEvent(event);
@@ -1063,15 +644,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_childevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_childevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::childEvent(event);
-            return;
-        }
-        auto childevent_cb = texttranslator__translatorconfigurelistswidget_childevent_callback;
-        if (childevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_childevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::childEvent(event);
@@ -1079,15 +654,9 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (texttranslator__translatorconfigurelistswidget_customevent_isbase) {
-            texttranslator__translatorconfigurelistswidget_customevent_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::customEvent(event);
-            return;
-        }
-        auto customevent_cb = texttranslator__translatorconfigurelistswidget_customevent_callback;
-        if (customevent_cb) {
+        if (texttranslator__translatorconfigurelistswidget_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_customevent_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::customEvent(event);
@@ -1095,17 +664,11 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (texttranslator__translatorconfigurelistswidget_connectnotify_isbase) {
-            texttranslator__translatorconfigurelistswidget_connectnotify_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = texttranslator__translatorconfigurelistswidget_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (texttranslator__translatorconfigurelistswidget_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_connectnotify_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::connectNotify(signal);
@@ -1113,268 +676,55 @@ class VirtualTextTranslatorTranslatorConfigureListsWidget final : public TextTra
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (texttranslator__translatorconfigurelistswidget_disconnectnotify_isbase) {
-            texttranslator__translatorconfigurelistswidget_disconnectnotify_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = texttranslator__translatorconfigurelistswidget_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (texttranslator__translatorconfigurelistswidget_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            texttranslator__translatorconfigurelistswidget_disconnectnotify_callback(this, cbval1);
             return;
         }
         TextTranslator__TranslatorConfigureListsWidget::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (texttranslator__translatorconfigurelistswidget_updatemicrofocus_isbase) {
-            texttranslator__translatorconfigurelistswidget_updatemicrofocus_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = texttranslator__translatorconfigurelistswidget_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        TextTranslator__TranslatorConfigureListsWidget::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (texttranslator__translatorconfigurelistswidget_create_isbase) {
-            texttranslator__translatorconfigurelistswidget_create_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::create();
-            return;
-        }
-        auto create_cb = texttranslator__translatorconfigurelistswidget_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        TextTranslator__TranslatorConfigureListsWidget::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (texttranslator__translatorconfigurelistswidget_destroy_isbase) {
-            texttranslator__translatorconfigurelistswidget_destroy_isbase = false;
-            TextTranslator__TranslatorConfigureListsWidget::destroy();
-            return;
-        }
-        auto destroy_cb = texttranslator__translatorconfigurelistswidget_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        TextTranslator__TranslatorConfigureListsWidget::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (texttranslator__translatorconfigurelistswidget_focusnextchild_isbase) {
-            texttranslator__translatorconfigurelistswidget_focusnextchild_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::focusNextChild();
-        }
-        auto focusnextchild_cb = texttranslator__translatorconfigurelistswidget_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return TextTranslator__TranslatorConfigureListsWidget::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (texttranslator__translatorconfigurelistswidget_focuspreviouschild_isbase) {
-            texttranslator__translatorconfigurelistswidget_focuspreviouschild_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = texttranslator__translatorconfigurelistswidget_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return TextTranslator__TranslatorConfigureListsWidget::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (texttranslator__translatorconfigurelistswidget_sender_isbase) {
-            texttranslator__translatorconfigurelistswidget_sender_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::sender();
-        }
-        auto sender_cb = texttranslator__translatorconfigurelistswidget_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return TextTranslator__TranslatorConfigureListsWidget::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (texttranslator__translatorconfigurelistswidget_sendersignalindex_isbase) {
-            texttranslator__translatorconfigurelistswidget_sendersignalindex_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = texttranslator__translatorconfigurelistswidget_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return TextTranslator__TranslatorConfigureListsWidget::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (texttranslator__translatorconfigurelistswidget_receivers_isbase) {
-            texttranslator__translatorconfigurelistswidget_receivers_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::receivers(signal);
-        }
-        auto receivers_cb = texttranslator__translatorconfigurelistswidget_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return TextTranslator__TranslatorConfigureListsWidget::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (texttranslator__translatorconfigurelistswidget_issignalconnected_isbase) {
-            texttranslator__translatorconfigurelistswidget_issignalconnected_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = texttranslator__translatorconfigurelistswidget_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return TextTranslator__TranslatorConfigureListsWidget::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (texttranslator__translatorconfigurelistswidget_getdecodedmetricf_isbase) {
-            texttranslator__translatorconfigurelistswidget_getdecodedmetricf_isbase = false;
-            return TextTranslator__TranslatorConfigureListsWidget::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = texttranslator__translatorconfigurelistswidget_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return TextTranslator__TranslatorConfigureListsWidget::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool TextTranslator__TranslatorConfigureListsWidget_Event(TextTranslator::TranslatorConfigureListsWidget* self, QEvent* event);
     friend bool TextTranslator__TranslatorConfigureListsWidget_SuperEvent(TextTranslator::TranslatorConfigureListsWidget* self, QEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_MousePressEvent(TextTranslator::TranslatorConfigureListsWidget* self, QMouseEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperMousePressEvent(TextTranslator::TranslatorConfigureListsWidget* self, QMouseEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_MouseReleaseEvent(TextTranslator::TranslatorConfigureListsWidget* self, QMouseEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperMouseReleaseEvent(TextTranslator::TranslatorConfigureListsWidget* self, QMouseEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_MouseDoubleClickEvent(TextTranslator::TranslatorConfigureListsWidget* self, QMouseEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperMouseDoubleClickEvent(TextTranslator::TranslatorConfigureListsWidget* self, QMouseEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_MouseMoveEvent(TextTranslator::TranslatorConfigureListsWidget* self, QMouseEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperMouseMoveEvent(TextTranslator::TranslatorConfigureListsWidget* self, QMouseEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_WheelEvent(TextTranslator::TranslatorConfigureListsWidget* self, QWheelEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperWheelEvent(TextTranslator::TranslatorConfigureListsWidget* self, QWheelEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_KeyPressEvent(TextTranslator::TranslatorConfigureListsWidget* self, QKeyEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperKeyPressEvent(TextTranslator::TranslatorConfigureListsWidget* self, QKeyEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_KeyReleaseEvent(TextTranslator::TranslatorConfigureListsWidget* self, QKeyEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperKeyReleaseEvent(TextTranslator::TranslatorConfigureListsWidget* self, QKeyEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_FocusInEvent(TextTranslator::TranslatorConfigureListsWidget* self, QFocusEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperFocusInEvent(TextTranslator::TranslatorConfigureListsWidget* self, QFocusEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_FocusOutEvent(TextTranslator::TranslatorConfigureListsWidget* self, QFocusEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperFocusOutEvent(TextTranslator::TranslatorConfigureListsWidget* self, QFocusEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_EnterEvent(TextTranslator::TranslatorConfigureListsWidget* self, QEnterEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperEnterEvent(TextTranslator::TranslatorConfigureListsWidget* self, QEnterEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_LeaveEvent(TextTranslator::TranslatorConfigureListsWidget* self, QEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperLeaveEvent(TextTranslator::TranslatorConfigureListsWidget* self, QEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_PaintEvent(TextTranslator::TranslatorConfigureListsWidget* self, QPaintEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperPaintEvent(TextTranslator::TranslatorConfigureListsWidget* self, QPaintEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_MoveEvent(TextTranslator::TranslatorConfigureListsWidget* self, QMoveEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperMoveEvent(TextTranslator::TranslatorConfigureListsWidget* self, QMoveEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_ResizeEvent(TextTranslator::TranslatorConfigureListsWidget* self, QResizeEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperResizeEvent(TextTranslator::TranslatorConfigureListsWidget* self, QResizeEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_CloseEvent(TextTranslator::TranslatorConfigureListsWidget* self, QCloseEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperCloseEvent(TextTranslator::TranslatorConfigureListsWidget* self, QCloseEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_ContextMenuEvent(TextTranslator::TranslatorConfigureListsWidget* self, QContextMenuEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperContextMenuEvent(TextTranslator::TranslatorConfigureListsWidget* self, QContextMenuEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_TabletEvent(TextTranslator::TranslatorConfigureListsWidget* self, QTabletEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperTabletEvent(TextTranslator::TranslatorConfigureListsWidget* self, QTabletEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_ActionEvent(TextTranslator::TranslatorConfigureListsWidget* self, QActionEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperActionEvent(TextTranslator::TranslatorConfigureListsWidget* self, QActionEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_DragEnterEvent(TextTranslator::TranslatorConfigureListsWidget* self, QDragEnterEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperDragEnterEvent(TextTranslator::TranslatorConfigureListsWidget* self, QDragEnterEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_DragMoveEvent(TextTranslator::TranslatorConfigureListsWidget* self, QDragMoveEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperDragMoveEvent(TextTranslator::TranslatorConfigureListsWidget* self, QDragMoveEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_DragLeaveEvent(TextTranslator::TranslatorConfigureListsWidget* self, QDragLeaveEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperDragLeaveEvent(TextTranslator::TranslatorConfigureListsWidget* self, QDragLeaveEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_DropEvent(TextTranslator::TranslatorConfigureListsWidget* self, QDropEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperDropEvent(TextTranslator::TranslatorConfigureListsWidget* self, QDropEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_ShowEvent(TextTranslator::TranslatorConfigureListsWidget* self, QShowEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperShowEvent(TextTranslator::TranslatorConfigureListsWidget* self, QShowEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_HideEvent(TextTranslator::TranslatorConfigureListsWidget* self, QHideEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperHideEvent(TextTranslator::TranslatorConfigureListsWidget* self, QHideEvent* event);
-    friend bool TextTranslator__TranslatorConfigureListsWidget_NativeEvent(TextTranslator::TranslatorConfigureListsWidget* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool TextTranslator__TranslatorConfigureListsWidget_SuperNativeEvent(TextTranslator::TranslatorConfigureListsWidget* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void TextTranslator__TranslatorConfigureListsWidget_ChangeEvent(TextTranslator::TranslatorConfigureListsWidget* self, QEvent* param1);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperChangeEvent(TextTranslator::TranslatorConfigureListsWidget* self, QEvent* param1);
-    friend int TextTranslator__TranslatorConfigureListsWidget_Metric(const TextTranslator::TranslatorConfigureListsWidget* self, int param1);
     friend int TextTranslator__TranslatorConfigureListsWidget_SuperMetric(const TextTranslator::TranslatorConfigureListsWidget* self, int param1);
-    friend void TextTranslator__TranslatorConfigureListsWidget_InitPainter(const TextTranslator::TranslatorConfigureListsWidget* self, QPainter* painter);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperInitPainter(const TextTranslator::TranslatorConfigureListsWidget* self, QPainter* painter);
-    friend QPaintDevice* TextTranslator__TranslatorConfigureListsWidget_Redirected(const TextTranslator::TranslatorConfigureListsWidget* self, QPoint* offset);
     friend QPaintDevice* TextTranslator__TranslatorConfigureListsWidget_SuperRedirected(const TextTranslator::TranslatorConfigureListsWidget* self, QPoint* offset);
-    friend QPainter* TextTranslator__TranslatorConfigureListsWidget_SharedPainter(const TextTranslator::TranslatorConfigureListsWidget* self);
     friend QPainter* TextTranslator__TranslatorConfigureListsWidget_SuperSharedPainter(const TextTranslator::TranslatorConfigureListsWidget* self);
-    friend void TextTranslator__TranslatorConfigureListsWidget_InputMethodEvent(TextTranslator::TranslatorConfigureListsWidget* self, QInputMethodEvent* param1);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperInputMethodEvent(TextTranslator::TranslatorConfigureListsWidget* self, QInputMethodEvent* param1);
-    friend bool TextTranslator__TranslatorConfigureListsWidget_FocusNextPrevChild(TextTranslator::TranslatorConfigureListsWidget* self, bool next);
     friend bool TextTranslator__TranslatorConfigureListsWidget_SuperFocusNextPrevChild(TextTranslator::TranslatorConfigureListsWidget* self, bool next);
-    friend void TextTranslator__TranslatorConfigureListsWidget_TimerEvent(TextTranslator::TranslatorConfigureListsWidget* self, QTimerEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperTimerEvent(TextTranslator::TranslatorConfigureListsWidget* self, QTimerEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_ChildEvent(TextTranslator::TranslatorConfigureListsWidget* self, QChildEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperChildEvent(TextTranslator::TranslatorConfigureListsWidget* self, QChildEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_CustomEvent(TextTranslator::TranslatorConfigureListsWidget* self, QEvent* event);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperCustomEvent(TextTranslator::TranslatorConfigureListsWidget* self, QEvent* event);
-    friend void TextTranslator__TranslatorConfigureListsWidget_ConnectNotify(TextTranslator::TranslatorConfigureListsWidget* self, const QMetaMethod* signal);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperConnectNotify(TextTranslator::TranslatorConfigureListsWidget* self, const QMetaMethod* signal);
-    friend void TextTranslator__TranslatorConfigureListsWidget_DisconnectNotify(TextTranslator::TranslatorConfigureListsWidget* self, const QMetaMethod* signal);
     friend void TextTranslator__TranslatorConfigureListsWidget_SuperDisconnectNotify(TextTranslator::TranslatorConfigureListsWidget* self, const QMetaMethod* signal);
-    friend void TextTranslator__TranslatorConfigureListsWidget_UpdateMicroFocus(TextTranslator::TranslatorConfigureListsWidget* self);
-    friend void TextTranslator__TranslatorConfigureListsWidget_SuperUpdateMicroFocus(TextTranslator::TranslatorConfigureListsWidget* self);
-    friend void TextTranslator__TranslatorConfigureListsWidget_Create(TextTranslator::TranslatorConfigureListsWidget* self);
-    friend void TextTranslator__TranslatorConfigureListsWidget_SuperCreate(TextTranslator::TranslatorConfigureListsWidget* self);
-    friend void TextTranslator__TranslatorConfigureListsWidget_Destroy(TextTranslator::TranslatorConfigureListsWidget* self);
-    friend void TextTranslator__TranslatorConfigureListsWidget_SuperDestroy(TextTranslator::TranslatorConfigureListsWidget* self);
-    friend bool TextTranslator__TranslatorConfigureListsWidget_FocusNextChild(TextTranslator::TranslatorConfigureListsWidget* self);
-    friend bool TextTranslator__TranslatorConfigureListsWidget_SuperFocusNextChild(TextTranslator::TranslatorConfigureListsWidget* self);
-    friend bool TextTranslator__TranslatorConfigureListsWidget_FocusPreviousChild(TextTranslator::TranslatorConfigureListsWidget* self);
-    friend bool TextTranslator__TranslatorConfigureListsWidget_SuperFocusPreviousChild(TextTranslator::TranslatorConfigureListsWidget* self);
-    friend QObject* TextTranslator__TranslatorConfigureListsWidget_Sender(const TextTranslator::TranslatorConfigureListsWidget* self);
-    friend QObject* TextTranslator__TranslatorConfigureListsWidget_SuperSender(const TextTranslator::TranslatorConfigureListsWidget* self);
-    friend int TextTranslator__TranslatorConfigureListsWidget_SenderSignalIndex(const TextTranslator::TranslatorConfigureListsWidget* self);
-    friend int TextTranslator__TranslatorConfigureListsWidget_SuperSenderSignalIndex(const TextTranslator::TranslatorConfigureListsWidget* self);
-    friend int TextTranslator__TranslatorConfigureListsWidget_Receivers(const TextTranslator::TranslatorConfigureListsWidget* self, const char* signal);
-    friend int TextTranslator__TranslatorConfigureListsWidget_SuperReceivers(const TextTranslator::TranslatorConfigureListsWidget* self, const char* signal);
-    friend bool TextTranslator__TranslatorConfigureListsWidget_IsSignalConnected(const TextTranslator::TranslatorConfigureListsWidget* self, const QMetaMethod* signal);
-    friend bool TextTranslator__TranslatorConfigureListsWidget_SuperIsSignalConnected(const TextTranslator::TranslatorConfigureListsWidget* self, const QMetaMethod* signal);
-    friend double TextTranslator__TranslatorConfigureListsWidget_GetDecodedMetricF(const TextTranslator::TranslatorConfigureListsWidget* self, int metricA, int metricB);
-    friend double TextTranslator__TranslatorConfigureListsWidget_SuperGetDecodedMetricF(const TextTranslator::TranslatorConfigureListsWidget* self, int metricA, int metricB);
 };
 
 #endif

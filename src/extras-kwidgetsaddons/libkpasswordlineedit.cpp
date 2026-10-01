@@ -203,1654 +203,1173 @@ libqt_string KPasswordLineEdit_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KPasswordLineEdit_SuperMetaObject(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_MetaObject_IsBase(true);
-        return (QMetaObject*)vkpasswordlineedit->metaObject();
-    } else {
-        return (QMetaObject*)self->KPasswordLineEdit::metaObject();
-    }
+    return (QMetaObject*)self->KPasswordLineEdit::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnMetaObject(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_MetaObject_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MetaObject_Callback>(slot));
+void KPasswordLineEdit_OnMetaObject(KPasswordLineEdit* self, intptr_t slot) {
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self)))
+        vkpasswordlineedit->kpasswordlineedit_metaobject_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KPasswordLineEdit_SuperMetacast(KPasswordLineEdit* self, const char* param1) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_Metacast_IsBase(true);
-        return vkpasswordlineedit->qt_metacast(param1);
-    } else {
-        return self->KPasswordLineEdit::qt_metacast(param1);
-    }
+    return self->KPasswordLineEdit::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMetacast(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_Metacast_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Metacast_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_metacast_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KPasswordLineEdit_SuperMetacall(KPasswordLineEdit* self, int param1, int param2, void** param3) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_Metacall_IsBase(true);
-        return vkpasswordlineedit->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KPasswordLineEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KPasswordLineEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMetacall(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_Metacall_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Metacall_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_metacall_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPasswordLineEdit_DevType(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return vkpasswordlineedit->devType();
-    } else {
-        return self->KPasswordLineEdit::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KPasswordLineEdit_SuperDevType(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_DevType_IsBase(true);
-        return vkpasswordlineedit->devType();
-    } else {
-        return self->KPasswordLineEdit::devType();
-    }
+    return self->KPasswordLineEdit::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnDevType(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_DevType_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DevType_Callback>(slot));
+void KPasswordLineEdit_OnDevType(KPasswordLineEdit* self, intptr_t slot) {
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self)))
+        vkpasswordlineedit->kpasswordlineedit_devtype_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_SetVisible(KPasswordLineEdit* self, bool visible) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setVisible(visible);
-    } else {
-        self->KPasswordLineEdit::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperSetVisible(KPasswordLineEdit* self, bool visible) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_SetVisible_IsBase(true);
-        vkpasswordlineedit->setVisible(visible);
-    } else {
-        self->KPasswordLineEdit::setVisible(visible);
-    }
+    self->KPasswordLineEdit::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnSetVisible(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_SetVisible_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_SetVisible_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_setvisible_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KPasswordLineEdit_SizeHint(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return new QSize(vkpasswordlineedit->sizeHint());
-    } else {
-        return new QSize(((VirtualKPasswordLineEdit*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KPasswordLineEdit_SuperSizeHint(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_SizeHint_IsBase(true);
-        return new QSize(vkpasswordlineedit->sizeHint());
-    } else {
-        return new QSize(((VirtualKPasswordLineEdit*)self)->sizeHint());
-    }
+    return new QSize(self->KPasswordLineEdit::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnSizeHint(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_SizeHint_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_SizeHint_Callback>(slot));
+void KPasswordLineEdit_OnSizeHint(KPasswordLineEdit* self, intptr_t slot) {
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self)))
+        vkpasswordlineedit->kpasswordlineedit_sizehint_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KPasswordLineEdit_MinimumSizeHint(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return new QSize(vkpasswordlineedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPasswordLineEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KPasswordLineEdit_SuperMinimumSizeHint(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_MinimumSizeHint_IsBase(true);
-        return new QSize(vkpasswordlineedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPasswordLineEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KPasswordLineEdit::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnMinimumSizeHint(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MinimumSizeHint_Callback>(slot));
+void KPasswordLineEdit_OnMinimumSizeHint(KPasswordLineEdit* self, intptr_t slot) {
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self)))
+        vkpasswordlineedit->kpasswordlineedit_minimumsizehint_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPasswordLineEdit_HeightForWidth(const KPasswordLineEdit* self, int param1) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return vkpasswordlineedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KPasswordLineEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KPasswordLineEdit_SuperHeightForWidth(const KPasswordLineEdit* self, int param1) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_HeightForWidth_IsBase(true);
-        return vkpasswordlineedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KPasswordLineEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KPasswordLineEdit::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnHeightForWidth(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_HeightForWidth_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_HeightForWidth_Callback>(slot));
+void KPasswordLineEdit_OnHeightForWidth(KPasswordLineEdit* self, intptr_t slot) {
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self)))
+        vkpasswordlineedit->kpasswordlineedit_heightforwidth_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPasswordLineEdit_HasHeightForWidth(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return vkpasswordlineedit->hasHeightForWidth();
-    } else {
-        return self->KPasswordLineEdit::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KPasswordLineEdit_SuperHasHeightForWidth(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_HasHeightForWidth_IsBase(true);
-        return vkpasswordlineedit->hasHeightForWidth();
-    } else {
-        return self->KPasswordLineEdit::hasHeightForWidth();
-    }
+    return self->KPasswordLineEdit::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnHasHeightForWidth(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_HasHeightForWidth_Callback>(slot));
+void KPasswordLineEdit_OnHasHeightForWidth(KPasswordLineEdit* self, intptr_t slot) {
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self)))
+        vkpasswordlineedit->kpasswordlineedit_hasheightforwidth_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KPasswordLineEdit_PaintEngine(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return vkpasswordlineedit->paintEngine();
-    } else {
-        return self->KPasswordLineEdit::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KPasswordLineEdit_SuperPaintEngine(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_PaintEngine_IsBase(true);
-        return vkpasswordlineedit->paintEngine();
-    } else {
-        return self->KPasswordLineEdit::paintEngine();
-    }
+    return self->KPasswordLineEdit::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnPaintEngine(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_PaintEngine_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_PaintEngine_Callback>(slot));
+void KPasswordLineEdit_OnPaintEngine(KPasswordLineEdit* self, intptr_t slot) {
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self)))
+        vkpasswordlineedit->kpasswordlineedit_paintengine_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPasswordLineEdit_Event(KPasswordLineEdit* self, QEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         return vkpasswordlineedit->event(event);
     } else {
-        return ((VirtualKPasswordLineEdit*)self)->event(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPasswordLineEdit_SuperEvent(KPasswordLineEdit* self, QEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_Event_IsBase(true);
-        return vkpasswordlineedit->event(event);
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->event(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        return vkpasswordlineedit->KPasswordLineEdit::event(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_Event_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Event_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_event_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_MousePressEvent(KPasswordLineEdit* self, QMouseEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->mousePressEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperMousePressEvent(KPasswordLineEdit* self, QMouseEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_MousePressEvent_IsBase(true);
-        vkpasswordlineedit->mousePressEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->mousePressEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMousePressEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_MousePressEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MousePressEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_mousepressevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_MouseReleaseEvent(KPasswordLineEdit* self, QMouseEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->mouseReleaseEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperMouseReleaseEvent(KPasswordLineEdit* self, QMouseEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_MouseReleaseEvent_IsBase(true);
-        vkpasswordlineedit->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMouseReleaseEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_mousereleaseevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_MouseDoubleClickEvent(KPasswordLineEdit* self, QMouseEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperMouseDoubleClickEvent(KPasswordLineEdit* self, QMouseEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_MouseDoubleClickEvent_IsBase(true);
-        vkpasswordlineedit->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMouseDoubleClickEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_mousedoubleclickevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_MouseMoveEvent(KPasswordLineEdit* self, QMouseEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->mouseMoveEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperMouseMoveEvent(KPasswordLineEdit* self, QMouseEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_MouseMoveEvent_IsBase(true);
-        vkpasswordlineedit->mouseMoveEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMouseMoveEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MouseMoveEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_mousemoveevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_WheelEvent(KPasswordLineEdit* self, QWheelEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->wheelEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperWheelEvent(KPasswordLineEdit* self, QWheelEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_WheelEvent_IsBase(true);
-        vkpasswordlineedit->wheelEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->wheelEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnWheelEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_WheelEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_WheelEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_wheelevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_KeyPressEvent(KPasswordLineEdit* self, QKeyEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->keyPressEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperKeyPressEvent(KPasswordLineEdit* self, QKeyEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_KeyPressEvent_IsBase(true);
-        vkpasswordlineedit->keyPressEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->keyPressEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnKeyPressEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_KeyPressEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_keypressevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_KeyReleaseEvent(KPasswordLineEdit* self, QKeyEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->keyReleaseEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperKeyReleaseEvent(KPasswordLineEdit* self, QKeyEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_KeyReleaseEvent_IsBase(true);
-        vkpasswordlineedit->keyReleaseEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnKeyReleaseEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_keyreleaseevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_FocusInEvent(KPasswordLineEdit* self, QFocusEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->focusInEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperFocusInEvent(KPasswordLineEdit* self, QFocusEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_FocusInEvent_IsBase(true);
-        vkpasswordlineedit->focusInEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->focusInEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnFocusInEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_FocusInEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_FocusInEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_focusinevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_FocusOutEvent(KPasswordLineEdit* self, QFocusEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->focusOutEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperFocusOutEvent(KPasswordLineEdit* self, QFocusEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_FocusOutEvent_IsBase(true);
-        vkpasswordlineedit->focusOutEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->focusOutEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnFocusOutEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_FocusOutEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_focusoutevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_EnterEvent(KPasswordLineEdit* self, QEnterEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->enterEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperEnterEvent(KPasswordLineEdit* self, QEnterEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_EnterEvent_IsBase(true);
-        vkpasswordlineedit->enterEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->enterEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnEnterEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_EnterEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_EnterEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_enterevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_LeaveEvent(KPasswordLineEdit* self, QEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->leaveEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperLeaveEvent(KPasswordLineEdit* self, QEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_LeaveEvent_IsBase(true);
-        vkpasswordlineedit->leaveEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->leaveEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnLeaveEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_LeaveEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_LeaveEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_leaveevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_PaintEvent(KPasswordLineEdit* self, QPaintEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->paintEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperPaintEvent(KPasswordLineEdit* self, QPaintEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_PaintEvent_IsBase(true);
-        vkpasswordlineedit->paintEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->paintEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnPaintEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_PaintEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_PaintEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_paintevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_MoveEvent(KPasswordLineEdit* self, QMoveEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->moveEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperMoveEvent(KPasswordLineEdit* self, QMoveEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_MoveEvent_IsBase(true);
-        vkpasswordlineedit->moveEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->moveEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMoveEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_MoveEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MoveEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_moveevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_ResizeEvent(KPasswordLineEdit* self, QResizeEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->resizeEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperResizeEvent(KPasswordLineEdit* self, QResizeEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_ResizeEvent_IsBase(true);
-        vkpasswordlineedit->resizeEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->resizeEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnResizeEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_ResizeEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ResizeEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_resizeevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_CloseEvent(KPasswordLineEdit* self, QCloseEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->closeEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperCloseEvent(KPasswordLineEdit* self, QCloseEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_CloseEvent_IsBase(true);
-        vkpasswordlineedit->closeEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->closeEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnCloseEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_CloseEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_CloseEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_closeevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_ContextMenuEvent(KPasswordLineEdit* self, QContextMenuEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->contextMenuEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperContextMenuEvent(KPasswordLineEdit* self, QContextMenuEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_ContextMenuEvent_IsBase(true);
-        vkpasswordlineedit->contextMenuEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnContextMenuEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ContextMenuEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_contextmenuevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_TabletEvent(KPasswordLineEdit* self, QTabletEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->tabletEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperTabletEvent(KPasswordLineEdit* self, QTabletEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_TabletEvent_IsBase(true);
-        vkpasswordlineedit->tabletEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->tabletEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnTabletEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_TabletEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_TabletEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_tabletevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_ActionEvent(KPasswordLineEdit* self, QActionEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->actionEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperActionEvent(KPasswordLineEdit* self, QActionEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_ActionEvent_IsBase(true);
-        vkpasswordlineedit->actionEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->actionEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnActionEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_ActionEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ActionEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_actionevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_DragEnterEvent(KPasswordLineEdit* self, QDragEnterEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->dragEnterEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperDragEnterEvent(KPasswordLineEdit* self, QDragEnterEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_DragEnterEvent_IsBase(true);
-        vkpasswordlineedit->dragEnterEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnDragEnterEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DragEnterEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_dragenterevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_DragMoveEvent(KPasswordLineEdit* self, QDragMoveEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->dragMoveEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperDragMoveEvent(KPasswordLineEdit* self, QDragMoveEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_DragMoveEvent_IsBase(true);
-        vkpasswordlineedit->dragMoveEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnDragMoveEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DragMoveEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_dragmoveevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_DragLeaveEvent(KPasswordLineEdit* self, QDragLeaveEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->dragLeaveEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperDragLeaveEvent(KPasswordLineEdit* self, QDragLeaveEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_DragLeaveEvent_IsBase(true);
-        vkpasswordlineedit->dragLeaveEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnDragLeaveEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DragLeaveEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_dragleaveevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_DropEvent(KPasswordLineEdit* self, QDropEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->dropEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperDropEvent(KPasswordLineEdit* self, QDropEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_DropEvent_IsBase(true);
-        vkpasswordlineedit->dropEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->dropEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnDropEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_DropEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DropEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_dropevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_ShowEvent(KPasswordLineEdit* self, QShowEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->showEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperShowEvent(KPasswordLineEdit* self, QShowEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_ShowEvent_IsBase(true);
-        vkpasswordlineedit->showEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->showEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnShowEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_ShowEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ShowEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_showevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_HideEvent(KPasswordLineEdit* self, QHideEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->hideEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperHideEvent(KPasswordLineEdit* self, QHideEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_HideEvent_IsBase(true);
-        vkpasswordlineedit->hideEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->hideEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnHideEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_HideEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_HideEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_hideevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPasswordLineEdit_NativeEvent(KPasswordLineEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
+    if (vkpasswordlineedit) {
         return vkpasswordlineedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKPasswordLineEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KPasswordLineEdit::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPasswordLineEdit_SuperNativeEvent(KPasswordLineEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_NativeEvent_IsBase(true);
-        return vkpasswordlineedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        return vkpasswordlineedit->KPasswordLineEdit::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnNativeEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_NativeEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_NativeEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_nativeevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_ChangeEvent(KPasswordLineEdit* self, QEvent* param1) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->changeEvent(param1);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperChangeEvent(KPasswordLineEdit* self, QEvent* param1) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_ChangeEvent_IsBase(true);
-        vkpasswordlineedit->changeEvent(param1);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->changeEvent(param1);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnChangeEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_ChangeEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ChangeEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_changeevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPasswordLineEdit_Metric(const KPasswordLineEdit* self, int param1) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         return vkpasswordlineedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKPasswordLineEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KPasswordLineEdit::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KPasswordLineEdit_SuperMetric(const KPasswordLineEdit* self, int param1) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_Metric_IsBase(true);
-        return vkpasswordlineedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self))) {
+        return vkpasswordlineedit->KPasswordLineEdit::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnMetric(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_Metric_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Metric_Callback>(slot));
+void KPasswordLineEdit_OnMetric(KPasswordLineEdit* self, intptr_t slot) {
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self)))
+        vkpasswordlineedit->kpasswordlineedit_metric_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_InitPainter(const KPasswordLineEdit* self, QPainter* painter) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->initPainter(painter);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperInitPainter(const KPasswordLineEdit* self, QPainter* painter) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_InitPainter_IsBase(true);
-        vkpasswordlineedit->initPainter(painter);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->initPainter(painter);
-    }
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self))) {
+        vkpasswordlineedit->KPasswordLineEdit::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnInitPainter(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_InitPainter_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_InitPainter_Callback>(slot));
+void KPasswordLineEdit_OnInitPainter(KPasswordLineEdit* self, intptr_t slot) {
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self)))
+        vkpasswordlineedit->kpasswordlineedit_initpainter_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KPasswordLineEdit_Redirected(const KPasswordLineEdit* self, QPoint* offset) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         return vkpasswordlineedit->redirected(offset);
     } else {
-        return ((VirtualKPasswordLineEdit*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KPasswordLineEdit_SuperRedirected(const KPasswordLineEdit* self, QPoint* offset) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_Redirected_IsBase(true);
-        return vkpasswordlineedit->redirected(offset);
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->redirected(offset);
-    }
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self))) {
+        return vkpasswordlineedit->KPasswordLineEdit::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnRedirected(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_Redirected_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Redirected_Callback>(slot));
+void KPasswordLineEdit_OnRedirected(KPasswordLineEdit* self, intptr_t slot) {
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self)))
+        vkpasswordlineedit->kpasswordlineedit_redirected_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KPasswordLineEdit_SharedPainter(const KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         return vkpasswordlineedit->sharedPainter();
     } else {
-        return ((VirtualKPasswordLineEdit*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KPasswordLineEdit::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KPasswordLineEdit_SuperSharedPainter(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_SharedPainter_IsBase(true);
-        return vkpasswordlineedit->sharedPainter();
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->sharedPainter();
-    }
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self))) {
+        return vkpasswordlineedit->KPasswordLineEdit::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnSharedPainter(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_SharedPainter_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_SharedPainter_Callback>(slot));
+void KPasswordLineEdit_OnSharedPainter(KPasswordLineEdit* self, intptr_t slot) {
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self)))
+        vkpasswordlineedit->kpasswordlineedit_sharedpainter_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_InputMethodEvent(KPasswordLineEdit* self, QInputMethodEvent* param1) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->inputMethodEvent(param1);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperInputMethodEvent(KPasswordLineEdit* self, QInputMethodEvent* param1) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_InputMethodEvent_IsBase(true);
-        vkpasswordlineedit->inputMethodEvent(param1);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnInputMethodEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_InputMethodEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_inputmethodevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KPasswordLineEdit_InputMethodQuery(const KPasswordLineEdit* self, int param1) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return new QVariant(vkpasswordlineedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPasswordLineEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KPasswordLineEdit_SuperInputMethodQuery(const KPasswordLineEdit* self, int param1) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_InputMethodQuery_IsBase(true);
-        return new QVariant(vkpasswordlineedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPasswordLineEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KPasswordLineEdit::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnInputMethodQuery(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_InputMethodQuery_Callback>(slot));
+void KPasswordLineEdit_OnInputMethodQuery(KPasswordLineEdit* self, intptr_t slot) {
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self)))
+        vkpasswordlineedit->kpasswordlineedit_inputmethodquery_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPasswordLineEdit_FocusNextPrevChild(KPasswordLineEdit* self, bool next) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         return vkpasswordlineedit->focusNextPrevChild(next);
     } else {
-        return ((VirtualKPasswordLineEdit*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPasswordLineEdit_SuperFocusNextPrevChild(KPasswordLineEdit* self, bool next) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_FocusNextPrevChild_IsBase(true);
-        return vkpasswordlineedit->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        return vkpasswordlineedit->KPasswordLineEdit::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnFocusNextPrevChild(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_focusnextprevchild_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPasswordLineEdit_EventFilter(KPasswordLineEdit* self, QObject* watched, QEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return vkpasswordlineedit->eventFilter(watched, event);
-    } else {
-        return self->KPasswordLineEdit::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KPasswordLineEdit_SuperEventFilter(KPasswordLineEdit* self, QObject* watched, QEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_EventFilter_IsBase(true);
-        return vkpasswordlineedit->eventFilter(watched, event);
-    } else {
-        return self->KPasswordLineEdit::eventFilter(watched, event);
-    }
+    return self->KPasswordLineEdit::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnEventFilter(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_EventFilter_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_EventFilter_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_eventfilter_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_TimerEvent(KPasswordLineEdit* self, QTimerEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->timerEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperTimerEvent(KPasswordLineEdit* self, QTimerEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_TimerEvent_IsBase(true);
-        vkpasswordlineedit->timerEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->timerEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnTimerEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_TimerEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_TimerEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_timerevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_ChildEvent(KPasswordLineEdit* self, QChildEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->childEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperChildEvent(KPasswordLineEdit* self, QChildEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_ChildEvent_IsBase(true);
-        vkpasswordlineedit->childEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->childEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnChildEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_ChildEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ChildEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_childevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_CustomEvent(KPasswordLineEdit* self, QEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->customEvent(event);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperCustomEvent(KPasswordLineEdit* self, QEvent* event) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_CustomEvent_IsBase(true);
-        vkpasswordlineedit->customEvent(event);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->customEvent(event);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnCustomEvent(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_CustomEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_CustomEvent_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_customevent_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_ConnectNotify(KPasswordLineEdit* self, const QMetaMethod* signal) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->connectNotify(*signal);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperConnectNotify(KPasswordLineEdit* self, const QMetaMethod* signal) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_ConnectNotify_IsBase(true);
-        vkpasswordlineedit->connectNotify(*signal);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->connectNotify(*signal);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnConnectNotify(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_ConnectNotify_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ConnectNotify_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_connectnotify_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPasswordLineEdit_DisconnectNotify(KPasswordLineEdit* self, const QMetaMethod* signal) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit) {
         vkpasswordlineedit->disconnectNotify(*signal);
     } else {
-        ((VirtualKPasswordLineEdit*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KPasswordLineEdit::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPasswordLineEdit_SuperDisconnectNotify(KPasswordLineEdit* self, const QMetaMethod* signal) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_DisconnectNotify_IsBase(true);
-        vkpasswordlineedit->disconnectNotify(*signal);
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->KPasswordLineEdit::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPasswordLineEdit::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnDisconnectNotify(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DisconnectNotify_Callback>(slot));
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self))
+        vkpasswordlineedit->kpasswordlineedit_disconnectnotify_callback = reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPasswordLineEdit_UpdateMicroFocus(KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->updateMicroFocus();
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->updateMicroFocus();
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->VirtualKPasswordLineEdit::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KPasswordLineEdit::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPasswordLineEdit_SuperUpdateMicroFocus(KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_UpdateMicroFocus_IsBase(true);
-        vkpasswordlineedit->updateMicroFocus();
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnUpdateMicroFocus(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPasswordLineEdit_Create(KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->create();
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->create();
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->VirtualKPasswordLineEdit::create();
+    } else
+        qFatal("Error: Protected method KPasswordLineEdit::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPasswordLineEdit_SuperCreate(KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_Create_IsBase(true);
-        vkpasswordlineedit->create();
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnCreate(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_Create_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPasswordLineEdit_Destroy(KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->destroy();
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->destroy();
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        vkpasswordlineedit->VirtualKPasswordLineEdit::destroy();
+    } else
+        qFatal("Error: Protected method KPasswordLineEdit::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPasswordLineEdit_SuperDestroy(KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_Destroy_IsBase(true);
-        vkpasswordlineedit->destroy();
-    } else {
-        ((VirtualKPasswordLineEdit*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnDestroy(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_Destroy_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPasswordLineEdit_FocusNextChild(KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return vkpasswordlineedit->focusNextChild();
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->focusNextChild();
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        return vkpasswordlineedit->VirtualKPasswordLineEdit::focusNextChild();
+    } else
+        qFatal("Error: Protected method KPasswordLineEdit::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPasswordLineEdit_SuperFocusNextChild(KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_FocusNextChild_IsBase(true);
-        return vkpasswordlineedit->focusNextChild();
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnFocusNextChild(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_FocusNextChild_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPasswordLineEdit_FocusPreviousChild(KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return vkpasswordlineedit->focusPreviousChild();
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->focusPreviousChild();
-    }
+    if (auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self)) {
+        return vkpasswordlineedit->VirtualKPasswordLineEdit::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KPasswordLineEdit::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPasswordLineEdit_SuperFocusPreviousChild(KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_FocusPreviousChild_IsBase(true);
-        return vkpasswordlineedit->focusPreviousChild();
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnFocusPreviousChild(KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KPasswordLineEdit_Sender(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return vkpasswordlineedit->sender();
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->sender();
-    }
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self))) {
+        return vkpasswordlineedit->VirtualKPasswordLineEdit::sender();
+    } else
+        qFatal("Error: Protected method KPasswordLineEdit::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KPasswordLineEdit_SuperSender(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_Sender_IsBase(true);
-        return vkpasswordlineedit->sender();
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnSender(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_Sender_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPasswordLineEdit_SenderSignalIndex(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return vkpasswordlineedit->senderSignalIndex();
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->senderSignalIndex();
-    }
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self))) {
+        return vkpasswordlineedit->VirtualKPasswordLineEdit::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KPasswordLineEdit::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPasswordLineEdit_SuperSenderSignalIndex(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_SenderSignalIndex_IsBase(true);
-        return vkpasswordlineedit->senderSignalIndex();
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnSenderSignalIndex(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPasswordLineEdit_Receivers(const KPasswordLineEdit* self, const char* signal) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return vkpasswordlineedit->receivers(signal);
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->receivers(signal);
-    }
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self))) {
+        return vkpasswordlineedit->VirtualKPasswordLineEdit::receivers(signal);
+    } else
+        qFatal("Error: Protected method KPasswordLineEdit::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPasswordLineEdit_SuperReceivers(const KPasswordLineEdit* self, const char* signal) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_Receivers_IsBase(true);
-        return vkpasswordlineedit->receivers(signal);
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnReceivers(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_Receivers_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPasswordLineEdit_IsSignalConnected(const KPasswordLineEdit* self, const QMetaMethod* signal) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return vkpasswordlineedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self))) {
+        return vkpasswordlineedit->VirtualKPasswordLineEdit::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KPasswordLineEdit::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPasswordLineEdit_SuperIsSignalConnected(const KPasswordLineEdit* self, const QMetaMethod* signal) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_IsSignalConnected_IsBase(true);
-        return vkpasswordlineedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnIsSignalConnected(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KPasswordLineEdit_GetDecodedMetricF(const KPasswordLineEdit* self, int metricA, int metricB) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return vkpasswordlineedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KPasswordLineEdit_SuperGetDecodedMetricF(const KPasswordLineEdit* self, int metricA, int metricB) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        vkpasswordlineedit->setKPasswordLineEdit_GetDecodedMetricF_IsBase(true);
-        return vkpasswordlineedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPasswordLineEdit_OnGetDecodedMetricF(const KPasswordLineEdit* self, intptr_t slot) {
-    auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
-        vkpasswordlineedit->setKPasswordLineEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self))) {
+        return vkpasswordlineedit->VirtualKPasswordLineEdit::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KPasswordLineEdit::getDecodedMetricF called without a directly constructed type");
 }
 
 void KPasswordLineEdit_Delete(KPasswordLineEdit* self) {

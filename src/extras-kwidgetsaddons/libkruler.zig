@@ -239,9 +239,9 @@ pub const KRuler = extern struct {
     ///
     /// ` self: KRuler `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KRuler) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KRuler, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KRuler, callback: *const fn (KRuler) callconv(.c) QMetaObject) void {
         qtc.KRuler_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8378,9 +8378,9 @@ pub const KRuler = extern struct {
     ///
     /// ` self: KRuler`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KRuler) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KRuler, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KRuler, callback: *const fn (KRuler) callconv(.c) i32) void {
         qtc.KRuler_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8494,11 +8494,11 @@ pub const KRuler = extern struct {
     ///
     /// ` self: KRuler`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KRuler) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KRuler, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KRuler, callback: *const fn (KRuler) callconv(.c) QSize) void {
         qtc.KRuler_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8552,11 +8552,11 @@ pub const KRuler = extern struct {
     ///
     /// ` self: KRuler`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KRuler) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KRuler, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KRuler, callback: *const fn (KRuler) callconv(.c) QSize) void {
         qtc.KRuler_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8670,9 +8670,9 @@ pub const KRuler = extern struct {
     ///
     /// ` self: KRuler`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KRuler) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KRuler, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KRuler, callback: *const fn (KRuler) callconv(.c) bool) void {
         qtc.KRuler_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8726,9 +8726,9 @@ pub const KRuler = extern struct {
     ///
     /// ` self: KRuler`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KRuler) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KRuler, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KRuler, callback: *const fn (KRuler) callconv(.c) QPaintEngine) void {
         qtc.KRuler_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10344,9 +10344,9 @@ pub const KRuler = extern struct {
     ///
     /// ` self: KRuler`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KRuler) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KRuler, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KRuler, callback: *const fn (KRuler) callconv(.c) QPainter) void {
         qtc.KRuler_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10870,46 +10870,6 @@ pub const KRuler = extern struct {
         qtc.KRuler_SetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `superSetRepeatAction` instead
-    ///
-    pub const SuperSetRepeatAction = superSetRepeatAction;
-
-    /// Inherited from QAbstractSlider
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRuler `
-    ///
-    /// ` action: qabstractslider_enums.SliderAction `
-    ///
-    pub fn superSetRepeatAction(self: KRuler, action: i32) void {
-        qtc.KRuler_SuperSetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
-    }
-
-    /// ### DEPRECATED: Use `onSetRepeatAction` instead
-    ///
-    pub const OnSetRepeatAction = onSetRepeatAction;
-
-    /// Inherited from QAbstractSlider
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRuler`
-    ///
-    /// ` callback: *const fn (self: KRuler, action: qabstractslider_enums.SliderAction) callconv(.c) void `
-    ///
-    pub fn onSetRepeatAction(self: KRuler, callback: *const fn (KRuler, i32) callconv(.c) void) void {
-        qtc.KRuler_OnSetRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `repeatAction` instead
     ///
     pub const RepeatAction = repeatAction;
@@ -10932,48 +10892,6 @@ pub const KRuler = extern struct {
         return qtc.KRuler_RepeatAction(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superRepeatAction` instead
-    ///
-    pub const SuperRepeatAction = superRepeatAction;
-
-    /// Inherited from QAbstractSlider
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#repeatAction)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRuler `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractslider_enums.SliderAction `
-    ///
-    pub fn superRepeatAction(self: KRuler) i32 {
-        return qtc.KRuler_SuperRepeatAction(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onRepeatAction` instead
-    ///
-    pub const OnRepeatAction = onRepeatAction;
-
-    /// Inherited from QAbstractSlider
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#repeatAction)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRuler`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onRepeatAction(self: KRuler, callback: *const fn () callconv(.c) i32) void {
-        qtc.KRuler_OnRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -10990,44 +10908,6 @@ pub const KRuler = extern struct {
     ///
     pub fn updateMicroFocus(self: KRuler) void {
         qtc.KRuler_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRuler `
-    ///
-    pub fn superUpdateMicroFocus(self: KRuler) void {
-        qtc.KRuler_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRuler`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KRuler, callback: *const fn () callconv(.c) void) void {
-        qtc.KRuler_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -11048,44 +10928,6 @@ pub const KRuler = extern struct {
         qtc.KRuler_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRuler `
-    ///
-    pub fn superCreate(self: KRuler) void {
-        qtc.KRuler_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRuler`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KRuler, callback: *const fn () callconv(.c) void) void {
-        qtc.KRuler_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -11102,44 +10944,6 @@ pub const KRuler = extern struct {
     ///
     pub fn destroy(self: KRuler) void {
         qtc.KRuler_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRuler `
-    ///
-    pub fn superDestroy(self: KRuler) void {
-        qtc.KRuler_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRuler`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KRuler, callback: *const fn () callconv(.c) void) void {
-        qtc.KRuler_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -11160,44 +10964,6 @@ pub const KRuler = extern struct {
         return qtc.KRuler_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRuler `
-    ///
-    pub fn superFocusNextChild(self: KRuler) bool {
-        return qtc.KRuler_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRuler`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KRuler, callback: *const fn () callconv(.c) bool) void {
-        qtc.KRuler_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -11214,44 +10980,6 @@ pub const KRuler = extern struct {
     ///
     pub fn focusPreviousChild(self: KRuler) bool {
         return qtc.KRuler_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRuler `
-    ///
-    pub fn superFocusPreviousChild(self: KRuler) bool {
-        return qtc.KRuler_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRuler`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KRuler, callback: *const fn () callconv(.c) bool) void {
-        qtc.KRuler_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -11272,44 +11000,6 @@ pub const KRuler = extern struct {
         return .{ .ptr = qtc.KRuler_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRuler `
-    ///
-    pub fn superSender(self: KRuler) QObject {
-        return .{ .ptr = qtc.KRuler_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRuler`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KRuler, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KRuler_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -11326,44 +11016,6 @@ pub const KRuler = extern struct {
     ///
     pub fn senderSignalIndex(self: KRuler) i32 {
         return qtc.KRuler_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRuler `
-    ///
-    pub fn superSenderSignalIndex(self: KRuler) i32 {
-        return qtc.KRuler_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRuler`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KRuler, callback: *const fn () callconv(.c) i32) void {
-        qtc.KRuler_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -11387,47 +11039,6 @@ pub const KRuler = extern struct {
         return qtc.KRuler_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRuler `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KRuler, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KRuler_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRuler`
-    ///
-    /// ` callback: *const fn (self: KRuler, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KRuler, callback: *const fn (KRuler, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KRuler_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -11447,47 +11058,6 @@ pub const KRuler = extern struct {
     pub fn isSignalConnected(self: KRuler, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KRuler_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRuler `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KRuler, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KRuler_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRuler`
-    ///
-    /// ` callback: *const fn (self: KRuler, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KRuler, callback: *const fn (KRuler, QMetaMethod) callconv(.c) bool) void {
-        qtc.KRuler_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -11510,48 +11080,6 @@ pub const KRuler = extern struct {
     ///
     pub fn getDecodedMetricF(self: KRuler, metricA: i32, metricB: i32) f64 {
         return qtc.KRuler_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRuler `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KRuler, metricA: i32, metricB: i32) f64 {
-        return qtc.KRuler_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRuler`
-    ///
-    /// ` callback: *const fn (self: KRuler, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KRuler, callback: *const fn (KRuler, i32, i32) callconv(.c) f64) void {
-        qtc.KRuler_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QWebEngineUrlRequestInterceptor so that we can call protected methods
+// This class is a subclass of QWebEngineUrlRequestInterceptor
 class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterceptor {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQWebEngineUrlRequestInterceptor = true;
-
-    // Virtual class public types (including callbacks)
-    using QWebEngineUrlRequestInterceptor_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QWebEngineUrlRequestInterceptor_MetaObject_Callback = QMetaObject* (*)(const QWebEngineUrlRequestInterceptor*);
     using QWebEngineUrlRequestInterceptor_Metacast_Callback = void* (*)(QWebEngineUrlRequestInterceptor*, const char*);
     using QWebEngineUrlRequestInterceptor_Metacall_Callback = int (*)(QWebEngineUrlRequestInterceptor*, int, int, void**);
     using QWebEngineUrlRequestInterceptor_InterceptRequest_Callback = void (*)(QWebEngineUrlRequestInterceptor*, QWebEngineUrlRequestInfo*);
@@ -28,12 +24,11 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
     using QWebEngineUrlRequestInterceptor_CustomEvent_Callback = void (*)(QWebEngineUrlRequestInterceptor*, QEvent*);
     using QWebEngineUrlRequestInterceptor_ConnectNotify_Callback = void (*)(QWebEngineUrlRequestInterceptor*, QMetaMethod*);
     using QWebEngineUrlRequestInterceptor_DisconnectNotify_Callback = void (*)(QWebEngineUrlRequestInterceptor*, QMetaMethod*);
-    using QWebEngineUrlRequestInterceptor_Sender_Callback = QObject* (*)();
-    using QWebEngineUrlRequestInterceptor_SenderSignalIndex_Callback = int (*)();
-    using QWebEngineUrlRequestInterceptor_Receivers_Callback = int (*)(const QWebEngineUrlRequestInterceptor*, const char*);
-    using QWebEngineUrlRequestInterceptor_IsSignalConnected_Callback = bool (*)(const QWebEngineUrlRequestInterceptor*, QMetaMethod*);
+    using QWebEngineUrlRequestInterceptor::isSignalConnected;
+    using QWebEngineUrlRequestInterceptor::receivers;
+    using QWebEngineUrlRequestInterceptor::sender;
+    using QWebEngineUrlRequestInterceptor::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QWebEngineUrlRequestInterceptor_MetaObject_Callback qwebengineurlrequestinterceptor_metaobject_callback = nullptr;
     QWebEngineUrlRequestInterceptor_Metacast_Callback qwebengineurlrequestinterceptor_metacast_callback = nullptr;
@@ -46,75 +41,23 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
     QWebEngineUrlRequestInterceptor_CustomEvent_Callback qwebengineurlrequestinterceptor_customevent_callback = nullptr;
     QWebEngineUrlRequestInterceptor_ConnectNotify_Callback qwebengineurlrequestinterceptor_connectnotify_callback = nullptr;
     QWebEngineUrlRequestInterceptor_DisconnectNotify_Callback qwebengineurlrequestinterceptor_disconnectnotify_callback = nullptr;
-    QWebEngineUrlRequestInterceptor_Sender_Callback qwebengineurlrequestinterceptor_sender_callback = nullptr;
-    QWebEngineUrlRequestInterceptor_SenderSignalIndex_Callback qwebengineurlrequestinterceptor_sendersignalindex_callback = nullptr;
-    QWebEngineUrlRequestInterceptor_Receivers_Callback qwebengineurlrequestinterceptor_receivers_callback = nullptr;
-    QWebEngineUrlRequestInterceptor_IsSignalConnected_Callback qwebengineurlrequestinterceptor_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qwebengineurlrequestinterceptor_metaobject_isbase = false;
-    mutable bool qwebengineurlrequestinterceptor_metacast_isbase = false;
-    mutable bool qwebengineurlrequestinterceptor_metacall_isbase = false;
-    mutable bool qwebengineurlrequestinterceptor_interceptrequest_isbase = false;
-    mutable bool qwebengineurlrequestinterceptor_event_isbase = false;
-    mutable bool qwebengineurlrequestinterceptor_eventfilter_isbase = false;
-    mutable bool qwebengineurlrequestinterceptor_timerevent_isbase = false;
-    mutable bool qwebengineurlrequestinterceptor_childevent_isbase = false;
-    mutable bool qwebengineurlrequestinterceptor_customevent_isbase = false;
-    mutable bool qwebengineurlrequestinterceptor_connectnotify_isbase = false;
-    mutable bool qwebengineurlrequestinterceptor_disconnectnotify_isbase = false;
-    mutable bool qwebengineurlrequestinterceptor_sender_isbase = false;
-    mutable bool qwebengineurlrequestinterceptor_sendersignalindex_isbase = false;
-    mutable bool qwebengineurlrequestinterceptor_receivers_isbase = false;
-    mutable bool qwebengineurlrequestinterceptor_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QWebEngineUrlRequestInterceptor {
+        using QWebEngineUrlRequestInterceptor::childEvent;
+        using QWebEngineUrlRequestInterceptor::connectNotify;
+        using QWebEngineUrlRequestInterceptor::customEvent;
+        using QWebEngineUrlRequestInterceptor::disconnectNotify;
+        using QWebEngineUrlRequestInterceptor::timerEvent;
+    };
 
-  public:
     VirtualQWebEngineUrlRequestInterceptor() : QWebEngineUrlRequestInterceptor() {};
     VirtualQWebEngineUrlRequestInterceptor(QObject* p) : QWebEngineUrlRequestInterceptor(p) {};
 
-    // Callback setters
-    inline void setQWebEngineUrlRequestInterceptor_MetaObject_Callback(QWebEngineUrlRequestInterceptor_MetaObject_Callback cb) { qwebengineurlrequestinterceptor_metaobject_callback = cb; }
-    inline void setQWebEngineUrlRequestInterceptor_Metacast_Callback(QWebEngineUrlRequestInterceptor_Metacast_Callback cb) { qwebengineurlrequestinterceptor_metacast_callback = cb; }
-    inline void setQWebEngineUrlRequestInterceptor_Metacall_Callback(QWebEngineUrlRequestInterceptor_Metacall_Callback cb) { qwebengineurlrequestinterceptor_metacall_callback = cb; }
-    inline void setQWebEngineUrlRequestInterceptor_InterceptRequest_Callback(QWebEngineUrlRequestInterceptor_InterceptRequest_Callback cb) { qwebengineurlrequestinterceptor_interceptrequest_callback = cb; }
-    inline void setQWebEngineUrlRequestInterceptor_Event_Callback(QWebEngineUrlRequestInterceptor_Event_Callback cb) { qwebengineurlrequestinterceptor_event_callback = cb; }
-    inline void setQWebEngineUrlRequestInterceptor_EventFilter_Callback(QWebEngineUrlRequestInterceptor_EventFilter_Callback cb) { qwebengineurlrequestinterceptor_eventfilter_callback = cb; }
-    inline void setQWebEngineUrlRequestInterceptor_TimerEvent_Callback(QWebEngineUrlRequestInterceptor_TimerEvent_Callback cb) { qwebengineurlrequestinterceptor_timerevent_callback = cb; }
-    inline void setQWebEngineUrlRequestInterceptor_ChildEvent_Callback(QWebEngineUrlRequestInterceptor_ChildEvent_Callback cb) { qwebengineurlrequestinterceptor_childevent_callback = cb; }
-    inline void setQWebEngineUrlRequestInterceptor_CustomEvent_Callback(QWebEngineUrlRequestInterceptor_CustomEvent_Callback cb) { qwebengineurlrequestinterceptor_customevent_callback = cb; }
-    inline void setQWebEngineUrlRequestInterceptor_ConnectNotify_Callback(QWebEngineUrlRequestInterceptor_ConnectNotify_Callback cb) { qwebengineurlrequestinterceptor_connectnotify_callback = cb; }
-    inline void setQWebEngineUrlRequestInterceptor_DisconnectNotify_Callback(QWebEngineUrlRequestInterceptor_DisconnectNotify_Callback cb) { qwebengineurlrequestinterceptor_disconnectnotify_callback = cb; }
-    inline void setQWebEngineUrlRequestInterceptor_Sender_Callback(QWebEngineUrlRequestInterceptor_Sender_Callback cb) { qwebengineurlrequestinterceptor_sender_callback = cb; }
-    inline void setQWebEngineUrlRequestInterceptor_SenderSignalIndex_Callback(QWebEngineUrlRequestInterceptor_SenderSignalIndex_Callback cb) { qwebengineurlrequestinterceptor_sendersignalindex_callback = cb; }
-    inline void setQWebEngineUrlRequestInterceptor_Receivers_Callback(QWebEngineUrlRequestInterceptor_Receivers_Callback cb) { qwebengineurlrequestinterceptor_receivers_callback = cb; }
-    inline void setQWebEngineUrlRequestInterceptor_IsSignalConnected_Callback(QWebEngineUrlRequestInterceptor_IsSignalConnected_Callback cb) { qwebengineurlrequestinterceptor_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQWebEngineUrlRequestInterceptor_MetaObject_IsBase(bool value) const { qwebengineurlrequestinterceptor_metaobject_isbase = value; }
-    inline void setQWebEngineUrlRequestInterceptor_Metacast_IsBase(bool value) const { qwebengineurlrequestinterceptor_metacast_isbase = value; }
-    inline void setQWebEngineUrlRequestInterceptor_Metacall_IsBase(bool value) const { qwebengineurlrequestinterceptor_metacall_isbase = value; }
-    inline void setQWebEngineUrlRequestInterceptor_InterceptRequest_IsBase(bool value) const { qwebengineurlrequestinterceptor_interceptrequest_isbase = value; }
-    inline void setQWebEngineUrlRequestInterceptor_Event_IsBase(bool value) const { qwebengineurlrequestinterceptor_event_isbase = value; }
-    inline void setQWebEngineUrlRequestInterceptor_EventFilter_IsBase(bool value) const { qwebengineurlrequestinterceptor_eventfilter_isbase = value; }
-    inline void setQWebEngineUrlRequestInterceptor_TimerEvent_IsBase(bool value) const { qwebengineurlrequestinterceptor_timerevent_isbase = value; }
-    inline void setQWebEngineUrlRequestInterceptor_ChildEvent_IsBase(bool value) const { qwebengineurlrequestinterceptor_childevent_isbase = value; }
-    inline void setQWebEngineUrlRequestInterceptor_CustomEvent_IsBase(bool value) const { qwebengineurlrequestinterceptor_customevent_isbase = value; }
-    inline void setQWebEngineUrlRequestInterceptor_ConnectNotify_IsBase(bool value) const { qwebengineurlrequestinterceptor_connectnotify_isbase = value; }
-    inline void setQWebEngineUrlRequestInterceptor_DisconnectNotify_IsBase(bool value) const { qwebengineurlrequestinterceptor_disconnectnotify_isbase = value; }
-    inline void setQWebEngineUrlRequestInterceptor_Sender_IsBase(bool value) const { qwebengineurlrequestinterceptor_sender_isbase = value; }
-    inline void setQWebEngineUrlRequestInterceptor_SenderSignalIndex_IsBase(bool value) const { qwebengineurlrequestinterceptor_sendersignalindex_isbase = value; }
-    inline void setQWebEngineUrlRequestInterceptor_Receivers_IsBase(bool value) const { qwebengineurlrequestinterceptor_receivers_isbase = value; }
-    inline void setQWebEngineUrlRequestInterceptor_IsSignalConnected_IsBase(bool value) const { qwebengineurlrequestinterceptor_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qwebengineurlrequestinterceptor_metaobject_isbase) {
-            qwebengineurlrequestinterceptor_metaobject_isbase = false;
-            return QWebEngineUrlRequestInterceptor::metaObject();
-        }
-        auto metaobject_cb = qwebengineurlrequestinterceptor_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qwebengineurlrequestinterceptor_metaobject_callback) {
+            QMetaObject* callback_ret = qwebengineurlrequestinterceptor_metaobject_callback(this);
             return callback_ret;
         }
         return QWebEngineUrlRequestInterceptor::metaObject();
@@ -122,14 +65,9 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qwebengineurlrequestinterceptor_metacast_isbase) {
-            qwebengineurlrequestinterceptor_metacast_isbase = false;
-            return QWebEngineUrlRequestInterceptor::qt_metacast(param1);
-        }
-        auto metacast_cb = qwebengineurlrequestinterceptor_metacast_callback;
-        if (metacast_cb) {
+        if (qwebengineurlrequestinterceptor_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qwebengineurlrequestinterceptor_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QWebEngineUrlRequestInterceptor::qt_metacast(param1);
@@ -137,16 +75,11 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qwebengineurlrequestinterceptor_metacall_isbase) {
-            qwebengineurlrequestinterceptor_metacall_isbase = false;
-            return QWebEngineUrlRequestInterceptor::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qwebengineurlrequestinterceptor_metacall_callback;
-        if (metacall_cb) {
+        if (qwebengineurlrequestinterceptor_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qwebengineurlrequestinterceptor_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QWebEngineUrlRequestInterceptor::qt_metacall(param1, param2, param3);
@@ -154,25 +87,22 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
 
     // Virtual method for C ABI access and custom callback
     virtual void interceptRequest(QWebEngineUrlRequestInfo& info) override {
-        auto interceptrequest_cb = qwebengineurlrequestinterceptor_interceptrequest_callback;
-        if (interceptrequest_cb) {
+        if (qwebengineurlrequestinterceptor_interceptrequest_callback) {
             QWebEngineUrlRequestInfo& info_ret = info;
             // Cast returned reference into pointer
             QWebEngineUrlRequestInfo* cbval1 = &info_ret;
-            interceptrequest_cb(this, cbval1);
+            qwebengineurlrequestinterceptor_interceptrequest_callback(this, cbval1);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QWebEngineUrlRequestInterceptor::interceptRequest called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qwebengineurlrequestinterceptor_event_isbase) {
-            qwebengineurlrequestinterceptor_event_isbase = false;
-            return QWebEngineUrlRequestInterceptor::event(event);
-        }
-        auto event_cb = qwebengineurlrequestinterceptor_event_callback;
-        if (event_cb) {
+        if (qwebengineurlrequestinterceptor_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qwebengineurlrequestinterceptor_event_callback(this, cbval1);
             return callback_ret;
         }
         return QWebEngineUrlRequestInterceptor::event(event);
@@ -180,15 +110,10 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qwebengineurlrequestinterceptor_eventfilter_isbase) {
-            qwebengineurlrequestinterceptor_eventfilter_isbase = false;
-            return QWebEngineUrlRequestInterceptor::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qwebengineurlrequestinterceptor_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qwebengineurlrequestinterceptor_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qwebengineurlrequestinterceptor_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QWebEngineUrlRequestInterceptor::eventFilter(watched, event);
@@ -196,15 +121,9 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qwebengineurlrequestinterceptor_timerevent_isbase) {
-            qwebengineurlrequestinterceptor_timerevent_isbase = false;
-            QWebEngineUrlRequestInterceptor::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qwebengineurlrequestinterceptor_timerevent_callback;
-        if (timerevent_cb) {
+        if (qwebengineurlrequestinterceptor_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qwebengineurlrequestinterceptor_timerevent_callback(this, cbval1);
             return;
         }
         QWebEngineUrlRequestInterceptor::timerEvent(event);
@@ -212,15 +131,9 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qwebengineurlrequestinterceptor_childevent_isbase) {
-            qwebengineurlrequestinterceptor_childevent_isbase = false;
-            QWebEngineUrlRequestInterceptor::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qwebengineurlrequestinterceptor_childevent_callback;
-        if (childevent_cb) {
+        if (qwebengineurlrequestinterceptor_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qwebengineurlrequestinterceptor_childevent_callback(this, cbval1);
             return;
         }
         QWebEngineUrlRequestInterceptor::childEvent(event);
@@ -228,15 +141,9 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qwebengineurlrequestinterceptor_customevent_isbase) {
-            qwebengineurlrequestinterceptor_customevent_isbase = false;
-            QWebEngineUrlRequestInterceptor::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qwebengineurlrequestinterceptor_customevent_callback;
-        if (customevent_cb) {
+        if (qwebengineurlrequestinterceptor_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qwebengineurlrequestinterceptor_customevent_callback(this, cbval1);
             return;
         }
         QWebEngineUrlRequestInterceptor::customEvent(event);
@@ -244,17 +151,11 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qwebengineurlrequestinterceptor_connectnotify_isbase) {
-            qwebengineurlrequestinterceptor_connectnotify_isbase = false;
-            QWebEngineUrlRequestInterceptor::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qwebengineurlrequestinterceptor_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qwebengineurlrequestinterceptor_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qwebengineurlrequestinterceptor_connectnotify_callback(this, cbval1);
             return;
         }
         QWebEngineUrlRequestInterceptor::connectNotify(signal);
@@ -262,101 +163,22 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qwebengineurlrequestinterceptor_disconnectnotify_isbase) {
-            qwebengineurlrequestinterceptor_disconnectnotify_isbase = false;
-            QWebEngineUrlRequestInterceptor::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qwebengineurlrequestinterceptor_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qwebengineurlrequestinterceptor_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qwebengineurlrequestinterceptor_disconnectnotify_callback(this, cbval1);
             return;
         }
         QWebEngineUrlRequestInterceptor::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qwebengineurlrequestinterceptor_sender_isbase) {
-            qwebengineurlrequestinterceptor_sender_isbase = false;
-            return QWebEngineUrlRequestInterceptor::sender();
-        }
-        auto sender_cb = qwebengineurlrequestinterceptor_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QWebEngineUrlRequestInterceptor::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qwebengineurlrequestinterceptor_sendersignalindex_isbase) {
-            qwebengineurlrequestinterceptor_sendersignalindex_isbase = false;
-            return QWebEngineUrlRequestInterceptor::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qwebengineurlrequestinterceptor_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QWebEngineUrlRequestInterceptor::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qwebengineurlrequestinterceptor_receivers_isbase) {
-            qwebengineurlrequestinterceptor_receivers_isbase = false;
-            return QWebEngineUrlRequestInterceptor::receivers(signal);
-        }
-        auto receivers_cb = qwebengineurlrequestinterceptor_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QWebEngineUrlRequestInterceptor::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qwebengineurlrequestinterceptor_issignalconnected_isbase) {
-            qwebengineurlrequestinterceptor_issignalconnected_isbase = false;
-            return QWebEngineUrlRequestInterceptor::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qwebengineurlrequestinterceptor_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QWebEngineUrlRequestInterceptor::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QWebEngineUrlRequestInterceptor_TimerEvent(QWebEngineUrlRequestInterceptor* self, QTimerEvent* event);
     friend void QWebEngineUrlRequestInterceptor_SuperTimerEvent(QWebEngineUrlRequestInterceptor* self, QTimerEvent* event);
-    friend void QWebEngineUrlRequestInterceptor_ChildEvent(QWebEngineUrlRequestInterceptor* self, QChildEvent* event);
     friend void QWebEngineUrlRequestInterceptor_SuperChildEvent(QWebEngineUrlRequestInterceptor* self, QChildEvent* event);
-    friend void QWebEngineUrlRequestInterceptor_CustomEvent(QWebEngineUrlRequestInterceptor* self, QEvent* event);
     friend void QWebEngineUrlRequestInterceptor_SuperCustomEvent(QWebEngineUrlRequestInterceptor* self, QEvent* event);
-    friend void QWebEngineUrlRequestInterceptor_ConnectNotify(QWebEngineUrlRequestInterceptor* self, const QMetaMethod* signal);
     friend void QWebEngineUrlRequestInterceptor_SuperConnectNotify(QWebEngineUrlRequestInterceptor* self, const QMetaMethod* signal);
-    friend void QWebEngineUrlRequestInterceptor_DisconnectNotify(QWebEngineUrlRequestInterceptor* self, const QMetaMethod* signal);
     friend void QWebEngineUrlRequestInterceptor_SuperDisconnectNotify(QWebEngineUrlRequestInterceptor* self, const QMetaMethod* signal);
-    friend QObject* QWebEngineUrlRequestInterceptor_Sender(const QWebEngineUrlRequestInterceptor* self);
-    friend QObject* QWebEngineUrlRequestInterceptor_SuperSender(const QWebEngineUrlRequestInterceptor* self);
-    friend int QWebEngineUrlRequestInterceptor_SenderSignalIndex(const QWebEngineUrlRequestInterceptor* self);
-    friend int QWebEngineUrlRequestInterceptor_SuperSenderSignalIndex(const QWebEngineUrlRequestInterceptor* self);
-    friend int QWebEngineUrlRequestInterceptor_Receivers(const QWebEngineUrlRequestInterceptor* self, const char* signal);
-    friend int QWebEngineUrlRequestInterceptor_SuperReceivers(const QWebEngineUrlRequestInterceptor* self, const char* signal);
-    friend bool QWebEngineUrlRequestInterceptor_IsSignalConnected(const QWebEngineUrlRequestInterceptor* self, const QMetaMethod* signal);
-    friend bool QWebEngineUrlRequestInterceptor_SuperIsSignalConnected(const QWebEngineUrlRequestInterceptor* self, const QMetaMethod* signal);
 };
 
 #endif

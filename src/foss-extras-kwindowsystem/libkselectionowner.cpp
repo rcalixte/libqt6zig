@@ -152,17 +152,17 @@ void KSelectionOwner_Connect_FailedToClaimOwnership(KSelectionOwner* self, intpt
 #ifdef __linux__
 bool KSelectionOwner_GenericReply(KSelectionOwner* self, uint32_t target, uint32_t property, uint32_t requestor) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+    if (vkselectionowner) {
         return vkselectionowner->genericReply(target, property, requestor);
     }
-    return {};
+    qFatal("Error: Protected method KSelectionOwner::genericReply called without a directly constructed type");
 }
 #endif
 
 #ifdef __linux__
 void KSelectionOwner_ReplyTargets(KSelectionOwner* self, uint32_t property, uint32_t requestor) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+    if (vkselectionowner) {
         vkselectionowner->replyTargets(property, requestor);
     }
 }
@@ -170,7 +170,7 @@ void KSelectionOwner_ReplyTargets(KSelectionOwner* self, uint32_t property, uint
 
 void KSelectionOwner_GetAtoms(KSelectionOwner* self) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+    if (vkselectionowner) {
         vkselectionowner->getAtoms();
     }
 }
@@ -205,436 +205,256 @@ void KSelectionOwner_Claim2(KSelectionOwner* self, bool force, bool force_kill) 
 
 // Base class handler implementation
 QMetaObject* KSelectionOwner_SuperMetaObject(const KSelectionOwner* self) {
-    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_MetaObject_IsBase(true);
-        return (QMetaObject*)vkselectionowner->metaObject();
-    } else {
-        return (QMetaObject*)self->KSelectionOwner::metaObject();
-    }
+    return (QMetaObject*)self->KSelectionOwner::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSelectionOwner_OnMetaObject(const KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_MetaObject_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_MetaObject_Callback>(slot));
+void KSelectionOwner_OnMetaObject(KSelectionOwner* self, intptr_t slot) {
+    if (auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self)))
+        vkselectionowner->kselectionowner_metaobject_callback = reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KSelectionOwner_SuperMetacast(KSelectionOwner* self, const char* param1) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_Metacast_IsBase(true);
-        return vkselectionowner->qt_metacast(param1);
-    } else {
-        return self->KSelectionOwner::qt_metacast(param1);
-    }
+    return self->KSelectionOwner::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectionOwner_OnMetacast(KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_Metacast_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_Metacast_Callback>(slot));
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self))
+        vkselectionowner->kselectionowner_metacast_callback = reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KSelectionOwner_SuperMetacall(KSelectionOwner* self, int param1, int param2, void** param3) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_Metacall_IsBase(true);
-        return vkselectionowner->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KSelectionOwner::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KSelectionOwner::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectionOwner_OnMetacall(KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_Metacall_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_Metacall_Callback>(slot));
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self))
+        vkselectionowner->kselectionowner_metacall_callback = reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSelectionOwner_SuperTimerEvent(KSelectionOwner* self, QTimerEvent* event) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_TimerEvent_IsBase(true);
-        vkselectionowner->timerEvent(event);
-    } else {
-        self->KSelectionOwner::timerEvent(event);
-    }
+    self->KSelectionOwner::timerEvent(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectionOwner_OnTimerEvent(KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_TimerEvent_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_TimerEvent_Callback>(slot));
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self))
+        vkselectionowner->kselectionowner_timerevent_callback = reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_TimerEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KSelectionOwner_SuperGenericReply(KSelectionOwner* self, uint32_t target, uint32_t property, uint32_t requestor) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_GenericReply_IsBase(true);
-        return vkselectionowner->genericReply(target, property, requestor);
-    } else {
-        return ((VirtualKSelectionOwner*)self)->genericReply(target, property, requestor);
-    }
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self)) {
+        return vkselectionowner->KSelectionOwner::genericReply(target, property, requestor);
+    } else
+        qFatal("Error: Protected virtual method KSelectionOwner::genericReply called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectionOwner_OnGenericReply(KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_GenericReply_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_GenericReply_Callback>(slot));
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self))
+        vkselectionowner->kselectionowner_genericreply_callback = reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_GenericReply_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSelectionOwner_SuperReplyTargets(KSelectionOwner* self, uint32_t property, uint32_t requestor) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_ReplyTargets_IsBase(true);
-        vkselectionowner->replyTargets(property, requestor);
-    } else {
-        ((VirtualKSelectionOwner*)self)->replyTargets(property, requestor);
-    }
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self)) {
+        vkselectionowner->KSelectionOwner::replyTargets(property, requestor);
+    } else
+        qFatal("Error: Protected virtual method KSelectionOwner::replyTargets called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectionOwner_OnReplyTargets(KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_ReplyTargets_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_ReplyTargets_Callback>(slot));
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self))
+        vkselectionowner->kselectionowner_replytargets_callback = reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_ReplyTargets_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSelectionOwner_SuperGetAtoms(KSelectionOwner* self) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_GetAtoms_IsBase(true);
-        vkselectionowner->getAtoms();
-    } else {
-        ((VirtualKSelectionOwner*)self)->getAtoms();
-    }
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self)) {
+        vkselectionowner->KSelectionOwner::getAtoms();
+    } else
+        qFatal("Error: Protected virtual method KSelectionOwner::getAtoms called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectionOwner_OnGetAtoms(KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_GetAtoms_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_GetAtoms_Callback>(slot));
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self))
+        vkselectionowner->kselectionowner_getatoms_callback = reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_GetAtoms_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSelectionOwner_Event(KSelectionOwner* self, QEvent* event) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        return vkselectionowner->event(event);
-    } else {
-        return self->KSelectionOwner::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KSelectionOwner_SuperEvent(KSelectionOwner* self, QEvent* event) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_Event_IsBase(true);
-        return vkselectionowner->event(event);
-    } else {
-        return self->KSelectionOwner::event(event);
-    }
+    return self->KSelectionOwner::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectionOwner_OnEvent(KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_Event_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_Event_Callback>(slot));
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self))
+        vkselectionowner->kselectionowner_event_callback = reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSelectionOwner_EventFilter(KSelectionOwner* self, QObject* watched, QEvent* event) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        return vkselectionowner->eventFilter(watched, event);
-    } else {
-        return self->KSelectionOwner::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KSelectionOwner_SuperEventFilter(KSelectionOwner* self, QObject* watched, QEvent* event) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_EventFilter_IsBase(true);
-        return vkselectionowner->eventFilter(watched, event);
-    } else {
-        return self->KSelectionOwner::eventFilter(watched, event);
-    }
+    return self->KSelectionOwner::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectionOwner_OnEventFilter(KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_EventFilter_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_EventFilter_Callback>(slot));
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self))
+        vkselectionowner->kselectionowner_eventfilter_callback = reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelectionOwner_ChildEvent(KSelectionOwner* self, QChildEvent* event) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+    if (vkselectionowner) {
         vkselectionowner->childEvent(event);
     } else {
-        ((VirtualKSelectionOwner*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KSelectionOwner::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelectionOwner_SuperChildEvent(KSelectionOwner* self, QChildEvent* event) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_ChildEvent_IsBase(true);
-        vkselectionowner->childEvent(event);
-    } else {
-        ((VirtualKSelectionOwner*)self)->childEvent(event);
-    }
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self)) {
+        vkselectionowner->KSelectionOwner::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelectionOwner::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectionOwner_OnChildEvent(KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_ChildEvent_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_ChildEvent_Callback>(slot));
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self))
+        vkselectionowner->kselectionowner_childevent_callback = reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelectionOwner_CustomEvent(KSelectionOwner* self, QEvent* event) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+    if (vkselectionowner) {
         vkselectionowner->customEvent(event);
     } else {
-        ((VirtualKSelectionOwner*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KSelectionOwner::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelectionOwner_SuperCustomEvent(KSelectionOwner* self, QEvent* event) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_CustomEvent_IsBase(true);
-        vkselectionowner->customEvent(event);
-    } else {
-        ((VirtualKSelectionOwner*)self)->customEvent(event);
-    }
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self)) {
+        vkselectionowner->KSelectionOwner::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelectionOwner::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectionOwner_OnCustomEvent(KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_CustomEvent_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_CustomEvent_Callback>(slot));
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self))
+        vkselectionowner->kselectionowner_customevent_callback = reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelectionOwner_ConnectNotify(KSelectionOwner* self, const QMetaMethod* signal) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+    if (vkselectionowner) {
         vkselectionowner->connectNotify(*signal);
     } else {
-        ((VirtualKSelectionOwner*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KSelectionOwner::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelectionOwner_SuperConnectNotify(KSelectionOwner* self, const QMetaMethod* signal) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_ConnectNotify_IsBase(true);
-        vkselectionowner->connectNotify(*signal);
-    } else {
-        ((VirtualKSelectionOwner*)self)->connectNotify(*signal);
-    }
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self)) {
+        vkselectionowner->KSelectionOwner::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSelectionOwner::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectionOwner_OnConnectNotify(KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_ConnectNotify_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_ConnectNotify_Callback>(slot));
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self))
+        vkselectionowner->kselectionowner_connectnotify_callback = reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelectionOwner_DisconnectNotify(KSelectionOwner* self, const QMetaMethod* signal) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+    if (vkselectionowner) {
         vkselectionowner->disconnectNotify(*signal);
     } else {
-        ((VirtualKSelectionOwner*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KSelectionOwner::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelectionOwner_SuperDisconnectNotify(KSelectionOwner* self, const QMetaMethod* signal) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_DisconnectNotify_IsBase(true);
-        vkselectionowner->disconnectNotify(*signal);
-    } else {
-        ((VirtualKSelectionOwner*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self)) {
+        vkselectionowner->KSelectionOwner::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSelectionOwner::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectionOwner_OnDisconnectNotify(KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_DisconnectNotify_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_DisconnectNotify_Callback>(slot));
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self))
+        vkselectionowner->kselectionowner_disconnectnotify_callback = reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSelectionOwner_SetData(KSelectionOwner* self, uint32_t extra1, uint32_t extra2) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setData(static_cast<uint32_t>(extra1), static_cast<uint32_t>(extra2));
-    } else {
-        ((VirtualKSelectionOwner*)self)->setData(static_cast<uint32_t>(extra1), static_cast<uint32_t>(extra2));
-    }
+    if (auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self)) {
+        vkselectionowner->VirtualKSelectionOwner::setData(static_cast<uint32_t>(extra1), static_cast<uint32_t>(extra2));
+    } else
+        qFatal("Error: Protected method KSelectionOwner::setData called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSelectionOwner_SuperSetData(KSelectionOwner* self, uint32_t extra1, uint32_t extra2) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_SetData_IsBase(true);
-        vkselectionowner->setData(static_cast<uint32_t>(extra1), static_cast<uint32_t>(extra2));
-    } else {
-        ((VirtualKSelectionOwner*)self)->setData(static_cast<uint32_t>(extra1), static_cast<uint32_t>(extra2));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelectionOwner_OnSetData(KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_SetData_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_SetData_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KSelectionOwner_Sender(const KSelectionOwner* self) {
-    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        return vkselectionowner->sender();
-    } else {
-        return ((VirtualKSelectionOwner*)self)->sender();
-    }
+    if (auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self))) {
+        return vkselectionowner->VirtualKSelectionOwner::sender();
+    } else
+        qFatal("Error: Protected method KSelectionOwner::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KSelectionOwner_SuperSender(const KSelectionOwner* self) {
-    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_Sender_IsBase(true);
-        return vkselectionowner->sender();
-    } else {
-        return ((VirtualKSelectionOwner*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelectionOwner_OnSender(const KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_Sender_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSelectionOwner_SenderSignalIndex(const KSelectionOwner* self) {
-    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        return vkselectionowner->senderSignalIndex();
-    } else {
-        return ((VirtualKSelectionOwner*)self)->senderSignalIndex();
-    }
+    if (auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self))) {
+        return vkselectionowner->VirtualKSelectionOwner::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KSelectionOwner::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSelectionOwner_SuperSenderSignalIndex(const KSelectionOwner* self) {
-    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_SenderSignalIndex_IsBase(true);
-        return vkselectionowner->senderSignalIndex();
-    } else {
-        return ((VirtualKSelectionOwner*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelectionOwner_OnSenderSignalIndex(const KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSelectionOwner_Receivers(const KSelectionOwner* self, const char* signal) {
-    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        return vkselectionowner->receivers(signal);
-    } else {
-        return ((VirtualKSelectionOwner*)self)->receivers(signal);
-    }
+    if (auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self))) {
+        return vkselectionowner->VirtualKSelectionOwner::receivers(signal);
+    } else
+        qFatal("Error: Protected method KSelectionOwner::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSelectionOwner_SuperReceivers(const KSelectionOwner* self, const char* signal) {
-    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_Receivers_IsBase(true);
-        return vkselectionowner->receivers(signal);
-    } else {
-        return ((VirtualKSelectionOwner*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelectionOwner_OnReceivers(const KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_Receivers_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSelectionOwner_IsSignalConnected(const KSelectionOwner* self, const QMetaMethod* signal) {
-    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        return vkselectionowner->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSelectionOwner*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KSelectionOwner_SuperIsSignalConnected(const KSelectionOwner* self, const QMetaMethod* signal) {
-    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        vkselectionowner->setKSelectionOwner_IsSignalConnected_IsBase(true);
-        return vkselectionowner->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSelectionOwner*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelectionOwner_OnIsSignalConnected(const KSelectionOwner* self, intptr_t slot) {
-    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
-        vkselectionowner->setKSelectionOwner_IsSignalConnected_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_IsSignalConnected_Callback>(slot));
+    if (auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self))) {
+        return vkselectionowner->VirtualKSelectionOwner::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KSelectionOwner::isSignalConnected called without a directly constructed type");
 }
 
 void KSelectionOwner_Delete(KSelectionOwner* self) {

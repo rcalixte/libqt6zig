@@ -53,17 +53,11 @@ void QAbstractFormBuilder_OnCreateAction(QAbstractFormBuilder* self, intptr_t sl
 QAction* QAbstractFormBuilder_SuperCreateAction(QAbstractFormBuilder* self, QObject* parent, const libqt_string name);
 void QAbstractFormBuilder_OnCreateActionGroup(QAbstractFormBuilder* self, intptr_t slot);
 QActionGroup* QAbstractFormBuilder_SuperCreateActionGroup(QAbstractFormBuilder* self, QObject* parent, const libqt_string name);
-void QAbstractFormBuilder_OnCheckProperty(const QAbstractFormBuilder* self, intptr_t slot);
+void QAbstractFormBuilder_OnCheckProperty(QAbstractFormBuilder* self, intptr_t slot);
 bool QAbstractFormBuilder_SuperCheckProperty(const QAbstractFormBuilder* self, QObject* obj, const libqt_string prop);
 bool QAbstractFormBuilder_ApplyPropertyInternally(QAbstractFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value);
-void QAbstractFormBuilder_OnApplyPropertyInternally(QAbstractFormBuilder* self, intptr_t slot);
-bool QAbstractFormBuilder_SuperApplyPropertyInternally(QAbstractFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value);
 void QAbstractFormBuilder_Reset(QAbstractFormBuilder* self);
-void QAbstractFormBuilder_OnReset(QAbstractFormBuilder* self, intptr_t slot);
-void QAbstractFormBuilder_SuperReset(QAbstractFormBuilder* self);
 QMetaEnum* QAbstractFormBuilder_ToolBarAreaMetaEnum(QAbstractFormBuilder* self);
-void QAbstractFormBuilder_OnToolBarAreaMetaEnum(QAbstractFormBuilder* self, intptr_t slot);
-QMetaEnum* QAbstractFormBuilder_SuperToolBarAreaMetaEnum(QAbstractFormBuilder* self);
 void QAbstractFormBuilder_Delete(QAbstractFormBuilder* self);
 
 #ifdef __cplusplus

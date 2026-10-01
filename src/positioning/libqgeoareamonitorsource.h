@@ -59,7 +59,7 @@ void QGeoAreaMonitorSource_ErrorOccurred(QGeoAreaMonitorSource* self, int errorV
 void QGeoAreaMonitorSource_Connect_ErrorOccurred(QGeoAreaMonitorSource* self, intptr_t slot);
 libqt_string QGeoAreaMonitorSource_Tr2(const char* s, const char* c);
 libqt_string QGeoAreaMonitorSource_Tr3(const char* s, const char* c, int n);
-void QGeoAreaMonitorSource_OnMetaObject(const QGeoAreaMonitorSource* self, intptr_t slot);
+void QGeoAreaMonitorSource_OnMetaObject(QGeoAreaMonitorSource* self, intptr_t slot);
 QMetaObject* QGeoAreaMonitorSource_SuperMetaObject(const QGeoAreaMonitorSource* self);
 void QGeoAreaMonitorSource_OnMetacast(QGeoAreaMonitorSource* self, intptr_t slot);
 void* QGeoAreaMonitorSource_SuperMetacast(QGeoAreaMonitorSource* self, const char* param1);
@@ -67,25 +67,18 @@ void QGeoAreaMonitorSource_OnMetacall(QGeoAreaMonitorSource* self, intptr_t slot
 int QGeoAreaMonitorSource_SuperMetacall(QGeoAreaMonitorSource* self, int param1, int param2, void** param3);
 void QGeoAreaMonitorSource_OnSetPositionInfoSource(QGeoAreaMonitorSource* self, intptr_t slot);
 void QGeoAreaMonitorSource_SuperSetPositionInfoSource(QGeoAreaMonitorSource* self, QGeoPositionInfoSource* source);
-void QGeoAreaMonitorSource_OnPositionInfoSource(const QGeoAreaMonitorSource* self, intptr_t slot);
+void QGeoAreaMonitorSource_OnPositionInfoSource(QGeoAreaMonitorSource* self, intptr_t slot);
 QGeoPositionInfoSource* QGeoAreaMonitorSource_SuperPositionInfoSource(const QGeoAreaMonitorSource* self);
-void QGeoAreaMonitorSource_OnError(const QGeoAreaMonitorSource* self, intptr_t slot);
-int QGeoAreaMonitorSource_SuperError(const QGeoAreaMonitorSource* self);
-void QGeoAreaMonitorSource_OnSupportedAreaMonitorFeatures(const QGeoAreaMonitorSource* self, intptr_t slot);
-int QGeoAreaMonitorSource_SuperSupportedAreaMonitorFeatures(const QGeoAreaMonitorSource* self);
+void QGeoAreaMonitorSource_OnError(QGeoAreaMonitorSource* self, intptr_t slot);
+void QGeoAreaMonitorSource_OnSupportedAreaMonitorFeatures(QGeoAreaMonitorSource* self, intptr_t slot);
 void QGeoAreaMonitorSource_OnStartMonitoring(QGeoAreaMonitorSource* self, intptr_t slot);
-bool QGeoAreaMonitorSource_SuperStartMonitoring(QGeoAreaMonitorSource* self, const QGeoAreaMonitorInfo* monitor);
 void QGeoAreaMonitorSource_OnStopMonitoring(QGeoAreaMonitorSource* self, intptr_t slot);
-bool QGeoAreaMonitorSource_SuperStopMonitoring(QGeoAreaMonitorSource* self, const QGeoAreaMonitorInfo* monitor);
 void QGeoAreaMonitorSource_OnRequestUpdate(QGeoAreaMonitorSource* self, intptr_t slot);
-bool QGeoAreaMonitorSource_SuperRequestUpdate(QGeoAreaMonitorSource* self, const QGeoAreaMonitorInfo* monitor, const char* signal);
-void QGeoAreaMonitorSource_OnActiveMonitors(const QGeoAreaMonitorSource* self, intptr_t slot);
-libqt_list /* of QGeoAreaMonitorInfo* */ QGeoAreaMonitorSource_SuperActiveMonitors(const QGeoAreaMonitorSource* self);
-void QGeoAreaMonitorSource_OnActiveMonitors2(const QGeoAreaMonitorSource* self, intptr_t slot);
-libqt_list /* of QGeoAreaMonitorInfo* */ QGeoAreaMonitorSource_SuperActiveMonitors2(const QGeoAreaMonitorSource* self, const QGeoShape* lookupArea);
+void QGeoAreaMonitorSource_OnActiveMonitors(QGeoAreaMonitorSource* self, intptr_t slot);
+void QGeoAreaMonitorSource_OnActiveMonitors2(QGeoAreaMonitorSource* self, intptr_t slot);
 void QGeoAreaMonitorSource_OnSetBackendProperty(QGeoAreaMonitorSource* self, intptr_t slot);
 bool QGeoAreaMonitorSource_SuperSetBackendProperty(QGeoAreaMonitorSource* self, const libqt_string name, const QVariant* value);
-void QGeoAreaMonitorSource_OnBackendProperty(const QGeoAreaMonitorSource* self, intptr_t slot);
+void QGeoAreaMonitorSource_OnBackendProperty(QGeoAreaMonitorSource* self, intptr_t slot);
 QVariant* QGeoAreaMonitorSource_SuperBackendProperty(const QGeoAreaMonitorSource* self, const libqt_string name);
 bool QGeoAreaMonitorSource_Event(QGeoAreaMonitorSource* self, QEvent* event);
 void QGeoAreaMonitorSource_OnEvent(QGeoAreaMonitorSource* self, intptr_t slot);
@@ -109,17 +102,9 @@ void QGeoAreaMonitorSource_DisconnectNotify(QGeoAreaMonitorSource* self, const Q
 void QGeoAreaMonitorSource_OnDisconnectNotify(QGeoAreaMonitorSource* self, intptr_t slot);
 void QGeoAreaMonitorSource_SuperDisconnectNotify(QGeoAreaMonitorSource* self, const QMetaMethod* signal);
 QObject* QGeoAreaMonitorSource_Sender(const QGeoAreaMonitorSource* self);
-void QGeoAreaMonitorSource_OnSender(const QGeoAreaMonitorSource* self, intptr_t slot);
-QObject* QGeoAreaMonitorSource_SuperSender(const QGeoAreaMonitorSource* self);
 int QGeoAreaMonitorSource_SenderSignalIndex(const QGeoAreaMonitorSource* self);
-void QGeoAreaMonitorSource_OnSenderSignalIndex(const QGeoAreaMonitorSource* self, intptr_t slot);
-int QGeoAreaMonitorSource_SuperSenderSignalIndex(const QGeoAreaMonitorSource* self);
 int QGeoAreaMonitorSource_Receivers(const QGeoAreaMonitorSource* self, const char* signal);
-void QGeoAreaMonitorSource_OnReceivers(const QGeoAreaMonitorSource* self, intptr_t slot);
-int QGeoAreaMonitorSource_SuperReceivers(const QGeoAreaMonitorSource* self, const char* signal);
 bool QGeoAreaMonitorSource_IsSignalConnected(const QGeoAreaMonitorSource* self, const QMetaMethod* signal);
-void QGeoAreaMonitorSource_OnIsSignalConnected(const QGeoAreaMonitorSource* self, intptr_t slot);
-bool QGeoAreaMonitorSource_SuperIsSignalConnected(const QGeoAreaMonitorSource* self, const QMetaMethod* signal);
 void QGeoAreaMonitorSource_Delete(QGeoAreaMonitorSource* self);
 
 #ifdef __cplusplus

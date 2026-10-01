@@ -106,7 +106,7 @@ KBookmarkGroup* KBookmarkDialog_SelectFolder(KBookmarkDialog* self) {
 
 void KBookmarkDialog_Accept(KBookmarkDialog* self) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->accept();
     }
 }
@@ -174,1840 +174,1275 @@ KBookmarkGroup* KBookmarkDialog_SelectFolder1(KBookmarkDialog* self, KBookmark* 
 
 // Base class handler implementation
 QMetaObject* KBookmarkDialog_SuperMetaObject(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vkbookmarkdialog->metaObject();
-    } else {
-        return (QMetaObject*)self->KBookmarkDialog::metaObject();
-    }
+    return (QMetaObject*)self->KBookmarkDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnMetaObject(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_MetaObject_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MetaObject_Callback>(slot));
+void KBookmarkDialog_OnMetaObject(KBookmarkDialog* self, intptr_t slot) {
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self)))
+        vkbookmarkdialog->kbookmarkdialog_metaobject_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KBookmarkDialog_SuperMetacast(KBookmarkDialog* self, const char* param1) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_Metacast_IsBase(true);
-        return vkbookmarkdialog->qt_metacast(param1);
-    } else {
-        return self->KBookmarkDialog::qt_metacast(param1);
-    }
+    return self->KBookmarkDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnMetacast(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_Metacast_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Metacast_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_metacast_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KBookmarkDialog_SuperMetacall(KBookmarkDialog* self, int param1, int param2, void** param3) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_Metacall_IsBase(true);
-        return vkbookmarkdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KBookmarkDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KBookmarkDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnMetacall(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_Metacall_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Metacall_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_metacall_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperAccept(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_Accept_IsBase(true);
-        vkbookmarkdialog->accept();
-    } else {
-        ((VirtualKBookmarkDialog*)self)->accept();
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::accept();
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::accept called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnAccept(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_Accept_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Accept_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_accept_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_SetVisible(KBookmarkDialog* self, bool visible) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setVisible(visible);
-    } else {
-        self->KBookmarkDialog::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperSetVisible(KBookmarkDialog* self, bool visible) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_SetVisible_IsBase(true);
-        vkbookmarkdialog->setVisible(visible);
-    } else {
-        self->KBookmarkDialog::setVisible(visible);
-    }
+    self->KBookmarkDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnSetVisible(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_SetVisible_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_SetVisible_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_setvisible_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KBookmarkDialog_SizeHint(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return new QSize(vkbookmarkdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKBookmarkDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KBookmarkDialog_SuperSizeHint(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_SizeHint_IsBase(true);
-        return new QSize(vkbookmarkdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKBookmarkDialog*)self)->sizeHint());
-    }
+    return new QSize(self->KBookmarkDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnSizeHint(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_SizeHint_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_SizeHint_Callback>(slot));
+void KBookmarkDialog_OnSizeHint(KBookmarkDialog* self, intptr_t slot) {
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self)))
+        vkbookmarkdialog->kbookmarkdialog_sizehint_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KBookmarkDialog_MinimumSizeHint(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return new QSize(vkbookmarkdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKBookmarkDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KBookmarkDialog_SuperMinimumSizeHint(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vkbookmarkdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKBookmarkDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KBookmarkDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnMinimumSizeHint(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MinimumSizeHint_Callback>(slot));
+void KBookmarkDialog_OnMinimumSizeHint(KBookmarkDialog* self, intptr_t slot) {
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self)))
+        vkbookmarkdialog->kbookmarkdialog_minimumsizehint_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_Open(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->open();
-    } else {
-        self->KBookmarkDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperOpen(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_Open_IsBase(true);
-        vkbookmarkdialog->open();
-    } else {
-        self->KBookmarkDialog::open();
-    }
+    self->KBookmarkDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnOpen(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_Open_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Open_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_open_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KBookmarkDialog_Exec(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return vkbookmarkdialog->exec();
-    } else {
-        return self->KBookmarkDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int KBookmarkDialog_SuperExec(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_Exec_IsBase(true);
-        return vkbookmarkdialog->exec();
-    } else {
-        return self->KBookmarkDialog::exec();
-    }
+    return self->KBookmarkDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnExec(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_Exec_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Exec_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_exec_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_Done(KBookmarkDialog* self, int param1) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->done(static_cast<int>(param1));
-    } else {
-        self->KBookmarkDialog::done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperDone(KBookmarkDialog* self, int param1) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_Done_IsBase(true);
-        vkbookmarkdialog->done(static_cast<int>(param1));
-    } else {
-        self->KBookmarkDialog::done(static_cast<int>(param1));
-    }
+    self->KBookmarkDialog::done(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnDone(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_Done_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Done_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_done_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_Reject(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->reject();
-    } else {
-        self->KBookmarkDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperReject(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_Reject_IsBase(true);
-        vkbookmarkdialog->reject();
-    } else {
-        self->KBookmarkDialog::reject();
-    }
+    self->KBookmarkDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnReject(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_Reject_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Reject_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_reject_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_KeyPressEvent(KBookmarkDialog* self, QKeyEvent* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->keyPressEvent(param1);
     } else {
-        ((VirtualKBookmarkDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method KBookmarkDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperKeyPressEvent(KBookmarkDialog* self, QKeyEvent* param1) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_KeyPressEvent_IsBase(true);
-        vkbookmarkdialog->keyPressEvent(param1);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnKeyPressEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_keypressevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_CloseEvent(KBookmarkDialog* self, QCloseEvent* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->closeEvent(param1);
     } else {
-        ((VirtualKBookmarkDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method KBookmarkDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperCloseEvent(KBookmarkDialog* self, QCloseEvent* param1) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_CloseEvent_IsBase(true);
-        vkbookmarkdialog->closeEvent(param1);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnCloseEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_CloseEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_CloseEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_closeevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_ShowEvent(KBookmarkDialog* self, QShowEvent* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->showEvent(param1);
     } else {
-        ((VirtualKBookmarkDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method KBookmarkDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperShowEvent(KBookmarkDialog* self, QShowEvent* param1) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_ShowEvent_IsBase(true);
-        vkbookmarkdialog->showEvent(param1);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->showEvent(param1);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnShowEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_ShowEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_ShowEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_showevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_ResizeEvent(KBookmarkDialog* self, QResizeEvent* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->resizeEvent(param1);
     } else {
-        ((VirtualKBookmarkDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method KBookmarkDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperResizeEvent(KBookmarkDialog* self, QResizeEvent* param1) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_ResizeEvent_IsBase(true);
-        vkbookmarkdialog->resizeEvent(param1);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnResizeEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_ResizeEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_resizeevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_ContextMenuEvent(KBookmarkDialog* self, QContextMenuEvent* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->contextMenuEvent(param1);
     } else {
-        ((VirtualKBookmarkDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method KBookmarkDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperContextMenuEvent(KBookmarkDialog* self, QContextMenuEvent* param1) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_ContextMenuEvent_IsBase(true);
-        vkbookmarkdialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnContextMenuEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_contextmenuevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KBookmarkDialog_EventFilter(KBookmarkDialog* self, QObject* param1, QEvent* param2) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         return vkbookmarkdialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualKBookmarkDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method KBookmarkDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KBookmarkDialog_SuperEventFilter(KBookmarkDialog* self, QObject* param1, QEvent* param2) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_EventFilter_IsBase(true);
-        return vkbookmarkdialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        return vkbookmarkdialog->KBookmarkDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnEventFilter(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_EventFilter_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_EventFilter_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_eventfilter_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KBookmarkDialog_DevType(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return vkbookmarkdialog->devType();
-    } else {
-        return self->KBookmarkDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KBookmarkDialog_SuperDevType(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_DevType_IsBase(true);
-        return vkbookmarkdialog->devType();
-    } else {
-        return self->KBookmarkDialog::devType();
-    }
+    return self->KBookmarkDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnDevType(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_DevType_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_DevType_Callback>(slot));
+void KBookmarkDialog_OnDevType(KBookmarkDialog* self, intptr_t slot) {
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self)))
+        vkbookmarkdialog->kbookmarkdialog_devtype_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KBookmarkDialog_HeightForWidth(const KBookmarkDialog* self, int param1) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return vkbookmarkdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KBookmarkDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KBookmarkDialog_SuperHeightForWidth(const KBookmarkDialog* self, int param1) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_HeightForWidth_IsBase(true);
-        return vkbookmarkdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KBookmarkDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KBookmarkDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnHeightForWidth(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_HeightForWidth_Callback>(slot));
+void KBookmarkDialog_OnHeightForWidth(KBookmarkDialog* self, intptr_t slot) {
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self)))
+        vkbookmarkdialog->kbookmarkdialog_heightforwidth_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KBookmarkDialog_HasHeightForWidth(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return vkbookmarkdialog->hasHeightForWidth();
-    } else {
-        return self->KBookmarkDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KBookmarkDialog_SuperHasHeightForWidth(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_HasHeightForWidth_IsBase(true);
-        return vkbookmarkdialog->hasHeightForWidth();
-    } else {
-        return self->KBookmarkDialog::hasHeightForWidth();
-    }
+    return self->KBookmarkDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnHasHeightForWidth(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_HasHeightForWidth_Callback>(slot));
+void KBookmarkDialog_OnHasHeightForWidth(KBookmarkDialog* self, intptr_t slot) {
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self)))
+        vkbookmarkdialog->kbookmarkdialog_hasheightforwidth_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KBookmarkDialog_PaintEngine(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return vkbookmarkdialog->paintEngine();
-    } else {
-        return self->KBookmarkDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KBookmarkDialog_SuperPaintEngine(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_PaintEngine_IsBase(true);
-        return vkbookmarkdialog->paintEngine();
-    } else {
-        return self->KBookmarkDialog::paintEngine();
-    }
+    return self->KBookmarkDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnPaintEngine(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_PaintEngine_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_PaintEngine_Callback>(slot));
+void KBookmarkDialog_OnPaintEngine(KBookmarkDialog* self, intptr_t slot) {
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self)))
+        vkbookmarkdialog->kbookmarkdialog_paintengine_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KBookmarkDialog_Event(KBookmarkDialog* self, QEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         return vkbookmarkdialog->event(event);
     } else {
-        return ((VirtualKBookmarkDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KBookmarkDialog_SuperEvent(KBookmarkDialog* self, QEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_Event_IsBase(true);
-        return vkbookmarkdialog->event(event);
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->event(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        return vkbookmarkdialog->KBookmarkDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_Event_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Event_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_event_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_MousePressEvent(KBookmarkDialog* self, QMouseEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->mousePressEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperMousePressEvent(KBookmarkDialog* self, QMouseEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_MousePressEvent_IsBase(true);
-        vkbookmarkdialog->mousePressEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnMousePressEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MousePressEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_mousepressevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_MouseReleaseEvent(KBookmarkDialog* self, QMouseEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperMouseReleaseEvent(KBookmarkDialog* self, QMouseEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_MouseReleaseEvent_IsBase(true);
-        vkbookmarkdialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnMouseReleaseEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_mousereleaseevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_MouseDoubleClickEvent(KBookmarkDialog* self, QMouseEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperMouseDoubleClickEvent(KBookmarkDialog* self, QMouseEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_MouseDoubleClickEvent_IsBase(true);
-        vkbookmarkdialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnMouseDoubleClickEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_MouseMoveEvent(KBookmarkDialog* self, QMouseEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->mouseMoveEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperMouseMoveEvent(KBookmarkDialog* self, QMouseEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_MouseMoveEvent_IsBase(true);
-        vkbookmarkdialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnMouseMoveEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_mousemoveevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_WheelEvent(KBookmarkDialog* self, QWheelEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->wheelEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperWheelEvent(KBookmarkDialog* self, QWheelEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_WheelEvent_IsBase(true);
-        vkbookmarkdialog->wheelEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnWheelEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_WheelEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_WheelEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_wheelevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_KeyReleaseEvent(KBookmarkDialog* self, QKeyEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->keyReleaseEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperKeyReleaseEvent(KBookmarkDialog* self, QKeyEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_KeyReleaseEvent_IsBase(true);
-        vkbookmarkdialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnKeyReleaseEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_keyreleaseevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_FocusInEvent(KBookmarkDialog* self, QFocusEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->focusInEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperFocusInEvent(KBookmarkDialog* self, QFocusEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_FocusInEvent_IsBase(true);
-        vkbookmarkdialog->focusInEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnFocusInEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_FocusInEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_focusinevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_FocusOutEvent(KBookmarkDialog* self, QFocusEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->focusOutEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperFocusOutEvent(KBookmarkDialog* self, QFocusEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_FocusOutEvent_IsBase(true);
-        vkbookmarkdialog->focusOutEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnFocusOutEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_focusoutevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_EnterEvent(KBookmarkDialog* self, QEnterEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->enterEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperEnterEvent(KBookmarkDialog* self, QEnterEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_EnterEvent_IsBase(true);
-        vkbookmarkdialog->enterEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->enterEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnEnterEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_EnterEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_EnterEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_enterevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_LeaveEvent(KBookmarkDialog* self, QEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->leaveEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperLeaveEvent(KBookmarkDialog* self, QEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_LeaveEvent_IsBase(true);
-        vkbookmarkdialog->leaveEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnLeaveEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_LeaveEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_leaveevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_PaintEvent(KBookmarkDialog* self, QPaintEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->paintEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperPaintEvent(KBookmarkDialog* self, QPaintEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_PaintEvent_IsBase(true);
-        vkbookmarkdialog->paintEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->paintEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnPaintEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_PaintEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_PaintEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_paintevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_MoveEvent(KBookmarkDialog* self, QMoveEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->moveEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperMoveEvent(KBookmarkDialog* self, QMoveEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_MoveEvent_IsBase(true);
-        vkbookmarkdialog->moveEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->moveEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnMoveEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_MoveEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MoveEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_moveevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_TabletEvent(KBookmarkDialog* self, QTabletEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->tabletEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperTabletEvent(KBookmarkDialog* self, QTabletEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_TabletEvent_IsBase(true);
-        vkbookmarkdialog->tabletEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnTabletEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_TabletEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_TabletEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_tabletevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_ActionEvent(KBookmarkDialog* self, QActionEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->actionEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperActionEvent(KBookmarkDialog* self, QActionEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_ActionEvent_IsBase(true);
-        vkbookmarkdialog->actionEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->actionEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnActionEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_ActionEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_ActionEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_actionevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_DragEnterEvent(KBookmarkDialog* self, QDragEnterEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->dragEnterEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperDragEnterEvent(KBookmarkDialog* self, QDragEnterEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_DragEnterEvent_IsBase(true);
-        vkbookmarkdialog->dragEnterEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnDragEnterEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_dragenterevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_DragMoveEvent(KBookmarkDialog* self, QDragMoveEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->dragMoveEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperDragMoveEvent(KBookmarkDialog* self, QDragMoveEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_DragMoveEvent_IsBase(true);
-        vkbookmarkdialog->dragMoveEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnDragMoveEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_dragmoveevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_DragLeaveEvent(KBookmarkDialog* self, QDragLeaveEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->dragLeaveEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperDragLeaveEvent(KBookmarkDialog* self, QDragLeaveEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_DragLeaveEvent_IsBase(true);
-        vkbookmarkdialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnDragLeaveEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_dragleaveevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_DropEvent(KBookmarkDialog* self, QDropEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->dropEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperDropEvent(KBookmarkDialog* self, QDropEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_DropEvent_IsBase(true);
-        vkbookmarkdialog->dropEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->dropEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnDropEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_DropEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_DropEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_dropevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_HideEvent(KBookmarkDialog* self, QHideEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->hideEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperHideEvent(KBookmarkDialog* self, QHideEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_HideEvent_IsBase(true);
-        vkbookmarkdialog->hideEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->hideEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnHideEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_HideEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_HideEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_hideevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KBookmarkDialog_NativeEvent(KBookmarkDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
+    if (vkbookmarkdialog) {
         return vkbookmarkdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKBookmarkDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KBookmarkDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KBookmarkDialog_SuperNativeEvent(KBookmarkDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_NativeEvent_IsBase(true);
-        return vkbookmarkdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        return vkbookmarkdialog->KBookmarkDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnNativeEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_NativeEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_NativeEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_nativeevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_ChangeEvent(KBookmarkDialog* self, QEvent* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->changeEvent(param1);
     } else {
-        ((VirtualKBookmarkDialog*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KBookmarkDialog::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperChangeEvent(KBookmarkDialog* self, QEvent* param1) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_ChangeEvent_IsBase(true);
-        vkbookmarkdialog->changeEvent(param1);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->changeEvent(param1);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnChangeEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_ChangeEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_changeevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KBookmarkDialog_Metric(const KBookmarkDialog* self, int param1) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         return vkbookmarkdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKBookmarkDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KBookmarkDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KBookmarkDialog_SuperMetric(const KBookmarkDialog* self, int param1) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_Metric_IsBase(true);
-        return vkbookmarkdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self))) {
+        return vkbookmarkdialog->KBookmarkDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnMetric(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_Metric_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Metric_Callback>(slot));
+void KBookmarkDialog_OnMetric(KBookmarkDialog* self, intptr_t slot) {
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self)))
+        vkbookmarkdialog->kbookmarkdialog_metric_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_InitPainter(const KBookmarkDialog* self, QPainter* painter) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->initPainter(painter);
     } else {
-        ((VirtualKBookmarkDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KBookmarkDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperInitPainter(const KBookmarkDialog* self, QPainter* painter) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_InitPainter_IsBase(true);
-        vkbookmarkdialog->initPainter(painter);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->initPainter(painter);
-    }
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self))) {
+        vkbookmarkdialog->KBookmarkDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnInitPainter(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_InitPainter_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_InitPainter_Callback>(slot));
+void KBookmarkDialog_OnInitPainter(KBookmarkDialog* self, intptr_t slot) {
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self)))
+        vkbookmarkdialog->kbookmarkdialog_initpainter_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KBookmarkDialog_Redirected(const KBookmarkDialog* self, QPoint* offset) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         return vkbookmarkdialog->redirected(offset);
     } else {
-        return ((VirtualKBookmarkDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KBookmarkDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KBookmarkDialog_SuperRedirected(const KBookmarkDialog* self, QPoint* offset) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_Redirected_IsBase(true);
-        return vkbookmarkdialog->redirected(offset);
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->redirected(offset);
-    }
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self))) {
+        return vkbookmarkdialog->KBookmarkDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnRedirected(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_Redirected_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Redirected_Callback>(slot));
+void KBookmarkDialog_OnRedirected(KBookmarkDialog* self, intptr_t slot) {
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self)))
+        vkbookmarkdialog->kbookmarkdialog_redirected_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KBookmarkDialog_SharedPainter(const KBookmarkDialog* self) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         return vkbookmarkdialog->sharedPainter();
     } else {
-        return ((VirtualKBookmarkDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KBookmarkDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KBookmarkDialog_SuperSharedPainter(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_SharedPainter_IsBase(true);
-        return vkbookmarkdialog->sharedPainter();
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->sharedPainter();
-    }
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self))) {
+        return vkbookmarkdialog->KBookmarkDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnSharedPainter(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_SharedPainter_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_SharedPainter_Callback>(slot));
+void KBookmarkDialog_OnSharedPainter(KBookmarkDialog* self, intptr_t slot) {
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self)))
+        vkbookmarkdialog->kbookmarkdialog_sharedpainter_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_InputMethodEvent(KBookmarkDialog* self, QInputMethodEvent* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->inputMethodEvent(param1);
     } else {
-        ((VirtualKBookmarkDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KBookmarkDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperInputMethodEvent(KBookmarkDialog* self, QInputMethodEvent* param1) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_InputMethodEvent_IsBase(true);
-        vkbookmarkdialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnInputMethodEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_inputmethodevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KBookmarkDialog_InputMethodQuery(const KBookmarkDialog* self, int param1) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return new QVariant(vkbookmarkdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKBookmarkDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KBookmarkDialog_SuperInputMethodQuery(const KBookmarkDialog* self, int param1) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vkbookmarkdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKBookmarkDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KBookmarkDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnInputMethodQuery(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_InputMethodQuery_Callback>(slot));
+void KBookmarkDialog_OnInputMethodQuery(KBookmarkDialog* self, intptr_t slot) {
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self)))
+        vkbookmarkdialog->kbookmarkdialog_inputmethodquery_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KBookmarkDialog_FocusNextPrevChild(KBookmarkDialog* self, bool next) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         return vkbookmarkdialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualKBookmarkDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KBookmarkDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KBookmarkDialog_SuperFocusNextPrevChild(KBookmarkDialog* self, bool next) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_FocusNextPrevChild_IsBase(true);
-        return vkbookmarkdialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        return vkbookmarkdialog->KBookmarkDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnFocusNextPrevChild(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_focusnextprevchild_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_TimerEvent(KBookmarkDialog* self, QTimerEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->timerEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperTimerEvent(KBookmarkDialog* self, QTimerEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_TimerEvent_IsBase(true);
-        vkbookmarkdialog->timerEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->timerEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnTimerEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_TimerEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_TimerEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_timerevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_ChildEvent(KBookmarkDialog* self, QChildEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->childEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperChildEvent(KBookmarkDialog* self, QChildEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_ChildEvent_IsBase(true);
-        vkbookmarkdialog->childEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->childEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnChildEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_ChildEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_ChildEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_childevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_CustomEvent(KBookmarkDialog* self, QEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->customEvent(event);
     } else {
-        ((VirtualKBookmarkDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperCustomEvent(KBookmarkDialog* self, QEvent* event) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_CustomEvent_IsBase(true);
-        vkbookmarkdialog->customEvent(event);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->customEvent(event);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnCustomEvent(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_CustomEvent_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_CustomEvent_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_customevent_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_ConnectNotify(KBookmarkDialog* self, const QMetaMethod* signal) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->connectNotify(*signal);
     } else {
-        ((VirtualKBookmarkDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KBookmarkDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperConnectNotify(KBookmarkDialog* self, const QMetaMethod* signal) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_ConnectNotify_IsBase(true);
-        vkbookmarkdialog->connectNotify(*signal);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnConnectNotify(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_ConnectNotify_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_connectnotify_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkDialog_DisconnectNotify(KBookmarkDialog* self, const QMetaMethod* signal) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+    if (vkbookmarkdialog) {
         vkbookmarkdialog->disconnectNotify(*signal);
     } else {
-        ((VirtualKBookmarkDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KBookmarkDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkDialog_SuperDisconnectNotify(KBookmarkDialog* self, const QMetaMethod* signal) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_DisconnectNotify_IsBase(true);
-        vkbookmarkdialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->KBookmarkDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkDialog_OnDisconnectNotify(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self))
+        vkbookmarkdialog->kbookmarkdialog_disconnectnotify_callback = reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkDialog_NewFolderButton(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->newFolderButton();
-    } else {
-        ((VirtualKBookmarkDialog*)self)->newFolderButton();
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->VirtualKBookmarkDialog::newFolderButton();
+    } else
+        qFatal("Error: Protected method KBookmarkDialog::newFolderButton called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkDialog_SuperNewFolderButton(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_NewFolderButton_IsBase(true);
-        vkbookmarkdialog->newFolderButton();
-    } else {
-        ((VirtualKBookmarkDialog*)self)->newFolderButton();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnNewFolderButton(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_NewFolderButton_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_NewFolderButton_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkDialog_AdjustPosition(KBookmarkDialog* self, QWidget* param1) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->VirtualKBookmarkDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method KBookmarkDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkDialog_SuperAdjustPosition(KBookmarkDialog* self, QWidget* param1) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_AdjustPosition_IsBase(true);
-        vkbookmarkdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKBookmarkDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnAdjustPosition(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkDialog_UpdateMicroFocus(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->updateMicroFocus();
-    } else {
-        ((VirtualKBookmarkDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->VirtualKBookmarkDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KBookmarkDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkDialog_SuperUpdateMicroFocus(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_UpdateMicroFocus_IsBase(true);
-        vkbookmarkdialog->updateMicroFocus();
-    } else {
-        ((VirtualKBookmarkDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnUpdateMicroFocus(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkDialog_Create(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->create();
-    } else {
-        ((VirtualKBookmarkDialog*)self)->create();
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->VirtualKBookmarkDialog::create();
+    } else
+        qFatal("Error: Protected method KBookmarkDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkDialog_SuperCreate(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_Create_IsBase(true);
-        vkbookmarkdialog->create();
-    } else {
-        ((VirtualKBookmarkDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnCreate(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_Create_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkDialog_Destroy(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->destroy();
-    } else {
-        ((VirtualKBookmarkDialog*)self)->destroy();
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        vkbookmarkdialog->VirtualKBookmarkDialog::destroy();
+    } else
+        qFatal("Error: Protected method KBookmarkDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkDialog_SuperDestroy(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_Destroy_IsBase(true);
-        vkbookmarkdialog->destroy();
-    } else {
-        ((VirtualKBookmarkDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnDestroy(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_Destroy_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KBookmarkDialog_FocusNextChild(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return vkbookmarkdialog->focusNextChild();
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->focusNextChild();
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        return vkbookmarkdialog->VirtualKBookmarkDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method KBookmarkDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KBookmarkDialog_SuperFocusNextChild(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_FocusNextChild_IsBase(true);
-        return vkbookmarkdialog->focusNextChild();
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnFocusNextChild(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KBookmarkDialog_FocusPreviousChild(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return vkbookmarkdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self)) {
+        return vkbookmarkdialog->VirtualKBookmarkDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KBookmarkDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KBookmarkDialog_SuperFocusPreviousChild(KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_FocusPreviousChild_IsBase(true);
-        return vkbookmarkdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnFocusPreviousChild(KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KBookmarkDialog_Sender(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return vkbookmarkdialog->sender();
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->sender();
-    }
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self))) {
+        return vkbookmarkdialog->VirtualKBookmarkDialog::sender();
+    } else
+        qFatal("Error: Protected method KBookmarkDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KBookmarkDialog_SuperSender(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_Sender_IsBase(true);
-        return vkbookmarkdialog->sender();
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnSender(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_Sender_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KBookmarkDialog_SenderSignalIndex(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return vkbookmarkdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self))) {
+        return vkbookmarkdialog->VirtualKBookmarkDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KBookmarkDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KBookmarkDialog_SuperSenderSignalIndex(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_SenderSignalIndex_IsBase(true);
-        return vkbookmarkdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnSenderSignalIndex(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KBookmarkDialog_Receivers(const KBookmarkDialog* self, const char* signal) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return vkbookmarkdialog->receivers(signal);
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->receivers(signal);
-    }
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self))) {
+        return vkbookmarkdialog->VirtualKBookmarkDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method KBookmarkDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KBookmarkDialog_SuperReceivers(const KBookmarkDialog* self, const char* signal) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_Receivers_IsBase(true);
-        return vkbookmarkdialog->receivers(signal);
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnReceivers(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_Receivers_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KBookmarkDialog_IsSignalConnected(const KBookmarkDialog* self, const QMetaMethod* signal) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return vkbookmarkdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self))) {
+        return vkbookmarkdialog->VirtualKBookmarkDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KBookmarkDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KBookmarkDialog_SuperIsSignalConnected(const KBookmarkDialog* self, const QMetaMethod* signal) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_IsSignalConnected_IsBase(true);
-        return vkbookmarkdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnIsSignalConnected(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KBookmarkDialog_GetDecodedMetricF(const KBookmarkDialog* self, int metricA, int metricB) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return vkbookmarkdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KBookmarkDialog_SuperGetDecodedMetricF(const KBookmarkDialog* self, int metricA, int metricB) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        vkbookmarkdialog->setKBookmarkDialog_GetDecodedMetricF_IsBase(true);
-        return vkbookmarkdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkDialog_OnGetDecodedMetricF(const KBookmarkDialog* self, intptr_t slot) {
-    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog)
-        vkbookmarkdialog->setKBookmarkDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self))) {
+        return vkbookmarkdialog->VirtualKBookmarkDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KBookmarkDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void KBookmarkDialog_Delete(KBookmarkDialog* self) {

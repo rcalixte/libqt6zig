@@ -342,9 +342,9 @@ pub const QSGNode = extern struct {
     ///
     /// ` self: QSGNode `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGNode) callconv(.c) bool `
     ///
-    pub fn onIsSubtreeBlocked(self: QSGNode, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSubtreeBlocked(self: QSGNode, callback: *const fn (QSGNode) callconv(.c) bool) void {
         qtc.QSGNode_OnIsSubtreeBlocked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -440,9 +440,9 @@ pub const QSGNode = extern struct {
     ///
     /// ` self: QSGNode `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QSGNode) callconv(.c) void `
     ///
-    pub fn onPreprocess(self: QSGNode, callback: *const fn () callconv(.c) void) void {
+    pub fn onPreprocess(self: QSGNode, callback: *const fn (QSGNode) callconv(.c) void) void {
         qtc.QSGNode_OnPreprocess(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1879,9 +1879,9 @@ pub const QSGGeometryNode = extern struct {
     ///
     /// ` self: QSGGeometryNode`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGGeometryNode) callconv(.c) bool `
     ///
-    pub fn onIsSubtreeBlocked(self: QSGGeometryNode, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSubtreeBlocked(self: QSGGeometryNode, callback: *const fn (QSGGeometryNode) callconv(.c) bool) void {
         qtc.QSGGeometryNode_OnIsSubtreeBlocked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1935,9 +1935,9 @@ pub const QSGGeometryNode = extern struct {
     ///
     /// ` self: QSGGeometryNode`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QSGGeometryNode) callconv(.c) void `
     ///
-    pub fn onPreprocess(self: QSGGeometryNode, callback: *const fn () callconv(.c) void) void {
+    pub fn onPreprocess(self: QSGGeometryNode, callback: *const fn (QSGGeometryNode) callconv(.c) void) void {
         qtc.QSGGeometryNode_OnPreprocess(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2634,9 +2634,9 @@ pub const QSGClipNode = extern struct {
     ///
     /// ` self: QSGClipNode`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGClipNode) callconv(.c) bool `
     ///
-    pub fn onIsSubtreeBlocked(self: QSGClipNode, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSubtreeBlocked(self: QSGClipNode, callback: *const fn (QSGClipNode) callconv(.c) bool) void {
         qtc.QSGClipNode_OnIsSubtreeBlocked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2690,9 +2690,9 @@ pub const QSGClipNode = extern struct {
     ///
     /// ` self: QSGClipNode`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QSGClipNode) callconv(.c) void `
     ///
-    pub fn onPreprocess(self: QSGClipNode, callback: *const fn () callconv(.c) void) void {
+    pub fn onPreprocess(self: QSGClipNode, callback: *const fn (QSGClipNode) callconv(.c) void) void {
         qtc.QSGClipNode_OnPreprocess(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3268,9 +3268,9 @@ pub const QSGTransformNode = extern struct {
     ///
     /// ` self: QSGTransformNode`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGTransformNode) callconv(.c) bool `
     ///
-    pub fn onIsSubtreeBlocked(self: QSGTransformNode, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSubtreeBlocked(self: QSGTransformNode, callback: *const fn (QSGTransformNode) callconv(.c) bool) void {
         qtc.QSGTransformNode_OnIsSubtreeBlocked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3324,9 +3324,9 @@ pub const QSGTransformNode = extern struct {
     ///
     /// ` self: QSGTransformNode`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QSGTransformNode) callconv(.c) void `
     ///
-    pub fn onPreprocess(self: QSGTransformNode, callback: *const fn () callconv(.c) void) void {
+    pub fn onPreprocess(self: QSGTransformNode, callback: *const fn (QSGTransformNode) callconv(.c) void) void {
         qtc.QSGTransformNode_OnPreprocess(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3840,9 +3840,9 @@ pub const QSGRootNode = extern struct {
     ///
     /// ` self: QSGRootNode`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGRootNode) callconv(.c) bool `
     ///
-    pub fn onIsSubtreeBlocked(self: QSGRootNode, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSubtreeBlocked(self: QSGRootNode, callback: *const fn (QSGRootNode) callconv(.c) bool) void {
         qtc.QSGRootNode_OnIsSubtreeBlocked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3896,9 +3896,9 @@ pub const QSGRootNode = extern struct {
     ///
     /// ` self: QSGRootNode`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QSGRootNode) callconv(.c) void `
     ///
-    pub fn onPreprocess(self: QSGRootNode, callback: *const fn () callconv(.c) void) void {
+    pub fn onPreprocess(self: QSGRootNode, callback: *const fn (QSGRootNode) callconv(.c) void) void {
         qtc.QSGRootNode_OnPreprocess(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4026,9 +4026,9 @@ pub const QSGOpacityNode = extern struct {
     ///
     /// ` self: QSGOpacityNode `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGOpacityNode) callconv(.c) bool `
     ///
-    pub fn onIsSubtreeBlocked(self: QSGOpacityNode, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSubtreeBlocked(self: QSGOpacityNode, callback: *const fn (QSGOpacityNode) callconv(.c) bool) void {
         qtc.QSGOpacityNode_OnIsSubtreeBlocked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4520,9 +4520,9 @@ pub const QSGOpacityNode = extern struct {
     ///
     /// ` self: QSGOpacityNode`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QSGOpacityNode) callconv(.c) void `
     ///
-    pub fn onPreprocess(self: QSGOpacityNode, callback: *const fn () callconv(.c) void) void {
+    pub fn onPreprocess(self: QSGOpacityNode, callback: *const fn (QSGOpacityNode) callconv(.c) void) void {
         qtc.QSGOpacityNode_OnPreprocess(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

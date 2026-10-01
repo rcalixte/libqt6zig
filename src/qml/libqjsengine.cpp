@@ -232,364 +232,219 @@ void QJSEngine_ThrowError22(QJSEngine* self, int errorType, const libqt_string m
 
 // Base class handler implementation
 QMetaObject* QJSEngine_SuperMetaObject(const QJSEngine* self) {
-    auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self));
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        vqjsengine->setQJSEngine_MetaObject_IsBase(true);
-        return (QMetaObject*)vqjsengine->metaObject();
-    } else {
-        return (QMetaObject*)self->QJSEngine::metaObject();
-    }
+    return (QMetaObject*)self->QJSEngine::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QJSEngine_OnMetaObject(const QJSEngine* self, intptr_t slot) {
-    auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self));
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine)
-        vqjsengine->setQJSEngine_MetaObject_Callback(reinterpret_cast<VirtualQJSEngine::QJSEngine_MetaObject_Callback>(slot));
+void QJSEngine_OnMetaObject(QJSEngine* self, intptr_t slot) {
+    if (auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self)))
+        vqjsengine->qjsengine_metaobject_callback = reinterpret_cast<VirtualQJSEngine::QJSEngine_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QJSEngine_SuperMetacast(QJSEngine* self, const char* param1) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        vqjsengine->setQJSEngine_Metacast_IsBase(true);
-        return vqjsengine->qt_metacast(param1);
-    } else {
-        return self->QJSEngine::qt_metacast(param1);
-    }
+    return self->QJSEngine::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QJSEngine_OnMetacast(QJSEngine* self, intptr_t slot) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine)
-        vqjsengine->setQJSEngine_Metacast_Callback(reinterpret_cast<VirtualQJSEngine::QJSEngine_Metacast_Callback>(slot));
+    if (auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self))
+        vqjsengine->qjsengine_metacast_callback = reinterpret_cast<VirtualQJSEngine::QJSEngine_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QJSEngine_SuperMetacall(QJSEngine* self, int param1, int param2, void** param3) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        vqjsengine->setQJSEngine_Metacall_IsBase(true);
-        return vqjsengine->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QJSEngine::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QJSEngine::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QJSEngine_OnMetacall(QJSEngine* self, intptr_t slot) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine)
-        vqjsengine->setQJSEngine_Metacall_Callback(reinterpret_cast<VirtualQJSEngine::QJSEngine_Metacall_Callback>(slot));
+    if (auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self))
+        vqjsengine->qjsengine_metacall_callback = reinterpret_cast<VirtualQJSEngine::QJSEngine_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QJSEngine_Event(QJSEngine* self, QEvent* event) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        return vqjsengine->event(event);
-    } else {
-        return self->QJSEngine::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QJSEngine_SuperEvent(QJSEngine* self, QEvent* event) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        vqjsengine->setQJSEngine_Event_IsBase(true);
-        return vqjsengine->event(event);
-    } else {
-        return self->QJSEngine::event(event);
-    }
+    return self->QJSEngine::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QJSEngine_OnEvent(QJSEngine* self, intptr_t slot) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine)
-        vqjsengine->setQJSEngine_Event_Callback(reinterpret_cast<VirtualQJSEngine::QJSEngine_Event_Callback>(slot));
+    if (auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self))
+        vqjsengine->qjsengine_event_callback = reinterpret_cast<VirtualQJSEngine::QJSEngine_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QJSEngine_EventFilter(QJSEngine* self, QObject* watched, QEvent* event) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        return vqjsengine->eventFilter(watched, event);
-    } else {
-        return self->QJSEngine::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QJSEngine_SuperEventFilter(QJSEngine* self, QObject* watched, QEvent* event) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        vqjsengine->setQJSEngine_EventFilter_IsBase(true);
-        return vqjsengine->eventFilter(watched, event);
-    } else {
-        return self->QJSEngine::eventFilter(watched, event);
-    }
+    return self->QJSEngine::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QJSEngine_OnEventFilter(QJSEngine* self, intptr_t slot) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine)
-        vqjsengine->setQJSEngine_EventFilter_Callback(reinterpret_cast<VirtualQJSEngine::QJSEngine_EventFilter_Callback>(slot));
+    if (auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self))
+        vqjsengine->qjsengine_eventfilter_callback = reinterpret_cast<VirtualQJSEngine::QJSEngine_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QJSEngine_TimerEvent(QJSEngine* self, QTimerEvent* event) {
     auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
+    if (vqjsengine) {
         vqjsengine->timerEvent(event);
     } else {
-        ((VirtualQJSEngine*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QJSEngine::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QJSEngine_SuperTimerEvent(QJSEngine* self, QTimerEvent* event) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        vqjsengine->setQJSEngine_TimerEvent_IsBase(true);
-        vqjsengine->timerEvent(event);
-    } else {
-        ((VirtualQJSEngine*)self)->timerEvent(event);
-    }
+    if (auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self)) {
+        vqjsengine->QJSEngine::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QJSEngine::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QJSEngine_OnTimerEvent(QJSEngine* self, intptr_t slot) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine)
-        vqjsengine->setQJSEngine_TimerEvent_Callback(reinterpret_cast<VirtualQJSEngine::QJSEngine_TimerEvent_Callback>(slot));
+    if (auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self))
+        vqjsengine->qjsengine_timerevent_callback = reinterpret_cast<VirtualQJSEngine::QJSEngine_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QJSEngine_ChildEvent(QJSEngine* self, QChildEvent* event) {
     auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
+    if (vqjsengine) {
         vqjsengine->childEvent(event);
     } else {
-        ((VirtualQJSEngine*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QJSEngine::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QJSEngine_SuperChildEvent(QJSEngine* self, QChildEvent* event) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        vqjsengine->setQJSEngine_ChildEvent_IsBase(true);
-        vqjsengine->childEvent(event);
-    } else {
-        ((VirtualQJSEngine*)self)->childEvent(event);
-    }
+    if (auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self)) {
+        vqjsengine->QJSEngine::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QJSEngine::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QJSEngine_OnChildEvent(QJSEngine* self, intptr_t slot) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine)
-        vqjsengine->setQJSEngine_ChildEvent_Callback(reinterpret_cast<VirtualQJSEngine::QJSEngine_ChildEvent_Callback>(slot));
+    if (auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self))
+        vqjsengine->qjsengine_childevent_callback = reinterpret_cast<VirtualQJSEngine::QJSEngine_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QJSEngine_CustomEvent(QJSEngine* self, QEvent* event) {
     auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
+    if (vqjsengine) {
         vqjsengine->customEvent(event);
     } else {
-        ((VirtualQJSEngine*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QJSEngine::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QJSEngine_SuperCustomEvent(QJSEngine* self, QEvent* event) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        vqjsengine->setQJSEngine_CustomEvent_IsBase(true);
-        vqjsengine->customEvent(event);
-    } else {
-        ((VirtualQJSEngine*)self)->customEvent(event);
-    }
+    if (auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self)) {
+        vqjsengine->QJSEngine::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QJSEngine::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QJSEngine_OnCustomEvent(QJSEngine* self, intptr_t slot) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine)
-        vqjsengine->setQJSEngine_CustomEvent_Callback(reinterpret_cast<VirtualQJSEngine::QJSEngine_CustomEvent_Callback>(slot));
+    if (auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self))
+        vqjsengine->qjsengine_customevent_callback = reinterpret_cast<VirtualQJSEngine::QJSEngine_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QJSEngine_ConnectNotify(QJSEngine* self, const QMetaMethod* signal) {
     auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
+    if (vqjsengine) {
         vqjsengine->connectNotify(*signal);
     } else {
-        ((VirtualQJSEngine*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QJSEngine::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QJSEngine_SuperConnectNotify(QJSEngine* self, const QMetaMethod* signal) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        vqjsengine->setQJSEngine_ConnectNotify_IsBase(true);
-        vqjsengine->connectNotify(*signal);
-    } else {
-        ((VirtualQJSEngine*)self)->connectNotify(*signal);
-    }
+    if (auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self)) {
+        vqjsengine->QJSEngine::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QJSEngine::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QJSEngine_OnConnectNotify(QJSEngine* self, intptr_t slot) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine)
-        vqjsengine->setQJSEngine_ConnectNotify_Callback(reinterpret_cast<VirtualQJSEngine::QJSEngine_ConnectNotify_Callback>(slot));
+    if (auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self))
+        vqjsengine->qjsengine_connectnotify_callback = reinterpret_cast<VirtualQJSEngine::QJSEngine_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QJSEngine_DisconnectNotify(QJSEngine* self, const QMetaMethod* signal) {
     auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
+    if (vqjsengine) {
         vqjsengine->disconnectNotify(*signal);
     } else {
-        ((VirtualQJSEngine*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QJSEngine::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QJSEngine_SuperDisconnectNotify(QJSEngine* self, const QMetaMethod* signal) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        vqjsengine->setQJSEngine_DisconnectNotify_IsBase(true);
-        vqjsengine->disconnectNotify(*signal);
-    } else {
-        ((VirtualQJSEngine*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self)) {
+        vqjsengine->QJSEngine::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QJSEngine::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QJSEngine_OnDisconnectNotify(QJSEngine* self, intptr_t slot) {
-    auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self);
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine)
-        vqjsengine->setQJSEngine_DisconnectNotify_Callback(reinterpret_cast<VirtualQJSEngine::QJSEngine_DisconnectNotify_Callback>(slot));
+    if (auto* vqjsengine = dynamic_cast<VirtualQJSEngine*>(self))
+        vqjsengine->qjsengine_disconnectnotify_callback = reinterpret_cast<VirtualQJSEngine::QJSEngine_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QJSEngine_Sender(const QJSEngine* self) {
-    auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self));
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        return vqjsengine->sender();
-    } else {
-        return ((VirtualQJSEngine*)self)->sender();
-    }
+    if (auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self))) {
+        return vqjsengine->VirtualQJSEngine::sender();
+    } else
+        qFatal("Error: Protected method QJSEngine::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QJSEngine_SuperSender(const QJSEngine* self) {
-    auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self));
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        vqjsengine->setQJSEngine_Sender_IsBase(true);
-        return vqjsengine->sender();
-    } else {
-        return ((VirtualQJSEngine*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QJSEngine_OnSender(const QJSEngine* self, intptr_t slot) {
-    auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self));
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine)
-        vqjsengine->setQJSEngine_Sender_Callback(reinterpret_cast<VirtualQJSEngine::QJSEngine_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QJSEngine_SenderSignalIndex(const QJSEngine* self) {
-    auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self));
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        return vqjsengine->senderSignalIndex();
-    } else {
-        return ((VirtualQJSEngine*)self)->senderSignalIndex();
-    }
+    if (auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self))) {
+        return vqjsengine->VirtualQJSEngine::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QJSEngine::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QJSEngine_SuperSenderSignalIndex(const QJSEngine* self) {
-    auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self));
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        vqjsengine->setQJSEngine_SenderSignalIndex_IsBase(true);
-        return vqjsengine->senderSignalIndex();
-    } else {
-        return ((VirtualQJSEngine*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QJSEngine_OnSenderSignalIndex(const QJSEngine* self, intptr_t slot) {
-    auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self));
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine)
-        vqjsengine->setQJSEngine_SenderSignalIndex_Callback(reinterpret_cast<VirtualQJSEngine::QJSEngine_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QJSEngine_Receivers(const QJSEngine* self, const char* signal) {
-    auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self));
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        return vqjsengine->receivers(signal);
-    } else {
-        return ((VirtualQJSEngine*)self)->receivers(signal);
-    }
+    if (auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self))) {
+        return vqjsengine->VirtualQJSEngine::receivers(signal);
+    } else
+        qFatal("Error: Protected method QJSEngine::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QJSEngine_SuperReceivers(const QJSEngine* self, const char* signal) {
-    auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self));
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        vqjsengine->setQJSEngine_Receivers_IsBase(true);
-        return vqjsengine->receivers(signal);
-    } else {
-        return ((VirtualQJSEngine*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QJSEngine_OnReceivers(const QJSEngine* self, intptr_t slot) {
-    auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self));
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine)
-        vqjsengine->setQJSEngine_Receivers_Callback(reinterpret_cast<VirtualQJSEngine::QJSEngine_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QJSEngine_IsSignalConnected(const QJSEngine* self, const QMetaMethod* signal) {
-    auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self));
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        return vqjsengine->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQJSEngine*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QJSEngine_SuperIsSignalConnected(const QJSEngine* self, const QMetaMethod* signal) {
-    auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self));
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine) {
-        vqjsengine->setQJSEngine_IsSignalConnected_IsBase(true);
-        return vqjsengine->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQJSEngine*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QJSEngine_OnIsSignalConnected(const QJSEngine* self, intptr_t slot) {
-    auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self));
-    if (vqjsengine && vqjsengine->isVirtualQJSEngine)
-        vqjsengine->setQJSEngine_IsSignalConnected_Callback(reinterpret_cast<VirtualQJSEngine::QJSEngine_IsSignalConnected_Callback>(slot));
+    if (auto* vqjsengine = const_cast<VirtualQJSEngine*>(dynamic_cast<const VirtualQJSEngine*>(self))) {
+        return vqjsengine->VirtualQJSEngine::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QJSEngine::isSignalConnected called without a directly constructed type");
 }
 
 void QJSEngine_Delete(QJSEngine* self) {

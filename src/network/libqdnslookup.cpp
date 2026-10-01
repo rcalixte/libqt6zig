@@ -741,364 +741,219 @@ void QDnsLookup_SetNameserver32(QDnsLookup* self, uint8_t protocol, const QHostA
 
 // Base class handler implementation
 QMetaObject* QDnsLookup_SuperMetaObject(const QDnsLookup* self) {
-    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdnslookup->metaObject();
-    } else {
-        return (QMetaObject*)self->QDnsLookup::metaObject();
-    }
+    return (QMetaObject*)self->QDnsLookup::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDnsLookup_OnMetaObject(const QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup)
-        vqdnslookup->setQDnsLookup_MetaObject_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_MetaObject_Callback>(slot));
+void QDnsLookup_OnMetaObject(QDnsLookup* self, intptr_t slot) {
+    if (auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self)))
+        vqdnslookup->qdnslookup_metaobject_callback = reinterpret_cast<VirtualQDnsLookup::QDnsLookup_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDnsLookup_SuperMetacast(QDnsLookup* self, const char* param1) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_Metacast_IsBase(true);
-        return vqdnslookup->qt_metacast(param1);
-    } else {
-        return self->QDnsLookup::qt_metacast(param1);
-    }
+    return self->QDnsLookup::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDnsLookup_OnMetacast(QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup)
-        vqdnslookup->setQDnsLookup_Metacast_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_Metacast_Callback>(slot));
+    if (auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self))
+        vqdnslookup->qdnslookup_metacast_callback = reinterpret_cast<VirtualQDnsLookup::QDnsLookup_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDnsLookup_SuperMetacall(QDnsLookup* self, int param1, int param2, void** param3) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_Metacall_IsBase(true);
-        return vqdnslookup->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDnsLookup::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDnsLookup::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDnsLookup_OnMetacall(QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup)
-        vqdnslookup->setQDnsLookup_Metacall_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_Metacall_Callback>(slot));
+    if (auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self))
+        vqdnslookup->qdnslookup_metacall_callback = reinterpret_cast<VirtualQDnsLookup::QDnsLookup_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDnsLookup_Event(QDnsLookup* self, QEvent* event) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        return vqdnslookup->event(event);
-    } else {
-        return self->QDnsLookup::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QDnsLookup_SuperEvent(QDnsLookup* self, QEvent* event) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_Event_IsBase(true);
-        return vqdnslookup->event(event);
-    } else {
-        return self->QDnsLookup::event(event);
-    }
+    return self->QDnsLookup::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDnsLookup_OnEvent(QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup)
-        vqdnslookup->setQDnsLookup_Event_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_Event_Callback>(slot));
+    if (auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self))
+        vqdnslookup->qdnslookup_event_callback = reinterpret_cast<VirtualQDnsLookup::QDnsLookup_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDnsLookup_EventFilter(QDnsLookup* self, QObject* watched, QEvent* event) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        return vqdnslookup->eventFilter(watched, event);
-    } else {
-        return self->QDnsLookup::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDnsLookup_SuperEventFilter(QDnsLookup* self, QObject* watched, QEvent* event) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_EventFilter_IsBase(true);
-        return vqdnslookup->eventFilter(watched, event);
-    } else {
-        return self->QDnsLookup::eventFilter(watched, event);
-    }
+    return self->QDnsLookup::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDnsLookup_OnEventFilter(QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup)
-        vqdnslookup->setQDnsLookup_EventFilter_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_EventFilter_Callback>(slot));
+    if (auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self))
+        vqdnslookup->qdnslookup_eventfilter_callback = reinterpret_cast<VirtualQDnsLookup::QDnsLookup_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDnsLookup_TimerEvent(QDnsLookup* self, QTimerEvent* event) {
     auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
+    if (vqdnslookup) {
         vqdnslookup->timerEvent(event);
     } else {
-        ((VirtualQDnsLookup*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDnsLookup::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDnsLookup_SuperTimerEvent(QDnsLookup* self, QTimerEvent* event) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_TimerEvent_IsBase(true);
-        vqdnslookup->timerEvent(event);
-    } else {
-        ((VirtualQDnsLookup*)self)->timerEvent(event);
-    }
+    if (auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self)) {
+        vqdnslookup->QDnsLookup::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDnsLookup::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDnsLookup_OnTimerEvent(QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup)
-        vqdnslookup->setQDnsLookup_TimerEvent_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_TimerEvent_Callback>(slot));
+    if (auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self))
+        vqdnslookup->qdnslookup_timerevent_callback = reinterpret_cast<VirtualQDnsLookup::QDnsLookup_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDnsLookup_ChildEvent(QDnsLookup* self, QChildEvent* event) {
     auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
+    if (vqdnslookup) {
         vqdnslookup->childEvent(event);
     } else {
-        ((VirtualQDnsLookup*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDnsLookup::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDnsLookup_SuperChildEvent(QDnsLookup* self, QChildEvent* event) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_ChildEvent_IsBase(true);
-        vqdnslookup->childEvent(event);
-    } else {
-        ((VirtualQDnsLookup*)self)->childEvent(event);
-    }
+    if (auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self)) {
+        vqdnslookup->QDnsLookup::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDnsLookup::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDnsLookup_OnChildEvent(QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup)
-        vqdnslookup->setQDnsLookup_ChildEvent_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_ChildEvent_Callback>(slot));
+    if (auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self))
+        vqdnslookup->qdnslookup_childevent_callback = reinterpret_cast<VirtualQDnsLookup::QDnsLookup_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDnsLookup_CustomEvent(QDnsLookup* self, QEvent* event) {
     auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
+    if (vqdnslookup) {
         vqdnslookup->customEvent(event);
     } else {
-        ((VirtualQDnsLookup*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDnsLookup::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDnsLookup_SuperCustomEvent(QDnsLookup* self, QEvent* event) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_CustomEvent_IsBase(true);
-        vqdnslookup->customEvent(event);
-    } else {
-        ((VirtualQDnsLookup*)self)->customEvent(event);
-    }
+    if (auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self)) {
+        vqdnslookup->QDnsLookup::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDnsLookup::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDnsLookup_OnCustomEvent(QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup)
-        vqdnslookup->setQDnsLookup_CustomEvent_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_CustomEvent_Callback>(slot));
+    if (auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self))
+        vqdnslookup->qdnslookup_customevent_callback = reinterpret_cast<VirtualQDnsLookup::QDnsLookup_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDnsLookup_ConnectNotify(QDnsLookup* self, const QMetaMethod* signal) {
     auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
+    if (vqdnslookup) {
         vqdnslookup->connectNotify(*signal);
     } else {
-        ((VirtualQDnsLookup*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDnsLookup::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDnsLookup_SuperConnectNotify(QDnsLookup* self, const QMetaMethod* signal) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_ConnectNotify_IsBase(true);
-        vqdnslookup->connectNotify(*signal);
-    } else {
-        ((VirtualQDnsLookup*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self)) {
+        vqdnslookup->QDnsLookup::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDnsLookup::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDnsLookup_OnConnectNotify(QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup)
-        vqdnslookup->setQDnsLookup_ConnectNotify_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_ConnectNotify_Callback>(slot));
+    if (auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self))
+        vqdnslookup->qdnslookup_connectnotify_callback = reinterpret_cast<VirtualQDnsLookup::QDnsLookup_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDnsLookup_DisconnectNotify(QDnsLookup* self, const QMetaMethod* signal) {
     auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
+    if (vqdnslookup) {
         vqdnslookup->disconnectNotify(*signal);
     } else {
-        ((VirtualQDnsLookup*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDnsLookup::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDnsLookup_SuperDisconnectNotify(QDnsLookup* self, const QMetaMethod* signal) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_DisconnectNotify_IsBase(true);
-        vqdnslookup->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDnsLookup*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self)) {
+        vqdnslookup->QDnsLookup::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDnsLookup::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDnsLookup_OnDisconnectNotify(QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup)
-        vqdnslookup->setQDnsLookup_DisconnectNotify_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_DisconnectNotify_Callback>(slot));
+    if (auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self))
+        vqdnslookup->qdnslookup_disconnectnotify_callback = reinterpret_cast<VirtualQDnsLookup::QDnsLookup_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDnsLookup_Sender(const QDnsLookup* self) {
-    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        return vqdnslookup->sender();
-    } else {
-        return ((VirtualQDnsLookup*)self)->sender();
-    }
+    if (auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self))) {
+        return vqdnslookup->VirtualQDnsLookup::sender();
+    } else
+        qFatal("Error: Protected method QDnsLookup::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDnsLookup_SuperSender(const QDnsLookup* self) {
-    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_Sender_IsBase(true);
-        return vqdnslookup->sender();
-    } else {
-        return ((VirtualQDnsLookup*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDnsLookup_OnSender(const QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup)
-        vqdnslookup->setQDnsLookup_Sender_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDnsLookup_SenderSignalIndex(const QDnsLookup* self) {
-    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        return vqdnslookup->senderSignalIndex();
-    } else {
-        return ((VirtualQDnsLookup*)self)->senderSignalIndex();
-    }
+    if (auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self))) {
+        return vqdnslookup->VirtualQDnsLookup::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDnsLookup::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDnsLookup_SuperSenderSignalIndex(const QDnsLookup* self) {
-    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_SenderSignalIndex_IsBase(true);
-        return vqdnslookup->senderSignalIndex();
-    } else {
-        return ((VirtualQDnsLookup*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDnsLookup_OnSenderSignalIndex(const QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup)
-        vqdnslookup->setQDnsLookup_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDnsLookup_Receivers(const QDnsLookup* self, const char* signal) {
-    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        return vqdnslookup->receivers(signal);
-    } else {
-        return ((VirtualQDnsLookup*)self)->receivers(signal);
-    }
+    if (auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self))) {
+        return vqdnslookup->VirtualQDnsLookup::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDnsLookup::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDnsLookup_SuperReceivers(const QDnsLookup* self, const char* signal) {
-    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_Receivers_IsBase(true);
-        return vqdnslookup->receivers(signal);
-    } else {
-        return ((VirtualQDnsLookup*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDnsLookup_OnReceivers(const QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup)
-        vqdnslookup->setQDnsLookup_Receivers_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDnsLookup_IsSignalConnected(const QDnsLookup* self, const QMetaMethod* signal) {
-    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        return vqdnslookup->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDnsLookup*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QDnsLookup_SuperIsSignalConnected(const QDnsLookup* self, const QMetaMethod* signal) {
-    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        vqdnslookup->setQDnsLookup_IsSignalConnected_IsBase(true);
-        return vqdnslookup->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDnsLookup*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDnsLookup_OnIsSignalConnected(const QDnsLookup* self, intptr_t slot) {
-    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup)
-        vqdnslookup->setQDnsLookup_IsSignalConnected_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_IsSignalConnected_Callback>(slot));
+    if (auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self))) {
+        return vqdnslookup->VirtualQDnsLookup::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDnsLookup::isSignalConnected called without a directly constructed type");
 }
 
 void QDnsLookup_Delete(QDnsLookup* self) {

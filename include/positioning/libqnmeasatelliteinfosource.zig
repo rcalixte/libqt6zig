@@ -90,9 +90,9 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QNmeaSatelliteInfoSource) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource) callconv(.c) QMetaObject) void {
         qtc.QNmeaSatelliteInfoSource_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -364,9 +364,9 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QNmeaSatelliteInfoSource) callconv(.c) i32 `
     ///
-    pub fn onMinimumUpdateInterval(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) i32) void {
+    pub fn onMinimumUpdateInterval(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource) callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnMinimumUpdateInterval(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -418,9 +418,9 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QNmeaSatelliteInfoSource) callconv(.c) i32 `
     ///
-    pub fn onError(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) i32) void {
+    pub fn onError(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource) callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -598,9 +598,9 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaSatelliteInfoSource) callconv(.c) void `
     ///
-    pub fn onStartUpdates(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) void) void {
+    pub fn onStartUpdates(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource) callconv(.c) void) void {
         qtc.QNmeaSatelliteInfoSource_OnStartUpdates(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -646,9 +646,9 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaSatelliteInfoSource) callconv(.c) void `
     ///
-    pub fn onStopUpdates(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) void) void {
+    pub fn onStopUpdates(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource) callconv(.c) void) void {
         qtc.QNmeaSatelliteInfoSource_OnStopUpdates(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -828,56 +828,6 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         return qtc.QNmeaSatelliteInfoSource_ParseSatellitesInUseFromNmea2(@ptrCast(self.ptr), data_str, pnrsInUse_list);
     }
 
-    /// ### DEPRECATED: Use `onParseSatellitesInUseFromNmea2` instead
-    ///
-    pub const OnParseSatellitesInUseFromNmea2 = onParseSatellitesInUseFromNmea2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatellitesInUseFromNmea)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNmeaSatelliteInfoSource `
-    ///
-    /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, data: qtc.libqt_string, pnrsInUse: qtc.libqt_list ([]i32)) callconv(.c) i32 `
-    ///
-    pub fn onParseSatellitesInUseFromNmea2(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, qtc.libqt_string, qtc.libqt_list) callconv(.c) i32) void {
-        qtc.QNmeaSatelliteInfoSource_OnParseSatellitesInUseFromNmea2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superParseSatellitesInUseFromNmea2` instead
-    ///
-    pub const SuperParseSatellitesInUseFromNmea2 = superParseSatellitesInUseFromNmea2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatellitesInUseFromNmea)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNmeaSatelliteInfoSource `
-    ///
-    /// ` data: []u8 `
-    ///
-    /// ` pnrsInUse: []i32 `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qgeosatelliteinfo_enums.SatelliteSystem `
-    ///
-    pub fn superParseSatellitesInUseFromNmea2(self: QNmeaSatelliteInfoSource, data: []u8, pnrsInUse: []i32) i32 {
-        const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
-        };
-        const pnrsInUse_list = qtc.libqt_list{
-            .len = pnrsInUse.len,
-            .data = pnrsInUse.ptr,
-        };
-        return qtc.QNmeaSatelliteInfoSource_SuperParseSatellitesInUseFromNmea2(@ptrCast(self.ptr), data_str, pnrsInUse_list);
-    }
-
     /// ### DEPRECATED: Use `parseSatelliteInfoFromNmea` instead
     ///
     pub const ParseSatelliteInfoFromNmea = parseSatelliteInfoFromNmea;
@@ -992,58 +942,6 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         return qtc.QNmeaSatelliteInfoSource_ParseSatelliteInfoFromNmea2(@ptrCast(self.ptr), data_str, infos_list, @ptrCast(system));
     }
 
-    /// ### DEPRECATED: Use `onParseSatelliteInfoFromNmea2` instead
-    ///
-    pub const OnParseSatelliteInfoFromNmea2 = onParseSatelliteInfoFromNmea2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatelliteInfoFromNmea)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNmeaSatelliteInfoSource `
-    ///
-    /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, data: qtc.libqt_string, infos: qtc.libqt_list ([]QGeoSatelliteInfo), system: *qgeosatelliteinfo_enums.SatelliteSystem) callconv(.c) i32 `
-    ///
-    pub fn onParseSatelliteInfoFromNmea2(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, qtc.libqt_string, qtc.libqt_list, *i32) callconv(.c) i32) void {
-        qtc.QNmeaSatelliteInfoSource_OnParseSatelliteInfoFromNmea2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superParseSatelliteInfoFromNmea2` instead
-    ///
-    pub const SuperParseSatelliteInfoFromNmea2 = superParseSatelliteInfoFromNmea2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatelliteInfoFromNmea)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNmeaSatelliteInfoSource `
-    ///
-    /// ` data: []u8 `
-    ///
-    /// ` infos: []QGeoSatelliteInfo `
-    ///
-    /// ` system: *qgeosatelliteinfo_enums.SatelliteSystem `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qnmeasatelliteinfosource_enums.SatelliteInfoParseStatus `
-    ///
-    pub fn superParseSatelliteInfoFromNmea2(self: QNmeaSatelliteInfoSource, data: []u8, infos: []QGeoSatelliteInfo, system: *i32) i32 {
-        const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
-        };
-        const infos_list = qtc.libqt_list{
-            .len = infos.len,
-            .data = @ptrCast(infos.ptr),
-        };
-        return qtc.QNmeaSatelliteInfoSource_SuperParseSatelliteInfoFromNmea2(@ptrCast(self.ptr), data_str, infos_list, @ptrCast(system));
-    }
-
     /// ### DEPRECATED: Use `setError` instead
     ///
     pub const SetError = setError;
@@ -1058,42 +956,6 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     pub fn setError(self: QNmeaSatelliteInfoSource, satelliteError: i32) void {
         qtc.QNmeaSatelliteInfoSource_SetError(@ptrCast(self.ptr), @bitCast(satelliteError));
-    }
-
-    /// ### DEPRECATED: Use `onSetError` instead
-    ///
-    pub const OnSetError = onSetError;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#setError)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNmeaSatelliteInfoSource `
-    ///
-    /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, satelliteError: qgeosatelliteinfosource_enums.Error) callconv(.c) void `
-    ///
-    pub fn onSetError(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, i32) callconv(.c) void) void {
-        qtc.QNmeaSatelliteInfoSource_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetError` instead
-    ///
-    pub const SuperSetError = superSetError;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#setError)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNmeaSatelliteInfoSource `
-    ///
-    /// ` satelliteError: qgeosatelliteinfosource_enums.Error `
-    ///
-    pub fn superSetError(self: QNmeaSatelliteInfoSource, satelliteError: i32) void {
-        qtc.QNmeaSatelliteInfoSource_SuperSetError(@ptrCast(self.ptr), @bitCast(satelliteError));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2885,44 +2747,6 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         return .{ .ptr = qtc.QNmeaSatelliteInfoSource_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNmeaSatelliteInfoSource `
-    ///
-    pub fn superSender(self: QNmeaSatelliteInfoSource) QObject {
-        return .{ .ptr = qtc.QNmeaSatelliteInfoSource_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNmeaSatelliteInfoSource`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QNmeaSatelliteInfoSource_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2939,44 +2763,6 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     pub fn senderSignalIndex(self: QNmeaSatelliteInfoSource) i32 {
         return qtc.QNmeaSatelliteInfoSource_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNmeaSatelliteInfoSource `
-    ///
-    pub fn superSenderSignalIndex(self: QNmeaSatelliteInfoSource) i32 {
-        return qtc.QNmeaSatelliteInfoSource_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNmeaSatelliteInfoSource`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) i32) void {
-        qtc.QNmeaSatelliteInfoSource_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3000,47 +2786,6 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         return qtc.QNmeaSatelliteInfoSource_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNmeaSatelliteInfoSource `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QNmeaSatelliteInfoSource, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QNmeaSatelliteInfoSource_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNmeaSatelliteInfoSource`
-    ///
-    /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QNmeaSatelliteInfoSource_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3060,47 +2805,6 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     pub fn isSignalConnected(self: QNmeaSatelliteInfoSource, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QNmeaSatelliteInfoSource_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNmeaSatelliteInfoSource `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QNmeaSatelliteInfoSource, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QNmeaSatelliteInfoSource_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNmeaSatelliteInfoSource`
-    ///
-    /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QMetaMethod) callconv(.c) bool) void {
-        qtc.QNmeaSatelliteInfoSource_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

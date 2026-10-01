@@ -537,6 +537,8 @@ pub const QWebEngineHistoryModel = extern struct {
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QWebEngineHistoryModel `
@@ -555,6 +557,8 @@ pub const QWebEngineHistoryModel = extern struct {
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

@@ -499,9 +499,9 @@ pub const QImage = extern struct {
     ///
     /// ` self: QImage `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QImage) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QImage, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QImage, callback: *const fn (QImage) callconv(.c) i32) void {
         qtc.QImage_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2035,9 +2035,9 @@ pub const QImage = extern struct {
     ///
     /// ` self: QImage `
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QImage) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QImage, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QImage, callback: *const fn (QImage) callconv(.c) QPaintEngine) void {
         qtc.QImage_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2341,46 +2341,6 @@ pub const QImage = extern struct {
         return .{ .ptr = qtc.QImage_MirroredHelper(@ptrCast(self.ptr), horizontal, vertical) };
     }
 
-    /// ### DEPRECATED: Use `onMirroredHelper` instead
-    ///
-    pub const OnMirroredHelper = onMirroredHelper;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#mirrored_helper)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` callback: *const fn (self: QImage, horizontal: bool, vertical: bool) callconv(.c) QImage `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onMirroredHelper(self: QImage, callback: *const fn (QImage, bool, bool) callconv(.c) QImage) void {
-        qtc.QImage_OnMirroredHelper(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superMirroredHelper` instead
-    ///
-    pub const SuperMirroredHelper = superMirroredHelper;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#mirrored_helper)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` horizontal: bool `
-    ///
-    /// ` vertical: bool `
-    ///
-    pub fn superMirroredHelper(self: QImage, horizontal: bool, vertical: bool) QImage {
-        return .{ .ptr = qtc.QImage_SuperMirroredHelper(@ptrCast(self.ptr), horizontal, vertical) };
-    }
-
     /// ### DEPRECATED: Use `rgbSwappedHelper` instead
     ///
     pub const RgbSwappedHelper = rgbSwappedHelper;
@@ -2393,42 +2353,6 @@ pub const QImage = extern struct {
     ///
     pub fn rgbSwappedHelper(self: QImage) QImage {
         return .{ .ptr = qtc.QImage_RgbSwappedHelper(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onRgbSwappedHelper` instead
-    ///
-    pub const OnRgbSwappedHelper = onRgbSwappedHelper;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#rgbSwapped_helper)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` callback: *const fn () callconv(.c) QImage `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onRgbSwappedHelper(self: QImage, callback: *const fn () callconv(.c) QImage) void {
-        qtc.QImage_OnRgbSwappedHelper(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRgbSwappedHelper` instead
-    ///
-    pub const SuperRgbSwappedHelper = superRgbSwappedHelper;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#rgbSwapped_helper)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImage `
-    ///
-    pub fn superRgbSwappedHelper(self: QImage) QImage {
-        return .{ .ptr = qtc.QImage_SuperRgbSwappedHelper(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mirroredInplace` instead
@@ -2449,44 +2373,6 @@ pub const QImage = extern struct {
         qtc.QImage_MirroredInplace(@ptrCast(self.ptr), horizontal, vertical);
     }
 
-    /// ### DEPRECATED: Use `onMirroredInplace` instead
-    ///
-    pub const OnMirroredInplace = onMirroredInplace;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#mirrored_inplace)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` callback: *const fn (self: QImage, horizontal: bool, vertical: bool) callconv(.c) void `
-    ///
-    pub fn onMirroredInplace(self: QImage, callback: *const fn (QImage, bool, bool) callconv(.c) void) void {
-        qtc.QImage_OnMirroredInplace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superMirroredInplace` instead
-    ///
-    pub const SuperMirroredInplace = superMirroredInplace;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#mirrored_inplace)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` horizontal: bool `
-    ///
-    /// ` vertical: bool `
-    ///
-    pub fn superMirroredInplace(self: QImage, horizontal: bool, vertical: bool) void {
-        qtc.QImage_SuperMirroredInplace(@ptrCast(self.ptr), horizontal, vertical);
-    }
-
     /// ### DEPRECATED: Use `rgbSwappedInplace` instead
     ///
     pub const RgbSwappedInplace = rgbSwappedInplace;
@@ -2499,40 +2385,6 @@ pub const QImage = extern struct {
     ///
     pub fn rgbSwappedInplace(self: QImage) void {
         qtc.QImage_RgbSwappedInplace(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onRgbSwappedInplace` instead
-    ///
-    pub const OnRgbSwappedInplace = onRgbSwappedInplace;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#rgbSwapped_inplace)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onRgbSwappedInplace(self: QImage, callback: *const fn () callconv(.c) void) void {
-        qtc.QImage_OnRgbSwappedInplace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRgbSwappedInplace` instead
-    ///
-    pub const SuperRgbSwappedInplace = superRgbSwappedInplace;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#rgbSwapped_inplace)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImage `
-    ///
-    pub fn superRgbSwappedInplace(self: QImage) void {
-        qtc.QImage_SuperRgbSwappedInplace(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `convertToFormatHelper` instead
@@ -2553,46 +2405,6 @@ pub const QImage = extern struct {
         return .{ .ptr = qtc.QImage_ConvertToFormatHelper(@ptrCast(self.ptr), @bitCast(_format), @bitCast(flags)) };
     }
 
-    /// ### DEPRECATED: Use `onConvertToFormatHelper` instead
-    ///
-    pub const OnConvertToFormatHelper = onConvertToFormatHelper;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#convertToFormat_helper)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` callback: *const fn (self: QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) QImage `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onConvertToFormatHelper(self: QImage, callback: *const fn (QImage, i32, i32) callconv(.c) QImage) void {
-        qtc.QImage_OnConvertToFormatHelper(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superConvertToFormatHelper` instead
-    ///
-    pub const SuperConvertToFormatHelper = superConvertToFormatHelper;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#convertToFormat_helper)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` _format: qimage_enums.Format `
-    ///
-    /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
-    ///
-    pub fn superConvertToFormatHelper(self: QImage, _format: i32, flags: i32) QImage {
-        return .{ .ptr = qtc.QImage_SuperConvertToFormatHelper(@ptrCast(self.ptr), @bitCast(_format), @bitCast(flags)) };
-    }
-
     /// ### DEPRECATED: Use `convertToFormatInplace` instead
     ///
     pub const ConvertToFormatInplace = convertToFormatInplace;
@@ -2609,44 +2421,6 @@ pub const QImage = extern struct {
     ///
     pub fn convertToFormatInplace(self: QImage, _format: i32, flags: i32) bool {
         return qtc.QImage_ConvertToFormatInplace(@ptrCast(self.ptr), @bitCast(_format), @bitCast(flags));
-    }
-
-    /// ### DEPRECATED: Use `onConvertToFormatInplace` instead
-    ///
-    pub const OnConvertToFormatInplace = onConvertToFormatInplace;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#convertToFormat_inplace)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` callback: *const fn (self: QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) bool `
-    ///
-    pub fn onConvertToFormatInplace(self: QImage, callback: *const fn (QImage, i32, i32) callconv(.c) bool) void {
-        qtc.QImage_OnConvertToFormatInplace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superConvertToFormatInplace` instead
-    ///
-    pub const SuperConvertToFormatInplace = superConvertToFormatInplace;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#convertToFormat_inplace)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` _format: qimage_enums.Format `
-    ///
-    /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
-    ///
-    pub fn superConvertToFormatInplace(self: QImage, _format: i32, flags: i32) bool {
-        return qtc.QImage_SuperConvertToFormatInplace(@ptrCast(self.ptr), @bitCast(_format), @bitCast(flags));
     }
 
     /// ### DEPRECATED: Use `smoothScaled` instead
@@ -2667,46 +2441,6 @@ pub const QImage = extern struct {
         return .{ .ptr = qtc.QImage_SmoothScaled(@ptrCast(self.ptr), @bitCast(w), @bitCast(h)) };
     }
 
-    /// ### DEPRECATED: Use `onSmoothScaled` instead
-    ///
-    pub const OnSmoothScaled = onSmoothScaled;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#smoothScaled)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` callback: *const fn (self: QImage, w: i32, h: i32) callconv(.c) QImage `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSmoothScaled(self: QImage, callback: *const fn (QImage, i32, i32) callconv(.c) QImage) void {
-        qtc.QImage_OnSmoothScaled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSmoothScaled` instead
-    ///
-    pub const SuperSmoothScaled = superSmoothScaled;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#smoothScaled)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` w: i32 `
-    ///
-    /// ` h: i32 `
-    ///
-    pub fn superSmoothScaled(self: QImage, w: i32, h: i32) QImage {
-        return .{ .ptr = qtc.QImage_SuperSmoothScaled(@ptrCast(self.ptr), @bitCast(w), @bitCast(h)) };
-    }
-
     /// ### DEPRECATED: Use `detachMetadata` instead
     ///
     pub const DetachMetadata = detachMetadata;
@@ -2719,40 +2453,6 @@ pub const QImage = extern struct {
     ///
     pub fn detachMetadata(self: QImage) void {
         qtc.QImage_DetachMetadata(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDetachMetadata` instead
-    ///
-    pub const OnDetachMetadata = onDetachMetadata;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#detachMetadata)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDetachMetadata(self: QImage, callback: *const fn () callconv(.c) void) void {
-        qtc.QImage_OnDetachMetadata(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDetachMetadata` instead
-    ///
-    pub const SuperDetachMetadata = superDetachMetadata;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#detachMetadata)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImage `
-    ///
-    pub fn superDetachMetadata(self: QImage) void {
-        qtc.QImage_SuperDetachMetadata(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `copy1` instead
@@ -3488,42 +3188,6 @@ pub const QImage = extern struct {
         qtc.QImage_DetachMetadata1(@ptrCast(self.ptr), invalidateCache);
     }
 
-    /// ### DEPRECATED: Use `onDetachMetadata1` instead
-    ///
-    pub const OnDetachMetadata1 = onDetachMetadata1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#detachMetadata)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` callback: *const fn (self: QImage, invalidateCache: bool) callconv(.c) void `
-    ///
-    pub fn onDetachMetadata1(self: QImage, callback: *const fn (QImage, bool) callconv(.c) void) void {
-        qtc.QImage_OnDetachMetadata1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDetachMetadata1` instead
-    ///
-    pub const SuperDetachMetadata1 = superDetachMetadata1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#detachMetadata)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` invalidateCache: bool `
-    ///
-    pub fn superDetachMetadata1(self: QImage, invalidateCache: bool) void {
-        qtc.QImage_SuperDetachMetadata1(@ptrCast(self.ptr), invalidateCache);
-    }
-
     /// ### DEPRECATED: Use `paintingActive` instead
     ///
     pub const PaintingActive = paintingActive;
@@ -3856,9 +3520,9 @@ pub const QImage = extern struct {
     ///
     /// ` self: QImage`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QImage) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QImage, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QImage, callback: *const fn (QImage) callconv(.c) QPainter) void {
         qtc.QImage_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3882,48 +3546,6 @@ pub const QImage = extern struct {
     ///
     pub fn getDecodedMetricF(self: QImage, metricA: i32, metricB: i32) f64 {
         return qtc.QImage_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QImage, metricA: i32, metricB: i32) f64 {
-        return qtc.QImage_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QImage`
-    ///
-    /// ` callback: *const fn (self: QImage, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QImage, callback: *const fn (QImage, i32, i32) callconv(.c) f64) void {
-        qtc.QImage_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

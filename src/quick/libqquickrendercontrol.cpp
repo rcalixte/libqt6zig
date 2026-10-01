@@ -154,382 +154,230 @@ QWindow* QQuickRenderControl_RenderWindowFor2(QQuickWindow* win, QPoint* offset)
 
 // Base class handler implementation
 QMetaObject* QQuickRenderControl_SuperMetaObject(const QQuickRenderControl* self) {
-    auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self));
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_MetaObject_IsBase(true);
-        return (QMetaObject*)vqquickrendercontrol->metaObject();
-    } else {
-        return (QMetaObject*)self->QQuickRenderControl::metaObject();
-    }
+    return (QMetaObject*)self->QQuickRenderControl::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickRenderControl_OnMetaObject(const QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self));
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_MetaObject_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_MetaObject_Callback>(slot));
+void QQuickRenderControl_OnMetaObject(QQuickRenderControl* self, intptr_t slot) {
+    if (auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self)))
+        vqquickrendercontrol->qquickrendercontrol_metaobject_callback = reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQuickRenderControl_SuperMetacast(QQuickRenderControl* self, const char* param1) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_Metacast_IsBase(true);
-        return vqquickrendercontrol->qt_metacast(param1);
-    } else {
-        return self->QQuickRenderControl::qt_metacast(param1);
-    }
+    return self->QQuickRenderControl::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickRenderControl_OnMetacast(QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_Metacast_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_Metacast_Callback>(slot));
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self))
+        vqquickrendercontrol->qquickrendercontrol_metacast_callback = reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQuickRenderControl_SuperMetacall(QQuickRenderControl* self, int param1, int param2, void** param3) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_Metacall_IsBase(true);
-        return vqquickrendercontrol->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQuickRenderControl::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQuickRenderControl::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickRenderControl_OnMetacall(QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_Metacall_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_Metacall_Callback>(slot));
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self))
+        vqquickrendercontrol->qquickrendercontrol_metacall_callback = reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QWindow* QQuickRenderControl_SuperRenderWindow(QQuickRenderControl* self, QPoint* offset) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_RenderWindow_IsBase(true);
-        return vqquickrendercontrol->renderWindow(offset);
-    } else {
-        return self->QQuickRenderControl::renderWindow(offset);
-    }
+    return self->QQuickRenderControl::renderWindow(offset);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickRenderControl_OnRenderWindow(QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_RenderWindow_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_RenderWindow_Callback>(slot));
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self))
+        vqquickrendercontrol->qquickrendercontrol_renderwindow_callback = reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_RenderWindow_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickRenderControl_Event(QQuickRenderControl* self, QEvent* event) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        return vqquickrendercontrol->event(event);
-    } else {
-        return self->QQuickRenderControl::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QQuickRenderControl_SuperEvent(QQuickRenderControl* self, QEvent* event) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_Event_IsBase(true);
-        return vqquickrendercontrol->event(event);
-    } else {
-        return self->QQuickRenderControl::event(event);
-    }
+    return self->QQuickRenderControl::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickRenderControl_OnEvent(QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_Event_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_Event_Callback>(slot));
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self))
+        vqquickrendercontrol->qquickrendercontrol_event_callback = reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickRenderControl_EventFilter(QQuickRenderControl* self, QObject* watched, QEvent* event) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        return vqquickrendercontrol->eventFilter(watched, event);
-    } else {
-        return self->QQuickRenderControl::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQuickRenderControl_SuperEventFilter(QQuickRenderControl* self, QObject* watched, QEvent* event) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_EventFilter_IsBase(true);
-        return vqquickrendercontrol->eventFilter(watched, event);
-    } else {
-        return self->QQuickRenderControl::eventFilter(watched, event);
-    }
+    return self->QQuickRenderControl::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickRenderControl_OnEventFilter(QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_EventFilter_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_EventFilter_Callback>(slot));
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self))
+        vqquickrendercontrol->qquickrendercontrol_eventfilter_callback = reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickRenderControl_TimerEvent(QQuickRenderControl* self, QTimerEvent* event) {
     auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
+    if (vqquickrendercontrol) {
         vqquickrendercontrol->timerEvent(event);
     } else {
-        ((VirtualQQuickRenderControl*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQuickRenderControl::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickRenderControl_SuperTimerEvent(QQuickRenderControl* self, QTimerEvent* event) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_TimerEvent_IsBase(true);
-        vqquickrendercontrol->timerEvent(event);
-    } else {
-        ((VirtualQQuickRenderControl*)self)->timerEvent(event);
-    }
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self)) {
+        vqquickrendercontrol->QQuickRenderControl::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickRenderControl::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickRenderControl_OnTimerEvent(QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_TimerEvent_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_TimerEvent_Callback>(slot));
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self))
+        vqquickrendercontrol->qquickrendercontrol_timerevent_callback = reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickRenderControl_ChildEvent(QQuickRenderControl* self, QChildEvent* event) {
     auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
+    if (vqquickrendercontrol) {
         vqquickrendercontrol->childEvent(event);
     } else {
-        ((VirtualQQuickRenderControl*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQuickRenderControl::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickRenderControl_SuperChildEvent(QQuickRenderControl* self, QChildEvent* event) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_ChildEvent_IsBase(true);
-        vqquickrendercontrol->childEvent(event);
-    } else {
-        ((VirtualQQuickRenderControl*)self)->childEvent(event);
-    }
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self)) {
+        vqquickrendercontrol->QQuickRenderControl::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickRenderControl::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickRenderControl_OnChildEvent(QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_ChildEvent_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_ChildEvent_Callback>(slot));
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self))
+        vqquickrendercontrol->qquickrendercontrol_childevent_callback = reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickRenderControl_CustomEvent(QQuickRenderControl* self, QEvent* event) {
     auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
+    if (vqquickrendercontrol) {
         vqquickrendercontrol->customEvent(event);
     } else {
-        ((VirtualQQuickRenderControl*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQuickRenderControl::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickRenderControl_SuperCustomEvent(QQuickRenderControl* self, QEvent* event) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_CustomEvent_IsBase(true);
-        vqquickrendercontrol->customEvent(event);
-    } else {
-        ((VirtualQQuickRenderControl*)self)->customEvent(event);
-    }
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self)) {
+        vqquickrendercontrol->QQuickRenderControl::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickRenderControl::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickRenderControl_OnCustomEvent(QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_CustomEvent_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_CustomEvent_Callback>(slot));
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self))
+        vqquickrendercontrol->qquickrendercontrol_customevent_callback = reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickRenderControl_ConnectNotify(QQuickRenderControl* self, const QMetaMethod* signal) {
     auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
+    if (vqquickrendercontrol) {
         vqquickrendercontrol->connectNotify(*signal);
     } else {
-        ((VirtualQQuickRenderControl*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuickRenderControl::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickRenderControl_SuperConnectNotify(QQuickRenderControl* self, const QMetaMethod* signal) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_ConnectNotify_IsBase(true);
-        vqquickrendercontrol->connectNotify(*signal);
-    } else {
-        ((VirtualQQuickRenderControl*)self)->connectNotify(*signal);
-    }
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self)) {
+        vqquickrendercontrol->QQuickRenderControl::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuickRenderControl::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickRenderControl_OnConnectNotify(QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_ConnectNotify_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_ConnectNotify_Callback>(slot));
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self))
+        vqquickrendercontrol->qquickrendercontrol_connectnotify_callback = reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickRenderControl_DisconnectNotify(QQuickRenderControl* self, const QMetaMethod* signal) {
     auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
+    if (vqquickrendercontrol) {
         vqquickrendercontrol->disconnectNotify(*signal);
     } else {
-        ((VirtualQQuickRenderControl*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuickRenderControl::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickRenderControl_SuperDisconnectNotify(QQuickRenderControl* self, const QMetaMethod* signal) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_DisconnectNotify_IsBase(true);
-        vqquickrendercontrol->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQuickRenderControl*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self)) {
+        vqquickrendercontrol->QQuickRenderControl::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuickRenderControl::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickRenderControl_OnDisconnectNotify(QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self);
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_DisconnectNotify_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_DisconnectNotify_Callback>(slot));
+    if (auto* vqquickrendercontrol = dynamic_cast<VirtualQQuickRenderControl*>(self))
+        vqquickrendercontrol->qquickrendercontrol_disconnectnotify_callback = reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQuickRenderControl_Sender(const QQuickRenderControl* self) {
-    auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self));
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        return vqquickrendercontrol->sender();
-    } else {
-        return ((VirtualQQuickRenderControl*)self)->sender();
-    }
+    if (auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self))) {
+        return vqquickrendercontrol->VirtualQQuickRenderControl::sender();
+    } else
+        qFatal("Error: Protected method QQuickRenderControl::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQuickRenderControl_SuperSender(const QQuickRenderControl* self) {
-    auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self));
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_Sender_IsBase(true);
-        return vqquickrendercontrol->sender();
-    } else {
-        return ((VirtualQQuickRenderControl*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickRenderControl_OnSender(const QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self));
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_Sender_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuickRenderControl_SenderSignalIndex(const QQuickRenderControl* self) {
-    auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self));
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        return vqquickrendercontrol->senderSignalIndex();
-    } else {
-        return ((VirtualQQuickRenderControl*)self)->senderSignalIndex();
-    }
+    if (auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self))) {
+        return vqquickrendercontrol->VirtualQQuickRenderControl::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQuickRenderControl::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuickRenderControl_SuperSenderSignalIndex(const QQuickRenderControl* self) {
-    auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self));
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_SenderSignalIndex_IsBase(true);
-        return vqquickrendercontrol->senderSignalIndex();
-    } else {
-        return ((VirtualQQuickRenderControl*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickRenderControl_OnSenderSignalIndex(const QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self));
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuickRenderControl_Receivers(const QQuickRenderControl* self, const char* signal) {
-    auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self));
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        return vqquickrendercontrol->receivers(signal);
-    } else {
-        return ((VirtualQQuickRenderControl*)self)->receivers(signal);
-    }
+    if (auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self))) {
+        return vqquickrendercontrol->VirtualQQuickRenderControl::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQuickRenderControl::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuickRenderControl_SuperReceivers(const QQuickRenderControl* self, const char* signal) {
-    auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self));
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_Receivers_IsBase(true);
-        return vqquickrendercontrol->receivers(signal);
-    } else {
-        return ((VirtualQQuickRenderControl*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickRenderControl_OnReceivers(const QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self));
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_Receivers_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuickRenderControl_IsSignalConnected(const QQuickRenderControl* self, const QMetaMethod* signal) {
-    auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self));
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        return vqquickrendercontrol->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuickRenderControl*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQuickRenderControl_SuperIsSignalConnected(const QQuickRenderControl* self, const QMetaMethod* signal) {
-    auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self));
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl) {
-        vqquickrendercontrol->setQQuickRenderControl_IsSignalConnected_IsBase(true);
-        return vqquickrendercontrol->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuickRenderControl*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickRenderControl_OnIsSignalConnected(const QQuickRenderControl* self, intptr_t slot) {
-    auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self));
-    if (vqquickrendercontrol && vqquickrendercontrol->isVirtualQQuickRenderControl)
-        vqquickrendercontrol->setQQuickRenderControl_IsSignalConnected_Callback(reinterpret_cast<VirtualQQuickRenderControl::QQuickRenderControl_IsSignalConnected_Callback>(slot));
+    if (auto* vqquickrendercontrol = const_cast<VirtualQQuickRenderControl*>(dynamic_cast<const VirtualQQuickRenderControl*>(self))) {
+        return vqquickrendercontrol->VirtualQQuickRenderControl::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQuickRenderControl::isSignalConnected called without a directly constructed type");
 }
 
 void QQuickRenderControl_Delete(QQuickRenderControl* self) {

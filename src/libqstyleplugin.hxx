@@ -9,15 +9,11 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QStylePlugin so that we can call protected methods
+// This class is a subclass of QStylePlugin
 class VirtualQStylePlugin : public QStylePlugin {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQStylePlugin = true;
-
-    // Virtual class public types (including callbacks)
-    using QStylePlugin_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QStylePlugin_MetaObject_Callback = QMetaObject* (*)(const QStylePlugin*);
     using QStylePlugin_Metacast_Callback = void* (*)(QStylePlugin*, const char*);
     using QStylePlugin_Metacall_Callback = int (*)(QStylePlugin*, int, int, void**);
     using QStylePlugin_Create_Callback = QStyle* (*)(QStylePlugin*, const char*);
@@ -28,12 +24,11 @@ class VirtualQStylePlugin : public QStylePlugin {
     using QStylePlugin_CustomEvent_Callback = void (*)(QStylePlugin*, QEvent*);
     using QStylePlugin_ConnectNotify_Callback = void (*)(QStylePlugin*, QMetaMethod*);
     using QStylePlugin_DisconnectNotify_Callback = void (*)(QStylePlugin*, QMetaMethod*);
-    using QStylePlugin_Sender_Callback = QObject* (*)();
-    using QStylePlugin_SenderSignalIndex_Callback = int (*)();
-    using QStylePlugin_Receivers_Callback = int (*)(const QStylePlugin*, const char*);
-    using QStylePlugin_IsSignalConnected_Callback = bool (*)(const QStylePlugin*, QMetaMethod*);
+    using QStylePlugin::isSignalConnected;
+    using QStylePlugin::receivers;
+    using QStylePlugin::sender;
+    using QStylePlugin::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QStylePlugin_MetaObject_Callback qstyleplugin_metaobject_callback = nullptr;
     QStylePlugin_Metacast_Callback qstyleplugin_metacast_callback = nullptr;
@@ -46,75 +41,23 @@ class VirtualQStylePlugin : public QStylePlugin {
     QStylePlugin_CustomEvent_Callback qstyleplugin_customevent_callback = nullptr;
     QStylePlugin_ConnectNotify_Callback qstyleplugin_connectnotify_callback = nullptr;
     QStylePlugin_DisconnectNotify_Callback qstyleplugin_disconnectnotify_callback = nullptr;
-    QStylePlugin_Sender_Callback qstyleplugin_sender_callback = nullptr;
-    QStylePlugin_SenderSignalIndex_Callback qstyleplugin_sendersignalindex_callback = nullptr;
-    QStylePlugin_Receivers_Callback qstyleplugin_receivers_callback = nullptr;
-    QStylePlugin_IsSignalConnected_Callback qstyleplugin_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qstyleplugin_metaobject_isbase = false;
-    mutable bool qstyleplugin_metacast_isbase = false;
-    mutable bool qstyleplugin_metacall_isbase = false;
-    mutable bool qstyleplugin_create_isbase = false;
-    mutable bool qstyleplugin_event_isbase = false;
-    mutable bool qstyleplugin_eventfilter_isbase = false;
-    mutable bool qstyleplugin_timerevent_isbase = false;
-    mutable bool qstyleplugin_childevent_isbase = false;
-    mutable bool qstyleplugin_customevent_isbase = false;
-    mutable bool qstyleplugin_connectnotify_isbase = false;
-    mutable bool qstyleplugin_disconnectnotify_isbase = false;
-    mutable bool qstyleplugin_sender_isbase = false;
-    mutable bool qstyleplugin_sendersignalindex_isbase = false;
-    mutable bool qstyleplugin_receivers_isbase = false;
-    mutable bool qstyleplugin_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QStylePlugin {
+        using QStylePlugin::childEvent;
+        using QStylePlugin::connectNotify;
+        using QStylePlugin::customEvent;
+        using QStylePlugin::disconnectNotify;
+        using QStylePlugin::timerEvent;
+    };
 
-  public:
     VirtualQStylePlugin() : QStylePlugin() {};
     VirtualQStylePlugin(QObject* parent) : QStylePlugin(parent) {};
 
-    // Callback setters
-    inline void setQStylePlugin_MetaObject_Callback(QStylePlugin_MetaObject_Callback cb) { qstyleplugin_metaobject_callback = cb; }
-    inline void setQStylePlugin_Metacast_Callback(QStylePlugin_Metacast_Callback cb) { qstyleplugin_metacast_callback = cb; }
-    inline void setQStylePlugin_Metacall_Callback(QStylePlugin_Metacall_Callback cb) { qstyleplugin_metacall_callback = cb; }
-    inline void setQStylePlugin_Create_Callback(QStylePlugin_Create_Callback cb) { qstyleplugin_create_callback = cb; }
-    inline void setQStylePlugin_Event_Callback(QStylePlugin_Event_Callback cb) { qstyleplugin_event_callback = cb; }
-    inline void setQStylePlugin_EventFilter_Callback(QStylePlugin_EventFilter_Callback cb) { qstyleplugin_eventfilter_callback = cb; }
-    inline void setQStylePlugin_TimerEvent_Callback(QStylePlugin_TimerEvent_Callback cb) { qstyleplugin_timerevent_callback = cb; }
-    inline void setQStylePlugin_ChildEvent_Callback(QStylePlugin_ChildEvent_Callback cb) { qstyleplugin_childevent_callback = cb; }
-    inline void setQStylePlugin_CustomEvent_Callback(QStylePlugin_CustomEvent_Callback cb) { qstyleplugin_customevent_callback = cb; }
-    inline void setQStylePlugin_ConnectNotify_Callback(QStylePlugin_ConnectNotify_Callback cb) { qstyleplugin_connectnotify_callback = cb; }
-    inline void setQStylePlugin_DisconnectNotify_Callback(QStylePlugin_DisconnectNotify_Callback cb) { qstyleplugin_disconnectnotify_callback = cb; }
-    inline void setQStylePlugin_Sender_Callback(QStylePlugin_Sender_Callback cb) { qstyleplugin_sender_callback = cb; }
-    inline void setQStylePlugin_SenderSignalIndex_Callback(QStylePlugin_SenderSignalIndex_Callback cb) { qstyleplugin_sendersignalindex_callback = cb; }
-    inline void setQStylePlugin_Receivers_Callback(QStylePlugin_Receivers_Callback cb) { qstyleplugin_receivers_callback = cb; }
-    inline void setQStylePlugin_IsSignalConnected_Callback(QStylePlugin_IsSignalConnected_Callback cb) { qstyleplugin_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQStylePlugin_MetaObject_IsBase(bool value) const { qstyleplugin_metaobject_isbase = value; }
-    inline void setQStylePlugin_Metacast_IsBase(bool value) const { qstyleplugin_metacast_isbase = value; }
-    inline void setQStylePlugin_Metacall_IsBase(bool value) const { qstyleplugin_metacall_isbase = value; }
-    inline void setQStylePlugin_Create_IsBase(bool value) const { qstyleplugin_create_isbase = value; }
-    inline void setQStylePlugin_Event_IsBase(bool value) const { qstyleplugin_event_isbase = value; }
-    inline void setQStylePlugin_EventFilter_IsBase(bool value) const { qstyleplugin_eventfilter_isbase = value; }
-    inline void setQStylePlugin_TimerEvent_IsBase(bool value) const { qstyleplugin_timerevent_isbase = value; }
-    inline void setQStylePlugin_ChildEvent_IsBase(bool value) const { qstyleplugin_childevent_isbase = value; }
-    inline void setQStylePlugin_CustomEvent_IsBase(bool value) const { qstyleplugin_customevent_isbase = value; }
-    inline void setQStylePlugin_ConnectNotify_IsBase(bool value) const { qstyleplugin_connectnotify_isbase = value; }
-    inline void setQStylePlugin_DisconnectNotify_IsBase(bool value) const { qstyleplugin_disconnectnotify_isbase = value; }
-    inline void setQStylePlugin_Sender_IsBase(bool value) const { qstyleplugin_sender_isbase = value; }
-    inline void setQStylePlugin_SenderSignalIndex_IsBase(bool value) const { qstyleplugin_sendersignalindex_isbase = value; }
-    inline void setQStylePlugin_Receivers_IsBase(bool value) const { qstyleplugin_receivers_isbase = value; }
-    inline void setQStylePlugin_IsSignalConnected_IsBase(bool value) const { qstyleplugin_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qstyleplugin_metaobject_isbase) {
-            qstyleplugin_metaobject_isbase = false;
-            return QStylePlugin::metaObject();
-        }
-        auto metaobject_cb = qstyleplugin_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qstyleplugin_metaobject_callback) {
+            QMetaObject* callback_ret = qstyleplugin_metaobject_callback(this);
             return callback_ret;
         }
         return QStylePlugin::metaObject();
@@ -122,14 +65,9 @@ class VirtualQStylePlugin : public QStylePlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qstyleplugin_metacast_isbase) {
-            qstyleplugin_metacast_isbase = false;
-            return QStylePlugin::qt_metacast(param1);
-        }
-        auto metacast_cb = qstyleplugin_metacast_callback;
-        if (metacast_cb) {
+        if (qstyleplugin_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qstyleplugin_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QStylePlugin::qt_metacast(param1);
@@ -137,16 +75,11 @@ class VirtualQStylePlugin : public QStylePlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qstyleplugin_metacall_isbase) {
-            qstyleplugin_metacall_isbase = false;
-            return QStylePlugin::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qstyleplugin_metacall_callback;
-        if (metacall_cb) {
+        if (qstyleplugin_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qstyleplugin_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QStylePlugin::qt_metacall(param1, param2, param3);
@@ -154,8 +87,7 @@ class VirtualQStylePlugin : public QStylePlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual QStyle* create(const QString& key) override {
-        auto create_cb = qstyleplugin_create_callback;
-        if (create_cb) {
+        if (qstyleplugin_create_callback) {
             const auto key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
@@ -164,23 +96,19 @@ class VirtualQStylePlugin : public QStylePlugin {
             memcpy((void*)key_str, key_b.data(), key_str_len);
             ((char*)key_str)[key_str_len] = '\0';
             const char* cbval1 = key_str;
-            QStyle* callback_ret = create_cb(this, cbval1);
+            QStyle* callback_ret = qstyleplugin_create_callback(this, cbval1);
             libqt_free(key_str);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QStylePlugin::create called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qstyleplugin_event_isbase) {
-            qstyleplugin_event_isbase = false;
-            return QStylePlugin::event(event);
-        }
-        auto event_cb = qstyleplugin_event_callback;
-        if (event_cb) {
+        if (qstyleplugin_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qstyleplugin_event_callback(this, cbval1);
             return callback_ret;
         }
         return QStylePlugin::event(event);
@@ -188,15 +116,10 @@ class VirtualQStylePlugin : public QStylePlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qstyleplugin_eventfilter_isbase) {
-            qstyleplugin_eventfilter_isbase = false;
-            return QStylePlugin::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qstyleplugin_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qstyleplugin_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qstyleplugin_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QStylePlugin::eventFilter(watched, event);
@@ -204,15 +127,9 @@ class VirtualQStylePlugin : public QStylePlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qstyleplugin_timerevent_isbase) {
-            qstyleplugin_timerevent_isbase = false;
-            QStylePlugin::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qstyleplugin_timerevent_callback;
-        if (timerevent_cb) {
+        if (qstyleplugin_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qstyleplugin_timerevent_callback(this, cbval1);
             return;
         }
         QStylePlugin::timerEvent(event);
@@ -220,15 +137,9 @@ class VirtualQStylePlugin : public QStylePlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qstyleplugin_childevent_isbase) {
-            qstyleplugin_childevent_isbase = false;
-            QStylePlugin::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qstyleplugin_childevent_callback;
-        if (childevent_cb) {
+        if (qstyleplugin_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qstyleplugin_childevent_callback(this, cbval1);
             return;
         }
         QStylePlugin::childEvent(event);
@@ -236,15 +147,9 @@ class VirtualQStylePlugin : public QStylePlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qstyleplugin_customevent_isbase) {
-            qstyleplugin_customevent_isbase = false;
-            QStylePlugin::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qstyleplugin_customevent_callback;
-        if (customevent_cb) {
+        if (qstyleplugin_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qstyleplugin_customevent_callback(this, cbval1);
             return;
         }
         QStylePlugin::customEvent(event);
@@ -252,17 +157,11 @@ class VirtualQStylePlugin : public QStylePlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qstyleplugin_connectnotify_isbase) {
-            qstyleplugin_connectnotify_isbase = false;
-            QStylePlugin::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qstyleplugin_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qstyleplugin_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qstyleplugin_connectnotify_callback(this, cbval1);
             return;
         }
         QStylePlugin::connectNotify(signal);
@@ -270,101 +169,22 @@ class VirtualQStylePlugin : public QStylePlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qstyleplugin_disconnectnotify_isbase) {
-            qstyleplugin_disconnectnotify_isbase = false;
-            QStylePlugin::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qstyleplugin_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qstyleplugin_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qstyleplugin_disconnectnotify_callback(this, cbval1);
             return;
         }
         QStylePlugin::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qstyleplugin_sender_isbase) {
-            qstyleplugin_sender_isbase = false;
-            return QStylePlugin::sender();
-        }
-        auto sender_cb = qstyleplugin_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QStylePlugin::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qstyleplugin_sendersignalindex_isbase) {
-            qstyleplugin_sendersignalindex_isbase = false;
-            return QStylePlugin::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qstyleplugin_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QStylePlugin::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qstyleplugin_receivers_isbase) {
-            qstyleplugin_receivers_isbase = false;
-            return QStylePlugin::receivers(signal);
-        }
-        auto receivers_cb = qstyleplugin_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QStylePlugin::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qstyleplugin_issignalconnected_isbase) {
-            qstyleplugin_issignalconnected_isbase = false;
-            return QStylePlugin::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qstyleplugin_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QStylePlugin::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QStylePlugin_TimerEvent(QStylePlugin* self, QTimerEvent* event);
     friend void QStylePlugin_SuperTimerEvent(QStylePlugin* self, QTimerEvent* event);
-    friend void QStylePlugin_ChildEvent(QStylePlugin* self, QChildEvent* event);
     friend void QStylePlugin_SuperChildEvent(QStylePlugin* self, QChildEvent* event);
-    friend void QStylePlugin_CustomEvent(QStylePlugin* self, QEvent* event);
     friend void QStylePlugin_SuperCustomEvent(QStylePlugin* self, QEvent* event);
-    friend void QStylePlugin_ConnectNotify(QStylePlugin* self, const QMetaMethod* signal);
     friend void QStylePlugin_SuperConnectNotify(QStylePlugin* self, const QMetaMethod* signal);
-    friend void QStylePlugin_DisconnectNotify(QStylePlugin* self, const QMetaMethod* signal);
     friend void QStylePlugin_SuperDisconnectNotify(QStylePlugin* self, const QMetaMethod* signal);
-    friend QObject* QStylePlugin_Sender(const QStylePlugin* self);
-    friend QObject* QStylePlugin_SuperSender(const QStylePlugin* self);
-    friend int QStylePlugin_SenderSignalIndex(const QStylePlugin* self);
-    friend int QStylePlugin_SuperSenderSignalIndex(const QStylePlugin* self);
-    friend int QStylePlugin_Receivers(const QStylePlugin* self, const char* signal);
-    friend int QStylePlugin_SuperReceivers(const QStylePlugin* self, const char* signal);
-    friend bool QStylePlugin_IsSignalConnected(const QStylePlugin* self, const QMetaMethod* signal);
-    friend bool QStylePlugin_SuperIsSignalConnected(const QStylePlugin* self, const QMetaMethod* signal);
 };
 
 #endif

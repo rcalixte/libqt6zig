@@ -42,7 +42,7 @@ QPointF* KTwoFingerTap_ScenePos(const KTwoFingerTap* self);
 void KTwoFingerTap_SetScenePos(KTwoFingerTap* self, QPointF* scenePos);
 libqt_string KTwoFingerTap_Tr2(const char* s, const char* c);
 libqt_string KTwoFingerTap_Tr3(const char* s, const char* c, int n);
-void KTwoFingerTap_OnMetaObject(const KTwoFingerTap* self, intptr_t slot);
+void KTwoFingerTap_OnMetaObject(KTwoFingerTap* self, intptr_t slot);
 QMetaObject* KTwoFingerTap_SuperMetaObject(const KTwoFingerTap* self);
 void KTwoFingerTap_OnMetacast(KTwoFingerTap* self, intptr_t slot);
 void* KTwoFingerTap_SuperMetacast(KTwoFingerTap* self, const char* param1);
@@ -70,17 +70,9 @@ void KTwoFingerTap_DisconnectNotify(KTwoFingerTap* self, const QMetaMethod* sign
 void KTwoFingerTap_OnDisconnectNotify(KTwoFingerTap* self, intptr_t slot);
 void KTwoFingerTap_SuperDisconnectNotify(KTwoFingerTap* self, const QMetaMethod* signal);
 QObject* KTwoFingerTap_Sender(const KTwoFingerTap* self);
-void KTwoFingerTap_OnSender(const KTwoFingerTap* self, intptr_t slot);
-QObject* KTwoFingerTap_SuperSender(const KTwoFingerTap* self);
 int KTwoFingerTap_SenderSignalIndex(const KTwoFingerTap* self);
-void KTwoFingerTap_OnSenderSignalIndex(const KTwoFingerTap* self, intptr_t slot);
-int KTwoFingerTap_SuperSenderSignalIndex(const KTwoFingerTap* self);
 int KTwoFingerTap_Receivers(const KTwoFingerTap* self, const char* signal);
-void KTwoFingerTap_OnReceivers(const KTwoFingerTap* self, intptr_t slot);
-int KTwoFingerTap_SuperReceivers(const KTwoFingerTap* self, const char* signal);
 bool KTwoFingerTap_IsSignalConnected(const KTwoFingerTap* self, const QMetaMethod* signal);
-void KTwoFingerTap_OnIsSignalConnected(const KTwoFingerTap* self, intptr_t slot);
-bool KTwoFingerTap_SuperIsSignalConnected(const KTwoFingerTap* self, const QMetaMethod* signal);
 void KTwoFingerTap_Delete(KTwoFingerTap* self);
 
 KTwoFingerTapRecognizer* KTwoFingerTapRecognizer_new();

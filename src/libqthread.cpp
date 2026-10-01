@@ -158,7 +158,7 @@ void QThread_Sleep2(int64_t nsec) {
 
 void QThread_Run(QThread* self) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
+    if (vqthread) {
         vqthread->run();
     }
 }
@@ -201,456 +201,252 @@ bool QThread_Wait1(QThread* self, QDeadlineTimer* deadline) {
 
 // Base class handler implementation
 QMetaObject* QThread_SuperMetaObject(const QThread* self) {
-    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_MetaObject_IsBase(true);
-        return (QMetaObject*)vqthread->metaObject();
-    } else {
-        return (QMetaObject*)self->QThread::metaObject();
-    }
+    return (QMetaObject*)self->QThread::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QThread_OnMetaObject(const QThread* self, intptr_t slot) {
-    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_MetaObject_Callback(reinterpret_cast<VirtualQThread::QThread_MetaObject_Callback>(slot));
+void QThread_OnMetaObject(QThread* self, intptr_t slot) {
+    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self)))
+        vqthread->qthread_metaobject_callback = reinterpret_cast<VirtualQThread::QThread_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QThread_SuperMetacast(QThread* self, const char* param1) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_Metacast_IsBase(true);
-        return vqthread->qt_metacast(param1);
-    } else {
-        return self->QThread::qt_metacast(param1);
-    }
+    return self->QThread::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnMetacast(QThread* self, intptr_t slot) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_Metacast_Callback(reinterpret_cast<VirtualQThread::QThread_Metacast_Callback>(slot));
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self))
+        vqthread->qthread_metacast_callback = reinterpret_cast<VirtualQThread::QThread_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QThread_SuperMetacall(QThread* self, int param1, int param2, void** param3) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_Metacall_IsBase(true);
-        return vqthread->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QThread::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QThread::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnMetacall(QThread* self, intptr_t slot) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_Metacall_Callback(reinterpret_cast<VirtualQThread::QThread_Metacall_Callback>(slot));
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self))
+        vqthread->qthread_metacall_callback = reinterpret_cast<VirtualQThread::QThread_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QThread_SuperEvent(QThread* self, QEvent* event) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_Event_IsBase(true);
-        return vqthread->event(event);
-    } else {
-        return self->QThread::event(event);
-    }
+    return self->QThread::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnEvent(QThread* self, intptr_t slot) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_Event_Callback(reinterpret_cast<VirtualQThread::QThread_Event_Callback>(slot));
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self))
+        vqthread->qthread_event_callback = reinterpret_cast<VirtualQThread::QThread_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QThread_SuperRun(QThread* self) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_Run_IsBase(true);
-        vqthread->run();
-    } else {
-        ((VirtualQThread*)self)->run();
-    }
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+        vqthread->QThread::run();
+    } else
+        qFatal("Error: Protected virtual method QThread::run called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnRun(QThread* self, intptr_t slot) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_Run_Callback(reinterpret_cast<VirtualQThread::QThread_Run_Callback>(slot));
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self))
+        vqthread->qthread_run_callback = reinterpret_cast<VirtualQThread::QThread_Run_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QThread_EventFilter(QThread* self, QObject* watched, QEvent* event) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        return vqthread->eventFilter(watched, event);
-    } else {
-        return self->QThread::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QThread_SuperEventFilter(QThread* self, QObject* watched, QEvent* event) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_EventFilter_IsBase(true);
-        return vqthread->eventFilter(watched, event);
-    } else {
-        return self->QThread::eventFilter(watched, event);
-    }
+    return self->QThread::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnEventFilter(QThread* self, intptr_t slot) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_EventFilter_Callback(reinterpret_cast<VirtualQThread::QThread_EventFilter_Callback>(slot));
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self))
+        vqthread->qthread_eventfilter_callback = reinterpret_cast<VirtualQThread::QThread_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QThread_TimerEvent(QThread* self, QTimerEvent* event) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
+    if (vqthread) {
         vqthread->timerEvent(event);
     } else {
-        ((VirtualQThread*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QThread::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QThread_SuperTimerEvent(QThread* self, QTimerEvent* event) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_TimerEvent_IsBase(true);
-        vqthread->timerEvent(event);
-    } else {
-        ((VirtualQThread*)self)->timerEvent(event);
-    }
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+        vqthread->QThread::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QThread::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnTimerEvent(QThread* self, intptr_t slot) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_TimerEvent_Callback(reinterpret_cast<VirtualQThread::QThread_TimerEvent_Callback>(slot));
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self))
+        vqthread->qthread_timerevent_callback = reinterpret_cast<VirtualQThread::QThread_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QThread_ChildEvent(QThread* self, QChildEvent* event) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
+    if (vqthread) {
         vqthread->childEvent(event);
     } else {
-        ((VirtualQThread*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QThread::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QThread_SuperChildEvent(QThread* self, QChildEvent* event) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_ChildEvent_IsBase(true);
-        vqthread->childEvent(event);
-    } else {
-        ((VirtualQThread*)self)->childEvent(event);
-    }
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+        vqthread->QThread::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QThread::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnChildEvent(QThread* self, intptr_t slot) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_ChildEvent_Callback(reinterpret_cast<VirtualQThread::QThread_ChildEvent_Callback>(slot));
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self))
+        vqthread->qthread_childevent_callback = reinterpret_cast<VirtualQThread::QThread_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QThread_CustomEvent(QThread* self, QEvent* event) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
+    if (vqthread) {
         vqthread->customEvent(event);
     } else {
-        ((VirtualQThread*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QThread::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QThread_SuperCustomEvent(QThread* self, QEvent* event) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_CustomEvent_IsBase(true);
-        vqthread->customEvent(event);
-    } else {
-        ((VirtualQThread*)self)->customEvent(event);
-    }
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+        vqthread->QThread::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QThread::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnCustomEvent(QThread* self, intptr_t slot) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_CustomEvent_Callback(reinterpret_cast<VirtualQThread::QThread_CustomEvent_Callback>(slot));
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self))
+        vqthread->qthread_customevent_callback = reinterpret_cast<VirtualQThread::QThread_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QThread_ConnectNotify(QThread* self, const QMetaMethod* signal) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
+    if (vqthread) {
         vqthread->connectNotify(*signal);
     } else {
-        ((VirtualQThread*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QThread::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QThread_SuperConnectNotify(QThread* self, const QMetaMethod* signal) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_ConnectNotify_IsBase(true);
-        vqthread->connectNotify(*signal);
-    } else {
-        ((VirtualQThread*)self)->connectNotify(*signal);
-    }
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+        vqthread->QThread::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QThread::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnConnectNotify(QThread* self, intptr_t slot) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_ConnectNotify_Callback(reinterpret_cast<VirtualQThread::QThread_ConnectNotify_Callback>(slot));
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self))
+        vqthread->qthread_connectnotify_callback = reinterpret_cast<VirtualQThread::QThread_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QThread_DisconnectNotify(QThread* self, const QMetaMethod* signal) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
+    if (vqthread) {
         vqthread->disconnectNotify(*signal);
     } else {
-        ((VirtualQThread*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QThread::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QThread_SuperDisconnectNotify(QThread* self, const QMetaMethod* signal) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_DisconnectNotify_IsBase(true);
-        vqthread->disconnectNotify(*signal);
-    } else {
-        ((VirtualQThread*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+        vqthread->QThread::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QThread::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QThread_OnDisconnectNotify(QThread* self, intptr_t slot) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_DisconnectNotify_Callback(reinterpret_cast<VirtualQThread::QThread_DisconnectNotify_Callback>(slot));
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self))
+        vqthread->qthread_disconnectnotify_callback = reinterpret_cast<VirtualQThread::QThread_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QThread_Exec(QThread* self) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        return vqthread->exec();
-    } else {
-        return ((VirtualQThread*)self)->exec();
-    }
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+        return vqthread->VirtualQThread::exec();
+    } else
+        qFatal("Error: Protected method QThread::exec called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QThread_SuperExec(QThread* self) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_Exec_IsBase(true);
-        return vqthread->exec();
-    } else {
-        return ((VirtualQThread*)self)->exec();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QThread_OnExec(QThread* self, intptr_t slot) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_Exec_Callback(reinterpret_cast<VirtualQThread::QThread_Exec_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QThread_SetTerminationEnabled(QThread* self) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setTerminationEnabled();
-    } else {
-        ((VirtualQThread*)self)->setTerminationEnabled();
-    }
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+        vqthread->VirtualQThread::setTerminationEnabled();
+    } else
+        qFatal("Error: Protected method QThread::setTerminationEnabled called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QThread_SuperSetTerminationEnabled(QThread* self) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_SetTerminationEnabled_IsBase(true);
-        vqthread->setTerminationEnabled();
-    } else {
-        ((VirtualQThread*)self)->setTerminationEnabled();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QThread_OnSetTerminationEnabled(QThread* self, intptr_t slot) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_SetTerminationEnabled_Callback(reinterpret_cast<VirtualQThread::QThread_SetTerminationEnabled_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QThread_SetTerminationEnabled1(QThread* self, bool enabled) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setTerminationEnabled(enabled);
-    } else {
-        ((VirtualQThread*)self)->setTerminationEnabled(enabled);
-    }
+    if (auto* vqthread = dynamic_cast<VirtualQThread*>(self)) {
+        vqthread->VirtualQThread::setTerminationEnabled(enabled);
+    } else
+        qFatal("Error: Protected method QThread::setTerminationEnabled1 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QThread_SuperSetTerminationEnabled1(QThread* self, bool enabled) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_SetTerminationEnabled1_IsBase(true);
-        vqthread->setTerminationEnabled(enabled);
-    } else {
-        ((VirtualQThread*)self)->setTerminationEnabled(enabled);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QThread_OnSetTerminationEnabled1(QThread* self, intptr_t slot) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_SetTerminationEnabled1_Callback(reinterpret_cast<VirtualQThread::QThread_SetTerminationEnabled1_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QThread_Sender(const QThread* self) {
-    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
-    if (vqthread && vqthread->isVirtualQThread) {
-        return vqthread->sender();
-    } else {
-        return ((VirtualQThread*)self)->sender();
-    }
+    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+        return vqthread->VirtualQThread::sender();
+    } else
+        qFatal("Error: Protected method QThread::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QThread_SuperSender(const QThread* self) {
-    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_Sender_IsBase(true);
-        return vqthread->sender();
-    } else {
-        return ((VirtualQThread*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QThread_OnSender(const QThread* self, intptr_t slot) {
-    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_Sender_Callback(reinterpret_cast<VirtualQThread::QThread_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QThread_SenderSignalIndex(const QThread* self) {
-    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
-    if (vqthread && vqthread->isVirtualQThread) {
-        return vqthread->senderSignalIndex();
-    } else {
-        return ((VirtualQThread*)self)->senderSignalIndex();
-    }
+    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+        return vqthread->VirtualQThread::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QThread::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QThread_SuperSenderSignalIndex(const QThread* self) {
-    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_SenderSignalIndex_IsBase(true);
-        return vqthread->senderSignalIndex();
-    } else {
-        return ((VirtualQThread*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QThread_OnSenderSignalIndex(const QThread* self, intptr_t slot) {
-    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_SenderSignalIndex_Callback(reinterpret_cast<VirtualQThread::QThread_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QThread_Receivers(const QThread* self, const char* signal) {
-    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
-    if (vqthread && vqthread->isVirtualQThread) {
-        return vqthread->receivers(signal);
-    } else {
-        return ((VirtualQThread*)self)->receivers(signal);
-    }
+    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+        return vqthread->VirtualQThread::receivers(signal);
+    } else
+        qFatal("Error: Protected method QThread::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QThread_SuperReceivers(const QThread* self, const char* signal) {
-    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_Receivers_IsBase(true);
-        return vqthread->receivers(signal);
-    } else {
-        return ((VirtualQThread*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QThread_OnReceivers(const QThread* self, intptr_t slot) {
-    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_Receivers_Callback(reinterpret_cast<VirtualQThread::QThread_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QThread_IsSignalConnected(const QThread* self, const QMetaMethod* signal) {
-    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
-    if (vqthread && vqthread->isVirtualQThread) {
-        return vqthread->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQThread*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QThread_SuperIsSignalConnected(const QThread* self, const QMetaMethod* signal) {
-    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
-    if (vqthread && vqthread->isVirtualQThread) {
-        vqthread->setQThread_IsSignalConnected_IsBase(true);
-        return vqthread->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQThread*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QThread_OnIsSignalConnected(const QThread* self, intptr_t slot) {
-    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
-    if (vqthread && vqthread->isVirtualQThread)
-        vqthread->setQThread_IsSignalConnected_Callback(reinterpret_cast<VirtualQThread::QThread_IsSignalConnected_Callback>(slot));
+    if (auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self))) {
+        return vqthread->VirtualQThread::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QThread::isSignalConnected called without a directly constructed type");
 }
 
 void QThread_Connect_Started(QThread* self, intptr_t slot) {

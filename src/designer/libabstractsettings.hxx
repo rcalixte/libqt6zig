@@ -9,22 +9,17 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QDesignerSettingsInterface so that we can call protected methods
+// This class is a subclass of QDesignerSettingsInterface
 class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQDesignerSettingsInterface = true;
-
-    // Virtual class public types (including callbacks)
+    // Virtual class public types (including callbacks and access types)
     using QDesignerSettingsInterface_BeginGroup_Callback = void (*)(QDesignerSettingsInterface*, const char*);
-    using QDesignerSettingsInterface_EndGroup_Callback = void (*)();
+    using QDesignerSettingsInterface_EndGroup_Callback = void (*)(QDesignerSettingsInterface*);
     using QDesignerSettingsInterface_Contains_Callback = bool (*)(const QDesignerSettingsInterface*, const char*);
     using QDesignerSettingsInterface_SetValue_Callback = void (*)(QDesignerSettingsInterface*, const char*, QVariant*);
     using QDesignerSettingsInterface_Value_Callback = QVariant* (*)(const QDesignerSettingsInterface*, const char*, QVariant*);
     using QDesignerSettingsInterface_Remove_Callback = void (*)(QDesignerSettingsInterface*, const char*);
 
-  protected:
     // Instance callback storage
     QDesignerSettingsInterface_BeginGroup_Callback qdesignersettingsinterface_begingroup_callback = nullptr;
     QDesignerSettingsInterface_EndGroup_Callback qdesignersettingsinterface_endgroup_callback = nullptr;
@@ -33,37 +28,11 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
     QDesignerSettingsInterface_Value_Callback qdesignersettingsinterface_value_callback = nullptr;
     QDesignerSettingsInterface_Remove_Callback qdesignersettingsinterface_remove_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qdesignersettingsinterface_begingroup_isbase = false;
-    mutable bool qdesignersettingsinterface_endgroup_isbase = false;
-    mutable bool qdesignersettingsinterface_contains_isbase = false;
-    mutable bool qdesignersettingsinterface_setvalue_isbase = false;
-    mutable bool qdesignersettingsinterface_value_isbase = false;
-    mutable bool qdesignersettingsinterface_remove_isbase = false;
-
-  public:
     VirtualQDesignerSettingsInterface() : QDesignerSettingsInterface() {};
-
-    // Callback setters
-    inline void setQDesignerSettingsInterface_BeginGroup_Callback(QDesignerSettingsInterface_BeginGroup_Callback cb) { qdesignersettingsinterface_begingroup_callback = cb; }
-    inline void setQDesignerSettingsInterface_EndGroup_Callback(QDesignerSettingsInterface_EndGroup_Callback cb) { qdesignersettingsinterface_endgroup_callback = cb; }
-    inline void setQDesignerSettingsInterface_Contains_Callback(QDesignerSettingsInterface_Contains_Callback cb) { qdesignersettingsinterface_contains_callback = cb; }
-    inline void setQDesignerSettingsInterface_SetValue_Callback(QDesignerSettingsInterface_SetValue_Callback cb) { qdesignersettingsinterface_setvalue_callback = cb; }
-    inline void setQDesignerSettingsInterface_Value_Callback(QDesignerSettingsInterface_Value_Callback cb) { qdesignersettingsinterface_value_callback = cb; }
-    inline void setQDesignerSettingsInterface_Remove_Callback(QDesignerSettingsInterface_Remove_Callback cb) { qdesignersettingsinterface_remove_callback = cb; }
-
-    // Base flag setters
-    inline void setQDesignerSettingsInterface_BeginGroup_IsBase(bool value) const { qdesignersettingsinterface_begingroup_isbase = value; }
-    inline void setQDesignerSettingsInterface_EndGroup_IsBase(bool value) const { qdesignersettingsinterface_endgroup_isbase = value; }
-    inline void setQDesignerSettingsInterface_Contains_IsBase(bool value) const { qdesignersettingsinterface_contains_isbase = value; }
-    inline void setQDesignerSettingsInterface_SetValue_IsBase(bool value) const { qdesignersettingsinterface_setvalue_isbase = value; }
-    inline void setQDesignerSettingsInterface_Value_IsBase(bool value) const { qdesignersettingsinterface_value_isbase = value; }
-    inline void setQDesignerSettingsInterface_Remove_IsBase(bool value) const { qdesignersettingsinterface_remove_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void beginGroup(const QString& prefix) override {
-        auto begingroup_cb = qdesignersettingsinterface_begingroup_callback;
-        if (begingroup_cb) {
+        if (qdesignersettingsinterface_begingroup_callback) {
             const auto prefix_ret = prefix;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
@@ -72,23 +41,27 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
             ((char*)prefix_str)[prefix_str_len] = '\0';
             const char* cbval1 = prefix_str;
-            begingroup_cb(this, cbval1);
+            qdesignersettingsinterface_begingroup_callback(this, cbval1);
             libqt_free(prefix_str);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerSettingsInterface::beginGroup called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void endGroup() override {
-        auto endgroup_cb = qdesignersettingsinterface_endgroup_callback;
-        if (endgroup_cb) {
-            endgroup_cb();
+        if (qdesignersettingsinterface_endgroup_callback) {
+            qdesignersettingsinterface_endgroup_callback(this);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerSettingsInterface::endGroup called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool contains(const QString& key) const override {
-        auto contains_cb = qdesignersettingsinterface_contains_callback;
-        if (contains_cb) {
+        if (qdesignersettingsinterface_contains_callback) {
             const auto key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
@@ -97,17 +70,17 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             memcpy((void*)key_str, key_b.data(), key_str_len);
             ((char*)key_str)[key_str_len] = '\0';
             const char* cbval1 = key_str;
-            bool callback_ret = contains_cb(this, cbval1);
+            bool callback_ret = qdesignersettingsinterface_contains_callback(this, cbval1);
             libqt_free(key_str);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerSettingsInterface::contains called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void setValue(const QString& key, const QVariant& value) override {
-        auto setvalue_cb = qdesignersettingsinterface_setvalue_callback;
-        if (setvalue_cb) {
+        if (qdesignersettingsinterface_setvalue_callback) {
             const auto key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
@@ -119,15 +92,17 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-            setvalue_cb(this, cbval1, cbval2);
+            qdesignersettingsinterface_setvalue_callback(this, cbval1, cbval2);
             libqt_free(key_str);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerSettingsInterface::setValue called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant value(const QString& key, const QVariant& defaultValue) const override {
-        auto value_cb = qdesignersettingsinterface_value_callback;
-        if (value_cb) {
+        if (qdesignersettingsinterface_value_callback) {
             const auto key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
@@ -139,19 +114,19 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             const QVariant& defaultValue_ret = defaultValue;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&defaultValue_ret);
-            QVariant* callback_ret = value_cb(this, cbval1, cbval2);
+            QVariant* callback_ret = qdesignersettingsinterface_value_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             libqt_free(key_str);
             return callback_ret_Value;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerSettingsInterface::value called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void remove(const QString& key) override {
-        auto remove_cb = qdesignersettingsinterface_remove_callback;
-        if (remove_cb) {
+        if (qdesignersettingsinterface_remove_callback) {
             const auto key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
@@ -160,9 +135,12 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             memcpy((void*)key_str, key_b.data(), key_str_len);
             ((char*)key_str)[key_str_len] = '\0';
             const char* cbval1 = key_str;
-            remove_cb(this, cbval1);
+            qdesignersettingsinterface_remove_callback(this, cbval1);
             libqt_free(key_str);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerSettingsInterface::remove called without being implemented");
     }
 };
 

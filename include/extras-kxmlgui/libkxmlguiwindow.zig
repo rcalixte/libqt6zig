@@ -213,9 +213,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) QMetaObject) void {
         qtc.KXmlGuiWindow_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -414,9 +414,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` callback: *const fn () callconv(.c) KXMLGUIFactory `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) KXMLGUIFactory `
     ///
-    pub fn onGuiFactory(self: KXmlGuiWindow, callback: *const fn () callconv(.c) KXMLGUIFactory) void {
+    pub fn onGuiFactory(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) KXMLGUIFactory) void {
         qtc.KXmlGuiWindow_OnGuiFactory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -709,9 +709,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) void `
     ///
-    pub fn onConfigureToolbars(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
+    pub fn onConfigureToolbars(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnConfigureToolbars(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -923,40 +923,6 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_CheckAmbiguousShortcuts(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onCheckAmbiguousShortcuts` instead
-    ///
-    pub const OnCheckAmbiguousShortcuts = onCheckAmbiguousShortcuts;
-
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCheckAmbiguousShortcuts(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnCheckAmbiguousShortcuts(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCheckAmbiguousShortcuts` instead
-    ///
-    pub const SuperCheckAmbiguousShortcuts = superCheckAmbiguousShortcuts;
-
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    pub fn superCheckAmbiguousShortcuts(self: KXmlGuiWindow) void {
-        qtc.KXmlGuiWindow_SuperCheckAmbiguousShortcuts(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `saveNewToolbarConfig` instead
     ///
     pub const SaveNewToolbarConfig = saveNewToolbarConfig;
@@ -983,9 +949,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) void `
     ///
-    pub fn onSaveNewToolbarConfig(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
+    pub fn onSaveNewToolbarConfig(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSaveNewToolbarConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9974,9 +9940,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) bool `
     ///
-    pub fn onQueryClose(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
+    pub fn onQueryClose(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) bool) void {
         qtc.KXmlGuiWindow_OnQueryClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10278,9 +10244,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QMenu `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) QMenu `
     ///
-    pub fn onCreatePopupMenu(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QMenu) void {
+    pub fn onCreatePopupMenu(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) QMenu) void {
         qtc.KXmlGuiWindow_OnCreatePopupMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10396,9 +10362,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KXmlGuiWindow, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) i32) void {
         qtc.KXmlGuiWindow_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10512,11 +10478,11 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) QSize) void {
         qtc.KXmlGuiWindow_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10570,11 +10536,11 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) QSize) void {
         qtc.KXmlGuiWindow_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10688,9 +10654,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) bool) void {
         qtc.KXmlGuiWindow_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10744,9 +10710,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) QPaintEngine) void {
         qtc.KXmlGuiWindow_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12424,9 +12390,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) QPainter) void {
         qtc.KXmlGuiWindow_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13076,9 +13042,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onContainerTags(self: KXmlGuiWindow, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onContainerTags(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KXmlGuiWindow_OnContainerTags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13324,9 +13290,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onCustomTags(self: KXmlGuiWindow, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onCustomTags(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KXmlGuiWindow_OnCustomTags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13514,9 +13480,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) KActionCollection `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) KActionCollection `
     ///
-    pub fn onActionCollection(self: KXmlGuiWindow, callback: *const fn () callconv(.c) KActionCollection) void {
+    pub fn onActionCollection(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) KActionCollection) void {
         qtc.KXmlGuiWindow_OnActionCollection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13582,9 +13548,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onComponentName(self: KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onComponentName(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) [*:0]const u8) void {
         qtc.KXmlGuiWindow_OnComponentName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13638,11 +13604,11 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QDomDocument `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) QDomDocument `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onDomDocument(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QDomDocument) void {
+    pub fn onDomDocument(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) QDomDocument) void {
         qtc.KXmlGuiWindow_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13708,9 +13674,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onXmlFile(self: KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onXmlFile(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) [*:0]const u8) void {
         qtc.KXmlGuiWindow_OnXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13776,9 +13742,9 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onLocalXMLFile(self: KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onLocalXMLFile(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) [*:0]const u8) void {
         qtc.KXmlGuiWindow_OnLocalXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14239,49 +14205,6 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_SavePropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
 
-    /// ### DEPRECATED: Use `superSavePropertiesInternal` instead
-    ///
-    pub const SuperSavePropertiesInternal = superSavePropertiesInternal;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    /// ` param1: KConfig `
-    ///
-    /// ` param2: i32 `
-    ///
-    pub fn superSavePropertiesInternal(self: KXmlGuiWindow, param1: anytype, param2: i32) void {
-        comptime _ = @TypeOf(param1)._is_KConfig;
-        qtc.KXmlGuiWindow_SuperSavePropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
-    }
-
-    /// ### DEPRECATED: Use `onSavePropertiesInternal` instead
-    ///
-    pub const OnSavePropertiesInternal = onSavePropertiesInternal;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn (self: KXmlGuiWindow, param1: KConfig, param2: i32) callconv(.c) void `
-    ///
-    pub fn onSavePropertiesInternal(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfig, i32) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSavePropertiesInternal(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `readPropertiesInternal` instead
     ///
     pub const ReadPropertiesInternal = readPropertiesInternal;
@@ -14305,49 +14228,6 @@ pub const KXmlGuiWindow = extern struct {
         return qtc.KXmlGuiWindow_ReadPropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
 
-    /// ### DEPRECATED: Use `superReadPropertiesInternal` instead
-    ///
-    pub const SuperReadPropertiesInternal = superReadPropertiesInternal;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    /// ` param1: KConfig `
-    ///
-    /// ` param2: i32 `
-    ///
-    pub fn superReadPropertiesInternal(self: KXmlGuiWindow, param1: anytype, param2: i32) bool {
-        comptime _ = @TypeOf(param1)._is_KConfig;
-        return qtc.KXmlGuiWindow_SuperReadPropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
-    }
-
-    /// ### DEPRECATED: Use `onReadPropertiesInternal` instead
-    ///
-    pub const OnReadPropertiesInternal = onReadPropertiesInternal;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn (self: KXmlGuiWindow, param1: KConfig, param2: i32) callconv(.c) bool `
-    ///
-    pub fn onReadPropertiesInternal(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfig, i32) callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnReadPropertiesInternal(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `settingsDirty` instead
     ///
     pub const SettingsDirty = settingsDirty;
@@ -14364,44 +14244,6 @@ pub const KXmlGuiWindow = extern struct {
     ///
     pub fn settingsDirty(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_SettingsDirty(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSettingsDirty` instead
-    ///
-    pub const SuperSettingsDirty = superSettingsDirty;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#settingsDirty)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    pub fn superSettingsDirty(self: KXmlGuiWindow) bool {
-        return qtc.KXmlGuiWindow_SuperSettingsDirty(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSettingsDirty` instead
-    ///
-    pub const OnSettingsDirty = onSettingsDirty;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#settingsDirty)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onSettingsDirty(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnSettingsDirty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `saveAutoSaveSettings` instead
@@ -14422,44 +14264,6 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_SaveAutoSaveSettings(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSaveAutoSaveSettings` instead
-    ///
-    pub const SuperSaveAutoSaveSettings = superSaveAutoSaveSettings;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    pub fn superSaveAutoSaveSettings(self: KXmlGuiWindow) void {
-        qtc.KXmlGuiWindow_SuperSaveAutoSaveSettings(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSaveAutoSaveSettings` instead
-    ///
-    pub const OnSaveAutoSaveSettings = onSaveAutoSaveSettings;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSaveAutoSaveSettings(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSaveAutoSaveSettings(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -14476,44 +14280,6 @@ pub const KXmlGuiWindow = extern struct {
     ///
     pub fn updateMicroFocus(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    pub fn superUpdateMicroFocus(self: KXmlGuiWindow) void {
-        qtc.KXmlGuiWindow_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -14534,44 +14300,6 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    pub fn superCreate(self: KXmlGuiWindow) void {
-        qtc.KXmlGuiWindow_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -14588,44 +14316,6 @@ pub const KXmlGuiWindow = extern struct {
     ///
     pub fn destroy(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    pub fn superDestroy(self: KXmlGuiWindow) void {
-        qtc.KXmlGuiWindow_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -14646,44 +14336,6 @@ pub const KXmlGuiWindow = extern struct {
         return qtc.KXmlGuiWindow_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    pub fn superFocusNextChild(self: KXmlGuiWindow) bool {
-        return qtc.KXmlGuiWindow_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -14700,44 +14352,6 @@ pub const KXmlGuiWindow = extern struct {
     ///
     pub fn focusPreviousChild(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    pub fn superFocusPreviousChild(self: KXmlGuiWindow) bool {
-        return qtc.KXmlGuiWindow_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -14758,44 +14372,6 @@ pub const KXmlGuiWindow = extern struct {
         return .{ .ptr = qtc.KXmlGuiWindow_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    pub fn superSender(self: KXmlGuiWindow) QObject {
-        return .{ .ptr = qtc.KXmlGuiWindow_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KXmlGuiWindow_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -14812,44 +14388,6 @@ pub const KXmlGuiWindow = extern struct {
     ///
     pub fn senderSignalIndex(self: KXmlGuiWindow) i32 {
         return qtc.KXmlGuiWindow_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    pub fn superSenderSignalIndex(self: KXmlGuiWindow) i32 {
-        return qtc.KXmlGuiWindow_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KXmlGuiWindow, callback: *const fn () callconv(.c) i32) void {
-        qtc.KXmlGuiWindow_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -14873,47 +14411,6 @@ pub const KXmlGuiWindow = extern struct {
         return qtc.KXmlGuiWindow_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KXmlGuiWindow, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KXmlGuiWindow_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn (self: KXmlGuiWindow, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KXmlGuiWindow_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -14933,47 +14430,6 @@ pub const KXmlGuiWindow = extern struct {
     pub fn isSignalConnected(self: KXmlGuiWindow, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KXmlGuiWindow_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KXmlGuiWindow, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KXmlGuiWindow_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn (self: KXmlGuiWindow, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMetaMethod) callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -14996,48 +14452,6 @@ pub const KXmlGuiWindow = extern struct {
     ///
     pub fn getDecodedMetricF(self: KXmlGuiWindow, metricA: i32, metricB: i32) f64 {
         return qtc.KXmlGuiWindow_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KXmlGuiWindow, metricA: i32, metricB: i32) f64 {
-        return qtc.KXmlGuiWindow_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn (self: KXmlGuiWindow, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, i32, i32) callconv(.c) f64) void {
-        qtc.KXmlGuiWindow_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `standardsXmlFileLocation` instead
@@ -15064,50 +14478,6 @@ pub const KXmlGuiWindow = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superStandardsXmlFileLocation` instead
-    ///
-    pub const SuperStandardsXmlFileLocation = superStandardsXmlFileLocation;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superStandardsXmlFileLocation(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KXmlGuiWindow_SuperStandardsXmlFileLocation(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.standardsXmlFileLocation: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onStandardsXmlFileLocation` instead
-    ///
-    pub const OnStandardsXmlFileLocation = onStandardsXmlFileLocation;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onStandardsXmlFileLocation(self: KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KXmlGuiWindow_OnStandardsXmlFileLocation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `loadStandardsXmlFile` instead
     ///
     pub const LoadStandardsXmlFile = loadStandardsXmlFile;
@@ -15124,44 +14494,6 @@ pub const KXmlGuiWindow = extern struct {
     ///
     pub fn loadStandardsXmlFile(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_LoadStandardsXmlFile(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superLoadStandardsXmlFile` instead
-    ///
-    pub const SuperLoadStandardsXmlFile = superLoadStandardsXmlFile;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    pub fn superLoadStandardsXmlFile(self: KXmlGuiWindow) void {
-        qtc.KXmlGuiWindow_SuperLoadStandardsXmlFile(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onLoadStandardsXmlFile` instead
-    ///
-    pub const OnLoadStandardsXmlFile = onLoadStandardsXmlFile;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXmlGuiWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onLoadStandardsXmlFile(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnLoadStandardsXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -172,9 +172,9 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QCheckBox) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QCheckBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) QMetaObject) void {
         qtc.QCheckBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -345,11 +345,11 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QCheckBox) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QCheckBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) QSize) void {
         qtc.QCheckBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -395,11 +395,11 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QCheckBox) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QCheckBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) QSize) void {
         qtc.QCheckBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -679,9 +679,9 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QCheckBox) callconv(.c) void `
     ///
-    pub fn onCheckStateSet(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onCheckStateSet(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) void) void {
         qtc.QCheckBox_OnCheckStateSet(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -727,9 +727,9 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QCheckBox) callconv(.c) void `
     ///
-    pub fn onNextCheckState(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onNextCheckState(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) void) void {
         qtc.QCheckBox_OnNextCheckState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8358,9 +8358,9 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QCheckBox) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QCheckBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) i32) void {
         qtc.QCheckBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8534,9 +8534,9 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QCheckBox) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QCheckBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) bool) void {
         qtc.QCheckBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8590,9 +8590,9 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QCheckBox) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QCheckBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) QPaintEngine) void {
         qtc.QCheckBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9898,9 +9898,9 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QCheckBox) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QCheckBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) QPainter) void {
         qtc.QCheckBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10422,44 +10422,6 @@ pub const QCheckBox = extern struct {
         qtc.QCheckBox_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCheckBox `
-    ///
-    pub fn superUpdateMicroFocus(self: QCheckBox) void {
-        qtc.QCheckBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCheckBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
-        qtc.QCheckBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -10476,44 +10438,6 @@ pub const QCheckBox = extern struct {
     ///
     pub fn create(self: QCheckBox) void {
         qtc.QCheckBox_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCheckBox `
-    ///
-    pub fn superCreate(self: QCheckBox) void {
-        qtc.QCheckBox_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCheckBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
-        qtc.QCheckBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -10534,44 +10458,6 @@ pub const QCheckBox = extern struct {
         qtc.QCheckBox_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCheckBox `
-    ///
-    pub fn superDestroy(self: QCheckBox) void {
-        qtc.QCheckBox_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCheckBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
-        qtc.QCheckBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -10588,44 +10474,6 @@ pub const QCheckBox = extern struct {
     ///
     pub fn focusNextChild(self: QCheckBox) bool {
         return qtc.QCheckBox_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCheckBox `
-    ///
-    pub fn superFocusNextChild(self: QCheckBox) bool {
-        return qtc.QCheckBox_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCheckBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QCheckBox, callback: *const fn () callconv(.c) bool) void {
-        qtc.QCheckBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -10646,44 +10494,6 @@ pub const QCheckBox = extern struct {
         return qtc.QCheckBox_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCheckBox `
-    ///
-    pub fn superFocusPreviousChild(self: QCheckBox) bool {
-        return qtc.QCheckBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCheckBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QCheckBox, callback: *const fn () callconv(.c) bool) void {
-        qtc.QCheckBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10702,44 +10512,6 @@ pub const QCheckBox = extern struct {
         return .{ .ptr = qtc.QCheckBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCheckBox `
-    ///
-    pub fn superSender(self: QCheckBox) QObject {
-        return .{ .ptr = qtc.QCheckBox_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCheckBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QCheckBox, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QCheckBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10756,44 +10528,6 @@ pub const QCheckBox = extern struct {
     ///
     pub fn senderSignalIndex(self: QCheckBox) i32 {
         return qtc.QCheckBox_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCheckBox `
-    ///
-    pub fn superSenderSignalIndex(self: QCheckBox) i32 {
-        return qtc.QCheckBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCheckBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QCheckBox, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCheckBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10817,47 +10551,6 @@ pub const QCheckBox = extern struct {
         return qtc.QCheckBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCheckBox `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QCheckBox, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QCheckBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCheckBox`
-    ///
-    /// ` callback: *const fn (self: QCheckBox, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QCheckBox, callback: *const fn (QCheckBox, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QCheckBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10877,47 +10570,6 @@ pub const QCheckBox = extern struct {
     pub fn isSignalConnected(self: QCheckBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QCheckBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCheckBox `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QCheckBox, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QCheckBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCheckBox`
-    ///
-    /// ` callback: *const fn (self: QCheckBox, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QCheckBox, callback: *const fn (QCheckBox, QMetaMethod) callconv(.c) bool) void {
-        qtc.QCheckBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10940,48 +10592,6 @@ pub const QCheckBox = extern struct {
     ///
     pub fn getDecodedMetricF(self: QCheckBox, metricA: i32, metricB: i32) f64 {
         return qtc.QCheckBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCheckBox `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QCheckBox, metricA: i32, metricB: i32) f64 {
-        return qtc.QCheckBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCheckBox`
-    ///
-    /// ` callback: *const fn (self: QCheckBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QCheckBox, callback: *const fn (QCheckBox, i32, i32) callconv(.c) f64) void {
-        qtc.QCheckBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

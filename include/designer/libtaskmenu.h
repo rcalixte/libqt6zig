@@ -22,10 +22,9 @@ typedef struct QDesignerTaskMenuExtension QDesignerTaskMenuExtension;
 QDesignerTaskMenuExtension* QDesignerTaskMenuExtension_new();
 QAction* QDesignerTaskMenuExtension_PreferredEditAction(const QDesignerTaskMenuExtension* self);
 libqt_list /* of QAction* */ QDesignerTaskMenuExtension_TaskActions(const QDesignerTaskMenuExtension* self);
-void QDesignerTaskMenuExtension_OnPreferredEditAction(const QDesignerTaskMenuExtension* self, intptr_t slot);
+void QDesignerTaskMenuExtension_OnPreferredEditAction(QDesignerTaskMenuExtension* self, intptr_t slot);
 QAction* QDesignerTaskMenuExtension_SuperPreferredEditAction(const QDesignerTaskMenuExtension* self);
-void QDesignerTaskMenuExtension_OnTaskActions(const QDesignerTaskMenuExtension* self, intptr_t slot);
-libqt_list /* of QAction* */ QDesignerTaskMenuExtension_SuperTaskActions(const QDesignerTaskMenuExtension* self);
+void QDesignerTaskMenuExtension_OnTaskActions(QDesignerTaskMenuExtension* self, intptr_t slot);
 void QDesignerTaskMenuExtension_Delete(QDesignerTaskMenuExtension* self);
 
 #ifdef __cplusplus

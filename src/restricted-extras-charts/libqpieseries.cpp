@@ -358,382 +358,230 @@ void QPieSeries_SetLabelsVisible1(QPieSeries* self, bool visible) {
 
 // Base class handler implementation
 QMetaObject* QPieSeries_SuperMetaObject(const QPieSeries* self) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_MetaObject_IsBase(true);
-        return (QMetaObject*)vqpieseries->metaObject();
-    } else {
-        return (QMetaObject*)self->QPieSeries::metaObject();
-    }
+    return (QMetaObject*)self->QPieSeries::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPieSeries_OnMetaObject(const QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_MetaObject_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_MetaObject_Callback>(slot));
+void QPieSeries_OnMetaObject(QPieSeries* self, intptr_t slot) {
+    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self)))
+        vqpieseries->qpieseries_metaobject_callback = reinterpret_cast<VirtualQPieSeries::QPieSeries_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPieSeries_SuperMetacast(QPieSeries* self, const char* param1) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_Metacast_IsBase(true);
-        return vqpieseries->qt_metacast(param1);
-    } else {
-        return self->QPieSeries::qt_metacast(param1);
-    }
+    return self->QPieSeries::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnMetacast(QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_Metacast_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Metacast_Callback>(slot));
+    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self))
+        vqpieseries->qpieseries_metacast_callback = reinterpret_cast<VirtualQPieSeries::QPieSeries_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPieSeries_SuperMetacall(QPieSeries* self, int param1, int param2, void** param3) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_Metacall_IsBase(true);
-        return vqpieseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPieSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPieSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnMetacall(QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_Metacall_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Metacall_Callback>(slot));
+    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self))
+        vqpieseries->qpieseries_metacall_callback = reinterpret_cast<VirtualQPieSeries::QPieSeries_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPieSeries_SuperType(const QPieSeries* self) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_Type_IsBase(true);
-        return static_cast<int>(vqpieseries->type());
-    } else {
-        return static_cast<int>(self->QPieSeries::type());
-    }
+    return static_cast<int>(self->QPieSeries::type());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPieSeries_OnType(const QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_Type_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Type_Callback>(slot));
+void QPieSeries_OnType(QPieSeries* self, intptr_t slot) {
+    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self)))
+        vqpieseries->qpieseries_type_callback = reinterpret_cast<VirtualQPieSeries::QPieSeries_Type_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPieSeries_Event(QPieSeries* self, QEvent* event) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        return vqpieseries->event(event);
-    } else {
-        return self->QPieSeries::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QPieSeries_SuperEvent(QPieSeries* self, QEvent* event) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_Event_IsBase(true);
-        return vqpieseries->event(event);
-    } else {
-        return self->QPieSeries::event(event);
-    }
+    return self->QPieSeries::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnEvent(QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_Event_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Event_Callback>(slot));
+    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self))
+        vqpieseries->qpieseries_event_callback = reinterpret_cast<VirtualQPieSeries::QPieSeries_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPieSeries_EventFilter(QPieSeries* self, QObject* watched, QEvent* event) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        return vqpieseries->eventFilter(watched, event);
-    } else {
-        return self->QPieSeries::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QPieSeries_SuperEventFilter(QPieSeries* self, QObject* watched, QEvent* event) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_EventFilter_IsBase(true);
-        return vqpieseries->eventFilter(watched, event);
-    } else {
-        return self->QPieSeries::eventFilter(watched, event);
-    }
+    return self->QPieSeries::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnEventFilter(QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_EventFilter_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_EventFilter_Callback>(slot));
+    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self))
+        vqpieseries->qpieseries_eventfilter_callback = reinterpret_cast<VirtualQPieSeries::QPieSeries_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieSeries_TimerEvent(QPieSeries* self, QTimerEvent* event) {
     auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+    if (vqpieseries) {
         vqpieseries->timerEvent(event);
     } else {
-        ((VirtualQPieSeries*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPieSeries::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieSeries_SuperTimerEvent(QPieSeries* self, QTimerEvent* event) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_TimerEvent_IsBase(true);
-        vqpieseries->timerEvent(event);
-    } else {
-        ((VirtualQPieSeries*)self)->timerEvent(event);
-    }
+    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+        vqpieseries->QPieSeries::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPieSeries::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnTimerEvent(QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_TimerEvent_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_TimerEvent_Callback>(slot));
+    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self))
+        vqpieseries->qpieseries_timerevent_callback = reinterpret_cast<VirtualQPieSeries::QPieSeries_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieSeries_ChildEvent(QPieSeries* self, QChildEvent* event) {
     auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+    if (vqpieseries) {
         vqpieseries->childEvent(event);
     } else {
-        ((VirtualQPieSeries*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPieSeries::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieSeries_SuperChildEvent(QPieSeries* self, QChildEvent* event) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_ChildEvent_IsBase(true);
-        vqpieseries->childEvent(event);
-    } else {
-        ((VirtualQPieSeries*)self)->childEvent(event);
-    }
+    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+        vqpieseries->QPieSeries::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPieSeries::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnChildEvent(QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_ChildEvent_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_ChildEvent_Callback>(slot));
+    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self))
+        vqpieseries->qpieseries_childevent_callback = reinterpret_cast<VirtualQPieSeries::QPieSeries_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieSeries_CustomEvent(QPieSeries* self, QEvent* event) {
     auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+    if (vqpieseries) {
         vqpieseries->customEvent(event);
     } else {
-        ((VirtualQPieSeries*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPieSeries::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieSeries_SuperCustomEvent(QPieSeries* self, QEvent* event) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_CustomEvent_IsBase(true);
-        vqpieseries->customEvent(event);
-    } else {
-        ((VirtualQPieSeries*)self)->customEvent(event);
-    }
+    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+        vqpieseries->QPieSeries::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPieSeries::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnCustomEvent(QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_CustomEvent_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_CustomEvent_Callback>(slot));
+    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self))
+        vqpieseries->qpieseries_customevent_callback = reinterpret_cast<VirtualQPieSeries::QPieSeries_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieSeries_ConnectNotify(QPieSeries* self, const QMetaMethod* signal) {
     auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+    if (vqpieseries) {
         vqpieseries->connectNotify(*signal);
     } else {
-        ((VirtualQPieSeries*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPieSeries::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieSeries_SuperConnectNotify(QPieSeries* self, const QMetaMethod* signal) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_ConnectNotify_IsBase(true);
-        vqpieseries->connectNotify(*signal);
-    } else {
-        ((VirtualQPieSeries*)self)->connectNotify(*signal);
-    }
+    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+        vqpieseries->QPieSeries::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPieSeries::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnConnectNotify(QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_ConnectNotify_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_ConnectNotify_Callback>(slot));
+    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self))
+        vqpieseries->qpieseries_connectnotify_callback = reinterpret_cast<VirtualQPieSeries::QPieSeries_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieSeries_DisconnectNotify(QPieSeries* self, const QMetaMethod* signal) {
     auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+    if (vqpieseries) {
         vqpieseries->disconnectNotify(*signal);
     } else {
-        ((VirtualQPieSeries*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPieSeries::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieSeries_SuperDisconnectNotify(QPieSeries* self, const QMetaMethod* signal) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_DisconnectNotify_IsBase(true);
-        vqpieseries->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPieSeries*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self)) {
+        vqpieseries->QPieSeries::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPieSeries::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieSeries_OnDisconnectNotify(QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_DisconnectNotify_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_DisconnectNotify_Callback>(slot));
+    if (auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self))
+        vqpieseries->qpieseries_disconnectnotify_callback = reinterpret_cast<VirtualQPieSeries::QPieSeries_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPieSeries_Sender(const QPieSeries* self) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        return vqpieseries->sender();
-    } else {
-        return ((VirtualQPieSeries*)self)->sender();
-    }
+    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+        return vqpieseries->VirtualQPieSeries::sender();
+    } else
+        qFatal("Error: Protected method QPieSeries::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPieSeries_SuperSender(const QPieSeries* self) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_Sender_IsBase(true);
-        return vqpieseries->sender();
-    } else {
-        return ((VirtualQPieSeries*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieSeries_OnSender(const QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_Sender_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPieSeries_SenderSignalIndex(const QPieSeries* self) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        return vqpieseries->senderSignalIndex();
-    } else {
-        return ((VirtualQPieSeries*)self)->senderSignalIndex();
-    }
+    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+        return vqpieseries->VirtualQPieSeries::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPieSeries::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPieSeries_SuperSenderSignalIndex(const QPieSeries* self) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_SenderSignalIndex_IsBase(true);
-        return vqpieseries->senderSignalIndex();
-    } else {
-        return ((VirtualQPieSeries*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieSeries_OnSenderSignalIndex(const QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPieSeries_Receivers(const QPieSeries* self, const char* signal) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        return vqpieseries->receivers(signal);
-    } else {
-        return ((VirtualQPieSeries*)self)->receivers(signal);
-    }
+    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+        return vqpieseries->VirtualQPieSeries::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPieSeries::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPieSeries_SuperReceivers(const QPieSeries* self, const char* signal) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_Receivers_IsBase(true);
-        return vqpieseries->receivers(signal);
-    } else {
-        return ((VirtualQPieSeries*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieSeries_OnReceivers(const QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_Receivers_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPieSeries_IsSignalConnected(const QPieSeries* self, const QMetaMethod* signal) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        return vqpieseries->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPieSeries*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QPieSeries_SuperIsSignalConnected(const QPieSeries* self, const QMetaMethod* signal) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        vqpieseries->setQPieSeries_IsSignalConnected_IsBase(true);
-        return vqpieseries->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPieSeries*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieSeries_OnIsSignalConnected(const QPieSeries* self, intptr_t slot) {
-    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries)
-        vqpieseries->setQPieSeries_IsSignalConnected_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_IsSignalConnected_Callback>(slot));
+    if (auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self))) {
+        return vqpieseries->VirtualQPieSeries::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPieSeries::isSignalConnected called without a directly constructed type");
 }
 
 void QPieSeries_Delete(QPieSeries* self) {

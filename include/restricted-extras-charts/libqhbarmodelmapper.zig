@@ -79,9 +79,9 @@ pub const QHBarModelMapper = extern struct {
     ///
     /// ` self: QHBarModelMapper `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QHBarModelMapper) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QHBarModelMapper, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QHBarModelMapper, callback: *const fn (QHBarModelMapper) callconv(.c) QMetaObject) void {
         qtc.QHBarModelMapper_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2065,44 +2065,6 @@ pub const QHBarModelMapper = extern struct {
         return qtc.QHBarModelMapper_First(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFirst` instead
-    ///
-    pub const SuperFirst = superFirst;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#first)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBarModelMapper `
-    ///
-    pub fn superFirst(self: QHBarModelMapper) i32 {
-        return qtc.QHBarModelMapper_SuperFirst(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFirst` instead
-    ///
-    pub const OnFirst = onFirst;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#first)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBarModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onFirst(self: QHBarModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHBarModelMapper_OnFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setFirst` instead
     ///
     pub const SetFirst = setFirst;
@@ -2123,46 +2085,6 @@ pub const QHBarModelMapper = extern struct {
         qtc.QHBarModelMapper_SetFirst(@ptrCast(self.ptr), @bitCast(_first));
     }
 
-    /// ### DEPRECATED: Use `superSetFirst` instead
-    ///
-    pub const SuperSetFirst = superSetFirst;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setFirst)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBarModelMapper `
-    ///
-    /// ` _first: i32 `
-    ///
-    pub fn superSetFirst(self: QHBarModelMapper, _first: i32) void {
-        qtc.QHBarModelMapper_SuperSetFirst(@ptrCast(self.ptr), @bitCast(_first));
-    }
-
-    /// ### DEPRECATED: Use `onSetFirst` instead
-    ///
-    pub const OnSetFirst = onSetFirst;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setFirst)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBarModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHBarModelMapper, first: i32) callconv(.c) void `
-    ///
-    pub fn onSetFirst(self: QHBarModelMapper, callback: *const fn (QHBarModelMapper, i32) callconv(.c) void) void {
-        qtc.QHBarModelMapper_OnSetFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `count` instead
     ///
     pub const Count = count;
@@ -2179,44 +2101,6 @@ pub const QHBarModelMapper = extern struct {
     ///
     pub fn count(self: QHBarModelMapper) i32 {
         return qtc.QHBarModelMapper_Count(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCount` instead
-    ///
-    pub const SuperCount = superCount;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#count)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBarModelMapper `
-    ///
-    pub fn superCount(self: QHBarModelMapper) i32 {
-        return qtc.QHBarModelMapper_SuperCount(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCount` instead
-    ///
-    pub const OnCount = onCount;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#count)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBarModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onCount(self: QHBarModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHBarModelMapper_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setCount` instead
@@ -2239,46 +2123,6 @@ pub const QHBarModelMapper = extern struct {
         qtc.QHBarModelMapper_SetCount(@ptrCast(self.ptr), @bitCast(_count));
     }
 
-    /// ### DEPRECATED: Use `superSetCount` instead
-    ///
-    pub const SuperSetCount = superSetCount;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setCount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBarModelMapper `
-    ///
-    /// ` _count: i32 `
-    ///
-    pub fn superSetCount(self: QHBarModelMapper, _count: i32) void {
-        qtc.QHBarModelMapper_SuperSetCount(@ptrCast(self.ptr), @bitCast(_count));
-    }
-
-    /// ### DEPRECATED: Use `onSetCount` instead
-    ///
-    pub const OnSetCount = onSetCount;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setCount)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBarModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHBarModelMapper, count: i32) callconv(.c) void `
-    ///
-    pub fn onSetCount(self: QHBarModelMapper, callback: *const fn (QHBarModelMapper, i32) callconv(.c) void) void {
-        qtc.QHBarModelMapper_OnSetCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `firstBarSetSection` instead
     ///
     pub const FirstBarSetSection = firstBarSetSection;
@@ -2295,44 +2139,6 @@ pub const QHBarModelMapper = extern struct {
     ///
     pub fn firstBarSetSection(self: QHBarModelMapper) i32 {
         return qtc.QHBarModelMapper_FirstBarSetSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFirstBarSetSection` instead
-    ///
-    pub const SuperFirstBarSetSection = superFirstBarSetSection;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#firstBarSetSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBarModelMapper `
-    ///
-    pub fn superFirstBarSetSection(self: QHBarModelMapper) i32 {
-        return qtc.QHBarModelMapper_SuperFirstBarSetSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFirstBarSetSection` instead
-    ///
-    pub const OnFirstBarSetSection = onFirstBarSetSection;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#firstBarSetSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBarModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onFirstBarSetSection(self: QHBarModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHBarModelMapper_OnFirstBarSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setFirstBarSetSection` instead
@@ -2355,46 +2161,6 @@ pub const QHBarModelMapper = extern struct {
         qtc.QHBarModelMapper_SetFirstBarSetSection(@ptrCast(self.ptr), @bitCast(_firstBarSetSection));
     }
 
-    /// ### DEPRECATED: Use `superSetFirstBarSetSection` instead
-    ///
-    pub const SuperSetFirstBarSetSection = superSetFirstBarSetSection;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setFirstBarSetSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBarModelMapper `
-    ///
-    /// ` _firstBarSetSection: i32 `
-    ///
-    pub fn superSetFirstBarSetSection(self: QHBarModelMapper, _firstBarSetSection: i32) void {
-        qtc.QHBarModelMapper_SuperSetFirstBarSetSection(@ptrCast(self.ptr), @bitCast(_firstBarSetSection));
-    }
-
-    /// ### DEPRECATED: Use `onSetFirstBarSetSection` instead
-    ///
-    pub const OnSetFirstBarSetSection = onSetFirstBarSetSection;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setFirstBarSetSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBarModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHBarModelMapper, firstBarSetSection: i32) callconv(.c) void `
-    ///
-    pub fn onSetFirstBarSetSection(self: QHBarModelMapper, callback: *const fn (QHBarModelMapper, i32) callconv(.c) void) void {
-        qtc.QHBarModelMapper_OnSetFirstBarSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `lastBarSetSection` instead
     ///
     pub const LastBarSetSection = lastBarSetSection;
@@ -2411,44 +2177,6 @@ pub const QHBarModelMapper = extern struct {
     ///
     pub fn lastBarSetSection(self: QHBarModelMapper) i32 {
         return qtc.QHBarModelMapper_LastBarSetSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superLastBarSetSection` instead
-    ///
-    pub const SuperLastBarSetSection = superLastBarSetSection;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#lastBarSetSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBarModelMapper `
-    ///
-    pub fn superLastBarSetSection(self: QHBarModelMapper) i32 {
-        return qtc.QHBarModelMapper_SuperLastBarSetSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onLastBarSetSection` instead
-    ///
-    pub const OnLastBarSetSection = onLastBarSetSection;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#lastBarSetSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBarModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onLastBarSetSection(self: QHBarModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHBarModelMapper_OnLastBarSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setLastBarSetSection` instead
@@ -2469,46 +2197,6 @@ pub const QHBarModelMapper = extern struct {
     ///
     pub fn setLastBarSetSection(self: QHBarModelMapper, _lastBarSetSection: i32) void {
         qtc.QHBarModelMapper_SetLastBarSetSection(@ptrCast(self.ptr), @bitCast(_lastBarSetSection));
-    }
-
-    /// ### DEPRECATED: Use `superSetLastBarSetSection` instead
-    ///
-    pub const SuperSetLastBarSetSection = superSetLastBarSetSection;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setLastBarSetSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBarModelMapper `
-    ///
-    /// ` _lastBarSetSection: i32 `
-    ///
-    pub fn superSetLastBarSetSection(self: QHBarModelMapper, _lastBarSetSection: i32) void {
-        qtc.QHBarModelMapper_SuperSetLastBarSetSection(@ptrCast(self.ptr), @bitCast(_lastBarSetSection));
-    }
-
-    /// ### DEPRECATED: Use `onSetLastBarSetSection` instead
-    ///
-    pub const OnSetLastBarSetSection = onSetLastBarSetSection;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setLastBarSetSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBarModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHBarModelMapper, lastBarSetSection: i32) callconv(.c) void `
-    ///
-    pub fn onSetLastBarSetSection(self: QHBarModelMapper, callback: *const fn (QHBarModelMapper, i32) callconv(.c) void) void {
-        qtc.QHBarModelMapper_OnSetLastBarSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `orientation` instead
@@ -2533,48 +2221,6 @@ pub const QHBarModelMapper = extern struct {
         return qtc.QHBarModelMapper_Orientation(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superOrientation` instead
-    ///
-    pub const SuperOrientation = superOrientation;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#orientation)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBarModelMapper `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qnamespace_enums.Orientation `
-    ///
-    pub fn superOrientation(self: QHBarModelMapper) i32 {
-        return qtc.QHBarModelMapper_SuperOrientation(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onOrientation` instead
-    ///
-    pub const OnOrientation = onOrientation;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#orientation)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBarModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onOrientation(self: QHBarModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHBarModelMapper_OnOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setOrientation` instead
     ///
     pub const SetOrientation = setOrientation;
@@ -2595,46 +2241,6 @@ pub const QHBarModelMapper = extern struct {
         qtc.QHBarModelMapper_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
 
-    /// ### DEPRECATED: Use `superSetOrientation` instead
-    ///
-    pub const SuperSetOrientation = superSetOrientation;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setOrientation)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBarModelMapper `
-    ///
-    /// ` _orientation: qnamespace_enums.Orientation `
-    ///
-    pub fn superSetOrientation(self: QHBarModelMapper, _orientation: i32) void {
-        qtc.QHBarModelMapper_SuperSetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
-    }
-
-    /// ### DEPRECATED: Use `onSetOrientation` instead
-    ///
-    pub const OnSetOrientation = onSetOrientation;
-
-    /// Inherited from QBarModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setOrientation)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBarModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHBarModelMapper, orientation: qnamespace_enums.Orientation) callconv(.c) void `
-    ///
-    pub fn onSetOrientation(self: QHBarModelMapper, callback: *const fn (QHBarModelMapper, i32) callconv(.c) void) void {
-        qtc.QHBarModelMapper_OnSetOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -2653,44 +2259,6 @@ pub const QHBarModelMapper = extern struct {
         return .{ .ptr = qtc.QHBarModelMapper_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBarModelMapper `
-    ///
-    pub fn superSender(self: QHBarModelMapper) QObject {
-        return .{ .ptr = qtc.QHBarModelMapper_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBarModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QHBarModelMapper, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QHBarModelMapper_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2707,44 +2275,6 @@ pub const QHBarModelMapper = extern struct {
     ///
     pub fn senderSignalIndex(self: QHBarModelMapper) i32 {
         return qtc.QHBarModelMapper_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBarModelMapper `
-    ///
-    pub fn superSenderSignalIndex(self: QHBarModelMapper) i32 {
-        return qtc.QHBarModelMapper_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBarModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QHBarModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHBarModelMapper_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2768,47 +2298,6 @@ pub const QHBarModelMapper = extern struct {
         return qtc.QHBarModelMapper_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBarModelMapper `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QHBarModelMapper, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QHBarModelMapper_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBarModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHBarModelMapper, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QHBarModelMapper, callback: *const fn (QHBarModelMapper, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QHBarModelMapper_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2828,47 +2317,6 @@ pub const QHBarModelMapper = extern struct {
     pub fn isSignalConnected(self: QHBarModelMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QHBarModelMapper_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBarModelMapper `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QHBarModelMapper, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QHBarModelMapper_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHBarModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHBarModelMapper, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QHBarModelMapper, callback: *const fn (QHBarModelMapper, QMetaMethod) callconv(.c) bool) void {
-        qtc.QHBarModelMapper_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

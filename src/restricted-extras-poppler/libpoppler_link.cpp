@@ -131,20 +131,13 @@ libqt_list /* of Poppler__Link* */ Poppler__Link_NextLinks(const Poppler__Link* 
 
 // Base class handler implementation
 int Poppler__Link_SuperLinkType(const Poppler__Link* self) {
-    auto* vpopplerlink = const_cast<VirtualPopplerLink*>(dynamic_cast<const VirtualPopplerLink*>(self));
-    if (vpopplerlink && vpopplerlink->isVirtualPopplerLink) {
-        vpopplerlink->setPoppler__Link_LinkType_IsBase(true);
-        return static_cast<int>(vpopplerlink->linkType());
-    } else {
-        return static_cast<int>(self->Poppler::Link::linkType());
-    }
+    return static_cast<int>(self->Poppler::Link::linkType());
 }
 
 // Auxiliary method to allow providing re-implementation
-void Poppler__Link_OnLinkType(const Poppler__Link* self, intptr_t slot) {
-    auto* vpopplerlink = const_cast<VirtualPopplerLink*>(dynamic_cast<const VirtualPopplerLink*>(self));
-    if (vpopplerlink && vpopplerlink->isVirtualPopplerLink)
-        vpopplerlink->setPoppler__Link_LinkType_Callback(reinterpret_cast<VirtualPopplerLink::Poppler__Link_LinkType_Callback>(slot));
+void Poppler__Link_OnLinkType(Poppler__Link* self, intptr_t slot) {
+    if (auto* vpopplerlink = const_cast<VirtualPopplerLink*>(dynamic_cast<const VirtualPopplerLink*>(self)))
+        vpopplerlink->poppler__link_linktype_callback = reinterpret_cast<VirtualPopplerLink::Poppler__Link_LinkType_Callback>(slot);
 }
 
 void Poppler__Link_Delete(Poppler__Link* self) {
@@ -182,20 +175,13 @@ int Poppler__LinkGoto_LinkType(const Poppler__LinkGoto* self) {
 
 // Base class handler implementation
 int Poppler__LinkGoto_SuperLinkType(const Poppler__LinkGoto* self) {
-    auto* vpopplerlinkgoto = const_cast<VirtualPopplerLinkGoto*>(dynamic_cast<const VirtualPopplerLinkGoto*>(self));
-    if (vpopplerlinkgoto && vpopplerlinkgoto->isVirtualPopplerLinkGoto) {
-        vpopplerlinkgoto->setPoppler__LinkGoto_LinkType_IsBase(true);
-        return static_cast<int>(vpopplerlinkgoto->linkType());
-    } else {
-        return static_cast<int>(self->Poppler::LinkGoto::linkType());
-    }
+    return static_cast<int>(self->Poppler::LinkGoto::linkType());
 }
 
 // Auxiliary method to allow providing re-implementation
-void Poppler__LinkGoto_OnLinkType(const Poppler__LinkGoto* self, intptr_t slot) {
-    auto* vpopplerlinkgoto = const_cast<VirtualPopplerLinkGoto*>(dynamic_cast<const VirtualPopplerLinkGoto*>(self));
-    if (vpopplerlinkgoto && vpopplerlinkgoto->isVirtualPopplerLinkGoto)
-        vpopplerlinkgoto->setPoppler__LinkGoto_LinkType_Callback(reinterpret_cast<VirtualPopplerLinkGoto::Poppler__LinkGoto_LinkType_Callback>(slot));
+void Poppler__LinkGoto_OnLinkType(Poppler__LinkGoto* self, intptr_t slot) {
+    if (auto* vpopplerlinkgoto = const_cast<VirtualPopplerLinkGoto*>(dynamic_cast<const VirtualPopplerLinkGoto*>(self)))
+        vpopplerlinkgoto->poppler__linkgoto_linktype_callback = reinterpret_cast<VirtualPopplerLinkGoto::Poppler__LinkGoto_LinkType_Callback>(slot);
 }
 
 void Poppler__LinkGoto_Delete(Poppler__LinkGoto* self) {
@@ -238,20 +224,13 @@ int Poppler__LinkExecute_LinkType(const Poppler__LinkExecute* self) {
 
 // Base class handler implementation
 int Poppler__LinkExecute_SuperLinkType(const Poppler__LinkExecute* self) {
-    auto* vpopplerlinkexecute = const_cast<VirtualPopplerLinkExecute*>(dynamic_cast<const VirtualPopplerLinkExecute*>(self));
-    if (vpopplerlinkexecute && vpopplerlinkexecute->isVirtualPopplerLinkExecute) {
-        vpopplerlinkexecute->setPoppler__LinkExecute_LinkType_IsBase(true);
-        return static_cast<int>(vpopplerlinkexecute->linkType());
-    } else {
-        return static_cast<int>(self->Poppler::LinkExecute::linkType());
-    }
+    return static_cast<int>(self->Poppler::LinkExecute::linkType());
 }
 
 // Auxiliary method to allow providing re-implementation
-void Poppler__LinkExecute_OnLinkType(const Poppler__LinkExecute* self, intptr_t slot) {
-    auto* vpopplerlinkexecute = const_cast<VirtualPopplerLinkExecute*>(dynamic_cast<const VirtualPopplerLinkExecute*>(self));
-    if (vpopplerlinkexecute && vpopplerlinkexecute->isVirtualPopplerLinkExecute)
-        vpopplerlinkexecute->setPoppler__LinkExecute_LinkType_Callback(reinterpret_cast<VirtualPopplerLinkExecute::Poppler__LinkExecute_LinkType_Callback>(slot));
+void Poppler__LinkExecute_OnLinkType(Poppler__LinkExecute* self, intptr_t slot) {
+    if (auto* vpopplerlinkexecute = const_cast<VirtualPopplerLinkExecute*>(dynamic_cast<const VirtualPopplerLinkExecute*>(self)))
+        vpopplerlinkexecute->poppler__linkexecute_linktype_callback = reinterpret_cast<VirtualPopplerLinkExecute::Poppler__LinkExecute_LinkType_Callback>(slot);
 }
 
 void Poppler__LinkExecute_Delete(Poppler__LinkExecute* self) {
@@ -281,20 +260,13 @@ int Poppler__LinkBrowse_LinkType(const Poppler__LinkBrowse* self) {
 
 // Base class handler implementation
 int Poppler__LinkBrowse_SuperLinkType(const Poppler__LinkBrowse* self) {
-    auto* vpopplerlinkbrowse = const_cast<VirtualPopplerLinkBrowse*>(dynamic_cast<const VirtualPopplerLinkBrowse*>(self));
-    if (vpopplerlinkbrowse && vpopplerlinkbrowse->isVirtualPopplerLinkBrowse) {
-        vpopplerlinkbrowse->setPoppler__LinkBrowse_LinkType_IsBase(true);
-        return static_cast<int>(vpopplerlinkbrowse->linkType());
-    } else {
-        return static_cast<int>(self->Poppler::LinkBrowse::linkType());
-    }
+    return static_cast<int>(self->Poppler::LinkBrowse::linkType());
 }
 
 // Auxiliary method to allow providing re-implementation
-void Poppler__LinkBrowse_OnLinkType(const Poppler__LinkBrowse* self, intptr_t slot) {
-    auto* vpopplerlinkbrowse = const_cast<VirtualPopplerLinkBrowse*>(dynamic_cast<const VirtualPopplerLinkBrowse*>(self));
-    if (vpopplerlinkbrowse && vpopplerlinkbrowse->isVirtualPopplerLinkBrowse)
-        vpopplerlinkbrowse->setPoppler__LinkBrowse_LinkType_Callback(reinterpret_cast<VirtualPopplerLinkBrowse::Poppler__LinkBrowse_LinkType_Callback>(slot));
+void Poppler__LinkBrowse_OnLinkType(Poppler__LinkBrowse* self, intptr_t slot) {
+    if (auto* vpopplerlinkbrowse = const_cast<VirtualPopplerLinkBrowse*>(dynamic_cast<const VirtualPopplerLinkBrowse*>(self)))
+        vpopplerlinkbrowse->poppler__linkbrowse_linktype_callback = reinterpret_cast<VirtualPopplerLinkBrowse::Poppler__LinkBrowse_LinkType_Callback>(slot);
 }
 
 void Poppler__LinkBrowse_Delete(Poppler__LinkBrowse* self) {
@@ -315,20 +287,13 @@ int Poppler__LinkAction_LinkType(const Poppler__LinkAction* self) {
 
 // Base class handler implementation
 int Poppler__LinkAction_SuperLinkType(const Poppler__LinkAction* self) {
-    auto* vpopplerlinkaction = const_cast<VirtualPopplerLinkAction*>(dynamic_cast<const VirtualPopplerLinkAction*>(self));
-    if (vpopplerlinkaction && vpopplerlinkaction->isVirtualPopplerLinkAction) {
-        vpopplerlinkaction->setPoppler__LinkAction_LinkType_IsBase(true);
-        return static_cast<int>(vpopplerlinkaction->linkType());
-    } else {
-        return static_cast<int>(self->Poppler::LinkAction::linkType());
-    }
+    return static_cast<int>(self->Poppler::LinkAction::linkType());
 }
 
 // Auxiliary method to allow providing re-implementation
-void Poppler__LinkAction_OnLinkType(const Poppler__LinkAction* self, intptr_t slot) {
-    auto* vpopplerlinkaction = const_cast<VirtualPopplerLinkAction*>(dynamic_cast<const VirtualPopplerLinkAction*>(self));
-    if (vpopplerlinkaction && vpopplerlinkaction->isVirtualPopplerLinkAction)
-        vpopplerlinkaction->setPoppler__LinkAction_LinkType_Callback(reinterpret_cast<VirtualPopplerLinkAction::Poppler__LinkAction_LinkType_Callback>(slot));
+void Poppler__LinkAction_OnLinkType(Poppler__LinkAction* self, intptr_t slot) {
+    if (auto* vpopplerlinkaction = const_cast<VirtualPopplerLinkAction*>(dynamic_cast<const VirtualPopplerLinkAction*>(self)))
+        vpopplerlinkaction->poppler__linkaction_linktype_callback = reinterpret_cast<VirtualPopplerLinkAction::Poppler__LinkAction_LinkType_Callback>(slot);
 }
 
 void Poppler__LinkAction_Delete(Poppler__LinkAction* self) {
@@ -365,20 +330,13 @@ Poppler__SoundObject* Poppler__LinkSound_Sound(const Poppler__LinkSound* self) {
 
 // Base class handler implementation
 int Poppler__LinkSound_SuperLinkType(const Poppler__LinkSound* self) {
-    auto* vpopplerlinksound = const_cast<VirtualPopplerLinkSound*>(dynamic_cast<const VirtualPopplerLinkSound*>(self));
-    if (vpopplerlinksound && vpopplerlinksound->isVirtualPopplerLinkSound) {
-        vpopplerlinksound->setPoppler__LinkSound_LinkType_IsBase(true);
-        return static_cast<int>(vpopplerlinksound->linkType());
-    } else {
-        return static_cast<int>(self->Poppler::LinkSound::linkType());
-    }
+    return static_cast<int>(self->Poppler::LinkSound::linkType());
 }
 
 // Auxiliary method to allow providing re-implementation
-void Poppler__LinkSound_OnLinkType(const Poppler__LinkSound* self, intptr_t slot) {
-    auto* vpopplerlinksound = const_cast<VirtualPopplerLinkSound*>(dynamic_cast<const VirtualPopplerLinkSound*>(self));
-    if (vpopplerlinksound && vpopplerlinksound->isVirtualPopplerLinkSound)
-        vpopplerlinksound->setPoppler__LinkSound_LinkType_Callback(reinterpret_cast<VirtualPopplerLinkSound::Poppler__LinkSound_LinkType_Callback>(slot));
+void Poppler__LinkSound_OnLinkType(Poppler__LinkSound* self, intptr_t slot) {
+    if (auto* vpopplerlinksound = const_cast<VirtualPopplerLinkSound*>(dynamic_cast<const VirtualPopplerLinkSound*>(self)))
+        vpopplerlinksound->poppler__linksound_linktype_callback = reinterpret_cast<VirtualPopplerLinkSound::Poppler__LinkSound_LinkType_Callback>(slot);
 }
 
 void Poppler__LinkSound_Delete(Poppler__LinkSound* self) {
@@ -440,20 +398,13 @@ libqt_string Poppler__LinkJavaScript_Script(const Poppler__LinkJavaScript* self)
 
 // Base class handler implementation
 int Poppler__LinkJavaScript_SuperLinkType(const Poppler__LinkJavaScript* self) {
-    auto* vpopplerlinkjavascript = const_cast<VirtualPopplerLinkJavaScript*>(dynamic_cast<const VirtualPopplerLinkJavaScript*>(self));
-    if (vpopplerlinkjavascript && vpopplerlinkjavascript->isVirtualPopplerLinkJavaScript) {
-        vpopplerlinkjavascript->setPoppler__LinkJavaScript_LinkType_IsBase(true);
-        return static_cast<int>(vpopplerlinkjavascript->linkType());
-    } else {
-        return static_cast<int>(self->Poppler::LinkJavaScript::linkType());
-    }
+    return static_cast<int>(self->Poppler::LinkJavaScript::linkType());
 }
 
 // Auxiliary method to allow providing re-implementation
-void Poppler__LinkJavaScript_OnLinkType(const Poppler__LinkJavaScript* self, intptr_t slot) {
-    auto* vpopplerlinkjavascript = const_cast<VirtualPopplerLinkJavaScript*>(dynamic_cast<const VirtualPopplerLinkJavaScript*>(self));
-    if (vpopplerlinkjavascript && vpopplerlinkjavascript->isVirtualPopplerLinkJavaScript)
-        vpopplerlinkjavascript->setPoppler__LinkJavaScript_LinkType_Callback(reinterpret_cast<VirtualPopplerLinkJavaScript::Poppler__LinkJavaScript_LinkType_Callback>(slot));
+void Poppler__LinkJavaScript_OnLinkType(Poppler__LinkJavaScript* self, intptr_t slot) {
+    if (auto* vpopplerlinkjavascript = const_cast<VirtualPopplerLinkJavaScript*>(dynamic_cast<const VirtualPopplerLinkJavaScript*>(self)))
+        vpopplerlinkjavascript->poppler__linkjavascript_linktype_callback = reinterpret_cast<VirtualPopplerLinkJavaScript::Poppler__LinkJavaScript_LinkType_Callback>(slot);
 }
 
 void Poppler__LinkJavaScript_Delete(Poppler__LinkJavaScript* self) {

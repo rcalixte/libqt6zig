@@ -9,18 +9,14 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QSizeGrip so that we can call protected methods
+// This class is a subclass of QSizeGrip
 class VirtualQSizeGrip final : public QSizeGrip {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQSizeGrip = true;
-
-    // Virtual class public types (including callbacks)
-    using QSizeGrip_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QSizeGrip_MetaObject_Callback = QMetaObject* (*)(const QSizeGrip*);
     using QSizeGrip_Metacast_Callback = void* (*)(QSizeGrip*, const char*);
     using QSizeGrip_Metacall_Callback = int (*)(QSizeGrip*, int, int, void**);
-    using QSizeGrip_SizeHint_Callback = QSize* (*)();
+    using QSizeGrip_SizeHint_Callback = QSize* (*)(const QSizeGrip*);
     using QSizeGrip_SetVisible_Callback = void (*)(QSizeGrip*, bool);
     using QSizeGrip_PaintEvent_Callback = void (*)(QSizeGrip*, QPaintEvent*);
     using QSizeGrip_MousePressEvent_Callback = void (*)(QSizeGrip*, QMouseEvent*);
@@ -31,11 +27,11 @@ class VirtualQSizeGrip final : public QSizeGrip {
     using QSizeGrip_HideEvent_Callback = void (*)(QSizeGrip*, QHideEvent*);
     using QSizeGrip_EventFilter_Callback = bool (*)(QSizeGrip*, QObject*, QEvent*);
     using QSizeGrip_Event_Callback = bool (*)(QSizeGrip*, QEvent*);
-    using QSizeGrip_DevType_Callback = int (*)();
-    using QSizeGrip_MinimumSizeHint_Callback = QSize* (*)();
+    using QSizeGrip_DevType_Callback = int (*)(const QSizeGrip*);
+    using QSizeGrip_MinimumSizeHint_Callback = QSize* (*)(const QSizeGrip*);
     using QSizeGrip_HeightForWidth_Callback = int (*)(const QSizeGrip*, int);
-    using QSizeGrip_HasHeightForWidth_Callback = bool (*)();
-    using QSizeGrip_PaintEngine_Callback = QPaintEngine* (*)();
+    using QSizeGrip_HasHeightForWidth_Callback = bool (*)(const QSizeGrip*);
+    using QSizeGrip_PaintEngine_Callback = QPaintEngine* (*)(const QSizeGrip*);
     using QSizeGrip_MouseDoubleClickEvent_Callback = void (*)(QSizeGrip*, QMouseEvent*);
     using QSizeGrip_WheelEvent_Callback = void (*)(QSizeGrip*, QWheelEvent*);
     using QSizeGrip_KeyPressEvent_Callback = void (*)(QSizeGrip*, QKeyEvent*);
@@ -58,7 +54,7 @@ class VirtualQSizeGrip final : public QSizeGrip {
     using QSizeGrip_Metric_Callback = int (*)(const QSizeGrip*, int);
     using QSizeGrip_InitPainter_Callback = void (*)(const QSizeGrip*, QPainter*);
     using QSizeGrip_Redirected_Callback = QPaintDevice* (*)(const QSizeGrip*, QPoint*);
-    using QSizeGrip_SharedPainter_Callback = QPainter* (*)();
+    using QSizeGrip_SharedPainter_Callback = QPainter* (*)(const QSizeGrip*);
     using QSizeGrip_InputMethodEvent_Callback = void (*)(QSizeGrip*, QInputMethodEvent*);
     using QSizeGrip_InputMethodQuery_Callback = QVariant* (*)(const QSizeGrip*, int);
     using QSizeGrip_FocusNextPrevChild_Callback = bool (*)(QSizeGrip*, bool);
@@ -67,18 +63,17 @@ class VirtualQSizeGrip final : public QSizeGrip {
     using QSizeGrip_CustomEvent_Callback = void (*)(QSizeGrip*, QEvent*);
     using QSizeGrip_ConnectNotify_Callback = void (*)(QSizeGrip*, QMetaMethod*);
     using QSizeGrip_DisconnectNotify_Callback = void (*)(QSizeGrip*, QMetaMethod*);
-    using QSizeGrip_UpdateMicroFocus_Callback = void (*)();
-    using QSizeGrip_Create_Callback = void (*)();
-    using QSizeGrip_Destroy_Callback = void (*)();
-    using QSizeGrip_FocusNextChild_Callback = bool (*)();
-    using QSizeGrip_FocusPreviousChild_Callback = bool (*)();
-    using QSizeGrip_Sender_Callback = QObject* (*)();
-    using QSizeGrip_SenderSignalIndex_Callback = int (*)();
-    using QSizeGrip_Receivers_Callback = int (*)(const QSizeGrip*, const char*);
-    using QSizeGrip_IsSignalConnected_Callback = bool (*)(const QSizeGrip*, QMetaMethod*);
-    using QSizeGrip_GetDecodedMetricF_Callback = double (*)(const QSizeGrip*, int, int);
+    using QSizeGrip::create;
+    using QSizeGrip::destroy;
+    using QSizeGrip::focusNextChild;
+    using QSizeGrip::focusPreviousChild;
+    using QSizeGrip::getDecodedMetricF;
+    using QSizeGrip::isSignalConnected;
+    using QSizeGrip::receivers;
+    using QSizeGrip::sender;
+    using QSizeGrip::senderSignalIndex;
+    using QSizeGrip::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QSizeGrip_MetaObject_Callback qsizegrip_metaobject_callback = nullptr;
     QSizeGrip_Metacast_Callback qsizegrip_metacast_callback = nullptr;
@@ -130,215 +125,56 @@ class VirtualQSizeGrip final : public QSizeGrip {
     QSizeGrip_CustomEvent_Callback qsizegrip_customevent_callback = nullptr;
     QSizeGrip_ConnectNotify_Callback qsizegrip_connectnotify_callback = nullptr;
     QSizeGrip_DisconnectNotify_Callback qsizegrip_disconnectnotify_callback = nullptr;
-    QSizeGrip_UpdateMicroFocus_Callback qsizegrip_updatemicrofocus_callback = nullptr;
-    QSizeGrip_Create_Callback qsizegrip_create_callback = nullptr;
-    QSizeGrip_Destroy_Callback qsizegrip_destroy_callback = nullptr;
-    QSizeGrip_FocusNextChild_Callback qsizegrip_focusnextchild_callback = nullptr;
-    QSizeGrip_FocusPreviousChild_Callback qsizegrip_focuspreviouschild_callback = nullptr;
-    QSizeGrip_Sender_Callback qsizegrip_sender_callback = nullptr;
-    QSizeGrip_SenderSignalIndex_Callback qsizegrip_sendersignalindex_callback = nullptr;
-    QSizeGrip_Receivers_Callback qsizegrip_receivers_callback = nullptr;
-    QSizeGrip_IsSignalConnected_Callback qsizegrip_issignalconnected_callback = nullptr;
-    QSizeGrip_GetDecodedMetricF_Callback qsizegrip_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qsizegrip_metaobject_isbase = false;
-    mutable bool qsizegrip_metacast_isbase = false;
-    mutable bool qsizegrip_metacall_isbase = false;
-    mutable bool qsizegrip_sizehint_isbase = false;
-    mutable bool qsizegrip_setvisible_isbase = false;
-    mutable bool qsizegrip_paintevent_isbase = false;
-    mutable bool qsizegrip_mousepressevent_isbase = false;
-    mutable bool qsizegrip_mousemoveevent_isbase = false;
-    mutable bool qsizegrip_mousereleaseevent_isbase = false;
-    mutable bool qsizegrip_moveevent_isbase = false;
-    mutable bool qsizegrip_showevent_isbase = false;
-    mutable bool qsizegrip_hideevent_isbase = false;
-    mutable bool qsizegrip_eventfilter_isbase = false;
-    mutable bool qsizegrip_event_isbase = false;
-    mutable bool qsizegrip_devtype_isbase = false;
-    mutable bool qsizegrip_minimumsizehint_isbase = false;
-    mutable bool qsizegrip_heightforwidth_isbase = false;
-    mutable bool qsizegrip_hasheightforwidth_isbase = false;
-    mutable bool qsizegrip_paintengine_isbase = false;
-    mutable bool qsizegrip_mousedoubleclickevent_isbase = false;
-    mutable bool qsizegrip_wheelevent_isbase = false;
-    mutable bool qsizegrip_keypressevent_isbase = false;
-    mutable bool qsizegrip_keyreleaseevent_isbase = false;
-    mutable bool qsizegrip_focusinevent_isbase = false;
-    mutable bool qsizegrip_focusoutevent_isbase = false;
-    mutable bool qsizegrip_enterevent_isbase = false;
-    mutable bool qsizegrip_leaveevent_isbase = false;
-    mutable bool qsizegrip_resizeevent_isbase = false;
-    mutable bool qsizegrip_closeevent_isbase = false;
-    mutable bool qsizegrip_contextmenuevent_isbase = false;
-    mutable bool qsizegrip_tabletevent_isbase = false;
-    mutable bool qsizegrip_actionevent_isbase = false;
-    mutable bool qsizegrip_dragenterevent_isbase = false;
-    mutable bool qsizegrip_dragmoveevent_isbase = false;
-    mutable bool qsizegrip_dragleaveevent_isbase = false;
-    mutable bool qsizegrip_dropevent_isbase = false;
-    mutable bool qsizegrip_nativeevent_isbase = false;
-    mutable bool qsizegrip_changeevent_isbase = false;
-    mutable bool qsizegrip_metric_isbase = false;
-    mutable bool qsizegrip_initpainter_isbase = false;
-    mutable bool qsizegrip_redirected_isbase = false;
-    mutable bool qsizegrip_sharedpainter_isbase = false;
-    mutable bool qsizegrip_inputmethodevent_isbase = false;
-    mutable bool qsizegrip_inputmethodquery_isbase = false;
-    mutable bool qsizegrip_focusnextprevchild_isbase = false;
-    mutable bool qsizegrip_timerevent_isbase = false;
-    mutable bool qsizegrip_childevent_isbase = false;
-    mutable bool qsizegrip_customevent_isbase = false;
-    mutable bool qsizegrip_connectnotify_isbase = false;
-    mutable bool qsizegrip_disconnectnotify_isbase = false;
-    mutable bool qsizegrip_updatemicrofocus_isbase = false;
-    mutable bool qsizegrip_create_isbase = false;
-    mutable bool qsizegrip_destroy_isbase = false;
-    mutable bool qsizegrip_focusnextchild_isbase = false;
-    mutable bool qsizegrip_focuspreviouschild_isbase = false;
-    mutable bool qsizegrip_sender_isbase = false;
-    mutable bool qsizegrip_sendersignalindex_isbase = false;
-    mutable bool qsizegrip_receivers_isbase = false;
-    mutable bool qsizegrip_issignalconnected_isbase = false;
-    mutable bool qsizegrip_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QSizeGrip {
+        using QSizeGrip::actionEvent;
+        using QSizeGrip::changeEvent;
+        using QSizeGrip::childEvent;
+        using QSizeGrip::closeEvent;
+        using QSizeGrip::connectNotify;
+        using QSizeGrip::contextMenuEvent;
+        using QSizeGrip::customEvent;
+        using QSizeGrip::disconnectNotify;
+        using QSizeGrip::dragEnterEvent;
+        using QSizeGrip::dragLeaveEvent;
+        using QSizeGrip::dragMoveEvent;
+        using QSizeGrip::dropEvent;
+        using QSizeGrip::enterEvent;
+        using QSizeGrip::event;
+        using QSizeGrip::eventFilter;
+        using QSizeGrip::focusInEvent;
+        using QSizeGrip::focusNextPrevChild;
+        using QSizeGrip::focusOutEvent;
+        using QSizeGrip::hideEvent;
+        using QSizeGrip::initPainter;
+        using QSizeGrip::inputMethodEvent;
+        using QSizeGrip::keyPressEvent;
+        using QSizeGrip::keyReleaseEvent;
+        using QSizeGrip::leaveEvent;
+        using QSizeGrip::metric;
+        using QSizeGrip::mouseDoubleClickEvent;
+        using QSizeGrip::mouseMoveEvent;
+        using QSizeGrip::mousePressEvent;
+        using QSizeGrip::mouseReleaseEvent;
+        using QSizeGrip::moveEvent;
+        using QSizeGrip::nativeEvent;
+        using QSizeGrip::paintEvent;
+        using QSizeGrip::redirected;
+        using QSizeGrip::resizeEvent;
+        using QSizeGrip::sharedPainter;
+        using QSizeGrip::showEvent;
+        using QSizeGrip::tabletEvent;
+        using QSizeGrip::timerEvent;
+        using QSizeGrip::wheelEvent;
+    };
 
-  public:
     VirtualQSizeGrip(QWidget* parent) : QSizeGrip(parent) {};
-
-    // Callback setters
-    inline void setQSizeGrip_MetaObject_Callback(QSizeGrip_MetaObject_Callback cb) { qsizegrip_metaobject_callback = cb; }
-    inline void setQSizeGrip_Metacast_Callback(QSizeGrip_Metacast_Callback cb) { qsizegrip_metacast_callback = cb; }
-    inline void setQSizeGrip_Metacall_Callback(QSizeGrip_Metacall_Callback cb) { qsizegrip_metacall_callback = cb; }
-    inline void setQSizeGrip_SizeHint_Callback(QSizeGrip_SizeHint_Callback cb) { qsizegrip_sizehint_callback = cb; }
-    inline void setQSizeGrip_SetVisible_Callback(QSizeGrip_SetVisible_Callback cb) { qsizegrip_setvisible_callback = cb; }
-    inline void setQSizeGrip_PaintEvent_Callback(QSizeGrip_PaintEvent_Callback cb) { qsizegrip_paintevent_callback = cb; }
-    inline void setQSizeGrip_MousePressEvent_Callback(QSizeGrip_MousePressEvent_Callback cb) { qsizegrip_mousepressevent_callback = cb; }
-    inline void setQSizeGrip_MouseMoveEvent_Callback(QSizeGrip_MouseMoveEvent_Callback cb) { qsizegrip_mousemoveevent_callback = cb; }
-    inline void setQSizeGrip_MouseReleaseEvent_Callback(QSizeGrip_MouseReleaseEvent_Callback cb) { qsizegrip_mousereleaseevent_callback = cb; }
-    inline void setQSizeGrip_MoveEvent_Callback(QSizeGrip_MoveEvent_Callback cb) { qsizegrip_moveevent_callback = cb; }
-    inline void setQSizeGrip_ShowEvent_Callback(QSizeGrip_ShowEvent_Callback cb) { qsizegrip_showevent_callback = cb; }
-    inline void setQSizeGrip_HideEvent_Callback(QSizeGrip_HideEvent_Callback cb) { qsizegrip_hideevent_callback = cb; }
-    inline void setQSizeGrip_EventFilter_Callback(QSizeGrip_EventFilter_Callback cb) { qsizegrip_eventfilter_callback = cb; }
-    inline void setQSizeGrip_Event_Callback(QSizeGrip_Event_Callback cb) { qsizegrip_event_callback = cb; }
-    inline void setQSizeGrip_DevType_Callback(QSizeGrip_DevType_Callback cb) { qsizegrip_devtype_callback = cb; }
-    inline void setQSizeGrip_MinimumSizeHint_Callback(QSizeGrip_MinimumSizeHint_Callback cb) { qsizegrip_minimumsizehint_callback = cb; }
-    inline void setQSizeGrip_HeightForWidth_Callback(QSizeGrip_HeightForWidth_Callback cb) { qsizegrip_heightforwidth_callback = cb; }
-    inline void setQSizeGrip_HasHeightForWidth_Callback(QSizeGrip_HasHeightForWidth_Callback cb) { qsizegrip_hasheightforwidth_callback = cb; }
-    inline void setQSizeGrip_PaintEngine_Callback(QSizeGrip_PaintEngine_Callback cb) { qsizegrip_paintengine_callback = cb; }
-    inline void setQSizeGrip_MouseDoubleClickEvent_Callback(QSizeGrip_MouseDoubleClickEvent_Callback cb) { qsizegrip_mousedoubleclickevent_callback = cb; }
-    inline void setQSizeGrip_WheelEvent_Callback(QSizeGrip_WheelEvent_Callback cb) { qsizegrip_wheelevent_callback = cb; }
-    inline void setQSizeGrip_KeyPressEvent_Callback(QSizeGrip_KeyPressEvent_Callback cb) { qsizegrip_keypressevent_callback = cb; }
-    inline void setQSizeGrip_KeyReleaseEvent_Callback(QSizeGrip_KeyReleaseEvent_Callback cb) { qsizegrip_keyreleaseevent_callback = cb; }
-    inline void setQSizeGrip_FocusInEvent_Callback(QSizeGrip_FocusInEvent_Callback cb) { qsizegrip_focusinevent_callback = cb; }
-    inline void setQSizeGrip_FocusOutEvent_Callback(QSizeGrip_FocusOutEvent_Callback cb) { qsizegrip_focusoutevent_callback = cb; }
-    inline void setQSizeGrip_EnterEvent_Callback(QSizeGrip_EnterEvent_Callback cb) { qsizegrip_enterevent_callback = cb; }
-    inline void setQSizeGrip_LeaveEvent_Callback(QSizeGrip_LeaveEvent_Callback cb) { qsizegrip_leaveevent_callback = cb; }
-    inline void setQSizeGrip_ResizeEvent_Callback(QSizeGrip_ResizeEvent_Callback cb) { qsizegrip_resizeevent_callback = cb; }
-    inline void setQSizeGrip_CloseEvent_Callback(QSizeGrip_CloseEvent_Callback cb) { qsizegrip_closeevent_callback = cb; }
-    inline void setQSizeGrip_ContextMenuEvent_Callback(QSizeGrip_ContextMenuEvent_Callback cb) { qsizegrip_contextmenuevent_callback = cb; }
-    inline void setQSizeGrip_TabletEvent_Callback(QSizeGrip_TabletEvent_Callback cb) { qsizegrip_tabletevent_callback = cb; }
-    inline void setQSizeGrip_ActionEvent_Callback(QSizeGrip_ActionEvent_Callback cb) { qsizegrip_actionevent_callback = cb; }
-    inline void setQSizeGrip_DragEnterEvent_Callback(QSizeGrip_DragEnterEvent_Callback cb) { qsizegrip_dragenterevent_callback = cb; }
-    inline void setQSizeGrip_DragMoveEvent_Callback(QSizeGrip_DragMoveEvent_Callback cb) { qsizegrip_dragmoveevent_callback = cb; }
-    inline void setQSizeGrip_DragLeaveEvent_Callback(QSizeGrip_DragLeaveEvent_Callback cb) { qsizegrip_dragleaveevent_callback = cb; }
-    inline void setQSizeGrip_DropEvent_Callback(QSizeGrip_DropEvent_Callback cb) { qsizegrip_dropevent_callback = cb; }
-    inline void setQSizeGrip_NativeEvent_Callback(QSizeGrip_NativeEvent_Callback cb) { qsizegrip_nativeevent_callback = cb; }
-    inline void setQSizeGrip_ChangeEvent_Callback(QSizeGrip_ChangeEvent_Callback cb) { qsizegrip_changeevent_callback = cb; }
-    inline void setQSizeGrip_Metric_Callback(QSizeGrip_Metric_Callback cb) { qsizegrip_metric_callback = cb; }
-    inline void setQSizeGrip_InitPainter_Callback(QSizeGrip_InitPainter_Callback cb) { qsizegrip_initpainter_callback = cb; }
-    inline void setQSizeGrip_Redirected_Callback(QSizeGrip_Redirected_Callback cb) { qsizegrip_redirected_callback = cb; }
-    inline void setQSizeGrip_SharedPainter_Callback(QSizeGrip_SharedPainter_Callback cb) { qsizegrip_sharedpainter_callback = cb; }
-    inline void setQSizeGrip_InputMethodEvent_Callback(QSizeGrip_InputMethodEvent_Callback cb) { qsizegrip_inputmethodevent_callback = cb; }
-    inline void setQSizeGrip_InputMethodQuery_Callback(QSizeGrip_InputMethodQuery_Callback cb) { qsizegrip_inputmethodquery_callback = cb; }
-    inline void setQSizeGrip_FocusNextPrevChild_Callback(QSizeGrip_FocusNextPrevChild_Callback cb) { qsizegrip_focusnextprevchild_callback = cb; }
-    inline void setQSizeGrip_TimerEvent_Callback(QSizeGrip_TimerEvent_Callback cb) { qsizegrip_timerevent_callback = cb; }
-    inline void setQSizeGrip_ChildEvent_Callback(QSizeGrip_ChildEvent_Callback cb) { qsizegrip_childevent_callback = cb; }
-    inline void setQSizeGrip_CustomEvent_Callback(QSizeGrip_CustomEvent_Callback cb) { qsizegrip_customevent_callback = cb; }
-    inline void setQSizeGrip_ConnectNotify_Callback(QSizeGrip_ConnectNotify_Callback cb) { qsizegrip_connectnotify_callback = cb; }
-    inline void setQSizeGrip_DisconnectNotify_Callback(QSizeGrip_DisconnectNotify_Callback cb) { qsizegrip_disconnectnotify_callback = cb; }
-    inline void setQSizeGrip_UpdateMicroFocus_Callback(QSizeGrip_UpdateMicroFocus_Callback cb) { qsizegrip_updatemicrofocus_callback = cb; }
-    inline void setQSizeGrip_Create_Callback(QSizeGrip_Create_Callback cb) { qsizegrip_create_callback = cb; }
-    inline void setQSizeGrip_Destroy_Callback(QSizeGrip_Destroy_Callback cb) { qsizegrip_destroy_callback = cb; }
-    inline void setQSizeGrip_FocusNextChild_Callback(QSizeGrip_FocusNextChild_Callback cb) { qsizegrip_focusnextchild_callback = cb; }
-    inline void setQSizeGrip_FocusPreviousChild_Callback(QSizeGrip_FocusPreviousChild_Callback cb) { qsizegrip_focuspreviouschild_callback = cb; }
-    inline void setQSizeGrip_Sender_Callback(QSizeGrip_Sender_Callback cb) { qsizegrip_sender_callback = cb; }
-    inline void setQSizeGrip_SenderSignalIndex_Callback(QSizeGrip_SenderSignalIndex_Callback cb) { qsizegrip_sendersignalindex_callback = cb; }
-    inline void setQSizeGrip_Receivers_Callback(QSizeGrip_Receivers_Callback cb) { qsizegrip_receivers_callback = cb; }
-    inline void setQSizeGrip_IsSignalConnected_Callback(QSizeGrip_IsSignalConnected_Callback cb) { qsizegrip_issignalconnected_callback = cb; }
-    inline void setQSizeGrip_GetDecodedMetricF_Callback(QSizeGrip_GetDecodedMetricF_Callback cb) { qsizegrip_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQSizeGrip_MetaObject_IsBase(bool value) const { qsizegrip_metaobject_isbase = value; }
-    inline void setQSizeGrip_Metacast_IsBase(bool value) const { qsizegrip_metacast_isbase = value; }
-    inline void setQSizeGrip_Metacall_IsBase(bool value) const { qsizegrip_metacall_isbase = value; }
-    inline void setQSizeGrip_SizeHint_IsBase(bool value) const { qsizegrip_sizehint_isbase = value; }
-    inline void setQSizeGrip_SetVisible_IsBase(bool value) const { qsizegrip_setvisible_isbase = value; }
-    inline void setQSizeGrip_PaintEvent_IsBase(bool value) const { qsizegrip_paintevent_isbase = value; }
-    inline void setQSizeGrip_MousePressEvent_IsBase(bool value) const { qsizegrip_mousepressevent_isbase = value; }
-    inline void setQSizeGrip_MouseMoveEvent_IsBase(bool value) const { qsizegrip_mousemoveevent_isbase = value; }
-    inline void setQSizeGrip_MouseReleaseEvent_IsBase(bool value) const { qsizegrip_mousereleaseevent_isbase = value; }
-    inline void setQSizeGrip_MoveEvent_IsBase(bool value) const { qsizegrip_moveevent_isbase = value; }
-    inline void setQSizeGrip_ShowEvent_IsBase(bool value) const { qsizegrip_showevent_isbase = value; }
-    inline void setQSizeGrip_HideEvent_IsBase(bool value) const { qsizegrip_hideevent_isbase = value; }
-    inline void setQSizeGrip_EventFilter_IsBase(bool value) const { qsizegrip_eventfilter_isbase = value; }
-    inline void setQSizeGrip_Event_IsBase(bool value) const { qsizegrip_event_isbase = value; }
-    inline void setQSizeGrip_DevType_IsBase(bool value) const { qsizegrip_devtype_isbase = value; }
-    inline void setQSizeGrip_MinimumSizeHint_IsBase(bool value) const { qsizegrip_minimumsizehint_isbase = value; }
-    inline void setQSizeGrip_HeightForWidth_IsBase(bool value) const { qsizegrip_heightforwidth_isbase = value; }
-    inline void setQSizeGrip_HasHeightForWidth_IsBase(bool value) const { qsizegrip_hasheightforwidth_isbase = value; }
-    inline void setQSizeGrip_PaintEngine_IsBase(bool value) const { qsizegrip_paintengine_isbase = value; }
-    inline void setQSizeGrip_MouseDoubleClickEvent_IsBase(bool value) const { qsizegrip_mousedoubleclickevent_isbase = value; }
-    inline void setQSizeGrip_WheelEvent_IsBase(bool value) const { qsizegrip_wheelevent_isbase = value; }
-    inline void setQSizeGrip_KeyPressEvent_IsBase(bool value) const { qsizegrip_keypressevent_isbase = value; }
-    inline void setQSizeGrip_KeyReleaseEvent_IsBase(bool value) const { qsizegrip_keyreleaseevent_isbase = value; }
-    inline void setQSizeGrip_FocusInEvent_IsBase(bool value) const { qsizegrip_focusinevent_isbase = value; }
-    inline void setQSizeGrip_FocusOutEvent_IsBase(bool value) const { qsizegrip_focusoutevent_isbase = value; }
-    inline void setQSizeGrip_EnterEvent_IsBase(bool value) const { qsizegrip_enterevent_isbase = value; }
-    inline void setQSizeGrip_LeaveEvent_IsBase(bool value) const { qsizegrip_leaveevent_isbase = value; }
-    inline void setQSizeGrip_ResizeEvent_IsBase(bool value) const { qsizegrip_resizeevent_isbase = value; }
-    inline void setQSizeGrip_CloseEvent_IsBase(bool value) const { qsizegrip_closeevent_isbase = value; }
-    inline void setQSizeGrip_ContextMenuEvent_IsBase(bool value) const { qsizegrip_contextmenuevent_isbase = value; }
-    inline void setQSizeGrip_TabletEvent_IsBase(bool value) const { qsizegrip_tabletevent_isbase = value; }
-    inline void setQSizeGrip_ActionEvent_IsBase(bool value) const { qsizegrip_actionevent_isbase = value; }
-    inline void setQSizeGrip_DragEnterEvent_IsBase(bool value) const { qsizegrip_dragenterevent_isbase = value; }
-    inline void setQSizeGrip_DragMoveEvent_IsBase(bool value) const { qsizegrip_dragmoveevent_isbase = value; }
-    inline void setQSizeGrip_DragLeaveEvent_IsBase(bool value) const { qsizegrip_dragleaveevent_isbase = value; }
-    inline void setQSizeGrip_DropEvent_IsBase(bool value) const { qsizegrip_dropevent_isbase = value; }
-    inline void setQSizeGrip_NativeEvent_IsBase(bool value) const { qsizegrip_nativeevent_isbase = value; }
-    inline void setQSizeGrip_ChangeEvent_IsBase(bool value) const { qsizegrip_changeevent_isbase = value; }
-    inline void setQSizeGrip_Metric_IsBase(bool value) const { qsizegrip_metric_isbase = value; }
-    inline void setQSizeGrip_InitPainter_IsBase(bool value) const { qsizegrip_initpainter_isbase = value; }
-    inline void setQSizeGrip_Redirected_IsBase(bool value) const { qsizegrip_redirected_isbase = value; }
-    inline void setQSizeGrip_SharedPainter_IsBase(bool value) const { qsizegrip_sharedpainter_isbase = value; }
-    inline void setQSizeGrip_InputMethodEvent_IsBase(bool value) const { qsizegrip_inputmethodevent_isbase = value; }
-    inline void setQSizeGrip_InputMethodQuery_IsBase(bool value) const { qsizegrip_inputmethodquery_isbase = value; }
-    inline void setQSizeGrip_FocusNextPrevChild_IsBase(bool value) const { qsizegrip_focusnextprevchild_isbase = value; }
-    inline void setQSizeGrip_TimerEvent_IsBase(bool value) const { qsizegrip_timerevent_isbase = value; }
-    inline void setQSizeGrip_ChildEvent_IsBase(bool value) const { qsizegrip_childevent_isbase = value; }
-    inline void setQSizeGrip_CustomEvent_IsBase(bool value) const { qsizegrip_customevent_isbase = value; }
-    inline void setQSizeGrip_ConnectNotify_IsBase(bool value) const { qsizegrip_connectnotify_isbase = value; }
-    inline void setQSizeGrip_DisconnectNotify_IsBase(bool value) const { qsizegrip_disconnectnotify_isbase = value; }
-    inline void setQSizeGrip_UpdateMicroFocus_IsBase(bool value) const { qsizegrip_updatemicrofocus_isbase = value; }
-    inline void setQSizeGrip_Create_IsBase(bool value) const { qsizegrip_create_isbase = value; }
-    inline void setQSizeGrip_Destroy_IsBase(bool value) const { qsizegrip_destroy_isbase = value; }
-    inline void setQSizeGrip_FocusNextChild_IsBase(bool value) const { qsizegrip_focusnextchild_isbase = value; }
-    inline void setQSizeGrip_FocusPreviousChild_IsBase(bool value) const { qsizegrip_focuspreviouschild_isbase = value; }
-    inline void setQSizeGrip_Sender_IsBase(bool value) const { qsizegrip_sender_isbase = value; }
-    inline void setQSizeGrip_SenderSignalIndex_IsBase(bool value) const { qsizegrip_sendersignalindex_isbase = value; }
-    inline void setQSizeGrip_Receivers_IsBase(bool value) const { qsizegrip_receivers_isbase = value; }
-    inline void setQSizeGrip_IsSignalConnected_IsBase(bool value) const { qsizegrip_issignalconnected_isbase = value; }
-    inline void setQSizeGrip_GetDecodedMetricF_IsBase(bool value) const { qsizegrip_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qsizegrip_metaobject_isbase) {
-            qsizegrip_metaobject_isbase = false;
-            return QSizeGrip::metaObject();
-        }
-        auto metaobject_cb = qsizegrip_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qsizegrip_metaobject_callback) {
+            QMetaObject* callback_ret = qsizegrip_metaobject_callback(this);
             return callback_ret;
         }
         return QSizeGrip::metaObject();
@@ -346,14 +182,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qsizegrip_metacast_isbase) {
-            qsizegrip_metacast_isbase = false;
-            return QSizeGrip::qt_metacast(param1);
-        }
-        auto metacast_cb = qsizegrip_metacast_callback;
-        if (metacast_cb) {
+        if (qsizegrip_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qsizegrip_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QSizeGrip::qt_metacast(param1);
@@ -361,16 +192,11 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qsizegrip_metacall_isbase) {
-            qsizegrip_metacall_isbase = false;
-            return QSizeGrip::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qsizegrip_metacall_callback;
-        if (metacall_cb) {
+        if (qsizegrip_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qsizegrip_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QSizeGrip::qt_metacall(param1, param2, param3);
@@ -378,13 +204,8 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qsizegrip_sizehint_isbase) {
-            qsizegrip_sizehint_isbase = false;
-            return QSizeGrip::sizeHint();
-        }
-        auto sizehint_cb = qsizegrip_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qsizegrip_sizehint_callback) {
+            QSize* callback_ret = qsizegrip_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -394,15 +215,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qsizegrip_setvisible_isbase) {
-            qsizegrip_setvisible_isbase = false;
-            QSizeGrip::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qsizegrip_setvisible_callback;
-        if (setvisible_cb) {
+        if (qsizegrip_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qsizegrip_setvisible_callback(this, cbval1);
             return;
         }
         QSizeGrip::setVisible(visible);
@@ -410,15 +225,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* param1) override {
-        if (qsizegrip_paintevent_isbase) {
-            qsizegrip_paintevent_isbase = false;
-            QSizeGrip::paintEvent(param1);
-            return;
-        }
-        auto paintevent_cb = qsizegrip_paintevent_callback;
-        if (paintevent_cb) {
+        if (qsizegrip_paintevent_callback) {
             QPaintEvent* cbval1 = param1;
-            paintevent_cb(this, cbval1);
+            qsizegrip_paintevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::paintEvent(param1);
@@ -426,15 +235,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* param1) override {
-        if (qsizegrip_mousepressevent_isbase) {
-            qsizegrip_mousepressevent_isbase = false;
-            QSizeGrip::mousePressEvent(param1);
-            return;
-        }
-        auto mousepressevent_cb = qsizegrip_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qsizegrip_mousepressevent_callback) {
             QMouseEvent* cbval1 = param1;
-            mousepressevent_cb(this, cbval1);
+            qsizegrip_mousepressevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::mousePressEvent(param1);
@@ -442,15 +245,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* param1) override {
-        if (qsizegrip_mousemoveevent_isbase) {
-            qsizegrip_mousemoveevent_isbase = false;
-            QSizeGrip::mouseMoveEvent(param1);
-            return;
-        }
-        auto mousemoveevent_cb = qsizegrip_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qsizegrip_mousemoveevent_callback) {
             QMouseEvent* cbval1 = param1;
-            mousemoveevent_cb(this, cbval1);
+            qsizegrip_mousemoveevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::mouseMoveEvent(param1);
@@ -458,15 +255,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* mouseEvent) override {
-        if (qsizegrip_mousereleaseevent_isbase) {
-            qsizegrip_mousereleaseevent_isbase = false;
-            QSizeGrip::mouseReleaseEvent(mouseEvent);
-            return;
-        }
-        auto mousereleaseevent_cb = qsizegrip_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qsizegrip_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = mouseEvent;
-            mousereleaseevent_cb(this, cbval1);
+            qsizegrip_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::mouseReleaseEvent(mouseEvent);
@@ -474,15 +265,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* moveEvent) override {
-        if (qsizegrip_moveevent_isbase) {
-            qsizegrip_moveevent_isbase = false;
-            QSizeGrip::moveEvent(moveEvent);
-            return;
-        }
-        auto moveevent_cb = qsizegrip_moveevent_callback;
-        if (moveevent_cb) {
+        if (qsizegrip_moveevent_callback) {
             QMoveEvent* cbval1 = moveEvent;
-            moveevent_cb(this, cbval1);
+            qsizegrip_moveevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::moveEvent(moveEvent);
@@ -490,15 +275,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* showEvent) override {
-        if (qsizegrip_showevent_isbase) {
-            qsizegrip_showevent_isbase = false;
-            QSizeGrip::showEvent(showEvent);
-            return;
-        }
-        auto showevent_cb = qsizegrip_showevent_callback;
-        if (showevent_cb) {
+        if (qsizegrip_showevent_callback) {
             QShowEvent* cbval1 = showEvent;
-            showevent_cb(this, cbval1);
+            qsizegrip_showevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::showEvent(showEvent);
@@ -506,15 +285,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* hideEvent) override {
-        if (qsizegrip_hideevent_isbase) {
-            qsizegrip_hideevent_isbase = false;
-            QSizeGrip::hideEvent(hideEvent);
-            return;
-        }
-        auto hideevent_cb = qsizegrip_hideevent_callback;
-        if (hideevent_cb) {
+        if (qsizegrip_hideevent_callback) {
             QHideEvent* cbval1 = hideEvent;
-            hideevent_cb(this, cbval1);
+            qsizegrip_hideevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::hideEvent(hideEvent);
@@ -522,15 +295,10 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (qsizegrip_eventfilter_isbase) {
-            qsizegrip_eventfilter_isbase = false;
-            return QSizeGrip::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = qsizegrip_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qsizegrip_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qsizegrip_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QSizeGrip::eventFilter(param1, param2);
@@ -538,14 +306,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* param1) override {
-        if (qsizegrip_event_isbase) {
-            qsizegrip_event_isbase = false;
-            return QSizeGrip::event(param1);
-        }
-        auto event_cb = qsizegrip_event_callback;
-        if (event_cb) {
+        if (qsizegrip_event_callback) {
             QEvent* cbval1 = param1;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qsizegrip_event_callback(this, cbval1);
             return callback_ret;
         }
         return QSizeGrip::event(param1);
@@ -553,13 +316,8 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qsizegrip_devtype_isbase) {
-            qsizegrip_devtype_isbase = false;
-            return QSizeGrip::devType();
-        }
-        auto devtype_cb = qsizegrip_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qsizegrip_devtype_callback) {
+            int callback_ret = qsizegrip_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QSizeGrip::devType();
@@ -567,13 +325,8 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qsizegrip_minimumsizehint_isbase) {
-            qsizegrip_minimumsizehint_isbase = false;
-            return QSizeGrip::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qsizegrip_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qsizegrip_minimumsizehint_callback) {
+            QSize* callback_ret = qsizegrip_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -583,14 +336,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qsizegrip_heightforwidth_isbase) {
-            qsizegrip_heightforwidth_isbase = false;
-            return QSizeGrip::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qsizegrip_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qsizegrip_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qsizegrip_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QSizeGrip::heightForWidth(param1);
@@ -598,13 +346,8 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qsizegrip_hasheightforwidth_isbase) {
-            qsizegrip_hasheightforwidth_isbase = false;
-            return QSizeGrip::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qsizegrip_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qsizegrip_hasheightforwidth_callback) {
+            bool callback_ret = qsizegrip_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QSizeGrip::hasHeightForWidth();
@@ -612,13 +355,8 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qsizegrip_paintengine_isbase) {
-            qsizegrip_paintengine_isbase = false;
-            return QSizeGrip::paintEngine();
-        }
-        auto paintengine_cb = qsizegrip_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qsizegrip_paintengine_callback) {
+            QPaintEngine* callback_ret = qsizegrip_paintengine_callback(this);
             return callback_ret;
         }
         return QSizeGrip::paintEngine();
@@ -626,15 +364,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qsizegrip_mousedoubleclickevent_isbase) {
-            qsizegrip_mousedoubleclickevent_isbase = false;
-            QSizeGrip::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qsizegrip_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qsizegrip_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qsizegrip_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::mouseDoubleClickEvent(event);
@@ -642,15 +374,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qsizegrip_wheelevent_isbase) {
-            qsizegrip_wheelevent_isbase = false;
-            QSizeGrip::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qsizegrip_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qsizegrip_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qsizegrip_wheelevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::wheelEvent(event);
@@ -658,15 +384,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qsizegrip_keypressevent_isbase) {
-            qsizegrip_keypressevent_isbase = false;
-            QSizeGrip::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qsizegrip_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qsizegrip_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qsizegrip_keypressevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::keyPressEvent(event);
@@ -674,15 +394,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qsizegrip_keyreleaseevent_isbase) {
-            qsizegrip_keyreleaseevent_isbase = false;
-            QSizeGrip::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qsizegrip_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qsizegrip_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qsizegrip_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::keyReleaseEvent(event);
@@ -690,15 +404,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qsizegrip_focusinevent_isbase) {
-            qsizegrip_focusinevent_isbase = false;
-            QSizeGrip::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qsizegrip_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qsizegrip_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qsizegrip_focusinevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::focusInEvent(event);
@@ -706,15 +414,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qsizegrip_focusoutevent_isbase) {
-            qsizegrip_focusoutevent_isbase = false;
-            QSizeGrip::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qsizegrip_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qsizegrip_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qsizegrip_focusoutevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::focusOutEvent(event);
@@ -722,15 +424,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qsizegrip_enterevent_isbase) {
-            qsizegrip_enterevent_isbase = false;
-            QSizeGrip::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qsizegrip_enterevent_callback;
-        if (enterevent_cb) {
+        if (qsizegrip_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qsizegrip_enterevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::enterEvent(event);
@@ -738,15 +434,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qsizegrip_leaveevent_isbase) {
-            qsizegrip_leaveevent_isbase = false;
-            QSizeGrip::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qsizegrip_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qsizegrip_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qsizegrip_leaveevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::leaveEvent(event);
@@ -754,15 +444,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (qsizegrip_resizeevent_isbase) {
-            qsizegrip_resizeevent_isbase = false;
-            QSizeGrip::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = qsizegrip_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qsizegrip_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            qsizegrip_resizeevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::resizeEvent(event);
@@ -770,15 +454,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qsizegrip_closeevent_isbase) {
-            qsizegrip_closeevent_isbase = false;
-            QSizeGrip::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qsizegrip_closeevent_callback;
-        if (closeevent_cb) {
+        if (qsizegrip_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qsizegrip_closeevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::closeEvent(event);
@@ -786,15 +464,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (qsizegrip_contextmenuevent_isbase) {
-            qsizegrip_contextmenuevent_isbase = false;
-            QSizeGrip::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qsizegrip_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qsizegrip_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qsizegrip_contextmenuevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::contextMenuEvent(event);
@@ -802,15 +474,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qsizegrip_tabletevent_isbase) {
-            qsizegrip_tabletevent_isbase = false;
-            QSizeGrip::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qsizegrip_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qsizegrip_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qsizegrip_tabletevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::tabletEvent(event);
@@ -818,15 +484,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qsizegrip_actionevent_isbase) {
-            qsizegrip_actionevent_isbase = false;
-            QSizeGrip::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qsizegrip_actionevent_callback;
-        if (actionevent_cb) {
+        if (qsizegrip_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qsizegrip_actionevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::actionEvent(event);
@@ -834,15 +494,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qsizegrip_dragenterevent_isbase) {
-            qsizegrip_dragenterevent_isbase = false;
-            QSizeGrip::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qsizegrip_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qsizegrip_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qsizegrip_dragenterevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::dragEnterEvent(event);
@@ -850,15 +504,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qsizegrip_dragmoveevent_isbase) {
-            qsizegrip_dragmoveevent_isbase = false;
-            QSizeGrip::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qsizegrip_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qsizegrip_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qsizegrip_dragmoveevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::dragMoveEvent(event);
@@ -866,15 +514,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qsizegrip_dragleaveevent_isbase) {
-            qsizegrip_dragleaveevent_isbase = false;
-            QSizeGrip::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qsizegrip_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qsizegrip_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qsizegrip_dragleaveevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::dragLeaveEvent(event);
@@ -882,15 +524,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qsizegrip_dropevent_isbase) {
-            qsizegrip_dropevent_isbase = false;
-            QSizeGrip::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qsizegrip_dropevent_callback;
-        if (dropevent_cb) {
+        if (qsizegrip_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qsizegrip_dropevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::dropEvent(event);
@@ -898,12 +534,7 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qsizegrip_nativeevent_isbase) {
-            qsizegrip_nativeevent_isbase = false;
-            return QSizeGrip::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qsizegrip_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qsizegrip_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -913,7 +544,7 @@ class VirtualQSizeGrip final : public QSizeGrip {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qsizegrip_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -922,15 +553,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (qsizegrip_changeevent_isbase) {
-            qsizegrip_changeevent_isbase = false;
-            QSizeGrip::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = qsizegrip_changeevent_callback;
-        if (changeevent_cb) {
+        if (qsizegrip_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            qsizegrip_changeevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::changeEvent(param1);
@@ -938,14 +563,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qsizegrip_metric_isbase) {
-            qsizegrip_metric_isbase = false;
-            return QSizeGrip::metric(param1);
-        }
-        auto metric_cb = qsizegrip_metric_callback;
-        if (metric_cb) {
+        if (qsizegrip_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qsizegrip_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QSizeGrip::metric(param1);
@@ -953,15 +573,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qsizegrip_initpainter_isbase) {
-            qsizegrip_initpainter_isbase = false;
-            QSizeGrip::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qsizegrip_initpainter_callback;
-        if (initpainter_cb) {
+        if (qsizegrip_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qsizegrip_initpainter_callback(this, cbval1);
             return;
         }
         QSizeGrip::initPainter(painter);
@@ -969,14 +583,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qsizegrip_redirected_isbase) {
-            qsizegrip_redirected_isbase = false;
-            return QSizeGrip::redirected(offset);
-        }
-        auto redirected_cb = qsizegrip_redirected_callback;
-        if (redirected_cb) {
+        if (qsizegrip_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qsizegrip_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QSizeGrip::redirected(offset);
@@ -984,13 +593,8 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qsizegrip_sharedpainter_isbase) {
-            qsizegrip_sharedpainter_isbase = false;
-            return QSizeGrip::sharedPainter();
-        }
-        auto sharedpainter_cb = qsizegrip_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qsizegrip_sharedpainter_callback) {
+            QPainter* callback_ret = qsizegrip_sharedpainter_callback(this);
             return callback_ret;
         }
         return QSizeGrip::sharedPainter();
@@ -998,15 +602,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qsizegrip_inputmethodevent_isbase) {
-            qsizegrip_inputmethodevent_isbase = false;
-            QSizeGrip::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qsizegrip_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qsizegrip_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qsizegrip_inputmethodevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::inputMethodEvent(param1);
@@ -1014,14 +612,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qsizegrip_inputmethodquery_isbase) {
-            qsizegrip_inputmethodquery_isbase = false;
-            return QSizeGrip::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qsizegrip_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qsizegrip_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qsizegrip_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1031,14 +624,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qsizegrip_focusnextprevchild_isbase) {
-            qsizegrip_focusnextprevchild_isbase = false;
-            return QSizeGrip::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qsizegrip_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qsizegrip_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qsizegrip_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QSizeGrip::focusNextPrevChild(next);
@@ -1046,15 +634,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qsizegrip_timerevent_isbase) {
-            qsizegrip_timerevent_isbase = false;
-            QSizeGrip::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qsizegrip_timerevent_callback;
-        if (timerevent_cb) {
+        if (qsizegrip_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qsizegrip_timerevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::timerEvent(event);
@@ -1062,15 +644,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qsizegrip_childevent_isbase) {
-            qsizegrip_childevent_isbase = false;
-            QSizeGrip::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qsizegrip_childevent_callback;
-        if (childevent_cb) {
+        if (qsizegrip_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qsizegrip_childevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::childEvent(event);
@@ -1078,15 +654,9 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qsizegrip_customevent_isbase) {
-            qsizegrip_customevent_isbase = false;
-            QSizeGrip::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qsizegrip_customevent_callback;
-        if (customevent_cb) {
+        if (qsizegrip_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qsizegrip_customevent_callback(this, cbval1);
             return;
         }
         QSizeGrip::customEvent(event);
@@ -1094,17 +664,11 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qsizegrip_connectnotify_isbase) {
-            qsizegrip_connectnotify_isbase = false;
-            QSizeGrip::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qsizegrip_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qsizegrip_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qsizegrip_connectnotify_callback(this, cbval1);
             return;
         }
         QSizeGrip::connectNotify(signal);
@@ -1112,270 +676,56 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qsizegrip_disconnectnotify_isbase) {
-            qsizegrip_disconnectnotify_isbase = false;
-            QSizeGrip::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qsizegrip_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qsizegrip_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qsizegrip_disconnectnotify_callback(this, cbval1);
             return;
         }
         QSizeGrip::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qsizegrip_updatemicrofocus_isbase) {
-            qsizegrip_updatemicrofocus_isbase = false;
-            QSizeGrip::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qsizegrip_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QSizeGrip::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qsizegrip_create_isbase) {
-            qsizegrip_create_isbase = false;
-            QSizeGrip::create();
-            return;
-        }
-        auto create_cb = qsizegrip_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QSizeGrip::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qsizegrip_destroy_isbase) {
-            qsizegrip_destroy_isbase = false;
-            QSizeGrip::destroy();
-            return;
-        }
-        auto destroy_cb = qsizegrip_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QSizeGrip::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qsizegrip_focusnextchild_isbase) {
-            qsizegrip_focusnextchild_isbase = false;
-            return QSizeGrip::focusNextChild();
-        }
-        auto focusnextchild_cb = qsizegrip_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QSizeGrip::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qsizegrip_focuspreviouschild_isbase) {
-            qsizegrip_focuspreviouschild_isbase = false;
-            return QSizeGrip::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qsizegrip_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QSizeGrip::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qsizegrip_sender_isbase) {
-            qsizegrip_sender_isbase = false;
-            return QSizeGrip::sender();
-        }
-        auto sender_cb = qsizegrip_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QSizeGrip::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qsizegrip_sendersignalindex_isbase) {
-            qsizegrip_sendersignalindex_isbase = false;
-            return QSizeGrip::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qsizegrip_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QSizeGrip::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qsizegrip_receivers_isbase) {
-            qsizegrip_receivers_isbase = false;
-            return QSizeGrip::receivers(signal);
-        }
-        auto receivers_cb = qsizegrip_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QSizeGrip::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qsizegrip_issignalconnected_isbase) {
-            qsizegrip_issignalconnected_isbase = false;
-            return QSizeGrip::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qsizegrip_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QSizeGrip::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qsizegrip_getdecodedmetricf_isbase) {
-            qsizegrip_getdecodedmetricf_isbase = false;
-            return QSizeGrip::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qsizegrip_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QSizeGrip::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void QSizeGrip_PaintEvent(QSizeGrip* self, QPaintEvent* param1);
     friend void QSizeGrip_SuperPaintEvent(QSizeGrip* self, QPaintEvent* param1);
-    friend void QSizeGrip_MousePressEvent(QSizeGrip* self, QMouseEvent* param1);
     friend void QSizeGrip_SuperMousePressEvent(QSizeGrip* self, QMouseEvent* param1);
-    friend void QSizeGrip_MouseMoveEvent(QSizeGrip* self, QMouseEvent* param1);
     friend void QSizeGrip_SuperMouseMoveEvent(QSizeGrip* self, QMouseEvent* param1);
-    friend void QSizeGrip_MouseReleaseEvent(QSizeGrip* self, QMouseEvent* mouseEvent);
     friend void QSizeGrip_SuperMouseReleaseEvent(QSizeGrip* self, QMouseEvent* mouseEvent);
-    friend void QSizeGrip_MoveEvent(QSizeGrip* self, QMoveEvent* moveEvent);
     friend void QSizeGrip_SuperMoveEvent(QSizeGrip* self, QMoveEvent* moveEvent);
-    friend void QSizeGrip_ShowEvent(QSizeGrip* self, QShowEvent* showEvent);
     friend void QSizeGrip_SuperShowEvent(QSizeGrip* self, QShowEvent* showEvent);
-    friend void QSizeGrip_HideEvent(QSizeGrip* self, QHideEvent* hideEvent);
     friend void QSizeGrip_SuperHideEvent(QSizeGrip* self, QHideEvent* hideEvent);
-    friend bool QSizeGrip_EventFilter(QSizeGrip* self, QObject* param1, QEvent* param2);
     friend bool QSizeGrip_SuperEventFilter(QSizeGrip* self, QObject* param1, QEvent* param2);
-    friend bool QSizeGrip_Event(QSizeGrip* self, QEvent* param1);
     friend bool QSizeGrip_SuperEvent(QSizeGrip* self, QEvent* param1);
-    friend void QSizeGrip_MouseDoubleClickEvent(QSizeGrip* self, QMouseEvent* event);
     friend void QSizeGrip_SuperMouseDoubleClickEvent(QSizeGrip* self, QMouseEvent* event);
-    friend void QSizeGrip_WheelEvent(QSizeGrip* self, QWheelEvent* event);
     friend void QSizeGrip_SuperWheelEvent(QSizeGrip* self, QWheelEvent* event);
-    friend void QSizeGrip_KeyPressEvent(QSizeGrip* self, QKeyEvent* event);
     friend void QSizeGrip_SuperKeyPressEvent(QSizeGrip* self, QKeyEvent* event);
-    friend void QSizeGrip_KeyReleaseEvent(QSizeGrip* self, QKeyEvent* event);
     friend void QSizeGrip_SuperKeyReleaseEvent(QSizeGrip* self, QKeyEvent* event);
-    friend void QSizeGrip_FocusInEvent(QSizeGrip* self, QFocusEvent* event);
     friend void QSizeGrip_SuperFocusInEvent(QSizeGrip* self, QFocusEvent* event);
-    friend void QSizeGrip_FocusOutEvent(QSizeGrip* self, QFocusEvent* event);
     friend void QSizeGrip_SuperFocusOutEvent(QSizeGrip* self, QFocusEvent* event);
-    friend void QSizeGrip_EnterEvent(QSizeGrip* self, QEnterEvent* event);
     friend void QSizeGrip_SuperEnterEvent(QSizeGrip* self, QEnterEvent* event);
-    friend void QSizeGrip_LeaveEvent(QSizeGrip* self, QEvent* event);
     friend void QSizeGrip_SuperLeaveEvent(QSizeGrip* self, QEvent* event);
-    friend void QSizeGrip_ResizeEvent(QSizeGrip* self, QResizeEvent* event);
     friend void QSizeGrip_SuperResizeEvent(QSizeGrip* self, QResizeEvent* event);
-    friend void QSizeGrip_CloseEvent(QSizeGrip* self, QCloseEvent* event);
     friend void QSizeGrip_SuperCloseEvent(QSizeGrip* self, QCloseEvent* event);
-    friend void QSizeGrip_ContextMenuEvent(QSizeGrip* self, QContextMenuEvent* event);
     friend void QSizeGrip_SuperContextMenuEvent(QSizeGrip* self, QContextMenuEvent* event);
-    friend void QSizeGrip_TabletEvent(QSizeGrip* self, QTabletEvent* event);
     friend void QSizeGrip_SuperTabletEvent(QSizeGrip* self, QTabletEvent* event);
-    friend void QSizeGrip_ActionEvent(QSizeGrip* self, QActionEvent* event);
     friend void QSizeGrip_SuperActionEvent(QSizeGrip* self, QActionEvent* event);
-    friend void QSizeGrip_DragEnterEvent(QSizeGrip* self, QDragEnterEvent* event);
     friend void QSizeGrip_SuperDragEnterEvent(QSizeGrip* self, QDragEnterEvent* event);
-    friend void QSizeGrip_DragMoveEvent(QSizeGrip* self, QDragMoveEvent* event);
     friend void QSizeGrip_SuperDragMoveEvent(QSizeGrip* self, QDragMoveEvent* event);
-    friend void QSizeGrip_DragLeaveEvent(QSizeGrip* self, QDragLeaveEvent* event);
     friend void QSizeGrip_SuperDragLeaveEvent(QSizeGrip* self, QDragLeaveEvent* event);
-    friend void QSizeGrip_DropEvent(QSizeGrip* self, QDropEvent* event);
     friend void QSizeGrip_SuperDropEvent(QSizeGrip* self, QDropEvent* event);
-    friend bool QSizeGrip_NativeEvent(QSizeGrip* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QSizeGrip_SuperNativeEvent(QSizeGrip* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void QSizeGrip_ChangeEvent(QSizeGrip* self, QEvent* param1);
     friend void QSizeGrip_SuperChangeEvent(QSizeGrip* self, QEvent* param1);
-    friend int QSizeGrip_Metric(const QSizeGrip* self, int param1);
     friend int QSizeGrip_SuperMetric(const QSizeGrip* self, int param1);
-    friend void QSizeGrip_InitPainter(const QSizeGrip* self, QPainter* painter);
     friend void QSizeGrip_SuperInitPainter(const QSizeGrip* self, QPainter* painter);
-    friend QPaintDevice* QSizeGrip_Redirected(const QSizeGrip* self, QPoint* offset);
     friend QPaintDevice* QSizeGrip_SuperRedirected(const QSizeGrip* self, QPoint* offset);
-    friend QPainter* QSizeGrip_SharedPainter(const QSizeGrip* self);
     friend QPainter* QSizeGrip_SuperSharedPainter(const QSizeGrip* self);
-    friend void QSizeGrip_InputMethodEvent(QSizeGrip* self, QInputMethodEvent* param1);
     friend void QSizeGrip_SuperInputMethodEvent(QSizeGrip* self, QInputMethodEvent* param1);
-    friend bool QSizeGrip_FocusNextPrevChild(QSizeGrip* self, bool next);
     friend bool QSizeGrip_SuperFocusNextPrevChild(QSizeGrip* self, bool next);
-    friend void QSizeGrip_TimerEvent(QSizeGrip* self, QTimerEvent* event);
     friend void QSizeGrip_SuperTimerEvent(QSizeGrip* self, QTimerEvent* event);
-    friend void QSizeGrip_ChildEvent(QSizeGrip* self, QChildEvent* event);
     friend void QSizeGrip_SuperChildEvent(QSizeGrip* self, QChildEvent* event);
-    friend void QSizeGrip_CustomEvent(QSizeGrip* self, QEvent* event);
     friend void QSizeGrip_SuperCustomEvent(QSizeGrip* self, QEvent* event);
-    friend void QSizeGrip_ConnectNotify(QSizeGrip* self, const QMetaMethod* signal);
     friend void QSizeGrip_SuperConnectNotify(QSizeGrip* self, const QMetaMethod* signal);
-    friend void QSizeGrip_DisconnectNotify(QSizeGrip* self, const QMetaMethod* signal);
     friend void QSizeGrip_SuperDisconnectNotify(QSizeGrip* self, const QMetaMethod* signal);
-    friend void QSizeGrip_UpdateMicroFocus(QSizeGrip* self);
-    friend void QSizeGrip_SuperUpdateMicroFocus(QSizeGrip* self);
-    friend void QSizeGrip_Create(QSizeGrip* self);
-    friend void QSizeGrip_SuperCreate(QSizeGrip* self);
-    friend void QSizeGrip_Destroy(QSizeGrip* self);
-    friend void QSizeGrip_SuperDestroy(QSizeGrip* self);
-    friend bool QSizeGrip_FocusNextChild(QSizeGrip* self);
-    friend bool QSizeGrip_SuperFocusNextChild(QSizeGrip* self);
-    friend bool QSizeGrip_FocusPreviousChild(QSizeGrip* self);
-    friend bool QSizeGrip_SuperFocusPreviousChild(QSizeGrip* self);
-    friend QObject* QSizeGrip_Sender(const QSizeGrip* self);
-    friend QObject* QSizeGrip_SuperSender(const QSizeGrip* self);
-    friend int QSizeGrip_SenderSignalIndex(const QSizeGrip* self);
-    friend int QSizeGrip_SuperSenderSignalIndex(const QSizeGrip* self);
-    friend int QSizeGrip_Receivers(const QSizeGrip* self, const char* signal);
-    friend int QSizeGrip_SuperReceivers(const QSizeGrip* self, const char* signal);
-    friend bool QSizeGrip_IsSignalConnected(const QSizeGrip* self, const QMetaMethod* signal);
-    friend bool QSizeGrip_SuperIsSignalConnected(const QSizeGrip* self, const QMetaMethod* signal);
-    friend double QSizeGrip_GetDecodedMetricF(const QSizeGrip* self, int metricA, int metricB);
-    friend double QSizeGrip_SuperGetDecodedMetricF(const QSizeGrip* self, int metricA, int metricB);
 };
 
 #endif

@@ -69,9 +69,9 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KParts__FileInfoExtension) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension) callconv(.c) QMetaObject) void {
         qtc.KParts__FileInfoExtension_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -257,9 +257,9 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__FileInfoExtension) callconv(.c) bool `
     ///
-    pub fn onHasSelection(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasSelection(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension) callconv(.c) bool) void {
         qtc.KParts__FileInfoExtension_OnHasSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -309,9 +309,9 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KParts__FileInfoExtension) callconv(.c) i32 `
     ///
-    pub fn onSupportedQueryModes(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedQueryModes(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension) callconv(.c) i32) void {
         qtc.KParts__FileInfoExtension_OnSupportedQueryModes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -341,6 +341,8 @@ pub const KParts__FileInfoExtension = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kparts-fileinfoextension.html#queryFor)
     ///
+    /// This method must be implemented with `onQueryFor` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KParts__FileInfoExtension `
@@ -369,24 +371,6 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     pub fn onQueryFor(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, i32) callconv(.c) KFileItemList) void {
         qtc.KParts__FileInfoExtension_OnQueryFor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superQueryFor` instead
-    ///
-    pub const SuperQueryFor = superQueryFor;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-fileinfoextension.html#queryFor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__FileInfoExtension `
-    ///
-    /// ` mode: fileinfoextension_enums.QueryMode `
-    ///
-    pub fn superQueryFor(self: KParts__FileInfoExtension, mode: i32) KFileItemList {
-        return .{ .ptr = qtc.KParts__FileInfoExtension_SuperQueryFor(@ptrCast(self.ptr), @bitCast(mode)) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1866,44 +1850,6 @@ pub const KParts__FileInfoExtension = extern struct {
         return .{ .ptr = qtc.KParts__FileInfoExtension_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__FileInfoExtension `
-    ///
-    pub fn superSender(self: KParts__FileInfoExtension) QObject {
-        return .{ .ptr = qtc.KParts__FileInfoExtension_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__FileInfoExtension`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KParts__FileInfoExtension_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1920,44 +1866,6 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     pub fn senderSignalIndex(self: KParts__FileInfoExtension) i32 {
         return qtc.KParts__FileInfoExtension_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__FileInfoExtension `
-    ///
-    pub fn superSenderSignalIndex(self: KParts__FileInfoExtension) i32 {
-        return qtc.KParts__FileInfoExtension_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__FileInfoExtension`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) i32) void {
-        qtc.KParts__FileInfoExtension_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1981,47 +1889,6 @@ pub const KParts__FileInfoExtension = extern struct {
         return qtc.KParts__FileInfoExtension_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__FileInfoExtension `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KParts__FileInfoExtension, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KParts__FileInfoExtension_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__FileInfoExtension`
-    ///
-    /// ` callback: *const fn (self: KParts__FileInfoExtension, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KParts__FileInfoExtension_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2041,47 +1908,6 @@ pub const KParts__FileInfoExtension = extern struct {
     pub fn isSignalConnected(self: KParts__FileInfoExtension, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KParts__FileInfoExtension_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__FileInfoExtension `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KParts__FileInfoExtension, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KParts__FileInfoExtension_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__FileInfoExtension`
-    ///
-    /// ` callback: *const fn (self: KParts__FileInfoExtension, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QMetaMethod) callconv(.c) bool) void {
-        qtc.KParts__FileInfoExtension_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -74,40 +74,40 @@ libqt_string TextCustomEditor__RichTextBrowserFindBar_Tr(const char* s) {
 
 bool TextCustomEditor__RichTextBrowserFindBar_ViewIsReadOnly(const TextCustomEditor__RichTextBrowserFindBar* self) {
     auto* vtextcustomeditor__richtextbrowserfindbar = dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditor__richtextbrowserfindbar && vtextcustomeditor__richtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditor__richtextbrowserfindbar) {
         return vtextcustomeditor__richtextbrowserfindbar->viewIsReadOnly();
     }
-    return {};
+    qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::viewIsReadOnly called without a directly constructed type");
 }
 
 bool TextCustomEditor__RichTextBrowserFindBar_DocumentIsEmpty(const TextCustomEditor__RichTextBrowserFindBar* self) {
     auto* vtextcustomeditor__richtextbrowserfindbar = dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditor__richtextbrowserfindbar && vtextcustomeditor__richtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditor__richtextbrowserfindbar) {
         return vtextcustomeditor__richtextbrowserfindbar->documentIsEmpty();
     }
-    return {};
+    qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::documentIsEmpty called without a directly constructed type");
 }
 
 bool TextCustomEditor__RichTextBrowserFindBar_SearchInDocument(TextCustomEditor__RichTextBrowserFindBar* self, const libqt_string text, int searchOptions) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     auto* vtextcustomeditor__richtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditor__richtextbrowserfindbar && vtextcustomeditor__richtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditor__richtextbrowserfindbar) {
         return vtextcustomeditor__richtextbrowserfindbar->searchInDocument(text_QString, static_cast<TextCustomEditor::TextEditFindBarBase::FindFlags>(searchOptions));
     }
-    return {};
+    qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::searchInDocument called without a directly constructed type");
 }
 
 bool TextCustomEditor__RichTextBrowserFindBar_SearchInDocument2(TextCustomEditor__RichTextBrowserFindBar* self, const QRegularExpression* regExp, int searchOptions) {
     auto* vtextcustomeditor__richtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditor__richtextbrowserfindbar && vtextcustomeditor__richtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditor__richtextbrowserfindbar) {
         return vtextcustomeditor__richtextbrowserfindbar->searchInDocument(*regExp, static_cast<TextCustomEditor::TextEditFindBarBase::FindFlags>(searchOptions));
     }
-    return {};
+    qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::searchInDocument2 called without a directly constructed type");
 }
 
 void TextCustomEditor__RichTextBrowserFindBar_AutoSearchMoveCursor(TextCustomEditor__RichTextBrowserFindBar* self) {
     auto* vtextcustomeditor__richtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditor__richtextbrowserfindbar && vtextcustomeditor__richtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditor__richtextbrowserfindbar) {
         vtextcustomeditor__richtextbrowserfindbar->autoSearchMoveCursor();
     }
 }
@@ -142,1875 +142,1287 @@ libqt_string TextCustomEditor__RichTextBrowserFindBar_Tr3(const char* s, const c
 
 // Base class handler implementation
 QMetaObject* TextCustomEditor__RichTextBrowserFindBar_SuperMetaObject(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MetaObject_IsBase(true);
-        return (QMetaObject*)vtextcustomeditorrichtextbrowserfindbar->metaObject();
-    } else {
-        return (QMetaObject*)self->TextCustomEditor::RichTextBrowserFindBar::metaObject();
-    }
+    return (QMetaObject*)self->TextCustomEditor::RichTextBrowserFindBar::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnMetaObject(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MetaObject_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MetaObject_Callback>(slot));
+void TextCustomEditor__RichTextBrowserFindBar_OnMetaObject(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self)))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_metaobject_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextCustomEditor__RichTextBrowserFindBar_SuperMetacast(TextCustomEditor__RichTextBrowserFindBar* self, const char* param1) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Metacast_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->qt_metacast(param1);
-    } else {
-        return self->TextCustomEditor::RichTextBrowserFindBar::qt_metacast(param1);
-    }
+    return self->TextCustomEditor::RichTextBrowserFindBar::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMetacast(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Metacast_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Metacast_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_metacast_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextCustomEditor__RichTextBrowserFindBar_SuperMetacall(TextCustomEditor__RichTextBrowserFindBar* self, int param1, int param2, void** param3) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Metacall_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextCustomEditor::RichTextBrowserFindBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextCustomEditor::RichTextBrowserFindBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMetacall(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Metacall_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Metacall_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_metacall_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_SuperViewIsReadOnly(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ViewIsReadOnly_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->viewIsReadOnly();
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->viewIsReadOnly();
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self))) {
+        return vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::viewIsReadOnly();
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::viewIsReadOnly called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnViewIsReadOnly(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ViewIsReadOnly_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ViewIsReadOnly_Callback>(slot));
+void TextCustomEditor__RichTextBrowserFindBar_OnViewIsReadOnly(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self)))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_viewisreadonly_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ViewIsReadOnly_Callback>(slot);
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_SuperDocumentIsEmpty(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DocumentIsEmpty_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->documentIsEmpty();
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->documentIsEmpty();
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self))) {
+        return vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::documentIsEmpty();
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::documentIsEmpty called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnDocumentIsEmpty(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DocumentIsEmpty_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DocumentIsEmpty_Callback>(slot));
+void TextCustomEditor__RichTextBrowserFindBar_OnDocumentIsEmpty(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self)))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_documentisempty_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DocumentIsEmpty_Callback>(slot);
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_SuperSearchInDocument(TextCustomEditor__RichTextBrowserFindBar* self, const libqt_string text, int searchOptions) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SearchInDocument_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->searchInDocument(text_QString, static_cast<TextCustomEditor::TextEditFindBarBase::FindFlags>(searchOptions));
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->searchInDocument(text_QString, static_cast<TextCustomEditor::TextEditFindBarBase::FindFlags>(searchOptions));
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        return vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::searchInDocument(text_QString, static_cast<TextCustomEditor::TextEditFindBarBase::FindFlags>(searchOptions));
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::searchInDocument called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnSearchInDocument(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SearchInDocument_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SearchInDocument_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_searchindocument_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SearchInDocument_Callback>(slot);
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_SuperSearchInDocument2(TextCustomEditor__RichTextBrowserFindBar* self, const QRegularExpression* regExp, int searchOptions) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SearchInDocument2_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->searchInDocument(*regExp, static_cast<TextCustomEditor::TextEditFindBarBase::FindFlags>(searchOptions));
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->searchInDocument(*regExp, static_cast<TextCustomEditor::TextEditFindBarBase::FindFlags>(searchOptions));
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        return vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::searchInDocument(*regExp, static_cast<TextCustomEditor::TextEditFindBarBase::FindFlags>(searchOptions));
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::searchInDocument2 called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnSearchInDocument2(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SearchInDocument2_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SearchInDocument2_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_searchindocument2_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SearchInDocument2_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperAutoSearchMoveCursor(TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_AutoSearchMoveCursor_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->autoSearchMoveCursor();
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->autoSearchMoveCursor();
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::autoSearchMoveCursor();
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::autoSearchMoveCursor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnAutoSearchMoveCursor(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_AutoSearchMoveCursor_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_AutoSearchMoveCursor_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_autosearchmovecursor_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_AutoSearchMoveCursor_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperSlotSearchText(TextCustomEditor__RichTextBrowserFindBar* self, bool backward, bool isAutoSearch) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SlotSearchText_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->slotSearchText(backward, isAutoSearch);
-    } else {
-        self->TextCustomEditor::RichTextBrowserFindBar::slotSearchText(backward, isAutoSearch);
-    }
+    self->TextCustomEditor::RichTextBrowserFindBar::slotSearchText(backward, isAutoSearch);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnSlotSearchText(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SlotSearchText_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SlotSearchText_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_slotsearchtext_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SlotSearchText_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_Event(TextCustomEditor__RichTextBrowserFindBar* self, QEvent* e) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         return vtextcustomeditorrichtextbrowserfindbar->event(e);
     } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->event(e);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_SuperEvent(TextCustomEditor__RichTextBrowserFindBar* self, QEvent* e) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Event_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->event(e);
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->event(e);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        return vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::event(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Event_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Event_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_event_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextCustomEditor__RichTextBrowserFindBar_DevType(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return vtextcustomeditorrichtextbrowserfindbar->devType();
-    } else {
-        return self->TextCustomEditor::RichTextBrowserFindBar::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int TextCustomEditor__RichTextBrowserFindBar_SuperDevType(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DevType_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->devType();
-    } else {
-        return self->TextCustomEditor::RichTextBrowserFindBar::devType();
-    }
+    return self->TextCustomEditor::RichTextBrowserFindBar::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnDevType(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DevType_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DevType_Callback>(slot));
+void TextCustomEditor__RichTextBrowserFindBar_OnDevType(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self)))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_devtype_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SetVisible(TextCustomEditor__RichTextBrowserFindBar* self, bool visible) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setVisible(visible);
-    } else {
-        self->TextCustomEditor::RichTextBrowserFindBar::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperSetVisible(TextCustomEditor__RichTextBrowserFindBar* self, bool visible) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SetVisible_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->setVisible(visible);
-    } else {
-        self->TextCustomEditor::RichTextBrowserFindBar::setVisible(visible);
-    }
+    self->TextCustomEditor::RichTextBrowserFindBar::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnSetVisible(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SetVisible_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SetVisible_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_setvisible_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextCustomEditor__RichTextBrowserFindBar_SizeHint(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return new QSize(vtextcustomeditorrichtextbrowserfindbar->sizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* TextCustomEditor__RichTextBrowserFindBar_SuperSizeHint(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SizeHint_IsBase(true);
-        return new QSize(vtextcustomeditorrichtextbrowserfindbar->sizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->sizeHint());
-    }
+    return new QSize(self->TextCustomEditor::RichTextBrowserFindBar::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnSizeHint(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SizeHint_Callback>(slot));
+void TextCustomEditor__RichTextBrowserFindBar_OnSizeHint(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self)))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_sizehint_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextCustomEditor__RichTextBrowserFindBar_MinimumSizeHint(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return new QSize(vtextcustomeditorrichtextbrowserfindbar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* TextCustomEditor__RichTextBrowserFindBar_SuperMinimumSizeHint(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MinimumSizeHint_IsBase(true);
-        return new QSize(vtextcustomeditorrichtextbrowserfindbar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->TextCustomEditor::RichTextBrowserFindBar::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnMinimumSizeHint(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MinimumSizeHint_Callback>(slot));
+void TextCustomEditor__RichTextBrowserFindBar_OnMinimumSizeHint(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self)))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_minimumsizehint_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextCustomEditor__RichTextBrowserFindBar_HeightForWidth(const TextCustomEditor__RichTextBrowserFindBar* self, int param1) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return vtextcustomeditorrichtextbrowserfindbar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextCustomEditor::RichTextBrowserFindBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int TextCustomEditor__RichTextBrowserFindBar_SuperHeightForWidth(const TextCustomEditor__RichTextBrowserFindBar* self, int param1) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_HeightForWidth_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextCustomEditor::RichTextBrowserFindBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->TextCustomEditor::RichTextBrowserFindBar::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnHeightForWidth(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_HeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_HeightForWidth_Callback>(slot));
+void TextCustomEditor__RichTextBrowserFindBar_OnHeightForWidth(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self)))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_heightforwidth_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_HasHeightForWidth(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return vtextcustomeditorrichtextbrowserfindbar->hasHeightForWidth();
-    } else {
-        return self->TextCustomEditor::RichTextBrowserFindBar::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_SuperHasHeightForWidth(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_HasHeightForWidth_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->hasHeightForWidth();
-    } else {
-        return self->TextCustomEditor::RichTextBrowserFindBar::hasHeightForWidth();
-    }
+    return self->TextCustomEditor::RichTextBrowserFindBar::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnHasHeightForWidth(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_HasHeightForWidth_Callback>(slot));
+void TextCustomEditor__RichTextBrowserFindBar_OnHasHeightForWidth(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self)))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_hasheightforwidth_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* TextCustomEditor__RichTextBrowserFindBar_PaintEngine(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return vtextcustomeditorrichtextbrowserfindbar->paintEngine();
-    } else {
-        return self->TextCustomEditor::RichTextBrowserFindBar::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* TextCustomEditor__RichTextBrowserFindBar_SuperPaintEngine(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_PaintEngine_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->paintEngine();
-    } else {
-        return self->TextCustomEditor::RichTextBrowserFindBar::paintEngine();
-    }
+    return self->TextCustomEditor::RichTextBrowserFindBar::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnPaintEngine(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_PaintEngine_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_PaintEngine_Callback>(slot));
+void TextCustomEditor__RichTextBrowserFindBar_OnPaintEngine(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self)))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_paintengine_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_MousePressEvent(TextCustomEditor__RichTextBrowserFindBar* self, QMouseEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->mousePressEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperMousePressEvent(TextCustomEditor__RichTextBrowserFindBar* self, QMouseEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MousePressEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->mousePressEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->mousePressEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMousePressEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MousePressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MousePressEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_mousepressevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_MouseReleaseEvent(TextCustomEditor__RichTextBrowserFindBar* self, QMouseEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->mouseReleaseEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperMouseReleaseEvent(TextCustomEditor__RichTextBrowserFindBar* self, QMouseEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MouseReleaseEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->mouseReleaseEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMouseReleaseEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MouseReleaseEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_mousereleaseevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_MouseDoubleClickEvent(TextCustomEditor__RichTextBrowserFindBar* self, QMouseEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperMouseDoubleClickEvent(TextCustomEditor__RichTextBrowserFindBar* self, QMouseEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MouseDoubleClickEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMouseDoubleClickEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_mousedoubleclickevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_MouseMoveEvent(TextCustomEditor__RichTextBrowserFindBar* self, QMouseEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->mouseMoveEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperMouseMoveEvent(TextCustomEditor__RichTextBrowserFindBar* self, QMouseEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MouseMoveEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->mouseMoveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMouseMoveEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MouseMoveEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_mousemoveevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_WheelEvent(TextCustomEditor__RichTextBrowserFindBar* self, QWheelEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->wheelEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperWheelEvent(TextCustomEditor__RichTextBrowserFindBar* self, QWheelEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_WheelEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->wheelEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->wheelEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnWheelEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_WheelEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_WheelEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_wheelevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_KeyPressEvent(TextCustomEditor__RichTextBrowserFindBar* self, QKeyEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->keyPressEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperKeyPressEvent(TextCustomEditor__RichTextBrowserFindBar* self, QKeyEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_KeyPressEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->keyPressEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->keyPressEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnKeyPressEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_KeyPressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_KeyPressEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_keypressevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_KeyReleaseEvent(TextCustomEditor__RichTextBrowserFindBar* self, QKeyEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->keyReleaseEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperKeyReleaseEvent(TextCustomEditor__RichTextBrowserFindBar* self, QKeyEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_KeyReleaseEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->keyReleaseEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnKeyReleaseEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_KeyReleaseEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_keyreleaseevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_FocusInEvent(TextCustomEditor__RichTextBrowserFindBar* self, QFocusEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->focusInEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperFocusInEvent(TextCustomEditor__RichTextBrowserFindBar* self, QFocusEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusInEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->focusInEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->focusInEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnFocusInEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusInEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_FocusInEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_focusinevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_FocusOutEvent(TextCustomEditor__RichTextBrowserFindBar* self, QFocusEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->focusOutEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperFocusOutEvent(TextCustomEditor__RichTextBrowserFindBar* self, QFocusEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusOutEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->focusOutEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->focusOutEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnFocusOutEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusOutEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_FocusOutEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_focusoutevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_EnterEvent(TextCustomEditor__RichTextBrowserFindBar* self, QEnterEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->enterEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperEnterEvent(TextCustomEditor__RichTextBrowserFindBar* self, QEnterEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_EnterEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->enterEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->enterEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnEnterEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_EnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_EnterEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_enterevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_LeaveEvent(TextCustomEditor__RichTextBrowserFindBar* self, QEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->leaveEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperLeaveEvent(TextCustomEditor__RichTextBrowserFindBar* self, QEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_LeaveEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->leaveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->leaveEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnLeaveEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_LeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_LeaveEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_leaveevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_PaintEvent(TextCustomEditor__RichTextBrowserFindBar* self, QPaintEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->paintEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperPaintEvent(TextCustomEditor__RichTextBrowserFindBar* self, QPaintEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_PaintEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->paintEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->paintEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnPaintEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_PaintEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_PaintEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_paintevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_MoveEvent(TextCustomEditor__RichTextBrowserFindBar* self, QMoveEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->moveEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperMoveEvent(TextCustomEditor__RichTextBrowserFindBar* self, QMoveEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MoveEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->moveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->moveEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMoveEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MoveEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_moveevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_ResizeEvent(TextCustomEditor__RichTextBrowserFindBar* self, QResizeEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->resizeEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperResizeEvent(TextCustomEditor__RichTextBrowserFindBar* self, QResizeEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ResizeEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->resizeEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->resizeEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnResizeEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ResizeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ResizeEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_resizeevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_CloseEvent(TextCustomEditor__RichTextBrowserFindBar* self, QCloseEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->closeEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperCloseEvent(TextCustomEditor__RichTextBrowserFindBar* self, QCloseEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_CloseEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->closeEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->closeEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnCloseEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_CloseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_CloseEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_closeevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_ContextMenuEvent(TextCustomEditor__RichTextBrowserFindBar* self, QContextMenuEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->contextMenuEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperContextMenuEvent(TextCustomEditor__RichTextBrowserFindBar* self, QContextMenuEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ContextMenuEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->contextMenuEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->contextMenuEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnContextMenuEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ContextMenuEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_contextmenuevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_TabletEvent(TextCustomEditor__RichTextBrowserFindBar* self, QTabletEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->tabletEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperTabletEvent(TextCustomEditor__RichTextBrowserFindBar* self, QTabletEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_TabletEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->tabletEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->tabletEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnTabletEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_TabletEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_TabletEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_tabletevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_ActionEvent(TextCustomEditor__RichTextBrowserFindBar* self, QActionEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->actionEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperActionEvent(TextCustomEditor__RichTextBrowserFindBar* self, QActionEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ActionEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->actionEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->actionEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnActionEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ActionEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ActionEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_actionevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_DragEnterEvent(TextCustomEditor__RichTextBrowserFindBar* self, QDragEnterEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->dragEnterEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperDragEnterEvent(TextCustomEditor__RichTextBrowserFindBar* self, QDragEnterEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DragEnterEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->dragEnterEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->dragEnterEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnDragEnterEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DragEnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DragEnterEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_dragenterevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_DragMoveEvent(TextCustomEditor__RichTextBrowserFindBar* self, QDragMoveEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->dragMoveEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperDragMoveEvent(TextCustomEditor__RichTextBrowserFindBar* self, QDragMoveEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DragMoveEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->dragMoveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->dragMoveEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnDragMoveEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DragMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DragMoveEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_dragmoveevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_DragLeaveEvent(TextCustomEditor__RichTextBrowserFindBar* self, QDragLeaveEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->dragLeaveEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperDragLeaveEvent(TextCustomEditor__RichTextBrowserFindBar* self, QDragLeaveEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DragLeaveEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->dragLeaveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnDragLeaveEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DragLeaveEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_dragleaveevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_DropEvent(TextCustomEditor__RichTextBrowserFindBar* self, QDropEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->dropEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperDropEvent(TextCustomEditor__RichTextBrowserFindBar* self, QDropEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DropEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->dropEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->dropEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnDropEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DropEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DropEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_dropevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_ShowEvent(TextCustomEditor__RichTextBrowserFindBar* self, QShowEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->showEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperShowEvent(TextCustomEditor__RichTextBrowserFindBar* self, QShowEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ShowEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->showEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->showEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnShowEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ShowEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ShowEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_showevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_HideEvent(TextCustomEditor__RichTextBrowserFindBar* self, QHideEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->hideEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperHideEvent(TextCustomEditor__RichTextBrowserFindBar* self, QHideEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_HideEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->hideEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->hideEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnHideEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_HideEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_HideEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_hideevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_NativeEvent(TextCustomEditor__RichTextBrowserFindBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         return vtextcustomeditorrichtextbrowserfindbar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_SuperNativeEvent(TextCustomEditor__RichTextBrowserFindBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_NativeEvent_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        return vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnNativeEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_NativeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_NativeEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_nativeevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_ChangeEvent(TextCustomEditor__RichTextBrowserFindBar* self, QEvent* param1) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->changeEvent(param1);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperChangeEvent(TextCustomEditor__RichTextBrowserFindBar* self, QEvent* param1) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ChangeEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->changeEvent(param1);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->changeEvent(param1);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnChangeEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ChangeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ChangeEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_changeevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextCustomEditor__RichTextBrowserFindBar_Metric(const TextCustomEditor__RichTextBrowserFindBar* self, int param1) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         return vtextcustomeditorrichtextbrowserfindbar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int TextCustomEditor__RichTextBrowserFindBar_SuperMetric(const TextCustomEditor__RichTextBrowserFindBar* self, int param1) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Metric_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self))) {
+        return vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnMetric(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Metric_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Metric_Callback>(slot));
+void TextCustomEditor__RichTextBrowserFindBar_OnMetric(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self)))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_metric_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_InitPainter(const TextCustomEditor__RichTextBrowserFindBar* self, QPainter* painter) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->initPainter(painter);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperInitPainter(const TextCustomEditor__RichTextBrowserFindBar* self, QPainter* painter) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_InitPainter_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->initPainter(painter);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->initPainter(painter);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self))) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnInitPainter(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_InitPainter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_InitPainter_Callback>(slot));
+void TextCustomEditor__RichTextBrowserFindBar_OnInitPainter(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self)))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_initpainter_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* TextCustomEditor__RichTextBrowserFindBar_Redirected(const TextCustomEditor__RichTextBrowserFindBar* self, QPoint* offset) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         return vtextcustomeditorrichtextbrowserfindbar->redirected(offset);
     } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* TextCustomEditor__RichTextBrowserFindBar_SuperRedirected(const TextCustomEditor__RichTextBrowserFindBar* self, QPoint* offset) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Redirected_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->redirected(offset);
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->redirected(offset);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self))) {
+        return vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnRedirected(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Redirected_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Redirected_Callback>(slot));
+void TextCustomEditor__RichTextBrowserFindBar_OnRedirected(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self)))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_redirected_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* TextCustomEditor__RichTextBrowserFindBar_SharedPainter(const TextCustomEditor__RichTextBrowserFindBar* self) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         return vtextcustomeditorrichtextbrowserfindbar->sharedPainter();
     } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* TextCustomEditor__RichTextBrowserFindBar_SuperSharedPainter(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SharedPainter_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->sharedPainter();
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->sharedPainter();
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self))) {
+        return vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnSharedPainter(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SharedPainter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SharedPainter_Callback>(slot));
+void TextCustomEditor__RichTextBrowserFindBar_OnSharedPainter(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self)))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_sharedpainter_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_InputMethodEvent(TextCustomEditor__RichTextBrowserFindBar* self, QInputMethodEvent* param1) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->inputMethodEvent(param1);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperInputMethodEvent(TextCustomEditor__RichTextBrowserFindBar* self, QInputMethodEvent* param1) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_InputMethodEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->inputMethodEvent(param1);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnInputMethodEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_InputMethodEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_InputMethodEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_inputmethodevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* TextCustomEditor__RichTextBrowserFindBar_InputMethodQuery(const TextCustomEditor__RichTextBrowserFindBar* self, int param1) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return new QVariant(vtextcustomeditorrichtextbrowserfindbar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* TextCustomEditor__RichTextBrowserFindBar_SuperInputMethodQuery(const TextCustomEditor__RichTextBrowserFindBar* self, int param1) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_InputMethodQuery_IsBase(true);
-        return new QVariant(vtextcustomeditorrichtextbrowserfindbar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->TextCustomEditor::RichTextBrowserFindBar::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnInputMethodQuery(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_InputMethodQuery_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_InputMethodQuery_Callback>(slot));
+void TextCustomEditor__RichTextBrowserFindBar_OnInputMethodQuery(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self)))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_inputmethodquery_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_FocusNextPrevChild(TextCustomEditor__RichTextBrowserFindBar* self, bool next) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         return vtextcustomeditorrichtextbrowserfindbar->focusNextPrevChild(next);
     } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_SuperFocusNextPrevChild(TextCustomEditor__RichTextBrowserFindBar* self, bool next) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusNextPrevChild_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->focusNextPrevChild(next);
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        return vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnFocusNextPrevChild(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_FocusNextPrevChild_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_focusnextprevchild_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_EventFilter(TextCustomEditor__RichTextBrowserFindBar* self, QObject* watched, QEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return vtextcustomeditorrichtextbrowserfindbar->eventFilter(watched, event);
-    } else {
-        return self->TextCustomEditor::RichTextBrowserFindBar::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_SuperEventFilter(TextCustomEditor__RichTextBrowserFindBar* self, QObject* watched, QEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_EventFilter_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->eventFilter(watched, event);
-    } else {
-        return self->TextCustomEditor::RichTextBrowserFindBar::eventFilter(watched, event);
-    }
+    return self->TextCustomEditor::RichTextBrowserFindBar::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnEventFilter(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_EventFilter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_EventFilter_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_eventfilter_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_TimerEvent(TextCustomEditor__RichTextBrowserFindBar* self, QTimerEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->timerEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperTimerEvent(TextCustomEditor__RichTextBrowserFindBar* self, QTimerEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_TimerEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->timerEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->timerEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnTimerEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_TimerEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_TimerEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_timerevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_ChildEvent(TextCustomEditor__RichTextBrowserFindBar* self, QChildEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->childEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperChildEvent(TextCustomEditor__RichTextBrowserFindBar* self, QChildEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ChildEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->childEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->childEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnChildEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ChildEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ChildEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_childevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_CustomEvent(TextCustomEditor__RichTextBrowserFindBar* self, QEvent* event) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->customEvent(event);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperCustomEvent(TextCustomEditor__RichTextBrowserFindBar* self, QEvent* event) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_CustomEvent_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->customEvent(event);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->customEvent(event);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnCustomEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_CustomEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_CustomEvent_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_customevent_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_ConnectNotify(TextCustomEditor__RichTextBrowserFindBar* self, const QMetaMethod* signal) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->connectNotify(*signal);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperConnectNotify(TextCustomEditor__RichTextBrowserFindBar* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ConnectNotify_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->connectNotify(*signal);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->connectNotify(*signal);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnConnectNotify(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ConnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ConnectNotify_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_connectnotify_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_DisconnectNotify(TextCustomEditor__RichTextBrowserFindBar* self, const QMetaMethod* signal) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar) {
         vtextcustomeditorrichtextbrowserfindbar->disconnectNotify(*signal);
     } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SuperDisconnectNotify(TextCustomEditor__RichTextBrowserFindBar* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DisconnectNotify_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->TextCustomEditor::RichTextBrowserFindBar::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::RichTextBrowserFindBar::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnDisconnectNotify(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DisconnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DisconnectNotify_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self))
+        vtextcustomeditorrichtextbrowserfindbar->textcustomeditor__richtextbrowserfindbar_disconnectnotify_callback = reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_ClearSelections(TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->clearSelections();
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->clearSelections();
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->VirtualTextCustomEditorRichTextBrowserFindBar::clearSelections();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::clearSelections called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__RichTextBrowserFindBar_SuperClearSelections(TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ClearSelections_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->clearSelections();
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->clearSelections();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnClearSelections(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ClearSelections_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ClearSelections_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_SearchText(TextCustomEditor__RichTextBrowserFindBar* self, bool backward, bool isAutoSearch) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return vtextcustomeditorrichtextbrowserfindbar->searchText(backward, isAutoSearch);
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->searchText(backward, isAutoSearch);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        return vtextcustomeditorrichtextbrowserfindbar->VirtualTextCustomEditorRichTextBrowserFindBar::searchText(backward, isAutoSearch);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::searchText called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextCustomEditor__RichTextBrowserFindBar_SuperSearchText(TextCustomEditor__RichTextBrowserFindBar* self, bool backward, bool isAutoSearch) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SearchText_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->searchText(backward, isAutoSearch);
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->searchText(backward, isAutoSearch);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnSearchText(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SearchText_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SearchText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_SetFoundMatch(TextCustomEditor__RichTextBrowserFindBar* self, bool match) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setFoundMatch(match);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->setFoundMatch(match);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->VirtualTextCustomEditorRichTextBrowserFindBar::setFoundMatch(match);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::setFoundMatch called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__RichTextBrowserFindBar_SuperSetFoundMatch(TextCustomEditor__RichTextBrowserFindBar* self, bool match) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SetFoundMatch_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->setFoundMatch(match);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->setFoundMatch(match);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnSetFoundMatch(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SetFoundMatch_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SetFoundMatch_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_MessageInfo(TextCustomEditor__RichTextBrowserFindBar* self, bool backward, bool isAutoSearch, bool found) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->messageInfo(backward, isAutoSearch, found);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->messageInfo(backward, isAutoSearch, found);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->VirtualTextCustomEditorRichTextBrowserFindBar::messageInfo(backward, isAutoSearch, found);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::messageInfo called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__RichTextBrowserFindBar_SuperMessageInfo(TextCustomEditor__RichTextBrowserFindBar* self, bool backward, bool isAutoSearch, bool found) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MessageInfo_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->messageInfo(backward, isAutoSearch, found);
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->messageInfo(backward, isAutoSearch, found);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnMessageInfo(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MessageInfo_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MessageInfo_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_UpdateMicroFocus(TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->updateMicroFocus();
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->updateMicroFocus();
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->VirtualTextCustomEditorRichTextBrowserFindBar::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__RichTextBrowserFindBar_SuperUpdateMicroFocus(TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_UpdateMicroFocus_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->updateMicroFocus();
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnUpdateMicroFocus(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_Create(TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->create();
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->create();
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->VirtualTextCustomEditorRichTextBrowserFindBar::create();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__RichTextBrowserFindBar_SuperCreate(TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Create_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->create();
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnCreate(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Create_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__RichTextBrowserFindBar_Destroy(TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->destroy();
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->destroy();
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        vtextcustomeditorrichtextbrowserfindbar->VirtualTextCustomEditorRichTextBrowserFindBar::destroy();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__RichTextBrowserFindBar_SuperDestroy(TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Destroy_IsBase(true);
-        vtextcustomeditorrichtextbrowserfindbar->destroy();
-    } else {
-        ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnDestroy(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Destroy_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_FocusNextChild(TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return vtextcustomeditorrichtextbrowserfindbar->focusNextChild();
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->focusNextChild();
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        return vtextcustomeditorrichtextbrowserfindbar->VirtualTextCustomEditorRichTextBrowserFindBar::focusNextChild();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextCustomEditor__RichTextBrowserFindBar_SuperFocusNextChild(TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusNextChild_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->focusNextChild();
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnFocusNextChild(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusNextChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_FocusPreviousChild(TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return vtextcustomeditorrichtextbrowserfindbar->focusPreviousChild();
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->focusPreviousChild();
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self)) {
+        return vtextcustomeditorrichtextbrowserfindbar->VirtualTextCustomEditorRichTextBrowserFindBar::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextCustomEditor__RichTextBrowserFindBar_SuperFocusPreviousChild(TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusPreviousChild_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->focusPreviousChild();
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnFocusPreviousChild(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextCustomEditor__RichTextBrowserFindBar_Sender(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return vtextcustomeditorrichtextbrowserfindbar->sender();
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->sender();
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self))) {
+        return vtextcustomeditorrichtextbrowserfindbar->VirtualTextCustomEditorRichTextBrowserFindBar::sender();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextCustomEditor__RichTextBrowserFindBar_SuperSender(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Sender_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->sender();
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnSender(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Sender_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextCustomEditor__RichTextBrowserFindBar_SenderSignalIndex(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return vtextcustomeditorrichtextbrowserfindbar->senderSignalIndex();
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->senderSignalIndex();
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self))) {
+        return vtextcustomeditorrichtextbrowserfindbar->VirtualTextCustomEditorRichTextBrowserFindBar::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextCustomEditor__RichTextBrowserFindBar_SuperSenderSignalIndex(const TextCustomEditor__RichTextBrowserFindBar* self) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SenderSignalIndex_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->senderSignalIndex();
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnSenderSignalIndex(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextCustomEditor__RichTextBrowserFindBar_Receivers(const TextCustomEditor__RichTextBrowserFindBar* self, const char* signal) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return vtextcustomeditorrichtextbrowserfindbar->receivers(signal);
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->receivers(signal);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self))) {
+        return vtextcustomeditorrichtextbrowserfindbar->VirtualTextCustomEditorRichTextBrowserFindBar::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextCustomEditor__RichTextBrowserFindBar_SuperReceivers(const TextCustomEditor__RichTextBrowserFindBar* self, const char* signal) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Receivers_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->receivers(signal);
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnReceivers(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Receivers_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextCustomEditor__RichTextBrowserFindBar_IsSignalConnected(const TextCustomEditor__RichTextBrowserFindBar* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return vtextcustomeditorrichtextbrowserfindbar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self))) {
+        return vtextcustomeditorrichtextbrowserfindbar->VirtualTextCustomEditorRichTextBrowserFindBar::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextCustomEditor__RichTextBrowserFindBar_SuperIsSignalConnected(const TextCustomEditor__RichTextBrowserFindBar* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_IsSignalConnected_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnIsSignalConnected(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_IsSignalConnected_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double TextCustomEditor__RichTextBrowserFindBar_GetDecodedMetricF(const TextCustomEditor__RichTextBrowserFindBar* self, int metricA, int metricB) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        return vtextcustomeditorrichtextbrowserfindbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double TextCustomEditor__RichTextBrowserFindBar_SuperGetDecodedMetricF(const TextCustomEditor__RichTextBrowserFindBar* self, int metricA, int metricB) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_GetDecodedMetricF_IsBase(true);
-        return vtextcustomeditorrichtextbrowserfindbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserFindBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__RichTextBrowserFindBar_OnGetDecodedMetricF(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
-    auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
-        vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_GetDecodedMetricF_Callback>(slot));
+    if (auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self))) {
+        return vtextcustomeditorrichtextbrowserfindbar->VirtualTextCustomEditorRichTextBrowserFindBar::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method TextCustomEditor::RichTextBrowserFindBar::getDecodedMetricF called without a directly constructed type");
 }
 
 void TextCustomEditor__RichTextBrowserFindBar_Delete(TextCustomEditor__RichTextBrowserFindBar* self) {

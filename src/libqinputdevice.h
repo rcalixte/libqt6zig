@@ -50,7 +50,7 @@ void QInputDevice_Connect_AvailableVirtualGeometryChanged(QInputDevice* self, in
 libqt_string QInputDevice_Tr2(const char* s, const char* c);
 libqt_string QInputDevice_Tr3(const char* s, const char* c, int n);
 QInputDevice* QInputDevice_PrimaryKeyboard1(const libqt_string seatName);
-void QInputDevice_OnMetaObject(const QInputDevice* self, intptr_t slot);
+void QInputDevice_OnMetaObject(QInputDevice* self, intptr_t slot);
 QMetaObject* QInputDevice_SuperMetaObject(const QInputDevice* self);
 void QInputDevice_OnMetacast(QInputDevice* self, intptr_t slot);
 void* QInputDevice_SuperMetacast(QInputDevice* self, const char* param1);
@@ -78,17 +78,9 @@ void QInputDevice_DisconnectNotify(QInputDevice* self, const QMetaMethod* signal
 void QInputDevice_OnDisconnectNotify(QInputDevice* self, intptr_t slot);
 void QInputDevice_SuperDisconnectNotify(QInputDevice* self, const QMetaMethod* signal);
 QObject* QInputDevice_Sender(const QInputDevice* self);
-void QInputDevice_OnSender(const QInputDevice* self, intptr_t slot);
-QObject* QInputDevice_SuperSender(const QInputDevice* self);
 int QInputDevice_SenderSignalIndex(const QInputDevice* self);
-void QInputDevice_OnSenderSignalIndex(const QInputDevice* self, intptr_t slot);
-int QInputDevice_SuperSenderSignalIndex(const QInputDevice* self);
 int QInputDevice_Receivers(const QInputDevice* self, const char* signal);
-void QInputDevice_OnReceivers(const QInputDevice* self, intptr_t slot);
-int QInputDevice_SuperReceivers(const QInputDevice* self, const char* signal);
 bool QInputDevice_IsSignalConnected(const QInputDevice* self, const QMetaMethod* signal);
-void QInputDevice_OnIsSignalConnected(const QInputDevice* self, intptr_t slot);
-bool QInputDevice_SuperIsSignalConnected(const QInputDevice* self, const QMetaMethod* signal);
 void QInputDevice_Delete(QInputDevice* self);
 
 #ifdef __cplusplus

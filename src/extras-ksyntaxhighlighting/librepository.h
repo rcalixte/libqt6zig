@@ -57,7 +57,7 @@ void KSyntaxHighlighting__Repository_Connect_Reloaded(KSyntaxHighlighting__Repos
 libqt_string KSyntaxHighlighting__Repository_Tr2(const char* s, const char* c);
 libqt_string KSyntaxHighlighting__Repository_Tr3(const char* s, const char* c, int n);
 KSyntaxHighlighting__Theme* KSyntaxHighlighting__Repository_DefaultTheme1(const KSyntaxHighlighting__Repository* self, int t);
-void KSyntaxHighlighting__Repository_OnMetaObject(const KSyntaxHighlighting__Repository* self, intptr_t slot);
+void KSyntaxHighlighting__Repository_OnMetaObject(KSyntaxHighlighting__Repository* self, intptr_t slot);
 QMetaObject* KSyntaxHighlighting__Repository_SuperMetaObject(const KSyntaxHighlighting__Repository* self);
 void KSyntaxHighlighting__Repository_OnMetacast(KSyntaxHighlighting__Repository* self, intptr_t slot);
 void* KSyntaxHighlighting__Repository_SuperMetacast(KSyntaxHighlighting__Repository* self, const char* param1);
@@ -85,17 +85,9 @@ void KSyntaxHighlighting__Repository_DisconnectNotify(KSyntaxHighlighting__Repos
 void KSyntaxHighlighting__Repository_OnDisconnectNotify(KSyntaxHighlighting__Repository* self, intptr_t slot);
 void KSyntaxHighlighting__Repository_SuperDisconnectNotify(KSyntaxHighlighting__Repository* self, const QMetaMethod* signal);
 QObject* KSyntaxHighlighting__Repository_Sender(const KSyntaxHighlighting__Repository* self);
-void KSyntaxHighlighting__Repository_OnSender(const KSyntaxHighlighting__Repository* self, intptr_t slot);
-QObject* KSyntaxHighlighting__Repository_SuperSender(const KSyntaxHighlighting__Repository* self);
 int KSyntaxHighlighting__Repository_SenderSignalIndex(const KSyntaxHighlighting__Repository* self);
-void KSyntaxHighlighting__Repository_OnSenderSignalIndex(const KSyntaxHighlighting__Repository* self, intptr_t slot);
-int KSyntaxHighlighting__Repository_SuperSenderSignalIndex(const KSyntaxHighlighting__Repository* self);
 int KSyntaxHighlighting__Repository_Receivers(const KSyntaxHighlighting__Repository* self, const char* signal);
-void KSyntaxHighlighting__Repository_OnReceivers(const KSyntaxHighlighting__Repository* self, intptr_t slot);
-int KSyntaxHighlighting__Repository_SuperReceivers(const KSyntaxHighlighting__Repository* self, const char* signal);
 bool KSyntaxHighlighting__Repository_IsSignalConnected(const KSyntaxHighlighting__Repository* self, const QMetaMethod* signal);
-void KSyntaxHighlighting__Repository_OnIsSignalConnected(const KSyntaxHighlighting__Repository* self, intptr_t slot);
-bool KSyntaxHighlighting__Repository_SuperIsSignalConnected(const KSyntaxHighlighting__Repository* self, const QMetaMethod* signal);
 void KSyntaxHighlighting__Repository_Delete(KSyntaxHighlighting__Repository* self);
 
 #ifdef __cplusplus

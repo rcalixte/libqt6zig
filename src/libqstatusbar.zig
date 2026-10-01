@@ -130,9 +130,9 @@ pub const QStatusBar = extern struct {
     ///
     /// ` self: QStatusBar `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QStatusBar) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QStatusBar, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QStatusBar, callback: *const fn (QStatusBar) callconv(.c) QMetaObject) void {
         qtc.QStatusBar_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -662,40 +662,6 @@ pub const QStatusBar = extern struct {
         qtc.QStatusBar_Reformat(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onReformat` instead
-    ///
-    pub const OnReformat = onReformat;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#reformat)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStatusBar `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onReformat(self: QStatusBar, callback: *const fn () callconv(.c) void) void {
-        qtc.QStatusBar_OnReformat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superReformat` instead
-    ///
-    pub const SuperReformat = superReformat;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#reformat)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStatusBar `
-    ///
-    pub fn superReformat(self: QStatusBar) void {
-        qtc.QStatusBar_SuperReformat(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `hideOrShow` instead
     ///
     pub const HideOrShow = hideOrShow;
@@ -708,40 +674,6 @@ pub const QStatusBar = extern struct {
     ///
     pub fn hideOrShow(self: QStatusBar) void {
         qtc.QStatusBar_HideOrShow(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onHideOrShow` instead
-    ///
-    pub const OnHideOrShow = onHideOrShow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#hideOrShow)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStatusBar `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onHideOrShow(self: QStatusBar, callback: *const fn () callconv(.c) void) void {
-        qtc.QStatusBar_OnHideOrShow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHideOrShow` instead
-    ///
-    pub const SuperHideOrShow = superHideOrShow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#hideOrShow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStatusBar `
-    ///
-    pub fn superHideOrShow(self: QStatusBar) void {
-        qtc.QStatusBar_SuperHideOrShow(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `event` instead
@@ -7210,9 +7142,9 @@ pub const QStatusBar = extern struct {
     ///
     /// ` self: QStatusBar`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QStatusBar) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QStatusBar, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QStatusBar, callback: *const fn (QStatusBar) callconv(.c) i32) void {
         qtc.QStatusBar_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7326,11 +7258,11 @@ pub const QStatusBar = extern struct {
     ///
     /// ` self: QStatusBar`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QStatusBar) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QStatusBar, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QStatusBar, callback: *const fn (QStatusBar) callconv(.c) QSize) void {
         qtc.QStatusBar_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7384,11 +7316,11 @@ pub const QStatusBar = extern struct {
     ///
     /// ` self: QStatusBar`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QStatusBar) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QStatusBar, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QStatusBar, callback: *const fn (QStatusBar) callconv(.c) QSize) void {
         qtc.QStatusBar_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7502,9 +7434,9 @@ pub const QStatusBar = extern struct {
     ///
     /// ` self: QStatusBar`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QStatusBar) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QStatusBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QStatusBar, callback: *const fn (QStatusBar) callconv(.c) bool) void {
         qtc.QStatusBar_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7558,9 +7490,9 @@ pub const QStatusBar = extern struct {
     ///
     /// ` self: QStatusBar`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QStatusBar) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QStatusBar, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QStatusBar, callback: *const fn (QStatusBar) callconv(.c) QPaintEngine) void {
         qtc.QStatusBar_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9238,9 +9170,9 @@ pub const QStatusBar = extern struct {
     ///
     /// ` self: QStatusBar`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QStatusBar) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QStatusBar, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QStatusBar, callback: *const fn (QStatusBar) callconv(.c) QPainter) void {
         qtc.QStatusBar_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9824,44 +9756,6 @@ pub const QStatusBar = extern struct {
         qtc.QStatusBar_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStatusBar `
-    ///
-    pub fn superUpdateMicroFocus(self: QStatusBar) void {
-        qtc.QStatusBar_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStatusBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QStatusBar, callback: *const fn () callconv(.c) void) void {
-        qtc.QStatusBar_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9878,44 +9772,6 @@ pub const QStatusBar = extern struct {
     ///
     pub fn create(self: QStatusBar) void {
         qtc.QStatusBar_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStatusBar `
-    ///
-    pub fn superCreate(self: QStatusBar) void {
-        qtc.QStatusBar_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStatusBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QStatusBar, callback: *const fn () callconv(.c) void) void {
-        qtc.QStatusBar_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9936,44 +9792,6 @@ pub const QStatusBar = extern struct {
         qtc.QStatusBar_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStatusBar `
-    ///
-    pub fn superDestroy(self: QStatusBar) void {
-        qtc.QStatusBar_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStatusBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QStatusBar, callback: *const fn () callconv(.c) void) void {
-        qtc.QStatusBar_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9990,44 +9808,6 @@ pub const QStatusBar = extern struct {
     ///
     pub fn focusNextChild(self: QStatusBar) bool {
         return qtc.QStatusBar_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStatusBar `
-    ///
-    pub fn superFocusNextChild(self: QStatusBar) bool {
-        return qtc.QStatusBar_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStatusBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QStatusBar, callback: *const fn () callconv(.c) bool) void {
-        qtc.QStatusBar_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -10048,44 +9828,6 @@ pub const QStatusBar = extern struct {
         return qtc.QStatusBar_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStatusBar `
-    ///
-    pub fn superFocusPreviousChild(self: QStatusBar) bool {
-        return qtc.QStatusBar_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStatusBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QStatusBar, callback: *const fn () callconv(.c) bool) void {
-        qtc.QStatusBar_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10104,44 +9846,6 @@ pub const QStatusBar = extern struct {
         return .{ .ptr = qtc.QStatusBar_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStatusBar `
-    ///
-    pub fn superSender(self: QStatusBar) QObject {
-        return .{ .ptr = qtc.QStatusBar_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStatusBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QStatusBar, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QStatusBar_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10158,44 +9862,6 @@ pub const QStatusBar = extern struct {
     ///
     pub fn senderSignalIndex(self: QStatusBar) i32 {
         return qtc.QStatusBar_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStatusBar `
-    ///
-    pub fn superSenderSignalIndex(self: QStatusBar) i32 {
-        return qtc.QStatusBar_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStatusBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QStatusBar, callback: *const fn () callconv(.c) i32) void {
-        qtc.QStatusBar_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10219,47 +9885,6 @@ pub const QStatusBar = extern struct {
         return qtc.QStatusBar_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStatusBar `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QStatusBar, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QStatusBar_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStatusBar`
-    ///
-    /// ` callback: *const fn (self: QStatusBar, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QStatusBar, callback: *const fn (QStatusBar, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QStatusBar_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10279,47 +9904,6 @@ pub const QStatusBar = extern struct {
     pub fn isSignalConnected(self: QStatusBar, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QStatusBar_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStatusBar `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QStatusBar, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QStatusBar_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStatusBar`
-    ///
-    /// ` callback: *const fn (self: QStatusBar, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QStatusBar, callback: *const fn (QStatusBar, QMetaMethod) callconv(.c) bool) void {
-        qtc.QStatusBar_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10342,48 +9926,6 @@ pub const QStatusBar = extern struct {
     ///
     pub fn getDecodedMetricF(self: QStatusBar, metricA: i32, metricB: i32) f64 {
         return qtc.QStatusBar_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStatusBar `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QStatusBar, metricA: i32, metricB: i32) f64 {
-        return qtc.QStatusBar_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStatusBar`
-    ///
-    /// ` callback: *const fn (self: QStatusBar, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QStatusBar, callback: *const fn (QStatusBar, i32, i32) callconv(.c) f64) void {
-        qtc.QStatusBar_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

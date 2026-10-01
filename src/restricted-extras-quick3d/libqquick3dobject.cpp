@@ -136,35 +136,35 @@ void QQuick3DObject_Connect_StateChanged(QQuick3DObject* self, intptr_t slot) {
 
 void QQuick3DObject_MarkAllDirty(QQuick3DObject* self) {
     auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
+    if (vqquick3dobject) {
         vqquick3dobject->markAllDirty();
     }
 }
 
 void QQuick3DObject_ItemChange(QQuick3DObject* self, int param1, const QQuick3DObject__ItemChangeData* param2) {
     auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
+    if (vqquick3dobject) {
         vqquick3dobject->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
     }
 }
 
 void QQuick3DObject_ClassBegin(QQuick3DObject* self) {
     auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
+    if (vqquick3dobject) {
         vqquick3dobject->classBegin();
     }
 }
 
 void QQuick3DObject_ComponentComplete(QQuick3DObject* self) {
     auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
+    if (vqquick3dobject) {
         vqquick3dobject->componentComplete();
     }
 }
 
 void QQuick3DObject_PreSync(QQuick3DObject* self) {
     auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
+    if (vqquick3dobject) {
         vqquick3dobject->preSync();
     }
 }
@@ -195,482 +195,297 @@ libqt_string QQuick3DObject_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QQuick3DObject_SuperMetaObject(const QQuick3DObject* self) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_MetaObject_IsBase(true);
-        return (QMetaObject*)vqquick3dobject->metaObject();
-    } else {
-        return (QMetaObject*)self->QQuick3DObject::metaObject();
-    }
+    return (QMetaObject*)self->QQuick3DObject::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuick3DObject_OnMetaObject(const QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_MetaObject_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_MetaObject_Callback>(slot));
+void QQuick3DObject_OnMetaObject(QQuick3DObject* self, intptr_t slot) {
+    if (auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self)))
+        vqquick3dobject->qquick3dobject_metaobject_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQuick3DObject_SuperMetacast(QQuick3DObject* self, const char* param1) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_Metacast_IsBase(true);
-        return vqquick3dobject->qt_metacast(param1);
-    } else {
-        return self->QQuick3DObject::qt_metacast(param1);
-    }
+    return self->QQuick3DObject::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DObject_OnMetacast(QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_Metacast_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_Metacast_Callback>(slot));
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self))
+        vqquick3dobject->qquick3dobject_metacast_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQuick3DObject_SuperMetacall(QQuick3DObject* self, int param1, int param2, void** param3) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_Metacall_IsBase(true);
-        return vqquick3dobject->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQuick3DObject::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQuick3DObject::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DObject_OnMetacall(QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_Metacall_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_Metacall_Callback>(slot));
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self))
+        vqquick3dobject->qquick3dobject_metacall_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuick3DObject_SuperMarkAllDirty(QQuick3DObject* self) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_MarkAllDirty_IsBase(true);
-        vqquick3dobject->markAllDirty();
-    } else {
-        ((VirtualQQuick3DObject*)self)->markAllDirty();
-    }
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self)) {
+        vqquick3dobject->QQuick3DObject::markAllDirty();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DObject::markAllDirty called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DObject_OnMarkAllDirty(QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_MarkAllDirty_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_MarkAllDirty_Callback>(slot));
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self))
+        vqquick3dobject->qquick3dobject_markalldirty_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_MarkAllDirty_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuick3DObject_SuperItemChange(QQuick3DObject* self, int param1, const QQuick3DObject__ItemChangeData* param2) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_ItemChange_IsBase(true);
-        vqquick3dobject->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
-    } else {
-        ((VirtualQQuick3DObject*)self)->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
-    }
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self)) {
+        vqquick3dobject->QQuick3DObject::itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DObject::itemChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DObject_OnItemChange(QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_ItemChange_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_ItemChange_Callback>(slot));
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self))
+        vqquick3dobject->qquick3dobject_itemchange_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_ItemChange_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuick3DObject_SuperClassBegin(QQuick3DObject* self) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_ClassBegin_IsBase(true);
-        vqquick3dobject->classBegin();
-    } else {
-        ((VirtualQQuick3DObject*)self)->classBegin();
-    }
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self)) {
+        vqquick3dobject->QQuick3DObject::classBegin();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DObject::classBegin called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DObject_OnClassBegin(QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_ClassBegin_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_ClassBegin_Callback>(slot));
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self))
+        vqquick3dobject->qquick3dobject_classbegin_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_ClassBegin_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuick3DObject_SuperComponentComplete(QQuick3DObject* self) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_ComponentComplete_IsBase(true);
-        vqquick3dobject->componentComplete();
-    } else {
-        ((VirtualQQuick3DObject*)self)->componentComplete();
-    }
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self)) {
+        vqquick3dobject->QQuick3DObject::componentComplete();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DObject::componentComplete called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DObject_OnComponentComplete(QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_ComponentComplete_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_ComponentComplete_Callback>(slot));
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self))
+        vqquick3dobject->qquick3dobject_componentcomplete_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_ComponentComplete_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuick3DObject_SuperPreSync(QQuick3DObject* self) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_PreSync_IsBase(true);
-        vqquick3dobject->preSync();
-    } else {
-        ((VirtualQQuick3DObject*)self)->preSync();
-    }
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self)) {
+        vqquick3dobject->QQuick3DObject::preSync();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DObject::preSync called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DObject_OnPreSync(QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_PreSync_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_PreSync_Callback>(slot));
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self))
+        vqquick3dobject->qquick3dobject_presync_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_PreSync_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuick3DObject_Event(QQuick3DObject* self, QEvent* event) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        return vqquick3dobject->event(event);
-    } else {
-        return self->QQuick3DObject::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QQuick3DObject_SuperEvent(QQuick3DObject* self, QEvent* event) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_Event_IsBase(true);
-        return vqquick3dobject->event(event);
-    } else {
-        return self->QQuick3DObject::event(event);
-    }
+    return self->QQuick3DObject::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DObject_OnEvent(QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_Event_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_Event_Callback>(slot));
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self))
+        vqquick3dobject->qquick3dobject_event_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuick3DObject_EventFilter(QQuick3DObject* self, QObject* watched, QEvent* event) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        return vqquick3dobject->eventFilter(watched, event);
-    } else {
-        return self->QQuick3DObject::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQuick3DObject_SuperEventFilter(QQuick3DObject* self, QObject* watched, QEvent* event) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_EventFilter_IsBase(true);
-        return vqquick3dobject->eventFilter(watched, event);
-    } else {
-        return self->QQuick3DObject::eventFilter(watched, event);
-    }
+    return self->QQuick3DObject::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DObject_OnEventFilter(QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_EventFilter_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_EventFilter_Callback>(slot));
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self))
+        vqquick3dobject->qquick3dobject_eventfilter_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DObject_TimerEvent(QQuick3DObject* self, QTimerEvent* event) {
     auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
+    if (vqquick3dobject) {
         vqquick3dobject->timerEvent(event);
     } else {
-        ((VirtualQQuick3DObject*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQuick3DObject::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DObject_SuperTimerEvent(QQuick3DObject* self, QTimerEvent* event) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_TimerEvent_IsBase(true);
-        vqquick3dobject->timerEvent(event);
-    } else {
-        ((VirtualQQuick3DObject*)self)->timerEvent(event);
-    }
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self)) {
+        vqquick3dobject->QQuick3DObject::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DObject::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DObject_OnTimerEvent(QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_TimerEvent_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_TimerEvent_Callback>(slot));
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self))
+        vqquick3dobject->qquick3dobject_timerevent_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DObject_ChildEvent(QQuick3DObject* self, QChildEvent* event) {
     auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
+    if (vqquick3dobject) {
         vqquick3dobject->childEvent(event);
     } else {
-        ((VirtualQQuick3DObject*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQuick3DObject::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DObject_SuperChildEvent(QQuick3DObject* self, QChildEvent* event) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_ChildEvent_IsBase(true);
-        vqquick3dobject->childEvent(event);
-    } else {
-        ((VirtualQQuick3DObject*)self)->childEvent(event);
-    }
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self)) {
+        vqquick3dobject->QQuick3DObject::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DObject::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DObject_OnChildEvent(QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_ChildEvent_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_ChildEvent_Callback>(slot));
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self))
+        vqquick3dobject->qquick3dobject_childevent_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DObject_CustomEvent(QQuick3DObject* self, QEvent* event) {
     auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
+    if (vqquick3dobject) {
         vqquick3dobject->customEvent(event);
     } else {
-        ((VirtualQQuick3DObject*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQuick3DObject::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DObject_SuperCustomEvent(QQuick3DObject* self, QEvent* event) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_CustomEvent_IsBase(true);
-        vqquick3dobject->customEvent(event);
-    } else {
-        ((VirtualQQuick3DObject*)self)->customEvent(event);
-    }
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self)) {
+        vqquick3dobject->QQuick3DObject::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DObject::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DObject_OnCustomEvent(QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_CustomEvent_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_CustomEvent_Callback>(slot));
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self))
+        vqquick3dobject->qquick3dobject_customevent_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DObject_ConnectNotify(QQuick3DObject* self, const QMetaMethod* signal) {
     auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
+    if (vqquick3dobject) {
         vqquick3dobject->connectNotify(*signal);
     } else {
-        ((VirtualQQuick3DObject*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuick3DObject::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DObject_SuperConnectNotify(QQuick3DObject* self, const QMetaMethod* signal) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_ConnectNotify_IsBase(true);
-        vqquick3dobject->connectNotify(*signal);
-    } else {
-        ((VirtualQQuick3DObject*)self)->connectNotify(*signal);
-    }
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self)) {
+        vqquick3dobject->QQuick3DObject::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DObject::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DObject_OnConnectNotify(QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_ConnectNotify_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_ConnectNotify_Callback>(slot));
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self))
+        vqquick3dobject->qquick3dobject_connectnotify_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DObject_DisconnectNotify(QQuick3DObject* self, const QMetaMethod* signal) {
     auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
+    if (vqquick3dobject) {
         vqquick3dobject->disconnectNotify(*signal);
     } else {
-        ((VirtualQQuick3DObject*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuick3DObject::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DObject_SuperDisconnectNotify(QQuick3DObject* self, const QMetaMethod* signal) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_DisconnectNotify_IsBase(true);
-        vqquick3dobject->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQuick3DObject*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self)) {
+        vqquick3dobject->QQuick3DObject::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DObject::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DObject_OnDisconnectNotify(QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self);
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_DisconnectNotify_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_DisconnectNotify_Callback>(slot));
+    if (auto* vqquick3dobject = dynamic_cast<VirtualQQuick3DObject*>(self))
+        vqquick3dobject->qquick3dobject_disconnectnotify_callback = reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuick3DObject_IsComponentComplete(const QQuick3DObject* self) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        return vqquick3dobject->isComponentComplete();
-    } else {
-        return ((VirtualQQuick3DObject*)self)->isComponentComplete();
-    }
+    if (auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self))) {
+        return vqquick3dobject->VirtualQQuick3DObject::isComponentComplete();
+    } else
+        qFatal("Error: Protected method QQuick3DObject::isComponentComplete called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QQuick3DObject_SuperIsComponentComplete(const QQuick3DObject* self) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_IsComponentComplete_IsBase(true);
-        return vqquick3dobject->isComponentComplete();
-    } else {
-        return ((VirtualQQuick3DObject*)self)->isComponentComplete();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DObject_OnIsComponentComplete(const QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_IsComponentComplete_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_IsComponentComplete_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQuick3DObject_Sender(const QQuick3DObject* self) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        return vqquick3dobject->sender();
-    } else {
-        return ((VirtualQQuick3DObject*)self)->sender();
-    }
+    if (auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self))) {
+        return vqquick3dobject->VirtualQQuick3DObject::sender();
+    } else
+        qFatal("Error: Protected method QQuick3DObject::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQuick3DObject_SuperSender(const QQuick3DObject* self) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_Sender_IsBase(true);
-        return vqquick3dobject->sender();
-    } else {
-        return ((VirtualQQuick3DObject*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DObject_OnSender(const QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_Sender_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuick3DObject_SenderSignalIndex(const QQuick3DObject* self) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        return vqquick3dobject->senderSignalIndex();
-    } else {
-        return ((VirtualQQuick3DObject*)self)->senderSignalIndex();
-    }
+    if (auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self))) {
+        return vqquick3dobject->VirtualQQuick3DObject::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQuick3DObject::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuick3DObject_SuperSenderSignalIndex(const QQuick3DObject* self) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_SenderSignalIndex_IsBase(true);
-        return vqquick3dobject->senderSignalIndex();
-    } else {
-        return ((VirtualQQuick3DObject*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DObject_OnSenderSignalIndex(const QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuick3DObject_Receivers(const QQuick3DObject* self, const char* signal) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        return vqquick3dobject->receivers(signal);
-    } else {
-        return ((VirtualQQuick3DObject*)self)->receivers(signal);
-    }
+    if (auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self))) {
+        return vqquick3dobject->VirtualQQuick3DObject::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQuick3DObject::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuick3DObject_SuperReceivers(const QQuick3DObject* self, const char* signal) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_Receivers_IsBase(true);
-        return vqquick3dobject->receivers(signal);
-    } else {
-        return ((VirtualQQuick3DObject*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DObject_OnReceivers(const QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_Receivers_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuick3DObject_IsSignalConnected(const QQuick3DObject* self, const QMetaMethod* signal) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        return vqquick3dobject->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuick3DObject*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQuick3DObject_SuperIsSignalConnected(const QQuick3DObject* self, const QMetaMethod* signal) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject) {
-        vqquick3dobject->setQQuick3DObject_IsSignalConnected_IsBase(true);
-        return vqquick3dobject->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuick3DObject*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DObject_OnIsSignalConnected(const QQuick3DObject* self, intptr_t slot) {
-    auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self));
-    if (vqquick3dobject && vqquick3dobject->isVirtualQQuick3DObject)
-        vqquick3dobject->setQQuick3DObject_IsSignalConnected_Callback(reinterpret_cast<VirtualQQuick3DObject::QQuick3DObject_IsSignalConnected_Callback>(slot));
+    if (auto* vqquick3dobject = const_cast<VirtualQQuick3DObject*>(dynamic_cast<const VirtualQQuick3DObject*>(self))) {
+        return vqquick3dobject->VirtualQQuick3DObject::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQuick3DObject::isSignalConnected called without a directly constructed type");
 }
 
 void QQuick3DObject_Delete(QQuick3DObject* self) {

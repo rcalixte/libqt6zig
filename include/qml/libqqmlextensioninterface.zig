@@ -33,6 +33,8 @@ pub const QQmlTypesExtensionInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmltypesextensioninterface.html#registerTypes)
     ///
+    /// This method must be implemented with `onRegisterTypes` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QQmlTypesExtensionInterface `
@@ -60,25 +62,6 @@ pub const QQmlTypesExtensionInterface = extern struct {
     ///
     pub fn onRegisterTypes(self: QQmlTypesExtensionInterface, callback: *const fn (QQmlTypesExtensionInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.QQmlTypesExtensionInterface_OnRegisterTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRegisterTypes` instead
-    ///
-    pub const SuperRegisterTypes = superRegisterTypes;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmltypesextensioninterface.html#registerTypes)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlTypesExtensionInterface `
-    ///
-    /// ` uri: [:0]const u8 `
-    ///
-    pub fn superRegisterTypes(self: QQmlTypesExtensionInterface, uri: [:0]const u8) void {
-        const uri_Cstring = uri.ptr;
-        qtc.QQmlTypesExtensionInterface_SuperRegisterTypes(@ptrCast(self.ptr), uri_Cstring);
     }
 
     /// ### DEPRECATED: Use `operatorAssign` instead
@@ -149,6 +132,8 @@ pub const QQmlExtensionInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlextensioninterface.html#initializeEngine)
     ///
+    /// This method must be implemented with `onInitializeEngine` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QQmlExtensionInterface `
@@ -181,28 +166,6 @@ pub const QQmlExtensionInterface = extern struct {
         qtc.QQmlExtensionInterface_OnInitializeEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superInitializeEngine` instead
-    ///
-    pub const SuperInitializeEngine = superInitializeEngine;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlextensioninterface.html#initializeEngine)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlExtensionInterface `
-    ///
-    /// ` engine: QQmlEngine `
-    ///
-    /// ` uri: [:0]const u8 `
-    ///
-    pub fn superInitializeEngine(self: QQmlExtensionInterface, engine: anytype, uri: [:0]const u8) void {
-        comptime _ = @TypeOf(engine)._is_QQmlEngine;
-        const uri_Cstring = uri.ptr;
-        qtc.QQmlExtensionInterface_SuperInitializeEngine(@ptrCast(self.ptr), @ptrCast(engine.ptr), uri_Cstring);
-    }
-
     /// ### DEPRECATED: Use `operatorAssign` instead
     ///
     pub const OperatorAssign = operatorAssign;
@@ -231,6 +194,8 @@ pub const QQmlExtensionInterface = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onRegisterTypes` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QQmlExtensionInterface `
@@ -240,27 +205,6 @@ pub const QQmlExtensionInterface = extern struct {
     pub fn registerTypes(self: QQmlExtensionInterface, uri: [:0]const u8) void {
         const uri_Cstring = uri.ptr;
         qtc.QQmlExtensionInterface_RegisterTypes(@ptrCast(self.ptr), uri_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `superRegisterTypes` instead
-    ///
-    pub const SuperRegisterTypes = superRegisterTypes;
-
-    /// Inherited from QQmlTypesExtensionInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmltypesextensioninterface.html#registerTypes)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlExtensionInterface `
-    ///
-    /// ` uri: [:0]const u8 `
-    ///
-    pub fn superRegisterTypes(self: QQmlExtensionInterface, uri: [:0]const u8) void {
-        const uri_Cstring = uri.ptr;
-        qtc.QQmlExtensionInterface_SuperRegisterTypes(@ptrCast(self.ptr), uri_Cstring);
     }
 
     /// ### DEPRECATED: Use `onRegisterTypes` instead
@@ -309,26 +253,6 @@ pub const QQmlEngineExtensionInterface = extern struct {
     ptr: QtC.QQmlEngineExtensionInterface,
 
     pub const _is_QQmlEngineExtensionInterface = {};
-
-    /// ### DEPRECATED: Use `initializeEngine` instead
-    ///
-    pub const InitializeEngine = initializeEngine;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlengineextensioninterface.html#initializeEngine)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlEngineExtensionInterface `
-    ///
-    /// ` engine: QQmlEngine `
-    ///
-    /// ` uri: [:0]const u8 `
-    ///
-    pub fn initializeEngine(self: QQmlEngineExtensionInterface, engine: anytype, uri: [:0]const u8) void {
-        comptime _ = @TypeOf(engine)._is_QQmlEngine;
-        const uri_Cstring = uri.ptr;
-        qtc.QQmlEngineExtensionInterface_InitializeEngine(@ptrCast(self.ptr), @ptrCast(engine.ptr), uri_Cstring);
-    }
 
     /// ### DEPRECATED: Use `operatorAssign` instead
     ///

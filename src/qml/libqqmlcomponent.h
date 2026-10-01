@@ -82,7 +82,7 @@ QObject* QQmlComponent_CreateWithInitialProperties2(QQmlComponent* self, const l
 void QQmlComponent_Create22(QQmlComponent* self, QQmlIncubator* param1, QQmlContext* context);
 void QQmlComponent_Create3(QQmlComponent* self, QQmlIncubator* param1, QQmlContext* context, QQmlContext* forContext);
 void QQmlComponent_LoadFromModule3(QQmlComponent* self, libqt_string uri, libqt_string typeName, int mode);
-void QQmlComponent_OnMetaObject(const QQmlComponent* self, intptr_t slot);
+void QQmlComponent_OnMetaObject(QQmlComponent* self, intptr_t slot);
 QMetaObject* QQmlComponent_SuperMetaObject(const QQmlComponent* self);
 void QQmlComponent_OnMetacast(QQmlComponent* self, intptr_t slot);
 void* QQmlComponent_SuperMetacast(QQmlComponent* self, const char* param1);
@@ -116,26 +116,12 @@ void QQmlComponent_DisconnectNotify(QQmlComponent* self, const QMetaMethod* sign
 void QQmlComponent_OnDisconnectNotify(QQmlComponent* self, intptr_t slot);
 void QQmlComponent_SuperDisconnectNotify(QQmlComponent* self, const QMetaMethod* signal);
 QObject* QQmlComponent_CreateObject2(QQmlComponent* self);
-void QQmlComponent_OnCreateObject2(QQmlComponent* self, intptr_t slot);
-QObject* QQmlComponent_SuperCreateObject2(QQmlComponent* self);
 QObject* QQmlComponent_CreateObject1(QQmlComponent* self, QObject* parent);
-void QQmlComponent_OnCreateObject1(QQmlComponent* self, intptr_t slot);
-QObject* QQmlComponent_SuperCreateObject1(QQmlComponent* self, QObject* parent);
 QObject* QQmlComponent_CreateObject22(QQmlComponent* self, QObject* parent, const libqt_map /* of libqt_string to QVariant* */ properties);
-void QQmlComponent_OnCreateObject22(QQmlComponent* self, intptr_t slot);
-QObject* QQmlComponent_SuperCreateObject22(QQmlComponent* self, QObject* parent, const libqt_map /* of libqt_string to QVariant* */ properties);
 QObject* QQmlComponent_Sender(const QQmlComponent* self);
-void QQmlComponent_OnSender(const QQmlComponent* self, intptr_t slot);
-QObject* QQmlComponent_SuperSender(const QQmlComponent* self);
 int QQmlComponent_SenderSignalIndex(const QQmlComponent* self);
-void QQmlComponent_OnSenderSignalIndex(const QQmlComponent* self, intptr_t slot);
-int QQmlComponent_SuperSenderSignalIndex(const QQmlComponent* self);
 int QQmlComponent_Receivers(const QQmlComponent* self, const char* signal);
-void QQmlComponent_OnReceivers(const QQmlComponent* self, intptr_t slot);
-int QQmlComponent_SuperReceivers(const QQmlComponent* self, const char* signal);
 bool QQmlComponent_IsSignalConnected(const QQmlComponent* self, const QMetaMethod* signal);
-void QQmlComponent_OnIsSignalConnected(const QQmlComponent* self, intptr_t slot);
-bool QQmlComponent_SuperIsSignalConnected(const QQmlComponent* self, const QMetaMethod* signal);
 void QQmlComponent_Delete(QQmlComponent* self);
 
 #ifdef __cplusplus

@@ -89,7 +89,7 @@ void QMovie_Stop(QMovie* self);
 void QMovie_SetSpeed(QMovie* self, int percentSpeed);
 libqt_string QMovie_Tr2(const char* s, const char* c);
 libqt_string QMovie_Tr3(const char* s, const char* c, int n);
-void QMovie_OnMetaObject(const QMovie* self, intptr_t slot);
+void QMovie_OnMetaObject(QMovie* self, intptr_t slot);
 QMetaObject* QMovie_SuperMetaObject(const QMovie* self);
 void QMovie_OnMetacast(QMovie* self, intptr_t slot);
 void* QMovie_SuperMetacast(QMovie* self, const char* param1);
@@ -117,17 +117,9 @@ void QMovie_DisconnectNotify(QMovie* self, const QMetaMethod* signal);
 void QMovie_OnDisconnectNotify(QMovie* self, intptr_t slot);
 void QMovie_SuperDisconnectNotify(QMovie* self, const QMetaMethod* signal);
 QObject* QMovie_Sender(const QMovie* self);
-void QMovie_OnSender(const QMovie* self, intptr_t slot);
-QObject* QMovie_SuperSender(const QMovie* self);
 int QMovie_SenderSignalIndex(const QMovie* self);
-void QMovie_OnSenderSignalIndex(const QMovie* self, intptr_t slot);
-int QMovie_SuperSenderSignalIndex(const QMovie* self);
 int QMovie_Receivers(const QMovie* self, const char* signal);
-void QMovie_OnReceivers(const QMovie* self, intptr_t slot);
-int QMovie_SuperReceivers(const QMovie* self, const char* signal);
 bool QMovie_IsSignalConnected(const QMovie* self, const QMetaMethod* signal);
-void QMovie_OnIsSignalConnected(const QMovie* self, intptr_t slot);
-bool QMovie_SuperIsSignalConnected(const QMovie* self, const QMetaMethod* signal);
 void QMovie_Delete(QMovie* self);
 
 #ifdef __cplusplus

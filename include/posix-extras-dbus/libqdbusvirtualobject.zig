@@ -78,9 +78,9 @@ pub const QDBusVirtualObject = extern struct {
     ///
     /// ` self: QDBusVirtualObject `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QDBusVirtualObject) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QDBusVirtualObject, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDBusVirtualObject, callback: *const fn (QDBusVirtualObject) callconv(.c) QMetaObject) void {
         qtc.QDBusVirtualObject_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -231,6 +231,8 @@ pub const QDBusVirtualObject = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusvirtualobject.html#introspect)
     ///
+    /// This method must be implemented with `onIntrospect` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDBusVirtualObject `
@@ -269,39 +271,13 @@ pub const QDBusVirtualObject = extern struct {
         qtc.QDBusVirtualObject_OnIntrospect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superIntrospect` instead
-    ///
-    pub const SuperIntrospect = superIntrospect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusvirtualobject.html#introspect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDBusVirtualObject `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` path: []const u8 `
-    ///
-    pub fn superIntrospect(self: QDBusVirtualObject, allocator: std.mem.Allocator, path: []const u8) []const u8 {
-        const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
-        };
-        var _str = qtc.QDBusVirtualObject_SuperIntrospect(@ptrCast(self.ptr), path_str);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusVirtualObject.introspect: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `handleMessage` instead
     ///
     pub const HandleMessage = handleMessage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusvirtualobject.html#handleMessage)
+    ///
+    /// This method must be implemented with `onHandleMessage` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -333,28 +309,6 @@ pub const QDBusVirtualObject = extern struct {
     ///
     pub fn onHandleMessage(self: QDBusVirtualObject, callback: *const fn (QDBusVirtualObject, QDBusMessage, QDBusConnection) callconv(.c) bool) void {
         qtc.QDBusVirtualObject_OnHandleMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHandleMessage` instead
-    ///
-    pub const SuperHandleMessage = superHandleMessage;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusvirtualobject.html#handleMessage)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDBusVirtualObject `
-    ///
-    /// ` message: QDBusMessage `
-    ///
-    /// ` connection: QDBusConnection `
-    ///
-    pub fn superHandleMessage(self: QDBusVirtualObject, message: anytype, connection: anytype) bool {
-        comptime _ = @TypeOf(message)._is_QDBusMessage;
-        comptime _ = @TypeOf(connection)._is_QDBusConnection;
-        return qtc.QDBusVirtualObject_SuperHandleMessage(@ptrCast(self.ptr), @ptrCast(message.ptr), @ptrCast(connection.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1834,44 +1788,6 @@ pub const QDBusVirtualObject = extern struct {
         return .{ .ptr = qtc.QDBusVirtualObject_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDBusVirtualObject `
-    ///
-    pub fn superSender(self: QDBusVirtualObject) QObject {
-        return .{ .ptr = qtc.QDBusVirtualObject_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDBusVirtualObject`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QDBusVirtualObject, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QDBusVirtualObject_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1888,44 +1804,6 @@ pub const QDBusVirtualObject = extern struct {
     ///
     pub fn senderSignalIndex(self: QDBusVirtualObject) i32 {
         return qtc.QDBusVirtualObject_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDBusVirtualObject `
-    ///
-    pub fn superSenderSignalIndex(self: QDBusVirtualObject) i32 {
-        return qtc.QDBusVirtualObject_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDBusVirtualObject`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QDBusVirtualObject, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDBusVirtualObject_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1949,47 +1827,6 @@ pub const QDBusVirtualObject = extern struct {
         return qtc.QDBusVirtualObject_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDBusVirtualObject `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QDBusVirtualObject, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QDBusVirtualObject_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDBusVirtualObject`
-    ///
-    /// ` callback: *const fn (self: QDBusVirtualObject, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QDBusVirtualObject, callback: *const fn (QDBusVirtualObject, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDBusVirtualObject_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2009,47 +1846,6 @@ pub const QDBusVirtualObject = extern struct {
     pub fn isSignalConnected(self: QDBusVirtualObject, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDBusVirtualObject_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDBusVirtualObject `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QDBusVirtualObject, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QDBusVirtualObject_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDBusVirtualObject`
-    ///
-    /// ` callback: *const fn (self: QDBusVirtualObject, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QDBusVirtualObject, callback: *const fn (QDBusVirtualObject, QMetaMethod) callconv(.c) bool) void {
-        qtc.QDBusVirtualObject_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

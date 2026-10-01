@@ -80,9 +80,9 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QBuffer) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QBuffer, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) QMetaObject) void {
         qtc.QBuffer_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -404,9 +404,9 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QBuffer) callconv(.c) void `
     ///
-    pub fn onClose(self: QBuffer, callback: *const fn () callconv(.c) void) void {
+    pub fn onClose(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) void) void {
         qtc.QBuffer_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -452,9 +452,9 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QBuffer) callconv(.c) i64 `
     ///
-    pub fn onSize(self: QBuffer, callback: *const fn () callconv(.c) i64) void {
+    pub fn onSize(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) i64) void {
         qtc.QBuffer_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -500,9 +500,9 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QBuffer) callconv(.c) i64 `
     ///
-    pub fn onPos(self: QBuffer, callback: *const fn () callconv(.c) i64) void {
+    pub fn onPos(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) i64) void {
         qtc.QBuffer_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -600,9 +600,9 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QBuffer) callconv(.c) bool `
     ///
-    pub fn onAtEnd(self: QBuffer, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAtEnd(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) bool) void {
         qtc.QBuffer_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -648,9 +648,9 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QBuffer) callconv(.c) bool `
     ///
-    pub fn onCanReadLine(self: QBuffer, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanReadLine(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) bool) void {
         qtc.QBuffer_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2789,9 +2789,9 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QBuffer) callconv(.c) bool `
     ///
-    pub fn onIsSequential(self: QBuffer, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSequential(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) bool) void {
         qtc.QBuffer_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2845,9 +2845,9 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QBuffer) callconv(.c) bool `
     ///
-    pub fn onReset(self: QBuffer, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReset(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) bool) void {
         qtc.QBuffer_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2901,9 +2901,9 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QBuffer) callconv(.c) i64 `
     ///
-    pub fn onBytesAvailable(self: QBuffer, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesAvailable(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) i64) void {
         qtc.QBuffer_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2957,9 +2957,9 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QBuffer) callconv(.c) i64 `
     ///
-    pub fn onBytesToWrite(self: QBuffer, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesToWrite(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) i64) void {
         qtc.QBuffer_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3545,46 +3545,6 @@ pub const QBuffer = extern struct {
         qtc.QBuffer_SetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
 
-    /// ### DEPRECATED: Use `superSetOpenMode` instead
-    ///
-    pub const SuperSetOpenMode = superSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBuffer `
-    ///
-    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
-    ///
-    pub fn superSetOpenMode(self: QBuffer, _openMode: i32) void {
-        qtc.QBuffer_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
-    }
-
-    /// ### DEPRECATED: Use `onSetOpenMode` instead
-    ///
-    pub const OnSetOpenMode = onSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QBuffer`
-    ///
-    /// ` callback: *const fn (self: QBuffer, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
-    ///
-    pub fn onSetOpenMode(self: QBuffer, callback: *const fn (QBuffer, i32) callconv(.c) void) void {
-        qtc.QBuffer_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setErrorString` instead
     ///
     pub const SetErrorString = setErrorString;
@@ -3609,50 +3569,6 @@ pub const QBuffer = extern struct {
         qtc.QBuffer_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `superSetErrorString` instead
-    ///
-    pub const SuperSetErrorString = superSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBuffer `
-    ///
-    /// ` _errorString: []const u8 `
-    ///
-    pub fn superSetErrorString(self: QBuffer, _errorString: []const u8) void {
-        const errorString_str = qtc.libqt_string{
-            .len = _errorString.len,
-            .data = _errorString.ptr,
-        };
-        qtc.QBuffer_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorString` instead
-    ///
-    pub const OnSetErrorString = onSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QBuffer`
-    ///
-    /// ` callback: *const fn (self: QBuffer, errorString: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorString(self: QBuffer, callback: *const fn (QBuffer, [*:0]const u8) callconv(.c) void) void {
-        qtc.QBuffer_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -3671,44 +3587,6 @@ pub const QBuffer = extern struct {
         return .{ .ptr = qtc.QBuffer_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBuffer `
-    ///
-    pub fn superSender(self: QBuffer) QObject {
-        return .{ .ptr = qtc.QBuffer_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QBuffer`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QBuffer, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QBuffer_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3725,44 +3603,6 @@ pub const QBuffer = extern struct {
     ///
     pub fn senderSignalIndex(self: QBuffer) i32 {
         return qtc.QBuffer_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBuffer `
-    ///
-    pub fn superSenderSignalIndex(self: QBuffer) i32 {
-        return qtc.QBuffer_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QBuffer`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QBuffer, callback: *const fn () callconv(.c) i32) void {
-        qtc.QBuffer_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3786,47 +3626,6 @@ pub const QBuffer = extern struct {
         return qtc.QBuffer_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBuffer `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QBuffer, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QBuffer_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QBuffer`
-    ///
-    /// ` callback: *const fn (self: QBuffer, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QBuffer, callback: *const fn (QBuffer, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QBuffer_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3846,47 +3645,6 @@ pub const QBuffer = extern struct {
     pub fn isSignalConnected(self: QBuffer, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QBuffer_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBuffer `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QBuffer, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QBuffer_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QBuffer`
-    ///
-    /// ` callback: *const fn (self: QBuffer, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QBuffer, callback: *const fn (QBuffer, QMetaMethod) callconv(.c) bool) void {
-        qtc.QBuffer_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

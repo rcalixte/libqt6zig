@@ -37,16 +37,16 @@ void KLocalizedTranslator_AddContextToMonitor(KLocalizedTranslator* self, const 
 void KLocalizedTranslator_RemoveContextToMonitor(KLocalizedTranslator* self, const libqt_string context);
 libqt_string KLocalizedTranslator_Tr2(const char* s, const char* c);
 libqt_string KLocalizedTranslator_Tr3(const char* s, const char* c, int n);
-void KLocalizedTranslator_OnMetaObject(const KLocalizedTranslator* self, intptr_t slot);
+void KLocalizedTranslator_OnMetaObject(KLocalizedTranslator* self, intptr_t slot);
 QMetaObject* KLocalizedTranslator_SuperMetaObject(const KLocalizedTranslator* self);
 void KLocalizedTranslator_OnMetacast(KLocalizedTranslator* self, intptr_t slot);
 void* KLocalizedTranslator_SuperMetacast(KLocalizedTranslator* self, const char* param1);
 void KLocalizedTranslator_OnMetacall(KLocalizedTranslator* self, intptr_t slot);
 int KLocalizedTranslator_SuperMetacall(KLocalizedTranslator* self, int param1, int param2, void** param3);
-void KLocalizedTranslator_OnTranslate(const KLocalizedTranslator* self, intptr_t slot);
+void KLocalizedTranslator_OnTranslate(KLocalizedTranslator* self, intptr_t slot);
 libqt_string KLocalizedTranslator_SuperTranslate(const KLocalizedTranslator* self, const char* context, const char* sourceText, const char* disambiguation, int n);
 bool KLocalizedTranslator_IsEmpty(const KLocalizedTranslator* self);
-void KLocalizedTranslator_OnIsEmpty(const KLocalizedTranslator* self, intptr_t slot);
+void KLocalizedTranslator_OnIsEmpty(KLocalizedTranslator* self, intptr_t slot);
 bool KLocalizedTranslator_SuperIsEmpty(const KLocalizedTranslator* self);
 bool KLocalizedTranslator_Event(KLocalizedTranslator* self, QEvent* event);
 void KLocalizedTranslator_OnEvent(KLocalizedTranslator* self, intptr_t slot);
@@ -70,17 +70,9 @@ void KLocalizedTranslator_DisconnectNotify(KLocalizedTranslator* self, const QMe
 void KLocalizedTranslator_OnDisconnectNotify(KLocalizedTranslator* self, intptr_t slot);
 void KLocalizedTranslator_SuperDisconnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal);
 QObject* KLocalizedTranslator_Sender(const KLocalizedTranslator* self);
-void KLocalizedTranslator_OnSender(const KLocalizedTranslator* self, intptr_t slot);
-QObject* KLocalizedTranslator_SuperSender(const KLocalizedTranslator* self);
 int KLocalizedTranslator_SenderSignalIndex(const KLocalizedTranslator* self);
-void KLocalizedTranslator_OnSenderSignalIndex(const KLocalizedTranslator* self, intptr_t slot);
-int KLocalizedTranslator_SuperSenderSignalIndex(const KLocalizedTranslator* self);
 int KLocalizedTranslator_Receivers(const KLocalizedTranslator* self, const char* signal);
-void KLocalizedTranslator_OnReceivers(const KLocalizedTranslator* self, intptr_t slot);
-int KLocalizedTranslator_SuperReceivers(const KLocalizedTranslator* self, const char* signal);
 bool KLocalizedTranslator_IsSignalConnected(const KLocalizedTranslator* self, const QMetaMethod* signal);
-void KLocalizedTranslator_OnIsSignalConnected(const KLocalizedTranslator* self, intptr_t slot);
-bool KLocalizedTranslator_SuperIsSignalConnected(const KLocalizedTranslator* self, const QMetaMethod* signal);
 void KLocalizedTranslator_Delete(KLocalizedTranslator* self);
 
 #ifdef __cplusplus

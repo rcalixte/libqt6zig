@@ -130,9 +130,9 @@ pub const KToolTipWidget = extern struct {
     ///
     /// ` self: KToolTipWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KToolTipWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KToolTipWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KToolTipWidget, callback: *const fn (KToolTipWidget) callconv(.c) QMetaObject) void {
         qtc.KToolTipWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6923,9 +6923,9 @@ pub const KToolTipWidget = extern struct {
     ///
     /// ` self: KToolTipWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KToolTipWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KToolTipWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KToolTipWidget, callback: *const fn (KToolTipWidget) callconv(.c) i32) void {
         qtc.KToolTipWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7039,11 +7039,11 @@ pub const KToolTipWidget = extern struct {
     ///
     /// ` self: KToolTipWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KToolTipWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KToolTipWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KToolTipWidget, callback: *const fn (KToolTipWidget) callconv(.c) QSize) void {
         qtc.KToolTipWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7097,11 +7097,11 @@ pub const KToolTipWidget = extern struct {
     ///
     /// ` self: KToolTipWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KToolTipWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KToolTipWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KToolTipWidget, callback: *const fn (KToolTipWidget) callconv(.c) QSize) void {
         qtc.KToolTipWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7215,9 +7215,9 @@ pub const KToolTipWidget = extern struct {
     ///
     /// ` self: KToolTipWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KToolTipWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KToolTipWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KToolTipWidget, callback: *const fn (KToolTipWidget) callconv(.c) bool) void {
         qtc.KToolTipWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7271,9 +7271,9 @@ pub const KToolTipWidget = extern struct {
     ///
     /// ` self: KToolTipWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KToolTipWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KToolTipWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KToolTipWidget, callback: *const fn (KToolTipWidget) callconv(.c) QPaintEngine) void {
         qtc.KToolTipWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8951,9 +8951,9 @@ pub const KToolTipWidget = extern struct {
     ///
     /// ` self: KToolTipWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KToolTipWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KToolTipWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KToolTipWidget, callback: *const fn (KToolTipWidget) callconv(.c) QPainter) void {
         qtc.KToolTipWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9537,44 +9537,6 @@ pub const KToolTipWidget = extern struct {
         qtc.KToolTipWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KToolTipWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: KToolTipWidget) void {
-        qtc.KToolTipWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KToolTipWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KToolTipWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KToolTipWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9591,44 +9553,6 @@ pub const KToolTipWidget = extern struct {
     ///
     pub fn create(self: KToolTipWidget) void {
         qtc.KToolTipWidget_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KToolTipWidget `
-    ///
-    pub fn superCreate(self: KToolTipWidget) void {
-        qtc.KToolTipWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KToolTipWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KToolTipWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KToolTipWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9649,44 +9573,6 @@ pub const KToolTipWidget = extern struct {
         qtc.KToolTipWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KToolTipWidget `
-    ///
-    pub fn superDestroy(self: KToolTipWidget) void {
-        qtc.KToolTipWidget_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KToolTipWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KToolTipWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KToolTipWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9703,44 +9589,6 @@ pub const KToolTipWidget = extern struct {
     ///
     pub fn focusNextChild(self: KToolTipWidget) bool {
         return qtc.KToolTipWidget_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KToolTipWidget `
-    ///
-    pub fn superFocusNextChild(self: KToolTipWidget) bool {
-        return qtc.KToolTipWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KToolTipWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KToolTipWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.KToolTipWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -9761,44 +9609,6 @@ pub const KToolTipWidget = extern struct {
         return qtc.KToolTipWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KToolTipWidget `
-    ///
-    pub fn superFocusPreviousChild(self: KToolTipWidget) bool {
-        return qtc.KToolTipWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KToolTipWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KToolTipWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.KToolTipWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -9817,44 +9627,6 @@ pub const KToolTipWidget = extern struct {
         return .{ .ptr = qtc.KToolTipWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KToolTipWidget `
-    ///
-    pub fn superSender(self: KToolTipWidget) QObject {
-        return .{ .ptr = qtc.KToolTipWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KToolTipWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KToolTipWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KToolTipWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -9871,44 +9643,6 @@ pub const KToolTipWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: KToolTipWidget) i32 {
         return qtc.KToolTipWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KToolTipWidget `
-    ///
-    pub fn superSenderSignalIndex(self: KToolTipWidget) i32 {
-        return qtc.KToolTipWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KToolTipWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KToolTipWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.KToolTipWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -9932,47 +9666,6 @@ pub const KToolTipWidget = extern struct {
         return qtc.KToolTipWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KToolTipWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KToolTipWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KToolTipWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KToolTipWidget`
-    ///
-    /// ` callback: *const fn (self: KToolTipWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KToolTipWidget, callback: *const fn (KToolTipWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KToolTipWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -9992,47 +9685,6 @@ pub const KToolTipWidget = extern struct {
     pub fn isSignalConnected(self: KToolTipWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KToolTipWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KToolTipWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KToolTipWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KToolTipWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KToolTipWidget`
-    ///
-    /// ` callback: *const fn (self: KToolTipWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KToolTipWidget, callback: *const fn (KToolTipWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.KToolTipWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10055,48 +9707,6 @@ pub const KToolTipWidget = extern struct {
     ///
     pub fn getDecodedMetricF(self: KToolTipWidget, metricA: i32, metricB: i32) f64 {
         return qtc.KToolTipWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KToolTipWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KToolTipWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.KToolTipWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KToolTipWidget`
-    ///
-    /// ` callback: *const fn (self: KToolTipWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KToolTipWidget, callback: *const fn (KToolTipWidget, i32, i32) callconv(.c) f64) void {
-        qtc.KToolTipWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KPageWidgetItem so that we can call protected methods
+// This class is a subclass of KPageWidgetItem
 class VirtualKPageWidgetItem final : public KPageWidgetItem {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKPageWidgetItem = true;
-
-    // Virtual class public types (including callbacks)
-    using KPageWidgetItem_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KPageWidgetItem_MetaObject_Callback = QMetaObject* (*)(const KPageWidgetItem*);
     using KPageWidgetItem_Metacast_Callback = void* (*)(KPageWidgetItem*, const char*);
     using KPageWidgetItem_Metacall_Callback = int (*)(KPageWidgetItem*, int, int, void**);
     using KPageWidgetItem_Event_Callback = bool (*)(KPageWidgetItem*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
     using KPageWidgetItem_CustomEvent_Callback = void (*)(KPageWidgetItem*, QEvent*);
     using KPageWidgetItem_ConnectNotify_Callback = void (*)(KPageWidgetItem*, QMetaMethod*);
     using KPageWidgetItem_DisconnectNotify_Callback = void (*)(KPageWidgetItem*, QMetaMethod*);
-    using KPageWidgetItem_Sender_Callback = QObject* (*)();
-    using KPageWidgetItem_SenderSignalIndex_Callback = int (*)();
-    using KPageWidgetItem_Receivers_Callback = int (*)(const KPageWidgetItem*, const char*);
-    using KPageWidgetItem_IsSignalConnected_Callback = bool (*)(const KPageWidgetItem*, QMetaMethod*);
+    using KPageWidgetItem::isSignalConnected;
+    using KPageWidgetItem::receivers;
+    using KPageWidgetItem::sender;
+    using KPageWidgetItem::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KPageWidgetItem_MetaObject_Callback kpagewidgetitem_metaobject_callback = nullptr;
     KPageWidgetItem_Metacast_Callback kpagewidgetitem_metacast_callback = nullptr;
@@ -44,72 +39,23 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
     KPageWidgetItem_CustomEvent_Callback kpagewidgetitem_customevent_callback = nullptr;
     KPageWidgetItem_ConnectNotify_Callback kpagewidgetitem_connectnotify_callback = nullptr;
     KPageWidgetItem_DisconnectNotify_Callback kpagewidgetitem_disconnectnotify_callback = nullptr;
-    KPageWidgetItem_Sender_Callback kpagewidgetitem_sender_callback = nullptr;
-    KPageWidgetItem_SenderSignalIndex_Callback kpagewidgetitem_sendersignalindex_callback = nullptr;
-    KPageWidgetItem_Receivers_Callback kpagewidgetitem_receivers_callback = nullptr;
-    KPageWidgetItem_IsSignalConnected_Callback kpagewidgetitem_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kpagewidgetitem_metaobject_isbase = false;
-    mutable bool kpagewidgetitem_metacast_isbase = false;
-    mutable bool kpagewidgetitem_metacall_isbase = false;
-    mutable bool kpagewidgetitem_event_isbase = false;
-    mutable bool kpagewidgetitem_eventfilter_isbase = false;
-    mutable bool kpagewidgetitem_timerevent_isbase = false;
-    mutable bool kpagewidgetitem_childevent_isbase = false;
-    mutable bool kpagewidgetitem_customevent_isbase = false;
-    mutable bool kpagewidgetitem_connectnotify_isbase = false;
-    mutable bool kpagewidgetitem_disconnectnotify_isbase = false;
-    mutable bool kpagewidgetitem_sender_isbase = false;
-    mutable bool kpagewidgetitem_sendersignalindex_isbase = false;
-    mutable bool kpagewidgetitem_receivers_isbase = false;
-    mutable bool kpagewidgetitem_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KPageWidgetItem {
+        using KPageWidgetItem::childEvent;
+        using KPageWidgetItem::connectNotify;
+        using KPageWidgetItem::customEvent;
+        using KPageWidgetItem::disconnectNotify;
+        using KPageWidgetItem::timerEvent;
+    };
 
-  public:
     VirtualKPageWidgetItem(QWidget* widget) : KPageWidgetItem(widget) {};
     VirtualKPageWidgetItem(QWidget* widget, const QString& name) : KPageWidgetItem(widget, name) {};
 
-    // Callback setters
-    inline void setKPageWidgetItem_MetaObject_Callback(KPageWidgetItem_MetaObject_Callback cb) { kpagewidgetitem_metaobject_callback = cb; }
-    inline void setKPageWidgetItem_Metacast_Callback(KPageWidgetItem_Metacast_Callback cb) { kpagewidgetitem_metacast_callback = cb; }
-    inline void setKPageWidgetItem_Metacall_Callback(KPageWidgetItem_Metacall_Callback cb) { kpagewidgetitem_metacall_callback = cb; }
-    inline void setKPageWidgetItem_Event_Callback(KPageWidgetItem_Event_Callback cb) { kpagewidgetitem_event_callback = cb; }
-    inline void setKPageWidgetItem_EventFilter_Callback(KPageWidgetItem_EventFilter_Callback cb) { kpagewidgetitem_eventfilter_callback = cb; }
-    inline void setKPageWidgetItem_TimerEvent_Callback(KPageWidgetItem_TimerEvent_Callback cb) { kpagewidgetitem_timerevent_callback = cb; }
-    inline void setKPageWidgetItem_ChildEvent_Callback(KPageWidgetItem_ChildEvent_Callback cb) { kpagewidgetitem_childevent_callback = cb; }
-    inline void setKPageWidgetItem_CustomEvent_Callback(KPageWidgetItem_CustomEvent_Callback cb) { kpagewidgetitem_customevent_callback = cb; }
-    inline void setKPageWidgetItem_ConnectNotify_Callback(KPageWidgetItem_ConnectNotify_Callback cb) { kpagewidgetitem_connectnotify_callback = cb; }
-    inline void setKPageWidgetItem_DisconnectNotify_Callback(KPageWidgetItem_DisconnectNotify_Callback cb) { kpagewidgetitem_disconnectnotify_callback = cb; }
-    inline void setKPageWidgetItem_Sender_Callback(KPageWidgetItem_Sender_Callback cb) { kpagewidgetitem_sender_callback = cb; }
-    inline void setKPageWidgetItem_SenderSignalIndex_Callback(KPageWidgetItem_SenderSignalIndex_Callback cb) { kpagewidgetitem_sendersignalindex_callback = cb; }
-    inline void setKPageWidgetItem_Receivers_Callback(KPageWidgetItem_Receivers_Callback cb) { kpagewidgetitem_receivers_callback = cb; }
-    inline void setKPageWidgetItem_IsSignalConnected_Callback(KPageWidgetItem_IsSignalConnected_Callback cb) { kpagewidgetitem_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKPageWidgetItem_MetaObject_IsBase(bool value) const { kpagewidgetitem_metaobject_isbase = value; }
-    inline void setKPageWidgetItem_Metacast_IsBase(bool value) const { kpagewidgetitem_metacast_isbase = value; }
-    inline void setKPageWidgetItem_Metacall_IsBase(bool value) const { kpagewidgetitem_metacall_isbase = value; }
-    inline void setKPageWidgetItem_Event_IsBase(bool value) const { kpagewidgetitem_event_isbase = value; }
-    inline void setKPageWidgetItem_EventFilter_IsBase(bool value) const { kpagewidgetitem_eventfilter_isbase = value; }
-    inline void setKPageWidgetItem_TimerEvent_IsBase(bool value) const { kpagewidgetitem_timerevent_isbase = value; }
-    inline void setKPageWidgetItem_ChildEvent_IsBase(bool value) const { kpagewidgetitem_childevent_isbase = value; }
-    inline void setKPageWidgetItem_CustomEvent_IsBase(bool value) const { kpagewidgetitem_customevent_isbase = value; }
-    inline void setKPageWidgetItem_ConnectNotify_IsBase(bool value) const { kpagewidgetitem_connectnotify_isbase = value; }
-    inline void setKPageWidgetItem_DisconnectNotify_IsBase(bool value) const { kpagewidgetitem_disconnectnotify_isbase = value; }
-    inline void setKPageWidgetItem_Sender_IsBase(bool value) const { kpagewidgetitem_sender_isbase = value; }
-    inline void setKPageWidgetItem_SenderSignalIndex_IsBase(bool value) const { kpagewidgetitem_sendersignalindex_isbase = value; }
-    inline void setKPageWidgetItem_Receivers_IsBase(bool value) const { kpagewidgetitem_receivers_isbase = value; }
-    inline void setKPageWidgetItem_IsSignalConnected_IsBase(bool value) const { kpagewidgetitem_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kpagewidgetitem_metaobject_isbase) {
-            kpagewidgetitem_metaobject_isbase = false;
-            return KPageWidgetItem::metaObject();
-        }
-        auto metaobject_cb = kpagewidgetitem_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kpagewidgetitem_metaobject_callback) {
+            QMetaObject* callback_ret = kpagewidgetitem_metaobject_callback(this);
             return callback_ret;
         }
         return KPageWidgetItem::metaObject();
@@ -117,14 +63,9 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kpagewidgetitem_metacast_isbase) {
-            kpagewidgetitem_metacast_isbase = false;
-            return KPageWidgetItem::qt_metacast(param1);
-        }
-        auto metacast_cb = kpagewidgetitem_metacast_callback;
-        if (metacast_cb) {
+        if (kpagewidgetitem_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kpagewidgetitem_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KPageWidgetItem::qt_metacast(param1);
@@ -132,16 +73,11 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kpagewidgetitem_metacall_isbase) {
-            kpagewidgetitem_metacall_isbase = false;
-            return KPageWidgetItem::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kpagewidgetitem_metacall_callback;
-        if (metacall_cb) {
+        if (kpagewidgetitem_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kpagewidgetitem_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KPageWidgetItem::qt_metacall(param1, param2, param3);
@@ -149,14 +85,9 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kpagewidgetitem_event_isbase) {
-            kpagewidgetitem_event_isbase = false;
-            return KPageWidgetItem::event(event);
-        }
-        auto event_cb = kpagewidgetitem_event_callback;
-        if (event_cb) {
+        if (kpagewidgetitem_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kpagewidgetitem_event_callback(this, cbval1);
             return callback_ret;
         }
         return KPageWidgetItem::event(event);
@@ -164,15 +95,10 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kpagewidgetitem_eventfilter_isbase) {
-            kpagewidgetitem_eventfilter_isbase = false;
-            return KPageWidgetItem::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kpagewidgetitem_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kpagewidgetitem_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kpagewidgetitem_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KPageWidgetItem::eventFilter(watched, event);
@@ -180,15 +106,9 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kpagewidgetitem_timerevent_isbase) {
-            kpagewidgetitem_timerevent_isbase = false;
-            KPageWidgetItem::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kpagewidgetitem_timerevent_callback;
-        if (timerevent_cb) {
+        if (kpagewidgetitem_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kpagewidgetitem_timerevent_callback(this, cbval1);
             return;
         }
         KPageWidgetItem::timerEvent(event);
@@ -196,15 +116,9 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kpagewidgetitem_childevent_isbase) {
-            kpagewidgetitem_childevent_isbase = false;
-            KPageWidgetItem::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kpagewidgetitem_childevent_callback;
-        if (childevent_cb) {
+        if (kpagewidgetitem_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kpagewidgetitem_childevent_callback(this, cbval1);
             return;
         }
         KPageWidgetItem::childEvent(event);
@@ -212,15 +126,9 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kpagewidgetitem_customevent_isbase) {
-            kpagewidgetitem_customevent_isbase = false;
-            KPageWidgetItem::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kpagewidgetitem_customevent_callback;
-        if (customevent_cb) {
+        if (kpagewidgetitem_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kpagewidgetitem_customevent_callback(this, cbval1);
             return;
         }
         KPageWidgetItem::customEvent(event);
@@ -228,17 +136,11 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kpagewidgetitem_connectnotify_isbase) {
-            kpagewidgetitem_connectnotify_isbase = false;
-            KPageWidgetItem::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kpagewidgetitem_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kpagewidgetitem_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kpagewidgetitem_connectnotify_callback(this, cbval1);
             return;
         }
         KPageWidgetItem::connectNotify(signal);
@@ -246,112 +148,29 @@ class VirtualKPageWidgetItem final : public KPageWidgetItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kpagewidgetitem_disconnectnotify_isbase) {
-            kpagewidgetitem_disconnectnotify_isbase = false;
-            KPageWidgetItem::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kpagewidgetitem_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kpagewidgetitem_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kpagewidgetitem_disconnectnotify_callback(this, cbval1);
             return;
         }
         KPageWidgetItem::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kpagewidgetitem_sender_isbase) {
-            kpagewidgetitem_sender_isbase = false;
-            return KPageWidgetItem::sender();
-        }
-        auto sender_cb = kpagewidgetitem_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KPageWidgetItem::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kpagewidgetitem_sendersignalindex_isbase) {
-            kpagewidgetitem_sendersignalindex_isbase = false;
-            return KPageWidgetItem::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kpagewidgetitem_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KPageWidgetItem::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kpagewidgetitem_receivers_isbase) {
-            kpagewidgetitem_receivers_isbase = false;
-            return KPageWidgetItem::receivers(signal);
-        }
-        auto receivers_cb = kpagewidgetitem_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KPageWidgetItem::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kpagewidgetitem_issignalconnected_isbase) {
-            kpagewidgetitem_issignalconnected_isbase = false;
-            return KPageWidgetItem::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kpagewidgetitem_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KPageWidgetItem::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KPageWidgetItem_TimerEvent(KPageWidgetItem* self, QTimerEvent* event);
     friend void KPageWidgetItem_SuperTimerEvent(KPageWidgetItem* self, QTimerEvent* event);
-    friend void KPageWidgetItem_ChildEvent(KPageWidgetItem* self, QChildEvent* event);
     friend void KPageWidgetItem_SuperChildEvent(KPageWidgetItem* self, QChildEvent* event);
-    friend void KPageWidgetItem_CustomEvent(KPageWidgetItem* self, QEvent* event);
     friend void KPageWidgetItem_SuperCustomEvent(KPageWidgetItem* self, QEvent* event);
-    friend void KPageWidgetItem_ConnectNotify(KPageWidgetItem* self, const QMetaMethod* signal);
     friend void KPageWidgetItem_SuperConnectNotify(KPageWidgetItem* self, const QMetaMethod* signal);
-    friend void KPageWidgetItem_DisconnectNotify(KPageWidgetItem* self, const QMetaMethod* signal);
     friend void KPageWidgetItem_SuperDisconnectNotify(KPageWidgetItem* self, const QMetaMethod* signal);
-    friend QObject* KPageWidgetItem_Sender(const KPageWidgetItem* self);
-    friend QObject* KPageWidgetItem_SuperSender(const KPageWidgetItem* self);
-    friend int KPageWidgetItem_SenderSignalIndex(const KPageWidgetItem* self);
-    friend int KPageWidgetItem_SuperSenderSignalIndex(const KPageWidgetItem* self);
-    friend int KPageWidgetItem_Receivers(const KPageWidgetItem* self, const char* signal);
-    friend int KPageWidgetItem_SuperReceivers(const KPageWidgetItem* self, const char* signal);
-    friend bool KPageWidgetItem_IsSignalConnected(const KPageWidgetItem* self, const QMetaMethod* signal);
-    friend bool KPageWidgetItem_SuperIsSignalConnected(const KPageWidgetItem* self, const QMetaMethod* signal);
 };
 
-// This class is a subclass of KPageWidgetModel so that we can call protected methods
+// This class is a subclass of KPageWidgetModel
 class VirtualKPageWidgetModel final : public KPageWidgetModel {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKPageWidgetModel = true;
-
-    // Virtual class public types (including callbacks)
-    using KPageWidgetModel_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KPageWidgetModel_MetaObject_Callback = QMetaObject* (*)(const KPageWidgetModel*);
     using KPageWidgetModel_Metacast_Callback = void* (*)(KPageWidgetModel*, const char*);
     using KPageWidgetModel_Metacall_Callback = int (*)(KPageWidgetModel*, int, int, void**);
     using KPageWidgetModel_ColumnCount_Callback = int (*)(const KPageWidgetModel*, QModelIndex*);
@@ -368,12 +187,12 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
     using KPageWidgetModel_ItemData_Callback = libqt_map /* of int to QVariant* */ (*)(const KPageWidgetModel*, QModelIndex*);
     using KPageWidgetModel_SetItemData_Callback = bool (*)(KPageWidgetModel*, QModelIndex*, libqt_map /* of int to QVariant* */);
     using KPageWidgetModel_ClearItemData_Callback = bool (*)(KPageWidgetModel*, QModelIndex*);
-    using KPageWidgetModel_MimeTypes_Callback = const char** (*)();
+    using KPageWidgetModel_MimeTypes_Callback = const char** (*)(const KPageWidgetModel*);
     using KPageWidgetModel_MimeData_Callback = QMimeData* (*)(const KPageWidgetModel*, libqt_list /* of QModelIndex* */);
     using KPageWidgetModel_CanDropMimeData_Callback = bool (*)(const KPageWidgetModel*, QMimeData*, int, int, int, QModelIndex*);
     using KPageWidgetModel_DropMimeData_Callback = bool (*)(KPageWidgetModel*, QMimeData*, int, int, int, QModelIndex*);
-    using KPageWidgetModel_SupportedDropActions_Callback = int (*)();
-    using KPageWidgetModel_SupportedDragActions_Callback = int (*)();
+    using KPageWidgetModel_SupportedDropActions_Callback = int (*)(const KPageWidgetModel*);
+    using KPageWidgetModel_SupportedDragActions_Callback = int (*)(const KPageWidgetModel*);
     using KPageWidgetModel_InsertRows_Callback = bool (*)(KPageWidgetModel*, int, int, QModelIndex*);
     using KPageWidgetModel_InsertColumns_Callback = bool (*)(KPageWidgetModel*, int, int, QModelIndex*);
     using KPageWidgetModel_RemoveRows_Callback = bool (*)(KPageWidgetModel*, int, int, QModelIndex*);
@@ -386,11 +205,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
     using KPageWidgetModel_Buddy_Callback = QModelIndex* (*)(const KPageWidgetModel*, QModelIndex*);
     using KPageWidgetModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KPageWidgetModel*, QModelIndex*, int, QVariant*, int, int);
     using KPageWidgetModel_Span_Callback = QSize* (*)(const KPageWidgetModel*, QModelIndex*);
-    using KPageWidgetModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
+    using KPageWidgetModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)(const KPageWidgetModel*);
     using KPageWidgetModel_MultiData_Callback = void (*)(const KPageWidgetModel*, QModelIndex*, QModelRoleDataSpan*);
-    using KPageWidgetModel_Submit_Callback = bool (*)();
-    using KPageWidgetModel_Revert_Callback = void (*)();
-    using KPageWidgetModel_ResetInternalData_Callback = void (*)();
+    using KPageWidgetModel_Submit_Callback = bool (*)(KPageWidgetModel*);
+    using KPageWidgetModel_Revert_Callback = void (*)(KPageWidgetModel*);
+    using KPageWidgetModel_ResetInternalData_Callback = void (*)(KPageWidgetModel*);
     using KPageWidgetModel_Event_Callback = bool (*)(KPageWidgetModel*, QEvent*);
     using KPageWidgetModel_EventFilter_Callback = bool (*)(KPageWidgetModel*, QObject*, QEvent*);
     using KPageWidgetModel_TimerEvent_Callback = void (*)(KPageWidgetModel*, QTimerEvent*);
@@ -398,32 +217,31 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
     using KPageWidgetModel_CustomEvent_Callback = void (*)(KPageWidgetModel*, QEvent*);
     using KPageWidgetModel_ConnectNotify_Callback = void (*)(KPageWidgetModel*, QMetaMethod*);
     using KPageWidgetModel_DisconnectNotify_Callback = void (*)(KPageWidgetModel*, QMetaMethod*);
-    using KPageWidgetModel_CreateIndex_Callback = QModelIndex* (*)(const KPageWidgetModel*, int, int);
-    using KPageWidgetModel_EncodeData_Callback = void (*)(const KPageWidgetModel*, libqt_list /* of QModelIndex* */, QDataStream*);
-    using KPageWidgetModel_DecodeData_Callback = bool (*)(KPageWidgetModel*, int, int, QModelIndex*, QDataStream*);
-    using KPageWidgetModel_BeginInsertRows_Callback = void (*)(KPageWidgetModel*, QModelIndex*, int, int);
-    using KPageWidgetModel_EndInsertRows_Callback = void (*)();
-    using KPageWidgetModel_BeginRemoveRows_Callback = void (*)(KPageWidgetModel*, QModelIndex*, int, int);
-    using KPageWidgetModel_EndRemoveRows_Callback = void (*)();
-    using KPageWidgetModel_BeginMoveRows_Callback = bool (*)(KPageWidgetModel*, QModelIndex*, int, int, QModelIndex*, int);
-    using KPageWidgetModel_EndMoveRows_Callback = void (*)();
-    using KPageWidgetModel_BeginInsertColumns_Callback = void (*)(KPageWidgetModel*, QModelIndex*, int, int);
-    using KPageWidgetModel_EndInsertColumns_Callback = void (*)();
-    using KPageWidgetModel_BeginRemoveColumns_Callback = void (*)(KPageWidgetModel*, QModelIndex*, int, int);
-    using KPageWidgetModel_EndRemoveColumns_Callback = void (*)();
-    using KPageWidgetModel_BeginMoveColumns_Callback = bool (*)(KPageWidgetModel*, QModelIndex*, int, int, QModelIndex*, int);
-    using KPageWidgetModel_EndMoveColumns_Callback = void (*)();
-    using KPageWidgetModel_BeginResetModel_Callback = void (*)();
-    using KPageWidgetModel_EndResetModel_Callback = void (*)();
-    using KPageWidgetModel_ChangePersistentIndex_Callback = void (*)(KPageWidgetModel*, QModelIndex*, QModelIndex*);
-    using KPageWidgetModel_ChangePersistentIndexList_Callback = void (*)(KPageWidgetModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KPageWidgetModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
-    using KPageWidgetModel_Sender_Callback = QObject* (*)();
-    using KPageWidgetModel_SenderSignalIndex_Callback = int (*)();
-    using KPageWidgetModel_Receivers_Callback = int (*)(const KPageWidgetModel*, const char*);
-    using KPageWidgetModel_IsSignalConnected_Callback = bool (*)(const KPageWidgetModel*, QMetaMethod*);
+    using KPageWidgetModel::beginInsertColumns;
+    using KPageWidgetModel::beginInsertRows;
+    using KPageWidgetModel::beginMoveColumns;
+    using KPageWidgetModel::beginMoveRows;
+    using KPageWidgetModel::beginRemoveColumns;
+    using KPageWidgetModel::beginRemoveRows;
+    using KPageWidgetModel::beginResetModel;
+    using KPageWidgetModel::changePersistentIndex;
+    using KPageWidgetModel::changePersistentIndexList;
+    using KPageWidgetModel::createIndex;
+    using KPageWidgetModel::decodeData;
+    using KPageWidgetModel::encodeData;
+    using KPageWidgetModel::endInsertColumns;
+    using KPageWidgetModel::endInsertRows;
+    using KPageWidgetModel::endMoveColumns;
+    using KPageWidgetModel::endMoveRows;
+    using KPageWidgetModel::endRemoveColumns;
+    using KPageWidgetModel::endRemoveRows;
+    using KPageWidgetModel::endResetModel;
+    using KPageWidgetModel::isSignalConnected;
+    using KPageWidgetModel::persistentIndexList;
+    using KPageWidgetModel::receivers;
+    using KPageWidgetModel::sender;
+    using KPageWidgetModel::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KPageWidgetModel_MetaObject_Callback kpagewidgetmodel_metaobject_callback = nullptr;
     KPageWidgetModel_Metacast_Callback kpagewidgetmodel_metacast_callback = nullptr;
@@ -472,263 +290,24 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
     KPageWidgetModel_CustomEvent_Callback kpagewidgetmodel_customevent_callback = nullptr;
     KPageWidgetModel_ConnectNotify_Callback kpagewidgetmodel_connectnotify_callback = nullptr;
     KPageWidgetModel_DisconnectNotify_Callback kpagewidgetmodel_disconnectnotify_callback = nullptr;
-    KPageWidgetModel_CreateIndex_Callback kpagewidgetmodel_createindex_callback = nullptr;
-    KPageWidgetModel_EncodeData_Callback kpagewidgetmodel_encodedata_callback = nullptr;
-    KPageWidgetModel_DecodeData_Callback kpagewidgetmodel_decodedata_callback = nullptr;
-    KPageWidgetModel_BeginInsertRows_Callback kpagewidgetmodel_begininsertrows_callback = nullptr;
-    KPageWidgetModel_EndInsertRows_Callback kpagewidgetmodel_endinsertrows_callback = nullptr;
-    KPageWidgetModel_BeginRemoveRows_Callback kpagewidgetmodel_beginremoverows_callback = nullptr;
-    KPageWidgetModel_EndRemoveRows_Callback kpagewidgetmodel_endremoverows_callback = nullptr;
-    KPageWidgetModel_BeginMoveRows_Callback kpagewidgetmodel_beginmoverows_callback = nullptr;
-    KPageWidgetModel_EndMoveRows_Callback kpagewidgetmodel_endmoverows_callback = nullptr;
-    KPageWidgetModel_BeginInsertColumns_Callback kpagewidgetmodel_begininsertcolumns_callback = nullptr;
-    KPageWidgetModel_EndInsertColumns_Callback kpagewidgetmodel_endinsertcolumns_callback = nullptr;
-    KPageWidgetModel_BeginRemoveColumns_Callback kpagewidgetmodel_beginremovecolumns_callback = nullptr;
-    KPageWidgetModel_EndRemoveColumns_Callback kpagewidgetmodel_endremovecolumns_callback = nullptr;
-    KPageWidgetModel_BeginMoveColumns_Callback kpagewidgetmodel_beginmovecolumns_callback = nullptr;
-    KPageWidgetModel_EndMoveColumns_Callback kpagewidgetmodel_endmovecolumns_callback = nullptr;
-    KPageWidgetModel_BeginResetModel_Callback kpagewidgetmodel_beginresetmodel_callback = nullptr;
-    KPageWidgetModel_EndResetModel_Callback kpagewidgetmodel_endresetmodel_callback = nullptr;
-    KPageWidgetModel_ChangePersistentIndex_Callback kpagewidgetmodel_changepersistentindex_callback = nullptr;
-    KPageWidgetModel_ChangePersistentIndexList_Callback kpagewidgetmodel_changepersistentindexlist_callback = nullptr;
-    KPageWidgetModel_PersistentIndexList_Callback kpagewidgetmodel_persistentindexlist_callback = nullptr;
-    KPageWidgetModel_Sender_Callback kpagewidgetmodel_sender_callback = nullptr;
-    KPageWidgetModel_SenderSignalIndex_Callback kpagewidgetmodel_sendersignalindex_callback = nullptr;
-    KPageWidgetModel_Receivers_Callback kpagewidgetmodel_receivers_callback = nullptr;
-    KPageWidgetModel_IsSignalConnected_Callback kpagewidgetmodel_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kpagewidgetmodel_metaobject_isbase = false;
-    mutable bool kpagewidgetmodel_metacast_isbase = false;
-    mutable bool kpagewidgetmodel_metacall_isbase = false;
-    mutable bool kpagewidgetmodel_columncount_isbase = false;
-    mutable bool kpagewidgetmodel_data_isbase = false;
-    mutable bool kpagewidgetmodel_setdata_isbase = false;
-    mutable bool kpagewidgetmodel_flags_isbase = false;
-    mutable bool kpagewidgetmodel_index_isbase = false;
-    mutable bool kpagewidgetmodel_parent_isbase = false;
-    mutable bool kpagewidgetmodel_rowcount_isbase = false;
-    mutable bool kpagewidgetmodel_sibling_isbase = false;
-    mutable bool kpagewidgetmodel_haschildren_isbase = false;
-    mutable bool kpagewidgetmodel_headerdata_isbase = false;
-    mutable bool kpagewidgetmodel_setheaderdata_isbase = false;
-    mutable bool kpagewidgetmodel_itemdata_isbase = false;
-    mutable bool kpagewidgetmodel_setitemdata_isbase = false;
-    mutable bool kpagewidgetmodel_clearitemdata_isbase = false;
-    mutable bool kpagewidgetmodel_mimetypes_isbase = false;
-    mutable bool kpagewidgetmodel_mimedata_isbase = false;
-    mutable bool kpagewidgetmodel_candropmimedata_isbase = false;
-    mutable bool kpagewidgetmodel_dropmimedata_isbase = false;
-    mutable bool kpagewidgetmodel_supporteddropactions_isbase = false;
-    mutable bool kpagewidgetmodel_supporteddragactions_isbase = false;
-    mutable bool kpagewidgetmodel_insertrows_isbase = false;
-    mutable bool kpagewidgetmodel_insertcolumns_isbase = false;
-    mutable bool kpagewidgetmodel_removerows_isbase = false;
-    mutable bool kpagewidgetmodel_removecolumns_isbase = false;
-    mutable bool kpagewidgetmodel_moverows_isbase = false;
-    mutable bool kpagewidgetmodel_movecolumns_isbase = false;
-    mutable bool kpagewidgetmodel_fetchmore_isbase = false;
-    mutable bool kpagewidgetmodel_canfetchmore_isbase = false;
-    mutable bool kpagewidgetmodel_sort_isbase = false;
-    mutable bool kpagewidgetmodel_buddy_isbase = false;
-    mutable bool kpagewidgetmodel_match_isbase = false;
-    mutable bool kpagewidgetmodel_span_isbase = false;
-    mutable bool kpagewidgetmodel_rolenames_isbase = false;
-    mutable bool kpagewidgetmodel_multidata_isbase = false;
-    mutable bool kpagewidgetmodel_submit_isbase = false;
-    mutable bool kpagewidgetmodel_revert_isbase = false;
-    mutable bool kpagewidgetmodel_resetinternaldata_isbase = false;
-    mutable bool kpagewidgetmodel_event_isbase = false;
-    mutable bool kpagewidgetmodel_eventfilter_isbase = false;
-    mutable bool kpagewidgetmodel_timerevent_isbase = false;
-    mutable bool kpagewidgetmodel_childevent_isbase = false;
-    mutable bool kpagewidgetmodel_customevent_isbase = false;
-    mutable bool kpagewidgetmodel_connectnotify_isbase = false;
-    mutable bool kpagewidgetmodel_disconnectnotify_isbase = false;
-    mutable bool kpagewidgetmodel_createindex_isbase = false;
-    mutable bool kpagewidgetmodel_encodedata_isbase = false;
-    mutable bool kpagewidgetmodel_decodedata_isbase = false;
-    mutable bool kpagewidgetmodel_begininsertrows_isbase = false;
-    mutable bool kpagewidgetmodel_endinsertrows_isbase = false;
-    mutable bool kpagewidgetmodel_beginremoverows_isbase = false;
-    mutable bool kpagewidgetmodel_endremoverows_isbase = false;
-    mutable bool kpagewidgetmodel_beginmoverows_isbase = false;
-    mutable bool kpagewidgetmodel_endmoverows_isbase = false;
-    mutable bool kpagewidgetmodel_begininsertcolumns_isbase = false;
-    mutable bool kpagewidgetmodel_endinsertcolumns_isbase = false;
-    mutable bool kpagewidgetmodel_beginremovecolumns_isbase = false;
-    mutable bool kpagewidgetmodel_endremovecolumns_isbase = false;
-    mutable bool kpagewidgetmodel_beginmovecolumns_isbase = false;
-    mutable bool kpagewidgetmodel_endmovecolumns_isbase = false;
-    mutable bool kpagewidgetmodel_beginresetmodel_isbase = false;
-    mutable bool kpagewidgetmodel_endresetmodel_isbase = false;
-    mutable bool kpagewidgetmodel_changepersistentindex_isbase = false;
-    mutable bool kpagewidgetmodel_changepersistentindexlist_isbase = false;
-    mutable bool kpagewidgetmodel_persistentindexlist_isbase = false;
-    mutable bool kpagewidgetmodel_sender_isbase = false;
-    mutable bool kpagewidgetmodel_sendersignalindex_isbase = false;
-    mutable bool kpagewidgetmodel_receivers_isbase = false;
-    mutable bool kpagewidgetmodel_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KPageWidgetModel {
+        using KPageWidgetModel::childEvent;
+        using KPageWidgetModel::connectNotify;
+        using KPageWidgetModel::customEvent;
+        using KPageWidgetModel::disconnectNotify;
+        using KPageWidgetModel::resetInternalData;
+        using KPageWidgetModel::timerEvent;
+    };
 
-  public:
     VirtualKPageWidgetModel() : KPageWidgetModel() {};
     VirtualKPageWidgetModel(QObject* parent) : KPageWidgetModel(parent) {};
 
-    // Callback setters
-    inline void setKPageWidgetModel_MetaObject_Callback(KPageWidgetModel_MetaObject_Callback cb) { kpagewidgetmodel_metaobject_callback = cb; }
-    inline void setKPageWidgetModel_Metacast_Callback(KPageWidgetModel_Metacast_Callback cb) { kpagewidgetmodel_metacast_callback = cb; }
-    inline void setKPageWidgetModel_Metacall_Callback(KPageWidgetModel_Metacall_Callback cb) { kpagewidgetmodel_metacall_callback = cb; }
-    inline void setKPageWidgetModel_ColumnCount_Callback(KPageWidgetModel_ColumnCount_Callback cb) { kpagewidgetmodel_columncount_callback = cb; }
-    inline void setKPageWidgetModel_Data_Callback(KPageWidgetModel_Data_Callback cb) { kpagewidgetmodel_data_callback = cb; }
-    inline void setKPageWidgetModel_SetData_Callback(KPageWidgetModel_SetData_Callback cb) { kpagewidgetmodel_setdata_callback = cb; }
-    inline void setKPageWidgetModel_Flags_Callback(KPageWidgetModel_Flags_Callback cb) { kpagewidgetmodel_flags_callback = cb; }
-    inline void setKPageWidgetModel_Index_Callback(KPageWidgetModel_Index_Callback cb) { kpagewidgetmodel_index_callback = cb; }
-    inline void setKPageWidgetModel_Parent_Callback(KPageWidgetModel_Parent_Callback cb) { kpagewidgetmodel_parent_callback = cb; }
-    inline void setKPageWidgetModel_RowCount_Callback(KPageWidgetModel_RowCount_Callback cb) { kpagewidgetmodel_rowcount_callback = cb; }
-    inline void setKPageWidgetModel_Sibling_Callback(KPageWidgetModel_Sibling_Callback cb) { kpagewidgetmodel_sibling_callback = cb; }
-    inline void setKPageWidgetModel_HasChildren_Callback(KPageWidgetModel_HasChildren_Callback cb) { kpagewidgetmodel_haschildren_callback = cb; }
-    inline void setKPageWidgetModel_HeaderData_Callback(KPageWidgetModel_HeaderData_Callback cb) { kpagewidgetmodel_headerdata_callback = cb; }
-    inline void setKPageWidgetModel_SetHeaderData_Callback(KPageWidgetModel_SetHeaderData_Callback cb) { kpagewidgetmodel_setheaderdata_callback = cb; }
-    inline void setKPageWidgetModel_ItemData_Callback(KPageWidgetModel_ItemData_Callback cb) { kpagewidgetmodel_itemdata_callback = cb; }
-    inline void setKPageWidgetModel_SetItemData_Callback(KPageWidgetModel_SetItemData_Callback cb) { kpagewidgetmodel_setitemdata_callback = cb; }
-    inline void setKPageWidgetModel_ClearItemData_Callback(KPageWidgetModel_ClearItemData_Callback cb) { kpagewidgetmodel_clearitemdata_callback = cb; }
-    inline void setKPageWidgetModel_MimeTypes_Callback(KPageWidgetModel_MimeTypes_Callback cb) { kpagewidgetmodel_mimetypes_callback = cb; }
-    inline void setKPageWidgetModel_MimeData_Callback(KPageWidgetModel_MimeData_Callback cb) { kpagewidgetmodel_mimedata_callback = cb; }
-    inline void setKPageWidgetModel_CanDropMimeData_Callback(KPageWidgetModel_CanDropMimeData_Callback cb) { kpagewidgetmodel_candropmimedata_callback = cb; }
-    inline void setKPageWidgetModel_DropMimeData_Callback(KPageWidgetModel_DropMimeData_Callback cb) { kpagewidgetmodel_dropmimedata_callback = cb; }
-    inline void setKPageWidgetModel_SupportedDropActions_Callback(KPageWidgetModel_SupportedDropActions_Callback cb) { kpagewidgetmodel_supporteddropactions_callback = cb; }
-    inline void setKPageWidgetModel_SupportedDragActions_Callback(KPageWidgetModel_SupportedDragActions_Callback cb) { kpagewidgetmodel_supporteddragactions_callback = cb; }
-    inline void setKPageWidgetModel_InsertRows_Callback(KPageWidgetModel_InsertRows_Callback cb) { kpagewidgetmodel_insertrows_callback = cb; }
-    inline void setKPageWidgetModel_InsertColumns_Callback(KPageWidgetModel_InsertColumns_Callback cb) { kpagewidgetmodel_insertcolumns_callback = cb; }
-    inline void setKPageWidgetModel_RemoveRows_Callback(KPageWidgetModel_RemoveRows_Callback cb) { kpagewidgetmodel_removerows_callback = cb; }
-    inline void setKPageWidgetModel_RemoveColumns_Callback(KPageWidgetModel_RemoveColumns_Callback cb) { kpagewidgetmodel_removecolumns_callback = cb; }
-    inline void setKPageWidgetModel_MoveRows_Callback(KPageWidgetModel_MoveRows_Callback cb) { kpagewidgetmodel_moverows_callback = cb; }
-    inline void setKPageWidgetModel_MoveColumns_Callback(KPageWidgetModel_MoveColumns_Callback cb) { kpagewidgetmodel_movecolumns_callback = cb; }
-    inline void setKPageWidgetModel_FetchMore_Callback(KPageWidgetModel_FetchMore_Callback cb) { kpagewidgetmodel_fetchmore_callback = cb; }
-    inline void setKPageWidgetModel_CanFetchMore_Callback(KPageWidgetModel_CanFetchMore_Callback cb) { kpagewidgetmodel_canfetchmore_callback = cb; }
-    inline void setKPageWidgetModel_Sort_Callback(KPageWidgetModel_Sort_Callback cb) { kpagewidgetmodel_sort_callback = cb; }
-    inline void setKPageWidgetModel_Buddy_Callback(KPageWidgetModel_Buddy_Callback cb) { kpagewidgetmodel_buddy_callback = cb; }
-    inline void setKPageWidgetModel_Match_Callback(KPageWidgetModel_Match_Callback cb) { kpagewidgetmodel_match_callback = cb; }
-    inline void setKPageWidgetModel_Span_Callback(KPageWidgetModel_Span_Callback cb) { kpagewidgetmodel_span_callback = cb; }
-    inline void setKPageWidgetModel_RoleNames_Callback(KPageWidgetModel_RoleNames_Callback cb) { kpagewidgetmodel_rolenames_callback = cb; }
-    inline void setKPageWidgetModel_MultiData_Callback(KPageWidgetModel_MultiData_Callback cb) { kpagewidgetmodel_multidata_callback = cb; }
-    inline void setKPageWidgetModel_Submit_Callback(KPageWidgetModel_Submit_Callback cb) { kpagewidgetmodel_submit_callback = cb; }
-    inline void setKPageWidgetModel_Revert_Callback(KPageWidgetModel_Revert_Callback cb) { kpagewidgetmodel_revert_callback = cb; }
-    inline void setKPageWidgetModel_ResetInternalData_Callback(KPageWidgetModel_ResetInternalData_Callback cb) { kpagewidgetmodel_resetinternaldata_callback = cb; }
-    inline void setKPageWidgetModel_Event_Callback(KPageWidgetModel_Event_Callback cb) { kpagewidgetmodel_event_callback = cb; }
-    inline void setKPageWidgetModel_EventFilter_Callback(KPageWidgetModel_EventFilter_Callback cb) { kpagewidgetmodel_eventfilter_callback = cb; }
-    inline void setKPageWidgetModel_TimerEvent_Callback(KPageWidgetModel_TimerEvent_Callback cb) { kpagewidgetmodel_timerevent_callback = cb; }
-    inline void setKPageWidgetModel_ChildEvent_Callback(KPageWidgetModel_ChildEvent_Callback cb) { kpagewidgetmodel_childevent_callback = cb; }
-    inline void setKPageWidgetModel_CustomEvent_Callback(KPageWidgetModel_CustomEvent_Callback cb) { kpagewidgetmodel_customevent_callback = cb; }
-    inline void setKPageWidgetModel_ConnectNotify_Callback(KPageWidgetModel_ConnectNotify_Callback cb) { kpagewidgetmodel_connectnotify_callback = cb; }
-    inline void setKPageWidgetModel_DisconnectNotify_Callback(KPageWidgetModel_DisconnectNotify_Callback cb) { kpagewidgetmodel_disconnectnotify_callback = cb; }
-    inline void setKPageWidgetModel_CreateIndex_Callback(KPageWidgetModel_CreateIndex_Callback cb) { kpagewidgetmodel_createindex_callback = cb; }
-    inline void setKPageWidgetModel_EncodeData_Callback(KPageWidgetModel_EncodeData_Callback cb) { kpagewidgetmodel_encodedata_callback = cb; }
-    inline void setKPageWidgetModel_DecodeData_Callback(KPageWidgetModel_DecodeData_Callback cb) { kpagewidgetmodel_decodedata_callback = cb; }
-    inline void setKPageWidgetModel_BeginInsertRows_Callback(KPageWidgetModel_BeginInsertRows_Callback cb) { kpagewidgetmodel_begininsertrows_callback = cb; }
-    inline void setKPageWidgetModel_EndInsertRows_Callback(KPageWidgetModel_EndInsertRows_Callback cb) { kpagewidgetmodel_endinsertrows_callback = cb; }
-    inline void setKPageWidgetModel_BeginRemoveRows_Callback(KPageWidgetModel_BeginRemoveRows_Callback cb) { kpagewidgetmodel_beginremoverows_callback = cb; }
-    inline void setKPageWidgetModel_EndRemoveRows_Callback(KPageWidgetModel_EndRemoveRows_Callback cb) { kpagewidgetmodel_endremoverows_callback = cb; }
-    inline void setKPageWidgetModel_BeginMoveRows_Callback(KPageWidgetModel_BeginMoveRows_Callback cb) { kpagewidgetmodel_beginmoverows_callback = cb; }
-    inline void setKPageWidgetModel_EndMoveRows_Callback(KPageWidgetModel_EndMoveRows_Callback cb) { kpagewidgetmodel_endmoverows_callback = cb; }
-    inline void setKPageWidgetModel_BeginInsertColumns_Callback(KPageWidgetModel_BeginInsertColumns_Callback cb) { kpagewidgetmodel_begininsertcolumns_callback = cb; }
-    inline void setKPageWidgetModel_EndInsertColumns_Callback(KPageWidgetModel_EndInsertColumns_Callback cb) { kpagewidgetmodel_endinsertcolumns_callback = cb; }
-    inline void setKPageWidgetModel_BeginRemoveColumns_Callback(KPageWidgetModel_BeginRemoveColumns_Callback cb) { kpagewidgetmodel_beginremovecolumns_callback = cb; }
-    inline void setKPageWidgetModel_EndRemoveColumns_Callback(KPageWidgetModel_EndRemoveColumns_Callback cb) { kpagewidgetmodel_endremovecolumns_callback = cb; }
-    inline void setKPageWidgetModel_BeginMoveColumns_Callback(KPageWidgetModel_BeginMoveColumns_Callback cb) { kpagewidgetmodel_beginmovecolumns_callback = cb; }
-    inline void setKPageWidgetModel_EndMoveColumns_Callback(KPageWidgetModel_EndMoveColumns_Callback cb) { kpagewidgetmodel_endmovecolumns_callback = cb; }
-    inline void setKPageWidgetModel_BeginResetModel_Callback(KPageWidgetModel_BeginResetModel_Callback cb) { kpagewidgetmodel_beginresetmodel_callback = cb; }
-    inline void setKPageWidgetModel_EndResetModel_Callback(KPageWidgetModel_EndResetModel_Callback cb) { kpagewidgetmodel_endresetmodel_callback = cb; }
-    inline void setKPageWidgetModel_ChangePersistentIndex_Callback(KPageWidgetModel_ChangePersistentIndex_Callback cb) { kpagewidgetmodel_changepersistentindex_callback = cb; }
-    inline void setKPageWidgetModel_ChangePersistentIndexList_Callback(KPageWidgetModel_ChangePersistentIndexList_Callback cb) { kpagewidgetmodel_changepersistentindexlist_callback = cb; }
-    inline void setKPageWidgetModel_PersistentIndexList_Callback(KPageWidgetModel_PersistentIndexList_Callback cb) { kpagewidgetmodel_persistentindexlist_callback = cb; }
-    inline void setKPageWidgetModel_Sender_Callback(KPageWidgetModel_Sender_Callback cb) { kpagewidgetmodel_sender_callback = cb; }
-    inline void setKPageWidgetModel_SenderSignalIndex_Callback(KPageWidgetModel_SenderSignalIndex_Callback cb) { kpagewidgetmodel_sendersignalindex_callback = cb; }
-    inline void setKPageWidgetModel_Receivers_Callback(KPageWidgetModel_Receivers_Callback cb) { kpagewidgetmodel_receivers_callback = cb; }
-    inline void setKPageWidgetModel_IsSignalConnected_Callback(KPageWidgetModel_IsSignalConnected_Callback cb) { kpagewidgetmodel_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKPageWidgetModel_MetaObject_IsBase(bool value) const { kpagewidgetmodel_metaobject_isbase = value; }
-    inline void setKPageWidgetModel_Metacast_IsBase(bool value) const { kpagewidgetmodel_metacast_isbase = value; }
-    inline void setKPageWidgetModel_Metacall_IsBase(bool value) const { kpagewidgetmodel_metacall_isbase = value; }
-    inline void setKPageWidgetModel_ColumnCount_IsBase(bool value) const { kpagewidgetmodel_columncount_isbase = value; }
-    inline void setKPageWidgetModel_Data_IsBase(bool value) const { kpagewidgetmodel_data_isbase = value; }
-    inline void setKPageWidgetModel_SetData_IsBase(bool value) const { kpagewidgetmodel_setdata_isbase = value; }
-    inline void setKPageWidgetModel_Flags_IsBase(bool value) const { kpagewidgetmodel_flags_isbase = value; }
-    inline void setKPageWidgetModel_Index_IsBase(bool value) const { kpagewidgetmodel_index_isbase = value; }
-    inline void setKPageWidgetModel_Parent_IsBase(bool value) const { kpagewidgetmodel_parent_isbase = value; }
-    inline void setKPageWidgetModel_RowCount_IsBase(bool value) const { kpagewidgetmodel_rowcount_isbase = value; }
-    inline void setKPageWidgetModel_Sibling_IsBase(bool value) const { kpagewidgetmodel_sibling_isbase = value; }
-    inline void setKPageWidgetModel_HasChildren_IsBase(bool value) const { kpagewidgetmodel_haschildren_isbase = value; }
-    inline void setKPageWidgetModel_HeaderData_IsBase(bool value) const { kpagewidgetmodel_headerdata_isbase = value; }
-    inline void setKPageWidgetModel_SetHeaderData_IsBase(bool value) const { kpagewidgetmodel_setheaderdata_isbase = value; }
-    inline void setKPageWidgetModel_ItemData_IsBase(bool value) const { kpagewidgetmodel_itemdata_isbase = value; }
-    inline void setKPageWidgetModel_SetItemData_IsBase(bool value) const { kpagewidgetmodel_setitemdata_isbase = value; }
-    inline void setKPageWidgetModel_ClearItemData_IsBase(bool value) const { kpagewidgetmodel_clearitemdata_isbase = value; }
-    inline void setKPageWidgetModel_MimeTypes_IsBase(bool value) const { kpagewidgetmodel_mimetypes_isbase = value; }
-    inline void setKPageWidgetModel_MimeData_IsBase(bool value) const { kpagewidgetmodel_mimedata_isbase = value; }
-    inline void setKPageWidgetModel_CanDropMimeData_IsBase(bool value) const { kpagewidgetmodel_candropmimedata_isbase = value; }
-    inline void setKPageWidgetModel_DropMimeData_IsBase(bool value) const { kpagewidgetmodel_dropmimedata_isbase = value; }
-    inline void setKPageWidgetModel_SupportedDropActions_IsBase(bool value) const { kpagewidgetmodel_supporteddropactions_isbase = value; }
-    inline void setKPageWidgetModel_SupportedDragActions_IsBase(bool value) const { kpagewidgetmodel_supporteddragactions_isbase = value; }
-    inline void setKPageWidgetModel_InsertRows_IsBase(bool value) const { kpagewidgetmodel_insertrows_isbase = value; }
-    inline void setKPageWidgetModel_InsertColumns_IsBase(bool value) const { kpagewidgetmodel_insertcolumns_isbase = value; }
-    inline void setKPageWidgetModel_RemoveRows_IsBase(bool value) const { kpagewidgetmodel_removerows_isbase = value; }
-    inline void setKPageWidgetModel_RemoveColumns_IsBase(bool value) const { kpagewidgetmodel_removecolumns_isbase = value; }
-    inline void setKPageWidgetModel_MoveRows_IsBase(bool value) const { kpagewidgetmodel_moverows_isbase = value; }
-    inline void setKPageWidgetModel_MoveColumns_IsBase(bool value) const { kpagewidgetmodel_movecolumns_isbase = value; }
-    inline void setKPageWidgetModel_FetchMore_IsBase(bool value) const { kpagewidgetmodel_fetchmore_isbase = value; }
-    inline void setKPageWidgetModel_CanFetchMore_IsBase(bool value) const { kpagewidgetmodel_canfetchmore_isbase = value; }
-    inline void setKPageWidgetModel_Sort_IsBase(bool value) const { kpagewidgetmodel_sort_isbase = value; }
-    inline void setKPageWidgetModel_Buddy_IsBase(bool value) const { kpagewidgetmodel_buddy_isbase = value; }
-    inline void setKPageWidgetModel_Match_IsBase(bool value) const { kpagewidgetmodel_match_isbase = value; }
-    inline void setKPageWidgetModel_Span_IsBase(bool value) const { kpagewidgetmodel_span_isbase = value; }
-    inline void setKPageWidgetModel_RoleNames_IsBase(bool value) const { kpagewidgetmodel_rolenames_isbase = value; }
-    inline void setKPageWidgetModel_MultiData_IsBase(bool value) const { kpagewidgetmodel_multidata_isbase = value; }
-    inline void setKPageWidgetModel_Submit_IsBase(bool value) const { kpagewidgetmodel_submit_isbase = value; }
-    inline void setKPageWidgetModel_Revert_IsBase(bool value) const { kpagewidgetmodel_revert_isbase = value; }
-    inline void setKPageWidgetModel_ResetInternalData_IsBase(bool value) const { kpagewidgetmodel_resetinternaldata_isbase = value; }
-    inline void setKPageWidgetModel_Event_IsBase(bool value) const { kpagewidgetmodel_event_isbase = value; }
-    inline void setKPageWidgetModel_EventFilter_IsBase(bool value) const { kpagewidgetmodel_eventfilter_isbase = value; }
-    inline void setKPageWidgetModel_TimerEvent_IsBase(bool value) const { kpagewidgetmodel_timerevent_isbase = value; }
-    inline void setKPageWidgetModel_ChildEvent_IsBase(bool value) const { kpagewidgetmodel_childevent_isbase = value; }
-    inline void setKPageWidgetModel_CustomEvent_IsBase(bool value) const { kpagewidgetmodel_customevent_isbase = value; }
-    inline void setKPageWidgetModel_ConnectNotify_IsBase(bool value) const { kpagewidgetmodel_connectnotify_isbase = value; }
-    inline void setKPageWidgetModel_DisconnectNotify_IsBase(bool value) const { kpagewidgetmodel_disconnectnotify_isbase = value; }
-    inline void setKPageWidgetModel_CreateIndex_IsBase(bool value) const { kpagewidgetmodel_createindex_isbase = value; }
-    inline void setKPageWidgetModel_EncodeData_IsBase(bool value) const { kpagewidgetmodel_encodedata_isbase = value; }
-    inline void setKPageWidgetModel_DecodeData_IsBase(bool value) const { kpagewidgetmodel_decodedata_isbase = value; }
-    inline void setKPageWidgetModel_BeginInsertRows_IsBase(bool value) const { kpagewidgetmodel_begininsertrows_isbase = value; }
-    inline void setKPageWidgetModel_EndInsertRows_IsBase(bool value) const { kpagewidgetmodel_endinsertrows_isbase = value; }
-    inline void setKPageWidgetModel_BeginRemoveRows_IsBase(bool value) const { kpagewidgetmodel_beginremoverows_isbase = value; }
-    inline void setKPageWidgetModel_EndRemoveRows_IsBase(bool value) const { kpagewidgetmodel_endremoverows_isbase = value; }
-    inline void setKPageWidgetModel_BeginMoveRows_IsBase(bool value) const { kpagewidgetmodel_beginmoverows_isbase = value; }
-    inline void setKPageWidgetModel_EndMoveRows_IsBase(bool value) const { kpagewidgetmodel_endmoverows_isbase = value; }
-    inline void setKPageWidgetModel_BeginInsertColumns_IsBase(bool value) const { kpagewidgetmodel_begininsertcolumns_isbase = value; }
-    inline void setKPageWidgetModel_EndInsertColumns_IsBase(bool value) const { kpagewidgetmodel_endinsertcolumns_isbase = value; }
-    inline void setKPageWidgetModel_BeginRemoveColumns_IsBase(bool value) const { kpagewidgetmodel_beginremovecolumns_isbase = value; }
-    inline void setKPageWidgetModel_EndRemoveColumns_IsBase(bool value) const { kpagewidgetmodel_endremovecolumns_isbase = value; }
-    inline void setKPageWidgetModel_BeginMoveColumns_IsBase(bool value) const { kpagewidgetmodel_beginmovecolumns_isbase = value; }
-    inline void setKPageWidgetModel_EndMoveColumns_IsBase(bool value) const { kpagewidgetmodel_endmovecolumns_isbase = value; }
-    inline void setKPageWidgetModel_BeginResetModel_IsBase(bool value) const { kpagewidgetmodel_beginresetmodel_isbase = value; }
-    inline void setKPageWidgetModel_EndResetModel_IsBase(bool value) const { kpagewidgetmodel_endresetmodel_isbase = value; }
-    inline void setKPageWidgetModel_ChangePersistentIndex_IsBase(bool value) const { kpagewidgetmodel_changepersistentindex_isbase = value; }
-    inline void setKPageWidgetModel_ChangePersistentIndexList_IsBase(bool value) const { kpagewidgetmodel_changepersistentindexlist_isbase = value; }
-    inline void setKPageWidgetModel_PersistentIndexList_IsBase(bool value) const { kpagewidgetmodel_persistentindexlist_isbase = value; }
-    inline void setKPageWidgetModel_Sender_IsBase(bool value) const { kpagewidgetmodel_sender_isbase = value; }
-    inline void setKPageWidgetModel_SenderSignalIndex_IsBase(bool value) const { kpagewidgetmodel_sendersignalindex_isbase = value; }
-    inline void setKPageWidgetModel_Receivers_IsBase(bool value) const { kpagewidgetmodel_receivers_isbase = value; }
-    inline void setKPageWidgetModel_IsSignalConnected_IsBase(bool value) const { kpagewidgetmodel_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kpagewidgetmodel_metaobject_isbase) {
-            kpagewidgetmodel_metaobject_isbase = false;
-            return KPageWidgetModel::metaObject();
-        }
-        auto metaobject_cb = kpagewidgetmodel_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kpagewidgetmodel_metaobject_callback) {
+            QMetaObject* callback_ret = kpagewidgetmodel_metaobject_callback(this);
             return callback_ret;
         }
         return KPageWidgetModel::metaObject();
@@ -736,14 +315,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kpagewidgetmodel_metacast_isbase) {
-            kpagewidgetmodel_metacast_isbase = false;
-            return KPageWidgetModel::qt_metacast(param1);
-        }
-        auto metacast_cb = kpagewidgetmodel_metacast_callback;
-        if (metacast_cb) {
+        if (kpagewidgetmodel_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kpagewidgetmodel_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KPageWidgetModel::qt_metacast(param1);
@@ -751,16 +325,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kpagewidgetmodel_metacall_isbase) {
-            kpagewidgetmodel_metacall_isbase = false;
-            return KPageWidgetModel::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kpagewidgetmodel_metacall_callback;
-        if (metacall_cb) {
+        if (kpagewidgetmodel_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kpagewidgetmodel_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KPageWidgetModel::qt_metacall(param1, param2, param3);
@@ -768,16 +337,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual int columnCount(const QModelIndex& parent) const override {
-        if (kpagewidgetmodel_columncount_isbase) {
-            kpagewidgetmodel_columncount_isbase = false;
-            return KPageWidgetModel::columnCount(parent);
-        }
-        auto columncount_cb = kpagewidgetmodel_columncount_callback;
-        if (columncount_cb) {
+        if (kpagewidgetmodel_columncount_callback) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            int callback_ret = columncount_cb(this, cbval1);
+            int callback_ret = kpagewidgetmodel_columncount_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KPageWidgetModel::columnCount(parent);
@@ -785,17 +349,12 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant data(const QModelIndex& index, int role) const override {
-        if (kpagewidgetmodel_data_isbase) {
-            kpagewidgetmodel_data_isbase = false;
-            return KPageWidgetModel::data(index, role);
-        }
-        auto data_cb = kpagewidgetmodel_data_callback;
-        if (data_cb) {
+        if (kpagewidgetmodel_data_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
-            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
+            QVariant* callback_ret = kpagewidgetmodel_data_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -805,12 +364,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool setData(const QModelIndex& index, const QVariant& value, int role) override {
-        if (kpagewidgetmodel_setdata_isbase) {
-            kpagewidgetmodel_setdata_isbase = false;
-            return KPageWidgetModel::setData(index, value, role);
-        }
-        auto setdata_cb = kpagewidgetmodel_setdata_callback;
-        if (setdata_cb) {
+        if (kpagewidgetmodel_setdata_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -818,7 +372,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
-            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kpagewidgetmodel_setdata_callback(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
         return KPageWidgetModel::setData(index, value, role);
@@ -826,16 +380,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual Qt::ItemFlags flags(const QModelIndex& index) const override {
-        if (kpagewidgetmodel_flags_isbase) {
-            kpagewidgetmodel_flags_isbase = false;
-            return KPageWidgetModel::flags(index);
-        }
-        auto flags_cb = kpagewidgetmodel_flags_callback;
-        if (flags_cb) {
+        if (kpagewidgetmodel_flags_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            int callback_ret = flags_cb(this, cbval1);
+            int callback_ret = kpagewidgetmodel_flags_callback(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
         }
         return KPageWidgetModel::flags(index);
@@ -843,18 +392,13 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex index(int row, int column, const QModelIndex& parent) const override {
-        if (kpagewidgetmodel_index_isbase) {
-            kpagewidgetmodel_index_isbase = false;
-            return KPageWidgetModel::index(row, column, parent);
-        }
-        auto index_cb = kpagewidgetmodel_index_callback;
-        if (index_cb) {
+        if (kpagewidgetmodel_index_callback) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = kpagewidgetmodel_index_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -864,16 +408,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex parent(const QModelIndex& index) const override {
-        if (kpagewidgetmodel_parent_isbase) {
-            kpagewidgetmodel_parent_isbase = false;
-            return KPageWidgetModel::parent(index);
-        }
-        auto parent_cb = kpagewidgetmodel_parent_callback;
-        if (parent_cb) {
+        if (kpagewidgetmodel_parent_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            QModelIndex* callback_ret = parent_cb(this, cbval1);
+            QModelIndex* callback_ret = kpagewidgetmodel_parent_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -883,16 +422,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual int rowCount(const QModelIndex& parent) const override {
-        if (kpagewidgetmodel_rowcount_isbase) {
-            kpagewidgetmodel_rowcount_isbase = false;
-            return KPageWidgetModel::rowCount(parent);
-        }
-        auto rowcount_cb = kpagewidgetmodel_rowcount_callback;
-        if (rowcount_cb) {
+        if (kpagewidgetmodel_rowcount_callback) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            int callback_ret = rowcount_cb(this, cbval1);
+            int callback_ret = kpagewidgetmodel_rowcount_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KPageWidgetModel::rowCount(parent);
@@ -900,18 +434,13 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex sibling(int row, int column, const QModelIndex& idx) const override {
-        if (kpagewidgetmodel_sibling_isbase) {
-            kpagewidgetmodel_sibling_isbase = false;
-            return KPageWidgetModel::sibling(row, column, idx);
-        }
-        auto sibling_cb = kpagewidgetmodel_sibling_callback;
-        if (sibling_cb) {
+        if (kpagewidgetmodel_sibling_callback) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
-            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = kpagewidgetmodel_sibling_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -921,16 +450,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasChildren(const QModelIndex& parent) const override {
-        if (kpagewidgetmodel_haschildren_isbase) {
-            kpagewidgetmodel_haschildren_isbase = false;
-            return KPageWidgetModel::hasChildren(parent);
-        }
-        auto haschildren_cb = kpagewidgetmodel_haschildren_callback;
-        if (haschildren_cb) {
+        if (kpagewidgetmodel_haschildren_callback) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = haschildren_cb(this, cbval1);
+            bool callback_ret = kpagewidgetmodel_haschildren_callback(this, cbval1);
             return callback_ret;
         }
         return KPageWidgetModel::hasChildren(parent);
@@ -938,16 +462,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const override {
-        if (kpagewidgetmodel_headerdata_isbase) {
-            kpagewidgetmodel_headerdata_isbase = false;
-            return KPageWidgetModel::headerData(section, orientation, role);
-        }
-        auto headerdata_cb = kpagewidgetmodel_headerdata_callback;
-        if (headerdata_cb) {
+        if (kpagewidgetmodel_headerdata_callback) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
-            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = kpagewidgetmodel_headerdata_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -957,19 +476,14 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool setHeaderData(int section, Qt::Orientation orientation, const QVariant& value, int role) override {
-        if (kpagewidgetmodel_setheaderdata_isbase) {
-            kpagewidgetmodel_setheaderdata_isbase = false;
-            return KPageWidgetModel::setHeaderData(section, orientation, value, role);
-        }
-        auto setheaderdata_cb = kpagewidgetmodel_setheaderdata_callback;
-        if (setheaderdata_cb) {
+        if (kpagewidgetmodel_setheaderdata_callback) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
-            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = kpagewidgetmodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
         return KPageWidgetModel::setHeaderData(section, orientation, value, role);
@@ -977,16 +491,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QMap<int, QVariant> itemData(const QModelIndex& index) const override {
-        if (kpagewidgetmodel_itemdata_isbase) {
-            kpagewidgetmodel_itemdata_isbase = false;
-            return KPageWidgetModel::itemData(index);
-        }
-        auto itemdata_cb = kpagewidgetmodel_itemdata_callback;
-        if (itemdata_cb) {
+        if (kpagewidgetmodel_itemdata_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = kpagewidgetmodel_itemdata_callback(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -1000,12 +509,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool setItemData(const QModelIndex& index, const QMap<int, QVariant>& roles) override {
-        if (kpagewidgetmodel_setitemdata_isbase) {
-            kpagewidgetmodel_setitemdata_isbase = false;
-            return KPageWidgetModel::setItemData(index, roles);
-        }
-        auto setitemdata_cb = kpagewidgetmodel_setitemdata_callback;
-        if (setitemdata_cb) {
+        if (kpagewidgetmodel_setitemdata_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -1024,7 +528,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             roles_out.keys = static_cast<void*>(roles_karr);
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
-            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
+            bool callback_ret = kpagewidgetmodel_setitemdata_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KPageWidgetModel::setItemData(index, roles);
@@ -1032,16 +536,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool clearItemData(const QModelIndex& index) override {
-        if (kpagewidgetmodel_clearitemdata_isbase) {
-            kpagewidgetmodel_clearitemdata_isbase = false;
-            return KPageWidgetModel::clearItemData(index);
-        }
-        auto clearitemdata_cb = kpagewidgetmodel_clearitemdata_callback;
-        if (clearitemdata_cb) {
+        if (kpagewidgetmodel_clearitemdata_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            bool callback_ret = clearitemdata_cb(this, cbval1);
+            bool callback_ret = kpagewidgetmodel_clearitemdata_callback(this, cbval1);
             return callback_ret;
         }
         return KPageWidgetModel::clearItemData(index);
@@ -1049,13 +548,8 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QString> mimeTypes() const override {
-        if (kpagewidgetmodel_mimetypes_isbase) {
-            kpagewidgetmodel_mimetypes_isbase = false;
-            return KPageWidgetModel::mimeTypes();
-        }
-        auto mimetypes_cb = kpagewidgetmodel_mimetypes_callback;
-        if (mimetypes_cb) {
-            const char** callback_ret = mimetypes_cb();
+        if (kpagewidgetmodel_mimetypes_callback) {
+            const char** callback_ret = kpagewidgetmodel_mimetypes_callback(this);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -1072,12 +566,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QMimeData* mimeData(const QList<QModelIndex>& indexes) const override {
-        if (kpagewidgetmodel_mimedata_isbase) {
-            kpagewidgetmodel_mimedata_isbase = false;
-            return KPageWidgetModel::mimeData(indexes);
-        }
-        auto mimedata_cb = kpagewidgetmodel_mimedata_callback;
-        if (mimedata_cb) {
+        if (kpagewidgetmodel_mimedata_callback) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -1088,7 +577,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             indexes_out.len = indexes_ret.size();
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
-            QMimeData* callback_ret = mimedata_cb(this, cbval1);
+            QMimeData* callback_ret = kpagewidgetmodel_mimedata_callback(this, cbval1);
             free(indexes_arr);
             return callback_ret;
         }
@@ -1097,12 +586,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool canDropMimeData(const QMimeData* data, Qt::DropAction action, int row, int column, const QModelIndex& parent) const override {
-        if (kpagewidgetmodel_candropmimedata_isbase) {
-            kpagewidgetmodel_candropmimedata_isbase = false;
-            return KPageWidgetModel::canDropMimeData(data, action, row, column, parent);
-        }
-        auto candropmimedata_cb = kpagewidgetmodel_candropmimedata_callback;
-        if (candropmimedata_cb) {
+        if (kpagewidgetmodel_candropmimedata_callback) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1110,7 +594,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = kpagewidgetmodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
         return KPageWidgetModel::canDropMimeData(data, action, row, column, parent);
@@ -1118,12 +602,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool dropMimeData(const QMimeData* data, Qt::DropAction action, int row, int column, const QModelIndex& parent) override {
-        if (kpagewidgetmodel_dropmimedata_isbase) {
-            kpagewidgetmodel_dropmimedata_isbase = false;
-            return KPageWidgetModel::dropMimeData(data, action, row, column, parent);
-        }
-        auto dropmimedata_cb = kpagewidgetmodel_dropmimedata_callback;
-        if (dropmimedata_cb) {
+        if (kpagewidgetmodel_dropmimedata_callback) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1131,7 +610,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = kpagewidgetmodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
         return KPageWidgetModel::dropMimeData(data, action, row, column, parent);
@@ -1139,13 +618,8 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual Qt::DropActions supportedDropActions() const override {
-        if (kpagewidgetmodel_supporteddropactions_isbase) {
-            kpagewidgetmodel_supporteddropactions_isbase = false;
-            return KPageWidgetModel::supportedDropActions();
-        }
-        auto supporteddropactions_cb = kpagewidgetmodel_supporteddropactions_callback;
-        if (supporteddropactions_cb) {
-            int callback_ret = supporteddropactions_cb();
+        if (kpagewidgetmodel_supporteddropactions_callback) {
+            int callback_ret = kpagewidgetmodel_supporteddropactions_callback(this);
             return static_cast<Qt::DropActions>(callback_ret);
         }
         return KPageWidgetModel::supportedDropActions();
@@ -1153,13 +627,8 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual Qt::DropActions supportedDragActions() const override {
-        if (kpagewidgetmodel_supporteddragactions_isbase) {
-            kpagewidgetmodel_supporteddragactions_isbase = false;
-            return KPageWidgetModel::supportedDragActions();
-        }
-        auto supporteddragactions_cb = kpagewidgetmodel_supporteddragactions_callback;
-        if (supporteddragactions_cb) {
-            int callback_ret = supporteddragactions_cb();
+        if (kpagewidgetmodel_supporteddragactions_callback) {
+            int callback_ret = kpagewidgetmodel_supporteddragactions_callback(this);
             return static_cast<Qt::DropActions>(callback_ret);
         }
         return KPageWidgetModel::supportedDragActions();
@@ -1167,18 +636,13 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool insertRows(int row, int count, const QModelIndex& parent) override {
-        if (kpagewidgetmodel_insertrows_isbase) {
-            kpagewidgetmodel_insertrows_isbase = false;
-            return KPageWidgetModel::insertRows(row, count, parent);
-        }
-        auto insertrows_cb = kpagewidgetmodel_insertrows_callback;
-        if (insertrows_cb) {
+        if (kpagewidgetmodel_insertrows_callback) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kpagewidgetmodel_insertrows_callback(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
         return KPageWidgetModel::insertRows(row, count, parent);
@@ -1186,18 +650,13 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool insertColumns(int column, int count, const QModelIndex& parent) override {
-        if (kpagewidgetmodel_insertcolumns_isbase) {
-            kpagewidgetmodel_insertcolumns_isbase = false;
-            return KPageWidgetModel::insertColumns(column, count, parent);
-        }
-        auto insertcolumns_cb = kpagewidgetmodel_insertcolumns_callback;
-        if (insertcolumns_cb) {
+        if (kpagewidgetmodel_insertcolumns_callback) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kpagewidgetmodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
         return KPageWidgetModel::insertColumns(column, count, parent);
@@ -1205,18 +664,13 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool removeRows(int row, int count, const QModelIndex& parent) override {
-        if (kpagewidgetmodel_removerows_isbase) {
-            kpagewidgetmodel_removerows_isbase = false;
-            return KPageWidgetModel::removeRows(row, count, parent);
-        }
-        auto removerows_cb = kpagewidgetmodel_removerows_callback;
-        if (removerows_cb) {
+        if (kpagewidgetmodel_removerows_callback) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kpagewidgetmodel_removerows_callback(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
         return KPageWidgetModel::removeRows(row, count, parent);
@@ -1224,18 +678,13 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool removeColumns(int column, int count, const QModelIndex& parent) override {
-        if (kpagewidgetmodel_removecolumns_isbase) {
-            kpagewidgetmodel_removecolumns_isbase = false;
-            return KPageWidgetModel::removeColumns(column, count, parent);
-        }
-        auto removecolumns_cb = kpagewidgetmodel_removecolumns_callback;
-        if (removecolumns_cb) {
+        if (kpagewidgetmodel_removecolumns_callback) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kpagewidgetmodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
         return KPageWidgetModel::removeColumns(column, count, parent);
@@ -1243,12 +692,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool moveRows(const QModelIndex& sourceParent, int sourceRow, int count, const QModelIndex& destinationParent, int destinationChild) override {
-        if (kpagewidgetmodel_moverows_isbase) {
-            kpagewidgetmodel_moverows_isbase = false;
-            return KPageWidgetModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        }
-        auto moverows_cb = kpagewidgetmodel_moverows_callback;
-        if (moverows_cb) {
+        if (kpagewidgetmodel_moverows_callback) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1258,7 +702,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
-            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = kpagewidgetmodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
         return KPageWidgetModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
@@ -1266,12 +710,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool moveColumns(const QModelIndex& sourceParent, int sourceColumn, int count, const QModelIndex& destinationParent, int destinationChild) override {
-        if (kpagewidgetmodel_movecolumns_isbase) {
-            kpagewidgetmodel_movecolumns_isbase = false;
-            return KPageWidgetModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        }
-        auto movecolumns_cb = kpagewidgetmodel_movecolumns_callback;
-        if (movecolumns_cb) {
+        if (kpagewidgetmodel_movecolumns_callback) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1281,7 +720,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
-            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = kpagewidgetmodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
         return KPageWidgetModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
@@ -1289,17 +728,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void fetchMore(const QModelIndex& parent) override {
-        if (kpagewidgetmodel_fetchmore_isbase) {
-            kpagewidgetmodel_fetchmore_isbase = false;
-            KPageWidgetModel::fetchMore(parent);
-            return;
-        }
-        auto fetchmore_cb = kpagewidgetmodel_fetchmore_callback;
-        if (fetchmore_cb) {
+        if (kpagewidgetmodel_fetchmore_callback) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            fetchmore_cb(this, cbval1);
+            kpagewidgetmodel_fetchmore_callback(this, cbval1);
             return;
         }
         KPageWidgetModel::fetchMore(parent);
@@ -1307,16 +740,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool canFetchMore(const QModelIndex& parent) const override {
-        if (kpagewidgetmodel_canfetchmore_isbase) {
-            kpagewidgetmodel_canfetchmore_isbase = false;
-            return KPageWidgetModel::canFetchMore(parent);
-        }
-        auto canfetchmore_cb = kpagewidgetmodel_canfetchmore_callback;
-        if (canfetchmore_cb) {
+        if (kpagewidgetmodel_canfetchmore_callback) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = canfetchmore_cb(this, cbval1);
+            bool callback_ret = kpagewidgetmodel_canfetchmore_callback(this, cbval1);
             return callback_ret;
         }
         return KPageWidgetModel::canFetchMore(parent);
@@ -1324,16 +752,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void sort(int column, Qt::SortOrder order) override {
-        if (kpagewidgetmodel_sort_isbase) {
-            kpagewidgetmodel_sort_isbase = false;
-            KPageWidgetModel::sort(column, order);
-            return;
-        }
-        auto sort_cb = kpagewidgetmodel_sort_callback;
-        if (sort_cb) {
+        if (kpagewidgetmodel_sort_callback) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
-            sort_cb(this, cbval1, cbval2);
+            kpagewidgetmodel_sort_callback(this, cbval1, cbval2);
             return;
         }
         KPageWidgetModel::sort(column, order);
@@ -1341,16 +763,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex buddy(const QModelIndex& index) const override {
-        if (kpagewidgetmodel_buddy_isbase) {
-            kpagewidgetmodel_buddy_isbase = false;
-            return KPageWidgetModel::buddy(index);
-        }
-        auto buddy_cb = kpagewidgetmodel_buddy_callback;
-        if (buddy_cb) {
+        if (kpagewidgetmodel_buddy_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            QModelIndex* callback_ret = buddy_cb(this, cbval1);
+            QModelIndex* callback_ret = kpagewidgetmodel_buddy_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1360,12 +777,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QModelIndex> match(const QModelIndex& start, int role, const QVariant& value, int hits, Qt::MatchFlags flags) const override {
-        if (kpagewidgetmodel_match_isbase) {
-            kpagewidgetmodel_match_isbase = false;
-            return KPageWidgetModel::match(start, role, value, hits, flags);
-        }
-        auto match_cb = kpagewidgetmodel_match_callback;
-        if (match_cb) {
+        if (kpagewidgetmodel_match_callback) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -1375,7 +787,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
-            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = kpagewidgetmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1390,16 +802,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize span(const QModelIndex& index) const override {
-        if (kpagewidgetmodel_span_isbase) {
-            kpagewidgetmodel_span_isbase = false;
-            return KPageWidgetModel::span(index);
-        }
-        auto span_cb = kpagewidgetmodel_span_callback;
-        if (span_cb) {
+        if (kpagewidgetmodel_span_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            QSize* callback_ret = span_cb(this, cbval1);
+            QSize* callback_ret = kpagewidgetmodel_span_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1409,13 +816,8 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QHash<int, QByteArray> roleNames() const override {
-        if (kpagewidgetmodel_rolenames_isbase) {
-            kpagewidgetmodel_rolenames_isbase = false;
-            return KPageWidgetModel::roleNames();
-        }
-        auto rolenames_cb = kpagewidgetmodel_rolenames_callback;
-        if (rolenames_cb) {
-            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
+        if (kpagewidgetmodel_rolenames_callback) {
+            libqt_map /* of int to libqt_string */ callback_ret = kpagewidgetmodel_rolenames_callback(this);
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -1431,18 +833,12 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void multiData(const QModelIndex& index, QModelRoleDataSpan roleDataSpan) const override {
-        if (kpagewidgetmodel_multidata_isbase) {
-            kpagewidgetmodel_multidata_isbase = false;
-            KPageWidgetModel::multiData(index, roleDataSpan);
-            return;
-        }
-        auto multidata_cb = kpagewidgetmodel_multidata_callback;
-        if (multidata_cb) {
+        if (kpagewidgetmodel_multidata_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
-            multidata_cb(this, cbval1, cbval2);
+            kpagewidgetmodel_multidata_callback(this, cbval1, cbval2);
             return;
         }
         KPageWidgetModel::multiData(index, roleDataSpan);
@@ -1450,13 +846,8 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool submit() override {
-        if (kpagewidgetmodel_submit_isbase) {
-            kpagewidgetmodel_submit_isbase = false;
-            return KPageWidgetModel::submit();
-        }
-        auto submit_cb = kpagewidgetmodel_submit_callback;
-        if (submit_cb) {
-            bool callback_ret = submit_cb();
+        if (kpagewidgetmodel_submit_callback) {
+            bool callback_ret = kpagewidgetmodel_submit_callback(this);
             return callback_ret;
         }
         return KPageWidgetModel::submit();
@@ -1464,14 +855,8 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void revert() override {
-        if (kpagewidgetmodel_revert_isbase) {
-            kpagewidgetmodel_revert_isbase = false;
-            KPageWidgetModel::revert();
-            return;
-        }
-        auto revert_cb = kpagewidgetmodel_revert_callback;
-        if (revert_cb) {
-            revert_cb();
+        if (kpagewidgetmodel_revert_callback) {
+            kpagewidgetmodel_revert_callback(this);
             return;
         }
         KPageWidgetModel::revert();
@@ -1479,14 +864,8 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void resetInternalData() override {
-        if (kpagewidgetmodel_resetinternaldata_isbase) {
-            kpagewidgetmodel_resetinternaldata_isbase = false;
-            KPageWidgetModel::resetInternalData();
-            return;
-        }
-        auto resetinternaldata_cb = kpagewidgetmodel_resetinternaldata_callback;
-        if (resetinternaldata_cb) {
-            resetinternaldata_cb();
+        if (kpagewidgetmodel_resetinternaldata_callback) {
+            kpagewidgetmodel_resetinternaldata_callback(this);
             return;
         }
         KPageWidgetModel::resetInternalData();
@@ -1494,14 +873,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kpagewidgetmodel_event_isbase) {
-            kpagewidgetmodel_event_isbase = false;
-            return KPageWidgetModel::event(event);
-        }
-        auto event_cb = kpagewidgetmodel_event_callback;
-        if (event_cb) {
+        if (kpagewidgetmodel_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kpagewidgetmodel_event_callback(this, cbval1);
             return callback_ret;
         }
         return KPageWidgetModel::event(event);
@@ -1509,15 +883,10 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kpagewidgetmodel_eventfilter_isbase) {
-            kpagewidgetmodel_eventfilter_isbase = false;
-            return KPageWidgetModel::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kpagewidgetmodel_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kpagewidgetmodel_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kpagewidgetmodel_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KPageWidgetModel::eventFilter(watched, event);
@@ -1525,15 +894,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kpagewidgetmodel_timerevent_isbase) {
-            kpagewidgetmodel_timerevent_isbase = false;
-            KPageWidgetModel::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kpagewidgetmodel_timerevent_callback;
-        if (timerevent_cb) {
+        if (kpagewidgetmodel_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kpagewidgetmodel_timerevent_callback(this, cbval1);
             return;
         }
         KPageWidgetModel::timerEvent(event);
@@ -1541,15 +904,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kpagewidgetmodel_childevent_isbase) {
-            kpagewidgetmodel_childevent_isbase = false;
-            KPageWidgetModel::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kpagewidgetmodel_childevent_callback;
-        if (childevent_cb) {
+        if (kpagewidgetmodel_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kpagewidgetmodel_childevent_callback(this, cbval1);
             return;
         }
         KPageWidgetModel::childEvent(event);
@@ -1557,15 +914,9 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kpagewidgetmodel_customevent_isbase) {
-            kpagewidgetmodel_customevent_isbase = false;
-            KPageWidgetModel::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kpagewidgetmodel_customevent_callback;
-        if (customevent_cb) {
+        if (kpagewidgetmodel_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kpagewidgetmodel_customevent_callback(this, cbval1);
             return;
         }
         KPageWidgetModel::customEvent(event);
@@ -1573,17 +924,11 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kpagewidgetmodel_connectnotify_isbase) {
-            kpagewidgetmodel_connectnotify_isbase = false;
-            KPageWidgetModel::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kpagewidgetmodel_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kpagewidgetmodel_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kpagewidgetmodel_connectnotify_callback(this, cbval1);
             return;
         }
         KPageWidgetModel::connectNotify(signal);
@@ -1591,537 +936,23 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kpagewidgetmodel_disconnectnotify_isbase) {
-            kpagewidgetmodel_disconnectnotify_isbase = false;
-            KPageWidgetModel::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kpagewidgetmodel_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kpagewidgetmodel_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kpagewidgetmodel_disconnectnotify_callback(this, cbval1);
             return;
         }
         KPageWidgetModel::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QModelIndex createIndex(int row, int column) const {
-        if (kpagewidgetmodel_createindex_isbase) {
-            kpagewidgetmodel_createindex_isbase = false;
-            return KPageWidgetModel::createIndex(row, column);
-        }
-        auto createindex_cb = kpagewidgetmodel_createindex_callback;
-        if (createindex_cb) {
-            int cbval1 = row;
-            int cbval2 = column;
-            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
-            auto callback_ret_Value = std::move(*callback_ret);
-            delete callback_ret;
-            return callback_ret_Value;
-        }
-        return KPageWidgetModel::createIndex(row, column);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void encodeData(const QList<QModelIndex>& indexes, QDataStream& stream) const {
-        if (kpagewidgetmodel_encodedata_isbase) {
-            kpagewidgetmodel_encodedata_isbase = false;
-            KPageWidgetModel::encodeData(indexes, stream);
-            return;
-        }
-        auto encodedata_cb = kpagewidgetmodel_encodedata_callback;
-        if (encodedata_cb) {
-            const QList<QModelIndex>& indexes_ret = indexes;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
-            for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
-                indexes_arr[i] = new QModelIndex(indexes_ret[i]);
-            }
-            libqt_list indexes_out;
-            indexes_out.len = indexes_ret.size();
-            indexes_out.data = static_cast<void*>(indexes_arr);
-            libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
-            QDataStream& stream_ret = stream;
-            // Cast returned reference into pointer
-            QDataStream* cbval2 = &stream_ret;
-            encodedata_cb(this, cbval1, cbval2);
-            free(indexes_arr);
-            return;
-        }
-        KPageWidgetModel::encodeData(indexes, stream);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool decodeData(int row, int column, const QModelIndex& parent, QDataStream& stream) {
-        if (kpagewidgetmodel_decodedata_isbase) {
-            kpagewidgetmodel_decodedata_isbase = false;
-            return KPageWidgetModel::decodeData(row, column, parent, stream);
-        }
-        auto decodedata_cb = kpagewidgetmodel_decodedata_callback;
-        if (decodedata_cb) {
-            int cbval1 = row;
-            int cbval2 = column;
-            const QModelIndex& parent_ret = parent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-            QDataStream& stream_ret = stream;
-            // Cast returned reference into pointer
-            QDataStream* cbval4 = &stream_ret;
-            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
-            return callback_ret;
-        }
-        return KPageWidgetModel::decodeData(row, column, parent, stream);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void beginInsertRows(const QModelIndex& parent, int first, int last) {
-        if (kpagewidgetmodel_begininsertrows_isbase) {
-            kpagewidgetmodel_begininsertrows_isbase = false;
-            KPageWidgetModel::beginInsertRows(parent, first, last);
-            return;
-        }
-        auto begininsertrows_cb = kpagewidgetmodel_begininsertrows_callback;
-        if (begininsertrows_cb) {
-            const QModelIndex& parent_ret = parent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            int cbval2 = first;
-            int cbval3 = last;
-            begininsertrows_cb(this, cbval1, cbval2, cbval3);
-            return;
-        }
-        KPageWidgetModel::beginInsertRows(parent, first, last);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void endInsertRows() {
-        if (kpagewidgetmodel_endinsertrows_isbase) {
-            kpagewidgetmodel_endinsertrows_isbase = false;
-            KPageWidgetModel::endInsertRows();
-            return;
-        }
-        auto endinsertrows_cb = kpagewidgetmodel_endinsertrows_callback;
-        if (endinsertrows_cb) {
-            endinsertrows_cb();
-            return;
-        }
-        KPageWidgetModel::endInsertRows();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void beginRemoveRows(const QModelIndex& parent, int first, int last) {
-        if (kpagewidgetmodel_beginremoverows_isbase) {
-            kpagewidgetmodel_beginremoverows_isbase = false;
-            KPageWidgetModel::beginRemoveRows(parent, first, last);
-            return;
-        }
-        auto beginremoverows_cb = kpagewidgetmodel_beginremoverows_callback;
-        if (beginremoverows_cb) {
-            const QModelIndex& parent_ret = parent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            int cbval2 = first;
-            int cbval3 = last;
-            beginremoverows_cb(this, cbval1, cbval2, cbval3);
-            return;
-        }
-        KPageWidgetModel::beginRemoveRows(parent, first, last);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void endRemoveRows() {
-        if (kpagewidgetmodel_endremoverows_isbase) {
-            kpagewidgetmodel_endremoverows_isbase = false;
-            KPageWidgetModel::endRemoveRows();
-            return;
-        }
-        auto endremoverows_cb = kpagewidgetmodel_endremoverows_callback;
-        if (endremoverows_cb) {
-            endremoverows_cb();
-            return;
-        }
-        KPageWidgetModel::endRemoveRows();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool beginMoveRows(const QModelIndex& sourceParent, int sourceFirst, int sourceLast, const QModelIndex& destinationParent, int destinationRow) {
-        if (kpagewidgetmodel_beginmoverows_isbase) {
-            kpagewidgetmodel_beginmoverows_isbase = false;
-            return KPageWidgetModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        }
-        auto beginmoverows_cb = kpagewidgetmodel_beginmoverows_callback;
-        if (beginmoverows_cb) {
-            const QModelIndex& sourceParent_ret = sourceParent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
-            int cbval2 = sourceFirst;
-            int cbval3 = sourceLast;
-            const QModelIndex& destinationParent_ret = destinationParent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
-            int cbval5 = destinationRow;
-            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
-            return callback_ret;
-        }
-        return KPageWidgetModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void endMoveRows() {
-        if (kpagewidgetmodel_endmoverows_isbase) {
-            kpagewidgetmodel_endmoverows_isbase = false;
-            KPageWidgetModel::endMoveRows();
-            return;
-        }
-        auto endmoverows_cb = kpagewidgetmodel_endmoverows_callback;
-        if (endmoverows_cb) {
-            endmoverows_cb();
-            return;
-        }
-        KPageWidgetModel::endMoveRows();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void beginInsertColumns(const QModelIndex& parent, int first, int last) {
-        if (kpagewidgetmodel_begininsertcolumns_isbase) {
-            kpagewidgetmodel_begininsertcolumns_isbase = false;
-            KPageWidgetModel::beginInsertColumns(parent, first, last);
-            return;
-        }
-        auto begininsertcolumns_cb = kpagewidgetmodel_begininsertcolumns_callback;
-        if (begininsertcolumns_cb) {
-            const QModelIndex& parent_ret = parent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            int cbval2 = first;
-            int cbval3 = last;
-            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
-            return;
-        }
-        KPageWidgetModel::beginInsertColumns(parent, first, last);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void endInsertColumns() {
-        if (kpagewidgetmodel_endinsertcolumns_isbase) {
-            kpagewidgetmodel_endinsertcolumns_isbase = false;
-            KPageWidgetModel::endInsertColumns();
-            return;
-        }
-        auto endinsertcolumns_cb = kpagewidgetmodel_endinsertcolumns_callback;
-        if (endinsertcolumns_cb) {
-            endinsertcolumns_cb();
-            return;
-        }
-        KPageWidgetModel::endInsertColumns();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void beginRemoveColumns(const QModelIndex& parent, int first, int last) {
-        if (kpagewidgetmodel_beginremovecolumns_isbase) {
-            kpagewidgetmodel_beginremovecolumns_isbase = false;
-            KPageWidgetModel::beginRemoveColumns(parent, first, last);
-            return;
-        }
-        auto beginremovecolumns_cb = kpagewidgetmodel_beginremovecolumns_callback;
-        if (beginremovecolumns_cb) {
-            const QModelIndex& parent_ret = parent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            int cbval2 = first;
-            int cbval3 = last;
-            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
-            return;
-        }
-        KPageWidgetModel::beginRemoveColumns(parent, first, last);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void endRemoveColumns() {
-        if (kpagewidgetmodel_endremovecolumns_isbase) {
-            kpagewidgetmodel_endremovecolumns_isbase = false;
-            KPageWidgetModel::endRemoveColumns();
-            return;
-        }
-        auto endremovecolumns_cb = kpagewidgetmodel_endremovecolumns_callback;
-        if (endremovecolumns_cb) {
-            endremovecolumns_cb();
-            return;
-        }
-        KPageWidgetModel::endRemoveColumns();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool beginMoveColumns(const QModelIndex& sourceParent, int sourceFirst, int sourceLast, const QModelIndex& destinationParent, int destinationColumn) {
-        if (kpagewidgetmodel_beginmovecolumns_isbase) {
-            kpagewidgetmodel_beginmovecolumns_isbase = false;
-            return KPageWidgetModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        }
-        auto beginmovecolumns_cb = kpagewidgetmodel_beginmovecolumns_callback;
-        if (beginmovecolumns_cb) {
-            const QModelIndex& sourceParent_ret = sourceParent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
-            int cbval2 = sourceFirst;
-            int cbval3 = sourceLast;
-            const QModelIndex& destinationParent_ret = destinationParent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
-            int cbval5 = destinationColumn;
-            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
-            return callback_ret;
-        }
-        return KPageWidgetModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void endMoveColumns() {
-        if (kpagewidgetmodel_endmovecolumns_isbase) {
-            kpagewidgetmodel_endmovecolumns_isbase = false;
-            KPageWidgetModel::endMoveColumns();
-            return;
-        }
-        auto endmovecolumns_cb = kpagewidgetmodel_endmovecolumns_callback;
-        if (endmovecolumns_cb) {
-            endmovecolumns_cb();
-            return;
-        }
-        KPageWidgetModel::endMoveColumns();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void beginResetModel() {
-        if (kpagewidgetmodel_beginresetmodel_isbase) {
-            kpagewidgetmodel_beginresetmodel_isbase = false;
-            KPageWidgetModel::beginResetModel();
-            return;
-        }
-        auto beginresetmodel_cb = kpagewidgetmodel_beginresetmodel_callback;
-        if (beginresetmodel_cb) {
-            beginresetmodel_cb();
-            return;
-        }
-        KPageWidgetModel::beginResetModel();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void endResetModel() {
-        if (kpagewidgetmodel_endresetmodel_isbase) {
-            kpagewidgetmodel_endresetmodel_isbase = false;
-            KPageWidgetModel::endResetModel();
-            return;
-        }
-        auto endresetmodel_cb = kpagewidgetmodel_endresetmodel_callback;
-        if (endresetmodel_cb) {
-            endresetmodel_cb();
-            return;
-        }
-        KPageWidgetModel::endResetModel();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void changePersistentIndex(const QModelIndex& from, const QModelIndex& to) {
-        if (kpagewidgetmodel_changepersistentindex_isbase) {
-            kpagewidgetmodel_changepersistentindex_isbase = false;
-            KPageWidgetModel::changePersistentIndex(from, to);
-            return;
-        }
-        auto changepersistentindex_cb = kpagewidgetmodel_changepersistentindex_callback;
-        if (changepersistentindex_cb) {
-            const QModelIndex& from_ret = from;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
-            const QModelIndex& to_ret = to;
-            // Cast returned reference into pointer
-            QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
-            changepersistentindex_cb(this, cbval1, cbval2);
-            return;
-        }
-        KPageWidgetModel::changePersistentIndex(from, to);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void changePersistentIndexList(const QList<QModelIndex>& from, const QList<QModelIndex>& to) {
-        if (kpagewidgetmodel_changepersistentindexlist_isbase) {
-            kpagewidgetmodel_changepersistentindexlist_isbase = false;
-            KPageWidgetModel::changePersistentIndexList(from, to);
-            return;
-        }
-        auto changepersistentindexlist_cb = kpagewidgetmodel_changepersistentindexlist_callback;
-        if (changepersistentindexlist_cb) {
-            const QList<QModelIndex>& from_ret = from;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
-            for (qsizetype i = 0; i < from_ret.size(); ++i) {
-                from_arr[i] = new QModelIndex(from_ret[i]);
-            }
-            libqt_list from_out;
-            from_out.len = from_ret.size();
-            from_out.data = static_cast<void*>(from_arr);
-            libqt_list /* of QModelIndex* */ cbval1 = from_out;
-            const QList<QModelIndex>& to_ret = to;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (to_ret.size())));
-            for (qsizetype i = 0; i < to_ret.size(); ++i) {
-                to_arr[i] = new QModelIndex(to_ret[i]);
-            }
-            libqt_list to_out;
-            to_out.len = to_ret.size();
-            to_out.data = static_cast<void*>(to_arr);
-            libqt_list /* of QModelIndex* */ cbval2 = to_out;
-            changepersistentindexlist_cb(this, cbval1, cbval2);
-            free(from_arr);
-            free(to_arr);
-            return;
-        }
-        KPageWidgetModel::changePersistentIndexList(from, to);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QList<QModelIndex> persistentIndexList() const {
-        if (kpagewidgetmodel_persistentindexlist_isbase) {
-            kpagewidgetmodel_persistentindexlist_isbase = false;
-            return KPageWidgetModel::persistentIndexList();
-        }
-        auto persistentindexlist_cb = kpagewidgetmodel_persistentindexlist_callback;
-        if (persistentindexlist_cb) {
-            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
-            QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
-            }
-            libqt_free(callback_ret.data);
-            return callback_ret_QList;
-        }
-        return KPageWidgetModel::persistentIndexList();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kpagewidgetmodel_sender_isbase) {
-            kpagewidgetmodel_sender_isbase = false;
-            return KPageWidgetModel::sender();
-        }
-        auto sender_cb = kpagewidgetmodel_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KPageWidgetModel::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kpagewidgetmodel_sendersignalindex_isbase) {
-            kpagewidgetmodel_sendersignalindex_isbase = false;
-            return KPageWidgetModel::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kpagewidgetmodel_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KPageWidgetModel::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kpagewidgetmodel_receivers_isbase) {
-            kpagewidgetmodel_receivers_isbase = false;
-            return KPageWidgetModel::receivers(signal);
-        }
-        auto receivers_cb = kpagewidgetmodel_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KPageWidgetModel::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kpagewidgetmodel_issignalconnected_isbase) {
-            kpagewidgetmodel_issignalconnected_isbase = false;
-            return KPageWidgetModel::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kpagewidgetmodel_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KPageWidgetModel::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KPageWidgetModel_ResetInternalData(KPageWidgetModel* self);
     friend void KPageWidgetModel_SuperResetInternalData(KPageWidgetModel* self);
-    friend void KPageWidgetModel_TimerEvent(KPageWidgetModel* self, QTimerEvent* event);
     friend void KPageWidgetModel_SuperTimerEvent(KPageWidgetModel* self, QTimerEvent* event);
-    friend void KPageWidgetModel_ChildEvent(KPageWidgetModel* self, QChildEvent* event);
     friend void KPageWidgetModel_SuperChildEvent(KPageWidgetModel* self, QChildEvent* event);
-    friend void KPageWidgetModel_CustomEvent(KPageWidgetModel* self, QEvent* event);
     friend void KPageWidgetModel_SuperCustomEvent(KPageWidgetModel* self, QEvent* event);
-    friend void KPageWidgetModel_ConnectNotify(KPageWidgetModel* self, const QMetaMethod* signal);
     friend void KPageWidgetModel_SuperConnectNotify(KPageWidgetModel* self, const QMetaMethod* signal);
-    friend void KPageWidgetModel_DisconnectNotify(KPageWidgetModel* self, const QMetaMethod* signal);
     friend void KPageWidgetModel_SuperDisconnectNotify(KPageWidgetModel* self, const QMetaMethod* signal);
-    friend QModelIndex* KPageWidgetModel_CreateIndex(const KPageWidgetModel* self, int row, int column);
-    friend QModelIndex* KPageWidgetModel_SuperCreateIndex(const KPageWidgetModel* self, int row, int column);
-    friend void KPageWidgetModel_EncodeData(const KPageWidgetModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
-    friend void KPageWidgetModel_SuperEncodeData(const KPageWidgetModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
-    friend bool KPageWidgetModel_DecodeData(KPageWidgetModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
-    friend bool KPageWidgetModel_SuperDecodeData(KPageWidgetModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
-    friend void KPageWidgetModel_BeginInsertRows(KPageWidgetModel* self, const QModelIndex* parent, int first, int last);
-    friend void KPageWidgetModel_SuperBeginInsertRows(KPageWidgetModel* self, const QModelIndex* parent, int first, int last);
-    friend void KPageWidgetModel_EndInsertRows(KPageWidgetModel* self);
-    friend void KPageWidgetModel_SuperEndInsertRows(KPageWidgetModel* self);
-    friend void KPageWidgetModel_BeginRemoveRows(KPageWidgetModel* self, const QModelIndex* parent, int first, int last);
-    friend void KPageWidgetModel_SuperBeginRemoveRows(KPageWidgetModel* self, const QModelIndex* parent, int first, int last);
-    friend void KPageWidgetModel_EndRemoveRows(KPageWidgetModel* self);
-    friend void KPageWidgetModel_SuperEndRemoveRows(KPageWidgetModel* self);
-    friend bool KPageWidgetModel_BeginMoveRows(KPageWidgetModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
-    friend bool KPageWidgetModel_SuperBeginMoveRows(KPageWidgetModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
-    friend void KPageWidgetModel_EndMoveRows(KPageWidgetModel* self);
-    friend void KPageWidgetModel_SuperEndMoveRows(KPageWidgetModel* self);
-    friend void KPageWidgetModel_BeginInsertColumns(KPageWidgetModel* self, const QModelIndex* parent, int first, int last);
-    friend void KPageWidgetModel_SuperBeginInsertColumns(KPageWidgetModel* self, const QModelIndex* parent, int first, int last);
-    friend void KPageWidgetModel_EndInsertColumns(KPageWidgetModel* self);
-    friend void KPageWidgetModel_SuperEndInsertColumns(KPageWidgetModel* self);
-    friend void KPageWidgetModel_BeginRemoveColumns(KPageWidgetModel* self, const QModelIndex* parent, int first, int last);
-    friend void KPageWidgetModel_SuperBeginRemoveColumns(KPageWidgetModel* self, const QModelIndex* parent, int first, int last);
-    friend void KPageWidgetModel_EndRemoveColumns(KPageWidgetModel* self);
-    friend void KPageWidgetModel_SuperEndRemoveColumns(KPageWidgetModel* self);
-    friend bool KPageWidgetModel_BeginMoveColumns(KPageWidgetModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
-    friend bool KPageWidgetModel_SuperBeginMoveColumns(KPageWidgetModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
-    friend void KPageWidgetModel_EndMoveColumns(KPageWidgetModel* self);
-    friend void KPageWidgetModel_SuperEndMoveColumns(KPageWidgetModel* self);
-    friend void KPageWidgetModel_BeginResetModel(KPageWidgetModel* self);
-    friend void KPageWidgetModel_SuperBeginResetModel(KPageWidgetModel* self);
-    friend void KPageWidgetModel_EndResetModel(KPageWidgetModel* self);
-    friend void KPageWidgetModel_SuperEndResetModel(KPageWidgetModel* self);
-    friend void KPageWidgetModel_ChangePersistentIndex(KPageWidgetModel* self, const QModelIndex* from, const QModelIndex* to);
-    friend void KPageWidgetModel_SuperChangePersistentIndex(KPageWidgetModel* self, const QModelIndex* from, const QModelIndex* to);
-    friend void KPageWidgetModel_ChangePersistentIndexList(KPageWidgetModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
-    friend void KPageWidgetModel_SuperChangePersistentIndexList(KPageWidgetModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
-    friend libqt_list /* of QModelIndex* */ KPageWidgetModel_PersistentIndexList(const KPageWidgetModel* self);
-    friend libqt_list /* of QModelIndex* */ KPageWidgetModel_SuperPersistentIndexList(const KPageWidgetModel* self);
-    friend QObject* KPageWidgetModel_Sender(const KPageWidgetModel* self);
-    friend QObject* KPageWidgetModel_SuperSender(const KPageWidgetModel* self);
-    friend int KPageWidgetModel_SenderSignalIndex(const KPageWidgetModel* self);
-    friend int KPageWidgetModel_SuperSenderSignalIndex(const KPageWidgetModel* self);
-    friend int KPageWidgetModel_Receivers(const KPageWidgetModel* self, const char* signal);
-    friend int KPageWidgetModel_SuperReceivers(const KPageWidgetModel* self, const char* signal);
-    friend bool KPageWidgetModel_IsSignalConnected(const KPageWidgetModel* self, const QMetaMethod* signal);
-    friend bool KPageWidgetModel_SuperIsSignalConnected(const KPageWidgetModel* self, const QMetaMethod* signal);
 };
 
 #endif

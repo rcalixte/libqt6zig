@@ -57,7 +57,7 @@ libqt_string QsciAPIs_Tr3(const char* s, const char* c, int n);
 bool QsciAPIs_IsPrepared1(const QsciAPIs* self, const libqt_string filename);
 bool QsciAPIs_LoadPrepared1(QsciAPIs* self, const libqt_string filename);
 bool QsciAPIs_SavePrepared1(const QsciAPIs* self, const libqt_string filename);
-void QsciAPIs_OnMetaObject(const QsciAPIs* self, intptr_t slot);
+void QsciAPIs_OnMetaObject(QsciAPIs* self, intptr_t slot);
 QMetaObject* QsciAPIs_SuperMetaObject(const QsciAPIs* self);
 void QsciAPIs_OnMetacast(QsciAPIs* self, intptr_t slot);
 void* QsciAPIs_SuperMetacast(QsciAPIs* self, const char* param1);
@@ -90,17 +90,9 @@ void QsciAPIs_DisconnectNotify(QsciAPIs* self, const QMetaMethod* signal);
 void QsciAPIs_OnDisconnectNotify(QsciAPIs* self, intptr_t slot);
 void QsciAPIs_SuperDisconnectNotify(QsciAPIs* self, const QMetaMethod* signal);
 QObject* QsciAPIs_Sender(const QsciAPIs* self);
-void QsciAPIs_OnSender(const QsciAPIs* self, intptr_t slot);
-QObject* QsciAPIs_SuperSender(const QsciAPIs* self);
 int QsciAPIs_SenderSignalIndex(const QsciAPIs* self);
-void QsciAPIs_OnSenderSignalIndex(const QsciAPIs* self, intptr_t slot);
-int QsciAPIs_SuperSenderSignalIndex(const QsciAPIs* self);
 int QsciAPIs_Receivers(const QsciAPIs* self, const char* signal);
-void QsciAPIs_OnReceivers(const QsciAPIs* self, intptr_t slot);
-int QsciAPIs_SuperReceivers(const QsciAPIs* self, const char* signal);
 bool QsciAPIs_IsSignalConnected(const QsciAPIs* self, const QMetaMethod* signal);
-void QsciAPIs_OnIsSignalConnected(const QsciAPIs* self, intptr_t slot);
-bool QsciAPIs_SuperIsSignalConnected(const QsciAPIs* self, const QMetaMethod* signal);
 void QsciAPIs_Delete(QsciAPIs* self);
 
 #ifdef __cplusplus

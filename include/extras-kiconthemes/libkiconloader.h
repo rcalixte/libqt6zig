@@ -99,7 +99,7 @@ libqt_list /* of libqt_string */ KIconLoader_QueryIcons22(const KIconLoader* sel
 libqt_list /* of libqt_string */ KIconLoader_QueryIconsByContext2(const KIconLoader* self, int group_or_size, int context);
 void KIconLoader_Reconfigure2(KIconLoader* self, const libqt_string appname, const libqt_list /* of libqt_string */ extraSearchPaths);
 void KIconLoader_DrawOverlays4(const KIconLoader* self, const libqt_list /* of libqt_string */ overlays, QPixmap* pixmap, int group, int state);
-void KIconLoader_OnMetaObject(const KIconLoader* self, intptr_t slot);
+void KIconLoader_OnMetaObject(KIconLoader* self, intptr_t slot);
 QMetaObject* KIconLoader_SuperMetaObject(const KIconLoader* self);
 void KIconLoader_OnMetacast(KIconLoader* self, intptr_t slot);
 void* KIconLoader_SuperMetacast(KIconLoader* self, const char* param1);
@@ -127,17 +127,9 @@ void KIconLoader_DisconnectNotify(KIconLoader* self, const QMetaMethod* signal);
 void KIconLoader_OnDisconnectNotify(KIconLoader* self, intptr_t slot);
 void KIconLoader_SuperDisconnectNotify(KIconLoader* self, const QMetaMethod* signal);
 QObject* KIconLoader_Sender(const KIconLoader* self);
-void KIconLoader_OnSender(const KIconLoader* self, intptr_t slot);
-QObject* KIconLoader_SuperSender(const KIconLoader* self);
 int KIconLoader_SenderSignalIndex(const KIconLoader* self);
-void KIconLoader_OnSenderSignalIndex(const KIconLoader* self, intptr_t slot);
-int KIconLoader_SuperSenderSignalIndex(const KIconLoader* self);
 int KIconLoader_Receivers(const KIconLoader* self, const char* signal);
-void KIconLoader_OnReceivers(const KIconLoader* self, intptr_t slot);
-int KIconLoader_SuperReceivers(const KIconLoader* self, const char* signal);
 bool KIconLoader_IsSignalConnected(const KIconLoader* self, const QMetaMethod* signal);
-void KIconLoader_OnIsSignalConnected(const KIconLoader* self, intptr_t slot);
-bool KIconLoader_SuperIsSignalConnected(const KIconLoader* self, const QMetaMethod* signal);
 void KIconLoader_Delete(KIconLoader* self);
 
 QIcon* KDE_Icon(const libqt_string iconName, KIconLoader* iconLoader);

@@ -34,14 +34,13 @@ libqt_string QStylePlugin_Tr(const char* s);
 QStyle* QStylePlugin_Create(QStylePlugin* self, const libqt_string key);
 libqt_string QStylePlugin_Tr2(const char* s, const char* c);
 libqt_string QStylePlugin_Tr3(const char* s, const char* c, int n);
-void QStylePlugin_OnMetaObject(const QStylePlugin* self, intptr_t slot);
+void QStylePlugin_OnMetaObject(QStylePlugin* self, intptr_t slot);
 QMetaObject* QStylePlugin_SuperMetaObject(const QStylePlugin* self);
 void QStylePlugin_OnMetacast(QStylePlugin* self, intptr_t slot);
 void* QStylePlugin_SuperMetacast(QStylePlugin* self, const char* param1);
 void QStylePlugin_OnMetacall(QStylePlugin* self, intptr_t slot);
 int QStylePlugin_SuperMetacall(QStylePlugin* self, int param1, int param2, void** param3);
 void QStylePlugin_OnCreate(QStylePlugin* self, intptr_t slot);
-QStyle* QStylePlugin_SuperCreate(QStylePlugin* self, const libqt_string key);
 bool QStylePlugin_Event(QStylePlugin* self, QEvent* event);
 void QStylePlugin_OnEvent(QStylePlugin* self, intptr_t slot);
 bool QStylePlugin_SuperEvent(QStylePlugin* self, QEvent* event);
@@ -64,17 +63,9 @@ void QStylePlugin_DisconnectNotify(QStylePlugin* self, const QMetaMethod* signal
 void QStylePlugin_OnDisconnectNotify(QStylePlugin* self, intptr_t slot);
 void QStylePlugin_SuperDisconnectNotify(QStylePlugin* self, const QMetaMethod* signal);
 QObject* QStylePlugin_Sender(const QStylePlugin* self);
-void QStylePlugin_OnSender(const QStylePlugin* self, intptr_t slot);
-QObject* QStylePlugin_SuperSender(const QStylePlugin* self);
 int QStylePlugin_SenderSignalIndex(const QStylePlugin* self);
-void QStylePlugin_OnSenderSignalIndex(const QStylePlugin* self, intptr_t slot);
-int QStylePlugin_SuperSenderSignalIndex(const QStylePlugin* self);
 int QStylePlugin_Receivers(const QStylePlugin* self, const char* signal);
-void QStylePlugin_OnReceivers(const QStylePlugin* self, intptr_t slot);
-int QStylePlugin_SuperReceivers(const QStylePlugin* self, const char* signal);
 bool QStylePlugin_IsSignalConnected(const QStylePlugin* self, const QMetaMethod* signal);
-void QStylePlugin_OnIsSignalConnected(const QStylePlugin* self, intptr_t slot);
-bool QStylePlugin_SuperIsSignalConnected(const QStylePlugin* self, const QMetaMethod* signal);
 void QStylePlugin_Delete(QStylePlugin* self);
 
 #ifdef __cplusplus

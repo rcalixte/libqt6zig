@@ -30,6 +30,8 @@ pub const KTextEditor__TextHintProvider = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-texthintprovider.html#textHint)
     ///
+    /// This method must be implemented with `onTextHint` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__TextHintProvider `
@@ -66,34 +68,6 @@ pub const KTextEditor__TextHintProvider = extern struct {
     ///
     pub fn onTextHint(self: KTextEditor__TextHintProvider, callback: *const fn (KTextEditor__TextHintProvider, KTextEditor__View, KTextEditor__Cursor) callconv(.c) [*:0]const u8) void {
         qtc.KTextEditor__TextHintProvider_OnTextHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTextHint` instead
-    ///
-    pub const SuperTextHint = superTextHint;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-texthintprovider.html#textHint)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__TextHintProvider `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` view: KTextEditor__View `
-    ///
-    /// ` position: KTextEditor__Cursor `
-    ///
-    pub fn superTextHint(self: KTextEditor__TextHintProvider, allocator: std.mem.Allocator, view: anytype, position: anytype) []const u8 {
-        comptime _ = @TypeOf(view)._is_KTextEditor__View;
-        comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
-        var _str = qtc.KTextEditor__TextHintProvider_SuperTextHint(@ptrCast(self.ptr), @ptrCast(view.ptr), @ptrCast(position.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__TextHintProvider.textHint: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `delete` instead

@@ -154,364 +154,219 @@ void QDBusPendingCallWatcher_Connect_Finished1(QDBusPendingCallWatcher* self, in
 
 // Base class handler implementation
 QMetaObject* QDBusPendingCallWatcher_SuperMetaObject(const QDBusPendingCallWatcher* self) {
-    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdbuspendingcallwatcher->metaObject();
-    } else {
-        return (QMetaObject*)self->QDBusPendingCallWatcher::metaObject();
-    }
+    return (QMetaObject*)self->QDBusPendingCallWatcher::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDBusPendingCallWatcher_OnMetaObject(const QDBusPendingCallWatcher* self, intptr_t slot) {
-    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher)
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_MetaObject_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_MetaObject_Callback>(slot));
+void QDBusPendingCallWatcher_OnMetaObject(QDBusPendingCallWatcher* self, intptr_t slot) {
+    if (auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self)))
+        vqdbuspendingcallwatcher->qdbuspendingcallwatcher_metaobject_callback = reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDBusPendingCallWatcher_SuperMetacast(QDBusPendingCallWatcher* self, const char* param1) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_Metacast_IsBase(true);
-        return vqdbuspendingcallwatcher->qt_metacast(param1);
-    } else {
-        return self->QDBusPendingCallWatcher::qt_metacast(param1);
-    }
+    return self->QDBusPendingCallWatcher::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusPendingCallWatcher_OnMetacast(QDBusPendingCallWatcher* self, intptr_t slot) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher)
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_Metacast_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_Metacast_Callback>(slot));
+    if (auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self))
+        vqdbuspendingcallwatcher->qdbuspendingcallwatcher_metacast_callback = reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDBusPendingCallWatcher_SuperMetacall(QDBusPendingCallWatcher* self, int param1, int param2, void** param3) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_Metacall_IsBase(true);
-        return vqdbuspendingcallwatcher->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDBusPendingCallWatcher::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDBusPendingCallWatcher::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusPendingCallWatcher_OnMetacall(QDBusPendingCallWatcher* self, intptr_t slot) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher)
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_Metacall_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_Metacall_Callback>(slot));
+    if (auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self))
+        vqdbuspendingcallwatcher->qdbuspendingcallwatcher_metacall_callback = reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDBusPendingCallWatcher_Event(QDBusPendingCallWatcher* self, QEvent* event) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        return vqdbuspendingcallwatcher->event(event);
-    } else {
-        return self->QDBusPendingCallWatcher::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QDBusPendingCallWatcher_SuperEvent(QDBusPendingCallWatcher* self, QEvent* event) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_Event_IsBase(true);
-        return vqdbuspendingcallwatcher->event(event);
-    } else {
-        return self->QDBusPendingCallWatcher::event(event);
-    }
+    return self->QDBusPendingCallWatcher::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusPendingCallWatcher_OnEvent(QDBusPendingCallWatcher* self, intptr_t slot) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher)
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_Event_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_Event_Callback>(slot));
+    if (auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self))
+        vqdbuspendingcallwatcher->qdbuspendingcallwatcher_event_callback = reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDBusPendingCallWatcher_EventFilter(QDBusPendingCallWatcher* self, QObject* watched, QEvent* event) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        return vqdbuspendingcallwatcher->eventFilter(watched, event);
-    } else {
-        return self->QDBusPendingCallWatcher::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDBusPendingCallWatcher_SuperEventFilter(QDBusPendingCallWatcher* self, QObject* watched, QEvent* event) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_EventFilter_IsBase(true);
-        return vqdbuspendingcallwatcher->eventFilter(watched, event);
-    } else {
-        return self->QDBusPendingCallWatcher::eventFilter(watched, event);
-    }
+    return self->QDBusPendingCallWatcher::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusPendingCallWatcher_OnEventFilter(QDBusPendingCallWatcher* self, intptr_t slot) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher)
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_EventFilter_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_EventFilter_Callback>(slot));
+    if (auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self))
+        vqdbuspendingcallwatcher->qdbuspendingcallwatcher_eventfilter_callback = reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDBusPendingCallWatcher_TimerEvent(QDBusPendingCallWatcher* self, QTimerEvent* event) {
     auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
+    if (vqdbuspendingcallwatcher) {
         vqdbuspendingcallwatcher->timerEvent(event);
     } else {
-        ((VirtualQDBusPendingCallWatcher*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDBusPendingCallWatcher::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDBusPendingCallWatcher_SuperTimerEvent(QDBusPendingCallWatcher* self, QTimerEvent* event) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_TimerEvent_IsBase(true);
-        vqdbuspendingcallwatcher->timerEvent(event);
-    } else {
-        ((VirtualQDBusPendingCallWatcher*)self)->timerEvent(event);
-    }
+    if (auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self)) {
+        vqdbuspendingcallwatcher->QDBusPendingCallWatcher::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDBusPendingCallWatcher::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusPendingCallWatcher_OnTimerEvent(QDBusPendingCallWatcher* self, intptr_t slot) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher)
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_TimerEvent_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_TimerEvent_Callback>(slot));
+    if (auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self))
+        vqdbuspendingcallwatcher->qdbuspendingcallwatcher_timerevent_callback = reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDBusPendingCallWatcher_ChildEvent(QDBusPendingCallWatcher* self, QChildEvent* event) {
     auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
+    if (vqdbuspendingcallwatcher) {
         vqdbuspendingcallwatcher->childEvent(event);
     } else {
-        ((VirtualQDBusPendingCallWatcher*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDBusPendingCallWatcher::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDBusPendingCallWatcher_SuperChildEvent(QDBusPendingCallWatcher* self, QChildEvent* event) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_ChildEvent_IsBase(true);
-        vqdbuspendingcallwatcher->childEvent(event);
-    } else {
-        ((VirtualQDBusPendingCallWatcher*)self)->childEvent(event);
-    }
+    if (auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self)) {
+        vqdbuspendingcallwatcher->QDBusPendingCallWatcher::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDBusPendingCallWatcher::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusPendingCallWatcher_OnChildEvent(QDBusPendingCallWatcher* self, intptr_t slot) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher)
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_ChildEvent_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_ChildEvent_Callback>(slot));
+    if (auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self))
+        vqdbuspendingcallwatcher->qdbuspendingcallwatcher_childevent_callback = reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDBusPendingCallWatcher_CustomEvent(QDBusPendingCallWatcher* self, QEvent* event) {
     auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
+    if (vqdbuspendingcallwatcher) {
         vqdbuspendingcallwatcher->customEvent(event);
     } else {
-        ((VirtualQDBusPendingCallWatcher*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDBusPendingCallWatcher::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDBusPendingCallWatcher_SuperCustomEvent(QDBusPendingCallWatcher* self, QEvent* event) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_CustomEvent_IsBase(true);
-        vqdbuspendingcallwatcher->customEvent(event);
-    } else {
-        ((VirtualQDBusPendingCallWatcher*)self)->customEvent(event);
-    }
+    if (auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self)) {
+        vqdbuspendingcallwatcher->QDBusPendingCallWatcher::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDBusPendingCallWatcher::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusPendingCallWatcher_OnCustomEvent(QDBusPendingCallWatcher* self, intptr_t slot) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher)
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_CustomEvent_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_CustomEvent_Callback>(slot));
+    if (auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self))
+        vqdbuspendingcallwatcher->qdbuspendingcallwatcher_customevent_callback = reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDBusPendingCallWatcher_ConnectNotify(QDBusPendingCallWatcher* self, const QMetaMethod* signal) {
     auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
+    if (vqdbuspendingcallwatcher) {
         vqdbuspendingcallwatcher->connectNotify(*signal);
     } else {
-        ((VirtualQDBusPendingCallWatcher*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDBusPendingCallWatcher::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDBusPendingCallWatcher_SuperConnectNotify(QDBusPendingCallWatcher* self, const QMetaMethod* signal) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_ConnectNotify_IsBase(true);
-        vqdbuspendingcallwatcher->connectNotify(*signal);
-    } else {
-        ((VirtualQDBusPendingCallWatcher*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self)) {
+        vqdbuspendingcallwatcher->QDBusPendingCallWatcher::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDBusPendingCallWatcher::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusPendingCallWatcher_OnConnectNotify(QDBusPendingCallWatcher* self, intptr_t slot) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher)
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_ConnectNotify_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_ConnectNotify_Callback>(slot));
+    if (auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self))
+        vqdbuspendingcallwatcher->qdbuspendingcallwatcher_connectnotify_callback = reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDBusPendingCallWatcher_DisconnectNotify(QDBusPendingCallWatcher* self, const QMetaMethod* signal) {
     auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
+    if (vqdbuspendingcallwatcher) {
         vqdbuspendingcallwatcher->disconnectNotify(*signal);
     } else {
-        ((VirtualQDBusPendingCallWatcher*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDBusPendingCallWatcher::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDBusPendingCallWatcher_SuperDisconnectNotify(QDBusPendingCallWatcher* self, const QMetaMethod* signal) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_DisconnectNotify_IsBase(true);
-        vqdbuspendingcallwatcher->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDBusPendingCallWatcher*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self)) {
+        vqdbuspendingcallwatcher->QDBusPendingCallWatcher::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDBusPendingCallWatcher::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusPendingCallWatcher_OnDisconnectNotify(QDBusPendingCallWatcher* self, intptr_t slot) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher)
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_DisconnectNotify_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_DisconnectNotify_Callback>(slot));
+    if (auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self))
+        vqdbuspendingcallwatcher->qdbuspendingcallwatcher_disconnectnotify_callback = reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDBusPendingCallWatcher_Sender(const QDBusPendingCallWatcher* self) {
-    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        return vqdbuspendingcallwatcher->sender();
-    } else {
-        return ((VirtualQDBusPendingCallWatcher*)self)->sender();
-    }
+    if (auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self))) {
+        return vqdbuspendingcallwatcher->VirtualQDBusPendingCallWatcher::sender();
+    } else
+        qFatal("Error: Protected method QDBusPendingCallWatcher::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDBusPendingCallWatcher_SuperSender(const QDBusPendingCallWatcher* self) {
-    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_Sender_IsBase(true);
-        return vqdbuspendingcallwatcher->sender();
-    } else {
-        return ((VirtualQDBusPendingCallWatcher*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDBusPendingCallWatcher_OnSender(const QDBusPendingCallWatcher* self, intptr_t slot) {
-    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher)
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_Sender_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDBusPendingCallWatcher_SenderSignalIndex(const QDBusPendingCallWatcher* self) {
-    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        return vqdbuspendingcallwatcher->senderSignalIndex();
-    } else {
-        return ((VirtualQDBusPendingCallWatcher*)self)->senderSignalIndex();
-    }
+    if (auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self))) {
+        return vqdbuspendingcallwatcher->VirtualQDBusPendingCallWatcher::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDBusPendingCallWatcher::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDBusPendingCallWatcher_SuperSenderSignalIndex(const QDBusPendingCallWatcher* self) {
-    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_SenderSignalIndex_IsBase(true);
-        return vqdbuspendingcallwatcher->senderSignalIndex();
-    } else {
-        return ((VirtualQDBusPendingCallWatcher*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDBusPendingCallWatcher_OnSenderSignalIndex(const QDBusPendingCallWatcher* self, intptr_t slot) {
-    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher)
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDBusPendingCallWatcher_Receivers(const QDBusPendingCallWatcher* self, const char* signal) {
-    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        return vqdbuspendingcallwatcher->receivers(signal);
-    } else {
-        return ((VirtualQDBusPendingCallWatcher*)self)->receivers(signal);
-    }
+    if (auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self))) {
+        return vqdbuspendingcallwatcher->VirtualQDBusPendingCallWatcher::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDBusPendingCallWatcher::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDBusPendingCallWatcher_SuperReceivers(const QDBusPendingCallWatcher* self, const char* signal) {
-    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_Receivers_IsBase(true);
-        return vqdbuspendingcallwatcher->receivers(signal);
-    } else {
-        return ((VirtualQDBusPendingCallWatcher*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDBusPendingCallWatcher_OnReceivers(const QDBusPendingCallWatcher* self, intptr_t slot) {
-    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher)
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_Receivers_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDBusPendingCallWatcher_IsSignalConnected(const QDBusPendingCallWatcher* self, const QMetaMethod* signal) {
-    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        return vqdbuspendingcallwatcher->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDBusPendingCallWatcher*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QDBusPendingCallWatcher_SuperIsSignalConnected(const QDBusPendingCallWatcher* self, const QMetaMethod* signal) {
-    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_IsSignalConnected_IsBase(true);
-        return vqdbuspendingcallwatcher->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDBusPendingCallWatcher*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDBusPendingCallWatcher_OnIsSignalConnected(const QDBusPendingCallWatcher* self, intptr_t slot) {
-    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher)
-        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_IsSignalConnected_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_IsSignalConnected_Callback>(slot));
+    if (auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self))) {
+        return vqdbuspendingcallwatcher->VirtualQDBusPendingCallWatcher::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDBusPendingCallWatcher::isSignalConnected called without a directly constructed type");
 }
 
 void QDBusPendingCallWatcher_Delete(QDBusPendingCallWatcher* self) {

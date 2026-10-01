@@ -173,458 +173,258 @@ void QPlaceReply_Connect_ErrorOccurred2(QPlaceReply* self, intptr_t slot) {
 
 // Base class handler implementation
 QMetaObject* QPlaceReply_SuperMetaObject(const QPlaceReply* self) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_MetaObject_IsBase(true);
-        return (QMetaObject*)vqplacereply->metaObject();
-    } else {
-        return (QMetaObject*)self->QPlaceReply::metaObject();
-    }
+    return (QMetaObject*)self->QPlaceReply::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPlaceReply_OnMetaObject(const QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_MetaObject_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_MetaObject_Callback>(slot));
+void QPlaceReply_OnMetaObject(QPlaceReply* self, intptr_t slot) {
+    if (auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self)))
+        vqplacereply->qplacereply_metaobject_callback = reinterpret_cast<VirtualQPlaceReply::QPlaceReply_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPlaceReply_SuperMetacast(QPlaceReply* self, const char* param1) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_Metacast_IsBase(true);
-        return vqplacereply->qt_metacast(param1);
-    } else {
-        return self->QPlaceReply::qt_metacast(param1);
-    }
+    return self->QPlaceReply::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceReply_OnMetacast(QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_Metacast_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_Metacast_Callback>(slot));
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self))
+        vqplacereply->qplacereply_metacast_callback = reinterpret_cast<VirtualQPlaceReply::QPlaceReply_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPlaceReply_SuperMetacall(QPlaceReply* self, int param1, int param2, void** param3) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_Metacall_IsBase(true);
-        return vqplacereply->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPlaceReply::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPlaceReply::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceReply_OnMetacall(QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_Metacall_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_Metacall_Callback>(slot));
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self))
+        vqplacereply->qplacereply_metacall_callback = reinterpret_cast<VirtualQPlaceReply::QPlaceReply_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPlaceReply_SuperType(const QPlaceReply* self) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_Type_IsBase(true);
-        return static_cast<int>(vqplacereply->type());
-    } else {
-        return static_cast<int>(self->QPlaceReply::type());
-    }
+    return static_cast<int>(self->QPlaceReply::type());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPlaceReply_OnType(const QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_Type_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_Type_Callback>(slot));
+void QPlaceReply_OnType(QPlaceReply* self, intptr_t slot) {
+    if (auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self)))
+        vqplacereply->qplacereply_type_callback = reinterpret_cast<VirtualQPlaceReply::QPlaceReply_Type_Callback>(slot);
 }
 
 // Base class handler implementation
 void QPlaceReply_SuperAbort(QPlaceReply* self) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_Abort_IsBase(true);
-        vqplacereply->abort();
-    } else {
-        self->QPlaceReply::abort();
-    }
+    self->QPlaceReply::abort();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceReply_OnAbort(QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_Abort_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_Abort_Callback>(slot));
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self))
+        vqplacereply->qplacereply_abort_callback = reinterpret_cast<VirtualQPlaceReply::QPlaceReply_Abort_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPlaceReply_Event(QPlaceReply* self, QEvent* event) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        return vqplacereply->event(event);
-    } else {
-        return self->QPlaceReply::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QPlaceReply_SuperEvent(QPlaceReply* self, QEvent* event) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_Event_IsBase(true);
-        return vqplacereply->event(event);
-    } else {
-        return self->QPlaceReply::event(event);
-    }
+    return self->QPlaceReply::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceReply_OnEvent(QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_Event_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_Event_Callback>(slot));
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self))
+        vqplacereply->qplacereply_event_callback = reinterpret_cast<VirtualQPlaceReply::QPlaceReply_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPlaceReply_EventFilter(QPlaceReply* self, QObject* watched, QEvent* event) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        return vqplacereply->eventFilter(watched, event);
-    } else {
-        return self->QPlaceReply::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QPlaceReply_SuperEventFilter(QPlaceReply* self, QObject* watched, QEvent* event) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_EventFilter_IsBase(true);
-        return vqplacereply->eventFilter(watched, event);
-    } else {
-        return self->QPlaceReply::eventFilter(watched, event);
-    }
+    return self->QPlaceReply::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceReply_OnEventFilter(QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_EventFilter_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_EventFilter_Callback>(slot));
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self))
+        vqplacereply->qplacereply_eventfilter_callback = reinterpret_cast<VirtualQPlaceReply::QPlaceReply_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPlaceReply_TimerEvent(QPlaceReply* self, QTimerEvent* event) {
     auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
+    if (vqplacereply) {
         vqplacereply->timerEvent(event);
     } else {
-        ((VirtualQPlaceReply*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPlaceReply::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPlaceReply_SuperTimerEvent(QPlaceReply* self, QTimerEvent* event) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_TimerEvent_IsBase(true);
-        vqplacereply->timerEvent(event);
-    } else {
-        ((VirtualQPlaceReply*)self)->timerEvent(event);
-    }
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self)) {
+        vqplacereply->QPlaceReply::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPlaceReply::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceReply_OnTimerEvent(QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_TimerEvent_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_TimerEvent_Callback>(slot));
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self))
+        vqplacereply->qplacereply_timerevent_callback = reinterpret_cast<VirtualQPlaceReply::QPlaceReply_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPlaceReply_ChildEvent(QPlaceReply* self, QChildEvent* event) {
     auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
+    if (vqplacereply) {
         vqplacereply->childEvent(event);
     } else {
-        ((VirtualQPlaceReply*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPlaceReply::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPlaceReply_SuperChildEvent(QPlaceReply* self, QChildEvent* event) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_ChildEvent_IsBase(true);
-        vqplacereply->childEvent(event);
-    } else {
-        ((VirtualQPlaceReply*)self)->childEvent(event);
-    }
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self)) {
+        vqplacereply->QPlaceReply::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPlaceReply::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceReply_OnChildEvent(QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_ChildEvent_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_ChildEvent_Callback>(slot));
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self))
+        vqplacereply->qplacereply_childevent_callback = reinterpret_cast<VirtualQPlaceReply::QPlaceReply_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPlaceReply_CustomEvent(QPlaceReply* self, QEvent* event) {
     auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
+    if (vqplacereply) {
         vqplacereply->customEvent(event);
     } else {
-        ((VirtualQPlaceReply*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPlaceReply::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPlaceReply_SuperCustomEvent(QPlaceReply* self, QEvent* event) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_CustomEvent_IsBase(true);
-        vqplacereply->customEvent(event);
-    } else {
-        ((VirtualQPlaceReply*)self)->customEvent(event);
-    }
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self)) {
+        vqplacereply->QPlaceReply::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPlaceReply::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceReply_OnCustomEvent(QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_CustomEvent_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_CustomEvent_Callback>(slot));
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self))
+        vqplacereply->qplacereply_customevent_callback = reinterpret_cast<VirtualQPlaceReply::QPlaceReply_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPlaceReply_ConnectNotify(QPlaceReply* self, const QMetaMethod* signal) {
     auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
+    if (vqplacereply) {
         vqplacereply->connectNotify(*signal);
     } else {
-        ((VirtualQPlaceReply*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPlaceReply::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPlaceReply_SuperConnectNotify(QPlaceReply* self, const QMetaMethod* signal) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_ConnectNotify_IsBase(true);
-        vqplacereply->connectNotify(*signal);
-    } else {
-        ((VirtualQPlaceReply*)self)->connectNotify(*signal);
-    }
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self)) {
+        vqplacereply->QPlaceReply::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPlaceReply::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceReply_OnConnectNotify(QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_ConnectNotify_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_ConnectNotify_Callback>(slot));
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self))
+        vqplacereply->qplacereply_connectnotify_callback = reinterpret_cast<VirtualQPlaceReply::QPlaceReply_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPlaceReply_DisconnectNotify(QPlaceReply* self, const QMetaMethod* signal) {
     auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
+    if (vqplacereply) {
         vqplacereply->disconnectNotify(*signal);
     } else {
-        ((VirtualQPlaceReply*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPlaceReply::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPlaceReply_SuperDisconnectNotify(QPlaceReply* self, const QMetaMethod* signal) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_DisconnectNotify_IsBase(true);
-        vqplacereply->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPlaceReply*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self)) {
+        vqplacereply->QPlaceReply::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPlaceReply::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceReply_OnDisconnectNotify(QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_DisconnectNotify_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_DisconnectNotify_Callback>(slot));
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self))
+        vqplacereply->qplacereply_disconnectnotify_callback = reinterpret_cast<VirtualQPlaceReply::QPlaceReply_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPlaceReply_SetFinished(QPlaceReply* self, bool finished) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setFinished(finished);
-    } else {
-        ((VirtualQPlaceReply*)self)->setFinished(finished);
-    }
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self)) {
+        vqplacereply->VirtualQPlaceReply::setFinished(finished);
+    } else
+        qFatal("Error: Protected method QPlaceReply::setFinished called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPlaceReply_SuperSetFinished(QPlaceReply* self, bool finished) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_SetFinished_IsBase(true);
-        vqplacereply->setFinished(finished);
-    } else {
-        ((VirtualQPlaceReply*)self)->setFinished(finished);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPlaceReply_OnSetFinished(QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_SetFinished_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_SetFinished_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPlaceReply_SetError(QPlaceReply* self, int errorVal, const libqt_string errorString) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setError(static_cast<QPlaceReply::Error>(errorVal), errorString_QString);
-    } else {
-        ((VirtualQPlaceReply*)self)->setError(static_cast<QPlaceReply::Error>(errorVal), errorString_QString);
-    }
+    if (auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self)) {
+        QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
+        vqplacereply->VirtualQPlaceReply::setError(static_cast<QPlaceReply::Error>(errorVal), errorString_QString);
+    } else
+        qFatal("Error: Protected method QPlaceReply::setError called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPlaceReply_SuperSetError(QPlaceReply* self, int errorVal, const libqt_string errorString) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_SetError_IsBase(true);
-        vqplacereply->setError(static_cast<QPlaceReply::Error>(errorVal), errorString_QString);
-    } else {
-        ((VirtualQPlaceReply*)self)->setError(static_cast<QPlaceReply::Error>(errorVal), errorString_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPlaceReply_OnSetError(QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_SetError_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_SetError_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPlaceReply_Sender(const QPlaceReply* self) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        return vqplacereply->sender();
-    } else {
-        return ((VirtualQPlaceReply*)self)->sender();
-    }
+    if (auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self))) {
+        return vqplacereply->VirtualQPlaceReply::sender();
+    } else
+        qFatal("Error: Protected method QPlaceReply::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPlaceReply_SuperSender(const QPlaceReply* self) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_Sender_IsBase(true);
-        return vqplacereply->sender();
-    } else {
-        return ((VirtualQPlaceReply*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPlaceReply_OnSender(const QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_Sender_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPlaceReply_SenderSignalIndex(const QPlaceReply* self) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        return vqplacereply->senderSignalIndex();
-    } else {
-        return ((VirtualQPlaceReply*)self)->senderSignalIndex();
-    }
+    if (auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self))) {
+        return vqplacereply->VirtualQPlaceReply::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPlaceReply::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPlaceReply_SuperSenderSignalIndex(const QPlaceReply* self) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_SenderSignalIndex_IsBase(true);
-        return vqplacereply->senderSignalIndex();
-    } else {
-        return ((VirtualQPlaceReply*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPlaceReply_OnSenderSignalIndex(const QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPlaceReply_Receivers(const QPlaceReply* self, const char* signal) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        return vqplacereply->receivers(signal);
-    } else {
-        return ((VirtualQPlaceReply*)self)->receivers(signal);
-    }
+    if (auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self))) {
+        return vqplacereply->VirtualQPlaceReply::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPlaceReply::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPlaceReply_SuperReceivers(const QPlaceReply* self, const char* signal) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_Receivers_IsBase(true);
-        return vqplacereply->receivers(signal);
-    } else {
-        return ((VirtualQPlaceReply*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPlaceReply_OnReceivers(const QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_Receivers_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPlaceReply_IsSignalConnected(const QPlaceReply* self, const QMetaMethod* signal) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        return vqplacereply->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPlaceReply*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QPlaceReply_SuperIsSignalConnected(const QPlaceReply* self, const QMetaMethod* signal) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        vqplacereply->setQPlaceReply_IsSignalConnected_IsBase(true);
-        return vqplacereply->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPlaceReply*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPlaceReply_OnIsSignalConnected(const QPlaceReply* self, intptr_t slot) {
-    auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self));
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply)
-        vqplacereply->setQPlaceReply_IsSignalConnected_Callback(reinterpret_cast<VirtualQPlaceReply::QPlaceReply_IsSignalConnected_Callback>(slot));
+    if (auto* vqplacereply = const_cast<VirtualQPlaceReply*>(dynamic_cast<const VirtualQPlaceReply*>(self))) {
+        return vqplacereply->VirtualQPlaceReply::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPlaceReply::isSignalConnected called without a directly constructed type");
 }
 
 void QPlaceReply_Delete(QPlaceReply* self) {

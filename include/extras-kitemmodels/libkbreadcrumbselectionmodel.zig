@@ -128,9 +128,9 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KBreadcrumbSelectionModel) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel) callconv(.c) QMetaObject) void {
         qtc.KBreadcrumbSelectionModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2197,9 +2197,9 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KBreadcrumbSelectionModel) callconv(.c) void `
     ///
-    pub fn onClear(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel) callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2253,9 +2253,9 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KBreadcrumbSelectionModel) callconv(.c) void `
     ///
-    pub fn onReset(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel) callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2309,9 +2309,9 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KBreadcrumbSelectionModel) callconv(.c) void `
     ///
-    pub fn onClearCurrentIndex(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onClearCurrentIndex(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel) callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnClearCurrentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2779,50 +2779,6 @@ pub const KBreadcrumbSelectionModel = extern struct {
         qtc.KBreadcrumbSelectionModel_EmitSelectionChanged(@ptrCast(self.ptr), @ptrCast(newSelection.ptr), @ptrCast(oldSelection.ptr));
     }
 
-    /// ### DEPRECATED: Use `superEmitSelectionChanged` instead
-    ///
-    pub const SuperEmitSelectionChanged = superEmitSelectionChanged;
-
-    /// Inherited from QItemSelectionModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBreadcrumbSelectionModel `
-    ///
-    /// ` newSelection: QItemSelection `
-    ///
-    /// ` oldSelection: QItemSelection `
-    ///
-    pub fn superEmitSelectionChanged(self: KBreadcrumbSelectionModel, newSelection: anytype, oldSelection: anytype) void {
-        comptime _ = @TypeOf(newSelection)._is_QItemSelection;
-        comptime _ = @TypeOf(oldSelection)._is_QItemSelection;
-        qtc.KBreadcrumbSelectionModel_SuperEmitSelectionChanged(@ptrCast(self.ptr), @ptrCast(newSelection.ptr), @ptrCast(oldSelection.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEmitSelectionChanged` instead
-    ///
-    pub const OnEmitSelectionChanged = onEmitSelectionChanged;
-
-    /// Inherited from QItemSelectionModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBreadcrumbSelectionModel`
-    ///
-    /// ` callback: *const fn (self: KBreadcrumbSelectionModel, newSelection: QItemSelection, oldSelection: QItemSelection) callconv(.c) void `
-    ///
-    pub fn onEmitSelectionChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QItemSelection, QItemSelection) callconv(.c) void) void {
-        qtc.KBreadcrumbSelectionModel_OnEmitSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -2841,44 +2797,6 @@ pub const KBreadcrumbSelectionModel = extern struct {
         return .{ .ptr = qtc.KBreadcrumbSelectionModel_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBreadcrumbSelectionModel `
-    ///
-    pub fn superSender(self: KBreadcrumbSelectionModel) QObject {
-        return .{ .ptr = qtc.KBreadcrumbSelectionModel_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBreadcrumbSelectionModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KBreadcrumbSelectionModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2895,44 +2813,6 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     pub fn senderSignalIndex(self: KBreadcrumbSelectionModel) i32 {
         return qtc.KBreadcrumbSelectionModel_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBreadcrumbSelectionModel `
-    ///
-    pub fn superSenderSignalIndex(self: KBreadcrumbSelectionModel) i32 {
-        return qtc.KBreadcrumbSelectionModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBreadcrumbSelectionModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) i32) void {
-        qtc.KBreadcrumbSelectionModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2956,47 +2836,6 @@ pub const KBreadcrumbSelectionModel = extern struct {
         return qtc.KBreadcrumbSelectionModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBreadcrumbSelectionModel `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KBreadcrumbSelectionModel, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KBreadcrumbSelectionModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBreadcrumbSelectionModel`
-    ///
-    /// ` callback: *const fn (self: KBreadcrumbSelectionModel, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KBreadcrumbSelectionModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3016,47 +2855,6 @@ pub const KBreadcrumbSelectionModel = extern struct {
     pub fn isSignalConnected(self: KBreadcrumbSelectionModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KBreadcrumbSelectionModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBreadcrumbSelectionModel `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KBreadcrumbSelectionModel, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KBreadcrumbSelectionModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBreadcrumbSelectionModel`
-    ///
-    /// ` callback: *const fn (self: KBreadcrumbSelectionModel, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QMetaMethod) callconv(.c) bool) void {
-        qtc.KBreadcrumbSelectionModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

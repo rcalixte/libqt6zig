@@ -479,9 +479,9 @@ pub const QItemSelectionModel = extern struct {
     ///
     /// ` self: QItemSelectionModel `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QItemSelectionModel) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QItemSelectionModel, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QItemSelectionModel, callback: *const fn (QItemSelectionModel) callconv(.c) QMetaObject) void {
         qtc.QItemSelectionModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1060,9 +1060,9 @@ pub const QItemSelectionModel = extern struct {
     ///
     /// ` self: QItemSelectionModel `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QItemSelectionModel) callconv(.c) void `
     ///
-    pub fn onClear(self: QItemSelectionModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: QItemSelectionModel, callback: *const fn (QItemSelectionModel) callconv(.c) void) void {
         qtc.QItemSelectionModel_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1108,9 +1108,9 @@ pub const QItemSelectionModel = extern struct {
     ///
     /// ` self: QItemSelectionModel `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QItemSelectionModel) callconv(.c) void `
     ///
-    pub fn onReset(self: QItemSelectionModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: QItemSelectionModel, callback: *const fn (QItemSelectionModel) callconv(.c) void) void {
         qtc.QItemSelectionModel_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1170,9 +1170,9 @@ pub const QItemSelectionModel = extern struct {
     ///
     /// ` self: QItemSelectionModel `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QItemSelectionModel) callconv(.c) void `
     ///
-    pub fn onClearCurrentIndex(self: QItemSelectionModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onClearCurrentIndex(self: QItemSelectionModel, callback: *const fn (QItemSelectionModel) callconv(.c) void) void {
         qtc.QItemSelectionModel_OnClearCurrentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1387,46 +1387,6 @@ pub const QItemSelectionModel = extern struct {
         comptime _ = @TypeOf(newSelection)._is_QItemSelection;
         comptime _ = @TypeOf(oldSelection)._is_QItemSelection;
         qtc.QItemSelectionModel_EmitSelectionChanged(@ptrCast(self.ptr), @ptrCast(newSelection.ptr), @ptrCast(oldSelection.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEmitSelectionChanged` instead
-    ///
-    pub const OnEmitSelectionChanged = onEmitSelectionChanged;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemSelectionModel `
-    ///
-    /// ` callback: *const fn (self: QItemSelectionModel, newSelection: QItemSelection, oldSelection: QItemSelection) callconv(.c) void `
-    ///
-    pub fn onEmitSelectionChanged(self: QItemSelectionModel, callback: *const fn (QItemSelectionModel, QItemSelection, QItemSelection) callconv(.c) void) void {
-        qtc.QItemSelectionModel_OnEmitSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEmitSelectionChanged` instead
-    ///
-    pub const SuperEmitSelectionChanged = superEmitSelectionChanged;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemSelectionModel `
-    ///
-    /// ` newSelection: QItemSelection `
-    ///
-    /// ` oldSelection: QItemSelection `
-    ///
-    pub fn superEmitSelectionChanged(self: QItemSelectionModel, newSelection: anytype, oldSelection: anytype) void {
-        comptime _ = @TypeOf(newSelection)._is_QItemSelection;
-        comptime _ = @TypeOf(oldSelection)._is_QItemSelection;
-        qtc.QItemSelectionModel_SuperEmitSelectionChanged(@ptrCast(self.ptr), @ptrCast(newSelection.ptr), @ptrCast(oldSelection.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -3030,44 +2990,6 @@ pub const QItemSelectionModel = extern struct {
         return .{ .ptr = qtc.QItemSelectionModel_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemSelectionModel `
-    ///
-    pub fn superSender(self: QItemSelectionModel) QObject {
-        return .{ .ptr = qtc.QItemSelectionModel_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemSelectionModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QItemSelectionModel, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QItemSelectionModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3084,44 +3006,6 @@ pub const QItemSelectionModel = extern struct {
     ///
     pub fn senderSignalIndex(self: QItemSelectionModel) i32 {
         return qtc.QItemSelectionModel_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemSelectionModel `
-    ///
-    pub fn superSenderSignalIndex(self: QItemSelectionModel) i32 {
-        return qtc.QItemSelectionModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemSelectionModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QItemSelectionModel, callback: *const fn () callconv(.c) i32) void {
-        qtc.QItemSelectionModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3145,47 +3029,6 @@ pub const QItemSelectionModel = extern struct {
         return qtc.QItemSelectionModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemSelectionModel `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QItemSelectionModel, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QItemSelectionModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemSelectionModel`
-    ///
-    /// ` callback: *const fn (self: QItemSelectionModel, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QItemSelectionModel, callback: *const fn (QItemSelectionModel, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QItemSelectionModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3205,47 +3048,6 @@ pub const QItemSelectionModel = extern struct {
     pub fn isSignalConnected(self: QItemSelectionModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QItemSelectionModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemSelectionModel `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QItemSelectionModel, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QItemSelectionModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemSelectionModel`
-    ///
-    /// ` callback: *const fn (self: QItemSelectionModel, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QItemSelectionModel, callback: *const fn (QItemSelectionModel, QMetaMethod) callconv(.c) bool) void {
-        qtc.QItemSelectionModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

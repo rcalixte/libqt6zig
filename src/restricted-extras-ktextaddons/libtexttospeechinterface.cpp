@@ -90,364 +90,219 @@ libqt_string TextEditTextToSpeech__TextToSpeechInterface_Tr3(const char* s, cons
 
 // Base class handler implementation
 QMetaObject* TextEditTextToSpeech__TextToSpeechInterface_SuperMetaObject(const TextEditTextToSpeech__TextToSpeechInterface* self) {
-    auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self));
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_MetaObject_IsBase(true);
-        return (QMetaObject*)vtextedittexttospeechtexttospeechinterface->metaObject();
-    } else {
-        return (QMetaObject*)self->TextEditTextToSpeech::TextToSpeechInterface::metaObject();
-    }
+    return (QMetaObject*)self->TextEditTextToSpeech::TextToSpeechInterface::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextEditTextToSpeech__TextToSpeechInterface_OnMetaObject(const TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
-    auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self));
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface)
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_MetaObject_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_MetaObject_Callback>(slot));
+void TextEditTextToSpeech__TextToSpeechInterface_OnMetaObject(TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
+    if (auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self)))
+        vtextedittexttospeechtexttospeechinterface->textedittexttospeech__texttospeechinterface_metaobject_callback = reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextEditTextToSpeech__TextToSpeechInterface_SuperMetacast(TextEditTextToSpeech__TextToSpeechInterface* self, const char* param1) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_Metacast_IsBase(true);
-        return vtextedittexttospeechtexttospeechinterface->qt_metacast(param1);
-    } else {
-        return self->TextEditTextToSpeech::TextToSpeechInterface::qt_metacast(param1);
-    }
+    return self->TextEditTextToSpeech::TextToSpeechInterface::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechInterface_OnMetacast(TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface)
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_Metacast_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_Metacast_Callback>(slot));
+    if (auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self))
+        vtextedittexttospeechtexttospeechinterface->textedittexttospeech__texttospeechinterface_metacast_callback = reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextEditTextToSpeech__TextToSpeechInterface_SuperMetacall(TextEditTextToSpeech__TextToSpeechInterface* self, int param1, int param2, void** param3) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_Metacall_IsBase(true);
-        return vtextedittexttospeechtexttospeechinterface->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextEditTextToSpeech::TextToSpeechInterface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextEditTextToSpeech::TextToSpeechInterface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechInterface_OnMetacall(TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface)
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_Metacall_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_Metacall_Callback>(slot));
+    if (auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self))
+        vtextedittexttospeechtexttospeechinterface->textedittexttospeech__texttospeechinterface_metacall_callback = reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextEditTextToSpeech__TextToSpeechInterface_Event(TextEditTextToSpeech__TextToSpeechInterface* self, QEvent* event) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        return vtextedittexttospeechtexttospeechinterface->event(event);
-    } else {
-        return self->TextEditTextToSpeech::TextToSpeechInterface::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool TextEditTextToSpeech__TextToSpeechInterface_SuperEvent(TextEditTextToSpeech__TextToSpeechInterface* self, QEvent* event) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_Event_IsBase(true);
-        return vtextedittexttospeechtexttospeechinterface->event(event);
-    } else {
-        return self->TextEditTextToSpeech::TextToSpeechInterface::event(event);
-    }
+    return self->TextEditTextToSpeech::TextToSpeechInterface::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechInterface_OnEvent(TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface)
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_Event_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_Event_Callback>(slot));
+    if (auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self))
+        vtextedittexttospeechtexttospeechinterface->textedittexttospeech__texttospeechinterface_event_callback = reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextEditTextToSpeech__TextToSpeechInterface_EventFilter(TextEditTextToSpeech__TextToSpeechInterface* self, QObject* watched, QEvent* event) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        return vtextedittexttospeechtexttospeechinterface->eventFilter(watched, event);
-    } else {
-        return self->TextEditTextToSpeech::TextToSpeechInterface::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextEditTextToSpeech__TextToSpeechInterface_SuperEventFilter(TextEditTextToSpeech__TextToSpeechInterface* self, QObject* watched, QEvent* event) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_EventFilter_IsBase(true);
-        return vtextedittexttospeechtexttospeechinterface->eventFilter(watched, event);
-    } else {
-        return self->TextEditTextToSpeech::TextToSpeechInterface::eventFilter(watched, event);
-    }
+    return self->TextEditTextToSpeech::TextToSpeechInterface::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechInterface_OnEventFilter(TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface)
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_EventFilter_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_EventFilter_Callback>(slot));
+    if (auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self))
+        vtextedittexttospeechtexttospeechinterface->textedittexttospeech__texttospeechinterface_eventfilter_callback = reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextEditTextToSpeech__TextToSpeechInterface_TimerEvent(TextEditTextToSpeech__TextToSpeechInterface* self, QTimerEvent* event) {
     auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
+    if (vtextedittexttospeechtexttospeechinterface) {
         vtextedittexttospeechtexttospeechinterface->timerEvent(event);
     } else {
-        ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextEditTextToSpeech::TextToSpeechInterface::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextEditTextToSpeech__TextToSpeechInterface_SuperTimerEvent(TextEditTextToSpeech__TextToSpeechInterface* self, QTimerEvent* event) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_TimerEvent_IsBase(true);
-        vtextedittexttospeechtexttospeechinterface->timerEvent(event);
-    } else {
-        ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->timerEvent(event);
-    }
+    if (auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self)) {
+        vtextedittexttospeechtexttospeechinterface->TextEditTextToSpeech::TextToSpeechInterface::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextEditTextToSpeech::TextToSpeechInterface::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechInterface_OnTimerEvent(TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface)
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_TimerEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_TimerEvent_Callback>(slot));
+    if (auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self))
+        vtextedittexttospeechtexttospeechinterface->textedittexttospeech__texttospeechinterface_timerevent_callback = reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextEditTextToSpeech__TextToSpeechInterface_ChildEvent(TextEditTextToSpeech__TextToSpeechInterface* self, QChildEvent* event) {
     auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
+    if (vtextedittexttospeechtexttospeechinterface) {
         vtextedittexttospeechtexttospeechinterface->childEvent(event);
     } else {
-        ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextEditTextToSpeech::TextToSpeechInterface::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextEditTextToSpeech__TextToSpeechInterface_SuperChildEvent(TextEditTextToSpeech__TextToSpeechInterface* self, QChildEvent* event) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_ChildEvent_IsBase(true);
-        vtextedittexttospeechtexttospeechinterface->childEvent(event);
-    } else {
-        ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->childEvent(event);
-    }
+    if (auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self)) {
+        vtextedittexttospeechtexttospeechinterface->TextEditTextToSpeech::TextToSpeechInterface::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextEditTextToSpeech::TextToSpeechInterface::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechInterface_OnChildEvent(TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface)
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_ChildEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_ChildEvent_Callback>(slot));
+    if (auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self))
+        vtextedittexttospeechtexttospeechinterface->textedittexttospeech__texttospeechinterface_childevent_callback = reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextEditTextToSpeech__TextToSpeechInterface_CustomEvent(TextEditTextToSpeech__TextToSpeechInterface* self, QEvent* event) {
     auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
+    if (vtextedittexttospeechtexttospeechinterface) {
         vtextedittexttospeechtexttospeechinterface->customEvent(event);
     } else {
-        ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextEditTextToSpeech::TextToSpeechInterface::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextEditTextToSpeech__TextToSpeechInterface_SuperCustomEvent(TextEditTextToSpeech__TextToSpeechInterface* self, QEvent* event) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_CustomEvent_IsBase(true);
-        vtextedittexttospeechtexttospeechinterface->customEvent(event);
-    } else {
-        ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->customEvent(event);
-    }
+    if (auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self)) {
+        vtextedittexttospeechtexttospeechinterface->TextEditTextToSpeech::TextToSpeechInterface::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextEditTextToSpeech::TextToSpeechInterface::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechInterface_OnCustomEvent(TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface)
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_CustomEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_CustomEvent_Callback>(slot));
+    if (auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self))
+        vtextedittexttospeechtexttospeechinterface->textedittexttospeech__texttospeechinterface_customevent_callback = reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextEditTextToSpeech__TextToSpeechInterface_ConnectNotify(TextEditTextToSpeech__TextToSpeechInterface* self, const QMetaMethod* signal) {
     auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
+    if (vtextedittexttospeechtexttospeechinterface) {
         vtextedittexttospeechtexttospeechinterface->connectNotify(*signal);
     } else {
-        ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextEditTextToSpeech::TextToSpeechInterface::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextEditTextToSpeech__TextToSpeechInterface_SuperConnectNotify(TextEditTextToSpeech__TextToSpeechInterface* self, const QMetaMethod* signal) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_ConnectNotify_IsBase(true);
-        vtextedittexttospeechtexttospeechinterface->connectNotify(*signal);
-    } else {
-        ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->connectNotify(*signal);
-    }
+    if (auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self)) {
+        vtextedittexttospeechtexttospeechinterface->TextEditTextToSpeech::TextToSpeechInterface::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextEditTextToSpeech::TextToSpeechInterface::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechInterface_OnConnectNotify(TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface)
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_ConnectNotify_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_ConnectNotify_Callback>(slot));
+    if (auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self))
+        vtextedittexttospeechtexttospeechinterface->textedittexttospeech__texttospeechinterface_connectnotify_callback = reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextEditTextToSpeech__TextToSpeechInterface_DisconnectNotify(TextEditTextToSpeech__TextToSpeechInterface* self, const QMetaMethod* signal) {
     auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
+    if (vtextedittexttospeechtexttospeechinterface) {
         vtextedittexttospeechtexttospeechinterface->disconnectNotify(*signal);
     } else {
-        ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextEditTextToSpeech::TextToSpeechInterface::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextEditTextToSpeech__TextToSpeechInterface_SuperDisconnectNotify(TextEditTextToSpeech__TextToSpeechInterface* self, const QMetaMethod* signal) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_DisconnectNotify_IsBase(true);
-        vtextedittexttospeechtexttospeechinterface->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self)) {
+        vtextedittexttospeechtexttospeechinterface->TextEditTextToSpeech::TextToSpeechInterface::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextEditTextToSpeech::TextToSpeechInterface::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechInterface_OnDisconnectNotify(TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
-    auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface)
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_DisconnectNotify_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_DisconnectNotify_Callback>(slot));
+    if (auto* vtextedittexttospeechtexttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self))
+        vtextedittexttospeechtexttospeechinterface->textedittexttospeech__texttospeechinterface_disconnectnotify_callback = reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextEditTextToSpeech__TextToSpeechInterface_Sender(const TextEditTextToSpeech__TextToSpeechInterface* self) {
-    auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self));
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        return vtextedittexttospeechtexttospeechinterface->sender();
-    } else {
-        return ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->sender();
-    }
+    if (auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self))) {
+        return vtextedittexttospeechtexttospeechinterface->VirtualTextEditTextToSpeechTextToSpeechInterface::sender();
+    } else
+        qFatal("Error: Protected method TextEditTextToSpeech::TextToSpeechInterface::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextEditTextToSpeech__TextToSpeechInterface_SuperSender(const TextEditTextToSpeech__TextToSpeechInterface* self) {
-    auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self));
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_Sender_IsBase(true);
-        return vtextedittexttospeechtexttospeechinterface->sender();
-    } else {
-        return ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextEditTextToSpeech__TextToSpeechInterface_OnSender(const TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
-    auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self));
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface)
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_Sender_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextEditTextToSpeech__TextToSpeechInterface_SenderSignalIndex(const TextEditTextToSpeech__TextToSpeechInterface* self) {
-    auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self));
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        return vtextedittexttospeechtexttospeechinterface->senderSignalIndex();
-    } else {
-        return ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->senderSignalIndex();
-    }
+    if (auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self))) {
+        return vtextedittexttospeechtexttospeechinterface->VirtualTextEditTextToSpeechTextToSpeechInterface::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextEditTextToSpeech::TextToSpeechInterface::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextEditTextToSpeech__TextToSpeechInterface_SuperSenderSignalIndex(const TextEditTextToSpeech__TextToSpeechInterface* self) {
-    auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self));
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_SenderSignalIndex_IsBase(true);
-        return vtextedittexttospeechtexttospeechinterface->senderSignalIndex();
-    } else {
-        return ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextEditTextToSpeech__TextToSpeechInterface_OnSenderSignalIndex(const TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
-    auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self));
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface)
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextEditTextToSpeech__TextToSpeechInterface_Receivers(const TextEditTextToSpeech__TextToSpeechInterface* self, const char* signal) {
-    auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self));
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        return vtextedittexttospeechtexttospeechinterface->receivers(signal);
-    } else {
-        return ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->receivers(signal);
-    }
+    if (auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self))) {
+        return vtextedittexttospeechtexttospeechinterface->VirtualTextEditTextToSpeechTextToSpeechInterface::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextEditTextToSpeech::TextToSpeechInterface::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextEditTextToSpeech__TextToSpeechInterface_SuperReceivers(const TextEditTextToSpeech__TextToSpeechInterface* self, const char* signal) {
-    auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self));
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_Receivers_IsBase(true);
-        return vtextedittexttospeechtexttospeechinterface->receivers(signal);
-    } else {
-        return ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextEditTextToSpeech__TextToSpeechInterface_OnReceivers(const TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
-    auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self));
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface)
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_Receivers_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextEditTextToSpeech__TextToSpeechInterface_IsSignalConnected(const TextEditTextToSpeech__TextToSpeechInterface* self, const QMetaMethod* signal) {
-    auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self));
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        return vtextedittexttospeechtexttospeechinterface->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool TextEditTextToSpeech__TextToSpeechInterface_SuperIsSignalConnected(const TextEditTextToSpeech__TextToSpeechInterface* self, const QMetaMethod* signal) {
-    auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self));
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_IsSignalConnected_IsBase(true);
-        return vtextedittexttospeechtexttospeechinterface->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextEditTextToSpeech__TextToSpeechInterface_OnIsSignalConnected(const TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot) {
-    auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self));
-    if (vtextedittexttospeechtexttospeechinterface && vtextedittexttospeechtexttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface)
-        vtextedittexttospeechtexttospeechinterface->setTextEditTextToSpeech__TextToSpeechInterface_IsSignalConnected_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechInterface::TextEditTextToSpeech__TextToSpeechInterface_IsSignalConnected_Callback>(slot));
+    if (auto* vtextedittexttospeechtexttospeechinterface = const_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self))) {
+        return vtextedittexttospeechtexttospeechinterface->VirtualTextEditTextToSpeechTextToSpeechInterface::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextEditTextToSpeech::TextToSpeechInterface::isSignalConnected called without a directly constructed type");
 }
 
 void TextEditTextToSpeech__TextToSpeechInterface_Delete(TextEditTextToSpeech__TextToSpeechInterface* self) {

@@ -9,35 +9,31 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KReplaceDialog so that we can call protected methods
+// This class is a subclass of KReplaceDialog
 class VirtualKReplaceDialog final : public KReplaceDialog {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKReplaceDialog = true;
-
-    // Virtual class public types (including callbacks)
-    using KReplaceDialog_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KReplaceDialog_MetaObject_Callback = QMetaObject* (*)(const KReplaceDialog*);
     using KReplaceDialog_Metacast_Callback = void* (*)(KReplaceDialog*, const char*);
     using KReplaceDialog_Metacall_Callback = int (*)(KReplaceDialog*, int, int, void**);
     using KReplaceDialog_ShowEvent_Callback = void (*)(KReplaceDialog*, QShowEvent*);
     using KReplaceDialog_SetVisible_Callback = void (*)(KReplaceDialog*, bool);
-    using KReplaceDialog_SizeHint_Callback = QSize* (*)();
-    using KReplaceDialog_MinimumSizeHint_Callback = QSize* (*)();
-    using KReplaceDialog_Open_Callback = void (*)();
-    using KReplaceDialog_Exec_Callback = int (*)();
+    using KReplaceDialog_SizeHint_Callback = QSize* (*)(const KReplaceDialog*);
+    using KReplaceDialog_MinimumSizeHint_Callback = QSize* (*)(const KReplaceDialog*);
+    using KReplaceDialog_Open_Callback = void (*)(KReplaceDialog*);
+    using KReplaceDialog_Exec_Callback = int (*)(KReplaceDialog*);
     using KReplaceDialog_Done_Callback = void (*)(KReplaceDialog*, int);
-    using KReplaceDialog_Accept_Callback = void (*)();
-    using KReplaceDialog_Reject_Callback = void (*)();
+    using KReplaceDialog_Accept_Callback = void (*)(KReplaceDialog*);
+    using KReplaceDialog_Reject_Callback = void (*)(KReplaceDialog*);
     using KReplaceDialog_KeyPressEvent_Callback = void (*)(KReplaceDialog*, QKeyEvent*);
     using KReplaceDialog_CloseEvent_Callback = void (*)(KReplaceDialog*, QCloseEvent*);
     using KReplaceDialog_ResizeEvent_Callback = void (*)(KReplaceDialog*, QResizeEvent*);
     using KReplaceDialog_ContextMenuEvent_Callback = void (*)(KReplaceDialog*, QContextMenuEvent*);
     using KReplaceDialog_EventFilter_Callback = bool (*)(KReplaceDialog*, QObject*, QEvent*);
-    using KReplaceDialog_DevType_Callback = int (*)();
+    using KReplaceDialog_DevType_Callback = int (*)(const KReplaceDialog*);
     using KReplaceDialog_HeightForWidth_Callback = int (*)(const KReplaceDialog*, int);
-    using KReplaceDialog_HasHeightForWidth_Callback = bool (*)();
-    using KReplaceDialog_PaintEngine_Callback = QPaintEngine* (*)();
+    using KReplaceDialog_HasHeightForWidth_Callback = bool (*)(const KReplaceDialog*);
+    using KReplaceDialog_PaintEngine_Callback = QPaintEngine* (*)(const KReplaceDialog*);
     using KReplaceDialog_Event_Callback = bool (*)(KReplaceDialog*, QEvent*);
     using KReplaceDialog_MousePressEvent_Callback = void (*)(KReplaceDialog*, QMouseEvent*);
     using KReplaceDialog_MouseReleaseEvent_Callback = void (*)(KReplaceDialog*, QMouseEvent*);
@@ -63,7 +59,7 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
     using KReplaceDialog_Metric_Callback = int (*)(const KReplaceDialog*, int);
     using KReplaceDialog_InitPainter_Callback = void (*)(const KReplaceDialog*, QPainter*);
     using KReplaceDialog_Redirected_Callback = QPaintDevice* (*)(const KReplaceDialog*, QPoint*);
-    using KReplaceDialog_SharedPainter_Callback = QPainter* (*)();
+    using KReplaceDialog_SharedPainter_Callback = QPainter* (*)(const KReplaceDialog*);
     using KReplaceDialog_InputMethodEvent_Callback = void (*)(KReplaceDialog*, QInputMethodEvent*);
     using KReplaceDialog_InputMethodQuery_Callback = QVariant* (*)(const KReplaceDialog*, int);
     using KReplaceDialog_FocusNextPrevChild_Callback = bool (*)(KReplaceDialog*, bool);
@@ -72,19 +68,18 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
     using KReplaceDialog_CustomEvent_Callback = void (*)(KReplaceDialog*, QEvent*);
     using KReplaceDialog_ConnectNotify_Callback = void (*)(KReplaceDialog*, QMetaMethod*);
     using KReplaceDialog_DisconnectNotify_Callback = void (*)(KReplaceDialog*, QMetaMethod*);
-    using KReplaceDialog_AdjustPosition_Callback = void (*)(KReplaceDialog*, QWidget*);
-    using KReplaceDialog_UpdateMicroFocus_Callback = void (*)();
-    using KReplaceDialog_Create_Callback = void (*)();
-    using KReplaceDialog_Destroy_Callback = void (*)();
-    using KReplaceDialog_FocusNextChild_Callback = bool (*)();
-    using KReplaceDialog_FocusPreviousChild_Callback = bool (*)();
-    using KReplaceDialog_Sender_Callback = QObject* (*)();
-    using KReplaceDialog_SenderSignalIndex_Callback = int (*)();
-    using KReplaceDialog_Receivers_Callback = int (*)(const KReplaceDialog*, const char*);
-    using KReplaceDialog_IsSignalConnected_Callback = bool (*)(const KReplaceDialog*, QMetaMethod*);
-    using KReplaceDialog_GetDecodedMetricF_Callback = double (*)(const KReplaceDialog*, int, int);
+    using KReplaceDialog::adjustPosition;
+    using KReplaceDialog::create;
+    using KReplaceDialog::destroy;
+    using KReplaceDialog::focusNextChild;
+    using KReplaceDialog::focusPreviousChild;
+    using KReplaceDialog::getDecodedMetricF;
+    using KReplaceDialog::isSignalConnected;
+    using KReplaceDialog::receivers;
+    using KReplaceDialog::sender;
+    using KReplaceDialog::senderSignalIndex;
+    using KReplaceDialog::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     KReplaceDialog_MetaObject_Callback kreplacedialog_metaobject_callback = nullptr;
     KReplaceDialog_Metacast_Callback kreplacedialog_metacast_callback = nullptr;
@@ -141,87 +136,50 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
     KReplaceDialog_CustomEvent_Callback kreplacedialog_customevent_callback = nullptr;
     KReplaceDialog_ConnectNotify_Callback kreplacedialog_connectnotify_callback = nullptr;
     KReplaceDialog_DisconnectNotify_Callback kreplacedialog_disconnectnotify_callback = nullptr;
-    KReplaceDialog_AdjustPosition_Callback kreplacedialog_adjustposition_callback = nullptr;
-    KReplaceDialog_UpdateMicroFocus_Callback kreplacedialog_updatemicrofocus_callback = nullptr;
-    KReplaceDialog_Create_Callback kreplacedialog_create_callback = nullptr;
-    KReplaceDialog_Destroy_Callback kreplacedialog_destroy_callback = nullptr;
-    KReplaceDialog_FocusNextChild_Callback kreplacedialog_focusnextchild_callback = nullptr;
-    KReplaceDialog_FocusPreviousChild_Callback kreplacedialog_focuspreviouschild_callback = nullptr;
-    KReplaceDialog_Sender_Callback kreplacedialog_sender_callback = nullptr;
-    KReplaceDialog_SenderSignalIndex_Callback kreplacedialog_sendersignalindex_callback = nullptr;
-    KReplaceDialog_Receivers_Callback kreplacedialog_receivers_callback = nullptr;
-    KReplaceDialog_IsSignalConnected_Callback kreplacedialog_issignalconnected_callback = nullptr;
-    KReplaceDialog_GetDecodedMetricF_Callback kreplacedialog_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kreplacedialog_metaobject_isbase = false;
-    mutable bool kreplacedialog_metacast_isbase = false;
-    mutable bool kreplacedialog_metacall_isbase = false;
-    mutable bool kreplacedialog_showevent_isbase = false;
-    mutable bool kreplacedialog_setvisible_isbase = false;
-    mutable bool kreplacedialog_sizehint_isbase = false;
-    mutable bool kreplacedialog_minimumsizehint_isbase = false;
-    mutable bool kreplacedialog_open_isbase = false;
-    mutable bool kreplacedialog_exec_isbase = false;
-    mutable bool kreplacedialog_done_isbase = false;
-    mutable bool kreplacedialog_accept_isbase = false;
-    mutable bool kreplacedialog_reject_isbase = false;
-    mutable bool kreplacedialog_keypressevent_isbase = false;
-    mutable bool kreplacedialog_closeevent_isbase = false;
-    mutable bool kreplacedialog_resizeevent_isbase = false;
-    mutable bool kreplacedialog_contextmenuevent_isbase = false;
-    mutable bool kreplacedialog_eventfilter_isbase = false;
-    mutable bool kreplacedialog_devtype_isbase = false;
-    mutable bool kreplacedialog_heightforwidth_isbase = false;
-    mutable bool kreplacedialog_hasheightforwidth_isbase = false;
-    mutable bool kreplacedialog_paintengine_isbase = false;
-    mutable bool kreplacedialog_event_isbase = false;
-    mutable bool kreplacedialog_mousepressevent_isbase = false;
-    mutable bool kreplacedialog_mousereleaseevent_isbase = false;
-    mutable bool kreplacedialog_mousedoubleclickevent_isbase = false;
-    mutable bool kreplacedialog_mousemoveevent_isbase = false;
-    mutable bool kreplacedialog_wheelevent_isbase = false;
-    mutable bool kreplacedialog_keyreleaseevent_isbase = false;
-    mutable bool kreplacedialog_focusinevent_isbase = false;
-    mutable bool kreplacedialog_focusoutevent_isbase = false;
-    mutable bool kreplacedialog_enterevent_isbase = false;
-    mutable bool kreplacedialog_leaveevent_isbase = false;
-    mutable bool kreplacedialog_paintevent_isbase = false;
-    mutable bool kreplacedialog_moveevent_isbase = false;
-    mutable bool kreplacedialog_tabletevent_isbase = false;
-    mutable bool kreplacedialog_actionevent_isbase = false;
-    mutable bool kreplacedialog_dragenterevent_isbase = false;
-    mutable bool kreplacedialog_dragmoveevent_isbase = false;
-    mutable bool kreplacedialog_dragleaveevent_isbase = false;
-    mutable bool kreplacedialog_dropevent_isbase = false;
-    mutable bool kreplacedialog_hideevent_isbase = false;
-    mutable bool kreplacedialog_nativeevent_isbase = false;
-    mutable bool kreplacedialog_changeevent_isbase = false;
-    mutable bool kreplacedialog_metric_isbase = false;
-    mutable bool kreplacedialog_initpainter_isbase = false;
-    mutable bool kreplacedialog_redirected_isbase = false;
-    mutable bool kreplacedialog_sharedpainter_isbase = false;
-    mutable bool kreplacedialog_inputmethodevent_isbase = false;
-    mutable bool kreplacedialog_inputmethodquery_isbase = false;
-    mutable bool kreplacedialog_focusnextprevchild_isbase = false;
-    mutable bool kreplacedialog_timerevent_isbase = false;
-    mutable bool kreplacedialog_childevent_isbase = false;
-    mutable bool kreplacedialog_customevent_isbase = false;
-    mutable bool kreplacedialog_connectnotify_isbase = false;
-    mutable bool kreplacedialog_disconnectnotify_isbase = false;
-    mutable bool kreplacedialog_adjustposition_isbase = false;
-    mutable bool kreplacedialog_updatemicrofocus_isbase = false;
-    mutable bool kreplacedialog_create_isbase = false;
-    mutable bool kreplacedialog_destroy_isbase = false;
-    mutable bool kreplacedialog_focusnextchild_isbase = false;
-    mutable bool kreplacedialog_focuspreviouschild_isbase = false;
-    mutable bool kreplacedialog_sender_isbase = false;
-    mutable bool kreplacedialog_sendersignalindex_isbase = false;
-    mutable bool kreplacedialog_receivers_isbase = false;
-    mutable bool kreplacedialog_issignalconnected_isbase = false;
-    mutable bool kreplacedialog_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KReplaceDialog {
+        using KReplaceDialog::actionEvent;
+        using KReplaceDialog::changeEvent;
+        using KReplaceDialog::childEvent;
+        using KReplaceDialog::closeEvent;
+        using KReplaceDialog::connectNotify;
+        using KReplaceDialog::contextMenuEvent;
+        using KReplaceDialog::customEvent;
+        using KReplaceDialog::disconnectNotify;
+        using KReplaceDialog::dragEnterEvent;
+        using KReplaceDialog::dragLeaveEvent;
+        using KReplaceDialog::dragMoveEvent;
+        using KReplaceDialog::dropEvent;
+        using KReplaceDialog::enterEvent;
+        using KReplaceDialog::event;
+        using KReplaceDialog::eventFilter;
+        using KReplaceDialog::focusInEvent;
+        using KReplaceDialog::focusNextPrevChild;
+        using KReplaceDialog::focusOutEvent;
+        using KReplaceDialog::hideEvent;
+        using KReplaceDialog::initPainter;
+        using KReplaceDialog::inputMethodEvent;
+        using KReplaceDialog::keyPressEvent;
+        using KReplaceDialog::keyReleaseEvent;
+        using KReplaceDialog::leaveEvent;
+        using KReplaceDialog::metric;
+        using KReplaceDialog::mouseDoubleClickEvent;
+        using KReplaceDialog::mouseMoveEvent;
+        using KReplaceDialog::mousePressEvent;
+        using KReplaceDialog::mouseReleaseEvent;
+        using KReplaceDialog::moveEvent;
+        using KReplaceDialog::nativeEvent;
+        using KReplaceDialog::paintEvent;
+        using KReplaceDialog::redirected;
+        using KReplaceDialog::resizeEvent;
+        using KReplaceDialog::sharedPainter;
+        using KReplaceDialog::showEvent;
+        using KReplaceDialog::tabletEvent;
+        using KReplaceDialog::timerEvent;
+        using KReplaceDialog::wheelEvent;
+    };
 
-  public:
     VirtualKReplaceDialog(QWidget* parent) : KReplaceDialog(parent) {};
     VirtualKReplaceDialog() : KReplaceDialog() {};
     VirtualKReplaceDialog(QWidget* parent, long options) : KReplaceDialog(parent, options) {};
@@ -229,151 +187,10 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
     VirtualKReplaceDialog(QWidget* parent, long options, const QList<QString>& findStrings, const QList<QString>& replaceStrings) : KReplaceDialog(parent, options, findStrings, replaceStrings) {};
     VirtualKReplaceDialog(QWidget* parent, long options, const QList<QString>& findStrings, const QList<QString>& replaceStrings, bool hasSelection) : KReplaceDialog(parent, options, findStrings, replaceStrings, hasSelection) {};
 
-    // Callback setters
-    inline void setKReplaceDialog_MetaObject_Callback(KReplaceDialog_MetaObject_Callback cb) { kreplacedialog_metaobject_callback = cb; }
-    inline void setKReplaceDialog_Metacast_Callback(KReplaceDialog_Metacast_Callback cb) { kreplacedialog_metacast_callback = cb; }
-    inline void setKReplaceDialog_Metacall_Callback(KReplaceDialog_Metacall_Callback cb) { kreplacedialog_metacall_callback = cb; }
-    inline void setKReplaceDialog_ShowEvent_Callback(KReplaceDialog_ShowEvent_Callback cb) { kreplacedialog_showevent_callback = cb; }
-    inline void setKReplaceDialog_SetVisible_Callback(KReplaceDialog_SetVisible_Callback cb) { kreplacedialog_setvisible_callback = cb; }
-    inline void setKReplaceDialog_SizeHint_Callback(KReplaceDialog_SizeHint_Callback cb) { kreplacedialog_sizehint_callback = cb; }
-    inline void setKReplaceDialog_MinimumSizeHint_Callback(KReplaceDialog_MinimumSizeHint_Callback cb) { kreplacedialog_minimumsizehint_callback = cb; }
-    inline void setKReplaceDialog_Open_Callback(KReplaceDialog_Open_Callback cb) { kreplacedialog_open_callback = cb; }
-    inline void setKReplaceDialog_Exec_Callback(KReplaceDialog_Exec_Callback cb) { kreplacedialog_exec_callback = cb; }
-    inline void setKReplaceDialog_Done_Callback(KReplaceDialog_Done_Callback cb) { kreplacedialog_done_callback = cb; }
-    inline void setKReplaceDialog_Accept_Callback(KReplaceDialog_Accept_Callback cb) { kreplacedialog_accept_callback = cb; }
-    inline void setKReplaceDialog_Reject_Callback(KReplaceDialog_Reject_Callback cb) { kreplacedialog_reject_callback = cb; }
-    inline void setKReplaceDialog_KeyPressEvent_Callback(KReplaceDialog_KeyPressEvent_Callback cb) { kreplacedialog_keypressevent_callback = cb; }
-    inline void setKReplaceDialog_CloseEvent_Callback(KReplaceDialog_CloseEvent_Callback cb) { kreplacedialog_closeevent_callback = cb; }
-    inline void setKReplaceDialog_ResizeEvent_Callback(KReplaceDialog_ResizeEvent_Callback cb) { kreplacedialog_resizeevent_callback = cb; }
-    inline void setKReplaceDialog_ContextMenuEvent_Callback(KReplaceDialog_ContextMenuEvent_Callback cb) { kreplacedialog_contextmenuevent_callback = cb; }
-    inline void setKReplaceDialog_EventFilter_Callback(KReplaceDialog_EventFilter_Callback cb) { kreplacedialog_eventfilter_callback = cb; }
-    inline void setKReplaceDialog_DevType_Callback(KReplaceDialog_DevType_Callback cb) { kreplacedialog_devtype_callback = cb; }
-    inline void setKReplaceDialog_HeightForWidth_Callback(KReplaceDialog_HeightForWidth_Callback cb) { kreplacedialog_heightforwidth_callback = cb; }
-    inline void setKReplaceDialog_HasHeightForWidth_Callback(KReplaceDialog_HasHeightForWidth_Callback cb) { kreplacedialog_hasheightforwidth_callback = cb; }
-    inline void setKReplaceDialog_PaintEngine_Callback(KReplaceDialog_PaintEngine_Callback cb) { kreplacedialog_paintengine_callback = cb; }
-    inline void setKReplaceDialog_Event_Callback(KReplaceDialog_Event_Callback cb) { kreplacedialog_event_callback = cb; }
-    inline void setKReplaceDialog_MousePressEvent_Callback(KReplaceDialog_MousePressEvent_Callback cb) { kreplacedialog_mousepressevent_callback = cb; }
-    inline void setKReplaceDialog_MouseReleaseEvent_Callback(KReplaceDialog_MouseReleaseEvent_Callback cb) { kreplacedialog_mousereleaseevent_callback = cb; }
-    inline void setKReplaceDialog_MouseDoubleClickEvent_Callback(KReplaceDialog_MouseDoubleClickEvent_Callback cb) { kreplacedialog_mousedoubleclickevent_callback = cb; }
-    inline void setKReplaceDialog_MouseMoveEvent_Callback(KReplaceDialog_MouseMoveEvent_Callback cb) { kreplacedialog_mousemoveevent_callback = cb; }
-    inline void setKReplaceDialog_WheelEvent_Callback(KReplaceDialog_WheelEvent_Callback cb) { kreplacedialog_wheelevent_callback = cb; }
-    inline void setKReplaceDialog_KeyReleaseEvent_Callback(KReplaceDialog_KeyReleaseEvent_Callback cb) { kreplacedialog_keyreleaseevent_callback = cb; }
-    inline void setKReplaceDialog_FocusInEvent_Callback(KReplaceDialog_FocusInEvent_Callback cb) { kreplacedialog_focusinevent_callback = cb; }
-    inline void setKReplaceDialog_FocusOutEvent_Callback(KReplaceDialog_FocusOutEvent_Callback cb) { kreplacedialog_focusoutevent_callback = cb; }
-    inline void setKReplaceDialog_EnterEvent_Callback(KReplaceDialog_EnterEvent_Callback cb) { kreplacedialog_enterevent_callback = cb; }
-    inline void setKReplaceDialog_LeaveEvent_Callback(KReplaceDialog_LeaveEvent_Callback cb) { kreplacedialog_leaveevent_callback = cb; }
-    inline void setKReplaceDialog_PaintEvent_Callback(KReplaceDialog_PaintEvent_Callback cb) { kreplacedialog_paintevent_callback = cb; }
-    inline void setKReplaceDialog_MoveEvent_Callback(KReplaceDialog_MoveEvent_Callback cb) { kreplacedialog_moveevent_callback = cb; }
-    inline void setKReplaceDialog_TabletEvent_Callback(KReplaceDialog_TabletEvent_Callback cb) { kreplacedialog_tabletevent_callback = cb; }
-    inline void setKReplaceDialog_ActionEvent_Callback(KReplaceDialog_ActionEvent_Callback cb) { kreplacedialog_actionevent_callback = cb; }
-    inline void setKReplaceDialog_DragEnterEvent_Callback(KReplaceDialog_DragEnterEvent_Callback cb) { kreplacedialog_dragenterevent_callback = cb; }
-    inline void setKReplaceDialog_DragMoveEvent_Callback(KReplaceDialog_DragMoveEvent_Callback cb) { kreplacedialog_dragmoveevent_callback = cb; }
-    inline void setKReplaceDialog_DragLeaveEvent_Callback(KReplaceDialog_DragLeaveEvent_Callback cb) { kreplacedialog_dragleaveevent_callback = cb; }
-    inline void setKReplaceDialog_DropEvent_Callback(KReplaceDialog_DropEvent_Callback cb) { kreplacedialog_dropevent_callback = cb; }
-    inline void setKReplaceDialog_HideEvent_Callback(KReplaceDialog_HideEvent_Callback cb) { kreplacedialog_hideevent_callback = cb; }
-    inline void setKReplaceDialog_NativeEvent_Callback(KReplaceDialog_NativeEvent_Callback cb) { kreplacedialog_nativeevent_callback = cb; }
-    inline void setKReplaceDialog_ChangeEvent_Callback(KReplaceDialog_ChangeEvent_Callback cb) { kreplacedialog_changeevent_callback = cb; }
-    inline void setKReplaceDialog_Metric_Callback(KReplaceDialog_Metric_Callback cb) { kreplacedialog_metric_callback = cb; }
-    inline void setKReplaceDialog_InitPainter_Callback(KReplaceDialog_InitPainter_Callback cb) { kreplacedialog_initpainter_callback = cb; }
-    inline void setKReplaceDialog_Redirected_Callback(KReplaceDialog_Redirected_Callback cb) { kreplacedialog_redirected_callback = cb; }
-    inline void setKReplaceDialog_SharedPainter_Callback(KReplaceDialog_SharedPainter_Callback cb) { kreplacedialog_sharedpainter_callback = cb; }
-    inline void setKReplaceDialog_InputMethodEvent_Callback(KReplaceDialog_InputMethodEvent_Callback cb) { kreplacedialog_inputmethodevent_callback = cb; }
-    inline void setKReplaceDialog_InputMethodQuery_Callback(KReplaceDialog_InputMethodQuery_Callback cb) { kreplacedialog_inputmethodquery_callback = cb; }
-    inline void setKReplaceDialog_FocusNextPrevChild_Callback(KReplaceDialog_FocusNextPrevChild_Callback cb) { kreplacedialog_focusnextprevchild_callback = cb; }
-    inline void setKReplaceDialog_TimerEvent_Callback(KReplaceDialog_TimerEvent_Callback cb) { kreplacedialog_timerevent_callback = cb; }
-    inline void setKReplaceDialog_ChildEvent_Callback(KReplaceDialog_ChildEvent_Callback cb) { kreplacedialog_childevent_callback = cb; }
-    inline void setKReplaceDialog_CustomEvent_Callback(KReplaceDialog_CustomEvent_Callback cb) { kreplacedialog_customevent_callback = cb; }
-    inline void setKReplaceDialog_ConnectNotify_Callback(KReplaceDialog_ConnectNotify_Callback cb) { kreplacedialog_connectnotify_callback = cb; }
-    inline void setKReplaceDialog_DisconnectNotify_Callback(KReplaceDialog_DisconnectNotify_Callback cb) { kreplacedialog_disconnectnotify_callback = cb; }
-    inline void setKReplaceDialog_AdjustPosition_Callback(KReplaceDialog_AdjustPosition_Callback cb) { kreplacedialog_adjustposition_callback = cb; }
-    inline void setKReplaceDialog_UpdateMicroFocus_Callback(KReplaceDialog_UpdateMicroFocus_Callback cb) { kreplacedialog_updatemicrofocus_callback = cb; }
-    inline void setKReplaceDialog_Create_Callback(KReplaceDialog_Create_Callback cb) { kreplacedialog_create_callback = cb; }
-    inline void setKReplaceDialog_Destroy_Callback(KReplaceDialog_Destroy_Callback cb) { kreplacedialog_destroy_callback = cb; }
-    inline void setKReplaceDialog_FocusNextChild_Callback(KReplaceDialog_FocusNextChild_Callback cb) { kreplacedialog_focusnextchild_callback = cb; }
-    inline void setKReplaceDialog_FocusPreviousChild_Callback(KReplaceDialog_FocusPreviousChild_Callback cb) { kreplacedialog_focuspreviouschild_callback = cb; }
-    inline void setKReplaceDialog_Sender_Callback(KReplaceDialog_Sender_Callback cb) { kreplacedialog_sender_callback = cb; }
-    inline void setKReplaceDialog_SenderSignalIndex_Callback(KReplaceDialog_SenderSignalIndex_Callback cb) { kreplacedialog_sendersignalindex_callback = cb; }
-    inline void setKReplaceDialog_Receivers_Callback(KReplaceDialog_Receivers_Callback cb) { kreplacedialog_receivers_callback = cb; }
-    inline void setKReplaceDialog_IsSignalConnected_Callback(KReplaceDialog_IsSignalConnected_Callback cb) { kreplacedialog_issignalconnected_callback = cb; }
-    inline void setKReplaceDialog_GetDecodedMetricF_Callback(KReplaceDialog_GetDecodedMetricF_Callback cb) { kreplacedialog_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKReplaceDialog_MetaObject_IsBase(bool value) const { kreplacedialog_metaobject_isbase = value; }
-    inline void setKReplaceDialog_Metacast_IsBase(bool value) const { kreplacedialog_metacast_isbase = value; }
-    inline void setKReplaceDialog_Metacall_IsBase(bool value) const { kreplacedialog_metacall_isbase = value; }
-    inline void setKReplaceDialog_ShowEvent_IsBase(bool value) const { kreplacedialog_showevent_isbase = value; }
-    inline void setKReplaceDialog_SetVisible_IsBase(bool value) const { kreplacedialog_setvisible_isbase = value; }
-    inline void setKReplaceDialog_SizeHint_IsBase(bool value) const { kreplacedialog_sizehint_isbase = value; }
-    inline void setKReplaceDialog_MinimumSizeHint_IsBase(bool value) const { kreplacedialog_minimumsizehint_isbase = value; }
-    inline void setKReplaceDialog_Open_IsBase(bool value) const { kreplacedialog_open_isbase = value; }
-    inline void setKReplaceDialog_Exec_IsBase(bool value) const { kreplacedialog_exec_isbase = value; }
-    inline void setKReplaceDialog_Done_IsBase(bool value) const { kreplacedialog_done_isbase = value; }
-    inline void setKReplaceDialog_Accept_IsBase(bool value) const { kreplacedialog_accept_isbase = value; }
-    inline void setKReplaceDialog_Reject_IsBase(bool value) const { kreplacedialog_reject_isbase = value; }
-    inline void setKReplaceDialog_KeyPressEvent_IsBase(bool value) const { kreplacedialog_keypressevent_isbase = value; }
-    inline void setKReplaceDialog_CloseEvent_IsBase(bool value) const { kreplacedialog_closeevent_isbase = value; }
-    inline void setKReplaceDialog_ResizeEvent_IsBase(bool value) const { kreplacedialog_resizeevent_isbase = value; }
-    inline void setKReplaceDialog_ContextMenuEvent_IsBase(bool value) const { kreplacedialog_contextmenuevent_isbase = value; }
-    inline void setKReplaceDialog_EventFilter_IsBase(bool value) const { kreplacedialog_eventfilter_isbase = value; }
-    inline void setKReplaceDialog_DevType_IsBase(bool value) const { kreplacedialog_devtype_isbase = value; }
-    inline void setKReplaceDialog_HeightForWidth_IsBase(bool value) const { kreplacedialog_heightforwidth_isbase = value; }
-    inline void setKReplaceDialog_HasHeightForWidth_IsBase(bool value) const { kreplacedialog_hasheightforwidth_isbase = value; }
-    inline void setKReplaceDialog_PaintEngine_IsBase(bool value) const { kreplacedialog_paintengine_isbase = value; }
-    inline void setKReplaceDialog_Event_IsBase(bool value) const { kreplacedialog_event_isbase = value; }
-    inline void setKReplaceDialog_MousePressEvent_IsBase(bool value) const { kreplacedialog_mousepressevent_isbase = value; }
-    inline void setKReplaceDialog_MouseReleaseEvent_IsBase(bool value) const { kreplacedialog_mousereleaseevent_isbase = value; }
-    inline void setKReplaceDialog_MouseDoubleClickEvent_IsBase(bool value) const { kreplacedialog_mousedoubleclickevent_isbase = value; }
-    inline void setKReplaceDialog_MouseMoveEvent_IsBase(bool value) const { kreplacedialog_mousemoveevent_isbase = value; }
-    inline void setKReplaceDialog_WheelEvent_IsBase(bool value) const { kreplacedialog_wheelevent_isbase = value; }
-    inline void setKReplaceDialog_KeyReleaseEvent_IsBase(bool value) const { kreplacedialog_keyreleaseevent_isbase = value; }
-    inline void setKReplaceDialog_FocusInEvent_IsBase(bool value) const { kreplacedialog_focusinevent_isbase = value; }
-    inline void setKReplaceDialog_FocusOutEvent_IsBase(bool value) const { kreplacedialog_focusoutevent_isbase = value; }
-    inline void setKReplaceDialog_EnterEvent_IsBase(bool value) const { kreplacedialog_enterevent_isbase = value; }
-    inline void setKReplaceDialog_LeaveEvent_IsBase(bool value) const { kreplacedialog_leaveevent_isbase = value; }
-    inline void setKReplaceDialog_PaintEvent_IsBase(bool value) const { kreplacedialog_paintevent_isbase = value; }
-    inline void setKReplaceDialog_MoveEvent_IsBase(bool value) const { kreplacedialog_moveevent_isbase = value; }
-    inline void setKReplaceDialog_TabletEvent_IsBase(bool value) const { kreplacedialog_tabletevent_isbase = value; }
-    inline void setKReplaceDialog_ActionEvent_IsBase(bool value) const { kreplacedialog_actionevent_isbase = value; }
-    inline void setKReplaceDialog_DragEnterEvent_IsBase(bool value) const { kreplacedialog_dragenterevent_isbase = value; }
-    inline void setKReplaceDialog_DragMoveEvent_IsBase(bool value) const { kreplacedialog_dragmoveevent_isbase = value; }
-    inline void setKReplaceDialog_DragLeaveEvent_IsBase(bool value) const { kreplacedialog_dragleaveevent_isbase = value; }
-    inline void setKReplaceDialog_DropEvent_IsBase(bool value) const { kreplacedialog_dropevent_isbase = value; }
-    inline void setKReplaceDialog_HideEvent_IsBase(bool value) const { kreplacedialog_hideevent_isbase = value; }
-    inline void setKReplaceDialog_NativeEvent_IsBase(bool value) const { kreplacedialog_nativeevent_isbase = value; }
-    inline void setKReplaceDialog_ChangeEvent_IsBase(bool value) const { kreplacedialog_changeevent_isbase = value; }
-    inline void setKReplaceDialog_Metric_IsBase(bool value) const { kreplacedialog_metric_isbase = value; }
-    inline void setKReplaceDialog_InitPainter_IsBase(bool value) const { kreplacedialog_initpainter_isbase = value; }
-    inline void setKReplaceDialog_Redirected_IsBase(bool value) const { kreplacedialog_redirected_isbase = value; }
-    inline void setKReplaceDialog_SharedPainter_IsBase(bool value) const { kreplacedialog_sharedpainter_isbase = value; }
-    inline void setKReplaceDialog_InputMethodEvent_IsBase(bool value) const { kreplacedialog_inputmethodevent_isbase = value; }
-    inline void setKReplaceDialog_InputMethodQuery_IsBase(bool value) const { kreplacedialog_inputmethodquery_isbase = value; }
-    inline void setKReplaceDialog_FocusNextPrevChild_IsBase(bool value) const { kreplacedialog_focusnextprevchild_isbase = value; }
-    inline void setKReplaceDialog_TimerEvent_IsBase(bool value) const { kreplacedialog_timerevent_isbase = value; }
-    inline void setKReplaceDialog_ChildEvent_IsBase(bool value) const { kreplacedialog_childevent_isbase = value; }
-    inline void setKReplaceDialog_CustomEvent_IsBase(bool value) const { kreplacedialog_customevent_isbase = value; }
-    inline void setKReplaceDialog_ConnectNotify_IsBase(bool value) const { kreplacedialog_connectnotify_isbase = value; }
-    inline void setKReplaceDialog_DisconnectNotify_IsBase(bool value) const { kreplacedialog_disconnectnotify_isbase = value; }
-    inline void setKReplaceDialog_AdjustPosition_IsBase(bool value) const { kreplacedialog_adjustposition_isbase = value; }
-    inline void setKReplaceDialog_UpdateMicroFocus_IsBase(bool value) const { kreplacedialog_updatemicrofocus_isbase = value; }
-    inline void setKReplaceDialog_Create_IsBase(bool value) const { kreplacedialog_create_isbase = value; }
-    inline void setKReplaceDialog_Destroy_IsBase(bool value) const { kreplacedialog_destroy_isbase = value; }
-    inline void setKReplaceDialog_FocusNextChild_IsBase(bool value) const { kreplacedialog_focusnextchild_isbase = value; }
-    inline void setKReplaceDialog_FocusPreviousChild_IsBase(bool value) const { kreplacedialog_focuspreviouschild_isbase = value; }
-    inline void setKReplaceDialog_Sender_IsBase(bool value) const { kreplacedialog_sender_isbase = value; }
-    inline void setKReplaceDialog_SenderSignalIndex_IsBase(bool value) const { kreplacedialog_sendersignalindex_isbase = value; }
-    inline void setKReplaceDialog_Receivers_IsBase(bool value) const { kreplacedialog_receivers_isbase = value; }
-    inline void setKReplaceDialog_IsSignalConnected_IsBase(bool value) const { kreplacedialog_issignalconnected_isbase = value; }
-    inline void setKReplaceDialog_GetDecodedMetricF_IsBase(bool value) const { kreplacedialog_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kreplacedialog_metaobject_isbase) {
-            kreplacedialog_metaobject_isbase = false;
-            return KReplaceDialog::metaObject();
-        }
-        auto metaobject_cb = kreplacedialog_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kreplacedialog_metaobject_callback) {
+            QMetaObject* callback_ret = kreplacedialog_metaobject_callback(this);
             return callback_ret;
         }
         return KReplaceDialog::metaObject();
@@ -381,14 +198,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kreplacedialog_metacast_isbase) {
-            kreplacedialog_metacast_isbase = false;
-            return KReplaceDialog::qt_metacast(param1);
-        }
-        auto metacast_cb = kreplacedialog_metacast_callback;
-        if (metacast_cb) {
+        if (kreplacedialog_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kreplacedialog_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KReplaceDialog::qt_metacast(param1);
@@ -396,16 +208,11 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kreplacedialog_metacall_isbase) {
-            kreplacedialog_metacall_isbase = false;
-            return KReplaceDialog::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kreplacedialog_metacall_callback;
-        if (metacall_cb) {
+        if (kreplacedialog_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kreplacedialog_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KReplaceDialog::qt_metacall(param1, param2, param3);
@@ -413,15 +220,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* param1) override {
-        if (kreplacedialog_showevent_isbase) {
-            kreplacedialog_showevent_isbase = false;
-            KReplaceDialog::showEvent(param1);
-            return;
-        }
-        auto showevent_cb = kreplacedialog_showevent_callback;
-        if (showevent_cb) {
+        if (kreplacedialog_showevent_callback) {
             QShowEvent* cbval1 = param1;
-            showevent_cb(this, cbval1);
+            kreplacedialog_showevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::showEvent(param1);
@@ -429,15 +230,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (kreplacedialog_setvisible_isbase) {
-            kreplacedialog_setvisible_isbase = false;
-            KReplaceDialog::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = kreplacedialog_setvisible_callback;
-        if (setvisible_cb) {
+        if (kreplacedialog_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            kreplacedialog_setvisible_callback(this, cbval1);
             return;
         }
         KReplaceDialog::setVisible(visible);
@@ -445,13 +240,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (kreplacedialog_sizehint_isbase) {
-            kreplacedialog_sizehint_isbase = false;
-            return KReplaceDialog::sizeHint();
-        }
-        auto sizehint_cb = kreplacedialog_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (kreplacedialog_sizehint_callback) {
+            QSize* callback_ret = kreplacedialog_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -461,13 +251,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (kreplacedialog_minimumsizehint_isbase) {
-            kreplacedialog_minimumsizehint_isbase = false;
-            return KReplaceDialog::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = kreplacedialog_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (kreplacedialog_minimumsizehint_callback) {
+            QSize* callback_ret = kreplacedialog_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -477,14 +262,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void open() override {
-        if (kreplacedialog_open_isbase) {
-            kreplacedialog_open_isbase = false;
-            KReplaceDialog::open();
-            return;
-        }
-        auto open_cb = kreplacedialog_open_callback;
-        if (open_cb) {
-            open_cb();
+        if (kreplacedialog_open_callback) {
+            kreplacedialog_open_callback(this);
             return;
         }
         KReplaceDialog::open();
@@ -492,13 +271,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int exec() override {
-        if (kreplacedialog_exec_isbase) {
-            kreplacedialog_exec_isbase = false;
-            return KReplaceDialog::exec();
-        }
-        auto exec_cb = kreplacedialog_exec_callback;
-        if (exec_cb) {
-            int callback_ret = exec_cb();
+        if (kreplacedialog_exec_callback) {
+            int callback_ret = kreplacedialog_exec_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KReplaceDialog::exec();
@@ -506,15 +280,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void done(int param1) override {
-        if (kreplacedialog_done_isbase) {
-            kreplacedialog_done_isbase = false;
-            KReplaceDialog::done(param1);
-            return;
-        }
-        auto done_cb = kreplacedialog_done_callback;
-        if (done_cb) {
+        if (kreplacedialog_done_callback) {
             int cbval1 = param1;
-            done_cb(this, cbval1);
+            kreplacedialog_done_callback(this, cbval1);
             return;
         }
         KReplaceDialog::done(param1);
@@ -522,14 +290,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void accept() override {
-        if (kreplacedialog_accept_isbase) {
-            kreplacedialog_accept_isbase = false;
-            KReplaceDialog::accept();
-            return;
-        }
-        auto accept_cb = kreplacedialog_accept_callback;
-        if (accept_cb) {
-            accept_cb();
+        if (kreplacedialog_accept_callback) {
+            kreplacedialog_accept_callback(this);
             return;
         }
         KReplaceDialog::accept();
@@ -537,14 +299,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void reject() override {
-        if (kreplacedialog_reject_isbase) {
-            kreplacedialog_reject_isbase = false;
-            KReplaceDialog::reject();
-            return;
-        }
-        auto reject_cb = kreplacedialog_reject_callback;
-        if (reject_cb) {
-            reject_cb();
+        if (kreplacedialog_reject_callback) {
+            kreplacedialog_reject_callback(this);
             return;
         }
         KReplaceDialog::reject();
@@ -552,15 +308,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* param1) override {
-        if (kreplacedialog_keypressevent_isbase) {
-            kreplacedialog_keypressevent_isbase = false;
-            KReplaceDialog::keyPressEvent(param1);
-            return;
-        }
-        auto keypressevent_cb = kreplacedialog_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (kreplacedialog_keypressevent_callback) {
             QKeyEvent* cbval1 = param1;
-            keypressevent_cb(this, cbval1);
+            kreplacedialog_keypressevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::keyPressEvent(param1);
@@ -568,15 +318,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* param1) override {
-        if (kreplacedialog_closeevent_isbase) {
-            kreplacedialog_closeevent_isbase = false;
-            KReplaceDialog::closeEvent(param1);
-            return;
-        }
-        auto closeevent_cb = kreplacedialog_closeevent_callback;
-        if (closeevent_cb) {
+        if (kreplacedialog_closeevent_callback) {
             QCloseEvent* cbval1 = param1;
-            closeevent_cb(this, cbval1);
+            kreplacedialog_closeevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::closeEvent(param1);
@@ -584,15 +328,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* param1) override {
-        if (kreplacedialog_resizeevent_isbase) {
-            kreplacedialog_resizeevent_isbase = false;
-            KReplaceDialog::resizeEvent(param1);
-            return;
-        }
-        auto resizeevent_cb = kreplacedialog_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (kreplacedialog_resizeevent_callback) {
             QResizeEvent* cbval1 = param1;
-            resizeevent_cb(this, cbval1);
+            kreplacedialog_resizeevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::resizeEvent(param1);
@@ -600,15 +338,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* param1) override {
-        if (kreplacedialog_contextmenuevent_isbase) {
-            kreplacedialog_contextmenuevent_isbase = false;
-            KReplaceDialog::contextMenuEvent(param1);
-            return;
-        }
-        auto contextmenuevent_cb = kreplacedialog_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (kreplacedialog_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = param1;
-            contextmenuevent_cb(this, cbval1);
+            kreplacedialog_contextmenuevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::contextMenuEvent(param1);
@@ -616,15 +348,10 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (kreplacedialog_eventfilter_isbase) {
-            kreplacedialog_eventfilter_isbase = false;
-            return KReplaceDialog::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = kreplacedialog_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kreplacedialog_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kreplacedialog_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KReplaceDialog::eventFilter(param1, param2);
@@ -632,13 +359,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (kreplacedialog_devtype_isbase) {
-            kreplacedialog_devtype_isbase = false;
-            return KReplaceDialog::devType();
-        }
-        auto devtype_cb = kreplacedialog_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (kreplacedialog_devtype_callback) {
+            int callback_ret = kreplacedialog_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KReplaceDialog::devType();
@@ -646,14 +368,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (kreplacedialog_heightforwidth_isbase) {
-            kreplacedialog_heightforwidth_isbase = false;
-            return KReplaceDialog::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = kreplacedialog_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (kreplacedialog_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = kreplacedialog_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KReplaceDialog::heightForWidth(param1);
@@ -661,13 +378,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (kreplacedialog_hasheightforwidth_isbase) {
-            kreplacedialog_hasheightforwidth_isbase = false;
-            return KReplaceDialog::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = kreplacedialog_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (kreplacedialog_hasheightforwidth_callback) {
+            bool callback_ret = kreplacedialog_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KReplaceDialog::hasHeightForWidth();
@@ -675,13 +387,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (kreplacedialog_paintengine_isbase) {
-            kreplacedialog_paintengine_isbase = false;
-            return KReplaceDialog::paintEngine();
-        }
-        auto paintengine_cb = kreplacedialog_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (kreplacedialog_paintengine_callback) {
+            QPaintEngine* callback_ret = kreplacedialog_paintengine_callback(this);
             return callback_ret;
         }
         return KReplaceDialog::paintEngine();
@@ -689,14 +396,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kreplacedialog_event_isbase) {
-            kreplacedialog_event_isbase = false;
-            return KReplaceDialog::event(event);
-        }
-        auto event_cb = kreplacedialog_event_callback;
-        if (event_cb) {
+        if (kreplacedialog_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kreplacedialog_event_callback(this, cbval1);
             return callback_ret;
         }
         return KReplaceDialog::event(event);
@@ -704,15 +406,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (kreplacedialog_mousepressevent_isbase) {
-            kreplacedialog_mousepressevent_isbase = false;
-            KReplaceDialog::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = kreplacedialog_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (kreplacedialog_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            kreplacedialog_mousepressevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::mousePressEvent(event);
@@ -720,15 +416,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (kreplacedialog_mousereleaseevent_isbase) {
-            kreplacedialog_mousereleaseevent_isbase = false;
-            KReplaceDialog::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = kreplacedialog_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (kreplacedialog_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            kreplacedialog_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::mouseReleaseEvent(event);
@@ -736,15 +426,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (kreplacedialog_mousedoubleclickevent_isbase) {
-            kreplacedialog_mousedoubleclickevent_isbase = false;
-            KReplaceDialog::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = kreplacedialog_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (kreplacedialog_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            kreplacedialog_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::mouseDoubleClickEvent(event);
@@ -752,15 +436,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (kreplacedialog_mousemoveevent_isbase) {
-            kreplacedialog_mousemoveevent_isbase = false;
-            KReplaceDialog::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = kreplacedialog_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (kreplacedialog_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            kreplacedialog_mousemoveevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::mouseMoveEvent(event);
@@ -768,15 +446,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (kreplacedialog_wheelevent_isbase) {
-            kreplacedialog_wheelevent_isbase = false;
-            KReplaceDialog::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = kreplacedialog_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (kreplacedialog_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            kreplacedialog_wheelevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::wheelEvent(event);
@@ -784,15 +456,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (kreplacedialog_keyreleaseevent_isbase) {
-            kreplacedialog_keyreleaseevent_isbase = false;
-            KReplaceDialog::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = kreplacedialog_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (kreplacedialog_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            kreplacedialog_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::keyReleaseEvent(event);
@@ -800,15 +466,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (kreplacedialog_focusinevent_isbase) {
-            kreplacedialog_focusinevent_isbase = false;
-            KReplaceDialog::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = kreplacedialog_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (kreplacedialog_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            kreplacedialog_focusinevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::focusInEvent(event);
@@ -816,15 +476,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (kreplacedialog_focusoutevent_isbase) {
-            kreplacedialog_focusoutevent_isbase = false;
-            KReplaceDialog::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = kreplacedialog_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (kreplacedialog_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            kreplacedialog_focusoutevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::focusOutEvent(event);
@@ -832,15 +486,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (kreplacedialog_enterevent_isbase) {
-            kreplacedialog_enterevent_isbase = false;
-            KReplaceDialog::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = kreplacedialog_enterevent_callback;
-        if (enterevent_cb) {
+        if (kreplacedialog_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            kreplacedialog_enterevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::enterEvent(event);
@@ -848,15 +496,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (kreplacedialog_leaveevent_isbase) {
-            kreplacedialog_leaveevent_isbase = false;
-            KReplaceDialog::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = kreplacedialog_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (kreplacedialog_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            kreplacedialog_leaveevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::leaveEvent(event);
@@ -864,15 +506,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (kreplacedialog_paintevent_isbase) {
-            kreplacedialog_paintevent_isbase = false;
-            KReplaceDialog::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = kreplacedialog_paintevent_callback;
-        if (paintevent_cb) {
+        if (kreplacedialog_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            kreplacedialog_paintevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::paintEvent(event);
@@ -880,15 +516,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (kreplacedialog_moveevent_isbase) {
-            kreplacedialog_moveevent_isbase = false;
-            KReplaceDialog::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = kreplacedialog_moveevent_callback;
-        if (moveevent_cb) {
+        if (kreplacedialog_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            kreplacedialog_moveevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::moveEvent(event);
@@ -896,15 +526,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (kreplacedialog_tabletevent_isbase) {
-            kreplacedialog_tabletevent_isbase = false;
-            KReplaceDialog::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = kreplacedialog_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (kreplacedialog_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            kreplacedialog_tabletevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::tabletEvent(event);
@@ -912,15 +536,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (kreplacedialog_actionevent_isbase) {
-            kreplacedialog_actionevent_isbase = false;
-            KReplaceDialog::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = kreplacedialog_actionevent_callback;
-        if (actionevent_cb) {
+        if (kreplacedialog_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            kreplacedialog_actionevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::actionEvent(event);
@@ -928,15 +546,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (kreplacedialog_dragenterevent_isbase) {
-            kreplacedialog_dragenterevent_isbase = false;
-            KReplaceDialog::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = kreplacedialog_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (kreplacedialog_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            kreplacedialog_dragenterevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::dragEnterEvent(event);
@@ -944,15 +556,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (kreplacedialog_dragmoveevent_isbase) {
-            kreplacedialog_dragmoveevent_isbase = false;
-            KReplaceDialog::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = kreplacedialog_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (kreplacedialog_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            kreplacedialog_dragmoveevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::dragMoveEvent(event);
@@ -960,15 +566,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (kreplacedialog_dragleaveevent_isbase) {
-            kreplacedialog_dragleaveevent_isbase = false;
-            KReplaceDialog::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = kreplacedialog_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (kreplacedialog_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            kreplacedialog_dragleaveevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::dragLeaveEvent(event);
@@ -976,15 +576,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (kreplacedialog_dropevent_isbase) {
-            kreplacedialog_dropevent_isbase = false;
-            KReplaceDialog::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = kreplacedialog_dropevent_callback;
-        if (dropevent_cb) {
+        if (kreplacedialog_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            kreplacedialog_dropevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::dropEvent(event);
@@ -992,15 +586,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (kreplacedialog_hideevent_isbase) {
-            kreplacedialog_hideevent_isbase = false;
-            KReplaceDialog::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = kreplacedialog_hideevent_callback;
-        if (hideevent_cb) {
+        if (kreplacedialog_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            kreplacedialog_hideevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::hideEvent(event);
@@ -1008,12 +596,7 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (kreplacedialog_nativeevent_isbase) {
-            kreplacedialog_nativeevent_isbase = false;
-            return KReplaceDialog::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = kreplacedialog_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (kreplacedialog_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1023,7 +606,7 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kreplacedialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1032,15 +615,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (kreplacedialog_changeevent_isbase) {
-            kreplacedialog_changeevent_isbase = false;
-            KReplaceDialog::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = kreplacedialog_changeevent_callback;
-        if (changeevent_cb) {
+        if (kreplacedialog_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            kreplacedialog_changeevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::changeEvent(param1);
@@ -1048,14 +625,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (kreplacedialog_metric_isbase) {
-            kreplacedialog_metric_isbase = false;
-            return KReplaceDialog::metric(param1);
-        }
-        auto metric_cb = kreplacedialog_metric_callback;
-        if (metric_cb) {
+        if (kreplacedialog_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = kreplacedialog_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KReplaceDialog::metric(param1);
@@ -1063,15 +635,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (kreplacedialog_initpainter_isbase) {
-            kreplacedialog_initpainter_isbase = false;
-            KReplaceDialog::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = kreplacedialog_initpainter_callback;
-        if (initpainter_cb) {
+        if (kreplacedialog_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            kreplacedialog_initpainter_callback(this, cbval1);
             return;
         }
         KReplaceDialog::initPainter(painter);
@@ -1079,14 +645,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (kreplacedialog_redirected_isbase) {
-            kreplacedialog_redirected_isbase = false;
-            return KReplaceDialog::redirected(offset);
-        }
-        auto redirected_cb = kreplacedialog_redirected_callback;
-        if (redirected_cb) {
+        if (kreplacedialog_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = kreplacedialog_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KReplaceDialog::redirected(offset);
@@ -1094,13 +655,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (kreplacedialog_sharedpainter_isbase) {
-            kreplacedialog_sharedpainter_isbase = false;
-            return KReplaceDialog::sharedPainter();
-        }
-        auto sharedpainter_cb = kreplacedialog_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (kreplacedialog_sharedpainter_callback) {
+            QPainter* callback_ret = kreplacedialog_sharedpainter_callback(this);
             return callback_ret;
         }
         return KReplaceDialog::sharedPainter();
@@ -1108,15 +664,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (kreplacedialog_inputmethodevent_isbase) {
-            kreplacedialog_inputmethodevent_isbase = false;
-            KReplaceDialog::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = kreplacedialog_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (kreplacedialog_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            kreplacedialog_inputmethodevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::inputMethodEvent(param1);
@@ -1124,14 +674,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (kreplacedialog_inputmethodquery_isbase) {
-            kreplacedialog_inputmethodquery_isbase = false;
-            return KReplaceDialog::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = kreplacedialog_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (kreplacedialog_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = kreplacedialog_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1141,14 +686,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (kreplacedialog_focusnextprevchild_isbase) {
-            kreplacedialog_focusnextprevchild_isbase = false;
-            return KReplaceDialog::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = kreplacedialog_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (kreplacedialog_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = kreplacedialog_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KReplaceDialog::focusNextPrevChild(next);
@@ -1156,15 +696,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kreplacedialog_timerevent_isbase) {
-            kreplacedialog_timerevent_isbase = false;
-            KReplaceDialog::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kreplacedialog_timerevent_callback;
-        if (timerevent_cb) {
+        if (kreplacedialog_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kreplacedialog_timerevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::timerEvent(event);
@@ -1172,15 +706,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kreplacedialog_childevent_isbase) {
-            kreplacedialog_childevent_isbase = false;
-            KReplaceDialog::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kreplacedialog_childevent_callback;
-        if (childevent_cb) {
+        if (kreplacedialog_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kreplacedialog_childevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::childEvent(event);
@@ -1188,15 +716,9 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kreplacedialog_customevent_isbase) {
-            kreplacedialog_customevent_isbase = false;
-            KReplaceDialog::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kreplacedialog_customevent_callback;
-        if (customevent_cb) {
+        if (kreplacedialog_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kreplacedialog_customevent_callback(this, cbval1);
             return;
         }
         KReplaceDialog::customEvent(event);
@@ -1204,17 +726,11 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kreplacedialog_connectnotify_isbase) {
-            kreplacedialog_connectnotify_isbase = false;
-            KReplaceDialog::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kreplacedialog_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kreplacedialog_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kreplacedialog_connectnotify_callback(this, cbval1);
             return;
         }
         KReplaceDialog::connectNotify(signal);
@@ -1222,288 +738,56 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kreplacedialog_disconnectnotify_isbase) {
-            kreplacedialog_disconnectnotify_isbase = false;
-            KReplaceDialog::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kreplacedialog_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kreplacedialog_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kreplacedialog_disconnectnotify_callback(this, cbval1);
             return;
         }
         KReplaceDialog::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void adjustPosition(QWidget* param1) {
-        if (kreplacedialog_adjustposition_isbase) {
-            kreplacedialog_adjustposition_isbase = false;
-            KReplaceDialog::adjustPosition(param1);
-            return;
-        }
-        auto adjustposition_cb = kreplacedialog_adjustposition_callback;
-        if (adjustposition_cb) {
-            QWidget* cbval1 = param1;
-            adjustposition_cb(this, cbval1);
-            return;
-        }
-        KReplaceDialog::adjustPosition(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (kreplacedialog_updatemicrofocus_isbase) {
-            kreplacedialog_updatemicrofocus_isbase = false;
-            KReplaceDialog::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = kreplacedialog_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KReplaceDialog::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (kreplacedialog_create_isbase) {
-            kreplacedialog_create_isbase = false;
-            KReplaceDialog::create();
-            return;
-        }
-        auto create_cb = kreplacedialog_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KReplaceDialog::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (kreplacedialog_destroy_isbase) {
-            kreplacedialog_destroy_isbase = false;
-            KReplaceDialog::destroy();
-            return;
-        }
-        auto destroy_cb = kreplacedialog_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KReplaceDialog::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (kreplacedialog_focusnextchild_isbase) {
-            kreplacedialog_focusnextchild_isbase = false;
-            return KReplaceDialog::focusNextChild();
-        }
-        auto focusnextchild_cb = kreplacedialog_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KReplaceDialog::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (kreplacedialog_focuspreviouschild_isbase) {
-            kreplacedialog_focuspreviouschild_isbase = false;
-            return KReplaceDialog::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = kreplacedialog_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KReplaceDialog::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kreplacedialog_sender_isbase) {
-            kreplacedialog_sender_isbase = false;
-            return KReplaceDialog::sender();
-        }
-        auto sender_cb = kreplacedialog_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KReplaceDialog::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kreplacedialog_sendersignalindex_isbase) {
-            kreplacedialog_sendersignalindex_isbase = false;
-            return KReplaceDialog::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kreplacedialog_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KReplaceDialog::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kreplacedialog_receivers_isbase) {
-            kreplacedialog_receivers_isbase = false;
-            return KReplaceDialog::receivers(signal);
-        }
-        auto receivers_cb = kreplacedialog_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KReplaceDialog::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kreplacedialog_issignalconnected_isbase) {
-            kreplacedialog_issignalconnected_isbase = false;
-            return KReplaceDialog::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kreplacedialog_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KReplaceDialog::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (kreplacedialog_getdecodedmetricf_isbase) {
-            kreplacedialog_getdecodedmetricf_isbase = false;
-            return KReplaceDialog::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = kreplacedialog_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KReplaceDialog::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void KReplaceDialog_ShowEvent(KReplaceDialog* self, QShowEvent* param1);
     friend void KReplaceDialog_SuperShowEvent(KReplaceDialog* self, QShowEvent* param1);
-    friend void KReplaceDialog_KeyPressEvent(KReplaceDialog* self, QKeyEvent* param1);
     friend void KReplaceDialog_SuperKeyPressEvent(KReplaceDialog* self, QKeyEvent* param1);
-    friend void KReplaceDialog_CloseEvent(KReplaceDialog* self, QCloseEvent* param1);
     friend void KReplaceDialog_SuperCloseEvent(KReplaceDialog* self, QCloseEvent* param1);
-    friend void KReplaceDialog_ResizeEvent(KReplaceDialog* self, QResizeEvent* param1);
     friend void KReplaceDialog_SuperResizeEvent(KReplaceDialog* self, QResizeEvent* param1);
-    friend void KReplaceDialog_ContextMenuEvent(KReplaceDialog* self, QContextMenuEvent* param1);
     friend void KReplaceDialog_SuperContextMenuEvent(KReplaceDialog* self, QContextMenuEvent* param1);
-    friend bool KReplaceDialog_EventFilter(KReplaceDialog* self, QObject* param1, QEvent* param2);
     friend bool KReplaceDialog_SuperEventFilter(KReplaceDialog* self, QObject* param1, QEvent* param2);
-    friend bool KReplaceDialog_Event(KReplaceDialog* self, QEvent* event);
     friend bool KReplaceDialog_SuperEvent(KReplaceDialog* self, QEvent* event);
-    friend void KReplaceDialog_MousePressEvent(KReplaceDialog* self, QMouseEvent* event);
     friend void KReplaceDialog_SuperMousePressEvent(KReplaceDialog* self, QMouseEvent* event);
-    friend void KReplaceDialog_MouseReleaseEvent(KReplaceDialog* self, QMouseEvent* event);
     friend void KReplaceDialog_SuperMouseReleaseEvent(KReplaceDialog* self, QMouseEvent* event);
-    friend void KReplaceDialog_MouseDoubleClickEvent(KReplaceDialog* self, QMouseEvent* event);
     friend void KReplaceDialog_SuperMouseDoubleClickEvent(KReplaceDialog* self, QMouseEvent* event);
-    friend void KReplaceDialog_MouseMoveEvent(KReplaceDialog* self, QMouseEvent* event);
     friend void KReplaceDialog_SuperMouseMoveEvent(KReplaceDialog* self, QMouseEvent* event);
-    friend void KReplaceDialog_WheelEvent(KReplaceDialog* self, QWheelEvent* event);
     friend void KReplaceDialog_SuperWheelEvent(KReplaceDialog* self, QWheelEvent* event);
-    friend void KReplaceDialog_KeyReleaseEvent(KReplaceDialog* self, QKeyEvent* event);
     friend void KReplaceDialog_SuperKeyReleaseEvent(KReplaceDialog* self, QKeyEvent* event);
-    friend void KReplaceDialog_FocusInEvent(KReplaceDialog* self, QFocusEvent* event);
     friend void KReplaceDialog_SuperFocusInEvent(KReplaceDialog* self, QFocusEvent* event);
-    friend void KReplaceDialog_FocusOutEvent(KReplaceDialog* self, QFocusEvent* event);
     friend void KReplaceDialog_SuperFocusOutEvent(KReplaceDialog* self, QFocusEvent* event);
-    friend void KReplaceDialog_EnterEvent(KReplaceDialog* self, QEnterEvent* event);
     friend void KReplaceDialog_SuperEnterEvent(KReplaceDialog* self, QEnterEvent* event);
-    friend void KReplaceDialog_LeaveEvent(KReplaceDialog* self, QEvent* event);
     friend void KReplaceDialog_SuperLeaveEvent(KReplaceDialog* self, QEvent* event);
-    friend void KReplaceDialog_PaintEvent(KReplaceDialog* self, QPaintEvent* event);
     friend void KReplaceDialog_SuperPaintEvent(KReplaceDialog* self, QPaintEvent* event);
-    friend void KReplaceDialog_MoveEvent(KReplaceDialog* self, QMoveEvent* event);
     friend void KReplaceDialog_SuperMoveEvent(KReplaceDialog* self, QMoveEvent* event);
-    friend void KReplaceDialog_TabletEvent(KReplaceDialog* self, QTabletEvent* event);
     friend void KReplaceDialog_SuperTabletEvent(KReplaceDialog* self, QTabletEvent* event);
-    friend void KReplaceDialog_ActionEvent(KReplaceDialog* self, QActionEvent* event);
     friend void KReplaceDialog_SuperActionEvent(KReplaceDialog* self, QActionEvent* event);
-    friend void KReplaceDialog_DragEnterEvent(KReplaceDialog* self, QDragEnterEvent* event);
     friend void KReplaceDialog_SuperDragEnterEvent(KReplaceDialog* self, QDragEnterEvent* event);
-    friend void KReplaceDialog_DragMoveEvent(KReplaceDialog* self, QDragMoveEvent* event);
     friend void KReplaceDialog_SuperDragMoveEvent(KReplaceDialog* self, QDragMoveEvent* event);
-    friend void KReplaceDialog_DragLeaveEvent(KReplaceDialog* self, QDragLeaveEvent* event);
     friend void KReplaceDialog_SuperDragLeaveEvent(KReplaceDialog* self, QDragLeaveEvent* event);
-    friend void KReplaceDialog_DropEvent(KReplaceDialog* self, QDropEvent* event);
     friend void KReplaceDialog_SuperDropEvent(KReplaceDialog* self, QDropEvent* event);
-    friend void KReplaceDialog_HideEvent(KReplaceDialog* self, QHideEvent* event);
     friend void KReplaceDialog_SuperHideEvent(KReplaceDialog* self, QHideEvent* event);
-    friend bool KReplaceDialog_NativeEvent(KReplaceDialog* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KReplaceDialog_SuperNativeEvent(KReplaceDialog* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void KReplaceDialog_ChangeEvent(KReplaceDialog* self, QEvent* param1);
     friend void KReplaceDialog_SuperChangeEvent(KReplaceDialog* self, QEvent* param1);
-    friend int KReplaceDialog_Metric(const KReplaceDialog* self, int param1);
     friend int KReplaceDialog_SuperMetric(const KReplaceDialog* self, int param1);
-    friend void KReplaceDialog_InitPainter(const KReplaceDialog* self, QPainter* painter);
     friend void KReplaceDialog_SuperInitPainter(const KReplaceDialog* self, QPainter* painter);
-    friend QPaintDevice* KReplaceDialog_Redirected(const KReplaceDialog* self, QPoint* offset);
     friend QPaintDevice* KReplaceDialog_SuperRedirected(const KReplaceDialog* self, QPoint* offset);
-    friend QPainter* KReplaceDialog_SharedPainter(const KReplaceDialog* self);
     friend QPainter* KReplaceDialog_SuperSharedPainter(const KReplaceDialog* self);
-    friend void KReplaceDialog_InputMethodEvent(KReplaceDialog* self, QInputMethodEvent* param1);
     friend void KReplaceDialog_SuperInputMethodEvent(KReplaceDialog* self, QInputMethodEvent* param1);
-    friend bool KReplaceDialog_FocusNextPrevChild(KReplaceDialog* self, bool next);
     friend bool KReplaceDialog_SuperFocusNextPrevChild(KReplaceDialog* self, bool next);
-    friend void KReplaceDialog_TimerEvent(KReplaceDialog* self, QTimerEvent* event);
     friend void KReplaceDialog_SuperTimerEvent(KReplaceDialog* self, QTimerEvent* event);
-    friend void KReplaceDialog_ChildEvent(KReplaceDialog* self, QChildEvent* event);
     friend void KReplaceDialog_SuperChildEvent(KReplaceDialog* self, QChildEvent* event);
-    friend void KReplaceDialog_CustomEvent(KReplaceDialog* self, QEvent* event);
     friend void KReplaceDialog_SuperCustomEvent(KReplaceDialog* self, QEvent* event);
-    friend void KReplaceDialog_ConnectNotify(KReplaceDialog* self, const QMetaMethod* signal);
     friend void KReplaceDialog_SuperConnectNotify(KReplaceDialog* self, const QMetaMethod* signal);
-    friend void KReplaceDialog_DisconnectNotify(KReplaceDialog* self, const QMetaMethod* signal);
     friend void KReplaceDialog_SuperDisconnectNotify(KReplaceDialog* self, const QMetaMethod* signal);
-    friend void KReplaceDialog_AdjustPosition(KReplaceDialog* self, QWidget* param1);
-    friend void KReplaceDialog_SuperAdjustPosition(KReplaceDialog* self, QWidget* param1);
-    friend void KReplaceDialog_UpdateMicroFocus(KReplaceDialog* self);
-    friend void KReplaceDialog_SuperUpdateMicroFocus(KReplaceDialog* self);
-    friend void KReplaceDialog_Create(KReplaceDialog* self);
-    friend void KReplaceDialog_SuperCreate(KReplaceDialog* self);
-    friend void KReplaceDialog_Destroy(KReplaceDialog* self);
-    friend void KReplaceDialog_SuperDestroy(KReplaceDialog* self);
-    friend bool KReplaceDialog_FocusNextChild(KReplaceDialog* self);
-    friend bool KReplaceDialog_SuperFocusNextChild(KReplaceDialog* self);
-    friend bool KReplaceDialog_FocusPreviousChild(KReplaceDialog* self);
-    friend bool KReplaceDialog_SuperFocusPreviousChild(KReplaceDialog* self);
-    friend QObject* KReplaceDialog_Sender(const KReplaceDialog* self);
-    friend QObject* KReplaceDialog_SuperSender(const KReplaceDialog* self);
-    friend int KReplaceDialog_SenderSignalIndex(const KReplaceDialog* self);
-    friend int KReplaceDialog_SuperSenderSignalIndex(const KReplaceDialog* self);
-    friend int KReplaceDialog_Receivers(const KReplaceDialog* self, const char* signal);
-    friend int KReplaceDialog_SuperReceivers(const KReplaceDialog* self, const char* signal);
-    friend bool KReplaceDialog_IsSignalConnected(const KReplaceDialog* self, const QMetaMethod* signal);
-    friend bool KReplaceDialog_SuperIsSignalConnected(const KReplaceDialog* self, const QMetaMethod* signal);
-    friend double KReplaceDialog_GetDecodedMetricF(const KReplaceDialog* self, int metricA, int metricB);
-    friend double KReplaceDialog_SuperGetDecodedMetricF(const KReplaceDialog* self, int metricA, int metricB);
 };
 
 #endif

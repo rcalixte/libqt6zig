@@ -6,12 +6,10 @@ const QBindingStorage = @import("libqt6").QBindingStorage;
 const QEvent = @import("libqt6").QEvent;
 const QFontMetrics = @import("libqt6").QFontMetrics;
 const QFontMetricsF = @import("libqt6").QFontMetricsF;
-const QHelpEvent = @import("libqt6").QHelpEvent;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
 const QObject = @import("libqt6").QObject;
-const QPainter = @import("libqt6").QPainter;
 const QPalette = @import("libqt6").QPalette;
 const QRect = @import("libqt6").QRect;
 const QSize = @import("libqt6").QSize;
@@ -693,98 +691,6 @@ pub const KTextEditor__AbstractAnnotationItemDelegate = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__AbstractAnnotationItemDelegate.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
-    }
-
-    /// ### DEPRECATED: Use `paint` instead
-    ///
-    pub const Paint = paint;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-abstractannotationitemdelegate.html#paint)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__AbstractAnnotationItemDelegate `
-    ///
-    /// ` painter: QPainter `
-    ///
-    /// ` option: KTextEditor__StyleOptionAnnotationItem `
-    ///
-    /// ` model: KTextEditor__AnnotationModel `
-    ///
-    /// ` line: i32 `
-    ///
-    pub fn paint(self: KTextEditor__AbstractAnnotationItemDelegate, painter: anytype, option: anytype, model: anytype, line: i32) void {
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(option)._is_KTextEditor__StyleOptionAnnotationItem;
-        comptime _ = @TypeOf(model)._is_KTextEditor__AnnotationModel;
-        qtc.KTextEditor__AbstractAnnotationItemDelegate_Paint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(model.ptr), @bitCast(line));
-    }
-
-    /// ### DEPRECATED: Use `sizeHint` instead
-    ///
-    pub const SizeHint = sizeHint;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-abstractannotationitemdelegate.html#sizeHint)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__AbstractAnnotationItemDelegate `
-    ///
-    /// ` option: KTextEditor__StyleOptionAnnotationItem `
-    ///
-    /// ` model: KTextEditor__AnnotationModel `
-    ///
-    /// ` line: i32 `
-    ///
-    pub fn sizeHint(self: KTextEditor__AbstractAnnotationItemDelegate, option: anytype, model: anytype, line: i32) QSize {
-        comptime _ = @TypeOf(option)._is_KTextEditor__StyleOptionAnnotationItem;
-        comptime _ = @TypeOf(model)._is_KTextEditor__AnnotationModel;
-        return .{ .ptr = qtc.KTextEditor__AbstractAnnotationItemDelegate_SizeHint(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(model.ptr), @bitCast(line)) };
-    }
-
-    /// ### DEPRECATED: Use `helpEvent` instead
-    ///
-    pub const HelpEvent = helpEvent;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-abstractannotationitemdelegate.html#helpEvent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__AbstractAnnotationItemDelegate `
-    ///
-    /// ` _event: QHelpEvent `
-    ///
-    /// ` _view: KTextEditor__View `
-    ///
-    /// ` option: KTextEditor__StyleOptionAnnotationItem `
-    ///
-    /// ` model: KTextEditor__AnnotationModel `
-    ///
-    /// ` line: i32 `
-    ///
-    pub fn helpEvent(self: KTextEditor__AbstractAnnotationItemDelegate, _event: anytype, _view: anytype, option: anytype, model: anytype, line: i32) bool {
-        comptime _ = @TypeOf(_event)._is_QHelpEvent;
-        comptime _ = @TypeOf(_view)._is_KTextEditor__View;
-        comptime _ = @TypeOf(option)._is_KTextEditor__StyleOptionAnnotationItem;
-        comptime _ = @TypeOf(model)._is_KTextEditor__AnnotationModel;
-        return qtc.KTextEditor__AbstractAnnotationItemDelegate_HelpEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr), @ptrCast(_view.ptr), @ptrCast(option.ptr), @ptrCast(model.ptr), @bitCast(line));
-    }
-
-    /// ### DEPRECATED: Use `hideTooltip` instead
-    ///
-    pub const HideTooltip = hideTooltip;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-abstractannotationitemdelegate.html#hideTooltip)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__AbstractAnnotationItemDelegate `
-    ///
-    /// ` _view: KTextEditor__View `
-    ///
-    pub fn hideTooltip(self: KTextEditor__AbstractAnnotationItemDelegate, _view: anytype) void {
-        comptime _ = @TypeOf(_view)._is_KTextEditor__View;
-        qtc.KTextEditor__AbstractAnnotationItemDelegate_HideTooltip(@ptrCast(self.ptr), @ptrCast(_view.ptr));
     }
 
     /// ### DEPRECATED: Use `sizeHintChanged` instead

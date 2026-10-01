@@ -228,129 +228,129 @@ void QAbstractSpinBox_Clear(QAbstractSpinBox* self) {
 
 void QAbstractSpinBox_ResizeEvent(QAbstractSpinBox* self, QResizeEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->resizeEvent(event);
     }
 }
 
 void QAbstractSpinBox_KeyPressEvent(QAbstractSpinBox* self, QKeyEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->keyPressEvent(event);
     }
 }
 
 void QAbstractSpinBox_KeyReleaseEvent(QAbstractSpinBox* self, QKeyEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->keyReleaseEvent(event);
     }
 }
 
 void QAbstractSpinBox_WheelEvent(QAbstractSpinBox* self, QWheelEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->wheelEvent(event);
     }
 }
 
 void QAbstractSpinBox_FocusInEvent(QAbstractSpinBox* self, QFocusEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->focusInEvent(event);
     }
 }
 
 void QAbstractSpinBox_FocusOutEvent(QAbstractSpinBox* self, QFocusEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->focusOutEvent(event);
     }
 }
 
 void QAbstractSpinBox_ContextMenuEvent(QAbstractSpinBox* self, QContextMenuEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->contextMenuEvent(event);
     }
 }
 
 void QAbstractSpinBox_ChangeEvent(QAbstractSpinBox* self, QEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->changeEvent(event);
     }
 }
 
 void QAbstractSpinBox_CloseEvent(QAbstractSpinBox* self, QCloseEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->closeEvent(event);
     }
 }
 
 void QAbstractSpinBox_HideEvent(QAbstractSpinBox* self, QHideEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->hideEvent(event);
     }
 }
 
 void QAbstractSpinBox_MousePressEvent(QAbstractSpinBox* self, QMouseEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->mousePressEvent(event);
     }
 }
 
 void QAbstractSpinBox_MouseReleaseEvent(QAbstractSpinBox* self, QMouseEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->mouseReleaseEvent(event);
     }
 }
 
 void QAbstractSpinBox_MouseMoveEvent(QAbstractSpinBox* self, QMouseEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->mouseMoveEvent(event);
     }
 }
 
 void QAbstractSpinBox_TimerEvent(QAbstractSpinBox* self, QTimerEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->timerEvent(event);
     }
 }
 
 void QAbstractSpinBox_PaintEvent(QAbstractSpinBox* self, QPaintEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->paintEvent(event);
     }
 }
 
 void QAbstractSpinBox_ShowEvent(QAbstractSpinBox* self, QShowEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->showEvent(event);
     }
 }
 
 void QAbstractSpinBox_InitStyleOption(const QAbstractSpinBox* self, QStyleOptionSpinBox* option) {
     auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->initStyleOption(option);
     }
 }
 
 int QAbstractSpinBox_StepEnabled(const QAbstractSpinBox* self) {
     auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         return static_cast<int>(vqabstractspinbox->stepEnabled());
     }
-    return {};
+    qFatal("Error: Protected method QAbstractSpinBox::stepEnabled called without a directly constructed type");
 }
 
 void QAbstractSpinBox_EditingFinished(QAbstractSpinBox* self) {
@@ -392,1620 +392,1075 @@ libqt_string QAbstractSpinBox_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QAbstractSpinBox_SuperMetaObject(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MetaObject_IsBase(true);
-        return (QMetaObject*)vqabstractspinbox->metaObject();
-    } else {
-        return (QMetaObject*)self->QAbstractSpinBox::metaObject();
-    }
+    return (QMetaObject*)self->QAbstractSpinBox::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnMetaObject(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_MetaObject_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MetaObject_Callback>(slot));
+void QAbstractSpinBox_OnMetaObject(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_metaobject_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QAbstractSpinBox_SuperMetacast(QAbstractSpinBox* self, const char* param1) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Metacast_IsBase(true);
-        return vqabstractspinbox->qt_metacast(param1);
-    } else {
-        return self->QAbstractSpinBox::qt_metacast(param1);
-    }
+    return self->QAbstractSpinBox::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMetacast(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_Metacast_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Metacast_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_metacast_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAbstractSpinBox_SuperMetacall(QAbstractSpinBox* self, int param1, int param2, void** param3) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Metacall_IsBase(true);
-        return vqabstractspinbox->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QAbstractSpinBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QAbstractSpinBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMetacall(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_Metacall_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Metacall_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_metacall_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QAbstractSpinBox_SuperSizeHint(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_SizeHint_IsBase(true);
-        return new QSize(vqabstractspinbox->sizeHint());
-    } else {
-        return new QSize(((VirtualQAbstractSpinBox*)self)->sizeHint());
-    }
+    return new QSize(self->QAbstractSpinBox::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnSizeHint(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_SizeHint_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SizeHint_Callback>(slot));
+void QAbstractSpinBox_OnSizeHint(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_sizehint_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QAbstractSpinBox_SuperMinimumSizeHint(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MinimumSizeHint_IsBase(true);
-        return new QSize(vqabstractspinbox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQAbstractSpinBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QAbstractSpinBox::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnMinimumSizeHint(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MinimumSizeHint_Callback>(slot));
+void QAbstractSpinBox_OnMinimumSizeHint(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_minimumsizehint_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QAbstractSpinBox_SuperEvent(QAbstractSpinBox* self, QEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Event_IsBase(true);
-        return vqabstractspinbox->event(event);
-    } else {
-        return self->QAbstractSpinBox::event(event);
-    }
+    return self->QAbstractSpinBox::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_Event_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Event_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_event_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QAbstractSpinBox_SuperInputMethodQuery(const QAbstractSpinBox* self, int param1) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_InputMethodQuery_IsBase(true);
-        return new QVariant(vqabstractspinbox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQAbstractSpinBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QAbstractSpinBox::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnInputMethodQuery(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InputMethodQuery_Callback>(slot));
+void QAbstractSpinBox_OnInputMethodQuery(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_inputmethodquery_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InputMethodQuery_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAbstractSpinBox_SuperValidate(const QAbstractSpinBox* self, libqt_string input, int* pos) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Validate_IsBase(true);
-        return static_cast<int>(vqabstractspinbox->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(self->QAbstractSpinBox::validate(input_QString, static_cast<int&>(*pos)));
-    }
+    return static_cast<int>(self->QAbstractSpinBox::validate(input_QString, static_cast<int&>(*pos)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnValidate(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_Validate_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Validate_Callback>(slot));
+void QAbstractSpinBox_OnValidate(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_validate_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Validate_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperFixup(const QAbstractSpinBox* self, libqt_string input) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Fixup_IsBase(true);
-        vqabstractspinbox->fixup(input_QString);
-    } else {
-        self->QAbstractSpinBox::fixup(input_QString);
-    }
+    self->QAbstractSpinBox::fixup(input_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnFixup(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_Fixup_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Fixup_Callback>(slot));
+void QAbstractSpinBox_OnFixup(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_fixup_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Fixup_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperStepBy(QAbstractSpinBox* self, int steps) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_StepBy_IsBase(true);
-        vqabstractspinbox->stepBy(static_cast<int>(steps));
-    } else {
-        self->QAbstractSpinBox::stepBy(static_cast<int>(steps));
-    }
+    self->QAbstractSpinBox::stepBy(static_cast<int>(steps));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnStepBy(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_StepBy_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_StepBy_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_stepby_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_StepBy_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperClear(QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Clear_IsBase(true);
-        vqabstractspinbox->clear();
-    } else {
-        self->QAbstractSpinBox::clear();
-    }
+    self->QAbstractSpinBox::clear();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnClear(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_Clear_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Clear_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_clear_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Clear_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperResizeEvent(QAbstractSpinBox* self, QResizeEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ResizeEvent_IsBase(true);
-        vqabstractspinbox->resizeEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->resizeEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnResizeEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_ResizeEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ResizeEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_resizeevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperKeyPressEvent(QAbstractSpinBox* self, QKeyEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_KeyPressEvent_IsBase(true);
-        vqabstractspinbox->keyPressEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->keyPressEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnKeyPressEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_KeyPressEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_keypressevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperKeyReleaseEvent(QAbstractSpinBox* self, QKeyEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_KeyReleaseEvent_IsBase(true);
-        vqabstractspinbox->keyReleaseEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnKeyReleaseEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_keyreleaseevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_KeyReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperWheelEvent(QAbstractSpinBox* self, QWheelEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_WheelEvent_IsBase(true);
-        vqabstractspinbox->wheelEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->wheelEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnWheelEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_WheelEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_WheelEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_wheelevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_WheelEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperFocusInEvent(QAbstractSpinBox* self, QFocusEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_FocusInEvent_IsBase(true);
-        vqabstractspinbox->focusInEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->focusInEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnFocusInEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_FocusInEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusInEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_focusinevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusInEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperFocusOutEvent(QAbstractSpinBox* self, QFocusEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_FocusOutEvent_IsBase(true);
-        vqabstractspinbox->focusOutEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->focusOutEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnFocusOutEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusOutEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_focusoutevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusOutEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperContextMenuEvent(QAbstractSpinBox* self, QContextMenuEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ContextMenuEvent_IsBase(true);
-        vqabstractspinbox->contextMenuEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnContextMenuEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ContextMenuEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_contextmenuevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ContextMenuEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperChangeEvent(QAbstractSpinBox* self, QEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ChangeEvent_IsBase(true);
-        vqabstractspinbox->changeEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->changeEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::changeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnChangeEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_ChangeEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ChangeEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_changeevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ChangeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperCloseEvent(QAbstractSpinBox* self, QCloseEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_CloseEvent_IsBase(true);
-        vqabstractspinbox->closeEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->closeEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnCloseEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_CloseEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_CloseEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_closeevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_CloseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperHideEvent(QAbstractSpinBox* self, QHideEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_HideEvent_IsBase(true);
-        vqabstractspinbox->hideEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->hideEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnHideEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_HideEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_HideEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_hideevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_HideEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperMousePressEvent(QAbstractSpinBox* self, QMouseEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MousePressEvent_IsBase(true);
-        vqabstractspinbox->mousePressEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->mousePressEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMousePressEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_MousePressEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MousePressEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_mousepressevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperMouseReleaseEvent(QAbstractSpinBox* self, QMouseEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MouseReleaseEvent_IsBase(true);
-        vqabstractspinbox->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMouseReleaseEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_mousereleaseevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperMouseMoveEvent(QAbstractSpinBox* self, QMouseEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MouseMoveEvent_IsBase(true);
-        vqabstractspinbox->mouseMoveEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMouseMoveEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MouseMoveEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_mousemoveevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperTimerEvent(QAbstractSpinBox* self, QTimerEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_TimerEvent_IsBase(true);
-        vqabstractspinbox->timerEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->timerEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnTimerEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_TimerEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_TimerEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_timerevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_TimerEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperPaintEvent(QAbstractSpinBox* self, QPaintEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_PaintEvent_IsBase(true);
-        vqabstractspinbox->paintEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->paintEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnPaintEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_PaintEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_PaintEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_paintevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperShowEvent(QAbstractSpinBox* self, QShowEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ShowEvent_IsBase(true);
-        vqabstractspinbox->showEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->showEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnShowEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_ShowEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ShowEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_showevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperInitStyleOption(const QAbstractSpinBox* self, QStyleOptionSpinBox* option) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_InitStyleOption_IsBase(true);
-        vqabstractspinbox->initStyleOption(option);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->initStyleOption(option);
-    }
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self))) {
+        vqabstractspinbox->QAbstractSpinBox::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnInitStyleOption(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_InitStyleOption_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InitStyleOption_Callback>(slot));
+void QAbstractSpinBox_OnInitStyleOption(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_initstyleoption_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InitStyleOption_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAbstractSpinBox_SuperStepEnabled(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_StepEnabled_IsBase(true);
-        return static_cast<int>(vqabstractspinbox->stepEnabled());
-    } else {
-        return static_cast<int>(((VirtualQAbstractSpinBox*)self)->stepEnabled());
-    }
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self))) {
+        return static_cast<int>(vqabstractspinbox->QAbstractSpinBox::stepEnabled());
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::stepEnabled called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnStepEnabled(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_StepEnabled_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_StepEnabled_Callback>(slot));
+void QAbstractSpinBox_OnStepEnabled(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_stepenabled_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_StepEnabled_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QAbstractSpinBox_DevType(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return vqabstractspinbox->devType();
-    } else {
-        return self->QAbstractSpinBox::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QAbstractSpinBox_SuperDevType(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_DevType_IsBase(true);
-        return vqabstractspinbox->devType();
-    } else {
-        return self->QAbstractSpinBox::devType();
-    }
+    return self->QAbstractSpinBox::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnDevType(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_DevType_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DevType_Callback>(slot));
+void QAbstractSpinBox_OnDevType(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_devtype_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_SetVisible(QAbstractSpinBox* self, bool visible) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setVisible(visible);
-    } else {
-        self->QAbstractSpinBox::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperSetVisible(QAbstractSpinBox* self, bool visible) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_SetVisible_IsBase(true);
-        vqabstractspinbox->setVisible(visible);
-    } else {
-        self->QAbstractSpinBox::setVisible(visible);
-    }
+    self->QAbstractSpinBox::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnSetVisible(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_SetVisible_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SetVisible_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_setvisible_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QAbstractSpinBox_HeightForWidth(const QAbstractSpinBox* self, int param1) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return vqabstractspinbox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QAbstractSpinBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QAbstractSpinBox_SuperHeightForWidth(const QAbstractSpinBox* self, int param1) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_HeightForWidth_IsBase(true);
-        return vqabstractspinbox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QAbstractSpinBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QAbstractSpinBox::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnHeightForWidth(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_HeightForWidth_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_HeightForWidth_Callback>(slot));
+void QAbstractSpinBox_OnHeightForWidth(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_heightforwidth_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractSpinBox_HasHeightForWidth(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return vqabstractspinbox->hasHeightForWidth();
-    } else {
-        return self->QAbstractSpinBox::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QAbstractSpinBox_SuperHasHeightForWidth(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_HasHeightForWidth_IsBase(true);
-        return vqabstractspinbox->hasHeightForWidth();
-    } else {
-        return self->QAbstractSpinBox::hasHeightForWidth();
-    }
+    return self->QAbstractSpinBox::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnHasHeightForWidth(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_HasHeightForWidth_Callback>(slot));
+void QAbstractSpinBox_OnHasHeightForWidth(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_hasheightforwidth_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QAbstractSpinBox_PaintEngine(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return vqabstractspinbox->paintEngine();
-    } else {
-        return self->QAbstractSpinBox::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QAbstractSpinBox_SuperPaintEngine(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_PaintEngine_IsBase(true);
-        return vqabstractspinbox->paintEngine();
-    } else {
-        return self->QAbstractSpinBox::paintEngine();
-    }
+    return self->QAbstractSpinBox::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnPaintEngine(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_PaintEngine_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_PaintEngine_Callback>(slot));
+void QAbstractSpinBox_OnPaintEngine(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_paintengine_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_MouseDoubleClickEvent(QAbstractSpinBox* self, QMouseEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperMouseDoubleClickEvent(QAbstractSpinBox* self, QMouseEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MouseDoubleClickEvent_IsBase(true);
-        vqabstractspinbox->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMouseDoubleClickEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_mousedoubleclickevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_EnterEvent(QAbstractSpinBox* self, QEnterEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->enterEvent(event);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperEnterEvent(QAbstractSpinBox* self, QEnterEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_EnterEvent_IsBase(true);
-        vqabstractspinbox->enterEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->enterEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnEnterEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_EnterEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_EnterEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_enterevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_LeaveEvent(QAbstractSpinBox* self, QEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->leaveEvent(event);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperLeaveEvent(QAbstractSpinBox* self, QEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_LeaveEvent_IsBase(true);
-        vqabstractspinbox->leaveEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->leaveEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnLeaveEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_LeaveEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_LeaveEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_leaveevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_MoveEvent(QAbstractSpinBox* self, QMoveEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->moveEvent(event);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperMoveEvent(QAbstractSpinBox* self, QMoveEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_MoveEvent_IsBase(true);
-        vqabstractspinbox->moveEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->moveEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMoveEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_MoveEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MoveEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_moveevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_TabletEvent(QAbstractSpinBox* self, QTabletEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->tabletEvent(event);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperTabletEvent(QAbstractSpinBox* self, QTabletEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_TabletEvent_IsBase(true);
-        vqabstractspinbox->tabletEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->tabletEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnTabletEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_TabletEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_TabletEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_tabletevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_ActionEvent(QAbstractSpinBox* self, QActionEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->actionEvent(event);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperActionEvent(QAbstractSpinBox* self, QActionEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ActionEvent_IsBase(true);
-        vqabstractspinbox->actionEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->actionEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnActionEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_ActionEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ActionEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_actionevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_DragEnterEvent(QAbstractSpinBox* self, QDragEnterEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->dragEnterEvent(event);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperDragEnterEvent(QAbstractSpinBox* self, QDragEnterEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_DragEnterEvent_IsBase(true);
-        vqabstractspinbox->dragEnterEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnDragEnterEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_DragEnterEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DragEnterEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_dragenterevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_DragMoveEvent(QAbstractSpinBox* self, QDragMoveEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->dragMoveEvent(event);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperDragMoveEvent(QAbstractSpinBox* self, QDragMoveEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_DragMoveEvent_IsBase(true);
-        vqabstractspinbox->dragMoveEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnDragMoveEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_DragMoveEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DragMoveEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_dragmoveevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_DragLeaveEvent(QAbstractSpinBox* self, QDragLeaveEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->dragLeaveEvent(event);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperDragLeaveEvent(QAbstractSpinBox* self, QDragLeaveEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_DragLeaveEvent_IsBase(true);
-        vqabstractspinbox->dragLeaveEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnDragLeaveEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DragLeaveEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_dragleaveevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_DropEvent(QAbstractSpinBox* self, QDropEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->dropEvent(event);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperDropEvent(QAbstractSpinBox* self, QDropEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_DropEvent_IsBase(true);
-        vqabstractspinbox->dropEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->dropEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnDropEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_DropEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DropEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_dropevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractSpinBox_NativeEvent(QAbstractSpinBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox) {
         return vqabstractspinbox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQAbstractSpinBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QAbstractSpinBox::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QAbstractSpinBox_SuperNativeEvent(QAbstractSpinBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_NativeEvent_IsBase(true);
-        return vqabstractspinbox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        return vqabstractspinbox->QAbstractSpinBox::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnNativeEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_NativeEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_NativeEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_nativeevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QAbstractSpinBox_Metric(const QAbstractSpinBox* self, int param1) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         return vqabstractspinbox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQAbstractSpinBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QAbstractSpinBox::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QAbstractSpinBox_SuperMetric(const QAbstractSpinBox* self, int param1) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Metric_IsBase(true);
-        return vqabstractspinbox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self))) {
+        return vqabstractspinbox->QAbstractSpinBox::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnMetric(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_Metric_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Metric_Callback>(slot));
+void QAbstractSpinBox_OnMetric(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_metric_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_InitPainter(const QAbstractSpinBox* self, QPainter* painter) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->initPainter(painter);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperInitPainter(const QAbstractSpinBox* self, QPainter* painter) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_InitPainter_IsBase(true);
-        vqabstractspinbox->initPainter(painter);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->initPainter(painter);
-    }
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self))) {
+        vqabstractspinbox->QAbstractSpinBox::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnInitPainter(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_InitPainter_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InitPainter_Callback>(slot));
+void QAbstractSpinBox_OnInitPainter(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_initpainter_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QAbstractSpinBox_Redirected(const QAbstractSpinBox* self, QPoint* offset) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         return vqabstractspinbox->redirected(offset);
     } else {
-        return ((VirtualQAbstractSpinBox*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QAbstractSpinBox_SuperRedirected(const QAbstractSpinBox* self, QPoint* offset) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Redirected_IsBase(true);
-        return vqabstractspinbox->redirected(offset);
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->redirected(offset);
-    }
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self))) {
+        return vqabstractspinbox->QAbstractSpinBox::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnRedirected(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_Redirected_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Redirected_Callback>(slot));
+void QAbstractSpinBox_OnRedirected(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_redirected_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QAbstractSpinBox_SharedPainter(const QAbstractSpinBox* self) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         return vqabstractspinbox->sharedPainter();
     } else {
-        return ((VirtualQAbstractSpinBox*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QAbstractSpinBox::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QAbstractSpinBox_SuperSharedPainter(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_SharedPainter_IsBase(true);
-        return vqabstractspinbox->sharedPainter();
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->sharedPainter();
-    }
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self))) {
+        return vqabstractspinbox->QAbstractSpinBox::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnSharedPainter(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_SharedPainter_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SharedPainter_Callback>(slot));
+void QAbstractSpinBox_OnSharedPainter(QAbstractSpinBox* self, intptr_t slot) {
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self)))
+        vqabstractspinbox->qabstractspinbox_sharedpainter_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_InputMethodEvent(QAbstractSpinBox* self, QInputMethodEvent* param1) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->inputMethodEvent(param1);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperInputMethodEvent(QAbstractSpinBox* self, QInputMethodEvent* param1) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_InputMethodEvent_IsBase(true);
-        vqabstractspinbox->inputMethodEvent(param1);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnInputMethodEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_InputMethodEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InputMethodEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_inputmethodevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractSpinBox_FocusNextPrevChild(QAbstractSpinBox* self, bool next) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         return vqabstractspinbox->focusNextPrevChild(next);
     } else {
-        return ((VirtualQAbstractSpinBox*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QAbstractSpinBox_SuperFocusNextPrevChild(QAbstractSpinBox* self, bool next) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_FocusNextPrevChild_IsBase(true);
-        return vqabstractspinbox->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        return vqabstractspinbox->QAbstractSpinBox::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnFocusNextPrevChild(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_focusnextprevchild_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractSpinBox_EventFilter(QAbstractSpinBox* self, QObject* watched, QEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return vqabstractspinbox->eventFilter(watched, event);
-    } else {
-        return self->QAbstractSpinBox::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QAbstractSpinBox_SuperEventFilter(QAbstractSpinBox* self, QObject* watched, QEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_EventFilter_IsBase(true);
-        return vqabstractspinbox->eventFilter(watched, event);
-    } else {
-        return self->QAbstractSpinBox::eventFilter(watched, event);
-    }
+    return self->QAbstractSpinBox::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnEventFilter(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_EventFilter_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_EventFilter_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_eventfilter_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_ChildEvent(QAbstractSpinBox* self, QChildEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->childEvent(event);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperChildEvent(QAbstractSpinBox* self, QChildEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ChildEvent_IsBase(true);
-        vqabstractspinbox->childEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->childEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnChildEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_ChildEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ChildEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_childevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_CustomEvent(QAbstractSpinBox* self, QEvent* event) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->customEvent(event);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperCustomEvent(QAbstractSpinBox* self, QEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_CustomEvent_IsBase(true);
-        vqabstractspinbox->customEvent(event);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->customEvent(event);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnCustomEvent(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_CustomEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_CustomEvent_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_customevent_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_ConnectNotify(QAbstractSpinBox* self, const QMetaMethod* signal) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->connectNotify(*signal);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperConnectNotify(QAbstractSpinBox* self, const QMetaMethod* signal) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_ConnectNotify_IsBase(true);
-        vqabstractspinbox->connectNotify(*signal);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->connectNotify(*signal);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnConnectNotify(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_ConnectNotify_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ConnectNotify_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_connectnotify_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractSpinBox_DisconnectNotify(QAbstractSpinBox* self, const QMetaMethod* signal) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox) {
         vqabstractspinbox->disconnectNotify(*signal);
     } else {
-        ((VirtualQAbstractSpinBox*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QAbstractSpinBox::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractSpinBox_SuperDisconnectNotify(QAbstractSpinBox* self, const QMetaMethod* signal) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_DisconnectNotify_IsBase(true);
-        vqabstractspinbox->disconnectNotify(*signal);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->QAbstractSpinBox::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAbstractSpinBox::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnDisconnectNotify(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_DisconnectNotify_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DisconnectNotify_Callback>(slot));
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self))
+        vqabstractspinbox->qabstractspinbox_disconnectnotify_callback = reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QLineEdit* QAbstractSpinBox_LineEdit(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return vqabstractspinbox->lineEdit();
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->lineEdit();
-    }
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self))) {
+        return vqabstractspinbox->VirtualQAbstractSpinBox::lineEdit();
+    } else
+        qFatal("Error: Protected method QAbstractSpinBox::lineEdit called without a directly constructed type");
 }
 
-// Base class handler implementation
-QLineEdit* QAbstractSpinBox_SuperLineEdit(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_LineEdit_IsBase(true);
-        return vqabstractspinbox->lineEdit();
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->lineEdit();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnLineEdit(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_LineEdit_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_LineEdit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractSpinBox_SetLineEdit(QAbstractSpinBox* self, QLineEdit* edit) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setLineEdit(edit);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->setLineEdit(edit);
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->VirtualQAbstractSpinBox::setLineEdit(edit);
+    } else
+        qFatal("Error: Protected method QAbstractSpinBox::setLineEdit called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractSpinBox_SuperSetLineEdit(QAbstractSpinBox* self, QLineEdit* edit) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_SetLineEdit_IsBase(true);
-        vqabstractspinbox->setLineEdit(edit);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->setLineEdit(edit);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnSetLineEdit(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_SetLineEdit_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SetLineEdit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractSpinBox_UpdateMicroFocus(QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->updateMicroFocus();
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->updateMicroFocus();
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->VirtualQAbstractSpinBox::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QAbstractSpinBox::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractSpinBox_SuperUpdateMicroFocus(QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_UpdateMicroFocus_IsBase(true);
-        vqabstractspinbox->updateMicroFocus();
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnUpdateMicroFocus(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractSpinBox_Create(QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->create();
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->create();
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->VirtualQAbstractSpinBox::create();
+    } else
+        qFatal("Error: Protected method QAbstractSpinBox::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractSpinBox_SuperCreate(QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Create_IsBase(true);
-        vqabstractspinbox->create();
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnCreate(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_Create_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractSpinBox_Destroy(QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->destroy();
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->destroy();
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        vqabstractspinbox->VirtualQAbstractSpinBox::destroy();
+    } else
+        qFatal("Error: Protected method QAbstractSpinBox::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractSpinBox_SuperDestroy(QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Destroy_IsBase(true);
-        vqabstractspinbox->destroy();
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnDestroy(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_Destroy_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAbstractSpinBox_FocusNextChild(QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return vqabstractspinbox->focusNextChild();
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->focusNextChild();
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        return vqabstractspinbox->VirtualQAbstractSpinBox::focusNextChild();
+    } else
+        qFatal("Error: Protected method QAbstractSpinBox::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QAbstractSpinBox_SuperFocusNextChild(QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_FocusNextChild_IsBase(true);
-        return vqabstractspinbox->focusNextChild();
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnFocusNextChild(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_FocusNextChild_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAbstractSpinBox_FocusPreviousChild(QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return vqabstractspinbox->focusPreviousChild();
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->focusPreviousChild();
-    }
+    if (auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self)) {
+        return vqabstractspinbox->VirtualQAbstractSpinBox::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QAbstractSpinBox::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QAbstractSpinBox_SuperFocusPreviousChild(QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_FocusPreviousChild_IsBase(true);
-        return vqabstractspinbox->focusPreviousChild();
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnFocusPreviousChild(QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QAbstractSpinBox_Sender(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return vqabstractspinbox->sender();
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->sender();
-    }
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self))) {
+        return vqabstractspinbox->VirtualQAbstractSpinBox::sender();
+    } else
+        qFatal("Error: Protected method QAbstractSpinBox::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QAbstractSpinBox_SuperSender(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Sender_IsBase(true);
-        return vqabstractspinbox->sender();
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnSender(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_Sender_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAbstractSpinBox_SenderSignalIndex(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return vqabstractspinbox->senderSignalIndex();
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->senderSignalIndex();
-    }
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self))) {
+        return vqabstractspinbox->VirtualQAbstractSpinBox::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QAbstractSpinBox::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAbstractSpinBox_SuperSenderSignalIndex(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_SenderSignalIndex_IsBase(true);
-        return vqabstractspinbox->senderSignalIndex();
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnSenderSignalIndex(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAbstractSpinBox_Receivers(const QAbstractSpinBox* self, const char* signal) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return vqabstractspinbox->receivers(signal);
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->receivers(signal);
-    }
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self))) {
+        return vqabstractspinbox->VirtualQAbstractSpinBox::receivers(signal);
+    } else
+        qFatal("Error: Protected method QAbstractSpinBox::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAbstractSpinBox_SuperReceivers(const QAbstractSpinBox* self, const char* signal) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_Receivers_IsBase(true);
-        return vqabstractspinbox->receivers(signal);
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnReceivers(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_Receivers_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAbstractSpinBox_IsSignalConnected(const QAbstractSpinBox* self, const QMetaMethod* signal) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return vqabstractspinbox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self))) {
+        return vqabstractspinbox->VirtualQAbstractSpinBox::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QAbstractSpinBox::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QAbstractSpinBox_SuperIsSignalConnected(const QAbstractSpinBox* self, const QMetaMethod* signal) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_IsSignalConnected_IsBase(true);
-        return vqabstractspinbox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnIsSignalConnected(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QAbstractSpinBox_GetDecodedMetricF(const QAbstractSpinBox* self, int metricA, int metricB) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return vqabstractspinbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QAbstractSpinBox_SuperGetDecodedMetricF(const QAbstractSpinBox* self, int metricA, int metricB) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        vqabstractspinbox->setQAbstractSpinBox_GetDecodedMetricF_IsBase(true);
-        return vqabstractspinbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractSpinBox_OnGetDecodedMetricF(const QAbstractSpinBox* self, intptr_t slot) {
-    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
-        vqabstractspinbox->setQAbstractSpinBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self))) {
+        return vqabstractspinbox->VirtualQAbstractSpinBox::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QAbstractSpinBox::getDecodedMetricF called without a directly constructed type");
 }
 
 void QAbstractSpinBox_Delete(QAbstractSpinBox* self) {

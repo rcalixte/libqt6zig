@@ -9,48 +9,24 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KParts::PartActivateEvent so that we can call protected methods
+// This class is a subclass of KParts::PartActivateEvent
 class VirtualKPartsPartActivateEvent final : public KParts::PartActivateEvent {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKPartsPartActivateEvent = true;
-
-    // Virtual class public types (including callbacks)
+    // Virtual class public types (including callbacks and access types)
     using KParts__PartActivateEvent_SetAccepted_Callback = void (*)(KParts__PartActivateEvent*, bool);
-    using KParts__PartActivateEvent_Clone_Callback = QEvent* (*)();
+    using KParts__PartActivateEvent_Clone_Callback = QEvent* (*)(const KParts__PartActivateEvent*);
 
-  protected:
     // Instance callback storage
     KParts__PartActivateEvent_SetAccepted_Callback kparts__partactivateevent_setaccepted_callback = nullptr;
     KParts__PartActivateEvent_Clone_Callback kparts__partactivateevent_clone_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kparts__partactivateevent_setaccepted_isbase = false;
-    mutable bool kparts__partactivateevent_clone_isbase = false;
-
-  public:
     VirtualKPartsPartActivateEvent(bool activated, KParts::Part* part, QWidget* widget) : KParts::PartActivateEvent(activated, part, widget) {};
-
-    // Callback setters
-    inline void setKParts__PartActivateEvent_SetAccepted_Callback(KParts__PartActivateEvent_SetAccepted_Callback cb) { kparts__partactivateevent_setaccepted_callback = cb; }
-    inline void setKParts__PartActivateEvent_Clone_Callback(KParts__PartActivateEvent_Clone_Callback cb) { kparts__partactivateevent_clone_callback = cb; }
-
-    // Base flag setters
-    inline void setKParts__PartActivateEvent_SetAccepted_IsBase(bool value) const { kparts__partactivateevent_setaccepted_isbase = value; }
-    inline void setKParts__PartActivateEvent_Clone_IsBase(bool value) const { kparts__partactivateevent_clone_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void setAccepted(bool accepted) override {
-        if (kparts__partactivateevent_setaccepted_isbase) {
-            kparts__partactivateevent_setaccepted_isbase = false;
-            KParts__PartActivateEvent::setAccepted(accepted);
-            return;
-        }
-        auto setaccepted_cb = kparts__partactivateevent_setaccepted_callback;
-        if (setaccepted_cb) {
+        if (kparts__partactivateevent_setaccepted_callback) {
             bool cbval1 = accepted;
-            setaccepted_cb(this, cbval1);
+            kparts__partactivateevent_setaccepted_callback(this, cbval1);
             return;
         }
         KParts__PartActivateEvent::setAccepted(accepted);
@@ -58,13 +34,8 @@ class VirtualKPartsPartActivateEvent final : public KParts::PartActivateEvent {
 
     // Virtual method for C ABI access and custom callback
     virtual QEvent* clone() const override {
-        if (kparts__partactivateevent_clone_isbase) {
-            kparts__partactivateevent_clone_isbase = false;
-            return KParts__PartActivateEvent::clone();
-        }
-        auto clone_cb = kparts__partactivateevent_clone_callback;
-        if (clone_cb) {
-            QEvent* callback_ret = clone_cb();
+        if (kparts__partactivateevent_clone_callback) {
+            QEvent* callback_ret = kparts__partactivateevent_clone_callback(this);
             return callback_ret;
         }
         return KParts__PartActivateEvent::clone();

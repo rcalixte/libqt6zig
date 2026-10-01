@@ -39,7 +39,7 @@ void QAudioBufferOutput_AudioBufferReceived(QAudioBufferOutput* self, const QAud
 void QAudioBufferOutput_Connect_AudioBufferReceived(QAudioBufferOutput* self, intptr_t slot);
 libqt_string QAudioBufferOutput_Tr2(const char* s, const char* c);
 libqt_string QAudioBufferOutput_Tr3(const char* s, const char* c, int n);
-void QAudioBufferOutput_OnMetaObject(const QAudioBufferOutput* self, intptr_t slot);
+void QAudioBufferOutput_OnMetaObject(QAudioBufferOutput* self, intptr_t slot);
 QMetaObject* QAudioBufferOutput_SuperMetaObject(const QAudioBufferOutput* self);
 void QAudioBufferOutput_OnMetacast(QAudioBufferOutput* self, intptr_t slot);
 void* QAudioBufferOutput_SuperMetacast(QAudioBufferOutput* self, const char* param1);
@@ -67,17 +67,9 @@ void QAudioBufferOutput_DisconnectNotify(QAudioBufferOutput* self, const QMetaMe
 void QAudioBufferOutput_OnDisconnectNotify(QAudioBufferOutput* self, intptr_t slot);
 void QAudioBufferOutput_SuperDisconnectNotify(QAudioBufferOutput* self, const QMetaMethod* signal);
 QObject* QAudioBufferOutput_Sender(const QAudioBufferOutput* self);
-void QAudioBufferOutput_OnSender(const QAudioBufferOutput* self, intptr_t slot);
-QObject* QAudioBufferOutput_SuperSender(const QAudioBufferOutput* self);
 int QAudioBufferOutput_SenderSignalIndex(const QAudioBufferOutput* self);
-void QAudioBufferOutput_OnSenderSignalIndex(const QAudioBufferOutput* self, intptr_t slot);
-int QAudioBufferOutput_SuperSenderSignalIndex(const QAudioBufferOutput* self);
 int QAudioBufferOutput_Receivers(const QAudioBufferOutput* self, const char* signal);
-void QAudioBufferOutput_OnReceivers(const QAudioBufferOutput* self, intptr_t slot);
-int QAudioBufferOutput_SuperReceivers(const QAudioBufferOutput* self, const char* signal);
 bool QAudioBufferOutput_IsSignalConnected(const QAudioBufferOutput* self, const QMetaMethod* signal);
-void QAudioBufferOutput_OnIsSignalConnected(const QAudioBufferOutput* self, intptr_t slot);
-bool QAudioBufferOutput_SuperIsSignalConnected(const QAudioBufferOutput* self, const QMetaMethod* signal);
 void QAudioBufferOutput_Delete(QAudioBufferOutput* self);
 
 #ifdef __cplusplus

@@ -35,7 +35,7 @@ QQuickAttachedPropertyPropagator* QQuickAttachedPropertyPropagator_AttachedParen
 void QQuickAttachedPropertyPropagator_AttachedParentChange(QQuickAttachedPropertyPropagator* self, QQuickAttachedPropertyPropagator* newParent, QQuickAttachedPropertyPropagator* oldParent);
 libqt_string QQuickAttachedPropertyPropagator_Tr2(const char* s, const char* c);
 libqt_string QQuickAttachedPropertyPropagator_Tr3(const char* s, const char* c, int n);
-void QQuickAttachedPropertyPropagator_OnMetaObject(const QQuickAttachedPropertyPropagator* self, intptr_t slot);
+void QQuickAttachedPropertyPropagator_OnMetaObject(QQuickAttachedPropertyPropagator* self, intptr_t slot);
 QMetaObject* QQuickAttachedPropertyPropagator_SuperMetaObject(const QQuickAttachedPropertyPropagator* self);
 void QQuickAttachedPropertyPropagator_OnMetacast(QQuickAttachedPropertyPropagator* self, intptr_t slot);
 void* QQuickAttachedPropertyPropagator_SuperMetacast(QQuickAttachedPropertyPropagator* self, const char* param1);
@@ -65,20 +65,10 @@ void QQuickAttachedPropertyPropagator_DisconnectNotify(QQuickAttachedPropertyPro
 void QQuickAttachedPropertyPropagator_OnDisconnectNotify(QQuickAttachedPropertyPropagator* self, intptr_t slot);
 void QQuickAttachedPropertyPropagator_SuperDisconnectNotify(QQuickAttachedPropertyPropagator* self, const QMetaMethod* signal);
 void QQuickAttachedPropertyPropagator_Initialize(QQuickAttachedPropertyPropagator* self);
-void QQuickAttachedPropertyPropagator_OnInitialize(QQuickAttachedPropertyPropagator* self, intptr_t slot);
-void QQuickAttachedPropertyPropagator_SuperInitialize(QQuickAttachedPropertyPropagator* self);
 QObject* QQuickAttachedPropertyPropagator_Sender(const QQuickAttachedPropertyPropagator* self);
-void QQuickAttachedPropertyPropagator_OnSender(const QQuickAttachedPropertyPropagator* self, intptr_t slot);
-QObject* QQuickAttachedPropertyPropagator_SuperSender(const QQuickAttachedPropertyPropagator* self);
 int QQuickAttachedPropertyPropagator_SenderSignalIndex(const QQuickAttachedPropertyPropagator* self);
-void QQuickAttachedPropertyPropagator_OnSenderSignalIndex(const QQuickAttachedPropertyPropagator* self, intptr_t slot);
-int QQuickAttachedPropertyPropagator_SuperSenderSignalIndex(const QQuickAttachedPropertyPropagator* self);
 int QQuickAttachedPropertyPropagator_Receivers(const QQuickAttachedPropertyPropagator* self, const char* signal);
-void QQuickAttachedPropertyPropagator_OnReceivers(const QQuickAttachedPropertyPropagator* self, intptr_t slot);
-int QQuickAttachedPropertyPropagator_SuperReceivers(const QQuickAttachedPropertyPropagator* self, const char* signal);
 bool QQuickAttachedPropertyPropagator_IsSignalConnected(const QQuickAttachedPropertyPropagator* self, const QMetaMethod* signal);
-void QQuickAttachedPropertyPropagator_OnIsSignalConnected(const QQuickAttachedPropertyPropagator* self, intptr_t slot);
-bool QQuickAttachedPropertyPropagator_SuperIsSignalConnected(const QQuickAttachedPropertyPropagator* self, const QMetaMethod* signal);
 void QQuickAttachedPropertyPropagator_Delete(QQuickAttachedPropertyPropagator* self);
 
 #ifdef __cplusplus

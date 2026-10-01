@@ -161,1969 +161,1022 @@ libqt_string QPdfLinkModel_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QPdfLinkModel_SuperMetaObject(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_MetaObject_IsBase(true);
-        return (QMetaObject*)vqpdflinkmodel->metaObject();
-    } else {
-        return (QMetaObject*)self->QPdfLinkModel::metaObject();
-    }
+    return (QMetaObject*)self->QPdfLinkModel::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnMetaObject(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_MetaObject_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MetaObject_Callback>(slot));
+void QPdfLinkModel_OnMetaObject(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_metaobject_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPdfLinkModel_SuperMetacast(QPdfLinkModel* self, const char* param1) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Metacast_IsBase(true);
-        return vqpdflinkmodel->qt_metacast(param1);
-    } else {
-        return self->QPdfLinkModel::qt_metacast(param1);
-    }
+    return self->QPdfLinkModel::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnMetacast(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Metacast_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Metacast_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_metacast_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPdfLinkModel_SuperMetacall(QPdfLinkModel* self, int param1, int param2, void** param3) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Metacall_IsBase(true);
-        return vqpdflinkmodel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPdfLinkModel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPdfLinkModel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnMetacall(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Metacall_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Metacall_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_metacall_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_map /* of int to libqt_string */ QPdfLinkModel_SuperRoleNames(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_RoleNames_IsBase(true);
-        QHash<int, QByteArray> _ret = vqpdflinkmodel->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = self->QPdfLinkModel::roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->QPdfLinkModel::roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnRoleNames(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_RoleNames_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RoleNames_Callback>(slot));
+void QPdfLinkModel_OnRoleNames(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_rolenames_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RoleNames_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPdfLinkModel_SuperRowCount(const QPdfLinkModel* self, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_RowCount_IsBase(true);
-        return vqpdflinkmodel->rowCount(*parent);
-    } else {
-        return self->QPdfLinkModel::rowCount(*parent);
-    }
+    return self->QPdfLinkModel::rowCount(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnRowCount(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_RowCount_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RowCount_Callback>(slot));
+void QPdfLinkModel_OnRowCount(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_rowcount_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RowCount_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QPdfLinkModel_SuperData(const QPdfLinkModel* self, const QModelIndex* index, int role) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Data_IsBase(true);
-        return new QVariant(vqpdflinkmodel->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQPdfLinkModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->QPdfLinkModel::data(*index, static_cast<int>(role)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnData(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Data_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Data_Callback>(slot));
+void QPdfLinkModel_OnData(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_data_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Data_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* QPdfLinkModel_Index(const QPdfLinkModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return new QModelIndex(vqpdflinkmodel->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualQPdfLinkModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 // Base class handler implementation
 QModelIndex* QPdfLinkModel_SuperIndex(const QPdfLinkModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Index_IsBase(true);
-        return new QModelIndex(vqpdflinkmodel->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualQPdfLinkModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->QPdfLinkModel::index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnIndex(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Index_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Index_Callback>(slot));
+void QPdfLinkModel_OnIndex(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_index_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Index_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* QPdfLinkModel_Sibling(const QPdfLinkModel* self, int row, int column, const QModelIndex* idx) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return new QModelIndex(vqpdflinkmodel->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    } else {
-        return new QModelIndex(((VirtualQPdfLinkModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    }
+    return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
 }
 
 // Base class handler implementation
 QModelIndex* QPdfLinkModel_SuperSibling(const QPdfLinkModel* self, int row, int column, const QModelIndex* idx) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Sibling_IsBase(true);
-        return new QModelIndex(vqpdflinkmodel->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    } else {
-        return new QModelIndex(((VirtualQPdfLinkModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    }
+    return new QModelIndex(self->QPdfLinkModel::sibling(static_cast<int>(row), static_cast<int>(column), *idx));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnSibling(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Sibling_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Sibling_Callback>(slot));
+void QPdfLinkModel_OnSibling(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_sibling_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Sibling_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_DropMimeData(QPdfLinkModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->QPdfLinkModel::dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperDropMimeData(QPdfLinkModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_DropMimeData_IsBase(true);
-        return vqpdflinkmodel->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->QPdfLinkModel::dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->QPdfLinkModel::dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnDropMimeData(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_DropMimeData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_DropMimeData_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_dropmimedata_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_DropMimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPdfLinkModel_Flags(const QPdfLinkModel* self, const QModelIndex* index) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return static_cast<int>(vqpdflinkmodel->flags(*index));
-    } else {
-        return static_cast<int>(self->QPdfLinkModel::flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 // Base class handler implementation
 int QPdfLinkModel_SuperFlags(const QPdfLinkModel* self, const QModelIndex* index) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Flags_IsBase(true);
-        return static_cast<int>(vqpdflinkmodel->flags(*index));
-    } else {
-        return static_cast<int>(self->QPdfLinkModel::flags(*index));
-    }
+    return static_cast<int>(self->QPdfLinkModel::flags(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnFlags(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Flags_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Flags_Callback>(slot));
+void QPdfLinkModel_OnFlags(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_flags_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Flags_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_SetData(QPdfLinkModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return self->QPdfLinkModel::setData(*index, *value, static_cast<int>(role));
-    }
+    return self->setData(*index, *value, static_cast<int>(role));
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperSetData(QPdfLinkModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_SetData_IsBase(true);
-        return vqpdflinkmodel->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return self->QPdfLinkModel::setData(*index, *value, static_cast<int>(role));
-    }
+    return self->QPdfLinkModel::setData(*index, *value, static_cast<int>(role));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSetData(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_SetData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SetData_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_setdata_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SetData_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QPdfLinkModel_HeaderData(const QPdfLinkModel* self, int section, int orientation, int role) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return new QVariant(vqpdflinkmodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQPdfLinkModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 // Base class handler implementation
 QVariant* QPdfLinkModel_SuperHeaderData(const QPdfLinkModel* self, int section, int orientation, int role) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_HeaderData_IsBase(true);
-        return new QVariant(vqpdflinkmodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQPdfLinkModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->QPdfLinkModel::headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnHeaderData(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_HeaderData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_HeaderData_Callback>(slot));
+void QPdfLinkModel_OnHeaderData(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_headerdata_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_HeaderData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_SetHeaderData(QPdfLinkModel* self, int section, int orientation, const QVariant* value, int role) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    } else {
-        return self->QPdfLinkModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    }
+    return self->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperSetHeaderData(QPdfLinkModel* self, int section, int orientation, const QVariant* value, int role) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_SetHeaderData_IsBase(true);
-        return vqpdflinkmodel->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    } else {
-        return self->QPdfLinkModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    }
+    return self->QPdfLinkModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSetHeaderData(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_SetHeaderData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SetHeaderData_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_setheaderdata_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SetHeaderData_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_map /* of int to QVariant* */ QPdfLinkModel_ItemData(const QPdfLinkModel* self, const QModelIndex* index) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        QMap<int, QVariant> _ret = vqpdflinkmodel->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<int, QVariant> _ret = self->QPdfLinkModel::itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QMap<int, QVariant> _ret = self->itemData(*index);
+    // Convert QMap<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        _varr[_ctr] = new QVariant(_itr->second);
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_map /* of int to QVariant* */ QPdfLinkModel_SuperItemData(const QPdfLinkModel* self, const QModelIndex* index) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_ItemData_IsBase(true);
-        QMap<int, QVariant> _ret = vqpdflinkmodel->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<int, QVariant> _ret = self->QPdfLinkModel::itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QMap<int, QVariant> _ret = self->QPdfLinkModel::itemData(*index);
+    // Convert QMap<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        _varr[_ctr] = new QVariant(_itr->second);
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnItemData(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_ItemData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ItemData_Callback>(slot));
+void QPdfLinkModel_OnItemData(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_itemdata_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ItemData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_SetItemData(QPdfLinkModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->setItemData(*index, roles_QMap);
-    } else {
-        return self->QPdfLinkModel::setItemData(*index, roles_QMap);
-    }
+    return self->setItemData(*index, roles_QMap);
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperSetItemData(QPdfLinkModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_SetItemData_IsBase(true);
-        return vqpdflinkmodel->setItemData(*index, roles_QMap);
-    } else {
-        return self->QPdfLinkModel::setItemData(*index, roles_QMap);
-    }
+    return self->QPdfLinkModel::setItemData(*index, roles_QMap);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSetItemData(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_SetItemData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SetItemData_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_setitemdata_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SetItemData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_ClearItemData(QPdfLinkModel* self, const QModelIndex* index) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->clearItemData(*index);
-    } else {
-        return self->QPdfLinkModel::clearItemData(*index);
-    }
+    return self->clearItemData(*index);
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperClearItemData(QPdfLinkModel* self, const QModelIndex* index) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_ClearItemData_IsBase(true);
-        return vqpdflinkmodel->clearItemData(*index);
-    } else {
-        return self->QPdfLinkModel::clearItemData(*index);
-    }
+    return self->QPdfLinkModel::clearItemData(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnClearItemData(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_ClearItemData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ClearItemData_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_clearitemdata_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ClearItemData_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of libqt_string */ QPdfLinkModel_MimeTypes(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        QList<QString> _ret = vqpdflinkmodel->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->QPdfLinkModel::mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->mimeTypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QPdfLinkModel_SuperMimeTypes(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_MimeTypes_IsBase(true);
-        QList<QString> _ret = vqpdflinkmodel->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->QPdfLinkModel::mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->QPdfLinkModel::mimeTypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnMimeTypes(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_MimeTypes_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MimeTypes_Callback>(slot));
+void QPdfLinkModel_OnMimeTypes(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_mimetypes_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MimeTypes_Callback>(slot);
 }
 
 // Derived class handler implementation
 QMimeData* QPdfLinkModel_MimeData(const QPdfLinkModel* self, const libqt_list /* of QModelIndex* */ indexes) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
         indexes_QList.push_back(*(indexes_arr[i]));
     }
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->mimeData(indexes_QList);
-    } else {
-        return self->QPdfLinkModel::mimeData(indexes_QList);
-    }
+    return self->mimeData(indexes_QList);
 }
 
 // Base class handler implementation
 QMimeData* QPdfLinkModel_SuperMimeData(const QPdfLinkModel* self, const libqt_list /* of QModelIndex* */ indexes) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
         indexes_QList.push_back(*(indexes_arr[i]));
     }
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_MimeData_IsBase(true);
-        return vqpdflinkmodel->mimeData(indexes_QList);
-    } else {
-        return self->QPdfLinkModel::mimeData(indexes_QList);
-    }
+    return self->QPdfLinkModel::mimeData(indexes_QList);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnMimeData(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_MimeData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MimeData_Callback>(slot));
+void QPdfLinkModel_OnMimeData(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_mimedata_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_CanDropMimeData(const QPdfLinkModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->QPdfLinkModel::canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperCanDropMimeData(const QPdfLinkModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_CanDropMimeData_IsBase(true);
-        return vqpdflinkmodel->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->QPdfLinkModel::canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->QPdfLinkModel::canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnCanDropMimeData(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_CanDropMimeData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_CanDropMimeData_Callback>(slot));
+void QPdfLinkModel_OnCanDropMimeData(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_candropmimedata_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_CanDropMimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPdfLinkModel_SupportedDropActions(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return static_cast<int>(vqpdflinkmodel->supportedDropActions());
-    } else {
-        return static_cast<int>(self->QPdfLinkModel::supportedDropActions());
-    }
+    return static_cast<int>(self->supportedDropActions());
 }
 
 // Base class handler implementation
 int QPdfLinkModel_SuperSupportedDropActions(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_SupportedDropActions_IsBase(true);
-        return static_cast<int>(vqpdflinkmodel->supportedDropActions());
-    } else {
-        return static_cast<int>(self->QPdfLinkModel::supportedDropActions());
-    }
+    return static_cast<int>(self->QPdfLinkModel::supportedDropActions());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnSupportedDropActions(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SupportedDropActions_Callback>(slot));
+void QPdfLinkModel_OnSupportedDropActions(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_supporteddropactions_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SupportedDropActions_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPdfLinkModel_SupportedDragActions(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return static_cast<int>(vqpdflinkmodel->supportedDragActions());
-    } else {
-        return static_cast<int>(self->QPdfLinkModel::supportedDragActions());
-    }
+    return static_cast<int>(self->supportedDragActions());
 }
 
 // Base class handler implementation
 int QPdfLinkModel_SuperSupportedDragActions(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_SupportedDragActions_IsBase(true);
-        return static_cast<int>(vqpdflinkmodel->supportedDragActions());
-    } else {
-        return static_cast<int>(self->QPdfLinkModel::supportedDragActions());
-    }
+    return static_cast<int>(self->QPdfLinkModel::supportedDragActions());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnSupportedDragActions(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_SupportedDragActions_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SupportedDragActions_Callback>(slot));
+void QPdfLinkModel_OnSupportedDragActions(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_supporteddragactions_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SupportedDragActions_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_InsertRows(QPdfLinkModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QPdfLinkModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperInsertRows(QPdfLinkModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_InsertRows_IsBase(true);
-        return vqpdflinkmodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QPdfLinkModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->QPdfLinkModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnInsertRows(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_InsertRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_InsertRows_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_insertrows_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_InsertRows_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_InsertColumns(QPdfLinkModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QPdfLinkModel::insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperInsertColumns(QPdfLinkModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_InsertColumns_IsBase(true);
-        return vqpdflinkmodel->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QPdfLinkModel::insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->QPdfLinkModel::insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnInsertColumns(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_InsertColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_InsertColumns_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_insertcolumns_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_InsertColumns_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_RemoveRows(QPdfLinkModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QPdfLinkModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperRemoveRows(QPdfLinkModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_RemoveRows_IsBase(true);
-        return vqpdflinkmodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QPdfLinkModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->QPdfLinkModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnRemoveRows(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_RemoveRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RemoveRows_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_removerows_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RemoveRows_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_RemoveColumns(QPdfLinkModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QPdfLinkModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperRemoveColumns(QPdfLinkModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_RemoveColumns_IsBase(true);
-        return vqpdflinkmodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QPdfLinkModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->QPdfLinkModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnRemoveColumns(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_RemoveColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RemoveColumns_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_removecolumns_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RemoveColumns_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_MoveRows(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->QPdfLinkModel::moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperMoveRows(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_MoveRows_IsBase(true);
-        return vqpdflinkmodel->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->QPdfLinkModel::moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->QPdfLinkModel::moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnMoveRows(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_MoveRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MoveRows_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_moverows_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MoveRows_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_MoveColumns(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->QPdfLinkModel::moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperMoveColumns(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_MoveColumns_IsBase(true);
-        return vqpdflinkmodel->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->QPdfLinkModel::moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->QPdfLinkModel::moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnMoveColumns(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_MoveColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MoveColumns_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_movecolumns_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MoveColumns_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfLinkModel_FetchMore(QPdfLinkModel* self, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->fetchMore(*parent);
-    } else {
-        self->QPdfLinkModel::fetchMore(*parent);
-    }
+    self->fetchMore(*parent);
 }
 
 // Base class handler implementation
 void QPdfLinkModel_SuperFetchMore(QPdfLinkModel* self, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_FetchMore_IsBase(true);
-        vqpdflinkmodel->fetchMore(*parent);
-    } else {
-        self->QPdfLinkModel::fetchMore(*parent);
-    }
+    self->QPdfLinkModel::fetchMore(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnFetchMore(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_FetchMore_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_FetchMore_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_fetchmore_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_FetchMore_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_CanFetchMore(const QPdfLinkModel* self, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->canFetchMore(*parent);
-    } else {
-        return self->QPdfLinkModel::canFetchMore(*parent);
-    }
+    return self->canFetchMore(*parent);
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperCanFetchMore(const QPdfLinkModel* self, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_CanFetchMore_IsBase(true);
-        return vqpdflinkmodel->canFetchMore(*parent);
-    } else {
-        return self->QPdfLinkModel::canFetchMore(*parent);
-    }
+    return self->QPdfLinkModel::canFetchMore(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnCanFetchMore(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_CanFetchMore_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_CanFetchMore_Callback>(slot));
+void QPdfLinkModel_OnCanFetchMore(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_canfetchmore_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_CanFetchMore_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfLinkModel_Sort(QPdfLinkModel* self, int column, int order) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        self->QPdfLinkModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
+    self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
 }
 
 // Base class handler implementation
 void QPdfLinkModel_SuperSort(QPdfLinkModel* self, int column, int order) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Sort_IsBase(true);
-        vqpdflinkmodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        self->QPdfLinkModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
+    self->QPdfLinkModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSort(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Sort_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Sort_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_sort_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Sort_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* QPdfLinkModel_Buddy(const QPdfLinkModel* self, const QModelIndex* index) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return new QModelIndex(vqpdflinkmodel->buddy(*index));
-    } else {
-        return new QModelIndex(((VirtualQPdfLinkModel*)self)->buddy(*index));
-    }
+    return new QModelIndex(self->buddy(*index));
 }
 
 // Base class handler implementation
 QModelIndex* QPdfLinkModel_SuperBuddy(const QPdfLinkModel* self, const QModelIndex* index) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Buddy_IsBase(true);
-        return new QModelIndex(vqpdflinkmodel->buddy(*index));
-    } else {
-        return new QModelIndex(((VirtualQPdfLinkModel*)self)->buddy(*index));
-    }
+    return new QModelIndex(self->QPdfLinkModel::buddy(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnBuddy(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Buddy_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Buddy_Callback>(slot));
+void QPdfLinkModel_OnBuddy(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_buddy_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Buddy_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of QModelIndex* */ QPdfLinkModel_Match(const QPdfLinkModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        QList<QModelIndex> _ret = vqpdflinkmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = self->QPdfLinkModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QModelIndex> _ret = self->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QModelIndex(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of QModelIndex* */ QPdfLinkModel_SuperMatch(const QPdfLinkModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Match_IsBase(true);
-        QList<QModelIndex> _ret = vqpdflinkmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = self->QPdfLinkModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QModelIndex> _ret = self->QPdfLinkModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QModelIndex(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnMatch(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Match_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Match_Callback>(slot));
+void QPdfLinkModel_OnMatch(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_match_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Match_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QPdfLinkModel_Span(const QPdfLinkModel* self, const QModelIndex* index) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return new QSize(vqpdflinkmodel->span(*index));
-    } else {
-        return new QSize(((VirtualQPdfLinkModel*)self)->span(*index));
-    }
+    return new QSize(self->span(*index));
 }
 
 // Base class handler implementation
 QSize* QPdfLinkModel_SuperSpan(const QPdfLinkModel* self, const QModelIndex* index) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Span_IsBase(true);
-        return new QSize(vqpdflinkmodel->span(*index));
-    } else {
-        return new QSize(((VirtualQPdfLinkModel*)self)->span(*index));
-    }
+    return new QSize(self->QPdfLinkModel::span(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnSpan(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Span_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Span_Callback>(slot));
+void QPdfLinkModel_OnSpan(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_span_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Span_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfLinkModel_MultiData(const QPdfLinkModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->multiData(*index, *roleDataSpan);
-    } else {
-        self->QPdfLinkModel::multiData(*index, *roleDataSpan);
-    }
+    self->multiData(*index, *roleDataSpan);
 }
 
 // Base class handler implementation
 void QPdfLinkModel_SuperMultiData(const QPdfLinkModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_MultiData_IsBase(true);
-        vqpdflinkmodel->multiData(*index, *roleDataSpan);
-    } else {
-        self->QPdfLinkModel::multiData(*index, *roleDataSpan);
-    }
+    self->QPdfLinkModel::multiData(*index, *roleDataSpan);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnMultiData(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_MultiData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MultiData_Callback>(slot));
+void QPdfLinkModel_OnMultiData(QPdfLinkModel* self, intptr_t slot) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
+        vqpdflinkmodel->qpdflinkmodel_multidata_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MultiData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_Submit(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->submit();
-    } else {
-        return self->QPdfLinkModel::submit();
-    }
+    return self->submit();
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperSubmit(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Submit_IsBase(true);
-        return vqpdflinkmodel->submit();
-    } else {
-        return self->QPdfLinkModel::submit();
-    }
+    return self->QPdfLinkModel::submit();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSubmit(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Submit_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Submit_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_submit_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Submit_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfLinkModel_Revert(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->revert();
-    } else {
-        self->QPdfLinkModel::revert();
-    }
+    self->revert();
 }
 
 // Base class handler implementation
 void QPdfLinkModel_SuperRevert(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Revert_IsBase(true);
-        vqpdflinkmodel->revert();
-    } else {
-        self->QPdfLinkModel::revert();
-    }
+    self->QPdfLinkModel::revert();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnRevert(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Revert_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Revert_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_revert_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Revert_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfLinkModel_ResetInternalData(QPdfLinkModel* self) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel) {
         vqpdflinkmodel->resetInternalData();
     } else {
-        ((VirtualQPdfLinkModel*)self)->resetInternalData();
+        qFatal("Error: Protected virtual method QPdfLinkModel::resetInternalData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfLinkModel_SuperResetInternalData(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_ResetInternalData_IsBase(true);
-        vqpdflinkmodel->resetInternalData();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->resetInternalData();
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->QPdfLinkModel::resetInternalData();
+    } else
+        qFatal("Error: Protected virtual method QPdfLinkModel::resetInternalData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnResetInternalData(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_ResetInternalData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ResetInternalData_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_resetinternaldata_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ResetInternalData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_Event(QPdfLinkModel* self, QEvent* event) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->event(event);
-    } else {
-        return self->QPdfLinkModel::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperEvent(QPdfLinkModel* self, QEvent* event) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Event_IsBase(true);
-        return vqpdflinkmodel->event(event);
-    } else {
-        return self->QPdfLinkModel::event(event);
-    }
+    return self->QPdfLinkModel::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnEvent(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Event_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Event_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_event_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfLinkModel_EventFilter(QPdfLinkModel* self, QObject* watched, QEvent* event) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->eventFilter(watched, event);
-    } else {
-        return self->QPdfLinkModel::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QPdfLinkModel_SuperEventFilter(QPdfLinkModel* self, QObject* watched, QEvent* event) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_EventFilter_IsBase(true);
-        return vqpdflinkmodel->eventFilter(watched, event);
-    } else {
-        return self->QPdfLinkModel::eventFilter(watched, event);
-    }
+    return self->QPdfLinkModel::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnEventFilter(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_EventFilter_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EventFilter_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_eventfilter_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfLinkModel_TimerEvent(QPdfLinkModel* self, QTimerEvent* event) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel) {
         vqpdflinkmodel->timerEvent(event);
     } else {
-        ((VirtualQPdfLinkModel*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPdfLinkModel::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfLinkModel_SuperTimerEvent(QPdfLinkModel* self, QTimerEvent* event) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_TimerEvent_IsBase(true);
-        vqpdflinkmodel->timerEvent(event);
-    } else {
-        ((VirtualQPdfLinkModel*)self)->timerEvent(event);
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->QPdfLinkModel::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfLinkModel::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnTimerEvent(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_TimerEvent_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_TimerEvent_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_timerevent_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfLinkModel_ChildEvent(QPdfLinkModel* self, QChildEvent* event) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel) {
         vqpdflinkmodel->childEvent(event);
     } else {
-        ((VirtualQPdfLinkModel*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPdfLinkModel::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfLinkModel_SuperChildEvent(QPdfLinkModel* self, QChildEvent* event) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_ChildEvent_IsBase(true);
-        vqpdflinkmodel->childEvent(event);
-    } else {
-        ((VirtualQPdfLinkModel*)self)->childEvent(event);
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->QPdfLinkModel::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfLinkModel::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnChildEvent(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_ChildEvent_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ChildEvent_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_childevent_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfLinkModel_CustomEvent(QPdfLinkModel* self, QEvent* event) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel) {
         vqpdflinkmodel->customEvent(event);
     } else {
-        ((VirtualQPdfLinkModel*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPdfLinkModel::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfLinkModel_SuperCustomEvent(QPdfLinkModel* self, QEvent* event) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_CustomEvent_IsBase(true);
-        vqpdflinkmodel->customEvent(event);
-    } else {
-        ((VirtualQPdfLinkModel*)self)->customEvent(event);
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->QPdfLinkModel::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfLinkModel::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnCustomEvent(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_CustomEvent_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_CustomEvent_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_customevent_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfLinkModel_ConnectNotify(QPdfLinkModel* self, const QMetaMethod* signal) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel) {
         vqpdflinkmodel->connectNotify(*signal);
     } else {
-        ((VirtualQPdfLinkModel*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPdfLinkModel::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfLinkModel_SuperConnectNotify(QPdfLinkModel* self, const QMetaMethod* signal) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_ConnectNotify_IsBase(true);
-        vqpdflinkmodel->connectNotify(*signal);
-    } else {
-        ((VirtualQPdfLinkModel*)self)->connectNotify(*signal);
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->QPdfLinkModel::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPdfLinkModel::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnConnectNotify(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_ConnectNotify_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ConnectNotify_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_connectnotify_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfLinkModel_DisconnectNotify(QPdfLinkModel* self, const QMetaMethod* signal) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel) {
         vqpdflinkmodel->disconnectNotify(*signal);
     } else {
-        ((VirtualQPdfLinkModel*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPdfLinkModel::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfLinkModel_SuperDisconnectNotify(QPdfLinkModel* self, const QMetaMethod* signal) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_DisconnectNotify_IsBase(true);
-        vqpdflinkmodel->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPdfLinkModel*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->QPdfLinkModel::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPdfLinkModel::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnDisconnectNotify(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_DisconnectNotify_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_DisconnectNotify_Callback>(slot));
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self))
+        vqpdflinkmodel->qpdflinkmodel_disconnectnotify_callback = reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* QPdfLinkModel_CreateIndex(const QPdfLinkModel* self, int row, int column) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self)))
         return new QModelIndex(vqpdflinkmodel->createIndex(static_cast<int>(row), static_cast<int>(column)));
-    }
-    return {};
+    qFatal("Error: Protected method QPdfLinkModel::createIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-QModelIndex* QPdfLinkModel_SuperCreateIndex(const QPdfLinkModel* self, int row, int column) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_CreateIndex_IsBase(true);
-        return new QModelIndex(vqpdflinkmodel->createIndex(static_cast<int>(row), static_cast<int>(column)));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnCreateIndex(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_CreateIndex_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_CreateIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_EncodeData(const QPdfLinkModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    QList<QModelIndex> indexes_QList;
-    indexes_QList.reserve(indexes.len);
-    QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
-    for (size_t i = 0; i < indexes.len; ++i) {
-        indexes_QList.push_back(*(indexes_arr[i]));
-    }
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->encodeData(indexes_QList, *stream);
-    } else {
-        ((VirtualQPdfLinkModel*)self)->encodeData(indexes_QList, *stream);
-    }
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self))) {
+        QList<QModelIndex> indexes_QList;
+        indexes_QList.reserve(indexes.len);
+        QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
+        for (size_t i = 0; i < indexes.len; ++i) {
+            indexes_QList.push_back(*(indexes_arr[i]));
+        }
+        vqpdflinkmodel->VirtualQPdfLinkModel::encodeData(indexes_QList, *stream);
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::encodeData called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperEncodeData(const QPdfLinkModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    QList<QModelIndex> indexes_QList;
-    indexes_QList.reserve(indexes.len);
-    QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
-    for (size_t i = 0; i < indexes.len; ++i) {
-        indexes_QList.push_back(*(indexes_arr[i]));
-    }
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_EncodeData_IsBase(true);
-        vqpdflinkmodel->encodeData(indexes_QList, *stream);
-    } else {
-        ((VirtualQPdfLinkModel*)self)->encodeData(indexes_QList, *stream);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnEncodeData(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_EncodeData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EncodeData_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPdfLinkModel_DecodeData(QPdfLinkModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        return vqpdflinkmodel->VirtualQPdfLinkModel::decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::decodeData called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPdfLinkModel_SuperDecodeData(QPdfLinkModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_DecodeData_IsBase(true);
-        return vqpdflinkmodel->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnDecodeData(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_DecodeData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_DecodeData_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_BeginInsertRows(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQPdfLinkModel*)self)->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->VirtualQPdfLinkModel::beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::beginInsertRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperBeginInsertRows(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_BeginInsertRows_IsBase(true);
-        vqpdflinkmodel->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQPdfLinkModel*)self)->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnBeginInsertRows(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_BeginInsertRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_BeginInsertRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_EndInsertRows(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->endInsertRows();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->endInsertRows();
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->VirtualQPdfLinkModel::endInsertRows();
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::endInsertRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperEndInsertRows(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_EndInsertRows_IsBase(true);
-        vqpdflinkmodel->endInsertRows();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->endInsertRows();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnEndInsertRows(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_EndInsertRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EndInsertRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_BeginRemoveRows(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQPdfLinkModel*)self)->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->VirtualQPdfLinkModel::beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::beginRemoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperBeginRemoveRows(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_BeginRemoveRows_IsBase(true);
-        vqpdflinkmodel->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQPdfLinkModel*)self)->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnBeginRemoveRows(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_BeginRemoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_EndRemoveRows(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->endRemoveRows();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->endRemoveRows();
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->VirtualQPdfLinkModel::endRemoveRows();
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::endRemoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperEndRemoveRows(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_EndRemoveRows_IsBase(true);
-        vqpdflinkmodel->endRemoveRows();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->endRemoveRows();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnEndRemoveRows(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_EndRemoveRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EndRemoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPdfLinkModel_BeginMoveRows(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        return vqpdflinkmodel->VirtualQPdfLinkModel::beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::beginMoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPdfLinkModel_SuperBeginMoveRows(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_BeginMoveRows_IsBase(true);
-        return vqpdflinkmodel->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnBeginMoveRows(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_BeginMoveRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_BeginMoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_EndMoveRows(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->endMoveRows();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->endMoveRows();
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->VirtualQPdfLinkModel::endMoveRows();
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::endMoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperEndMoveRows(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_EndMoveRows_IsBase(true);
-        vqpdflinkmodel->endMoveRows();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->endMoveRows();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnEndMoveRows(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_EndMoveRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EndMoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_BeginInsertColumns(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQPdfLinkModel*)self)->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->VirtualQPdfLinkModel::beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::beginInsertColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperBeginInsertColumns(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_BeginInsertColumns_IsBase(true);
-        vqpdflinkmodel->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQPdfLinkModel*)self)->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnBeginInsertColumns(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_BeginInsertColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_EndInsertColumns(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->endInsertColumns();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->endInsertColumns();
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->VirtualQPdfLinkModel::endInsertColumns();
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::endInsertColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperEndInsertColumns(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_EndInsertColumns_IsBase(true);
-        vqpdflinkmodel->endInsertColumns();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->endInsertColumns();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnEndInsertColumns(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_EndInsertColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EndInsertColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_BeginRemoveColumns(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQPdfLinkModel*)self)->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->VirtualQPdfLinkModel::beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::beginRemoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperBeginRemoveColumns(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_BeginRemoveColumns_IsBase(true);
-        vqpdflinkmodel->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQPdfLinkModel*)self)->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnBeginRemoveColumns(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_BeginRemoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_EndRemoveColumns(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->endRemoveColumns();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->endRemoveColumns();
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->VirtualQPdfLinkModel::endRemoveColumns();
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::endRemoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperEndRemoveColumns(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_EndRemoveColumns_IsBase(true);
-        vqpdflinkmodel->endRemoveColumns();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->endRemoveColumns();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnEndRemoveColumns(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EndRemoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPdfLinkModel_BeginMoveColumns(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        return vqpdflinkmodel->VirtualQPdfLinkModel::beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::beginMoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPdfLinkModel_SuperBeginMoveColumns(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_BeginMoveColumns_IsBase(true);
-        return vqpdflinkmodel->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnBeginMoveColumns(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_BeginMoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_EndMoveColumns(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->endMoveColumns();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->endMoveColumns();
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->VirtualQPdfLinkModel::endMoveColumns();
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::endMoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperEndMoveColumns(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_EndMoveColumns_IsBase(true);
-        vqpdflinkmodel->endMoveColumns();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->endMoveColumns();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnEndMoveColumns(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_EndMoveColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EndMoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_BeginResetModel(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->beginResetModel();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->beginResetModel();
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->VirtualQPdfLinkModel::beginResetModel();
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::beginResetModel called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperBeginResetModel(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_BeginResetModel_IsBase(true);
-        vqpdflinkmodel->beginResetModel();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->beginResetModel();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnBeginResetModel(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_BeginResetModel_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_BeginResetModel_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_EndResetModel(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->endResetModel();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->endResetModel();
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->VirtualQPdfLinkModel::endResetModel();
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::endResetModel called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperEndResetModel(QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_EndResetModel_IsBase(true);
-        vqpdflinkmodel->endResetModel();
-    } else {
-        ((VirtualQPdfLinkModel*)self)->endResetModel();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnEndResetModel(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_EndResetModel_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EndResetModel_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_ChangePersistentIndex(QPdfLinkModel* self, const QModelIndex* from, const QModelIndex* to) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->changePersistentIndex(*from, *to);
-    } else {
-        ((VirtualQPdfLinkModel*)self)->changePersistentIndex(*from, *to);
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        vqpdflinkmodel->VirtualQPdfLinkModel::changePersistentIndex(*from, *to);
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::changePersistentIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperChangePersistentIndex(QPdfLinkModel* self, const QModelIndex* from, const QModelIndex* to) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_ChangePersistentIndex_IsBase(true);
-        vqpdflinkmodel->changePersistentIndex(*from, *to);
-    } else {
-        ((VirtualQPdfLinkModel*)self)->changePersistentIndex(*from, *to);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnChangePersistentIndex(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ChangePersistentIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfLinkModel_ChangePersistentIndexList(QPdfLinkModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    QList<QModelIndex> from_QList;
-    from_QList.reserve(from.len);
-    QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
-    for (size_t i = 0; i < from.len; ++i) {
-        from_QList.push_back(*(from_arr[i]));
-    }
-    QList<QModelIndex> to_QList;
-    to_QList.reserve(to.len);
-    QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
-    for (size_t i = 0; i < to.len; ++i) {
-        to_QList.push_back(*(to_arr[i]));
-    }
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->changePersistentIndexList(from_QList, to_QList);
-    } else {
-        ((VirtualQPdfLinkModel*)self)->changePersistentIndexList(from_QList, to_QList);
-    }
+    if (auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self)) {
+        QList<QModelIndex> from_QList;
+        from_QList.reserve(from.len);
+        QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
+        for (size_t i = 0; i < from.len; ++i) {
+            from_QList.push_back(*(from_arr[i]));
+        }
+        QList<QModelIndex> to_QList;
+        to_QList.reserve(to.len);
+        QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
+        for (size_t i = 0; i < to.len; ++i) {
+            to_QList.push_back(*(to_arr[i]));
+        }
+        vqpdflinkmodel->VirtualQPdfLinkModel::changePersistentIndexList(from_QList, to_QList);
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::changePersistentIndexList called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfLinkModel_SuperChangePersistentIndexList(QPdfLinkModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    QList<QModelIndex> from_QList;
-    from_QList.reserve(from.len);
-    QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
-    for (size_t i = 0; i < from.len; ++i) {
-        from_QList.push_back(*(from_arr[i]));
-    }
-    QList<QModelIndex> to_QList;
-    to_QList.reserve(to.len);
-    QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
-    for (size_t i = 0; i < to.len; ++i) {
-        to_QList.push_back(*(to_arr[i]));
-    }
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_ChangePersistentIndexList_IsBase(true);
-        vqpdflinkmodel->changePersistentIndexList(from_QList, to_QList);
-    } else {
-        ((VirtualQPdfLinkModel*)self)->changePersistentIndexList(from_QList, to_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnChangePersistentIndexList(QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ChangePersistentIndexList_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of QModelIndex* */ QPdfLinkModel_PersistentIndexList(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        QList<QModelIndex> _ret = vqpdflinkmodel->persistentIndexList();
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self))) {
+        QList<QModelIndex> _ret = vqpdflinkmodel->VirtualQPdfLinkModel::persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -2133,166 +1186,40 @@ libqt_list /* of QModelIndex* */ QPdfLinkModel_PersistentIndexList(const QPdfLin
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualQPdfLinkModel*)self)->persistentIndexList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::persistentIndexList called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of QModelIndex* */ QPdfLinkModel_SuperPersistentIndexList(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_PersistentIndexList_IsBase(true);
-        QList<QModelIndex> _ret = vqpdflinkmodel->persistentIndexList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualQPdfLinkModel*)self)->persistentIndexList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnPersistentIndexList(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_PersistentIndexList_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_PersistentIndexList_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPdfLinkModel_Sender(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->sender();
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->sender();
-    }
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self))) {
+        return vqpdflinkmodel->VirtualQPdfLinkModel::sender();
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPdfLinkModel_SuperSender(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Sender_IsBase(true);
-        return vqpdflinkmodel->sender();
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnSender(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Sender_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPdfLinkModel_SenderSignalIndex(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->senderSignalIndex();
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->senderSignalIndex();
-    }
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self))) {
+        return vqpdflinkmodel->VirtualQPdfLinkModel::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPdfLinkModel_SuperSenderSignalIndex(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_SenderSignalIndex_IsBase(true);
-        return vqpdflinkmodel->senderSignalIndex();
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnSenderSignalIndex(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPdfLinkModel_Receivers(const QPdfLinkModel* self, const char* signal) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->receivers(signal);
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->receivers(signal);
-    }
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self))) {
+        return vqpdflinkmodel->VirtualQPdfLinkModel::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPdfLinkModel_SuperReceivers(const QPdfLinkModel* self, const char* signal) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_Receivers_IsBase(true);
-        return vqpdflinkmodel->receivers(signal);
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnReceivers(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_Receivers_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPdfLinkModel_IsSignalConnected(const QPdfLinkModel* self, const QMetaMethod* signal) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return vqpdflinkmodel->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QPdfLinkModel_SuperIsSignalConnected(const QPdfLinkModel* self, const QMetaMethod* signal) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        vqpdflinkmodel->setQPdfLinkModel_IsSignalConnected_IsBase(true);
-        return vqpdflinkmodel->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfLinkModel_OnIsSignalConnected(const QPdfLinkModel* self, intptr_t slot) {
-    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
-        vqpdflinkmodel->setQPdfLinkModel_IsSignalConnected_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_IsSignalConnected_Callback>(slot));
+    if (auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self))) {
+        return vqpdflinkmodel->VirtualQPdfLinkModel::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPdfLinkModel::isSignalConnected called without a directly constructed type");
 }
 
 void QPdfLinkModel_Delete(QPdfLinkModel* self) {

@@ -1,9 +1,5 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const QVariant = @import("libqt6").QVariant;
-const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
-const qprintengine_enums = enums;
-const qprinter_enums = @import("libqprinter.zig").enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html)
 pub const QPrintEngine = extern struct {
@@ -14,103 +10,6 @@ pub const QPrintEngine = extern struct {
     ptr: QtC.QPrintEngine,
 
     pub const _is_QPrintEngine = {};
-
-    /// ### DEPRECATED: Use `setProperty` instead
-    ///
-    pub const SetProperty = setProperty;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#setProperty)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintEngine `
-    ///
-    /// ` key: qprintengine_enums.PrintEnginePropertyKey `
-    ///
-    /// ` value: QVariant `
-    ///
-    pub fn setProperty(self: QPrintEngine, key: i32, value: anytype) void {
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QPrintEngine_SetProperty(@ptrCast(self.ptr), @bitCast(key), @ptrCast(value.ptr));
-    }
-
-    /// ### DEPRECATED: Use `property` instead
-    ///
-    pub const Property = property;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#property)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintEngine `
-    ///
-    /// ` key: qprintengine_enums.PrintEnginePropertyKey `
-    ///
-    pub fn property(self: QPrintEngine, key: i32) QVariant {
-        return .{ .ptr = qtc.QPrintEngine_Property(@ptrCast(self.ptr), @bitCast(key)) };
-    }
-
-    /// ### DEPRECATED: Use `newPage` instead
-    ///
-    pub const NewPage = newPage;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#newPage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintEngine `
-    ///
-    pub fn newPage(self: QPrintEngine) bool {
-        return qtc.QPrintEngine_NewPage(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `abort` instead
-    ///
-    pub const Abort = abort;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#abort)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintEngine `
-    ///
-    pub fn abort(self: QPrintEngine) bool {
-        return qtc.QPrintEngine_Abort(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `metric` instead
-    ///
-    pub const Metric = metric;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#metric)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintEngine `
-    ///
-    /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn metric(self: QPrintEngine, param1: i32) i32 {
-        return qtc.QPrintEngine_Metric(@ptrCast(self.ptr), @bitCast(param1));
-    }
-
-    /// ### DEPRECATED: Use `printerState` instead
-    ///
-    pub const PrinterState = printerState;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#printerState)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintEngine `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qprinter_enums.PrinterState `
-    ///
-    pub fn printerState(self: QPrintEngine) i32 {
-        return qtc.QPrintEngine_PrinterState(@ptrCast(self.ptr));
-    }
 
     /// ### DEPRECATED: Use `operatorAssign` instead
     ///

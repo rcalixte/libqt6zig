@@ -580,9 +580,9 @@ pub const KTextEditor__CodeCompletionModelControllerInterface = extern struct {
     ///
     /// ` self: KTextEditor__CodeCompletionModelControllerInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModelControllerInterface) callconv(.c) bool `
     ///
-    pub fn onShouldHideItemsWithEqualNames(self: KTextEditor__CodeCompletionModelControllerInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onShouldHideItemsWithEqualNames(self: KTextEditor__CodeCompletionModelControllerInterface, callback: *const fn (KTextEditor__CodeCompletionModelControllerInterface) callconv(.c) bool) void {
         qtc.KTextEditor__CodeCompletionModelControllerInterface_OnShouldHideItemsWithEqualNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

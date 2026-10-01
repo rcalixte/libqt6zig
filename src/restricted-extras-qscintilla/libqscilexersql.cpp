@@ -184,1191 +184,726 @@ libqt_string QsciLexerSQL_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QsciLexerSQL_SuperMetaObject(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_MetaObject_IsBase(true);
-        return (QMetaObject*)vqscilexersql->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerSQL*)self)->metaObject();
-    }
+    return (QMetaObject*)self->QsciLexerSQL::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnMetaObject(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_MetaObject_Callback>(slot));
+void QsciLexerSQL_OnMetaObject(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_metaobject_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QsciLexerSQL_SuperMetacast(QsciLexerSQL* self, const char* param1) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_Metacast_IsBase(true);
-        return vqscilexersql->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->qt_metacast(param1);
-    }
+    return self->QsciLexerSQL::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnMetacast(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_Metacast_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Metacast_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_metacast_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QsciLexerSQL_SuperMetacall(QsciLexerSQL* self, int param1, int param2, void** param3) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_Metacall_IsBase(true);
-        return vqscilexersql->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QsciLexerSQL::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnMetacall(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_Metacall_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Metacall_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_metacall_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciLexerSQL_SuperSetBackslashEscapes(QsciLexerSQL* self, bool enable) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_SetBackslashEscapes_IsBase(true);
-        vqscilexersql->setBackslashEscapes(enable);
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setBackslashEscapes(enable);
-    }
+    self->QsciLexerSQL::setBackslashEscapes(enable);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnSetBackslashEscapes(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_SetBackslashEscapes_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetBackslashEscapes_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_setbackslashescapes_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetBackslashEscapes_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciLexerSQL_SuperSetFoldComments(QsciLexerSQL* self, bool fold) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_SetFoldComments_IsBase(true);
-        vqscilexersql->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setFoldComments(fold);
-    }
+    self->QsciLexerSQL::setFoldComments(fold);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnSetFoldComments(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetFoldComments_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_setfoldcomments_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetFoldComments_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciLexerSQL_SuperSetFoldCompact(QsciLexerSQL* self, bool fold) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_SetFoldCompact_IsBase(true);
-        vqscilexersql->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setFoldCompact(fold);
-    }
+    self->QsciLexerSQL::setFoldCompact(fold);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnSetFoldCompact(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetFoldCompact_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_setfoldcompact_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetFoldCompact_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerSQL_LexerId(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return vqscilexersql->lexerId();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->lexerId();
-    }
+    return self->lexerId();
 }
 
 // Base class handler implementation
 int QsciLexerSQL_SuperLexerId(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_LexerId_IsBase(true);
-        return vqscilexersql->lexerId();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->lexerId();
-    }
+    return self->QsciLexerSQL::lexerId();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnLexerId(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_LexerId_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_LexerId_Callback>(slot));
+void QsciLexerSQL_OnLexerId(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_lexerid_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_LexerId_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerSQL_AutoCompletionFillups(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return (const char*)vqscilexersql->autoCompletionFillups();
-    } else {
-        return (const char*)((VirtualQsciLexerSQL*)self)->autoCompletionFillups();
-    }
+    return (const char*)self->autoCompletionFillups();
 }
 
 // Base class handler implementation
 const char* QsciLexerSQL_SuperAutoCompletionFillups(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_AutoCompletionFillups_IsBase(true);
-        return (const char*)vqscilexersql->autoCompletionFillups();
-    } else {
-        return (const char*)((VirtualQsciLexerSQL*)self)->autoCompletionFillups();
-    }
+    return (const char*)self->QsciLexerSQL::autoCompletionFillups();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnAutoCompletionFillups(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_AutoCompletionFillups_Callback>(slot));
+void QsciLexerSQL_OnAutoCompletionFillups(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_autocompletionfillups_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_AutoCompletionFillups_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of libqt_string */ QsciLexerSQL_AutoCompletionWordSeparators(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        QList<QString> _ret = vqscilexersql->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQsciLexerSQL*)self)->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->autoCompletionWordSeparators();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QsciLexerSQL_SuperAutoCompletionWordSeparators(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_AutoCompletionWordSeparators_IsBase(true);
-        QList<QString> _ret = vqscilexersql->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQsciLexerSQL*)self)->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->QsciLexerSQL::autoCompletionWordSeparators();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnAutoCompletionWordSeparators(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_AutoCompletionWordSeparators_Callback>(slot));
+void QsciLexerSQL_OnAutoCompletionWordSeparators(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_autocompletionwordseparators_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_AutoCompletionWordSeparators_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerSQL_BlockEnd(const QsciLexerSQL* self, int* style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return (const char*)vqscilexersql->blockEnd(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerSQL*)self)->blockEnd(static_cast<int*>(style));
-    }
+    return (const char*)self->blockEnd(static_cast<int*>(style));
 }
 
 // Base class handler implementation
 const char* QsciLexerSQL_SuperBlockEnd(const QsciLexerSQL* self, int* style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_BlockEnd_IsBase(true);
-        return (const char*)vqscilexersql->blockEnd(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerSQL*)self)->blockEnd(static_cast<int*>(style));
-    }
+    return (const char*)self->QsciLexerSQL::blockEnd(static_cast<int*>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnBlockEnd(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_BlockEnd_Callback>(slot));
+void QsciLexerSQL_OnBlockEnd(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_blockend_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_BlockEnd_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerSQL_BlockLookback(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return vqscilexersql->blockLookback();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->blockLookback();
-    }
+    return self->blockLookback();
 }
 
 // Base class handler implementation
 int QsciLexerSQL_SuperBlockLookback(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_BlockLookback_IsBase(true);
-        return vqscilexersql->blockLookback();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->blockLookback();
-    }
+    return self->QsciLexerSQL::blockLookback();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnBlockLookback(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_BlockLookback_Callback>(slot));
+void QsciLexerSQL_OnBlockLookback(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_blocklookback_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_BlockLookback_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerSQL_BlockStart(const QsciLexerSQL* self, int* style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return (const char*)vqscilexersql->blockStart(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerSQL*)self)->blockStart(static_cast<int*>(style));
-    }
+    return (const char*)self->blockStart(static_cast<int*>(style));
 }
 
 // Base class handler implementation
 const char* QsciLexerSQL_SuperBlockStart(const QsciLexerSQL* self, int* style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_BlockStart_IsBase(true);
-        return (const char*)vqscilexersql->blockStart(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerSQL*)self)->blockStart(static_cast<int*>(style));
-    }
+    return (const char*)self->QsciLexerSQL::blockStart(static_cast<int*>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnBlockStart(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_BlockStart_Callback>(slot));
+void QsciLexerSQL_OnBlockStart(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_blockstart_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_BlockStart_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerSQL_BlockStartKeyword(const QsciLexerSQL* self, int* style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return (const char*)vqscilexersql->blockStartKeyword(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerSQL*)self)->blockStartKeyword(static_cast<int*>(style));
-    }
+    return (const char*)self->blockStartKeyword(static_cast<int*>(style));
 }
 
 // Base class handler implementation
 const char* QsciLexerSQL_SuperBlockStartKeyword(const QsciLexerSQL* self, int* style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_BlockStartKeyword_IsBase(true);
-        return (const char*)vqscilexersql->blockStartKeyword(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerSQL*)self)->blockStartKeyword(static_cast<int*>(style));
-    }
+    return (const char*)self->QsciLexerSQL::blockStartKeyword(static_cast<int*>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnBlockStartKeyword(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_BlockStartKeyword_Callback>(slot));
+void QsciLexerSQL_OnBlockStartKeyword(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_blockstartkeyword_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_BlockStartKeyword_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerSQL_CaseSensitive(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return vqscilexersql->caseSensitive();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->caseSensitive();
-    }
+    return self->caseSensitive();
 }
 
 // Base class handler implementation
 bool QsciLexerSQL_SuperCaseSensitive(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_CaseSensitive_IsBase(true);
-        return vqscilexersql->caseSensitive();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->caseSensitive();
-    }
+    return self->QsciLexerSQL::caseSensitive();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnCaseSensitive(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_CaseSensitive_Callback>(slot));
+void QsciLexerSQL_OnCaseSensitive(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_casesensitive_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_CaseSensitive_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerSQL_Color(const QsciLexerSQL* self, int style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return new QColor(vqscilexersql->color(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerSQL*)self)->color(static_cast<int>(style)));
-    }
+    return new QColor(self->color(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerSQL_SuperColor(const QsciLexerSQL* self, int style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_Color_IsBase(true);
-        return new QColor(vqscilexersql->color(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerSQL*)self)->color(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerSQL::color(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnColor(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_Color_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Color_Callback>(slot));
+void QsciLexerSQL_OnColor(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_color_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Color_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerSQL_EolFill(const QsciLexerSQL* self, int style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return vqscilexersql->eolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->eolFill(static_cast<int>(style));
-    }
+    return self->eolFill(static_cast<int>(style));
 }
 
 // Base class handler implementation
 bool QsciLexerSQL_SuperEolFill(const QsciLexerSQL* self, int style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_EolFill_IsBase(true);
-        return vqscilexersql->eolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->eolFill(static_cast<int>(style));
-    }
+    return self->QsciLexerSQL::eolFill(static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnEolFill(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_EolFill_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_EolFill_Callback>(slot));
+void QsciLexerSQL_OnEolFill(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_eolfill_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_EolFill_Callback>(slot);
 }
 
 // Derived class handler implementation
 QFont* QsciLexerSQL_Font(const QsciLexerSQL* self, int style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return new QFont(vqscilexersql->font(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerSQL*)self)->font(static_cast<int>(style)));
-    }
+    return new QFont(self->font(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QFont* QsciLexerSQL_SuperFont(const QsciLexerSQL* self, int style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_Font_IsBase(true);
-        return new QFont(vqscilexersql->font(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerSQL*)self)->font(static_cast<int>(style)));
-    }
+    return new QFont(self->QsciLexerSQL::font(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnFont(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_Font_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Font_Callback>(slot));
+void QsciLexerSQL_OnFont(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_font_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Font_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerSQL_IndentationGuideView(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return vqscilexersql->indentationGuideView();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->indentationGuideView();
-    }
+    return self->indentationGuideView();
 }
 
 // Base class handler implementation
 int QsciLexerSQL_SuperIndentationGuideView(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_IndentationGuideView_IsBase(true);
-        return vqscilexersql->indentationGuideView();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->indentationGuideView();
-    }
+    return self->QsciLexerSQL::indentationGuideView();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnIndentationGuideView(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_IndentationGuideView_Callback>(slot));
+void QsciLexerSQL_OnIndentationGuideView(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_indentationguideview_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_IndentationGuideView_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerSQL_DefaultStyle(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return vqscilexersql->defaultStyle();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->defaultStyle();
-    }
+    return self->defaultStyle();
 }
 
 // Base class handler implementation
 int QsciLexerSQL_SuperDefaultStyle(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_DefaultStyle_IsBase(true);
-        return vqscilexersql->defaultStyle();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->defaultStyle();
-    }
+    return self->QsciLexerSQL::defaultStyle();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnDefaultStyle(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DefaultStyle_Callback>(slot));
+void QsciLexerSQL_OnDefaultStyle(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_defaultstyle_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DefaultStyle_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerSQL_Paper(const QsciLexerSQL* self, int style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return new QColor(vqscilexersql->paper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerSQL*)self)->paper(static_cast<int>(style)));
-    }
+    return new QColor(self->paper(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerSQL_SuperPaper(const QsciLexerSQL* self, int style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_Paper_IsBase(true);
-        return new QColor(vqscilexersql->paper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerSQL*)self)->paper(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerSQL::paper(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnPaper(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_Paper_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Paper_Callback>(slot));
+void QsciLexerSQL_OnPaper(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_paper_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Paper_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerSQL_DefaultColor2(const QsciLexerSQL* self, int style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return new QColor(vqscilexersql->defaultColor(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerSQL*)self)->defaultColor(static_cast<int>(style)));
-    }
+    return new QColor(self->defaultColor(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerSQL_SuperDefaultColor2(const QsciLexerSQL* self, int style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_DefaultColor2_IsBase(true);
-        return new QColor(vqscilexersql->defaultColor(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerSQL*)self)->defaultColor(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerSQL::defaultColor(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnDefaultColor2(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DefaultColor2_Callback>(slot));
+void QsciLexerSQL_OnDefaultColor2(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_defaultcolor2_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DefaultColor2_Callback>(slot);
 }
 
 // Derived class handler implementation
 QFont* QsciLexerSQL_DefaultFont2(const QsciLexerSQL* self, int style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return new QFont(vqscilexersql->defaultFont(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerSQL*)self)->defaultFont(static_cast<int>(style)));
-    }
+    return new QFont(self->defaultFont(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QFont* QsciLexerSQL_SuperDefaultFont2(const QsciLexerSQL* self, int style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_DefaultFont2_IsBase(true);
-        return new QFont(vqscilexersql->defaultFont(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerSQL*)self)->defaultFont(static_cast<int>(style)));
-    }
+    return new QFont(self->QsciLexerSQL::defaultFont(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnDefaultFont2(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DefaultFont2_Callback>(slot));
+void QsciLexerSQL_OnDefaultFont2(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_defaultfont2_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DefaultFont2_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerSQL_DefaultPaper2(const QsciLexerSQL* self, int style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return new QColor(vqscilexersql->defaultPaper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerSQL*)self)->defaultPaper(static_cast<int>(style)));
-    }
+    return new QColor(self->defaultPaper(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerSQL_SuperDefaultPaper2(const QsciLexerSQL* self, int style) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_DefaultPaper2_IsBase(true);
-        return new QColor(vqscilexersql->defaultPaper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerSQL*)self)->defaultPaper(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerSQL::defaultPaper(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnDefaultPaper2(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DefaultPaper2_Callback>(slot));
+void QsciLexerSQL_OnDefaultPaper2(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_defaultpaper2_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DefaultPaper2_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerSQL_SetEditor(QsciLexerSQL* self, QsciScintilla* editor) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setEditor(editor);
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setEditor(editor);
-    }
+    self->setEditor(editor);
 }
 
 // Base class handler implementation
 void QsciLexerSQL_SuperSetEditor(QsciLexerSQL* self, QsciScintilla* editor) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_SetEditor_IsBase(true);
-        vqscilexersql->setEditor(editor);
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setEditor(editor);
-    }
+    self->QsciLexerSQL::setEditor(editor);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnSetEditor(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetEditor_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_seteditor_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerSQL_StyleBitsNeeded(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return vqscilexersql->styleBitsNeeded();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->styleBitsNeeded();
-    }
+    return self->styleBitsNeeded();
 }
 
 // Base class handler implementation
 int QsciLexerSQL_SuperStyleBitsNeeded(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_StyleBitsNeeded_IsBase(true);
-        return vqscilexersql->styleBitsNeeded();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->styleBitsNeeded();
-    }
+    return self->QsciLexerSQL::styleBitsNeeded();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnStyleBitsNeeded(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_StyleBitsNeeded_Callback>(slot));
+void QsciLexerSQL_OnStyleBitsNeeded(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_stylebitsneeded_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_StyleBitsNeeded_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerSQL_WordCharacters(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return (const char*)vqscilexersql->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexerSQL*)self)->wordCharacters();
-    }
+    return (const char*)self->wordCharacters();
 }
 
 // Base class handler implementation
 const char* QsciLexerSQL_SuperWordCharacters(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_WordCharacters_IsBase(true);
-        return (const char*)vqscilexersql->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexerSQL*)self)->wordCharacters();
-    }
+    return (const char*)self->QsciLexerSQL::wordCharacters();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnWordCharacters(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_WordCharacters_Callback>(slot));
+void QsciLexerSQL_OnWordCharacters(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_wordcharacters_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_WordCharacters_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerSQL_SetAutoIndentStyle(QsciLexerSQL* self, int autoindentstyle) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    }
+    self->setAutoIndentStyle(static_cast<int>(autoindentstyle));
 }
 
 // Base class handler implementation
 void QsciLexerSQL_SuperSetAutoIndentStyle(QsciLexerSQL* self, int autoindentstyle) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_SetAutoIndentStyle_IsBase(true);
-        vqscilexersql->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    }
+    self->QsciLexerSQL::setAutoIndentStyle(static_cast<int>(autoindentstyle));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnSetAutoIndentStyle(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetAutoIndentStyle_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_setautoindentstyle_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetAutoIndentStyle_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerSQL_SetColor(QsciLexerSQL* self, const QColor* c, int style) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setColor(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setColor(*c, static_cast<int>(style));
-    }
+    self->setColor(*c, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerSQL_SuperSetColor(QsciLexerSQL* self, const QColor* c, int style) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_SetColor_IsBase(true);
-        vqscilexersql->setColor(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setColor(*c, static_cast<int>(style));
-    }
+    self->QsciLexerSQL::setColor(*c, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnSetColor(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_SetColor_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetColor_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_setcolor_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetColor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerSQL_SetEolFill(QsciLexerSQL* self, bool eoffill, int style) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setEolFill(eoffill, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setEolFill(eoffill, static_cast<int>(style));
-    }
+    self->setEolFill(eoffill, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerSQL_SuperSetEolFill(QsciLexerSQL* self, bool eoffill, int style) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_SetEolFill_IsBase(true);
-        vqscilexersql->setEolFill(eoffill, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setEolFill(eoffill, static_cast<int>(style));
-    }
+    self->QsciLexerSQL::setEolFill(eoffill, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnSetEolFill(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetEolFill_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_seteolfill_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetEolFill_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerSQL_SetFont(QsciLexerSQL* self, const QFont* f, int style) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setFont(*f, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setFont(*f, static_cast<int>(style));
-    }
+    self->setFont(*f, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerSQL_SuperSetFont(QsciLexerSQL* self, const QFont* f, int style) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_SetFont_IsBase(true);
-        vqscilexersql->setFont(*f, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setFont(*f, static_cast<int>(style));
-    }
+    self->QsciLexerSQL::setFont(*f, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnSetFont(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_SetFont_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetFont_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_setfont_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetFont_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerSQL_SetPaper(QsciLexerSQL* self, const QColor* c, int style) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setPaper(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setPaper(*c, static_cast<int>(style));
-    }
+    self->setPaper(*c, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerSQL_SuperSetPaper(QsciLexerSQL* self, const QColor* c, int style) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_SetPaper_IsBase(true);
-        vqscilexersql->setPaper(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setPaper(*c, static_cast<int>(style));
-    }
+    self->QsciLexerSQL::setPaper(*c, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnSetPaper(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetPaper_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_setpaper_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SetPaper_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerSQL_ReadProperties(QsciLexerSQL* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
+    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
+    if (vqscilexersql) {
         return vqscilexersql->readProperties(*qs, prefix_QString);
     } else {
-        return ((VirtualQsciLexerSQL*)self)->readProperties(*qs, prefix_QString);
+        qFatal("Error: Protected virtual method QsciLexerSQL::readProperties called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QsciLexerSQL_SuperReadProperties(QsciLexerSQL* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_ReadProperties_IsBase(true);
-        return vqscilexersql->readProperties(*qs, prefix_QString);
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->readProperties(*qs, prefix_QString);
-    }
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self)) {
+        return vqscilexersql->QsciLexerSQL::readProperties(*qs, prefix_QString);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerSQL::readProperties called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnReadProperties(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_ReadProperties_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_readproperties_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_ReadProperties_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerSQL_WriteProperties(const QsciLexerSQL* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
+    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
+    if (vqscilexersql) {
         return vqscilexersql->writeProperties(*qs, prefix_QString);
     } else {
-        return ((VirtualQsciLexerSQL*)self)->writeProperties(*qs, prefix_QString);
+        qFatal("Error: Protected virtual method QsciLexerSQL::writeProperties called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QsciLexerSQL_SuperWriteProperties(const QsciLexerSQL* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_WriteProperties_IsBase(true);
-        return vqscilexersql->writeProperties(*qs, prefix_QString);
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->writeProperties(*qs, prefix_QString);
-    }
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self))) {
+        return vqscilexersql->QsciLexerSQL::writeProperties(*qs, prefix_QString);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerSQL::writeProperties called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnWriteProperties(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_WriteProperties_Callback>(slot));
+void QsciLexerSQL_OnWriteProperties(QsciLexerSQL* self, intptr_t slot) {
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self)))
+        vqscilexersql->qscilexersql_writeproperties_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_WriteProperties_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerSQL_Event(QsciLexerSQL* self, QEvent* event) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return vqscilexersql->event(event);
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QsciLexerSQL_SuperEvent(QsciLexerSQL* self, QEvent* event) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_Event_IsBase(true);
-        return vqscilexersql->event(event);
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->event(event);
-    }
+    return self->QsciLexerSQL::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnEvent(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_Event_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Event_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_event_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerSQL_EventFilter(QsciLexerSQL* self, QObject* watched, QEvent* event) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return vqscilexersql->eventFilter(watched, event);
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QsciLexerSQL_SuperEventFilter(QsciLexerSQL* self, QObject* watched, QEvent* event) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_EventFilter_IsBase(true);
-        return vqscilexersql->eventFilter(watched, event);
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->eventFilter(watched, event);
-    }
+    return self->QsciLexerSQL::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnEventFilter(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_EventFilter_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_eventfilter_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerSQL_TimerEvent(QsciLexerSQL* self, QTimerEvent* event) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
+    if (vqscilexersql) {
         vqscilexersql->timerEvent(event);
     } else {
-        ((VirtualQsciLexerSQL*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QsciLexerSQL::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerSQL_SuperTimerEvent(QsciLexerSQL* self, QTimerEvent* event) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_TimerEvent_IsBase(true);
-        vqscilexersql->timerEvent(event);
-    } else {
-        ((VirtualQsciLexerSQL*)self)->timerEvent(event);
-    }
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self)) {
+        vqscilexersql->QsciLexerSQL::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerSQL::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnTimerEvent(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_TimerEvent_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_timerevent_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerSQL_ChildEvent(QsciLexerSQL* self, QChildEvent* event) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
+    if (vqscilexersql) {
         vqscilexersql->childEvent(event);
     } else {
-        ((VirtualQsciLexerSQL*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QsciLexerSQL::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerSQL_SuperChildEvent(QsciLexerSQL* self, QChildEvent* event) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_ChildEvent_IsBase(true);
-        vqscilexersql->childEvent(event);
-    } else {
-        ((VirtualQsciLexerSQL*)self)->childEvent(event);
-    }
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self)) {
+        vqscilexersql->QsciLexerSQL::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerSQL::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnChildEvent(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_ChildEvent_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_childevent_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerSQL_CustomEvent(QsciLexerSQL* self, QEvent* event) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
+    if (vqscilexersql) {
         vqscilexersql->customEvent(event);
     } else {
-        ((VirtualQsciLexerSQL*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QsciLexerSQL::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerSQL_SuperCustomEvent(QsciLexerSQL* self, QEvent* event) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_CustomEvent_IsBase(true);
-        vqscilexersql->customEvent(event);
-    } else {
-        ((VirtualQsciLexerSQL*)self)->customEvent(event);
-    }
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self)) {
+        vqscilexersql->QsciLexerSQL::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerSQL::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnCustomEvent(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_CustomEvent_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_customevent_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerSQL_ConnectNotify(QsciLexerSQL* self, const QMetaMethod* signal) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
+    if (vqscilexersql) {
         vqscilexersql->connectNotify(*signal);
     } else {
-        ((VirtualQsciLexerSQL*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QsciLexerSQL::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerSQL_SuperConnectNotify(QsciLexerSQL* self, const QMetaMethod* signal) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_ConnectNotify_IsBase(true);
-        vqscilexersql->connectNotify(*signal);
-    } else {
-        ((VirtualQsciLexerSQL*)self)->connectNotify(*signal);
-    }
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self)) {
+        vqscilexersql->QsciLexerSQL::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerSQL::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnConnectNotify(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_ConnectNotify_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_connectnotify_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerSQL_DisconnectNotify(QsciLexerSQL* self, const QMetaMethod* signal) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
+    if (vqscilexersql) {
         vqscilexersql->disconnectNotify(*signal);
     } else {
-        ((VirtualQsciLexerSQL*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QsciLexerSQL::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerSQL_SuperDisconnectNotify(QsciLexerSQL* self, const QMetaMethod* signal) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_DisconnectNotify_IsBase(true);
-        vqscilexersql->disconnectNotify(*signal);
-    } else {
-        ((VirtualQsciLexerSQL*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self)) {
+        vqscilexersql->QsciLexerSQL::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerSQL::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerSQL_OnDisconnectNotify(QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DisconnectNotify_Callback>(slot));
+    if (auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self))
+        vqscilexersql->qscilexersql_disconnectnotify_callback = reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string QsciLexerSQL_TextAsBytes(const QsciLexerSQL* self, const libqt_string text) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        QByteArray _qb = vqscilexersql->textAsBytes(text_QString);
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self))) {
+        QString text_QString = QString::fromUtf8(text.data, text.len);
+        QByteArray _qb = vqscilexersql->VirtualQsciLexerSQL::textAsBytes(text_QString);
         libqt_string _str;
         _str.len = _qb.length();
         _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
         return _str;
-    } else {
-        QByteArray _qb = ((VirtualQsciLexerSQL*)self)->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method QsciLexerSQL::textAsBytes called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string QsciLexerSQL_SuperTextAsBytes(const QsciLexerSQL* self, const libqt_string text) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_TextAsBytes_IsBase(true);
-        QByteArray _qb = vqscilexersql->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    } else {
-        QByteArray _qb = ((VirtualQsciLexerSQL*)self)->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnTextAsBytes(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_TextAsBytes_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string QsciLexerSQL_BytesAsText(const QsciLexerSQL* self, const char* bytes, int size) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        auto _ret = vqscilexersql->bytesAsText(bytes, static_cast<int>(size));
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self))) {
+        auto _ret = vqscilexersql->VirtualQsciLexerSQL::bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1377,163 +912,40 @@ libqt_string QsciLexerSQL_BytesAsText(const QsciLexerSQL* self, const char* byte
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualQsciLexerSQL*)self)->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method QsciLexerSQL::bytesAsText called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string QsciLexerSQL_SuperBytesAsText(const QsciLexerSQL* self, const char* bytes, int size) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_BytesAsText_IsBase(true);
-        auto _ret = vqscilexersql->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQsciLexerSQL*)self)->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnBytesAsText(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_BytesAsText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QsciLexerSQL_Sender(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return vqscilexersql->sender();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->sender();
-    }
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self))) {
+        return vqscilexersql->VirtualQsciLexerSQL::sender();
+    } else
+        qFatal("Error: Protected method QsciLexerSQL::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QsciLexerSQL_SuperSender(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_Sender_IsBase(true);
-        return vqscilexersql->sender();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnSender(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_Sender_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QsciLexerSQL_SenderSignalIndex(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return vqscilexersql->senderSignalIndex();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->senderSignalIndex();
-    }
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self))) {
+        return vqscilexersql->VirtualQsciLexerSQL::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QsciLexerSQL::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QsciLexerSQL_SuperSenderSignalIndex(const QsciLexerSQL* self) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_SenderSignalIndex_IsBase(true);
-        return vqscilexersql->senderSignalIndex();
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnSenderSignalIndex(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QsciLexerSQL_Receivers(const QsciLexerSQL* self, const char* signal) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return vqscilexersql->receivers(signal);
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->receivers(signal);
-    }
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self))) {
+        return vqscilexersql->VirtualQsciLexerSQL::receivers(signal);
+    } else
+        qFatal("Error: Protected method QsciLexerSQL::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QsciLexerSQL_SuperReceivers(const QsciLexerSQL* self, const char* signal) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_Receivers_IsBase(true);
-        return vqscilexersql->receivers(signal);
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnReceivers(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_Receivers_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QsciLexerSQL_IsSignalConnected(const QsciLexerSQL* self, const QMetaMethod* signal) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return vqscilexersql->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QsciLexerSQL_SuperIsSignalConnected(const QsciLexerSQL* self, const QMetaMethod* signal) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_IsSignalConnected_IsBase(true);
-        return vqscilexersql->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnIsSignalConnected(const QsciLexerSQL* self, intptr_t slot) {
-    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL)
-        vqscilexersql->setQsciLexerSQL_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_IsSignalConnected_Callback>(slot));
+    if (auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self))) {
+        return vqscilexersql->VirtualQsciLexerSQL::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QsciLexerSQL::isSignalConnected called without a directly constructed type");
 }
 
 void QsciLexerSQL_Delete(QsciLexerSQL* self) {

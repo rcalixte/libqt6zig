@@ -81,9 +81,9 @@ pub const KViewStateSerializer = extern struct {
     ///
     /// ` self: KViewStateSerializer `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KViewStateSerializer) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KViewStateSerializer, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KViewStateSerializer, callback: *const fn (KViewStateSerializer) callconv(.c) QMetaObject) void {
         qtc.KViewStateSerializer_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -490,6 +490,8 @@ pub const KViewStateSerializer = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kviewstateserializer.html#indexFromConfigString)
     ///
+    /// This method must be implemented with `onIndexFromConfigString` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KViewStateSerializer `
@@ -527,36 +529,13 @@ pub const KViewStateSerializer = extern struct {
         qtc.KViewStateSerializer_OnIndexFromConfigString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superIndexFromConfigString` instead
-    ///
-    pub const SuperIndexFromConfigString = superIndexFromConfigString;
-
-    /// ### [Upstream resources](https://api.kde.org/kviewstateserializer.html#indexFromConfigString)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KViewStateSerializer `
-    ///
-    /// ` model: QAbstractItemModel `
-    ///
-    /// ` key: []const u8 `
-    ///
-    pub fn superIndexFromConfigString(self: KViewStateSerializer, model: anytype, key: []const u8) QModelIndex {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        const key_str = qtc.libqt_string{
-            .len = key.len,
-            .data = key.ptr,
-        };
-        return .{ .ptr = qtc.KViewStateSerializer_SuperIndexFromConfigString(@ptrCast(self.ptr), @ptrCast(model.ptr), key_str) };
-    }
-
     /// ### DEPRECATED: Use `indexToConfigString` instead
     ///
     pub const IndexToConfigString = indexToConfigString;
 
     /// ### [Upstream resources](https://api.kde.org/kviewstateserializer.html#indexToConfigString)
+    ///
+    /// This method must be implemented with `onIndexToConfigString` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -593,31 +572,6 @@ pub const KViewStateSerializer = extern struct {
         qtc.KViewStateSerializer_OnIndexToConfigString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superIndexToConfigString` instead
-    ///
-    pub const SuperIndexToConfigString = superIndexToConfigString;
-
-    /// ### [Upstream resources](https://api.kde.org/kviewstateserializer.html#indexToConfigString)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KViewStateSerializer `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superIndexToConfigString(self: KViewStateSerializer, allocator: std.mem.Allocator, index: anytype) []const u8 {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        var _str = qtc.KViewStateSerializer_SuperIndexToConfigString(@ptrCast(self.ptr), @ptrCast(index.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KViewStateSerializer.indexToConfigString: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `restoreState` instead
     ///
     pub const RestoreState = restoreState;
@@ -630,40 +584,6 @@ pub const KViewStateSerializer = extern struct {
     ///
     pub fn restoreState(self: KViewStateSerializer) void {
         qtc.KViewStateSerializer_RestoreState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onRestoreState` instead
-    ///
-    pub const OnRestoreState = onRestoreState;
-
-    /// ### [Upstream resources](https://api.kde.org/kviewstateserializer.html#restoreState)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KViewStateSerializer `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onRestoreState(self: KViewStateSerializer, callback: *const fn () callconv(.c) void) void {
-        qtc.KViewStateSerializer_OnRestoreState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRestoreState` instead
-    ///
-    pub const SuperRestoreState = superRestoreState;
-
-    /// ### [Upstream resources](https://api.kde.org/kviewstateserializer.html#restoreState)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KViewStateSerializer `
-    ///
-    pub fn superRestoreState(self: KViewStateSerializer) void {
-        qtc.KViewStateSerializer_SuperRestoreState(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2143,44 +2063,6 @@ pub const KViewStateSerializer = extern struct {
         return .{ .ptr = qtc.KViewStateSerializer_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KViewStateSerializer `
-    ///
-    pub fn superSender(self: KViewStateSerializer) QObject {
-        return .{ .ptr = qtc.KViewStateSerializer_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KViewStateSerializer`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KViewStateSerializer, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KViewStateSerializer_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2197,44 +2079,6 @@ pub const KViewStateSerializer = extern struct {
     ///
     pub fn senderSignalIndex(self: KViewStateSerializer) i32 {
         return qtc.KViewStateSerializer_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KViewStateSerializer `
-    ///
-    pub fn superSenderSignalIndex(self: KViewStateSerializer) i32 {
-        return qtc.KViewStateSerializer_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KViewStateSerializer`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KViewStateSerializer, callback: *const fn () callconv(.c) i32) void {
-        qtc.KViewStateSerializer_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2258,47 +2102,6 @@ pub const KViewStateSerializer = extern struct {
         return qtc.KViewStateSerializer_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KViewStateSerializer `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KViewStateSerializer, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KViewStateSerializer_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KViewStateSerializer`
-    ///
-    /// ` callback: *const fn (self: KViewStateSerializer, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KViewStateSerializer, callback: *const fn (KViewStateSerializer, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KViewStateSerializer_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2318,47 +2121,6 @@ pub const KViewStateSerializer = extern struct {
     pub fn isSignalConnected(self: KViewStateSerializer, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KViewStateSerializer_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KViewStateSerializer `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KViewStateSerializer, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KViewStateSerializer_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KViewStateSerializer`
-    ///
-    /// ` callback: *const fn (self: KViewStateSerializer, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KViewStateSerializer, callback: *const fn (KViewStateSerializer, QMetaMethod) callconv(.c) bool) void {
-        qtc.KViewStateSerializer_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

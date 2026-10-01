@@ -128,364 +128,219 @@ libqt_string TextTranslator__TranslatorMenu_Tr3(const char* s, const char* c, in
 
 // Base class handler implementation
 QMetaObject* TextTranslator__TranslatorMenu_SuperMetaObject(const TextTranslator__TranslatorMenu* self) {
-    auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_MetaObject_IsBase(true);
-        return (QMetaObject*)vtexttranslatortranslatormenu->metaObject();
-    } else {
-        return (QMetaObject*)self->TextTranslator::TranslatorMenu::metaObject();
-    }
+    return (QMetaObject*)self->TextTranslator::TranslatorMenu::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorMenu_OnMetaObject(const TextTranslator__TranslatorMenu* self, intptr_t slot) {
-    auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_MetaObject_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_MetaObject_Callback>(slot));
+void TextTranslator__TranslatorMenu_OnMetaObject(TextTranslator__TranslatorMenu* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self)))
+        vtexttranslatortranslatormenu->texttranslator__translatormenu_metaobject_callback = reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextTranslator__TranslatorMenu_SuperMetacast(TextTranslator__TranslatorMenu* self, const char* param1) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Metacast_IsBase(true);
-        return vtexttranslatortranslatormenu->qt_metacast(param1);
-    } else {
-        return self->TextTranslator::TranslatorMenu::qt_metacast(param1);
-    }
+    return self->TextTranslator::TranslatorMenu::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnMetacast(TextTranslator__TranslatorMenu* self, intptr_t slot) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Metacast_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_Metacast_Callback>(slot));
+    if (auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self))
+        vtexttranslatortranslatormenu->texttranslator__translatormenu_metacast_callback = reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextTranslator__TranslatorMenu_SuperMetacall(TextTranslator__TranslatorMenu* self, int param1, int param2, void** param3) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Metacall_IsBase(true);
-        return vtexttranslatortranslatormenu->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextTranslator::TranslatorMenu::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextTranslator::TranslatorMenu::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnMetacall(TextTranslator__TranslatorMenu* self, intptr_t slot) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Metacall_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_Metacall_Callback>(slot));
+    if (auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self))
+        vtexttranslatortranslatormenu->texttranslator__translatormenu_metacall_callback = reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorMenu_Event(TextTranslator__TranslatorMenu* self, QEvent* event) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        return vtexttranslatortranslatormenu->event(event);
-    } else {
-        return self->TextTranslator::TranslatorMenu::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorMenu_SuperEvent(TextTranslator__TranslatorMenu* self, QEvent* event) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Event_IsBase(true);
-        return vtexttranslatortranslatormenu->event(event);
-    } else {
-        return self->TextTranslator::TranslatorMenu::event(event);
-    }
+    return self->TextTranslator::TranslatorMenu::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnEvent(TextTranslator__TranslatorMenu* self, intptr_t slot) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Event_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_Event_Callback>(slot));
+    if (auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self))
+        vtexttranslatortranslatormenu->texttranslator__translatormenu_event_callback = reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorMenu_EventFilter(TextTranslator__TranslatorMenu* self, QObject* watched, QEvent* event) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        return vtexttranslatortranslatormenu->eventFilter(watched, event);
-    } else {
-        return self->TextTranslator::TranslatorMenu::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorMenu_SuperEventFilter(TextTranslator__TranslatorMenu* self, QObject* watched, QEvent* event) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_EventFilter_IsBase(true);
-        return vtexttranslatortranslatormenu->eventFilter(watched, event);
-    } else {
-        return self->TextTranslator::TranslatorMenu::eventFilter(watched, event);
-    }
+    return self->TextTranslator::TranslatorMenu::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnEventFilter(TextTranslator__TranslatorMenu* self, intptr_t slot) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_EventFilter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_EventFilter_Callback>(slot));
+    if (auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self))
+        vtexttranslatortranslatormenu->texttranslator__translatormenu_eventfilter_callback = reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorMenu_TimerEvent(TextTranslator__TranslatorMenu* self, QTimerEvent* event) {
     auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu) {
         vtexttranslatortranslatormenu->timerEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorMenu*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorMenu::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorMenu_SuperTimerEvent(TextTranslator__TranslatorMenu* self, QTimerEvent* event) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_TimerEvent_IsBase(true);
-        vtexttranslatortranslatormenu->timerEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorMenu*)self)->timerEvent(event);
-    }
+    if (auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self)) {
+        vtexttranslatortranslatormenu->TextTranslator::TranslatorMenu::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorMenu::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnTimerEvent(TextTranslator__TranslatorMenu* self, intptr_t slot) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_TimerEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_TimerEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self))
+        vtexttranslatortranslatormenu->texttranslator__translatormenu_timerevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorMenu_ChildEvent(TextTranslator__TranslatorMenu* self, QChildEvent* event) {
     auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu) {
         vtexttranslatortranslatormenu->childEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorMenu*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorMenu::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorMenu_SuperChildEvent(TextTranslator__TranslatorMenu* self, QChildEvent* event) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_ChildEvent_IsBase(true);
-        vtexttranslatortranslatormenu->childEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorMenu*)self)->childEvent(event);
-    }
+    if (auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self)) {
+        vtexttranslatortranslatormenu->TextTranslator::TranslatorMenu::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorMenu::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnChildEvent(TextTranslator__TranslatorMenu* self, intptr_t slot) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_ChildEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_ChildEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self))
+        vtexttranslatortranslatormenu->texttranslator__translatormenu_childevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorMenu_CustomEvent(TextTranslator__TranslatorMenu* self, QEvent* event) {
     auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu) {
         vtexttranslatortranslatormenu->customEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorMenu*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorMenu::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorMenu_SuperCustomEvent(TextTranslator__TranslatorMenu* self, QEvent* event) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_CustomEvent_IsBase(true);
-        vtexttranslatortranslatormenu->customEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorMenu*)self)->customEvent(event);
-    }
+    if (auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self)) {
+        vtexttranslatortranslatormenu->TextTranslator::TranslatorMenu::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorMenu::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnCustomEvent(TextTranslator__TranslatorMenu* self, intptr_t slot) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_CustomEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_CustomEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self))
+        vtexttranslatortranslatormenu->texttranslator__translatormenu_customevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorMenu_ConnectNotify(TextTranslator__TranslatorMenu* self, const QMetaMethod* signal) {
     auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu) {
         vtexttranslatortranslatormenu->connectNotify(*signal);
     } else {
-        ((VirtualTextTranslatorTranslatorMenu*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorMenu::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorMenu_SuperConnectNotify(TextTranslator__TranslatorMenu* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_ConnectNotify_IsBase(true);
-        vtexttranslatortranslatormenu->connectNotify(*signal);
-    } else {
-        ((VirtualTextTranslatorTranslatorMenu*)self)->connectNotify(*signal);
-    }
+    if (auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self)) {
+        vtexttranslatortranslatormenu->TextTranslator::TranslatorMenu::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorMenu::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnConnectNotify(TextTranslator__TranslatorMenu* self, intptr_t slot) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_ConnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_ConnectNotify_Callback>(slot));
+    if (auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self))
+        vtexttranslatortranslatormenu->texttranslator__translatormenu_connectnotify_callback = reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorMenu_DisconnectNotify(TextTranslator__TranslatorMenu* self, const QMetaMethod* signal) {
     auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu) {
         vtexttranslatortranslatormenu->disconnectNotify(*signal);
     } else {
-        ((VirtualTextTranslatorTranslatorMenu*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorMenu::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorMenu_SuperDisconnectNotify(TextTranslator__TranslatorMenu* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_DisconnectNotify_IsBase(true);
-        vtexttranslatortranslatormenu->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextTranslatorTranslatorMenu*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self)) {
+        vtexttranslatortranslatormenu->TextTranslator::TranslatorMenu::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorMenu::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnDisconnectNotify(TextTranslator__TranslatorMenu* self, intptr_t slot) {
-    auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_DisconnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_DisconnectNotify_Callback>(slot));
+    if (auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self))
+        vtexttranslatortranslatormenu->texttranslator__translatormenu_disconnectnotify_callback = reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextTranslator__TranslatorMenu_Sender(const TextTranslator__TranslatorMenu* self) {
-    auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        return vtexttranslatortranslatormenu->sender();
-    } else {
-        return ((VirtualTextTranslatorTranslatorMenu*)self)->sender();
-    }
+    if (auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self))) {
+        return vtexttranslatortranslatormenu->VirtualTextTranslatorTranslatorMenu::sender();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorMenu::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextTranslator__TranslatorMenu_SuperSender(const TextTranslator__TranslatorMenu* self) {
-    auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Sender_IsBase(true);
-        return vtexttranslatortranslatormenu->sender();
-    } else {
-        return ((VirtualTextTranslatorTranslatorMenu*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorMenu_OnSender(const TextTranslator__TranslatorMenu* self, intptr_t slot) {
-    auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Sender_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextTranslator__TranslatorMenu_SenderSignalIndex(const TextTranslator__TranslatorMenu* self) {
-    auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        return vtexttranslatortranslatormenu->senderSignalIndex();
-    } else {
-        return ((VirtualTextTranslatorTranslatorMenu*)self)->senderSignalIndex();
-    }
+    if (auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self))) {
+        return vtexttranslatortranslatormenu->VirtualTextTranslatorTranslatorMenu::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorMenu::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextTranslator__TranslatorMenu_SuperSenderSignalIndex(const TextTranslator__TranslatorMenu* self) {
-    auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_SenderSignalIndex_IsBase(true);
-        return vtexttranslatortranslatormenu->senderSignalIndex();
-    } else {
-        return ((VirtualTextTranslatorTranslatorMenu*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorMenu_OnSenderSignalIndex(const TextTranslator__TranslatorMenu* self, intptr_t slot) {
-    auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextTranslator__TranslatorMenu_Receivers(const TextTranslator__TranslatorMenu* self, const char* signal) {
-    auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        return vtexttranslatortranslatormenu->receivers(signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorMenu*)self)->receivers(signal);
-    }
+    if (auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self))) {
+        return vtexttranslatortranslatormenu->VirtualTextTranslatorTranslatorMenu::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorMenu::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextTranslator__TranslatorMenu_SuperReceivers(const TextTranslator__TranslatorMenu* self, const char* signal) {
-    auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Receivers_IsBase(true);
-        return vtexttranslatortranslatormenu->receivers(signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorMenu*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorMenu_OnReceivers(const TextTranslator__TranslatorMenu* self, intptr_t slot) {
-    auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Receivers_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextTranslator__TranslatorMenu_IsSignalConnected(const TextTranslator__TranslatorMenu* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        return vtexttranslatortranslatormenu->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorMenu*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool TextTranslator__TranslatorMenu_SuperIsSignalConnected(const TextTranslator__TranslatorMenu* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_IsSignalConnected_IsBase(true);
-        return vtexttranslatortranslatormenu->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorMenu*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorMenu_OnIsSignalConnected(const TextTranslator__TranslatorMenu* self, intptr_t slot) {
-    auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
-        vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_IsSignalConnected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_IsSignalConnected_Callback>(slot));
+    if (auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self))) {
+        return vtexttranslatortranslatormenu->VirtualTextTranslatorTranslatorMenu::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorMenu::isSignalConnected called without a directly constructed type");
 }
 
 void TextTranslator__TranslatorMenu_Delete(TextTranslator__TranslatorMenu* self) {

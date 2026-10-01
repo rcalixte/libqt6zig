@@ -65,7 +65,7 @@ void KKeySequenceRecorder_PatternsChanged(KKeySequenceRecorder* self);
 void KKeySequenceRecorder_Connect_PatternsChanged(KKeySequenceRecorder* self, intptr_t slot);
 libqt_string KKeySequenceRecorder_Tr2(const char* s, const char* c);
 libqt_string KKeySequenceRecorder_Tr3(const char* s, const char* c, int n);
-void KKeySequenceRecorder_OnMetaObject(const KKeySequenceRecorder* self, intptr_t slot);
+void KKeySequenceRecorder_OnMetaObject(KKeySequenceRecorder* self, intptr_t slot);
 QMetaObject* KKeySequenceRecorder_SuperMetaObject(const KKeySequenceRecorder* self);
 void KKeySequenceRecorder_OnMetacast(KKeySequenceRecorder* self, intptr_t slot);
 void* KKeySequenceRecorder_SuperMetacast(KKeySequenceRecorder* self, const char* param1);
@@ -93,17 +93,9 @@ void KKeySequenceRecorder_DisconnectNotify(KKeySequenceRecorder* self, const QMe
 void KKeySequenceRecorder_OnDisconnectNotify(KKeySequenceRecorder* self, intptr_t slot);
 void KKeySequenceRecorder_SuperDisconnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal);
 QObject* KKeySequenceRecorder_Sender(const KKeySequenceRecorder* self);
-void KKeySequenceRecorder_OnSender(const KKeySequenceRecorder* self, intptr_t slot);
-QObject* KKeySequenceRecorder_SuperSender(const KKeySequenceRecorder* self);
 int KKeySequenceRecorder_SenderSignalIndex(const KKeySequenceRecorder* self);
-void KKeySequenceRecorder_OnSenderSignalIndex(const KKeySequenceRecorder* self, intptr_t slot);
-int KKeySequenceRecorder_SuperSenderSignalIndex(const KKeySequenceRecorder* self);
 int KKeySequenceRecorder_Receivers(const KKeySequenceRecorder* self, const char* signal);
-void KKeySequenceRecorder_OnReceivers(const KKeySequenceRecorder* self, intptr_t slot);
-int KKeySequenceRecorder_SuperReceivers(const KKeySequenceRecorder* self, const char* signal);
 bool KKeySequenceRecorder_IsSignalConnected(const KKeySequenceRecorder* self, const QMetaMethod* signal);
-void KKeySequenceRecorder_OnIsSignalConnected(const KKeySequenceRecorder* self, intptr_t slot);
-bool KKeySequenceRecorder_SuperIsSignalConnected(const KKeySequenceRecorder* self, const QMetaMethod* signal);
 void KKeySequenceRecorder_Delete(KKeySequenceRecorder* self);
 
 #ifdef __cplusplus

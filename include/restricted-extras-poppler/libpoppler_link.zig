@@ -324,9 +324,9 @@ pub const Poppler__Link = extern struct {
     ///
     /// ` self: Poppler__Link `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__Link) callconv(.c) i32 `
     ///
-    pub fn onLinkType(self: Poppler__Link, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLinkType(self: Poppler__Link, callback: *const fn (Poppler__Link) callconv(.c) i32) void {
         qtc.Poppler__Link_OnLinkType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -516,9 +516,9 @@ pub const Poppler__LinkGoto = extern struct {
     ///
     /// ` self: Poppler__LinkGoto `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__LinkGoto) callconv(.c) i32 `
     ///
-    pub fn onLinkType(self: Poppler__LinkGoto, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLinkType(self: Poppler__LinkGoto, callback: *const fn (Poppler__LinkGoto) callconv(.c) i32) void {
         qtc.Poppler__LinkGoto_OnLinkType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -707,9 +707,9 @@ pub const Poppler__LinkExecute = extern struct {
     ///
     /// ` self: Poppler__LinkExecute `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__LinkExecute) callconv(.c) i32 `
     ///
-    pub fn onLinkType(self: Poppler__LinkExecute, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLinkType(self: Poppler__LinkExecute, callback: *const fn (Poppler__LinkExecute) callconv(.c) i32) void {
         qtc.Poppler__LinkExecute_OnLinkType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -872,9 +872,9 @@ pub const Poppler__LinkBrowse = extern struct {
     ///
     /// ` self: Poppler__LinkBrowse `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__LinkBrowse) callconv(.c) i32 `
     ///
-    pub fn onLinkType(self: Poppler__LinkBrowse, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLinkType(self: Poppler__LinkBrowse, callback: *const fn (Poppler__LinkBrowse) callconv(.c) i32) void {
         qtc.Poppler__LinkBrowse_OnLinkType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1031,9 +1031,9 @@ pub const Poppler__LinkAction = extern struct {
     ///
     /// ` self: Poppler__LinkAction `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__LinkAction) callconv(.c) i32 `
     ///
-    pub fn onLinkType(self: Poppler__LinkAction, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLinkType(self: Poppler__LinkAction, callback: *const fn (Poppler__LinkAction) callconv(.c) i32) void {
         qtc.Poppler__LinkAction_OnLinkType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1181,9 +1181,9 @@ pub const Poppler__LinkSound = extern struct {
     ///
     /// ` self: Poppler__LinkSound `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__LinkSound) callconv(.c) i32 `
     ///
-    pub fn onLinkType(self: Poppler__LinkSound, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLinkType(self: Poppler__LinkSound, callback: *const fn (Poppler__LinkSound) callconv(.c) i32) void {
         qtc.Poppler__LinkSound_OnLinkType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1551,9 +1551,9 @@ pub const Poppler__LinkJavaScript = extern struct {
     ///
     /// ` self: Poppler__LinkJavaScript `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__LinkJavaScript) callconv(.c) i32 `
     ///
-    pub fn onLinkType(self: Poppler__LinkJavaScript, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLinkType(self: Poppler__LinkJavaScript, callback: *const fn (Poppler__LinkJavaScript) callconv(.c) i32) void {
         qtc.Poppler__LinkJavaScript_OnLinkType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

@@ -43,7 +43,7 @@ void QEventTransition_OnTransition(QEventTransition* self, QEvent* event);
 bool QEventTransition_Event(QEventTransition* self, QEvent* e);
 libqt_string QEventTransition_Tr2(const char* s, const char* c);
 libqt_string QEventTransition_Tr3(const char* s, const char* c, int n);
-void QEventTransition_OnMetaObject(const QEventTransition* self, intptr_t slot);
+void QEventTransition_OnMetaObject(QEventTransition* self, intptr_t slot);
 QMetaObject* QEventTransition_SuperMetaObject(const QEventTransition* self);
 void QEventTransition_OnMetacast(QEventTransition* self, intptr_t slot);
 void* QEventTransition_SuperMetacast(QEventTransition* self, const char* param1);
@@ -74,17 +74,9 @@ void QEventTransition_DisconnectNotify(QEventTransition* self, const QMetaMethod
 void QEventTransition_OnDisconnectNotify(QEventTransition* self, intptr_t slot);
 void QEventTransition_SuperDisconnectNotify(QEventTransition* self, const QMetaMethod* signal);
 QObject* QEventTransition_Sender(const QEventTransition* self);
-void QEventTransition_OnSender(const QEventTransition* self, intptr_t slot);
-QObject* QEventTransition_SuperSender(const QEventTransition* self);
 int QEventTransition_SenderSignalIndex(const QEventTransition* self);
-void QEventTransition_OnSenderSignalIndex(const QEventTransition* self, intptr_t slot);
-int QEventTransition_SuperSenderSignalIndex(const QEventTransition* self);
 int QEventTransition_Receivers(const QEventTransition* self, const char* signal);
-void QEventTransition_OnReceivers(const QEventTransition* self, intptr_t slot);
-int QEventTransition_SuperReceivers(const QEventTransition* self, const char* signal);
 bool QEventTransition_IsSignalConnected(const QEventTransition* self, const QMetaMethod* signal);
-void QEventTransition_OnIsSignalConnected(const QEventTransition* self, intptr_t slot);
-bool QEventTransition_SuperIsSignalConnected(const QEventTransition* self, const QMetaMethod* signal);
 void QEventTransition_Delete(QEventTransition* self);
 
 #ifdef __cplusplus

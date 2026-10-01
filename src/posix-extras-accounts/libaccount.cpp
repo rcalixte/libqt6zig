@@ -89,364 +89,219 @@ libqt_string Accounts__Watch_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* Accounts__Watch_SuperMetaObject(const Accounts__Watch* self) {
-    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        vaccountswatch->setAccounts__Watch_MetaObject_IsBase(true);
-        return (QMetaObject*)vaccountswatch->metaObject();
-    } else {
-        return (QMetaObject*)self->Accounts::Watch::metaObject();
-    }
+    return (QMetaObject*)self->Accounts::Watch::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Accounts__Watch_OnMetaObject(const Accounts__Watch* self, intptr_t slot) {
-    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch)
-        vaccountswatch->setAccounts__Watch_MetaObject_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_MetaObject_Callback>(slot));
+void Accounts__Watch_OnMetaObject(Accounts__Watch* self, intptr_t slot) {
+    if (auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self)))
+        vaccountswatch->accounts__watch_metaobject_callback = reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* Accounts__Watch_SuperMetacast(Accounts__Watch* self, const char* param1) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        vaccountswatch->setAccounts__Watch_Metacast_IsBase(true);
-        return vaccountswatch->qt_metacast(param1);
-    } else {
-        return self->Accounts::Watch::qt_metacast(param1);
-    }
+    return self->Accounts::Watch::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Watch_OnMetacast(Accounts__Watch* self, intptr_t slot) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch)
-        vaccountswatch->setAccounts__Watch_Metacast_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_Metacast_Callback>(slot));
+    if (auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self))
+        vaccountswatch->accounts__watch_metacast_callback = reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int Accounts__Watch_SuperMetacall(Accounts__Watch* self, int param1, int param2, void** param3) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        vaccountswatch->setAccounts__Watch_Metacall_IsBase(true);
-        return vaccountswatch->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->Accounts::Watch::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->Accounts::Watch::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Watch_OnMetacall(Accounts__Watch* self, intptr_t slot) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch)
-        vaccountswatch->setAccounts__Watch_Metacall_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_Metacall_Callback>(slot));
+    if (auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self))
+        vaccountswatch->accounts__watch_metacall_callback = reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Accounts__Watch_Event(Accounts__Watch* self, QEvent* event) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        return vaccountswatch->event(event);
-    } else {
-        return self->Accounts::Watch::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool Accounts__Watch_SuperEvent(Accounts__Watch* self, QEvent* event) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        vaccountswatch->setAccounts__Watch_Event_IsBase(true);
-        return vaccountswatch->event(event);
-    } else {
-        return self->Accounts::Watch::event(event);
-    }
+    return self->Accounts::Watch::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Watch_OnEvent(Accounts__Watch* self, intptr_t slot) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch)
-        vaccountswatch->setAccounts__Watch_Event_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_Event_Callback>(slot));
+    if (auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self))
+        vaccountswatch->accounts__watch_event_callback = reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Accounts__Watch_EventFilter(Accounts__Watch* self, QObject* watched, QEvent* event) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        return vaccountswatch->eventFilter(watched, event);
-    } else {
-        return self->Accounts::Watch::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool Accounts__Watch_SuperEventFilter(Accounts__Watch* self, QObject* watched, QEvent* event) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        vaccountswatch->setAccounts__Watch_EventFilter_IsBase(true);
-        return vaccountswatch->eventFilter(watched, event);
-    } else {
-        return self->Accounts::Watch::eventFilter(watched, event);
-    }
+    return self->Accounts::Watch::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Watch_OnEventFilter(Accounts__Watch* self, intptr_t slot) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch)
-        vaccountswatch->setAccounts__Watch_EventFilter_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_EventFilter_Callback>(slot));
+    if (auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self))
+        vaccountswatch->accounts__watch_eventfilter_callback = reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Watch_TimerEvent(Accounts__Watch* self, QTimerEvent* event) {
     auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
+    if (vaccountswatch) {
         vaccountswatch->timerEvent(event);
     } else {
-        ((VirtualAccountsWatch*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method Accounts::Watch::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Watch_SuperTimerEvent(Accounts__Watch* self, QTimerEvent* event) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        vaccountswatch->setAccounts__Watch_TimerEvent_IsBase(true);
-        vaccountswatch->timerEvent(event);
-    } else {
-        ((VirtualAccountsWatch*)self)->timerEvent(event);
-    }
+    if (auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self)) {
+        vaccountswatch->Accounts::Watch::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Watch::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Watch_OnTimerEvent(Accounts__Watch* self, intptr_t slot) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch)
-        vaccountswatch->setAccounts__Watch_TimerEvent_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_TimerEvent_Callback>(slot));
+    if (auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self))
+        vaccountswatch->accounts__watch_timerevent_callback = reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Watch_ChildEvent(Accounts__Watch* self, QChildEvent* event) {
     auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
+    if (vaccountswatch) {
         vaccountswatch->childEvent(event);
     } else {
-        ((VirtualAccountsWatch*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method Accounts::Watch::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Watch_SuperChildEvent(Accounts__Watch* self, QChildEvent* event) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        vaccountswatch->setAccounts__Watch_ChildEvent_IsBase(true);
-        vaccountswatch->childEvent(event);
-    } else {
-        ((VirtualAccountsWatch*)self)->childEvent(event);
-    }
+    if (auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self)) {
+        vaccountswatch->Accounts::Watch::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Watch::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Watch_OnChildEvent(Accounts__Watch* self, intptr_t slot) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch)
-        vaccountswatch->setAccounts__Watch_ChildEvent_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_ChildEvent_Callback>(slot));
+    if (auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self))
+        vaccountswatch->accounts__watch_childevent_callback = reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Watch_CustomEvent(Accounts__Watch* self, QEvent* event) {
     auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
+    if (vaccountswatch) {
         vaccountswatch->customEvent(event);
     } else {
-        ((VirtualAccountsWatch*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method Accounts::Watch::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Watch_SuperCustomEvent(Accounts__Watch* self, QEvent* event) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        vaccountswatch->setAccounts__Watch_CustomEvent_IsBase(true);
-        vaccountswatch->customEvent(event);
-    } else {
-        ((VirtualAccountsWatch*)self)->customEvent(event);
-    }
+    if (auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self)) {
+        vaccountswatch->Accounts::Watch::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Watch::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Watch_OnCustomEvent(Accounts__Watch* self, intptr_t slot) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch)
-        vaccountswatch->setAccounts__Watch_CustomEvent_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_CustomEvent_Callback>(slot));
+    if (auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self))
+        vaccountswatch->accounts__watch_customevent_callback = reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Watch_ConnectNotify(Accounts__Watch* self, const QMetaMethod* signal) {
     auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
+    if (vaccountswatch) {
         vaccountswatch->connectNotify(*signal);
     } else {
-        ((VirtualAccountsWatch*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method Accounts::Watch::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Watch_SuperConnectNotify(Accounts__Watch* self, const QMetaMethod* signal) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        vaccountswatch->setAccounts__Watch_ConnectNotify_IsBase(true);
-        vaccountswatch->connectNotify(*signal);
-    } else {
-        ((VirtualAccountsWatch*)self)->connectNotify(*signal);
-    }
+    if (auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self)) {
+        vaccountswatch->Accounts::Watch::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Watch::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Watch_OnConnectNotify(Accounts__Watch* self, intptr_t slot) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch)
-        vaccountswatch->setAccounts__Watch_ConnectNotify_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_ConnectNotify_Callback>(slot));
+    if (auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self))
+        vaccountswatch->accounts__watch_connectnotify_callback = reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Watch_DisconnectNotify(Accounts__Watch* self, const QMetaMethod* signal) {
     auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
+    if (vaccountswatch) {
         vaccountswatch->disconnectNotify(*signal);
     } else {
-        ((VirtualAccountsWatch*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method Accounts::Watch::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Watch_SuperDisconnectNotify(Accounts__Watch* self, const QMetaMethod* signal) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        vaccountswatch->setAccounts__Watch_DisconnectNotify_IsBase(true);
-        vaccountswatch->disconnectNotify(*signal);
-    } else {
-        ((VirtualAccountsWatch*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self)) {
+        vaccountswatch->Accounts::Watch::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Watch::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Watch_OnDisconnectNotify(Accounts__Watch* self, intptr_t slot) {
-    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch)
-        vaccountswatch->setAccounts__Watch_DisconnectNotify_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_DisconnectNotify_Callback>(slot));
+    if (auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self))
+        vaccountswatch->accounts__watch_disconnectnotify_callback = reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* Accounts__Watch_Sender(const Accounts__Watch* self) {
-    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        return vaccountswatch->sender();
-    } else {
-        return ((VirtualAccountsWatch*)self)->sender();
-    }
+    if (auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self))) {
+        return vaccountswatch->VirtualAccountsWatch::sender();
+    } else
+        qFatal("Error: Protected method Accounts::Watch::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* Accounts__Watch_SuperSender(const Accounts__Watch* self) {
-    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        vaccountswatch->setAccounts__Watch_Sender_IsBase(true);
-        return vaccountswatch->sender();
-    } else {
-        return ((VirtualAccountsWatch*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Accounts__Watch_OnSender(const Accounts__Watch* self, intptr_t slot) {
-    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch)
-        vaccountswatch->setAccounts__Watch_Sender_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Accounts__Watch_SenderSignalIndex(const Accounts__Watch* self) {
-    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        return vaccountswatch->senderSignalIndex();
-    } else {
-        return ((VirtualAccountsWatch*)self)->senderSignalIndex();
-    }
+    if (auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self))) {
+        return vaccountswatch->VirtualAccountsWatch::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method Accounts::Watch::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Accounts__Watch_SuperSenderSignalIndex(const Accounts__Watch* self) {
-    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        vaccountswatch->setAccounts__Watch_SenderSignalIndex_IsBase(true);
-        return vaccountswatch->senderSignalIndex();
-    } else {
-        return ((VirtualAccountsWatch*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Accounts__Watch_OnSenderSignalIndex(const Accounts__Watch* self, intptr_t slot) {
-    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch)
-        vaccountswatch->setAccounts__Watch_SenderSignalIndex_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Accounts__Watch_Receivers(const Accounts__Watch* self, const char* signal) {
-    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        return vaccountswatch->receivers(signal);
-    } else {
-        return ((VirtualAccountsWatch*)self)->receivers(signal);
-    }
+    if (auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self))) {
+        return vaccountswatch->VirtualAccountsWatch::receivers(signal);
+    } else
+        qFatal("Error: Protected method Accounts::Watch::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Accounts__Watch_SuperReceivers(const Accounts__Watch* self, const char* signal) {
-    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        vaccountswatch->setAccounts__Watch_Receivers_IsBase(true);
-        return vaccountswatch->receivers(signal);
-    } else {
-        return ((VirtualAccountsWatch*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Accounts__Watch_OnReceivers(const Accounts__Watch* self, intptr_t slot) {
-    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch)
-        vaccountswatch->setAccounts__Watch_Receivers_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Accounts__Watch_IsSignalConnected(const Accounts__Watch* self, const QMetaMethod* signal) {
-    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        return vaccountswatch->isSignalConnected(*signal);
-    } else {
-        return ((VirtualAccountsWatch*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool Accounts__Watch_SuperIsSignalConnected(const Accounts__Watch* self, const QMetaMethod* signal) {
-    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
-        vaccountswatch->setAccounts__Watch_IsSignalConnected_IsBase(true);
-        return vaccountswatch->isSignalConnected(*signal);
-    } else {
-        return ((VirtualAccountsWatch*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Accounts__Watch_OnIsSignalConnected(const Accounts__Watch* self, intptr_t slot) {
-    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
-    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch)
-        vaccountswatch->setAccounts__Watch_IsSignalConnected_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_IsSignalConnected_Callback>(slot));
+    if (auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self))) {
+        return vaccountswatch->VirtualAccountsWatch::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method Accounts::Watch::isSignalConnected called without a directly constructed type");
 }
 
 void Accounts__Watch_Delete(Accounts__Watch* self) {
@@ -981,364 +836,219 @@ Accounts__Watch* Accounts__Account_WatchKey1(Accounts__Account* self, const libq
 
 // Base class handler implementation
 QMetaObject* Accounts__Account_SuperMetaObject(const Accounts__Account* self) {
-    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        vaccountsaccount->setAccounts__Account_MetaObject_IsBase(true);
-        return (QMetaObject*)vaccountsaccount->metaObject();
-    } else {
-        return (QMetaObject*)self->Accounts::Account::metaObject();
-    }
+    return (QMetaObject*)self->Accounts::Account::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Accounts__Account_OnMetaObject(const Accounts__Account* self, intptr_t slot) {
-    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount)
-        vaccountsaccount->setAccounts__Account_MetaObject_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_MetaObject_Callback>(slot));
+void Accounts__Account_OnMetaObject(Accounts__Account* self, intptr_t slot) {
+    if (auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self)))
+        vaccountsaccount->accounts__account_metaobject_callback = reinterpret_cast<VirtualAccountsAccount::Accounts__Account_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* Accounts__Account_SuperMetacast(Accounts__Account* self, const char* param1) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        vaccountsaccount->setAccounts__Account_Metacast_IsBase(true);
-        return vaccountsaccount->qt_metacast(param1);
-    } else {
-        return self->Accounts::Account::qt_metacast(param1);
-    }
+    return self->Accounts::Account::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Account_OnMetacast(Accounts__Account* self, intptr_t slot) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount)
-        vaccountsaccount->setAccounts__Account_Metacast_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_Metacast_Callback>(slot));
+    if (auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self))
+        vaccountsaccount->accounts__account_metacast_callback = reinterpret_cast<VirtualAccountsAccount::Accounts__Account_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int Accounts__Account_SuperMetacall(Accounts__Account* self, int param1, int param2, void** param3) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        vaccountsaccount->setAccounts__Account_Metacall_IsBase(true);
-        return vaccountsaccount->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->Accounts::Account::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->Accounts::Account::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Account_OnMetacall(Accounts__Account* self, intptr_t slot) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount)
-        vaccountsaccount->setAccounts__Account_Metacall_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_Metacall_Callback>(slot));
+    if (auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self))
+        vaccountsaccount->accounts__account_metacall_callback = reinterpret_cast<VirtualAccountsAccount::Accounts__Account_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Accounts__Account_Event(Accounts__Account* self, QEvent* event) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        return vaccountsaccount->event(event);
-    } else {
-        return self->Accounts::Account::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool Accounts__Account_SuperEvent(Accounts__Account* self, QEvent* event) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        vaccountsaccount->setAccounts__Account_Event_IsBase(true);
-        return vaccountsaccount->event(event);
-    } else {
-        return self->Accounts::Account::event(event);
-    }
+    return self->Accounts::Account::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Account_OnEvent(Accounts__Account* self, intptr_t slot) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount)
-        vaccountsaccount->setAccounts__Account_Event_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_Event_Callback>(slot));
+    if (auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self))
+        vaccountsaccount->accounts__account_event_callback = reinterpret_cast<VirtualAccountsAccount::Accounts__Account_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Accounts__Account_EventFilter(Accounts__Account* self, QObject* watched, QEvent* event) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        return vaccountsaccount->eventFilter(watched, event);
-    } else {
-        return self->Accounts::Account::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool Accounts__Account_SuperEventFilter(Accounts__Account* self, QObject* watched, QEvent* event) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        vaccountsaccount->setAccounts__Account_EventFilter_IsBase(true);
-        return vaccountsaccount->eventFilter(watched, event);
-    } else {
-        return self->Accounts::Account::eventFilter(watched, event);
-    }
+    return self->Accounts::Account::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Account_OnEventFilter(Accounts__Account* self, intptr_t slot) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount)
-        vaccountsaccount->setAccounts__Account_EventFilter_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_EventFilter_Callback>(slot));
+    if (auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self))
+        vaccountsaccount->accounts__account_eventfilter_callback = reinterpret_cast<VirtualAccountsAccount::Accounts__Account_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Account_TimerEvent(Accounts__Account* self, QTimerEvent* event) {
     auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
+    if (vaccountsaccount) {
         vaccountsaccount->timerEvent(event);
     } else {
-        ((VirtualAccountsAccount*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method Accounts::Account::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Account_SuperTimerEvent(Accounts__Account* self, QTimerEvent* event) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        vaccountsaccount->setAccounts__Account_TimerEvent_IsBase(true);
-        vaccountsaccount->timerEvent(event);
-    } else {
-        ((VirtualAccountsAccount*)self)->timerEvent(event);
-    }
+    if (auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self)) {
+        vaccountsaccount->Accounts::Account::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Account::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Account_OnTimerEvent(Accounts__Account* self, intptr_t slot) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount)
-        vaccountsaccount->setAccounts__Account_TimerEvent_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_TimerEvent_Callback>(slot));
+    if (auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self))
+        vaccountsaccount->accounts__account_timerevent_callback = reinterpret_cast<VirtualAccountsAccount::Accounts__Account_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Account_ChildEvent(Accounts__Account* self, QChildEvent* event) {
     auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
+    if (vaccountsaccount) {
         vaccountsaccount->childEvent(event);
     } else {
-        ((VirtualAccountsAccount*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method Accounts::Account::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Account_SuperChildEvent(Accounts__Account* self, QChildEvent* event) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        vaccountsaccount->setAccounts__Account_ChildEvent_IsBase(true);
-        vaccountsaccount->childEvent(event);
-    } else {
-        ((VirtualAccountsAccount*)self)->childEvent(event);
-    }
+    if (auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self)) {
+        vaccountsaccount->Accounts::Account::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Account::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Account_OnChildEvent(Accounts__Account* self, intptr_t slot) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount)
-        vaccountsaccount->setAccounts__Account_ChildEvent_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_ChildEvent_Callback>(slot));
+    if (auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self))
+        vaccountsaccount->accounts__account_childevent_callback = reinterpret_cast<VirtualAccountsAccount::Accounts__Account_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Account_CustomEvent(Accounts__Account* self, QEvent* event) {
     auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
+    if (vaccountsaccount) {
         vaccountsaccount->customEvent(event);
     } else {
-        ((VirtualAccountsAccount*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method Accounts::Account::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Account_SuperCustomEvent(Accounts__Account* self, QEvent* event) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        vaccountsaccount->setAccounts__Account_CustomEvent_IsBase(true);
-        vaccountsaccount->customEvent(event);
-    } else {
-        ((VirtualAccountsAccount*)self)->customEvent(event);
-    }
+    if (auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self)) {
+        vaccountsaccount->Accounts::Account::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Account::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Account_OnCustomEvent(Accounts__Account* self, intptr_t slot) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount)
-        vaccountsaccount->setAccounts__Account_CustomEvent_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_CustomEvent_Callback>(slot));
+    if (auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self))
+        vaccountsaccount->accounts__account_customevent_callback = reinterpret_cast<VirtualAccountsAccount::Accounts__Account_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Account_ConnectNotify(Accounts__Account* self, const QMetaMethod* signal) {
     auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
+    if (vaccountsaccount) {
         vaccountsaccount->connectNotify(*signal);
     } else {
-        ((VirtualAccountsAccount*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method Accounts::Account::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Account_SuperConnectNotify(Accounts__Account* self, const QMetaMethod* signal) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        vaccountsaccount->setAccounts__Account_ConnectNotify_IsBase(true);
-        vaccountsaccount->connectNotify(*signal);
-    } else {
-        ((VirtualAccountsAccount*)self)->connectNotify(*signal);
-    }
+    if (auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self)) {
+        vaccountsaccount->Accounts::Account::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Account::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Account_OnConnectNotify(Accounts__Account* self, intptr_t slot) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount)
-        vaccountsaccount->setAccounts__Account_ConnectNotify_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_ConnectNotify_Callback>(slot));
+    if (auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self))
+        vaccountsaccount->accounts__account_connectnotify_callback = reinterpret_cast<VirtualAccountsAccount::Accounts__Account_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Account_DisconnectNotify(Accounts__Account* self, const QMetaMethod* signal) {
     auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
+    if (vaccountsaccount) {
         vaccountsaccount->disconnectNotify(*signal);
     } else {
-        ((VirtualAccountsAccount*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method Accounts::Account::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Account_SuperDisconnectNotify(Accounts__Account* self, const QMetaMethod* signal) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        vaccountsaccount->setAccounts__Account_DisconnectNotify_IsBase(true);
-        vaccountsaccount->disconnectNotify(*signal);
-    } else {
-        ((VirtualAccountsAccount*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self)) {
+        vaccountsaccount->Accounts::Account::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Account::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Account_OnDisconnectNotify(Accounts__Account* self, intptr_t slot) {
-    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount)
-        vaccountsaccount->setAccounts__Account_DisconnectNotify_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_DisconnectNotify_Callback>(slot));
+    if (auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self))
+        vaccountsaccount->accounts__account_disconnectnotify_callback = reinterpret_cast<VirtualAccountsAccount::Accounts__Account_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* Accounts__Account_Sender(const Accounts__Account* self) {
-    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        return vaccountsaccount->sender();
-    } else {
-        return ((VirtualAccountsAccount*)self)->sender();
-    }
+    if (auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self))) {
+        return vaccountsaccount->VirtualAccountsAccount::sender();
+    } else
+        qFatal("Error: Protected method Accounts::Account::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* Accounts__Account_SuperSender(const Accounts__Account* self) {
-    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        vaccountsaccount->setAccounts__Account_Sender_IsBase(true);
-        return vaccountsaccount->sender();
-    } else {
-        return ((VirtualAccountsAccount*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Accounts__Account_OnSender(const Accounts__Account* self, intptr_t slot) {
-    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount)
-        vaccountsaccount->setAccounts__Account_Sender_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Accounts__Account_SenderSignalIndex(const Accounts__Account* self) {
-    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        return vaccountsaccount->senderSignalIndex();
-    } else {
-        return ((VirtualAccountsAccount*)self)->senderSignalIndex();
-    }
+    if (auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self))) {
+        return vaccountsaccount->VirtualAccountsAccount::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method Accounts::Account::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Accounts__Account_SuperSenderSignalIndex(const Accounts__Account* self) {
-    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        vaccountsaccount->setAccounts__Account_SenderSignalIndex_IsBase(true);
-        return vaccountsaccount->senderSignalIndex();
-    } else {
-        return ((VirtualAccountsAccount*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Accounts__Account_OnSenderSignalIndex(const Accounts__Account* self, intptr_t slot) {
-    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount)
-        vaccountsaccount->setAccounts__Account_SenderSignalIndex_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Accounts__Account_Receivers(const Accounts__Account* self, const char* signal) {
-    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        return vaccountsaccount->receivers(signal);
-    } else {
-        return ((VirtualAccountsAccount*)self)->receivers(signal);
-    }
+    if (auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self))) {
+        return vaccountsaccount->VirtualAccountsAccount::receivers(signal);
+    } else
+        qFatal("Error: Protected method Accounts::Account::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Accounts__Account_SuperReceivers(const Accounts__Account* self, const char* signal) {
-    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        vaccountsaccount->setAccounts__Account_Receivers_IsBase(true);
-        return vaccountsaccount->receivers(signal);
-    } else {
-        return ((VirtualAccountsAccount*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Accounts__Account_OnReceivers(const Accounts__Account* self, intptr_t slot) {
-    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount)
-        vaccountsaccount->setAccounts__Account_Receivers_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Accounts__Account_IsSignalConnected(const Accounts__Account* self, const QMetaMethod* signal) {
-    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        return vaccountsaccount->isSignalConnected(*signal);
-    } else {
-        return ((VirtualAccountsAccount*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool Accounts__Account_SuperIsSignalConnected(const Accounts__Account* self, const QMetaMethod* signal) {
-    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
-        vaccountsaccount->setAccounts__Account_IsSignalConnected_IsBase(true);
-        return vaccountsaccount->isSignalConnected(*signal);
-    } else {
-        return ((VirtualAccountsAccount*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Accounts__Account_OnIsSignalConnected(const Accounts__Account* self, intptr_t slot) {
-    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
-    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount)
-        vaccountsaccount->setAccounts__Account_IsSignalConnected_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_IsSignalConnected_Callback>(slot));
+    if (auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self))) {
+        return vaccountsaccount->VirtualAccountsAccount::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method Accounts::Account::isSignalConnected called without a directly constructed type");
 }
 
 void Accounts__Account_Delete(Accounts__Account* self) {

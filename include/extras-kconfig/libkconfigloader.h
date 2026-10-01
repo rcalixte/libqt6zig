@@ -43,7 +43,7 @@ bool KConfigLoader_UsrSave(KConfigLoader* self);
 void KConfigLoader_OnUsrSave(KConfigLoader* self, intptr_t slot);
 bool KConfigLoader_SuperUsrSave(KConfigLoader* self);
 QMetaObject* KConfigLoader_MetaObject(const KConfigLoader* self);
-void KConfigLoader_OnMetaObject(const KConfigLoader* self, intptr_t slot);
+void KConfigLoader_OnMetaObject(KConfigLoader* self, intptr_t slot);
 QMetaObject* KConfigLoader_SuperMetaObject(const KConfigLoader* self);
 void* KConfigLoader_Metacast(KConfigLoader* self, const char* param1);
 void KConfigLoader_OnMetacast(KConfigLoader* self, intptr_t slot);
@@ -88,17 +88,9 @@ void KConfigLoader_DisconnectNotify(KConfigLoader* self, const QMetaMethod* sign
 void KConfigLoader_OnDisconnectNotify(KConfigLoader* self, intptr_t slot);
 void KConfigLoader_SuperDisconnectNotify(KConfigLoader* self, const QMetaMethod* signal);
 QObject* KConfigLoader_Sender(const KConfigLoader* self);
-void KConfigLoader_OnSender(const KConfigLoader* self, intptr_t slot);
-QObject* KConfigLoader_SuperSender(const KConfigLoader* self);
 int KConfigLoader_SenderSignalIndex(const KConfigLoader* self);
-void KConfigLoader_OnSenderSignalIndex(const KConfigLoader* self, intptr_t slot);
-int KConfigLoader_SuperSenderSignalIndex(const KConfigLoader* self);
 int KConfigLoader_Receivers(const KConfigLoader* self, const char* signal);
-void KConfigLoader_OnReceivers(const KConfigLoader* self, intptr_t slot);
-int KConfigLoader_SuperReceivers(const KConfigLoader* self, const char* signal);
 bool KConfigLoader_IsSignalConnected(const KConfigLoader* self, const QMetaMethod* signal);
-void KConfigLoader_OnIsSignalConnected(const KConfigLoader* self, intptr_t slot);
-bool KConfigLoader_SuperIsSignalConnected(const KConfigLoader* self, const QMetaMethod* signal);
 void KConfigLoader_Delete(KConfigLoader* self);
 
 #ifdef __cplusplus

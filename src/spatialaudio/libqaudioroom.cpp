@@ -235,364 +235,219 @@ libqt_string QAudioRoom_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QAudioRoom_SuperMetaObject(const QAudioRoom* self) {
-    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_MetaObject_IsBase(true);
-        return (QMetaObject*)vqaudioroom->metaObject();
-    } else {
-        return (QMetaObject*)self->QAudioRoom::metaObject();
-    }
+    return (QMetaObject*)self->QAudioRoom::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAudioRoom_OnMetaObject(const QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
-        vqaudioroom->setQAudioRoom_MetaObject_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_MetaObject_Callback>(slot));
+void QAudioRoom_OnMetaObject(QAudioRoom* self, intptr_t slot) {
+    if (auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self)))
+        vqaudioroom->qaudioroom_metaobject_callback = reinterpret_cast<VirtualQAudioRoom::QAudioRoom_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QAudioRoom_SuperMetacast(QAudioRoom* self, const char* param1) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_Metacast_IsBase(true);
-        return vqaudioroom->qt_metacast(param1);
-    } else {
-        return self->QAudioRoom::qt_metacast(param1);
-    }
+    return self->QAudioRoom::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnMetacast(QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
-        vqaudioroom->setQAudioRoom_Metacast_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Metacast_Callback>(slot));
+    if (auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self))
+        vqaudioroom->qaudioroom_metacast_callback = reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAudioRoom_SuperMetacall(QAudioRoom* self, int param1, int param2, void** param3) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_Metacall_IsBase(true);
-        return vqaudioroom->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QAudioRoom::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QAudioRoom::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnMetacall(QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
-        vqaudioroom->setQAudioRoom_Metacall_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Metacall_Callback>(slot));
+    if (auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self))
+        vqaudioroom->qaudioroom_metacall_callback = reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAudioRoom_Event(QAudioRoom* self, QEvent* event) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        return vqaudioroom->event(event);
-    } else {
-        return self->QAudioRoom::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QAudioRoom_SuperEvent(QAudioRoom* self, QEvent* event) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_Event_IsBase(true);
-        return vqaudioroom->event(event);
-    } else {
-        return self->QAudioRoom::event(event);
-    }
+    return self->QAudioRoom::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnEvent(QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
-        vqaudioroom->setQAudioRoom_Event_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Event_Callback>(slot));
+    if (auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self))
+        vqaudioroom->qaudioroom_event_callback = reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAudioRoom_EventFilter(QAudioRoom* self, QObject* watched, QEvent* event) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        return vqaudioroom->eventFilter(watched, event);
-    } else {
-        return self->QAudioRoom::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QAudioRoom_SuperEventFilter(QAudioRoom* self, QObject* watched, QEvent* event) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_EventFilter_IsBase(true);
-        return vqaudioroom->eventFilter(watched, event);
-    } else {
-        return self->QAudioRoom::eventFilter(watched, event);
-    }
+    return self->QAudioRoom::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnEventFilter(QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
-        vqaudioroom->setQAudioRoom_EventFilter_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_EventFilter_Callback>(slot));
+    if (auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self))
+        vqaudioroom->qaudioroom_eventfilter_callback = reinterpret_cast<VirtualQAudioRoom::QAudioRoom_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioRoom_TimerEvent(QAudioRoom* self, QTimerEvent* event) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom) {
         vqaudioroom->timerEvent(event);
     } else {
-        ((VirtualQAudioRoom*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QAudioRoom::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioRoom_SuperTimerEvent(QAudioRoom* self, QTimerEvent* event) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_TimerEvent_IsBase(true);
-        vqaudioroom->timerEvent(event);
-    } else {
-        ((VirtualQAudioRoom*)self)->timerEvent(event);
-    }
+    if (auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self)) {
+        vqaudioroom->QAudioRoom::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAudioRoom::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnTimerEvent(QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
-        vqaudioroom->setQAudioRoom_TimerEvent_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_TimerEvent_Callback>(slot));
+    if (auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self))
+        vqaudioroom->qaudioroom_timerevent_callback = reinterpret_cast<VirtualQAudioRoom::QAudioRoom_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioRoom_ChildEvent(QAudioRoom* self, QChildEvent* event) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom) {
         vqaudioroom->childEvent(event);
     } else {
-        ((VirtualQAudioRoom*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QAudioRoom::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioRoom_SuperChildEvent(QAudioRoom* self, QChildEvent* event) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_ChildEvent_IsBase(true);
-        vqaudioroom->childEvent(event);
-    } else {
-        ((VirtualQAudioRoom*)self)->childEvent(event);
-    }
+    if (auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self)) {
+        vqaudioroom->QAudioRoom::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAudioRoom::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnChildEvent(QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
-        vqaudioroom->setQAudioRoom_ChildEvent_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_ChildEvent_Callback>(slot));
+    if (auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self))
+        vqaudioroom->qaudioroom_childevent_callback = reinterpret_cast<VirtualQAudioRoom::QAudioRoom_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioRoom_CustomEvent(QAudioRoom* self, QEvent* event) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom) {
         vqaudioroom->customEvent(event);
     } else {
-        ((VirtualQAudioRoom*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QAudioRoom::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioRoom_SuperCustomEvent(QAudioRoom* self, QEvent* event) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_CustomEvent_IsBase(true);
-        vqaudioroom->customEvent(event);
-    } else {
-        ((VirtualQAudioRoom*)self)->customEvent(event);
-    }
+    if (auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self)) {
+        vqaudioroom->QAudioRoom::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAudioRoom::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnCustomEvent(QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
-        vqaudioroom->setQAudioRoom_CustomEvent_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_CustomEvent_Callback>(slot));
+    if (auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self))
+        vqaudioroom->qaudioroom_customevent_callback = reinterpret_cast<VirtualQAudioRoom::QAudioRoom_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioRoom_ConnectNotify(QAudioRoom* self, const QMetaMethod* signal) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom) {
         vqaudioroom->connectNotify(*signal);
     } else {
-        ((VirtualQAudioRoom*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QAudioRoom::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioRoom_SuperConnectNotify(QAudioRoom* self, const QMetaMethod* signal) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_ConnectNotify_IsBase(true);
-        vqaudioroom->connectNotify(*signal);
-    } else {
-        ((VirtualQAudioRoom*)self)->connectNotify(*signal);
-    }
+    if (auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self)) {
+        vqaudioroom->QAudioRoom::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAudioRoom::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnConnectNotify(QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
-        vqaudioroom->setQAudioRoom_ConnectNotify_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_ConnectNotify_Callback>(slot));
+    if (auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self))
+        vqaudioroom->qaudioroom_connectnotify_callback = reinterpret_cast<VirtualQAudioRoom::QAudioRoom_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioRoom_DisconnectNotify(QAudioRoom* self, const QMetaMethod* signal) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom) {
         vqaudioroom->disconnectNotify(*signal);
     } else {
-        ((VirtualQAudioRoom*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QAudioRoom::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioRoom_SuperDisconnectNotify(QAudioRoom* self, const QMetaMethod* signal) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_DisconnectNotify_IsBase(true);
-        vqaudioroom->disconnectNotify(*signal);
-    } else {
-        ((VirtualQAudioRoom*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self)) {
+        vqaudioroom->QAudioRoom::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAudioRoom::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnDisconnectNotify(QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
-        vqaudioroom->setQAudioRoom_DisconnectNotify_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_DisconnectNotify_Callback>(slot));
+    if (auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self))
+        vqaudioroom->qaudioroom_disconnectnotify_callback = reinterpret_cast<VirtualQAudioRoom::QAudioRoom_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QAudioRoom_Sender(const QAudioRoom* self) {
-    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        return vqaudioroom->sender();
-    } else {
-        return ((VirtualQAudioRoom*)self)->sender();
-    }
+    if (auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self))) {
+        return vqaudioroom->VirtualQAudioRoom::sender();
+    } else
+        qFatal("Error: Protected method QAudioRoom::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QAudioRoom_SuperSender(const QAudioRoom* self) {
-    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_Sender_IsBase(true);
-        return vqaudioroom->sender();
-    } else {
-        return ((VirtualQAudioRoom*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAudioRoom_OnSender(const QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
-        vqaudioroom->setQAudioRoom_Sender_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAudioRoom_SenderSignalIndex(const QAudioRoom* self) {
-    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        return vqaudioroom->senderSignalIndex();
-    } else {
-        return ((VirtualQAudioRoom*)self)->senderSignalIndex();
-    }
+    if (auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self))) {
+        return vqaudioroom->VirtualQAudioRoom::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QAudioRoom::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAudioRoom_SuperSenderSignalIndex(const QAudioRoom* self) {
-    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_SenderSignalIndex_IsBase(true);
-        return vqaudioroom->senderSignalIndex();
-    } else {
-        return ((VirtualQAudioRoom*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAudioRoom_OnSenderSignalIndex(const QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
-        vqaudioroom->setQAudioRoom_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAudioRoom_Receivers(const QAudioRoom* self, const char* signal) {
-    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        return vqaudioroom->receivers(signal);
-    } else {
-        return ((VirtualQAudioRoom*)self)->receivers(signal);
-    }
+    if (auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self))) {
+        return vqaudioroom->VirtualQAudioRoom::receivers(signal);
+    } else
+        qFatal("Error: Protected method QAudioRoom::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAudioRoom_SuperReceivers(const QAudioRoom* self, const char* signal) {
-    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_Receivers_IsBase(true);
-        return vqaudioroom->receivers(signal);
-    } else {
-        return ((VirtualQAudioRoom*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAudioRoom_OnReceivers(const QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
-        vqaudioroom->setQAudioRoom_Receivers_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAudioRoom_IsSignalConnected(const QAudioRoom* self, const QMetaMethod* signal) {
-    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        return vqaudioroom->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAudioRoom*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QAudioRoom_SuperIsSignalConnected(const QAudioRoom* self, const QMetaMethod* signal) {
-    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        vqaudioroom->setQAudioRoom_IsSignalConnected_IsBase(true);
-        return vqaudioroom->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAudioRoom*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAudioRoom_OnIsSignalConnected(const QAudioRoom* self, intptr_t slot) {
-    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
-        vqaudioroom->setQAudioRoom_IsSignalConnected_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_IsSignalConnected_Callback>(slot));
+    if (auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self))) {
+        return vqaudioroom->VirtualQAudioRoom::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QAudioRoom::isSignalConnected called without a directly constructed type");
 }
 
 void QAudioRoom_Delete(QAudioRoom* self) {

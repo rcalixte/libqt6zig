@@ -9,22 +9,18 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KFind so that we can call protected methods
+// This class is a subclass of KFind
 class VirtualKFind final : public KFind {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKFind = true;
-
-    // Virtual class public types (including callbacks)
-    using KFind_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KFind_MetaObject_Callback = QMetaObject* (*)(const KFind*);
     using KFind_Metacast_Callback = void* (*)(KFind*, const char*);
     using KFind_Metacall_Callback = int (*)(KFind*, int, int, void**);
     using KFind_SetOptions_Callback = void (*)(KFind*, long);
-    using KFind_ResetCounts_Callback = void (*)();
+    using KFind_ResetCounts_Callback = void (*)(KFind*);
     using KFind_ValidateMatch_Callback = bool (*)(KFind*, const char*, int, int);
     using KFind_ShouldRestart_Callback = bool (*)(const KFind*, bool, bool);
-    using KFind_DisplayFinalDialog_Callback = void (*)();
+    using KFind_DisplayFinalDialog_Callback = void (*)(const KFind*);
     using KFind_Event_Callback = bool (*)(KFind*, QEvent*);
     using KFind_EventFilter_Callback = bool (*)(KFind*, QObject*, QEvent*);
     using KFind_TimerEvent_Callback = void (*)(KFind*, QTimerEvent*);
@@ -32,14 +28,13 @@ class VirtualKFind final : public KFind {
     using KFind_CustomEvent_Callback = void (*)(KFind*, QEvent*);
     using KFind_ConnectNotify_Callback = void (*)(KFind*, QMetaMethod*);
     using KFind_DisconnectNotify_Callback = void (*)(KFind*, QMetaMethod*);
-    using KFind_ParentWidget_Callback = QWidget* (*)();
-    using KFind_DialogsParent_Callback = QWidget* (*)();
-    using KFind_Sender_Callback = QObject* (*)();
-    using KFind_SenderSignalIndex_Callback = int (*)();
-    using KFind_Receivers_Callback = int (*)(const KFind*, const char*);
-    using KFind_IsSignalConnected_Callback = bool (*)(const KFind*, QMetaMethod*);
+    using KFind::dialogsParent;
+    using KFind::isSignalConnected;
+    using KFind::parentWidget;
+    using KFind::receivers;
+    using KFind::sender;
+    using KFind::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KFind_MetaObject_Callback kfind_metaobject_callback = nullptr;
     KFind_Metacast_Callback kfind_metacast_callback = nullptr;
@@ -56,95 +51,23 @@ class VirtualKFind final : public KFind {
     KFind_CustomEvent_Callback kfind_customevent_callback = nullptr;
     KFind_ConnectNotify_Callback kfind_connectnotify_callback = nullptr;
     KFind_DisconnectNotify_Callback kfind_disconnectnotify_callback = nullptr;
-    KFind_ParentWidget_Callback kfind_parentwidget_callback = nullptr;
-    KFind_DialogsParent_Callback kfind_dialogsparent_callback = nullptr;
-    KFind_Sender_Callback kfind_sender_callback = nullptr;
-    KFind_SenderSignalIndex_Callback kfind_sendersignalindex_callback = nullptr;
-    KFind_Receivers_Callback kfind_receivers_callback = nullptr;
-    KFind_IsSignalConnected_Callback kfind_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kfind_metaobject_isbase = false;
-    mutable bool kfind_metacast_isbase = false;
-    mutable bool kfind_metacall_isbase = false;
-    mutable bool kfind_setoptions_isbase = false;
-    mutable bool kfind_resetcounts_isbase = false;
-    mutable bool kfind_validatematch_isbase = false;
-    mutable bool kfind_shouldrestart_isbase = false;
-    mutable bool kfind_displayfinaldialog_isbase = false;
-    mutable bool kfind_event_isbase = false;
-    mutable bool kfind_eventfilter_isbase = false;
-    mutable bool kfind_timerevent_isbase = false;
-    mutable bool kfind_childevent_isbase = false;
-    mutable bool kfind_customevent_isbase = false;
-    mutable bool kfind_connectnotify_isbase = false;
-    mutable bool kfind_disconnectnotify_isbase = false;
-    mutable bool kfind_parentwidget_isbase = false;
-    mutable bool kfind_dialogsparent_isbase = false;
-    mutable bool kfind_sender_isbase = false;
-    mutable bool kfind_sendersignalindex_isbase = false;
-    mutable bool kfind_receivers_isbase = false;
-    mutable bool kfind_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KFind {
+        using KFind::childEvent;
+        using KFind::connectNotify;
+        using KFind::customEvent;
+        using KFind::disconnectNotify;
+        using KFind::timerEvent;
+    };
 
-  public:
     VirtualKFind(const QString& pattern, long options, QWidget* parent) : KFind(pattern, options, parent) {};
     VirtualKFind(const QString& pattern, long options, QWidget* parent, QWidget* findDialog) : KFind(pattern, options, parent, findDialog) {};
 
-    // Callback setters
-    inline void setKFind_MetaObject_Callback(KFind_MetaObject_Callback cb) { kfind_metaobject_callback = cb; }
-    inline void setKFind_Metacast_Callback(KFind_Metacast_Callback cb) { kfind_metacast_callback = cb; }
-    inline void setKFind_Metacall_Callback(KFind_Metacall_Callback cb) { kfind_metacall_callback = cb; }
-    inline void setKFind_SetOptions_Callback(KFind_SetOptions_Callback cb) { kfind_setoptions_callback = cb; }
-    inline void setKFind_ResetCounts_Callback(KFind_ResetCounts_Callback cb) { kfind_resetcounts_callback = cb; }
-    inline void setKFind_ValidateMatch_Callback(KFind_ValidateMatch_Callback cb) { kfind_validatematch_callback = cb; }
-    inline void setKFind_ShouldRestart_Callback(KFind_ShouldRestart_Callback cb) { kfind_shouldrestart_callback = cb; }
-    inline void setKFind_DisplayFinalDialog_Callback(KFind_DisplayFinalDialog_Callback cb) { kfind_displayfinaldialog_callback = cb; }
-    inline void setKFind_Event_Callback(KFind_Event_Callback cb) { kfind_event_callback = cb; }
-    inline void setKFind_EventFilter_Callback(KFind_EventFilter_Callback cb) { kfind_eventfilter_callback = cb; }
-    inline void setKFind_TimerEvent_Callback(KFind_TimerEvent_Callback cb) { kfind_timerevent_callback = cb; }
-    inline void setKFind_ChildEvent_Callback(KFind_ChildEvent_Callback cb) { kfind_childevent_callback = cb; }
-    inline void setKFind_CustomEvent_Callback(KFind_CustomEvent_Callback cb) { kfind_customevent_callback = cb; }
-    inline void setKFind_ConnectNotify_Callback(KFind_ConnectNotify_Callback cb) { kfind_connectnotify_callback = cb; }
-    inline void setKFind_DisconnectNotify_Callback(KFind_DisconnectNotify_Callback cb) { kfind_disconnectnotify_callback = cb; }
-    inline void setKFind_ParentWidget_Callback(KFind_ParentWidget_Callback cb) { kfind_parentwidget_callback = cb; }
-    inline void setKFind_DialogsParent_Callback(KFind_DialogsParent_Callback cb) { kfind_dialogsparent_callback = cb; }
-    inline void setKFind_Sender_Callback(KFind_Sender_Callback cb) { kfind_sender_callback = cb; }
-    inline void setKFind_SenderSignalIndex_Callback(KFind_SenderSignalIndex_Callback cb) { kfind_sendersignalindex_callback = cb; }
-    inline void setKFind_Receivers_Callback(KFind_Receivers_Callback cb) { kfind_receivers_callback = cb; }
-    inline void setKFind_IsSignalConnected_Callback(KFind_IsSignalConnected_Callback cb) { kfind_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKFind_MetaObject_IsBase(bool value) const { kfind_metaobject_isbase = value; }
-    inline void setKFind_Metacast_IsBase(bool value) const { kfind_metacast_isbase = value; }
-    inline void setKFind_Metacall_IsBase(bool value) const { kfind_metacall_isbase = value; }
-    inline void setKFind_SetOptions_IsBase(bool value) const { kfind_setoptions_isbase = value; }
-    inline void setKFind_ResetCounts_IsBase(bool value) const { kfind_resetcounts_isbase = value; }
-    inline void setKFind_ValidateMatch_IsBase(bool value) const { kfind_validatematch_isbase = value; }
-    inline void setKFind_ShouldRestart_IsBase(bool value) const { kfind_shouldrestart_isbase = value; }
-    inline void setKFind_DisplayFinalDialog_IsBase(bool value) const { kfind_displayfinaldialog_isbase = value; }
-    inline void setKFind_Event_IsBase(bool value) const { kfind_event_isbase = value; }
-    inline void setKFind_EventFilter_IsBase(bool value) const { kfind_eventfilter_isbase = value; }
-    inline void setKFind_TimerEvent_IsBase(bool value) const { kfind_timerevent_isbase = value; }
-    inline void setKFind_ChildEvent_IsBase(bool value) const { kfind_childevent_isbase = value; }
-    inline void setKFind_CustomEvent_IsBase(bool value) const { kfind_customevent_isbase = value; }
-    inline void setKFind_ConnectNotify_IsBase(bool value) const { kfind_connectnotify_isbase = value; }
-    inline void setKFind_DisconnectNotify_IsBase(bool value) const { kfind_disconnectnotify_isbase = value; }
-    inline void setKFind_ParentWidget_IsBase(bool value) const { kfind_parentwidget_isbase = value; }
-    inline void setKFind_DialogsParent_IsBase(bool value) const { kfind_dialogsparent_isbase = value; }
-    inline void setKFind_Sender_IsBase(bool value) const { kfind_sender_isbase = value; }
-    inline void setKFind_SenderSignalIndex_IsBase(bool value) const { kfind_sendersignalindex_isbase = value; }
-    inline void setKFind_Receivers_IsBase(bool value) const { kfind_receivers_isbase = value; }
-    inline void setKFind_IsSignalConnected_IsBase(bool value) const { kfind_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kfind_metaobject_isbase) {
-            kfind_metaobject_isbase = false;
-            return KFind::metaObject();
-        }
-        auto metaobject_cb = kfind_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kfind_metaobject_callback) {
+            QMetaObject* callback_ret = kfind_metaobject_callback(this);
             return callback_ret;
         }
         return KFind::metaObject();
@@ -152,14 +75,9 @@ class VirtualKFind final : public KFind {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kfind_metacast_isbase) {
-            kfind_metacast_isbase = false;
-            return KFind::qt_metacast(param1);
-        }
-        auto metacast_cb = kfind_metacast_callback;
-        if (metacast_cb) {
+        if (kfind_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kfind_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KFind::qt_metacast(param1);
@@ -167,16 +85,11 @@ class VirtualKFind final : public KFind {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kfind_metacall_isbase) {
-            kfind_metacall_isbase = false;
-            return KFind::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kfind_metacall_callback;
-        if (metacall_cb) {
+        if (kfind_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kfind_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KFind::qt_metacall(param1, param2, param3);
@@ -184,15 +97,9 @@ class VirtualKFind final : public KFind {
 
     // Virtual method for C ABI access and custom callback
     virtual void setOptions(long options) override {
-        if (kfind_setoptions_isbase) {
-            kfind_setoptions_isbase = false;
-            KFind::setOptions(options);
-            return;
-        }
-        auto setoptions_cb = kfind_setoptions_callback;
-        if (setoptions_cb) {
+        if (kfind_setoptions_callback) {
             long cbval1 = options;
-            setoptions_cb(this, cbval1);
+            kfind_setoptions_callback(this, cbval1);
             return;
         }
         KFind::setOptions(options);
@@ -200,14 +107,8 @@ class VirtualKFind final : public KFind {
 
     // Virtual method for C ABI access and custom callback
     virtual void resetCounts() override {
-        if (kfind_resetcounts_isbase) {
-            kfind_resetcounts_isbase = false;
-            KFind::resetCounts();
-            return;
-        }
-        auto resetcounts_cb = kfind_resetcounts_callback;
-        if (resetcounts_cb) {
-            resetcounts_cb();
+        if (kfind_resetcounts_callback) {
+            kfind_resetcounts_callback(this);
             return;
         }
         KFind::resetCounts();
@@ -215,12 +116,7 @@ class VirtualKFind final : public KFind {
 
     // Virtual method for C ABI access and custom callback
     virtual bool validateMatch(const QString& text, int index, int matchedlength) override {
-        if (kfind_validatematch_isbase) {
-            kfind_validatematch_isbase = false;
-            return KFind::validateMatch(text, index, matchedlength);
-        }
-        auto validatematch_cb = kfind_validatematch_callback;
-        if (validatematch_cb) {
+        if (kfind_validatematch_callback) {
             const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -231,7 +127,7 @@ class VirtualKFind final : public KFind {
             const char* cbval1 = text_str;
             int cbval2 = index;
             int cbval3 = matchedlength;
-            bool callback_ret = validatematch_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kfind_validatematch_callback(this, cbval1, cbval2, cbval3);
             libqt_free(text_str);
             return callback_ret;
         }
@@ -240,15 +136,10 @@ class VirtualKFind final : public KFind {
 
     // Virtual method for C ABI access and custom callback
     virtual bool shouldRestart(bool forceAsking, bool showNumMatches) const override {
-        if (kfind_shouldrestart_isbase) {
-            kfind_shouldrestart_isbase = false;
-            return KFind::shouldRestart(forceAsking, showNumMatches);
-        }
-        auto shouldrestart_cb = kfind_shouldrestart_callback;
-        if (shouldrestart_cb) {
+        if (kfind_shouldrestart_callback) {
             bool cbval1 = forceAsking;
             bool cbval2 = showNumMatches;
-            bool callback_ret = shouldrestart_cb(this, cbval1, cbval2);
+            bool callback_ret = kfind_shouldrestart_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KFind::shouldRestart(forceAsking, showNumMatches);
@@ -256,14 +147,8 @@ class VirtualKFind final : public KFind {
 
     // Virtual method for C ABI access and custom callback
     virtual void displayFinalDialog() const override {
-        if (kfind_displayfinaldialog_isbase) {
-            kfind_displayfinaldialog_isbase = false;
-            KFind::displayFinalDialog();
-            return;
-        }
-        auto displayfinaldialog_cb = kfind_displayfinaldialog_callback;
-        if (displayfinaldialog_cb) {
-            displayfinaldialog_cb();
+        if (kfind_displayfinaldialog_callback) {
+            kfind_displayfinaldialog_callback(this);
             return;
         }
         KFind::displayFinalDialog();
@@ -271,14 +156,9 @@ class VirtualKFind final : public KFind {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kfind_event_isbase) {
-            kfind_event_isbase = false;
-            return KFind::event(event);
-        }
-        auto event_cb = kfind_event_callback;
-        if (event_cb) {
+        if (kfind_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kfind_event_callback(this, cbval1);
             return callback_ret;
         }
         return KFind::event(event);
@@ -286,15 +166,10 @@ class VirtualKFind final : public KFind {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kfind_eventfilter_isbase) {
-            kfind_eventfilter_isbase = false;
-            return KFind::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kfind_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kfind_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kfind_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KFind::eventFilter(watched, event);
@@ -302,15 +177,9 @@ class VirtualKFind final : public KFind {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kfind_timerevent_isbase) {
-            kfind_timerevent_isbase = false;
-            KFind::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kfind_timerevent_callback;
-        if (timerevent_cb) {
+        if (kfind_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kfind_timerevent_callback(this, cbval1);
             return;
         }
         KFind::timerEvent(event);
@@ -318,15 +187,9 @@ class VirtualKFind final : public KFind {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kfind_childevent_isbase) {
-            kfind_childevent_isbase = false;
-            KFind::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kfind_childevent_callback;
-        if (childevent_cb) {
+        if (kfind_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kfind_childevent_callback(this, cbval1);
             return;
         }
         KFind::childEvent(event);
@@ -334,15 +197,9 @@ class VirtualKFind final : public KFind {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kfind_customevent_isbase) {
-            kfind_customevent_isbase = false;
-            KFind::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kfind_customevent_callback;
-        if (customevent_cb) {
+        if (kfind_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kfind_customevent_callback(this, cbval1);
             return;
         }
         KFind::customEvent(event);
@@ -350,17 +207,11 @@ class VirtualKFind final : public KFind {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kfind_connectnotify_isbase) {
-            kfind_connectnotify_isbase = false;
-            KFind::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kfind_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kfind_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kfind_connectnotify_callback(this, cbval1);
             return;
         }
         KFind::connectNotify(signal);
@@ -368,133 +219,22 @@ class VirtualKFind final : public KFind {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kfind_disconnectnotify_isbase) {
-            kfind_disconnectnotify_isbase = false;
-            KFind::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kfind_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kfind_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kfind_disconnectnotify_callback(this, cbval1);
             return;
         }
         KFind::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QWidget* parentWidget() const {
-        if (kfind_parentwidget_isbase) {
-            kfind_parentwidget_isbase = false;
-            return KFind::parentWidget();
-        }
-        auto parentwidget_cb = kfind_parentwidget_callback;
-        if (parentwidget_cb) {
-            QWidget* callback_ret = parentwidget_cb();
-            return callback_ret;
-        }
-        return KFind::parentWidget();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QWidget* dialogsParent() const {
-        if (kfind_dialogsparent_isbase) {
-            kfind_dialogsparent_isbase = false;
-            return KFind::dialogsParent();
-        }
-        auto dialogsparent_cb = kfind_dialogsparent_callback;
-        if (dialogsparent_cb) {
-            QWidget* callback_ret = dialogsparent_cb();
-            return callback_ret;
-        }
-        return KFind::dialogsParent();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kfind_sender_isbase) {
-            kfind_sender_isbase = false;
-            return KFind::sender();
-        }
-        auto sender_cb = kfind_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KFind::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kfind_sendersignalindex_isbase) {
-            kfind_sendersignalindex_isbase = false;
-            return KFind::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kfind_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KFind::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kfind_receivers_isbase) {
-            kfind_receivers_isbase = false;
-            return KFind::receivers(signal);
-        }
-        auto receivers_cb = kfind_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KFind::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kfind_issignalconnected_isbase) {
-            kfind_issignalconnected_isbase = false;
-            return KFind::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kfind_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KFind::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KFind_TimerEvent(KFind* self, QTimerEvent* event);
     friend void KFind_SuperTimerEvent(KFind* self, QTimerEvent* event);
-    friend void KFind_ChildEvent(KFind* self, QChildEvent* event);
     friend void KFind_SuperChildEvent(KFind* self, QChildEvent* event);
-    friend void KFind_CustomEvent(KFind* self, QEvent* event);
     friend void KFind_SuperCustomEvent(KFind* self, QEvent* event);
-    friend void KFind_ConnectNotify(KFind* self, const QMetaMethod* signal);
     friend void KFind_SuperConnectNotify(KFind* self, const QMetaMethod* signal);
-    friend void KFind_DisconnectNotify(KFind* self, const QMetaMethod* signal);
     friend void KFind_SuperDisconnectNotify(KFind* self, const QMetaMethod* signal);
-    friend QWidget* KFind_ParentWidget(const KFind* self);
-    friend QWidget* KFind_SuperParentWidget(const KFind* self);
-    friend QWidget* KFind_DialogsParent(const KFind* self);
-    friend QWidget* KFind_SuperDialogsParent(const KFind* self);
-    friend QObject* KFind_Sender(const KFind* self);
-    friend QObject* KFind_SuperSender(const KFind* self);
-    friend int KFind_SenderSignalIndex(const KFind* self);
-    friend int KFind_SuperSenderSignalIndex(const KFind* self);
-    friend int KFind_Receivers(const KFind* self, const char* signal);
-    friend int KFind_SuperReceivers(const KFind* self, const char* signal);
-    friend bool KFind_IsSignalConnected(const KFind* self, const QMetaMethod* signal);
-    friend bool KFind_SuperIsSignalConnected(const KFind* self, const QMetaMethod* signal);
 };
 
 #endif

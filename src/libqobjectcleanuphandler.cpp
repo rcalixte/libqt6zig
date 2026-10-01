@@ -80,364 +80,219 @@ libqt_string QObjectCleanupHandler_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QObjectCleanupHandler_SuperMetaObject(const QObjectCleanupHandler* self) {
-    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        vqobjectcleanuphandler->setQObjectCleanupHandler_MetaObject_IsBase(true);
-        return (QMetaObject*)vqobjectcleanuphandler->metaObject();
-    } else {
-        return (QMetaObject*)self->QObjectCleanupHandler::metaObject();
-    }
+    return (QMetaObject*)self->QObjectCleanupHandler::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QObjectCleanupHandler_OnMetaObject(const QObjectCleanupHandler* self, intptr_t slot) {
-    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler)
-        vqobjectcleanuphandler->setQObjectCleanupHandler_MetaObject_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_MetaObject_Callback>(slot));
+void QObjectCleanupHandler_OnMetaObject(QObjectCleanupHandler* self, intptr_t slot) {
+    if (auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self)))
+        vqobjectcleanuphandler->qobjectcleanuphandler_metaobject_callback = reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QObjectCleanupHandler_SuperMetacast(QObjectCleanupHandler* self, const char* param1) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        vqobjectcleanuphandler->setQObjectCleanupHandler_Metacast_IsBase(true);
-        return vqobjectcleanuphandler->qt_metacast(param1);
-    } else {
-        return self->QObjectCleanupHandler::qt_metacast(param1);
-    }
+    return self->QObjectCleanupHandler::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QObjectCleanupHandler_OnMetacast(QObjectCleanupHandler* self, intptr_t slot) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler)
-        vqobjectcleanuphandler->setQObjectCleanupHandler_Metacast_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_Metacast_Callback>(slot));
+    if (auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self))
+        vqobjectcleanuphandler->qobjectcleanuphandler_metacast_callback = reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QObjectCleanupHandler_SuperMetacall(QObjectCleanupHandler* self, int param1, int param2, void** param3) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        vqobjectcleanuphandler->setQObjectCleanupHandler_Metacall_IsBase(true);
-        return vqobjectcleanuphandler->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QObjectCleanupHandler::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QObjectCleanupHandler::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QObjectCleanupHandler_OnMetacall(QObjectCleanupHandler* self, intptr_t slot) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler)
-        vqobjectcleanuphandler->setQObjectCleanupHandler_Metacall_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_Metacall_Callback>(slot));
+    if (auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self))
+        vqobjectcleanuphandler->qobjectcleanuphandler_metacall_callback = reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QObjectCleanupHandler_Event(QObjectCleanupHandler* self, QEvent* event) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        return vqobjectcleanuphandler->event(event);
-    } else {
-        return self->QObjectCleanupHandler::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QObjectCleanupHandler_SuperEvent(QObjectCleanupHandler* self, QEvent* event) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        vqobjectcleanuphandler->setQObjectCleanupHandler_Event_IsBase(true);
-        return vqobjectcleanuphandler->event(event);
-    } else {
-        return self->QObjectCleanupHandler::event(event);
-    }
+    return self->QObjectCleanupHandler::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QObjectCleanupHandler_OnEvent(QObjectCleanupHandler* self, intptr_t slot) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler)
-        vqobjectcleanuphandler->setQObjectCleanupHandler_Event_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_Event_Callback>(slot));
+    if (auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self))
+        vqobjectcleanuphandler->qobjectcleanuphandler_event_callback = reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QObjectCleanupHandler_EventFilter(QObjectCleanupHandler* self, QObject* watched, QEvent* event) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        return vqobjectcleanuphandler->eventFilter(watched, event);
-    } else {
-        return self->QObjectCleanupHandler::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QObjectCleanupHandler_SuperEventFilter(QObjectCleanupHandler* self, QObject* watched, QEvent* event) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        vqobjectcleanuphandler->setQObjectCleanupHandler_EventFilter_IsBase(true);
-        return vqobjectcleanuphandler->eventFilter(watched, event);
-    } else {
-        return self->QObjectCleanupHandler::eventFilter(watched, event);
-    }
+    return self->QObjectCleanupHandler::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QObjectCleanupHandler_OnEventFilter(QObjectCleanupHandler* self, intptr_t slot) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler)
-        vqobjectcleanuphandler->setQObjectCleanupHandler_EventFilter_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_EventFilter_Callback>(slot));
+    if (auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self))
+        vqobjectcleanuphandler->qobjectcleanuphandler_eventfilter_callback = reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QObjectCleanupHandler_TimerEvent(QObjectCleanupHandler* self, QTimerEvent* event) {
     auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
+    if (vqobjectcleanuphandler) {
         vqobjectcleanuphandler->timerEvent(event);
     } else {
-        ((VirtualQObjectCleanupHandler*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QObjectCleanupHandler::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QObjectCleanupHandler_SuperTimerEvent(QObjectCleanupHandler* self, QTimerEvent* event) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        vqobjectcleanuphandler->setQObjectCleanupHandler_TimerEvent_IsBase(true);
-        vqobjectcleanuphandler->timerEvent(event);
-    } else {
-        ((VirtualQObjectCleanupHandler*)self)->timerEvent(event);
-    }
+    if (auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self)) {
+        vqobjectcleanuphandler->QObjectCleanupHandler::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QObjectCleanupHandler::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QObjectCleanupHandler_OnTimerEvent(QObjectCleanupHandler* self, intptr_t slot) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler)
-        vqobjectcleanuphandler->setQObjectCleanupHandler_TimerEvent_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_TimerEvent_Callback>(slot));
+    if (auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self))
+        vqobjectcleanuphandler->qobjectcleanuphandler_timerevent_callback = reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QObjectCleanupHandler_ChildEvent(QObjectCleanupHandler* self, QChildEvent* event) {
     auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
+    if (vqobjectcleanuphandler) {
         vqobjectcleanuphandler->childEvent(event);
     } else {
-        ((VirtualQObjectCleanupHandler*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QObjectCleanupHandler::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QObjectCleanupHandler_SuperChildEvent(QObjectCleanupHandler* self, QChildEvent* event) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        vqobjectcleanuphandler->setQObjectCleanupHandler_ChildEvent_IsBase(true);
-        vqobjectcleanuphandler->childEvent(event);
-    } else {
-        ((VirtualQObjectCleanupHandler*)self)->childEvent(event);
-    }
+    if (auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self)) {
+        vqobjectcleanuphandler->QObjectCleanupHandler::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QObjectCleanupHandler::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QObjectCleanupHandler_OnChildEvent(QObjectCleanupHandler* self, intptr_t slot) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler)
-        vqobjectcleanuphandler->setQObjectCleanupHandler_ChildEvent_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_ChildEvent_Callback>(slot));
+    if (auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self))
+        vqobjectcleanuphandler->qobjectcleanuphandler_childevent_callback = reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QObjectCleanupHandler_CustomEvent(QObjectCleanupHandler* self, QEvent* event) {
     auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
+    if (vqobjectcleanuphandler) {
         vqobjectcleanuphandler->customEvent(event);
     } else {
-        ((VirtualQObjectCleanupHandler*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QObjectCleanupHandler::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QObjectCleanupHandler_SuperCustomEvent(QObjectCleanupHandler* self, QEvent* event) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        vqobjectcleanuphandler->setQObjectCleanupHandler_CustomEvent_IsBase(true);
-        vqobjectcleanuphandler->customEvent(event);
-    } else {
-        ((VirtualQObjectCleanupHandler*)self)->customEvent(event);
-    }
+    if (auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self)) {
+        vqobjectcleanuphandler->QObjectCleanupHandler::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QObjectCleanupHandler::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QObjectCleanupHandler_OnCustomEvent(QObjectCleanupHandler* self, intptr_t slot) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler)
-        vqobjectcleanuphandler->setQObjectCleanupHandler_CustomEvent_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_CustomEvent_Callback>(slot));
+    if (auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self))
+        vqobjectcleanuphandler->qobjectcleanuphandler_customevent_callback = reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QObjectCleanupHandler_ConnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal) {
     auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
+    if (vqobjectcleanuphandler) {
         vqobjectcleanuphandler->connectNotify(*signal);
     } else {
-        ((VirtualQObjectCleanupHandler*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QObjectCleanupHandler::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QObjectCleanupHandler_SuperConnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        vqobjectcleanuphandler->setQObjectCleanupHandler_ConnectNotify_IsBase(true);
-        vqobjectcleanuphandler->connectNotify(*signal);
-    } else {
-        ((VirtualQObjectCleanupHandler*)self)->connectNotify(*signal);
-    }
+    if (auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self)) {
+        vqobjectcleanuphandler->QObjectCleanupHandler::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QObjectCleanupHandler::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QObjectCleanupHandler_OnConnectNotify(QObjectCleanupHandler* self, intptr_t slot) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler)
-        vqobjectcleanuphandler->setQObjectCleanupHandler_ConnectNotify_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_ConnectNotify_Callback>(slot));
+    if (auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self))
+        vqobjectcleanuphandler->qobjectcleanuphandler_connectnotify_callback = reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QObjectCleanupHandler_DisconnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal) {
     auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
+    if (vqobjectcleanuphandler) {
         vqobjectcleanuphandler->disconnectNotify(*signal);
     } else {
-        ((VirtualQObjectCleanupHandler*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QObjectCleanupHandler::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QObjectCleanupHandler_SuperDisconnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        vqobjectcleanuphandler->setQObjectCleanupHandler_DisconnectNotify_IsBase(true);
-        vqobjectcleanuphandler->disconnectNotify(*signal);
-    } else {
-        ((VirtualQObjectCleanupHandler*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self)) {
+        vqobjectcleanuphandler->QObjectCleanupHandler::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QObjectCleanupHandler::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QObjectCleanupHandler_OnDisconnectNotify(QObjectCleanupHandler* self, intptr_t slot) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler)
-        vqobjectcleanuphandler->setQObjectCleanupHandler_DisconnectNotify_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_DisconnectNotify_Callback>(slot));
+    if (auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self))
+        vqobjectcleanuphandler->qobjectcleanuphandler_disconnectnotify_callback = reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QObjectCleanupHandler_Sender(const QObjectCleanupHandler* self) {
-    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        return vqobjectcleanuphandler->sender();
-    } else {
-        return ((VirtualQObjectCleanupHandler*)self)->sender();
-    }
+    if (auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self))) {
+        return vqobjectcleanuphandler->VirtualQObjectCleanupHandler::sender();
+    } else
+        qFatal("Error: Protected method QObjectCleanupHandler::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QObjectCleanupHandler_SuperSender(const QObjectCleanupHandler* self) {
-    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        vqobjectcleanuphandler->setQObjectCleanupHandler_Sender_IsBase(true);
-        return vqobjectcleanuphandler->sender();
-    } else {
-        return ((VirtualQObjectCleanupHandler*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QObjectCleanupHandler_OnSender(const QObjectCleanupHandler* self, intptr_t slot) {
-    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler)
-        vqobjectcleanuphandler->setQObjectCleanupHandler_Sender_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QObjectCleanupHandler_SenderSignalIndex(const QObjectCleanupHandler* self) {
-    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        return vqobjectcleanuphandler->senderSignalIndex();
-    } else {
-        return ((VirtualQObjectCleanupHandler*)self)->senderSignalIndex();
-    }
+    if (auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self))) {
+        return vqobjectcleanuphandler->VirtualQObjectCleanupHandler::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QObjectCleanupHandler::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QObjectCleanupHandler_SuperSenderSignalIndex(const QObjectCleanupHandler* self) {
-    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        vqobjectcleanuphandler->setQObjectCleanupHandler_SenderSignalIndex_IsBase(true);
-        return vqobjectcleanuphandler->senderSignalIndex();
-    } else {
-        return ((VirtualQObjectCleanupHandler*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QObjectCleanupHandler_OnSenderSignalIndex(const QObjectCleanupHandler* self, intptr_t slot) {
-    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler)
-        vqobjectcleanuphandler->setQObjectCleanupHandler_SenderSignalIndex_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QObjectCleanupHandler_Receivers(const QObjectCleanupHandler* self, const char* signal) {
-    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        return vqobjectcleanuphandler->receivers(signal);
-    } else {
-        return ((VirtualQObjectCleanupHandler*)self)->receivers(signal);
-    }
+    if (auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self))) {
+        return vqobjectcleanuphandler->VirtualQObjectCleanupHandler::receivers(signal);
+    } else
+        qFatal("Error: Protected method QObjectCleanupHandler::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QObjectCleanupHandler_SuperReceivers(const QObjectCleanupHandler* self, const char* signal) {
-    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        vqobjectcleanuphandler->setQObjectCleanupHandler_Receivers_IsBase(true);
-        return vqobjectcleanuphandler->receivers(signal);
-    } else {
-        return ((VirtualQObjectCleanupHandler*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QObjectCleanupHandler_OnReceivers(const QObjectCleanupHandler* self, intptr_t slot) {
-    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler)
-        vqobjectcleanuphandler->setQObjectCleanupHandler_Receivers_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QObjectCleanupHandler_IsSignalConnected(const QObjectCleanupHandler* self, const QMetaMethod* signal) {
-    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        return vqobjectcleanuphandler->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQObjectCleanupHandler*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QObjectCleanupHandler_SuperIsSignalConnected(const QObjectCleanupHandler* self, const QMetaMethod* signal) {
-    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        vqobjectcleanuphandler->setQObjectCleanupHandler_IsSignalConnected_IsBase(true);
-        return vqobjectcleanuphandler->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQObjectCleanupHandler*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QObjectCleanupHandler_OnIsSignalConnected(const QObjectCleanupHandler* self, intptr_t slot) {
-    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler)
-        vqobjectcleanuphandler->setQObjectCleanupHandler_IsSignalConnected_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_IsSignalConnected_Callback>(slot));
+    if (auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self))) {
+        return vqobjectcleanuphandler->VirtualQObjectCleanupHandler::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QObjectCleanupHandler::isSignalConnected called without a directly constructed type");
 }
 
 void QObjectCleanupHandler_Delete(QObjectCleanupHandler* self) {

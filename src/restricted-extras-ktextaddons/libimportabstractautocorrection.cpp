@@ -155,24 +155,10 @@ void TextAutoCorrectionCore__ImportAbstractAutocorrection_OperatorAssign(TextAut
     self->operator=(*param1);
 }
 
-// Base class handler implementation
-bool TextAutoCorrectionCore__ImportAbstractAutocorrection_SuperImport(TextAutoCorrectionCore__ImportAbstractAutocorrection* self, const libqt_string fileName, libqt_string errorMessage, int loadAttribute) {
-    auto* vtextautocorrectioncoreimportabstractautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportAbstractAutocorrection*>(self);
-    QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-    QString errorMessage_QString = QString::fromUtf8(errorMessage.data, errorMessage.len);
-    if (vtextautocorrectioncoreimportabstractautocorrection && vtextautocorrectioncoreimportabstractautocorrection->isVirtualTextAutoCorrectionCoreImportAbstractAutocorrection) {
-        vtextautocorrectioncoreimportabstractautocorrection->setTextAutoCorrectionCore__ImportAbstractAutocorrection_Import_IsBase(true);
-        return vtextautocorrectioncoreimportabstractautocorrection->import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
-    } else {
-        return ((VirtualTextAutoCorrectionCoreImportAbstractAutocorrection*)self)->import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
-    }
-}
-
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionCore__ImportAbstractAutocorrection_OnImport(TextAutoCorrectionCore__ImportAbstractAutocorrection* self, intptr_t slot) {
-    auto* vtextautocorrectioncoreimportabstractautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportAbstractAutocorrection*>(self);
-    if (vtextautocorrectioncoreimportabstractautocorrection && vtextautocorrectioncoreimportabstractautocorrection->isVirtualTextAutoCorrectionCoreImportAbstractAutocorrection)
-        vtextautocorrectioncoreimportabstractautocorrection->setTextAutoCorrectionCore__ImportAbstractAutocorrection_Import_Callback(reinterpret_cast<VirtualTextAutoCorrectionCoreImportAbstractAutocorrection::TextAutoCorrectionCore__ImportAbstractAutocorrection_Import_Callback>(slot));
+    if (auto* vtextautocorrectioncoreimportabstractautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportAbstractAutocorrection*>(self))
+        vtextautocorrectioncoreimportabstractautocorrection->textautocorrectioncore__importabstractautocorrection_import_callback = reinterpret_cast<VirtualTextAutoCorrectionCoreImportAbstractAutocorrection::TextAutoCorrectionCore__ImportAbstractAutocorrection_Import_Callback>(slot);
 }
 
 void TextAutoCorrectionCore__ImportAbstractAutocorrection_Delete(TextAutoCorrectionCore__ImportAbstractAutocorrection* self) {

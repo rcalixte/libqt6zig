@@ -59,7 +59,7 @@ QWidget* KDirLister_MainWindow(KDirLister* self) {
 
 void KDirLister_JobStarted(KDirLister* self, KIO__ListJob* param1) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister) {
         vkdirlister->jobStarted(param1);
     }
 }
@@ -90,382 +90,233 @@ libqt_string KDirLister_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KDirLister_SuperMetaObject(const KDirLister* self) {
-    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_MetaObject_IsBase(true);
-        return (QMetaObject*)vkdirlister->metaObject();
-    } else {
-        return (QMetaObject*)self->KDirLister::metaObject();
-    }
+    return (QMetaObject*)self->KDirLister::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirLister_OnMetaObject(const KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_MetaObject_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_MetaObject_Callback>(slot));
+void KDirLister_OnMetaObject(KDirLister* self, intptr_t slot) {
+    if (auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self)))
+        vkdirlister->kdirlister_metaobject_callback = reinterpret_cast<VirtualKDirLister::KDirLister_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KDirLister_SuperMetacast(KDirLister* self, const char* param1) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_Metacast_IsBase(true);
-        return vkdirlister->qt_metacast(param1);
-    } else {
-        return self->KDirLister::qt_metacast(param1);
-    }
+    return self->KDirLister::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnMetacast(KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_Metacast_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_Metacast_Callback>(slot));
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self))
+        vkdirlister->kdirlister_metacast_callback = reinterpret_cast<VirtualKDirLister::KDirLister_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KDirLister_SuperMetacall(KDirLister* self, int param1, int param2, void** param3) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_Metacall_IsBase(true);
-        return vkdirlister->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KDirLister::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KDirLister::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnMetacall(KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_Metacall_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_Metacall_Callback>(slot));
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self))
+        vkdirlister->kdirlister_metacall_callback = reinterpret_cast<VirtualKDirLister::KDirLister_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirLister_SuperJobStarted(KDirLister* self, KIO__ListJob* param1) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_JobStarted_IsBase(true);
-        vkdirlister->jobStarted(param1);
-    } else {
-        ((VirtualKDirLister*)self)->jobStarted(param1);
-    }
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self)) {
+        vkdirlister->KDirLister::jobStarted(param1);
+    } else
+        qFatal("Error: Protected virtual method KDirLister::jobStarted called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnJobStarted(KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_JobStarted_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_JobStarted_Callback>(slot));
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self))
+        vkdirlister->kdirlister_jobstarted_callback = reinterpret_cast<VirtualKDirLister::KDirLister_JobStarted_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirLister_Event(KDirLister* self, QEvent* event) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        return vkdirlister->event(event);
-    } else {
-        return self->KDirLister::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KDirLister_SuperEvent(KDirLister* self, QEvent* event) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_Event_IsBase(true);
-        return vkdirlister->event(event);
-    } else {
-        return self->KDirLister::event(event);
-    }
+    return self->KDirLister::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnEvent(KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_Event_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_Event_Callback>(slot));
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self))
+        vkdirlister->kdirlister_event_callback = reinterpret_cast<VirtualKDirLister::KDirLister_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirLister_EventFilter(KDirLister* self, QObject* watched, QEvent* event) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        return vkdirlister->eventFilter(watched, event);
-    } else {
-        return self->KDirLister::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KDirLister_SuperEventFilter(KDirLister* self, QObject* watched, QEvent* event) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_EventFilter_IsBase(true);
-        return vkdirlister->eventFilter(watched, event);
-    } else {
-        return self->KDirLister::eventFilter(watched, event);
-    }
+    return self->KDirLister::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnEventFilter(KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_EventFilter_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_EventFilter_Callback>(slot));
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self))
+        vkdirlister->kdirlister_eventfilter_callback = reinterpret_cast<VirtualKDirLister::KDirLister_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirLister_TimerEvent(KDirLister* self, QTimerEvent* event) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister) {
         vkdirlister->timerEvent(event);
     } else {
-        ((VirtualKDirLister*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KDirLister::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirLister_SuperTimerEvent(KDirLister* self, QTimerEvent* event) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_TimerEvent_IsBase(true);
-        vkdirlister->timerEvent(event);
-    } else {
-        ((VirtualKDirLister*)self)->timerEvent(event);
-    }
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self)) {
+        vkdirlister->KDirLister::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirLister::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnTimerEvent(KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_TimerEvent_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_TimerEvent_Callback>(slot));
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self))
+        vkdirlister->kdirlister_timerevent_callback = reinterpret_cast<VirtualKDirLister::KDirLister_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirLister_ChildEvent(KDirLister* self, QChildEvent* event) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister) {
         vkdirlister->childEvent(event);
     } else {
-        ((VirtualKDirLister*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KDirLister::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirLister_SuperChildEvent(KDirLister* self, QChildEvent* event) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_ChildEvent_IsBase(true);
-        vkdirlister->childEvent(event);
-    } else {
-        ((VirtualKDirLister*)self)->childEvent(event);
-    }
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self)) {
+        vkdirlister->KDirLister::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirLister::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnChildEvent(KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_ChildEvent_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_ChildEvent_Callback>(slot));
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self))
+        vkdirlister->kdirlister_childevent_callback = reinterpret_cast<VirtualKDirLister::KDirLister_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirLister_CustomEvent(KDirLister* self, QEvent* event) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister) {
         vkdirlister->customEvent(event);
     } else {
-        ((VirtualKDirLister*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KDirLister::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirLister_SuperCustomEvent(KDirLister* self, QEvent* event) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_CustomEvent_IsBase(true);
-        vkdirlister->customEvent(event);
-    } else {
-        ((VirtualKDirLister*)self)->customEvent(event);
-    }
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self)) {
+        vkdirlister->KDirLister::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirLister::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnCustomEvent(KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_CustomEvent_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_CustomEvent_Callback>(slot));
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self))
+        vkdirlister->kdirlister_customevent_callback = reinterpret_cast<VirtualKDirLister::KDirLister_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirLister_ConnectNotify(KDirLister* self, const QMetaMethod* signal) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister) {
         vkdirlister->connectNotify(*signal);
     } else {
-        ((VirtualKDirLister*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KDirLister::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirLister_SuperConnectNotify(KDirLister* self, const QMetaMethod* signal) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_ConnectNotify_IsBase(true);
-        vkdirlister->connectNotify(*signal);
-    } else {
-        ((VirtualKDirLister*)self)->connectNotify(*signal);
-    }
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self)) {
+        vkdirlister->KDirLister::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KDirLister::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnConnectNotify(KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_ConnectNotify_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_ConnectNotify_Callback>(slot));
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self))
+        vkdirlister->kdirlister_connectnotify_callback = reinterpret_cast<VirtualKDirLister::KDirLister_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirLister_DisconnectNotify(KDirLister* self, const QMetaMethod* signal) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister) {
         vkdirlister->disconnectNotify(*signal);
     } else {
-        ((VirtualKDirLister*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KDirLister::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirLister_SuperDisconnectNotify(KDirLister* self, const QMetaMethod* signal) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_DisconnectNotify_IsBase(true);
-        vkdirlister->disconnectNotify(*signal);
-    } else {
-        ((VirtualKDirLister*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self)) {
+        vkdirlister->KDirLister::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KDirLister::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnDisconnectNotify(KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_DisconnectNotify_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_DisconnectNotify_Callback>(slot));
+    if (auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self))
+        vkdirlister->kdirlister_disconnectnotify_callback = reinterpret_cast<VirtualKDirLister::KDirLister_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KDirLister_Sender(const KDirLister* self) {
-    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        return vkdirlister->sender();
-    } else {
-        return ((VirtualKDirLister*)self)->sender();
-    }
+    if (auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self))) {
+        return vkdirlister->VirtualKDirLister::sender();
+    } else
+        qFatal("Error: Protected method KDirLister::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KDirLister_SuperSender(const KDirLister* self) {
-    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_Sender_IsBase(true);
-        return vkdirlister->sender();
-    } else {
-        return ((VirtualKDirLister*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirLister_OnSender(const KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_Sender_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KDirLister_SenderSignalIndex(const KDirLister* self) {
-    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        return vkdirlister->senderSignalIndex();
-    } else {
-        return ((VirtualKDirLister*)self)->senderSignalIndex();
-    }
+    if (auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self))) {
+        return vkdirlister->VirtualKDirLister::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KDirLister::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KDirLister_SuperSenderSignalIndex(const KDirLister* self) {
-    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_SenderSignalIndex_IsBase(true);
-        return vkdirlister->senderSignalIndex();
-    } else {
-        return ((VirtualKDirLister*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirLister_OnSenderSignalIndex(const KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KDirLister_Receivers(const KDirLister* self, const char* signal) {
-    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        return vkdirlister->receivers(signal);
-    } else {
-        return ((VirtualKDirLister*)self)->receivers(signal);
-    }
+    if (auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self))) {
+        return vkdirlister->VirtualKDirLister::receivers(signal);
+    } else
+        qFatal("Error: Protected method KDirLister::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KDirLister_SuperReceivers(const KDirLister* self, const char* signal) {
-    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_Receivers_IsBase(true);
-        return vkdirlister->receivers(signal);
-    } else {
-        return ((VirtualKDirLister*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirLister_OnReceivers(const KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_Receivers_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KDirLister_IsSignalConnected(const KDirLister* self, const QMetaMethod* signal) {
-    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        return vkdirlister->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKDirLister*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KDirLister_SuperIsSignalConnected(const KDirLister* self, const QMetaMethod* signal) {
-    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
-        vkdirlister->setKDirLister_IsSignalConnected_IsBase(true);
-        return vkdirlister->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKDirLister*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirLister_OnIsSignalConnected(const KDirLister* self, intptr_t slot) {
-    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister)
-        vkdirlister->setKDirLister_IsSignalConnected_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_IsSignalConnected_Callback>(slot));
+    if (auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self))) {
+        return vkdirlister->VirtualKDirLister::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KDirLister::isSignalConnected called without a directly constructed type");
 }
 
 void KDirLister_Delete(KDirLister* self) {

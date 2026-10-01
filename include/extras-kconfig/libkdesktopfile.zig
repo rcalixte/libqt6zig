@@ -1187,9 +1187,9 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KDesktopFile) callconv(.c) bool `
     ///
-    pub fn onSync(self: KDesktopFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSync(self: KDesktopFile, callback: *const fn (KDesktopFile) callconv(.c) bool) void {
         qtc.KDesktopFile_OnSync(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1243,9 +1243,9 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KDesktopFile) callconv(.c) void `
     ///
-    pub fn onMarkAsClean(self: KDesktopFile, callback: *const fn () callconv(.c) void) void {
+    pub fn onMarkAsClean(self: KDesktopFile, callback: *const fn (KDesktopFile) callconv(.c) void) void {
         qtc.KDesktopFile_OnMarkAsClean(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1307,9 +1307,9 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KDesktopFile) callconv(.c) i32 `
     ///
-    pub fn onAccessMode(self: KDesktopFile, callback: *const fn () callconv(.c) i32) void {
+    pub fn onAccessMode(self: KDesktopFile, callback: *const fn (KDesktopFile) callconv(.c) i32) void {
         qtc.KDesktopFile_OnAccessMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1363,9 +1363,9 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KDesktopFile) callconv(.c) bool `
     ///
-    pub fn onIsImmutable(self: KDesktopFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsImmutable(self: KDesktopFile, callback: *const fn (KDesktopFile) callconv(.c) bool) void {
         qtc.KDesktopFile_OnIsImmutable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1453,9 +1453,9 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile`
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: KDesktopFile) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onGroupList(self: KDesktopFile, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onGroupList(self: KDesktopFile, callback: *const fn (KDesktopFile) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KDesktopFile_OnGroupList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1525,76 +1525,6 @@ pub const KDesktopFile = extern struct {
     ///
     pub fn onHasGroupImpl(self: KDesktopFile, callback: *const fn (KDesktopFile, [*:0]const u8) callconv(.c) bool) void {
         qtc.KDesktopFile_OnHasGroupImpl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `groupImpl` instead
-    ///
-    pub const GroupImpl = groupImpl;
-
-    /// Inherited from KConfig
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDesktopFile `
-    ///
-    /// ` groupName: []const u8 `
-    ///
-    pub fn groupImpl(self: KDesktopFile, groupName: []const u8) KConfigGroup {
-        const groupName_str = qtc.libqt_string{
-            .len = groupName.len,
-            .data = groupName.ptr,
-        };
-        return .{ .ptr = qtc.KDesktopFile_GroupImpl(@ptrCast(self.ptr), groupName_str) };
-    }
-
-    /// ### DEPRECATED: Use `superGroupImpl` instead
-    ///
-    pub const SuperGroupImpl = superGroupImpl;
-
-    /// Inherited from KConfig
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDesktopFile `
-    ///
-    /// ` groupName: []const u8 `
-    ///
-    pub fn superGroupImpl(self: KDesktopFile, groupName: []const u8) KConfigGroup {
-        const groupName_str = qtc.libqt_string{
-            .len = groupName.len,
-            .data = groupName.ptr,
-        };
-        return .{ .ptr = qtc.KDesktopFile_SuperGroupImpl(@ptrCast(self.ptr), groupName_str) };
-    }
-
-    /// ### DEPRECATED: Use `onGroupImpl` instead
-    ///
-    pub const OnGroupImpl = onGroupImpl;
-
-    /// Inherited from KConfig
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDesktopFile`
-    ///
-    /// ` callback: *const fn (self: KDesktopFile, groupName: [*:0]const u8) callconv(.c) KConfigGroup `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onGroupImpl(self: KDesktopFile, callback: *const fn (KDesktopFile, [*:0]const u8) callconv(.c) KConfigGroup) void {
-        qtc.KDesktopFile_OnGroupImpl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `deleteGroupImpl` instead

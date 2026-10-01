@@ -89,9 +89,9 @@ pub const QNmeaPositionInfoSource = extern struct {
     ///
     /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource) callconv(.c) QMetaObject) void {
         qtc.QNmeaPositionInfoSource_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -451,9 +451,9 @@ pub const QNmeaPositionInfoSource = extern struct {
     ///
     /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource) callconv(.c) i32 `
     ///
-    pub fn onSupportedPositioningMethods(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedPositioningMethods(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource) callconv(.c) i32) void {
         qtc.QNmeaPositionInfoSource_OnSupportedPositioningMethods(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -503,9 +503,9 @@ pub const QNmeaPositionInfoSource = extern struct {
     ///
     /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource) callconv(.c) i32 `
     ///
-    pub fn onMinimumUpdateInterval(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) i32) void {
+    pub fn onMinimumUpdateInterval(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource) callconv(.c) i32) void {
         qtc.QNmeaPositionInfoSource_OnMinimumUpdateInterval(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -557,9 +557,9 @@ pub const QNmeaPositionInfoSource = extern struct {
     ///
     /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource) callconv(.c) i32 `
     ///
-    pub fn onError(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) i32) void {
+    pub fn onError(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource) callconv(.c) i32) void {
         qtc.QNmeaPositionInfoSource_OnError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -609,9 +609,9 @@ pub const QNmeaPositionInfoSource = extern struct {
     ///
     /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource) callconv(.c) void `
     ///
-    pub fn onStartUpdates(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) void) void {
+    pub fn onStartUpdates(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource) callconv(.c) void) void {
         qtc.QNmeaPositionInfoSource_OnStartUpdates(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -657,9 +657,9 @@ pub const QNmeaPositionInfoSource = extern struct {
     ///
     /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource) callconv(.c) void `
     ///
-    pub fn onStopUpdates(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) void) void {
+    pub fn onStopUpdates(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource) callconv(.c) void) void {
         qtc.QNmeaPositionInfoSource_OnStopUpdates(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -824,51 +824,6 @@ pub const QNmeaPositionInfoSource = extern struct {
         return qtc.QNmeaPositionInfoSource_ParsePosInfoFromNmeaData2(@ptrCast(self.ptr), data_str, @ptrCast(posInfo.ptr), @ptrCast(hasFix));
     }
 
-    /// ### DEPRECATED: Use `onParsePosInfoFromNmeaData2` instead
-    ///
-    pub const OnParsePosInfoFromNmeaData2 = onParsePosInfoFromNmeaData2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#parsePosInfoFromNmeaData)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNmeaPositionInfoSource `
-    ///
-    /// ` callback: *const fn (self: QNmeaPositionInfoSource, data: qtc.libqt_string, posInfo: QGeoPositionInfo, hasFix: *bool) callconv(.c) bool `
-    ///
-    pub fn onParsePosInfoFromNmeaData2(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, qtc.libqt_string, QGeoPositionInfo, *bool) callconv(.c) bool) void {
-        qtc.QNmeaPositionInfoSource_OnParsePosInfoFromNmeaData2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superParsePosInfoFromNmeaData2` instead
-    ///
-    pub const SuperParsePosInfoFromNmeaData2 = superParsePosInfoFromNmeaData2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#parsePosInfoFromNmeaData)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNmeaPositionInfoSource `
-    ///
-    /// ` data: []u8 `
-    ///
-    /// ` posInfo: QGeoPositionInfo `
-    ///
-    /// ` hasFix: *bool `
-    ///
-    pub fn superParsePosInfoFromNmeaData2(self: QNmeaPositionInfoSource, data: []u8, posInfo: anytype, hasFix: *bool) bool {
-        const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
-        };
-        comptime _ = @TypeOf(posInfo)._is_QGeoPositionInfo;
-        return qtc.QNmeaPositionInfoSource_SuperParsePosInfoFromNmeaData2(@ptrCast(self.ptr), data_str, @ptrCast(posInfo.ptr), @ptrCast(hasFix));
-    }
-
     /// ### DEPRECATED: Use `setError` instead
     ///
     pub const SetError = setError;
@@ -883,42 +838,6 @@ pub const QNmeaPositionInfoSource = extern struct {
     ///
     pub fn setError(self: QNmeaPositionInfoSource, positionError: i32) void {
         qtc.QNmeaPositionInfoSource_SetError(@ptrCast(self.ptr), @bitCast(positionError));
-    }
-
-    /// ### DEPRECATED: Use `onSetError` instead
-    ///
-    pub const OnSetError = onSetError;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#setError)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNmeaPositionInfoSource `
-    ///
-    /// ` callback: *const fn (self: QNmeaPositionInfoSource, positionError: qgeopositioninfosource_enums.Error) callconv(.c) void `
-    ///
-    pub fn onSetError(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, i32) callconv(.c) void) void {
-        qtc.QNmeaPositionInfoSource_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetError` instead
-    ///
-    pub const SuperSetError = superSetError;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#setError)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNmeaPositionInfoSource `
-    ///
-    /// ` positionError: qgeopositioninfosource_enums.Error `
-    ///
-    pub fn superSetError(self: QNmeaPositionInfoSource, positionError: i32) void {
-        qtc.QNmeaPositionInfoSource_SuperSetError(@ptrCast(self.ptr), @bitCast(positionError));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2925,44 +2844,6 @@ pub const QNmeaPositionInfoSource = extern struct {
         return .{ .ptr = qtc.QNmeaPositionInfoSource_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNmeaPositionInfoSource `
-    ///
-    pub fn superSender(self: QNmeaPositionInfoSource) QObject {
-        return .{ .ptr = qtc.QNmeaPositionInfoSource_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNmeaPositionInfoSource`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QNmeaPositionInfoSource_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2979,44 +2860,6 @@ pub const QNmeaPositionInfoSource = extern struct {
     ///
     pub fn senderSignalIndex(self: QNmeaPositionInfoSource) i32 {
         return qtc.QNmeaPositionInfoSource_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNmeaPositionInfoSource `
-    ///
-    pub fn superSenderSignalIndex(self: QNmeaPositionInfoSource) i32 {
-        return qtc.QNmeaPositionInfoSource_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNmeaPositionInfoSource`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) i32) void {
-        qtc.QNmeaPositionInfoSource_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3040,47 +2883,6 @@ pub const QNmeaPositionInfoSource = extern struct {
         return qtc.QNmeaPositionInfoSource_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNmeaPositionInfoSource `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QNmeaPositionInfoSource, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QNmeaPositionInfoSource_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNmeaPositionInfoSource`
-    ///
-    /// ` callback: *const fn (self: QNmeaPositionInfoSource, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QNmeaPositionInfoSource_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3100,47 +2902,6 @@ pub const QNmeaPositionInfoSource = extern struct {
     pub fn isSignalConnected(self: QNmeaPositionInfoSource, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QNmeaPositionInfoSource_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNmeaPositionInfoSource `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QNmeaPositionInfoSource, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QNmeaPositionInfoSource_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNmeaPositionInfoSource`
-    ///
-    /// ` callback: *const fn (self: QNmeaPositionInfoSource, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, QMetaMethod) callconv(.c) bool) void {
-        qtc.QNmeaPositionInfoSource_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

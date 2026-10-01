@@ -179,364 +179,219 @@ libqt_string QScreenCapture_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QScreenCapture_SuperMetaObject(const QScreenCapture* self) {
-    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_MetaObject_IsBase(true);
-        return (QMetaObject*)vqscreencapture->metaObject();
-    } else {
-        return (QMetaObject*)self->QScreenCapture::metaObject();
-    }
+    return (QMetaObject*)self->QScreenCapture::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QScreenCapture_OnMetaObject(const QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
-        vqscreencapture->setQScreenCapture_MetaObject_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_MetaObject_Callback>(slot));
+void QScreenCapture_OnMetaObject(QScreenCapture* self, intptr_t slot) {
+    if (auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self)))
+        vqscreencapture->qscreencapture_metaobject_callback = reinterpret_cast<VirtualQScreenCapture::QScreenCapture_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QScreenCapture_SuperMetacast(QScreenCapture* self, const char* param1) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_Metacast_IsBase(true);
-        return vqscreencapture->qt_metacast(param1);
-    } else {
-        return self->QScreenCapture::qt_metacast(param1);
-    }
+    return self->QScreenCapture::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnMetacast(QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
-        vqscreencapture->setQScreenCapture_Metacast_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Metacast_Callback>(slot));
+    if (auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self))
+        vqscreencapture->qscreencapture_metacast_callback = reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QScreenCapture_SuperMetacall(QScreenCapture* self, int param1, int param2, void** param3) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_Metacall_IsBase(true);
-        return vqscreencapture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QScreenCapture::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QScreenCapture::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnMetacall(QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
-        vqscreencapture->setQScreenCapture_Metacall_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Metacall_Callback>(slot));
+    if (auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self))
+        vqscreencapture->qscreencapture_metacall_callback = reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QScreenCapture_Event(QScreenCapture* self, QEvent* event) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        return vqscreencapture->event(event);
-    } else {
-        return self->QScreenCapture::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QScreenCapture_SuperEvent(QScreenCapture* self, QEvent* event) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_Event_IsBase(true);
-        return vqscreencapture->event(event);
-    } else {
-        return self->QScreenCapture::event(event);
-    }
+    return self->QScreenCapture::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnEvent(QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
-        vqscreencapture->setQScreenCapture_Event_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Event_Callback>(slot));
+    if (auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self))
+        vqscreencapture->qscreencapture_event_callback = reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QScreenCapture_EventFilter(QScreenCapture* self, QObject* watched, QEvent* event) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        return vqscreencapture->eventFilter(watched, event);
-    } else {
-        return self->QScreenCapture::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QScreenCapture_SuperEventFilter(QScreenCapture* self, QObject* watched, QEvent* event) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_EventFilter_IsBase(true);
-        return vqscreencapture->eventFilter(watched, event);
-    } else {
-        return self->QScreenCapture::eventFilter(watched, event);
-    }
+    return self->QScreenCapture::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnEventFilter(QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
-        vqscreencapture->setQScreenCapture_EventFilter_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_EventFilter_Callback>(slot));
+    if (auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self))
+        vqscreencapture->qscreencapture_eventfilter_callback = reinterpret_cast<VirtualQScreenCapture::QScreenCapture_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QScreenCapture_TimerEvent(QScreenCapture* self, QTimerEvent* event) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture) {
         vqscreencapture->timerEvent(event);
     } else {
-        ((VirtualQScreenCapture*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QScreenCapture::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QScreenCapture_SuperTimerEvent(QScreenCapture* self, QTimerEvent* event) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_TimerEvent_IsBase(true);
-        vqscreencapture->timerEvent(event);
-    } else {
-        ((VirtualQScreenCapture*)self)->timerEvent(event);
-    }
+    if (auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self)) {
+        vqscreencapture->QScreenCapture::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QScreenCapture::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnTimerEvent(QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
-        vqscreencapture->setQScreenCapture_TimerEvent_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_TimerEvent_Callback>(slot));
+    if (auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self))
+        vqscreencapture->qscreencapture_timerevent_callback = reinterpret_cast<VirtualQScreenCapture::QScreenCapture_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QScreenCapture_ChildEvent(QScreenCapture* self, QChildEvent* event) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture) {
         vqscreencapture->childEvent(event);
     } else {
-        ((VirtualQScreenCapture*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QScreenCapture::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QScreenCapture_SuperChildEvent(QScreenCapture* self, QChildEvent* event) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_ChildEvent_IsBase(true);
-        vqscreencapture->childEvent(event);
-    } else {
-        ((VirtualQScreenCapture*)self)->childEvent(event);
-    }
+    if (auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self)) {
+        vqscreencapture->QScreenCapture::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QScreenCapture::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnChildEvent(QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
-        vqscreencapture->setQScreenCapture_ChildEvent_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_ChildEvent_Callback>(slot));
+    if (auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self))
+        vqscreencapture->qscreencapture_childevent_callback = reinterpret_cast<VirtualQScreenCapture::QScreenCapture_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QScreenCapture_CustomEvent(QScreenCapture* self, QEvent* event) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture) {
         vqscreencapture->customEvent(event);
     } else {
-        ((VirtualQScreenCapture*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QScreenCapture::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QScreenCapture_SuperCustomEvent(QScreenCapture* self, QEvent* event) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_CustomEvent_IsBase(true);
-        vqscreencapture->customEvent(event);
-    } else {
-        ((VirtualQScreenCapture*)self)->customEvent(event);
-    }
+    if (auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self)) {
+        vqscreencapture->QScreenCapture::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QScreenCapture::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnCustomEvent(QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
-        vqscreencapture->setQScreenCapture_CustomEvent_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_CustomEvent_Callback>(slot));
+    if (auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self))
+        vqscreencapture->qscreencapture_customevent_callback = reinterpret_cast<VirtualQScreenCapture::QScreenCapture_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QScreenCapture_ConnectNotify(QScreenCapture* self, const QMetaMethod* signal) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture) {
         vqscreencapture->connectNotify(*signal);
     } else {
-        ((VirtualQScreenCapture*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QScreenCapture::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QScreenCapture_SuperConnectNotify(QScreenCapture* self, const QMetaMethod* signal) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_ConnectNotify_IsBase(true);
-        vqscreencapture->connectNotify(*signal);
-    } else {
-        ((VirtualQScreenCapture*)self)->connectNotify(*signal);
-    }
+    if (auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self)) {
+        vqscreencapture->QScreenCapture::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QScreenCapture::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnConnectNotify(QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
-        vqscreencapture->setQScreenCapture_ConnectNotify_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_ConnectNotify_Callback>(slot));
+    if (auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self))
+        vqscreencapture->qscreencapture_connectnotify_callback = reinterpret_cast<VirtualQScreenCapture::QScreenCapture_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QScreenCapture_DisconnectNotify(QScreenCapture* self, const QMetaMethod* signal) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture) {
         vqscreencapture->disconnectNotify(*signal);
     } else {
-        ((VirtualQScreenCapture*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QScreenCapture::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QScreenCapture_SuperDisconnectNotify(QScreenCapture* self, const QMetaMethod* signal) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_DisconnectNotify_IsBase(true);
-        vqscreencapture->disconnectNotify(*signal);
-    } else {
-        ((VirtualQScreenCapture*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self)) {
+        vqscreencapture->QScreenCapture::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QScreenCapture::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnDisconnectNotify(QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
-        vqscreencapture->setQScreenCapture_DisconnectNotify_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_DisconnectNotify_Callback>(slot));
+    if (auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self))
+        vqscreencapture->qscreencapture_disconnectnotify_callback = reinterpret_cast<VirtualQScreenCapture::QScreenCapture_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QScreenCapture_Sender(const QScreenCapture* self) {
-    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        return vqscreencapture->sender();
-    } else {
-        return ((VirtualQScreenCapture*)self)->sender();
-    }
+    if (auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self))) {
+        return vqscreencapture->VirtualQScreenCapture::sender();
+    } else
+        qFatal("Error: Protected method QScreenCapture::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QScreenCapture_SuperSender(const QScreenCapture* self) {
-    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_Sender_IsBase(true);
-        return vqscreencapture->sender();
-    } else {
-        return ((VirtualQScreenCapture*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QScreenCapture_OnSender(const QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
-        vqscreencapture->setQScreenCapture_Sender_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QScreenCapture_SenderSignalIndex(const QScreenCapture* self) {
-    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        return vqscreencapture->senderSignalIndex();
-    } else {
-        return ((VirtualQScreenCapture*)self)->senderSignalIndex();
-    }
+    if (auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self))) {
+        return vqscreencapture->VirtualQScreenCapture::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QScreenCapture::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QScreenCapture_SuperSenderSignalIndex(const QScreenCapture* self) {
-    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_SenderSignalIndex_IsBase(true);
-        return vqscreencapture->senderSignalIndex();
-    } else {
-        return ((VirtualQScreenCapture*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QScreenCapture_OnSenderSignalIndex(const QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
-        vqscreencapture->setQScreenCapture_SenderSignalIndex_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QScreenCapture_Receivers(const QScreenCapture* self, const char* signal) {
-    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        return vqscreencapture->receivers(signal);
-    } else {
-        return ((VirtualQScreenCapture*)self)->receivers(signal);
-    }
+    if (auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self))) {
+        return vqscreencapture->VirtualQScreenCapture::receivers(signal);
+    } else
+        qFatal("Error: Protected method QScreenCapture::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QScreenCapture_SuperReceivers(const QScreenCapture* self, const char* signal) {
-    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_Receivers_IsBase(true);
-        return vqscreencapture->receivers(signal);
-    } else {
-        return ((VirtualQScreenCapture*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QScreenCapture_OnReceivers(const QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
-        vqscreencapture->setQScreenCapture_Receivers_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QScreenCapture_IsSignalConnected(const QScreenCapture* self, const QMetaMethod* signal) {
-    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        return vqscreencapture->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQScreenCapture*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QScreenCapture_SuperIsSignalConnected(const QScreenCapture* self, const QMetaMethod* signal) {
-    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        vqscreencapture->setQScreenCapture_IsSignalConnected_IsBase(true);
-        return vqscreencapture->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQScreenCapture*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QScreenCapture_OnIsSignalConnected(const QScreenCapture* self, intptr_t slot) {
-    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
-        vqscreencapture->setQScreenCapture_IsSignalConnected_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_IsSignalConnected_Callback>(slot));
+    if (auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self))) {
+        return vqscreencapture->VirtualQScreenCapture::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QScreenCapture::isSignalConnected called without a directly constructed type");
 }
 
 void QScreenCapture_Delete(QScreenCapture* self) {

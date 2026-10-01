@@ -19,20 +19,6 @@ pub const QSqlDriverCreatorBase = extern struct {
 
     pub const _is_QSqlDriverCreatorBase = {};
 
-    /// ### DEPRECATED: Use `createObject` instead
-    ///
-    pub const CreateObject = createObject;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldrivercreatorbase.html#createObject)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSqlDriverCreatorBase `
-    ///
-    pub fn createObject(self: QSqlDriverCreatorBase) QSqlDriver {
-        return .{ .ptr = qtc.QSqlDriverCreatorBase_CreateObject(@ptrCast(self.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `operatorAssign` instead
     ///
     pub const OperatorAssign = operatorAssign;

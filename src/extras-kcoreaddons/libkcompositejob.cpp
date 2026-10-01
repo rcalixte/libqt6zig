@@ -46,23 +46,23 @@ libqt_string KCompositeJob_Tr(const char* s) {
 
 bool KCompositeJob_AddSubjob(KCompositeJob* self, KJob* job) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob) {
         return vkcompositejob->addSubjob(job);
     }
-    return {};
+    qFatal("Error: Protected method KCompositeJob::addSubjob called without a directly constructed type");
 }
 
 bool KCompositeJob_RemoveSubjob(KCompositeJob* self, KJob* job) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob) {
         return vkcompositejob->removeSubjob(job);
     }
-    return {};
+    qFatal("Error: Protected method KCompositeJob::removeSubjob called without a directly constructed type");
 }
 
 void KCompositeJob_SlotResult(KCompositeJob* self, KJob* job) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob) {
         vkcompositejob->slotResult(job);
     }
 }
@@ -70,7 +70,7 @@ void KCompositeJob_SlotResult(KCompositeJob* self, KJob* job) {
 void KCompositeJob_SlotInfoMessage(KCompositeJob* self, KJob* job, const libqt_string message) {
     QString message_QString = QString::fromUtf8(message.data, message.len);
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob) {
         vkcompositejob->slotInfoMessage(job, message_QString);
     }
 }
@@ -101,532 +101,373 @@ libqt_string KCompositeJob_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KCompositeJob_SuperMetaObject(const KCompositeJob* self) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_MetaObject_IsBase(true);
-        return (QMetaObject*)vkcompositejob->metaObject();
-    } else {
-        return (QMetaObject*)self->KCompositeJob::metaObject();
-    }
+    return (QMetaObject*)self->KCompositeJob::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnMetaObject(const KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_MetaObject_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_MetaObject_Callback>(slot));
+void KCompositeJob_OnMetaObject(KCompositeJob* self, intptr_t slot) {
+    if (auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self)))
+        vkcompositejob->kcompositejob_metaobject_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KCompositeJob_SuperMetacast(KCompositeJob* self, const char* param1) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_Metacast_IsBase(true);
-        return vkcompositejob->qt_metacast(param1);
-    } else {
-        return self->KCompositeJob::qt_metacast(param1);
-    }
+    return self->KCompositeJob::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnMetacast(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_Metacast_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Metacast_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_metacast_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KCompositeJob_SuperMetacall(KCompositeJob* self, int param1, int param2, void** param3) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_Metacall_IsBase(true);
-        return vkcompositejob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KCompositeJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KCompositeJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnMetacall(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_Metacall_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Metacall_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_metacall_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KCompositeJob_SuperAddSubjob(KCompositeJob* self, KJob* job) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_AddSubjob_IsBase(true);
-        return vkcompositejob->addSubjob(job);
-    } else {
-        return ((VirtualKCompositeJob*)self)->addSubjob(job);
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        return vkcompositejob->KCompositeJob::addSubjob(job);
+    } else
+        qFatal("Error: Protected virtual method KCompositeJob::addSubjob called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnAddSubjob(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_AddSubjob_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_AddSubjob_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_addsubjob_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_AddSubjob_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KCompositeJob_SuperRemoveSubjob(KCompositeJob* self, KJob* job) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_RemoveSubjob_IsBase(true);
-        return vkcompositejob->removeSubjob(job);
-    } else {
-        return ((VirtualKCompositeJob*)self)->removeSubjob(job);
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        return vkcompositejob->KCompositeJob::removeSubjob(job);
+    } else
+        qFatal("Error: Protected virtual method KCompositeJob::removeSubjob called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnRemoveSubjob(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_RemoveSubjob_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_RemoveSubjob_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_removesubjob_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_RemoveSubjob_Callback>(slot);
 }
 
 // Base class handler implementation
 void KCompositeJob_SuperSlotResult(KCompositeJob* self, KJob* job) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_SlotResult_IsBase(true);
-        vkcompositejob->slotResult(job);
-    } else {
-        ((VirtualKCompositeJob*)self)->slotResult(job);
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->KCompositeJob::slotResult(job);
+    } else
+        qFatal("Error: Protected virtual method KCompositeJob::slotResult called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnSlotResult(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_SlotResult_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SlotResult_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_slotresult_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SlotResult_Callback>(slot);
 }
 
 // Base class handler implementation
 void KCompositeJob_SuperSlotInfoMessage(KCompositeJob* self, KJob* job, const libqt_string message) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_SlotInfoMessage_IsBase(true);
-        vkcompositejob->slotInfoMessage(job, message_QString);
-    } else {
-        ((VirtualKCompositeJob*)self)->slotInfoMessage(job, message_QString);
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->KCompositeJob::slotInfoMessage(job, message_QString);
+    } else
+        qFatal("Error: Protected virtual method KCompositeJob::slotInfoMessage called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnSlotInfoMessage(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_SlotInfoMessage_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SlotInfoMessage_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_slotinfomessage_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SlotInfoMessage_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCompositeJob_Start(KCompositeJob* self) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->start();
-    } else {
-        ((VirtualKCompositeJob*)self)->start();
-    }
-}
-
-// Base class handler implementation
-void KCompositeJob_SuperStart(KCompositeJob* self) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_Start_IsBase(true);
-        vkcompositejob->start();
-    } else {
-        ((VirtualKCompositeJob*)self)->start();
-    }
+    self->start();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnStart(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_Start_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Start_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_start_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Start_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCompositeJob_DoKill(KCompositeJob* self) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob) {
         return vkcompositejob->doKill();
     } else {
-        return ((VirtualKCompositeJob*)self)->doKill();
+        qFatal("Error: Protected virtual method KCompositeJob::doKill called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KCompositeJob_SuperDoKill(KCompositeJob* self) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_DoKill_IsBase(true);
-        return vkcompositejob->doKill();
-    } else {
-        return ((VirtualKCompositeJob*)self)->doKill();
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        return vkcompositejob->KCompositeJob::doKill();
+    } else
+        qFatal("Error: Protected virtual method KCompositeJob::doKill called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnDoKill(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_DoKill_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_DoKill_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_dokill_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_DoKill_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCompositeJob_DoSuspend(KCompositeJob* self) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob) {
         return vkcompositejob->doSuspend();
     } else {
-        return ((VirtualKCompositeJob*)self)->doSuspend();
+        qFatal("Error: Protected virtual method KCompositeJob::doSuspend called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KCompositeJob_SuperDoSuspend(KCompositeJob* self) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_DoSuspend_IsBase(true);
-        return vkcompositejob->doSuspend();
-    } else {
-        return ((VirtualKCompositeJob*)self)->doSuspend();
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        return vkcompositejob->KCompositeJob::doSuspend();
+    } else
+        qFatal("Error: Protected virtual method KCompositeJob::doSuspend called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnDoSuspend(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_DoSuspend_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_DoSuspend_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_dosuspend_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_DoSuspend_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCompositeJob_DoResume(KCompositeJob* self) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob) {
         return vkcompositejob->doResume();
     } else {
-        return ((VirtualKCompositeJob*)self)->doResume();
+        qFatal("Error: Protected virtual method KCompositeJob::doResume called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KCompositeJob_SuperDoResume(KCompositeJob* self) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_DoResume_IsBase(true);
-        return vkcompositejob->doResume();
-    } else {
-        return ((VirtualKCompositeJob*)self)->doResume();
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        return vkcompositejob->KCompositeJob::doResume();
+    } else
+        qFatal("Error: Protected virtual method KCompositeJob::doResume called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnDoResume(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_DoResume_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_DoResume_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_doresume_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_DoResume_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KCompositeJob_ErrorString(const KCompositeJob* self) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        auto _ret = vkcompositejob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KCompositeJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KCompositeJob_SuperErrorString(const KCompositeJob* self) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_ErrorString_IsBase(true);
-        auto _ret = vkcompositejob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KCompositeJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KCompositeJob::errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnErrorString(const KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_ErrorString_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_ErrorString_Callback>(slot));
+void KCompositeJob_OnErrorString(KCompositeJob* self, intptr_t slot) {
+    if (auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self)))
+        vkcompositejob->kcompositejob_errorstring_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_ErrorString_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCompositeJob_Event(KCompositeJob* self, QEvent* event) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        return vkcompositejob->event(event);
-    } else {
-        return self->KCompositeJob::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KCompositeJob_SuperEvent(KCompositeJob* self, QEvent* event) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_Event_IsBase(true);
-        return vkcompositejob->event(event);
-    } else {
-        return self->KCompositeJob::event(event);
-    }
+    return self->KCompositeJob::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnEvent(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_Event_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Event_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_event_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCompositeJob_EventFilter(KCompositeJob* self, QObject* watched, QEvent* event) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        return vkcompositejob->eventFilter(watched, event);
-    } else {
-        return self->KCompositeJob::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KCompositeJob_SuperEventFilter(KCompositeJob* self, QObject* watched, QEvent* event) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_EventFilter_IsBase(true);
-        return vkcompositejob->eventFilter(watched, event);
-    } else {
-        return self->KCompositeJob::eventFilter(watched, event);
-    }
+    return self->KCompositeJob::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnEventFilter(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_EventFilter_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_EventFilter_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_eventfilter_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCompositeJob_TimerEvent(KCompositeJob* self, QTimerEvent* event) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob) {
         vkcompositejob->timerEvent(event);
     } else {
-        ((VirtualKCompositeJob*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KCompositeJob::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCompositeJob_SuperTimerEvent(KCompositeJob* self, QTimerEvent* event) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_TimerEvent_IsBase(true);
-        vkcompositejob->timerEvent(event);
-    } else {
-        ((VirtualKCompositeJob*)self)->timerEvent(event);
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->KCompositeJob::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCompositeJob::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnTimerEvent(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_TimerEvent_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_TimerEvent_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_timerevent_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCompositeJob_ChildEvent(KCompositeJob* self, QChildEvent* event) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob) {
         vkcompositejob->childEvent(event);
     } else {
-        ((VirtualKCompositeJob*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KCompositeJob::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCompositeJob_SuperChildEvent(KCompositeJob* self, QChildEvent* event) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_ChildEvent_IsBase(true);
-        vkcompositejob->childEvent(event);
-    } else {
-        ((VirtualKCompositeJob*)self)->childEvent(event);
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->KCompositeJob::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCompositeJob::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnChildEvent(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_ChildEvent_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_ChildEvent_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_childevent_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCompositeJob_CustomEvent(KCompositeJob* self, QEvent* event) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob) {
         vkcompositejob->customEvent(event);
     } else {
-        ((VirtualKCompositeJob*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KCompositeJob::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCompositeJob_SuperCustomEvent(KCompositeJob* self, QEvent* event) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_CustomEvent_IsBase(true);
-        vkcompositejob->customEvent(event);
-    } else {
-        ((VirtualKCompositeJob*)self)->customEvent(event);
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->KCompositeJob::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCompositeJob::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnCustomEvent(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_CustomEvent_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_CustomEvent_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_customevent_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCompositeJob_ConnectNotify(KCompositeJob* self, const QMetaMethod* signal) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob) {
         vkcompositejob->connectNotify(*signal);
     } else {
-        ((VirtualKCompositeJob*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KCompositeJob::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCompositeJob_SuperConnectNotify(KCompositeJob* self, const QMetaMethod* signal) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_ConnectNotify_IsBase(true);
-        vkcompositejob->connectNotify(*signal);
-    } else {
-        ((VirtualKCompositeJob*)self)->connectNotify(*signal);
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->KCompositeJob::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KCompositeJob::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnConnectNotify(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_ConnectNotify_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_ConnectNotify_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_connectnotify_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCompositeJob_DisconnectNotify(KCompositeJob* self, const QMetaMethod* signal) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob) {
         vkcompositejob->disconnectNotify(*signal);
     } else {
-        ((VirtualKCompositeJob*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KCompositeJob::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCompositeJob_SuperDisconnectNotify(KCompositeJob* self, const QMetaMethod* signal) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_DisconnectNotify_IsBase(true);
-        vkcompositejob->disconnectNotify(*signal);
-    } else {
-        ((VirtualKCompositeJob*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->KCompositeJob::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KCompositeJob::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnDisconnectNotify(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_DisconnectNotify_Callback>(slot));
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self))
+        vkcompositejob->kcompositejob_disconnectnotify_callback = reinterpret_cast<VirtualKCompositeJob::KCompositeJob_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KCompositeJob_HasSubjobs(const KCompositeJob* self) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        return vkcompositejob->hasSubjobs();
-    } else {
-        return ((VirtualKCompositeJob*)self)->hasSubjobs();
-    }
+    if (auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self))) {
+        return vkcompositejob->VirtualKCompositeJob::hasSubjobs();
+    } else
+        qFatal("Error: Protected method KCompositeJob::hasSubjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KCompositeJob_SuperHasSubjobs(const KCompositeJob* self) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_HasSubjobs_IsBase(true);
-        return vkcompositejob->hasSubjobs();
-    } else {
-        return ((VirtualKCompositeJob*)self)->hasSubjobs();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnHasSubjobs(const KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_HasSubjobs_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_HasSubjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of KJob* */ KCompositeJob_Subjobs(const KCompositeJob* self) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        const QList<KJob*>& _ret = vkcompositejob->subjobs();
+    if (auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self))) {
+        const QList<KJob*>& _ret = vkcompositejob->VirtualKCompositeJob::subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
         KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -636,532 +477,145 @@ libqt_list /* of KJob* */ KCompositeJob_Subjobs(const KCompositeJob* self) {
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        const QList<KJob*>& _ret = ((VirtualKCompositeJob*)self)->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KCompositeJob::subjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of KJob* */ KCompositeJob_SuperSubjobs(const KCompositeJob* self) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_Subjobs_IsBase(true);
-        const QList<KJob*>& _ret = vkcompositejob->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        const QList<KJob*>& _ret = ((VirtualKCompositeJob*)self)->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnSubjobs(const KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_Subjobs_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Subjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCompositeJob_ClearSubjobs(KCompositeJob* self) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->clearSubjobs();
-    } else {
-        ((VirtualKCompositeJob*)self)->clearSubjobs();
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->VirtualKCompositeJob::clearSubjobs();
+    } else
+        qFatal("Error: Protected method KCompositeJob::clearSubjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCompositeJob_SuperClearSubjobs(KCompositeJob* self) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_ClearSubjobs_IsBase(true);
-        vkcompositejob->clearSubjobs();
-    } else {
-        ((VirtualKCompositeJob*)self)->clearSubjobs();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnClearSubjobs(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_ClearSubjobs_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_ClearSubjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCompositeJob_SetCapabilities(KCompositeJob* self, int capabilities) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKCompositeJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->VirtualKCompositeJob::setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
+    } else
+        qFatal("Error: Protected method KCompositeJob::setCapabilities called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCompositeJob_SuperSetCapabilities(KCompositeJob* self, int capabilities) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_SetCapabilities_IsBase(true);
-        vkcompositejob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKCompositeJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnSetCapabilities(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_SetCapabilities_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SetCapabilities_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KCompositeJob_IsFinished(const KCompositeJob* self) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        return vkcompositejob->isFinished();
-    } else {
-        return ((VirtualKCompositeJob*)self)->isFinished();
-    }
+    if (auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self))) {
+        return vkcompositejob->VirtualKCompositeJob::isFinished();
+    } else
+        qFatal("Error: Protected method KCompositeJob::isFinished called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KCompositeJob_SuperIsFinished(const KCompositeJob* self) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_IsFinished_IsBase(true);
-        return vkcompositejob->isFinished();
-    } else {
-        return ((VirtualKCompositeJob*)self)->isFinished();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnIsFinished(const KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_IsFinished_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_IsFinished_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCompositeJob_SetError(KCompositeJob* self, int errorCode) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKCompositeJob*)self)->setError(static_cast<int>(errorCode));
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->VirtualKCompositeJob::setError(static_cast<int>(errorCode));
+    } else
+        qFatal("Error: Protected method KCompositeJob::setError called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCompositeJob_SuperSetError(KCompositeJob* self, int errorCode) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_SetError_IsBase(true);
-        vkcompositejob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKCompositeJob*)self)->setError(static_cast<int>(errorCode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnSetError(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_SetError_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SetError_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCompositeJob_SetErrorText(KCompositeJob* self, const libqt_string errorText) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKCompositeJob*)self)->setErrorText(errorText_QString);
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
+        vkcompositejob->VirtualKCompositeJob::setErrorText(errorText_QString);
+    } else
+        qFatal("Error: Protected method KCompositeJob::setErrorText called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCompositeJob_SuperSetErrorText(KCompositeJob* self, const libqt_string errorText) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_SetErrorText_IsBase(true);
-        vkcompositejob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKCompositeJob*)self)->setErrorText(errorText_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnSetErrorText(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_SetErrorText_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SetErrorText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCompositeJob_SetProcessedAmount(KCompositeJob* self, int unit, unsigned long long amount) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKCompositeJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->VirtualKCompositeJob::setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KCompositeJob::setProcessedAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCompositeJob_SuperSetProcessedAmount(KCompositeJob* self, int unit, unsigned long long amount) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_SetProcessedAmount_IsBase(true);
-        vkcompositejob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKCompositeJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnSetProcessedAmount(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SetProcessedAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCompositeJob_SetTotalAmount(KCompositeJob* self, int unit, unsigned long long amount) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKCompositeJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->VirtualKCompositeJob::setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KCompositeJob::setTotalAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCompositeJob_SuperSetTotalAmount(KCompositeJob* self, int unit, unsigned long long amount) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_SetTotalAmount_IsBase(true);
-        vkcompositejob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKCompositeJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnSetTotalAmount(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SetTotalAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCompositeJob_SetProgressUnit(KCompositeJob* self, int unit) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKCompositeJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->VirtualKCompositeJob::setProgressUnit(static_cast<KJob::Unit>(unit));
+    } else
+        qFatal("Error: Protected method KCompositeJob::setProgressUnit called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCompositeJob_SuperSetProgressUnit(KCompositeJob* self, int unit) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_SetProgressUnit_IsBase(true);
-        vkcompositejob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKCompositeJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnSetProgressUnit(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SetProgressUnit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCompositeJob_SetPercent(KCompositeJob* self, unsigned long percentage) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKCompositeJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->VirtualKCompositeJob::setPercent(static_cast<unsigned long>(percentage));
+    } else
+        qFatal("Error: Protected method KCompositeJob::setPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCompositeJob_SuperSetPercent(KCompositeJob* self, unsigned long percentage) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_SetPercent_IsBase(true);
-        vkcompositejob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKCompositeJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnSetPercent(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_SetPercent_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SetPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCompositeJob_EmitResult(KCompositeJob* self) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->emitResult();
-    } else {
-        ((VirtualKCompositeJob*)self)->emitResult();
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->VirtualKCompositeJob::emitResult();
+    } else
+        qFatal("Error: Protected method KCompositeJob::emitResult called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCompositeJob_SuperEmitResult(KCompositeJob* self) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_EmitResult_IsBase(true);
-        vkcompositejob->emitResult();
-    } else {
-        ((VirtualKCompositeJob*)self)->emitResult();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnEmitResult(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_EmitResult_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_EmitResult_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCompositeJob_EmitPercent(KCompositeJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKCompositeJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->VirtualKCompositeJob::emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
+    } else
+        qFatal("Error: Protected method KCompositeJob::emitPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCompositeJob_SuperEmitPercent(KCompositeJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_EmitPercent_IsBase(true);
-        vkcompositejob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKCompositeJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnEmitPercent(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_EmitPercent_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_EmitPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCompositeJob_EmitSpeed(KCompositeJob* self, unsigned long speed) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKCompositeJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->VirtualKCompositeJob::emitSpeed(static_cast<unsigned long>(speed));
+    } else
+        qFatal("Error: Protected method KCompositeJob::emitSpeed called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCompositeJob_SuperEmitSpeed(KCompositeJob* self, unsigned long speed) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_EmitSpeed_IsBase(true);
-        vkcompositejob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKCompositeJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnEmitSpeed(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_EmitSpeed_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_EmitSpeed_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCompositeJob_StartElapsedTimer(KCompositeJob* self) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->startElapsedTimer();
-    } else {
-        ((VirtualKCompositeJob*)self)->startElapsedTimer();
-    }
+    if (auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self)) {
+        vkcompositejob->VirtualKCompositeJob::startElapsedTimer();
+    } else
+        qFatal("Error: Protected method KCompositeJob::startElapsedTimer called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCompositeJob_SuperStartElapsedTimer(KCompositeJob* self) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_StartElapsedTimer_IsBase(true);
-        vkcompositejob->startElapsedTimer();
-    } else {
-        ((VirtualKCompositeJob*)self)->startElapsedTimer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnStartElapsedTimer(KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_StartElapsedTimer_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KCompositeJob_Sender(const KCompositeJob* self) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        return vkcompositejob->sender();
-    } else {
-        return ((VirtualKCompositeJob*)self)->sender();
-    }
+    if (auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self))) {
+        return vkcompositejob->VirtualKCompositeJob::sender();
+    } else
+        qFatal("Error: Protected method KCompositeJob::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KCompositeJob_SuperSender(const KCompositeJob* self) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_Sender_IsBase(true);
-        return vkcompositejob->sender();
-    } else {
-        return ((VirtualKCompositeJob*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnSender(const KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_Sender_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KCompositeJob_SenderSignalIndex(const KCompositeJob* self) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        return vkcompositejob->senderSignalIndex();
-    } else {
-        return ((VirtualKCompositeJob*)self)->senderSignalIndex();
-    }
+    if (auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self))) {
+        return vkcompositejob->VirtualKCompositeJob::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KCompositeJob::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KCompositeJob_SuperSenderSignalIndex(const KCompositeJob* self) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_SenderSignalIndex_IsBase(true);
-        return vkcompositejob->senderSignalIndex();
-    } else {
-        return ((VirtualKCompositeJob*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnSenderSignalIndex(const KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KCompositeJob_Receivers(const KCompositeJob* self, const char* signal) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        return vkcompositejob->receivers(signal);
-    } else {
-        return ((VirtualKCompositeJob*)self)->receivers(signal);
-    }
+    if (auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self))) {
+        return vkcompositejob->VirtualKCompositeJob::receivers(signal);
+    } else
+        qFatal("Error: Protected method KCompositeJob::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KCompositeJob_SuperReceivers(const KCompositeJob* self, const char* signal) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_Receivers_IsBase(true);
-        return vkcompositejob->receivers(signal);
-    } else {
-        return ((VirtualKCompositeJob*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnReceivers(const KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_Receivers_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KCompositeJob_IsSignalConnected(const KCompositeJob* self, const QMetaMethod* signal) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        return vkcompositejob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKCompositeJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KCompositeJob_SuperIsSignalConnected(const KCompositeJob* self, const QMetaMethod* signal) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        vkcompositejob->setKCompositeJob_IsSignalConnected_IsBase(true);
-        return vkcompositejob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKCompositeJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCompositeJob_OnIsSignalConnected(const KCompositeJob* self, intptr_t slot) {
-    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
-        vkcompositejob->setKCompositeJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_IsSignalConnected_Callback>(slot));
+    if (auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self))) {
+        return vkcompositejob->VirtualKCompositeJob::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KCompositeJob::isSignalConnected called without a directly constructed type");
 }
 
 void KCompositeJob_Delete(KCompositeJob* self) {

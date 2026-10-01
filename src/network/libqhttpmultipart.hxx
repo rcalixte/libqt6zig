@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QHttpMultiPart so that we can call protected methods
+// This class is a subclass of QHttpMultiPart
 class VirtualQHttpMultiPart final : public QHttpMultiPart {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQHttpMultiPart = true;
-
-    // Virtual class public types (including callbacks)
-    using QHttpMultiPart_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QHttpMultiPart_MetaObject_Callback = QMetaObject* (*)(const QHttpMultiPart*);
     using QHttpMultiPart_Metacast_Callback = void* (*)(QHttpMultiPart*, const char*);
     using QHttpMultiPart_Metacall_Callback = int (*)(QHttpMultiPart*, int, int, void**);
     using QHttpMultiPart_Event_Callback = bool (*)(QHttpMultiPart*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
     using QHttpMultiPart_CustomEvent_Callback = void (*)(QHttpMultiPart*, QEvent*);
     using QHttpMultiPart_ConnectNotify_Callback = void (*)(QHttpMultiPart*, QMetaMethod*);
     using QHttpMultiPart_DisconnectNotify_Callback = void (*)(QHttpMultiPart*, QMetaMethod*);
-    using QHttpMultiPart_Sender_Callback = QObject* (*)();
-    using QHttpMultiPart_SenderSignalIndex_Callback = int (*)();
-    using QHttpMultiPart_Receivers_Callback = int (*)(const QHttpMultiPart*, const char*);
-    using QHttpMultiPart_IsSignalConnected_Callback = bool (*)(const QHttpMultiPart*, QMetaMethod*);
+    using QHttpMultiPart::isSignalConnected;
+    using QHttpMultiPart::receivers;
+    using QHttpMultiPart::sender;
+    using QHttpMultiPart::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QHttpMultiPart_MetaObject_Callback qhttpmultipart_metaobject_callback = nullptr;
     QHttpMultiPart_Metacast_Callback qhttpmultipart_metacast_callback = nullptr;
@@ -44,74 +39,25 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
     QHttpMultiPart_CustomEvent_Callback qhttpmultipart_customevent_callback = nullptr;
     QHttpMultiPart_ConnectNotify_Callback qhttpmultipart_connectnotify_callback = nullptr;
     QHttpMultiPart_DisconnectNotify_Callback qhttpmultipart_disconnectnotify_callback = nullptr;
-    QHttpMultiPart_Sender_Callback qhttpmultipart_sender_callback = nullptr;
-    QHttpMultiPart_SenderSignalIndex_Callback qhttpmultipart_sendersignalindex_callback = nullptr;
-    QHttpMultiPart_Receivers_Callback qhttpmultipart_receivers_callback = nullptr;
-    QHttpMultiPart_IsSignalConnected_Callback qhttpmultipart_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qhttpmultipart_metaobject_isbase = false;
-    mutable bool qhttpmultipart_metacast_isbase = false;
-    mutable bool qhttpmultipart_metacall_isbase = false;
-    mutable bool qhttpmultipart_event_isbase = false;
-    mutable bool qhttpmultipart_eventfilter_isbase = false;
-    mutable bool qhttpmultipart_timerevent_isbase = false;
-    mutable bool qhttpmultipart_childevent_isbase = false;
-    mutable bool qhttpmultipart_customevent_isbase = false;
-    mutable bool qhttpmultipart_connectnotify_isbase = false;
-    mutable bool qhttpmultipart_disconnectnotify_isbase = false;
-    mutable bool qhttpmultipart_sender_isbase = false;
-    mutable bool qhttpmultipart_sendersignalindex_isbase = false;
-    mutable bool qhttpmultipart_receivers_isbase = false;
-    mutable bool qhttpmultipart_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QHttpMultiPart {
+        using QHttpMultiPart::childEvent;
+        using QHttpMultiPart::connectNotify;
+        using QHttpMultiPart::customEvent;
+        using QHttpMultiPart::disconnectNotify;
+        using QHttpMultiPart::timerEvent;
+    };
 
-  public:
     VirtualQHttpMultiPart() : QHttpMultiPart() {};
     VirtualQHttpMultiPart(QHttpMultiPart::ContentType contentType) : QHttpMultiPart(contentType) {};
     VirtualQHttpMultiPart(QObject* parent) : QHttpMultiPart(parent) {};
     VirtualQHttpMultiPart(QHttpMultiPart::ContentType contentType, QObject* parent) : QHttpMultiPart(contentType, parent) {};
 
-    // Callback setters
-    inline void setQHttpMultiPart_MetaObject_Callback(QHttpMultiPart_MetaObject_Callback cb) { qhttpmultipart_metaobject_callback = cb; }
-    inline void setQHttpMultiPart_Metacast_Callback(QHttpMultiPart_Metacast_Callback cb) { qhttpmultipart_metacast_callback = cb; }
-    inline void setQHttpMultiPart_Metacall_Callback(QHttpMultiPart_Metacall_Callback cb) { qhttpmultipart_metacall_callback = cb; }
-    inline void setQHttpMultiPart_Event_Callback(QHttpMultiPart_Event_Callback cb) { qhttpmultipart_event_callback = cb; }
-    inline void setQHttpMultiPart_EventFilter_Callback(QHttpMultiPart_EventFilter_Callback cb) { qhttpmultipart_eventfilter_callback = cb; }
-    inline void setQHttpMultiPart_TimerEvent_Callback(QHttpMultiPart_TimerEvent_Callback cb) { qhttpmultipart_timerevent_callback = cb; }
-    inline void setQHttpMultiPart_ChildEvent_Callback(QHttpMultiPart_ChildEvent_Callback cb) { qhttpmultipart_childevent_callback = cb; }
-    inline void setQHttpMultiPart_CustomEvent_Callback(QHttpMultiPart_CustomEvent_Callback cb) { qhttpmultipart_customevent_callback = cb; }
-    inline void setQHttpMultiPart_ConnectNotify_Callback(QHttpMultiPart_ConnectNotify_Callback cb) { qhttpmultipart_connectnotify_callback = cb; }
-    inline void setQHttpMultiPart_DisconnectNotify_Callback(QHttpMultiPart_DisconnectNotify_Callback cb) { qhttpmultipart_disconnectnotify_callback = cb; }
-    inline void setQHttpMultiPart_Sender_Callback(QHttpMultiPart_Sender_Callback cb) { qhttpmultipart_sender_callback = cb; }
-    inline void setQHttpMultiPart_SenderSignalIndex_Callback(QHttpMultiPart_SenderSignalIndex_Callback cb) { qhttpmultipart_sendersignalindex_callback = cb; }
-    inline void setQHttpMultiPart_Receivers_Callback(QHttpMultiPart_Receivers_Callback cb) { qhttpmultipart_receivers_callback = cb; }
-    inline void setQHttpMultiPart_IsSignalConnected_Callback(QHttpMultiPart_IsSignalConnected_Callback cb) { qhttpmultipart_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQHttpMultiPart_MetaObject_IsBase(bool value) const { qhttpmultipart_metaobject_isbase = value; }
-    inline void setQHttpMultiPart_Metacast_IsBase(bool value) const { qhttpmultipart_metacast_isbase = value; }
-    inline void setQHttpMultiPart_Metacall_IsBase(bool value) const { qhttpmultipart_metacall_isbase = value; }
-    inline void setQHttpMultiPart_Event_IsBase(bool value) const { qhttpmultipart_event_isbase = value; }
-    inline void setQHttpMultiPart_EventFilter_IsBase(bool value) const { qhttpmultipart_eventfilter_isbase = value; }
-    inline void setQHttpMultiPart_TimerEvent_IsBase(bool value) const { qhttpmultipart_timerevent_isbase = value; }
-    inline void setQHttpMultiPart_ChildEvent_IsBase(bool value) const { qhttpmultipart_childevent_isbase = value; }
-    inline void setQHttpMultiPart_CustomEvent_IsBase(bool value) const { qhttpmultipart_customevent_isbase = value; }
-    inline void setQHttpMultiPart_ConnectNotify_IsBase(bool value) const { qhttpmultipart_connectnotify_isbase = value; }
-    inline void setQHttpMultiPart_DisconnectNotify_IsBase(bool value) const { qhttpmultipart_disconnectnotify_isbase = value; }
-    inline void setQHttpMultiPart_Sender_IsBase(bool value) const { qhttpmultipart_sender_isbase = value; }
-    inline void setQHttpMultiPart_SenderSignalIndex_IsBase(bool value) const { qhttpmultipart_sendersignalindex_isbase = value; }
-    inline void setQHttpMultiPart_Receivers_IsBase(bool value) const { qhttpmultipart_receivers_isbase = value; }
-    inline void setQHttpMultiPart_IsSignalConnected_IsBase(bool value) const { qhttpmultipart_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qhttpmultipart_metaobject_isbase) {
-            qhttpmultipart_metaobject_isbase = false;
-            return QHttpMultiPart::metaObject();
-        }
-        auto metaobject_cb = qhttpmultipart_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qhttpmultipart_metaobject_callback) {
+            QMetaObject* callback_ret = qhttpmultipart_metaobject_callback(this);
             return callback_ret;
         }
         return QHttpMultiPart::metaObject();
@@ -119,14 +65,9 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qhttpmultipart_metacast_isbase) {
-            qhttpmultipart_metacast_isbase = false;
-            return QHttpMultiPart::qt_metacast(param1);
-        }
-        auto metacast_cb = qhttpmultipart_metacast_callback;
-        if (metacast_cb) {
+        if (qhttpmultipart_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qhttpmultipart_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QHttpMultiPart::qt_metacast(param1);
@@ -134,16 +75,11 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qhttpmultipart_metacall_isbase) {
-            qhttpmultipart_metacall_isbase = false;
-            return QHttpMultiPart::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qhttpmultipart_metacall_callback;
-        if (metacall_cb) {
+        if (qhttpmultipart_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qhttpmultipart_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QHttpMultiPart::qt_metacall(param1, param2, param3);
@@ -151,14 +87,9 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qhttpmultipart_event_isbase) {
-            qhttpmultipart_event_isbase = false;
-            return QHttpMultiPart::event(event);
-        }
-        auto event_cb = qhttpmultipart_event_callback;
-        if (event_cb) {
+        if (qhttpmultipart_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qhttpmultipart_event_callback(this, cbval1);
             return callback_ret;
         }
         return QHttpMultiPart::event(event);
@@ -166,15 +97,10 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qhttpmultipart_eventfilter_isbase) {
-            qhttpmultipart_eventfilter_isbase = false;
-            return QHttpMultiPart::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qhttpmultipart_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qhttpmultipart_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qhttpmultipart_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QHttpMultiPart::eventFilter(watched, event);
@@ -182,15 +108,9 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qhttpmultipart_timerevent_isbase) {
-            qhttpmultipart_timerevent_isbase = false;
-            QHttpMultiPart::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qhttpmultipart_timerevent_callback;
-        if (timerevent_cb) {
+        if (qhttpmultipart_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qhttpmultipart_timerevent_callback(this, cbval1);
             return;
         }
         QHttpMultiPart::timerEvent(event);
@@ -198,15 +118,9 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qhttpmultipart_childevent_isbase) {
-            qhttpmultipart_childevent_isbase = false;
-            QHttpMultiPart::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qhttpmultipart_childevent_callback;
-        if (childevent_cb) {
+        if (qhttpmultipart_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qhttpmultipart_childevent_callback(this, cbval1);
             return;
         }
         QHttpMultiPart::childEvent(event);
@@ -214,15 +128,9 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qhttpmultipart_customevent_isbase) {
-            qhttpmultipart_customevent_isbase = false;
-            QHttpMultiPart::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qhttpmultipart_customevent_callback;
-        if (customevent_cb) {
+        if (qhttpmultipart_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qhttpmultipart_customevent_callback(this, cbval1);
             return;
         }
         QHttpMultiPart::customEvent(event);
@@ -230,17 +138,11 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qhttpmultipart_connectnotify_isbase) {
-            qhttpmultipart_connectnotify_isbase = false;
-            QHttpMultiPart::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qhttpmultipart_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qhttpmultipart_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qhttpmultipart_connectnotify_callback(this, cbval1);
             return;
         }
         QHttpMultiPart::connectNotify(signal);
@@ -248,101 +150,22 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qhttpmultipart_disconnectnotify_isbase) {
-            qhttpmultipart_disconnectnotify_isbase = false;
-            QHttpMultiPart::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qhttpmultipart_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qhttpmultipart_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qhttpmultipart_disconnectnotify_callback(this, cbval1);
             return;
         }
         QHttpMultiPart::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qhttpmultipart_sender_isbase) {
-            qhttpmultipart_sender_isbase = false;
-            return QHttpMultiPart::sender();
-        }
-        auto sender_cb = qhttpmultipart_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QHttpMultiPart::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qhttpmultipart_sendersignalindex_isbase) {
-            qhttpmultipart_sendersignalindex_isbase = false;
-            return QHttpMultiPart::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qhttpmultipart_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QHttpMultiPart::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qhttpmultipart_receivers_isbase) {
-            qhttpmultipart_receivers_isbase = false;
-            return QHttpMultiPart::receivers(signal);
-        }
-        auto receivers_cb = qhttpmultipart_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QHttpMultiPart::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qhttpmultipart_issignalconnected_isbase) {
-            qhttpmultipart_issignalconnected_isbase = false;
-            return QHttpMultiPart::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qhttpmultipart_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QHttpMultiPart::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QHttpMultiPart_TimerEvent(QHttpMultiPart* self, QTimerEvent* event);
     friend void QHttpMultiPart_SuperTimerEvent(QHttpMultiPart* self, QTimerEvent* event);
-    friend void QHttpMultiPart_ChildEvent(QHttpMultiPart* self, QChildEvent* event);
     friend void QHttpMultiPart_SuperChildEvent(QHttpMultiPart* self, QChildEvent* event);
-    friend void QHttpMultiPart_CustomEvent(QHttpMultiPart* self, QEvent* event);
     friend void QHttpMultiPart_SuperCustomEvent(QHttpMultiPart* self, QEvent* event);
-    friend void QHttpMultiPart_ConnectNotify(QHttpMultiPart* self, const QMetaMethod* signal);
     friend void QHttpMultiPart_SuperConnectNotify(QHttpMultiPart* self, const QMetaMethod* signal);
-    friend void QHttpMultiPart_DisconnectNotify(QHttpMultiPart* self, const QMetaMethod* signal);
     friend void QHttpMultiPart_SuperDisconnectNotify(QHttpMultiPart* self, const QMetaMethod* signal);
-    friend QObject* QHttpMultiPart_Sender(const QHttpMultiPart* self);
-    friend QObject* QHttpMultiPart_SuperSender(const QHttpMultiPart* self);
-    friend int QHttpMultiPart_SenderSignalIndex(const QHttpMultiPart* self);
-    friend int QHttpMultiPart_SuperSenderSignalIndex(const QHttpMultiPart* self);
-    friend int QHttpMultiPart_Receivers(const QHttpMultiPart* self, const char* signal);
-    friend int QHttpMultiPart_SuperReceivers(const QHttpMultiPart* self, const char* signal);
-    friend bool QHttpMultiPart_IsSignalConnected(const QHttpMultiPart* self, const QMetaMethod* signal);
-    friend bool QHttpMultiPart_SuperIsSignalConnected(const QHttpMultiPart* self, const QMetaMethod* signal);
 };
 
 #endif

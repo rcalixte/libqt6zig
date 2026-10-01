@@ -28,6 +28,8 @@ pub const QDesignerContainerExtension = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#count)
     ///
+    /// This method must be implemented with `onCount` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerContainerExtension `
@@ -48,26 +50,10 @@ pub const QDesignerContainerExtension = extern struct {
     ///
     /// ` self: QDesignerContainerExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerContainerExtension) callconv(.c) i32 `
     ///
-    pub fn onCount(self: QDesignerContainerExtension, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCount(self: QDesignerContainerExtension, callback: *const fn (QDesignerContainerExtension) callconv(.c) i32) void {
         qtc.QDesignerContainerExtension_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCount` instead
-    ///
-    pub const SuperCount = superCount;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#count)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerContainerExtension `
-    ///
-    pub fn superCount(self: QDesignerContainerExtension) i32 {
-        return qtc.QDesignerContainerExtension_SuperCount(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `widget` instead
@@ -75,6 +61,8 @@ pub const QDesignerContainerExtension = extern struct {
     pub const Widget = widget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#widget)
+    ///
+    /// This method must be implemented with `onWidget` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -104,29 +92,13 @@ pub const QDesignerContainerExtension = extern struct {
         qtc.QDesignerContainerExtension_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superWidget` instead
-    ///
-    pub const SuperWidget = superWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#widget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerContainerExtension `
-    ///
-    /// ` index: i32 `
-    ///
-    pub fn superWidget(self: QDesignerContainerExtension, index: i32) QWidget {
-        return .{ .ptr = qtc.QDesignerContainerExtension_SuperWidget(@ptrCast(self.ptr), @bitCast(index)) };
-    }
-
     /// ### DEPRECATED: Use `currentIndex` instead
     ///
     pub const CurrentIndex = currentIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#currentIndex)
+    ///
+    /// This method must be implemented with `onCurrentIndex` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -148,26 +120,10 @@ pub const QDesignerContainerExtension = extern struct {
     ///
     /// ` self: QDesignerContainerExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerContainerExtension) callconv(.c) i32 `
     ///
-    pub fn onCurrentIndex(self: QDesignerContainerExtension, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCurrentIndex(self: QDesignerContainerExtension, callback: *const fn (QDesignerContainerExtension) callconv(.c) i32) void {
         qtc.QDesignerContainerExtension_OnCurrentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCurrentIndex` instead
-    ///
-    pub const SuperCurrentIndex = superCurrentIndex;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#currentIndex)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerContainerExtension `
-    ///
-    pub fn superCurrentIndex(self: QDesignerContainerExtension) i32 {
-        return qtc.QDesignerContainerExtension_SuperCurrentIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setCurrentIndex` instead
@@ -175,6 +131,8 @@ pub const QDesignerContainerExtension = extern struct {
     pub const SetCurrentIndex = setCurrentIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#setCurrentIndex)
+    ///
+    /// This method must be implemented with `onSetCurrentIndex` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -204,29 +162,13 @@ pub const QDesignerContainerExtension = extern struct {
         qtc.QDesignerContainerExtension_OnSetCurrentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetCurrentIndex` instead
-    ///
-    pub const SuperSetCurrentIndex = superSetCurrentIndex;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#setCurrentIndex)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerContainerExtension `
-    ///
-    /// ` index: i32 `
-    ///
-    pub fn superSetCurrentIndex(self: QDesignerContainerExtension, index: i32) void {
-        qtc.QDesignerContainerExtension_SuperSetCurrentIndex(@ptrCast(self.ptr), @bitCast(index));
-    }
-
     /// ### DEPRECATED: Use `canAddWidget` instead
     ///
     pub const CanAddWidget = canAddWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#canAddWidget)
+    ///
+    /// This method must be implemented with `onCanAddWidget` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -248,26 +190,10 @@ pub const QDesignerContainerExtension = extern struct {
     ///
     /// ` self: QDesignerContainerExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerContainerExtension) callconv(.c) bool `
     ///
-    pub fn onCanAddWidget(self: QDesignerContainerExtension, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanAddWidget(self: QDesignerContainerExtension, callback: *const fn (QDesignerContainerExtension) callconv(.c) bool) void {
         qtc.QDesignerContainerExtension_OnCanAddWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCanAddWidget` instead
-    ///
-    pub const SuperCanAddWidget = superCanAddWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#canAddWidget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerContainerExtension `
-    ///
-    pub fn superCanAddWidget(self: QDesignerContainerExtension) bool {
-        return qtc.QDesignerContainerExtension_SuperCanAddWidget(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `addWidget` instead
@@ -275,6 +201,8 @@ pub const QDesignerContainerExtension = extern struct {
     pub const AddWidget = addWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#addWidget)
+    ///
+    /// This method must be implemented with `onAddWidget` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -305,30 +233,13 @@ pub const QDesignerContainerExtension = extern struct {
         qtc.QDesignerContainerExtension_OnAddWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superAddWidget` instead
-    ///
-    pub const SuperAddWidget = superAddWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#addWidget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerContainerExtension `
-    ///
-    /// ` _widget: QWidget `
-    ///
-    pub fn superAddWidget(self: QDesignerContainerExtension, _widget: anytype) void {
-        comptime _ = @TypeOf(_widget)._is_QWidget;
-        qtc.QDesignerContainerExtension_SuperAddWidget(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
-    }
-
     /// ### DEPRECATED: Use `insertWidget` instead
     ///
     pub const InsertWidget = insertWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#insertWidget)
+    ///
+    /// This method must be implemented with `onInsertWidget` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -361,32 +272,13 @@ pub const QDesignerContainerExtension = extern struct {
         qtc.QDesignerContainerExtension_OnInsertWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superInsertWidget` instead
-    ///
-    pub const SuperInsertWidget = superInsertWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#insertWidget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerContainerExtension `
-    ///
-    /// ` index: i32 `
-    ///
-    /// ` _widget: QWidget `
-    ///
-    pub fn superInsertWidget(self: QDesignerContainerExtension, index: i32, _widget: anytype) void {
-        comptime _ = @TypeOf(_widget)._is_QWidget;
-        qtc.QDesignerContainerExtension_SuperInsertWidget(@ptrCast(self.ptr), @bitCast(index), @ptrCast(_widget.ptr));
-    }
-
     /// ### DEPRECATED: Use `canRemove` instead
     ///
     pub const CanRemove = canRemove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#canRemove)
+    ///
+    /// This method must be implemented with `onCanRemove` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -416,29 +308,13 @@ pub const QDesignerContainerExtension = extern struct {
         qtc.QDesignerContainerExtension_OnCanRemove(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superCanRemove` instead
-    ///
-    pub const SuperCanRemove = superCanRemove;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#canRemove)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerContainerExtension `
-    ///
-    /// ` index: i32 `
-    ///
-    pub fn superCanRemove(self: QDesignerContainerExtension, index: i32) bool {
-        return qtc.QDesignerContainerExtension_SuperCanRemove(@ptrCast(self.ptr), @bitCast(index));
-    }
-
     /// ### DEPRECATED: Use `remove` instead
     ///
     pub const Remove = remove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#remove)
+    ///
+    /// This method must be implemented with `onRemove` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -466,24 +342,6 @@ pub const QDesignerContainerExtension = extern struct {
     ///
     pub fn onRemove(self: QDesignerContainerExtension, callback: *const fn (QDesignerContainerExtension, i32) callconv(.c) void) void {
         qtc.QDesignerContainerExtension_OnRemove(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRemove` instead
-    ///
-    pub const SuperRemove = superRemove;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#remove)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerContainerExtension `
-    ///
-    /// ` index: i32 `
-    ///
-    pub fn superRemove(self: QDesignerContainerExtension, index: i32) void {
-        qtc.QDesignerContainerExtension_SuperRemove(@ptrCast(self.ptr), @bitCast(index));
     }
 
     /// ### DEPRECATED: Use `delete` instead

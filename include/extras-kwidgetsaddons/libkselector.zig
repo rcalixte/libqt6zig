@@ -165,9 +165,9 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KSelector) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KSelector, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KSelector, callback: *const fn (KSelector) callconv(.c) QMetaObject) void {
         qtc.KSelector_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8006,9 +8006,9 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KSelector) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KSelector, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KSelector, callback: *const fn (KSelector) callconv(.c) i32) void {
         qtc.KSelector_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8122,11 +8122,11 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KSelector) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KSelector, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KSelector, callback: *const fn (KSelector) callconv(.c) QSize) void {
         qtc.KSelector_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8180,11 +8180,11 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KSelector) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KSelector, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KSelector, callback: *const fn (KSelector) callconv(.c) QSize) void {
         qtc.KSelector_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8298,9 +8298,9 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KSelector) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KSelector, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KSelector, callback: *const fn (KSelector) callconv(.c) bool) void {
         qtc.KSelector_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8354,9 +8354,9 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KSelector) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KSelector, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KSelector, callback: *const fn (KSelector) callconv(.c) QPaintEngine) void {
         qtc.KSelector_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9786,9 +9786,9 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KSelector) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KSelector, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KSelector, callback: *const fn (KSelector) callconv(.c) QPainter) void {
         qtc.KSelector_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10312,46 +10312,6 @@ pub const KSelector = extern struct {
         qtc.KSelector_SetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `superSetRepeatAction` instead
-    ///
-    pub const SuperSetRepeatAction = superSetRepeatAction;
-
-    /// Inherited from QAbstractSlider
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    /// ` action: qabstractslider_enums.SliderAction `
-    ///
-    pub fn superSetRepeatAction(self: KSelector, action: i32) void {
-        qtc.KSelector_SuperSetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
-    }
-
-    /// ### DEPRECATED: Use `onSetRepeatAction` instead
-    ///
-    pub const OnSetRepeatAction = onSetRepeatAction;
-
-    /// Inherited from QAbstractSlider
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelector`
-    ///
-    /// ` callback: *const fn (self: KSelector, action: qabstractslider_enums.SliderAction) callconv(.c) void `
-    ///
-    pub fn onSetRepeatAction(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) void) void {
-        qtc.KSelector_OnSetRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `repeatAction` instead
     ///
     pub const RepeatAction = repeatAction;
@@ -10374,48 +10334,6 @@ pub const KSelector = extern struct {
         return qtc.KSelector_RepeatAction(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superRepeatAction` instead
-    ///
-    pub const SuperRepeatAction = superRepeatAction;
-
-    /// Inherited from QAbstractSlider
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#repeatAction)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractslider_enums.SliderAction `
-    ///
-    pub fn superRepeatAction(self: KSelector) i32 {
-        return qtc.KSelector_SuperRepeatAction(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onRepeatAction` instead
-    ///
-    pub const OnRepeatAction = onRepeatAction;
-
-    /// Inherited from QAbstractSlider
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#repeatAction)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onRepeatAction(self: KSelector, callback: *const fn () callconv(.c) i32) void {
-        qtc.KSelector_OnRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -10432,44 +10350,6 @@ pub const KSelector = extern struct {
     ///
     pub fn updateMicroFocus(self: KSelector) void {
         qtc.KSelector_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    pub fn superUpdateMicroFocus(self: KSelector) void {
-        qtc.KSelector_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KSelector, callback: *const fn () callconv(.c) void) void {
-        qtc.KSelector_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -10490,44 +10370,6 @@ pub const KSelector = extern struct {
         qtc.KSelector_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    pub fn superCreate(self: KSelector) void {
-        qtc.KSelector_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KSelector, callback: *const fn () callconv(.c) void) void {
-        qtc.KSelector_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10544,44 +10386,6 @@ pub const KSelector = extern struct {
     ///
     pub fn destroy(self: KSelector) void {
         qtc.KSelector_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    pub fn superDestroy(self: KSelector) void {
-        qtc.KSelector_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KSelector, callback: *const fn () callconv(.c) void) void {
-        qtc.KSelector_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10602,44 +10406,6 @@ pub const KSelector = extern struct {
         return qtc.KSelector_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    pub fn superFocusNextChild(self: KSelector) bool {
-        return qtc.KSelector_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KSelector, callback: *const fn () callconv(.c) bool) void {
-        qtc.KSelector_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10656,44 +10422,6 @@ pub const KSelector = extern struct {
     ///
     pub fn focusPreviousChild(self: KSelector) bool {
         return qtc.KSelector_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    pub fn superFocusPreviousChild(self: KSelector) bool {
-        return qtc.KSelector_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KSelector, callback: *const fn () callconv(.c) bool) void {
-        qtc.KSelector_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10714,44 +10442,6 @@ pub const KSelector = extern struct {
         return .{ .ptr = qtc.KSelector_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    pub fn superSender(self: KSelector) QObject {
-        return .{ .ptr = qtc.KSelector_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KSelector, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KSelector_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10768,44 +10458,6 @@ pub const KSelector = extern struct {
     ///
     pub fn senderSignalIndex(self: KSelector) i32 {
         return qtc.KSelector_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    pub fn superSenderSignalIndex(self: KSelector) i32 {
-        return qtc.KSelector_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KSelector, callback: *const fn () callconv(.c) i32) void {
-        qtc.KSelector_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10829,47 +10481,6 @@ pub const KSelector = extern struct {
         return qtc.KSelector_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KSelector, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KSelector_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelector`
-    ///
-    /// ` callback: *const fn (self: KSelector, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KSelector, callback: *const fn (KSelector, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KSelector_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10889,47 +10500,6 @@ pub const KSelector = extern struct {
     pub fn isSignalConnected(self: KSelector, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KSelector_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KSelector, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KSelector_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelector`
-    ///
-    /// ` callback: *const fn (self: KSelector, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KSelector, callback: *const fn (KSelector, QMetaMethod) callconv(.c) bool) void {
-        qtc.KSelector_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10952,48 +10522,6 @@ pub const KSelector = extern struct {
     ///
     pub fn getDecodedMetricF(self: KSelector, metricA: i32, metricB: i32) f64 {
         return qtc.KSelector_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KSelector, metricA: i32, metricB: i32) f64 {
-        return qtc.KSelector_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelector`
-    ///
-    /// ` callback: *const fn (self: KSelector, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KSelector, callback: *const fn (KSelector, i32, i32) callconv(.c) f64) void {
-        qtc.KSelector_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -11130,9 +10658,9 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KGradientSelector) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KGradientSelector, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KGradientSelector, callback: *const fn (KGradientSelector) callconv(.c) QMetaObject) void {
         qtc.KGradientSelector_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11586,11 +11114,11 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KGradientSelector) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSize(self: KGradientSelector, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: KGradientSelector, callback: *const fn (KGradientSelector) callconv(.c) QSize) void {
         qtc.KGradientSelector_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -19292,9 +18820,9 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KGradientSelector) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KGradientSelector, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KGradientSelector, callback: *const fn (KGradientSelector) callconv(.c) i32) void {
         qtc.KGradientSelector_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -19408,11 +18936,11 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KGradientSelector) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KGradientSelector, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KGradientSelector, callback: *const fn (KGradientSelector) callconv(.c) QSize) void {
         qtc.KGradientSelector_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -19466,11 +18994,11 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KGradientSelector) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KGradientSelector, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KGradientSelector, callback: *const fn (KGradientSelector) callconv(.c) QSize) void {
         qtc.KGradientSelector_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -19584,9 +19112,9 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KGradientSelector) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KGradientSelector, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KGradientSelector, callback: *const fn (KGradientSelector) callconv(.c) bool) void {
         qtc.KGradientSelector_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -19640,9 +19168,9 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KGradientSelector) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KGradientSelector, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KGradientSelector, callback: *const fn (KGradientSelector) callconv(.c) QPaintEngine) void {
         qtc.KGradientSelector_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -21072,9 +20600,9 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KGradientSelector) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KGradientSelector, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KGradientSelector, callback: *const fn (KGradientSelector) callconv(.c) QPainter) void {
         qtc.KGradientSelector_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -21598,46 +21126,6 @@ pub const KGradientSelector = extern struct {
         qtc.KGradientSelector_SetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `superSetRepeatAction` instead
-    ///
-    pub const SuperSetRepeatAction = superSetRepeatAction;
-
-    /// Inherited from QAbstractSlider
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    /// ` action: qabstractslider_enums.SliderAction `
-    ///
-    pub fn superSetRepeatAction(self: KGradientSelector, action: i32) void {
-        qtc.KGradientSelector_SuperSetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
-    }
-
-    /// ### DEPRECATED: Use `onSetRepeatAction` instead
-    ///
-    pub const OnSetRepeatAction = onSetRepeatAction;
-
-    /// Inherited from QAbstractSlider
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KGradientSelector`
-    ///
-    /// ` callback: *const fn (self: KGradientSelector, action: qabstractslider_enums.SliderAction) callconv(.c) void `
-    ///
-    pub fn onSetRepeatAction(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) void) void {
-        qtc.KGradientSelector_OnSetRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `repeatAction` instead
     ///
     pub const RepeatAction = repeatAction;
@@ -21660,48 +21148,6 @@ pub const KGradientSelector = extern struct {
         return qtc.KGradientSelector_RepeatAction(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superRepeatAction` instead
-    ///
-    pub const SuperRepeatAction = superRepeatAction;
-
-    /// Inherited from QAbstractSlider
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#repeatAction)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractslider_enums.SliderAction `
-    ///
-    pub fn superRepeatAction(self: KGradientSelector) i32 {
-        return qtc.KGradientSelector_SuperRepeatAction(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onRepeatAction` instead
-    ///
-    pub const OnRepeatAction = onRepeatAction;
-
-    /// Inherited from QAbstractSlider
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#repeatAction)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KGradientSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onRepeatAction(self: KGradientSelector, callback: *const fn () callconv(.c) i32) void {
-        qtc.KGradientSelector_OnRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -21718,44 +21164,6 @@ pub const KGradientSelector = extern struct {
     ///
     pub fn updateMicroFocus(self: KGradientSelector) void {
         qtc.KGradientSelector_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    pub fn superUpdateMicroFocus(self: KGradientSelector) void {
-        qtc.KGradientSelector_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KGradientSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KGradientSelector, callback: *const fn () callconv(.c) void) void {
-        qtc.KGradientSelector_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -21776,44 +21184,6 @@ pub const KGradientSelector = extern struct {
         qtc.KGradientSelector_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    pub fn superCreate(self: KGradientSelector) void {
-        qtc.KGradientSelector_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KGradientSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KGradientSelector, callback: *const fn () callconv(.c) void) void {
-        qtc.KGradientSelector_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -21830,44 +21200,6 @@ pub const KGradientSelector = extern struct {
     ///
     pub fn destroy(self: KGradientSelector) void {
         qtc.KGradientSelector_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    pub fn superDestroy(self: KGradientSelector) void {
-        qtc.KGradientSelector_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KGradientSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KGradientSelector, callback: *const fn () callconv(.c) void) void {
-        qtc.KGradientSelector_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -21888,44 +21220,6 @@ pub const KGradientSelector = extern struct {
         return qtc.KGradientSelector_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    pub fn superFocusNextChild(self: KGradientSelector) bool {
-        return qtc.KGradientSelector_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KGradientSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KGradientSelector, callback: *const fn () callconv(.c) bool) void {
-        qtc.KGradientSelector_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -21942,44 +21236,6 @@ pub const KGradientSelector = extern struct {
     ///
     pub fn focusPreviousChild(self: KGradientSelector) bool {
         return qtc.KGradientSelector_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    pub fn superFocusPreviousChild(self: KGradientSelector) bool {
-        return qtc.KGradientSelector_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KGradientSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KGradientSelector, callback: *const fn () callconv(.c) bool) void {
-        qtc.KGradientSelector_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -22000,44 +21256,6 @@ pub const KGradientSelector = extern struct {
         return .{ .ptr = qtc.KGradientSelector_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    pub fn superSender(self: KGradientSelector) QObject {
-        return .{ .ptr = qtc.KGradientSelector_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KGradientSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KGradientSelector, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KGradientSelector_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -22054,44 +21272,6 @@ pub const KGradientSelector = extern struct {
     ///
     pub fn senderSignalIndex(self: KGradientSelector) i32 {
         return qtc.KGradientSelector_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    pub fn superSenderSignalIndex(self: KGradientSelector) i32 {
-        return qtc.KGradientSelector_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KGradientSelector`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KGradientSelector, callback: *const fn () callconv(.c) i32) void {
-        qtc.KGradientSelector_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -22115,47 +21295,6 @@ pub const KGradientSelector = extern struct {
         return qtc.KGradientSelector_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KGradientSelector, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KGradientSelector_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KGradientSelector`
-    ///
-    /// ` callback: *const fn (self: KGradientSelector, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KGradientSelector, callback: *const fn (KGradientSelector, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KGradientSelector_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -22175,47 +21314,6 @@ pub const KGradientSelector = extern struct {
     pub fn isSignalConnected(self: KGradientSelector, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KGradientSelector_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KGradientSelector, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KGradientSelector_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KGradientSelector`
-    ///
-    /// ` callback: *const fn (self: KGradientSelector, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KGradientSelector, callback: *const fn (KGradientSelector, QMetaMethod) callconv(.c) bool) void {
-        qtc.KGradientSelector_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -22238,48 +21336,6 @@ pub const KGradientSelector = extern struct {
     ///
     pub fn getDecodedMetricF(self: KGradientSelector, metricA: i32, metricB: i32) f64 {
         return qtc.KGradientSelector_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KGradientSelector, metricA: i32, metricB: i32) f64 {
-        return qtc.KGradientSelector_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KGradientSelector`
-    ///
-    /// ` callback: *const fn (self: KGradientSelector, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KGradientSelector, callback: *const fn (KGradientSelector, i32, i32) callconv(.c) f64) void {
-        qtc.KGradientSelector_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

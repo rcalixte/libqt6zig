@@ -143,364 +143,219 @@ libqt_string KHelpMenu_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KHelpMenu_SuperMetaObject(const KHelpMenu* self) {
-    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        vkhelpmenu->setKHelpMenu_MetaObject_IsBase(true);
-        return (QMetaObject*)vkhelpmenu->metaObject();
-    } else {
-        return (QMetaObject*)self->KHelpMenu::metaObject();
-    }
+    return (QMetaObject*)self->KHelpMenu::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KHelpMenu_OnMetaObject(const KHelpMenu* self, intptr_t slot) {
-    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
-        vkhelpmenu->setKHelpMenu_MetaObject_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_MetaObject_Callback>(slot));
+void KHelpMenu_OnMetaObject(KHelpMenu* self, intptr_t slot) {
+    if (auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self)))
+        vkhelpmenu->khelpmenu_metaobject_callback = reinterpret_cast<VirtualKHelpMenu::KHelpMenu_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KHelpMenu_SuperMetacast(KHelpMenu* self, const char* param1) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        vkhelpmenu->setKHelpMenu_Metacast_IsBase(true);
-        return vkhelpmenu->qt_metacast(param1);
-    } else {
-        return self->KHelpMenu::qt_metacast(param1);
-    }
+    return self->KHelpMenu::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnMetacast(KHelpMenu* self, intptr_t slot) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
-        vkhelpmenu->setKHelpMenu_Metacast_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_Metacast_Callback>(slot));
+    if (auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self))
+        vkhelpmenu->khelpmenu_metacast_callback = reinterpret_cast<VirtualKHelpMenu::KHelpMenu_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KHelpMenu_SuperMetacall(KHelpMenu* self, int param1, int param2, void** param3) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        vkhelpmenu->setKHelpMenu_Metacall_IsBase(true);
-        return vkhelpmenu->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KHelpMenu::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KHelpMenu::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnMetacall(KHelpMenu* self, intptr_t slot) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
-        vkhelpmenu->setKHelpMenu_Metacall_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_Metacall_Callback>(slot));
+    if (auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self))
+        vkhelpmenu->khelpmenu_metacall_callback = reinterpret_cast<VirtualKHelpMenu::KHelpMenu_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KHelpMenu_Event(KHelpMenu* self, QEvent* event) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        return vkhelpmenu->event(event);
-    } else {
-        return self->KHelpMenu::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KHelpMenu_SuperEvent(KHelpMenu* self, QEvent* event) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        vkhelpmenu->setKHelpMenu_Event_IsBase(true);
-        return vkhelpmenu->event(event);
-    } else {
-        return self->KHelpMenu::event(event);
-    }
+    return self->KHelpMenu::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnEvent(KHelpMenu* self, intptr_t slot) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
-        vkhelpmenu->setKHelpMenu_Event_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_Event_Callback>(slot));
+    if (auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self))
+        vkhelpmenu->khelpmenu_event_callback = reinterpret_cast<VirtualKHelpMenu::KHelpMenu_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KHelpMenu_EventFilter(KHelpMenu* self, QObject* watched, QEvent* event) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        return vkhelpmenu->eventFilter(watched, event);
-    } else {
-        return self->KHelpMenu::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KHelpMenu_SuperEventFilter(KHelpMenu* self, QObject* watched, QEvent* event) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        vkhelpmenu->setKHelpMenu_EventFilter_IsBase(true);
-        return vkhelpmenu->eventFilter(watched, event);
-    } else {
-        return self->KHelpMenu::eventFilter(watched, event);
-    }
+    return self->KHelpMenu::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnEventFilter(KHelpMenu* self, intptr_t slot) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
-        vkhelpmenu->setKHelpMenu_EventFilter_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_EventFilter_Callback>(slot));
+    if (auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self))
+        vkhelpmenu->khelpmenu_eventfilter_callback = reinterpret_cast<VirtualKHelpMenu::KHelpMenu_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHelpMenu_TimerEvent(KHelpMenu* self, QTimerEvent* event) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu) {
         vkhelpmenu->timerEvent(event);
     } else {
-        ((VirtualKHelpMenu*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KHelpMenu::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHelpMenu_SuperTimerEvent(KHelpMenu* self, QTimerEvent* event) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        vkhelpmenu->setKHelpMenu_TimerEvent_IsBase(true);
-        vkhelpmenu->timerEvent(event);
-    } else {
-        ((VirtualKHelpMenu*)self)->timerEvent(event);
-    }
+    if (auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self)) {
+        vkhelpmenu->KHelpMenu::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHelpMenu::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnTimerEvent(KHelpMenu* self, intptr_t slot) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
-        vkhelpmenu->setKHelpMenu_TimerEvent_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_TimerEvent_Callback>(slot));
+    if (auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self))
+        vkhelpmenu->khelpmenu_timerevent_callback = reinterpret_cast<VirtualKHelpMenu::KHelpMenu_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHelpMenu_ChildEvent(KHelpMenu* self, QChildEvent* event) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu) {
         vkhelpmenu->childEvent(event);
     } else {
-        ((VirtualKHelpMenu*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KHelpMenu::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHelpMenu_SuperChildEvent(KHelpMenu* self, QChildEvent* event) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        vkhelpmenu->setKHelpMenu_ChildEvent_IsBase(true);
-        vkhelpmenu->childEvent(event);
-    } else {
-        ((VirtualKHelpMenu*)self)->childEvent(event);
-    }
+    if (auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self)) {
+        vkhelpmenu->KHelpMenu::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHelpMenu::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnChildEvent(KHelpMenu* self, intptr_t slot) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
-        vkhelpmenu->setKHelpMenu_ChildEvent_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_ChildEvent_Callback>(slot));
+    if (auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self))
+        vkhelpmenu->khelpmenu_childevent_callback = reinterpret_cast<VirtualKHelpMenu::KHelpMenu_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHelpMenu_CustomEvent(KHelpMenu* self, QEvent* event) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu) {
         vkhelpmenu->customEvent(event);
     } else {
-        ((VirtualKHelpMenu*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KHelpMenu::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHelpMenu_SuperCustomEvent(KHelpMenu* self, QEvent* event) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        vkhelpmenu->setKHelpMenu_CustomEvent_IsBase(true);
-        vkhelpmenu->customEvent(event);
-    } else {
-        ((VirtualKHelpMenu*)self)->customEvent(event);
-    }
+    if (auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self)) {
+        vkhelpmenu->KHelpMenu::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHelpMenu::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnCustomEvent(KHelpMenu* self, intptr_t slot) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
-        vkhelpmenu->setKHelpMenu_CustomEvent_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_CustomEvent_Callback>(slot));
+    if (auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self))
+        vkhelpmenu->khelpmenu_customevent_callback = reinterpret_cast<VirtualKHelpMenu::KHelpMenu_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHelpMenu_ConnectNotify(KHelpMenu* self, const QMetaMethod* signal) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu) {
         vkhelpmenu->connectNotify(*signal);
     } else {
-        ((VirtualKHelpMenu*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KHelpMenu::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHelpMenu_SuperConnectNotify(KHelpMenu* self, const QMetaMethod* signal) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        vkhelpmenu->setKHelpMenu_ConnectNotify_IsBase(true);
-        vkhelpmenu->connectNotify(*signal);
-    } else {
-        ((VirtualKHelpMenu*)self)->connectNotify(*signal);
-    }
+    if (auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self)) {
+        vkhelpmenu->KHelpMenu::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KHelpMenu::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnConnectNotify(KHelpMenu* self, intptr_t slot) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
-        vkhelpmenu->setKHelpMenu_ConnectNotify_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_ConnectNotify_Callback>(slot));
+    if (auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self))
+        vkhelpmenu->khelpmenu_connectnotify_callback = reinterpret_cast<VirtualKHelpMenu::KHelpMenu_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHelpMenu_DisconnectNotify(KHelpMenu* self, const QMetaMethod* signal) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu) {
         vkhelpmenu->disconnectNotify(*signal);
     } else {
-        ((VirtualKHelpMenu*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KHelpMenu::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHelpMenu_SuperDisconnectNotify(KHelpMenu* self, const QMetaMethod* signal) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        vkhelpmenu->setKHelpMenu_DisconnectNotify_IsBase(true);
-        vkhelpmenu->disconnectNotify(*signal);
-    } else {
-        ((VirtualKHelpMenu*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self)) {
+        vkhelpmenu->KHelpMenu::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KHelpMenu::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnDisconnectNotify(KHelpMenu* self, intptr_t slot) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
-        vkhelpmenu->setKHelpMenu_DisconnectNotify_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_DisconnectNotify_Callback>(slot));
+    if (auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self))
+        vkhelpmenu->khelpmenu_disconnectnotify_callback = reinterpret_cast<VirtualKHelpMenu::KHelpMenu_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KHelpMenu_Sender(const KHelpMenu* self) {
-    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        return vkhelpmenu->sender();
-    } else {
-        return ((VirtualKHelpMenu*)self)->sender();
-    }
+    if (auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self))) {
+        return vkhelpmenu->VirtualKHelpMenu::sender();
+    } else
+        qFatal("Error: Protected method KHelpMenu::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KHelpMenu_SuperSender(const KHelpMenu* self) {
-    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        vkhelpmenu->setKHelpMenu_Sender_IsBase(true);
-        return vkhelpmenu->sender();
-    } else {
-        return ((VirtualKHelpMenu*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHelpMenu_OnSender(const KHelpMenu* self, intptr_t slot) {
-    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
-        vkhelpmenu->setKHelpMenu_Sender_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KHelpMenu_SenderSignalIndex(const KHelpMenu* self) {
-    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        return vkhelpmenu->senderSignalIndex();
-    } else {
-        return ((VirtualKHelpMenu*)self)->senderSignalIndex();
-    }
+    if (auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self))) {
+        return vkhelpmenu->VirtualKHelpMenu::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KHelpMenu::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KHelpMenu_SuperSenderSignalIndex(const KHelpMenu* self) {
-    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        vkhelpmenu->setKHelpMenu_SenderSignalIndex_IsBase(true);
-        return vkhelpmenu->senderSignalIndex();
-    } else {
-        return ((VirtualKHelpMenu*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHelpMenu_OnSenderSignalIndex(const KHelpMenu* self, intptr_t slot) {
-    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
-        vkhelpmenu->setKHelpMenu_SenderSignalIndex_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KHelpMenu_Receivers(const KHelpMenu* self, const char* signal) {
-    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        return vkhelpmenu->receivers(signal);
-    } else {
-        return ((VirtualKHelpMenu*)self)->receivers(signal);
-    }
+    if (auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self))) {
+        return vkhelpmenu->VirtualKHelpMenu::receivers(signal);
+    } else
+        qFatal("Error: Protected method KHelpMenu::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KHelpMenu_SuperReceivers(const KHelpMenu* self, const char* signal) {
-    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        vkhelpmenu->setKHelpMenu_Receivers_IsBase(true);
-        return vkhelpmenu->receivers(signal);
-    } else {
-        return ((VirtualKHelpMenu*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHelpMenu_OnReceivers(const KHelpMenu* self, intptr_t slot) {
-    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
-        vkhelpmenu->setKHelpMenu_Receivers_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KHelpMenu_IsSignalConnected(const KHelpMenu* self, const QMetaMethod* signal) {
-    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        return vkhelpmenu->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKHelpMenu*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KHelpMenu_SuperIsSignalConnected(const KHelpMenu* self, const QMetaMethod* signal) {
-    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        vkhelpmenu->setKHelpMenu_IsSignalConnected_IsBase(true);
-        return vkhelpmenu->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKHelpMenu*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHelpMenu_OnIsSignalConnected(const KHelpMenu* self, intptr_t slot) {
-    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
-        vkhelpmenu->setKHelpMenu_IsSignalConnected_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_IsSignalConnected_Callback>(slot));
+    if (auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self))) {
+        return vkhelpmenu->VirtualKHelpMenu::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KHelpMenu::isSignalConnected called without a directly constructed type");
 }
 
 void KHelpMenu_Delete(KHelpMenu* self) {

@@ -49,9 +49,9 @@ pub const QDesignerTaskMenuExtension = extern struct {
     ///
     /// ` self: QDesignerTaskMenuExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) QAction `
+    /// ` callback: *const fn (self: QDesignerTaskMenuExtension) callconv(.c) QAction `
     ///
-    pub fn onPreferredEditAction(self: QDesignerTaskMenuExtension, callback: *const fn () callconv(.c) QAction) void {
+    pub fn onPreferredEditAction(self: QDesignerTaskMenuExtension, callback: *const fn (QDesignerTaskMenuExtension) callconv(.c) QAction) void {
         qtc.QDesignerTaskMenuExtension_OnPreferredEditAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -76,6 +76,8 @@ pub const QDesignerTaskMenuExtension = extern struct {
     pub const TaskActions = taskActions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignertaskmenuextension.html#taskActions)
+    ///
+    /// This method must be implemented with `onTaskActions` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -107,38 +109,14 @@ pub const QDesignerTaskMenuExtension = extern struct {
     ///
     /// ` self: QDesignerTaskMenuExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QDesignerTaskMenuExtension) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QAction `
     ///
-    pub fn onTaskActions(self: QDesignerTaskMenuExtension, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onTaskActions(self: QDesignerTaskMenuExtension, callback: *const fn (QDesignerTaskMenuExtension) callconv(.c) qtc.libqt_list) void {
         qtc.QDesignerTaskMenuExtension_OnTaskActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTaskActions` instead
-    ///
-    pub const SuperTaskActions = superTaskActions;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignertaskmenuextension.html#taskActions)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerTaskMenuExtension `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superTaskActions(self: QDesignerTaskMenuExtension, allocator: std.mem.Allocator) []QAction {
-        const _arr: qtc.libqt_list = qtc.QDesignerTaskMenuExtension_SuperTaskActions(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QDesignerTaskMenuExtension.taskActions: Memory allocation failed");
-        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `delete` instead

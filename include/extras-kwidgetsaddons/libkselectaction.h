@@ -82,7 +82,7 @@ libqt_string KSelectAction_Tr2(const char* s, const char* c);
 libqt_string KSelectAction_Tr3(const char* s, const char* c, int n);
 QAction* KSelectAction_Action22(const KSelectAction* self, const libqt_string text, int cs);
 bool KSelectAction_SetCurrentAction22(KSelectAction* self, const libqt_string text, int cs);
-void KSelectAction_OnMetaObject(const KSelectAction* self, intptr_t slot);
+void KSelectAction_OnMetaObject(KSelectAction* self, intptr_t slot);
 QMetaObject* KSelectAction_SuperMetaObject(const KSelectAction* self);
 void KSelectAction_OnMetacast(KSelectAction* self, intptr_t slot);
 void* KSelectAction_SuperMetacast(KSelectAction* self, const char* param1);
@@ -118,23 +118,11 @@ void KSelectAction_DisconnectNotify(KSelectAction* self, const QMetaMethod* sign
 void KSelectAction_OnDisconnectNotify(KSelectAction* self, intptr_t slot);
 void KSelectAction_SuperDisconnectNotify(KSelectAction* self, const QMetaMethod* signal);
 void KSelectAction_SlotToggled(KSelectAction* self, bool param1);
-void KSelectAction_OnSlotToggled(KSelectAction* self, intptr_t slot);
-void KSelectAction_SuperSlotToggled(KSelectAction* self, bool param1);
 libqt_list /* of QWidget* */ KSelectAction_CreatedWidgets(const KSelectAction* self);
-void KSelectAction_OnCreatedWidgets(const KSelectAction* self, intptr_t slot);
-libqt_list /* of QWidget* */ KSelectAction_SuperCreatedWidgets(const KSelectAction* self);
 QObject* KSelectAction_Sender(const KSelectAction* self);
-void KSelectAction_OnSender(const KSelectAction* self, intptr_t slot);
-QObject* KSelectAction_SuperSender(const KSelectAction* self);
 int KSelectAction_SenderSignalIndex(const KSelectAction* self);
-void KSelectAction_OnSenderSignalIndex(const KSelectAction* self, intptr_t slot);
-int KSelectAction_SuperSenderSignalIndex(const KSelectAction* self);
 int KSelectAction_Receivers(const KSelectAction* self, const char* signal);
-void KSelectAction_OnReceivers(const KSelectAction* self, intptr_t slot);
-int KSelectAction_SuperReceivers(const KSelectAction* self, const char* signal);
 bool KSelectAction_IsSignalConnected(const KSelectAction* self, const QMetaMethod* signal);
-void KSelectAction_OnIsSignalConnected(const KSelectAction* self, intptr_t slot);
-bool KSelectAction_SuperIsSignalConnected(const KSelectAction* self, const QMetaMethod* signal);
 void KSelectAction_Delete(KSelectAction* self);
 
 #ifdef __cplusplus

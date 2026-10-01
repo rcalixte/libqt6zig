@@ -39,58 +39,34 @@ void QGraphicsSceneEvent_SetTimestamp(QGraphicsSceneEvent* self, unsigned long l
 
 // Derived class handler implementation
 void QGraphicsSceneEvent_SetAccepted(QGraphicsSceneEvent* self, bool accepted) {
-    auto* vqgraphicssceneevent = dynamic_cast<VirtualQGraphicsSceneEvent*>(self);
-    if (vqgraphicssceneevent && vqgraphicssceneevent->isVirtualQGraphicsSceneEvent) {
-        vqgraphicssceneevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void QGraphicsSceneEvent_SuperSetAccepted(QGraphicsSceneEvent* self, bool accepted) {
-    auto* vqgraphicssceneevent = dynamic_cast<VirtualQGraphicsSceneEvent*>(self);
-    if (vqgraphicssceneevent && vqgraphicssceneevent->isVirtualQGraphicsSceneEvent) {
-        vqgraphicssceneevent->setQGraphicsSceneEvent_SetAccepted_IsBase(true);
-        vqgraphicssceneevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneEvent::setAccepted(accepted);
-    }
+    self->QGraphicsSceneEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsSceneEvent_OnSetAccepted(QGraphicsSceneEvent* self, intptr_t slot) {
-    auto* vqgraphicssceneevent = dynamic_cast<VirtualQGraphicsSceneEvent*>(self);
-    if (vqgraphicssceneevent && vqgraphicssceneevent->isVirtualQGraphicsSceneEvent)
-        vqgraphicssceneevent->setQGraphicsSceneEvent_SetAccepted_Callback(reinterpret_cast<VirtualQGraphicsSceneEvent::QGraphicsSceneEvent_SetAccepted_Callback>(slot));
+    if (auto* vqgraphicssceneevent = dynamic_cast<VirtualQGraphicsSceneEvent*>(self))
+        vqgraphicssceneevent->qgraphicssceneevent_setaccepted_callback = reinterpret_cast<VirtualQGraphicsSceneEvent::QGraphicsSceneEvent_SetAccepted_Callback>(slot);
 }
 
 // Derived class handler implementation
 QEvent* QGraphicsSceneEvent_Clone(const QGraphicsSceneEvent* self) {
-    auto* vqgraphicssceneevent = const_cast<VirtualQGraphicsSceneEvent*>(dynamic_cast<const VirtualQGraphicsSceneEvent*>(self));
-    if (vqgraphicssceneevent && vqgraphicssceneevent->isVirtualQGraphicsSceneEvent) {
-        return vqgraphicssceneevent->clone();
-    } else {
-        return self->QGraphicsSceneEvent::clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
 QEvent* QGraphicsSceneEvent_SuperClone(const QGraphicsSceneEvent* self) {
-    auto* vqgraphicssceneevent = const_cast<VirtualQGraphicsSceneEvent*>(dynamic_cast<const VirtualQGraphicsSceneEvent*>(self));
-    if (vqgraphicssceneevent && vqgraphicssceneevent->isVirtualQGraphicsSceneEvent) {
-        vqgraphicssceneevent->setQGraphicsSceneEvent_Clone_IsBase(true);
-        return vqgraphicssceneevent->clone();
-    } else {
-        return self->QGraphicsSceneEvent::clone();
-    }
+    return self->QGraphicsSceneEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsSceneEvent_OnClone(const QGraphicsSceneEvent* self, intptr_t slot) {
-    auto* vqgraphicssceneevent = const_cast<VirtualQGraphicsSceneEvent*>(dynamic_cast<const VirtualQGraphicsSceneEvent*>(self));
-    if (vqgraphicssceneevent && vqgraphicssceneevent->isVirtualQGraphicsSceneEvent)
-        vqgraphicssceneevent->setQGraphicsSceneEvent_Clone_Callback(reinterpret_cast<VirtualQGraphicsSceneEvent::QGraphicsSceneEvent_Clone_Callback>(slot));
+void QGraphicsSceneEvent_OnClone(QGraphicsSceneEvent* self, intptr_t slot) {
+    if (auto* vqgraphicssceneevent = const_cast<VirtualQGraphicsSceneEvent*>(dynamic_cast<const VirtualQGraphicsSceneEvent*>(self)))
+        vqgraphicssceneevent->qgraphicssceneevent_clone_callback = reinterpret_cast<VirtualQGraphicsSceneEvent::QGraphicsSceneEvent_Clone_Callback>(slot);
 }
 
 void QGraphicsSceneEvent_Delete(QGraphicsSceneEvent* self) {
@@ -219,58 +195,34 @@ void QGraphicsSceneMouseEvent_SetFlags(QGraphicsSceneMouseEvent* self, int flags
 
 // Derived class handler implementation
 void QGraphicsSceneMouseEvent_SetAccepted(QGraphicsSceneMouseEvent* self, bool accepted) {
-    auto* vqgraphicsscenemouseevent = dynamic_cast<VirtualQGraphicsSceneMouseEvent*>(self);
-    if (vqgraphicsscenemouseevent && vqgraphicsscenemouseevent->isVirtualQGraphicsSceneMouseEvent) {
-        vqgraphicsscenemouseevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneMouseEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void QGraphicsSceneMouseEvent_SuperSetAccepted(QGraphicsSceneMouseEvent* self, bool accepted) {
-    auto* vqgraphicsscenemouseevent = dynamic_cast<VirtualQGraphicsSceneMouseEvent*>(self);
-    if (vqgraphicsscenemouseevent && vqgraphicsscenemouseevent->isVirtualQGraphicsSceneMouseEvent) {
-        vqgraphicsscenemouseevent->setQGraphicsSceneMouseEvent_SetAccepted_IsBase(true);
-        vqgraphicsscenemouseevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneMouseEvent::setAccepted(accepted);
-    }
+    self->QGraphicsSceneMouseEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsSceneMouseEvent_OnSetAccepted(QGraphicsSceneMouseEvent* self, intptr_t slot) {
-    auto* vqgraphicsscenemouseevent = dynamic_cast<VirtualQGraphicsSceneMouseEvent*>(self);
-    if (vqgraphicsscenemouseevent && vqgraphicsscenemouseevent->isVirtualQGraphicsSceneMouseEvent)
-        vqgraphicsscenemouseevent->setQGraphicsSceneMouseEvent_SetAccepted_Callback(reinterpret_cast<VirtualQGraphicsSceneMouseEvent::QGraphicsSceneMouseEvent_SetAccepted_Callback>(slot));
+    if (auto* vqgraphicsscenemouseevent = dynamic_cast<VirtualQGraphicsSceneMouseEvent*>(self))
+        vqgraphicsscenemouseevent->qgraphicsscenemouseevent_setaccepted_callback = reinterpret_cast<VirtualQGraphicsSceneMouseEvent::QGraphicsSceneMouseEvent_SetAccepted_Callback>(slot);
 }
 
 // Derived class handler implementation
 QEvent* QGraphicsSceneMouseEvent_Clone(const QGraphicsSceneMouseEvent* self) {
-    auto* vqgraphicsscenemouseevent = const_cast<VirtualQGraphicsSceneMouseEvent*>(dynamic_cast<const VirtualQGraphicsSceneMouseEvent*>(self));
-    if (vqgraphicsscenemouseevent && vqgraphicsscenemouseevent->isVirtualQGraphicsSceneMouseEvent) {
-        return vqgraphicsscenemouseevent->clone();
-    } else {
-        return self->QGraphicsSceneMouseEvent::clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
 QEvent* QGraphicsSceneMouseEvent_SuperClone(const QGraphicsSceneMouseEvent* self) {
-    auto* vqgraphicsscenemouseevent = const_cast<VirtualQGraphicsSceneMouseEvent*>(dynamic_cast<const VirtualQGraphicsSceneMouseEvent*>(self));
-    if (vqgraphicsscenemouseevent && vqgraphicsscenemouseevent->isVirtualQGraphicsSceneMouseEvent) {
-        vqgraphicsscenemouseevent->setQGraphicsSceneMouseEvent_Clone_IsBase(true);
-        return vqgraphicsscenemouseevent->clone();
-    } else {
-        return self->QGraphicsSceneMouseEvent::clone();
-    }
+    return self->QGraphicsSceneMouseEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsSceneMouseEvent_OnClone(const QGraphicsSceneMouseEvent* self, intptr_t slot) {
-    auto* vqgraphicsscenemouseevent = const_cast<VirtualQGraphicsSceneMouseEvent*>(dynamic_cast<const VirtualQGraphicsSceneMouseEvent*>(self));
-    if (vqgraphicsscenemouseevent && vqgraphicsscenemouseevent->isVirtualQGraphicsSceneMouseEvent)
-        vqgraphicsscenemouseevent->setQGraphicsSceneMouseEvent_Clone_Callback(reinterpret_cast<VirtualQGraphicsSceneMouseEvent::QGraphicsSceneMouseEvent_Clone_Callback>(slot));
+void QGraphicsSceneMouseEvent_OnClone(QGraphicsSceneMouseEvent* self, intptr_t slot) {
+    if (auto* vqgraphicsscenemouseevent = const_cast<VirtualQGraphicsSceneMouseEvent*>(dynamic_cast<const VirtualQGraphicsSceneMouseEvent*>(self)))
+        vqgraphicsscenemouseevent->qgraphicsscenemouseevent_clone_callback = reinterpret_cast<VirtualQGraphicsSceneMouseEvent::QGraphicsSceneMouseEvent_Clone_Callback>(slot);
 }
 
 void QGraphicsSceneMouseEvent_Delete(QGraphicsSceneMouseEvent* self) {
@@ -367,58 +319,34 @@ void QGraphicsSceneWheelEvent_SetInverted(QGraphicsSceneWheelEvent* self, bool i
 
 // Derived class handler implementation
 void QGraphicsSceneWheelEvent_SetAccepted(QGraphicsSceneWheelEvent* self, bool accepted) {
-    auto* vqgraphicsscenewheelevent = dynamic_cast<VirtualQGraphicsSceneWheelEvent*>(self);
-    if (vqgraphicsscenewheelevent && vqgraphicsscenewheelevent->isVirtualQGraphicsSceneWheelEvent) {
-        vqgraphicsscenewheelevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneWheelEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void QGraphicsSceneWheelEvent_SuperSetAccepted(QGraphicsSceneWheelEvent* self, bool accepted) {
-    auto* vqgraphicsscenewheelevent = dynamic_cast<VirtualQGraphicsSceneWheelEvent*>(self);
-    if (vqgraphicsscenewheelevent && vqgraphicsscenewheelevent->isVirtualQGraphicsSceneWheelEvent) {
-        vqgraphicsscenewheelevent->setQGraphicsSceneWheelEvent_SetAccepted_IsBase(true);
-        vqgraphicsscenewheelevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneWheelEvent::setAccepted(accepted);
-    }
+    self->QGraphicsSceneWheelEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsSceneWheelEvent_OnSetAccepted(QGraphicsSceneWheelEvent* self, intptr_t slot) {
-    auto* vqgraphicsscenewheelevent = dynamic_cast<VirtualQGraphicsSceneWheelEvent*>(self);
-    if (vqgraphicsscenewheelevent && vqgraphicsscenewheelevent->isVirtualQGraphicsSceneWheelEvent)
-        vqgraphicsscenewheelevent->setQGraphicsSceneWheelEvent_SetAccepted_Callback(reinterpret_cast<VirtualQGraphicsSceneWheelEvent::QGraphicsSceneWheelEvent_SetAccepted_Callback>(slot));
+    if (auto* vqgraphicsscenewheelevent = dynamic_cast<VirtualQGraphicsSceneWheelEvent*>(self))
+        vqgraphicsscenewheelevent->qgraphicsscenewheelevent_setaccepted_callback = reinterpret_cast<VirtualQGraphicsSceneWheelEvent::QGraphicsSceneWheelEvent_SetAccepted_Callback>(slot);
 }
 
 // Derived class handler implementation
 QEvent* QGraphicsSceneWheelEvent_Clone(const QGraphicsSceneWheelEvent* self) {
-    auto* vqgraphicsscenewheelevent = const_cast<VirtualQGraphicsSceneWheelEvent*>(dynamic_cast<const VirtualQGraphicsSceneWheelEvent*>(self));
-    if (vqgraphicsscenewheelevent && vqgraphicsscenewheelevent->isVirtualQGraphicsSceneWheelEvent) {
-        return vqgraphicsscenewheelevent->clone();
-    } else {
-        return self->QGraphicsSceneWheelEvent::clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
 QEvent* QGraphicsSceneWheelEvent_SuperClone(const QGraphicsSceneWheelEvent* self) {
-    auto* vqgraphicsscenewheelevent = const_cast<VirtualQGraphicsSceneWheelEvent*>(dynamic_cast<const VirtualQGraphicsSceneWheelEvent*>(self));
-    if (vqgraphicsscenewheelevent && vqgraphicsscenewheelevent->isVirtualQGraphicsSceneWheelEvent) {
-        vqgraphicsscenewheelevent->setQGraphicsSceneWheelEvent_Clone_IsBase(true);
-        return vqgraphicsscenewheelevent->clone();
-    } else {
-        return self->QGraphicsSceneWheelEvent::clone();
-    }
+    return self->QGraphicsSceneWheelEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsSceneWheelEvent_OnClone(const QGraphicsSceneWheelEvent* self, intptr_t slot) {
-    auto* vqgraphicsscenewheelevent = const_cast<VirtualQGraphicsSceneWheelEvent*>(dynamic_cast<const VirtualQGraphicsSceneWheelEvent*>(self));
-    if (vqgraphicsscenewheelevent && vqgraphicsscenewheelevent->isVirtualQGraphicsSceneWheelEvent)
-        vqgraphicsscenewheelevent->setQGraphicsSceneWheelEvent_Clone_Callback(reinterpret_cast<VirtualQGraphicsSceneWheelEvent::QGraphicsSceneWheelEvent_Clone_Callback>(slot));
+void QGraphicsSceneWheelEvent_OnClone(QGraphicsSceneWheelEvent* self, intptr_t slot) {
+    if (auto* vqgraphicsscenewheelevent = const_cast<VirtualQGraphicsSceneWheelEvent*>(dynamic_cast<const VirtualQGraphicsSceneWheelEvent*>(self)))
+        vqgraphicsscenewheelevent->qgraphicsscenewheelevent_clone_callback = reinterpret_cast<VirtualQGraphicsSceneWheelEvent::QGraphicsSceneWheelEvent_Clone_Callback>(slot);
 }
 
 void QGraphicsSceneWheelEvent_Delete(QGraphicsSceneWheelEvent* self) {
@@ -475,58 +403,34 @@ void QGraphicsSceneContextMenuEvent_SetReason(QGraphicsSceneContextMenuEvent* se
 
 // Derived class handler implementation
 void QGraphicsSceneContextMenuEvent_SetAccepted(QGraphicsSceneContextMenuEvent* self, bool accepted) {
-    auto* vqgraphicsscenecontextmenuevent = dynamic_cast<VirtualQGraphicsSceneContextMenuEvent*>(self);
-    if (vqgraphicsscenecontextmenuevent && vqgraphicsscenecontextmenuevent->isVirtualQGraphicsSceneContextMenuEvent) {
-        vqgraphicsscenecontextmenuevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneContextMenuEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void QGraphicsSceneContextMenuEvent_SuperSetAccepted(QGraphicsSceneContextMenuEvent* self, bool accepted) {
-    auto* vqgraphicsscenecontextmenuevent = dynamic_cast<VirtualQGraphicsSceneContextMenuEvent*>(self);
-    if (vqgraphicsscenecontextmenuevent && vqgraphicsscenecontextmenuevent->isVirtualQGraphicsSceneContextMenuEvent) {
-        vqgraphicsscenecontextmenuevent->setQGraphicsSceneContextMenuEvent_SetAccepted_IsBase(true);
-        vqgraphicsscenecontextmenuevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneContextMenuEvent::setAccepted(accepted);
-    }
+    self->QGraphicsSceneContextMenuEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsSceneContextMenuEvent_OnSetAccepted(QGraphicsSceneContextMenuEvent* self, intptr_t slot) {
-    auto* vqgraphicsscenecontextmenuevent = dynamic_cast<VirtualQGraphicsSceneContextMenuEvent*>(self);
-    if (vqgraphicsscenecontextmenuevent && vqgraphicsscenecontextmenuevent->isVirtualQGraphicsSceneContextMenuEvent)
-        vqgraphicsscenecontextmenuevent->setQGraphicsSceneContextMenuEvent_SetAccepted_Callback(reinterpret_cast<VirtualQGraphicsSceneContextMenuEvent::QGraphicsSceneContextMenuEvent_SetAccepted_Callback>(slot));
+    if (auto* vqgraphicsscenecontextmenuevent = dynamic_cast<VirtualQGraphicsSceneContextMenuEvent*>(self))
+        vqgraphicsscenecontextmenuevent->qgraphicsscenecontextmenuevent_setaccepted_callback = reinterpret_cast<VirtualQGraphicsSceneContextMenuEvent::QGraphicsSceneContextMenuEvent_SetAccepted_Callback>(slot);
 }
 
 // Derived class handler implementation
 QEvent* QGraphicsSceneContextMenuEvent_Clone(const QGraphicsSceneContextMenuEvent* self) {
-    auto* vqgraphicsscenecontextmenuevent = const_cast<VirtualQGraphicsSceneContextMenuEvent*>(dynamic_cast<const VirtualQGraphicsSceneContextMenuEvent*>(self));
-    if (vqgraphicsscenecontextmenuevent && vqgraphicsscenecontextmenuevent->isVirtualQGraphicsSceneContextMenuEvent) {
-        return vqgraphicsscenecontextmenuevent->clone();
-    } else {
-        return self->QGraphicsSceneContextMenuEvent::clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
 QEvent* QGraphicsSceneContextMenuEvent_SuperClone(const QGraphicsSceneContextMenuEvent* self) {
-    auto* vqgraphicsscenecontextmenuevent = const_cast<VirtualQGraphicsSceneContextMenuEvent*>(dynamic_cast<const VirtualQGraphicsSceneContextMenuEvent*>(self));
-    if (vqgraphicsscenecontextmenuevent && vqgraphicsscenecontextmenuevent->isVirtualQGraphicsSceneContextMenuEvent) {
-        vqgraphicsscenecontextmenuevent->setQGraphicsSceneContextMenuEvent_Clone_IsBase(true);
-        return vqgraphicsscenecontextmenuevent->clone();
-    } else {
-        return self->QGraphicsSceneContextMenuEvent::clone();
-    }
+    return self->QGraphicsSceneContextMenuEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsSceneContextMenuEvent_OnClone(const QGraphicsSceneContextMenuEvent* self, intptr_t slot) {
-    auto* vqgraphicsscenecontextmenuevent = const_cast<VirtualQGraphicsSceneContextMenuEvent*>(dynamic_cast<const VirtualQGraphicsSceneContextMenuEvent*>(self));
-    if (vqgraphicsscenecontextmenuevent && vqgraphicsscenecontextmenuevent->isVirtualQGraphicsSceneContextMenuEvent)
-        vqgraphicsscenecontextmenuevent->setQGraphicsSceneContextMenuEvent_Clone_Callback(reinterpret_cast<VirtualQGraphicsSceneContextMenuEvent::QGraphicsSceneContextMenuEvent_Clone_Callback>(slot));
+void QGraphicsSceneContextMenuEvent_OnClone(QGraphicsSceneContextMenuEvent* self, intptr_t slot) {
+    if (auto* vqgraphicsscenecontextmenuevent = const_cast<VirtualQGraphicsSceneContextMenuEvent*>(dynamic_cast<const VirtualQGraphicsSceneContextMenuEvent*>(self)))
+        vqgraphicsscenecontextmenuevent->qgraphicsscenecontextmenuevent_clone_callback = reinterpret_cast<VirtualQGraphicsSceneContextMenuEvent::QGraphicsSceneContextMenuEvent_Clone_Callback>(slot);
 }
 
 void QGraphicsSceneContextMenuEvent_Delete(QGraphicsSceneContextMenuEvent* self) {
@@ -599,58 +503,34 @@ void QGraphicsSceneHoverEvent_SetModifiers(QGraphicsSceneHoverEvent* self, int m
 
 // Derived class handler implementation
 void QGraphicsSceneHoverEvent_SetAccepted(QGraphicsSceneHoverEvent* self, bool accepted) {
-    auto* vqgraphicsscenehoverevent = dynamic_cast<VirtualQGraphicsSceneHoverEvent*>(self);
-    if (vqgraphicsscenehoverevent && vqgraphicsscenehoverevent->isVirtualQGraphicsSceneHoverEvent) {
-        vqgraphicsscenehoverevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneHoverEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void QGraphicsSceneHoverEvent_SuperSetAccepted(QGraphicsSceneHoverEvent* self, bool accepted) {
-    auto* vqgraphicsscenehoverevent = dynamic_cast<VirtualQGraphicsSceneHoverEvent*>(self);
-    if (vqgraphicsscenehoverevent && vqgraphicsscenehoverevent->isVirtualQGraphicsSceneHoverEvent) {
-        vqgraphicsscenehoverevent->setQGraphicsSceneHoverEvent_SetAccepted_IsBase(true);
-        vqgraphicsscenehoverevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneHoverEvent::setAccepted(accepted);
-    }
+    self->QGraphicsSceneHoverEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsSceneHoverEvent_OnSetAccepted(QGraphicsSceneHoverEvent* self, intptr_t slot) {
-    auto* vqgraphicsscenehoverevent = dynamic_cast<VirtualQGraphicsSceneHoverEvent*>(self);
-    if (vqgraphicsscenehoverevent && vqgraphicsscenehoverevent->isVirtualQGraphicsSceneHoverEvent)
-        vqgraphicsscenehoverevent->setQGraphicsSceneHoverEvent_SetAccepted_Callback(reinterpret_cast<VirtualQGraphicsSceneHoverEvent::QGraphicsSceneHoverEvent_SetAccepted_Callback>(slot));
+    if (auto* vqgraphicsscenehoverevent = dynamic_cast<VirtualQGraphicsSceneHoverEvent*>(self))
+        vqgraphicsscenehoverevent->qgraphicsscenehoverevent_setaccepted_callback = reinterpret_cast<VirtualQGraphicsSceneHoverEvent::QGraphicsSceneHoverEvent_SetAccepted_Callback>(slot);
 }
 
 // Derived class handler implementation
 QEvent* QGraphicsSceneHoverEvent_Clone(const QGraphicsSceneHoverEvent* self) {
-    auto* vqgraphicsscenehoverevent = const_cast<VirtualQGraphicsSceneHoverEvent*>(dynamic_cast<const VirtualQGraphicsSceneHoverEvent*>(self));
-    if (vqgraphicsscenehoverevent && vqgraphicsscenehoverevent->isVirtualQGraphicsSceneHoverEvent) {
-        return vqgraphicsscenehoverevent->clone();
-    } else {
-        return self->QGraphicsSceneHoverEvent::clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
 QEvent* QGraphicsSceneHoverEvent_SuperClone(const QGraphicsSceneHoverEvent* self) {
-    auto* vqgraphicsscenehoverevent = const_cast<VirtualQGraphicsSceneHoverEvent*>(dynamic_cast<const VirtualQGraphicsSceneHoverEvent*>(self));
-    if (vqgraphicsscenehoverevent && vqgraphicsscenehoverevent->isVirtualQGraphicsSceneHoverEvent) {
-        vqgraphicsscenehoverevent->setQGraphicsSceneHoverEvent_Clone_IsBase(true);
-        return vqgraphicsscenehoverevent->clone();
-    } else {
-        return self->QGraphicsSceneHoverEvent::clone();
-    }
+    return self->QGraphicsSceneHoverEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsSceneHoverEvent_OnClone(const QGraphicsSceneHoverEvent* self, intptr_t slot) {
-    auto* vqgraphicsscenehoverevent = const_cast<VirtualQGraphicsSceneHoverEvent*>(dynamic_cast<const VirtualQGraphicsSceneHoverEvent*>(self));
-    if (vqgraphicsscenehoverevent && vqgraphicsscenehoverevent->isVirtualQGraphicsSceneHoverEvent)
-        vqgraphicsscenehoverevent->setQGraphicsSceneHoverEvent_Clone_Callback(reinterpret_cast<VirtualQGraphicsSceneHoverEvent::QGraphicsSceneHoverEvent_Clone_Callback>(slot));
+void QGraphicsSceneHoverEvent_OnClone(QGraphicsSceneHoverEvent* self, intptr_t slot) {
+    if (auto* vqgraphicsscenehoverevent = const_cast<VirtualQGraphicsSceneHoverEvent*>(dynamic_cast<const VirtualQGraphicsSceneHoverEvent*>(self)))
+        vqgraphicsscenehoverevent->qgraphicsscenehoverevent_clone_callback = reinterpret_cast<VirtualQGraphicsSceneHoverEvent::QGraphicsSceneHoverEvent_Clone_Callback>(slot);
 }
 
 void QGraphicsSceneHoverEvent_Delete(QGraphicsSceneHoverEvent* self) {
@@ -683,58 +563,34 @@ void QGraphicsSceneHelpEvent_SetScreenPos(QGraphicsSceneHelpEvent* self, const Q
 
 // Derived class handler implementation
 void QGraphicsSceneHelpEvent_SetAccepted(QGraphicsSceneHelpEvent* self, bool accepted) {
-    auto* vqgraphicsscenehelpevent = dynamic_cast<VirtualQGraphicsSceneHelpEvent*>(self);
-    if (vqgraphicsscenehelpevent && vqgraphicsscenehelpevent->isVirtualQGraphicsSceneHelpEvent) {
-        vqgraphicsscenehelpevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneHelpEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void QGraphicsSceneHelpEvent_SuperSetAccepted(QGraphicsSceneHelpEvent* self, bool accepted) {
-    auto* vqgraphicsscenehelpevent = dynamic_cast<VirtualQGraphicsSceneHelpEvent*>(self);
-    if (vqgraphicsscenehelpevent && vqgraphicsscenehelpevent->isVirtualQGraphicsSceneHelpEvent) {
-        vqgraphicsscenehelpevent->setQGraphicsSceneHelpEvent_SetAccepted_IsBase(true);
-        vqgraphicsscenehelpevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneHelpEvent::setAccepted(accepted);
-    }
+    self->QGraphicsSceneHelpEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsSceneHelpEvent_OnSetAccepted(QGraphicsSceneHelpEvent* self, intptr_t slot) {
-    auto* vqgraphicsscenehelpevent = dynamic_cast<VirtualQGraphicsSceneHelpEvent*>(self);
-    if (vqgraphicsscenehelpevent && vqgraphicsscenehelpevent->isVirtualQGraphicsSceneHelpEvent)
-        vqgraphicsscenehelpevent->setQGraphicsSceneHelpEvent_SetAccepted_Callback(reinterpret_cast<VirtualQGraphicsSceneHelpEvent::QGraphicsSceneHelpEvent_SetAccepted_Callback>(slot));
+    if (auto* vqgraphicsscenehelpevent = dynamic_cast<VirtualQGraphicsSceneHelpEvent*>(self))
+        vqgraphicsscenehelpevent->qgraphicsscenehelpevent_setaccepted_callback = reinterpret_cast<VirtualQGraphicsSceneHelpEvent::QGraphicsSceneHelpEvent_SetAccepted_Callback>(slot);
 }
 
 // Derived class handler implementation
 QEvent* QGraphicsSceneHelpEvent_Clone(const QGraphicsSceneHelpEvent* self) {
-    auto* vqgraphicsscenehelpevent = const_cast<VirtualQGraphicsSceneHelpEvent*>(dynamic_cast<const VirtualQGraphicsSceneHelpEvent*>(self));
-    if (vqgraphicsscenehelpevent && vqgraphicsscenehelpevent->isVirtualQGraphicsSceneHelpEvent) {
-        return vqgraphicsscenehelpevent->clone();
-    } else {
-        return self->QGraphicsSceneHelpEvent::clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
 QEvent* QGraphicsSceneHelpEvent_SuperClone(const QGraphicsSceneHelpEvent* self) {
-    auto* vqgraphicsscenehelpevent = const_cast<VirtualQGraphicsSceneHelpEvent*>(dynamic_cast<const VirtualQGraphicsSceneHelpEvent*>(self));
-    if (vqgraphicsscenehelpevent && vqgraphicsscenehelpevent->isVirtualQGraphicsSceneHelpEvent) {
-        vqgraphicsscenehelpevent->setQGraphicsSceneHelpEvent_Clone_IsBase(true);
-        return vqgraphicsscenehelpevent->clone();
-    } else {
-        return self->QGraphicsSceneHelpEvent::clone();
-    }
+    return self->QGraphicsSceneHelpEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsSceneHelpEvent_OnClone(const QGraphicsSceneHelpEvent* self, intptr_t slot) {
-    auto* vqgraphicsscenehelpevent = const_cast<VirtualQGraphicsSceneHelpEvent*>(dynamic_cast<const VirtualQGraphicsSceneHelpEvent*>(self));
-    if (vqgraphicsscenehelpevent && vqgraphicsscenehelpevent->isVirtualQGraphicsSceneHelpEvent)
-        vqgraphicsscenehelpevent->setQGraphicsSceneHelpEvent_Clone_Callback(reinterpret_cast<VirtualQGraphicsSceneHelpEvent::QGraphicsSceneHelpEvent_Clone_Callback>(slot));
+void QGraphicsSceneHelpEvent_OnClone(QGraphicsSceneHelpEvent* self, intptr_t slot) {
+    if (auto* vqgraphicsscenehelpevent = const_cast<VirtualQGraphicsSceneHelpEvent*>(dynamic_cast<const VirtualQGraphicsSceneHelpEvent*>(self)))
+        vqgraphicsscenehelpevent->qgraphicsscenehelpevent_clone_callback = reinterpret_cast<VirtualQGraphicsSceneHelpEvent::QGraphicsSceneHelpEvent_Clone_Callback>(slot);
 }
 
 void QGraphicsSceneHelpEvent_Delete(QGraphicsSceneHelpEvent* self) {
@@ -835,58 +691,34 @@ void QGraphicsSceneDragDropEvent_SetMimeData(QGraphicsSceneDragDropEvent* self, 
 
 // Derived class handler implementation
 void QGraphicsSceneDragDropEvent_SetAccepted(QGraphicsSceneDragDropEvent* self, bool accepted) {
-    auto* vqgraphicsscenedragdropevent = dynamic_cast<VirtualQGraphicsSceneDragDropEvent*>(self);
-    if (vqgraphicsscenedragdropevent && vqgraphicsscenedragdropevent->isVirtualQGraphicsSceneDragDropEvent) {
-        vqgraphicsscenedragdropevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneDragDropEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void QGraphicsSceneDragDropEvent_SuperSetAccepted(QGraphicsSceneDragDropEvent* self, bool accepted) {
-    auto* vqgraphicsscenedragdropevent = dynamic_cast<VirtualQGraphicsSceneDragDropEvent*>(self);
-    if (vqgraphicsscenedragdropevent && vqgraphicsscenedragdropevent->isVirtualQGraphicsSceneDragDropEvent) {
-        vqgraphicsscenedragdropevent->setQGraphicsSceneDragDropEvent_SetAccepted_IsBase(true);
-        vqgraphicsscenedragdropevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneDragDropEvent::setAccepted(accepted);
-    }
+    self->QGraphicsSceneDragDropEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsSceneDragDropEvent_OnSetAccepted(QGraphicsSceneDragDropEvent* self, intptr_t slot) {
-    auto* vqgraphicsscenedragdropevent = dynamic_cast<VirtualQGraphicsSceneDragDropEvent*>(self);
-    if (vqgraphicsscenedragdropevent && vqgraphicsscenedragdropevent->isVirtualQGraphicsSceneDragDropEvent)
-        vqgraphicsscenedragdropevent->setQGraphicsSceneDragDropEvent_SetAccepted_Callback(reinterpret_cast<VirtualQGraphicsSceneDragDropEvent::QGraphicsSceneDragDropEvent_SetAccepted_Callback>(slot));
+    if (auto* vqgraphicsscenedragdropevent = dynamic_cast<VirtualQGraphicsSceneDragDropEvent*>(self))
+        vqgraphicsscenedragdropevent->qgraphicsscenedragdropevent_setaccepted_callback = reinterpret_cast<VirtualQGraphicsSceneDragDropEvent::QGraphicsSceneDragDropEvent_SetAccepted_Callback>(slot);
 }
 
 // Derived class handler implementation
 QEvent* QGraphicsSceneDragDropEvent_Clone(const QGraphicsSceneDragDropEvent* self) {
-    auto* vqgraphicsscenedragdropevent = const_cast<VirtualQGraphicsSceneDragDropEvent*>(dynamic_cast<const VirtualQGraphicsSceneDragDropEvent*>(self));
-    if (vqgraphicsscenedragdropevent && vqgraphicsscenedragdropevent->isVirtualQGraphicsSceneDragDropEvent) {
-        return vqgraphicsscenedragdropevent->clone();
-    } else {
-        return self->QGraphicsSceneDragDropEvent::clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
 QEvent* QGraphicsSceneDragDropEvent_SuperClone(const QGraphicsSceneDragDropEvent* self) {
-    auto* vqgraphicsscenedragdropevent = const_cast<VirtualQGraphicsSceneDragDropEvent*>(dynamic_cast<const VirtualQGraphicsSceneDragDropEvent*>(self));
-    if (vqgraphicsscenedragdropevent && vqgraphicsscenedragdropevent->isVirtualQGraphicsSceneDragDropEvent) {
-        vqgraphicsscenedragdropevent->setQGraphicsSceneDragDropEvent_Clone_IsBase(true);
-        return vqgraphicsscenedragdropevent->clone();
-    } else {
-        return self->QGraphicsSceneDragDropEvent::clone();
-    }
+    return self->QGraphicsSceneDragDropEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsSceneDragDropEvent_OnClone(const QGraphicsSceneDragDropEvent* self, intptr_t slot) {
-    auto* vqgraphicsscenedragdropevent = const_cast<VirtualQGraphicsSceneDragDropEvent*>(dynamic_cast<const VirtualQGraphicsSceneDragDropEvent*>(self));
-    if (vqgraphicsscenedragdropevent && vqgraphicsscenedragdropevent->isVirtualQGraphicsSceneDragDropEvent)
-        vqgraphicsscenedragdropevent->setQGraphicsSceneDragDropEvent_Clone_Callback(reinterpret_cast<VirtualQGraphicsSceneDragDropEvent::QGraphicsSceneDragDropEvent_Clone_Callback>(slot));
+void QGraphicsSceneDragDropEvent_OnClone(QGraphicsSceneDragDropEvent* self, intptr_t slot) {
+    if (auto* vqgraphicsscenedragdropevent = const_cast<VirtualQGraphicsSceneDragDropEvent*>(dynamic_cast<const VirtualQGraphicsSceneDragDropEvent*>(self)))
+        vqgraphicsscenedragdropevent->qgraphicsscenedragdropevent_clone_callback = reinterpret_cast<VirtualQGraphicsSceneDragDropEvent::QGraphicsSceneDragDropEvent_Clone_Callback>(slot);
 }
 
 void QGraphicsSceneDragDropEvent_Delete(QGraphicsSceneDragDropEvent* self) {
@@ -915,58 +747,34 @@ void QGraphicsSceneResizeEvent_SetNewSize(QGraphicsSceneResizeEvent* self, const
 
 // Derived class handler implementation
 void QGraphicsSceneResizeEvent_SetAccepted(QGraphicsSceneResizeEvent* self, bool accepted) {
-    auto* vqgraphicssceneresizeevent = dynamic_cast<VirtualQGraphicsSceneResizeEvent*>(self);
-    if (vqgraphicssceneresizeevent && vqgraphicssceneresizeevent->isVirtualQGraphicsSceneResizeEvent) {
-        vqgraphicssceneresizeevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneResizeEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void QGraphicsSceneResizeEvent_SuperSetAccepted(QGraphicsSceneResizeEvent* self, bool accepted) {
-    auto* vqgraphicssceneresizeevent = dynamic_cast<VirtualQGraphicsSceneResizeEvent*>(self);
-    if (vqgraphicssceneresizeevent && vqgraphicssceneresizeevent->isVirtualQGraphicsSceneResizeEvent) {
-        vqgraphicssceneresizeevent->setQGraphicsSceneResizeEvent_SetAccepted_IsBase(true);
-        vqgraphicssceneresizeevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneResizeEvent::setAccepted(accepted);
-    }
+    self->QGraphicsSceneResizeEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsSceneResizeEvent_OnSetAccepted(QGraphicsSceneResizeEvent* self, intptr_t slot) {
-    auto* vqgraphicssceneresizeevent = dynamic_cast<VirtualQGraphicsSceneResizeEvent*>(self);
-    if (vqgraphicssceneresizeevent && vqgraphicssceneresizeevent->isVirtualQGraphicsSceneResizeEvent)
-        vqgraphicssceneresizeevent->setQGraphicsSceneResizeEvent_SetAccepted_Callback(reinterpret_cast<VirtualQGraphicsSceneResizeEvent::QGraphicsSceneResizeEvent_SetAccepted_Callback>(slot));
+    if (auto* vqgraphicssceneresizeevent = dynamic_cast<VirtualQGraphicsSceneResizeEvent*>(self))
+        vqgraphicssceneresizeevent->qgraphicssceneresizeevent_setaccepted_callback = reinterpret_cast<VirtualQGraphicsSceneResizeEvent::QGraphicsSceneResizeEvent_SetAccepted_Callback>(slot);
 }
 
 // Derived class handler implementation
 QEvent* QGraphicsSceneResizeEvent_Clone(const QGraphicsSceneResizeEvent* self) {
-    auto* vqgraphicssceneresizeevent = const_cast<VirtualQGraphicsSceneResizeEvent*>(dynamic_cast<const VirtualQGraphicsSceneResizeEvent*>(self));
-    if (vqgraphicssceneresizeevent && vqgraphicssceneresizeevent->isVirtualQGraphicsSceneResizeEvent) {
-        return vqgraphicssceneresizeevent->clone();
-    } else {
-        return self->QGraphicsSceneResizeEvent::clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
 QEvent* QGraphicsSceneResizeEvent_SuperClone(const QGraphicsSceneResizeEvent* self) {
-    auto* vqgraphicssceneresizeevent = const_cast<VirtualQGraphicsSceneResizeEvent*>(dynamic_cast<const VirtualQGraphicsSceneResizeEvent*>(self));
-    if (vqgraphicssceneresizeevent && vqgraphicssceneresizeevent->isVirtualQGraphicsSceneResizeEvent) {
-        vqgraphicssceneresizeevent->setQGraphicsSceneResizeEvent_Clone_IsBase(true);
-        return vqgraphicssceneresizeevent->clone();
-    } else {
-        return self->QGraphicsSceneResizeEvent::clone();
-    }
+    return self->QGraphicsSceneResizeEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsSceneResizeEvent_OnClone(const QGraphicsSceneResizeEvent* self, intptr_t slot) {
-    auto* vqgraphicssceneresizeevent = const_cast<VirtualQGraphicsSceneResizeEvent*>(dynamic_cast<const VirtualQGraphicsSceneResizeEvent*>(self));
-    if (vqgraphicssceneresizeevent && vqgraphicssceneresizeevent->isVirtualQGraphicsSceneResizeEvent)
-        vqgraphicssceneresizeevent->setQGraphicsSceneResizeEvent_Clone_Callback(reinterpret_cast<VirtualQGraphicsSceneResizeEvent::QGraphicsSceneResizeEvent_Clone_Callback>(slot));
+void QGraphicsSceneResizeEvent_OnClone(QGraphicsSceneResizeEvent* self, intptr_t slot) {
+    if (auto* vqgraphicssceneresizeevent = const_cast<VirtualQGraphicsSceneResizeEvent*>(dynamic_cast<const VirtualQGraphicsSceneResizeEvent*>(self)))
+        vqgraphicssceneresizeevent->qgraphicssceneresizeevent_clone_callback = reinterpret_cast<VirtualQGraphicsSceneResizeEvent::QGraphicsSceneResizeEvent_Clone_Callback>(slot);
 }
 
 void QGraphicsSceneResizeEvent_Delete(QGraphicsSceneResizeEvent* self) {
@@ -995,58 +803,34 @@ void QGraphicsSceneMoveEvent_SetNewPos(QGraphicsSceneMoveEvent* self, const QPoi
 
 // Derived class handler implementation
 void QGraphicsSceneMoveEvent_SetAccepted(QGraphicsSceneMoveEvent* self, bool accepted) {
-    auto* vqgraphicsscenemoveevent = dynamic_cast<VirtualQGraphicsSceneMoveEvent*>(self);
-    if (vqgraphicsscenemoveevent && vqgraphicsscenemoveevent->isVirtualQGraphicsSceneMoveEvent) {
-        vqgraphicsscenemoveevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneMoveEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void QGraphicsSceneMoveEvent_SuperSetAccepted(QGraphicsSceneMoveEvent* self, bool accepted) {
-    auto* vqgraphicsscenemoveevent = dynamic_cast<VirtualQGraphicsSceneMoveEvent*>(self);
-    if (vqgraphicsscenemoveevent && vqgraphicsscenemoveevent->isVirtualQGraphicsSceneMoveEvent) {
-        vqgraphicsscenemoveevent->setQGraphicsSceneMoveEvent_SetAccepted_IsBase(true);
-        vqgraphicsscenemoveevent->setAccepted(accepted);
-    } else {
-        self->QGraphicsSceneMoveEvent::setAccepted(accepted);
-    }
+    self->QGraphicsSceneMoveEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsSceneMoveEvent_OnSetAccepted(QGraphicsSceneMoveEvent* self, intptr_t slot) {
-    auto* vqgraphicsscenemoveevent = dynamic_cast<VirtualQGraphicsSceneMoveEvent*>(self);
-    if (vqgraphicsscenemoveevent && vqgraphicsscenemoveevent->isVirtualQGraphicsSceneMoveEvent)
-        vqgraphicsscenemoveevent->setQGraphicsSceneMoveEvent_SetAccepted_Callback(reinterpret_cast<VirtualQGraphicsSceneMoveEvent::QGraphicsSceneMoveEvent_SetAccepted_Callback>(slot));
+    if (auto* vqgraphicsscenemoveevent = dynamic_cast<VirtualQGraphicsSceneMoveEvent*>(self))
+        vqgraphicsscenemoveevent->qgraphicsscenemoveevent_setaccepted_callback = reinterpret_cast<VirtualQGraphicsSceneMoveEvent::QGraphicsSceneMoveEvent_SetAccepted_Callback>(slot);
 }
 
 // Derived class handler implementation
 QEvent* QGraphicsSceneMoveEvent_Clone(const QGraphicsSceneMoveEvent* self) {
-    auto* vqgraphicsscenemoveevent = const_cast<VirtualQGraphicsSceneMoveEvent*>(dynamic_cast<const VirtualQGraphicsSceneMoveEvent*>(self));
-    if (vqgraphicsscenemoveevent && vqgraphicsscenemoveevent->isVirtualQGraphicsSceneMoveEvent) {
-        return vqgraphicsscenemoveevent->clone();
-    } else {
-        return self->QGraphicsSceneMoveEvent::clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
 QEvent* QGraphicsSceneMoveEvent_SuperClone(const QGraphicsSceneMoveEvent* self) {
-    auto* vqgraphicsscenemoveevent = const_cast<VirtualQGraphicsSceneMoveEvent*>(dynamic_cast<const VirtualQGraphicsSceneMoveEvent*>(self));
-    if (vqgraphicsscenemoveevent && vqgraphicsscenemoveevent->isVirtualQGraphicsSceneMoveEvent) {
-        vqgraphicsscenemoveevent->setQGraphicsSceneMoveEvent_Clone_IsBase(true);
-        return vqgraphicsscenemoveevent->clone();
-    } else {
-        return self->QGraphicsSceneMoveEvent::clone();
-    }
+    return self->QGraphicsSceneMoveEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsSceneMoveEvent_OnClone(const QGraphicsSceneMoveEvent* self, intptr_t slot) {
-    auto* vqgraphicsscenemoveevent = const_cast<VirtualQGraphicsSceneMoveEvent*>(dynamic_cast<const VirtualQGraphicsSceneMoveEvent*>(self));
-    if (vqgraphicsscenemoveevent && vqgraphicsscenemoveevent->isVirtualQGraphicsSceneMoveEvent)
-        vqgraphicsscenemoveevent->setQGraphicsSceneMoveEvent_Clone_Callback(reinterpret_cast<VirtualQGraphicsSceneMoveEvent::QGraphicsSceneMoveEvent_Clone_Callback>(slot));
+void QGraphicsSceneMoveEvent_OnClone(QGraphicsSceneMoveEvent* self, intptr_t slot) {
+    if (auto* vqgraphicsscenemoveevent = const_cast<VirtualQGraphicsSceneMoveEvent*>(dynamic_cast<const VirtualQGraphicsSceneMoveEvent*>(self)))
+        vqgraphicsscenemoveevent->qgraphicsscenemoveevent_clone_callback = reinterpret_cast<VirtualQGraphicsSceneMoveEvent::QGraphicsSceneMoveEvent_Clone_Callback>(slot);
 }
 
 void QGraphicsSceneMoveEvent_Delete(QGraphicsSceneMoveEvent* self) {

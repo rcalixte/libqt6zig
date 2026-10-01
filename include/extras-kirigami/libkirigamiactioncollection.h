@@ -79,7 +79,7 @@ void KirigamiActionCollection_ReadSettings1(KirigamiActionCollection* self, KCon
 void KirigamiActionCollection_WriteSettings1(const KirigamiActionCollection* self, KConfigGroup* config);
 void KirigamiActionCollection_WriteSettings2(const KirigamiActionCollection* self, KConfigGroup* config, bool writeDefaults);
 void KirigamiActionCollection_WriteSettings3(const KirigamiActionCollection* self, KConfigGroup* config, bool writeDefaults, QAction* oneAction);
-void KirigamiActionCollection_OnMetaObject(const KirigamiActionCollection* self, intptr_t slot);
+void KirigamiActionCollection_OnMetaObject(KirigamiActionCollection* self, intptr_t slot);
 QMetaObject* KirigamiActionCollection_SuperMetaObject(const KirigamiActionCollection* self);
 void KirigamiActionCollection_OnMetacast(KirigamiActionCollection* self, intptr_t slot);
 void* KirigamiActionCollection_SuperMetacast(KirigamiActionCollection* self, const char* param1);
@@ -108,17 +108,9 @@ void KirigamiActionCollection_DisconnectNotify(KirigamiActionCollection* self, c
 void KirigamiActionCollection_OnDisconnectNotify(KirigamiActionCollection* self, intptr_t slot);
 void KirigamiActionCollection_SuperDisconnectNotify(KirigamiActionCollection* self, const QMetaMethod* signal);
 QObject* KirigamiActionCollection_Sender(const KirigamiActionCollection* self);
-void KirigamiActionCollection_OnSender(const KirigamiActionCollection* self, intptr_t slot);
-QObject* KirigamiActionCollection_SuperSender(const KirigamiActionCollection* self);
 int KirigamiActionCollection_SenderSignalIndex(const KirigamiActionCollection* self);
-void KirigamiActionCollection_OnSenderSignalIndex(const KirigamiActionCollection* self, intptr_t slot);
-int KirigamiActionCollection_SuperSenderSignalIndex(const KirigamiActionCollection* self);
 int KirigamiActionCollection_Receivers(const KirigamiActionCollection* self, const char* signal);
-void KirigamiActionCollection_OnReceivers(const KirigamiActionCollection* self, intptr_t slot);
-int KirigamiActionCollection_SuperReceivers(const KirigamiActionCollection* self, const char* signal);
 bool KirigamiActionCollection_IsSignalConnected(const KirigamiActionCollection* self, const QMetaMethod* signal);
-void KirigamiActionCollection_OnIsSignalConnected(const KirigamiActionCollection* self, intptr_t slot);
-bool KirigamiActionCollection_SuperIsSignalConnected(const KirigamiActionCollection* self, const QMetaMethod* signal);
 void KirigamiActionCollection_Delete(KirigamiActionCollection* self);
 
 #ifdef __cplusplus

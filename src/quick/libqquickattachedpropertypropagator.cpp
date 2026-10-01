@@ -62,7 +62,7 @@ QQuickAttachedPropertyPropagator* QQuickAttachedPropertyPropagator_AttachedParen
 
 void QQuickAttachedPropertyPropagator_AttachedParentChange(QQuickAttachedPropertyPropagator* self, QQuickAttachedPropertyPropagator* newParent, QQuickAttachedPropertyPropagator* oldParent) {
     auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
+    if (vqquickattachedpropertypropagator) {
         vqquickattachedpropertypropagator->attachedParentChange(newParent, oldParent);
     }
 }
@@ -93,410 +93,241 @@ libqt_string QQuickAttachedPropertyPropagator_Tr3(const char* s, const char* c, 
 
 // Base class handler implementation
 QMetaObject* QQuickAttachedPropertyPropagator_SuperMetaObject(const QQuickAttachedPropertyPropagator* self) {
-    auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self));
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_MetaObject_IsBase(true);
-        return (QMetaObject*)vqquickattachedpropertypropagator->metaObject();
-    } else {
-        return (QMetaObject*)self->QQuickAttachedPropertyPropagator::metaObject();
-    }
+    return (QMetaObject*)self->QQuickAttachedPropertyPropagator::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickAttachedPropertyPropagator_OnMetaObject(const QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self));
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_MetaObject_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_MetaObject_Callback>(slot));
+void QQuickAttachedPropertyPropagator_OnMetaObject(QQuickAttachedPropertyPropagator* self, intptr_t slot) {
+    if (auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self)))
+        vqquickattachedpropertypropagator->qquickattachedpropertypropagator_metaobject_callback = reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQuickAttachedPropertyPropagator_SuperMetacast(QQuickAttachedPropertyPropagator* self, const char* param1) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_Metacast_IsBase(true);
-        return vqquickattachedpropertypropagator->qt_metacast(param1);
-    } else {
-        return self->QQuickAttachedPropertyPropagator::qt_metacast(param1);
-    }
+    return self->QQuickAttachedPropertyPropagator::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickAttachedPropertyPropagator_OnMetacast(QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_Metacast_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_Metacast_Callback>(slot));
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self))
+        vqquickattachedpropertypropagator->qquickattachedpropertypropagator_metacast_callback = reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQuickAttachedPropertyPropagator_SuperMetacall(QQuickAttachedPropertyPropagator* self, int param1, int param2, void** param3) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_Metacall_IsBase(true);
-        return vqquickattachedpropertypropagator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQuickAttachedPropertyPropagator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQuickAttachedPropertyPropagator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickAttachedPropertyPropagator_OnMetacall(QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_Metacall_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_Metacall_Callback>(slot));
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self))
+        vqquickattachedpropertypropagator->qquickattachedpropertypropagator_metacall_callback = reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickAttachedPropertyPropagator_SuperAttachedParentChange(QQuickAttachedPropertyPropagator* self, QQuickAttachedPropertyPropagator* newParent, QQuickAttachedPropertyPropagator* oldParent) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_AttachedParentChange_IsBase(true);
-        vqquickattachedpropertypropagator->attachedParentChange(newParent, oldParent);
-    } else {
-        ((VirtualQQuickAttachedPropertyPropagator*)self)->attachedParentChange(newParent, oldParent);
-    }
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self)) {
+        vqquickattachedpropertypropagator->QQuickAttachedPropertyPropagator::attachedParentChange(newParent, oldParent);
+    } else
+        qFatal("Error: Protected virtual method QQuickAttachedPropertyPropagator::attachedParentChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickAttachedPropertyPropagator_OnAttachedParentChange(QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_AttachedParentChange_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_AttachedParentChange_Callback>(slot));
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self))
+        vqquickattachedpropertypropagator->qquickattachedpropertypropagator_attachedparentchange_callback = reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_AttachedParentChange_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickAttachedPropertyPropagator_Event(QQuickAttachedPropertyPropagator* self, QEvent* event) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        return vqquickattachedpropertypropagator->event(event);
-    } else {
-        return self->QQuickAttachedPropertyPropagator::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QQuickAttachedPropertyPropagator_SuperEvent(QQuickAttachedPropertyPropagator* self, QEvent* event) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_Event_IsBase(true);
-        return vqquickattachedpropertypropagator->event(event);
-    } else {
-        return self->QQuickAttachedPropertyPropagator::event(event);
-    }
+    return self->QQuickAttachedPropertyPropagator::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickAttachedPropertyPropagator_OnEvent(QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_Event_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_Event_Callback>(slot));
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self))
+        vqquickattachedpropertypropagator->qquickattachedpropertypropagator_event_callback = reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickAttachedPropertyPropagator_EventFilter(QQuickAttachedPropertyPropagator* self, QObject* watched, QEvent* event) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        return vqquickattachedpropertypropagator->eventFilter(watched, event);
-    } else {
-        return self->QQuickAttachedPropertyPropagator::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQuickAttachedPropertyPropagator_SuperEventFilter(QQuickAttachedPropertyPropagator* self, QObject* watched, QEvent* event) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_EventFilter_IsBase(true);
-        return vqquickattachedpropertypropagator->eventFilter(watched, event);
-    } else {
-        return self->QQuickAttachedPropertyPropagator::eventFilter(watched, event);
-    }
+    return self->QQuickAttachedPropertyPropagator::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickAttachedPropertyPropagator_OnEventFilter(QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_EventFilter_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_EventFilter_Callback>(slot));
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self))
+        vqquickattachedpropertypropagator->qquickattachedpropertypropagator_eventfilter_callback = reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickAttachedPropertyPropagator_TimerEvent(QQuickAttachedPropertyPropagator* self, QTimerEvent* event) {
     auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
+    if (vqquickattachedpropertypropagator) {
         vqquickattachedpropertypropagator->timerEvent(event);
     } else {
-        ((VirtualQQuickAttachedPropertyPropagator*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQuickAttachedPropertyPropagator::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickAttachedPropertyPropagator_SuperTimerEvent(QQuickAttachedPropertyPropagator* self, QTimerEvent* event) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_TimerEvent_IsBase(true);
-        vqquickattachedpropertypropagator->timerEvent(event);
-    } else {
-        ((VirtualQQuickAttachedPropertyPropagator*)self)->timerEvent(event);
-    }
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self)) {
+        vqquickattachedpropertypropagator->QQuickAttachedPropertyPropagator::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickAttachedPropertyPropagator::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickAttachedPropertyPropagator_OnTimerEvent(QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_TimerEvent_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_TimerEvent_Callback>(slot));
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self))
+        vqquickattachedpropertypropagator->qquickattachedpropertypropagator_timerevent_callback = reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickAttachedPropertyPropagator_ChildEvent(QQuickAttachedPropertyPropagator* self, QChildEvent* event) {
     auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
+    if (vqquickattachedpropertypropagator) {
         vqquickattachedpropertypropagator->childEvent(event);
     } else {
-        ((VirtualQQuickAttachedPropertyPropagator*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQuickAttachedPropertyPropagator::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickAttachedPropertyPropagator_SuperChildEvent(QQuickAttachedPropertyPropagator* self, QChildEvent* event) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_ChildEvent_IsBase(true);
-        vqquickattachedpropertypropagator->childEvent(event);
-    } else {
-        ((VirtualQQuickAttachedPropertyPropagator*)self)->childEvent(event);
-    }
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self)) {
+        vqquickattachedpropertypropagator->QQuickAttachedPropertyPropagator::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickAttachedPropertyPropagator::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickAttachedPropertyPropagator_OnChildEvent(QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_ChildEvent_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_ChildEvent_Callback>(slot));
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self))
+        vqquickattachedpropertypropagator->qquickattachedpropertypropagator_childevent_callback = reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickAttachedPropertyPropagator_CustomEvent(QQuickAttachedPropertyPropagator* self, QEvent* event) {
     auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
+    if (vqquickattachedpropertypropagator) {
         vqquickattachedpropertypropagator->customEvent(event);
     } else {
-        ((VirtualQQuickAttachedPropertyPropagator*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQuickAttachedPropertyPropagator::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickAttachedPropertyPropagator_SuperCustomEvent(QQuickAttachedPropertyPropagator* self, QEvent* event) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_CustomEvent_IsBase(true);
-        vqquickattachedpropertypropagator->customEvent(event);
-    } else {
-        ((VirtualQQuickAttachedPropertyPropagator*)self)->customEvent(event);
-    }
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self)) {
+        vqquickattachedpropertypropagator->QQuickAttachedPropertyPropagator::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickAttachedPropertyPropagator::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickAttachedPropertyPropagator_OnCustomEvent(QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_CustomEvent_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_CustomEvent_Callback>(slot));
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self))
+        vqquickattachedpropertypropagator->qquickattachedpropertypropagator_customevent_callback = reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickAttachedPropertyPropagator_ConnectNotify(QQuickAttachedPropertyPropagator* self, const QMetaMethod* signal) {
     auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
+    if (vqquickattachedpropertypropagator) {
         vqquickattachedpropertypropagator->connectNotify(*signal);
     } else {
-        ((VirtualQQuickAttachedPropertyPropagator*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuickAttachedPropertyPropagator::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickAttachedPropertyPropagator_SuperConnectNotify(QQuickAttachedPropertyPropagator* self, const QMetaMethod* signal) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_ConnectNotify_IsBase(true);
-        vqquickattachedpropertypropagator->connectNotify(*signal);
-    } else {
-        ((VirtualQQuickAttachedPropertyPropagator*)self)->connectNotify(*signal);
-    }
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self)) {
+        vqquickattachedpropertypropagator->QQuickAttachedPropertyPropagator::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuickAttachedPropertyPropagator::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickAttachedPropertyPropagator_OnConnectNotify(QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_ConnectNotify_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_ConnectNotify_Callback>(slot));
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self))
+        vqquickattachedpropertypropagator->qquickattachedpropertypropagator_connectnotify_callback = reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickAttachedPropertyPropagator_DisconnectNotify(QQuickAttachedPropertyPropagator* self, const QMetaMethod* signal) {
     auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
+    if (vqquickattachedpropertypropagator) {
         vqquickattachedpropertypropagator->disconnectNotify(*signal);
     } else {
-        ((VirtualQQuickAttachedPropertyPropagator*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuickAttachedPropertyPropagator::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickAttachedPropertyPropagator_SuperDisconnectNotify(QQuickAttachedPropertyPropagator* self, const QMetaMethod* signal) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_DisconnectNotify_IsBase(true);
-        vqquickattachedpropertypropagator->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQuickAttachedPropertyPropagator*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self)) {
+        vqquickattachedpropertypropagator->QQuickAttachedPropertyPropagator::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuickAttachedPropertyPropagator::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickAttachedPropertyPropagator_OnDisconnectNotify(QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_DisconnectNotify_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_DisconnectNotify_Callback>(slot));
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self))
+        vqquickattachedpropertypropagator->qquickattachedpropertypropagator_disconnectnotify_callback = reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QQuickAttachedPropertyPropagator_Initialize(QQuickAttachedPropertyPropagator* self) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->initialize();
-    } else {
-        ((VirtualQQuickAttachedPropertyPropagator*)self)->initialize();
-    }
+    if (auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self)) {
+        vqquickattachedpropertypropagator->VirtualQQuickAttachedPropertyPropagator::initialize();
+    } else
+        qFatal("Error: Protected method QQuickAttachedPropertyPropagator::initialize called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QQuickAttachedPropertyPropagator_SuperInitialize(QQuickAttachedPropertyPropagator* self) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_Initialize_IsBase(true);
-        vqquickattachedpropertypropagator->initialize();
-    } else {
-        ((VirtualQQuickAttachedPropertyPropagator*)self)->initialize();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickAttachedPropertyPropagator_OnInitialize(QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = dynamic_cast<VirtualQQuickAttachedPropertyPropagator*>(self);
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_Initialize_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_Initialize_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQuickAttachedPropertyPropagator_Sender(const QQuickAttachedPropertyPropagator* self) {
-    auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self));
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        return vqquickattachedpropertypropagator->sender();
-    } else {
-        return ((VirtualQQuickAttachedPropertyPropagator*)self)->sender();
-    }
+    if (auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self))) {
+        return vqquickattachedpropertypropagator->VirtualQQuickAttachedPropertyPropagator::sender();
+    } else
+        qFatal("Error: Protected method QQuickAttachedPropertyPropagator::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQuickAttachedPropertyPropagator_SuperSender(const QQuickAttachedPropertyPropagator* self) {
-    auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self));
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_Sender_IsBase(true);
-        return vqquickattachedpropertypropagator->sender();
-    } else {
-        return ((VirtualQQuickAttachedPropertyPropagator*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickAttachedPropertyPropagator_OnSender(const QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self));
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_Sender_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuickAttachedPropertyPropagator_SenderSignalIndex(const QQuickAttachedPropertyPropagator* self) {
-    auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self));
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        return vqquickattachedpropertypropagator->senderSignalIndex();
-    } else {
-        return ((VirtualQQuickAttachedPropertyPropagator*)self)->senderSignalIndex();
-    }
+    if (auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self))) {
+        return vqquickattachedpropertypropagator->VirtualQQuickAttachedPropertyPropagator::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQuickAttachedPropertyPropagator::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuickAttachedPropertyPropagator_SuperSenderSignalIndex(const QQuickAttachedPropertyPropagator* self) {
-    auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self));
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_SenderSignalIndex_IsBase(true);
-        return vqquickattachedpropertypropagator->senderSignalIndex();
-    } else {
-        return ((VirtualQQuickAttachedPropertyPropagator*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickAttachedPropertyPropagator_OnSenderSignalIndex(const QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self));
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuickAttachedPropertyPropagator_Receivers(const QQuickAttachedPropertyPropagator* self, const char* signal) {
-    auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self));
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        return vqquickattachedpropertypropagator->receivers(signal);
-    } else {
-        return ((VirtualQQuickAttachedPropertyPropagator*)self)->receivers(signal);
-    }
+    if (auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self))) {
+        return vqquickattachedpropertypropagator->VirtualQQuickAttachedPropertyPropagator::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQuickAttachedPropertyPropagator::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuickAttachedPropertyPropagator_SuperReceivers(const QQuickAttachedPropertyPropagator* self, const char* signal) {
-    auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self));
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_Receivers_IsBase(true);
-        return vqquickattachedpropertypropagator->receivers(signal);
-    } else {
-        return ((VirtualQQuickAttachedPropertyPropagator*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickAttachedPropertyPropagator_OnReceivers(const QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self));
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_Receivers_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuickAttachedPropertyPropagator_IsSignalConnected(const QQuickAttachedPropertyPropagator* self, const QMetaMethod* signal) {
-    auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self));
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        return vqquickattachedpropertypropagator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuickAttachedPropertyPropagator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQuickAttachedPropertyPropagator_SuperIsSignalConnected(const QQuickAttachedPropertyPropagator* self, const QMetaMethod* signal) {
-    auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self));
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator) {
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_IsSignalConnected_IsBase(true);
-        return vqquickattachedpropertypropagator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuickAttachedPropertyPropagator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickAttachedPropertyPropagator_OnIsSignalConnected(const QQuickAttachedPropertyPropagator* self, intptr_t slot) {
-    auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self));
-    if (vqquickattachedpropertypropagator && vqquickattachedpropertypropagator->isVirtualQQuickAttachedPropertyPropagator)
-        vqquickattachedpropertypropagator->setQQuickAttachedPropertyPropagator_IsSignalConnected_Callback(reinterpret_cast<VirtualQQuickAttachedPropertyPropagator::QQuickAttachedPropertyPropagator_IsSignalConnected_Callback>(slot));
+    if (auto* vqquickattachedpropertypropagator = const_cast<VirtualQQuickAttachedPropertyPropagator*>(dynamic_cast<const VirtualQQuickAttachedPropertyPropagator*>(self))) {
+        return vqquickattachedpropertypropagator->VirtualQQuickAttachedPropertyPropagator::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQuickAttachedPropertyPropagator::isSignalConnected called without a directly constructed type");
 }
 
 void QQuickAttachedPropertyPropagator_Delete(QQuickAttachedPropertyPropagator* self) {

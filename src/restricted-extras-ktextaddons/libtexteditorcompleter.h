@@ -42,7 +42,7 @@ void TextCustomEditor__TextEditorCompleter_CompleteText(TextCustomEditor__TextEd
 void TextCustomEditor__TextEditorCompleter_SetExcludeOfCharacters(TextCustomEditor__TextEditorCompleter* self, const libqt_string excludes);
 libqt_string TextCustomEditor__TextEditorCompleter_Tr2(const char* s, const char* c);
 libqt_string TextCustomEditor__TextEditorCompleter_Tr3(const char* s, const char* c, int n);
-void TextCustomEditor__TextEditorCompleter_OnMetaObject(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+void TextCustomEditor__TextEditorCompleter_OnMetaObject(TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
 QMetaObject* TextCustomEditor__TextEditorCompleter_SuperMetaObject(const TextCustomEditor__TextEditorCompleter* self);
 void TextCustomEditor__TextEditorCompleter_OnMetacast(TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
 void* TextCustomEditor__TextEditorCompleter_SuperMetacast(TextCustomEditor__TextEditorCompleter* self, const char* param1);
@@ -70,17 +70,9 @@ void TextCustomEditor__TextEditorCompleter_DisconnectNotify(TextCustomEditor__Te
 void TextCustomEditor__TextEditorCompleter_OnDisconnectNotify(TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
 void TextCustomEditor__TextEditorCompleter_SuperDisconnectNotify(TextCustomEditor__TextEditorCompleter* self, const QMetaMethod* signal);
 QObject* TextCustomEditor__TextEditorCompleter_Sender(const TextCustomEditor__TextEditorCompleter* self);
-void TextCustomEditor__TextEditorCompleter_OnSender(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
-QObject* TextCustomEditor__TextEditorCompleter_SuperSender(const TextCustomEditor__TextEditorCompleter* self);
 int TextCustomEditor__TextEditorCompleter_SenderSignalIndex(const TextCustomEditor__TextEditorCompleter* self);
-void TextCustomEditor__TextEditorCompleter_OnSenderSignalIndex(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
-int TextCustomEditor__TextEditorCompleter_SuperSenderSignalIndex(const TextCustomEditor__TextEditorCompleter* self);
 int TextCustomEditor__TextEditorCompleter_Receivers(const TextCustomEditor__TextEditorCompleter* self, const char* signal);
-void TextCustomEditor__TextEditorCompleter_OnReceivers(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
-int TextCustomEditor__TextEditorCompleter_SuperReceivers(const TextCustomEditor__TextEditorCompleter* self, const char* signal);
 bool TextCustomEditor__TextEditorCompleter_IsSignalConnected(const TextCustomEditor__TextEditorCompleter* self, const QMetaMethod* signal);
-void TextCustomEditor__TextEditorCompleter_OnIsSignalConnected(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
-bool TextCustomEditor__TextEditorCompleter_SuperIsSignalConnected(const TextCustomEditor__TextEditorCompleter* self, const QMetaMethod* signal);
 void TextCustomEditor__TextEditorCompleter_Delete(TextCustomEditor__TextEditorCompleter* self);
 
 #ifdef __cplusplus

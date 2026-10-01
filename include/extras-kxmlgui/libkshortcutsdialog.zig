@@ -182,9 +182,9 @@ pub const KShortcutsDialog = extern struct {
     ///
     /// ` self: KShortcutsDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KShortcutsDialog) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KShortcutsDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog) callconv(.c) QMetaObject) void {
         qtc.KShortcutsDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -408,11 +408,11 @@ pub const KShortcutsDialog = extern struct {
     ///
     /// ` self: KShortcutsDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KShortcutsDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KShortcutsDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog) callconv(.c) QSize) void {
         qtc.KShortcutsDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -544,9 +544,9 @@ pub const KShortcutsDialog = extern struct {
     ///
     /// ` self: KShortcutsDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KShortcutsDialog) callconv(.c) void `
     ///
-    pub fn onAccept(self: KShortcutsDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog) callconv(.c) void) void {
         qtc.KShortcutsDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7232,11 +7232,11 @@ pub const KShortcutsDialog = extern struct {
     ///
     /// ` self: KShortcutsDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KShortcutsDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KShortcutsDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog) callconv(.c) QSize) void {
         qtc.KShortcutsDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7290,9 +7290,9 @@ pub const KShortcutsDialog = extern struct {
     ///
     /// ` self: KShortcutsDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KShortcutsDialog) callconv(.c) void `
     ///
-    pub fn onOpen(self: KShortcutsDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog) callconv(.c) void) void {
         qtc.KShortcutsDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7346,9 +7346,9 @@ pub const KShortcutsDialog = extern struct {
     ///
     /// ` self: KShortcutsDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KShortcutsDialog) callconv(.c) i32 `
     ///
-    pub fn onExec(self: KShortcutsDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog) callconv(.c) i32) void {
         qtc.KShortcutsDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7462,9 +7462,9 @@ pub const KShortcutsDialog = extern struct {
     ///
     /// ` self: KShortcutsDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KShortcutsDialog) callconv(.c) void `
     ///
-    pub fn onReject(self: KShortcutsDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog) callconv(.c) void) void {
         qtc.KShortcutsDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7896,9 +7896,9 @@ pub const KShortcutsDialog = extern struct {
     ///
     /// ` self: KShortcutsDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KShortcutsDialog) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KShortcutsDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog) callconv(.c) i32) void {
         qtc.KShortcutsDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8012,9 +8012,9 @@ pub const KShortcutsDialog = extern struct {
     ///
     /// ` self: KShortcutsDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KShortcutsDialog) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KShortcutsDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog) callconv(.c) bool) void {
         qtc.KShortcutsDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8068,9 +8068,9 @@ pub const KShortcutsDialog = extern struct {
     ///
     /// ` self: KShortcutsDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KShortcutsDialog) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KShortcutsDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog) callconv(.c) QPaintEngine) void {
         qtc.KShortcutsDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9686,9 +9686,9 @@ pub const KShortcutsDialog = extern struct {
     ///
     /// ` self: KShortcutsDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KShortcutsDialog) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KShortcutsDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog) callconv(.c) QPainter) void {
         qtc.KShortcutsDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10207,47 +10207,6 @@ pub const KShortcutsDialog = extern struct {
         qtc.KShortcutsDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAdjustPosition` instead
-    ///
-    pub const SuperAdjustPosition = superAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KShortcutsDialog `
-    ///
-    /// ` param1: QWidget `
-    ///
-    pub fn superAdjustPosition(self: KShortcutsDialog, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWidget;
-        qtc.KShortcutsDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAdjustPosition` instead
-    ///
-    pub const OnAdjustPosition = onAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KShortcutsDialog`
-    ///
-    /// ` callback: *const fn (self: KShortcutsDialog, param1: QWidget) callconv(.c) void `
-    ///
-    pub fn onAdjustPosition(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog, QWidget) callconv(.c) void) void {
-        qtc.KShortcutsDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -10264,44 +10223,6 @@ pub const KShortcutsDialog = extern struct {
     ///
     pub fn updateMicroFocus(self: KShortcutsDialog) void {
         qtc.KShortcutsDialog_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KShortcutsDialog `
-    ///
-    pub fn superUpdateMicroFocus(self: KShortcutsDialog) void {
-        qtc.KShortcutsDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KShortcutsDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KShortcutsDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KShortcutsDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -10322,44 +10243,6 @@ pub const KShortcutsDialog = extern struct {
         qtc.KShortcutsDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KShortcutsDialog `
-    ///
-    pub fn superCreate(self: KShortcutsDialog) void {
-        qtc.KShortcutsDialog_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KShortcutsDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KShortcutsDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KShortcutsDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10376,44 +10259,6 @@ pub const KShortcutsDialog = extern struct {
     ///
     pub fn destroy(self: KShortcutsDialog) void {
         qtc.KShortcutsDialog_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KShortcutsDialog `
-    ///
-    pub fn superDestroy(self: KShortcutsDialog) void {
-        qtc.KShortcutsDialog_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KShortcutsDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KShortcutsDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KShortcutsDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10434,44 +10279,6 @@ pub const KShortcutsDialog = extern struct {
         return qtc.KShortcutsDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KShortcutsDialog `
-    ///
-    pub fn superFocusNextChild(self: KShortcutsDialog) bool {
-        return qtc.KShortcutsDialog_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KShortcutsDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KShortcutsDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.KShortcutsDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10488,44 +10295,6 @@ pub const KShortcutsDialog = extern struct {
     ///
     pub fn focusPreviousChild(self: KShortcutsDialog) bool {
         return qtc.KShortcutsDialog_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KShortcutsDialog `
-    ///
-    pub fn superFocusPreviousChild(self: KShortcutsDialog) bool {
-        return qtc.KShortcutsDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KShortcutsDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KShortcutsDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.KShortcutsDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10546,44 +10315,6 @@ pub const KShortcutsDialog = extern struct {
         return .{ .ptr = qtc.KShortcutsDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KShortcutsDialog `
-    ///
-    pub fn superSender(self: KShortcutsDialog) QObject {
-        return .{ .ptr = qtc.KShortcutsDialog_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KShortcutsDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KShortcutsDialog, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KShortcutsDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10600,44 +10331,6 @@ pub const KShortcutsDialog = extern struct {
     ///
     pub fn senderSignalIndex(self: KShortcutsDialog) i32 {
         return qtc.KShortcutsDialog_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KShortcutsDialog `
-    ///
-    pub fn superSenderSignalIndex(self: KShortcutsDialog) i32 {
-        return qtc.KShortcutsDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KShortcutsDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KShortcutsDialog, callback: *const fn () callconv(.c) i32) void {
-        qtc.KShortcutsDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10661,47 +10354,6 @@ pub const KShortcutsDialog = extern struct {
         return qtc.KShortcutsDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KShortcutsDialog `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KShortcutsDialog, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KShortcutsDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KShortcutsDialog`
-    ///
-    /// ` callback: *const fn (self: KShortcutsDialog, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KShortcutsDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10721,47 +10373,6 @@ pub const KShortcutsDialog = extern struct {
     pub fn isSignalConnected(self: KShortcutsDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KShortcutsDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KShortcutsDialog `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KShortcutsDialog, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KShortcutsDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KShortcutsDialog`
-    ///
-    /// ` callback: *const fn (self: KShortcutsDialog, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog, QMetaMethod) callconv(.c) bool) void {
-        qtc.KShortcutsDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10784,48 +10395,6 @@ pub const KShortcutsDialog = extern struct {
     ///
     pub fn getDecodedMetricF(self: KShortcutsDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KShortcutsDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KShortcutsDialog `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KShortcutsDialog, metricA: i32, metricB: i32) f64 {
-        return qtc.KShortcutsDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KShortcutsDialog`
-    ///
-    /// ` callback: *const fn (self: KShortcutsDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog, i32, i32) callconv(.c) f64) void {
-        qtc.KShortcutsDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

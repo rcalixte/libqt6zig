@@ -180,364 +180,219 @@ libqt_string QQuickTextDocument_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QQuickTextDocument_SuperMetaObject(const QQuickTextDocument* self) {
-    auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self));
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        vqquicktextdocument->setQQuickTextDocument_MetaObject_IsBase(true);
-        return (QMetaObject*)vqquicktextdocument->metaObject();
-    } else {
-        return (QMetaObject*)self->QQuickTextDocument::metaObject();
-    }
+    return (QMetaObject*)self->QQuickTextDocument::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickTextDocument_OnMetaObject(const QQuickTextDocument* self, intptr_t slot) {
-    auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self));
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument)
-        vqquicktextdocument->setQQuickTextDocument_MetaObject_Callback(reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_MetaObject_Callback>(slot));
+void QQuickTextDocument_OnMetaObject(QQuickTextDocument* self, intptr_t slot) {
+    if (auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self)))
+        vqquicktextdocument->qquicktextdocument_metaobject_callback = reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQuickTextDocument_SuperMetacast(QQuickTextDocument* self, const char* param1) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        vqquicktextdocument->setQQuickTextDocument_Metacast_IsBase(true);
-        return vqquicktextdocument->qt_metacast(param1);
-    } else {
-        return self->QQuickTextDocument::qt_metacast(param1);
-    }
+    return self->QQuickTextDocument::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTextDocument_OnMetacast(QQuickTextDocument* self, intptr_t slot) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument)
-        vqquicktextdocument->setQQuickTextDocument_Metacast_Callback(reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_Metacast_Callback>(slot));
+    if (auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self))
+        vqquicktextdocument->qquicktextdocument_metacast_callback = reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQuickTextDocument_SuperMetacall(QQuickTextDocument* self, int param1, int param2, void** param3) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        vqquicktextdocument->setQQuickTextDocument_Metacall_IsBase(true);
-        return vqquicktextdocument->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQuickTextDocument::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQuickTextDocument::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTextDocument_OnMetacall(QQuickTextDocument* self, intptr_t slot) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument)
-        vqquicktextdocument->setQQuickTextDocument_Metacall_Callback(reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_Metacall_Callback>(slot));
+    if (auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self))
+        vqquicktextdocument->qquicktextdocument_metacall_callback = reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickTextDocument_Event(QQuickTextDocument* self, QEvent* event) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        return vqquicktextdocument->event(event);
-    } else {
-        return self->QQuickTextDocument::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QQuickTextDocument_SuperEvent(QQuickTextDocument* self, QEvent* event) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        vqquicktextdocument->setQQuickTextDocument_Event_IsBase(true);
-        return vqquicktextdocument->event(event);
-    } else {
-        return self->QQuickTextDocument::event(event);
-    }
+    return self->QQuickTextDocument::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTextDocument_OnEvent(QQuickTextDocument* self, intptr_t slot) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument)
-        vqquicktextdocument->setQQuickTextDocument_Event_Callback(reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_Event_Callback>(slot));
+    if (auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self))
+        vqquicktextdocument->qquicktextdocument_event_callback = reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickTextDocument_EventFilter(QQuickTextDocument* self, QObject* watched, QEvent* event) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        return vqquicktextdocument->eventFilter(watched, event);
-    } else {
-        return self->QQuickTextDocument::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQuickTextDocument_SuperEventFilter(QQuickTextDocument* self, QObject* watched, QEvent* event) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        vqquicktextdocument->setQQuickTextDocument_EventFilter_IsBase(true);
-        return vqquicktextdocument->eventFilter(watched, event);
-    } else {
-        return self->QQuickTextDocument::eventFilter(watched, event);
-    }
+    return self->QQuickTextDocument::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTextDocument_OnEventFilter(QQuickTextDocument* self, intptr_t slot) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument)
-        vqquicktextdocument->setQQuickTextDocument_EventFilter_Callback(reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_EventFilter_Callback>(slot));
+    if (auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self))
+        vqquicktextdocument->qquicktextdocument_eventfilter_callback = reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickTextDocument_TimerEvent(QQuickTextDocument* self, QTimerEvent* event) {
     auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
+    if (vqquicktextdocument) {
         vqquicktextdocument->timerEvent(event);
     } else {
-        ((VirtualQQuickTextDocument*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQuickTextDocument::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickTextDocument_SuperTimerEvent(QQuickTextDocument* self, QTimerEvent* event) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        vqquicktextdocument->setQQuickTextDocument_TimerEvent_IsBase(true);
-        vqquicktextdocument->timerEvent(event);
-    } else {
-        ((VirtualQQuickTextDocument*)self)->timerEvent(event);
-    }
+    if (auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self)) {
+        vqquicktextdocument->QQuickTextDocument::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickTextDocument::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTextDocument_OnTimerEvent(QQuickTextDocument* self, intptr_t slot) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument)
-        vqquicktextdocument->setQQuickTextDocument_TimerEvent_Callback(reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_TimerEvent_Callback>(slot));
+    if (auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self))
+        vqquicktextdocument->qquicktextdocument_timerevent_callback = reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickTextDocument_ChildEvent(QQuickTextDocument* self, QChildEvent* event) {
     auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
+    if (vqquicktextdocument) {
         vqquicktextdocument->childEvent(event);
     } else {
-        ((VirtualQQuickTextDocument*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQuickTextDocument::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickTextDocument_SuperChildEvent(QQuickTextDocument* self, QChildEvent* event) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        vqquicktextdocument->setQQuickTextDocument_ChildEvent_IsBase(true);
-        vqquicktextdocument->childEvent(event);
-    } else {
-        ((VirtualQQuickTextDocument*)self)->childEvent(event);
-    }
+    if (auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self)) {
+        vqquicktextdocument->QQuickTextDocument::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickTextDocument::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTextDocument_OnChildEvent(QQuickTextDocument* self, intptr_t slot) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument)
-        vqquicktextdocument->setQQuickTextDocument_ChildEvent_Callback(reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_ChildEvent_Callback>(slot));
+    if (auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self))
+        vqquicktextdocument->qquicktextdocument_childevent_callback = reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickTextDocument_CustomEvent(QQuickTextDocument* self, QEvent* event) {
     auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
+    if (vqquicktextdocument) {
         vqquicktextdocument->customEvent(event);
     } else {
-        ((VirtualQQuickTextDocument*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQuickTextDocument::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickTextDocument_SuperCustomEvent(QQuickTextDocument* self, QEvent* event) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        vqquicktextdocument->setQQuickTextDocument_CustomEvent_IsBase(true);
-        vqquicktextdocument->customEvent(event);
-    } else {
-        ((VirtualQQuickTextDocument*)self)->customEvent(event);
-    }
+    if (auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self)) {
+        vqquicktextdocument->QQuickTextDocument::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickTextDocument::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTextDocument_OnCustomEvent(QQuickTextDocument* self, intptr_t slot) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument)
-        vqquicktextdocument->setQQuickTextDocument_CustomEvent_Callback(reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_CustomEvent_Callback>(slot));
+    if (auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self))
+        vqquicktextdocument->qquicktextdocument_customevent_callback = reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickTextDocument_ConnectNotify(QQuickTextDocument* self, const QMetaMethod* signal) {
     auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
+    if (vqquicktextdocument) {
         vqquicktextdocument->connectNotify(*signal);
     } else {
-        ((VirtualQQuickTextDocument*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuickTextDocument::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickTextDocument_SuperConnectNotify(QQuickTextDocument* self, const QMetaMethod* signal) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        vqquicktextdocument->setQQuickTextDocument_ConnectNotify_IsBase(true);
-        vqquicktextdocument->connectNotify(*signal);
-    } else {
-        ((VirtualQQuickTextDocument*)self)->connectNotify(*signal);
-    }
+    if (auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self)) {
+        vqquicktextdocument->QQuickTextDocument::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuickTextDocument::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTextDocument_OnConnectNotify(QQuickTextDocument* self, intptr_t slot) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument)
-        vqquicktextdocument->setQQuickTextDocument_ConnectNotify_Callback(reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_ConnectNotify_Callback>(slot));
+    if (auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self))
+        vqquicktextdocument->qquicktextdocument_connectnotify_callback = reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickTextDocument_DisconnectNotify(QQuickTextDocument* self, const QMetaMethod* signal) {
     auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
+    if (vqquicktextdocument) {
         vqquicktextdocument->disconnectNotify(*signal);
     } else {
-        ((VirtualQQuickTextDocument*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuickTextDocument::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickTextDocument_SuperDisconnectNotify(QQuickTextDocument* self, const QMetaMethod* signal) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        vqquicktextdocument->setQQuickTextDocument_DisconnectNotify_IsBase(true);
-        vqquicktextdocument->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQuickTextDocument*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self)) {
+        vqquicktextdocument->QQuickTextDocument::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuickTextDocument::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickTextDocument_OnDisconnectNotify(QQuickTextDocument* self, intptr_t slot) {
-    auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self);
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument)
-        vqquicktextdocument->setQQuickTextDocument_DisconnectNotify_Callback(reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_DisconnectNotify_Callback>(slot));
+    if (auto* vqquicktextdocument = dynamic_cast<VirtualQQuickTextDocument*>(self))
+        vqquicktextdocument->qquicktextdocument_disconnectnotify_callback = reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQuickTextDocument_Sender(const QQuickTextDocument* self) {
-    auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self));
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        return vqquicktextdocument->sender();
-    } else {
-        return ((VirtualQQuickTextDocument*)self)->sender();
-    }
+    if (auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self))) {
+        return vqquicktextdocument->VirtualQQuickTextDocument::sender();
+    } else
+        qFatal("Error: Protected method QQuickTextDocument::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQuickTextDocument_SuperSender(const QQuickTextDocument* self) {
-    auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self));
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        vqquicktextdocument->setQQuickTextDocument_Sender_IsBase(true);
-        return vqquicktextdocument->sender();
-    } else {
-        return ((VirtualQQuickTextDocument*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickTextDocument_OnSender(const QQuickTextDocument* self, intptr_t slot) {
-    auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self));
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument)
-        vqquicktextdocument->setQQuickTextDocument_Sender_Callback(reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuickTextDocument_SenderSignalIndex(const QQuickTextDocument* self) {
-    auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self));
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        return vqquicktextdocument->senderSignalIndex();
-    } else {
-        return ((VirtualQQuickTextDocument*)self)->senderSignalIndex();
-    }
+    if (auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self))) {
+        return vqquicktextdocument->VirtualQQuickTextDocument::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQuickTextDocument::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuickTextDocument_SuperSenderSignalIndex(const QQuickTextDocument* self) {
-    auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self));
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        vqquicktextdocument->setQQuickTextDocument_SenderSignalIndex_IsBase(true);
-        return vqquicktextdocument->senderSignalIndex();
-    } else {
-        return ((VirtualQQuickTextDocument*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickTextDocument_OnSenderSignalIndex(const QQuickTextDocument* self, intptr_t slot) {
-    auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self));
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument)
-        vqquicktextdocument->setQQuickTextDocument_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuickTextDocument_Receivers(const QQuickTextDocument* self, const char* signal) {
-    auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self));
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        return vqquicktextdocument->receivers(signal);
-    } else {
-        return ((VirtualQQuickTextDocument*)self)->receivers(signal);
-    }
+    if (auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self))) {
+        return vqquicktextdocument->VirtualQQuickTextDocument::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQuickTextDocument::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuickTextDocument_SuperReceivers(const QQuickTextDocument* self, const char* signal) {
-    auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self));
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        vqquicktextdocument->setQQuickTextDocument_Receivers_IsBase(true);
-        return vqquicktextdocument->receivers(signal);
-    } else {
-        return ((VirtualQQuickTextDocument*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickTextDocument_OnReceivers(const QQuickTextDocument* self, intptr_t slot) {
-    auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self));
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument)
-        vqquicktextdocument->setQQuickTextDocument_Receivers_Callback(reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuickTextDocument_IsSignalConnected(const QQuickTextDocument* self, const QMetaMethod* signal) {
-    auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self));
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        return vqquicktextdocument->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuickTextDocument*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQuickTextDocument_SuperIsSignalConnected(const QQuickTextDocument* self, const QMetaMethod* signal) {
-    auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self));
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument) {
-        vqquicktextdocument->setQQuickTextDocument_IsSignalConnected_IsBase(true);
-        return vqquicktextdocument->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuickTextDocument*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickTextDocument_OnIsSignalConnected(const QQuickTextDocument* self, intptr_t slot) {
-    auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self));
-    if (vqquicktextdocument && vqquicktextdocument->isVirtualQQuickTextDocument)
-        vqquicktextdocument->setQQuickTextDocument_IsSignalConnected_Callback(reinterpret_cast<VirtualQQuickTextDocument::QQuickTextDocument_IsSignalConnected_Callback>(slot));
+    if (auto* vqquicktextdocument = const_cast<VirtualQQuickTextDocument*>(dynamic_cast<const VirtualQQuickTextDocument*>(self))) {
+        return vqquicktextdocument->VirtualQQuickTextDocument::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQuickTextDocument::isSignalConnected called without a directly constructed type");
 }
 
 void QQuickTextDocument_Delete(QQuickTextDocument* self) {

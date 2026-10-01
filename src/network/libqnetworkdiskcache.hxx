@@ -9,26 +9,22 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QNetworkDiskCache so that we can call protected methods
+// This class is a subclass of QNetworkDiskCache
 class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQNetworkDiskCache = true;
-
-    // Virtual class public types (including callbacks)
-    using QNetworkDiskCache_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QNetworkDiskCache_MetaObject_Callback = QMetaObject* (*)(const QNetworkDiskCache*);
     using QNetworkDiskCache_Metacast_Callback = void* (*)(QNetworkDiskCache*, const char*);
     using QNetworkDiskCache_Metacall_Callback = int (*)(QNetworkDiskCache*, int, int, void**);
-    using QNetworkDiskCache_CacheSize_Callback = long long (*)();
+    using QNetworkDiskCache_CacheSize_Callback = long long (*)(const QNetworkDiskCache*);
     using QNetworkDiskCache_MetaData_Callback = QNetworkCacheMetaData* (*)(QNetworkDiskCache*, QUrl*);
     using QNetworkDiskCache_UpdateMetaData_Callback = void (*)(QNetworkDiskCache*, QNetworkCacheMetaData*);
     using QNetworkDiskCache_Data_Callback = QIODevice* (*)(QNetworkDiskCache*, QUrl*);
     using QNetworkDiskCache_Remove_Callback = bool (*)(QNetworkDiskCache*, QUrl*);
     using QNetworkDiskCache_Prepare_Callback = QIODevice* (*)(QNetworkDiskCache*, QNetworkCacheMetaData*);
     using QNetworkDiskCache_Insert_Callback = void (*)(QNetworkDiskCache*, QIODevice*);
-    using QNetworkDiskCache_Clear_Callback = void (*)();
-    using QNetworkDiskCache_Expire_Callback = long long (*)();
+    using QNetworkDiskCache_Clear_Callback = void (*)(QNetworkDiskCache*);
+    using QNetworkDiskCache_Expire_Callback = long long (*)(QNetworkDiskCache*);
     using QNetworkDiskCache_Event_Callback = bool (*)(QNetworkDiskCache*, QEvent*);
     using QNetworkDiskCache_EventFilter_Callback = bool (*)(QNetworkDiskCache*, QObject*, QEvent*);
     using QNetworkDiskCache_TimerEvent_Callback = void (*)(QNetworkDiskCache*, QTimerEvent*);
@@ -36,12 +32,11 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
     using QNetworkDiskCache_CustomEvent_Callback = void (*)(QNetworkDiskCache*, QEvent*);
     using QNetworkDiskCache_ConnectNotify_Callback = void (*)(QNetworkDiskCache*, QMetaMethod*);
     using QNetworkDiskCache_DisconnectNotify_Callback = void (*)(QNetworkDiskCache*, QMetaMethod*);
-    using QNetworkDiskCache_Sender_Callback = QObject* (*)();
-    using QNetworkDiskCache_SenderSignalIndex_Callback = int (*)();
-    using QNetworkDiskCache_Receivers_Callback = int (*)(const QNetworkDiskCache*, const char*);
-    using QNetworkDiskCache_IsSignalConnected_Callback = bool (*)(const QNetworkDiskCache*, QMetaMethod*);
+    using QNetworkDiskCache::isSignalConnected;
+    using QNetworkDiskCache::receivers;
+    using QNetworkDiskCache::sender;
+    using QNetworkDiskCache::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QNetworkDiskCache_MetaObject_Callback qnetworkdiskcache_metaobject_callback = nullptr;
     QNetworkDiskCache_Metacast_Callback qnetworkdiskcache_metacast_callback = nullptr;
@@ -62,99 +57,24 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
     QNetworkDiskCache_CustomEvent_Callback qnetworkdiskcache_customevent_callback = nullptr;
     QNetworkDiskCache_ConnectNotify_Callback qnetworkdiskcache_connectnotify_callback = nullptr;
     QNetworkDiskCache_DisconnectNotify_Callback qnetworkdiskcache_disconnectnotify_callback = nullptr;
-    QNetworkDiskCache_Sender_Callback qnetworkdiskcache_sender_callback = nullptr;
-    QNetworkDiskCache_SenderSignalIndex_Callback qnetworkdiskcache_sendersignalindex_callback = nullptr;
-    QNetworkDiskCache_Receivers_Callback qnetworkdiskcache_receivers_callback = nullptr;
-    QNetworkDiskCache_IsSignalConnected_Callback qnetworkdiskcache_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qnetworkdiskcache_metaobject_isbase = false;
-    mutable bool qnetworkdiskcache_metacast_isbase = false;
-    mutable bool qnetworkdiskcache_metacall_isbase = false;
-    mutable bool qnetworkdiskcache_cachesize_isbase = false;
-    mutable bool qnetworkdiskcache_metadata_isbase = false;
-    mutable bool qnetworkdiskcache_updatemetadata_isbase = false;
-    mutable bool qnetworkdiskcache_data_isbase = false;
-    mutable bool qnetworkdiskcache_remove_isbase = false;
-    mutable bool qnetworkdiskcache_prepare_isbase = false;
-    mutable bool qnetworkdiskcache_insert_isbase = false;
-    mutable bool qnetworkdiskcache_clear_isbase = false;
-    mutable bool qnetworkdiskcache_expire_isbase = false;
-    mutable bool qnetworkdiskcache_event_isbase = false;
-    mutable bool qnetworkdiskcache_eventfilter_isbase = false;
-    mutable bool qnetworkdiskcache_timerevent_isbase = false;
-    mutable bool qnetworkdiskcache_childevent_isbase = false;
-    mutable bool qnetworkdiskcache_customevent_isbase = false;
-    mutable bool qnetworkdiskcache_connectnotify_isbase = false;
-    mutable bool qnetworkdiskcache_disconnectnotify_isbase = false;
-    mutable bool qnetworkdiskcache_sender_isbase = false;
-    mutable bool qnetworkdiskcache_sendersignalindex_isbase = false;
-    mutable bool qnetworkdiskcache_receivers_isbase = false;
-    mutable bool qnetworkdiskcache_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QNetworkDiskCache {
+        using QNetworkDiskCache::childEvent;
+        using QNetworkDiskCache::connectNotify;
+        using QNetworkDiskCache::customEvent;
+        using QNetworkDiskCache::disconnectNotify;
+        using QNetworkDiskCache::expire;
+        using QNetworkDiskCache::timerEvent;
+    };
 
-  public:
     VirtualQNetworkDiskCache() : QNetworkDiskCache() {};
     VirtualQNetworkDiskCache(QObject* parent) : QNetworkDiskCache(parent) {};
 
-    // Callback setters
-    inline void setQNetworkDiskCache_MetaObject_Callback(QNetworkDiskCache_MetaObject_Callback cb) { qnetworkdiskcache_metaobject_callback = cb; }
-    inline void setQNetworkDiskCache_Metacast_Callback(QNetworkDiskCache_Metacast_Callback cb) { qnetworkdiskcache_metacast_callback = cb; }
-    inline void setQNetworkDiskCache_Metacall_Callback(QNetworkDiskCache_Metacall_Callback cb) { qnetworkdiskcache_metacall_callback = cb; }
-    inline void setQNetworkDiskCache_CacheSize_Callback(QNetworkDiskCache_CacheSize_Callback cb) { qnetworkdiskcache_cachesize_callback = cb; }
-    inline void setQNetworkDiskCache_MetaData_Callback(QNetworkDiskCache_MetaData_Callback cb) { qnetworkdiskcache_metadata_callback = cb; }
-    inline void setQNetworkDiskCache_UpdateMetaData_Callback(QNetworkDiskCache_UpdateMetaData_Callback cb) { qnetworkdiskcache_updatemetadata_callback = cb; }
-    inline void setQNetworkDiskCache_Data_Callback(QNetworkDiskCache_Data_Callback cb) { qnetworkdiskcache_data_callback = cb; }
-    inline void setQNetworkDiskCache_Remove_Callback(QNetworkDiskCache_Remove_Callback cb) { qnetworkdiskcache_remove_callback = cb; }
-    inline void setQNetworkDiskCache_Prepare_Callback(QNetworkDiskCache_Prepare_Callback cb) { qnetworkdiskcache_prepare_callback = cb; }
-    inline void setQNetworkDiskCache_Insert_Callback(QNetworkDiskCache_Insert_Callback cb) { qnetworkdiskcache_insert_callback = cb; }
-    inline void setQNetworkDiskCache_Clear_Callback(QNetworkDiskCache_Clear_Callback cb) { qnetworkdiskcache_clear_callback = cb; }
-    inline void setQNetworkDiskCache_Expire_Callback(QNetworkDiskCache_Expire_Callback cb) { qnetworkdiskcache_expire_callback = cb; }
-    inline void setQNetworkDiskCache_Event_Callback(QNetworkDiskCache_Event_Callback cb) { qnetworkdiskcache_event_callback = cb; }
-    inline void setQNetworkDiskCache_EventFilter_Callback(QNetworkDiskCache_EventFilter_Callback cb) { qnetworkdiskcache_eventfilter_callback = cb; }
-    inline void setQNetworkDiskCache_TimerEvent_Callback(QNetworkDiskCache_TimerEvent_Callback cb) { qnetworkdiskcache_timerevent_callback = cb; }
-    inline void setQNetworkDiskCache_ChildEvent_Callback(QNetworkDiskCache_ChildEvent_Callback cb) { qnetworkdiskcache_childevent_callback = cb; }
-    inline void setQNetworkDiskCache_CustomEvent_Callback(QNetworkDiskCache_CustomEvent_Callback cb) { qnetworkdiskcache_customevent_callback = cb; }
-    inline void setQNetworkDiskCache_ConnectNotify_Callback(QNetworkDiskCache_ConnectNotify_Callback cb) { qnetworkdiskcache_connectnotify_callback = cb; }
-    inline void setQNetworkDiskCache_DisconnectNotify_Callback(QNetworkDiskCache_DisconnectNotify_Callback cb) { qnetworkdiskcache_disconnectnotify_callback = cb; }
-    inline void setQNetworkDiskCache_Sender_Callback(QNetworkDiskCache_Sender_Callback cb) { qnetworkdiskcache_sender_callback = cb; }
-    inline void setQNetworkDiskCache_SenderSignalIndex_Callback(QNetworkDiskCache_SenderSignalIndex_Callback cb) { qnetworkdiskcache_sendersignalindex_callback = cb; }
-    inline void setQNetworkDiskCache_Receivers_Callback(QNetworkDiskCache_Receivers_Callback cb) { qnetworkdiskcache_receivers_callback = cb; }
-    inline void setQNetworkDiskCache_IsSignalConnected_Callback(QNetworkDiskCache_IsSignalConnected_Callback cb) { qnetworkdiskcache_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQNetworkDiskCache_MetaObject_IsBase(bool value) const { qnetworkdiskcache_metaobject_isbase = value; }
-    inline void setQNetworkDiskCache_Metacast_IsBase(bool value) const { qnetworkdiskcache_metacast_isbase = value; }
-    inline void setQNetworkDiskCache_Metacall_IsBase(bool value) const { qnetworkdiskcache_metacall_isbase = value; }
-    inline void setQNetworkDiskCache_CacheSize_IsBase(bool value) const { qnetworkdiskcache_cachesize_isbase = value; }
-    inline void setQNetworkDiskCache_MetaData_IsBase(bool value) const { qnetworkdiskcache_metadata_isbase = value; }
-    inline void setQNetworkDiskCache_UpdateMetaData_IsBase(bool value) const { qnetworkdiskcache_updatemetadata_isbase = value; }
-    inline void setQNetworkDiskCache_Data_IsBase(bool value) const { qnetworkdiskcache_data_isbase = value; }
-    inline void setQNetworkDiskCache_Remove_IsBase(bool value) const { qnetworkdiskcache_remove_isbase = value; }
-    inline void setQNetworkDiskCache_Prepare_IsBase(bool value) const { qnetworkdiskcache_prepare_isbase = value; }
-    inline void setQNetworkDiskCache_Insert_IsBase(bool value) const { qnetworkdiskcache_insert_isbase = value; }
-    inline void setQNetworkDiskCache_Clear_IsBase(bool value) const { qnetworkdiskcache_clear_isbase = value; }
-    inline void setQNetworkDiskCache_Expire_IsBase(bool value) const { qnetworkdiskcache_expire_isbase = value; }
-    inline void setQNetworkDiskCache_Event_IsBase(bool value) const { qnetworkdiskcache_event_isbase = value; }
-    inline void setQNetworkDiskCache_EventFilter_IsBase(bool value) const { qnetworkdiskcache_eventfilter_isbase = value; }
-    inline void setQNetworkDiskCache_TimerEvent_IsBase(bool value) const { qnetworkdiskcache_timerevent_isbase = value; }
-    inline void setQNetworkDiskCache_ChildEvent_IsBase(bool value) const { qnetworkdiskcache_childevent_isbase = value; }
-    inline void setQNetworkDiskCache_CustomEvent_IsBase(bool value) const { qnetworkdiskcache_customevent_isbase = value; }
-    inline void setQNetworkDiskCache_ConnectNotify_IsBase(bool value) const { qnetworkdiskcache_connectnotify_isbase = value; }
-    inline void setQNetworkDiskCache_DisconnectNotify_IsBase(bool value) const { qnetworkdiskcache_disconnectnotify_isbase = value; }
-    inline void setQNetworkDiskCache_Sender_IsBase(bool value) const { qnetworkdiskcache_sender_isbase = value; }
-    inline void setQNetworkDiskCache_SenderSignalIndex_IsBase(bool value) const { qnetworkdiskcache_sendersignalindex_isbase = value; }
-    inline void setQNetworkDiskCache_Receivers_IsBase(bool value) const { qnetworkdiskcache_receivers_isbase = value; }
-    inline void setQNetworkDiskCache_IsSignalConnected_IsBase(bool value) const { qnetworkdiskcache_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qnetworkdiskcache_metaobject_isbase) {
-            qnetworkdiskcache_metaobject_isbase = false;
-            return QNetworkDiskCache::metaObject();
-        }
-        auto metaobject_cb = qnetworkdiskcache_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qnetworkdiskcache_metaobject_callback) {
+            QMetaObject* callback_ret = qnetworkdiskcache_metaobject_callback(this);
             return callback_ret;
         }
         return QNetworkDiskCache::metaObject();
@@ -162,14 +82,9 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qnetworkdiskcache_metacast_isbase) {
-            qnetworkdiskcache_metacast_isbase = false;
-            return QNetworkDiskCache::qt_metacast(param1);
-        }
-        auto metacast_cb = qnetworkdiskcache_metacast_callback;
-        if (metacast_cb) {
+        if (qnetworkdiskcache_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qnetworkdiskcache_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QNetworkDiskCache::qt_metacast(param1);
@@ -177,16 +92,11 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qnetworkdiskcache_metacall_isbase) {
-            qnetworkdiskcache_metacall_isbase = false;
-            return QNetworkDiskCache::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qnetworkdiskcache_metacall_callback;
-        if (metacall_cb) {
+        if (qnetworkdiskcache_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qnetworkdiskcache_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QNetworkDiskCache::qt_metacall(param1, param2, param3);
@@ -194,13 +104,8 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual qint64 cacheSize() const override {
-        if (qnetworkdiskcache_cachesize_isbase) {
-            qnetworkdiskcache_cachesize_isbase = false;
-            return QNetworkDiskCache::cacheSize();
-        }
-        auto cachesize_cb = qnetworkdiskcache_cachesize_callback;
-        if (cachesize_cb) {
-            long long callback_ret = cachesize_cb();
+        if (qnetworkdiskcache_cachesize_callback) {
+            long long callback_ret = qnetworkdiskcache_cachesize_callback(this);
             return static_cast<qint64>(callback_ret);
         }
         return QNetworkDiskCache::cacheSize();
@@ -208,16 +113,11 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual QNetworkCacheMetaData metaData(const QUrl& url) override {
-        if (qnetworkdiskcache_metadata_isbase) {
-            qnetworkdiskcache_metadata_isbase = false;
-            return QNetworkDiskCache::metaData(url);
-        }
-        auto metadata_cb = qnetworkdiskcache_metadata_callback;
-        if (metadata_cb) {
+        if (qnetworkdiskcache_metadata_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-            QNetworkCacheMetaData* callback_ret = metadata_cb(this, cbval1);
+            QNetworkCacheMetaData* callback_ret = qnetworkdiskcache_metadata_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -227,17 +127,11 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual void updateMetaData(const QNetworkCacheMetaData& metaData) override {
-        if (qnetworkdiskcache_updatemetadata_isbase) {
-            qnetworkdiskcache_updatemetadata_isbase = false;
-            QNetworkDiskCache::updateMetaData(metaData);
-            return;
-        }
-        auto updatemetadata_cb = qnetworkdiskcache_updatemetadata_callback;
-        if (updatemetadata_cb) {
+        if (qnetworkdiskcache_updatemetadata_callback) {
             const QNetworkCacheMetaData& metaData_ret = metaData;
             // Cast returned reference into pointer
             QNetworkCacheMetaData* cbval1 = const_cast<QNetworkCacheMetaData*>(&metaData_ret);
-            updatemetadata_cb(this, cbval1);
+            qnetworkdiskcache_updatemetadata_callback(this, cbval1);
             return;
         }
         QNetworkDiskCache::updateMetaData(metaData);
@@ -245,16 +139,11 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual QIODevice* data(const QUrl& url) override {
-        if (qnetworkdiskcache_data_isbase) {
-            qnetworkdiskcache_data_isbase = false;
-            return QNetworkDiskCache::data(url);
-        }
-        auto data_cb = qnetworkdiskcache_data_callback;
-        if (data_cb) {
+        if (qnetworkdiskcache_data_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-            QIODevice* callback_ret = data_cb(this, cbval1);
+            QIODevice* callback_ret = qnetworkdiskcache_data_callback(this, cbval1);
             return callback_ret;
         }
         return QNetworkDiskCache::data(url);
@@ -262,16 +151,11 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual bool remove(const QUrl& url) override {
-        if (qnetworkdiskcache_remove_isbase) {
-            qnetworkdiskcache_remove_isbase = false;
-            return QNetworkDiskCache::remove(url);
-        }
-        auto remove_cb = qnetworkdiskcache_remove_callback;
-        if (remove_cb) {
+        if (qnetworkdiskcache_remove_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-            bool callback_ret = remove_cb(this, cbval1);
+            bool callback_ret = qnetworkdiskcache_remove_callback(this, cbval1);
             return callback_ret;
         }
         return QNetworkDiskCache::remove(url);
@@ -279,16 +163,11 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual QIODevice* prepare(const QNetworkCacheMetaData& metaData) override {
-        if (qnetworkdiskcache_prepare_isbase) {
-            qnetworkdiskcache_prepare_isbase = false;
-            return QNetworkDiskCache::prepare(metaData);
-        }
-        auto prepare_cb = qnetworkdiskcache_prepare_callback;
-        if (prepare_cb) {
+        if (qnetworkdiskcache_prepare_callback) {
             const QNetworkCacheMetaData& metaData_ret = metaData;
             // Cast returned reference into pointer
             QNetworkCacheMetaData* cbval1 = const_cast<QNetworkCacheMetaData*>(&metaData_ret);
-            QIODevice* callback_ret = prepare_cb(this, cbval1);
+            QIODevice* callback_ret = qnetworkdiskcache_prepare_callback(this, cbval1);
             return callback_ret;
         }
         return QNetworkDiskCache::prepare(metaData);
@@ -296,15 +175,9 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual void insert(QIODevice* device) override {
-        if (qnetworkdiskcache_insert_isbase) {
-            qnetworkdiskcache_insert_isbase = false;
-            QNetworkDiskCache::insert(device);
-            return;
-        }
-        auto insert_cb = qnetworkdiskcache_insert_callback;
-        if (insert_cb) {
+        if (qnetworkdiskcache_insert_callback) {
             QIODevice* cbval1 = device;
-            insert_cb(this, cbval1);
+            qnetworkdiskcache_insert_callback(this, cbval1);
             return;
         }
         QNetworkDiskCache::insert(device);
@@ -312,14 +185,8 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual void clear() override {
-        if (qnetworkdiskcache_clear_isbase) {
-            qnetworkdiskcache_clear_isbase = false;
-            QNetworkDiskCache::clear();
-            return;
-        }
-        auto clear_cb = qnetworkdiskcache_clear_callback;
-        if (clear_cb) {
-            clear_cb();
+        if (qnetworkdiskcache_clear_callback) {
+            qnetworkdiskcache_clear_callback(this);
             return;
         }
         QNetworkDiskCache::clear();
@@ -327,13 +194,8 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual qint64 expire() override {
-        if (qnetworkdiskcache_expire_isbase) {
-            qnetworkdiskcache_expire_isbase = false;
-            return QNetworkDiskCache::expire();
-        }
-        auto expire_cb = qnetworkdiskcache_expire_callback;
-        if (expire_cb) {
-            long long callback_ret = expire_cb();
+        if (qnetworkdiskcache_expire_callback) {
+            long long callback_ret = qnetworkdiskcache_expire_callback(this);
             return static_cast<qint64>(callback_ret);
         }
         return QNetworkDiskCache::expire();
@@ -341,14 +203,9 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qnetworkdiskcache_event_isbase) {
-            qnetworkdiskcache_event_isbase = false;
-            return QNetworkDiskCache::event(event);
-        }
-        auto event_cb = qnetworkdiskcache_event_callback;
-        if (event_cb) {
+        if (qnetworkdiskcache_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qnetworkdiskcache_event_callback(this, cbval1);
             return callback_ret;
         }
         return QNetworkDiskCache::event(event);
@@ -356,15 +213,10 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qnetworkdiskcache_eventfilter_isbase) {
-            qnetworkdiskcache_eventfilter_isbase = false;
-            return QNetworkDiskCache::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qnetworkdiskcache_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qnetworkdiskcache_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qnetworkdiskcache_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QNetworkDiskCache::eventFilter(watched, event);
@@ -372,15 +224,9 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qnetworkdiskcache_timerevent_isbase) {
-            qnetworkdiskcache_timerevent_isbase = false;
-            QNetworkDiskCache::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qnetworkdiskcache_timerevent_callback;
-        if (timerevent_cb) {
+        if (qnetworkdiskcache_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qnetworkdiskcache_timerevent_callback(this, cbval1);
             return;
         }
         QNetworkDiskCache::timerEvent(event);
@@ -388,15 +234,9 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qnetworkdiskcache_childevent_isbase) {
-            qnetworkdiskcache_childevent_isbase = false;
-            QNetworkDiskCache::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qnetworkdiskcache_childevent_callback;
-        if (childevent_cb) {
+        if (qnetworkdiskcache_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qnetworkdiskcache_childevent_callback(this, cbval1);
             return;
         }
         QNetworkDiskCache::childEvent(event);
@@ -404,15 +244,9 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qnetworkdiskcache_customevent_isbase) {
-            qnetworkdiskcache_customevent_isbase = false;
-            QNetworkDiskCache::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qnetworkdiskcache_customevent_callback;
-        if (customevent_cb) {
+        if (qnetworkdiskcache_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qnetworkdiskcache_customevent_callback(this, cbval1);
             return;
         }
         QNetworkDiskCache::customEvent(event);
@@ -420,17 +254,11 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qnetworkdiskcache_connectnotify_isbase) {
-            qnetworkdiskcache_connectnotify_isbase = false;
-            QNetworkDiskCache::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qnetworkdiskcache_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qnetworkdiskcache_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qnetworkdiskcache_connectnotify_callback(this, cbval1);
             return;
         }
         QNetworkDiskCache::connectNotify(signal);
@@ -438,103 +266,23 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qnetworkdiskcache_disconnectnotify_isbase) {
-            qnetworkdiskcache_disconnectnotify_isbase = false;
-            QNetworkDiskCache::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qnetworkdiskcache_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qnetworkdiskcache_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qnetworkdiskcache_disconnectnotify_callback(this, cbval1);
             return;
         }
         QNetworkDiskCache::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qnetworkdiskcache_sender_isbase) {
-            qnetworkdiskcache_sender_isbase = false;
-            return QNetworkDiskCache::sender();
-        }
-        auto sender_cb = qnetworkdiskcache_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QNetworkDiskCache::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qnetworkdiskcache_sendersignalindex_isbase) {
-            qnetworkdiskcache_sendersignalindex_isbase = false;
-            return QNetworkDiskCache::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qnetworkdiskcache_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QNetworkDiskCache::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qnetworkdiskcache_receivers_isbase) {
-            qnetworkdiskcache_receivers_isbase = false;
-            return QNetworkDiskCache::receivers(signal);
-        }
-        auto receivers_cb = qnetworkdiskcache_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QNetworkDiskCache::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qnetworkdiskcache_issignalconnected_isbase) {
-            qnetworkdiskcache_issignalconnected_isbase = false;
-            return QNetworkDiskCache::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qnetworkdiskcache_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QNetworkDiskCache::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend long long QNetworkDiskCache_Expire(QNetworkDiskCache* self);
     friend long long QNetworkDiskCache_SuperExpire(QNetworkDiskCache* self);
-    friend void QNetworkDiskCache_TimerEvent(QNetworkDiskCache* self, QTimerEvent* event);
     friend void QNetworkDiskCache_SuperTimerEvent(QNetworkDiskCache* self, QTimerEvent* event);
-    friend void QNetworkDiskCache_ChildEvent(QNetworkDiskCache* self, QChildEvent* event);
     friend void QNetworkDiskCache_SuperChildEvent(QNetworkDiskCache* self, QChildEvent* event);
-    friend void QNetworkDiskCache_CustomEvent(QNetworkDiskCache* self, QEvent* event);
     friend void QNetworkDiskCache_SuperCustomEvent(QNetworkDiskCache* self, QEvent* event);
-    friend void QNetworkDiskCache_ConnectNotify(QNetworkDiskCache* self, const QMetaMethod* signal);
     friend void QNetworkDiskCache_SuperConnectNotify(QNetworkDiskCache* self, const QMetaMethod* signal);
-    friend void QNetworkDiskCache_DisconnectNotify(QNetworkDiskCache* self, const QMetaMethod* signal);
     friend void QNetworkDiskCache_SuperDisconnectNotify(QNetworkDiskCache* self, const QMetaMethod* signal);
-    friend QObject* QNetworkDiskCache_Sender(const QNetworkDiskCache* self);
-    friend QObject* QNetworkDiskCache_SuperSender(const QNetworkDiskCache* self);
-    friend int QNetworkDiskCache_SenderSignalIndex(const QNetworkDiskCache* self);
-    friend int QNetworkDiskCache_SuperSenderSignalIndex(const QNetworkDiskCache* self);
-    friend int QNetworkDiskCache_Receivers(const QNetworkDiskCache* self, const char* signal);
-    friend int QNetworkDiskCache_SuperReceivers(const QNetworkDiskCache* self, const char* signal);
-    friend bool QNetworkDiskCache_IsSignalConnected(const QNetworkDiskCache* self, const QMetaMethod* signal);
-    friend bool QNetworkDiskCache_SuperIsSignalConnected(const QNetworkDiskCache* self, const QMetaMethod* signal);
 };
 
 #endif

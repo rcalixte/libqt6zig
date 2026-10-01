@@ -72,9 +72,9 @@ pub const QAccessibleObject = extern struct {
     ///
     /// ` self: QAccessibleObject `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QAccessibleObject) callconv(.c) bool `
     ///
-    pub fn onIsValid(self: QAccessibleObject, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsValid(self: QAccessibleObject, callback: *const fn (QAccessibleObject) callconv(.c) bool) void {
         qtc.QAccessibleObject_OnIsValid(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -120,9 +120,9 @@ pub const QAccessibleObject = extern struct {
     ///
     /// ` self: QAccessibleObject `
     ///
-    /// ` callback: *const fn () callconv(.c) QObject `
+    /// ` callback: *const fn (self: QAccessibleObject) callconv(.c) QObject `
     ///
-    pub fn onObject(self: QAccessibleObject, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onObject(self: QAccessibleObject, callback: *const fn (QAccessibleObject) callconv(.c) QObject) void {
         qtc.QAccessibleObject_OnObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -168,11 +168,11 @@ pub const QAccessibleObject = extern struct {
     ///
     /// ` self: QAccessibleObject `
     ///
-    /// ` callback: *const fn () callconv(.c) QRect `
+    /// ` callback: *const fn (self: QAccessibleObject) callconv(.c) QRect `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onRect(self: QAccessibleObject, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onRect(self: QAccessibleObject, callback: *const fn (QAccessibleObject) callconv(.c) QRect) void {
         qtc.QAccessibleObject_OnRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -541,9 +541,9 @@ pub const QAccessibleObject = extern struct {
     ///
     /// ` self: QAccessibleObject`
     ///
-    /// ` callback: *const fn () callconv(.c) QWindow `
+    /// ` callback: *const fn (self: QAccessibleObject) callconv(.c) QWindow `
     ///
-    pub fn onWindow(self: QAccessibleObject, callback: *const fn () callconv(.c) QWindow) void {
+    pub fn onWindow(self: QAccessibleObject, callback: *const fn (QAccessibleObject) callconv(.c) QWindow) void {
         qtc.QAccessibleObject_OnWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -677,9 +677,9 @@ pub const QAccessibleObject = extern struct {
     ///
     /// ` self: QAccessibleObject`
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleObject) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onFocusChild(self: QAccessibleObject, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onFocusChild(self: QAccessibleObject, callback: *const fn (QAccessibleObject) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleObject_OnFocusChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -693,30 +693,14 @@ pub const QAccessibleObject = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onParent` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleObject `
     ///
     pub fn parent(self: QAccessibleObject) QAccessibleInterface {
         return .{ .ptr = qtc.QAccessibleObject_Parent(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superParent` instead
-    ///
-    pub const SuperParent = superParent;
-
-    /// Inherited from QAccessibleInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#parent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleObject `
-    ///
-    pub fn superParent(self: QAccessibleObject) QAccessibleInterface {
-        return .{ .ptr = qtc.QAccessibleObject_SuperParent(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `onParent` instead
@@ -733,9 +717,9 @@ pub const QAccessibleObject = extern struct {
     ///
     /// ` self: QAccessibleObject`
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleObject) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onParent(self: QAccessibleObject, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onParent(self: QAccessibleObject, callback: *const fn (QAccessibleObject) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleObject_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -749,6 +733,8 @@ pub const QAccessibleObject = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onChild` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleObject `
@@ -757,26 +743,6 @@ pub const QAccessibleObject = extern struct {
     ///
     pub fn child(self: QAccessibleObject, index: i32) QAccessibleInterface {
         return .{ .ptr = qtc.QAccessibleObject_Child(@ptrCast(self.ptr), @bitCast(index)) };
-    }
-
-    /// ### DEPRECATED: Use `superChild` instead
-    ///
-    pub const SuperChild = superChild;
-
-    /// Inherited from QAccessibleInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#child)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleObject `
-    ///
-    /// ` index: i32 `
-    ///
-    pub fn superChild(self: QAccessibleObject, index: i32) QAccessibleInterface {
-        return .{ .ptr = qtc.QAccessibleObject_SuperChild(@ptrCast(self.ptr), @bitCast(index)) };
     }
 
     /// ### DEPRECATED: Use `onChild` instead
@@ -809,30 +775,14 @@ pub const QAccessibleObject = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onChildCount` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleObject `
     ///
     pub fn childCount(self: QAccessibleObject) i32 {
         return qtc.QAccessibleObject_ChildCount(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superChildCount` instead
-    ///
-    pub const SuperChildCount = superChildCount;
-
-    /// Inherited from QAccessibleInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#childCount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleObject `
-    ///
-    pub fn superChildCount(self: QAccessibleObject) i32 {
-        return qtc.QAccessibleObject_SuperChildCount(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `onChildCount` instead
@@ -849,9 +799,9 @@ pub const QAccessibleObject = extern struct {
     ///
     /// ` self: QAccessibleObject`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAccessibleObject) callconv(.c) i32 `
     ///
-    pub fn onChildCount(self: QAccessibleObject, callback: *const fn () callconv(.c) i32) void {
+    pub fn onChildCount(self: QAccessibleObject, callback: *const fn (QAccessibleObject) callconv(.c) i32) void {
         qtc.QAccessibleObject_OnChildCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -865,6 +815,8 @@ pub const QAccessibleObject = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onIndexOfChild` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleObject `
@@ -874,27 +826,6 @@ pub const QAccessibleObject = extern struct {
     pub fn indexOfChild(self: QAccessibleObject, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QAccessibleInterface;
         return qtc.QAccessibleObject_IndexOfChild(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIndexOfChild` instead
-    ///
-    pub const SuperIndexOfChild = superIndexOfChild;
-
-    /// Inherited from QAccessibleInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#indexOfChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleObject `
-    ///
-    /// ` param1: QAccessibleInterface `
-    ///
-    pub fn superIndexOfChild(self: QAccessibleObject, param1: anytype) i32 {
-        comptime _ = @TypeOf(param1)._is_QAccessibleInterface;
-        return qtc.QAccessibleObject_SuperIndexOfChild(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `onIndexOfChild` instead
@@ -927,6 +858,8 @@ pub const QAccessibleObject = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onText` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleObject `
@@ -937,32 +870,6 @@ pub const QAccessibleObject = extern struct {
     ///
     pub fn text(self: QAccessibleObject, allocator: std.mem.Allocator, t: i32) []const u8 {
         var _str = qtc.QAccessibleObject_Text(@ptrCast(self.ptr), @bitCast(t));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleObject.text: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `superText` instead
-    ///
-    pub const SuperText = superText;
-
-    /// Inherited from QAccessibleInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#text)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleObject `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` t: qaccessible_base_enums.Text `
-    ///
-    pub fn superText(self: QAccessibleObject, allocator: std.mem.Allocator, t: i32) []const u8 {
-        var _str = qtc.QAccessibleObject_SuperText(@ptrCast(self.ptr), @bitCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleObject.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -999,6 +906,8 @@ pub const QAccessibleObject = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onRole` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleObject `
@@ -1009,28 +918,6 @@ pub const QAccessibleObject = extern struct {
     ///
     pub fn role(self: QAccessibleObject) i32 {
         return qtc.QAccessibleObject_Role(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superRole` instead
-    ///
-    pub const SuperRole = superRole;
-
-    /// Inherited from QAccessibleInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#role)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleObject `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qaccessible_base_enums.Role `
-    ///
-    pub fn superRole(self: QAccessibleObject) i32 {
-        return qtc.QAccessibleObject_SuperRole(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `onRole` instead
@@ -1047,9 +934,9 @@ pub const QAccessibleObject = extern struct {
     ///
     /// ` self: QAccessibleObject`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAccessibleObject) callconv(.c) i32 `
     ///
-    pub fn onRole(self: QAccessibleObject, callback: *const fn () callconv(.c) i32) void {
+    pub fn onRole(self: QAccessibleObject, callback: *const fn (QAccessibleObject) callconv(.c) i32) void {
         qtc.QAccessibleObject_OnRole(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1063,30 +950,14 @@ pub const QAccessibleObject = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onState` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleObject `
     ///
     pub fn state(self: QAccessibleObject) QAccessible__State {
         return .{ .ptr = qtc.QAccessibleObject_State(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superState` instead
-    ///
-    pub const SuperState = superState;
-
-    /// Inherited from QAccessibleInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#state)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleObject `
-    ///
-    pub fn superState(self: QAccessibleObject) QAccessible__State {
-        return .{ .ptr = qtc.QAccessibleObject_SuperState(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `onState` instead
@@ -1103,11 +974,11 @@ pub const QAccessibleObject = extern struct {
     ///
     /// ` self: QAccessibleObject`
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessible__State `
+    /// ` callback: *const fn (self: QAccessibleObject) callconv(.c) QAccessible__State `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onState(self: QAccessibleObject, callback: *const fn () callconv(.c) QAccessible__State) void {
+    pub fn onState(self: QAccessibleObject, callback: *const fn (QAccessibleObject) callconv(.c) QAccessible__State) void {
         qtc.QAccessibleObject_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1161,11 +1032,11 @@ pub const QAccessibleObject = extern struct {
     ///
     /// ` self: QAccessibleObject`
     ///
-    /// ` callback: *const fn () callconv(.c) QColor `
+    /// ` callback: *const fn (self: QAccessibleObject) callconv(.c) QColor `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onForegroundColor(self: QAccessibleObject, callback: *const fn () callconv(.c) QColor) void {
+    pub fn onForegroundColor(self: QAccessibleObject, callback: *const fn (QAccessibleObject) callconv(.c) QColor) void {
         qtc.QAccessibleObject_OnForegroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1219,11 +1090,11 @@ pub const QAccessibleObject = extern struct {
     ///
     /// ` self: QAccessibleObject`
     ///
-    /// ` callback: *const fn () callconv(.c) QColor `
+    /// ` callback: *const fn (self: QAccessibleObject) callconv(.c) QColor `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onBackgroundColor(self: QAccessibleObject, callback: *const fn () callconv(.c) QColor) void {
+    pub fn onBackgroundColor(self: QAccessibleObject, callback: *const fn (QAccessibleObject) callconv(.c) QColor) void {
         qtc.QAccessibleObject_OnBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1400,9 +1271,9 @@ pub const QAccessibleApplication = extern struct {
     ///
     /// ` self: QAccessibleApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) QWindow `
+    /// ` callback: *const fn (self: QAccessibleApplication) callconv(.c) QWindow `
     ///
-    pub fn onWindow(self: QAccessibleApplication, callback: *const fn () callconv(.c) QWindow) void {
+    pub fn onWindow(self: QAccessibleApplication, callback: *const fn (QAccessibleApplication) callconv(.c) QWindow) void {
         qtc.QAccessibleApplication_OnWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1448,9 +1319,9 @@ pub const QAccessibleApplication = extern struct {
     ///
     /// ` self: QAccessibleApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAccessibleApplication) callconv(.c) i32 `
     ///
-    pub fn onChildCount(self: QAccessibleApplication, callback: *const fn () callconv(.c) i32) void {
+    pub fn onChildCount(self: QAccessibleApplication, callback: *const fn (QAccessibleApplication) callconv(.c) i32) void {
         qtc.QAccessibleApplication_OnChildCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1550,9 +1421,9 @@ pub const QAccessibleApplication = extern struct {
     ///
     /// ` self: QAccessibleApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleApplication) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onFocusChild(self: QAccessibleApplication, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onFocusChild(self: QAccessibleApplication, callback: *const fn (QAccessibleApplication) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleApplication_OnFocusChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1598,9 +1469,9 @@ pub const QAccessibleApplication = extern struct {
     ///
     /// ` self: QAccessibleApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleApplication) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onParent(self: QAccessibleApplication, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onParent(self: QAccessibleApplication, callback: *const fn (QAccessibleApplication) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleApplication_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1766,9 +1637,9 @@ pub const QAccessibleApplication = extern struct {
     ///
     /// ` self: QAccessibleApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAccessibleApplication) callconv(.c) i32 `
     ///
-    pub fn onRole(self: QAccessibleApplication, callback: *const fn () callconv(.c) i32) void {
+    pub fn onRole(self: QAccessibleApplication, callback: *const fn (QAccessibleApplication) callconv(.c) i32) void {
         qtc.QAccessibleApplication_OnRole(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1818,11 +1689,11 @@ pub const QAccessibleApplication = extern struct {
     ///
     /// ` self: QAccessibleApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessible__State `
+    /// ` callback: *const fn (self: QAccessibleApplication) callconv(.c) QAccessible__State `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onState(self: QAccessibleApplication, callback: *const fn () callconv(.c) QAccessible__State) void {
+    pub fn onState(self: QAccessibleApplication, callback: *const fn (QAccessibleApplication) callconv(.c) QAccessible__State) void {
         qtc.QAccessibleApplication_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2071,9 +1942,9 @@ pub const QAccessibleApplication = extern struct {
     ///
     /// ` self: QAccessibleApplication`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QAccessibleApplication) callconv(.c) bool `
     ///
-    pub fn onIsValid(self: QAccessibleApplication, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsValid(self: QAccessibleApplication, callback: *const fn (QAccessibleApplication) callconv(.c) bool) void {
         qtc.QAccessibleApplication_OnIsValid(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2127,9 +1998,9 @@ pub const QAccessibleApplication = extern struct {
     ///
     /// ` self: QAccessibleApplication`
     ///
-    /// ` callback: *const fn () callconv(.c) QObject `
+    /// ` callback: *const fn (self: QAccessibleApplication) callconv(.c) QObject `
     ///
-    pub fn onObject(self: QAccessibleApplication, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onObject(self: QAccessibleApplication, callback: *const fn (QAccessibleApplication) callconv(.c) QObject) void {
         qtc.QAccessibleApplication_OnObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2183,11 +2054,11 @@ pub const QAccessibleApplication = extern struct {
     ///
     /// ` self: QAccessibleApplication`
     ///
-    /// ` callback: *const fn () callconv(.c) QRect `
+    /// ` callback: *const fn (self: QAccessibleApplication) callconv(.c) QRect `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onRect(self: QAccessibleApplication, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onRect(self: QAccessibleApplication, callback: *const fn (QAccessibleApplication) callconv(.c) QRect) void {
         qtc.QAccessibleApplication_OnRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2457,11 +2328,11 @@ pub const QAccessibleApplication = extern struct {
     ///
     /// ` self: QAccessibleApplication`
     ///
-    /// ` callback: *const fn () callconv(.c) QColor `
+    /// ` callback: *const fn (self: QAccessibleApplication) callconv(.c) QColor `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onForegroundColor(self: QAccessibleApplication, callback: *const fn () callconv(.c) QColor) void {
+    pub fn onForegroundColor(self: QAccessibleApplication, callback: *const fn (QAccessibleApplication) callconv(.c) QColor) void {
         qtc.QAccessibleApplication_OnForegroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2515,11 +2386,11 @@ pub const QAccessibleApplication = extern struct {
     ///
     /// ` self: QAccessibleApplication`
     ///
-    /// ` callback: *const fn () callconv(.c) QColor `
+    /// ` callback: *const fn (self: QAccessibleApplication) callconv(.c) QColor `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onBackgroundColor(self: QAccessibleApplication, callback: *const fn () callconv(.c) QColor) void {
+    pub fn onBackgroundColor(self: QAccessibleApplication, callback: *const fn (QAccessibleApplication) callconv(.c) QColor) void {
         qtc.QAccessibleApplication_OnBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

@@ -84,9 +84,9 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowManagerInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QDesignerFormWindowManagerInterface) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QDesignerFormWindowManagerInterface, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDesignerFormWindowManagerInterface, callback: *const fn (QDesignerFormWindowManagerInterface) callconv(.c) QMetaObject) void {
         qtc.QDesignerFormWindowManagerInterface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -237,6 +237,8 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#action)
     ///
+    /// This method must be implemented with `onAction` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowManagerInterface `
@@ -265,29 +267,13 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
         qtc.QDesignerFormWindowManagerInterface_OnAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superAction` instead
-    ///
-    pub const SuperAction = superAction;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#action)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    /// ` _action: abstractformwindowmanager_enums.Action `
-    ///
-    pub fn superAction(self: QDesignerFormWindowManagerInterface, _action: i32) QAction {
-        return .{ .ptr = qtc.QDesignerFormWindowManagerInterface_SuperAction(@ptrCast(self.ptr), @bitCast(_action)) };
-    }
-
     /// ### DEPRECATED: Use `actionGroup` instead
     ///
     pub const ActionGroup = actionGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#actionGroup)
+    ///
+    /// This method must be implemented with `onActionGroup` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -315,24 +301,6 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     ///
     pub fn onActionGroup(self: QDesignerFormWindowManagerInterface, callback: *const fn (QDesignerFormWindowManagerInterface, i32) callconv(.c) QActionGroup) void {
         qtc.QDesignerFormWindowManagerInterface_OnActionGroup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superActionGroup` instead
-    ///
-    pub const SuperActionGroup = superActionGroup;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#actionGroup)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    /// ` _actionGroup: abstractformwindowmanager_enums.ActionGroup `
-    ///
-    pub fn superActionGroup(self: QDesignerFormWindowManagerInterface, _actionGroup: i32) QActionGroup {
-        return .{ .ptr = qtc.QDesignerFormWindowManagerInterface_SuperActionGroup(@ptrCast(self.ptr), @bitCast(_actionGroup)) };
     }
 
     /// ### DEPRECATED: Use `actionCut` instead
@@ -593,6 +561,8 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#activeFormWindow)
     ///
+    /// This method must be implemented with `onActiveFormWindow` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowManagerInterface `
@@ -613,26 +583,10 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowManagerInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QDesignerFormWindowInterface `
+    /// ` callback: *const fn (self: QDesignerFormWindowManagerInterface) callconv(.c) QDesignerFormWindowInterface `
     ///
-    pub fn onActiveFormWindow(self: QDesignerFormWindowManagerInterface, callback: *const fn () callconv(.c) QDesignerFormWindowInterface) void {
+    pub fn onActiveFormWindow(self: QDesignerFormWindowManagerInterface, callback: *const fn (QDesignerFormWindowManagerInterface) callconv(.c) QDesignerFormWindowInterface) void {
         qtc.QDesignerFormWindowManagerInterface_OnActiveFormWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superActiveFormWindow` instead
-    ///
-    pub const SuperActiveFormWindow = superActiveFormWindow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#activeFormWindow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    pub fn superActiveFormWindow(self: QDesignerFormWindowManagerInterface) QDesignerFormWindowInterface {
-        return .{ .ptr = qtc.QDesignerFormWindowManagerInterface_SuperActiveFormWindow(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `formWindowCount` instead
@@ -640,6 +594,8 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     pub const FormWindowCount = formWindowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#formWindowCount)
+    ///
+    /// This method must be implemented with `onFormWindowCount` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -661,26 +617,10 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowManagerInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerFormWindowManagerInterface) callconv(.c) i32 `
     ///
-    pub fn onFormWindowCount(self: QDesignerFormWindowManagerInterface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onFormWindowCount(self: QDesignerFormWindowManagerInterface, callback: *const fn (QDesignerFormWindowManagerInterface) callconv(.c) i32) void {
         qtc.QDesignerFormWindowManagerInterface_OnFormWindowCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superFormWindowCount` instead
-    ///
-    pub const SuperFormWindowCount = superFormWindowCount;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#formWindowCount)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    pub fn superFormWindowCount(self: QDesignerFormWindowManagerInterface) i32 {
-        return qtc.QDesignerFormWindowManagerInterface_SuperFormWindowCount(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `formWindow` instead
@@ -688,6 +628,8 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     pub const FormWindow = formWindow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#formWindow)
+    ///
+    /// This method must be implemented with `onFormWindow` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -717,29 +659,13 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
         qtc.QDesignerFormWindowManagerInterface_OnFormWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superFormWindow` instead
-    ///
-    pub const SuperFormWindow = superFormWindow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#formWindow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    /// ` index: i32 `
-    ///
-    pub fn superFormWindow(self: QDesignerFormWindowManagerInterface, index: i32) QDesignerFormWindowInterface {
-        return .{ .ptr = qtc.QDesignerFormWindowManagerInterface_SuperFormWindow(@ptrCast(self.ptr), @bitCast(index)) };
-    }
-
     /// ### DEPRECATED: Use `createFormWindow` instead
     ///
     pub const CreateFormWindow = createFormWindow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#createFormWindow)
+    ///
+    /// This method must be implemented with `onCreateFormWindow` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -772,32 +698,13 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
         qtc.QDesignerFormWindowManagerInterface_OnCreateFormWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superCreateFormWindow` instead
-    ///
-    pub const SuperCreateFormWindow = superCreateFormWindow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#createFormWindow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    /// ` parentWidget: QWidget `
-    ///
-    /// ` flags: flag of qnamespace_enums.WindowType `
-    ///
-    pub fn superCreateFormWindow(self: QDesignerFormWindowManagerInterface, parentWidget: anytype, flags: i32) QDesignerFormWindowInterface {
-        comptime _ = @TypeOf(parentWidget)._is_QWidget;
-        return .{ .ptr = qtc.QDesignerFormWindowManagerInterface_SuperCreateFormWindow(@ptrCast(self.ptr), @ptrCast(parentWidget.ptr), @bitCast(flags)) };
-    }
-
     /// ### DEPRECATED: Use `core` instead
     ///
     pub const Core = core;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#core)
+    ///
+    /// This method must be implemented with `onCore` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -819,26 +726,10 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowManagerInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QDesignerFormEditorInterface `
+    /// ` callback: *const fn (self: QDesignerFormWindowManagerInterface) callconv(.c) QDesignerFormEditorInterface `
     ///
-    pub fn onCore(self: QDesignerFormWindowManagerInterface, callback: *const fn () callconv(.c) QDesignerFormEditorInterface) void {
+    pub fn onCore(self: QDesignerFormWindowManagerInterface, callback: *const fn (QDesignerFormWindowManagerInterface) callconv(.c) QDesignerFormEditorInterface) void {
         qtc.QDesignerFormWindowManagerInterface_OnCore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCore` instead
-    ///
-    pub const SuperCore = superCore;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#core)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    pub fn superCore(self: QDesignerFormWindowManagerInterface) QDesignerFormEditorInterface {
-        return .{ .ptr = qtc.QDesignerFormWindowManagerInterface_SuperCore(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `dragItems` instead
@@ -846,6 +737,8 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     pub const DragItems = dragItems;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#dragItems)
+    ///
+    /// This method must be implemented with `onDragItems` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -879,33 +772,13 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
         qtc.QDesignerFormWindowManagerInterface_OnDragItems(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superDragItems` instead
-    ///
-    pub const SuperDragItems = superDragItems;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#dragItems)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    /// ` item_list: []QDesignerDnDItemInterface `
-    ///
-    pub fn superDragItems(self: QDesignerFormWindowManagerInterface, item_list: []QDesignerDnDItemInterface) void {
-        const item_list_list = qtc.libqt_list{
-            .len = item_list.len,
-            .data = @ptrCast(item_list.ptr),
-        };
-        qtc.QDesignerFormWindowManagerInterface_SuperDragItems(@ptrCast(self.ptr), item_list_list);
-    }
-
     /// ### DEPRECATED: Use `createPreviewPixmap` instead
     ///
     pub const CreatePreviewPixmap = createPreviewPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#createPreviewPixmap)
+    ///
+    /// This method must be implemented with `onCreatePreviewPixmap` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -927,28 +800,12 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowManagerInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QPixmap `
+    /// ` callback: *const fn (self: QDesignerFormWindowManagerInterface) callconv(.c) QPixmap `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onCreatePreviewPixmap(self: QDesignerFormWindowManagerInterface, callback: *const fn () callconv(.c) QPixmap) void {
+    pub fn onCreatePreviewPixmap(self: QDesignerFormWindowManagerInterface, callback: *const fn (QDesignerFormWindowManagerInterface) callconv(.c) QPixmap) void {
         qtc.QDesignerFormWindowManagerInterface_OnCreatePreviewPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreatePreviewPixmap` instead
-    ///
-    pub const SuperCreatePreviewPixmap = superCreatePreviewPixmap;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#createPreviewPixmap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    pub fn superCreatePreviewPixmap(self: QDesignerFormWindowManagerInterface) QPixmap {
-        return .{ .ptr = qtc.QDesignerFormWindowManagerInterface_SuperCreatePreviewPixmap(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `formWindowAdded` instead
@@ -1089,6 +946,8 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#addFormWindow)
     ///
+    /// This method must be implemented with `onAddFormWindow` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowManagerInterface `
@@ -1118,30 +977,13 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
         qtc.QDesignerFormWindowManagerInterface_OnAddFormWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superAddFormWindow` instead
-    ///
-    pub const SuperAddFormWindow = superAddFormWindow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#addFormWindow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    /// ` _formWindow: QDesignerFormWindowInterface `
-    ///
-    pub fn superAddFormWindow(self: QDesignerFormWindowManagerInterface, _formWindow: anytype) void {
-        comptime _ = @TypeOf(_formWindow)._is_QDesignerFormWindowInterface;
-        qtc.QDesignerFormWindowManagerInterface_SuperAddFormWindow(@ptrCast(self.ptr), @ptrCast(_formWindow.ptr));
-    }
-
     /// ### DEPRECATED: Use `removeFormWindow` instead
     ///
     pub const RemoveFormWindow = removeFormWindow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#removeFormWindow)
+    ///
+    /// This method must be implemented with `onRemoveFormWindow` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1172,30 +1014,13 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
         qtc.QDesignerFormWindowManagerInterface_OnRemoveFormWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superRemoveFormWindow` instead
-    ///
-    pub const SuperRemoveFormWindow = superRemoveFormWindow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#removeFormWindow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    /// ` _formWindow: QDesignerFormWindowInterface `
-    ///
-    pub fn superRemoveFormWindow(self: QDesignerFormWindowManagerInterface, _formWindow: anytype) void {
-        comptime _ = @TypeOf(_formWindow)._is_QDesignerFormWindowInterface;
-        qtc.QDesignerFormWindowManagerInterface_SuperRemoveFormWindow(@ptrCast(self.ptr), @ptrCast(_formWindow.ptr));
-    }
-
     /// ### DEPRECATED: Use `setActiveFormWindow` instead
     ///
     pub const SetActiveFormWindow = setActiveFormWindow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#setActiveFormWindow)
+    ///
+    /// This method must be implemented with `onSetActiveFormWindow` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1226,30 +1051,13 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
         qtc.QDesignerFormWindowManagerInterface_OnSetActiveFormWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetActiveFormWindow` instead
-    ///
-    pub const SuperSetActiveFormWindow = superSetActiveFormWindow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#setActiveFormWindow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    /// ` _formWindow: QDesignerFormWindowInterface `
-    ///
-    pub fn superSetActiveFormWindow(self: QDesignerFormWindowManagerInterface, _formWindow: anytype) void {
-        comptime _ = @TypeOf(_formWindow)._is_QDesignerFormWindowInterface;
-        qtc.QDesignerFormWindowManagerInterface_SuperSetActiveFormWindow(@ptrCast(self.ptr), @ptrCast(_formWindow.ptr));
-    }
-
     /// ### DEPRECATED: Use `showPreview` instead
     ///
     pub const ShowPreview = showPreview;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#showPreview)
+    ///
+    /// This method must be implemented with `onShowPreview` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1271,26 +1079,10 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowManagerInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowManagerInterface) callconv(.c) void `
     ///
-    pub fn onShowPreview(self: QDesignerFormWindowManagerInterface, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowPreview(self: QDesignerFormWindowManagerInterface, callback: *const fn (QDesignerFormWindowManagerInterface) callconv(.c) void) void {
         qtc.QDesignerFormWindowManagerInterface_OnShowPreview(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superShowPreview` instead
-    ///
-    pub const SuperShowPreview = superShowPreview;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#showPreview)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    pub fn superShowPreview(self: QDesignerFormWindowManagerInterface) void {
-        qtc.QDesignerFormWindowManagerInterface_SuperShowPreview(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `closeAllPreviews` instead
@@ -1298,6 +1090,8 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     pub const CloseAllPreviews = closeAllPreviews;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#closeAllPreviews)
+    ///
+    /// This method must be implemented with `onCloseAllPreviews` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1319,26 +1113,10 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowManagerInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowManagerInterface) callconv(.c) void `
     ///
-    pub fn onCloseAllPreviews(self: QDesignerFormWindowManagerInterface, callback: *const fn () callconv(.c) void) void {
+    pub fn onCloseAllPreviews(self: QDesignerFormWindowManagerInterface, callback: *const fn (QDesignerFormWindowManagerInterface) callconv(.c) void) void {
         qtc.QDesignerFormWindowManagerInterface_OnCloseAllPreviews(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCloseAllPreviews` instead
-    ///
-    pub const SuperCloseAllPreviews = superCloseAllPreviews;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#closeAllPreviews)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    pub fn superCloseAllPreviews(self: QDesignerFormWindowManagerInterface) void {
-        qtc.QDesignerFormWindowManagerInterface_SuperCloseAllPreviews(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `showPluginDialog` instead
@@ -1346,6 +1124,8 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     pub const ShowPluginDialog = showPluginDialog;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#showPluginDialog)
+    ///
+    /// This method must be implemented with `onShowPluginDialog` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1367,26 +1147,10 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowManagerInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowManagerInterface) callconv(.c) void `
     ///
-    pub fn onShowPluginDialog(self: QDesignerFormWindowManagerInterface, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowPluginDialog(self: QDesignerFormWindowManagerInterface, callback: *const fn (QDesignerFormWindowManagerInterface) callconv(.c) void) void {
         qtc.QDesignerFormWindowManagerInterface_OnShowPluginDialog(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superShowPluginDialog` instead
-    ///
-    pub const SuperShowPluginDialog = superShowPluginDialog;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#showPluginDialog)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    pub fn superShowPluginDialog(self: QDesignerFormWindowManagerInterface) void {
-        qtc.QDesignerFormWindowManagerInterface_SuperShowPluginDialog(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2866,44 +2630,6 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
         return .{ .ptr = qtc.QDesignerFormWindowManagerInterface_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    pub fn superSender(self: QDesignerFormWindowManagerInterface) QObject {
-        return .{ .ptr = qtc.QDesignerFormWindowManagerInterface_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QDesignerFormWindowManagerInterface, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QDesignerFormWindowManagerInterface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2920,44 +2646,6 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     ///
     pub fn senderSignalIndex(self: QDesignerFormWindowManagerInterface) i32 {
         return qtc.QDesignerFormWindowManagerInterface_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    pub fn superSenderSignalIndex(self: QDesignerFormWindowManagerInterface) i32 {
-        return qtc.QDesignerFormWindowManagerInterface_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QDesignerFormWindowManagerInterface, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerFormWindowManagerInterface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2981,47 +2669,6 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
         return qtc.QDesignerFormWindowManagerInterface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QDesignerFormWindowManagerInterface, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QDesignerFormWindowManagerInterface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerFormWindowManagerInterface, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QDesignerFormWindowManagerInterface, callback: *const fn (QDesignerFormWindowManagerInterface, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerFormWindowManagerInterface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3041,47 +2688,6 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     pub fn isSignalConnected(self: QDesignerFormWindowManagerInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerFormWindowManagerInterface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QDesignerFormWindowManagerInterface, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QDesignerFormWindowManagerInterface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormWindowManagerInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerFormWindowManagerInterface, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QDesignerFormWindowManagerInterface, callback: *const fn (QDesignerFormWindowManagerInterface, QMetaMethod) callconv(.c) bool) void {
-        qtc.QDesignerFormWindowManagerInterface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -87,9 +87,9 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KProcess) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KProcess, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KProcess, callback: *const fn (KProcess) callconv(.c) QMetaObject) void {
         qtc.KProcess_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4176,9 +4176,9 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: KProcess) callconv(.c) i64 `
     ///
-    pub fn onBytesToWrite(self: KProcess, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesToWrite(self: KProcess, callback: *const fn (KProcess) callconv(.c) i64) void {
         qtc.KProcess_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4232,9 +4232,9 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KProcess) callconv(.c) bool `
     ///
-    pub fn onIsSequential(self: KProcess, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSequential(self: KProcess, callback: *const fn (KProcess) callconv(.c) bool) void {
         qtc.KProcess_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4288,9 +4288,9 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KProcess) callconv(.c) void `
     ///
-    pub fn onClose(self: KProcess, callback: *const fn () callconv(.c) void) void {
+    pub fn onClose(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
         qtc.KProcess_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4476,9 +4476,9 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: KProcess) callconv(.c) i64 `
     ///
-    pub fn onPos(self: KProcess, callback: *const fn () callconv(.c) i64) void {
+    pub fn onPos(self: KProcess, callback: *const fn (KProcess) callconv(.c) i64) void {
         qtc.KProcess_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4532,9 +4532,9 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: KProcess) callconv(.c) i64 `
     ///
-    pub fn onSize(self: KProcess, callback: *const fn () callconv(.c) i64) void {
+    pub fn onSize(self: KProcess, callback: *const fn (KProcess) callconv(.c) i64) void {
         qtc.KProcess_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4648,9 +4648,9 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KProcess) callconv(.c) bool `
     ///
-    pub fn onAtEnd(self: KProcess, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAtEnd(self: KProcess, callback: *const fn (KProcess) callconv(.c) bool) void {
         qtc.KProcess_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4704,9 +4704,9 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KProcess) callconv(.c) bool `
     ///
-    pub fn onReset(self: KProcess, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReset(self: KProcess, callback: *const fn (KProcess) callconv(.c) bool) void {
         qtc.KProcess_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4760,9 +4760,9 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: KProcess) callconv(.c) i64 `
     ///
-    pub fn onBytesAvailable(self: KProcess, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesAvailable(self: KProcess, callback: *const fn (KProcess) callconv(.c) i64) void {
         qtc.KProcess_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4816,9 +4816,9 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KProcess) callconv(.c) bool `
     ///
-    pub fn onCanReadLine(self: KProcess, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanReadLine(self: KProcess, callback: *const fn (KProcess) callconv(.c) bool) void {
         qtc.KProcess_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5408,46 +5408,6 @@ pub const KProcess = extern struct {
         qtc.KProcess_SetProcessState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `superSetProcessState` instead
-    ///
-    pub const SuperSetProcessState = superSetProcessState;
-
-    /// Inherited from QProcess
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setProcessState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KProcess `
-    ///
-    /// ` _state: qprocess_enums.ProcessState `
-    ///
-    pub fn superSetProcessState(self: KProcess, _state: i32) void {
-        qtc.KProcess_SuperSetProcessState(@ptrCast(self.ptr), @bitCast(_state));
-    }
-
-    /// ### DEPRECATED: Use `onSetProcessState` instead
-    ///
-    pub const OnSetProcessState = onSetProcessState;
-
-    /// Inherited from QProcess
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setProcessState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KProcess`
-    ///
-    /// ` callback: *const fn (self: KProcess, state: qprocess_enums.ProcessState) callconv(.c) void `
-    ///
-    pub fn onSetProcessState(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) void) void {
-        qtc.KProcess_OnSetProcessState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setOpenMode` instead
     ///
     pub const SetOpenMode = setOpenMode;
@@ -5466,46 +5426,6 @@ pub const KProcess = extern struct {
     ///
     pub fn setOpenMode(self: KProcess, _openMode: i32) void {
         qtc.KProcess_SetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
-    }
-
-    /// ### DEPRECATED: Use `superSetOpenMode` instead
-    ///
-    pub const SuperSetOpenMode = superSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KProcess `
-    ///
-    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
-    ///
-    pub fn superSetOpenMode(self: KProcess, _openMode: i32) void {
-        qtc.KProcess_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
-    }
-
-    /// ### DEPRECATED: Use `onSetOpenMode` instead
-    ///
-    pub const OnSetOpenMode = onSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KProcess`
-    ///
-    /// ` callback: *const fn (self: KProcess, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
-    ///
-    pub fn onSetOpenMode(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) void) void {
-        qtc.KProcess_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setErrorString` instead
@@ -5532,50 +5452,6 @@ pub const KProcess = extern struct {
         qtc.KProcess_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `superSetErrorString` instead
-    ///
-    pub const SuperSetErrorString = superSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KProcess `
-    ///
-    /// ` _errorString: []const u8 `
-    ///
-    pub fn superSetErrorString(self: KProcess, _errorString: []const u8) void {
-        const errorString_str = qtc.libqt_string{
-            .len = _errorString.len,
-            .data = _errorString.ptr,
-        };
-        qtc.KProcess_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorString` instead
-    ///
-    pub const OnSetErrorString = onSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KProcess`
-    ///
-    /// ` callback: *const fn (self: KProcess, errorString: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorString(self: KProcess, callback: *const fn (KProcess, [*:0]const u8) callconv(.c) void) void {
-        qtc.KProcess_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -5594,44 +5470,6 @@ pub const KProcess = extern struct {
         return .{ .ptr = qtc.KProcess_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KProcess `
-    ///
-    pub fn superSender(self: KProcess) QObject {
-        return .{ .ptr = qtc.KProcess_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KProcess`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KProcess, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KProcess_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -5648,44 +5486,6 @@ pub const KProcess = extern struct {
     ///
     pub fn senderSignalIndex(self: KProcess) i32 {
         return qtc.KProcess_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KProcess `
-    ///
-    pub fn superSenderSignalIndex(self: KProcess) i32 {
-        return qtc.KProcess_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KProcess`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KProcess, callback: *const fn () callconv(.c) i32) void {
-        qtc.KProcess_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -5709,47 +5509,6 @@ pub const KProcess = extern struct {
         return qtc.KProcess_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KProcess `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KProcess, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KProcess_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KProcess`
-    ///
-    /// ` callback: *const fn (self: KProcess, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KProcess, callback: *const fn (KProcess, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KProcess_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -5769,47 +5528,6 @@ pub const KProcess = extern struct {
     pub fn isSignalConnected(self: KProcess, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KProcess_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KProcess `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KProcess, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KProcess_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KProcess`
-    ///
-    /// ` callback: *const fn (self: KProcess, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KProcess, callback: *const fn (KProcess, QMetaMethod) callconv(.c) bool) void {
-        qtc.KProcess_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onStarted` instead

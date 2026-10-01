@@ -83,9 +83,9 @@ pub const KConfigViewStateSaver = extern struct {
     ///
     /// ` self: KConfigViewStateSaver `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KConfigViewStateSaver) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KConfigViewStateSaver, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KConfigViewStateSaver, callback: *const fn (KConfigViewStateSaver) callconv(.c) QMetaObject) void {
         qtc.KConfigViewStateSaver_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1573,6 +1573,8 @@ pub const KConfigViewStateSaver = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onIndexFromConfigString` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KConfigViewStateSaver `
@@ -1588,33 +1590,6 @@ pub const KConfigViewStateSaver = extern struct {
             .data = key.ptr,
         };
         return .{ .ptr = qtc.KConfigViewStateSaver_IndexFromConfigString(@ptrCast(self.ptr), @ptrCast(model.ptr), key_str) };
-    }
-
-    /// ### DEPRECATED: Use `superIndexFromConfigString` instead
-    ///
-    pub const SuperIndexFromConfigString = superIndexFromConfigString;
-
-    /// Inherited from KViewStateSerializer
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kviewstateserializer.html#indexFromConfigString)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigViewStateSaver `
-    ///
-    /// ` model: QAbstractItemModel `
-    ///
-    /// ` key: []const u8 `
-    ///
-    pub fn superIndexFromConfigString(self: KConfigViewStateSaver, model: anytype, key: []const u8) QModelIndex {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        const key_str = qtc.libqt_string{
-            .len = key.len,
-            .data = key.ptr,
-        };
-        return .{ .ptr = qtc.KConfigViewStateSaver_SuperIndexFromConfigString(@ptrCast(self.ptr), @ptrCast(model.ptr), key_str) };
     }
 
     /// ### DEPRECATED: Use `onIndexFromConfigString` instead
@@ -1649,6 +1624,8 @@ pub const KConfigViewStateSaver = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onIndexToConfigString` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KConfigViewStateSaver `
@@ -1660,33 +1637,6 @@ pub const KConfigViewStateSaver = extern struct {
     pub fn indexToConfigString(self: KConfigViewStateSaver, allocator: std.mem.Allocator, index: anytype) []const u8 {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         var _str = qtc.KConfigViewStateSaver_IndexToConfigString(@ptrCast(self.ptr), @ptrCast(index.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigViewStateSaver.indexToConfigString: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `superIndexToConfigString` instead
-    ///
-    pub const SuperIndexToConfigString = superIndexToConfigString;
-
-    /// Inherited from KViewStateSerializer
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kviewstateserializer.html#indexToConfigString)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigViewStateSaver `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superIndexToConfigString(self: KConfigViewStateSaver, allocator: std.mem.Allocator, index: anytype) []const u8 {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        var _str = qtc.KConfigViewStateSaver_SuperIndexToConfigString(@ptrCast(self.ptr), @ptrCast(index.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigViewStateSaver.indexToConfigString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2171,44 +2121,6 @@ pub const KConfigViewStateSaver = extern struct {
         return .{ .ptr = qtc.KConfigViewStateSaver_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigViewStateSaver `
-    ///
-    pub fn superSender(self: KConfigViewStateSaver) QObject {
-        return .{ .ptr = qtc.KConfigViewStateSaver_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigViewStateSaver`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KConfigViewStateSaver, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KConfigViewStateSaver_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2225,44 +2137,6 @@ pub const KConfigViewStateSaver = extern struct {
     ///
     pub fn senderSignalIndex(self: KConfigViewStateSaver) i32 {
         return qtc.KConfigViewStateSaver_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigViewStateSaver `
-    ///
-    pub fn superSenderSignalIndex(self: KConfigViewStateSaver) i32 {
-        return qtc.KConfigViewStateSaver_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigViewStateSaver`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KConfigViewStateSaver, callback: *const fn () callconv(.c) i32) void {
-        qtc.KConfigViewStateSaver_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2286,47 +2160,6 @@ pub const KConfigViewStateSaver = extern struct {
         return qtc.KConfigViewStateSaver_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigViewStateSaver `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KConfigViewStateSaver, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KConfigViewStateSaver_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigViewStateSaver`
-    ///
-    /// ` callback: *const fn (self: KConfigViewStateSaver, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KConfigViewStateSaver, callback: *const fn (KConfigViewStateSaver, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KConfigViewStateSaver_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2346,47 +2179,6 @@ pub const KConfigViewStateSaver = extern struct {
     pub fn isSignalConnected(self: KConfigViewStateSaver, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KConfigViewStateSaver_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigViewStateSaver `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KConfigViewStateSaver, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KConfigViewStateSaver_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigViewStateSaver`
-    ///
-    /// ` callback: *const fn (self: KConfigViewStateSaver, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KConfigViewStateSaver, callback: *const fn (KConfigViewStateSaver, QMetaMethod) callconv(.c) bool) void {
-        qtc.KConfigViewStateSaver_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

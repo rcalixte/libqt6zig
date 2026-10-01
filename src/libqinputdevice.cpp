@@ -192,364 +192,219 @@ QInputDevice* QInputDevice_PrimaryKeyboard1(const libqt_string seatName) {
 
 // Base class handler implementation
 QMetaObject* QInputDevice_SuperMetaObject(const QInputDevice* self) {
-    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_MetaObject_IsBase(true);
-        return (QMetaObject*)vqinputdevice->metaObject();
-    } else {
-        return (QMetaObject*)self->QInputDevice::metaObject();
-    }
+    return (QMetaObject*)self->QInputDevice::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QInputDevice_OnMetaObject(const QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice)
-        vqinputdevice->setQInputDevice_MetaObject_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_MetaObject_Callback>(slot));
+void QInputDevice_OnMetaObject(QInputDevice* self, intptr_t slot) {
+    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self)))
+        vqinputdevice->qinputdevice_metaobject_callback = reinterpret_cast<VirtualQInputDevice::QInputDevice_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QInputDevice_SuperMetacast(QInputDevice* self, const char* param1) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_Metacast_IsBase(true);
-        return vqinputdevice->qt_metacast(param1);
-    } else {
-        return self->QInputDevice::qt_metacast(param1);
-    }
+    return self->QInputDevice::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnMetacast(QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice)
-        vqinputdevice->setQInputDevice_Metacast_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_Metacast_Callback>(slot));
+    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self))
+        vqinputdevice->qinputdevice_metacast_callback = reinterpret_cast<VirtualQInputDevice::QInputDevice_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QInputDevice_SuperMetacall(QInputDevice* self, int param1, int param2, void** param3) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_Metacall_IsBase(true);
-        return vqinputdevice->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QInputDevice::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QInputDevice::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnMetacall(QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice)
-        vqinputdevice->setQInputDevice_Metacall_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_Metacall_Callback>(slot));
+    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self))
+        vqinputdevice->qinputdevice_metacall_callback = reinterpret_cast<VirtualQInputDevice::QInputDevice_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QInputDevice_Event(QInputDevice* self, QEvent* event) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        return vqinputdevice->event(event);
-    } else {
-        return self->QInputDevice::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QInputDevice_SuperEvent(QInputDevice* self, QEvent* event) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_Event_IsBase(true);
-        return vqinputdevice->event(event);
-    } else {
-        return self->QInputDevice::event(event);
-    }
+    return self->QInputDevice::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnEvent(QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice)
-        vqinputdevice->setQInputDevice_Event_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_Event_Callback>(slot));
+    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self))
+        vqinputdevice->qinputdevice_event_callback = reinterpret_cast<VirtualQInputDevice::QInputDevice_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QInputDevice_EventFilter(QInputDevice* self, QObject* watched, QEvent* event) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        return vqinputdevice->eventFilter(watched, event);
-    } else {
-        return self->QInputDevice::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QInputDevice_SuperEventFilter(QInputDevice* self, QObject* watched, QEvent* event) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_EventFilter_IsBase(true);
-        return vqinputdevice->eventFilter(watched, event);
-    } else {
-        return self->QInputDevice::eventFilter(watched, event);
-    }
+    return self->QInputDevice::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnEventFilter(QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice)
-        vqinputdevice->setQInputDevice_EventFilter_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_EventFilter_Callback>(slot));
+    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self))
+        vqinputdevice->qinputdevice_eventfilter_callback = reinterpret_cast<VirtualQInputDevice::QInputDevice_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDevice_TimerEvent(QInputDevice* self, QTimerEvent* event) {
     auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
+    if (vqinputdevice) {
         vqinputdevice->timerEvent(event);
     } else {
-        ((VirtualQInputDevice*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QInputDevice::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDevice_SuperTimerEvent(QInputDevice* self, QTimerEvent* event) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_TimerEvent_IsBase(true);
-        vqinputdevice->timerEvent(event);
-    } else {
-        ((VirtualQInputDevice*)self)->timerEvent(event);
-    }
+    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+        vqinputdevice->QInputDevice::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDevice::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnTimerEvent(QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice)
-        vqinputdevice->setQInputDevice_TimerEvent_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_TimerEvent_Callback>(slot));
+    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self))
+        vqinputdevice->qinputdevice_timerevent_callback = reinterpret_cast<VirtualQInputDevice::QInputDevice_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDevice_ChildEvent(QInputDevice* self, QChildEvent* event) {
     auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
+    if (vqinputdevice) {
         vqinputdevice->childEvent(event);
     } else {
-        ((VirtualQInputDevice*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QInputDevice::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDevice_SuperChildEvent(QInputDevice* self, QChildEvent* event) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_ChildEvent_IsBase(true);
-        vqinputdevice->childEvent(event);
-    } else {
-        ((VirtualQInputDevice*)self)->childEvent(event);
-    }
+    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+        vqinputdevice->QInputDevice::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDevice::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnChildEvent(QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice)
-        vqinputdevice->setQInputDevice_ChildEvent_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_ChildEvent_Callback>(slot));
+    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self))
+        vqinputdevice->qinputdevice_childevent_callback = reinterpret_cast<VirtualQInputDevice::QInputDevice_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDevice_CustomEvent(QInputDevice* self, QEvent* event) {
     auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
+    if (vqinputdevice) {
         vqinputdevice->customEvent(event);
     } else {
-        ((VirtualQInputDevice*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QInputDevice::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDevice_SuperCustomEvent(QInputDevice* self, QEvent* event) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_CustomEvent_IsBase(true);
-        vqinputdevice->customEvent(event);
-    } else {
-        ((VirtualQInputDevice*)self)->customEvent(event);
-    }
+    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+        vqinputdevice->QInputDevice::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDevice::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnCustomEvent(QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice)
-        vqinputdevice->setQInputDevice_CustomEvent_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_CustomEvent_Callback>(slot));
+    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self))
+        vqinputdevice->qinputdevice_customevent_callback = reinterpret_cast<VirtualQInputDevice::QInputDevice_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDevice_ConnectNotify(QInputDevice* self, const QMetaMethod* signal) {
     auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
+    if (vqinputdevice) {
         vqinputdevice->connectNotify(*signal);
     } else {
-        ((VirtualQInputDevice*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QInputDevice::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDevice_SuperConnectNotify(QInputDevice* self, const QMetaMethod* signal) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_ConnectNotify_IsBase(true);
-        vqinputdevice->connectNotify(*signal);
-    } else {
-        ((VirtualQInputDevice*)self)->connectNotify(*signal);
-    }
+    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+        vqinputdevice->QInputDevice::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QInputDevice::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnConnectNotify(QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice)
-        vqinputdevice->setQInputDevice_ConnectNotify_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_ConnectNotify_Callback>(slot));
+    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self))
+        vqinputdevice->qinputdevice_connectnotify_callback = reinterpret_cast<VirtualQInputDevice::QInputDevice_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDevice_DisconnectNotify(QInputDevice* self, const QMetaMethod* signal) {
     auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
+    if (vqinputdevice) {
         vqinputdevice->disconnectNotify(*signal);
     } else {
-        ((VirtualQInputDevice*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QInputDevice::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDevice_SuperDisconnectNotify(QInputDevice* self, const QMetaMethod* signal) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_DisconnectNotify_IsBase(true);
-        vqinputdevice->disconnectNotify(*signal);
-    } else {
-        ((VirtualQInputDevice*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self)) {
+        vqinputdevice->QInputDevice::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QInputDevice::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDevice_OnDisconnectNotify(QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice)
-        vqinputdevice->setQInputDevice_DisconnectNotify_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_DisconnectNotify_Callback>(slot));
+    if (auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self))
+        vqinputdevice->qinputdevice_disconnectnotify_callback = reinterpret_cast<VirtualQInputDevice::QInputDevice_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QInputDevice_Sender(const QInputDevice* self) {
-    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        return vqinputdevice->sender();
-    } else {
-        return ((VirtualQInputDevice*)self)->sender();
-    }
+    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+        return vqinputdevice->VirtualQInputDevice::sender();
+    } else
+        qFatal("Error: Protected method QInputDevice::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QInputDevice_SuperSender(const QInputDevice* self) {
-    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_Sender_IsBase(true);
-        return vqinputdevice->sender();
-    } else {
-        return ((VirtualQInputDevice*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDevice_OnSender(const QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice)
-        vqinputdevice->setQInputDevice_Sender_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QInputDevice_SenderSignalIndex(const QInputDevice* self) {
-    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        return vqinputdevice->senderSignalIndex();
-    } else {
-        return ((VirtualQInputDevice*)self)->senderSignalIndex();
-    }
+    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+        return vqinputdevice->VirtualQInputDevice::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QInputDevice::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QInputDevice_SuperSenderSignalIndex(const QInputDevice* self) {
-    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_SenderSignalIndex_IsBase(true);
-        return vqinputdevice->senderSignalIndex();
-    } else {
-        return ((VirtualQInputDevice*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDevice_OnSenderSignalIndex(const QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice)
-        vqinputdevice->setQInputDevice_SenderSignalIndex_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QInputDevice_Receivers(const QInputDevice* self, const char* signal) {
-    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        return vqinputdevice->receivers(signal);
-    } else {
-        return ((VirtualQInputDevice*)self)->receivers(signal);
-    }
+    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+        return vqinputdevice->VirtualQInputDevice::receivers(signal);
+    } else
+        qFatal("Error: Protected method QInputDevice::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QInputDevice_SuperReceivers(const QInputDevice* self, const char* signal) {
-    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_Receivers_IsBase(true);
-        return vqinputdevice->receivers(signal);
-    } else {
-        return ((VirtualQInputDevice*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDevice_OnReceivers(const QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice)
-        vqinputdevice->setQInputDevice_Receivers_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QInputDevice_IsSignalConnected(const QInputDevice* self, const QMetaMethod* signal) {
-    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        return vqinputdevice->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQInputDevice*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QInputDevice_SuperIsSignalConnected(const QInputDevice* self, const QMetaMethod* signal) {
-    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        vqinputdevice->setQInputDevice_IsSignalConnected_IsBase(true);
-        return vqinputdevice->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQInputDevice*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDevice_OnIsSignalConnected(const QInputDevice* self, intptr_t slot) {
-    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice)
-        vqinputdevice->setQInputDevice_IsSignalConnected_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_IsSignalConnected_Callback>(slot));
+    if (auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self))) {
+        return vqinputdevice->VirtualQInputDevice::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QInputDevice::isSignalConnected called without a directly constructed type");
 }
 
 void QInputDevice_Delete(QInputDevice* self) {

@@ -821,1782 +821,1249 @@ double QInputDialog_GetDouble10(QWidget* parent, const libqt_string title, const
 
 // Base class handler implementation
 QMetaObject* QInputDialog_SuperMetaObject(const QInputDialog* self) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vqinputdialog->metaObject();
-    } else {
-        return (QMetaObject*)self->QInputDialog::metaObject();
-    }
+    return (QMetaObject*)self->QInputDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QInputDialog_OnMetaObject(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_MetaObject_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_MetaObject_Callback>(slot));
+void QInputDialog_OnMetaObject(QInputDialog* self, intptr_t slot) {
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self)))
+        vqinputdialog->qinputdialog_metaobject_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QInputDialog_SuperMetacast(QInputDialog* self, const char* param1) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Metacast_IsBase(true);
-        return vqinputdialog->qt_metacast(param1);
-    } else {
-        return self->QInputDialog::qt_metacast(param1);
-    }
+    return self->QInputDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnMetacast(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_Metacast_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Metacast_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_metacast_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QInputDialog_SuperMetacall(QInputDialog* self, int param1, int param2, void** param3) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Metacall_IsBase(true);
-        return vqinputdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QInputDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QInputDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnMetacall(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_Metacall_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Metacall_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_metacall_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QInputDialog_SuperMinimumSizeHint(const QInputDialog* self) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vqinputdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQInputDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QInputDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QInputDialog_OnMinimumSizeHint(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_MinimumSizeHint_Callback>(slot));
+void QInputDialog_OnMinimumSizeHint(QInputDialog* self, intptr_t slot) {
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self)))
+        vqinputdialog->qinputdialog_minimumsizehint_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QInputDialog_SuperSizeHint(const QInputDialog* self) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_SizeHint_IsBase(true);
-        return new QSize(vqinputdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualQInputDialog*)self)->sizeHint());
-    }
+    return new QSize(self->QInputDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QInputDialog_OnSizeHint(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_SizeHint_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_SizeHint_Callback>(slot));
+void QInputDialog_OnSizeHint(QInputDialog* self, intptr_t slot) {
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self)))
+        vqinputdialog->qinputdialog_sizehint_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void QInputDialog_SuperSetVisible(QInputDialog* self, bool visible) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_SetVisible_IsBase(true);
-        vqinputdialog->setVisible(visible);
-    } else {
-        self->QInputDialog::setVisible(visible);
-    }
+    self->QInputDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnSetVisible(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_SetVisible_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_SetVisible_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_setvisible_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_SetVisible_Callback>(slot);
 }
 
 // Base class handler implementation
 void QInputDialog_SuperDone(QInputDialog* self, int result) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Done_IsBase(true);
-        vqinputdialog->done(static_cast<int>(result));
-    } else {
-        self->QInputDialog::done(static_cast<int>(result));
-    }
+    self->QInputDialog::done(static_cast<int>(result));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnDone(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_Done_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Done_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_done_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_Open(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->open();
-    } else {
-        self->QInputDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void QInputDialog_SuperOpen(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Open_IsBase(true);
-        vqinputdialog->open();
-    } else {
-        self->QInputDialog::open();
-    }
+    self->QInputDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnOpen(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_Open_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Open_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_open_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QInputDialog_Exec(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return vqinputdialog->exec();
-    } else {
-        return self->QInputDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int QInputDialog_SuperExec(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Exec_IsBase(true);
-        return vqinputdialog->exec();
-    } else {
-        return self->QInputDialog::exec();
-    }
+    return self->QInputDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnExec(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_Exec_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Exec_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_exec_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_Accept(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->accept();
-    } else {
-        self->QInputDialog::accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation
 void QInputDialog_SuperAccept(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Accept_IsBase(true);
-        vqinputdialog->accept();
-    } else {
-        self->QInputDialog::accept();
-    }
+    self->QInputDialog::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnAccept(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_Accept_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Accept_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_accept_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_Reject(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->reject();
-    } else {
-        self->QInputDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void QInputDialog_SuperReject(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Reject_IsBase(true);
-        vqinputdialog->reject();
-    } else {
-        self->QInputDialog::reject();
-    }
+    self->QInputDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnReject(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_Reject_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Reject_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_reject_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_KeyPressEvent(QInputDialog* self, QKeyEvent* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->keyPressEvent(param1);
     } else {
-        ((VirtualQInputDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method QInputDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperKeyPressEvent(QInputDialog* self, QKeyEvent* param1) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_KeyPressEvent_IsBase(true);
-        vqinputdialog->keyPressEvent(param1);
-    } else {
-        ((VirtualQInputDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnKeyPressEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_keypressevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_CloseEvent(QInputDialog* self, QCloseEvent* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->closeEvent(param1);
     } else {
-        ((VirtualQInputDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method QInputDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperCloseEvent(QInputDialog* self, QCloseEvent* param1) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_CloseEvent_IsBase(true);
-        vqinputdialog->closeEvent(param1);
-    } else {
-        ((VirtualQInputDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnCloseEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_CloseEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_CloseEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_closeevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_ShowEvent(QInputDialog* self, QShowEvent* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->showEvent(param1);
     } else {
-        ((VirtualQInputDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method QInputDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperShowEvent(QInputDialog* self, QShowEvent* param1) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_ShowEvent_IsBase(true);
-        vqinputdialog->showEvent(param1);
-    } else {
-        ((VirtualQInputDialog*)self)->showEvent(param1);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnShowEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_ShowEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_ShowEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_showevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_ResizeEvent(QInputDialog* self, QResizeEvent* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->resizeEvent(param1);
     } else {
-        ((VirtualQInputDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method QInputDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperResizeEvent(QInputDialog* self, QResizeEvent* param1) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_ResizeEvent_IsBase(true);
-        vqinputdialog->resizeEvent(param1);
-    } else {
-        ((VirtualQInputDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnResizeEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_ResizeEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_ResizeEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_resizeevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_ContextMenuEvent(QInputDialog* self, QContextMenuEvent* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->contextMenuEvent(param1);
     } else {
-        ((VirtualQInputDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method QInputDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperContextMenuEvent(QInputDialog* self, QContextMenuEvent* param1) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_ContextMenuEvent_IsBase(true);
-        vqinputdialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualQInputDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnContextMenuEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_contextmenuevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QInputDialog_EventFilter(QInputDialog* self, QObject* param1, QEvent* param2) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         return vqinputdialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualQInputDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method QInputDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QInputDialog_SuperEventFilter(QInputDialog* self, QObject* param1, QEvent* param2) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_EventFilter_IsBase(true);
-        return vqinputdialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQInputDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        return vqinputdialog->QInputDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnEventFilter(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_EventFilter_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_EventFilter_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_eventfilter_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QInputDialog_DevType(const QInputDialog* self) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return vqinputdialog->devType();
-    } else {
-        return self->QInputDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QInputDialog_SuperDevType(const QInputDialog* self) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_DevType_IsBase(true);
-        return vqinputdialog->devType();
-    } else {
-        return self->QInputDialog::devType();
-    }
+    return self->QInputDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QInputDialog_OnDevType(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_DevType_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_DevType_Callback>(slot));
+void QInputDialog_OnDevType(QInputDialog* self, intptr_t slot) {
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self)))
+        vqinputdialog->qinputdialog_devtype_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QInputDialog_HeightForWidth(const QInputDialog* self, int param1) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return vqinputdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QInputDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QInputDialog_SuperHeightForWidth(const QInputDialog* self, int param1) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_HeightForWidth_IsBase(true);
-        return vqinputdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QInputDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QInputDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QInputDialog_OnHeightForWidth(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_HeightForWidth_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_HeightForWidth_Callback>(slot));
+void QInputDialog_OnHeightForWidth(QInputDialog* self, intptr_t slot) {
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self)))
+        vqinputdialog->qinputdialog_heightforwidth_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QInputDialog_HasHeightForWidth(const QInputDialog* self) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return vqinputdialog->hasHeightForWidth();
-    } else {
-        return self->QInputDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QInputDialog_SuperHasHeightForWidth(const QInputDialog* self) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_HasHeightForWidth_IsBase(true);
-        return vqinputdialog->hasHeightForWidth();
-    } else {
-        return self->QInputDialog::hasHeightForWidth();
-    }
+    return self->QInputDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QInputDialog_OnHasHeightForWidth(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_HasHeightForWidth_Callback>(slot));
+void QInputDialog_OnHasHeightForWidth(QInputDialog* self, intptr_t slot) {
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self)))
+        vqinputdialog->qinputdialog_hasheightforwidth_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QInputDialog_PaintEngine(const QInputDialog* self) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return vqinputdialog->paintEngine();
-    } else {
-        return self->QInputDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QInputDialog_SuperPaintEngine(const QInputDialog* self) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_PaintEngine_IsBase(true);
-        return vqinputdialog->paintEngine();
-    } else {
-        return self->QInputDialog::paintEngine();
-    }
+    return self->QInputDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QInputDialog_OnPaintEngine(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_PaintEngine_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_PaintEngine_Callback>(slot));
+void QInputDialog_OnPaintEngine(QInputDialog* self, intptr_t slot) {
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self)))
+        vqinputdialog->qinputdialog_paintengine_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QInputDialog_Event(QInputDialog* self, QEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         return vqinputdialog->event(event);
     } else {
-        return ((VirtualQInputDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method QInputDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QInputDialog_SuperEvent(QInputDialog* self, QEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Event_IsBase(true);
-        return vqinputdialog->event(event);
-    } else {
-        return ((VirtualQInputDialog*)self)->event(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        return vqinputdialog->QInputDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_Event_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Event_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_event_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_MousePressEvent(QInputDialog* self, QMouseEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->mousePressEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperMousePressEvent(QInputDialog* self, QMouseEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_MousePressEvent_IsBase(true);
-        vqinputdialog->mousePressEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnMousePressEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_MousePressEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_MousePressEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_mousepressevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_MouseReleaseEvent(QInputDialog* self, QMouseEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperMouseReleaseEvent(QInputDialog* self, QMouseEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_MouseReleaseEvent_IsBase(true);
-        vqinputdialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnMouseReleaseEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_mousereleaseevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_MouseDoubleClickEvent(QInputDialog* self, QMouseEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperMouseDoubleClickEvent(QInputDialog* self, QMouseEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_MouseDoubleClickEvent_IsBase(true);
-        vqinputdialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnMouseDoubleClickEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_MouseMoveEvent(QInputDialog* self, QMouseEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->mouseMoveEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperMouseMoveEvent(QInputDialog* self, QMouseEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_MouseMoveEvent_IsBase(true);
-        vqinputdialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnMouseMoveEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_mousemoveevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_WheelEvent(QInputDialog* self, QWheelEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->wheelEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperWheelEvent(QInputDialog* self, QWheelEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_WheelEvent_IsBase(true);
-        vqinputdialog->wheelEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnWheelEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_WheelEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_WheelEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_wheelevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_KeyReleaseEvent(QInputDialog* self, QKeyEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->keyReleaseEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperKeyReleaseEvent(QInputDialog* self, QKeyEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_KeyReleaseEvent_IsBase(true);
-        vqinputdialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnKeyReleaseEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_keyreleaseevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_FocusInEvent(QInputDialog* self, QFocusEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->focusInEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperFocusInEvent(QInputDialog* self, QFocusEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_FocusInEvent_IsBase(true);
-        vqinputdialog->focusInEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnFocusInEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_FocusInEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_FocusInEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_focusinevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_FocusOutEvent(QInputDialog* self, QFocusEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->focusOutEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperFocusOutEvent(QInputDialog* self, QFocusEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_FocusOutEvent_IsBase(true);
-        vqinputdialog->focusOutEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnFocusOutEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_focusoutevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_EnterEvent(QInputDialog* self, QEnterEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->enterEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperEnterEvent(QInputDialog* self, QEnterEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_EnterEvent_IsBase(true);
-        vqinputdialog->enterEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->enterEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnEnterEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_EnterEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_EnterEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_enterevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_LeaveEvent(QInputDialog* self, QEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->leaveEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperLeaveEvent(QInputDialog* self, QEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_LeaveEvent_IsBase(true);
-        vqinputdialog->leaveEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnLeaveEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_LeaveEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_LeaveEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_leaveevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_PaintEvent(QInputDialog* self, QPaintEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->paintEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperPaintEvent(QInputDialog* self, QPaintEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_PaintEvent_IsBase(true);
-        vqinputdialog->paintEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->paintEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnPaintEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_PaintEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_PaintEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_paintevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_MoveEvent(QInputDialog* self, QMoveEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->moveEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperMoveEvent(QInputDialog* self, QMoveEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_MoveEvent_IsBase(true);
-        vqinputdialog->moveEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->moveEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnMoveEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_MoveEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_MoveEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_moveevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_TabletEvent(QInputDialog* self, QTabletEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->tabletEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperTabletEvent(QInputDialog* self, QTabletEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_TabletEvent_IsBase(true);
-        vqinputdialog->tabletEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnTabletEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_TabletEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_TabletEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_tabletevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_ActionEvent(QInputDialog* self, QActionEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->actionEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperActionEvent(QInputDialog* self, QActionEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_ActionEvent_IsBase(true);
-        vqinputdialog->actionEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->actionEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnActionEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_ActionEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_ActionEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_actionevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_DragEnterEvent(QInputDialog* self, QDragEnterEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->dragEnterEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperDragEnterEvent(QInputDialog* self, QDragEnterEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_DragEnterEvent_IsBase(true);
-        vqinputdialog->dragEnterEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnDragEnterEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_dragenterevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_DragMoveEvent(QInputDialog* self, QDragMoveEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->dragMoveEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperDragMoveEvent(QInputDialog* self, QDragMoveEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_DragMoveEvent_IsBase(true);
-        vqinputdialog->dragMoveEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnDragMoveEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_dragmoveevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_DragLeaveEvent(QInputDialog* self, QDragLeaveEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->dragLeaveEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperDragLeaveEvent(QInputDialog* self, QDragLeaveEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_DragLeaveEvent_IsBase(true);
-        vqinputdialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnDragLeaveEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_dragleaveevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_DropEvent(QInputDialog* self, QDropEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->dropEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperDropEvent(QInputDialog* self, QDropEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_DropEvent_IsBase(true);
-        vqinputdialog->dropEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->dropEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnDropEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_DropEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_DropEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_dropevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_HideEvent(QInputDialog* self, QHideEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->hideEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperHideEvent(QInputDialog* self, QHideEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_HideEvent_IsBase(true);
-        vqinputdialog->hideEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->hideEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnHideEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_HideEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_HideEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_hideevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QInputDialog_NativeEvent(QInputDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
+    if (vqinputdialog) {
         return vqinputdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQInputDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QInputDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QInputDialog_SuperNativeEvent(QInputDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_NativeEvent_IsBase(true);
-        return vqinputdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQInputDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        return vqinputdialog->QInputDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnNativeEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_NativeEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_NativeEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_nativeevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_ChangeEvent(QInputDialog* self, QEvent* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->changeEvent(param1);
     } else {
-        ((VirtualQInputDialog*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QInputDialog::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperChangeEvent(QInputDialog* self, QEvent* param1) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_ChangeEvent_IsBase(true);
-        vqinputdialog->changeEvent(param1);
-    } else {
-        ((VirtualQInputDialog*)self)->changeEvent(param1);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnChangeEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_ChangeEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_changeevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QInputDialog_Metric(const QInputDialog* self, int param1) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         return vqinputdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQInputDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QInputDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QInputDialog_SuperMetric(const QInputDialog* self, int param1) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Metric_IsBase(true);
-        return vqinputdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQInputDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self))) {
+        return vqinputdialog->QInputDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QInputDialog_OnMetric(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_Metric_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Metric_Callback>(slot));
+void QInputDialog_OnMetric(QInputDialog* self, intptr_t slot) {
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self)))
+        vqinputdialog->qinputdialog_metric_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_InitPainter(const QInputDialog* self, QPainter* painter) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->initPainter(painter);
     } else {
-        ((VirtualQInputDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QInputDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperInitPainter(const QInputDialog* self, QPainter* painter) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_InitPainter_IsBase(true);
-        vqinputdialog->initPainter(painter);
-    } else {
-        ((VirtualQInputDialog*)self)->initPainter(painter);
-    }
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self))) {
+        vqinputdialog->QInputDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QInputDialog_OnInitPainter(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_InitPainter_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_InitPainter_Callback>(slot));
+void QInputDialog_OnInitPainter(QInputDialog* self, intptr_t slot) {
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self)))
+        vqinputdialog->qinputdialog_initpainter_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QInputDialog_Redirected(const QInputDialog* self, QPoint* offset) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         return vqinputdialog->redirected(offset);
     } else {
-        return ((VirtualQInputDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QInputDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QInputDialog_SuperRedirected(const QInputDialog* self, QPoint* offset) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Redirected_IsBase(true);
-        return vqinputdialog->redirected(offset);
-    } else {
-        return ((VirtualQInputDialog*)self)->redirected(offset);
-    }
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self))) {
+        return vqinputdialog->QInputDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QInputDialog_OnRedirected(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_Redirected_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Redirected_Callback>(slot));
+void QInputDialog_OnRedirected(QInputDialog* self, intptr_t slot) {
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self)))
+        vqinputdialog->qinputdialog_redirected_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QInputDialog_SharedPainter(const QInputDialog* self) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         return vqinputdialog->sharedPainter();
     } else {
-        return ((VirtualQInputDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QInputDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QInputDialog_SuperSharedPainter(const QInputDialog* self) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_SharedPainter_IsBase(true);
-        return vqinputdialog->sharedPainter();
-    } else {
-        return ((VirtualQInputDialog*)self)->sharedPainter();
-    }
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self))) {
+        return vqinputdialog->QInputDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QInputDialog_OnSharedPainter(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_SharedPainter_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_SharedPainter_Callback>(slot));
+void QInputDialog_OnSharedPainter(QInputDialog* self, intptr_t slot) {
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self)))
+        vqinputdialog->qinputdialog_sharedpainter_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_InputMethodEvent(QInputDialog* self, QInputMethodEvent* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->inputMethodEvent(param1);
     } else {
-        ((VirtualQInputDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QInputDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperInputMethodEvent(QInputDialog* self, QInputMethodEvent* param1) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_InputMethodEvent_IsBase(true);
-        vqinputdialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualQInputDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnInputMethodEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_inputmethodevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QInputDialog_InputMethodQuery(const QInputDialog* self, int param1) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return new QVariant(vqinputdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQInputDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QInputDialog_SuperInputMethodQuery(const QInputDialog* self, int param1) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vqinputdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQInputDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QInputDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QInputDialog_OnInputMethodQuery(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_InputMethodQuery_Callback>(slot));
+void QInputDialog_OnInputMethodQuery(QInputDialog* self, intptr_t slot) {
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self)))
+        vqinputdialog->qinputdialog_inputmethodquery_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QInputDialog_FocusNextPrevChild(QInputDialog* self, bool next) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         return vqinputdialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualQInputDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QInputDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QInputDialog_SuperFocusNextPrevChild(QInputDialog* self, bool next) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_FocusNextPrevChild_IsBase(true);
-        return vqinputdialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQInputDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        return vqinputdialog->QInputDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnFocusNextPrevChild(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_focusnextprevchild_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_TimerEvent(QInputDialog* self, QTimerEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->timerEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperTimerEvent(QInputDialog* self, QTimerEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_TimerEvent_IsBase(true);
-        vqinputdialog->timerEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->timerEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnTimerEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_TimerEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_TimerEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_timerevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_ChildEvent(QInputDialog* self, QChildEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->childEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperChildEvent(QInputDialog* self, QChildEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_ChildEvent_IsBase(true);
-        vqinputdialog->childEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->childEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnChildEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_ChildEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_ChildEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_childevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_CustomEvent(QInputDialog* self, QEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->customEvent(event);
     } else {
-        ((VirtualQInputDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QInputDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperCustomEvent(QInputDialog* self, QEvent* event) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_CustomEvent_IsBase(true);
-        vqinputdialog->customEvent(event);
-    } else {
-        ((VirtualQInputDialog*)self)->customEvent(event);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnCustomEvent(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_CustomEvent_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_CustomEvent_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_customevent_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_ConnectNotify(QInputDialog* self, const QMetaMethod* signal) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->connectNotify(*signal);
     } else {
-        ((VirtualQInputDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QInputDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperConnectNotify(QInputDialog* self, const QMetaMethod* signal) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_ConnectNotify_IsBase(true);
-        vqinputdialog->connectNotify(*signal);
-    } else {
-        ((VirtualQInputDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnConnectNotify(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_ConnectNotify_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_ConnectNotify_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_connectnotify_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QInputDialog_DisconnectNotify(QInputDialog* self, const QMetaMethod* signal) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+    if (vqinputdialog) {
         vqinputdialog->disconnectNotify(*signal);
     } else {
-        ((VirtualQInputDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QInputDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QInputDialog_SuperDisconnectNotify(QInputDialog* self, const QMetaMethod* signal) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_DisconnectNotify_IsBase(true);
-        vqinputdialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualQInputDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->QInputDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QInputDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QInputDialog_OnDisconnectNotify(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self))
+        vqinputdialog->qinputdialog_disconnectnotify_callback = reinterpret_cast<VirtualQInputDialog::QInputDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QInputDialog_AdjustPosition(QInputDialog* self, QWidget* param1) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->adjustPosition(param1);
-    } else {
-        ((VirtualQInputDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->VirtualQInputDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method QInputDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QInputDialog_SuperAdjustPosition(QInputDialog* self, QWidget* param1) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_AdjustPosition_IsBase(true);
-        vqinputdialog->adjustPosition(param1);
-    } else {
-        ((VirtualQInputDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDialog_OnAdjustPosition(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_AdjustPosition_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QInputDialog_UpdateMicroFocus(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->updateMicroFocus();
-    } else {
-        ((VirtualQInputDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->VirtualQInputDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QInputDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QInputDialog_SuperUpdateMicroFocus(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_UpdateMicroFocus_IsBase(true);
-        vqinputdialog->updateMicroFocus();
-    } else {
-        ((VirtualQInputDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDialog_OnUpdateMicroFocus(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QInputDialog_Create(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->create();
-    } else {
-        ((VirtualQInputDialog*)self)->create();
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->VirtualQInputDialog::create();
+    } else
+        qFatal("Error: Protected method QInputDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QInputDialog_SuperCreate(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Create_IsBase(true);
-        vqinputdialog->create();
-    } else {
-        ((VirtualQInputDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDialog_OnCreate(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_Create_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QInputDialog_Destroy(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->destroy();
-    } else {
-        ((VirtualQInputDialog*)self)->destroy();
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        vqinputdialog->VirtualQInputDialog::destroy();
+    } else
+        qFatal("Error: Protected method QInputDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QInputDialog_SuperDestroy(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Destroy_IsBase(true);
-        vqinputdialog->destroy();
-    } else {
-        ((VirtualQInputDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDialog_OnDestroy(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_Destroy_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QInputDialog_FocusNextChild(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return vqinputdialog->focusNextChild();
-    } else {
-        return ((VirtualQInputDialog*)self)->focusNextChild();
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        return vqinputdialog->VirtualQInputDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method QInputDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QInputDialog_SuperFocusNextChild(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_FocusNextChild_IsBase(true);
-        return vqinputdialog->focusNextChild();
-    } else {
-        return ((VirtualQInputDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDialog_OnFocusNextChild(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_FocusNextChild_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QInputDialog_FocusPreviousChild(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return vqinputdialog->focusPreviousChild();
-    } else {
-        return ((VirtualQInputDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self)) {
+        return vqinputdialog->VirtualQInputDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QInputDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QInputDialog_SuperFocusPreviousChild(QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_FocusPreviousChild_IsBase(true);
-        return vqinputdialog->focusPreviousChild();
-    } else {
-        return ((VirtualQInputDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDialog_OnFocusPreviousChild(QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QInputDialog_Sender(const QInputDialog* self) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return vqinputdialog->sender();
-    } else {
-        return ((VirtualQInputDialog*)self)->sender();
-    }
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self))) {
+        return vqinputdialog->VirtualQInputDialog::sender();
+    } else
+        qFatal("Error: Protected method QInputDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QInputDialog_SuperSender(const QInputDialog* self) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Sender_IsBase(true);
-        return vqinputdialog->sender();
-    } else {
-        return ((VirtualQInputDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDialog_OnSender(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_Sender_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QInputDialog_SenderSignalIndex(const QInputDialog* self) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return vqinputdialog->senderSignalIndex();
-    } else {
-        return ((VirtualQInputDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self))) {
+        return vqinputdialog->VirtualQInputDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QInputDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QInputDialog_SuperSenderSignalIndex(const QInputDialog* self) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_SenderSignalIndex_IsBase(true);
-        return vqinputdialog->senderSignalIndex();
-    } else {
-        return ((VirtualQInputDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDialog_OnSenderSignalIndex(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QInputDialog_Receivers(const QInputDialog* self, const char* signal) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return vqinputdialog->receivers(signal);
-    } else {
-        return ((VirtualQInputDialog*)self)->receivers(signal);
-    }
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self))) {
+        return vqinputdialog->VirtualQInputDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method QInputDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QInputDialog_SuperReceivers(const QInputDialog* self, const char* signal) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_Receivers_IsBase(true);
-        return vqinputdialog->receivers(signal);
-    } else {
-        return ((VirtualQInputDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDialog_OnReceivers(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_Receivers_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QInputDialog_IsSignalConnected(const QInputDialog* self, const QMetaMethod* signal) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return vqinputdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQInputDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self))) {
+        return vqinputdialog->VirtualQInputDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QInputDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QInputDialog_SuperIsSignalConnected(const QInputDialog* self, const QMetaMethod* signal) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_IsSignalConnected_IsBase(true);
-        return vqinputdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQInputDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDialog_OnIsSignalConnected(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QInputDialog_GetDecodedMetricF(const QInputDialog* self, int metricA, int metricB) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return vqinputdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQInputDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QInputDialog_SuperGetDecodedMetricF(const QInputDialog* self, int metricA, int metricB) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        vqinputdialog->setQInputDialog_GetDecodedMetricF_IsBase(true);
-        return vqinputdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQInputDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QInputDialog_OnGetDecodedMetricF(const QInputDialog* self, intptr_t slot) {
-    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog)
-        vqinputdialog->setQInputDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self))) {
+        return vqinputdialog->VirtualQInputDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QInputDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void QInputDialog_Delete(QInputDialog* self) {

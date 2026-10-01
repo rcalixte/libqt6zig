@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QPieSlice so that we can call protected methods
+// This class is a subclass of QPieSlice
 class VirtualQPieSlice final : public QPieSlice {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQPieSlice = true;
-
-    // Virtual class public types (including callbacks)
-    using QPieSlice_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QPieSlice_MetaObject_Callback = QMetaObject* (*)(const QPieSlice*);
     using QPieSlice_Metacast_Callback = void* (*)(QPieSlice*, const char*);
     using QPieSlice_Metacall_Callback = int (*)(QPieSlice*, int, int, void**);
     using QPieSlice_Event_Callback = bool (*)(QPieSlice*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQPieSlice final : public QPieSlice {
     using QPieSlice_CustomEvent_Callback = void (*)(QPieSlice*, QEvent*);
     using QPieSlice_ConnectNotify_Callback = void (*)(QPieSlice*, QMetaMethod*);
     using QPieSlice_DisconnectNotify_Callback = void (*)(QPieSlice*, QMetaMethod*);
-    using QPieSlice_Sender_Callback = QObject* (*)();
-    using QPieSlice_SenderSignalIndex_Callback = int (*)();
-    using QPieSlice_Receivers_Callback = int (*)(const QPieSlice*, const char*);
-    using QPieSlice_IsSignalConnected_Callback = bool (*)(const QPieSlice*, QMetaMethod*);
+    using QPieSlice::isSignalConnected;
+    using QPieSlice::receivers;
+    using QPieSlice::sender;
+    using QPieSlice::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QPieSlice_MetaObject_Callback qpieslice_metaobject_callback = nullptr;
     QPieSlice_Metacast_Callback qpieslice_metacast_callback = nullptr;
@@ -44,74 +39,25 @@ class VirtualQPieSlice final : public QPieSlice {
     QPieSlice_CustomEvent_Callback qpieslice_customevent_callback = nullptr;
     QPieSlice_ConnectNotify_Callback qpieslice_connectnotify_callback = nullptr;
     QPieSlice_DisconnectNotify_Callback qpieslice_disconnectnotify_callback = nullptr;
-    QPieSlice_Sender_Callback qpieslice_sender_callback = nullptr;
-    QPieSlice_SenderSignalIndex_Callback qpieslice_sendersignalindex_callback = nullptr;
-    QPieSlice_Receivers_Callback qpieslice_receivers_callback = nullptr;
-    QPieSlice_IsSignalConnected_Callback qpieslice_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qpieslice_metaobject_isbase = false;
-    mutable bool qpieslice_metacast_isbase = false;
-    mutable bool qpieslice_metacall_isbase = false;
-    mutable bool qpieslice_event_isbase = false;
-    mutable bool qpieslice_eventfilter_isbase = false;
-    mutable bool qpieslice_timerevent_isbase = false;
-    mutable bool qpieslice_childevent_isbase = false;
-    mutable bool qpieslice_customevent_isbase = false;
-    mutable bool qpieslice_connectnotify_isbase = false;
-    mutable bool qpieslice_disconnectnotify_isbase = false;
-    mutable bool qpieslice_sender_isbase = false;
-    mutable bool qpieslice_sendersignalindex_isbase = false;
-    mutable bool qpieslice_receivers_isbase = false;
-    mutable bool qpieslice_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QPieSlice {
+        using QPieSlice::childEvent;
+        using QPieSlice::connectNotify;
+        using QPieSlice::customEvent;
+        using QPieSlice::disconnectNotify;
+        using QPieSlice::timerEvent;
+    };
 
-  public:
     VirtualQPieSlice() : QPieSlice() {};
     VirtualQPieSlice(QString label, qreal value) : QPieSlice(label, value) {};
     VirtualQPieSlice(QObject* parent) : QPieSlice(parent) {};
     VirtualQPieSlice(QString label, qreal value, QObject* parent) : QPieSlice(label, value, parent) {};
 
-    // Callback setters
-    inline void setQPieSlice_MetaObject_Callback(QPieSlice_MetaObject_Callback cb) { qpieslice_metaobject_callback = cb; }
-    inline void setQPieSlice_Metacast_Callback(QPieSlice_Metacast_Callback cb) { qpieslice_metacast_callback = cb; }
-    inline void setQPieSlice_Metacall_Callback(QPieSlice_Metacall_Callback cb) { qpieslice_metacall_callback = cb; }
-    inline void setQPieSlice_Event_Callback(QPieSlice_Event_Callback cb) { qpieslice_event_callback = cb; }
-    inline void setQPieSlice_EventFilter_Callback(QPieSlice_EventFilter_Callback cb) { qpieslice_eventfilter_callback = cb; }
-    inline void setQPieSlice_TimerEvent_Callback(QPieSlice_TimerEvent_Callback cb) { qpieslice_timerevent_callback = cb; }
-    inline void setQPieSlice_ChildEvent_Callback(QPieSlice_ChildEvent_Callback cb) { qpieslice_childevent_callback = cb; }
-    inline void setQPieSlice_CustomEvent_Callback(QPieSlice_CustomEvent_Callback cb) { qpieslice_customevent_callback = cb; }
-    inline void setQPieSlice_ConnectNotify_Callback(QPieSlice_ConnectNotify_Callback cb) { qpieslice_connectnotify_callback = cb; }
-    inline void setQPieSlice_DisconnectNotify_Callback(QPieSlice_DisconnectNotify_Callback cb) { qpieslice_disconnectnotify_callback = cb; }
-    inline void setQPieSlice_Sender_Callback(QPieSlice_Sender_Callback cb) { qpieslice_sender_callback = cb; }
-    inline void setQPieSlice_SenderSignalIndex_Callback(QPieSlice_SenderSignalIndex_Callback cb) { qpieslice_sendersignalindex_callback = cb; }
-    inline void setQPieSlice_Receivers_Callback(QPieSlice_Receivers_Callback cb) { qpieslice_receivers_callback = cb; }
-    inline void setQPieSlice_IsSignalConnected_Callback(QPieSlice_IsSignalConnected_Callback cb) { qpieslice_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQPieSlice_MetaObject_IsBase(bool value) const { qpieslice_metaobject_isbase = value; }
-    inline void setQPieSlice_Metacast_IsBase(bool value) const { qpieslice_metacast_isbase = value; }
-    inline void setQPieSlice_Metacall_IsBase(bool value) const { qpieslice_metacall_isbase = value; }
-    inline void setQPieSlice_Event_IsBase(bool value) const { qpieslice_event_isbase = value; }
-    inline void setQPieSlice_EventFilter_IsBase(bool value) const { qpieslice_eventfilter_isbase = value; }
-    inline void setQPieSlice_TimerEvent_IsBase(bool value) const { qpieslice_timerevent_isbase = value; }
-    inline void setQPieSlice_ChildEvent_IsBase(bool value) const { qpieslice_childevent_isbase = value; }
-    inline void setQPieSlice_CustomEvent_IsBase(bool value) const { qpieslice_customevent_isbase = value; }
-    inline void setQPieSlice_ConnectNotify_IsBase(bool value) const { qpieslice_connectnotify_isbase = value; }
-    inline void setQPieSlice_DisconnectNotify_IsBase(bool value) const { qpieslice_disconnectnotify_isbase = value; }
-    inline void setQPieSlice_Sender_IsBase(bool value) const { qpieslice_sender_isbase = value; }
-    inline void setQPieSlice_SenderSignalIndex_IsBase(bool value) const { qpieslice_sendersignalindex_isbase = value; }
-    inline void setQPieSlice_Receivers_IsBase(bool value) const { qpieslice_receivers_isbase = value; }
-    inline void setQPieSlice_IsSignalConnected_IsBase(bool value) const { qpieslice_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qpieslice_metaobject_isbase) {
-            qpieslice_metaobject_isbase = false;
-            return QPieSlice::metaObject();
-        }
-        auto metaobject_cb = qpieslice_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qpieslice_metaobject_callback) {
+            QMetaObject* callback_ret = qpieslice_metaobject_callback(this);
             return callback_ret;
         }
         return QPieSlice::metaObject();
@@ -119,14 +65,9 @@ class VirtualQPieSlice final : public QPieSlice {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qpieslice_metacast_isbase) {
-            qpieslice_metacast_isbase = false;
-            return QPieSlice::qt_metacast(param1);
-        }
-        auto metacast_cb = qpieslice_metacast_callback;
-        if (metacast_cb) {
+        if (qpieslice_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qpieslice_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QPieSlice::qt_metacast(param1);
@@ -134,16 +75,11 @@ class VirtualQPieSlice final : public QPieSlice {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qpieslice_metacall_isbase) {
-            qpieslice_metacall_isbase = false;
-            return QPieSlice::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qpieslice_metacall_callback;
-        if (metacall_cb) {
+        if (qpieslice_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qpieslice_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QPieSlice::qt_metacall(param1, param2, param3);
@@ -151,14 +87,9 @@ class VirtualQPieSlice final : public QPieSlice {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qpieslice_event_isbase) {
-            qpieslice_event_isbase = false;
-            return QPieSlice::event(event);
-        }
-        auto event_cb = qpieslice_event_callback;
-        if (event_cb) {
+        if (qpieslice_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qpieslice_event_callback(this, cbval1);
             return callback_ret;
         }
         return QPieSlice::event(event);
@@ -166,15 +97,10 @@ class VirtualQPieSlice final : public QPieSlice {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qpieslice_eventfilter_isbase) {
-            qpieslice_eventfilter_isbase = false;
-            return QPieSlice::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qpieslice_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qpieslice_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qpieslice_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QPieSlice::eventFilter(watched, event);
@@ -182,15 +108,9 @@ class VirtualQPieSlice final : public QPieSlice {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qpieslice_timerevent_isbase) {
-            qpieslice_timerevent_isbase = false;
-            QPieSlice::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qpieslice_timerevent_callback;
-        if (timerevent_cb) {
+        if (qpieslice_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qpieslice_timerevent_callback(this, cbval1);
             return;
         }
         QPieSlice::timerEvent(event);
@@ -198,15 +118,9 @@ class VirtualQPieSlice final : public QPieSlice {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qpieslice_childevent_isbase) {
-            qpieslice_childevent_isbase = false;
-            QPieSlice::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qpieslice_childevent_callback;
-        if (childevent_cb) {
+        if (qpieslice_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qpieslice_childevent_callback(this, cbval1);
             return;
         }
         QPieSlice::childEvent(event);
@@ -214,15 +128,9 @@ class VirtualQPieSlice final : public QPieSlice {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qpieslice_customevent_isbase) {
-            qpieslice_customevent_isbase = false;
-            QPieSlice::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qpieslice_customevent_callback;
-        if (customevent_cb) {
+        if (qpieslice_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qpieslice_customevent_callback(this, cbval1);
             return;
         }
         QPieSlice::customEvent(event);
@@ -230,17 +138,11 @@ class VirtualQPieSlice final : public QPieSlice {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qpieslice_connectnotify_isbase) {
-            qpieslice_connectnotify_isbase = false;
-            QPieSlice::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qpieslice_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qpieslice_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qpieslice_connectnotify_callback(this, cbval1);
             return;
         }
         QPieSlice::connectNotify(signal);
@@ -248,101 +150,22 @@ class VirtualQPieSlice final : public QPieSlice {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qpieslice_disconnectnotify_isbase) {
-            qpieslice_disconnectnotify_isbase = false;
-            QPieSlice::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qpieslice_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qpieslice_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qpieslice_disconnectnotify_callback(this, cbval1);
             return;
         }
         QPieSlice::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qpieslice_sender_isbase) {
-            qpieslice_sender_isbase = false;
-            return QPieSlice::sender();
-        }
-        auto sender_cb = qpieslice_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QPieSlice::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qpieslice_sendersignalindex_isbase) {
-            qpieslice_sendersignalindex_isbase = false;
-            return QPieSlice::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qpieslice_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QPieSlice::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qpieslice_receivers_isbase) {
-            qpieslice_receivers_isbase = false;
-            return QPieSlice::receivers(signal);
-        }
-        auto receivers_cb = qpieslice_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QPieSlice::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qpieslice_issignalconnected_isbase) {
-            qpieslice_issignalconnected_isbase = false;
-            return QPieSlice::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qpieslice_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QPieSlice::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QPieSlice_TimerEvent(QPieSlice* self, QTimerEvent* event);
     friend void QPieSlice_SuperTimerEvent(QPieSlice* self, QTimerEvent* event);
-    friend void QPieSlice_ChildEvent(QPieSlice* self, QChildEvent* event);
     friend void QPieSlice_SuperChildEvent(QPieSlice* self, QChildEvent* event);
-    friend void QPieSlice_CustomEvent(QPieSlice* self, QEvent* event);
     friend void QPieSlice_SuperCustomEvent(QPieSlice* self, QEvent* event);
-    friend void QPieSlice_ConnectNotify(QPieSlice* self, const QMetaMethod* signal);
     friend void QPieSlice_SuperConnectNotify(QPieSlice* self, const QMetaMethod* signal);
-    friend void QPieSlice_DisconnectNotify(QPieSlice* self, const QMetaMethod* signal);
     friend void QPieSlice_SuperDisconnectNotify(QPieSlice* self, const QMetaMethod* signal);
-    friend QObject* QPieSlice_Sender(const QPieSlice* self);
-    friend QObject* QPieSlice_SuperSender(const QPieSlice* self);
-    friend int QPieSlice_SenderSignalIndex(const QPieSlice* self);
-    friend int QPieSlice_SuperSenderSignalIndex(const QPieSlice* self);
-    friend int QPieSlice_Receivers(const QPieSlice* self, const char* signal);
-    friend int QPieSlice_SuperReceivers(const QPieSlice* self, const char* signal);
-    friend bool QPieSlice_IsSignalConnected(const QPieSlice* self, const QMetaMethod* signal);
-    friend bool QPieSlice_SuperIsSignalConnected(const QPieSlice* self, const QMetaMethod* signal);
 };
 
 #endif

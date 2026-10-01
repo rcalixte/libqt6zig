@@ -100,490 +100,261 @@ libqt_string QDesignerFormWindowToolInterface_Tr3(const char* s, const char* c, 
 
 // Base class handler implementation
 QMetaObject* QDesignerFormWindowToolInterface_SuperMetaObject(const QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdesignerformwindowtoolinterface->metaObject();
-    } else {
-        return (QMetaObject*)self->QDesignerFormWindowToolInterface::metaObject();
-    }
+    return (QMetaObject*)self->QDesignerFormWindowToolInterface::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowToolInterface_OnMetaObject(const QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_MetaObject_Callback>(slot));
+void QDesignerFormWindowToolInterface_OnMetaObject(QDesignerFormWindowToolInterface* self, intptr_t slot) {
+    if (auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self)))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_metaobject_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDesignerFormWindowToolInterface_SuperMetacast(QDesignerFormWindowToolInterface* self, const char* param1) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Metacast_IsBase(true);
-        return vqdesignerformwindowtoolinterface->qt_metacast(param1);
-    } else {
-        return self->QDesignerFormWindowToolInterface::qt_metacast(param1);
-    }
+    return self->QDesignerFormWindowToolInterface::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowToolInterface_OnMetacast(QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Metacast_Callback>(slot));
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_metacast_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDesignerFormWindowToolInterface_SuperMetacall(QDesignerFormWindowToolInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Metacall_IsBase(true);
-        return vqdesignerformwindowtoolinterface->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDesignerFormWindowToolInterface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDesignerFormWindowToolInterface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowToolInterface_OnMetacall(QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Metacall_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-QDesignerFormEditorInterface* QDesignerFormWindowToolInterface_SuperCore(const QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Core_IsBase(true);
-        return vqdesignerformwindowtoolinterface->core();
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->core();
-    }
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_metacall_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowToolInterface_OnCore(const QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Core_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Core_Callback>(slot));
-}
-
-// Base class handler implementation
-QDesignerFormWindowInterface* QDesignerFormWindowToolInterface_SuperFormWindow(const QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_FormWindow_IsBase(true);
-        return vqdesignerformwindowtoolinterface->formWindow();
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->formWindow();
-    }
+void QDesignerFormWindowToolInterface_OnCore(QDesignerFormWindowToolInterface* self, intptr_t slot) {
+    if (auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self)))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_core_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Core_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowToolInterface_OnFormWindow(const QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_FormWindow_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_FormWindow_Callback>(slot));
-}
-
-// Base class handler implementation
-QWidget* QDesignerFormWindowToolInterface_SuperEditor(const QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Editor_IsBase(true);
-        return vqdesignerformwindowtoolinterface->editor();
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->editor();
-    }
+void QDesignerFormWindowToolInterface_OnFormWindow(QDesignerFormWindowToolInterface* self, intptr_t slot) {
+    if (auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self)))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_formwindow_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_FormWindow_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowToolInterface_OnEditor(const QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Editor_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Editor_Callback>(slot));
-}
-
-// Base class handler implementation
-QAction* QDesignerFormWindowToolInterface_SuperAction(const QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Action_IsBase(true);
-        return vqdesignerformwindowtoolinterface->action();
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->action();
-    }
+void QDesignerFormWindowToolInterface_OnEditor(QDesignerFormWindowToolInterface* self, intptr_t slot) {
+    if (auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self)))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_editor_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Editor_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowToolInterface_OnAction(const QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Action_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Action_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerFormWindowToolInterface_SuperActivated(QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Activated_IsBase(true);
-        vqdesignerformwindowtoolinterface->activated();
-    } else {
-        ((VirtualQDesignerFormWindowToolInterface*)self)->activated();
-    }
+void QDesignerFormWindowToolInterface_OnAction(QDesignerFormWindowToolInterface* self, intptr_t slot) {
+    if (auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self)))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_action_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Action_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowToolInterface_OnActivated(QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Activated_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Activated_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerFormWindowToolInterface_SuperDeactivated(QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Deactivated_IsBase(true);
-        vqdesignerformwindowtoolinterface->deactivated();
-    } else {
-        ((VirtualQDesignerFormWindowToolInterface*)self)->deactivated();
-    }
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_activated_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Activated_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowToolInterface_OnDeactivated(QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Deactivated_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Deactivated_Callback>(slot));
-}
-
-// Base class handler implementation
-bool QDesignerFormWindowToolInterface_SuperHandleEvent(QDesignerFormWindowToolInterface* self, QWidget* widget, QWidget* managedWidget, QEvent* event) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_HandleEvent_IsBase(true);
-        return vqdesignerformwindowtoolinterface->handleEvent(widget, managedWidget, event);
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->handleEvent(widget, managedWidget, event);
-    }
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_deactivated_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Deactivated_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowToolInterface_OnHandleEvent(QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_HandleEvent_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_HandleEvent_Callback>(slot));
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_handleevent_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_HandleEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerFormWindowToolInterface_Event(QDesignerFormWindowToolInterface* self, QEvent* event) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        return vqdesignerformwindowtoolinterface->event(event);
-    } else {
-        return self->QDesignerFormWindowToolInterface::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QDesignerFormWindowToolInterface_SuperEvent(QDesignerFormWindowToolInterface* self, QEvent* event) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Event_IsBase(true);
-        return vqdesignerformwindowtoolinterface->event(event);
-    } else {
-        return self->QDesignerFormWindowToolInterface::event(event);
-    }
+    return self->QDesignerFormWindowToolInterface::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowToolInterface_OnEvent(QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Event_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Event_Callback>(slot));
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_event_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerFormWindowToolInterface_EventFilter(QDesignerFormWindowToolInterface* self, QObject* watched, QEvent* event) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        return vqdesignerformwindowtoolinterface->eventFilter(watched, event);
-    } else {
-        return self->QDesignerFormWindowToolInterface::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDesignerFormWindowToolInterface_SuperEventFilter(QDesignerFormWindowToolInterface* self, QObject* watched, QEvent* event) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_EventFilter_IsBase(true);
-        return vqdesignerformwindowtoolinterface->eventFilter(watched, event);
-    } else {
-        return self->QDesignerFormWindowToolInterface::eventFilter(watched, event);
-    }
+    return self->QDesignerFormWindowToolInterface::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowToolInterface_OnEventFilter(QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_EventFilter_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_EventFilter_Callback>(slot));
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_eventfilter_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerFormWindowToolInterface_TimerEvent(QDesignerFormWindowToolInterface* self, QTimerEvent* event) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
+    if (vqdesignerformwindowtoolinterface) {
         vqdesignerformwindowtoolinterface->timerEvent(event);
     } else {
-        ((VirtualQDesignerFormWindowToolInterface*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDesignerFormWindowToolInterface::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerFormWindowToolInterface_SuperTimerEvent(QDesignerFormWindowToolInterface* self, QTimerEvent* event) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_TimerEvent_IsBase(true);
-        vqdesignerformwindowtoolinterface->timerEvent(event);
-    } else {
-        ((VirtualQDesignerFormWindowToolInterface*)self)->timerEvent(event);
-    }
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self)) {
+        vqdesignerformwindowtoolinterface->QDesignerFormWindowToolInterface::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerFormWindowToolInterface::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowToolInterface_OnTimerEvent(QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_TimerEvent_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_TimerEvent_Callback>(slot));
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_timerevent_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerFormWindowToolInterface_ChildEvent(QDesignerFormWindowToolInterface* self, QChildEvent* event) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
+    if (vqdesignerformwindowtoolinterface) {
         vqdesignerformwindowtoolinterface->childEvent(event);
     } else {
-        ((VirtualQDesignerFormWindowToolInterface*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDesignerFormWindowToolInterface::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerFormWindowToolInterface_SuperChildEvent(QDesignerFormWindowToolInterface* self, QChildEvent* event) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_ChildEvent_IsBase(true);
-        vqdesignerformwindowtoolinterface->childEvent(event);
-    } else {
-        ((VirtualQDesignerFormWindowToolInterface*)self)->childEvent(event);
-    }
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self)) {
+        vqdesignerformwindowtoolinterface->QDesignerFormWindowToolInterface::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerFormWindowToolInterface::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowToolInterface_OnChildEvent(QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_ChildEvent_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_ChildEvent_Callback>(slot));
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_childevent_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerFormWindowToolInterface_CustomEvent(QDesignerFormWindowToolInterface* self, QEvent* event) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
+    if (vqdesignerformwindowtoolinterface) {
         vqdesignerformwindowtoolinterface->customEvent(event);
     } else {
-        ((VirtualQDesignerFormWindowToolInterface*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDesignerFormWindowToolInterface::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerFormWindowToolInterface_SuperCustomEvent(QDesignerFormWindowToolInterface* self, QEvent* event) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_CustomEvent_IsBase(true);
-        vqdesignerformwindowtoolinterface->customEvent(event);
-    } else {
-        ((VirtualQDesignerFormWindowToolInterface*)self)->customEvent(event);
-    }
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self)) {
+        vqdesignerformwindowtoolinterface->QDesignerFormWindowToolInterface::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerFormWindowToolInterface::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowToolInterface_OnCustomEvent(QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_CustomEvent_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_CustomEvent_Callback>(slot));
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_customevent_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerFormWindowToolInterface_ConnectNotify(QDesignerFormWindowToolInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
+    if (vqdesignerformwindowtoolinterface) {
         vqdesignerformwindowtoolinterface->connectNotify(*signal);
     } else {
-        ((VirtualQDesignerFormWindowToolInterface*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDesignerFormWindowToolInterface::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerFormWindowToolInterface_SuperConnectNotify(QDesignerFormWindowToolInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_ConnectNotify_IsBase(true);
-        vqdesignerformwindowtoolinterface->connectNotify(*signal);
-    } else {
-        ((VirtualQDesignerFormWindowToolInterface*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self)) {
+        vqdesignerformwindowtoolinterface->QDesignerFormWindowToolInterface::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDesignerFormWindowToolInterface::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowToolInterface_OnConnectNotify(QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_ConnectNotify_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_ConnectNotify_Callback>(slot));
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_connectnotify_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerFormWindowToolInterface_DisconnectNotify(QDesignerFormWindowToolInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
+    if (vqdesignerformwindowtoolinterface) {
         vqdesignerformwindowtoolinterface->disconnectNotify(*signal);
     } else {
-        ((VirtualQDesignerFormWindowToolInterface*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDesignerFormWindowToolInterface::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerFormWindowToolInterface_SuperDisconnectNotify(QDesignerFormWindowToolInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_DisconnectNotify_IsBase(true);
-        vqdesignerformwindowtoolinterface->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDesignerFormWindowToolInterface*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self)) {
+        vqdesignerformwindowtoolinterface->QDesignerFormWindowToolInterface::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDesignerFormWindowToolInterface::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowToolInterface_OnDisconnectNotify(QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_DisconnectNotify_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_DisconnectNotify_Callback>(slot));
+    if (auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self))
+        vqdesignerformwindowtoolinterface->qdesignerformwindowtoolinterface_disconnectnotify_callback = reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDesignerFormWindowToolInterface_Sender(const QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        return vqdesignerformwindowtoolinterface->sender();
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->sender();
-    }
+    if (auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self))) {
+        return vqdesignerformwindowtoolinterface->VirtualQDesignerFormWindowToolInterface::sender();
+    } else
+        qFatal("Error: Protected method QDesignerFormWindowToolInterface::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDesignerFormWindowToolInterface_SuperSender(const QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Sender_IsBase(true);
-        return vqdesignerformwindowtoolinterface->sender();
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowToolInterface_OnSender(const QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Sender_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDesignerFormWindowToolInterface_SenderSignalIndex(const QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        return vqdesignerformwindowtoolinterface->senderSignalIndex();
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->senderSignalIndex();
-    }
+    if (auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self))) {
+        return vqdesignerformwindowtoolinterface->VirtualQDesignerFormWindowToolInterface::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDesignerFormWindowToolInterface::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDesignerFormWindowToolInterface_SuperSenderSignalIndex(const QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_SenderSignalIndex_IsBase(true);
-        return vqdesignerformwindowtoolinterface->senderSignalIndex();
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowToolInterface_OnSenderSignalIndex(const QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDesignerFormWindowToolInterface_Receivers(const QDesignerFormWindowToolInterface* self, const char* signal) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        return vqdesignerformwindowtoolinterface->receivers(signal);
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->receivers(signal);
-    }
+    if (auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self))) {
+        return vqdesignerformwindowtoolinterface->VirtualQDesignerFormWindowToolInterface::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDesignerFormWindowToolInterface::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDesignerFormWindowToolInterface_SuperReceivers(const QDesignerFormWindowToolInterface* self, const char* signal) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Receivers_IsBase(true);
-        return vqdesignerformwindowtoolinterface->receivers(signal);
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowToolInterface_OnReceivers(const QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Receivers_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDesignerFormWindowToolInterface_IsSignalConnected(const QDesignerFormWindowToolInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        return vqdesignerformwindowtoolinterface->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QDesignerFormWindowToolInterface_SuperIsSignalConnected(const QDesignerFormWindowToolInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_IsSignalConnected_IsBase(true);
-        return vqdesignerformwindowtoolinterface->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerFormWindowToolInterface_OnIsSignalConnected(const QDesignerFormWindowToolInterface* self, intptr_t slot) {
-    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface)
-        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_IsSignalConnected_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_IsSignalConnected_Callback>(slot));
+    if (auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self))) {
+        return vqdesignerformwindowtoolinterface->VirtualQDesignerFormWindowToolInterface::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDesignerFormWindowToolInterface::isSignalConnected called without a directly constructed type");
 }
 
 void QDesignerFormWindowToolInterface_Delete(QDesignerFormWindowToolInterface* self) {

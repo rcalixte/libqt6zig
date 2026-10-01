@@ -89,9 +89,9 @@ pub const QDesignerIntegrationInterface = extern struct {
     ///
     /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface) callconv(.c) QMetaObject) void {
         qtc.QDesignerIntegrationInterface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -256,6 +256,8 @@ pub const QDesignerIntegrationInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#containerWindow)
     ///
+    /// This method must be implemented with `onContainerWindow` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerIntegrationInterface `
@@ -285,30 +287,13 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_OnContainerWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superContainerWindow` instead
-    ///
-    pub const SuperContainerWindow = superContainerWindow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#containerWindow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn superContainerWindow(self: QDesignerIntegrationInterface, widget: anytype) QWidget {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        return .{ .ptr = qtc.QDesignerIntegrationInterface_SuperContainerWindow(@ptrCast(self.ptr), @ptrCast(widget.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `createResourceBrowser` instead
     ///
     pub const CreateResourceBrowser = createResourceBrowser;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#createResourceBrowser)
+    ///
+    /// This method must be implemented with `onCreateResourceBrowser` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -339,30 +324,13 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_OnCreateResourceBrowser(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superCreateResourceBrowser` instead
-    ///
-    pub const SuperCreateResourceBrowser = superCreateResourceBrowser;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#createResourceBrowser)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` _parent: QWidget `
-    ///
-    pub fn superCreateResourceBrowser(self: QDesignerIntegrationInterface, _parent: anytype) QDesignerResourceBrowserInterface {
-        comptime _ = @TypeOf(_parent)._is_QWidget;
-        return .{ .ptr = qtc.QDesignerIntegrationInterface_SuperCreateResourceBrowser(@ptrCast(self.ptr), @ptrCast(_parent.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `headerSuffix` instead
     ///
     pub const HeaderSuffix = headerSuffix;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#headerSuffix)
+    ///
+    /// This method must be implemented with `onHeaderSuffix` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -390,32 +358,10 @@ pub const QDesignerIntegrationInterface = extern struct {
     ///
     /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onHeaderSuffix(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onHeaderSuffix(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface) callconv(.c) [*:0]const u8) void {
         qtc.QDesignerIntegrationInterface_OnHeaderSuffix(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHeaderSuffix` instead
-    ///
-    pub const SuperHeaderSuffix = superHeaderSuffix;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#headerSuffix)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superHeaderSuffix(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerIntegrationInterface_SuperHeaderSuffix(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegrationInterface.headerSuffix: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `setHeaderSuffix` instead
@@ -423,6 +369,8 @@ pub const QDesignerIntegrationInterface = extern struct {
     pub const SetHeaderSuffix = setHeaderSuffix;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setHeaderSuffix)
+    ///
+    /// This method must be implemented with `onSetHeaderSuffix` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -456,33 +404,13 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_OnSetHeaderSuffix(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetHeaderSuffix` instead
-    ///
-    pub const SuperSetHeaderSuffix = superSetHeaderSuffix;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setHeaderSuffix)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` _headerSuffix: []const u8 `
-    ///
-    pub fn superSetHeaderSuffix(self: QDesignerIntegrationInterface, _headerSuffix: []const u8) void {
-        const headerSuffix_str = qtc.libqt_string{
-            .len = _headerSuffix.len,
-            .data = _headerSuffix.ptr,
-        };
-        qtc.QDesignerIntegrationInterface_SuperSetHeaderSuffix(@ptrCast(self.ptr), headerSuffix_str);
-    }
-
     /// ### DEPRECATED: Use `isHeaderLowercase` instead
     ///
     pub const IsHeaderLowercase = isHeaderLowercase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#isHeaderLowercase)
+    ///
+    /// This method must be implemented with `onIsHeaderLowercase` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -504,26 +432,10 @@ pub const QDesignerIntegrationInterface = extern struct {
     ///
     /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface) callconv(.c) bool `
     ///
-    pub fn onIsHeaderLowercase(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsHeaderLowercase(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface) callconv(.c) bool) void {
         qtc.QDesignerIntegrationInterface_OnIsHeaderLowercase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superIsHeaderLowercase` instead
-    ///
-    pub const SuperIsHeaderLowercase = superIsHeaderLowercase;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#isHeaderLowercase)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    pub fn superIsHeaderLowercase(self: QDesignerIntegrationInterface) bool {
-        return qtc.QDesignerIntegrationInterface_SuperIsHeaderLowercase(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setHeaderLowercase` instead
@@ -531,6 +443,8 @@ pub const QDesignerIntegrationInterface = extern struct {
     pub const SetHeaderLowercase = setHeaderLowercase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setHeaderLowercase)
+    ///
+    /// This method must be implemented with `onSetHeaderLowercase` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -560,29 +474,13 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_OnSetHeaderLowercase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetHeaderLowercase` instead
-    ///
-    pub const SuperSetHeaderLowercase = superSetHeaderLowercase;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setHeaderLowercase)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` headerLowerCase: bool `
-    ///
-    pub fn superSetHeaderLowercase(self: QDesignerIntegrationInterface, headerLowerCase: bool) void {
-        qtc.QDesignerIntegrationInterface_SuperSetHeaderLowercase(@ptrCast(self.ptr), headerLowerCase);
-    }
-
     /// ### DEPRECATED: Use `features` instead
     ///
     pub const Features = features;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#features)
+    ///
+    /// This method must be implemented with `onFeatures` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -608,30 +506,10 @@ pub const QDesignerIntegrationInterface = extern struct {
     ///
     /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface) callconv(.c) i32 `
     ///
-    pub fn onFeatures(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onFeatures(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface) callconv(.c) i32) void {
         qtc.QDesignerIntegrationInterface_OnFeatures(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superFeatures` instead
-    ///
-    pub const SuperFeatures = superFeatures;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#features)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ## Returns:
-    ///
-    /// ` flag of abstractintegration_enums.FeatureFlag `
-    ///
-    pub fn superFeatures(self: QDesignerIntegrationInterface) i32 {
-        return qtc.QDesignerIntegrationInterface_SuperFeatures(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `hasFeature` instead
@@ -655,6 +533,8 @@ pub const QDesignerIntegrationInterface = extern struct {
     pub const ResourceFileWatcherBehaviour = resourceFileWatcherBehaviour;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#resourceFileWatcherBehaviour)
+    ///
+    /// This method must be implemented with `onResourceFileWatcherBehaviour` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -680,30 +560,10 @@ pub const QDesignerIntegrationInterface = extern struct {
     ///
     /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface) callconv(.c) i32 `
     ///
-    pub fn onResourceFileWatcherBehaviour(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onResourceFileWatcherBehaviour(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface) callconv(.c) i32) void {
         qtc.QDesignerIntegrationInterface_OnResourceFileWatcherBehaviour(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superResourceFileWatcherBehaviour` instead
-    ///
-    pub const SuperResourceFileWatcherBehaviour = superResourceFileWatcherBehaviour;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#resourceFileWatcherBehaviour)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ## Returns:
-    ///
-    /// ` abstractintegration_enums.ResourceFileWatcherBehaviour `
-    ///
-    pub fn superResourceFileWatcherBehaviour(self: QDesignerIntegrationInterface) i32 {
-        return qtc.QDesignerIntegrationInterface_SuperResourceFileWatcherBehaviour(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setResourceFileWatcherBehaviour` instead
@@ -711,6 +571,8 @@ pub const QDesignerIntegrationInterface = extern struct {
     pub const SetResourceFileWatcherBehaviour = setResourceFileWatcherBehaviour;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setResourceFileWatcherBehaviour)
+    ///
+    /// This method must be implemented with `onSetResourceFileWatcherBehaviour` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -740,29 +602,13 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_OnSetResourceFileWatcherBehaviour(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetResourceFileWatcherBehaviour` instead
-    ///
-    pub const SuperSetResourceFileWatcherBehaviour = superSetResourceFileWatcherBehaviour;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setResourceFileWatcherBehaviour)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour `
-    ///
-    pub fn superSetResourceFileWatcherBehaviour(self: QDesignerIntegrationInterface, behaviour: i32) void {
-        qtc.QDesignerIntegrationInterface_SuperSetResourceFileWatcherBehaviour(@ptrCast(self.ptr), @bitCast(behaviour));
-    }
-
     /// ### DEPRECATED: Use `contextHelpId` instead
     ///
     pub const ContextHelpId = contextHelpId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#contextHelpId)
+    ///
+    /// This method must be implemented with `onContextHelpId` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -790,32 +636,10 @@ pub const QDesignerIntegrationInterface = extern struct {
     ///
     /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onContextHelpId(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onContextHelpId(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface) callconv(.c) [*:0]const u8) void {
         qtc.QDesignerIntegrationInterface_OnContextHelpId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superContextHelpId` instead
-    ///
-    pub const SuperContextHelpId = superContextHelpId;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#contextHelpId)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superContextHelpId(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerIntegrationInterface_SuperContextHelpId(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegrationInterface.contextHelpId: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `emitObjectNameChanged` instead
@@ -1168,6 +992,8 @@ pub const QDesignerIntegrationInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setFeatures)
     ///
+    /// This method must be implemented with `onSetFeatures` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerIntegrationInterface `
@@ -1196,29 +1022,13 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_OnSetFeatures(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetFeatures` instead
-    ///
-    pub const SuperSetFeatures = superSetFeatures;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setFeatures)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` f: flag of abstractintegration_enums.FeatureFlag `
-    ///
-    pub fn superSetFeatures(self: QDesignerIntegrationInterface, f: i32) void {
-        qtc.QDesignerIntegrationInterface_SuperSetFeatures(@ptrCast(self.ptr), @bitCast(f));
-    }
-
     /// ### DEPRECATED: Use `updateProperty` instead
     ///
     pub const UpdateProperty = updateProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
+    ///
+    /// This method must be implemented with `onUpdateProperty` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1257,38 +1067,13 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_OnUpdateProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superUpdateProperty` instead
-    ///
-    pub const SuperUpdateProperty = superUpdateProperty;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` name: []const u8 `
-    ///
-    /// ` value: QVariant `
-    ///
-    /// ` enableSubPropertyHandling: bool `
-    ///
-    pub fn superUpdateProperty(self: QDesignerIntegrationInterface, name: []const u8, value: anytype, enableSubPropertyHandling: bool) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QDesignerIntegrationInterface_SuperUpdateProperty(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr), enableSubPropertyHandling);
-    }
-
     /// ### DEPRECATED: Use `updateProperty2` instead
     ///
     pub const UpdateProperty2 = updateProperty2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
+    ///
+    /// This method must be implemented with `onUpdateProperty2` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1325,36 +1110,13 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_OnUpdateProperty2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superUpdateProperty2` instead
-    ///
-    pub const SuperUpdateProperty2 = superUpdateProperty2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` name: []const u8 `
-    ///
-    /// ` value: QVariant `
-    ///
-    pub fn superUpdateProperty2(self: QDesignerIntegrationInterface, name: []const u8, value: anytype) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QDesignerIntegrationInterface_SuperUpdateProperty2(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
-    }
-
     /// ### DEPRECATED: Use `resetProperty` instead
     ///
     pub const ResetProperty = resetProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#resetProperty)
+    ///
+    /// This method must be implemented with `onResetProperty` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1388,33 +1150,13 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_OnResetProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superResetProperty` instead
-    ///
-    pub const SuperResetProperty = superResetProperty;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#resetProperty)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` name: []const u8 `
-    ///
-    pub fn superResetProperty(self: QDesignerIntegrationInterface, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QDesignerIntegrationInterface_SuperResetProperty(@ptrCast(self.ptr), name_str);
-    }
-
     /// ### DEPRECATED: Use `addDynamicProperty` instead
     ///
     pub const AddDynamicProperty = addDynamicProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#addDynamicProperty)
+    ///
+    /// This method must be implemented with `onAddDynamicProperty` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1451,36 +1193,13 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_OnAddDynamicProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superAddDynamicProperty` instead
-    ///
-    pub const SuperAddDynamicProperty = superAddDynamicProperty;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#addDynamicProperty)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` name: []const u8 `
-    ///
-    /// ` value: QVariant `
-    ///
-    pub fn superAddDynamicProperty(self: QDesignerIntegrationInterface, name: []const u8, value: anytype) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QDesignerIntegrationInterface_SuperAddDynamicProperty(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
-    }
-
     /// ### DEPRECATED: Use `removeDynamicProperty` instead
     ///
     pub const RemoveDynamicProperty = removeDynamicProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#removeDynamicProperty)
+    ///
+    /// This method must be implemented with `onRemoveDynamicProperty` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1514,33 +1233,13 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_OnRemoveDynamicProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superRemoveDynamicProperty` instead
-    ///
-    pub const SuperRemoveDynamicProperty = superRemoveDynamicProperty;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#removeDynamicProperty)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` name: []const u8 `
-    ///
-    pub fn superRemoveDynamicProperty(self: QDesignerIntegrationInterface, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QDesignerIntegrationInterface_SuperRemoveDynamicProperty(@ptrCast(self.ptr), name_str);
-    }
-
     /// ### DEPRECATED: Use `updateActiveFormWindow` instead
     ///
     pub const UpdateActiveFormWindow = updateActiveFormWindow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateActiveFormWindow)
+    ///
+    /// This method must be implemented with `onUpdateActiveFormWindow` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1571,30 +1270,13 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_OnUpdateActiveFormWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superUpdateActiveFormWindow` instead
-    ///
-    pub const SuperUpdateActiveFormWindow = superUpdateActiveFormWindow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateActiveFormWindow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` formWindow: QDesignerFormWindowInterface `
-    ///
-    pub fn superUpdateActiveFormWindow(self: QDesignerIntegrationInterface, formWindow: anytype) void {
-        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
-        qtc.QDesignerIntegrationInterface_SuperUpdateActiveFormWindow(@ptrCast(self.ptr), @ptrCast(formWindow.ptr));
-    }
-
     /// ### DEPRECATED: Use `setupFormWindow` instead
     ///
     pub const SetupFormWindow = setupFormWindow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setupFormWindow)
+    ///
+    /// This method must be implemented with `onSetupFormWindow` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1625,30 +1307,13 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_OnSetupFormWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetupFormWindow` instead
-    ///
-    pub const SuperSetupFormWindow = superSetupFormWindow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setupFormWindow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` formWindow: QDesignerFormWindowInterface `
-    ///
-    pub fn superSetupFormWindow(self: QDesignerIntegrationInterface, formWindow: anytype) void {
-        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
-        qtc.QDesignerIntegrationInterface_SuperSetupFormWindow(@ptrCast(self.ptr), @ptrCast(formWindow.ptr));
-    }
-
     /// ### DEPRECATED: Use `updateSelection` instead
     ///
     pub const UpdateSelection = updateSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateSelection)
+    ///
+    /// This method must be implemented with `onUpdateSelection` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1670,26 +1335,10 @@ pub const QDesignerIntegrationInterface = extern struct {
     ///
     /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface) callconv(.c) void `
     ///
-    pub fn onUpdateSelection(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateSelection(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface) callconv(.c) void) void {
         qtc.QDesignerIntegrationInterface_OnUpdateSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateSelection` instead
-    ///
-    pub const SuperUpdateSelection = superUpdateSelection;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateSelection)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    pub fn superUpdateSelection(self: QDesignerIntegrationInterface) void {
-        qtc.QDesignerIntegrationInterface_SuperUpdateSelection(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `updateCustomWidgetPlugins` instead
@@ -1697,6 +1346,8 @@ pub const QDesignerIntegrationInterface = extern struct {
     pub const UpdateCustomWidgetPlugins = updateCustomWidgetPlugins;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateCustomWidgetPlugins)
+    ///
+    /// This method must be implemented with `onUpdateCustomWidgetPlugins` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1718,26 +1369,10 @@ pub const QDesignerIntegrationInterface = extern struct {
     ///
     /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface) callconv(.c) void `
     ///
-    pub fn onUpdateCustomWidgetPlugins(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateCustomWidgetPlugins(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface) callconv(.c) void) void {
         qtc.QDesignerIntegrationInterface_OnUpdateCustomWidgetPlugins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateCustomWidgetPlugins` instead
-    ///
-    pub const SuperUpdateCustomWidgetPlugins = superUpdateCustomWidgetPlugins;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateCustomWidgetPlugins)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    pub fn superUpdateCustomWidgetPlugins(self: QDesignerIntegrationInterface) void {
-        qtc.QDesignerIntegrationInterface_SuperUpdateCustomWidgetPlugins(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -3217,44 +2852,6 @@ pub const QDesignerIntegrationInterface = extern struct {
         return .{ .ptr = qtc.QDesignerIntegrationInterface_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    pub fn superSender(self: QDesignerIntegrationInterface) QObject {
-        return .{ .ptr = qtc.QDesignerIntegrationInterface_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerIntegrationInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QDesignerIntegrationInterface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3271,44 +2868,6 @@ pub const QDesignerIntegrationInterface = extern struct {
     ///
     pub fn senderSignalIndex(self: QDesignerIntegrationInterface) i32 {
         return qtc.QDesignerIntegrationInterface_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    pub fn superSenderSignalIndex(self: QDesignerIntegrationInterface) i32 {
-        return qtc.QDesignerIntegrationInterface_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerIntegrationInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerIntegrationInterface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3332,47 +2891,6 @@ pub const QDesignerIntegrationInterface = extern struct {
         return qtc.QDesignerIntegrationInterface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QDesignerIntegrationInterface, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QDesignerIntegrationInterface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerIntegrationInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerIntegrationInterface, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerIntegrationInterface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3392,47 +2910,6 @@ pub const QDesignerIntegrationInterface = extern struct {
     pub fn isSignalConnected(self: QDesignerIntegrationInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerIntegrationInterface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegrationInterface `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QDesignerIntegrationInterface, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QDesignerIntegrationInterface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerIntegrationInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerIntegrationInterface, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QMetaMethod) callconv(.c) bool) void {
-        qtc.QDesignerIntegrationInterface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead
@@ -3523,9 +3000,9 @@ pub const QDesignerIntegration = extern struct {
     ///
     /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QDesignerIntegration) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QDesignerIntegration, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration) callconv(.c) QMetaObject) void {
         qtc.QDesignerIntegration_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3702,9 +3179,9 @@ pub const QDesignerIntegration = extern struct {
     ///
     /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QDesignerIntegration) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onHeaderSuffix(self: QDesignerIntegration, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onHeaderSuffix(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration) callconv(.c) [*:0]const u8) void {
         qtc.QDesignerIntegration_OnHeaderSuffix(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3816,9 +3293,9 @@ pub const QDesignerIntegration = extern struct {
     ///
     /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerIntegration) callconv(.c) bool `
     ///
-    pub fn onIsHeaderLowercase(self: QDesignerIntegration, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsHeaderLowercase(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration) callconv(.c) bool) void {
         qtc.QDesignerIntegration_OnIsHeaderLowercase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3920,9 +3397,9 @@ pub const QDesignerIntegration = extern struct {
     ///
     /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerIntegration) callconv(.c) i32 `
     ///
-    pub fn onFeatures(self: QDesignerIntegration, callback: *const fn () callconv(.c) i32) void {
+    pub fn onFeatures(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration) callconv(.c) i32) void {
         qtc.QDesignerIntegration_OnFeatures(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4028,9 +3505,9 @@ pub const QDesignerIntegration = extern struct {
     ///
     /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerIntegration) callconv(.c) i32 `
     ///
-    pub fn onResourceFileWatcherBehaviour(self: QDesignerIntegration, callback: *const fn () callconv(.c) i32) void {
+    pub fn onResourceFileWatcherBehaviour(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration) callconv(.c) i32) void {
         qtc.QDesignerIntegration_OnResourceFileWatcherBehaviour(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4261,9 +3738,9 @@ pub const QDesignerIntegration = extern struct {
     ///
     /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QDesignerIntegration) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onContextHelpId(self: QDesignerIntegration, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onContextHelpId(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration) callconv(.c) [*:0]const u8) void {
         qtc.QDesignerIntegration_OnContextHelpId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4745,9 +4222,9 @@ pub const QDesignerIntegration = extern struct {
     ///
     /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration) callconv(.c) void `
     ///
-    pub fn onUpdateSelection(self: QDesignerIntegration, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateSelection(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration) callconv(.c) void) void {
         qtc.QDesignerIntegration_OnUpdateSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4793,9 +4270,9 @@ pub const QDesignerIntegration = extern struct {
     ///
     /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration) callconv(.c) void `
     ///
-    pub fn onUpdateCustomWidgetPlugins(self: QDesignerIntegration, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateCustomWidgetPlugins(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration) callconv(.c) void) void {
         qtc.QDesignerIntegration_OnUpdateCustomWidgetPlugins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6698,44 +6175,6 @@ pub const QDesignerIntegration = extern struct {
         return .{ .ptr = qtc.QDesignerIntegration_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegration `
-    ///
-    pub fn superSender(self: QDesignerIntegration) QObject {
-        return .{ .ptr = qtc.QDesignerIntegration_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerIntegration`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QDesignerIntegration, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QDesignerIntegration_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -6752,44 +6191,6 @@ pub const QDesignerIntegration = extern struct {
     ///
     pub fn senderSignalIndex(self: QDesignerIntegration) i32 {
         return qtc.QDesignerIntegration_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegration `
-    ///
-    pub fn superSenderSignalIndex(self: QDesignerIntegration) i32 {
-        return qtc.QDesignerIntegration_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerIntegration`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QDesignerIntegration, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerIntegration_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -6813,47 +6214,6 @@ pub const QDesignerIntegration = extern struct {
         return qtc.QDesignerIntegration_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegration `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QDesignerIntegration, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QDesignerIntegration_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerIntegration`
-    ///
-    /// ` callback: *const fn (self: QDesignerIntegration, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerIntegration_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -6873,47 +6233,6 @@ pub const QDesignerIntegration = extern struct {
     pub fn isSignalConnected(self: QDesignerIntegration, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerIntegration_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerIntegration `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QDesignerIntegration, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QDesignerIntegration_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerIntegration`
-    ///
-    /// ` callback: *const fn (self: QDesignerIntegration, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QMetaMethod) callconv(.c) bool) void {
-        qtc.QDesignerIntegration_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

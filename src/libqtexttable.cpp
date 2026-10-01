@@ -228,364 +228,219 @@ libqt_string QTextTable_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QTextTable_SuperMetaObject(const QTextTable* self) {
-    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        vqtexttable->setQTextTable_MetaObject_IsBase(true);
-        return (QMetaObject*)vqtexttable->metaObject();
-    } else {
-        return (QMetaObject*)self->QTextTable::metaObject();
-    }
+    return (QMetaObject*)self->QTextTable::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTextTable_OnMetaObject(const QTextTable* self, intptr_t slot) {
-    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable)
-        vqtexttable->setQTextTable_MetaObject_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_MetaObject_Callback>(slot));
+void QTextTable_OnMetaObject(QTextTable* self, intptr_t slot) {
+    if (auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self)))
+        vqtexttable->qtexttable_metaobject_callback = reinterpret_cast<VirtualQTextTable::QTextTable_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QTextTable_SuperMetacast(QTextTable* self, const char* param1) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        vqtexttable->setQTextTable_Metacast_IsBase(true);
-        return vqtexttable->qt_metacast(param1);
-    } else {
-        return self->QTextTable::qt_metacast(param1);
-    }
+    return self->QTextTable::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnMetacast(QTextTable* self, intptr_t slot) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable)
-        vqtexttable->setQTextTable_Metacast_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_Metacast_Callback>(slot));
+    if (auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self))
+        vqtexttable->qtexttable_metacast_callback = reinterpret_cast<VirtualQTextTable::QTextTable_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QTextTable_SuperMetacall(QTextTable* self, int param1, int param2, void** param3) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        vqtexttable->setQTextTable_Metacall_IsBase(true);
-        return vqtexttable->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QTextTable::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QTextTable::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnMetacall(QTextTable* self, intptr_t slot) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable)
-        vqtexttable->setQTextTable_Metacall_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_Metacall_Callback>(slot));
+    if (auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self))
+        vqtexttable->qtexttable_metacall_callback = reinterpret_cast<VirtualQTextTable::QTextTable_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTextTable_Event(QTextTable* self, QEvent* event) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        return vqtexttable->event(event);
-    } else {
-        return self->QTextTable::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QTextTable_SuperEvent(QTextTable* self, QEvent* event) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        vqtexttable->setQTextTable_Event_IsBase(true);
-        return vqtexttable->event(event);
-    } else {
-        return self->QTextTable::event(event);
-    }
+    return self->QTextTable::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnEvent(QTextTable* self, intptr_t slot) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable)
-        vqtexttable->setQTextTable_Event_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_Event_Callback>(slot));
+    if (auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self))
+        vqtexttable->qtexttable_event_callback = reinterpret_cast<VirtualQTextTable::QTextTable_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTextTable_EventFilter(QTextTable* self, QObject* watched, QEvent* event) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        return vqtexttable->eventFilter(watched, event);
-    } else {
-        return self->QTextTable::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QTextTable_SuperEventFilter(QTextTable* self, QObject* watched, QEvent* event) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        vqtexttable->setQTextTable_EventFilter_IsBase(true);
-        return vqtexttable->eventFilter(watched, event);
-    } else {
-        return self->QTextTable::eventFilter(watched, event);
-    }
+    return self->QTextTable::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnEventFilter(QTextTable* self, intptr_t slot) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable)
-        vqtexttable->setQTextTable_EventFilter_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_EventFilter_Callback>(slot));
+    if (auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self))
+        vqtexttable->qtexttable_eventfilter_callback = reinterpret_cast<VirtualQTextTable::QTextTable_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextTable_TimerEvent(QTextTable* self, QTimerEvent* event) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable) {
         vqtexttable->timerEvent(event);
     } else {
-        ((VirtualQTextTable*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QTextTable::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextTable_SuperTimerEvent(QTextTable* self, QTimerEvent* event) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        vqtexttable->setQTextTable_TimerEvent_IsBase(true);
-        vqtexttable->timerEvent(event);
-    } else {
-        ((VirtualQTextTable*)self)->timerEvent(event);
-    }
+    if (auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self)) {
+        vqtexttable->QTextTable::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTextTable::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnTimerEvent(QTextTable* self, intptr_t slot) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable)
-        vqtexttable->setQTextTable_TimerEvent_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_TimerEvent_Callback>(slot));
+    if (auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self))
+        vqtexttable->qtexttable_timerevent_callback = reinterpret_cast<VirtualQTextTable::QTextTable_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextTable_ChildEvent(QTextTable* self, QChildEvent* event) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable) {
         vqtexttable->childEvent(event);
     } else {
-        ((VirtualQTextTable*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QTextTable::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextTable_SuperChildEvent(QTextTable* self, QChildEvent* event) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        vqtexttable->setQTextTable_ChildEvent_IsBase(true);
-        vqtexttable->childEvent(event);
-    } else {
-        ((VirtualQTextTable*)self)->childEvent(event);
-    }
+    if (auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self)) {
+        vqtexttable->QTextTable::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTextTable::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnChildEvent(QTextTable* self, intptr_t slot) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable)
-        vqtexttable->setQTextTable_ChildEvent_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_ChildEvent_Callback>(slot));
+    if (auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self))
+        vqtexttable->qtexttable_childevent_callback = reinterpret_cast<VirtualQTextTable::QTextTable_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextTable_CustomEvent(QTextTable* self, QEvent* event) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable) {
         vqtexttable->customEvent(event);
     } else {
-        ((VirtualQTextTable*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QTextTable::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextTable_SuperCustomEvent(QTextTable* self, QEvent* event) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        vqtexttable->setQTextTable_CustomEvent_IsBase(true);
-        vqtexttable->customEvent(event);
-    } else {
-        ((VirtualQTextTable*)self)->customEvent(event);
-    }
+    if (auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self)) {
+        vqtexttable->QTextTable::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTextTable::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnCustomEvent(QTextTable* self, intptr_t slot) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable)
-        vqtexttable->setQTextTable_CustomEvent_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_CustomEvent_Callback>(slot));
+    if (auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self))
+        vqtexttable->qtexttable_customevent_callback = reinterpret_cast<VirtualQTextTable::QTextTable_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextTable_ConnectNotify(QTextTable* self, const QMetaMethod* signal) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable) {
         vqtexttable->connectNotify(*signal);
     } else {
-        ((VirtualQTextTable*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QTextTable::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextTable_SuperConnectNotify(QTextTable* self, const QMetaMethod* signal) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        vqtexttable->setQTextTable_ConnectNotify_IsBase(true);
-        vqtexttable->connectNotify(*signal);
-    } else {
-        ((VirtualQTextTable*)self)->connectNotify(*signal);
-    }
+    if (auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self)) {
+        vqtexttable->QTextTable::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTextTable::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnConnectNotify(QTextTable* self, intptr_t slot) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable)
-        vqtexttable->setQTextTable_ConnectNotify_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_ConnectNotify_Callback>(slot));
+    if (auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self))
+        vqtexttable->qtexttable_connectnotify_callback = reinterpret_cast<VirtualQTextTable::QTextTable_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextTable_DisconnectNotify(QTextTable* self, const QMetaMethod* signal) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable) {
         vqtexttable->disconnectNotify(*signal);
     } else {
-        ((VirtualQTextTable*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QTextTable::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextTable_SuperDisconnectNotify(QTextTable* self, const QMetaMethod* signal) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        vqtexttable->setQTextTable_DisconnectNotify_IsBase(true);
-        vqtexttable->disconnectNotify(*signal);
-    } else {
-        ((VirtualQTextTable*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self)) {
+        vqtexttable->QTextTable::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTextTable::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnDisconnectNotify(QTextTable* self, intptr_t slot) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable)
-        vqtexttable->setQTextTable_DisconnectNotify_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_DisconnectNotify_Callback>(slot));
+    if (auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self))
+        vqtexttable->qtexttable_disconnectnotify_callback = reinterpret_cast<VirtualQTextTable::QTextTable_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QTextTable_Sender(const QTextTable* self) {
-    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        return vqtexttable->sender();
-    } else {
-        return ((VirtualQTextTable*)self)->sender();
-    }
+    if (auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self))) {
+        return vqtexttable->VirtualQTextTable::sender();
+    } else
+        qFatal("Error: Protected method QTextTable::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QTextTable_SuperSender(const QTextTable* self) {
-    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        vqtexttable->setQTextTable_Sender_IsBase(true);
-        return vqtexttable->sender();
-    } else {
-        return ((VirtualQTextTable*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextTable_OnSender(const QTextTable* self, intptr_t slot) {
-    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable)
-        vqtexttable->setQTextTable_Sender_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTextTable_SenderSignalIndex(const QTextTable* self) {
-    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        return vqtexttable->senderSignalIndex();
-    } else {
-        return ((VirtualQTextTable*)self)->senderSignalIndex();
-    }
+    if (auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self))) {
+        return vqtexttable->VirtualQTextTable::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QTextTable::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTextTable_SuperSenderSignalIndex(const QTextTable* self) {
-    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        vqtexttable->setQTextTable_SenderSignalIndex_IsBase(true);
-        return vqtexttable->senderSignalIndex();
-    } else {
-        return ((VirtualQTextTable*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextTable_OnSenderSignalIndex(const QTextTable* self, intptr_t slot) {
-    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable)
-        vqtexttable->setQTextTable_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTextTable_Receivers(const QTextTable* self, const char* signal) {
-    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        return vqtexttable->receivers(signal);
-    } else {
-        return ((VirtualQTextTable*)self)->receivers(signal);
-    }
+    if (auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self))) {
+        return vqtexttable->VirtualQTextTable::receivers(signal);
+    } else
+        qFatal("Error: Protected method QTextTable::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTextTable_SuperReceivers(const QTextTable* self, const char* signal) {
-    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        vqtexttable->setQTextTable_Receivers_IsBase(true);
-        return vqtexttable->receivers(signal);
-    } else {
-        return ((VirtualQTextTable*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextTable_OnReceivers(const QTextTable* self, intptr_t slot) {
-    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable)
-        vqtexttable->setQTextTable_Receivers_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTextTable_IsSignalConnected(const QTextTable* self, const QMetaMethod* signal) {
-    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        return vqtexttable->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTextTable*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QTextTable_SuperIsSignalConnected(const QTextTable* self, const QMetaMethod* signal) {
-    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        vqtexttable->setQTextTable_IsSignalConnected_IsBase(true);
-        return vqtexttable->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTextTable*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextTable_OnIsSignalConnected(const QTextTable* self, intptr_t slot) {
-    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable)
-        vqtexttable->setQTextTable_IsSignalConnected_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_IsSignalConnected_Callback>(slot));
+    if (auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self))) {
+        return vqtexttable->VirtualQTextTable::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QTextTable::isSignalConnected called without a directly constructed type");
 }
 
 void QTextTable_Delete(QTextTable* self) {

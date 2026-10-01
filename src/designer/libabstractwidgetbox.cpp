@@ -175,1911 +175,1251 @@ libqt_string QDesignerWidgetBoxInterface_Tr3(const char* s, const char* c, int n
 
 // Base class handler implementation
 QMetaObject* QDesignerWidgetBoxInterface_SuperMetaObject(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdesignerwidgetboxinterface->metaObject();
-    } else {
-        return (QMetaObject*)self->QDesignerWidgetBoxInterface::metaObject();
-    }
+    return (QMetaObject*)self->QDesignerWidgetBoxInterface::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnMetaObject(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MetaObject_Callback>(slot));
+void QDesignerWidgetBoxInterface_OnMetaObject(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_metaobject_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDesignerWidgetBoxInterface_SuperMetacast(QDesignerWidgetBoxInterface* self, const char* param1) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Metacast_IsBase(true);
-        return vqdesignerwidgetboxinterface->qt_metacast(param1);
-    } else {
-        return self->QDesignerWidgetBoxInterface::qt_metacast(param1);
-    }
+    return self->QDesignerWidgetBoxInterface::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnMetacast(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Metacast_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_metacast_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDesignerWidgetBoxInterface_SuperMetacall(QDesignerWidgetBoxInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Metacall_IsBase(true);
-        return vqdesignerwidgetboxinterface->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDesignerWidgetBoxInterface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDesignerWidgetBoxInterface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnMetacall(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Metacall_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-int QDesignerWidgetBoxInterface_SuperCategoryCount(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_CategoryCount_IsBase(true);
-        return vqdesignerwidgetboxinterface->categoryCount();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->categoryCount();
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_metacall_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnCategoryCount(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_CategoryCount_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_CategoryCount_Callback>(slot));
-}
-
-// Base class handler implementation
-QDesignerWidgetBoxInterface__Category* QDesignerWidgetBoxInterface_SuperCategory(const QDesignerWidgetBoxInterface* self, int cat_idx) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Category_IsBase(true);
-        return new QDesignerWidgetBoxInterface::Category(vqdesignerwidgetboxinterface->category(static_cast<int>(cat_idx)));
-    } else {
-        return new QDesignerWidgetBoxInterface::Category(((VirtualQDesignerWidgetBoxInterface*)self)->category(static_cast<int>(cat_idx)));
-    }
+void QDesignerWidgetBoxInterface_OnCategoryCount(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_categorycount_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_CategoryCount_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnCategory(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Category_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Category_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerWidgetBoxInterface_SuperAddCategory(QDesignerWidgetBoxInterface* self, const QDesignerWidgetBoxInterface__Category* cat) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_AddCategory_IsBase(true);
-        vqdesignerwidgetboxinterface->addCategory(*cat);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->addCategory(*cat);
-    }
+void QDesignerWidgetBoxInterface_OnCategory(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_category_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Category_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnAddCategory(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_AddCategory_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_AddCategory_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerWidgetBoxInterface_SuperRemoveCategory(QDesignerWidgetBoxInterface* self, int cat_idx) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_RemoveCategory_IsBase(true);
-        vqdesignerwidgetboxinterface->removeCategory(static_cast<int>(cat_idx));
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->removeCategory(static_cast<int>(cat_idx));
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_addcategory_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_AddCategory_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnRemoveCategory(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_RemoveCategory_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_RemoveCategory_Callback>(slot));
-}
-
-// Base class handler implementation
-int QDesignerWidgetBoxInterface_SuperWidgetCount(const QDesignerWidgetBoxInterface* self, int cat_idx) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_WidgetCount_IsBase(true);
-        return vqdesignerwidgetboxinterface->widgetCount(static_cast<int>(cat_idx));
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->widgetCount(static_cast<int>(cat_idx));
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_removecategory_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_RemoveCategory_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnWidgetCount(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_WidgetCount_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_WidgetCount_Callback>(slot));
-}
-
-// Base class handler implementation
-QDesignerWidgetBoxInterface__Widget* QDesignerWidgetBoxInterface_SuperWidget(const QDesignerWidgetBoxInterface* self, int cat_idx, int wgt_idx) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Widget_IsBase(true);
-        return new QDesignerWidgetBoxInterface::Widget(vqdesignerwidgetboxinterface->widget(static_cast<int>(cat_idx), static_cast<int>(wgt_idx)));
-    } else {
-        return new QDesignerWidgetBoxInterface::Widget(((VirtualQDesignerWidgetBoxInterface*)self)->widget(static_cast<int>(cat_idx), static_cast<int>(wgt_idx)));
-    }
+void QDesignerWidgetBoxInterface_OnWidgetCount(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_widgetcount_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_WidgetCount_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnWidget(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Widget_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Widget_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerWidgetBoxInterface_SuperAddWidget(QDesignerWidgetBoxInterface* self, int cat_idx, const QDesignerWidgetBoxInterface__Widget* wgt) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_AddWidget_IsBase(true);
-        vqdesignerwidgetboxinterface->addWidget(static_cast<int>(cat_idx), *wgt);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->addWidget(static_cast<int>(cat_idx), *wgt);
-    }
+void QDesignerWidgetBoxInterface_OnWidget(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_widget_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Widget_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnAddWidget(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_AddWidget_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_AddWidget_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerWidgetBoxInterface_SuperRemoveWidget(QDesignerWidgetBoxInterface* self, int cat_idx, int wgt_idx) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_RemoveWidget_IsBase(true);
-        vqdesignerwidgetboxinterface->removeWidget(static_cast<int>(cat_idx), static_cast<int>(wgt_idx));
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->removeWidget(static_cast<int>(cat_idx), static_cast<int>(wgt_idx));
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_addwidget_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_AddWidget_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnRemoveWidget(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_RemoveWidget_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_RemoveWidget_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerWidgetBoxInterface_SuperDropWidgets(QDesignerWidgetBoxInterface* self, const libqt_list /* of QDesignerDnDItemInterface* */ item_list, const QPoint* global_mouse_pos) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    QList<QDesignerDnDItemInterface*> item_list_QList;
-    item_list_QList.reserve(item_list.len);
-    QDesignerDnDItemInterface** item_list_arr = static_cast<QDesignerDnDItemInterface**>(item_list.data);
-    for (size_t i = 0; i < item_list.len; ++i) {
-        item_list_QList.push_back(item_list_arr[i]);
-    }
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DropWidgets_IsBase(true);
-        vqdesignerwidgetboxinterface->dropWidgets(item_list_QList, *global_mouse_pos);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->dropWidgets(item_list_QList, *global_mouse_pos);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_removewidget_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_RemoveWidget_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnDropWidgets(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DropWidgets_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_DropWidgets_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerWidgetBoxInterface_SuperSetFileName(QDesignerWidgetBoxInterface* self, const libqt_string file_name) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    QString file_name_QString = QString::fromUtf8(file_name.data, file_name.len);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_SetFileName_IsBase(true);
-        vqdesignerwidgetboxinterface->setFileName(file_name_QString);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->setFileName(file_name_QString);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_dropwidgets_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_DropWidgets_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnSetFileName(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_SetFileName_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_SetFileName_Callback>(slot));
-}
-
-// Base class handler implementation
-libqt_string QDesignerWidgetBoxInterface_SuperFileName(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FileName_IsBase(true);
-        auto _ret = vqdesignerwidgetboxinterface->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerWidgetBoxInterface*)self)->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_setfilename_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_SetFileName_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnFileName(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FileName_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_FileName_Callback>(slot));
-}
-
-// Base class handler implementation
-bool QDesignerWidgetBoxInterface_SuperLoad(QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Load_IsBase(true);
-        return vqdesignerwidgetboxinterface->load();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->load();
-    }
+void QDesignerWidgetBoxInterface_OnFileName(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_filename_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_FileName_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnLoad(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Load_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Load_Callback>(slot));
-}
-
-// Base class handler implementation
-bool QDesignerWidgetBoxInterface_SuperSave(QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Save_IsBase(true);
-        return vqdesignerwidgetboxinterface->save();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->save();
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_load_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Load_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnSave(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Save_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Save_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_save_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Save_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDesignerWidgetBoxInterface_DevType(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->devType();
-    } else {
-        return self->QDesignerWidgetBoxInterface::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QDesignerWidgetBoxInterface_SuperDevType(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DevType_IsBase(true);
-        return vqdesignerwidgetboxinterface->devType();
-    } else {
-        return self->QDesignerWidgetBoxInterface::devType();
-    }
+    return self->QDesignerWidgetBoxInterface::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnDevType(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DevType_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_DevType_Callback>(slot));
+void QDesignerWidgetBoxInterface_OnDevType(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_devtype_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_SetVisible(QDesignerWidgetBoxInterface* self, bool visible) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setVisible(visible);
-    } else {
-        self->QDesignerWidgetBoxInterface::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperSetVisible(QDesignerWidgetBoxInterface* self, bool visible) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_SetVisible_IsBase(true);
-        vqdesignerwidgetboxinterface->setVisible(visible);
-    } else {
-        self->QDesignerWidgetBoxInterface::setVisible(visible);
-    }
+    self->QDesignerWidgetBoxInterface::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnSetVisible(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_SetVisible_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_SetVisible_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_setvisible_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QDesignerWidgetBoxInterface_SizeHint(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return new QSize(vqdesignerwidgetboxinterface->sizeHint());
-    } else {
-        return new QSize(((VirtualQDesignerWidgetBoxInterface*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QDesignerWidgetBoxInterface_SuperSizeHint(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_SizeHint_IsBase(true);
-        return new QSize(vqdesignerwidgetboxinterface->sizeHint());
-    } else {
-        return new QSize(((VirtualQDesignerWidgetBoxInterface*)self)->sizeHint());
-    }
+    return new QSize(self->QDesignerWidgetBoxInterface::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnSizeHint(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_SizeHint_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_SizeHint_Callback>(slot));
+void QDesignerWidgetBoxInterface_OnSizeHint(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_sizehint_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QDesignerWidgetBoxInterface_MinimumSizeHint(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return new QSize(vqdesignerwidgetboxinterface->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQDesignerWidgetBoxInterface*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QDesignerWidgetBoxInterface_SuperMinimumSizeHint(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MinimumSizeHint_IsBase(true);
-        return new QSize(vqdesignerwidgetboxinterface->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQDesignerWidgetBoxInterface*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QDesignerWidgetBoxInterface::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnMinimumSizeHint(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MinimumSizeHint_Callback>(slot));
+void QDesignerWidgetBoxInterface_OnMinimumSizeHint(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_minimumsizehint_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDesignerWidgetBoxInterface_HeightForWidth(const QDesignerWidgetBoxInterface* self, int param1) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QDesignerWidgetBoxInterface::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QDesignerWidgetBoxInterface_SuperHeightForWidth(const QDesignerWidgetBoxInterface* self, int param1) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_HeightForWidth_IsBase(true);
-        return vqdesignerwidgetboxinterface->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QDesignerWidgetBoxInterface::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QDesignerWidgetBoxInterface::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnHeightForWidth(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_HeightForWidth_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_HeightForWidth_Callback>(slot));
+void QDesignerWidgetBoxInterface_OnHeightForWidth(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_heightforwidth_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerWidgetBoxInterface_HasHeightForWidth(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->hasHeightForWidth();
-    } else {
-        return self->QDesignerWidgetBoxInterface::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QDesignerWidgetBoxInterface_SuperHasHeightForWidth(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_HasHeightForWidth_IsBase(true);
-        return vqdesignerwidgetboxinterface->hasHeightForWidth();
-    } else {
-        return self->QDesignerWidgetBoxInterface::hasHeightForWidth();
-    }
+    return self->QDesignerWidgetBoxInterface::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnHasHeightForWidth(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_HasHeightForWidth_Callback>(slot));
+void QDesignerWidgetBoxInterface_OnHasHeightForWidth(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_hasheightforwidth_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QDesignerWidgetBoxInterface_PaintEngine(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->paintEngine();
-    } else {
-        return self->QDesignerWidgetBoxInterface::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QDesignerWidgetBoxInterface_SuperPaintEngine(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_PaintEngine_IsBase(true);
-        return vqdesignerwidgetboxinterface->paintEngine();
-    } else {
-        return self->QDesignerWidgetBoxInterface::paintEngine();
-    }
+    return self->QDesignerWidgetBoxInterface::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnPaintEngine(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_PaintEngine_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_PaintEngine_Callback>(slot));
+void QDesignerWidgetBoxInterface_OnPaintEngine(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_paintengine_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerWidgetBoxInterface_Event(QDesignerWidgetBoxInterface* self, QEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         return vqdesignerwidgetboxinterface->event(event);
     } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->event(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QDesignerWidgetBoxInterface_SuperEvent(QDesignerWidgetBoxInterface* self, QEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Event_IsBase(true);
-        return vqdesignerwidgetboxinterface->event(event);
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->event(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        return vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::event(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Event_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Event_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_event_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_MousePressEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->mousePressEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperMousePressEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MousePressEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->mousePressEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->mousePressEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnMousePressEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MousePressEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MousePressEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_mousepressevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_MouseReleaseEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->mouseReleaseEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperMouseReleaseEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MouseReleaseEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnMouseReleaseEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_mousereleaseevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_MouseDoubleClickEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperMouseDoubleClickEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MouseDoubleClickEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnMouseDoubleClickEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_mousedoubleclickevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_MouseMoveEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->mouseMoveEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperMouseMoveEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MouseMoveEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->mouseMoveEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnMouseMoveEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MouseMoveEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_mousemoveevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_WheelEvent(QDesignerWidgetBoxInterface* self, QWheelEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->wheelEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperWheelEvent(QDesignerWidgetBoxInterface* self, QWheelEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_WheelEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->wheelEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->wheelEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnWheelEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_WheelEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_WheelEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_wheelevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_KeyPressEvent(QDesignerWidgetBoxInterface* self, QKeyEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->keyPressEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperKeyPressEvent(QDesignerWidgetBoxInterface* self, QKeyEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_KeyPressEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->keyPressEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->keyPressEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnKeyPressEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_KeyPressEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_KeyPressEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_keypressevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_KeyReleaseEvent(QDesignerWidgetBoxInterface* self, QKeyEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->keyReleaseEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperKeyReleaseEvent(QDesignerWidgetBoxInterface* self, QKeyEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_KeyReleaseEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->keyReleaseEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnKeyReleaseEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_keyreleaseevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_FocusInEvent(QDesignerWidgetBoxInterface* self, QFocusEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->focusInEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperFocusInEvent(QDesignerWidgetBoxInterface* self, QFocusEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusInEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->focusInEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->focusInEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnFocusInEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusInEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_FocusInEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_focusinevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_FocusOutEvent(QDesignerWidgetBoxInterface* self, QFocusEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->focusOutEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperFocusOutEvent(QDesignerWidgetBoxInterface* self, QFocusEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusOutEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->focusOutEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->focusOutEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnFocusOutEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusOutEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_FocusOutEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_focusoutevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_EnterEvent(QDesignerWidgetBoxInterface* self, QEnterEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->enterEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperEnterEvent(QDesignerWidgetBoxInterface* self, QEnterEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_EnterEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->enterEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->enterEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnEnterEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_EnterEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_EnterEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_enterevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_LeaveEvent(QDesignerWidgetBoxInterface* self, QEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->leaveEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperLeaveEvent(QDesignerWidgetBoxInterface* self, QEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_LeaveEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->leaveEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->leaveEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnLeaveEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_LeaveEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_LeaveEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_leaveevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_PaintEvent(QDesignerWidgetBoxInterface* self, QPaintEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->paintEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperPaintEvent(QDesignerWidgetBoxInterface* self, QPaintEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_PaintEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->paintEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->paintEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnPaintEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_PaintEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_PaintEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_paintevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_MoveEvent(QDesignerWidgetBoxInterface* self, QMoveEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->moveEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperMoveEvent(QDesignerWidgetBoxInterface* self, QMoveEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MoveEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->moveEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->moveEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnMoveEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MoveEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MoveEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_moveevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_ResizeEvent(QDesignerWidgetBoxInterface* self, QResizeEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->resizeEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperResizeEvent(QDesignerWidgetBoxInterface* self, QResizeEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ResizeEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->resizeEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->resizeEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnResizeEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ResizeEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_ResizeEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_resizeevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_CloseEvent(QDesignerWidgetBoxInterface* self, QCloseEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->closeEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperCloseEvent(QDesignerWidgetBoxInterface* self, QCloseEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_CloseEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->closeEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->closeEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnCloseEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_CloseEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_CloseEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_closeevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_ContextMenuEvent(QDesignerWidgetBoxInterface* self, QContextMenuEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->contextMenuEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperContextMenuEvent(QDesignerWidgetBoxInterface* self, QContextMenuEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ContextMenuEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->contextMenuEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnContextMenuEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_ContextMenuEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_contextmenuevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_TabletEvent(QDesignerWidgetBoxInterface* self, QTabletEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->tabletEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperTabletEvent(QDesignerWidgetBoxInterface* self, QTabletEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_TabletEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->tabletEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->tabletEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnTabletEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_TabletEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_TabletEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_tabletevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_ActionEvent(QDesignerWidgetBoxInterface* self, QActionEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->actionEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperActionEvent(QDesignerWidgetBoxInterface* self, QActionEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ActionEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->actionEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->actionEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnActionEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ActionEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_ActionEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_actionevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_DragEnterEvent(QDesignerWidgetBoxInterface* self, QDragEnterEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->dragEnterEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperDragEnterEvent(QDesignerWidgetBoxInterface* self, QDragEnterEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DragEnterEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->dragEnterEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnDragEnterEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DragEnterEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_DragEnterEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_dragenterevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_DragMoveEvent(QDesignerWidgetBoxInterface* self, QDragMoveEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->dragMoveEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperDragMoveEvent(QDesignerWidgetBoxInterface* self, QDragMoveEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DragMoveEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->dragMoveEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnDragMoveEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DragMoveEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_DragMoveEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_dragmoveevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_DragLeaveEvent(QDesignerWidgetBoxInterface* self, QDragLeaveEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->dragLeaveEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperDragLeaveEvent(QDesignerWidgetBoxInterface* self, QDragLeaveEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DragLeaveEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->dragLeaveEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnDragLeaveEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_DragLeaveEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_dragleaveevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_DropEvent(QDesignerWidgetBoxInterface* self, QDropEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->dropEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperDropEvent(QDesignerWidgetBoxInterface* self, QDropEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DropEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->dropEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->dropEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnDropEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DropEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_DropEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_dropevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_ShowEvent(QDesignerWidgetBoxInterface* self, QShowEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->showEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperShowEvent(QDesignerWidgetBoxInterface* self, QShowEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ShowEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->showEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->showEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnShowEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ShowEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_ShowEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_showevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_HideEvent(QDesignerWidgetBoxInterface* self, QHideEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->hideEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperHideEvent(QDesignerWidgetBoxInterface* self, QHideEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_HideEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->hideEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->hideEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnHideEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_HideEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_HideEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_hideevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerWidgetBoxInterface_NativeEvent(QDesignerWidgetBoxInterface* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
+    if (vqdesignerwidgetboxinterface) {
         return vqdesignerwidgetboxinterface->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QDesignerWidgetBoxInterface_SuperNativeEvent(QDesignerWidgetBoxInterface* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_NativeEvent_IsBase(true);
-        return vqdesignerwidgetboxinterface->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        return vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnNativeEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_NativeEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_NativeEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_nativeevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_ChangeEvent(QDesignerWidgetBoxInterface* self, QEvent* param1) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->changeEvent(param1);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperChangeEvent(QDesignerWidgetBoxInterface* self, QEvent* param1) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ChangeEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->changeEvent(param1);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->changeEvent(param1);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnChangeEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ChangeEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_ChangeEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_changeevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDesignerWidgetBoxInterface_Metric(const QDesignerWidgetBoxInterface* self, int param1) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         return vqdesignerwidgetboxinterface->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QDesignerWidgetBoxInterface_SuperMetric(const QDesignerWidgetBoxInterface* self, int param1) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Metric_IsBase(true);
-        return vqdesignerwidgetboxinterface->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self))) {
+        return vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnMetric(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Metric_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Metric_Callback>(slot));
+void QDesignerWidgetBoxInterface_OnMetric(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_metric_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_InitPainter(const QDesignerWidgetBoxInterface* self, QPainter* painter) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->initPainter(painter);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperInitPainter(const QDesignerWidgetBoxInterface* self, QPainter* painter) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_InitPainter_IsBase(true);
-        vqdesignerwidgetboxinterface->initPainter(painter);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->initPainter(painter);
-    }
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self))) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnInitPainter(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_InitPainter_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_InitPainter_Callback>(slot));
+void QDesignerWidgetBoxInterface_OnInitPainter(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_initpainter_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QDesignerWidgetBoxInterface_Redirected(const QDesignerWidgetBoxInterface* self, QPoint* offset) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         return vqdesignerwidgetboxinterface->redirected(offset);
     } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QDesignerWidgetBoxInterface_SuperRedirected(const QDesignerWidgetBoxInterface* self, QPoint* offset) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Redirected_IsBase(true);
-        return vqdesignerwidgetboxinterface->redirected(offset);
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->redirected(offset);
-    }
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self))) {
+        return vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnRedirected(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Redirected_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Redirected_Callback>(slot));
+void QDesignerWidgetBoxInterface_OnRedirected(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_redirected_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QDesignerWidgetBoxInterface_SharedPainter(const QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         return vqdesignerwidgetboxinterface->sharedPainter();
     } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QDesignerWidgetBoxInterface_SuperSharedPainter(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_SharedPainter_IsBase(true);
-        return vqdesignerwidgetboxinterface->sharedPainter();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->sharedPainter();
-    }
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self))) {
+        return vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnSharedPainter(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_SharedPainter_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_SharedPainter_Callback>(slot));
+void QDesignerWidgetBoxInterface_OnSharedPainter(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_sharedpainter_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_InputMethodEvent(QDesignerWidgetBoxInterface* self, QInputMethodEvent* param1) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->inputMethodEvent(param1);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperInputMethodEvent(QDesignerWidgetBoxInterface* self, QInputMethodEvent* param1) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_InputMethodEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->inputMethodEvent(param1);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnInputMethodEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_InputMethodEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_InputMethodEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_inputmethodevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QDesignerWidgetBoxInterface_InputMethodQuery(const QDesignerWidgetBoxInterface* self, int param1) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return new QVariant(vqdesignerwidgetboxinterface->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQDesignerWidgetBoxInterface*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QDesignerWidgetBoxInterface_SuperInputMethodQuery(const QDesignerWidgetBoxInterface* self, int param1) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_InputMethodQuery_IsBase(true);
-        return new QVariant(vqdesignerwidgetboxinterface->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQDesignerWidgetBoxInterface*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QDesignerWidgetBoxInterface::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnInputMethodQuery(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_InputMethodQuery_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_InputMethodQuery_Callback>(slot));
+void QDesignerWidgetBoxInterface_OnInputMethodQuery(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self)))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_inputmethodquery_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerWidgetBoxInterface_FocusNextPrevChild(QDesignerWidgetBoxInterface* self, bool next) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         return vqdesignerwidgetboxinterface->focusNextPrevChild(next);
     } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QDesignerWidgetBoxInterface_SuperFocusNextPrevChild(QDesignerWidgetBoxInterface* self, bool next) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusNextPrevChild_IsBase(true);
-        return vqdesignerwidgetboxinterface->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        return vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnFocusNextPrevChild(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_focusnextprevchild_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerWidgetBoxInterface_EventFilter(QDesignerWidgetBoxInterface* self, QObject* watched, QEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->eventFilter(watched, event);
-    } else {
-        return self->QDesignerWidgetBoxInterface::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDesignerWidgetBoxInterface_SuperEventFilter(QDesignerWidgetBoxInterface* self, QObject* watched, QEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_EventFilter_IsBase(true);
-        return vqdesignerwidgetboxinterface->eventFilter(watched, event);
-    } else {
-        return self->QDesignerWidgetBoxInterface::eventFilter(watched, event);
-    }
+    return self->QDesignerWidgetBoxInterface::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnEventFilter(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_EventFilter_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_EventFilter_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_eventfilter_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_TimerEvent(QDesignerWidgetBoxInterface* self, QTimerEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->timerEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperTimerEvent(QDesignerWidgetBoxInterface* self, QTimerEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_TimerEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->timerEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->timerEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnTimerEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_TimerEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_TimerEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_timerevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_ChildEvent(QDesignerWidgetBoxInterface* self, QChildEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->childEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperChildEvent(QDesignerWidgetBoxInterface* self, QChildEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ChildEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->childEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->childEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnChildEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ChildEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_ChildEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_childevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_CustomEvent(QDesignerWidgetBoxInterface* self, QEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->customEvent(event);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperCustomEvent(QDesignerWidgetBoxInterface* self, QEvent* event) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_CustomEvent_IsBase(true);
-        vqdesignerwidgetboxinterface->customEvent(event);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->customEvent(event);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnCustomEvent(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_CustomEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_CustomEvent_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_customevent_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_ConnectNotify(QDesignerWidgetBoxInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->connectNotify(*signal);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperConnectNotify(QDesignerWidgetBoxInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ConnectNotify_IsBase(true);
-        vqdesignerwidgetboxinterface->connectNotify(*signal);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnConnectNotify(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ConnectNotify_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_ConnectNotify_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_connectnotify_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerWidgetBoxInterface_DisconnectNotify(QDesignerWidgetBoxInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+    if (vqdesignerwidgetboxinterface) {
         vqdesignerwidgetboxinterface->disconnectNotify(*signal);
     } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerWidgetBoxInterface_SuperDisconnectNotify(QDesignerWidgetBoxInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DisconnectNotify_IsBase(true);
-        vqdesignerwidgetboxinterface->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->QDesignerWidgetBoxInterface::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDesignerWidgetBoxInterface::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetBoxInterface_OnDisconnectNotify(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DisconnectNotify_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_DisconnectNotify_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self))
+        vqdesignerwidgetboxinterface->qdesignerwidgetboxinterface_disconnectnotify_callback = reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDesignerWidgetBoxInterface_UpdateMicroFocus(QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->updateMicroFocus();
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->updateMicroFocus();
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->VirtualQDesignerWidgetBoxInterface::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QDesignerWidgetBoxInterface::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDesignerWidgetBoxInterface_SuperUpdateMicroFocus(QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_UpdateMicroFocus_IsBase(true);
-        vqdesignerwidgetboxinterface->updateMicroFocus();
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnUpdateMicroFocus(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDesignerWidgetBoxInterface_Create(QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->create();
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->create();
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->VirtualQDesignerWidgetBoxInterface::create();
+    } else
+        qFatal("Error: Protected method QDesignerWidgetBoxInterface::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDesignerWidgetBoxInterface_SuperCreate(QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Create_IsBase(true);
-        vqdesignerwidgetboxinterface->create();
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnCreate(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Create_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDesignerWidgetBoxInterface_Destroy(QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->destroy();
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->destroy();
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        vqdesignerwidgetboxinterface->VirtualQDesignerWidgetBoxInterface::destroy();
+    } else
+        qFatal("Error: Protected method QDesignerWidgetBoxInterface::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDesignerWidgetBoxInterface_SuperDestroy(QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Destroy_IsBase(true);
-        vqdesignerwidgetboxinterface->destroy();
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnDestroy(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Destroy_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDesignerWidgetBoxInterface_FocusNextChild(QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->focusNextChild();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->focusNextChild();
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        return vqdesignerwidgetboxinterface->VirtualQDesignerWidgetBoxInterface::focusNextChild();
+    } else
+        qFatal("Error: Protected method QDesignerWidgetBoxInterface::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDesignerWidgetBoxInterface_SuperFocusNextChild(QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusNextChild_IsBase(true);
-        return vqdesignerwidgetboxinterface->focusNextChild();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnFocusNextChild(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusNextChild_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDesignerWidgetBoxInterface_FocusPreviousChild(QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->focusPreviousChild();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->focusPreviousChild();
-    }
+    if (auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self)) {
+        return vqdesignerwidgetboxinterface->VirtualQDesignerWidgetBoxInterface::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QDesignerWidgetBoxInterface::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDesignerWidgetBoxInterface_SuperFocusPreviousChild(QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusPreviousChild_IsBase(true);
-        return vqdesignerwidgetboxinterface->focusPreviousChild();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnFocusPreviousChild(QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDesignerWidgetBoxInterface_Sender(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->sender();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->sender();
-    }
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self))) {
+        return vqdesignerwidgetboxinterface->VirtualQDesignerWidgetBoxInterface::sender();
+    } else
+        qFatal("Error: Protected method QDesignerWidgetBoxInterface::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDesignerWidgetBoxInterface_SuperSender(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Sender_IsBase(true);
-        return vqdesignerwidgetboxinterface->sender();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnSender(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Sender_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDesignerWidgetBoxInterface_SenderSignalIndex(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->senderSignalIndex();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->senderSignalIndex();
-    }
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self))) {
+        return vqdesignerwidgetboxinterface->VirtualQDesignerWidgetBoxInterface::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDesignerWidgetBoxInterface::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDesignerWidgetBoxInterface_SuperSenderSignalIndex(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_SenderSignalIndex_IsBase(true);
-        return vqdesignerwidgetboxinterface->senderSignalIndex();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnSenderSignalIndex(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDesignerWidgetBoxInterface_Receivers(const QDesignerWidgetBoxInterface* self, const char* signal) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->receivers(signal);
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->receivers(signal);
-    }
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self))) {
+        return vqdesignerwidgetboxinterface->VirtualQDesignerWidgetBoxInterface::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDesignerWidgetBoxInterface::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDesignerWidgetBoxInterface_SuperReceivers(const QDesignerWidgetBoxInterface* self, const char* signal) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Receivers_IsBase(true);
-        return vqdesignerwidgetboxinterface->receivers(signal);
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnReceivers(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Receivers_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDesignerWidgetBoxInterface_IsSignalConnected(const QDesignerWidgetBoxInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self))) {
+        return vqdesignerwidgetboxinterface->VirtualQDesignerWidgetBoxInterface::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDesignerWidgetBoxInterface::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDesignerWidgetBoxInterface_SuperIsSignalConnected(const QDesignerWidgetBoxInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_IsSignalConnected_IsBase(true);
-        return vqdesignerwidgetboxinterface->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnIsSignalConnected(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_IsSignalConnected_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QDesignerWidgetBoxInterface_GetDecodedMetricF(const QDesignerWidgetBoxInterface* self, int metricA, int metricB) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QDesignerWidgetBoxInterface_SuperGetDecodedMetricF(const QDesignerWidgetBoxInterface* self, int metricA, int metricB) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_GetDecodedMetricF_IsBase(true);
-        return vqdesignerwidgetboxinterface->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerWidgetBoxInterface_OnGetDecodedMetricF(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
-    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface)
-        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self))) {
+        return vqdesignerwidgetboxinterface->VirtualQDesignerWidgetBoxInterface::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QDesignerWidgetBoxInterface::getDecodedMetricF called without a directly constructed type");
 }
 
 void QDesignerWidgetBoxInterface_Delete(QDesignerWidgetBoxInterface* self) {

@@ -50,7 +50,7 @@ void QNmeaPositionInfoSource_RequestUpdate(QNmeaPositionInfoSource* self, int ti
 bool QNmeaPositionInfoSource_ParsePosInfoFromNmeaData(QNmeaPositionInfoSource* self, const char* data, int size, QGeoPositionInfo* posInfo, bool* hasFix);
 libqt_string QNmeaPositionInfoSource_Tr2(const char* s, const char* c);
 libqt_string QNmeaPositionInfoSource_Tr3(const char* s, const char* c, int n);
-void QNmeaPositionInfoSource_OnMetaObject(const QNmeaPositionInfoSource* self, intptr_t slot);
+void QNmeaPositionInfoSource_OnMetaObject(QNmeaPositionInfoSource* self, intptr_t slot);
 QMetaObject* QNmeaPositionInfoSource_SuperMetaObject(const QNmeaPositionInfoSource* self);
 void QNmeaPositionInfoSource_OnMetacast(QNmeaPositionInfoSource* self, intptr_t slot);
 void* QNmeaPositionInfoSource_SuperMetacast(QNmeaPositionInfoSource* self, const char* param1);
@@ -58,13 +58,13 @@ void QNmeaPositionInfoSource_OnMetacall(QNmeaPositionInfoSource* self, intptr_t 
 int QNmeaPositionInfoSource_SuperMetacall(QNmeaPositionInfoSource* self, int param1, int param2, void** param3);
 void QNmeaPositionInfoSource_OnSetUpdateInterval(QNmeaPositionInfoSource* self, intptr_t slot);
 void QNmeaPositionInfoSource_SuperSetUpdateInterval(QNmeaPositionInfoSource* self, int msec);
-void QNmeaPositionInfoSource_OnLastKnownPosition(const QNmeaPositionInfoSource* self, intptr_t slot);
+void QNmeaPositionInfoSource_OnLastKnownPosition(QNmeaPositionInfoSource* self, intptr_t slot);
 QGeoPositionInfo* QNmeaPositionInfoSource_SuperLastKnownPosition(const QNmeaPositionInfoSource* self, bool fromSatellitePositioningMethodsOnly);
-void QNmeaPositionInfoSource_OnSupportedPositioningMethods(const QNmeaPositionInfoSource* self, intptr_t slot);
+void QNmeaPositionInfoSource_OnSupportedPositioningMethods(QNmeaPositionInfoSource* self, intptr_t slot);
 int QNmeaPositionInfoSource_SuperSupportedPositioningMethods(const QNmeaPositionInfoSource* self);
-void QNmeaPositionInfoSource_OnMinimumUpdateInterval(const QNmeaPositionInfoSource* self, intptr_t slot);
+void QNmeaPositionInfoSource_OnMinimumUpdateInterval(QNmeaPositionInfoSource* self, intptr_t slot);
 int QNmeaPositionInfoSource_SuperMinimumUpdateInterval(const QNmeaPositionInfoSource* self);
-void QNmeaPositionInfoSource_OnError(const QNmeaPositionInfoSource* self, intptr_t slot);
+void QNmeaPositionInfoSource_OnError(QNmeaPositionInfoSource* self, intptr_t slot);
 int QNmeaPositionInfoSource_SuperError(const QNmeaPositionInfoSource* self);
 void QNmeaPositionInfoSource_OnStartUpdates(QNmeaPositionInfoSource* self, intptr_t slot);
 void QNmeaPositionInfoSource_SuperStartUpdates(QNmeaPositionInfoSource* self);
@@ -81,7 +81,7 @@ bool QNmeaPositionInfoSource_SetBackendProperty(QNmeaPositionInfoSource* self, c
 void QNmeaPositionInfoSource_OnSetBackendProperty(QNmeaPositionInfoSource* self, intptr_t slot);
 bool QNmeaPositionInfoSource_SuperSetBackendProperty(QNmeaPositionInfoSource* self, const libqt_string name, const QVariant* value);
 QVariant* QNmeaPositionInfoSource_BackendProperty(const QNmeaPositionInfoSource* self, const libqt_string name);
-void QNmeaPositionInfoSource_OnBackendProperty(const QNmeaPositionInfoSource* self, intptr_t slot);
+void QNmeaPositionInfoSource_OnBackendProperty(QNmeaPositionInfoSource* self, intptr_t slot);
 QVariant* QNmeaPositionInfoSource_SuperBackendProperty(const QNmeaPositionInfoSource* self, const libqt_string name);
 bool QNmeaPositionInfoSource_Event(QNmeaPositionInfoSource* self, QEvent* event);
 void QNmeaPositionInfoSource_OnEvent(QNmeaPositionInfoSource* self, intptr_t slot);
@@ -105,23 +105,11 @@ void QNmeaPositionInfoSource_DisconnectNotify(QNmeaPositionInfoSource* self, con
 void QNmeaPositionInfoSource_OnDisconnectNotify(QNmeaPositionInfoSource* self, intptr_t slot);
 void QNmeaPositionInfoSource_SuperDisconnectNotify(QNmeaPositionInfoSource* self, const QMetaMethod* signal);
 bool QNmeaPositionInfoSource_ParsePosInfoFromNmeaData2(QNmeaPositionInfoSource* self, libqt_string data, QGeoPositionInfo* posInfo, bool* hasFix);
-void QNmeaPositionInfoSource_OnParsePosInfoFromNmeaData2(QNmeaPositionInfoSource* self, intptr_t slot);
-bool QNmeaPositionInfoSource_SuperParsePosInfoFromNmeaData2(QNmeaPositionInfoSource* self, libqt_string data, QGeoPositionInfo* posInfo, bool* hasFix);
 void QNmeaPositionInfoSource_SetError(QNmeaPositionInfoSource* self, int positionError);
-void QNmeaPositionInfoSource_OnSetError(QNmeaPositionInfoSource* self, intptr_t slot);
-void QNmeaPositionInfoSource_SuperSetError(QNmeaPositionInfoSource* self, int positionError);
 QObject* QNmeaPositionInfoSource_Sender(const QNmeaPositionInfoSource* self);
-void QNmeaPositionInfoSource_OnSender(const QNmeaPositionInfoSource* self, intptr_t slot);
-QObject* QNmeaPositionInfoSource_SuperSender(const QNmeaPositionInfoSource* self);
 int QNmeaPositionInfoSource_SenderSignalIndex(const QNmeaPositionInfoSource* self);
-void QNmeaPositionInfoSource_OnSenderSignalIndex(const QNmeaPositionInfoSource* self, intptr_t slot);
-int QNmeaPositionInfoSource_SuperSenderSignalIndex(const QNmeaPositionInfoSource* self);
 int QNmeaPositionInfoSource_Receivers(const QNmeaPositionInfoSource* self, const char* signal);
-void QNmeaPositionInfoSource_OnReceivers(const QNmeaPositionInfoSource* self, intptr_t slot);
-int QNmeaPositionInfoSource_SuperReceivers(const QNmeaPositionInfoSource* self, const char* signal);
 bool QNmeaPositionInfoSource_IsSignalConnected(const QNmeaPositionInfoSource* self, const QMetaMethod* signal);
-void QNmeaPositionInfoSource_OnIsSignalConnected(const QNmeaPositionInfoSource* self, intptr_t slot);
-bool QNmeaPositionInfoSource_SuperIsSignalConnected(const QNmeaPositionInfoSource* self, const QMetaMethod* signal);
 void QNmeaPositionInfoSource_Delete(QNmeaPositionInfoSource* self);
 
 #ifdef __cplusplus

@@ -120,364 +120,219 @@ libqt_string KFilePreviewGenerator_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KFilePreviewGenerator_SuperMetaObject(const KFilePreviewGenerator* self) {
-    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        vkfilepreviewgenerator->setKFilePreviewGenerator_MetaObject_IsBase(true);
-        return (QMetaObject*)vkfilepreviewgenerator->metaObject();
-    } else {
-        return (QMetaObject*)self->KFilePreviewGenerator::metaObject();
-    }
+    return (QMetaObject*)self->KFilePreviewGenerator::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePreviewGenerator_OnMetaObject(const KFilePreviewGenerator* self, intptr_t slot) {
-    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator)
-        vkfilepreviewgenerator->setKFilePreviewGenerator_MetaObject_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_MetaObject_Callback>(slot));
+void KFilePreviewGenerator_OnMetaObject(KFilePreviewGenerator* self, intptr_t slot) {
+    if (auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self)))
+        vkfilepreviewgenerator->kfilepreviewgenerator_metaobject_callback = reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KFilePreviewGenerator_SuperMetacast(KFilePreviewGenerator* self, const char* param1) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        vkfilepreviewgenerator->setKFilePreviewGenerator_Metacast_IsBase(true);
-        return vkfilepreviewgenerator->qt_metacast(param1);
-    } else {
-        return self->KFilePreviewGenerator::qt_metacast(param1);
-    }
+    return self->KFilePreviewGenerator::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePreviewGenerator_OnMetacast(KFilePreviewGenerator* self, intptr_t slot) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator)
-        vkfilepreviewgenerator->setKFilePreviewGenerator_Metacast_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_Metacast_Callback>(slot));
+    if (auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self))
+        vkfilepreviewgenerator->kfilepreviewgenerator_metacast_callback = reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KFilePreviewGenerator_SuperMetacall(KFilePreviewGenerator* self, int param1, int param2, void** param3) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        vkfilepreviewgenerator->setKFilePreviewGenerator_Metacall_IsBase(true);
-        return vkfilepreviewgenerator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KFilePreviewGenerator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KFilePreviewGenerator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePreviewGenerator_OnMetacall(KFilePreviewGenerator* self, intptr_t slot) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator)
-        vkfilepreviewgenerator->setKFilePreviewGenerator_Metacall_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_Metacall_Callback>(slot));
+    if (auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self))
+        vkfilepreviewgenerator->kfilepreviewgenerator_metacall_callback = reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePreviewGenerator_Event(KFilePreviewGenerator* self, QEvent* event) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        return vkfilepreviewgenerator->event(event);
-    } else {
-        return self->KFilePreviewGenerator::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KFilePreviewGenerator_SuperEvent(KFilePreviewGenerator* self, QEvent* event) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        vkfilepreviewgenerator->setKFilePreviewGenerator_Event_IsBase(true);
-        return vkfilepreviewgenerator->event(event);
-    } else {
-        return self->KFilePreviewGenerator::event(event);
-    }
+    return self->KFilePreviewGenerator::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePreviewGenerator_OnEvent(KFilePreviewGenerator* self, intptr_t slot) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator)
-        vkfilepreviewgenerator->setKFilePreviewGenerator_Event_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_Event_Callback>(slot));
+    if (auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self))
+        vkfilepreviewgenerator->kfilepreviewgenerator_event_callback = reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePreviewGenerator_EventFilter(KFilePreviewGenerator* self, QObject* watched, QEvent* event) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        return vkfilepreviewgenerator->eventFilter(watched, event);
-    } else {
-        return self->KFilePreviewGenerator::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KFilePreviewGenerator_SuperEventFilter(KFilePreviewGenerator* self, QObject* watched, QEvent* event) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        vkfilepreviewgenerator->setKFilePreviewGenerator_EventFilter_IsBase(true);
-        return vkfilepreviewgenerator->eventFilter(watched, event);
-    } else {
-        return self->KFilePreviewGenerator::eventFilter(watched, event);
-    }
+    return self->KFilePreviewGenerator::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePreviewGenerator_OnEventFilter(KFilePreviewGenerator* self, intptr_t slot) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator)
-        vkfilepreviewgenerator->setKFilePreviewGenerator_EventFilter_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_EventFilter_Callback>(slot));
+    if (auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self))
+        vkfilepreviewgenerator->kfilepreviewgenerator_eventfilter_callback = reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePreviewGenerator_TimerEvent(KFilePreviewGenerator* self, QTimerEvent* event) {
     auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
+    if (vkfilepreviewgenerator) {
         vkfilepreviewgenerator->timerEvent(event);
     } else {
-        ((VirtualKFilePreviewGenerator*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KFilePreviewGenerator::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePreviewGenerator_SuperTimerEvent(KFilePreviewGenerator* self, QTimerEvent* event) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        vkfilepreviewgenerator->setKFilePreviewGenerator_TimerEvent_IsBase(true);
-        vkfilepreviewgenerator->timerEvent(event);
-    } else {
-        ((VirtualKFilePreviewGenerator*)self)->timerEvent(event);
-    }
+    if (auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self)) {
+        vkfilepreviewgenerator->KFilePreviewGenerator::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePreviewGenerator::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePreviewGenerator_OnTimerEvent(KFilePreviewGenerator* self, intptr_t slot) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator)
-        vkfilepreviewgenerator->setKFilePreviewGenerator_TimerEvent_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_TimerEvent_Callback>(slot));
+    if (auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self))
+        vkfilepreviewgenerator->kfilepreviewgenerator_timerevent_callback = reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePreviewGenerator_ChildEvent(KFilePreviewGenerator* self, QChildEvent* event) {
     auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
+    if (vkfilepreviewgenerator) {
         vkfilepreviewgenerator->childEvent(event);
     } else {
-        ((VirtualKFilePreviewGenerator*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KFilePreviewGenerator::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePreviewGenerator_SuperChildEvent(KFilePreviewGenerator* self, QChildEvent* event) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        vkfilepreviewgenerator->setKFilePreviewGenerator_ChildEvent_IsBase(true);
-        vkfilepreviewgenerator->childEvent(event);
-    } else {
-        ((VirtualKFilePreviewGenerator*)self)->childEvent(event);
-    }
+    if (auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self)) {
+        vkfilepreviewgenerator->KFilePreviewGenerator::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePreviewGenerator::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePreviewGenerator_OnChildEvent(KFilePreviewGenerator* self, intptr_t slot) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator)
-        vkfilepreviewgenerator->setKFilePreviewGenerator_ChildEvent_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_ChildEvent_Callback>(slot));
+    if (auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self))
+        vkfilepreviewgenerator->kfilepreviewgenerator_childevent_callback = reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePreviewGenerator_CustomEvent(KFilePreviewGenerator* self, QEvent* event) {
     auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
+    if (vkfilepreviewgenerator) {
         vkfilepreviewgenerator->customEvent(event);
     } else {
-        ((VirtualKFilePreviewGenerator*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KFilePreviewGenerator::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePreviewGenerator_SuperCustomEvent(KFilePreviewGenerator* self, QEvent* event) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        vkfilepreviewgenerator->setKFilePreviewGenerator_CustomEvent_IsBase(true);
-        vkfilepreviewgenerator->customEvent(event);
-    } else {
-        ((VirtualKFilePreviewGenerator*)self)->customEvent(event);
-    }
+    if (auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self)) {
+        vkfilepreviewgenerator->KFilePreviewGenerator::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePreviewGenerator::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePreviewGenerator_OnCustomEvent(KFilePreviewGenerator* self, intptr_t slot) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator)
-        vkfilepreviewgenerator->setKFilePreviewGenerator_CustomEvent_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_CustomEvent_Callback>(slot));
+    if (auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self))
+        vkfilepreviewgenerator->kfilepreviewgenerator_customevent_callback = reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePreviewGenerator_ConnectNotify(KFilePreviewGenerator* self, const QMetaMethod* signal) {
     auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
+    if (vkfilepreviewgenerator) {
         vkfilepreviewgenerator->connectNotify(*signal);
     } else {
-        ((VirtualKFilePreviewGenerator*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KFilePreviewGenerator::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePreviewGenerator_SuperConnectNotify(KFilePreviewGenerator* self, const QMetaMethod* signal) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        vkfilepreviewgenerator->setKFilePreviewGenerator_ConnectNotify_IsBase(true);
-        vkfilepreviewgenerator->connectNotify(*signal);
-    } else {
-        ((VirtualKFilePreviewGenerator*)self)->connectNotify(*signal);
-    }
+    if (auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self)) {
+        vkfilepreviewgenerator->KFilePreviewGenerator::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFilePreviewGenerator::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePreviewGenerator_OnConnectNotify(KFilePreviewGenerator* self, intptr_t slot) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator)
-        vkfilepreviewgenerator->setKFilePreviewGenerator_ConnectNotify_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_ConnectNotify_Callback>(slot));
+    if (auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self))
+        vkfilepreviewgenerator->kfilepreviewgenerator_connectnotify_callback = reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePreviewGenerator_DisconnectNotify(KFilePreviewGenerator* self, const QMetaMethod* signal) {
     auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
+    if (vkfilepreviewgenerator) {
         vkfilepreviewgenerator->disconnectNotify(*signal);
     } else {
-        ((VirtualKFilePreviewGenerator*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KFilePreviewGenerator::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePreviewGenerator_SuperDisconnectNotify(KFilePreviewGenerator* self, const QMetaMethod* signal) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        vkfilepreviewgenerator->setKFilePreviewGenerator_DisconnectNotify_IsBase(true);
-        vkfilepreviewgenerator->disconnectNotify(*signal);
-    } else {
-        ((VirtualKFilePreviewGenerator*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self)) {
+        vkfilepreviewgenerator->KFilePreviewGenerator::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFilePreviewGenerator::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePreviewGenerator_OnDisconnectNotify(KFilePreviewGenerator* self, intptr_t slot) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator)
-        vkfilepreviewgenerator->setKFilePreviewGenerator_DisconnectNotify_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_DisconnectNotify_Callback>(slot));
+    if (auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self))
+        vkfilepreviewgenerator->kfilepreviewgenerator_disconnectnotify_callback = reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KFilePreviewGenerator_Sender(const KFilePreviewGenerator* self) {
-    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        return vkfilepreviewgenerator->sender();
-    } else {
-        return ((VirtualKFilePreviewGenerator*)self)->sender();
-    }
+    if (auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self))) {
+        return vkfilepreviewgenerator->VirtualKFilePreviewGenerator::sender();
+    } else
+        qFatal("Error: Protected method KFilePreviewGenerator::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KFilePreviewGenerator_SuperSender(const KFilePreviewGenerator* self) {
-    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        vkfilepreviewgenerator->setKFilePreviewGenerator_Sender_IsBase(true);
-        return vkfilepreviewgenerator->sender();
-    } else {
-        return ((VirtualKFilePreviewGenerator*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePreviewGenerator_OnSender(const KFilePreviewGenerator* self, intptr_t slot) {
-    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator)
-        vkfilepreviewgenerator->setKFilePreviewGenerator_Sender_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFilePreviewGenerator_SenderSignalIndex(const KFilePreviewGenerator* self) {
-    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        return vkfilepreviewgenerator->senderSignalIndex();
-    } else {
-        return ((VirtualKFilePreviewGenerator*)self)->senderSignalIndex();
-    }
+    if (auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self))) {
+        return vkfilepreviewgenerator->VirtualKFilePreviewGenerator::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KFilePreviewGenerator::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFilePreviewGenerator_SuperSenderSignalIndex(const KFilePreviewGenerator* self) {
-    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        vkfilepreviewgenerator->setKFilePreviewGenerator_SenderSignalIndex_IsBase(true);
-        return vkfilepreviewgenerator->senderSignalIndex();
-    } else {
-        return ((VirtualKFilePreviewGenerator*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePreviewGenerator_OnSenderSignalIndex(const KFilePreviewGenerator* self, intptr_t slot) {
-    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator)
-        vkfilepreviewgenerator->setKFilePreviewGenerator_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFilePreviewGenerator_Receivers(const KFilePreviewGenerator* self, const char* signal) {
-    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        return vkfilepreviewgenerator->receivers(signal);
-    } else {
-        return ((VirtualKFilePreviewGenerator*)self)->receivers(signal);
-    }
+    if (auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self))) {
+        return vkfilepreviewgenerator->VirtualKFilePreviewGenerator::receivers(signal);
+    } else
+        qFatal("Error: Protected method KFilePreviewGenerator::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFilePreviewGenerator_SuperReceivers(const KFilePreviewGenerator* self, const char* signal) {
-    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        vkfilepreviewgenerator->setKFilePreviewGenerator_Receivers_IsBase(true);
-        return vkfilepreviewgenerator->receivers(signal);
-    } else {
-        return ((VirtualKFilePreviewGenerator*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePreviewGenerator_OnReceivers(const KFilePreviewGenerator* self, intptr_t slot) {
-    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator)
-        vkfilepreviewgenerator->setKFilePreviewGenerator_Receivers_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFilePreviewGenerator_IsSignalConnected(const KFilePreviewGenerator* self, const QMetaMethod* signal) {
-    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        return vkfilepreviewgenerator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFilePreviewGenerator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KFilePreviewGenerator_SuperIsSignalConnected(const KFilePreviewGenerator* self, const QMetaMethod* signal) {
-    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        vkfilepreviewgenerator->setKFilePreviewGenerator_IsSignalConnected_IsBase(true);
-        return vkfilepreviewgenerator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFilePreviewGenerator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePreviewGenerator_OnIsSignalConnected(const KFilePreviewGenerator* self, intptr_t slot) {
-    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator)
-        vkfilepreviewgenerator->setKFilePreviewGenerator_IsSignalConnected_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_IsSignalConnected_Callback>(slot));
+    if (auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self))) {
+        return vkfilepreviewgenerator->VirtualKFilePreviewGenerator::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KFilePreviewGenerator::isSignalConnected called without a directly constructed type");
 }
 
 void KFilePreviewGenerator_Delete(KFilePreviewGenerator* self) {

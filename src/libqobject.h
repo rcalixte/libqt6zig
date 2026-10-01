@@ -101,7 +101,7 @@ bool QObject_Disconnect32(const QObject* self, const char* signal, const QObject
 bool QObject_Disconnect23(const QObject* self, const QObject* receiver, const char* member);
 void QObject_Destroyed1(QObject* self, QObject* param1);
 void QObject_Connect_Destroyed1(QObject* self, intptr_t slot);
-void QObject_OnMetaObject(const QObject* self, intptr_t slot);
+void QObject_OnMetaObject(QObject* self, intptr_t slot);
 QMetaObject* QObject_SuperMetaObject(const QObject* self);
 void QObject_OnMetacast(QObject* self, intptr_t slot);
 void* QObject_SuperMetacast(QObject* self, const char* param1);
@@ -122,17 +122,9 @@ void QObject_SuperConnectNotify(QObject* self, const QMetaMethod* signal);
 void QObject_OnDisconnectNotify(QObject* self, intptr_t slot);
 void QObject_SuperDisconnectNotify(QObject* self, const QMetaMethod* signal);
 QObject* QObject_Sender(const QObject* self);
-void QObject_OnSender(const QObject* self, intptr_t slot);
-QObject* QObject_SuperSender(const QObject* self);
 int QObject_SenderSignalIndex(const QObject* self);
-void QObject_OnSenderSignalIndex(const QObject* self, intptr_t slot);
-int QObject_SuperSenderSignalIndex(const QObject* self);
 int QObject_Receivers(const QObject* self, const char* signal);
-void QObject_OnReceivers(const QObject* self, intptr_t slot);
-int QObject_SuperReceivers(const QObject* self, const char* signal);
 bool QObject_IsSignalConnected(const QObject* self, const QMetaMethod* signal);
-void QObject_OnIsSignalConnected(const QObject* self, intptr_t slot);
-bool QObject_SuperIsSignalConnected(const QObject* self, const QMetaMethod* signal);
 void QObject_Connect_ObjectNameChanged(QObject* self, intptr_t slot);
 void QObject_Delete(QObject* self);
 

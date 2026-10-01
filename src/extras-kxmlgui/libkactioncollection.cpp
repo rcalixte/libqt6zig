@@ -288,14 +288,14 @@ void KActionCollection_Connect_ActionTriggered(KActionCollection* self, intptr_t
 
 void KActionCollection_ConnectNotify(KActionCollection* self, const QMetaMethod* signal) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection) {
         vkactioncollection->connectNotify(*signal);
     }
 }
 
 void KActionCollection_SlotActionTriggered(KActionCollection* self) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection) {
         vkactioncollection->slotActionTriggered();
     }
 }
@@ -454,372 +454,223 @@ QAction* KActionCollection_AddAction34(KActionCollection* self, const libqt_stri
 
 // Base class handler implementation
 QMetaObject* KActionCollection_SuperMetaObject(const KActionCollection* self) {
-    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_MetaObject_IsBase(true);
-        return (QMetaObject*)vkactioncollection->metaObject();
-    } else {
-        return (QMetaObject*)self->KActionCollection::metaObject();
-    }
+    return (QMetaObject*)self->KActionCollection::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KActionCollection_OnMetaObject(const KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_MetaObject_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_MetaObject_Callback>(slot));
+void KActionCollection_OnMetaObject(KActionCollection* self, intptr_t slot) {
+    if (auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self)))
+        vkactioncollection->kactioncollection_metaobject_callback = reinterpret_cast<VirtualKActionCollection::KActionCollection_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KActionCollection_SuperMetacast(KActionCollection* self, const char* param1) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_Metacast_IsBase(true);
-        return vkactioncollection->qt_metacast(param1);
-    } else {
-        return self->KActionCollection::qt_metacast(param1);
-    }
+    return self->KActionCollection::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnMetacast(KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_Metacast_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_Metacast_Callback>(slot));
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self))
+        vkactioncollection->kactioncollection_metacast_callback = reinterpret_cast<VirtualKActionCollection::KActionCollection_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KActionCollection_SuperMetacall(KActionCollection* self, int param1, int param2, void** param3) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_Metacall_IsBase(true);
-        return vkactioncollection->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KActionCollection::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KActionCollection::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnMetacall(KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_Metacall_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_Metacall_Callback>(slot));
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self))
+        vkactioncollection->kactioncollection_metacall_callback = reinterpret_cast<VirtualKActionCollection::KActionCollection_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KActionCollection_SuperConnectNotify(KActionCollection* self, const QMetaMethod* signal) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_ConnectNotify_IsBase(true);
-        vkactioncollection->connectNotify(*signal);
-    } else {
-        ((VirtualKActionCollection*)self)->connectNotify(*signal);
-    }
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self)) {
+        vkactioncollection->KActionCollection::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KActionCollection::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnConnectNotify(KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_ConnectNotify_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_ConnectNotify_Callback>(slot));
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self))
+        vkactioncollection->kactioncollection_connectnotify_callback = reinterpret_cast<VirtualKActionCollection::KActionCollection_ConnectNotify_Callback>(slot);
 }
 
 // Base class handler implementation
 void KActionCollection_SuperSlotActionTriggered(KActionCollection* self) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_SlotActionTriggered_IsBase(true);
-        vkactioncollection->slotActionTriggered();
-    } else {
-        ((VirtualKActionCollection*)self)->slotActionTriggered();
-    }
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self)) {
+        vkactioncollection->KActionCollection::slotActionTriggered();
+    } else
+        qFatal("Error: Protected virtual method KActionCollection::slotActionTriggered called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnSlotActionTriggered(KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_SlotActionTriggered_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_SlotActionTriggered_Callback>(slot));
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self))
+        vkactioncollection->kactioncollection_slotactiontriggered_callback = reinterpret_cast<VirtualKActionCollection::KActionCollection_SlotActionTriggered_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KActionCollection_Event(KActionCollection* self, QEvent* event) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        return vkactioncollection->event(event);
-    } else {
-        return self->KActionCollection::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KActionCollection_SuperEvent(KActionCollection* self, QEvent* event) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_Event_IsBase(true);
-        return vkactioncollection->event(event);
-    } else {
-        return self->KActionCollection::event(event);
-    }
+    return self->KActionCollection::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnEvent(KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_Event_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_Event_Callback>(slot));
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self))
+        vkactioncollection->kactioncollection_event_callback = reinterpret_cast<VirtualKActionCollection::KActionCollection_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KActionCollection_EventFilter(KActionCollection* self, QObject* watched, QEvent* event) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        return vkactioncollection->eventFilter(watched, event);
-    } else {
-        return self->KActionCollection::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KActionCollection_SuperEventFilter(KActionCollection* self, QObject* watched, QEvent* event) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_EventFilter_IsBase(true);
-        return vkactioncollection->eventFilter(watched, event);
-    } else {
-        return self->KActionCollection::eventFilter(watched, event);
-    }
+    return self->KActionCollection::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnEventFilter(KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_EventFilter_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_EventFilter_Callback>(slot));
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self))
+        vkactioncollection->kactioncollection_eventfilter_callback = reinterpret_cast<VirtualKActionCollection::KActionCollection_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionCollection_TimerEvent(KActionCollection* self, QTimerEvent* event) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection) {
         vkactioncollection->timerEvent(event);
     } else {
-        ((VirtualKActionCollection*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KActionCollection::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionCollection_SuperTimerEvent(KActionCollection* self, QTimerEvent* event) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_TimerEvent_IsBase(true);
-        vkactioncollection->timerEvent(event);
-    } else {
-        ((VirtualKActionCollection*)self)->timerEvent(event);
-    }
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self)) {
+        vkactioncollection->KActionCollection::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionCollection::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnTimerEvent(KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_TimerEvent_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_TimerEvent_Callback>(slot));
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self))
+        vkactioncollection->kactioncollection_timerevent_callback = reinterpret_cast<VirtualKActionCollection::KActionCollection_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionCollection_ChildEvent(KActionCollection* self, QChildEvent* event) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection) {
         vkactioncollection->childEvent(event);
     } else {
-        ((VirtualKActionCollection*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KActionCollection::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionCollection_SuperChildEvent(KActionCollection* self, QChildEvent* event) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_ChildEvent_IsBase(true);
-        vkactioncollection->childEvent(event);
-    } else {
-        ((VirtualKActionCollection*)self)->childEvent(event);
-    }
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self)) {
+        vkactioncollection->KActionCollection::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionCollection::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnChildEvent(KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_ChildEvent_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_ChildEvent_Callback>(slot));
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self))
+        vkactioncollection->kactioncollection_childevent_callback = reinterpret_cast<VirtualKActionCollection::KActionCollection_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionCollection_CustomEvent(KActionCollection* self, QEvent* event) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection) {
         vkactioncollection->customEvent(event);
     } else {
-        ((VirtualKActionCollection*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KActionCollection::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionCollection_SuperCustomEvent(KActionCollection* self, QEvent* event) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_CustomEvent_IsBase(true);
-        vkactioncollection->customEvent(event);
-    } else {
-        ((VirtualKActionCollection*)self)->customEvent(event);
-    }
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self)) {
+        vkactioncollection->KActionCollection::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KActionCollection::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnCustomEvent(KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_CustomEvent_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_CustomEvent_Callback>(slot));
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self))
+        vkactioncollection->kactioncollection_customevent_callback = reinterpret_cast<VirtualKActionCollection::KActionCollection_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KActionCollection_DisconnectNotify(KActionCollection* self, const QMetaMethod* signal) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection) {
         vkactioncollection->disconnectNotify(*signal);
     } else {
-        ((VirtualKActionCollection*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KActionCollection::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KActionCollection_SuperDisconnectNotify(KActionCollection* self, const QMetaMethod* signal) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_DisconnectNotify_IsBase(true);
-        vkactioncollection->disconnectNotify(*signal);
-    } else {
-        ((VirtualKActionCollection*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self)) {
+        vkactioncollection->KActionCollection::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KActionCollection::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnDisconnectNotify(KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_DisconnectNotify_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_DisconnectNotify_Callback>(slot));
+    if (auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self))
+        vkactioncollection->kactioncollection_disconnectnotify_callback = reinterpret_cast<VirtualKActionCollection::KActionCollection_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KActionCollection_Sender(const KActionCollection* self) {
-    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        return vkactioncollection->sender();
-    } else {
-        return ((VirtualKActionCollection*)self)->sender();
-    }
+    if (auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self))) {
+        return vkactioncollection->VirtualKActionCollection::sender();
+    } else
+        qFatal("Error: Protected method KActionCollection::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KActionCollection_SuperSender(const KActionCollection* self) {
-    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_Sender_IsBase(true);
-        return vkactioncollection->sender();
-    } else {
-        return ((VirtualKActionCollection*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KActionCollection_OnSender(const KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_Sender_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KActionCollection_SenderSignalIndex(const KActionCollection* self) {
-    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        return vkactioncollection->senderSignalIndex();
-    } else {
-        return ((VirtualKActionCollection*)self)->senderSignalIndex();
-    }
+    if (auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self))) {
+        return vkactioncollection->VirtualKActionCollection::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KActionCollection::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KActionCollection_SuperSenderSignalIndex(const KActionCollection* self) {
-    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_SenderSignalIndex_IsBase(true);
-        return vkactioncollection->senderSignalIndex();
-    } else {
-        return ((VirtualKActionCollection*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KActionCollection_OnSenderSignalIndex(const KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_SenderSignalIndex_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KActionCollection_Receivers(const KActionCollection* self, const char* signal) {
-    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        return vkactioncollection->receivers(signal);
-    } else {
-        return ((VirtualKActionCollection*)self)->receivers(signal);
-    }
+    if (auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self))) {
+        return vkactioncollection->VirtualKActionCollection::receivers(signal);
+    } else
+        qFatal("Error: Protected method KActionCollection::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KActionCollection_SuperReceivers(const KActionCollection* self, const char* signal) {
-    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_Receivers_IsBase(true);
-        return vkactioncollection->receivers(signal);
-    } else {
-        return ((VirtualKActionCollection*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KActionCollection_OnReceivers(const KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_Receivers_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KActionCollection_IsSignalConnected(const KActionCollection* self, const QMetaMethod* signal) {
-    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        return vkactioncollection->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKActionCollection*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KActionCollection_SuperIsSignalConnected(const KActionCollection* self, const QMetaMethod* signal) {
-    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
-        vkactioncollection->setKActionCollection_IsSignalConnected_IsBase(true);
-        return vkactioncollection->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKActionCollection*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KActionCollection_OnIsSignalConnected(const KActionCollection* self, intptr_t slot) {
-    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
-        vkactioncollection->setKActionCollection_IsSignalConnected_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_IsSignalConnected_Callback>(slot));
+    if (auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self))) {
+        return vkactioncollection->VirtualKActionCollection::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KActionCollection::isSignalConnected called without a directly constructed type");
 }
 
 void KActionCollection_Delete(KActionCollection* self) {

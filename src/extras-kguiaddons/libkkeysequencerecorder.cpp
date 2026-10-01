@@ -237,364 +237,219 @@ libqt_string KKeySequenceRecorder_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KKeySequenceRecorder_SuperMetaObject(const KKeySequenceRecorder* self) {
-    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        vkkeysequencerecorder->setKKeySequenceRecorder_MetaObject_IsBase(true);
-        return (QMetaObject*)vkkeysequencerecorder->metaObject();
-    } else {
-        return (QMetaObject*)self->KKeySequenceRecorder::metaObject();
-    }
+    return (QMetaObject*)self->KKeySequenceRecorder::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KKeySequenceRecorder_OnMetaObject(const KKeySequenceRecorder* self, intptr_t slot) {
-    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
-        vkkeysequencerecorder->setKKeySequenceRecorder_MetaObject_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_MetaObject_Callback>(slot));
+void KKeySequenceRecorder_OnMetaObject(KKeySequenceRecorder* self, intptr_t slot) {
+    if (auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self)))
+        vkkeysequencerecorder->kkeysequencerecorder_metaobject_callback = reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KKeySequenceRecorder_SuperMetacast(KKeySequenceRecorder* self, const char* param1) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        vkkeysequencerecorder->setKKeySequenceRecorder_Metacast_IsBase(true);
-        return vkkeysequencerecorder->qt_metacast(param1);
-    } else {
-        return self->KKeySequenceRecorder::qt_metacast(param1);
-    }
+    return self->KKeySequenceRecorder::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnMetacast(KKeySequenceRecorder* self, intptr_t slot) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
-        vkkeysequencerecorder->setKKeySequenceRecorder_Metacast_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_Metacast_Callback>(slot));
+    if (auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self))
+        vkkeysequencerecorder->kkeysequencerecorder_metacast_callback = reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KKeySequenceRecorder_SuperMetacall(KKeySequenceRecorder* self, int param1, int param2, void** param3) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        vkkeysequencerecorder->setKKeySequenceRecorder_Metacall_IsBase(true);
-        return vkkeysequencerecorder->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KKeySequenceRecorder::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KKeySequenceRecorder::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnMetacall(KKeySequenceRecorder* self, intptr_t slot) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
-        vkkeysequencerecorder->setKKeySequenceRecorder_Metacall_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_Metacall_Callback>(slot));
+    if (auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self))
+        vkkeysequencerecorder->kkeysequencerecorder_metacall_callback = reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KKeySequenceRecorder_Event(KKeySequenceRecorder* self, QEvent* event) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        return vkkeysequencerecorder->event(event);
-    } else {
-        return self->KKeySequenceRecorder::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KKeySequenceRecorder_SuperEvent(KKeySequenceRecorder* self, QEvent* event) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        vkkeysequencerecorder->setKKeySequenceRecorder_Event_IsBase(true);
-        return vkkeysequencerecorder->event(event);
-    } else {
-        return self->KKeySequenceRecorder::event(event);
-    }
+    return self->KKeySequenceRecorder::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnEvent(KKeySequenceRecorder* self, intptr_t slot) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
-        vkkeysequencerecorder->setKKeySequenceRecorder_Event_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_Event_Callback>(slot));
+    if (auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self))
+        vkkeysequencerecorder->kkeysequencerecorder_event_callback = reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KKeySequenceRecorder_EventFilter(KKeySequenceRecorder* self, QObject* watched, QEvent* event) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        return vkkeysequencerecorder->eventFilter(watched, event);
-    } else {
-        return self->KKeySequenceRecorder::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KKeySequenceRecorder_SuperEventFilter(KKeySequenceRecorder* self, QObject* watched, QEvent* event) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        vkkeysequencerecorder->setKKeySequenceRecorder_EventFilter_IsBase(true);
-        return vkkeysequencerecorder->eventFilter(watched, event);
-    } else {
-        return self->KKeySequenceRecorder::eventFilter(watched, event);
-    }
+    return self->KKeySequenceRecorder::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnEventFilter(KKeySequenceRecorder* self, intptr_t slot) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
-        vkkeysequencerecorder->setKKeySequenceRecorder_EventFilter_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_EventFilter_Callback>(slot));
+    if (auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self))
+        vkkeysequencerecorder->kkeysequencerecorder_eventfilter_callback = reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KKeySequenceRecorder_TimerEvent(KKeySequenceRecorder* self, QTimerEvent* event) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder) {
         vkkeysequencerecorder->timerEvent(event);
     } else {
-        ((VirtualKKeySequenceRecorder*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KKeySequenceRecorder::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KKeySequenceRecorder_SuperTimerEvent(KKeySequenceRecorder* self, QTimerEvent* event) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        vkkeysequencerecorder->setKKeySequenceRecorder_TimerEvent_IsBase(true);
-        vkkeysequencerecorder->timerEvent(event);
-    } else {
-        ((VirtualKKeySequenceRecorder*)self)->timerEvent(event);
-    }
+    if (auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self)) {
+        vkkeysequencerecorder->KKeySequenceRecorder::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KKeySequenceRecorder::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnTimerEvent(KKeySequenceRecorder* self, intptr_t slot) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
-        vkkeysequencerecorder->setKKeySequenceRecorder_TimerEvent_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_TimerEvent_Callback>(slot));
+    if (auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self))
+        vkkeysequencerecorder->kkeysequencerecorder_timerevent_callback = reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KKeySequenceRecorder_ChildEvent(KKeySequenceRecorder* self, QChildEvent* event) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder) {
         vkkeysequencerecorder->childEvent(event);
     } else {
-        ((VirtualKKeySequenceRecorder*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KKeySequenceRecorder::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KKeySequenceRecorder_SuperChildEvent(KKeySequenceRecorder* self, QChildEvent* event) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        vkkeysequencerecorder->setKKeySequenceRecorder_ChildEvent_IsBase(true);
-        vkkeysequencerecorder->childEvent(event);
-    } else {
-        ((VirtualKKeySequenceRecorder*)self)->childEvent(event);
-    }
+    if (auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self)) {
+        vkkeysequencerecorder->KKeySequenceRecorder::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KKeySequenceRecorder::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnChildEvent(KKeySequenceRecorder* self, intptr_t slot) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
-        vkkeysequencerecorder->setKKeySequenceRecorder_ChildEvent_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_ChildEvent_Callback>(slot));
+    if (auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self))
+        vkkeysequencerecorder->kkeysequencerecorder_childevent_callback = reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KKeySequenceRecorder_CustomEvent(KKeySequenceRecorder* self, QEvent* event) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder) {
         vkkeysequencerecorder->customEvent(event);
     } else {
-        ((VirtualKKeySequenceRecorder*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KKeySequenceRecorder::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KKeySequenceRecorder_SuperCustomEvent(KKeySequenceRecorder* self, QEvent* event) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        vkkeysequencerecorder->setKKeySequenceRecorder_CustomEvent_IsBase(true);
-        vkkeysequencerecorder->customEvent(event);
-    } else {
-        ((VirtualKKeySequenceRecorder*)self)->customEvent(event);
-    }
+    if (auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self)) {
+        vkkeysequencerecorder->KKeySequenceRecorder::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KKeySequenceRecorder::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnCustomEvent(KKeySequenceRecorder* self, intptr_t slot) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
-        vkkeysequencerecorder->setKKeySequenceRecorder_CustomEvent_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_CustomEvent_Callback>(slot));
+    if (auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self))
+        vkkeysequencerecorder->kkeysequencerecorder_customevent_callback = reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KKeySequenceRecorder_ConnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder) {
         vkkeysequencerecorder->connectNotify(*signal);
     } else {
-        ((VirtualKKeySequenceRecorder*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KKeySequenceRecorder::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KKeySequenceRecorder_SuperConnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        vkkeysequencerecorder->setKKeySequenceRecorder_ConnectNotify_IsBase(true);
-        vkkeysequencerecorder->connectNotify(*signal);
-    } else {
-        ((VirtualKKeySequenceRecorder*)self)->connectNotify(*signal);
-    }
+    if (auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self)) {
+        vkkeysequencerecorder->KKeySequenceRecorder::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KKeySequenceRecorder::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnConnectNotify(KKeySequenceRecorder* self, intptr_t slot) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
-        vkkeysequencerecorder->setKKeySequenceRecorder_ConnectNotify_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_ConnectNotify_Callback>(slot));
+    if (auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self))
+        vkkeysequencerecorder->kkeysequencerecorder_connectnotify_callback = reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KKeySequenceRecorder_DisconnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder) {
         vkkeysequencerecorder->disconnectNotify(*signal);
     } else {
-        ((VirtualKKeySequenceRecorder*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KKeySequenceRecorder::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KKeySequenceRecorder_SuperDisconnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        vkkeysequencerecorder->setKKeySequenceRecorder_DisconnectNotify_IsBase(true);
-        vkkeysequencerecorder->disconnectNotify(*signal);
-    } else {
-        ((VirtualKKeySequenceRecorder*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self)) {
+        vkkeysequencerecorder->KKeySequenceRecorder::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KKeySequenceRecorder::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnDisconnectNotify(KKeySequenceRecorder* self, intptr_t slot) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
-        vkkeysequencerecorder->setKKeySequenceRecorder_DisconnectNotify_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_DisconnectNotify_Callback>(slot));
+    if (auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self))
+        vkkeysequencerecorder->kkeysequencerecorder_disconnectnotify_callback = reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KKeySequenceRecorder_Sender(const KKeySequenceRecorder* self) {
-    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        return vkkeysequencerecorder->sender();
-    } else {
-        return ((VirtualKKeySequenceRecorder*)self)->sender();
-    }
+    if (auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self))) {
+        return vkkeysequencerecorder->VirtualKKeySequenceRecorder::sender();
+    } else
+        qFatal("Error: Protected method KKeySequenceRecorder::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KKeySequenceRecorder_SuperSender(const KKeySequenceRecorder* self) {
-    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        vkkeysequencerecorder->setKKeySequenceRecorder_Sender_IsBase(true);
-        return vkkeysequencerecorder->sender();
-    } else {
-        return ((VirtualKKeySequenceRecorder*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KKeySequenceRecorder_OnSender(const KKeySequenceRecorder* self, intptr_t slot) {
-    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
-        vkkeysequencerecorder->setKKeySequenceRecorder_Sender_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KKeySequenceRecorder_SenderSignalIndex(const KKeySequenceRecorder* self) {
-    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        return vkkeysequencerecorder->senderSignalIndex();
-    } else {
-        return ((VirtualKKeySequenceRecorder*)self)->senderSignalIndex();
-    }
+    if (auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self))) {
+        return vkkeysequencerecorder->VirtualKKeySequenceRecorder::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KKeySequenceRecorder::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KKeySequenceRecorder_SuperSenderSignalIndex(const KKeySequenceRecorder* self) {
-    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        vkkeysequencerecorder->setKKeySequenceRecorder_SenderSignalIndex_IsBase(true);
-        return vkkeysequencerecorder->senderSignalIndex();
-    } else {
-        return ((VirtualKKeySequenceRecorder*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KKeySequenceRecorder_OnSenderSignalIndex(const KKeySequenceRecorder* self, intptr_t slot) {
-    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
-        vkkeysequencerecorder->setKKeySequenceRecorder_SenderSignalIndex_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KKeySequenceRecorder_Receivers(const KKeySequenceRecorder* self, const char* signal) {
-    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        return vkkeysequencerecorder->receivers(signal);
-    } else {
-        return ((VirtualKKeySequenceRecorder*)self)->receivers(signal);
-    }
+    if (auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self))) {
+        return vkkeysequencerecorder->VirtualKKeySequenceRecorder::receivers(signal);
+    } else
+        qFatal("Error: Protected method KKeySequenceRecorder::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KKeySequenceRecorder_SuperReceivers(const KKeySequenceRecorder* self, const char* signal) {
-    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        vkkeysequencerecorder->setKKeySequenceRecorder_Receivers_IsBase(true);
-        return vkkeysequencerecorder->receivers(signal);
-    } else {
-        return ((VirtualKKeySequenceRecorder*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KKeySequenceRecorder_OnReceivers(const KKeySequenceRecorder* self, intptr_t slot) {
-    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
-        vkkeysequencerecorder->setKKeySequenceRecorder_Receivers_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KKeySequenceRecorder_IsSignalConnected(const KKeySequenceRecorder* self, const QMetaMethod* signal) {
-    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        return vkkeysequencerecorder->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKKeySequenceRecorder*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KKeySequenceRecorder_SuperIsSignalConnected(const KKeySequenceRecorder* self, const QMetaMethod* signal) {
-    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        vkkeysequencerecorder->setKKeySequenceRecorder_IsSignalConnected_IsBase(true);
-        return vkkeysequencerecorder->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKKeySequenceRecorder*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KKeySequenceRecorder_OnIsSignalConnected(const KKeySequenceRecorder* self, intptr_t slot) {
-    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
-        vkkeysequencerecorder->setKKeySequenceRecorder_IsSignalConnected_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_IsSignalConnected_Callback>(slot));
+    if (auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self))) {
+        return vkkeysequencerecorder->VirtualKKeySequenceRecorder::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KKeySequenceRecorder::isSignalConnected called without a directly constructed type");
 }
 
 void KKeySequenceRecorder_Delete(KKeySequenceRecorder* self) {

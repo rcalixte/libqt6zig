@@ -1177,9 +1177,9 @@ pub const QAbstractItemModel = extern struct {
     ///
     /// ` self: QAbstractItemModel `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QAbstractItemModel) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QAbstractItemModel, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel) callconv(.c) QMetaObject) void {
         qtc.QAbstractItemModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1348,6 +1348,8 @@ pub const QAbstractItemModel = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#index)
     ///
+    /// This method must be implemented with `onIndex` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractItemModel `
@@ -1383,34 +1385,13 @@ pub const QAbstractItemModel = extern struct {
         qtc.QAbstractItemModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superIndex` instead
-    ///
-    pub const SuperIndex = superIndex;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#index)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` _row: i32 `
-    ///
-    /// ` _column: i32 `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    pub fn superIndex(self: QAbstractItemModel, _row: i32, _column: i32, _parent: anytype) QModelIndex {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        return .{ .ptr = qtc.QAbstractItemModel_SuperIndex(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @ptrCast(_parent.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `parent` instead
     ///
     pub const Parent = parent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
+    ///
+    /// This method must be implemented with `onParent` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1441,25 +1422,6 @@ pub const QAbstractItemModel = extern struct {
     ///
     pub fn onParent(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superParent` instead
-    ///
-    pub const SuperParent = superParent;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` child: QModelIndex `
-    ///
-    pub fn superParent(self: QAbstractItemModel, child: anytype) QModelIndex {
-        comptime _ = @TypeOf(child)._is_QModelIndex;
-        return .{ .ptr = qtc.QAbstractItemModel_SuperParent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
 
     /// ### DEPRECATED: Use `sibling` instead
@@ -1532,6 +1494,8 @@ pub const QAbstractItemModel = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
     ///
+    /// This method must be implemented with `onRowCount` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractItemModel `
@@ -1561,30 +1525,13 @@ pub const QAbstractItemModel = extern struct {
         qtc.QAbstractItemModel_OnRowCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superRowCount` instead
-    ///
-    pub const SuperRowCount = superRowCount;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    pub fn superRowCount(self: QAbstractItemModel, _parent: anytype) i32 {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
-    }
-
     /// ### DEPRECATED: Use `columnCount` instead
     ///
     pub const ColumnCount = columnCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
+    ///
+    /// This method must be implemented with `onColumnCount` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1613,25 +1560,6 @@ pub const QAbstractItemModel = extern struct {
     ///
     pub fn onColumnCount(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, QModelIndex) callconv(.c) i32) void {
         qtc.QAbstractItemModel_OnColumnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superColumnCount` instead
-    ///
-    pub const SuperColumnCount = superColumnCount;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    pub fn superColumnCount(self: QAbstractItemModel, _parent: anytype) i32 {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
     /// ### DEPRECATED: Use `hasChildren` instead
@@ -1694,6 +1622,8 @@ pub const QAbstractItemModel = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
     ///
+    /// This method must be implemented with `onData` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractItemModel `
@@ -1725,27 +1655,6 @@ pub const QAbstractItemModel = extern struct {
     ///
     pub fn onData(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.QAbstractItemModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superData` instead
-    ///
-    pub const SuperData = superData;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` _index: QModelIndex `
-    ///
-    /// ` _role: i32 `
-    ///
-    pub fn superData(self: QAbstractItemModel, _index: anytype, _role: i32) QVariant {
-        comptime _ = @TypeOf(_index)._is_QModelIndex;
-        return .{ .ptr = qtc.QAbstractItemModel_SuperData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(_role)) };
     }
 
     /// ### DEPRECATED: Use `setData` instead
@@ -2226,9 +2135,9 @@ pub const QAbstractItemModel = extern struct {
     ///
     /// ` self: QAbstractItemModel `
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: QAbstractItemModel) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onMimeTypes(self: QAbstractItemModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onMimeTypes(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QAbstractItemModel_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2498,9 +2407,9 @@ pub const QAbstractItemModel = extern struct {
     ///
     /// ` self: QAbstractItemModel `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractItemModel) callconv(.c) i32 `
     ///
-    pub fn onSupportedDropActions(self: QAbstractItemModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDropActions(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel) callconv(.c) i32) void {
         qtc.QAbstractItemModel_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2554,9 +2463,9 @@ pub const QAbstractItemModel = extern struct {
     ///
     /// ` self: QAbstractItemModel `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractItemModel) callconv(.c) i32 `
     ///
-    pub fn onSupportedDragActions(self: QAbstractItemModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDragActions(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel) callconv(.c) i32) void {
         qtc.QAbstractItemModel_OnSupportedDragActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3565,13 +3474,13 @@ pub const QAbstractItemModel = extern struct {
     ///
     /// ` self: QAbstractItemModel `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
+    /// ` callback: *const fn (self: QAbstractItemModel) callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of Map_i32_u8 `
     ///
-    pub fn onRoleNames(self: QAbstractItemModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+    pub fn onRoleNames(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel) callconv(.c) qtc.libqt_map) void {
         qtc.QAbstractItemModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3849,9 +3758,9 @@ pub const QAbstractItemModel = extern struct {
     ///
     /// ` self: QAbstractItemModel `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractItemModel) callconv(.c) bool `
     ///
-    pub fn onSubmit(self: QAbstractItemModel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSubmit(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel) callconv(.c) bool) void {
         qtc.QAbstractItemModel_OnSubmit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3897,9 +3806,9 @@ pub const QAbstractItemModel = extern struct {
     ///
     /// ` self: QAbstractItemModel `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn onRevert(self: QAbstractItemModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onRevert(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_OnRevert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3945,9 +3854,9 @@ pub const QAbstractItemModel = extern struct {
     ///
     /// ` self: QAbstractItemModel `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn onResetInternalData(self: QAbstractItemModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onResetInternalData(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_OnResetInternalData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3985,46 +3894,6 @@ pub const QAbstractItemModel = extern struct {
         return .{ .ptr = qtc.QAbstractItemModel_CreateIndex(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column)) };
     }
 
-    /// ### DEPRECATED: Use `onCreateIndex` instead
-    ///
-    pub const OnCreateIndex = onCreateIndex;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, row: i32, column: i32) callconv(.c) QModelIndex `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCreateIndex(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, i32, i32) callconv(.c) QModelIndex) void {
-        qtc.QAbstractItemModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreateIndex` instead
-    ///
-    pub const SuperCreateIndex = superCreateIndex;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` _row: i32 `
-    ///
-    /// ` _column: i32 `
-    ///
-    pub fn superCreateIndex(self: QAbstractItemModel, _row: i32, _column: i32) QModelIndex {
-        return .{ .ptr = qtc.QAbstractItemModel_SuperCreateIndex(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column)) };
-    }
-
     /// ### DEPRECATED: Use `createIndex2` instead
     ///
     pub const CreateIndex2 = createIndex2;
@@ -4043,48 +3912,6 @@ pub const QAbstractItemModel = extern struct {
     ///
     pub fn createIndex2(self: QAbstractItemModel, _row: i32, _column: i32, id: usize) QModelIndex {
         return .{ .ptr = qtc.QAbstractItemModel_CreateIndex2(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @bitCast(id)) };
-    }
-
-    /// ### DEPRECATED: Use `onCreateIndex2` instead
-    ///
-    pub const OnCreateIndex2 = onCreateIndex2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, row: i32, column: i32, id: usize) callconv(.c) QModelIndex `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCreateIndex2(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, i32, i32, usize) callconv(.c) QModelIndex) void {
-        qtc.QAbstractItemModel_OnCreateIndex2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreateIndex2` instead
-    ///
-    pub const SuperCreateIndex2 = superCreateIndex2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` _row: i32 `
-    ///
-    /// ` _column: i32 `
-    ///
-    /// ` id: usize `
-    ///
-    pub fn superCreateIndex2(self: QAbstractItemModel, _row: i32, _column: i32, id: usize) QModelIndex {
-        return .{ .ptr = qtc.QAbstractItemModel_SuperCreateIndex2(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @bitCast(id)) };
     }
 
     /// ### DEPRECATED: Use `encodeData` instead
@@ -4108,49 +3935,6 @@ pub const QAbstractItemModel = extern struct {
         };
         comptime _ = @TypeOf(stream)._is_QDataStream;
         qtc.QAbstractItemModel_EncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEncodeData` instead
-    ///
-    pub const OnEncodeData = onEncodeData;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, indexes: qtc.libqt_list ([]QModelIndex), stream: QDataStream) callconv(.c) void `
-    ///
-    pub fn onEncodeData(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEncodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEncodeData` instead
-    ///
-    pub const SuperEncodeData = superEncodeData;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` indexes: []QModelIndex `
-    ///
-    /// ` stream: QDataStream `
-    ///
-    pub fn superEncodeData(self: QAbstractItemModel, indexes: []QModelIndex, stream: anytype) void {
-        const indexes_list = qtc.libqt_list{
-            .len = indexes.len,
-            .data = @ptrCast(indexes.ptr),
-        };
-        comptime _ = @TypeOf(stream)._is_QDataStream;
-        qtc.QAbstractItemModel_SuperEncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
     /// ### DEPRECATED: Use `decodeData` instead
@@ -4177,50 +3961,6 @@ pub const QAbstractItemModel = extern struct {
         return qtc.QAbstractItemModel_DecodeData(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
     }
 
-    /// ### DEPRECATED: Use `onDecodeData` instead
-    ///
-    pub const OnDecodeData = onDecodeData;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, row: i32, column: i32, parent: QModelIndex, stream: QDataStream) callconv(.c) bool `
-    ///
-    pub fn onDecodeData(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnDecodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDecodeData` instead
-    ///
-    pub const SuperDecodeData = superDecodeData;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` _row: i32 `
-    ///
-    /// ` _column: i32 `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` stream: QDataStream `
-    ///
-    pub fn superDecodeData(self: QAbstractItemModel, _row: i32, _column: i32, _parent: anytype, stream: anytype) bool {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        comptime _ = @TypeOf(stream)._is_QDataStream;
-        return qtc.QAbstractItemModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
-    }
-
     /// ### DEPRECATED: Use `beginInsertRows` instead
     ///
     pub const BeginInsertRows = beginInsertRows;
@@ -4242,47 +3982,6 @@ pub const QAbstractItemModel = extern struct {
         qtc.QAbstractItemModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `onBeginInsertRows` instead
-    ///
-    pub const OnBeginInsertRows = onBeginInsertRows;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginInsertRows(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnBeginInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superBeginInsertRows` instead
-    ///
-    pub const SuperBeginInsertRows = superBeginInsertRows;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginInsertRows(self: QAbstractItemModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QAbstractItemModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
     /// ### DEPRECATED: Use `endInsertRows` instead
     ///
     pub const EndInsertRows = endInsertRows;
@@ -4295,40 +3994,6 @@ pub const QAbstractItemModel = extern struct {
     ///
     pub fn endInsertRows(self: QAbstractItemModel) void {
         qtc.QAbstractItemModel_EndInsertRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndInsertRows` instead
-    ///
-    pub const OnEndInsertRows = onEndInsertRows;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndInsertRows(self: QAbstractItemModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEndInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEndInsertRows` instead
-    ///
-    pub const SuperEndInsertRows = superEndInsertRows;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    pub fn superEndInsertRows(self: QAbstractItemModel) void {
-        qtc.QAbstractItemModel_SuperEndInsertRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `beginRemoveRows` instead
@@ -4352,47 +4017,6 @@ pub const QAbstractItemModel = extern struct {
         qtc.QAbstractItemModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `onBeginRemoveRows` instead
-    ///
-    pub const OnBeginRemoveRows = onBeginRemoveRows;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginRemoveRows(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnBeginRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superBeginRemoveRows` instead
-    ///
-    pub const SuperBeginRemoveRows = superBeginRemoveRows;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginRemoveRows(self: QAbstractItemModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QAbstractItemModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
     /// ### DEPRECATED: Use `endRemoveRows` instead
     ///
     pub const EndRemoveRows = endRemoveRows;
@@ -4405,40 +4029,6 @@ pub const QAbstractItemModel = extern struct {
     ///
     pub fn endRemoveRows(self: QAbstractItemModel) void {
         qtc.QAbstractItemModel_EndRemoveRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndRemoveRows` instead
-    ///
-    pub const OnEndRemoveRows = onEndRemoveRows;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndRemoveRows(self: QAbstractItemModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEndRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEndRemoveRows` instead
-    ///
-    pub const SuperEndRemoveRows = superEndRemoveRows;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    pub fn superEndRemoveRows(self: QAbstractItemModel) void {
-        qtc.QAbstractItemModel_SuperEndRemoveRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `beginMoveRows` instead
@@ -4467,52 +4057,6 @@ pub const QAbstractItemModel = extern struct {
         return qtc.QAbstractItemModel_BeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
-    /// ### DEPRECATED: Use `onBeginMoveRows` instead
-    ///
-    pub const OnBeginMoveRows = onBeginMoveRows;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) bool `
-    ///
-    pub fn onBeginMoveRows(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnBeginMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superBeginMoveRows` instead
-    ///
-    pub const SuperBeginMoveRows = superBeginMoveRows;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` sourceParent: QModelIndex `
-    ///
-    /// ` sourceFirst: i32 `
-    ///
-    /// ` sourceLast: i32 `
-    ///
-    /// ` destinationParent: QModelIndex `
-    ///
-    /// ` destinationRow: i32 `
-    ///
-    pub fn superBeginMoveRows(self: QAbstractItemModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
-        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
-        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_SuperBeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
-    }
-
     /// ### DEPRECATED: Use `endMoveRows` instead
     ///
     pub const EndMoveRows = endMoveRows;
@@ -4525,40 +4069,6 @@ pub const QAbstractItemModel = extern struct {
     ///
     pub fn endMoveRows(self: QAbstractItemModel) void {
         qtc.QAbstractItemModel_EndMoveRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndMoveRows` instead
-    ///
-    pub const OnEndMoveRows = onEndMoveRows;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndMoveRows(self: QAbstractItemModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEndMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEndMoveRows` instead
-    ///
-    pub const SuperEndMoveRows = superEndMoveRows;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    pub fn superEndMoveRows(self: QAbstractItemModel) void {
-        qtc.QAbstractItemModel_SuperEndMoveRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `beginInsertColumns` instead
@@ -4582,47 +4092,6 @@ pub const QAbstractItemModel = extern struct {
         qtc.QAbstractItemModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `onBeginInsertColumns` instead
-    ///
-    pub const OnBeginInsertColumns = onBeginInsertColumns;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginInsertColumns(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnBeginInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superBeginInsertColumns` instead
-    ///
-    pub const SuperBeginInsertColumns = superBeginInsertColumns;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginInsertColumns(self: QAbstractItemModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QAbstractItemModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
     /// ### DEPRECATED: Use `endInsertColumns` instead
     ///
     pub const EndInsertColumns = endInsertColumns;
@@ -4635,40 +4104,6 @@ pub const QAbstractItemModel = extern struct {
     ///
     pub fn endInsertColumns(self: QAbstractItemModel) void {
         qtc.QAbstractItemModel_EndInsertColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndInsertColumns` instead
-    ///
-    pub const OnEndInsertColumns = onEndInsertColumns;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndInsertColumns(self: QAbstractItemModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEndInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEndInsertColumns` instead
-    ///
-    pub const SuperEndInsertColumns = superEndInsertColumns;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    pub fn superEndInsertColumns(self: QAbstractItemModel) void {
-        qtc.QAbstractItemModel_SuperEndInsertColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `beginRemoveColumns` instead
@@ -4692,47 +4127,6 @@ pub const QAbstractItemModel = extern struct {
         qtc.QAbstractItemModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `onBeginRemoveColumns` instead
-    ///
-    pub const OnBeginRemoveColumns = onBeginRemoveColumns;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginRemoveColumns(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnBeginRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superBeginRemoveColumns` instead
-    ///
-    pub const SuperBeginRemoveColumns = superBeginRemoveColumns;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginRemoveColumns(self: QAbstractItemModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QAbstractItemModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
     /// ### DEPRECATED: Use `endRemoveColumns` instead
     ///
     pub const EndRemoveColumns = endRemoveColumns;
@@ -4745,40 +4139,6 @@ pub const QAbstractItemModel = extern struct {
     ///
     pub fn endRemoveColumns(self: QAbstractItemModel) void {
         qtc.QAbstractItemModel_EndRemoveColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndRemoveColumns` instead
-    ///
-    pub const OnEndRemoveColumns = onEndRemoveColumns;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndRemoveColumns(self: QAbstractItemModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEndRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEndRemoveColumns` instead
-    ///
-    pub const SuperEndRemoveColumns = superEndRemoveColumns;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    pub fn superEndRemoveColumns(self: QAbstractItemModel) void {
-        qtc.QAbstractItemModel_SuperEndRemoveColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `beginMoveColumns` instead
@@ -4807,52 +4167,6 @@ pub const QAbstractItemModel = extern struct {
         return qtc.QAbstractItemModel_BeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
-    /// ### DEPRECATED: Use `onBeginMoveColumns` instead
-    ///
-    pub const OnBeginMoveColumns = onBeginMoveColumns;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) bool `
-    ///
-    pub fn onBeginMoveColumns(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnBeginMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superBeginMoveColumns` instead
-    ///
-    pub const SuperBeginMoveColumns = superBeginMoveColumns;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` sourceParent: QModelIndex `
-    ///
-    /// ` sourceFirst: i32 `
-    ///
-    /// ` sourceLast: i32 `
-    ///
-    /// ` destinationParent: QModelIndex `
-    ///
-    /// ` destinationColumn: i32 `
-    ///
-    pub fn superBeginMoveColumns(self: QAbstractItemModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
-        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
-        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_SuperBeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
-    }
-
     /// ### DEPRECATED: Use `endMoveColumns` instead
     ///
     pub const EndMoveColumns = endMoveColumns;
@@ -4865,40 +4179,6 @@ pub const QAbstractItemModel = extern struct {
     ///
     pub fn endMoveColumns(self: QAbstractItemModel) void {
         qtc.QAbstractItemModel_EndMoveColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndMoveColumns` instead
-    ///
-    pub const OnEndMoveColumns = onEndMoveColumns;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndMoveColumns(self: QAbstractItemModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEndMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEndMoveColumns` instead
-    ///
-    pub const SuperEndMoveColumns = superEndMoveColumns;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    pub fn superEndMoveColumns(self: QAbstractItemModel) void {
-        qtc.QAbstractItemModel_SuperEndMoveColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `beginResetModel` instead
@@ -4915,40 +4195,6 @@ pub const QAbstractItemModel = extern struct {
         qtc.QAbstractItemModel_BeginResetModel(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onBeginResetModel` instead
-    ///
-    pub const OnBeginResetModel = onBeginResetModel;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onBeginResetModel(self: QAbstractItemModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnBeginResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superBeginResetModel` instead
-    ///
-    pub const SuperBeginResetModel = superBeginResetModel;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    pub fn superBeginResetModel(self: QAbstractItemModel) void {
-        qtc.QAbstractItemModel_SuperBeginResetModel(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `endResetModel` instead
     ///
     pub const EndResetModel = endResetModel;
@@ -4961,40 +4207,6 @@ pub const QAbstractItemModel = extern struct {
     ///
     pub fn endResetModel(self: QAbstractItemModel) void {
         qtc.QAbstractItemModel_EndResetModel(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndResetModel` instead
-    ///
-    pub const OnEndResetModel = onEndResetModel;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndResetModel(self: QAbstractItemModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnEndResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEndResetModel` instead
-    ///
-    pub const SuperEndResetModel = superEndResetModel;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    pub fn superEndResetModel(self: QAbstractItemModel) void {
-        qtc.QAbstractItemModel_SuperEndResetModel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `changePersistentIndex` instead
@@ -5015,46 +4227,6 @@ pub const QAbstractItemModel = extern struct {
         comptime _ = @TypeOf(from)._is_QModelIndex;
         comptime _ = @TypeOf(to)._is_QModelIndex;
         qtc.QAbstractItemModel_ChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onChangePersistentIndex` instead
-    ///
-    pub const OnChangePersistentIndex = onChangePersistentIndex;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, from: QModelIndex, to: QModelIndex) callconv(.c) void `
-    ///
-    pub fn onChangePersistentIndex(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, QModelIndex, QModelIndex) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnChangePersistentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superChangePersistentIndex` instead
-    ///
-    pub const SuperChangePersistentIndex = superChangePersistentIndex;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` from: QModelIndex `
-    ///
-    /// ` to: QModelIndex `
-    ///
-    pub fn superChangePersistentIndex(self: QAbstractItemModel, from: anytype, to: anytype) void {
-        comptime _ = @TypeOf(from)._is_QModelIndex;
-        comptime _ = @TypeOf(to)._is_QModelIndex;
-        qtc.QAbstractItemModel_SuperChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// ### DEPRECATED: Use `changePersistentIndexList` instead
@@ -5083,52 +4255,6 @@ pub const QAbstractItemModel = extern struct {
         qtc.QAbstractItemModel_ChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
-    /// ### DEPRECATED: Use `onChangePersistentIndexList` instead
-    ///
-    pub const OnChangePersistentIndexList = onChangePersistentIndexList;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, from: qtc.libqt_list ([]QModelIndex), to: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
-    ///
-    pub fn onChangePersistentIndexList(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_OnChangePersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superChangePersistentIndexList` instead
-    ///
-    pub const SuperChangePersistentIndexList = superChangePersistentIndexList;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` from: []QModelIndex `
-    ///
-    /// ` to: []QModelIndex `
-    ///
-    pub fn superChangePersistentIndexList(self: QAbstractItemModel, from: []QModelIndex, to: []QModelIndex) void {
-        const from_list = qtc.libqt_list{
-            .len = from.len,
-            .data = @ptrCast(from.ptr),
-        };
-        const to_list = qtc.libqt_list{
-            .len = to.len,
-            .data = @ptrCast(to.ptr),
-        };
-        qtc.QAbstractItemModel_SuperChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
-    }
-
     /// ### DEPRECATED: Use `persistentIndexList` instead
     ///
     pub const PersistentIndexList = persistentIndexList;
@@ -5143,54 +4269,6 @@ pub const QAbstractItemModel = extern struct {
     ///
     pub fn persistentIndexList(self: QAbstractItemModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QAbstractItemModel_PersistentIndexList(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QAbstractItemModel.persistentIndexList: Memory allocation failed");
-        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onPersistentIndexList` instead
-    ///
-    pub const OnPersistentIndexList = onPersistentIndexList;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of []QModelIndex `
-    ///
-    pub fn onPersistentIndexList(self: QAbstractItemModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QAbstractItemModel_OnPersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superPersistentIndexList` instead
-    ///
-    pub const SuperPersistentIndexList = superPersistentIndexList;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superPersistentIndexList(self: QAbstractItemModel, allocator: std.mem.Allocator) []QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_SuperPersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QAbstractItemModel.persistentIndexList: Memory allocation failed");
         const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -5577,48 +4655,6 @@ pub const QAbstractItemModel = extern struct {
     ///
     pub fn createIndex3(self: QAbstractItemModel, _row: i32, _column: i32, _data: ?*const anyopaque) QModelIndex {
         return .{ .ptr = qtc.QAbstractItemModel_CreateIndex3(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @ptrCast(_data)) };
-    }
-
-    /// ### DEPRECATED: Use `onCreateIndex3` instead
-    ///
-    pub const OnCreateIndex3 = onCreateIndex3;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, row: i32, column: i32, data: ?*const anyopaque) callconv(.c) QModelIndex `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCreateIndex3(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, i32, i32, ?*const anyopaque) callconv(.c) QModelIndex) void {
-        qtc.QAbstractItemModel_OnCreateIndex3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreateIndex3` instead
-    ///
-    pub const SuperCreateIndex3 = superCreateIndex3;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` _row: i32 `
-    ///
-    /// ` _column: i32 `
-    ///
-    /// ` _data: ?*const anyopaque `
-    ///
-    pub fn superCreateIndex3(self: QAbstractItemModel, _row: i32, _column: i32, _data: ?*const anyopaque) QModelIndex {
-        return .{ .ptr = qtc.QAbstractItemModel_SuperCreateIndex3(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @ptrCast(_data)) };
     }
 
     /// ### DEPRECATED: Use `objectName` instead
@@ -7028,44 +6064,6 @@ pub const QAbstractItemModel = extern struct {
         return .{ .ptr = qtc.QAbstractItemModel_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    pub fn superSender(self: QAbstractItemModel) QObject {
-        return .{ .ptr = qtc.QAbstractItemModel_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QAbstractItemModel, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAbstractItemModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -7082,44 +6080,6 @@ pub const QAbstractItemModel = extern struct {
     ///
     pub fn senderSignalIndex(self: QAbstractItemModel) i32 {
         return qtc.QAbstractItemModel_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    pub fn superSenderSignalIndex(self: QAbstractItemModel) i32 {
-        return qtc.QAbstractItemModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QAbstractItemModel, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractItemModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -7143,47 +6103,6 @@ pub const QAbstractItemModel = extern struct {
         return qtc.QAbstractItemModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QAbstractItemModel, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QAbstractItemModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractItemModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -7203,47 +6122,6 @@ pub const QAbstractItemModel = extern struct {
     pub fn isSignalConnected(self: QAbstractItemModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractItemModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemModel `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QAbstractItemModel, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QAbstractItemModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractItemModel, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QAbstractItemModel, callback: *const fn (QAbstractItemModel, QMetaMethod) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onRowsAboutToBeInserted` instead
@@ -7598,9 +6476,9 @@ pub const QAbstractTableModel = extern struct {
     ///
     /// ` self: QAbstractTableModel `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QAbstractTableModel) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QAbstractTableModel, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel) callconv(.c) QMetaObject) void {
         qtc.QAbstractTableModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8089,6 +6967,8 @@ pub const QAbstractTableModel = extern struct {
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
+    /// This method must be implemented with `onParent` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractTableModel `
@@ -8120,27 +7000,6 @@ pub const QAbstractTableModel = extern struct {
     ///
     pub fn onParent(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superParent` instead
-    ///
-    pub const SuperParent = superParent;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` child: QModelIndex `
-    ///
-    pub fn superParent(self: QAbstractTableModel, child: anytype) QModelIndex {
-        comptime _ = @TypeOf(child)._is_QModelIndex;
-        return .{ .ptr = qtc.QAbstractItemModel_SuperParent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
 
     /// ### DEPRECATED: Use `hasChildren` instead
@@ -9791,6 +8650,8 @@ pub const QAbstractTableModel = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onRowCount` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractTableModel `
@@ -9800,27 +8661,6 @@ pub const QAbstractTableModel = extern struct {
     pub fn rowCount(self: QAbstractTableModel, _parent: anytype) i32 {
         comptime _ = @TypeOf(_parent)._is_QModelIndex;
         return qtc.QAbstractTableModel_RowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superRowCount` instead
-    ///
-    pub const SuperRowCount = superRowCount;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    pub fn superRowCount(self: QAbstractTableModel, _parent: anytype) i32 {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        return qtc.QAbstractTableModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
     /// ### DEPRECATED: Use `onRowCount` instead
@@ -9853,6 +8693,8 @@ pub const QAbstractTableModel = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onColumnCount` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractTableModel `
@@ -9862,27 +8704,6 @@ pub const QAbstractTableModel = extern struct {
     pub fn columnCount(self: QAbstractTableModel, _parent: anytype) i32 {
         comptime _ = @TypeOf(_parent)._is_QModelIndex;
         return qtc.QAbstractTableModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superColumnCount` instead
-    ///
-    pub const SuperColumnCount = superColumnCount;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    pub fn superColumnCount(self: QAbstractTableModel, _parent: anytype) i32 {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        return qtc.QAbstractTableModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
     /// ### DEPRECATED: Use `onColumnCount` instead
@@ -9915,6 +8736,8 @@ pub const QAbstractTableModel = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onData` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractTableModel `
@@ -9926,29 +8749,6 @@ pub const QAbstractTableModel = extern struct {
     pub fn data(self: QAbstractTableModel, _index: anytype, _role: i32) QVariant {
         comptime _ = @TypeOf(_index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractTableModel_Data(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(_role)) };
-    }
-
-    /// ### DEPRECATED: Use `superData` instead
-    ///
-    pub const SuperData = superData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` _index: QModelIndex `
-    ///
-    /// ` _role: i32 `
-    ///
-    pub fn superData(self: QAbstractTableModel, _index: anytype, _role: i32) QVariant {
-        comptime _ = @TypeOf(_index)._is_QModelIndex;
-        return .{ .ptr = qtc.QAbstractTableModel_SuperData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(_role)) };
     }
 
     /// ### DEPRECATED: Use `onData` instead
@@ -10539,9 +9339,9 @@ pub const QAbstractTableModel = extern struct {
     ///
     /// ` self: QAbstractTableModel`
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: QAbstractTableModel) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onMimeTypes(self: QAbstractTableModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onMimeTypes(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QAbstractTableModel_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10751,9 +9551,9 @@ pub const QAbstractTableModel = extern struct {
     ///
     /// ` self: QAbstractTableModel`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractTableModel) callconv(.c) i32 `
     ///
-    pub fn onSupportedDropActions(self: QAbstractTableModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDropActions(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel) callconv(.c) i32) void {
         qtc.QAbstractTableModel_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10815,9 +9615,9 @@ pub const QAbstractTableModel = extern struct {
     ///
     /// ` self: QAbstractTableModel`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractTableModel) callconv(.c) i32 `
     ///
-    pub fn onSupportedDragActions(self: QAbstractTableModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDragActions(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel) callconv(.c) i32) void {
         qtc.QAbstractTableModel_OnSupportedDragActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11775,13 +10575,13 @@ pub const QAbstractTableModel = extern struct {
     ///
     /// ` self: QAbstractTableModel`
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
+    /// ` callback: *const fn (self: QAbstractTableModel) callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of Map_i32_u8 `
     ///
-    pub fn onRoleNames(self: QAbstractTableModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+    pub fn onRoleNames(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel) callconv(.c) qtc.libqt_map) void {
         qtc.QAbstractTableModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11903,9 +10703,9 @@ pub const QAbstractTableModel = extern struct {
     ///
     /// ` self: QAbstractTableModel`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractTableModel) callconv(.c) bool `
     ///
-    pub fn onSubmit(self: QAbstractTableModel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSubmit(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel) callconv(.c) bool) void {
         qtc.QAbstractTableModel_OnSubmit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11959,9 +10759,9 @@ pub const QAbstractTableModel = extern struct {
     ///
     /// ` self: QAbstractTableModel`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractTableModel) callconv(.c) void `
     ///
-    pub fn onRevert(self: QAbstractTableModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onRevert(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel) callconv(.c) void) void {
         qtc.QAbstractTableModel_OnRevert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12015,9 +10815,9 @@ pub const QAbstractTableModel = extern struct {
     ///
     /// ` self: QAbstractTableModel`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractTableModel) callconv(.c) void `
     ///
-    pub fn onResetInternalData(self: QAbstractTableModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onResetInternalData(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel) callconv(.c) void) void {
         qtc.QAbstractTableModel_OnResetInternalData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12483,50 +11283,6 @@ pub const QAbstractTableModel = extern struct {
         return .{ .ptr = qtc.QAbstractTableModel_CreateIndex(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column)) };
     }
 
-    /// ### DEPRECATED: Use `superCreateIndex` instead
-    ///
-    pub const SuperCreateIndex = superCreateIndex;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` _row: i32 `
-    ///
-    /// ` _column: i32 `
-    ///
-    pub fn superCreateIndex(self: QAbstractTableModel, _row: i32, _column: i32) QModelIndex {
-        return .{ .ptr = qtc.QAbstractTableModel_SuperCreateIndex(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column)) };
-    }
-
-    /// ### DEPRECATED: Use `onCreateIndex` instead
-    ///
-    pub const OnCreateIndex = onCreateIndex;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractTableModel, row: i32, column: i32) callconv(.c) QModelIndex `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCreateIndex(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel, i32, i32) callconv(.c) QModelIndex) void {
-        qtc.QAbstractTableModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `encodeData` instead
     ///
     pub const EncodeData = encodeData;
@@ -12552,53 +11308,6 @@ pub const QAbstractTableModel = extern struct {
         };
         comptime _ = @TypeOf(stream)._is_QDataStream;
         qtc.QAbstractTableModel_EncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEncodeData` instead
-    ///
-    pub const SuperEncodeData = superEncodeData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` indexes: []QModelIndex `
-    ///
-    /// ` stream: QDataStream `
-    ///
-    pub fn superEncodeData(self: QAbstractTableModel, indexes: []QModelIndex, stream: anytype) void {
-        const indexes_list = qtc.libqt_list{
-            .len = indexes.len,
-            .data = @ptrCast(indexes.ptr),
-        };
-        comptime _ = @TypeOf(stream)._is_QDataStream;
-        qtc.QAbstractTableModel_SuperEncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEncodeData` instead
-    ///
-    pub const OnEncodeData = onEncodeData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractTableModel, indexes: qtc.libqt_list ([]QModelIndex), stream: QDataStream) callconv(.c) void `
-    ///
-    pub fn onEncodeData(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEncodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `decodeData` instead
@@ -12629,54 +11338,6 @@ pub const QAbstractTableModel = extern struct {
         return qtc.QAbstractTableModel_DecodeData(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDecodeData` instead
-    ///
-    pub const SuperDecodeData = superDecodeData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` _row: i32 `
-    ///
-    /// ` _column: i32 `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` stream: QDataStream `
-    ///
-    pub fn superDecodeData(self: QAbstractTableModel, _row: i32, _column: i32, _parent: anytype, stream: anytype) bool {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        comptime _ = @TypeOf(stream)._is_QDataStream;
-        return qtc.QAbstractTableModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDecodeData` instead
-    ///
-    pub const OnDecodeData = onDecodeData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractTableModel, row: i32, column: i32, parent: QModelIndex, stream: QDataStream) callconv(.c) bool `
-    ///
-    pub fn onDecodeData(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnDecodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `beginInsertRows` instead
     ///
     pub const BeginInsertRows = beginInsertRows;
@@ -12702,51 +11363,6 @@ pub const QAbstractTableModel = extern struct {
         qtc.QAbstractTableModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `superBeginInsertRows` instead
-    ///
-    pub const SuperBeginInsertRows = superBeginInsertRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginInsertRows(self: QAbstractTableModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QAbstractTableModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
-    /// ### DEPRECATED: Use `onBeginInsertRows` instead
-    ///
-    pub const OnBeginInsertRows = onBeginInsertRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginInsertRows(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnBeginInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endInsertRows` instead
     ///
     pub const EndInsertRows = endInsertRows;
@@ -12763,44 +11379,6 @@ pub const QAbstractTableModel = extern struct {
     ///
     pub fn endInsertRows(self: QAbstractTableModel) void {
         qtc.QAbstractTableModel_EndInsertRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndInsertRows` instead
-    ///
-    pub const SuperEndInsertRows = superEndInsertRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    pub fn superEndInsertRows(self: QAbstractTableModel) void {
-        qtc.QAbstractTableModel_SuperEndInsertRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndInsertRows` instead
-    ///
-    pub const OnEndInsertRows = onEndInsertRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndInsertRows(self: QAbstractTableModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEndInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginRemoveRows` instead
@@ -12828,51 +11406,6 @@ pub const QAbstractTableModel = extern struct {
         qtc.QAbstractTableModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `superBeginRemoveRows` instead
-    ///
-    pub const SuperBeginRemoveRows = superBeginRemoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginRemoveRows(self: QAbstractTableModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QAbstractTableModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
-    /// ### DEPRECATED: Use `onBeginRemoveRows` instead
-    ///
-    pub const OnBeginRemoveRows = onBeginRemoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginRemoveRows(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnBeginRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endRemoveRows` instead
     ///
     pub const EndRemoveRows = endRemoveRows;
@@ -12889,44 +11422,6 @@ pub const QAbstractTableModel = extern struct {
     ///
     pub fn endRemoveRows(self: QAbstractTableModel) void {
         qtc.QAbstractTableModel_EndRemoveRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndRemoveRows` instead
-    ///
-    pub const SuperEndRemoveRows = superEndRemoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    pub fn superEndRemoveRows(self: QAbstractTableModel) void {
-        qtc.QAbstractTableModel_SuperEndRemoveRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndRemoveRows` instead
-    ///
-    pub const OnEndRemoveRows = onEndRemoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndRemoveRows(self: QAbstractTableModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEndRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginMoveRows` instead
@@ -12959,56 +11454,6 @@ pub const QAbstractTableModel = extern struct {
         return qtc.QAbstractTableModel_BeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
-    /// ### DEPRECATED: Use `superBeginMoveRows` instead
-    ///
-    pub const SuperBeginMoveRows = superBeginMoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` sourceParent: QModelIndex `
-    ///
-    /// ` sourceFirst: i32 `
-    ///
-    /// ` sourceLast: i32 `
-    ///
-    /// ` destinationParent: QModelIndex `
-    ///
-    /// ` destinationRow: i32 `
-    ///
-    pub fn superBeginMoveRows(self: QAbstractTableModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
-        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
-        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
-        return qtc.QAbstractTableModel_SuperBeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
-    }
-
-    /// ### DEPRECATED: Use `onBeginMoveRows` instead
-    ///
-    pub const OnBeginMoveRows = onBeginMoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractTableModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) bool `
-    ///
-    pub fn onBeginMoveRows(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnBeginMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endMoveRows` instead
     ///
     pub const EndMoveRows = endMoveRows;
@@ -13025,44 +11470,6 @@ pub const QAbstractTableModel = extern struct {
     ///
     pub fn endMoveRows(self: QAbstractTableModel) void {
         qtc.QAbstractTableModel_EndMoveRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndMoveRows` instead
-    ///
-    pub const SuperEndMoveRows = superEndMoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    pub fn superEndMoveRows(self: QAbstractTableModel) void {
-        qtc.QAbstractTableModel_SuperEndMoveRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndMoveRows` instead
-    ///
-    pub const OnEndMoveRows = onEndMoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndMoveRows(self: QAbstractTableModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEndMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginInsertColumns` instead
@@ -13090,51 +11497,6 @@ pub const QAbstractTableModel = extern struct {
         qtc.QAbstractTableModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `superBeginInsertColumns` instead
-    ///
-    pub const SuperBeginInsertColumns = superBeginInsertColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginInsertColumns(self: QAbstractTableModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QAbstractTableModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
-    /// ### DEPRECATED: Use `onBeginInsertColumns` instead
-    ///
-    pub const OnBeginInsertColumns = onBeginInsertColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginInsertColumns(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnBeginInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endInsertColumns` instead
     ///
     pub const EndInsertColumns = endInsertColumns;
@@ -13151,44 +11513,6 @@ pub const QAbstractTableModel = extern struct {
     ///
     pub fn endInsertColumns(self: QAbstractTableModel) void {
         qtc.QAbstractTableModel_EndInsertColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndInsertColumns` instead
-    ///
-    pub const SuperEndInsertColumns = superEndInsertColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    pub fn superEndInsertColumns(self: QAbstractTableModel) void {
-        qtc.QAbstractTableModel_SuperEndInsertColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndInsertColumns` instead
-    ///
-    pub const OnEndInsertColumns = onEndInsertColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndInsertColumns(self: QAbstractTableModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEndInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginRemoveColumns` instead
@@ -13216,51 +11540,6 @@ pub const QAbstractTableModel = extern struct {
         qtc.QAbstractTableModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `superBeginRemoveColumns` instead
-    ///
-    pub const SuperBeginRemoveColumns = superBeginRemoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginRemoveColumns(self: QAbstractTableModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QAbstractTableModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
-    /// ### DEPRECATED: Use `onBeginRemoveColumns` instead
-    ///
-    pub const OnBeginRemoveColumns = onBeginRemoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginRemoveColumns(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnBeginRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endRemoveColumns` instead
     ///
     pub const EndRemoveColumns = endRemoveColumns;
@@ -13277,44 +11556,6 @@ pub const QAbstractTableModel = extern struct {
     ///
     pub fn endRemoveColumns(self: QAbstractTableModel) void {
         qtc.QAbstractTableModel_EndRemoveColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndRemoveColumns` instead
-    ///
-    pub const SuperEndRemoveColumns = superEndRemoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    pub fn superEndRemoveColumns(self: QAbstractTableModel) void {
-        qtc.QAbstractTableModel_SuperEndRemoveColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndRemoveColumns` instead
-    ///
-    pub const OnEndRemoveColumns = onEndRemoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndRemoveColumns(self: QAbstractTableModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEndRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginMoveColumns` instead
@@ -13347,56 +11588,6 @@ pub const QAbstractTableModel = extern struct {
         return qtc.QAbstractTableModel_BeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
-    /// ### DEPRECATED: Use `superBeginMoveColumns` instead
-    ///
-    pub const SuperBeginMoveColumns = superBeginMoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` sourceParent: QModelIndex `
-    ///
-    /// ` sourceFirst: i32 `
-    ///
-    /// ` sourceLast: i32 `
-    ///
-    /// ` destinationParent: QModelIndex `
-    ///
-    /// ` destinationColumn: i32 `
-    ///
-    pub fn superBeginMoveColumns(self: QAbstractTableModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
-        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
-        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
-        return qtc.QAbstractTableModel_SuperBeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
-    }
-
-    /// ### DEPRECATED: Use `onBeginMoveColumns` instead
-    ///
-    pub const OnBeginMoveColumns = onBeginMoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractTableModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) bool `
-    ///
-    pub fn onBeginMoveColumns(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnBeginMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endMoveColumns` instead
     ///
     pub const EndMoveColumns = endMoveColumns;
@@ -13413,44 +11604,6 @@ pub const QAbstractTableModel = extern struct {
     ///
     pub fn endMoveColumns(self: QAbstractTableModel) void {
         qtc.QAbstractTableModel_EndMoveColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndMoveColumns` instead
-    ///
-    pub const SuperEndMoveColumns = superEndMoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    pub fn superEndMoveColumns(self: QAbstractTableModel) void {
-        qtc.QAbstractTableModel_SuperEndMoveColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndMoveColumns` instead
-    ///
-    pub const OnEndMoveColumns = onEndMoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndMoveColumns(self: QAbstractTableModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEndMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginResetModel` instead
@@ -13471,44 +11624,6 @@ pub const QAbstractTableModel = extern struct {
         qtc.QAbstractTableModel_BeginResetModel(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superBeginResetModel` instead
-    ///
-    pub const SuperBeginResetModel = superBeginResetModel;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    pub fn superBeginResetModel(self: QAbstractTableModel) void {
-        qtc.QAbstractTableModel_SuperBeginResetModel(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onBeginResetModel` instead
-    ///
-    pub const OnBeginResetModel = onBeginResetModel;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onBeginResetModel(self: QAbstractTableModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnBeginResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endResetModel` instead
     ///
     pub const EndResetModel = endResetModel;
@@ -13525,44 +11640,6 @@ pub const QAbstractTableModel = extern struct {
     ///
     pub fn endResetModel(self: QAbstractTableModel) void {
         qtc.QAbstractTableModel_EndResetModel(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndResetModel` instead
-    ///
-    pub const SuperEndResetModel = superEndResetModel;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    pub fn superEndResetModel(self: QAbstractTableModel) void {
-        qtc.QAbstractTableModel_SuperEndResetModel(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndResetModel` instead
-    ///
-    pub const OnEndResetModel = onEndResetModel;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndResetModel(self: QAbstractTableModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnEndResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `changePersistentIndex` instead
@@ -13587,50 +11664,6 @@ pub const QAbstractTableModel = extern struct {
         comptime _ = @TypeOf(from)._is_QModelIndex;
         comptime _ = @TypeOf(to)._is_QModelIndex;
         qtc.QAbstractTableModel_ChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superChangePersistentIndex` instead
-    ///
-    pub const SuperChangePersistentIndex = superChangePersistentIndex;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` from: QModelIndex `
-    ///
-    /// ` to: QModelIndex `
-    ///
-    pub fn superChangePersistentIndex(self: QAbstractTableModel, from: anytype, to: anytype) void {
-        comptime _ = @TypeOf(from)._is_QModelIndex;
-        comptime _ = @TypeOf(to)._is_QModelIndex;
-        qtc.QAbstractTableModel_SuperChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onChangePersistentIndex` instead
-    ///
-    pub const OnChangePersistentIndex = onChangePersistentIndex;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractTableModel, from: QModelIndex, to: QModelIndex) callconv(.c) void `
-    ///
-    pub fn onChangePersistentIndex(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel, QModelIndex, QModelIndex) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnChangePersistentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `changePersistentIndexList` instead
@@ -13663,56 +11696,6 @@ pub const QAbstractTableModel = extern struct {
         qtc.QAbstractTableModel_ChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
-    /// ### DEPRECATED: Use `superChangePersistentIndexList` instead
-    ///
-    pub const SuperChangePersistentIndexList = superChangePersistentIndexList;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` from: []QModelIndex `
-    ///
-    /// ` to: []QModelIndex `
-    ///
-    pub fn superChangePersistentIndexList(self: QAbstractTableModel, from: []QModelIndex, to: []QModelIndex) void {
-        const from_list = qtc.libqt_list{
-            .len = from.len,
-            .data = @ptrCast(from.ptr),
-        };
-        const to_list = qtc.libqt_list{
-            .len = to.len,
-            .data = @ptrCast(to.ptr),
-        };
-        qtc.QAbstractTableModel_SuperChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
-    }
-
-    /// ### DEPRECATED: Use `onChangePersistentIndexList` instead
-    ///
-    pub const OnChangePersistentIndexList = onChangePersistentIndexList;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractTableModel, from: qtc.libqt_list ([]QModelIndex), to: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
-    ///
-    pub fn onChangePersistentIndexList(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractTableModel_OnChangePersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `persistentIndexList` instead
     ///
     pub const PersistentIndexList = persistentIndexList;
@@ -13739,58 +11722,6 @@ pub const QAbstractTableModel = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superPersistentIndexList` instead
-    ///
-    pub const SuperPersistentIndexList = superPersistentIndexList;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superPersistentIndexList(self: QAbstractTableModel, allocator: std.mem.Allocator) []QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QAbstractTableModel_SuperPersistentIndexList(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QAbstractTableModel.persistentIndexList: Memory allocation failed");
-        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onPersistentIndexList` instead
-    ///
-    pub const OnPersistentIndexList = onPersistentIndexList;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of []QModelIndex `
-    ///
-    pub fn onPersistentIndexList(self: QAbstractTableModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QAbstractTableModel_OnPersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -13809,44 +11740,6 @@ pub const QAbstractTableModel = extern struct {
         return .{ .ptr = qtc.QAbstractTableModel_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    pub fn superSender(self: QAbstractTableModel) QObject {
-        return .{ .ptr = qtc.QAbstractTableModel_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QAbstractTableModel, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAbstractTableModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -13863,44 +11756,6 @@ pub const QAbstractTableModel = extern struct {
     ///
     pub fn senderSignalIndex(self: QAbstractTableModel) i32 {
         return qtc.QAbstractTableModel_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    pub fn superSenderSignalIndex(self: QAbstractTableModel) i32 {
-        return qtc.QAbstractTableModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QAbstractTableModel, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractTableModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -13924,47 +11779,6 @@ pub const QAbstractTableModel = extern struct {
         return qtc.QAbstractTableModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QAbstractTableModel, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QAbstractTableModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractTableModel, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractTableModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -13984,47 +11798,6 @@ pub const QAbstractTableModel = extern struct {
     pub fn isSignalConnected(self: QAbstractTableModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractTableModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTableModel `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QAbstractTableModel, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QAbstractTableModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTableModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractTableModel, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QAbstractTableModel, callback: *const fn (QAbstractTableModel, QMetaMethod) callconv(.c) bool) void {
-        qtc.QAbstractTableModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onRowsAboutToBeInserted` instead
@@ -14407,9 +12180,9 @@ pub const QAbstractListModel = extern struct {
     ///
     /// ` self: QAbstractListModel `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QAbstractListModel) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QAbstractListModel, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAbstractListModel, callback: *const fn (QAbstractListModel) callconv(.c) QMetaObject) void {
         qtc.QAbstractListModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14898,6 +12671,8 @@ pub const QAbstractListModel = extern struct {
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
+    /// This method must be implemented with `onParent` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractListModel `
@@ -14931,27 +12706,6 @@ pub const QAbstractListModel = extern struct {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superParent` instead
-    ///
-    pub const SuperParent = superParent;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` child: QModelIndex `
-    ///
-    pub fn superParent(self: QAbstractListModel, child: anytype) QModelIndex {
-        comptime _ = @TypeOf(child)._is_QModelIndex;
-        return .{ .ptr = qtc.QAbstractItemModel_SuperParent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `columnCount` instead
     ///
     pub const ColumnCount = columnCount;
@@ -14959,6 +12713,8 @@ pub const QAbstractListModel = extern struct {
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
+    ///
+    /// This method must be implemented with `onColumnCount` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -14989,27 +12745,6 @@ pub const QAbstractListModel = extern struct {
     ///
     pub fn onColumnCount(self: QAbstractListModel, callback: *const fn (QAbstractListModel, QModelIndex) callconv(.c) i32) void {
         qtc.QAbstractItemModel_OnColumnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superColumnCount` instead
-    ///
-    pub const SuperColumnCount = superColumnCount;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    pub fn superColumnCount(self: QAbstractListModel, _parent: anytype) i32 {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
     /// ### DEPRECATED: Use `hasChildren` instead
@@ -16660,6 +14395,8 @@ pub const QAbstractListModel = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onRowCount` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractListModel `
@@ -16669,27 +14406,6 @@ pub const QAbstractListModel = extern struct {
     pub fn rowCount(self: QAbstractListModel, _parent: anytype) i32 {
         comptime _ = @TypeOf(_parent)._is_QModelIndex;
         return qtc.QAbstractListModel_RowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superRowCount` instead
-    ///
-    pub const SuperRowCount = superRowCount;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowCount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    pub fn superRowCount(self: QAbstractListModel, _parent: anytype) i32 {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        return qtc.QAbstractListModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
     /// ### DEPRECATED: Use `onRowCount` instead
@@ -16722,6 +14438,8 @@ pub const QAbstractListModel = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onData` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractListModel `
@@ -16733,29 +14451,6 @@ pub const QAbstractListModel = extern struct {
     pub fn data(self: QAbstractListModel, _index: anytype, _role: i32) QVariant {
         comptime _ = @TypeOf(_index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractListModel_Data(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(_role)) };
-    }
-
-    /// ### DEPRECATED: Use `superData` instead
-    ///
-    pub const SuperData = superData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#data)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` _index: QModelIndex `
-    ///
-    /// ` _role: i32 `
-    ///
-    pub fn superData(self: QAbstractListModel, _index: anytype, _role: i32) QVariant {
-        comptime _ = @TypeOf(_index)._is_QModelIndex;
-        return .{ .ptr = qtc.QAbstractListModel_SuperData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(_role)) };
     }
 
     /// ### DEPRECATED: Use `onData` instead
@@ -17346,9 +15041,9 @@ pub const QAbstractListModel = extern struct {
     ///
     /// ` self: QAbstractListModel`
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: QAbstractListModel) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onMimeTypes(self: QAbstractListModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onMimeTypes(self: QAbstractListModel, callback: *const fn (QAbstractListModel) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QAbstractListModel_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -17558,9 +15253,9 @@ pub const QAbstractListModel = extern struct {
     ///
     /// ` self: QAbstractListModel`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractListModel) callconv(.c) i32 `
     ///
-    pub fn onSupportedDropActions(self: QAbstractListModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDropActions(self: QAbstractListModel, callback: *const fn (QAbstractListModel) callconv(.c) i32) void {
         qtc.QAbstractListModel_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -17622,9 +15317,9 @@ pub const QAbstractListModel = extern struct {
     ///
     /// ` self: QAbstractListModel`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractListModel) callconv(.c) i32 `
     ///
-    pub fn onSupportedDragActions(self: QAbstractListModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDragActions(self: QAbstractListModel, callback: *const fn (QAbstractListModel) callconv(.c) i32) void {
         qtc.QAbstractListModel_OnSupportedDragActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18582,13 +16277,13 @@ pub const QAbstractListModel = extern struct {
     ///
     /// ` self: QAbstractListModel`
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
+    /// ` callback: *const fn (self: QAbstractListModel) callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of Map_i32_u8 `
     ///
-    pub fn onRoleNames(self: QAbstractListModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+    pub fn onRoleNames(self: QAbstractListModel, callback: *const fn (QAbstractListModel) callconv(.c) qtc.libqt_map) void {
         qtc.QAbstractListModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18710,9 +16405,9 @@ pub const QAbstractListModel = extern struct {
     ///
     /// ` self: QAbstractListModel`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractListModel) callconv(.c) bool `
     ///
-    pub fn onSubmit(self: QAbstractListModel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSubmit(self: QAbstractListModel, callback: *const fn (QAbstractListModel) callconv(.c) bool) void {
         qtc.QAbstractListModel_OnSubmit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18766,9 +16461,9 @@ pub const QAbstractListModel = extern struct {
     ///
     /// ` self: QAbstractListModel`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractListModel) callconv(.c) void `
     ///
-    pub fn onRevert(self: QAbstractListModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onRevert(self: QAbstractListModel, callback: *const fn (QAbstractListModel) callconv(.c) void) void {
         qtc.QAbstractListModel_OnRevert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18822,9 +16517,9 @@ pub const QAbstractListModel = extern struct {
     ///
     /// ` self: QAbstractListModel`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractListModel) callconv(.c) void `
     ///
-    pub fn onResetInternalData(self: QAbstractListModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onResetInternalData(self: QAbstractListModel, callback: *const fn (QAbstractListModel) callconv(.c) void) void {
         qtc.QAbstractListModel_OnResetInternalData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -19290,50 +16985,6 @@ pub const QAbstractListModel = extern struct {
         return .{ .ptr = qtc.QAbstractListModel_CreateIndex(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column)) };
     }
 
-    /// ### DEPRECATED: Use `superCreateIndex` instead
-    ///
-    pub const SuperCreateIndex = superCreateIndex;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` _row: i32 `
-    ///
-    /// ` _column: i32 `
-    ///
-    pub fn superCreateIndex(self: QAbstractListModel, _row: i32, _column: i32) QModelIndex {
-        return .{ .ptr = qtc.QAbstractListModel_SuperCreateIndex(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column)) };
-    }
-
-    /// ### DEPRECATED: Use `onCreateIndex` instead
-    ///
-    pub const OnCreateIndex = onCreateIndex;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractListModel, row: i32, column: i32) callconv(.c) QModelIndex `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCreateIndex(self: QAbstractListModel, callback: *const fn (QAbstractListModel, i32, i32) callconv(.c) QModelIndex) void {
-        qtc.QAbstractListModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `encodeData` instead
     ///
     pub const EncodeData = encodeData;
@@ -19359,53 +17010,6 @@ pub const QAbstractListModel = extern struct {
         };
         comptime _ = @TypeOf(stream)._is_QDataStream;
         qtc.QAbstractListModel_EncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEncodeData` instead
-    ///
-    pub const SuperEncodeData = superEncodeData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` indexes: []QModelIndex `
-    ///
-    /// ` stream: QDataStream `
-    ///
-    pub fn superEncodeData(self: QAbstractListModel, indexes: []QModelIndex, stream: anytype) void {
-        const indexes_list = qtc.libqt_list{
-            .len = indexes.len,
-            .data = @ptrCast(indexes.ptr),
-        };
-        comptime _ = @TypeOf(stream)._is_QDataStream;
-        qtc.QAbstractListModel_SuperEncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEncodeData` instead
-    ///
-    pub const OnEncodeData = onEncodeData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractListModel, indexes: qtc.libqt_list ([]QModelIndex), stream: QDataStream) callconv(.c) void `
-    ///
-    pub fn onEncodeData(self: QAbstractListModel, callback: *const fn (QAbstractListModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEncodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `decodeData` instead
@@ -19436,54 +17040,6 @@ pub const QAbstractListModel = extern struct {
         return qtc.QAbstractListModel_DecodeData(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDecodeData` instead
-    ///
-    pub const SuperDecodeData = superDecodeData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` _row: i32 `
-    ///
-    /// ` _column: i32 `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` stream: QDataStream `
-    ///
-    pub fn superDecodeData(self: QAbstractListModel, _row: i32, _column: i32, _parent: anytype, stream: anytype) bool {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        comptime _ = @TypeOf(stream)._is_QDataStream;
-        return qtc.QAbstractListModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDecodeData` instead
-    ///
-    pub const OnDecodeData = onDecodeData;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractListModel, row: i32, column: i32, parent: QModelIndex, stream: QDataStream) callconv(.c) bool `
-    ///
-    pub fn onDecodeData(self: QAbstractListModel, callback: *const fn (QAbstractListModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnDecodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `beginInsertRows` instead
     ///
     pub const BeginInsertRows = beginInsertRows;
@@ -19509,51 +17065,6 @@ pub const QAbstractListModel = extern struct {
         qtc.QAbstractListModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `superBeginInsertRows` instead
-    ///
-    pub const SuperBeginInsertRows = superBeginInsertRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginInsertRows(self: QAbstractListModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QAbstractListModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
-    /// ### DEPRECATED: Use `onBeginInsertRows` instead
-    ///
-    pub const OnBeginInsertRows = onBeginInsertRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractListModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginInsertRows(self: QAbstractListModel, callback: *const fn (QAbstractListModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnBeginInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endInsertRows` instead
     ///
     pub const EndInsertRows = endInsertRows;
@@ -19570,44 +17081,6 @@ pub const QAbstractListModel = extern struct {
     ///
     pub fn endInsertRows(self: QAbstractListModel) void {
         qtc.QAbstractListModel_EndInsertRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndInsertRows` instead
-    ///
-    pub const SuperEndInsertRows = superEndInsertRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    pub fn superEndInsertRows(self: QAbstractListModel) void {
-        qtc.QAbstractListModel_SuperEndInsertRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndInsertRows` instead
-    ///
-    pub const OnEndInsertRows = onEndInsertRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndInsertRows(self: QAbstractListModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEndInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginRemoveRows` instead
@@ -19635,51 +17108,6 @@ pub const QAbstractListModel = extern struct {
         qtc.QAbstractListModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `superBeginRemoveRows` instead
-    ///
-    pub const SuperBeginRemoveRows = superBeginRemoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginRemoveRows(self: QAbstractListModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QAbstractListModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
-    /// ### DEPRECATED: Use `onBeginRemoveRows` instead
-    ///
-    pub const OnBeginRemoveRows = onBeginRemoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractListModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginRemoveRows(self: QAbstractListModel, callback: *const fn (QAbstractListModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnBeginRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endRemoveRows` instead
     ///
     pub const EndRemoveRows = endRemoveRows;
@@ -19696,44 +17124,6 @@ pub const QAbstractListModel = extern struct {
     ///
     pub fn endRemoveRows(self: QAbstractListModel) void {
         qtc.QAbstractListModel_EndRemoveRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndRemoveRows` instead
-    ///
-    pub const SuperEndRemoveRows = superEndRemoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    pub fn superEndRemoveRows(self: QAbstractListModel) void {
-        qtc.QAbstractListModel_SuperEndRemoveRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndRemoveRows` instead
-    ///
-    pub const OnEndRemoveRows = onEndRemoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndRemoveRows(self: QAbstractListModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEndRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginMoveRows` instead
@@ -19766,56 +17156,6 @@ pub const QAbstractListModel = extern struct {
         return qtc.QAbstractListModel_BeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
-    /// ### DEPRECATED: Use `superBeginMoveRows` instead
-    ///
-    pub const SuperBeginMoveRows = superBeginMoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` sourceParent: QModelIndex `
-    ///
-    /// ` sourceFirst: i32 `
-    ///
-    /// ` sourceLast: i32 `
-    ///
-    /// ` destinationParent: QModelIndex `
-    ///
-    /// ` destinationRow: i32 `
-    ///
-    pub fn superBeginMoveRows(self: QAbstractListModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
-        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
-        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
-        return qtc.QAbstractListModel_SuperBeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
-    }
-
-    /// ### DEPRECATED: Use `onBeginMoveRows` instead
-    ///
-    pub const OnBeginMoveRows = onBeginMoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractListModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) bool `
-    ///
-    pub fn onBeginMoveRows(self: QAbstractListModel, callback: *const fn (QAbstractListModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnBeginMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endMoveRows` instead
     ///
     pub const EndMoveRows = endMoveRows;
@@ -19832,44 +17172,6 @@ pub const QAbstractListModel = extern struct {
     ///
     pub fn endMoveRows(self: QAbstractListModel) void {
         qtc.QAbstractListModel_EndMoveRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndMoveRows` instead
-    ///
-    pub const SuperEndMoveRows = superEndMoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    pub fn superEndMoveRows(self: QAbstractListModel) void {
-        qtc.QAbstractListModel_SuperEndMoveRows(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndMoveRows` instead
-    ///
-    pub const OnEndMoveRows = onEndMoveRows;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndMoveRows(self: QAbstractListModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEndMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginInsertColumns` instead
@@ -19897,51 +17199,6 @@ pub const QAbstractListModel = extern struct {
         qtc.QAbstractListModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `superBeginInsertColumns` instead
-    ///
-    pub const SuperBeginInsertColumns = superBeginInsertColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginInsertColumns(self: QAbstractListModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QAbstractListModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
-    /// ### DEPRECATED: Use `onBeginInsertColumns` instead
-    ///
-    pub const OnBeginInsertColumns = onBeginInsertColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractListModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginInsertColumns(self: QAbstractListModel, callback: *const fn (QAbstractListModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnBeginInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endInsertColumns` instead
     ///
     pub const EndInsertColumns = endInsertColumns;
@@ -19958,44 +17215,6 @@ pub const QAbstractListModel = extern struct {
     ///
     pub fn endInsertColumns(self: QAbstractListModel) void {
         qtc.QAbstractListModel_EndInsertColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndInsertColumns` instead
-    ///
-    pub const SuperEndInsertColumns = superEndInsertColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    pub fn superEndInsertColumns(self: QAbstractListModel) void {
-        qtc.QAbstractListModel_SuperEndInsertColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndInsertColumns` instead
-    ///
-    pub const OnEndInsertColumns = onEndInsertColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndInsertColumns(self: QAbstractListModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEndInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginRemoveColumns` instead
@@ -20023,51 +17242,6 @@ pub const QAbstractListModel = extern struct {
         qtc.QAbstractListModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `superBeginRemoveColumns` instead
-    ///
-    pub const SuperBeginRemoveColumns = superBeginRemoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superBeginRemoveColumns(self: QAbstractListModel, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QAbstractListModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
-    /// ### DEPRECATED: Use `onBeginRemoveColumns` instead
-    ///
-    pub const OnBeginRemoveColumns = onBeginRemoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractListModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onBeginRemoveColumns(self: QAbstractListModel, callback: *const fn (QAbstractListModel, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnBeginRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endRemoveColumns` instead
     ///
     pub const EndRemoveColumns = endRemoveColumns;
@@ -20084,44 +17258,6 @@ pub const QAbstractListModel = extern struct {
     ///
     pub fn endRemoveColumns(self: QAbstractListModel) void {
         qtc.QAbstractListModel_EndRemoveColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndRemoveColumns` instead
-    ///
-    pub const SuperEndRemoveColumns = superEndRemoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    pub fn superEndRemoveColumns(self: QAbstractListModel) void {
-        qtc.QAbstractListModel_SuperEndRemoveColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndRemoveColumns` instead
-    ///
-    pub const OnEndRemoveColumns = onEndRemoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndRemoveColumns(self: QAbstractListModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEndRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginMoveColumns` instead
@@ -20154,56 +17290,6 @@ pub const QAbstractListModel = extern struct {
         return qtc.QAbstractListModel_BeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
-    /// ### DEPRECATED: Use `superBeginMoveColumns` instead
-    ///
-    pub const SuperBeginMoveColumns = superBeginMoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` sourceParent: QModelIndex `
-    ///
-    /// ` sourceFirst: i32 `
-    ///
-    /// ` sourceLast: i32 `
-    ///
-    /// ` destinationParent: QModelIndex `
-    ///
-    /// ` destinationColumn: i32 `
-    ///
-    pub fn superBeginMoveColumns(self: QAbstractListModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
-        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
-        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
-        return qtc.QAbstractListModel_SuperBeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
-    }
-
-    /// ### DEPRECATED: Use `onBeginMoveColumns` instead
-    ///
-    pub const OnBeginMoveColumns = onBeginMoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractListModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) bool `
-    ///
-    pub fn onBeginMoveColumns(self: QAbstractListModel, callback: *const fn (QAbstractListModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnBeginMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endMoveColumns` instead
     ///
     pub const EndMoveColumns = endMoveColumns;
@@ -20220,44 +17306,6 @@ pub const QAbstractListModel = extern struct {
     ///
     pub fn endMoveColumns(self: QAbstractListModel) void {
         qtc.QAbstractListModel_EndMoveColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndMoveColumns` instead
-    ///
-    pub const SuperEndMoveColumns = superEndMoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    pub fn superEndMoveColumns(self: QAbstractListModel) void {
-        qtc.QAbstractListModel_SuperEndMoveColumns(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndMoveColumns` instead
-    ///
-    pub const OnEndMoveColumns = onEndMoveColumns;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndMoveColumns(self: QAbstractListModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEndMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `beginResetModel` instead
@@ -20278,44 +17326,6 @@ pub const QAbstractListModel = extern struct {
         qtc.QAbstractListModel_BeginResetModel(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superBeginResetModel` instead
-    ///
-    pub const SuperBeginResetModel = superBeginResetModel;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    pub fn superBeginResetModel(self: QAbstractListModel) void {
-        qtc.QAbstractListModel_SuperBeginResetModel(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onBeginResetModel` instead
-    ///
-    pub const OnBeginResetModel = onBeginResetModel;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onBeginResetModel(self: QAbstractListModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnBeginResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `endResetModel` instead
     ///
     pub const EndResetModel = endResetModel;
@@ -20332,44 +17342,6 @@ pub const QAbstractListModel = extern struct {
     ///
     pub fn endResetModel(self: QAbstractListModel) void {
         qtc.QAbstractListModel_EndResetModel(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEndResetModel` instead
-    ///
-    pub const SuperEndResetModel = superEndResetModel;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    pub fn superEndResetModel(self: QAbstractListModel) void {
-        qtc.QAbstractListModel_SuperEndResetModel(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEndResetModel` instead
-    ///
-    pub const OnEndResetModel = onEndResetModel;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEndResetModel(self: QAbstractListModel, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractListModel_OnEndResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `changePersistentIndex` instead
@@ -20394,50 +17366,6 @@ pub const QAbstractListModel = extern struct {
         comptime _ = @TypeOf(from)._is_QModelIndex;
         comptime _ = @TypeOf(to)._is_QModelIndex;
         qtc.QAbstractListModel_ChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superChangePersistentIndex` instead
-    ///
-    pub const SuperChangePersistentIndex = superChangePersistentIndex;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` from: QModelIndex `
-    ///
-    /// ` to: QModelIndex `
-    ///
-    pub fn superChangePersistentIndex(self: QAbstractListModel, from: anytype, to: anytype) void {
-        comptime _ = @TypeOf(from)._is_QModelIndex;
-        comptime _ = @TypeOf(to)._is_QModelIndex;
-        qtc.QAbstractListModel_SuperChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onChangePersistentIndex` instead
-    ///
-    pub const OnChangePersistentIndex = onChangePersistentIndex;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractListModel, from: QModelIndex, to: QModelIndex) callconv(.c) void `
-    ///
-    pub fn onChangePersistentIndex(self: QAbstractListModel, callback: *const fn (QAbstractListModel, QModelIndex, QModelIndex) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnChangePersistentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `changePersistentIndexList` instead
@@ -20470,56 +17398,6 @@ pub const QAbstractListModel = extern struct {
         qtc.QAbstractListModel_ChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
-    /// ### DEPRECATED: Use `superChangePersistentIndexList` instead
-    ///
-    pub const SuperChangePersistentIndexList = superChangePersistentIndexList;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` from: []QModelIndex `
-    ///
-    /// ` to: []QModelIndex `
-    ///
-    pub fn superChangePersistentIndexList(self: QAbstractListModel, from: []QModelIndex, to: []QModelIndex) void {
-        const from_list = qtc.libqt_list{
-            .len = from.len,
-            .data = @ptrCast(from.ptr),
-        };
-        const to_list = qtc.libqt_list{
-            .len = to.len,
-            .data = @ptrCast(to.ptr),
-        };
-        qtc.QAbstractListModel_SuperChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
-    }
-
-    /// ### DEPRECATED: Use `onChangePersistentIndexList` instead
-    ///
-    pub const OnChangePersistentIndexList = onChangePersistentIndexList;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractListModel, from: qtc.libqt_list ([]QModelIndex), to: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
-    ///
-    pub fn onChangePersistentIndexList(self: QAbstractListModel, callback: *const fn (QAbstractListModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractListModel_OnChangePersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `persistentIndexList` instead
     ///
     pub const PersistentIndexList = persistentIndexList;
@@ -20546,58 +17424,6 @@ pub const QAbstractListModel = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superPersistentIndexList` instead
-    ///
-    pub const SuperPersistentIndexList = superPersistentIndexList;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superPersistentIndexList(self: QAbstractListModel, allocator: std.mem.Allocator) []QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QAbstractListModel_SuperPersistentIndexList(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QAbstractListModel.persistentIndexList: Memory allocation failed");
-        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onPersistentIndexList` instead
-    ///
-    pub const OnPersistentIndexList = onPersistentIndexList;
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of []QModelIndex `
-    ///
-    pub fn onPersistentIndexList(self: QAbstractListModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QAbstractListModel_OnPersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -20616,44 +17442,6 @@ pub const QAbstractListModel = extern struct {
         return .{ .ptr = qtc.QAbstractListModel_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    pub fn superSender(self: QAbstractListModel) QObject {
-        return .{ .ptr = qtc.QAbstractListModel_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QAbstractListModel, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAbstractListModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -20670,44 +17458,6 @@ pub const QAbstractListModel = extern struct {
     ///
     pub fn senderSignalIndex(self: QAbstractListModel) i32 {
         return qtc.QAbstractListModel_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    pub fn superSenderSignalIndex(self: QAbstractListModel) i32 {
-        return qtc.QAbstractListModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QAbstractListModel, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractListModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -20731,47 +17481,6 @@ pub const QAbstractListModel = extern struct {
         return qtc.QAbstractListModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QAbstractListModel, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QAbstractListModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractListModel, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QAbstractListModel, callback: *const fn (QAbstractListModel, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractListModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -20791,47 +17500,6 @@ pub const QAbstractListModel = extern struct {
     pub fn isSignalConnected(self: QAbstractListModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractListModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractListModel `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QAbstractListModel, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QAbstractListModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractListModel`
-    ///
-    /// ` callback: *const fn (self: QAbstractListModel, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QAbstractListModel, callback: *const fn (QAbstractListModel, QMetaMethod) callconv(.c) bool) void {
-        qtc.QAbstractListModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onRowsAboutToBeInserted` instead

@@ -48,7 +48,7 @@ void QQmlPropertyMap_Connect_ValueChanged(QQmlPropertyMap* self, intptr_t slot);
 QVariant* QQmlPropertyMap_UpdateValue(QQmlPropertyMap* self, const libqt_string key, const QVariant* input);
 libqt_string QQmlPropertyMap_Tr2(const char* s, const char* c);
 libqt_string QQmlPropertyMap_Tr3(const char* s, const char* c, int n);
-void QQmlPropertyMap_OnMetaObject(const QQmlPropertyMap* self, intptr_t slot);
+void QQmlPropertyMap_OnMetaObject(QQmlPropertyMap* self, intptr_t slot);
 QMetaObject* QQmlPropertyMap_SuperMetaObject(const QQmlPropertyMap* self);
 void QQmlPropertyMap_OnMetacast(QQmlPropertyMap* self, intptr_t slot);
 void* QQmlPropertyMap_SuperMetacast(QQmlPropertyMap* self, const char* param1);
@@ -78,17 +78,9 @@ void QQmlPropertyMap_DisconnectNotify(QQmlPropertyMap* self, const QMetaMethod* 
 void QQmlPropertyMap_OnDisconnectNotify(QQmlPropertyMap* self, intptr_t slot);
 void QQmlPropertyMap_SuperDisconnectNotify(QQmlPropertyMap* self, const QMetaMethod* signal);
 QObject* QQmlPropertyMap_Sender(const QQmlPropertyMap* self);
-void QQmlPropertyMap_OnSender(const QQmlPropertyMap* self, intptr_t slot);
-QObject* QQmlPropertyMap_SuperSender(const QQmlPropertyMap* self);
 int QQmlPropertyMap_SenderSignalIndex(const QQmlPropertyMap* self);
-void QQmlPropertyMap_OnSenderSignalIndex(const QQmlPropertyMap* self, intptr_t slot);
-int QQmlPropertyMap_SuperSenderSignalIndex(const QQmlPropertyMap* self);
 int QQmlPropertyMap_Receivers(const QQmlPropertyMap* self, const char* signal);
-void QQmlPropertyMap_OnReceivers(const QQmlPropertyMap* self, intptr_t slot);
-int QQmlPropertyMap_SuperReceivers(const QQmlPropertyMap* self, const char* signal);
 bool QQmlPropertyMap_IsSignalConnected(const QQmlPropertyMap* self, const QMetaMethod* signal);
-void QQmlPropertyMap_OnIsSignalConnected(const QQmlPropertyMap* self, intptr_t slot);
-bool QQmlPropertyMap_SuperIsSignalConnected(const QQmlPropertyMap* self, const QMetaMethod* signal);
 void QQmlPropertyMap_Delete(QQmlPropertyMap* self);
 
 #ifdef __cplusplus

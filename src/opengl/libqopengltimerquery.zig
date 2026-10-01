@@ -76,9 +76,9 @@ pub const QOpenGLTimerQuery = extern struct {
     ///
     /// ` self: QOpenGLTimerQuery `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QOpenGLTimerQuery) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QOpenGLTimerQuery, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QOpenGLTimerQuery, callback: *const fn (QOpenGLTimerQuery) callconv(.c) QMetaObject) void {
         qtc.QOpenGLTimerQuery_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1840,44 +1840,6 @@ pub const QOpenGLTimerQuery = extern struct {
         return .{ .ptr = qtc.QOpenGLTimerQuery_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLTimerQuery `
-    ///
-    pub fn superSender(self: QOpenGLTimerQuery) QObject {
-        return .{ .ptr = qtc.QOpenGLTimerQuery_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLTimerQuery`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QOpenGLTimerQuery, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QOpenGLTimerQuery_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1894,44 +1856,6 @@ pub const QOpenGLTimerQuery = extern struct {
     ///
     pub fn senderSignalIndex(self: QOpenGLTimerQuery) i32 {
         return qtc.QOpenGLTimerQuery_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLTimerQuery `
-    ///
-    pub fn superSenderSignalIndex(self: QOpenGLTimerQuery) i32 {
-        return qtc.QOpenGLTimerQuery_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLTimerQuery`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QOpenGLTimerQuery, callback: *const fn () callconv(.c) i32) void {
-        qtc.QOpenGLTimerQuery_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1955,47 +1879,6 @@ pub const QOpenGLTimerQuery = extern struct {
         return qtc.QOpenGLTimerQuery_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLTimerQuery `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QOpenGLTimerQuery, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QOpenGLTimerQuery_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLTimerQuery`
-    ///
-    /// ` callback: *const fn (self: QOpenGLTimerQuery, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QOpenGLTimerQuery, callback: *const fn (QOpenGLTimerQuery, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QOpenGLTimerQuery_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2015,47 +1898,6 @@ pub const QOpenGLTimerQuery = extern struct {
     pub fn isSignalConnected(self: QOpenGLTimerQuery, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QOpenGLTimerQuery_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLTimerQuery `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QOpenGLTimerQuery, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QOpenGLTimerQuery_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLTimerQuery`
-    ///
-    /// ` callback: *const fn (self: QOpenGLTimerQuery, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QOpenGLTimerQuery, callback: *const fn (QOpenGLTimerQuery, QMetaMethod) callconv(.c) bool) void {
-        qtc.QOpenGLTimerQuery_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -2157,9 +1999,9 @@ pub const QOpenGLTimeMonitor = extern struct {
     ///
     /// ` self: QOpenGLTimeMonitor `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QOpenGLTimeMonitor) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QOpenGLTimeMonitor, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QOpenGLTimeMonitor, callback: *const fn (QOpenGLTimeMonitor) callconv(.c) QMetaObject) void {
         qtc.QOpenGLTimeMonitor_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3958,44 +3800,6 @@ pub const QOpenGLTimeMonitor = extern struct {
         return .{ .ptr = qtc.QOpenGLTimeMonitor_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLTimeMonitor `
-    ///
-    pub fn superSender(self: QOpenGLTimeMonitor) QObject {
-        return .{ .ptr = qtc.QOpenGLTimeMonitor_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLTimeMonitor`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QOpenGLTimeMonitor, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QOpenGLTimeMonitor_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4012,44 +3816,6 @@ pub const QOpenGLTimeMonitor = extern struct {
     ///
     pub fn senderSignalIndex(self: QOpenGLTimeMonitor) i32 {
         return qtc.QOpenGLTimeMonitor_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLTimeMonitor `
-    ///
-    pub fn superSenderSignalIndex(self: QOpenGLTimeMonitor) i32 {
-        return qtc.QOpenGLTimeMonitor_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLTimeMonitor`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QOpenGLTimeMonitor, callback: *const fn () callconv(.c) i32) void {
-        qtc.QOpenGLTimeMonitor_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4073,47 +3839,6 @@ pub const QOpenGLTimeMonitor = extern struct {
         return qtc.QOpenGLTimeMonitor_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLTimeMonitor `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QOpenGLTimeMonitor, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QOpenGLTimeMonitor_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLTimeMonitor`
-    ///
-    /// ` callback: *const fn (self: QOpenGLTimeMonitor, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QOpenGLTimeMonitor, callback: *const fn (QOpenGLTimeMonitor, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QOpenGLTimeMonitor_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4133,47 +3858,6 @@ pub const QOpenGLTimeMonitor = extern struct {
     pub fn isSignalConnected(self: QOpenGLTimeMonitor, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QOpenGLTimeMonitor_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLTimeMonitor `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QOpenGLTimeMonitor, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QOpenGLTimeMonitor_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLTimeMonitor`
-    ///
-    /// ` callback: *const fn (self: QOpenGLTimeMonitor, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QOpenGLTimeMonitor, callback: *const fn (QOpenGLTimeMonitor, QMetaMethod) callconv(.c) bool) void {
-        qtc.QOpenGLTimeMonitor_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -9,32 +9,28 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QOpenGLWidget so that we can call protected methods
+// This class is a subclass of QOpenGLWidget
 class VirtualQOpenGLWidget final : public QOpenGLWidget {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQOpenGLWidget = true;
-
-    // Virtual class public types (including callbacks)
-    using QOpenGLWidget_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QOpenGLWidget_MetaObject_Callback = QMetaObject* (*)(const QOpenGLWidget*);
     using QOpenGLWidget_Metacast_Callback = void* (*)(QOpenGLWidget*, const char*);
     using QOpenGLWidget_Metacall_Callback = int (*)(QOpenGLWidget*, int, int, void**);
-    using QOpenGLWidget_InitializeGL_Callback = void (*)();
+    using QOpenGLWidget_InitializeGL_Callback = void (*)(QOpenGLWidget*);
     using QOpenGLWidget_ResizeGL_Callback = void (*)(QOpenGLWidget*, int, int);
-    using QOpenGLWidget_PaintGL_Callback = void (*)();
+    using QOpenGLWidget_PaintGL_Callback = void (*)(QOpenGLWidget*);
     using QOpenGLWidget_PaintEvent_Callback = void (*)(QOpenGLWidget*, QPaintEvent*);
     using QOpenGLWidget_ResizeEvent_Callback = void (*)(QOpenGLWidget*, QResizeEvent*);
     using QOpenGLWidget_Event_Callback = bool (*)(QOpenGLWidget*, QEvent*);
     using QOpenGLWidget_Metric_Callback = int (*)(const QOpenGLWidget*, int);
     using QOpenGLWidget_Redirected_Callback = QPaintDevice* (*)(const QOpenGLWidget*, QPoint*);
-    using QOpenGLWidget_PaintEngine_Callback = QPaintEngine* (*)();
-    using QOpenGLWidget_DevType_Callback = int (*)();
+    using QOpenGLWidget_PaintEngine_Callback = QPaintEngine* (*)(const QOpenGLWidget*);
+    using QOpenGLWidget_DevType_Callback = int (*)(const QOpenGLWidget*);
     using QOpenGLWidget_SetVisible_Callback = void (*)(QOpenGLWidget*, bool);
-    using QOpenGLWidget_SizeHint_Callback = QSize* (*)();
-    using QOpenGLWidget_MinimumSizeHint_Callback = QSize* (*)();
+    using QOpenGLWidget_SizeHint_Callback = QSize* (*)(const QOpenGLWidget*);
+    using QOpenGLWidget_MinimumSizeHint_Callback = QSize* (*)(const QOpenGLWidget*);
     using QOpenGLWidget_HeightForWidth_Callback = int (*)(const QOpenGLWidget*, int);
-    using QOpenGLWidget_HasHeightForWidth_Callback = bool (*)();
+    using QOpenGLWidget_HasHeightForWidth_Callback = bool (*)(const QOpenGLWidget*);
     using QOpenGLWidget_MousePressEvent_Callback = void (*)(QOpenGLWidget*, QMouseEvent*);
     using QOpenGLWidget_MouseReleaseEvent_Callback = void (*)(QOpenGLWidget*, QMouseEvent*);
     using QOpenGLWidget_MouseDoubleClickEvent_Callback = void (*)(QOpenGLWidget*, QMouseEvent*);
@@ -60,7 +56,7 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
     using QOpenGLWidget_NativeEvent_Callback = bool (*)(QOpenGLWidget*, libqt_string, void*, intptr_t*);
     using QOpenGLWidget_ChangeEvent_Callback = void (*)(QOpenGLWidget*, QEvent*);
     using QOpenGLWidget_InitPainter_Callback = void (*)(const QOpenGLWidget*, QPainter*);
-    using QOpenGLWidget_SharedPainter_Callback = QPainter* (*)();
+    using QOpenGLWidget_SharedPainter_Callback = QPainter* (*)(const QOpenGLWidget*);
     using QOpenGLWidget_InputMethodEvent_Callback = void (*)(QOpenGLWidget*, QInputMethodEvent*);
     using QOpenGLWidget_InputMethodQuery_Callback = QVariant* (*)(const QOpenGLWidget*, int);
     using QOpenGLWidget_FocusNextPrevChild_Callback = bool (*)(QOpenGLWidget*, bool);
@@ -70,18 +66,17 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
     using QOpenGLWidget_CustomEvent_Callback = void (*)(QOpenGLWidget*, QEvent*);
     using QOpenGLWidget_ConnectNotify_Callback = void (*)(QOpenGLWidget*, QMetaMethod*);
     using QOpenGLWidget_DisconnectNotify_Callback = void (*)(QOpenGLWidget*, QMetaMethod*);
-    using QOpenGLWidget_UpdateMicroFocus_Callback = void (*)();
-    using QOpenGLWidget_Create_Callback = void (*)();
-    using QOpenGLWidget_Destroy_Callback = void (*)();
-    using QOpenGLWidget_FocusNextChild_Callback = bool (*)();
-    using QOpenGLWidget_FocusPreviousChild_Callback = bool (*)();
-    using QOpenGLWidget_Sender_Callback = QObject* (*)();
-    using QOpenGLWidget_SenderSignalIndex_Callback = int (*)();
-    using QOpenGLWidget_Receivers_Callback = int (*)(const QOpenGLWidget*, const char*);
-    using QOpenGLWidget_IsSignalConnected_Callback = bool (*)(const QOpenGLWidget*, QMetaMethod*);
-    using QOpenGLWidget_GetDecodedMetricF_Callback = double (*)(const QOpenGLWidget*, int, int);
+    using QOpenGLWidget::create;
+    using QOpenGLWidget::destroy;
+    using QOpenGLWidget::focusNextChild;
+    using QOpenGLWidget::focusPreviousChild;
+    using QOpenGLWidget::getDecodedMetricF;
+    using QOpenGLWidget::isSignalConnected;
+    using QOpenGLWidget::receivers;
+    using QOpenGLWidget::sender;
+    using QOpenGLWidget::senderSignalIndex;
+    using QOpenGLWidget::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QOpenGLWidget_MetaObject_Callback qopenglwidget_metaobject_callback = nullptr;
     QOpenGLWidget_Metacast_Callback qopenglwidget_metacast_callback = nullptr;
@@ -136,226 +131,61 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
     QOpenGLWidget_CustomEvent_Callback qopenglwidget_customevent_callback = nullptr;
     QOpenGLWidget_ConnectNotify_Callback qopenglwidget_connectnotify_callback = nullptr;
     QOpenGLWidget_DisconnectNotify_Callback qopenglwidget_disconnectnotify_callback = nullptr;
-    QOpenGLWidget_UpdateMicroFocus_Callback qopenglwidget_updatemicrofocus_callback = nullptr;
-    QOpenGLWidget_Create_Callback qopenglwidget_create_callback = nullptr;
-    QOpenGLWidget_Destroy_Callback qopenglwidget_destroy_callback = nullptr;
-    QOpenGLWidget_FocusNextChild_Callback qopenglwidget_focusnextchild_callback = nullptr;
-    QOpenGLWidget_FocusPreviousChild_Callback qopenglwidget_focuspreviouschild_callback = nullptr;
-    QOpenGLWidget_Sender_Callback qopenglwidget_sender_callback = nullptr;
-    QOpenGLWidget_SenderSignalIndex_Callback qopenglwidget_sendersignalindex_callback = nullptr;
-    QOpenGLWidget_Receivers_Callback qopenglwidget_receivers_callback = nullptr;
-    QOpenGLWidget_IsSignalConnected_Callback qopenglwidget_issignalconnected_callback = nullptr;
-    QOpenGLWidget_GetDecodedMetricF_Callback qopenglwidget_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qopenglwidget_metaobject_isbase = false;
-    mutable bool qopenglwidget_metacast_isbase = false;
-    mutable bool qopenglwidget_metacall_isbase = false;
-    mutable bool qopenglwidget_initializegl_isbase = false;
-    mutable bool qopenglwidget_resizegl_isbase = false;
-    mutable bool qopenglwidget_paintgl_isbase = false;
-    mutable bool qopenglwidget_paintevent_isbase = false;
-    mutable bool qopenglwidget_resizeevent_isbase = false;
-    mutable bool qopenglwidget_event_isbase = false;
-    mutable bool qopenglwidget_metric_isbase = false;
-    mutable bool qopenglwidget_redirected_isbase = false;
-    mutable bool qopenglwidget_paintengine_isbase = false;
-    mutable bool qopenglwidget_devtype_isbase = false;
-    mutable bool qopenglwidget_setvisible_isbase = false;
-    mutable bool qopenglwidget_sizehint_isbase = false;
-    mutable bool qopenglwidget_minimumsizehint_isbase = false;
-    mutable bool qopenglwidget_heightforwidth_isbase = false;
-    mutable bool qopenglwidget_hasheightforwidth_isbase = false;
-    mutable bool qopenglwidget_mousepressevent_isbase = false;
-    mutable bool qopenglwidget_mousereleaseevent_isbase = false;
-    mutable bool qopenglwidget_mousedoubleclickevent_isbase = false;
-    mutable bool qopenglwidget_mousemoveevent_isbase = false;
-    mutable bool qopenglwidget_wheelevent_isbase = false;
-    mutable bool qopenglwidget_keypressevent_isbase = false;
-    mutable bool qopenglwidget_keyreleaseevent_isbase = false;
-    mutable bool qopenglwidget_focusinevent_isbase = false;
-    mutable bool qopenglwidget_focusoutevent_isbase = false;
-    mutable bool qopenglwidget_enterevent_isbase = false;
-    mutable bool qopenglwidget_leaveevent_isbase = false;
-    mutable bool qopenglwidget_moveevent_isbase = false;
-    mutable bool qopenglwidget_closeevent_isbase = false;
-    mutable bool qopenglwidget_contextmenuevent_isbase = false;
-    mutable bool qopenglwidget_tabletevent_isbase = false;
-    mutable bool qopenglwidget_actionevent_isbase = false;
-    mutable bool qopenglwidget_dragenterevent_isbase = false;
-    mutable bool qopenglwidget_dragmoveevent_isbase = false;
-    mutable bool qopenglwidget_dragleaveevent_isbase = false;
-    mutable bool qopenglwidget_dropevent_isbase = false;
-    mutable bool qopenglwidget_showevent_isbase = false;
-    mutable bool qopenglwidget_hideevent_isbase = false;
-    mutable bool qopenglwidget_nativeevent_isbase = false;
-    mutable bool qopenglwidget_changeevent_isbase = false;
-    mutable bool qopenglwidget_initpainter_isbase = false;
-    mutable bool qopenglwidget_sharedpainter_isbase = false;
-    mutable bool qopenglwidget_inputmethodevent_isbase = false;
-    mutable bool qopenglwidget_inputmethodquery_isbase = false;
-    mutable bool qopenglwidget_focusnextprevchild_isbase = false;
-    mutable bool qopenglwidget_eventfilter_isbase = false;
-    mutable bool qopenglwidget_timerevent_isbase = false;
-    mutable bool qopenglwidget_childevent_isbase = false;
-    mutable bool qopenglwidget_customevent_isbase = false;
-    mutable bool qopenglwidget_connectnotify_isbase = false;
-    mutable bool qopenglwidget_disconnectnotify_isbase = false;
-    mutable bool qopenglwidget_updatemicrofocus_isbase = false;
-    mutable bool qopenglwidget_create_isbase = false;
-    mutable bool qopenglwidget_destroy_isbase = false;
-    mutable bool qopenglwidget_focusnextchild_isbase = false;
-    mutable bool qopenglwidget_focuspreviouschild_isbase = false;
-    mutable bool qopenglwidget_sender_isbase = false;
-    mutable bool qopenglwidget_sendersignalindex_isbase = false;
-    mutable bool qopenglwidget_receivers_isbase = false;
-    mutable bool qopenglwidget_issignalconnected_isbase = false;
-    mutable bool qopenglwidget_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QOpenGLWidget {
+        using QOpenGLWidget::actionEvent;
+        using QOpenGLWidget::changeEvent;
+        using QOpenGLWidget::childEvent;
+        using QOpenGLWidget::closeEvent;
+        using QOpenGLWidget::connectNotify;
+        using QOpenGLWidget::contextMenuEvent;
+        using QOpenGLWidget::customEvent;
+        using QOpenGLWidget::disconnectNotify;
+        using QOpenGLWidget::dragEnterEvent;
+        using QOpenGLWidget::dragLeaveEvent;
+        using QOpenGLWidget::dragMoveEvent;
+        using QOpenGLWidget::dropEvent;
+        using QOpenGLWidget::enterEvent;
+        using QOpenGLWidget::event;
+        using QOpenGLWidget::focusInEvent;
+        using QOpenGLWidget::focusNextPrevChild;
+        using QOpenGLWidget::focusOutEvent;
+        using QOpenGLWidget::hideEvent;
+        using QOpenGLWidget::initializeGL;
+        using QOpenGLWidget::initPainter;
+        using QOpenGLWidget::inputMethodEvent;
+        using QOpenGLWidget::keyPressEvent;
+        using QOpenGLWidget::keyReleaseEvent;
+        using QOpenGLWidget::leaveEvent;
+        using QOpenGLWidget::metric;
+        using QOpenGLWidget::mouseDoubleClickEvent;
+        using QOpenGLWidget::mouseMoveEvent;
+        using QOpenGLWidget::mousePressEvent;
+        using QOpenGLWidget::mouseReleaseEvent;
+        using QOpenGLWidget::moveEvent;
+        using QOpenGLWidget::nativeEvent;
+        using QOpenGLWidget::paintEngine;
+        using QOpenGLWidget::paintEvent;
+        using QOpenGLWidget::paintGL;
+        using QOpenGLWidget::redirected;
+        using QOpenGLWidget::resizeEvent;
+        using QOpenGLWidget::resizeGL;
+        using QOpenGLWidget::sharedPainter;
+        using QOpenGLWidget::showEvent;
+        using QOpenGLWidget::tabletEvent;
+        using QOpenGLWidget::timerEvent;
+        using QOpenGLWidget::wheelEvent;
+    };
 
-  public:
     VirtualQOpenGLWidget(QWidget* parent) : QOpenGLWidget(parent) {};
     VirtualQOpenGLWidget() : QOpenGLWidget() {};
     VirtualQOpenGLWidget(QWidget* parent, Qt::WindowFlags f) : QOpenGLWidget(parent, f) {};
 
-    // Callback setters
-    inline void setQOpenGLWidget_MetaObject_Callback(QOpenGLWidget_MetaObject_Callback cb) { qopenglwidget_metaobject_callback = cb; }
-    inline void setQOpenGLWidget_Metacast_Callback(QOpenGLWidget_Metacast_Callback cb) { qopenglwidget_metacast_callback = cb; }
-    inline void setQOpenGLWidget_Metacall_Callback(QOpenGLWidget_Metacall_Callback cb) { qopenglwidget_metacall_callback = cb; }
-    inline void setQOpenGLWidget_InitializeGL_Callback(QOpenGLWidget_InitializeGL_Callback cb) { qopenglwidget_initializegl_callback = cb; }
-    inline void setQOpenGLWidget_ResizeGL_Callback(QOpenGLWidget_ResizeGL_Callback cb) { qopenglwidget_resizegl_callback = cb; }
-    inline void setQOpenGLWidget_PaintGL_Callback(QOpenGLWidget_PaintGL_Callback cb) { qopenglwidget_paintgl_callback = cb; }
-    inline void setQOpenGLWidget_PaintEvent_Callback(QOpenGLWidget_PaintEvent_Callback cb) { qopenglwidget_paintevent_callback = cb; }
-    inline void setQOpenGLWidget_ResizeEvent_Callback(QOpenGLWidget_ResizeEvent_Callback cb) { qopenglwidget_resizeevent_callback = cb; }
-    inline void setQOpenGLWidget_Event_Callback(QOpenGLWidget_Event_Callback cb) { qopenglwidget_event_callback = cb; }
-    inline void setQOpenGLWidget_Metric_Callback(QOpenGLWidget_Metric_Callback cb) { qopenglwidget_metric_callback = cb; }
-    inline void setQOpenGLWidget_Redirected_Callback(QOpenGLWidget_Redirected_Callback cb) { qopenglwidget_redirected_callback = cb; }
-    inline void setQOpenGLWidget_PaintEngine_Callback(QOpenGLWidget_PaintEngine_Callback cb) { qopenglwidget_paintengine_callback = cb; }
-    inline void setQOpenGLWidget_DevType_Callback(QOpenGLWidget_DevType_Callback cb) { qopenglwidget_devtype_callback = cb; }
-    inline void setQOpenGLWidget_SetVisible_Callback(QOpenGLWidget_SetVisible_Callback cb) { qopenglwidget_setvisible_callback = cb; }
-    inline void setQOpenGLWidget_SizeHint_Callback(QOpenGLWidget_SizeHint_Callback cb) { qopenglwidget_sizehint_callback = cb; }
-    inline void setQOpenGLWidget_MinimumSizeHint_Callback(QOpenGLWidget_MinimumSizeHint_Callback cb) { qopenglwidget_minimumsizehint_callback = cb; }
-    inline void setQOpenGLWidget_HeightForWidth_Callback(QOpenGLWidget_HeightForWidth_Callback cb) { qopenglwidget_heightforwidth_callback = cb; }
-    inline void setQOpenGLWidget_HasHeightForWidth_Callback(QOpenGLWidget_HasHeightForWidth_Callback cb) { qopenglwidget_hasheightforwidth_callback = cb; }
-    inline void setQOpenGLWidget_MousePressEvent_Callback(QOpenGLWidget_MousePressEvent_Callback cb) { qopenglwidget_mousepressevent_callback = cb; }
-    inline void setQOpenGLWidget_MouseReleaseEvent_Callback(QOpenGLWidget_MouseReleaseEvent_Callback cb) { qopenglwidget_mousereleaseevent_callback = cb; }
-    inline void setQOpenGLWidget_MouseDoubleClickEvent_Callback(QOpenGLWidget_MouseDoubleClickEvent_Callback cb) { qopenglwidget_mousedoubleclickevent_callback = cb; }
-    inline void setQOpenGLWidget_MouseMoveEvent_Callback(QOpenGLWidget_MouseMoveEvent_Callback cb) { qopenglwidget_mousemoveevent_callback = cb; }
-    inline void setQOpenGLWidget_WheelEvent_Callback(QOpenGLWidget_WheelEvent_Callback cb) { qopenglwidget_wheelevent_callback = cb; }
-    inline void setQOpenGLWidget_KeyPressEvent_Callback(QOpenGLWidget_KeyPressEvent_Callback cb) { qopenglwidget_keypressevent_callback = cb; }
-    inline void setQOpenGLWidget_KeyReleaseEvent_Callback(QOpenGLWidget_KeyReleaseEvent_Callback cb) { qopenglwidget_keyreleaseevent_callback = cb; }
-    inline void setQOpenGLWidget_FocusInEvent_Callback(QOpenGLWidget_FocusInEvent_Callback cb) { qopenglwidget_focusinevent_callback = cb; }
-    inline void setQOpenGLWidget_FocusOutEvent_Callback(QOpenGLWidget_FocusOutEvent_Callback cb) { qopenglwidget_focusoutevent_callback = cb; }
-    inline void setQOpenGLWidget_EnterEvent_Callback(QOpenGLWidget_EnterEvent_Callback cb) { qopenglwidget_enterevent_callback = cb; }
-    inline void setQOpenGLWidget_LeaveEvent_Callback(QOpenGLWidget_LeaveEvent_Callback cb) { qopenglwidget_leaveevent_callback = cb; }
-    inline void setQOpenGLWidget_MoveEvent_Callback(QOpenGLWidget_MoveEvent_Callback cb) { qopenglwidget_moveevent_callback = cb; }
-    inline void setQOpenGLWidget_CloseEvent_Callback(QOpenGLWidget_CloseEvent_Callback cb) { qopenglwidget_closeevent_callback = cb; }
-    inline void setQOpenGLWidget_ContextMenuEvent_Callback(QOpenGLWidget_ContextMenuEvent_Callback cb) { qopenglwidget_contextmenuevent_callback = cb; }
-    inline void setQOpenGLWidget_TabletEvent_Callback(QOpenGLWidget_TabletEvent_Callback cb) { qopenglwidget_tabletevent_callback = cb; }
-    inline void setQOpenGLWidget_ActionEvent_Callback(QOpenGLWidget_ActionEvent_Callback cb) { qopenglwidget_actionevent_callback = cb; }
-    inline void setQOpenGLWidget_DragEnterEvent_Callback(QOpenGLWidget_DragEnterEvent_Callback cb) { qopenglwidget_dragenterevent_callback = cb; }
-    inline void setQOpenGLWidget_DragMoveEvent_Callback(QOpenGLWidget_DragMoveEvent_Callback cb) { qopenglwidget_dragmoveevent_callback = cb; }
-    inline void setQOpenGLWidget_DragLeaveEvent_Callback(QOpenGLWidget_DragLeaveEvent_Callback cb) { qopenglwidget_dragleaveevent_callback = cb; }
-    inline void setQOpenGLWidget_DropEvent_Callback(QOpenGLWidget_DropEvent_Callback cb) { qopenglwidget_dropevent_callback = cb; }
-    inline void setQOpenGLWidget_ShowEvent_Callback(QOpenGLWidget_ShowEvent_Callback cb) { qopenglwidget_showevent_callback = cb; }
-    inline void setQOpenGLWidget_HideEvent_Callback(QOpenGLWidget_HideEvent_Callback cb) { qopenglwidget_hideevent_callback = cb; }
-    inline void setQOpenGLWidget_NativeEvent_Callback(QOpenGLWidget_NativeEvent_Callback cb) { qopenglwidget_nativeevent_callback = cb; }
-    inline void setQOpenGLWidget_ChangeEvent_Callback(QOpenGLWidget_ChangeEvent_Callback cb) { qopenglwidget_changeevent_callback = cb; }
-    inline void setQOpenGLWidget_InitPainter_Callback(QOpenGLWidget_InitPainter_Callback cb) { qopenglwidget_initpainter_callback = cb; }
-    inline void setQOpenGLWidget_SharedPainter_Callback(QOpenGLWidget_SharedPainter_Callback cb) { qopenglwidget_sharedpainter_callback = cb; }
-    inline void setQOpenGLWidget_InputMethodEvent_Callback(QOpenGLWidget_InputMethodEvent_Callback cb) { qopenglwidget_inputmethodevent_callback = cb; }
-    inline void setQOpenGLWidget_InputMethodQuery_Callback(QOpenGLWidget_InputMethodQuery_Callback cb) { qopenglwidget_inputmethodquery_callback = cb; }
-    inline void setQOpenGLWidget_FocusNextPrevChild_Callback(QOpenGLWidget_FocusNextPrevChild_Callback cb) { qopenglwidget_focusnextprevchild_callback = cb; }
-    inline void setQOpenGLWidget_EventFilter_Callback(QOpenGLWidget_EventFilter_Callback cb) { qopenglwidget_eventfilter_callback = cb; }
-    inline void setQOpenGLWidget_TimerEvent_Callback(QOpenGLWidget_TimerEvent_Callback cb) { qopenglwidget_timerevent_callback = cb; }
-    inline void setQOpenGLWidget_ChildEvent_Callback(QOpenGLWidget_ChildEvent_Callback cb) { qopenglwidget_childevent_callback = cb; }
-    inline void setQOpenGLWidget_CustomEvent_Callback(QOpenGLWidget_CustomEvent_Callback cb) { qopenglwidget_customevent_callback = cb; }
-    inline void setQOpenGLWidget_ConnectNotify_Callback(QOpenGLWidget_ConnectNotify_Callback cb) { qopenglwidget_connectnotify_callback = cb; }
-    inline void setQOpenGLWidget_DisconnectNotify_Callback(QOpenGLWidget_DisconnectNotify_Callback cb) { qopenglwidget_disconnectnotify_callback = cb; }
-    inline void setQOpenGLWidget_UpdateMicroFocus_Callback(QOpenGLWidget_UpdateMicroFocus_Callback cb) { qopenglwidget_updatemicrofocus_callback = cb; }
-    inline void setQOpenGLWidget_Create_Callback(QOpenGLWidget_Create_Callback cb) { qopenglwidget_create_callback = cb; }
-    inline void setQOpenGLWidget_Destroy_Callback(QOpenGLWidget_Destroy_Callback cb) { qopenglwidget_destroy_callback = cb; }
-    inline void setQOpenGLWidget_FocusNextChild_Callback(QOpenGLWidget_FocusNextChild_Callback cb) { qopenglwidget_focusnextchild_callback = cb; }
-    inline void setQOpenGLWidget_FocusPreviousChild_Callback(QOpenGLWidget_FocusPreviousChild_Callback cb) { qopenglwidget_focuspreviouschild_callback = cb; }
-    inline void setQOpenGLWidget_Sender_Callback(QOpenGLWidget_Sender_Callback cb) { qopenglwidget_sender_callback = cb; }
-    inline void setQOpenGLWidget_SenderSignalIndex_Callback(QOpenGLWidget_SenderSignalIndex_Callback cb) { qopenglwidget_sendersignalindex_callback = cb; }
-    inline void setQOpenGLWidget_Receivers_Callback(QOpenGLWidget_Receivers_Callback cb) { qopenglwidget_receivers_callback = cb; }
-    inline void setQOpenGLWidget_IsSignalConnected_Callback(QOpenGLWidget_IsSignalConnected_Callback cb) { qopenglwidget_issignalconnected_callback = cb; }
-    inline void setQOpenGLWidget_GetDecodedMetricF_Callback(QOpenGLWidget_GetDecodedMetricF_Callback cb) { qopenglwidget_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQOpenGLWidget_MetaObject_IsBase(bool value) const { qopenglwidget_metaobject_isbase = value; }
-    inline void setQOpenGLWidget_Metacast_IsBase(bool value) const { qopenglwidget_metacast_isbase = value; }
-    inline void setQOpenGLWidget_Metacall_IsBase(bool value) const { qopenglwidget_metacall_isbase = value; }
-    inline void setQOpenGLWidget_InitializeGL_IsBase(bool value) const { qopenglwidget_initializegl_isbase = value; }
-    inline void setQOpenGLWidget_ResizeGL_IsBase(bool value) const { qopenglwidget_resizegl_isbase = value; }
-    inline void setQOpenGLWidget_PaintGL_IsBase(bool value) const { qopenglwidget_paintgl_isbase = value; }
-    inline void setQOpenGLWidget_PaintEvent_IsBase(bool value) const { qopenglwidget_paintevent_isbase = value; }
-    inline void setQOpenGLWidget_ResizeEvent_IsBase(bool value) const { qopenglwidget_resizeevent_isbase = value; }
-    inline void setQOpenGLWidget_Event_IsBase(bool value) const { qopenglwidget_event_isbase = value; }
-    inline void setQOpenGLWidget_Metric_IsBase(bool value) const { qopenglwidget_metric_isbase = value; }
-    inline void setQOpenGLWidget_Redirected_IsBase(bool value) const { qopenglwidget_redirected_isbase = value; }
-    inline void setQOpenGLWidget_PaintEngine_IsBase(bool value) const { qopenglwidget_paintengine_isbase = value; }
-    inline void setQOpenGLWidget_DevType_IsBase(bool value) const { qopenglwidget_devtype_isbase = value; }
-    inline void setQOpenGLWidget_SetVisible_IsBase(bool value) const { qopenglwidget_setvisible_isbase = value; }
-    inline void setQOpenGLWidget_SizeHint_IsBase(bool value) const { qopenglwidget_sizehint_isbase = value; }
-    inline void setQOpenGLWidget_MinimumSizeHint_IsBase(bool value) const { qopenglwidget_minimumsizehint_isbase = value; }
-    inline void setQOpenGLWidget_HeightForWidth_IsBase(bool value) const { qopenglwidget_heightforwidth_isbase = value; }
-    inline void setQOpenGLWidget_HasHeightForWidth_IsBase(bool value) const { qopenglwidget_hasheightforwidth_isbase = value; }
-    inline void setQOpenGLWidget_MousePressEvent_IsBase(bool value) const { qopenglwidget_mousepressevent_isbase = value; }
-    inline void setQOpenGLWidget_MouseReleaseEvent_IsBase(bool value) const { qopenglwidget_mousereleaseevent_isbase = value; }
-    inline void setQOpenGLWidget_MouseDoubleClickEvent_IsBase(bool value) const { qopenglwidget_mousedoubleclickevent_isbase = value; }
-    inline void setQOpenGLWidget_MouseMoveEvent_IsBase(bool value) const { qopenglwidget_mousemoveevent_isbase = value; }
-    inline void setQOpenGLWidget_WheelEvent_IsBase(bool value) const { qopenglwidget_wheelevent_isbase = value; }
-    inline void setQOpenGLWidget_KeyPressEvent_IsBase(bool value) const { qopenglwidget_keypressevent_isbase = value; }
-    inline void setQOpenGLWidget_KeyReleaseEvent_IsBase(bool value) const { qopenglwidget_keyreleaseevent_isbase = value; }
-    inline void setQOpenGLWidget_FocusInEvent_IsBase(bool value) const { qopenglwidget_focusinevent_isbase = value; }
-    inline void setQOpenGLWidget_FocusOutEvent_IsBase(bool value) const { qopenglwidget_focusoutevent_isbase = value; }
-    inline void setQOpenGLWidget_EnterEvent_IsBase(bool value) const { qopenglwidget_enterevent_isbase = value; }
-    inline void setQOpenGLWidget_LeaveEvent_IsBase(bool value) const { qopenglwidget_leaveevent_isbase = value; }
-    inline void setQOpenGLWidget_MoveEvent_IsBase(bool value) const { qopenglwidget_moveevent_isbase = value; }
-    inline void setQOpenGLWidget_CloseEvent_IsBase(bool value) const { qopenglwidget_closeevent_isbase = value; }
-    inline void setQOpenGLWidget_ContextMenuEvent_IsBase(bool value) const { qopenglwidget_contextmenuevent_isbase = value; }
-    inline void setQOpenGLWidget_TabletEvent_IsBase(bool value) const { qopenglwidget_tabletevent_isbase = value; }
-    inline void setQOpenGLWidget_ActionEvent_IsBase(bool value) const { qopenglwidget_actionevent_isbase = value; }
-    inline void setQOpenGLWidget_DragEnterEvent_IsBase(bool value) const { qopenglwidget_dragenterevent_isbase = value; }
-    inline void setQOpenGLWidget_DragMoveEvent_IsBase(bool value) const { qopenglwidget_dragmoveevent_isbase = value; }
-    inline void setQOpenGLWidget_DragLeaveEvent_IsBase(bool value) const { qopenglwidget_dragleaveevent_isbase = value; }
-    inline void setQOpenGLWidget_DropEvent_IsBase(bool value) const { qopenglwidget_dropevent_isbase = value; }
-    inline void setQOpenGLWidget_ShowEvent_IsBase(bool value) const { qopenglwidget_showevent_isbase = value; }
-    inline void setQOpenGLWidget_HideEvent_IsBase(bool value) const { qopenglwidget_hideevent_isbase = value; }
-    inline void setQOpenGLWidget_NativeEvent_IsBase(bool value) const { qopenglwidget_nativeevent_isbase = value; }
-    inline void setQOpenGLWidget_ChangeEvent_IsBase(bool value) const { qopenglwidget_changeevent_isbase = value; }
-    inline void setQOpenGLWidget_InitPainter_IsBase(bool value) const { qopenglwidget_initpainter_isbase = value; }
-    inline void setQOpenGLWidget_SharedPainter_IsBase(bool value) const { qopenglwidget_sharedpainter_isbase = value; }
-    inline void setQOpenGLWidget_InputMethodEvent_IsBase(bool value) const { qopenglwidget_inputmethodevent_isbase = value; }
-    inline void setQOpenGLWidget_InputMethodQuery_IsBase(bool value) const { qopenglwidget_inputmethodquery_isbase = value; }
-    inline void setQOpenGLWidget_FocusNextPrevChild_IsBase(bool value) const { qopenglwidget_focusnextprevchild_isbase = value; }
-    inline void setQOpenGLWidget_EventFilter_IsBase(bool value) const { qopenglwidget_eventfilter_isbase = value; }
-    inline void setQOpenGLWidget_TimerEvent_IsBase(bool value) const { qopenglwidget_timerevent_isbase = value; }
-    inline void setQOpenGLWidget_ChildEvent_IsBase(bool value) const { qopenglwidget_childevent_isbase = value; }
-    inline void setQOpenGLWidget_CustomEvent_IsBase(bool value) const { qopenglwidget_customevent_isbase = value; }
-    inline void setQOpenGLWidget_ConnectNotify_IsBase(bool value) const { qopenglwidget_connectnotify_isbase = value; }
-    inline void setQOpenGLWidget_DisconnectNotify_IsBase(bool value) const { qopenglwidget_disconnectnotify_isbase = value; }
-    inline void setQOpenGLWidget_UpdateMicroFocus_IsBase(bool value) const { qopenglwidget_updatemicrofocus_isbase = value; }
-    inline void setQOpenGLWidget_Create_IsBase(bool value) const { qopenglwidget_create_isbase = value; }
-    inline void setQOpenGLWidget_Destroy_IsBase(bool value) const { qopenglwidget_destroy_isbase = value; }
-    inline void setQOpenGLWidget_FocusNextChild_IsBase(bool value) const { qopenglwidget_focusnextchild_isbase = value; }
-    inline void setQOpenGLWidget_FocusPreviousChild_IsBase(bool value) const { qopenglwidget_focuspreviouschild_isbase = value; }
-    inline void setQOpenGLWidget_Sender_IsBase(bool value) const { qopenglwidget_sender_isbase = value; }
-    inline void setQOpenGLWidget_SenderSignalIndex_IsBase(bool value) const { qopenglwidget_sendersignalindex_isbase = value; }
-    inline void setQOpenGLWidget_Receivers_IsBase(bool value) const { qopenglwidget_receivers_isbase = value; }
-    inline void setQOpenGLWidget_IsSignalConnected_IsBase(bool value) const { qopenglwidget_issignalconnected_isbase = value; }
-    inline void setQOpenGLWidget_GetDecodedMetricF_IsBase(bool value) const { qopenglwidget_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qopenglwidget_metaobject_isbase) {
-            qopenglwidget_metaobject_isbase = false;
-            return QOpenGLWidget::metaObject();
-        }
-        auto metaobject_cb = qopenglwidget_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qopenglwidget_metaobject_callback) {
+            QMetaObject* callback_ret = qopenglwidget_metaobject_callback(this);
             return callback_ret;
         }
         return QOpenGLWidget::metaObject();
@@ -363,14 +193,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qopenglwidget_metacast_isbase) {
-            qopenglwidget_metacast_isbase = false;
-            return QOpenGLWidget::qt_metacast(param1);
-        }
-        auto metacast_cb = qopenglwidget_metacast_callback;
-        if (metacast_cb) {
+        if (qopenglwidget_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qopenglwidget_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QOpenGLWidget::qt_metacast(param1);
@@ -378,16 +203,11 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qopenglwidget_metacall_isbase) {
-            qopenglwidget_metacall_isbase = false;
-            return QOpenGLWidget::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qopenglwidget_metacall_callback;
-        if (metacall_cb) {
+        if (qopenglwidget_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qopenglwidget_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QOpenGLWidget::qt_metacall(param1, param2, param3);
@@ -395,14 +215,8 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void initializeGL() override {
-        if (qopenglwidget_initializegl_isbase) {
-            qopenglwidget_initializegl_isbase = false;
-            QOpenGLWidget::initializeGL();
-            return;
-        }
-        auto initializegl_cb = qopenglwidget_initializegl_callback;
-        if (initializegl_cb) {
-            initializegl_cb();
+        if (qopenglwidget_initializegl_callback) {
+            qopenglwidget_initializegl_callback(this);
             return;
         }
         QOpenGLWidget::initializeGL();
@@ -410,16 +224,10 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeGL(int w, int h) override {
-        if (qopenglwidget_resizegl_isbase) {
-            qopenglwidget_resizegl_isbase = false;
-            QOpenGLWidget::resizeGL(w, h);
-            return;
-        }
-        auto resizegl_cb = qopenglwidget_resizegl_callback;
-        if (resizegl_cb) {
+        if (qopenglwidget_resizegl_callback) {
             int cbval1 = w;
             int cbval2 = h;
-            resizegl_cb(this, cbval1, cbval2);
+            qopenglwidget_resizegl_callback(this, cbval1, cbval2);
             return;
         }
         QOpenGLWidget::resizeGL(w, h);
@@ -427,14 +235,8 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintGL() override {
-        if (qopenglwidget_paintgl_isbase) {
-            qopenglwidget_paintgl_isbase = false;
-            QOpenGLWidget::paintGL();
-            return;
-        }
-        auto paintgl_cb = qopenglwidget_paintgl_callback;
-        if (paintgl_cb) {
-            paintgl_cb();
+        if (qopenglwidget_paintgl_callback) {
+            qopenglwidget_paintgl_callback(this);
             return;
         }
         QOpenGLWidget::paintGL();
@@ -442,15 +244,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* e) override {
-        if (qopenglwidget_paintevent_isbase) {
-            qopenglwidget_paintevent_isbase = false;
-            QOpenGLWidget::paintEvent(e);
-            return;
-        }
-        auto paintevent_cb = qopenglwidget_paintevent_callback;
-        if (paintevent_cb) {
+        if (qopenglwidget_paintevent_callback) {
             QPaintEvent* cbval1 = e;
-            paintevent_cb(this, cbval1);
+            qopenglwidget_paintevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::paintEvent(e);
@@ -458,15 +254,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* e) override {
-        if (qopenglwidget_resizeevent_isbase) {
-            qopenglwidget_resizeevent_isbase = false;
-            QOpenGLWidget::resizeEvent(e);
-            return;
-        }
-        auto resizeevent_cb = qopenglwidget_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qopenglwidget_resizeevent_callback) {
             QResizeEvent* cbval1 = e;
-            resizeevent_cb(this, cbval1);
+            qopenglwidget_resizeevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::resizeEvent(e);
@@ -474,14 +264,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* e) override {
-        if (qopenglwidget_event_isbase) {
-            qopenglwidget_event_isbase = false;
-            return QOpenGLWidget::event(e);
-        }
-        auto event_cb = qopenglwidget_event_callback;
-        if (event_cb) {
+        if (qopenglwidget_event_callback) {
             QEvent* cbval1 = e;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qopenglwidget_event_callback(this, cbval1);
             return callback_ret;
         }
         return QOpenGLWidget::event(e);
@@ -489,14 +274,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric metric) const override {
-        if (qopenglwidget_metric_isbase) {
-            qopenglwidget_metric_isbase = false;
-            return QOpenGLWidget::metric(metric);
-        }
-        auto metric_cb = qopenglwidget_metric_callback;
-        if (metric_cb) {
+        if (qopenglwidget_metric_callback) {
             int cbval1 = static_cast<int>(metric);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qopenglwidget_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QOpenGLWidget::metric(metric);
@@ -504,14 +284,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* p) const override {
-        if (qopenglwidget_redirected_isbase) {
-            qopenglwidget_redirected_isbase = false;
-            return QOpenGLWidget::redirected(p);
-        }
-        auto redirected_cb = qopenglwidget_redirected_callback;
-        if (redirected_cb) {
+        if (qopenglwidget_redirected_callback) {
             QPoint* cbval1 = p;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qopenglwidget_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QOpenGLWidget::redirected(p);
@@ -519,13 +294,8 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qopenglwidget_paintengine_isbase) {
-            qopenglwidget_paintengine_isbase = false;
-            return QOpenGLWidget::paintEngine();
-        }
-        auto paintengine_cb = qopenglwidget_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qopenglwidget_paintengine_callback) {
+            QPaintEngine* callback_ret = qopenglwidget_paintengine_callback(this);
             return callback_ret;
         }
         return QOpenGLWidget::paintEngine();
@@ -533,13 +303,8 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qopenglwidget_devtype_isbase) {
-            qopenglwidget_devtype_isbase = false;
-            return QOpenGLWidget::devType();
-        }
-        auto devtype_cb = qopenglwidget_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qopenglwidget_devtype_callback) {
+            int callback_ret = qopenglwidget_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QOpenGLWidget::devType();
@@ -547,15 +312,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qopenglwidget_setvisible_isbase) {
-            qopenglwidget_setvisible_isbase = false;
-            QOpenGLWidget::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qopenglwidget_setvisible_callback;
-        if (setvisible_cb) {
+        if (qopenglwidget_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qopenglwidget_setvisible_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::setVisible(visible);
@@ -563,13 +322,8 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qopenglwidget_sizehint_isbase) {
-            qopenglwidget_sizehint_isbase = false;
-            return QOpenGLWidget::sizeHint();
-        }
-        auto sizehint_cb = qopenglwidget_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qopenglwidget_sizehint_callback) {
+            QSize* callback_ret = qopenglwidget_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -579,13 +333,8 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qopenglwidget_minimumsizehint_isbase) {
-            qopenglwidget_minimumsizehint_isbase = false;
-            return QOpenGLWidget::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qopenglwidget_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qopenglwidget_minimumsizehint_callback) {
+            QSize* callback_ret = qopenglwidget_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -595,14 +344,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qopenglwidget_heightforwidth_isbase) {
-            qopenglwidget_heightforwidth_isbase = false;
-            return QOpenGLWidget::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qopenglwidget_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qopenglwidget_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qopenglwidget_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QOpenGLWidget::heightForWidth(param1);
@@ -610,13 +354,8 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qopenglwidget_hasheightforwidth_isbase) {
-            qopenglwidget_hasheightforwidth_isbase = false;
-            return QOpenGLWidget::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qopenglwidget_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qopenglwidget_hasheightforwidth_callback) {
+            bool callback_ret = qopenglwidget_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QOpenGLWidget::hasHeightForWidth();
@@ -624,15 +363,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (qopenglwidget_mousepressevent_isbase) {
-            qopenglwidget_mousepressevent_isbase = false;
-            QOpenGLWidget::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qopenglwidget_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qopenglwidget_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qopenglwidget_mousepressevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::mousePressEvent(event);
@@ -640,15 +373,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qopenglwidget_mousereleaseevent_isbase) {
-            qopenglwidget_mousereleaseevent_isbase = false;
-            QOpenGLWidget::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qopenglwidget_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qopenglwidget_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qopenglwidget_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::mouseReleaseEvent(event);
@@ -656,15 +383,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qopenglwidget_mousedoubleclickevent_isbase) {
-            qopenglwidget_mousedoubleclickevent_isbase = false;
-            QOpenGLWidget::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qopenglwidget_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qopenglwidget_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qopenglwidget_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::mouseDoubleClickEvent(event);
@@ -672,15 +393,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qopenglwidget_mousemoveevent_isbase) {
-            qopenglwidget_mousemoveevent_isbase = false;
-            QOpenGLWidget::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qopenglwidget_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qopenglwidget_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qopenglwidget_mousemoveevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::mouseMoveEvent(event);
@@ -688,15 +403,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qopenglwidget_wheelevent_isbase) {
-            qopenglwidget_wheelevent_isbase = false;
-            QOpenGLWidget::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qopenglwidget_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qopenglwidget_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qopenglwidget_wheelevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::wheelEvent(event);
@@ -704,15 +413,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qopenglwidget_keypressevent_isbase) {
-            qopenglwidget_keypressevent_isbase = false;
-            QOpenGLWidget::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qopenglwidget_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qopenglwidget_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qopenglwidget_keypressevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::keyPressEvent(event);
@@ -720,15 +423,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qopenglwidget_keyreleaseevent_isbase) {
-            qopenglwidget_keyreleaseevent_isbase = false;
-            QOpenGLWidget::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qopenglwidget_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qopenglwidget_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qopenglwidget_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::keyReleaseEvent(event);
@@ -736,15 +433,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qopenglwidget_focusinevent_isbase) {
-            qopenglwidget_focusinevent_isbase = false;
-            QOpenGLWidget::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qopenglwidget_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qopenglwidget_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qopenglwidget_focusinevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::focusInEvent(event);
@@ -752,15 +443,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qopenglwidget_focusoutevent_isbase) {
-            qopenglwidget_focusoutevent_isbase = false;
-            QOpenGLWidget::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qopenglwidget_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qopenglwidget_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qopenglwidget_focusoutevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::focusOutEvent(event);
@@ -768,15 +453,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qopenglwidget_enterevent_isbase) {
-            qopenglwidget_enterevent_isbase = false;
-            QOpenGLWidget::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qopenglwidget_enterevent_callback;
-        if (enterevent_cb) {
+        if (qopenglwidget_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qopenglwidget_enterevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::enterEvent(event);
@@ -784,15 +463,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qopenglwidget_leaveevent_isbase) {
-            qopenglwidget_leaveevent_isbase = false;
-            QOpenGLWidget::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qopenglwidget_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qopenglwidget_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qopenglwidget_leaveevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::leaveEvent(event);
@@ -800,15 +473,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qopenglwidget_moveevent_isbase) {
-            qopenglwidget_moveevent_isbase = false;
-            QOpenGLWidget::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qopenglwidget_moveevent_callback;
-        if (moveevent_cb) {
+        if (qopenglwidget_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qopenglwidget_moveevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::moveEvent(event);
@@ -816,15 +483,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qopenglwidget_closeevent_isbase) {
-            qopenglwidget_closeevent_isbase = false;
-            QOpenGLWidget::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qopenglwidget_closeevent_callback;
-        if (closeevent_cb) {
+        if (qopenglwidget_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qopenglwidget_closeevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::closeEvent(event);
@@ -832,15 +493,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (qopenglwidget_contextmenuevent_isbase) {
-            qopenglwidget_contextmenuevent_isbase = false;
-            QOpenGLWidget::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qopenglwidget_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qopenglwidget_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qopenglwidget_contextmenuevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::contextMenuEvent(event);
@@ -848,15 +503,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qopenglwidget_tabletevent_isbase) {
-            qopenglwidget_tabletevent_isbase = false;
-            QOpenGLWidget::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qopenglwidget_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qopenglwidget_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qopenglwidget_tabletevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::tabletEvent(event);
@@ -864,15 +513,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qopenglwidget_actionevent_isbase) {
-            qopenglwidget_actionevent_isbase = false;
-            QOpenGLWidget::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qopenglwidget_actionevent_callback;
-        if (actionevent_cb) {
+        if (qopenglwidget_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qopenglwidget_actionevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::actionEvent(event);
@@ -880,15 +523,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qopenglwidget_dragenterevent_isbase) {
-            qopenglwidget_dragenterevent_isbase = false;
-            QOpenGLWidget::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qopenglwidget_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qopenglwidget_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qopenglwidget_dragenterevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::dragEnterEvent(event);
@@ -896,15 +533,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qopenglwidget_dragmoveevent_isbase) {
-            qopenglwidget_dragmoveevent_isbase = false;
-            QOpenGLWidget::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qopenglwidget_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qopenglwidget_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qopenglwidget_dragmoveevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::dragMoveEvent(event);
@@ -912,15 +543,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qopenglwidget_dragleaveevent_isbase) {
-            qopenglwidget_dragleaveevent_isbase = false;
-            QOpenGLWidget::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qopenglwidget_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qopenglwidget_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qopenglwidget_dragleaveevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::dragLeaveEvent(event);
@@ -928,15 +553,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qopenglwidget_dropevent_isbase) {
-            qopenglwidget_dropevent_isbase = false;
-            QOpenGLWidget::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qopenglwidget_dropevent_callback;
-        if (dropevent_cb) {
+        if (qopenglwidget_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qopenglwidget_dropevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::dropEvent(event);
@@ -944,15 +563,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (qopenglwidget_showevent_isbase) {
-            qopenglwidget_showevent_isbase = false;
-            QOpenGLWidget::showEvent(event);
-            return;
-        }
-        auto showevent_cb = qopenglwidget_showevent_callback;
-        if (showevent_cb) {
+        if (qopenglwidget_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            qopenglwidget_showevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::showEvent(event);
@@ -960,15 +573,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qopenglwidget_hideevent_isbase) {
-            qopenglwidget_hideevent_isbase = false;
-            QOpenGLWidget::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qopenglwidget_hideevent_callback;
-        if (hideevent_cb) {
+        if (qopenglwidget_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qopenglwidget_hideevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::hideEvent(event);
@@ -976,12 +583,7 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qopenglwidget_nativeevent_isbase) {
-            qopenglwidget_nativeevent_isbase = false;
-            return QOpenGLWidget::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qopenglwidget_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qopenglwidget_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -991,7 +593,7 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qopenglwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1000,15 +602,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (qopenglwidget_changeevent_isbase) {
-            qopenglwidget_changeevent_isbase = false;
-            QOpenGLWidget::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = qopenglwidget_changeevent_callback;
-        if (changeevent_cb) {
+        if (qopenglwidget_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            qopenglwidget_changeevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::changeEvent(param1);
@@ -1016,15 +612,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qopenglwidget_initpainter_isbase) {
-            qopenglwidget_initpainter_isbase = false;
-            QOpenGLWidget::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qopenglwidget_initpainter_callback;
-        if (initpainter_cb) {
+        if (qopenglwidget_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qopenglwidget_initpainter_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::initPainter(painter);
@@ -1032,13 +622,8 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qopenglwidget_sharedpainter_isbase) {
-            qopenglwidget_sharedpainter_isbase = false;
-            return QOpenGLWidget::sharedPainter();
-        }
-        auto sharedpainter_cb = qopenglwidget_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qopenglwidget_sharedpainter_callback) {
+            QPainter* callback_ret = qopenglwidget_sharedpainter_callback(this);
             return callback_ret;
         }
         return QOpenGLWidget::sharedPainter();
@@ -1046,15 +631,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qopenglwidget_inputmethodevent_isbase) {
-            qopenglwidget_inputmethodevent_isbase = false;
-            QOpenGLWidget::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qopenglwidget_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qopenglwidget_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qopenglwidget_inputmethodevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::inputMethodEvent(param1);
@@ -1062,14 +641,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qopenglwidget_inputmethodquery_isbase) {
-            qopenglwidget_inputmethodquery_isbase = false;
-            return QOpenGLWidget::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qopenglwidget_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qopenglwidget_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qopenglwidget_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1079,14 +653,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qopenglwidget_focusnextprevchild_isbase) {
-            qopenglwidget_focusnextprevchild_isbase = false;
-            return QOpenGLWidget::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qopenglwidget_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qopenglwidget_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qopenglwidget_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QOpenGLWidget::focusNextPrevChild(next);
@@ -1094,15 +663,10 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qopenglwidget_eventfilter_isbase) {
-            qopenglwidget_eventfilter_isbase = false;
-            return QOpenGLWidget::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qopenglwidget_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qopenglwidget_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qopenglwidget_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QOpenGLWidget::eventFilter(watched, event);
@@ -1110,15 +674,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qopenglwidget_timerevent_isbase) {
-            qopenglwidget_timerevent_isbase = false;
-            QOpenGLWidget::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qopenglwidget_timerevent_callback;
-        if (timerevent_cb) {
+        if (qopenglwidget_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qopenglwidget_timerevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::timerEvent(event);
@@ -1126,15 +684,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qopenglwidget_childevent_isbase) {
-            qopenglwidget_childevent_isbase = false;
-            QOpenGLWidget::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qopenglwidget_childevent_callback;
-        if (childevent_cb) {
+        if (qopenglwidget_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qopenglwidget_childevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::childEvent(event);
@@ -1142,15 +694,9 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qopenglwidget_customevent_isbase) {
-            qopenglwidget_customevent_isbase = false;
-            QOpenGLWidget::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qopenglwidget_customevent_callback;
-        if (customevent_cb) {
+        if (qopenglwidget_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qopenglwidget_customevent_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::customEvent(event);
@@ -1158,17 +704,11 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qopenglwidget_connectnotify_isbase) {
-            qopenglwidget_connectnotify_isbase = false;
-            QOpenGLWidget::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qopenglwidget_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qopenglwidget_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qopenglwidget_connectnotify_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::connectNotify(signal);
@@ -1176,276 +716,59 @@ class VirtualQOpenGLWidget final : public QOpenGLWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qopenglwidget_disconnectnotify_isbase) {
-            qopenglwidget_disconnectnotify_isbase = false;
-            QOpenGLWidget::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qopenglwidget_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qopenglwidget_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qopenglwidget_disconnectnotify_callback(this, cbval1);
             return;
         }
         QOpenGLWidget::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qopenglwidget_updatemicrofocus_isbase) {
-            qopenglwidget_updatemicrofocus_isbase = false;
-            QOpenGLWidget::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qopenglwidget_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QOpenGLWidget::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qopenglwidget_create_isbase) {
-            qopenglwidget_create_isbase = false;
-            QOpenGLWidget::create();
-            return;
-        }
-        auto create_cb = qopenglwidget_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QOpenGLWidget::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qopenglwidget_destroy_isbase) {
-            qopenglwidget_destroy_isbase = false;
-            QOpenGLWidget::destroy();
-            return;
-        }
-        auto destroy_cb = qopenglwidget_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QOpenGLWidget::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qopenglwidget_focusnextchild_isbase) {
-            qopenglwidget_focusnextchild_isbase = false;
-            return QOpenGLWidget::focusNextChild();
-        }
-        auto focusnextchild_cb = qopenglwidget_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QOpenGLWidget::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qopenglwidget_focuspreviouschild_isbase) {
-            qopenglwidget_focuspreviouschild_isbase = false;
-            return QOpenGLWidget::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qopenglwidget_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QOpenGLWidget::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qopenglwidget_sender_isbase) {
-            qopenglwidget_sender_isbase = false;
-            return QOpenGLWidget::sender();
-        }
-        auto sender_cb = qopenglwidget_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QOpenGLWidget::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qopenglwidget_sendersignalindex_isbase) {
-            qopenglwidget_sendersignalindex_isbase = false;
-            return QOpenGLWidget::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qopenglwidget_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QOpenGLWidget::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qopenglwidget_receivers_isbase) {
-            qopenglwidget_receivers_isbase = false;
-            return QOpenGLWidget::receivers(signal);
-        }
-        auto receivers_cb = qopenglwidget_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QOpenGLWidget::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qopenglwidget_issignalconnected_isbase) {
-            qopenglwidget_issignalconnected_isbase = false;
-            return QOpenGLWidget::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qopenglwidget_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QOpenGLWidget::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qopenglwidget_getdecodedmetricf_isbase) {
-            qopenglwidget_getdecodedmetricf_isbase = false;
-            return QOpenGLWidget::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qopenglwidget_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QOpenGLWidget::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void QOpenGLWidget_InitializeGL(QOpenGLWidget* self);
     friend void QOpenGLWidget_SuperInitializeGL(QOpenGLWidget* self);
-    friend void QOpenGLWidget_ResizeGL(QOpenGLWidget* self, int w, int h);
     friend void QOpenGLWidget_SuperResizeGL(QOpenGLWidget* self, int w, int h);
-    friend void QOpenGLWidget_PaintGL(QOpenGLWidget* self);
     friend void QOpenGLWidget_SuperPaintGL(QOpenGLWidget* self);
-    friend void QOpenGLWidget_PaintEvent(QOpenGLWidget* self, QPaintEvent* e);
     friend void QOpenGLWidget_SuperPaintEvent(QOpenGLWidget* self, QPaintEvent* e);
-    friend void QOpenGLWidget_ResizeEvent(QOpenGLWidget* self, QResizeEvent* e);
     friend void QOpenGLWidget_SuperResizeEvent(QOpenGLWidget* self, QResizeEvent* e);
-    friend bool QOpenGLWidget_Event(QOpenGLWidget* self, QEvent* e);
     friend bool QOpenGLWidget_SuperEvent(QOpenGLWidget* self, QEvent* e);
-    friend int QOpenGLWidget_Metric(const QOpenGLWidget* self, int metric);
     friend int QOpenGLWidget_SuperMetric(const QOpenGLWidget* self, int metric);
-    friend QPaintDevice* QOpenGLWidget_Redirected(const QOpenGLWidget* self, QPoint* p);
     friend QPaintDevice* QOpenGLWidget_SuperRedirected(const QOpenGLWidget* self, QPoint* p);
-    friend QPaintEngine* QOpenGLWidget_PaintEngine(const QOpenGLWidget* self);
     friend QPaintEngine* QOpenGLWidget_SuperPaintEngine(const QOpenGLWidget* self);
-    friend void QOpenGLWidget_MousePressEvent(QOpenGLWidget* self, QMouseEvent* event);
     friend void QOpenGLWidget_SuperMousePressEvent(QOpenGLWidget* self, QMouseEvent* event);
-    friend void QOpenGLWidget_MouseReleaseEvent(QOpenGLWidget* self, QMouseEvent* event);
     friend void QOpenGLWidget_SuperMouseReleaseEvent(QOpenGLWidget* self, QMouseEvent* event);
-    friend void QOpenGLWidget_MouseDoubleClickEvent(QOpenGLWidget* self, QMouseEvent* event);
     friend void QOpenGLWidget_SuperMouseDoubleClickEvent(QOpenGLWidget* self, QMouseEvent* event);
-    friend void QOpenGLWidget_MouseMoveEvent(QOpenGLWidget* self, QMouseEvent* event);
     friend void QOpenGLWidget_SuperMouseMoveEvent(QOpenGLWidget* self, QMouseEvent* event);
-    friend void QOpenGLWidget_WheelEvent(QOpenGLWidget* self, QWheelEvent* event);
     friend void QOpenGLWidget_SuperWheelEvent(QOpenGLWidget* self, QWheelEvent* event);
-    friend void QOpenGLWidget_KeyPressEvent(QOpenGLWidget* self, QKeyEvent* event);
     friend void QOpenGLWidget_SuperKeyPressEvent(QOpenGLWidget* self, QKeyEvent* event);
-    friend void QOpenGLWidget_KeyReleaseEvent(QOpenGLWidget* self, QKeyEvent* event);
     friend void QOpenGLWidget_SuperKeyReleaseEvent(QOpenGLWidget* self, QKeyEvent* event);
-    friend void QOpenGLWidget_FocusInEvent(QOpenGLWidget* self, QFocusEvent* event);
     friend void QOpenGLWidget_SuperFocusInEvent(QOpenGLWidget* self, QFocusEvent* event);
-    friend void QOpenGLWidget_FocusOutEvent(QOpenGLWidget* self, QFocusEvent* event);
     friend void QOpenGLWidget_SuperFocusOutEvent(QOpenGLWidget* self, QFocusEvent* event);
-    friend void QOpenGLWidget_EnterEvent(QOpenGLWidget* self, QEnterEvent* event);
     friend void QOpenGLWidget_SuperEnterEvent(QOpenGLWidget* self, QEnterEvent* event);
-    friend void QOpenGLWidget_LeaveEvent(QOpenGLWidget* self, QEvent* event);
     friend void QOpenGLWidget_SuperLeaveEvent(QOpenGLWidget* self, QEvent* event);
-    friend void QOpenGLWidget_MoveEvent(QOpenGLWidget* self, QMoveEvent* event);
     friend void QOpenGLWidget_SuperMoveEvent(QOpenGLWidget* self, QMoveEvent* event);
-    friend void QOpenGLWidget_CloseEvent(QOpenGLWidget* self, QCloseEvent* event);
     friend void QOpenGLWidget_SuperCloseEvent(QOpenGLWidget* self, QCloseEvent* event);
-    friend void QOpenGLWidget_ContextMenuEvent(QOpenGLWidget* self, QContextMenuEvent* event);
     friend void QOpenGLWidget_SuperContextMenuEvent(QOpenGLWidget* self, QContextMenuEvent* event);
-    friend void QOpenGLWidget_TabletEvent(QOpenGLWidget* self, QTabletEvent* event);
     friend void QOpenGLWidget_SuperTabletEvent(QOpenGLWidget* self, QTabletEvent* event);
-    friend void QOpenGLWidget_ActionEvent(QOpenGLWidget* self, QActionEvent* event);
     friend void QOpenGLWidget_SuperActionEvent(QOpenGLWidget* self, QActionEvent* event);
-    friend void QOpenGLWidget_DragEnterEvent(QOpenGLWidget* self, QDragEnterEvent* event);
     friend void QOpenGLWidget_SuperDragEnterEvent(QOpenGLWidget* self, QDragEnterEvent* event);
-    friend void QOpenGLWidget_DragMoveEvent(QOpenGLWidget* self, QDragMoveEvent* event);
     friend void QOpenGLWidget_SuperDragMoveEvent(QOpenGLWidget* self, QDragMoveEvent* event);
-    friend void QOpenGLWidget_DragLeaveEvent(QOpenGLWidget* self, QDragLeaveEvent* event);
     friend void QOpenGLWidget_SuperDragLeaveEvent(QOpenGLWidget* self, QDragLeaveEvent* event);
-    friend void QOpenGLWidget_DropEvent(QOpenGLWidget* self, QDropEvent* event);
     friend void QOpenGLWidget_SuperDropEvent(QOpenGLWidget* self, QDropEvent* event);
-    friend void QOpenGLWidget_ShowEvent(QOpenGLWidget* self, QShowEvent* event);
     friend void QOpenGLWidget_SuperShowEvent(QOpenGLWidget* self, QShowEvent* event);
-    friend void QOpenGLWidget_HideEvent(QOpenGLWidget* self, QHideEvent* event);
     friend void QOpenGLWidget_SuperHideEvent(QOpenGLWidget* self, QHideEvent* event);
-    friend bool QOpenGLWidget_NativeEvent(QOpenGLWidget* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QOpenGLWidget_SuperNativeEvent(QOpenGLWidget* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void QOpenGLWidget_ChangeEvent(QOpenGLWidget* self, QEvent* param1);
     friend void QOpenGLWidget_SuperChangeEvent(QOpenGLWidget* self, QEvent* param1);
-    friend void QOpenGLWidget_InitPainter(const QOpenGLWidget* self, QPainter* painter);
     friend void QOpenGLWidget_SuperInitPainter(const QOpenGLWidget* self, QPainter* painter);
-    friend QPainter* QOpenGLWidget_SharedPainter(const QOpenGLWidget* self);
     friend QPainter* QOpenGLWidget_SuperSharedPainter(const QOpenGLWidget* self);
-    friend void QOpenGLWidget_InputMethodEvent(QOpenGLWidget* self, QInputMethodEvent* param1);
     friend void QOpenGLWidget_SuperInputMethodEvent(QOpenGLWidget* self, QInputMethodEvent* param1);
-    friend bool QOpenGLWidget_FocusNextPrevChild(QOpenGLWidget* self, bool next);
     friend bool QOpenGLWidget_SuperFocusNextPrevChild(QOpenGLWidget* self, bool next);
-    friend void QOpenGLWidget_TimerEvent(QOpenGLWidget* self, QTimerEvent* event);
     friend void QOpenGLWidget_SuperTimerEvent(QOpenGLWidget* self, QTimerEvent* event);
-    friend void QOpenGLWidget_ChildEvent(QOpenGLWidget* self, QChildEvent* event);
     friend void QOpenGLWidget_SuperChildEvent(QOpenGLWidget* self, QChildEvent* event);
-    friend void QOpenGLWidget_CustomEvent(QOpenGLWidget* self, QEvent* event);
     friend void QOpenGLWidget_SuperCustomEvent(QOpenGLWidget* self, QEvent* event);
-    friend void QOpenGLWidget_ConnectNotify(QOpenGLWidget* self, const QMetaMethod* signal);
     friend void QOpenGLWidget_SuperConnectNotify(QOpenGLWidget* self, const QMetaMethod* signal);
-    friend void QOpenGLWidget_DisconnectNotify(QOpenGLWidget* self, const QMetaMethod* signal);
     friend void QOpenGLWidget_SuperDisconnectNotify(QOpenGLWidget* self, const QMetaMethod* signal);
-    friend void QOpenGLWidget_UpdateMicroFocus(QOpenGLWidget* self);
-    friend void QOpenGLWidget_SuperUpdateMicroFocus(QOpenGLWidget* self);
-    friend void QOpenGLWidget_Create(QOpenGLWidget* self);
-    friend void QOpenGLWidget_SuperCreate(QOpenGLWidget* self);
-    friend void QOpenGLWidget_Destroy(QOpenGLWidget* self);
-    friend void QOpenGLWidget_SuperDestroy(QOpenGLWidget* self);
-    friend bool QOpenGLWidget_FocusNextChild(QOpenGLWidget* self);
-    friend bool QOpenGLWidget_SuperFocusNextChild(QOpenGLWidget* self);
-    friend bool QOpenGLWidget_FocusPreviousChild(QOpenGLWidget* self);
-    friend bool QOpenGLWidget_SuperFocusPreviousChild(QOpenGLWidget* self);
-    friend QObject* QOpenGLWidget_Sender(const QOpenGLWidget* self);
-    friend QObject* QOpenGLWidget_SuperSender(const QOpenGLWidget* self);
-    friend int QOpenGLWidget_SenderSignalIndex(const QOpenGLWidget* self);
-    friend int QOpenGLWidget_SuperSenderSignalIndex(const QOpenGLWidget* self);
-    friend int QOpenGLWidget_Receivers(const QOpenGLWidget* self, const char* signal);
-    friend int QOpenGLWidget_SuperReceivers(const QOpenGLWidget* self, const char* signal);
-    friend bool QOpenGLWidget_IsSignalConnected(const QOpenGLWidget* self, const QMetaMethod* signal);
-    friend bool QOpenGLWidget_SuperIsSignalConnected(const QOpenGLWidget* self, const QMetaMethod* signal);
-    friend double QOpenGLWidget_GetDecodedMetricF(const QOpenGLWidget* self, int metricA, int metricB);
-    friend double QOpenGLWidget_SuperGetDecodedMetricF(const QOpenGLWidget* self, int metricA, int metricB);
 };
 
 #endif

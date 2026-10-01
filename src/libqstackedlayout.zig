@@ -103,9 +103,9 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` self: QStackedLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QStackedLayout) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QStackedLayout, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QStackedLayout, callback: *const fn (QStackedLayout) callconv(.c) QMetaObject) void {
         qtc.QStackedLayout_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -356,9 +356,9 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` self: QStackedLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QStackedLayout) callconv(.c) i32 `
     ///
-    pub fn onCount(self: QStackedLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCount(self: QStackedLayout, callback: *const fn (QStackedLayout) callconv(.c) i32) void {
         qtc.QStackedLayout_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -494,11 +494,11 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` self: QStackedLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QStackedLayout) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QStackedLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QStackedLayout, callback: *const fn (QStackedLayout) callconv(.c) QSize) void {
         qtc.QStackedLayout_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -544,11 +544,11 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` self: QStackedLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QStackedLayout) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSize(self: QStackedLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: QStackedLayout, callback: *const fn (QStackedLayout) callconv(.c) QSize) void {
         qtc.QStackedLayout_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -752,9 +752,9 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` self: QStackedLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QStackedLayout) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QStackedLayout, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QStackedLayout, callback: *const fn (QStackedLayout) callconv(.c) bool) void {
         qtc.QStackedLayout_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2574,9 +2574,9 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` self: QStackedLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QStackedLayout) callconv(.c) i32 `
     ///
-    pub fn onSpacing(self: QStackedLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSpacing(self: QStackedLayout, callback: *const fn (QStackedLayout) callconv(.c) i32) void {
         qtc.QStackedLayout_OnSpacing(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2690,9 +2690,9 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` self: QStackedLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QStackedLayout) callconv(.c) void `
     ///
-    pub fn onInvalidate(self: QStackedLayout, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidate(self: QStackedLayout, callback: *const fn (QStackedLayout) callconv(.c) void) void {
         qtc.QStackedLayout_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2746,11 +2746,11 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` self: QStackedLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QRect `
+    /// ` callback: *const fn (self: QStackedLayout) callconv(.c) QRect `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onGeometry(self: QStackedLayout, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onGeometry(self: QStackedLayout, callback: *const fn (QStackedLayout) callconv(.c) QRect) void {
         qtc.QStackedLayout_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2812,9 +2812,9 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` self: QStackedLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QStackedLayout) callconv(.c) i32 `
     ///
-    pub fn onExpandingDirections(self: QStackedLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExpandingDirections(self: QStackedLayout, callback: *const fn (QStackedLayout) callconv(.c) i32) void {
         qtc.QStackedLayout_OnExpandingDirections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2868,11 +2868,11 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` self: QStackedLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QStackedLayout) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaximumSize(self: QStackedLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMaximumSize(self: QStackedLayout, callback: *const fn (QStackedLayout) callconv(.c) QSize) void {
         qtc.QStackedLayout_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2988,9 +2988,9 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` self: QStackedLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QStackedLayout) callconv(.c) bool `
     ///
-    pub fn onIsEmpty(self: QStackedLayout, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QStackedLayout, callback: *const fn (QStackedLayout) callconv(.c) bool) void {
         qtc.QStackedLayout_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3052,9 +3052,9 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` self: QStackedLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QStackedLayout) callconv(.c) i32 `
     ///
-    pub fn onControlTypes(self: QStackedLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onControlTypes(self: QStackedLayout, callback: *const fn (QStackedLayout) callconv(.c) i32) void {
         qtc.QStackedLayout_OnControlTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3180,9 +3180,9 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` self: QStackedLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QLayout `
+    /// ` callback: *const fn (self: QStackedLayout) callconv(.c) QLayout `
     ///
-    pub fn onLayout(self: QStackedLayout, callback: *const fn () callconv(.c) QLayout) void {
+    pub fn onLayout(self: QStackedLayout, callback: *const fn (QStackedLayout) callconv(.c) QLayout) void {
         qtc.QStackedLayout_OnLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3736,9 +3736,9 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` self: QStackedLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QSpacerItem `
+    /// ` callback: *const fn (self: QStackedLayout) callconv(.c) QSpacerItem `
     ///
-    pub fn onSpacerItem(self: QStackedLayout, callback: *const fn () callconv(.c) QSpacerItem) void {
+    pub fn onSpacerItem(self: QStackedLayout, callback: *const fn (QStackedLayout) callconv(.c) QSpacerItem) void {
         qtc.QStackedLayout_OnSpacerItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3763,47 +3763,6 @@ pub const QStackedLayout = extern struct {
         qtc.QStackedLayout_WidgetEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superWidgetEvent` instead
-    ///
-    pub const SuperWidgetEvent = superWidgetEvent;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStackedLayout `
-    ///
-    /// ` param1: QEvent `
-    ///
-    pub fn superWidgetEvent(self: QStackedLayout, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QEvent;
-        qtc.QStackedLayout_SuperWidgetEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onWidgetEvent` instead
-    ///
-    pub const OnWidgetEvent = onWidgetEvent;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStackedLayout`
-    ///
-    /// ` callback: *const fn (self: QStackedLayout, param1: QEvent) callconv(.c) void `
-    ///
-    pub fn onWidgetEvent(self: QStackedLayout, callback: *const fn (QStackedLayout, QEvent) callconv(.c) void) void {
-        qtc.QStackedLayout_OnWidgetEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `addChildLayout` instead
     ///
     pub const AddChildLayout = addChildLayout;
@@ -3823,47 +3782,6 @@ pub const QStackedLayout = extern struct {
     pub fn addChildLayout(self: QStackedLayout, l: anytype) void {
         comptime _ = @TypeOf(l)._is_QLayout;
         qtc.QStackedLayout_AddChildLayout(@ptrCast(self.ptr), @ptrCast(l.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superAddChildLayout` instead
-    ///
-    pub const SuperAddChildLayout = superAddChildLayout;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStackedLayout `
-    ///
-    /// ` l: QLayout `
-    ///
-    pub fn superAddChildLayout(self: QStackedLayout, l: anytype) void {
-        comptime _ = @TypeOf(l)._is_QLayout;
-        qtc.QStackedLayout_SuperAddChildLayout(@ptrCast(self.ptr), @ptrCast(l.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddChildLayout` instead
-    ///
-    pub const OnAddChildLayout = onAddChildLayout;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStackedLayout`
-    ///
-    /// ` callback: *const fn (self: QStackedLayout, l: QLayout) callconv(.c) void `
-    ///
-    pub fn onAddChildLayout(self: QStackedLayout, callback: *const fn (QStackedLayout, QLayout) callconv(.c) void) void {
-        qtc.QStackedLayout_OnAddChildLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `addChildWidget` instead
@@ -3887,47 +3805,6 @@ pub const QStackedLayout = extern struct {
         qtc.QStackedLayout_AddChildWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAddChildWidget` instead
-    ///
-    pub const SuperAddChildWidget = superAddChildWidget;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStackedLayout `
-    ///
-    /// ` w: QWidget `
-    ///
-    pub fn superAddChildWidget(self: QStackedLayout, w: anytype) void {
-        comptime _ = @TypeOf(w)._is_QWidget;
-        qtc.QStackedLayout_SuperAddChildWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddChildWidget` instead
-    ///
-    pub const OnAddChildWidget = onAddChildWidget;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStackedLayout`
-    ///
-    /// ` callback: *const fn (self: QStackedLayout, w: QWidget) callconv(.c) void `
-    ///
-    pub fn onAddChildWidget(self: QStackedLayout, callback: *const fn (QStackedLayout, QWidget) callconv(.c) void) void {
-        qtc.QStackedLayout_OnAddChildWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `adoptLayout` instead
     ///
     pub const AdoptLayout = adoptLayout;
@@ -3947,47 +3824,6 @@ pub const QStackedLayout = extern struct {
     pub fn adoptLayout(self: QStackedLayout, _layout: anytype) bool {
         comptime _ = @TypeOf(_layout)._is_QLayout;
         return qtc.QStackedLayout_AdoptLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superAdoptLayout` instead
-    ///
-    pub const SuperAdoptLayout = superAdoptLayout;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStackedLayout `
-    ///
-    /// ` _layout: QLayout `
-    ///
-    pub fn superAdoptLayout(self: QStackedLayout, _layout: anytype) bool {
-        comptime _ = @TypeOf(_layout)._is_QLayout;
-        return qtc.QStackedLayout_SuperAdoptLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAdoptLayout` instead
-    ///
-    pub const OnAdoptLayout = onAdoptLayout;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStackedLayout`
-    ///
-    /// ` callback: *const fn (self: QStackedLayout, layout: QLayout) callconv(.c) bool `
-    ///
-    pub fn onAdoptLayout(self: QStackedLayout, callback: *const fn (QStackedLayout, QLayout) callconv(.c) bool) void {
-        qtc.QStackedLayout_OnAdoptLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `alignmentRect` instead
@@ -4011,49 +3847,6 @@ pub const QStackedLayout = extern struct {
         return .{ .ptr = qtc.QStackedLayout_AlignmentRect(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superAlignmentRect` instead
-    ///
-    pub const SuperAlignmentRect = superAlignmentRect;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStackedLayout `
-    ///
-    /// ` param1: QRect `
-    ///
-    pub fn superAlignmentRect(self: QStackedLayout, param1: anytype) QRect {
-        comptime _ = @TypeOf(param1)._is_QRect;
-        return .{ .ptr = qtc.QStackedLayout_SuperAlignmentRect(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onAlignmentRect` instead
-    ///
-    pub const OnAlignmentRect = onAlignmentRect;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStackedLayout`
-    ///
-    /// ` callback: *const fn (self: QStackedLayout, param1: QRect) callconv(.c) QRect `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onAlignmentRect(self: QStackedLayout, callback: *const fn (QStackedLayout, QRect) callconv(.c) QRect) void {
-        qtc.QStackedLayout_OnAlignmentRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -4072,44 +3865,6 @@ pub const QStackedLayout = extern struct {
         return .{ .ptr = qtc.QStackedLayout_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStackedLayout `
-    ///
-    pub fn superSender(self: QStackedLayout) QObject {
-        return .{ .ptr = qtc.QStackedLayout_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStackedLayout`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QStackedLayout, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QStackedLayout_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4126,44 +3881,6 @@ pub const QStackedLayout = extern struct {
     ///
     pub fn senderSignalIndex(self: QStackedLayout) i32 {
         return qtc.QStackedLayout_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStackedLayout `
-    ///
-    pub fn superSenderSignalIndex(self: QStackedLayout) i32 {
-        return qtc.QStackedLayout_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStackedLayout`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QStackedLayout, callback: *const fn () callconv(.c) i32) void {
-        qtc.QStackedLayout_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4187,47 +3904,6 @@ pub const QStackedLayout = extern struct {
         return qtc.QStackedLayout_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStackedLayout `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QStackedLayout, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QStackedLayout_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStackedLayout`
-    ///
-    /// ` callback: *const fn (self: QStackedLayout, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QStackedLayout, callback: *const fn (QStackedLayout, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QStackedLayout_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4247,47 +3923,6 @@ pub const QStackedLayout = extern struct {
     pub fn isSignalConnected(self: QStackedLayout, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QStackedLayout_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStackedLayout `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QStackedLayout, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QStackedLayout_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStackedLayout`
-    ///
-    /// ` callback: *const fn (self: QStackedLayout, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QStackedLayout, callback: *const fn (QStackedLayout, QMetaMethod) callconv(.c) bool) void {
-        qtc.QStackedLayout_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

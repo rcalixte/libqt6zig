@@ -413,10 +413,10 @@ void KStatusNotifierItem_Connect_QuitRequested(KStatusNotifierItem* self, intptr
 
 bool KStatusNotifierItem_EventFilter(KStatusNotifierItem* self, QObject* watched, QEvent* event) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem) {
         return vkstatusnotifieritem->eventFilter(watched, event);
     }
-    return {};
+    qFatal("Error: Protected method KStatusNotifierItem::eventFilter called without a directly constructed type");
 }
 
 libqt_string KStatusNotifierItem_Tr2(const char* s, const char* c) {
@@ -452,372 +452,228 @@ void KStatusNotifierItem_ShowMessage4(KStatusNotifierItem* self, const libqt_str
 
 // Base class handler implementation
 QMetaObject* KStatusNotifierItem_SuperMetaObject(const KStatusNotifierItem* self) {
-    auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_MetaObject_IsBase(true);
-        return (QMetaObject*)vkstatusnotifieritem->metaObject();
-    } else {
-        return (QMetaObject*)self->KStatusNotifierItem::metaObject();
-    }
+    return (QMetaObject*)self->KStatusNotifierItem::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KStatusNotifierItem_OnMetaObject(const KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_MetaObject_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_MetaObject_Callback>(slot));
+void KStatusNotifierItem_OnMetaObject(KStatusNotifierItem* self, intptr_t slot) {
+    if (auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self)))
+        vkstatusnotifieritem->kstatusnotifieritem_metaobject_callback = reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KStatusNotifierItem_SuperMetacast(KStatusNotifierItem* self, const char* param1) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_Metacast_IsBase(true);
-        return vkstatusnotifieritem->qt_metacast(param1);
-    } else {
-        return self->KStatusNotifierItem::qt_metacast(param1);
-    }
+    return self->KStatusNotifierItem::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnMetacast(KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_Metacast_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Metacast_Callback>(slot));
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self))
+        vkstatusnotifieritem->kstatusnotifieritem_metacast_callback = reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KStatusNotifierItem_SuperMetacall(KStatusNotifierItem* self, int param1, int param2, void** param3) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_Metacall_IsBase(true);
-        return vkstatusnotifieritem->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KStatusNotifierItem::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KStatusNotifierItem::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnMetacall(KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_Metacall_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Metacall_Callback>(slot));
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self))
+        vkstatusnotifieritem->kstatusnotifieritem_metacall_callback = reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KStatusNotifierItem_SuperActivate(KStatusNotifierItem* self, const QPoint* pos) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_Activate_IsBase(true);
-        vkstatusnotifieritem->activate(*pos);
-    } else {
-        self->KStatusNotifierItem::activate(*pos);
-    }
+    self->KStatusNotifierItem::activate(*pos);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnActivate(KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_Activate_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Activate_Callback>(slot));
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self))
+        vkstatusnotifieritem->kstatusnotifieritem_activate_callback = reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Activate_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KStatusNotifierItem_SuperEventFilter(KStatusNotifierItem* self, QObject* watched, QEvent* event) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_EventFilter_IsBase(true);
-        return vkstatusnotifieritem->eventFilter(watched, event);
-    } else {
-        return ((VirtualKStatusNotifierItem*)self)->eventFilter(watched, event);
-    }
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self)) {
+        return vkstatusnotifieritem->KStatusNotifierItem::eventFilter(watched, event);
+    } else
+        qFatal("Error: Protected virtual method KStatusNotifierItem::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnEventFilter(KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_EventFilter_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_EventFilter_Callback>(slot));
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self))
+        vkstatusnotifieritem->kstatusnotifieritem_eventfilter_callback = reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KStatusNotifierItem_Event(KStatusNotifierItem* self, QEvent* event) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        return vkstatusnotifieritem->event(event);
-    } else {
-        return self->KStatusNotifierItem::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KStatusNotifierItem_SuperEvent(KStatusNotifierItem* self, QEvent* event) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_Event_IsBase(true);
-        return vkstatusnotifieritem->event(event);
-    } else {
-        return self->KStatusNotifierItem::event(event);
-    }
+    return self->KStatusNotifierItem::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnEvent(KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_Event_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Event_Callback>(slot));
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self))
+        vkstatusnotifieritem->kstatusnotifieritem_event_callback = reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KStatusNotifierItem_TimerEvent(KStatusNotifierItem* self, QTimerEvent* event) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem) {
         vkstatusnotifieritem->timerEvent(event);
     } else {
-        ((VirtualKStatusNotifierItem*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KStatusNotifierItem::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KStatusNotifierItem_SuperTimerEvent(KStatusNotifierItem* self, QTimerEvent* event) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_TimerEvent_IsBase(true);
-        vkstatusnotifieritem->timerEvent(event);
-    } else {
-        ((VirtualKStatusNotifierItem*)self)->timerEvent(event);
-    }
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self)) {
+        vkstatusnotifieritem->KStatusNotifierItem::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KStatusNotifierItem::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnTimerEvent(KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_TimerEvent_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_TimerEvent_Callback>(slot));
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self))
+        vkstatusnotifieritem->kstatusnotifieritem_timerevent_callback = reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KStatusNotifierItem_ChildEvent(KStatusNotifierItem* self, QChildEvent* event) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem) {
         vkstatusnotifieritem->childEvent(event);
     } else {
-        ((VirtualKStatusNotifierItem*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KStatusNotifierItem::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KStatusNotifierItem_SuperChildEvent(KStatusNotifierItem* self, QChildEvent* event) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_ChildEvent_IsBase(true);
-        vkstatusnotifieritem->childEvent(event);
-    } else {
-        ((VirtualKStatusNotifierItem*)self)->childEvent(event);
-    }
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self)) {
+        vkstatusnotifieritem->KStatusNotifierItem::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KStatusNotifierItem::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnChildEvent(KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_ChildEvent_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_ChildEvent_Callback>(slot));
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self))
+        vkstatusnotifieritem->kstatusnotifieritem_childevent_callback = reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KStatusNotifierItem_CustomEvent(KStatusNotifierItem* self, QEvent* event) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem) {
         vkstatusnotifieritem->customEvent(event);
     } else {
-        ((VirtualKStatusNotifierItem*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KStatusNotifierItem::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KStatusNotifierItem_SuperCustomEvent(KStatusNotifierItem* self, QEvent* event) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_CustomEvent_IsBase(true);
-        vkstatusnotifieritem->customEvent(event);
-    } else {
-        ((VirtualKStatusNotifierItem*)self)->customEvent(event);
-    }
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self)) {
+        vkstatusnotifieritem->KStatusNotifierItem::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KStatusNotifierItem::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnCustomEvent(KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_CustomEvent_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_CustomEvent_Callback>(slot));
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self))
+        vkstatusnotifieritem->kstatusnotifieritem_customevent_callback = reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KStatusNotifierItem_ConnectNotify(KStatusNotifierItem* self, const QMetaMethod* signal) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem) {
         vkstatusnotifieritem->connectNotify(*signal);
     } else {
-        ((VirtualKStatusNotifierItem*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KStatusNotifierItem::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KStatusNotifierItem_SuperConnectNotify(KStatusNotifierItem* self, const QMetaMethod* signal) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_ConnectNotify_IsBase(true);
-        vkstatusnotifieritem->connectNotify(*signal);
-    } else {
-        ((VirtualKStatusNotifierItem*)self)->connectNotify(*signal);
-    }
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self)) {
+        vkstatusnotifieritem->KStatusNotifierItem::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KStatusNotifierItem::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnConnectNotify(KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_ConnectNotify_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_ConnectNotify_Callback>(slot));
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self))
+        vkstatusnotifieritem->kstatusnotifieritem_connectnotify_callback = reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KStatusNotifierItem_DisconnectNotify(KStatusNotifierItem* self, const QMetaMethod* signal) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem) {
         vkstatusnotifieritem->disconnectNotify(*signal);
     } else {
-        ((VirtualKStatusNotifierItem*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KStatusNotifierItem::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KStatusNotifierItem_SuperDisconnectNotify(KStatusNotifierItem* self, const QMetaMethod* signal) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_DisconnectNotify_IsBase(true);
-        vkstatusnotifieritem->disconnectNotify(*signal);
-    } else {
-        ((VirtualKStatusNotifierItem*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self)) {
+        vkstatusnotifieritem->KStatusNotifierItem::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KStatusNotifierItem::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnDisconnectNotify(KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_DisconnectNotify_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_DisconnectNotify_Callback>(slot));
+    if (auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self))
+        vkstatusnotifieritem->kstatusnotifieritem_disconnectnotify_callback = reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KStatusNotifierItem_Sender(const KStatusNotifierItem* self) {
-    auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        return vkstatusnotifieritem->sender();
-    } else {
-        return ((VirtualKStatusNotifierItem*)self)->sender();
-    }
+    if (auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self))) {
+        return vkstatusnotifieritem->VirtualKStatusNotifierItem::sender();
+    } else
+        qFatal("Error: Protected method KStatusNotifierItem::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KStatusNotifierItem_SuperSender(const KStatusNotifierItem* self) {
-    auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_Sender_IsBase(true);
-        return vkstatusnotifieritem->sender();
-    } else {
-        return ((VirtualKStatusNotifierItem*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KStatusNotifierItem_OnSender(const KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_Sender_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KStatusNotifierItem_SenderSignalIndex(const KStatusNotifierItem* self) {
-    auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        return vkstatusnotifieritem->senderSignalIndex();
-    } else {
-        return ((VirtualKStatusNotifierItem*)self)->senderSignalIndex();
-    }
+    if (auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self))) {
+        return vkstatusnotifieritem->VirtualKStatusNotifierItem::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KStatusNotifierItem::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KStatusNotifierItem_SuperSenderSignalIndex(const KStatusNotifierItem* self) {
-    auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_SenderSignalIndex_IsBase(true);
-        return vkstatusnotifieritem->senderSignalIndex();
-    } else {
-        return ((VirtualKStatusNotifierItem*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KStatusNotifierItem_OnSenderSignalIndex(const KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_SenderSignalIndex_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KStatusNotifierItem_Receivers(const KStatusNotifierItem* self, const char* signal) {
-    auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        return vkstatusnotifieritem->receivers(signal);
-    } else {
-        return ((VirtualKStatusNotifierItem*)self)->receivers(signal);
-    }
+    if (auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self))) {
+        return vkstatusnotifieritem->VirtualKStatusNotifierItem::receivers(signal);
+    } else
+        qFatal("Error: Protected method KStatusNotifierItem::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KStatusNotifierItem_SuperReceivers(const KStatusNotifierItem* self, const char* signal) {
-    auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_Receivers_IsBase(true);
-        return vkstatusnotifieritem->receivers(signal);
-    } else {
-        return ((VirtualKStatusNotifierItem*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KStatusNotifierItem_OnReceivers(const KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_Receivers_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KStatusNotifierItem_IsSignalConnected(const KStatusNotifierItem* self, const QMetaMethod* signal) {
-    auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        return vkstatusnotifieritem->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKStatusNotifierItem*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KStatusNotifierItem_SuperIsSignalConnected(const KStatusNotifierItem* self, const QMetaMethod* signal) {
-    auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        vkstatusnotifieritem->setKStatusNotifierItem_IsSignalConnected_IsBase(true);
-        return vkstatusnotifieritem->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKStatusNotifierItem*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KStatusNotifierItem_OnIsSignalConnected(const KStatusNotifierItem* self, intptr_t slot) {
-    auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
-        vkstatusnotifieritem->setKStatusNotifierItem_IsSignalConnected_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_IsSignalConnected_Callback>(slot));
+    if (auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self))) {
+        return vkstatusnotifieritem->VirtualKStatusNotifierItem::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KStatusNotifierItem::isSignalConnected called without a directly constructed type");
 }
 
 void KStatusNotifierItem_Delete(KStatusNotifierItem* self) {

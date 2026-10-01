@@ -150,9 +150,9 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KFilePlacesView, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) QMetaObject) void {
         qtc.KFilePlacesView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -443,11 +443,11 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KFilePlacesView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) QSize) void {
         qtc.KFilePlacesView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10518,9 +10518,9 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) void `
     ///
-    pub fn onDoItemsLayout(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoItemsLayout(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) void) void {
         qtc.KFilePlacesView_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10574,9 +10574,9 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) void `
     ///
-    pub fn onReset(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) void) void {
         qtc.KFilePlacesView_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11198,9 +11198,9 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) i32 `
     ///
-    pub fn onHorizontalOffset(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHorizontalOffset(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) i32) void {
         qtc.KFilePlacesView_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11254,9 +11254,9 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) i32 `
     ///
-    pub fn onVerticalOffset(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onVerticalOffset(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) i32) void {
         qtc.KFilePlacesView_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11524,13 +11524,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn onSelectedIndexes(self: KFilePlacesView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectedIndexes(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) qtc.libqt_list) void {
         qtc.KFilePlacesView_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11584,9 +11584,9 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) void `
     ///
-    pub fn onUpdateGeometries(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometries(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) void) void {
         qtc.KFilePlacesView_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11838,11 +11838,11 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: KFilePlacesView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) QSize) void {
         qtc.KFilePlacesView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12270,9 +12270,9 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) void `
     ///
-    pub fn onSelectAll(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectAll(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) void) void {
         qtc.KFilePlacesView_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12326,9 +12326,9 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorData(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorData(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) void) void {
         qtc.KFilePlacesView_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12382,9 +12382,9 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorGeometries(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorGeometries(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) void) void {
         qtc.KFilePlacesView_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13454,11 +13454,11 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KFilePlacesView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) QSize) void {
         qtc.KFilePlacesView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13698,9 +13698,9 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) i32) void {
         qtc.KFilePlacesView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13874,9 +13874,9 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KFilePlacesView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) bool) void {
         qtc.KFilePlacesView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13930,9 +13930,9 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KFilePlacesView, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) QPaintEngine) void {
         qtc.KFilePlacesView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14680,9 +14680,9 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KFilePlacesView, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) QPainter) void {
         qtc.KFilePlacesView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14956,48 +14956,6 @@ pub const KFilePlacesView = extern struct {
         qtc.KFilePlacesView_ResizeContents(@ptrCast(self.ptr), @bitCast(_width), @bitCast(_height));
     }
 
-    /// ### DEPRECATED: Use `superResizeContents` instead
-    ///
-    pub const SuperResizeContents = superResizeContents;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ` _width: i32 `
-    ///
-    /// ` _height: i32 `
-    ///
-    pub fn superResizeContents(self: KFilePlacesView, _width: i32, _height: i32) void {
-        qtc.KFilePlacesView_SuperResizeContents(@ptrCast(self.ptr), @bitCast(_width), @bitCast(_height));
-    }
-
-    /// ### DEPRECATED: Use `onResizeContents` instead
-    ///
-    pub const OnResizeContents = onResizeContents;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn (self: KFilePlacesView, width: i32, height: i32) callconv(.c) void `
-    ///
-    pub fn onResizeContents(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32) callconv(.c) void) void {
-        qtc.KFilePlacesView_OnResizeContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `contentsSize` instead
     ///
     pub const ContentsSize = contentsSize;
@@ -15014,46 +14972,6 @@ pub const KFilePlacesView = extern struct {
     ///
     pub fn contentsSize(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.KFilePlacesView_ContentsSize(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superContentsSize` instead
-    ///
-    pub const SuperContentsSize = superContentsSize;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superContentsSize(self: KFilePlacesView) QSize {
-        return .{ .ptr = qtc.KFilePlacesView_SuperContentsSize(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onContentsSize` instead
-    ///
-    pub const OnContentsSize = onContentsSize;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QSize `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onContentsSize(self: KFilePlacesView, callback: *const fn () callconv(.c) QSize) void {
-        qtc.KFilePlacesView_OnContentsSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `rectForIndex` instead
@@ -15075,49 +14993,6 @@ pub const KFilePlacesView = extern struct {
     pub fn rectForIndex(self: KFilePlacesView, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KFilePlacesView_RectForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superRectForIndex` instead
-    ///
-    pub const SuperRectForIndex = superRectForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superRectForIndex(self: KFilePlacesView, index: anytype) QRect {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KFilePlacesView_SuperRectForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onRectForIndex` instead
-    ///
-    pub const OnRectForIndex = onRectForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn (self: KFilePlacesView, index: QModelIndex) callconv(.c) QRect `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onRectForIndex(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) QRect) void {
-        qtc.KFilePlacesView_OnRectForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setPositionForIndex` instead
@@ -15144,50 +15019,6 @@ pub const KFilePlacesView = extern struct {
         qtc.KFilePlacesView_SetPositionForIndex(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetPositionForIndex` instead
-    ///
-    pub const SuperSetPositionForIndex = superSetPositionForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ` position: QPoint `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superSetPositionForIndex(self: KFilePlacesView, position: anytype, index: anytype) void {
-        comptime _ = @TypeOf(position)._is_QPoint;
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        qtc.KFilePlacesView_SuperSetPositionForIndex(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(index.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetPositionForIndex` instead
-    ///
-    pub const OnSetPositionForIndex = onSetPositionForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn (self: KFilePlacesView, position: QPoint, index: QModelIndex) callconv(.c) void `
-    ///
-    pub fn onSetPositionForIndex(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPoint, QModelIndex) callconv(.c) void) void {
-        qtc.KFilePlacesView_OnSetPositionForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `state` instead
     ///
     pub const State = state;
@@ -15210,48 +15041,6 @@ pub const KFilePlacesView = extern struct {
         return qtc.KFilePlacesView_State(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superState` instead
-    ///
-    pub const SuperState = superState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.State `
-    ///
-    pub fn superState(self: KFilePlacesView) i32 {
-        return qtc.KFilePlacesView_SuperState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onState` instead
-    ///
-    pub const OnState = onState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onState(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFilePlacesView_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setState` instead
     ///
     pub const SetState = setState;
@@ -15272,46 +15061,6 @@ pub const KFilePlacesView = extern struct {
         qtc.KFilePlacesView_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `superSetState` instead
-    ///
-    pub const SuperSetState = superSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ` _state: qabstractitemview_enums.State `
-    ///
-    pub fn superSetState(self: KFilePlacesView, _state: i32) void {
-        qtc.KFilePlacesView_SuperSetState(@ptrCast(self.ptr), @bitCast(_state));
-    }
-
-    /// ### DEPRECATED: Use `onSetState` instead
-    ///
-    pub const OnSetState = onSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn (self: KFilePlacesView, state: qabstractitemview_enums.State) callconv(.c) void `
-    ///
-    pub fn onSetState(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) void) void {
-        qtc.KFilePlacesView_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `scheduleDelayedItemsLayout` instead
     ///
     pub const ScheduleDelayedItemsLayout = scheduleDelayedItemsLayout;
@@ -15330,44 +15079,6 @@ pub const KFilePlacesView = extern struct {
         qtc.KFilePlacesView_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superScheduleDelayedItemsLayout` instead
-    ///
-    pub const SuperScheduleDelayedItemsLayout = superScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superScheduleDelayedItemsLayout(self: KFilePlacesView) void {
-        qtc.KFilePlacesView_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onScheduleDelayedItemsLayout` instead
-    ///
-    pub const OnScheduleDelayedItemsLayout = onScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onScheduleDelayedItemsLayout(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesView_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `executeDelayedItemsLayout` instead
     ///
     pub const ExecuteDelayedItemsLayout = executeDelayedItemsLayout;
@@ -15384,44 +15095,6 @@ pub const KFilePlacesView = extern struct {
     ///
     pub fn executeDelayedItemsLayout(self: KFilePlacesView) void {
         qtc.KFilePlacesView_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superExecuteDelayedItemsLayout` instead
-    ///
-    pub const SuperExecuteDelayedItemsLayout = superExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superExecuteDelayedItemsLayout(self: KFilePlacesView) void {
-        qtc.KFilePlacesView_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onExecuteDelayedItemsLayout` instead
-    ///
-    pub const OnExecuteDelayedItemsLayout = onExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onExecuteDelayedItemsLayout(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesView_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setDirtyRegion` instead
@@ -15443,47 +15116,6 @@ pub const KFilePlacesView = extern struct {
     pub fn setDirtyRegion(self: KFilePlacesView, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.KFilePlacesView_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSetDirtyRegion` instead
-    ///
-    pub const SuperSetDirtyRegion = superSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ` region: QRegion `
-    ///
-    pub fn superSetDirtyRegion(self: KFilePlacesView, region: anytype) void {
-        comptime _ = @TypeOf(region)._is_QRegion;
-        qtc.KFilePlacesView_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDirtyRegion` instead
-    ///
-    pub const OnSetDirtyRegion = onSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn (self: KFilePlacesView, region: QRegion) callconv(.c) void `
-    ///
-    pub fn onSetDirtyRegion(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QRegion) callconv(.c) void) void {
-        qtc.KFilePlacesView_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `scrollDirtyRegion` instead
@@ -15508,48 +15140,6 @@ pub const KFilePlacesView = extern struct {
         qtc.KFilePlacesView_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `superScrollDirtyRegion` instead
-    ///
-    pub const SuperScrollDirtyRegion = superScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ` dx: i32 `
-    ///
-    /// ` dy: i32 `
-    ///
-    pub fn superScrollDirtyRegion(self: KFilePlacesView, dx: i32, dy: i32) void {
-        qtc.KFilePlacesView_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
-    }
-
-    /// ### DEPRECATED: Use `onScrollDirtyRegion` instead
-    ///
-    pub const OnScrollDirtyRegion = onScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn (self: KFilePlacesView, dx: i32, dy: i32) callconv(.c) void `
-    ///
-    pub fn onScrollDirtyRegion(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32) callconv(.c) void) void {
-        qtc.KFilePlacesView_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `dirtyRegionOffset` instead
     ///
     pub const DirtyRegionOffset = dirtyRegionOffset;
@@ -15566,46 +15156,6 @@ pub const KFilePlacesView = extern struct {
     ///
     pub fn dirtyRegionOffset(self: KFilePlacesView) QPoint {
         return .{ .ptr = qtc.KFilePlacesView_DirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superDirtyRegionOffset` instead
-    ///
-    pub const SuperDirtyRegionOffset = superDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superDirtyRegionOffset(self: KFilePlacesView) QPoint {
-        return .{ .ptr = qtc.KFilePlacesView_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDirtyRegionOffset` instead
-    ///
-    pub const OnDirtyRegionOffset = onDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QPoint `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onDirtyRegionOffset(self: KFilePlacesView, callback: *const fn () callconv(.c) QPoint) void {
-        qtc.KFilePlacesView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `startAutoScroll` instead
@@ -15626,44 +15176,6 @@ pub const KFilePlacesView = extern struct {
         qtc.KFilePlacesView_StartAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStartAutoScroll` instead
-    ///
-    pub const SuperStartAutoScroll = superStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superStartAutoScroll(self: KFilePlacesView) void {
-        qtc.KFilePlacesView_SuperStartAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStartAutoScroll` instead
-    ///
-    pub const OnStartAutoScroll = onStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStartAutoScroll(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesView_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `stopAutoScroll` instead
     ///
     pub const StopAutoScroll = stopAutoScroll;
@@ -15682,44 +15194,6 @@ pub const KFilePlacesView = extern struct {
         qtc.KFilePlacesView_StopAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStopAutoScroll` instead
-    ///
-    pub const SuperStopAutoScroll = superStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superStopAutoScroll(self: KFilePlacesView) void {
-        qtc.KFilePlacesView_SuperStopAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStopAutoScroll` instead
-    ///
-    pub const OnStopAutoScroll = onStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStopAutoScroll(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesView_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `doAutoScroll` instead
     ///
     pub const DoAutoScroll = doAutoScroll;
@@ -15736,44 +15210,6 @@ pub const KFilePlacesView = extern struct {
     ///
     pub fn doAutoScroll(self: KFilePlacesView) void {
         qtc.KFilePlacesView_DoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDoAutoScroll` instead
-    ///
-    pub const SuperDoAutoScroll = superDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superDoAutoScroll(self: KFilePlacesView) void {
-        qtc.KFilePlacesView_SuperDoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDoAutoScroll` instead
-    ///
-    pub const OnDoAutoScroll = onDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDoAutoScroll(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesView_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `dropIndicatorPosition` instead
@@ -15796,48 +15232,6 @@ pub const KFilePlacesView = extern struct {
     ///
     pub fn dropIndicatorPosition(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_DropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDropIndicatorPosition` instead
-    ///
-    pub const SuperDropIndicatorPosition = superDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.DropIndicatorPosition `
-    ///
-    pub fn superDropIndicatorPosition(self: KFilePlacesView) i32 {
-        return qtc.KFilePlacesView_SuperDropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDropIndicatorPosition` instead
-    ///
-    pub const OnDropIndicatorPosition = onDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onDropIndicatorPosition(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFilePlacesView_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setViewportMargins` instead
@@ -15866,52 +15260,6 @@ pub const KFilePlacesView = extern struct {
         qtc.KFilePlacesView_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: KFilePlacesView, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.KFilePlacesView_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn (self: KFilePlacesView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.KFilePlacesView_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -15928,46 +15276,6 @@ pub const KFilePlacesView = extern struct {
     ///
     pub fn viewportMargins(self: KFilePlacesView) QMargins {
         return .{ .ptr = qtc.KFilePlacesView_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superViewportMargins(self: KFilePlacesView) QMargins {
-        return .{ .ptr = qtc.KFilePlacesView_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: KFilePlacesView, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.KFilePlacesView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -15991,47 +15299,6 @@ pub const KFilePlacesView = extern struct {
         qtc.KFilePlacesView_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: KFilePlacesView, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.KFilePlacesView_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn (self: KFilePlacesView, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPainter) callconv(.c) void) void {
-        qtc.KFilePlacesView_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -16048,44 +15315,6 @@ pub const KFilePlacesView = extern struct {
     ///
     pub fn updateMicroFocus(self: KFilePlacesView) void {
         qtc.KFilePlacesView_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superUpdateMicroFocus(self: KFilePlacesView) void {
-        qtc.KFilePlacesView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -16106,44 +15335,6 @@ pub const KFilePlacesView = extern struct {
         qtc.KFilePlacesView_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superCreate(self: KFilePlacesView) void {
-        qtc.KFilePlacesView_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -16160,44 +15351,6 @@ pub const KFilePlacesView = extern struct {
     ///
     pub fn destroy(self: KFilePlacesView) void {
         qtc.KFilePlacesView_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superDestroy(self: KFilePlacesView) void {
-        qtc.KFilePlacesView_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
-        qtc.KFilePlacesView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -16218,44 +15371,6 @@ pub const KFilePlacesView = extern struct {
         return qtc.KFilePlacesView_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superFocusNextChild(self: KFilePlacesView) bool {
-        return qtc.KFilePlacesView_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KFilePlacesView, callback: *const fn () callconv(.c) bool) void {
-        qtc.KFilePlacesView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -16272,44 +15387,6 @@ pub const KFilePlacesView = extern struct {
     ///
     pub fn focusPreviousChild(self: KFilePlacesView) bool {
         return qtc.KFilePlacesView_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superFocusPreviousChild(self: KFilePlacesView) bool {
-        return qtc.KFilePlacesView_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KFilePlacesView, callback: *const fn () callconv(.c) bool) void {
-        qtc.KFilePlacesView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -16330,44 +15407,6 @@ pub const KFilePlacesView = extern struct {
         return .{ .ptr = qtc.KFilePlacesView_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superSender(self: KFilePlacesView) QObject {
-        return .{ .ptr = qtc.KFilePlacesView_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KFilePlacesView, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KFilePlacesView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -16384,44 +15423,6 @@ pub const KFilePlacesView = extern struct {
     ///
     pub fn senderSignalIndex(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn superSenderSignalIndex(self: KFilePlacesView) i32 {
-        return qtc.KFilePlacesView_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFilePlacesView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -16445,47 +15446,6 @@ pub const KFilePlacesView = extern struct {
         return qtc.KFilePlacesView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KFilePlacesView, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KFilePlacesView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn (self: KFilePlacesView, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KFilePlacesView, callback: *const fn (KFilePlacesView, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KFilePlacesView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -16505,47 +15465,6 @@ pub const KFilePlacesView = extern struct {
     pub fn isSignalConnected(self: KFilePlacesView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KFilePlacesView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KFilePlacesView, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KFilePlacesView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn (self: KFilePlacesView, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMetaMethod) callconv(.c) bool) void {
-        qtc.KFilePlacesView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -16568,48 +15487,6 @@ pub const KFilePlacesView = extern struct {
     ///
     pub fn getDecodedMetricF(self: KFilePlacesView, metricA: i32, metricB: i32) f64 {
         return qtc.KFilePlacesView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KFilePlacesView, metricA: i32, metricB: i32) f64 {
-        return qtc.KFilePlacesView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFilePlacesView`
-    ///
-    /// ` callback: *const fn (self: KFilePlacesView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32) callconv(.c) f64) void {
-        qtc.KFilePlacesView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

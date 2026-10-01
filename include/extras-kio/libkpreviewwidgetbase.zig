@@ -121,9 +121,9 @@ pub const KPreviewWidgetBase = extern struct {
     ///
     /// ` self: KPreviewWidgetBase `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KPreviewWidgetBase) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KPreviewWidgetBase, callback: *const fn (KPreviewWidgetBase) callconv(.c) QMetaObject) void {
         qtc.KPreviewWidgetBase_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -304,6 +304,8 @@ pub const KPreviewWidgetBase = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kpreviewwidgetbase.html#showPreview)
     ///
+    /// This method must be implemented with `onShowPreview` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KPreviewWidgetBase `
@@ -333,30 +335,13 @@ pub const KPreviewWidgetBase = extern struct {
         qtc.KPreviewWidgetBase_OnShowPreview(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superShowPreview` instead
-    ///
-    pub const SuperShowPreview = superShowPreview;
-
-    /// ### [Upstream resources](https://api.kde.org/kpreviewwidgetbase.html#showPreview)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPreviewWidgetBase `
-    ///
-    /// ` url: QUrl `
-    ///
-    pub fn superShowPreview(self: KPreviewWidgetBase, url: anytype) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.KPreviewWidgetBase_SuperShowPreview(@ptrCast(self.ptr), @ptrCast(url.ptr));
-    }
-
     /// ### DEPRECATED: Use `clearPreview` instead
     ///
     pub const ClearPreview = clearPreview;
 
     /// ### [Upstream resources](https://api.kde.org/kpreviewwidgetbase.html#clearPreview)
+    ///
+    /// This method must be implemented with `onClearPreview` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -378,26 +363,10 @@ pub const KPreviewWidgetBase = extern struct {
     ///
     /// ` self: KPreviewWidgetBase `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KPreviewWidgetBase) callconv(.c) void `
     ///
-    pub fn onClearPreview(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) void) void {
+    pub fn onClearPreview(self: KPreviewWidgetBase, callback: *const fn (KPreviewWidgetBase) callconv(.c) void) void {
         qtc.KPreviewWidgetBase_OnClearPreview(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superClearPreview` instead
-    ///
-    pub const SuperClearPreview = superClearPreview;
-
-    /// ### [Upstream resources](https://api.kde.org/kpreviewwidgetbase.html#clearPreview)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPreviewWidgetBase `
-    ///
-    pub fn superClearPreview(self: KPreviewWidgetBase) void {
-        qtc.KPreviewWidgetBase_SuperClearPreview(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setSupportedMimeTypes` instead
@@ -427,55 +396,6 @@ pub const KPreviewWidgetBase = extern struct {
             .data = mimeTypes_arr.ptr,
         };
         qtc.KPreviewWidgetBase_SetSupportedMimeTypes(@ptrCast(self.ptr), mimeTypes_list);
-    }
-
-    /// ### DEPRECATED: Use `onSetSupportedMimeTypes` instead
-    ///
-    pub const OnSetSupportedMimeTypes = onSetSupportedMimeTypes;
-
-    /// ### [Upstream resources](https://api.kde.org/kpreviewwidgetbase.html#setSupportedMimeTypes)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPreviewWidgetBase `
-    ///
-    /// ` callback: *const fn (self: KPreviewWidgetBase, mimeTypes: ?[*:null]?[*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetSupportedMimeTypes(self: KPreviewWidgetBase, callback: *const fn (KPreviewWidgetBase, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.KPreviewWidgetBase_OnSetSupportedMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetSupportedMimeTypes` instead
-    ///
-    pub const SuperSetSupportedMimeTypes = superSetSupportedMimeTypes;
-
-    /// ### [Upstream resources](https://api.kde.org/kpreviewwidgetbase.html#setSupportedMimeTypes)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPreviewWidgetBase `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` mimeTypes: []const []const u8 `
-    ///
-    pub fn superSetSupportedMimeTypes(self: KPreviewWidgetBase, allocator: std.mem.Allocator, mimeTypes: []const []const u8) void {
-        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("KPreviewWidgetBase.setSupportedMimeTypes: Memory allocation failed");
-        defer allocator.free(mimeTypes_arr);
-        for (mimeTypes, 0..mimeTypes.len) |str_item, i|
-            mimeTypes_arr[i] = .{
-                .len = str_item.len,
-                .data = str_item.ptr,
-            };
-        const mimeTypes_list = qtc.libqt_list{
-            .len = mimeTypes.len,
-            .data = mimeTypes_arr.ptr,
-        };
-        qtc.KPreviewWidgetBase_SuperSetSupportedMimeTypes(@ptrCast(self.ptr), mimeTypes_list);
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -6788,9 +6708,9 @@ pub const KPreviewWidgetBase = extern struct {
     ///
     /// ` self: KPreviewWidgetBase`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPreviewWidgetBase) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KPreviewWidgetBase, callback: *const fn (KPreviewWidgetBase) callconv(.c) i32) void {
         qtc.KPreviewWidgetBase_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6904,11 +6824,11 @@ pub const KPreviewWidgetBase = extern struct {
     ///
     /// ` self: KPreviewWidgetBase`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KPreviewWidgetBase) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KPreviewWidgetBase, callback: *const fn (KPreviewWidgetBase) callconv(.c) QSize) void {
         qtc.KPreviewWidgetBase_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6962,11 +6882,11 @@ pub const KPreviewWidgetBase = extern struct {
     ///
     /// ` self: KPreviewWidgetBase`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KPreviewWidgetBase) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KPreviewWidgetBase, callback: *const fn (KPreviewWidgetBase) callconv(.c) QSize) void {
         qtc.KPreviewWidgetBase_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7080,9 +7000,9 @@ pub const KPreviewWidgetBase = extern struct {
     ///
     /// ` self: KPreviewWidgetBase`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KPreviewWidgetBase) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KPreviewWidgetBase, callback: *const fn (KPreviewWidgetBase) callconv(.c) bool) void {
         qtc.KPreviewWidgetBase_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7136,9 +7056,9 @@ pub const KPreviewWidgetBase = extern struct {
     ///
     /// ` self: KPreviewWidgetBase`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KPreviewWidgetBase) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KPreviewWidgetBase, callback: *const fn (KPreviewWidgetBase) callconv(.c) QPaintEngine) void {
         qtc.KPreviewWidgetBase_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9064,9 +8984,9 @@ pub const KPreviewWidgetBase = extern struct {
     ///
     /// ` self: KPreviewWidgetBase`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KPreviewWidgetBase) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KPreviewWidgetBase, callback: *const fn (KPreviewWidgetBase) callconv(.c) QPainter) void {
         qtc.KPreviewWidgetBase_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9650,44 +9570,6 @@ pub const KPreviewWidgetBase = extern struct {
         qtc.KPreviewWidgetBase_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPreviewWidgetBase `
-    ///
-    pub fn superUpdateMicroFocus(self: KPreviewWidgetBase) void {
-        qtc.KPreviewWidgetBase_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPreviewWidgetBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) void) void {
-        qtc.KPreviewWidgetBase_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9704,44 +9586,6 @@ pub const KPreviewWidgetBase = extern struct {
     ///
     pub fn create(self: KPreviewWidgetBase) void {
         qtc.KPreviewWidgetBase_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPreviewWidgetBase `
-    ///
-    pub fn superCreate(self: KPreviewWidgetBase) void {
-        qtc.KPreviewWidgetBase_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPreviewWidgetBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) void) void {
-        qtc.KPreviewWidgetBase_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9762,44 +9606,6 @@ pub const KPreviewWidgetBase = extern struct {
         qtc.KPreviewWidgetBase_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPreviewWidgetBase `
-    ///
-    pub fn superDestroy(self: KPreviewWidgetBase) void {
-        qtc.KPreviewWidgetBase_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPreviewWidgetBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) void) void {
-        qtc.KPreviewWidgetBase_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9816,44 +9622,6 @@ pub const KPreviewWidgetBase = extern struct {
     ///
     pub fn focusNextChild(self: KPreviewWidgetBase) bool {
         return qtc.KPreviewWidgetBase_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPreviewWidgetBase `
-    ///
-    pub fn superFocusNextChild(self: KPreviewWidgetBase) bool {
-        return qtc.KPreviewWidgetBase_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPreviewWidgetBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) bool) void {
-        qtc.KPreviewWidgetBase_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -9874,44 +9642,6 @@ pub const KPreviewWidgetBase = extern struct {
         return qtc.KPreviewWidgetBase_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPreviewWidgetBase `
-    ///
-    pub fn superFocusPreviousChild(self: KPreviewWidgetBase) bool {
-        return qtc.KPreviewWidgetBase_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPreviewWidgetBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) bool) void {
-        qtc.KPreviewWidgetBase_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -9930,44 +9660,6 @@ pub const KPreviewWidgetBase = extern struct {
         return .{ .ptr = qtc.KPreviewWidgetBase_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPreviewWidgetBase `
-    ///
-    pub fn superSender(self: KPreviewWidgetBase) QObject {
-        return .{ .ptr = qtc.KPreviewWidgetBase_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPreviewWidgetBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KPreviewWidgetBase_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -9984,44 +9676,6 @@ pub const KPreviewWidgetBase = extern struct {
     ///
     pub fn senderSignalIndex(self: KPreviewWidgetBase) i32 {
         return qtc.KPreviewWidgetBase_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPreviewWidgetBase `
-    ///
-    pub fn superSenderSignalIndex(self: KPreviewWidgetBase) i32 {
-        return qtc.KPreviewWidgetBase_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPreviewWidgetBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) i32) void {
-        qtc.KPreviewWidgetBase_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10045,47 +9699,6 @@ pub const KPreviewWidgetBase = extern struct {
         return qtc.KPreviewWidgetBase_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPreviewWidgetBase `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KPreviewWidgetBase, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KPreviewWidgetBase_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPreviewWidgetBase`
-    ///
-    /// ` callback: *const fn (self: KPreviewWidgetBase, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KPreviewWidgetBase, callback: *const fn (KPreviewWidgetBase, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KPreviewWidgetBase_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10105,47 +9718,6 @@ pub const KPreviewWidgetBase = extern struct {
     pub fn isSignalConnected(self: KPreviewWidgetBase, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPreviewWidgetBase_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPreviewWidgetBase `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KPreviewWidgetBase, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KPreviewWidgetBase_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPreviewWidgetBase`
-    ///
-    /// ` callback: *const fn (self: KPreviewWidgetBase, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KPreviewWidgetBase, callback: *const fn (KPreviewWidgetBase, QMetaMethod) callconv(.c) bool) void {
-        qtc.KPreviewWidgetBase_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10168,48 +9740,6 @@ pub const KPreviewWidgetBase = extern struct {
     ///
     pub fn getDecodedMetricF(self: KPreviewWidgetBase, metricA: i32, metricB: i32) f64 {
         return qtc.KPreviewWidgetBase_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPreviewWidgetBase `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KPreviewWidgetBase, metricA: i32, metricB: i32) f64 {
-        return qtc.KPreviewWidgetBase_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPreviewWidgetBase`
-    ///
-    /// ` callback: *const fn (self: KPreviewWidgetBase, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KPreviewWidgetBase, callback: *const fn (KPreviewWidgetBase, i32, i32) callconv(.c) f64) void {
-        qtc.KPreviewWidgetBase_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

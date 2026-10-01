@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QHistoryState so that we can call protected methods
+// This class is a subclass of QHistoryState
 class VirtualQHistoryState final : public QHistoryState {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQHistoryState = true;
-
-    // Virtual class public types (including callbacks)
-    using QHistoryState_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QHistoryState_MetaObject_Callback = QMetaObject* (*)(const QHistoryState*);
     using QHistoryState_Metacast_Callback = void* (*)(QHistoryState*, const char*);
     using QHistoryState_Metacall_Callback = int (*)(QHistoryState*, int, int, void**);
     using QHistoryState_OnEntry_Callback = void (*)(QHistoryState*, QEvent*);
@@ -29,12 +25,11 @@ class VirtualQHistoryState final : public QHistoryState {
     using QHistoryState_CustomEvent_Callback = void (*)(QHistoryState*, QEvent*);
     using QHistoryState_ConnectNotify_Callback = void (*)(QHistoryState*, QMetaMethod*);
     using QHistoryState_DisconnectNotify_Callback = void (*)(QHistoryState*, QMetaMethod*);
-    using QHistoryState_Sender_Callback = QObject* (*)();
-    using QHistoryState_SenderSignalIndex_Callback = int (*)();
-    using QHistoryState_Receivers_Callback = int (*)(const QHistoryState*, const char*);
-    using QHistoryState_IsSignalConnected_Callback = bool (*)(const QHistoryState*, QMetaMethod*);
+    using QHistoryState::isSignalConnected;
+    using QHistoryState::receivers;
+    using QHistoryState::sender;
+    using QHistoryState::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QHistoryState_MetaObject_Callback qhistorystate_metaobject_callback = nullptr;
     QHistoryState_Metacast_Callback qhistorystate_metacast_callback = nullptr;
@@ -48,80 +43,28 @@ class VirtualQHistoryState final : public QHistoryState {
     QHistoryState_CustomEvent_Callback qhistorystate_customevent_callback = nullptr;
     QHistoryState_ConnectNotify_Callback qhistorystate_connectnotify_callback = nullptr;
     QHistoryState_DisconnectNotify_Callback qhistorystate_disconnectnotify_callback = nullptr;
-    QHistoryState_Sender_Callback qhistorystate_sender_callback = nullptr;
-    QHistoryState_SenderSignalIndex_Callback qhistorystate_sendersignalindex_callback = nullptr;
-    QHistoryState_Receivers_Callback qhistorystate_receivers_callback = nullptr;
-    QHistoryState_IsSignalConnected_Callback qhistorystate_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qhistorystate_metaobject_isbase = false;
-    mutable bool qhistorystate_metacast_isbase = false;
-    mutable bool qhistorystate_metacall_isbase = false;
-    mutable bool qhistorystate_onentry_isbase = false;
-    mutable bool qhistorystate_onexit_isbase = false;
-    mutable bool qhistorystate_event_isbase = false;
-    mutable bool qhistorystate_eventfilter_isbase = false;
-    mutable bool qhistorystate_timerevent_isbase = false;
-    mutable bool qhistorystate_childevent_isbase = false;
-    mutable bool qhistorystate_customevent_isbase = false;
-    mutable bool qhistorystate_connectnotify_isbase = false;
-    mutable bool qhistorystate_disconnectnotify_isbase = false;
-    mutable bool qhistorystate_sender_isbase = false;
-    mutable bool qhistorystate_sendersignalindex_isbase = false;
-    mutable bool qhistorystate_receivers_isbase = false;
-    mutable bool qhistorystate_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QHistoryState {
+        using QHistoryState::childEvent;
+        using QHistoryState::connectNotify;
+        using QHistoryState::customEvent;
+        using QHistoryState::disconnectNotify;
+        using QHistoryState::event;
+        using QHistoryState::onEntry;
+        using QHistoryState::onExit;
+        using QHistoryState::timerEvent;
+    };
 
-  public:
     VirtualQHistoryState() : QHistoryState() {};
     VirtualQHistoryState(QHistoryState::HistoryType typeVal) : QHistoryState(typeVal) {};
     VirtualQHistoryState(QState* parent) : QHistoryState(parent) {};
     VirtualQHistoryState(QHistoryState::HistoryType typeVal, QState* parent) : QHistoryState(typeVal, parent) {};
 
-    // Callback setters
-    inline void setQHistoryState_MetaObject_Callback(QHistoryState_MetaObject_Callback cb) { qhistorystate_metaobject_callback = cb; }
-    inline void setQHistoryState_Metacast_Callback(QHistoryState_Metacast_Callback cb) { qhistorystate_metacast_callback = cb; }
-    inline void setQHistoryState_Metacall_Callback(QHistoryState_Metacall_Callback cb) { qhistorystate_metacall_callback = cb; }
-    inline void setQHistoryState_OnEntry_Callback(QHistoryState_OnEntry_Callback cb) { qhistorystate_onentry_callback = cb; }
-    inline void setQHistoryState_OnExit_Callback(QHistoryState_OnExit_Callback cb) { qhistorystate_onexit_callback = cb; }
-    inline void setQHistoryState_Event_Callback(QHistoryState_Event_Callback cb) { qhistorystate_event_callback = cb; }
-    inline void setQHistoryState_EventFilter_Callback(QHistoryState_EventFilter_Callback cb) { qhistorystate_eventfilter_callback = cb; }
-    inline void setQHistoryState_TimerEvent_Callback(QHistoryState_TimerEvent_Callback cb) { qhistorystate_timerevent_callback = cb; }
-    inline void setQHistoryState_ChildEvent_Callback(QHistoryState_ChildEvent_Callback cb) { qhistorystate_childevent_callback = cb; }
-    inline void setQHistoryState_CustomEvent_Callback(QHistoryState_CustomEvent_Callback cb) { qhistorystate_customevent_callback = cb; }
-    inline void setQHistoryState_ConnectNotify_Callback(QHistoryState_ConnectNotify_Callback cb) { qhistorystate_connectnotify_callback = cb; }
-    inline void setQHistoryState_DisconnectNotify_Callback(QHistoryState_DisconnectNotify_Callback cb) { qhistorystate_disconnectnotify_callback = cb; }
-    inline void setQHistoryState_Sender_Callback(QHistoryState_Sender_Callback cb) { qhistorystate_sender_callback = cb; }
-    inline void setQHistoryState_SenderSignalIndex_Callback(QHistoryState_SenderSignalIndex_Callback cb) { qhistorystate_sendersignalindex_callback = cb; }
-    inline void setQHistoryState_Receivers_Callback(QHistoryState_Receivers_Callback cb) { qhistorystate_receivers_callback = cb; }
-    inline void setQHistoryState_IsSignalConnected_Callback(QHistoryState_IsSignalConnected_Callback cb) { qhistorystate_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQHistoryState_MetaObject_IsBase(bool value) const { qhistorystate_metaobject_isbase = value; }
-    inline void setQHistoryState_Metacast_IsBase(bool value) const { qhistorystate_metacast_isbase = value; }
-    inline void setQHistoryState_Metacall_IsBase(bool value) const { qhistorystate_metacall_isbase = value; }
-    inline void setQHistoryState_OnEntry_IsBase(bool value) const { qhistorystate_onentry_isbase = value; }
-    inline void setQHistoryState_OnExit_IsBase(bool value) const { qhistorystate_onexit_isbase = value; }
-    inline void setQHistoryState_Event_IsBase(bool value) const { qhistorystate_event_isbase = value; }
-    inline void setQHistoryState_EventFilter_IsBase(bool value) const { qhistorystate_eventfilter_isbase = value; }
-    inline void setQHistoryState_TimerEvent_IsBase(bool value) const { qhistorystate_timerevent_isbase = value; }
-    inline void setQHistoryState_ChildEvent_IsBase(bool value) const { qhistorystate_childevent_isbase = value; }
-    inline void setQHistoryState_CustomEvent_IsBase(bool value) const { qhistorystate_customevent_isbase = value; }
-    inline void setQHistoryState_ConnectNotify_IsBase(bool value) const { qhistorystate_connectnotify_isbase = value; }
-    inline void setQHistoryState_DisconnectNotify_IsBase(bool value) const { qhistorystate_disconnectnotify_isbase = value; }
-    inline void setQHistoryState_Sender_IsBase(bool value) const { qhistorystate_sender_isbase = value; }
-    inline void setQHistoryState_SenderSignalIndex_IsBase(bool value) const { qhistorystate_sendersignalindex_isbase = value; }
-    inline void setQHistoryState_Receivers_IsBase(bool value) const { qhistorystate_receivers_isbase = value; }
-    inline void setQHistoryState_IsSignalConnected_IsBase(bool value) const { qhistorystate_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qhistorystate_metaobject_isbase) {
-            qhistorystate_metaobject_isbase = false;
-            return QHistoryState::metaObject();
-        }
-        auto metaobject_cb = qhistorystate_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qhistorystate_metaobject_callback) {
+            QMetaObject* callback_ret = qhistorystate_metaobject_callback(this);
             return callback_ret;
         }
         return QHistoryState::metaObject();
@@ -129,14 +72,9 @@ class VirtualQHistoryState final : public QHistoryState {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qhistorystate_metacast_isbase) {
-            qhistorystate_metacast_isbase = false;
-            return QHistoryState::qt_metacast(param1);
-        }
-        auto metacast_cb = qhistorystate_metacast_callback;
-        if (metacast_cb) {
+        if (qhistorystate_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qhistorystate_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QHistoryState::qt_metacast(param1);
@@ -144,16 +82,11 @@ class VirtualQHistoryState final : public QHistoryState {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qhistorystate_metacall_isbase) {
-            qhistorystate_metacall_isbase = false;
-            return QHistoryState::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qhistorystate_metacall_callback;
-        if (metacall_cb) {
+        if (qhistorystate_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qhistorystate_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QHistoryState::qt_metacall(param1, param2, param3);
@@ -161,15 +94,9 @@ class VirtualQHistoryState final : public QHistoryState {
 
     // Virtual method for C ABI access and custom callback
     virtual void onEntry(QEvent* event) override {
-        if (qhistorystate_onentry_isbase) {
-            qhistorystate_onentry_isbase = false;
-            QHistoryState::onEntry(event);
-            return;
-        }
-        auto onentry_cb = qhistorystate_onentry_callback;
-        if (onentry_cb) {
+        if (qhistorystate_onentry_callback) {
             QEvent* cbval1 = event;
-            onentry_cb(this, cbval1);
+            qhistorystate_onentry_callback(this, cbval1);
             return;
         }
         QHistoryState::onEntry(event);
@@ -177,15 +104,9 @@ class VirtualQHistoryState final : public QHistoryState {
 
     // Virtual method for C ABI access and custom callback
     virtual void onExit(QEvent* event) override {
-        if (qhistorystate_onexit_isbase) {
-            qhistorystate_onexit_isbase = false;
-            QHistoryState::onExit(event);
-            return;
-        }
-        auto onexit_cb = qhistorystate_onexit_callback;
-        if (onexit_cb) {
+        if (qhistorystate_onexit_callback) {
             QEvent* cbval1 = event;
-            onexit_cb(this, cbval1);
+            qhistorystate_onexit_callback(this, cbval1);
             return;
         }
         QHistoryState::onExit(event);
@@ -193,14 +114,9 @@ class VirtualQHistoryState final : public QHistoryState {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* e) override {
-        if (qhistorystate_event_isbase) {
-            qhistorystate_event_isbase = false;
-            return QHistoryState::event(e);
-        }
-        auto event_cb = qhistorystate_event_callback;
-        if (event_cb) {
+        if (qhistorystate_event_callback) {
             QEvent* cbval1 = e;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qhistorystate_event_callback(this, cbval1);
             return callback_ret;
         }
         return QHistoryState::event(e);
@@ -208,15 +124,10 @@ class VirtualQHistoryState final : public QHistoryState {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qhistorystate_eventfilter_isbase) {
-            qhistorystate_eventfilter_isbase = false;
-            return QHistoryState::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qhistorystate_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qhistorystate_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qhistorystate_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QHistoryState::eventFilter(watched, event);
@@ -224,15 +135,9 @@ class VirtualQHistoryState final : public QHistoryState {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qhistorystate_timerevent_isbase) {
-            qhistorystate_timerevent_isbase = false;
-            QHistoryState::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qhistorystate_timerevent_callback;
-        if (timerevent_cb) {
+        if (qhistorystate_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qhistorystate_timerevent_callback(this, cbval1);
             return;
         }
         QHistoryState::timerEvent(event);
@@ -240,15 +145,9 @@ class VirtualQHistoryState final : public QHistoryState {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qhistorystate_childevent_isbase) {
-            qhistorystate_childevent_isbase = false;
-            QHistoryState::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qhistorystate_childevent_callback;
-        if (childevent_cb) {
+        if (qhistorystate_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qhistorystate_childevent_callback(this, cbval1);
             return;
         }
         QHistoryState::childEvent(event);
@@ -256,15 +155,9 @@ class VirtualQHistoryState final : public QHistoryState {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qhistorystate_customevent_isbase) {
-            qhistorystate_customevent_isbase = false;
-            QHistoryState::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qhistorystate_customevent_callback;
-        if (customevent_cb) {
+        if (qhistorystate_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qhistorystate_customevent_callback(this, cbval1);
             return;
         }
         QHistoryState::customEvent(event);
@@ -272,17 +165,11 @@ class VirtualQHistoryState final : public QHistoryState {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qhistorystate_connectnotify_isbase) {
-            qhistorystate_connectnotify_isbase = false;
-            QHistoryState::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qhistorystate_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qhistorystate_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qhistorystate_connectnotify_callback(this, cbval1);
             return;
         }
         QHistoryState::connectNotify(signal);
@@ -290,107 +177,25 @@ class VirtualQHistoryState final : public QHistoryState {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qhistorystate_disconnectnotify_isbase) {
-            qhistorystate_disconnectnotify_isbase = false;
-            QHistoryState::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qhistorystate_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qhistorystate_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qhistorystate_disconnectnotify_callback(this, cbval1);
             return;
         }
         QHistoryState::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qhistorystate_sender_isbase) {
-            qhistorystate_sender_isbase = false;
-            return QHistoryState::sender();
-        }
-        auto sender_cb = qhistorystate_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QHistoryState::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qhistorystate_sendersignalindex_isbase) {
-            qhistorystate_sendersignalindex_isbase = false;
-            return QHistoryState::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qhistorystate_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QHistoryState::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qhistorystate_receivers_isbase) {
-            qhistorystate_receivers_isbase = false;
-            return QHistoryState::receivers(signal);
-        }
-        auto receivers_cb = qhistorystate_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QHistoryState::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qhistorystate_issignalconnected_isbase) {
-            qhistorystate_issignalconnected_isbase = false;
-            return QHistoryState::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qhistorystate_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QHistoryState::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QHistoryState_OnEntry(QHistoryState* self, QEvent* event);
     friend void QHistoryState_SuperOnEntry(QHistoryState* self, QEvent* event);
-    friend void QHistoryState_OnExit(QHistoryState* self, QEvent* event);
     friend void QHistoryState_SuperOnExit(QHistoryState* self, QEvent* event);
-    friend bool QHistoryState_Event(QHistoryState* self, QEvent* e);
     friend bool QHistoryState_SuperEvent(QHistoryState* self, QEvent* e);
-    friend void QHistoryState_TimerEvent(QHistoryState* self, QTimerEvent* event);
     friend void QHistoryState_SuperTimerEvent(QHistoryState* self, QTimerEvent* event);
-    friend void QHistoryState_ChildEvent(QHistoryState* self, QChildEvent* event);
     friend void QHistoryState_SuperChildEvent(QHistoryState* self, QChildEvent* event);
-    friend void QHistoryState_CustomEvent(QHistoryState* self, QEvent* event);
     friend void QHistoryState_SuperCustomEvent(QHistoryState* self, QEvent* event);
-    friend void QHistoryState_ConnectNotify(QHistoryState* self, const QMetaMethod* signal);
     friend void QHistoryState_SuperConnectNotify(QHistoryState* self, const QMetaMethod* signal);
-    friend void QHistoryState_DisconnectNotify(QHistoryState* self, const QMetaMethod* signal);
     friend void QHistoryState_SuperDisconnectNotify(QHistoryState* self, const QMetaMethod* signal);
-    friend QObject* QHistoryState_Sender(const QHistoryState* self);
-    friend QObject* QHistoryState_SuperSender(const QHistoryState* self);
-    friend int QHistoryState_SenderSignalIndex(const QHistoryState* self);
-    friend int QHistoryState_SuperSenderSignalIndex(const QHistoryState* self);
-    friend int QHistoryState_Receivers(const QHistoryState* self, const char* signal);
-    friend int QHistoryState_SuperReceivers(const QHistoryState* self, const char* signal);
-    friend bool QHistoryState_IsSignalConnected(const QHistoryState* self, const QMetaMethod* signal);
-    friend bool QHistoryState_SuperIsSignalConnected(const QHistoryState* self, const QMetaMethod* signal);
 };
 
 #endif

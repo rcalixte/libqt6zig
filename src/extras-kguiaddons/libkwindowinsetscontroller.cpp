@@ -111,364 +111,219 @@ libqt_string KWindowInsetsController_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KWindowInsetsController_SuperMetaObject(const KWindowInsetsController* self) {
-    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        vkwindowinsetscontroller->setKWindowInsetsController_MetaObject_IsBase(true);
-        return (QMetaObject*)vkwindowinsetscontroller->metaObject();
-    } else {
-        return (QMetaObject*)self->KWindowInsetsController::metaObject();
-    }
+    return (QMetaObject*)self->KWindowInsetsController::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KWindowInsetsController_OnMetaObject(const KWindowInsetsController* self, intptr_t slot) {
-    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
-        vkwindowinsetscontroller->setKWindowInsetsController_MetaObject_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_MetaObject_Callback>(slot));
+void KWindowInsetsController_OnMetaObject(KWindowInsetsController* self, intptr_t slot) {
+    if (auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self)))
+        vkwindowinsetscontroller->kwindowinsetscontroller_metaobject_callback = reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KWindowInsetsController_SuperMetacast(KWindowInsetsController* self, const char* param1) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        vkwindowinsetscontroller->setKWindowInsetsController_Metacast_IsBase(true);
-        return vkwindowinsetscontroller->qt_metacast(param1);
-    } else {
-        return self->KWindowInsetsController::qt_metacast(param1);
-    }
+    return self->KWindowInsetsController::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnMetacast(KWindowInsetsController* self, intptr_t slot) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
-        vkwindowinsetscontroller->setKWindowInsetsController_Metacast_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_Metacast_Callback>(slot));
+    if (auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self))
+        vkwindowinsetscontroller->kwindowinsetscontroller_metacast_callback = reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KWindowInsetsController_SuperMetacall(KWindowInsetsController* self, int param1, int param2, void** param3) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        vkwindowinsetscontroller->setKWindowInsetsController_Metacall_IsBase(true);
-        return vkwindowinsetscontroller->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KWindowInsetsController::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KWindowInsetsController::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnMetacall(KWindowInsetsController* self, intptr_t slot) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
-        vkwindowinsetscontroller->setKWindowInsetsController_Metacall_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_Metacall_Callback>(slot));
+    if (auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self))
+        vkwindowinsetscontroller->kwindowinsetscontroller_metacall_callback = reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KWindowInsetsController_Event(KWindowInsetsController* self, QEvent* event) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        return vkwindowinsetscontroller->event(event);
-    } else {
-        return self->KWindowInsetsController::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KWindowInsetsController_SuperEvent(KWindowInsetsController* self, QEvent* event) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        vkwindowinsetscontroller->setKWindowInsetsController_Event_IsBase(true);
-        return vkwindowinsetscontroller->event(event);
-    } else {
-        return self->KWindowInsetsController::event(event);
-    }
+    return self->KWindowInsetsController::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnEvent(KWindowInsetsController* self, intptr_t slot) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
-        vkwindowinsetscontroller->setKWindowInsetsController_Event_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_Event_Callback>(slot));
+    if (auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self))
+        vkwindowinsetscontroller->kwindowinsetscontroller_event_callback = reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KWindowInsetsController_EventFilter(KWindowInsetsController* self, QObject* watched, QEvent* event) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        return vkwindowinsetscontroller->eventFilter(watched, event);
-    } else {
-        return self->KWindowInsetsController::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KWindowInsetsController_SuperEventFilter(KWindowInsetsController* self, QObject* watched, QEvent* event) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        vkwindowinsetscontroller->setKWindowInsetsController_EventFilter_IsBase(true);
-        return vkwindowinsetscontroller->eventFilter(watched, event);
-    } else {
-        return self->KWindowInsetsController::eventFilter(watched, event);
-    }
+    return self->KWindowInsetsController::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnEventFilter(KWindowInsetsController* self, intptr_t slot) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
-        vkwindowinsetscontroller->setKWindowInsetsController_EventFilter_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_EventFilter_Callback>(slot));
+    if (auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self))
+        vkwindowinsetscontroller->kwindowinsetscontroller_eventfilter_callback = reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWindowInsetsController_TimerEvent(KWindowInsetsController* self, QTimerEvent* event) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller) {
         vkwindowinsetscontroller->timerEvent(event);
     } else {
-        ((VirtualKWindowInsetsController*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KWindowInsetsController::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KWindowInsetsController_SuperTimerEvent(KWindowInsetsController* self, QTimerEvent* event) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        vkwindowinsetscontroller->setKWindowInsetsController_TimerEvent_IsBase(true);
-        vkwindowinsetscontroller->timerEvent(event);
-    } else {
-        ((VirtualKWindowInsetsController*)self)->timerEvent(event);
-    }
+    if (auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self)) {
+        vkwindowinsetscontroller->KWindowInsetsController::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KWindowInsetsController::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnTimerEvent(KWindowInsetsController* self, intptr_t slot) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
-        vkwindowinsetscontroller->setKWindowInsetsController_TimerEvent_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_TimerEvent_Callback>(slot));
+    if (auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self))
+        vkwindowinsetscontroller->kwindowinsetscontroller_timerevent_callback = reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWindowInsetsController_ChildEvent(KWindowInsetsController* self, QChildEvent* event) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller) {
         vkwindowinsetscontroller->childEvent(event);
     } else {
-        ((VirtualKWindowInsetsController*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KWindowInsetsController::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KWindowInsetsController_SuperChildEvent(KWindowInsetsController* self, QChildEvent* event) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        vkwindowinsetscontroller->setKWindowInsetsController_ChildEvent_IsBase(true);
-        vkwindowinsetscontroller->childEvent(event);
-    } else {
-        ((VirtualKWindowInsetsController*)self)->childEvent(event);
-    }
+    if (auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self)) {
+        vkwindowinsetscontroller->KWindowInsetsController::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KWindowInsetsController::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnChildEvent(KWindowInsetsController* self, intptr_t slot) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
-        vkwindowinsetscontroller->setKWindowInsetsController_ChildEvent_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_ChildEvent_Callback>(slot));
+    if (auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self))
+        vkwindowinsetscontroller->kwindowinsetscontroller_childevent_callback = reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWindowInsetsController_CustomEvent(KWindowInsetsController* self, QEvent* event) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller) {
         vkwindowinsetscontroller->customEvent(event);
     } else {
-        ((VirtualKWindowInsetsController*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KWindowInsetsController::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KWindowInsetsController_SuperCustomEvent(KWindowInsetsController* self, QEvent* event) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        vkwindowinsetscontroller->setKWindowInsetsController_CustomEvent_IsBase(true);
-        vkwindowinsetscontroller->customEvent(event);
-    } else {
-        ((VirtualKWindowInsetsController*)self)->customEvent(event);
-    }
+    if (auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self)) {
+        vkwindowinsetscontroller->KWindowInsetsController::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KWindowInsetsController::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnCustomEvent(KWindowInsetsController* self, intptr_t slot) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
-        vkwindowinsetscontroller->setKWindowInsetsController_CustomEvent_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_CustomEvent_Callback>(slot));
+    if (auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self))
+        vkwindowinsetscontroller->kwindowinsetscontroller_customevent_callback = reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWindowInsetsController_ConnectNotify(KWindowInsetsController* self, const QMetaMethod* signal) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller) {
         vkwindowinsetscontroller->connectNotify(*signal);
     } else {
-        ((VirtualKWindowInsetsController*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KWindowInsetsController::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KWindowInsetsController_SuperConnectNotify(KWindowInsetsController* self, const QMetaMethod* signal) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        vkwindowinsetscontroller->setKWindowInsetsController_ConnectNotify_IsBase(true);
-        vkwindowinsetscontroller->connectNotify(*signal);
-    } else {
-        ((VirtualKWindowInsetsController*)self)->connectNotify(*signal);
-    }
+    if (auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self)) {
+        vkwindowinsetscontroller->KWindowInsetsController::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KWindowInsetsController::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnConnectNotify(KWindowInsetsController* self, intptr_t slot) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
-        vkwindowinsetscontroller->setKWindowInsetsController_ConnectNotify_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_ConnectNotify_Callback>(slot));
+    if (auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self))
+        vkwindowinsetscontroller->kwindowinsetscontroller_connectnotify_callback = reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWindowInsetsController_DisconnectNotify(KWindowInsetsController* self, const QMetaMethod* signal) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller) {
         vkwindowinsetscontroller->disconnectNotify(*signal);
     } else {
-        ((VirtualKWindowInsetsController*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KWindowInsetsController::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KWindowInsetsController_SuperDisconnectNotify(KWindowInsetsController* self, const QMetaMethod* signal) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        vkwindowinsetscontroller->setKWindowInsetsController_DisconnectNotify_IsBase(true);
-        vkwindowinsetscontroller->disconnectNotify(*signal);
-    } else {
-        ((VirtualKWindowInsetsController*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self)) {
+        vkwindowinsetscontroller->KWindowInsetsController::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KWindowInsetsController::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnDisconnectNotify(KWindowInsetsController* self, intptr_t slot) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
-        vkwindowinsetscontroller->setKWindowInsetsController_DisconnectNotify_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_DisconnectNotify_Callback>(slot));
+    if (auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self))
+        vkwindowinsetscontroller->kwindowinsetscontroller_disconnectnotify_callback = reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KWindowInsetsController_Sender(const KWindowInsetsController* self) {
-    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        return vkwindowinsetscontroller->sender();
-    } else {
-        return ((VirtualKWindowInsetsController*)self)->sender();
-    }
+    if (auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self))) {
+        return vkwindowinsetscontroller->VirtualKWindowInsetsController::sender();
+    } else
+        qFatal("Error: Protected method KWindowInsetsController::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KWindowInsetsController_SuperSender(const KWindowInsetsController* self) {
-    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        vkwindowinsetscontroller->setKWindowInsetsController_Sender_IsBase(true);
-        return vkwindowinsetscontroller->sender();
-    } else {
-        return ((VirtualKWindowInsetsController*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KWindowInsetsController_OnSender(const KWindowInsetsController* self, intptr_t slot) {
-    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
-        vkwindowinsetscontroller->setKWindowInsetsController_Sender_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KWindowInsetsController_SenderSignalIndex(const KWindowInsetsController* self) {
-    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        return vkwindowinsetscontroller->senderSignalIndex();
-    } else {
-        return ((VirtualKWindowInsetsController*)self)->senderSignalIndex();
-    }
+    if (auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self))) {
+        return vkwindowinsetscontroller->VirtualKWindowInsetsController::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KWindowInsetsController::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KWindowInsetsController_SuperSenderSignalIndex(const KWindowInsetsController* self) {
-    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        vkwindowinsetscontroller->setKWindowInsetsController_SenderSignalIndex_IsBase(true);
-        return vkwindowinsetscontroller->senderSignalIndex();
-    } else {
-        return ((VirtualKWindowInsetsController*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KWindowInsetsController_OnSenderSignalIndex(const KWindowInsetsController* self, intptr_t slot) {
-    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
-        vkwindowinsetscontroller->setKWindowInsetsController_SenderSignalIndex_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KWindowInsetsController_Receivers(const KWindowInsetsController* self, const char* signal) {
-    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        return vkwindowinsetscontroller->receivers(signal);
-    } else {
-        return ((VirtualKWindowInsetsController*)self)->receivers(signal);
-    }
+    if (auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self))) {
+        return vkwindowinsetscontroller->VirtualKWindowInsetsController::receivers(signal);
+    } else
+        qFatal("Error: Protected method KWindowInsetsController::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KWindowInsetsController_SuperReceivers(const KWindowInsetsController* self, const char* signal) {
-    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        vkwindowinsetscontroller->setKWindowInsetsController_Receivers_IsBase(true);
-        return vkwindowinsetscontroller->receivers(signal);
-    } else {
-        return ((VirtualKWindowInsetsController*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KWindowInsetsController_OnReceivers(const KWindowInsetsController* self, intptr_t slot) {
-    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
-        vkwindowinsetscontroller->setKWindowInsetsController_Receivers_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KWindowInsetsController_IsSignalConnected(const KWindowInsetsController* self, const QMetaMethod* signal) {
-    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        return vkwindowinsetscontroller->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKWindowInsetsController*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KWindowInsetsController_SuperIsSignalConnected(const KWindowInsetsController* self, const QMetaMethod* signal) {
-    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        vkwindowinsetscontroller->setKWindowInsetsController_IsSignalConnected_IsBase(true);
-        return vkwindowinsetscontroller->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKWindowInsetsController*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KWindowInsetsController_OnIsSignalConnected(const KWindowInsetsController* self, intptr_t slot) {
-    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
-        vkwindowinsetscontroller->setKWindowInsetsController_IsSignalConnected_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_IsSignalConnected_Callback>(slot));
+    if (auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self))) {
+        return vkwindowinsetscontroller->VirtualKWindowInsetsController::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KWindowInsetsController::isSignalConnected called without a directly constructed type");
 }
 
 void KWindowInsetsController_Delete(KWindowInsetsController* self) {

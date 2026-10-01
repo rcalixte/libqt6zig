@@ -251,61 +251,39 @@ bool QsciAPIs_SavePrepared1(const QsciAPIs* self, const libqt_string filename) {
 
 // Base class handler implementation
 QMetaObject* QsciAPIs_SuperMetaObject(const QsciAPIs* self) {
-    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsciapis->metaObject();
-    } else {
-        return (QMetaObject*)self->QsciAPIs::metaObject();
-    }
+    return (QMetaObject*)self->QsciAPIs::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciAPIs_OnMetaObject(const QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_MetaObject_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_MetaObject_Callback>(slot));
+void QsciAPIs_OnMetaObject(QsciAPIs* self, intptr_t slot) {
+    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self)))
+        vqsciapis->qsciapis_metaobject_callback = reinterpret_cast<VirtualQsciAPIs::QsciAPIs_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QsciAPIs_SuperMetacast(QsciAPIs* self, const char* param1) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_Metacast_IsBase(true);
-        return vqsciapis->qt_metacast(param1);
-    } else {
-        return self->QsciAPIs::qt_metacast(param1);
-    }
+    return self->QsciAPIs::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnMetacast(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_Metacast_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Metacast_Callback>(slot));
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self))
+        vqsciapis->qsciapis_metacast_callback = reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QsciAPIs_SuperMetacall(QsciAPIs* self, int param1, int param2, void** param3) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_Metacall_IsBase(true);
-        return vqsciapis->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QsciAPIs::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QsciAPIs::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnMetacall(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_Metacall_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Metacall_Callback>(slot));
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self))
+        vqsciapis->qsciapis_metacall_callback = reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciAPIs_SuperUpdateAutoCompletionList(QsciAPIs* self, const libqt_list /* of libqt_string */ context, libqt_list /* of libqt_string */ list) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
     QList<QString> context_QList;
     context_QList.reserve(context.len);
     libqt_string* context_arr = static_cast<libqt_string*>(context.data);
@@ -320,43 +298,29 @@ void QsciAPIs_SuperUpdateAutoCompletionList(QsciAPIs* self, const libqt_list /* 
         QString list_arr_i_QString = QString::fromUtf8(list_arr[i].data, list_arr[i].len);
         list_QList.push_back(list_arr_i_QString);
     }
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_UpdateAutoCompletionList_IsBase(true);
-        vqsciapis->updateAutoCompletionList(context_QList, list_QList);
-    } else {
-        self->QsciAPIs::updateAutoCompletionList(context_QList, list_QList);
-    }
+    self->QsciAPIs::updateAutoCompletionList(context_QList, list_QList);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnUpdateAutoCompletionList(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_UpdateAutoCompletionList_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_UpdateAutoCompletionList_Callback>(slot));
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self))
+        vqsciapis->qsciapis_updateautocompletionlist_callback = reinterpret_cast<VirtualQsciAPIs::QsciAPIs_UpdateAutoCompletionList_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciAPIs_SuperAutoCompletionSelected(QsciAPIs* self, const libqt_string sel) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
     QString sel_QString = QString::fromUtf8(sel.data, sel.len);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_AutoCompletionSelected_IsBase(true);
-        vqsciapis->autoCompletionSelected(sel_QString);
-    } else {
-        self->QsciAPIs::autoCompletionSelected(sel_QString);
-    }
+    self->QsciAPIs::autoCompletionSelected(sel_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnAutoCompletionSelected(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_AutoCompletionSelected_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_AutoCompletionSelected_Callback>(slot));
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self))
+        vqsciapis->qsciapis_autocompletionselected_callback = reinterpret_cast<VirtualQsciAPIs::QsciAPIs_AutoCompletionSelected_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QsciAPIs_SuperCallTips(QsciAPIs* self, const libqt_list /* of libqt_string */ context, int commas, int style, libqt_list /* of int */ shifts) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
     QList<QString> context_QList;
     context_QList.reserve(context.len);
     libqt_string* context_arr = static_cast<libqt_string*>(context.data);
@@ -370,351 +334,209 @@ libqt_list /* of libqt_string */ QsciAPIs_SuperCallTips(QsciAPIs* self, const li
     for (size_t i = 0; i < shifts.len; ++i) {
         shifts_QList.push_back(static_cast<int>(shifts_arr[i]));
     }
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_CallTips_IsBase(true);
-        QList<QString> _ret = vqsciapis->callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->QsciAPIs::callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->QsciAPIs::callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnCallTips(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_CallTips_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_CallTips_Callback>(slot));
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self))
+        vqsciapis->qsciapis_calltips_callback = reinterpret_cast<VirtualQsciAPIs::QsciAPIs_CallTips_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QsciAPIs_SuperEvent(QsciAPIs* self, QEvent* e) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_Event_IsBase(true);
-        return vqsciapis->event(e);
-    } else {
-        return self->QsciAPIs::event(e);
-    }
+    return self->QsciAPIs::event(e);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnEvent(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_Event_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Event_Callback>(slot));
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self))
+        vqsciapis->qsciapis_event_callback = reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciAPIs_EventFilter(QsciAPIs* self, QObject* watched, QEvent* event) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        return vqsciapis->eventFilter(watched, event);
-    } else {
-        return self->QsciAPIs::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QsciAPIs_SuperEventFilter(QsciAPIs* self, QObject* watched, QEvent* event) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_EventFilter_IsBase(true);
-        return vqsciapis->eventFilter(watched, event);
-    } else {
-        return self->QsciAPIs::eventFilter(watched, event);
-    }
+    return self->QsciAPIs::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnEventFilter(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_EventFilter_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_EventFilter_Callback>(slot));
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self))
+        vqsciapis->qsciapis_eventfilter_callback = reinterpret_cast<VirtualQsciAPIs::QsciAPIs_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciAPIs_TimerEvent(QsciAPIs* self, QTimerEvent* event) {
     auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+    if (vqsciapis) {
         vqsciapis->timerEvent(event);
     } else {
-        ((VirtualQsciAPIs*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QsciAPIs::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciAPIs_SuperTimerEvent(QsciAPIs* self, QTimerEvent* event) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_TimerEvent_IsBase(true);
-        vqsciapis->timerEvent(event);
-    } else {
-        ((VirtualQsciAPIs*)self)->timerEvent(event);
-    }
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+        vqsciapis->QsciAPIs::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciAPIs::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnTimerEvent(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_TimerEvent_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_TimerEvent_Callback>(slot));
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self))
+        vqsciapis->qsciapis_timerevent_callback = reinterpret_cast<VirtualQsciAPIs::QsciAPIs_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciAPIs_ChildEvent(QsciAPIs* self, QChildEvent* event) {
     auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+    if (vqsciapis) {
         vqsciapis->childEvent(event);
     } else {
-        ((VirtualQsciAPIs*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QsciAPIs::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciAPIs_SuperChildEvent(QsciAPIs* self, QChildEvent* event) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_ChildEvent_IsBase(true);
-        vqsciapis->childEvent(event);
-    } else {
-        ((VirtualQsciAPIs*)self)->childEvent(event);
-    }
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+        vqsciapis->QsciAPIs::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciAPIs::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnChildEvent(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_ChildEvent_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_ChildEvent_Callback>(slot));
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self))
+        vqsciapis->qsciapis_childevent_callback = reinterpret_cast<VirtualQsciAPIs::QsciAPIs_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciAPIs_CustomEvent(QsciAPIs* self, QEvent* event) {
     auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+    if (vqsciapis) {
         vqsciapis->customEvent(event);
     } else {
-        ((VirtualQsciAPIs*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QsciAPIs::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciAPIs_SuperCustomEvent(QsciAPIs* self, QEvent* event) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_CustomEvent_IsBase(true);
-        vqsciapis->customEvent(event);
-    } else {
-        ((VirtualQsciAPIs*)self)->customEvent(event);
-    }
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+        vqsciapis->QsciAPIs::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciAPIs::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnCustomEvent(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_CustomEvent_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_CustomEvent_Callback>(slot));
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self))
+        vqsciapis->qsciapis_customevent_callback = reinterpret_cast<VirtualQsciAPIs::QsciAPIs_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciAPIs_ConnectNotify(QsciAPIs* self, const QMetaMethod* signal) {
     auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+    if (vqsciapis) {
         vqsciapis->connectNotify(*signal);
     } else {
-        ((VirtualQsciAPIs*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QsciAPIs::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciAPIs_SuperConnectNotify(QsciAPIs* self, const QMetaMethod* signal) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_ConnectNotify_IsBase(true);
-        vqsciapis->connectNotify(*signal);
-    } else {
-        ((VirtualQsciAPIs*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+        vqsciapis->QsciAPIs::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QsciAPIs::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnConnectNotify(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_ConnectNotify_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_ConnectNotify_Callback>(slot));
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self))
+        vqsciapis->qsciapis_connectnotify_callback = reinterpret_cast<VirtualQsciAPIs::QsciAPIs_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciAPIs_DisconnectNotify(QsciAPIs* self, const QMetaMethod* signal) {
     auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+    if (vqsciapis) {
         vqsciapis->disconnectNotify(*signal);
     } else {
-        ((VirtualQsciAPIs*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QsciAPIs::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciAPIs_SuperDisconnectNotify(QsciAPIs* self, const QMetaMethod* signal) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_DisconnectNotify_IsBase(true);
-        vqsciapis->disconnectNotify(*signal);
-    } else {
-        ((VirtualQsciAPIs*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self)) {
+        vqsciapis->QsciAPIs::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QsciAPIs::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciAPIs_OnDisconnectNotify(QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_DisconnectNotify_Callback>(slot));
+    if (auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self))
+        vqsciapis->qsciapis_disconnectnotify_callback = reinterpret_cast<VirtualQsciAPIs::QsciAPIs_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QsciAPIs_Sender(const QsciAPIs* self) {
-    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        return vqsciapis->sender();
-    } else {
-        return ((VirtualQsciAPIs*)self)->sender();
-    }
+    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+        return vqsciapis->VirtualQsciAPIs::sender();
+    } else
+        qFatal("Error: Protected method QsciAPIs::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QsciAPIs_SuperSender(const QsciAPIs* self) {
-    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_Sender_IsBase(true);
-        return vqsciapis->sender();
-    } else {
-        return ((VirtualQsciAPIs*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciAPIs_OnSender(const QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_Sender_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QsciAPIs_SenderSignalIndex(const QsciAPIs* self) {
-    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        return vqsciapis->senderSignalIndex();
-    } else {
-        return ((VirtualQsciAPIs*)self)->senderSignalIndex();
-    }
+    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+        return vqsciapis->VirtualQsciAPIs::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QsciAPIs::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QsciAPIs_SuperSenderSignalIndex(const QsciAPIs* self) {
-    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_SenderSignalIndex_IsBase(true);
-        return vqsciapis->senderSignalIndex();
-    } else {
-        return ((VirtualQsciAPIs*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciAPIs_OnSenderSignalIndex(const QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QsciAPIs_Receivers(const QsciAPIs* self, const char* signal) {
-    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        return vqsciapis->receivers(signal);
-    } else {
-        return ((VirtualQsciAPIs*)self)->receivers(signal);
-    }
+    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+        return vqsciapis->VirtualQsciAPIs::receivers(signal);
+    } else
+        qFatal("Error: Protected method QsciAPIs::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QsciAPIs_SuperReceivers(const QsciAPIs* self, const char* signal) {
-    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_Receivers_IsBase(true);
-        return vqsciapis->receivers(signal);
-    } else {
-        return ((VirtualQsciAPIs*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciAPIs_OnReceivers(const QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_Receivers_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QsciAPIs_IsSignalConnected(const QsciAPIs* self, const QMetaMethod* signal) {
-    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        return vqsciapis->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQsciAPIs*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QsciAPIs_SuperIsSignalConnected(const QsciAPIs* self, const QMetaMethod* signal) {
-    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
-        vqsciapis->setQsciAPIs_IsSignalConnected_IsBase(true);
-        return vqsciapis->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQsciAPIs*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciAPIs_OnIsSignalConnected(const QsciAPIs* self, intptr_t slot) {
-    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
-    if (vqsciapis && vqsciapis->isVirtualQsciAPIs)
-        vqsciapis->setQsciAPIs_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_IsSignalConnected_Callback>(slot));
+    if (auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self))) {
+        return vqsciapis->VirtualQsciAPIs::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QsciAPIs::isSignalConnected called without a directly constructed type");
 }
 
 void QsciAPIs_Delete(QsciAPIs* self) {

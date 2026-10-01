@@ -32,6 +32,8 @@ pub const QAccessibleBridge = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblebridge.html#setRootObject)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleBridge `
@@ -48,6 +50,8 @@ pub const QAccessibleBridge = extern struct {
     pub const NotifyAccessibilityUpdate = notifyAccessibilityUpdate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblebridge.html#notifyAccessibilityUpdate)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -156,9 +160,9 @@ pub const QAccessibleBridgePlugin = extern struct {
     ///
     /// ` self: QAccessibleBridgePlugin `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QAccessibleBridgePlugin) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QAccessibleBridgePlugin, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAccessibleBridgePlugin, callback: *const fn (QAccessibleBridgePlugin) callconv(.c) QMetaObject) void {
         qtc.QAccessibleBridgePlugin_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -309,6 +313,8 @@ pub const QAccessibleBridgePlugin = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblebridgeplugin.html#create)
     ///
+    /// This method must be implemented with `onCreate` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleBridgePlugin `
@@ -339,28 +345,6 @@ pub const QAccessibleBridgePlugin = extern struct {
     ///
     pub fn onCreate(self: QAccessibleBridgePlugin, callback: *const fn (QAccessibleBridgePlugin, [*:0]const u8) callconv(.c) QAccessibleBridge) void {
         qtc.QAccessibleBridgePlugin_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblebridgeplugin.html#create)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleBridgePlugin `
-    ///
-    /// ` key: []const u8 `
-    ///
-    pub fn superCreate(self: QAccessibleBridgePlugin, key: []const u8) QAccessibleBridge {
-        const key_str = qtc.libqt_string{
-            .len = key.len,
-            .data = key.ptr,
-        };
-        return .{ .ptr = qtc.QAccessibleBridgePlugin_SuperCreate(@ptrCast(self.ptr), key_str) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1840,44 +1824,6 @@ pub const QAccessibleBridgePlugin = extern struct {
         return .{ .ptr = qtc.QAccessibleBridgePlugin_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleBridgePlugin `
-    ///
-    pub fn superSender(self: QAccessibleBridgePlugin) QObject {
-        return .{ .ptr = qtc.QAccessibleBridgePlugin_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAccessibleBridgePlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QAccessibleBridgePlugin, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAccessibleBridgePlugin_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1894,44 +1840,6 @@ pub const QAccessibleBridgePlugin = extern struct {
     ///
     pub fn senderSignalIndex(self: QAccessibleBridgePlugin) i32 {
         return qtc.QAccessibleBridgePlugin_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleBridgePlugin `
-    ///
-    pub fn superSenderSignalIndex(self: QAccessibleBridgePlugin) i32 {
-        return qtc.QAccessibleBridgePlugin_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAccessibleBridgePlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QAccessibleBridgePlugin, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAccessibleBridgePlugin_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1955,47 +1863,6 @@ pub const QAccessibleBridgePlugin = extern struct {
         return qtc.QAccessibleBridgePlugin_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleBridgePlugin `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QAccessibleBridgePlugin, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QAccessibleBridgePlugin_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAccessibleBridgePlugin`
-    ///
-    /// ` callback: *const fn (self: QAccessibleBridgePlugin, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QAccessibleBridgePlugin, callback: *const fn (QAccessibleBridgePlugin, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAccessibleBridgePlugin_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2015,47 +1882,6 @@ pub const QAccessibleBridgePlugin = extern struct {
     pub fn isSignalConnected(self: QAccessibleBridgePlugin, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAccessibleBridgePlugin_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleBridgePlugin `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QAccessibleBridgePlugin, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QAccessibleBridgePlugin_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAccessibleBridgePlugin`
-    ///
-    /// ` callback: *const fn (self: QAccessibleBridgePlugin, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QAccessibleBridgePlugin, callback: *const fn (QAccessibleBridgePlugin, QMetaMethod) callconv(.c) bool) void {
-        qtc.QAccessibleBridgePlugin_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

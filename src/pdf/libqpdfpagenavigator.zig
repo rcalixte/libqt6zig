@@ -78,9 +78,9 @@ pub const QPdfPageNavigator = extern struct {
     ///
     /// ` self: QPdfPageNavigator `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QPdfPageNavigator) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QPdfPageNavigator, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPdfPageNavigator, callback: *const fn (QPdfPageNavigator) callconv(.c) QMetaObject) void {
         qtc.QPdfPageNavigator_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -600,42 +600,6 @@ pub const QPdfPageNavigator = extern struct {
     ///
     pub fn currentLink(self: QPdfPageNavigator) QPdfLink {
         return .{ .ptr = qtc.QPdfPageNavigator_CurrentLink(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onCurrentLink` instead
-    ///
-    pub const OnCurrentLink = onCurrentLink;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagenavigator.html#currentLink)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPdfPageNavigator `
-    ///
-    /// ` callback: *const fn () callconv(.c) QPdfLink `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCurrentLink(self: QPdfPageNavigator, callback: *const fn () callconv(.c) QPdfLink) void {
-        qtc.QPdfPageNavigator_OnCurrentLink(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCurrentLink` instead
-    ///
-    pub const SuperCurrentLink = superCurrentLink;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagenavigator.html#currentLink)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPdfPageNavigator `
-    ///
-    pub fn superCurrentLink(self: QPdfPageNavigator) QPdfLink {
-        return .{ .ptr = qtc.QPdfPageNavigator_SuperCurrentLink(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2136,44 +2100,6 @@ pub const QPdfPageNavigator = extern struct {
         return .{ .ptr = qtc.QPdfPageNavigator_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPdfPageNavigator `
-    ///
-    pub fn superSender(self: QPdfPageNavigator) QObject {
-        return .{ .ptr = qtc.QPdfPageNavigator_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPdfPageNavigator`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QPdfPageNavigator, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QPdfPageNavigator_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2190,44 +2116,6 @@ pub const QPdfPageNavigator = extern struct {
     ///
     pub fn senderSignalIndex(self: QPdfPageNavigator) i32 {
         return qtc.QPdfPageNavigator_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPdfPageNavigator `
-    ///
-    pub fn superSenderSignalIndex(self: QPdfPageNavigator) i32 {
-        return qtc.QPdfPageNavigator_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPdfPageNavigator`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QPdfPageNavigator, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPdfPageNavigator_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2251,47 +2139,6 @@ pub const QPdfPageNavigator = extern struct {
         return qtc.QPdfPageNavigator_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPdfPageNavigator `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QPdfPageNavigator, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QPdfPageNavigator_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPdfPageNavigator`
-    ///
-    /// ` callback: *const fn (self: QPdfPageNavigator, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QPdfPageNavigator, callback: *const fn (QPdfPageNavigator, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPdfPageNavigator_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2311,47 +2158,6 @@ pub const QPdfPageNavigator = extern struct {
     pub fn isSignalConnected(self: QPdfPageNavigator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPdfPageNavigator_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPdfPageNavigator `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QPdfPageNavigator, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QPdfPageNavigator_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPdfPageNavigator`
-    ///
-    /// ` callback: *const fn (self: QPdfPageNavigator, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QPdfPageNavigator, callback: *const fn (QPdfPageNavigator, QMetaMethod) callconv(.c) bool) void {
-        qtc.QPdfPageNavigator_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

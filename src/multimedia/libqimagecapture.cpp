@@ -385,364 +385,219 @@ int QImageCapture_CaptureToFile1(QImageCapture* self, const libqt_string locatio
 
 // Base class handler implementation
 QMetaObject* QImageCapture_SuperMetaObject(const QImageCapture* self) {
-    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_MetaObject_IsBase(true);
-        return (QMetaObject*)vqimagecapture->metaObject();
-    } else {
-        return (QMetaObject*)self->QImageCapture::metaObject();
-    }
+    return (QMetaObject*)self->QImageCapture::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QImageCapture_OnMetaObject(const QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
-        vqimagecapture->setQImageCapture_MetaObject_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_MetaObject_Callback>(slot));
+void QImageCapture_OnMetaObject(QImageCapture* self, intptr_t slot) {
+    if (auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self)))
+        vqimagecapture->qimagecapture_metaobject_callback = reinterpret_cast<VirtualQImageCapture::QImageCapture_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QImageCapture_SuperMetacast(QImageCapture* self, const char* param1) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_Metacast_IsBase(true);
-        return vqimagecapture->qt_metacast(param1);
-    } else {
-        return self->QImageCapture::qt_metacast(param1);
-    }
+    return self->QImageCapture::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnMetacast(QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
-        vqimagecapture->setQImageCapture_Metacast_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_Metacast_Callback>(slot));
+    if (auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self))
+        vqimagecapture->qimagecapture_metacast_callback = reinterpret_cast<VirtualQImageCapture::QImageCapture_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QImageCapture_SuperMetacall(QImageCapture* self, int param1, int param2, void** param3) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_Metacall_IsBase(true);
-        return vqimagecapture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QImageCapture::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QImageCapture::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnMetacall(QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
-        vqimagecapture->setQImageCapture_Metacall_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_Metacall_Callback>(slot));
+    if (auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self))
+        vqimagecapture->qimagecapture_metacall_callback = reinterpret_cast<VirtualQImageCapture::QImageCapture_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QImageCapture_Event(QImageCapture* self, QEvent* event) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        return vqimagecapture->event(event);
-    } else {
-        return self->QImageCapture::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QImageCapture_SuperEvent(QImageCapture* self, QEvent* event) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_Event_IsBase(true);
-        return vqimagecapture->event(event);
-    } else {
-        return self->QImageCapture::event(event);
-    }
+    return self->QImageCapture::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnEvent(QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
-        vqimagecapture->setQImageCapture_Event_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_Event_Callback>(slot));
+    if (auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self))
+        vqimagecapture->qimagecapture_event_callback = reinterpret_cast<VirtualQImageCapture::QImageCapture_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QImageCapture_EventFilter(QImageCapture* self, QObject* watched, QEvent* event) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        return vqimagecapture->eventFilter(watched, event);
-    } else {
-        return self->QImageCapture::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QImageCapture_SuperEventFilter(QImageCapture* self, QObject* watched, QEvent* event) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_EventFilter_IsBase(true);
-        return vqimagecapture->eventFilter(watched, event);
-    } else {
-        return self->QImageCapture::eventFilter(watched, event);
-    }
+    return self->QImageCapture::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnEventFilter(QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
-        vqimagecapture->setQImageCapture_EventFilter_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_EventFilter_Callback>(slot));
+    if (auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self))
+        vqimagecapture->qimagecapture_eventfilter_callback = reinterpret_cast<VirtualQImageCapture::QImageCapture_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QImageCapture_TimerEvent(QImageCapture* self, QTimerEvent* event) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture) {
         vqimagecapture->timerEvent(event);
     } else {
-        ((VirtualQImageCapture*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QImageCapture::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QImageCapture_SuperTimerEvent(QImageCapture* self, QTimerEvent* event) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_TimerEvent_IsBase(true);
-        vqimagecapture->timerEvent(event);
-    } else {
-        ((VirtualQImageCapture*)self)->timerEvent(event);
-    }
+    if (auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self)) {
+        vqimagecapture->QImageCapture::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QImageCapture::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnTimerEvent(QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
-        vqimagecapture->setQImageCapture_TimerEvent_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_TimerEvent_Callback>(slot));
+    if (auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self))
+        vqimagecapture->qimagecapture_timerevent_callback = reinterpret_cast<VirtualQImageCapture::QImageCapture_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QImageCapture_ChildEvent(QImageCapture* self, QChildEvent* event) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture) {
         vqimagecapture->childEvent(event);
     } else {
-        ((VirtualQImageCapture*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QImageCapture::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QImageCapture_SuperChildEvent(QImageCapture* self, QChildEvent* event) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_ChildEvent_IsBase(true);
-        vqimagecapture->childEvent(event);
-    } else {
-        ((VirtualQImageCapture*)self)->childEvent(event);
-    }
+    if (auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self)) {
+        vqimagecapture->QImageCapture::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QImageCapture::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnChildEvent(QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
-        vqimagecapture->setQImageCapture_ChildEvent_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_ChildEvent_Callback>(slot));
+    if (auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self))
+        vqimagecapture->qimagecapture_childevent_callback = reinterpret_cast<VirtualQImageCapture::QImageCapture_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QImageCapture_CustomEvent(QImageCapture* self, QEvent* event) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture) {
         vqimagecapture->customEvent(event);
     } else {
-        ((VirtualQImageCapture*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QImageCapture::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QImageCapture_SuperCustomEvent(QImageCapture* self, QEvent* event) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_CustomEvent_IsBase(true);
-        vqimagecapture->customEvent(event);
-    } else {
-        ((VirtualQImageCapture*)self)->customEvent(event);
-    }
+    if (auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self)) {
+        vqimagecapture->QImageCapture::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QImageCapture::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnCustomEvent(QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
-        vqimagecapture->setQImageCapture_CustomEvent_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_CustomEvent_Callback>(slot));
+    if (auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self))
+        vqimagecapture->qimagecapture_customevent_callback = reinterpret_cast<VirtualQImageCapture::QImageCapture_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QImageCapture_ConnectNotify(QImageCapture* self, const QMetaMethod* signal) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture) {
         vqimagecapture->connectNotify(*signal);
     } else {
-        ((VirtualQImageCapture*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QImageCapture::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QImageCapture_SuperConnectNotify(QImageCapture* self, const QMetaMethod* signal) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_ConnectNotify_IsBase(true);
-        vqimagecapture->connectNotify(*signal);
-    } else {
-        ((VirtualQImageCapture*)self)->connectNotify(*signal);
-    }
+    if (auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self)) {
+        vqimagecapture->QImageCapture::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QImageCapture::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnConnectNotify(QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
-        vqimagecapture->setQImageCapture_ConnectNotify_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_ConnectNotify_Callback>(slot));
+    if (auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self))
+        vqimagecapture->qimagecapture_connectnotify_callback = reinterpret_cast<VirtualQImageCapture::QImageCapture_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QImageCapture_DisconnectNotify(QImageCapture* self, const QMetaMethod* signal) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture) {
         vqimagecapture->disconnectNotify(*signal);
     } else {
-        ((VirtualQImageCapture*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QImageCapture::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QImageCapture_SuperDisconnectNotify(QImageCapture* self, const QMetaMethod* signal) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_DisconnectNotify_IsBase(true);
-        vqimagecapture->disconnectNotify(*signal);
-    } else {
-        ((VirtualQImageCapture*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self)) {
+        vqimagecapture->QImageCapture::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QImageCapture::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnDisconnectNotify(QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
-        vqimagecapture->setQImageCapture_DisconnectNotify_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_DisconnectNotify_Callback>(slot));
+    if (auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self))
+        vqimagecapture->qimagecapture_disconnectnotify_callback = reinterpret_cast<VirtualQImageCapture::QImageCapture_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QImageCapture_Sender(const QImageCapture* self) {
-    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        return vqimagecapture->sender();
-    } else {
-        return ((VirtualQImageCapture*)self)->sender();
-    }
+    if (auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self))) {
+        return vqimagecapture->VirtualQImageCapture::sender();
+    } else
+        qFatal("Error: Protected method QImageCapture::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QImageCapture_SuperSender(const QImageCapture* self) {
-    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_Sender_IsBase(true);
-        return vqimagecapture->sender();
-    } else {
-        return ((VirtualQImageCapture*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QImageCapture_OnSender(const QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
-        vqimagecapture->setQImageCapture_Sender_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QImageCapture_SenderSignalIndex(const QImageCapture* self) {
-    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        return vqimagecapture->senderSignalIndex();
-    } else {
-        return ((VirtualQImageCapture*)self)->senderSignalIndex();
-    }
+    if (auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self))) {
+        return vqimagecapture->VirtualQImageCapture::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QImageCapture::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QImageCapture_SuperSenderSignalIndex(const QImageCapture* self) {
-    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_SenderSignalIndex_IsBase(true);
-        return vqimagecapture->senderSignalIndex();
-    } else {
-        return ((VirtualQImageCapture*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QImageCapture_OnSenderSignalIndex(const QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
-        vqimagecapture->setQImageCapture_SenderSignalIndex_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QImageCapture_Receivers(const QImageCapture* self, const char* signal) {
-    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        return vqimagecapture->receivers(signal);
-    } else {
-        return ((VirtualQImageCapture*)self)->receivers(signal);
-    }
+    if (auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self))) {
+        return vqimagecapture->VirtualQImageCapture::receivers(signal);
+    } else
+        qFatal("Error: Protected method QImageCapture::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QImageCapture_SuperReceivers(const QImageCapture* self, const char* signal) {
-    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_Receivers_IsBase(true);
-        return vqimagecapture->receivers(signal);
-    } else {
-        return ((VirtualQImageCapture*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QImageCapture_OnReceivers(const QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
-        vqimagecapture->setQImageCapture_Receivers_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QImageCapture_IsSignalConnected(const QImageCapture* self, const QMetaMethod* signal) {
-    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        return vqimagecapture->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQImageCapture*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QImageCapture_SuperIsSignalConnected(const QImageCapture* self, const QMetaMethod* signal) {
-    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        vqimagecapture->setQImageCapture_IsSignalConnected_IsBase(true);
-        return vqimagecapture->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQImageCapture*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QImageCapture_OnIsSignalConnected(const QImageCapture* self, intptr_t slot) {
-    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
-        vqimagecapture->setQImageCapture_IsSignalConnected_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_IsSignalConnected_Callback>(slot));
+    if (auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self))) {
+        return vqimagecapture->VirtualQImageCapture::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QImageCapture::isSignalConnected called without a directly constructed type");
 }
 
 void QImageCapture_Delete(QImageCapture* self) {

@@ -53,7 +53,7 @@ libqt_string KNSCore__Question_Response(const KNSCore__Question* self);
 libqt_string KNSCore__Question_Tr2(const char* s, const char* c);
 libqt_string KNSCore__Question_Tr3(const char* s, const char* c, int n);
 void KNSCore__Question_SetQuestionType1(KNSCore__Question* self, int newType);
-void KNSCore__Question_OnMetaObject(const KNSCore__Question* self, intptr_t slot);
+void KNSCore__Question_OnMetaObject(KNSCore__Question* self, intptr_t slot);
 QMetaObject* KNSCore__Question_SuperMetaObject(const KNSCore__Question* self);
 void KNSCore__Question_OnMetacast(KNSCore__Question* self, intptr_t slot);
 void* KNSCore__Question_SuperMetacast(KNSCore__Question* self, const char* param1);
@@ -81,17 +81,9 @@ void KNSCore__Question_DisconnectNotify(KNSCore__Question* self, const QMetaMeth
 void KNSCore__Question_OnDisconnectNotify(KNSCore__Question* self, intptr_t slot);
 void KNSCore__Question_SuperDisconnectNotify(KNSCore__Question* self, const QMetaMethod* signal);
 QObject* KNSCore__Question_Sender(const KNSCore__Question* self);
-void KNSCore__Question_OnSender(const KNSCore__Question* self, intptr_t slot);
-QObject* KNSCore__Question_SuperSender(const KNSCore__Question* self);
 int KNSCore__Question_SenderSignalIndex(const KNSCore__Question* self);
-void KNSCore__Question_OnSenderSignalIndex(const KNSCore__Question* self, intptr_t slot);
-int KNSCore__Question_SuperSenderSignalIndex(const KNSCore__Question* self);
 int KNSCore__Question_Receivers(const KNSCore__Question* self, const char* signal);
-void KNSCore__Question_OnReceivers(const KNSCore__Question* self, intptr_t slot);
-int KNSCore__Question_SuperReceivers(const KNSCore__Question* self, const char* signal);
 bool KNSCore__Question_IsSignalConnected(const KNSCore__Question* self, const QMetaMethod* signal);
-void KNSCore__Question_OnIsSignalConnected(const KNSCore__Question* self, intptr_t slot);
-bool KNSCore__Question_SuperIsSignalConnected(const KNSCore__Question* self, const QMetaMethod* signal);
 void KNSCore__Question_Delete(KNSCore__Question* self);
 
 #ifdef __cplusplus

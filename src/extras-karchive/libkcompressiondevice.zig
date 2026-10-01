@@ -116,9 +116,9 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KCompressionDevice) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KCompressionDevice, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) QMetaObject) void {
         qtc.KCompressionDevice_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -359,9 +359,9 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KCompressionDevice) callconv(.c) void `
     ///
-    pub fn onClose(self: KCompressionDevice, callback: *const fn () callconv(.c) void) void {
+    pub fn onClose(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) void) void {
         qtc.KCompressionDevice_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -493,9 +493,9 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KCompressionDevice) callconv(.c) bool `
     ///
-    pub fn onAtEnd(self: KCompressionDevice, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAtEnd(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) bool) void {
         qtc.KCompressionDevice_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -699,40 +699,6 @@ pub const KCompressionDevice = extern struct {
     ///
     pub fn filterBase(self: KCompressionDevice) KFilterBase {
         return .{ .ptr = qtc.KCompressionDevice_FilterBase(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onFilterBase` instead
-    ///
-    pub const OnFilterBase = onFilterBase;
-
-    /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#filterBase)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompressionDevice `
-    ///
-    /// ` callback: *const fn () callconv(.c) KFilterBase `
-    ///
-    pub fn onFilterBase(self: KCompressionDevice, callback: *const fn () callconv(.c) KFilterBase) void {
-        qtc.KCompressionDevice_OnFilterBase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superFilterBase` instead
-    ///
-    pub const SuperFilterBase = superFilterBase;
-
-    /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#filterBase)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompressionDevice `
-    ///
-    pub fn superFilterBase(self: KCompressionDevice) KFilterBase {
-        return .{ .ptr = qtc.KCompressionDevice_SuperFilterBase(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2630,9 +2596,9 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KCompressionDevice) callconv(.c) bool `
     ///
-    pub fn onIsSequential(self: KCompressionDevice, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSequential(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) bool) void {
         qtc.KCompressionDevice_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2686,9 +2652,9 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: KCompressionDevice) callconv(.c) i64 `
     ///
-    pub fn onPos(self: KCompressionDevice, callback: *const fn () callconv(.c) i64) void {
+    pub fn onPos(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) i64) void {
         qtc.KCompressionDevice_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2742,9 +2708,9 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: KCompressionDevice) callconv(.c) i64 `
     ///
-    pub fn onSize(self: KCompressionDevice, callback: *const fn () callconv(.c) i64) void {
+    pub fn onSize(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) i64) void {
         qtc.KCompressionDevice_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2798,9 +2764,9 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KCompressionDevice) callconv(.c) bool `
     ///
-    pub fn onReset(self: KCompressionDevice, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReset(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) bool) void {
         qtc.KCompressionDevice_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2854,9 +2820,9 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: KCompressionDevice) callconv(.c) i64 `
     ///
-    pub fn onBytesAvailable(self: KCompressionDevice, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesAvailable(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) i64) void {
         qtc.KCompressionDevice_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2910,9 +2876,9 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: KCompressionDevice) callconv(.c) i64 `
     ///
-    pub fn onBytesToWrite(self: KCompressionDevice, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesToWrite(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) i64) void {
         qtc.KCompressionDevice_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2966,9 +2932,9 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KCompressionDevice) callconv(.c) bool `
     ///
-    pub fn onCanReadLine(self: KCompressionDevice, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanReadLine(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) bool) void {
         qtc.KCompressionDevice_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3678,46 +3644,6 @@ pub const KCompressionDevice = extern struct {
         qtc.KCompressionDevice_SetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
 
-    /// ### DEPRECATED: Use `superSetOpenMode` instead
-    ///
-    pub const SuperSetOpenMode = superSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompressionDevice `
-    ///
-    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
-    ///
-    pub fn superSetOpenMode(self: KCompressionDevice, _openMode: i32) void {
-        qtc.KCompressionDevice_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
-    }
-
-    /// ### DEPRECATED: Use `onSetOpenMode` instead
-    ///
-    pub const OnSetOpenMode = onSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompressionDevice`
-    ///
-    /// ` callback: *const fn (self: KCompressionDevice, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
-    ///
-    pub fn onSetOpenMode(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32) callconv(.c) void) void {
-        qtc.KCompressionDevice_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setErrorString` instead
     ///
     pub const SetErrorString = setErrorString;
@@ -3742,50 +3668,6 @@ pub const KCompressionDevice = extern struct {
         qtc.KCompressionDevice_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `superSetErrorString` instead
-    ///
-    pub const SuperSetErrorString = superSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompressionDevice `
-    ///
-    /// ` _errorString: []const u8 `
-    ///
-    pub fn superSetErrorString(self: KCompressionDevice, _errorString: []const u8) void {
-        const errorString_str = qtc.libqt_string{
-            .len = _errorString.len,
-            .data = _errorString.ptr,
-        };
-        qtc.KCompressionDevice_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorString` instead
-    ///
-    pub const OnSetErrorString = onSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompressionDevice`
-    ///
-    /// ` callback: *const fn (self: KCompressionDevice, errorString: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorString(self: KCompressionDevice, callback: *const fn (KCompressionDevice, [*:0]const u8) callconv(.c) void) void {
-        qtc.KCompressionDevice_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -3804,44 +3686,6 @@ pub const KCompressionDevice = extern struct {
         return .{ .ptr = qtc.KCompressionDevice_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompressionDevice `
-    ///
-    pub fn superSender(self: KCompressionDevice) QObject {
-        return .{ .ptr = qtc.KCompressionDevice_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompressionDevice`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KCompressionDevice, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KCompressionDevice_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3858,44 +3702,6 @@ pub const KCompressionDevice = extern struct {
     ///
     pub fn senderSignalIndex(self: KCompressionDevice) i32 {
         return qtc.KCompressionDevice_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompressionDevice `
-    ///
-    pub fn superSenderSignalIndex(self: KCompressionDevice) i32 {
-        return qtc.KCompressionDevice_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompressionDevice`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KCompressionDevice, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCompressionDevice_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3919,47 +3725,6 @@ pub const KCompressionDevice = extern struct {
         return qtc.KCompressionDevice_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompressionDevice `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KCompressionDevice, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KCompressionDevice_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompressionDevice`
-    ///
-    /// ` callback: *const fn (self: KCompressionDevice, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KCompressionDevice, callback: *const fn (KCompressionDevice, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KCompressionDevice_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3979,47 +3744,6 @@ pub const KCompressionDevice = extern struct {
     pub fn isSignalConnected(self: KCompressionDevice, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCompressionDevice_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompressionDevice `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KCompressionDevice, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KCompressionDevice_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompressionDevice`
-    ///
-    /// ` callback: *const fn (self: KCompressionDevice, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QMetaMethod) callconv(.c) bool) void {
-        qtc.KCompressionDevice_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

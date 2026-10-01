@@ -65,6 +65,8 @@ pub const QLayoutItem = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
     ///
+    /// This method must be implemented with `onSizeHint` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QLayoutItem `
@@ -85,28 +87,12 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QLayoutItem) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QLayoutItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QLayoutItem, callback: *const fn (QLayoutItem) callconv(.c) QSize) void {
         qtc.QLayoutItem_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSizeHint` instead
-    ///
-    pub const SuperSizeHint = superSizeHint;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayoutItem `
-    ///
-    pub fn superSizeHint(self: QLayoutItem) QSize {
-        return .{ .ptr = qtc.QLayoutItem_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `minimumSize` instead
@@ -114,6 +100,8 @@ pub const QLayoutItem = extern struct {
     pub const MinimumSize = minimumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
+    ///
+    /// This method must be implemented with `onMinimumSize` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -135,28 +123,12 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QLayoutItem) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSize(self: QLayoutItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: QLayoutItem, callback: *const fn (QLayoutItem) callconv(.c) QSize) void {
         qtc.QLayoutItem_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superMinimumSize` instead
-    ///
-    pub const SuperMinimumSize = superMinimumSize;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayoutItem `
-    ///
-    pub fn superMinimumSize(self: QLayoutItem) QSize {
-        return .{ .ptr = qtc.QLayoutItem_SuperMinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `maximumSize` instead
@@ -164,6 +136,8 @@ pub const QLayoutItem = extern struct {
     pub const MaximumSize = maximumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
+    ///
+    /// This method must be implemented with `onMaximumSize` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -185,28 +159,12 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QLayoutItem) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaximumSize(self: QLayoutItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMaximumSize(self: QLayoutItem, callback: *const fn (QLayoutItem) callconv(.c) QSize) void {
         qtc.QLayoutItem_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superMaximumSize` instead
-    ///
-    pub const SuperMaximumSize = superMaximumSize;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayoutItem `
-    ///
-    pub fn superMaximumSize(self: QLayoutItem) QSize {
-        return .{ .ptr = qtc.QLayoutItem_SuperMaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `expandingDirections` instead
@@ -214,6 +172,8 @@ pub const QLayoutItem = extern struct {
     pub const ExpandingDirections = expandingDirections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
+    ///
+    /// This method must be implemented with `onExpandingDirections` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -239,30 +199,10 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QLayoutItem) callconv(.c) i32 `
     ///
-    pub fn onExpandingDirections(self: QLayoutItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExpandingDirections(self: QLayoutItem, callback: *const fn (QLayoutItem) callconv(.c) i32) void {
         qtc.QLayoutItem_OnExpandingDirections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superExpandingDirections` instead
-    ///
-    pub const SuperExpandingDirections = superExpandingDirections;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayoutItem `
-    ///
-    /// ## Returns:
-    ///
-    /// ` flag of qnamespace_enums.Orientation `
-    ///
-    pub fn superExpandingDirections(self: QLayoutItem) i32 {
-        return qtc.QLayoutItem_SuperExpandingDirections(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setGeometry` instead
@@ -270,6 +210,8 @@ pub const QLayoutItem = extern struct {
     pub const SetGeometry = setGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
+    ///
+    /// This method must be implemented with `onSetGeometry` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -300,30 +242,13 @@ pub const QLayoutItem = extern struct {
         qtc.QLayoutItem_OnSetGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetGeometry` instead
-    ///
-    pub const SuperSetGeometry = superSetGeometry;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayoutItem `
-    ///
-    /// ` _geometry: QRect `
-    ///
-    pub fn superSetGeometry(self: QLayoutItem, _geometry: anytype) void {
-        comptime _ = @TypeOf(_geometry)._is_QRect;
-        qtc.QLayoutItem_SuperSetGeometry(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
-    }
-
     /// ### DEPRECATED: Use `geometry` instead
     ///
     pub const Geometry = geometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
+    ///
+    /// This method must be implemented with `onGeometry` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -345,28 +270,12 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QRect `
+    /// ` callback: *const fn (self: QLayoutItem) callconv(.c) QRect `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onGeometry(self: QLayoutItem, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onGeometry(self: QLayoutItem, callback: *const fn (QLayoutItem) callconv(.c) QRect) void {
         qtc.QLayoutItem_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superGeometry` instead
-    ///
-    pub const SuperGeometry = superGeometry;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayoutItem `
-    ///
-    pub fn superGeometry(self: QLayoutItem) QRect {
-        return .{ .ptr = qtc.QLayoutItem_SuperGeometry(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isEmpty` instead
@@ -374,6 +283,8 @@ pub const QLayoutItem = extern struct {
     pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
+    ///
+    /// This method must be implemented with `onIsEmpty` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -395,26 +306,10 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QLayoutItem) callconv(.c) bool `
     ///
-    pub fn onIsEmpty(self: QLayoutItem, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QLayoutItem, callback: *const fn (QLayoutItem) callconv(.c) bool) void {
         qtc.QLayoutItem_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superIsEmpty` instead
-    ///
-    pub const SuperIsEmpty = superIsEmpty;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayoutItem `
-    ///
-    pub fn superIsEmpty(self: QLayoutItem) bool {
-        return qtc.QLayoutItem_SuperIsEmpty(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `hasHeightForWidth` instead
@@ -443,9 +338,9 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QLayoutItem) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QLayoutItem, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QLayoutItem, callback: *const fn (QLayoutItem) callconv(.c) bool) void {
         qtc.QLayoutItem_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -595,9 +490,9 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QLayoutItem) callconv(.c) void `
     ///
-    pub fn onInvalidate(self: QLayoutItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidate(self: QLayoutItem, callback: *const fn (QLayoutItem) callconv(.c) void) void {
         qtc.QLayoutItem_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -643,9 +538,9 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
+    /// ` callback: *const fn (self: QLayoutItem) callconv(.c) QWidget `
     ///
-    pub fn onWidget(self: QLayoutItem, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onWidget(self: QLayoutItem, callback: *const fn (QLayoutItem) callconv(.c) QWidget) void {
         qtc.QLayoutItem_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -691,9 +586,9 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QLayout `
+    /// ` callback: *const fn (self: QLayoutItem) callconv(.c) QLayout `
     ///
-    pub fn onLayout(self: QLayoutItem, callback: *const fn () callconv(.c) QLayout) void {
+    pub fn onLayout(self: QLayoutItem, callback: *const fn (QLayoutItem) callconv(.c) QLayout) void {
         qtc.QLayoutItem_OnLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -739,9 +634,9 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QSpacerItem `
+    /// ` callback: *const fn (self: QLayoutItem) callconv(.c) QSpacerItem `
     ///
-    pub fn onSpacerItem(self: QLayoutItem, callback: *const fn () callconv(.c) QSpacerItem) void {
+    pub fn onSpacerItem(self: QLayoutItem, callback: *const fn (QLayoutItem) callconv(.c) QSpacerItem) void {
         qtc.QLayoutItem_OnSpacerItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -825,9 +720,9 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QLayoutItem) callconv(.c) i32 `
     ///
-    pub fn onControlTypes(self: QLayoutItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onControlTypes(self: QLayoutItem, callback: *const fn (QLayoutItem) callconv(.c) i32) void {
         qtc.QLayoutItem_OnControlTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1010,11 +905,11 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QSpacerItem) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QSpacerItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QSpacerItem, callback: *const fn (QSpacerItem) callconv(.c) QSize) void {
         qtc.QSpacerItem_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1060,11 +955,11 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QSpacerItem) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSize(self: QSpacerItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: QSpacerItem, callback: *const fn (QSpacerItem) callconv(.c) QSize) void {
         qtc.QSpacerItem_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1110,11 +1005,11 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QSpacerItem) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaximumSize(self: QSpacerItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMaximumSize(self: QSpacerItem, callback: *const fn (QSpacerItem) callconv(.c) QSize) void {
         qtc.QSpacerItem_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1164,9 +1059,9 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSpacerItem) callconv(.c) i32 `
     ///
-    pub fn onExpandingDirections(self: QSpacerItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExpandingDirections(self: QSpacerItem, callback: *const fn (QSpacerItem) callconv(.c) i32) void {
         qtc.QSpacerItem_OnExpandingDirections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1216,9 +1111,9 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSpacerItem) callconv(.c) bool `
     ///
-    pub fn onIsEmpty(self: QSpacerItem, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QSpacerItem, callback: *const fn (QSpacerItem) callconv(.c) bool) void {
         qtc.QSpacerItem_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1318,11 +1213,11 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QRect `
+    /// ` callback: *const fn (self: QSpacerItem) callconv(.c) QRect `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onGeometry(self: QSpacerItem, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onGeometry(self: QSpacerItem, callback: *const fn (QSpacerItem) callconv(.c) QRect) void {
         qtc.QSpacerItem_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1368,9 +1263,9 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QSpacerItem `
+    /// ` callback: *const fn (self: QSpacerItem) callconv(.c) QSpacerItem `
     ///
-    pub fn onSpacerItem(self: QSpacerItem, callback: *const fn () callconv(.c) QSpacerItem) void {
+    pub fn onSpacerItem(self: QSpacerItem, callback: *const fn (QSpacerItem) callconv(.c) QSpacerItem) void {
         qtc.QSpacerItem_OnSpacerItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1551,9 +1446,9 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSpacerItem) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QSpacerItem, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QSpacerItem, callback: *const fn (QSpacerItem) callconv(.c) bool) void {
         qtc.QSpacerItem_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1727,9 +1622,9 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QSpacerItem) callconv(.c) void `
     ///
-    pub fn onInvalidate(self: QSpacerItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidate(self: QSpacerItem, callback: *const fn (QSpacerItem) callconv(.c) void) void {
         qtc.QSpacerItem_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1783,9 +1678,9 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem`
     ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
+    /// ` callback: *const fn (self: QSpacerItem) callconv(.c) QWidget `
     ///
-    pub fn onWidget(self: QSpacerItem, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onWidget(self: QSpacerItem, callback: *const fn (QSpacerItem) callconv(.c) QWidget) void {
         qtc.QSpacerItem_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1839,9 +1734,9 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem`
     ///
-    /// ` callback: *const fn () callconv(.c) QLayout `
+    /// ` callback: *const fn (self: QSpacerItem) callconv(.c) QLayout `
     ///
-    pub fn onLayout(self: QSpacerItem, callback: *const fn () callconv(.c) QLayout) void {
+    pub fn onLayout(self: QSpacerItem, callback: *const fn (QSpacerItem) callconv(.c) QLayout) void {
         qtc.QSpacerItem_OnLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1903,9 +1798,9 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSpacerItem) callconv(.c) i32 `
     ///
-    pub fn onControlTypes(self: QSpacerItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onControlTypes(self: QSpacerItem, callback: *const fn (QSpacerItem) callconv(.c) i32) void {
         qtc.QSpacerItem_OnControlTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1978,11 +1873,11 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QWidgetItem) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QWidgetItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QWidgetItem, callback: *const fn (QWidgetItem) callconv(.c) QSize) void {
         qtc.QWidgetItem_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2028,11 +1923,11 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QWidgetItem) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSize(self: QWidgetItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: QWidgetItem, callback: *const fn (QWidgetItem) callconv(.c) QSize) void {
         qtc.QWidgetItem_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2078,11 +1973,11 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QWidgetItem) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaximumSize(self: QWidgetItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMaximumSize(self: QWidgetItem, callback: *const fn (QWidgetItem) callconv(.c) QSize) void {
         qtc.QWidgetItem_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2132,9 +2027,9 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWidgetItem) callconv(.c) i32 `
     ///
-    pub fn onExpandingDirections(self: QWidgetItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExpandingDirections(self: QWidgetItem, callback: *const fn (QWidgetItem) callconv(.c) i32) void {
         qtc.QWidgetItem_OnExpandingDirections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2184,9 +2079,9 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QWidgetItem) callconv(.c) bool `
     ///
-    pub fn onIsEmpty(self: QWidgetItem, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QWidgetItem, callback: *const fn (QWidgetItem) callconv(.c) bool) void {
         qtc.QWidgetItem_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2286,11 +2181,11 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QRect `
+    /// ` callback: *const fn (self: QWidgetItem) callconv(.c) QRect `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onGeometry(self: QWidgetItem, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onGeometry(self: QWidgetItem, callback: *const fn (QWidgetItem) callconv(.c) QRect) void {
         qtc.QWidgetItem_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2336,9 +2231,9 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
+    /// ` callback: *const fn (self: QWidgetItem) callconv(.c) QWidget `
     ///
-    pub fn onWidget(self: QWidgetItem, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onWidget(self: QWidgetItem, callback: *const fn (QWidgetItem) callconv(.c) QWidget) void {
         qtc.QWidgetItem_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2384,9 +2279,9 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QWidgetItem) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QWidgetItem, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QWidgetItem, callback: *const fn (QWidgetItem) callconv(.c) bool) void {
         qtc.QWidgetItem_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2540,9 +2435,9 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWidgetItem) callconv(.c) i32 `
     ///
-    pub fn onControlTypes(self: QWidgetItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onControlTypes(self: QWidgetItem, callback: *const fn (QWidgetItem) callconv(.c) i32) void {
         qtc.QWidgetItem_OnControlTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2674,9 +2569,9 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QWidgetItem) callconv(.c) void `
     ///
-    pub fn onInvalidate(self: QWidgetItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidate(self: QWidgetItem, callback: *const fn (QWidgetItem) callconv(.c) void) void {
         qtc.QWidgetItem_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2730,9 +2625,9 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem`
     ///
-    /// ` callback: *const fn () callconv(.c) QLayout `
+    /// ` callback: *const fn (self: QWidgetItem) callconv(.c) QLayout `
     ///
-    pub fn onLayout(self: QWidgetItem, callback: *const fn () callconv(.c) QLayout) void {
+    pub fn onLayout(self: QWidgetItem, callback: *const fn (QWidgetItem) callconv(.c) QLayout) void {
         qtc.QWidgetItem_OnLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2786,9 +2681,9 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem`
     ///
-    /// ` callback: *const fn () callconv(.c) QSpacerItem `
+    /// ` callback: *const fn (self: QWidgetItem) callconv(.c) QSpacerItem `
     ///
-    pub fn onSpacerItem(self: QWidgetItem, callback: *const fn () callconv(.c) QSpacerItem) void {
+    pub fn onSpacerItem(self: QWidgetItem, callback: *const fn (QWidgetItem) callconv(.c) QSpacerItem) void {
         qtc.QWidgetItem_OnSpacerItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2862,11 +2757,11 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QWidgetItemV2) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QWidgetItemV2, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2) callconv(.c) QSize) void {
         qtc.QWidgetItemV2_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2912,11 +2807,11 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QWidgetItemV2) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSize(self: QWidgetItemV2, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2) callconv(.c) QSize) void {
         qtc.QWidgetItemV2_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2962,11 +2857,11 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QWidgetItemV2) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaximumSize(self: QWidgetItemV2, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMaximumSize(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2) callconv(.c) QSize) void {
         qtc.QWidgetItemV2_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3154,9 +3049,9 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWidgetItemV2) callconv(.c) i32 `
     ///
-    pub fn onExpandingDirections(self: QWidgetItemV2, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExpandingDirections(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2) callconv(.c) i32) void {
         qtc.QWidgetItemV2_OnExpandingDirections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3210,9 +3105,9 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QWidgetItemV2) callconv(.c) bool `
     ///
-    pub fn onIsEmpty(self: QWidgetItemV2, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2) callconv(.c) bool) void {
         qtc.QWidgetItemV2_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3328,11 +3223,11 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2`
     ///
-    /// ` callback: *const fn () callconv(.c) QRect `
+    /// ` callback: *const fn (self: QWidgetItemV2) callconv(.c) QRect `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onGeometry(self: QWidgetItemV2, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onGeometry(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2) callconv(.c) QRect) void {
         qtc.QWidgetItemV2_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3386,9 +3281,9 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2`
     ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
+    /// ` callback: *const fn (self: QWidgetItemV2) callconv(.c) QWidget `
     ///
-    pub fn onWidget(self: QWidgetItemV2, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onWidget(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2) callconv(.c) QWidget) void {
         qtc.QWidgetItemV2_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3442,9 +3337,9 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QWidgetItemV2) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QWidgetItemV2, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2) callconv(.c) bool) void {
         qtc.QWidgetItemV2_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3566,9 +3461,9 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWidgetItemV2) callconv(.c) i32 `
     ///
-    pub fn onControlTypes(self: QWidgetItemV2, callback: *const fn () callconv(.c) i32) void {
+    pub fn onControlTypes(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2) callconv(.c) i32) void {
         qtc.QWidgetItemV2_OnControlTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3622,9 +3517,9 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QWidgetItemV2) callconv(.c) void `
     ///
-    pub fn onInvalidate(self: QWidgetItemV2, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidate(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2) callconv(.c) void) void {
         qtc.QWidgetItemV2_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3678,9 +3573,9 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2`
     ///
-    /// ` callback: *const fn () callconv(.c) QLayout `
+    /// ` callback: *const fn (self: QWidgetItemV2) callconv(.c) QLayout `
     ///
-    pub fn onLayout(self: QWidgetItemV2, callback: *const fn () callconv(.c) QLayout) void {
+    pub fn onLayout(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2) callconv(.c) QLayout) void {
         qtc.QWidgetItemV2_OnLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3734,9 +3629,9 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2`
     ///
-    /// ` callback: *const fn () callconv(.c) QSpacerItem `
+    /// ` callback: *const fn (self: QWidgetItemV2) callconv(.c) QSpacerItem `
     ///
-    pub fn onSpacerItem(self: QWidgetItemV2, callback: *const fn () callconv(.c) QSpacerItem) void {
+    pub fn onSpacerItem(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2) callconv(.c) QSpacerItem) void {
         qtc.QWidgetItemV2_OnSpacerItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

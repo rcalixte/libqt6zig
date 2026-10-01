@@ -1016,9 +1016,9 @@ pub const QSGSimpleTextureNode = extern struct {
     ///
     /// ` self: QSGSimpleTextureNode`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGSimpleTextureNode) callconv(.c) bool `
     ///
-    pub fn onIsSubtreeBlocked(self: QSGSimpleTextureNode, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSubtreeBlocked(self: QSGSimpleTextureNode, callback: *const fn (QSGSimpleTextureNode) callconv(.c) bool) void {
         qtc.QSGSimpleTextureNode_OnIsSubtreeBlocked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1072,9 +1072,9 @@ pub const QSGSimpleTextureNode = extern struct {
     ///
     /// ` self: QSGSimpleTextureNode`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QSGSimpleTextureNode) callconv(.c) void `
     ///
-    pub fn onPreprocess(self: QSGSimpleTextureNode, callback: *const fn () callconv(.c) void) void {
+    pub fn onPreprocess(self: QSGSimpleTextureNode, callback: *const fn (QSGSimpleTextureNode) callconv(.c) void) void {
         qtc.QSGSimpleTextureNode_OnPreprocess(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

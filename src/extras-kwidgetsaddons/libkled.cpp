@@ -148,14 +148,14 @@ void KLed_Off(KLed* self) {
 
 void KLed_PaintEvent(KLed* self, QPaintEvent* param1) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->paintEvent(param1);
     }
 }
 
 void KLed_ResizeEvent(KLed* self, QResizeEvent* param1) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->resizeEvent(param1);
     }
 }
@@ -186,1614 +186,1143 @@ libqt_string KLed_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KLed_SuperMetaObject(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_MetaObject_IsBase(true);
-        return (QMetaObject*)vkled->metaObject();
-    } else {
-        return (QMetaObject*)self->KLed::metaObject();
-    }
+    return (QMetaObject*)self->KLed::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLed_OnMetaObject(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_MetaObject_Callback(reinterpret_cast<VirtualKLed::KLed_MetaObject_Callback>(slot));
+void KLed_OnMetaObject(KLed* self, intptr_t slot) {
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self)))
+        vkled->kled_metaobject_callback = reinterpret_cast<VirtualKLed::KLed_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KLed_SuperMetacast(KLed* self, const char* param1) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_Metacast_IsBase(true);
-        return vkled->qt_metacast(param1);
-    } else {
-        return self->KLed::qt_metacast(param1);
-    }
+    return self->KLed::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMetacast(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_Metacast_Callback(reinterpret_cast<VirtualKLed::KLed_Metacast_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_metacast_callback = reinterpret_cast<VirtualKLed::KLed_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KLed_SuperMetacall(KLed* self, int param1, int param2, void** param3) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_Metacall_IsBase(true);
-        return vkled->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KLed::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KLed::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMetacall(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_Metacall_Callback(reinterpret_cast<VirtualKLed::KLed_Metacall_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_metacall_callback = reinterpret_cast<VirtualKLed::KLed_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KLed_SuperSizeHint(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_SizeHint_IsBase(true);
-        return new QSize(vkled->sizeHint());
-    } else {
-        return new QSize(((VirtualKLed*)self)->sizeHint());
-    }
+    return new QSize(self->KLed::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLed_OnSizeHint(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_SizeHint_Callback(reinterpret_cast<VirtualKLed::KLed_SizeHint_Callback>(slot));
+void KLed_OnSizeHint(KLed* self, intptr_t slot) {
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self)))
+        vkled->kled_sizehint_callback = reinterpret_cast<VirtualKLed::KLed_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KLed_SuperMinimumSizeHint(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_MinimumSizeHint_IsBase(true);
-        return new QSize(vkled->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKLed*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KLed::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLed_OnMinimumSizeHint(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_MinimumSizeHint_Callback(reinterpret_cast<VirtualKLed::KLed_MinimumSizeHint_Callback>(slot));
+void KLed_OnMinimumSizeHint(KLed* self, intptr_t slot) {
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self)))
+        vkled->kled_minimumsizehint_callback = reinterpret_cast<VirtualKLed::KLed_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLed_SuperPaintEvent(KLed* self, QPaintEvent* param1) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_PaintEvent_IsBase(true);
-        vkled->paintEvent(param1);
-    } else {
-        ((VirtualKLed*)self)->paintEvent(param1);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLed::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnPaintEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_PaintEvent_Callback(reinterpret_cast<VirtualKLed::KLed_PaintEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_paintevent_callback = reinterpret_cast<VirtualKLed::KLed_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLed_SuperResizeEvent(KLed* self, QResizeEvent* param1) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_ResizeEvent_IsBase(true);
-        vkled->resizeEvent(param1);
-    } else {
-        ((VirtualKLed*)self)->resizeEvent(param1);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLed::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnResizeEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_ResizeEvent_Callback(reinterpret_cast<VirtualKLed::KLed_ResizeEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_resizeevent_callback = reinterpret_cast<VirtualKLed::KLed_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KLed_DevType(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        return vkled->devType();
-    } else {
-        return self->KLed::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KLed_SuperDevType(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_DevType_IsBase(true);
-        return vkled->devType();
-    } else {
-        return self->KLed::devType();
-    }
+    return self->KLed::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLed_OnDevType(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_DevType_Callback(reinterpret_cast<VirtualKLed::KLed_DevType_Callback>(slot));
+void KLed_OnDevType(KLed* self, intptr_t slot) {
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self)))
+        vkled->kled_devtype_callback = reinterpret_cast<VirtualKLed::KLed_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_SetVisible(KLed* self, bool visible) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setVisible(visible);
-    } else {
-        self->KLed::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KLed_SuperSetVisible(KLed* self, bool visible) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_SetVisible_IsBase(true);
-        vkled->setVisible(visible);
-    } else {
-        self->KLed::setVisible(visible);
-    }
+    self->KLed::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnSetVisible(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_SetVisible_Callback(reinterpret_cast<VirtualKLed::KLed_SetVisible_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_setvisible_callback = reinterpret_cast<VirtualKLed::KLed_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KLed_HeightForWidth(const KLed* self, int param1) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        return vkled->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KLed::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KLed_SuperHeightForWidth(const KLed* self, int param1) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_HeightForWidth_IsBase(true);
-        return vkled->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KLed::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KLed::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLed_OnHeightForWidth(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_HeightForWidth_Callback(reinterpret_cast<VirtualKLed::KLed_HeightForWidth_Callback>(slot));
+void KLed_OnHeightForWidth(KLed* self, intptr_t slot) {
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self)))
+        vkled->kled_heightforwidth_callback = reinterpret_cast<VirtualKLed::KLed_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLed_HasHeightForWidth(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        return vkled->hasHeightForWidth();
-    } else {
-        return self->KLed::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KLed_SuperHasHeightForWidth(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_HasHeightForWidth_IsBase(true);
-        return vkled->hasHeightForWidth();
-    } else {
-        return self->KLed::hasHeightForWidth();
-    }
+    return self->KLed::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLed_OnHasHeightForWidth(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_HasHeightForWidth_Callback(reinterpret_cast<VirtualKLed::KLed_HasHeightForWidth_Callback>(slot));
+void KLed_OnHasHeightForWidth(KLed* self, intptr_t slot) {
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self)))
+        vkled->kled_hasheightforwidth_callback = reinterpret_cast<VirtualKLed::KLed_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KLed_PaintEngine(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        return vkled->paintEngine();
-    } else {
-        return self->KLed::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KLed_SuperPaintEngine(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_PaintEngine_IsBase(true);
-        return vkled->paintEngine();
-    } else {
-        return self->KLed::paintEngine();
-    }
+    return self->KLed::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLed_OnPaintEngine(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_PaintEngine_Callback(reinterpret_cast<VirtualKLed::KLed_PaintEngine_Callback>(slot));
+void KLed_OnPaintEngine(KLed* self, intptr_t slot) {
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self)))
+        vkled->kled_paintengine_callback = reinterpret_cast<VirtualKLed::KLed_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLed_Event(KLed* self, QEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         return vkled->event(event);
     } else {
-        return ((VirtualKLed*)self)->event(event);
+        qFatal("Error: Protected virtual method KLed::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KLed_SuperEvent(KLed* self, QEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_Event_IsBase(true);
-        return vkled->event(event);
-    } else {
-        return ((VirtualKLed*)self)->event(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        return vkled->KLed::event(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_Event_Callback(reinterpret_cast<VirtualKLed::KLed_Event_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_event_callback = reinterpret_cast<VirtualKLed::KLed_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_MousePressEvent(KLed* self, QMouseEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->mousePressEvent(event);
     } else {
-        ((VirtualKLed*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KLed::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperMousePressEvent(KLed* self, QMouseEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_MousePressEvent_IsBase(true);
-        vkled->mousePressEvent(event);
-    } else {
-        ((VirtualKLed*)self)->mousePressEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMousePressEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_MousePressEvent_Callback(reinterpret_cast<VirtualKLed::KLed_MousePressEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_mousepressevent_callback = reinterpret_cast<VirtualKLed::KLed_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_MouseReleaseEvent(KLed* self, QMouseEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->mouseReleaseEvent(event);
     } else {
-        ((VirtualKLed*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KLed::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperMouseReleaseEvent(KLed* self, QMouseEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_MouseReleaseEvent_IsBase(true);
-        vkled->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKLed*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMouseReleaseEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKLed::KLed_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_mousereleaseevent_callback = reinterpret_cast<VirtualKLed::KLed_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_MouseDoubleClickEvent(KLed* self, QMouseEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKLed*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KLed::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperMouseDoubleClickEvent(KLed* self, QMouseEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_MouseDoubleClickEvent_IsBase(true);
-        vkled->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKLed*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMouseDoubleClickEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKLed::KLed_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_mousedoubleclickevent_callback = reinterpret_cast<VirtualKLed::KLed_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_MouseMoveEvent(KLed* self, QMouseEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->mouseMoveEvent(event);
     } else {
-        ((VirtualKLed*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KLed::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperMouseMoveEvent(KLed* self, QMouseEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_MouseMoveEvent_IsBase(true);
-        vkled->mouseMoveEvent(event);
-    } else {
-        ((VirtualKLed*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMouseMoveEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_MouseMoveEvent_Callback(reinterpret_cast<VirtualKLed::KLed_MouseMoveEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_mousemoveevent_callback = reinterpret_cast<VirtualKLed::KLed_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_WheelEvent(KLed* self, QWheelEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->wheelEvent(event);
     } else {
-        ((VirtualKLed*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KLed::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperWheelEvent(KLed* self, QWheelEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_WheelEvent_IsBase(true);
-        vkled->wheelEvent(event);
-    } else {
-        ((VirtualKLed*)self)->wheelEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnWheelEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_WheelEvent_Callback(reinterpret_cast<VirtualKLed::KLed_WheelEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_wheelevent_callback = reinterpret_cast<VirtualKLed::KLed_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_KeyPressEvent(KLed* self, QKeyEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->keyPressEvent(event);
     } else {
-        ((VirtualKLed*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KLed::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperKeyPressEvent(KLed* self, QKeyEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_KeyPressEvent_IsBase(true);
-        vkled->keyPressEvent(event);
-    } else {
-        ((VirtualKLed*)self)->keyPressEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnKeyPressEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_KeyPressEvent_Callback(reinterpret_cast<VirtualKLed::KLed_KeyPressEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_keypressevent_callback = reinterpret_cast<VirtualKLed::KLed_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_KeyReleaseEvent(KLed* self, QKeyEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->keyReleaseEvent(event);
     } else {
-        ((VirtualKLed*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KLed::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperKeyReleaseEvent(KLed* self, QKeyEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_KeyReleaseEvent_IsBase(true);
-        vkled->keyReleaseEvent(event);
-    } else {
-        ((VirtualKLed*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnKeyReleaseEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKLed::KLed_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_keyreleaseevent_callback = reinterpret_cast<VirtualKLed::KLed_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_FocusInEvent(KLed* self, QFocusEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->focusInEvent(event);
     } else {
-        ((VirtualKLed*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KLed::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperFocusInEvent(KLed* self, QFocusEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_FocusInEvent_IsBase(true);
-        vkled->focusInEvent(event);
-    } else {
-        ((VirtualKLed*)self)->focusInEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnFocusInEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_FocusInEvent_Callback(reinterpret_cast<VirtualKLed::KLed_FocusInEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_focusinevent_callback = reinterpret_cast<VirtualKLed::KLed_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_FocusOutEvent(KLed* self, QFocusEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->focusOutEvent(event);
     } else {
-        ((VirtualKLed*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KLed::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperFocusOutEvent(KLed* self, QFocusEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_FocusOutEvent_IsBase(true);
-        vkled->focusOutEvent(event);
-    } else {
-        ((VirtualKLed*)self)->focusOutEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnFocusOutEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_FocusOutEvent_Callback(reinterpret_cast<VirtualKLed::KLed_FocusOutEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_focusoutevent_callback = reinterpret_cast<VirtualKLed::KLed_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_EnterEvent(KLed* self, QEnterEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->enterEvent(event);
     } else {
-        ((VirtualKLed*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KLed::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperEnterEvent(KLed* self, QEnterEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_EnterEvent_IsBase(true);
-        vkled->enterEvent(event);
-    } else {
-        ((VirtualKLed*)self)->enterEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnEnterEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_EnterEvent_Callback(reinterpret_cast<VirtualKLed::KLed_EnterEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_enterevent_callback = reinterpret_cast<VirtualKLed::KLed_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_LeaveEvent(KLed* self, QEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->leaveEvent(event);
     } else {
-        ((VirtualKLed*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KLed::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperLeaveEvent(KLed* self, QEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_LeaveEvent_IsBase(true);
-        vkled->leaveEvent(event);
-    } else {
-        ((VirtualKLed*)self)->leaveEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnLeaveEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_LeaveEvent_Callback(reinterpret_cast<VirtualKLed::KLed_LeaveEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_leaveevent_callback = reinterpret_cast<VirtualKLed::KLed_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_MoveEvent(KLed* self, QMoveEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->moveEvent(event);
     } else {
-        ((VirtualKLed*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KLed::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperMoveEvent(KLed* self, QMoveEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_MoveEvent_IsBase(true);
-        vkled->moveEvent(event);
-    } else {
-        ((VirtualKLed*)self)->moveEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMoveEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_MoveEvent_Callback(reinterpret_cast<VirtualKLed::KLed_MoveEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_moveevent_callback = reinterpret_cast<VirtualKLed::KLed_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_CloseEvent(KLed* self, QCloseEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->closeEvent(event);
     } else {
-        ((VirtualKLed*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KLed::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperCloseEvent(KLed* self, QCloseEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_CloseEvent_IsBase(true);
-        vkled->closeEvent(event);
-    } else {
-        ((VirtualKLed*)self)->closeEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnCloseEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_CloseEvent_Callback(reinterpret_cast<VirtualKLed::KLed_CloseEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_closeevent_callback = reinterpret_cast<VirtualKLed::KLed_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_ContextMenuEvent(KLed* self, QContextMenuEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->contextMenuEvent(event);
     } else {
-        ((VirtualKLed*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KLed::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperContextMenuEvent(KLed* self, QContextMenuEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_ContextMenuEvent_IsBase(true);
-        vkled->contextMenuEvent(event);
-    } else {
-        ((VirtualKLed*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnContextMenuEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_ContextMenuEvent_Callback(reinterpret_cast<VirtualKLed::KLed_ContextMenuEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_contextmenuevent_callback = reinterpret_cast<VirtualKLed::KLed_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_TabletEvent(KLed* self, QTabletEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->tabletEvent(event);
     } else {
-        ((VirtualKLed*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KLed::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperTabletEvent(KLed* self, QTabletEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_TabletEvent_IsBase(true);
-        vkled->tabletEvent(event);
-    } else {
-        ((VirtualKLed*)self)->tabletEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnTabletEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_TabletEvent_Callback(reinterpret_cast<VirtualKLed::KLed_TabletEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_tabletevent_callback = reinterpret_cast<VirtualKLed::KLed_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_ActionEvent(KLed* self, QActionEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->actionEvent(event);
     } else {
-        ((VirtualKLed*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KLed::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperActionEvent(KLed* self, QActionEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_ActionEvent_IsBase(true);
-        vkled->actionEvent(event);
-    } else {
-        ((VirtualKLed*)self)->actionEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnActionEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_ActionEvent_Callback(reinterpret_cast<VirtualKLed::KLed_ActionEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_actionevent_callback = reinterpret_cast<VirtualKLed::KLed_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_DragEnterEvent(KLed* self, QDragEnterEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->dragEnterEvent(event);
     } else {
-        ((VirtualKLed*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KLed::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperDragEnterEvent(KLed* self, QDragEnterEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_DragEnterEvent_IsBase(true);
-        vkled->dragEnterEvent(event);
-    } else {
-        ((VirtualKLed*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnDragEnterEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_DragEnterEvent_Callback(reinterpret_cast<VirtualKLed::KLed_DragEnterEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_dragenterevent_callback = reinterpret_cast<VirtualKLed::KLed_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_DragMoveEvent(KLed* self, QDragMoveEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->dragMoveEvent(event);
     } else {
-        ((VirtualKLed*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KLed::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperDragMoveEvent(KLed* self, QDragMoveEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_DragMoveEvent_IsBase(true);
-        vkled->dragMoveEvent(event);
-    } else {
-        ((VirtualKLed*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnDragMoveEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_DragMoveEvent_Callback(reinterpret_cast<VirtualKLed::KLed_DragMoveEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_dragmoveevent_callback = reinterpret_cast<VirtualKLed::KLed_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_DragLeaveEvent(KLed* self, QDragLeaveEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->dragLeaveEvent(event);
     } else {
-        ((VirtualKLed*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KLed::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperDragLeaveEvent(KLed* self, QDragLeaveEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_DragLeaveEvent_IsBase(true);
-        vkled->dragLeaveEvent(event);
-    } else {
-        ((VirtualKLed*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnDragLeaveEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_DragLeaveEvent_Callback(reinterpret_cast<VirtualKLed::KLed_DragLeaveEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_dragleaveevent_callback = reinterpret_cast<VirtualKLed::KLed_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_DropEvent(KLed* self, QDropEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->dropEvent(event);
     } else {
-        ((VirtualKLed*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KLed::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperDropEvent(KLed* self, QDropEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_DropEvent_IsBase(true);
-        vkled->dropEvent(event);
-    } else {
-        ((VirtualKLed*)self)->dropEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnDropEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_DropEvent_Callback(reinterpret_cast<VirtualKLed::KLed_DropEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_dropevent_callback = reinterpret_cast<VirtualKLed::KLed_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_ShowEvent(KLed* self, QShowEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->showEvent(event);
     } else {
-        ((VirtualKLed*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KLed::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperShowEvent(KLed* self, QShowEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_ShowEvent_IsBase(true);
-        vkled->showEvent(event);
-    } else {
-        ((VirtualKLed*)self)->showEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnShowEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_ShowEvent_Callback(reinterpret_cast<VirtualKLed::KLed_ShowEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_showevent_callback = reinterpret_cast<VirtualKLed::KLed_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_HideEvent(KLed* self, QHideEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->hideEvent(event);
     } else {
-        ((VirtualKLed*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KLed::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperHideEvent(KLed* self, QHideEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_HideEvent_IsBase(true);
-        vkled->hideEvent(event);
-    } else {
-        ((VirtualKLed*)self)->hideEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnHideEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_HideEvent_Callback(reinterpret_cast<VirtualKLed::KLed_HideEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_hideevent_callback = reinterpret_cast<VirtualKLed::KLed_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLed_NativeEvent(KLed* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkled && vkled->isVirtualKLed) {
+    auto* vkled = dynamic_cast<VirtualKLed*>(self);
+    if (vkled) {
         return vkled->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKLed*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KLed::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KLed_SuperNativeEvent(KLed* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_NativeEvent_IsBase(true);
-        return vkled->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKLed*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        return vkled->KLed::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KLed::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnNativeEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_NativeEvent_Callback(reinterpret_cast<VirtualKLed::KLed_NativeEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_nativeevent_callback = reinterpret_cast<VirtualKLed::KLed_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_ChangeEvent(KLed* self, QEvent* param1) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->changeEvent(param1);
     } else {
-        ((VirtualKLed*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KLed::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperChangeEvent(KLed* self, QEvent* param1) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_ChangeEvent_IsBase(true);
-        vkled->changeEvent(param1);
-    } else {
-        ((VirtualKLed*)self)->changeEvent(param1);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLed::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnChangeEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_ChangeEvent_Callback(reinterpret_cast<VirtualKLed::KLed_ChangeEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_changeevent_callback = reinterpret_cast<VirtualKLed::KLed_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KLed_Metric(const KLed* self, int param1) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         return vkled->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKLed*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KLed::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KLed_SuperMetric(const KLed* self, int param1) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_Metric_IsBase(true);
-        return vkled->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKLed*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self))) {
+        return vkled->KLed::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KLed::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLed_OnMetric(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_Metric_Callback(reinterpret_cast<VirtualKLed::KLed_Metric_Callback>(slot));
+void KLed_OnMetric(KLed* self, intptr_t slot) {
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self)))
+        vkled->kled_metric_callback = reinterpret_cast<VirtualKLed::KLed_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_InitPainter(const KLed* self, QPainter* painter) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->initPainter(painter);
     } else {
-        ((VirtualKLed*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KLed::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperInitPainter(const KLed* self, QPainter* painter) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_InitPainter_IsBase(true);
-        vkled->initPainter(painter);
-    } else {
-        ((VirtualKLed*)self)->initPainter(painter);
-    }
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self))) {
+        vkled->KLed::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KLed::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLed_OnInitPainter(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_InitPainter_Callback(reinterpret_cast<VirtualKLed::KLed_InitPainter_Callback>(slot));
+void KLed_OnInitPainter(KLed* self, intptr_t slot) {
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self)))
+        vkled->kled_initpainter_callback = reinterpret_cast<VirtualKLed::KLed_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KLed_Redirected(const KLed* self, QPoint* offset) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         return vkled->redirected(offset);
     } else {
-        return ((VirtualKLed*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KLed::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KLed_SuperRedirected(const KLed* self, QPoint* offset) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_Redirected_IsBase(true);
-        return vkled->redirected(offset);
-    } else {
-        return ((VirtualKLed*)self)->redirected(offset);
-    }
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self))) {
+        return vkled->KLed::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KLed::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLed_OnRedirected(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_Redirected_Callback(reinterpret_cast<VirtualKLed::KLed_Redirected_Callback>(slot));
+void KLed_OnRedirected(KLed* self, intptr_t slot) {
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self)))
+        vkled->kled_redirected_callback = reinterpret_cast<VirtualKLed::KLed_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KLed_SharedPainter(const KLed* self) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         return vkled->sharedPainter();
     } else {
-        return ((VirtualKLed*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KLed::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KLed_SuperSharedPainter(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_SharedPainter_IsBase(true);
-        return vkled->sharedPainter();
-    } else {
-        return ((VirtualKLed*)self)->sharedPainter();
-    }
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self))) {
+        return vkled->KLed::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KLed::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLed_OnSharedPainter(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_SharedPainter_Callback(reinterpret_cast<VirtualKLed::KLed_SharedPainter_Callback>(slot));
+void KLed_OnSharedPainter(KLed* self, intptr_t slot) {
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self)))
+        vkled->kled_sharedpainter_callback = reinterpret_cast<VirtualKLed::KLed_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_InputMethodEvent(KLed* self, QInputMethodEvent* param1) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->inputMethodEvent(param1);
     } else {
-        ((VirtualKLed*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KLed::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperInputMethodEvent(KLed* self, QInputMethodEvent* param1) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_InputMethodEvent_IsBase(true);
-        vkled->inputMethodEvent(param1);
-    } else {
-        ((VirtualKLed*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLed::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnInputMethodEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_InputMethodEvent_Callback(reinterpret_cast<VirtualKLed::KLed_InputMethodEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_inputmethodevent_callback = reinterpret_cast<VirtualKLed::KLed_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KLed_InputMethodQuery(const KLed* self, int param1) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        return new QVariant(vkled->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKLed*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KLed_SuperInputMethodQuery(const KLed* self, int param1) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_InputMethodQuery_IsBase(true);
-        return new QVariant(vkled->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKLed*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KLed::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLed_OnInputMethodQuery(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_InputMethodQuery_Callback(reinterpret_cast<VirtualKLed::KLed_InputMethodQuery_Callback>(slot));
+void KLed_OnInputMethodQuery(KLed* self, intptr_t slot) {
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self)))
+        vkled->kled_inputmethodquery_callback = reinterpret_cast<VirtualKLed::KLed_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLed_FocusNextPrevChild(KLed* self, bool next) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         return vkled->focusNextPrevChild(next);
     } else {
-        return ((VirtualKLed*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KLed::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KLed_SuperFocusNextPrevChild(KLed* self, bool next) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_FocusNextPrevChild_IsBase(true);
-        return vkled->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKLed*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        return vkled->KLed::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KLed::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnFocusNextPrevChild(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKLed::KLed_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_focusnextprevchild_callback = reinterpret_cast<VirtualKLed::KLed_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLed_EventFilter(KLed* self, QObject* watched, QEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        return vkled->eventFilter(watched, event);
-    } else {
-        return self->KLed::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KLed_SuperEventFilter(KLed* self, QObject* watched, QEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_EventFilter_IsBase(true);
-        return vkled->eventFilter(watched, event);
-    } else {
-        return self->KLed::eventFilter(watched, event);
-    }
+    return self->KLed::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnEventFilter(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_EventFilter_Callback(reinterpret_cast<VirtualKLed::KLed_EventFilter_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_eventfilter_callback = reinterpret_cast<VirtualKLed::KLed_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_TimerEvent(KLed* self, QTimerEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->timerEvent(event);
     } else {
-        ((VirtualKLed*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KLed::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperTimerEvent(KLed* self, QTimerEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_TimerEvent_IsBase(true);
-        vkled->timerEvent(event);
-    } else {
-        ((VirtualKLed*)self)->timerEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnTimerEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_TimerEvent_Callback(reinterpret_cast<VirtualKLed::KLed_TimerEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_timerevent_callback = reinterpret_cast<VirtualKLed::KLed_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_ChildEvent(KLed* self, QChildEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->childEvent(event);
     } else {
-        ((VirtualKLed*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KLed::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperChildEvent(KLed* self, QChildEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_ChildEvent_IsBase(true);
-        vkled->childEvent(event);
-    } else {
-        ((VirtualKLed*)self)->childEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnChildEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_ChildEvent_Callback(reinterpret_cast<VirtualKLed::KLed_ChildEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_childevent_callback = reinterpret_cast<VirtualKLed::KLed_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_CustomEvent(KLed* self, QEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->customEvent(event);
     } else {
-        ((VirtualKLed*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KLed::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperCustomEvent(KLed* self, QEvent* event) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_CustomEvent_IsBase(true);
-        vkled->customEvent(event);
-    } else {
-        ((VirtualKLed*)self)->customEvent(event);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLed::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnCustomEvent(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_CustomEvent_Callback(reinterpret_cast<VirtualKLed::KLed_CustomEvent_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_customevent_callback = reinterpret_cast<VirtualKLed::KLed_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_ConnectNotify(KLed* self, const QMetaMethod* signal) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->connectNotify(*signal);
     } else {
-        ((VirtualKLed*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KLed::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperConnectNotify(KLed* self, const QMetaMethod* signal) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_ConnectNotify_IsBase(true);
-        vkled->connectNotify(*signal);
-    } else {
-        ((VirtualKLed*)self)->connectNotify(*signal);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KLed::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnConnectNotify(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_ConnectNotify_Callback(reinterpret_cast<VirtualKLed::KLed_ConnectNotify_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_connectnotify_callback = reinterpret_cast<VirtualKLed::KLed_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLed_DisconnectNotify(KLed* self, const QMetaMethod* signal) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled) {
         vkled->disconnectNotify(*signal);
     } else {
-        ((VirtualKLed*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KLed::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLed_SuperDisconnectNotify(KLed* self, const QMetaMethod* signal) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_DisconnectNotify_IsBase(true);
-        vkled->disconnectNotify(*signal);
-    } else {
-        ((VirtualKLed*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->KLed::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KLed::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLed_OnDisconnectNotify(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_DisconnectNotify_Callback(reinterpret_cast<VirtualKLed::KLed_DisconnectNotify_Callback>(slot));
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self))
+        vkled->kled_disconnectnotify_callback = reinterpret_cast<VirtualKLed::KLed_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KLed_UpdateMicroFocus(KLed* self) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->updateMicroFocus();
-    } else {
-        ((VirtualKLed*)self)->updateMicroFocus();
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->VirtualKLed::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KLed::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KLed_SuperUpdateMicroFocus(KLed* self) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_UpdateMicroFocus_IsBase(true);
-        vkled->updateMicroFocus();
-    } else {
-        ((VirtualKLed*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLed_OnUpdateMicroFocus(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKLed::KLed_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KLed_Create(KLed* self) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->create();
-    } else {
-        ((VirtualKLed*)self)->create();
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->VirtualKLed::create();
+    } else
+        qFatal("Error: Protected method KLed::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KLed_SuperCreate(KLed* self) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_Create_IsBase(true);
-        vkled->create();
-    } else {
-        ((VirtualKLed*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLed_OnCreate(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_Create_Callback(reinterpret_cast<VirtualKLed::KLed_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KLed_Destroy(KLed* self) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->destroy();
-    } else {
-        ((VirtualKLed*)self)->destroy();
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        vkled->VirtualKLed::destroy();
+    } else
+        qFatal("Error: Protected method KLed::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KLed_SuperDestroy(KLed* self) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_Destroy_IsBase(true);
-        vkled->destroy();
-    } else {
-        ((VirtualKLed*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLed_OnDestroy(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_Destroy_Callback(reinterpret_cast<VirtualKLed::KLed_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KLed_FocusNextChild(KLed* self) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        return vkled->focusNextChild();
-    } else {
-        return ((VirtualKLed*)self)->focusNextChild();
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        return vkled->VirtualKLed::focusNextChild();
+    } else
+        qFatal("Error: Protected method KLed::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KLed_SuperFocusNextChild(KLed* self) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_FocusNextChild_IsBase(true);
-        return vkled->focusNextChild();
-    } else {
-        return ((VirtualKLed*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLed_OnFocusNextChild(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_FocusNextChild_Callback(reinterpret_cast<VirtualKLed::KLed_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KLed_FocusPreviousChild(KLed* self) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        return vkled->focusPreviousChild();
-    } else {
-        return ((VirtualKLed*)self)->focusPreviousChild();
-    }
+    if (auto* vkled = dynamic_cast<VirtualKLed*>(self)) {
+        return vkled->VirtualKLed::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KLed::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KLed_SuperFocusPreviousChild(KLed* self) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_FocusPreviousChild_IsBase(true);
-        return vkled->focusPreviousChild();
-    } else {
-        return ((VirtualKLed*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLed_OnFocusPreviousChild(KLed* self, intptr_t slot) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_FocusPreviousChild_Callback(reinterpret_cast<VirtualKLed::KLed_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KLed_Sender(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        return vkled->sender();
-    } else {
-        return ((VirtualKLed*)self)->sender();
-    }
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self))) {
+        return vkled->VirtualKLed::sender();
+    } else
+        qFatal("Error: Protected method KLed::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KLed_SuperSender(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_Sender_IsBase(true);
-        return vkled->sender();
-    } else {
-        return ((VirtualKLed*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLed_OnSender(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_Sender_Callback(reinterpret_cast<VirtualKLed::KLed_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KLed_SenderSignalIndex(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        return vkled->senderSignalIndex();
-    } else {
-        return ((VirtualKLed*)self)->senderSignalIndex();
-    }
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self))) {
+        return vkled->VirtualKLed::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KLed::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KLed_SuperSenderSignalIndex(const KLed* self) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_SenderSignalIndex_IsBase(true);
-        return vkled->senderSignalIndex();
-    } else {
-        return ((VirtualKLed*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLed_OnSenderSignalIndex(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_SenderSignalIndex_Callback(reinterpret_cast<VirtualKLed::KLed_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KLed_Receivers(const KLed* self, const char* signal) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        return vkled->receivers(signal);
-    } else {
-        return ((VirtualKLed*)self)->receivers(signal);
-    }
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self))) {
+        return vkled->VirtualKLed::receivers(signal);
+    } else
+        qFatal("Error: Protected method KLed::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KLed_SuperReceivers(const KLed* self, const char* signal) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_Receivers_IsBase(true);
-        return vkled->receivers(signal);
-    } else {
-        return ((VirtualKLed*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLed_OnReceivers(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_Receivers_Callback(reinterpret_cast<VirtualKLed::KLed_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KLed_IsSignalConnected(const KLed* self, const QMetaMethod* signal) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        return vkled->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKLed*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self))) {
+        return vkled->VirtualKLed::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KLed::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KLed_SuperIsSignalConnected(const KLed* self, const QMetaMethod* signal) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_IsSignalConnected_IsBase(true);
-        return vkled->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKLed*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLed_OnIsSignalConnected(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_IsSignalConnected_Callback(reinterpret_cast<VirtualKLed::KLed_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KLed_GetDecodedMetricF(const KLed* self, int metricA, int metricB) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        return vkled->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKLed*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KLed_SuperGetDecodedMetricF(const KLed* self, int metricA, int metricB) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
-        vkled->setKLed_GetDecodedMetricF_IsBase(true);
-        return vkled->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKLed*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLed_OnGetDecodedMetricF(const KLed* self, intptr_t slot) {
-    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed)
-        vkled->setKLed_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKLed::KLed_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self))) {
+        return vkled->VirtualKLed::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KLed::getDecodedMetricF called without a directly constructed type");
 }
 
 void KLed_Delete(KLed* self) {

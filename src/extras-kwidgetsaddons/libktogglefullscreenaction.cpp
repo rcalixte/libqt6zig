@@ -55,15 +55,15 @@ void KToggleFullScreenAction_SetFullScreen(QWidget* window, bool set) {
 
 bool KToggleFullScreenAction_EventFilter(KToggleFullScreenAction* self, QObject* object, QEvent* event) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
+    if (vktogglefullscreenaction) {
         return vktogglefullscreenaction->eventFilter(object, event);
     }
-    return {};
+    qFatal("Error: Protected method KToggleFullScreenAction::eventFilter called without a directly constructed type");
 }
 
 void KToggleFullScreenAction_SlotToggled(KToggleFullScreenAction* self, bool checked) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
+    if (vktogglefullscreenaction) {
         vktogglefullscreenaction->slotToggled(checked);
     }
 }
@@ -94,372 +94,239 @@ libqt_string KToggleFullScreenAction_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KToggleFullScreenAction_SuperMetaObject(const KToggleFullScreenAction* self) {
-    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_MetaObject_IsBase(true);
-        return (QMetaObject*)vktogglefullscreenaction->metaObject();
-    } else {
-        return (QMetaObject*)self->KToggleFullScreenAction::metaObject();
-    }
+    return (QMetaObject*)self->KToggleFullScreenAction::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToggleFullScreenAction_OnMetaObject(const KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_MetaObject_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_MetaObject_Callback>(slot));
+void KToggleFullScreenAction_OnMetaObject(KToggleFullScreenAction* self, intptr_t slot) {
+    if (auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self)))
+        vktogglefullscreenaction->ktogglefullscreenaction_metaobject_callback = reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KToggleFullScreenAction_SuperMetacast(KToggleFullScreenAction* self, const char* param1) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_Metacast_IsBase(true);
-        return vktogglefullscreenaction->qt_metacast(param1);
-    } else {
-        return self->KToggleFullScreenAction::qt_metacast(param1);
-    }
+    return self->KToggleFullScreenAction::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleFullScreenAction_OnMetacast(KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_Metacast_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_Metacast_Callback>(slot));
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self))
+        vktogglefullscreenaction->ktogglefullscreenaction_metacast_callback = reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KToggleFullScreenAction_SuperMetacall(KToggleFullScreenAction* self, int param1, int param2, void** param3) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_Metacall_IsBase(true);
-        return vktogglefullscreenaction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KToggleFullScreenAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KToggleFullScreenAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleFullScreenAction_OnMetacall(KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_Metacall_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_Metacall_Callback>(slot));
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self))
+        vktogglefullscreenaction->ktogglefullscreenaction_metacall_callback = reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KToggleFullScreenAction_SuperEventFilter(KToggleFullScreenAction* self, QObject* object, QEvent* event) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_EventFilter_IsBase(true);
-        return vktogglefullscreenaction->eventFilter(object, event);
-    } else {
-        return ((VirtualKToggleFullScreenAction*)self)->eventFilter(object, event);
-    }
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self)) {
+        return vktogglefullscreenaction->KToggleFullScreenAction::eventFilter(object, event);
+    } else
+        qFatal("Error: Protected virtual method KToggleFullScreenAction::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleFullScreenAction_OnEventFilter(KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_EventFilter_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_EventFilter_Callback>(slot));
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self))
+        vktogglefullscreenaction->ktogglefullscreenaction_eventfilter_callback = reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 void KToggleFullScreenAction_SuperSlotToggled(KToggleFullScreenAction* self, bool checked) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_SlotToggled_IsBase(true);
-        vktogglefullscreenaction->slotToggled(checked);
-    } else {
-        ((VirtualKToggleFullScreenAction*)self)->slotToggled(checked);
-    }
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self)) {
+        vktogglefullscreenaction->KToggleFullScreenAction::slotToggled(checked);
+    } else
+        qFatal("Error: Protected virtual method KToggleFullScreenAction::slotToggled called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleFullScreenAction_OnSlotToggled(KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_SlotToggled_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_SlotToggled_Callback>(slot));
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self))
+        vktogglefullscreenaction->ktogglefullscreenaction_slottoggled_callback = reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_SlotToggled_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KToggleFullScreenAction_Event(KToggleFullScreenAction* self, QEvent* param1) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
+    if (vktogglefullscreenaction) {
         return vktogglefullscreenaction->event(param1);
     } else {
-        return ((VirtualKToggleFullScreenAction*)self)->event(param1);
+        qFatal("Error: Protected virtual method KToggleFullScreenAction::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KToggleFullScreenAction_SuperEvent(KToggleFullScreenAction* self, QEvent* param1) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_Event_IsBase(true);
-        return vktogglefullscreenaction->event(param1);
-    } else {
-        return ((VirtualKToggleFullScreenAction*)self)->event(param1);
-    }
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self)) {
+        return vktogglefullscreenaction->KToggleFullScreenAction::event(param1);
+    } else
+        qFatal("Error: Protected virtual method KToggleFullScreenAction::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleFullScreenAction_OnEvent(KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_Event_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_Event_Callback>(slot));
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self))
+        vktogglefullscreenaction->ktogglefullscreenaction_event_callback = reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToggleFullScreenAction_TimerEvent(KToggleFullScreenAction* self, QTimerEvent* event) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
+    if (vktogglefullscreenaction) {
         vktogglefullscreenaction->timerEvent(event);
     } else {
-        ((VirtualKToggleFullScreenAction*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KToggleFullScreenAction::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToggleFullScreenAction_SuperTimerEvent(KToggleFullScreenAction* self, QTimerEvent* event) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_TimerEvent_IsBase(true);
-        vktogglefullscreenaction->timerEvent(event);
-    } else {
-        ((VirtualKToggleFullScreenAction*)self)->timerEvent(event);
-    }
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self)) {
+        vktogglefullscreenaction->KToggleFullScreenAction::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToggleFullScreenAction::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleFullScreenAction_OnTimerEvent(KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_TimerEvent_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_TimerEvent_Callback>(slot));
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self))
+        vktogglefullscreenaction->ktogglefullscreenaction_timerevent_callback = reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToggleFullScreenAction_ChildEvent(KToggleFullScreenAction* self, QChildEvent* event) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
+    if (vktogglefullscreenaction) {
         vktogglefullscreenaction->childEvent(event);
     } else {
-        ((VirtualKToggleFullScreenAction*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KToggleFullScreenAction::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToggleFullScreenAction_SuperChildEvent(KToggleFullScreenAction* self, QChildEvent* event) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_ChildEvent_IsBase(true);
-        vktogglefullscreenaction->childEvent(event);
-    } else {
-        ((VirtualKToggleFullScreenAction*)self)->childEvent(event);
-    }
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self)) {
+        vktogglefullscreenaction->KToggleFullScreenAction::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToggleFullScreenAction::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleFullScreenAction_OnChildEvent(KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_ChildEvent_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_ChildEvent_Callback>(slot));
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self))
+        vktogglefullscreenaction->ktogglefullscreenaction_childevent_callback = reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToggleFullScreenAction_CustomEvent(KToggleFullScreenAction* self, QEvent* event) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
+    if (vktogglefullscreenaction) {
         vktogglefullscreenaction->customEvent(event);
     } else {
-        ((VirtualKToggleFullScreenAction*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KToggleFullScreenAction::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToggleFullScreenAction_SuperCustomEvent(KToggleFullScreenAction* self, QEvent* event) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_CustomEvent_IsBase(true);
-        vktogglefullscreenaction->customEvent(event);
-    } else {
-        ((VirtualKToggleFullScreenAction*)self)->customEvent(event);
-    }
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self)) {
+        vktogglefullscreenaction->KToggleFullScreenAction::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToggleFullScreenAction::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleFullScreenAction_OnCustomEvent(KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_CustomEvent_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_CustomEvent_Callback>(slot));
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self))
+        vktogglefullscreenaction->ktogglefullscreenaction_customevent_callback = reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToggleFullScreenAction_ConnectNotify(KToggleFullScreenAction* self, const QMetaMethod* signal) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
+    if (vktogglefullscreenaction) {
         vktogglefullscreenaction->connectNotify(*signal);
     } else {
-        ((VirtualKToggleFullScreenAction*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KToggleFullScreenAction::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToggleFullScreenAction_SuperConnectNotify(KToggleFullScreenAction* self, const QMetaMethod* signal) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_ConnectNotify_IsBase(true);
-        vktogglefullscreenaction->connectNotify(*signal);
-    } else {
-        ((VirtualKToggleFullScreenAction*)self)->connectNotify(*signal);
-    }
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self)) {
+        vktogglefullscreenaction->KToggleFullScreenAction::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KToggleFullScreenAction::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleFullScreenAction_OnConnectNotify(KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_ConnectNotify_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_ConnectNotify_Callback>(slot));
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self))
+        vktogglefullscreenaction->ktogglefullscreenaction_connectnotify_callback = reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToggleFullScreenAction_DisconnectNotify(KToggleFullScreenAction* self, const QMetaMethod* signal) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
+    if (vktogglefullscreenaction) {
         vktogglefullscreenaction->disconnectNotify(*signal);
     } else {
-        ((VirtualKToggleFullScreenAction*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KToggleFullScreenAction::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToggleFullScreenAction_SuperDisconnectNotify(KToggleFullScreenAction* self, const QMetaMethod* signal) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_DisconnectNotify_IsBase(true);
-        vktogglefullscreenaction->disconnectNotify(*signal);
-    } else {
-        ((VirtualKToggleFullScreenAction*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self)) {
+        vktogglefullscreenaction->KToggleFullScreenAction::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KToggleFullScreenAction::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleFullScreenAction_OnDisconnectNotify(KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_DisconnectNotify_Callback>(slot));
+    if (auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self))
+        vktogglefullscreenaction->ktogglefullscreenaction_disconnectnotify_callback = reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KToggleFullScreenAction_Sender(const KToggleFullScreenAction* self) {
-    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        return vktogglefullscreenaction->sender();
-    } else {
-        return ((VirtualKToggleFullScreenAction*)self)->sender();
-    }
+    if (auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self))) {
+        return vktogglefullscreenaction->VirtualKToggleFullScreenAction::sender();
+    } else
+        qFatal("Error: Protected method KToggleFullScreenAction::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KToggleFullScreenAction_SuperSender(const KToggleFullScreenAction* self) {
-    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_Sender_IsBase(true);
-        return vktogglefullscreenaction->sender();
-    } else {
-        return ((VirtualKToggleFullScreenAction*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToggleFullScreenAction_OnSender(const KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_Sender_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KToggleFullScreenAction_SenderSignalIndex(const KToggleFullScreenAction* self) {
-    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        return vktogglefullscreenaction->senderSignalIndex();
-    } else {
-        return ((VirtualKToggleFullScreenAction*)self)->senderSignalIndex();
-    }
+    if (auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self))) {
+        return vktogglefullscreenaction->VirtualKToggleFullScreenAction::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KToggleFullScreenAction::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KToggleFullScreenAction_SuperSenderSignalIndex(const KToggleFullScreenAction* self) {
-    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_SenderSignalIndex_IsBase(true);
-        return vktogglefullscreenaction->senderSignalIndex();
-    } else {
-        return ((VirtualKToggleFullScreenAction*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToggleFullScreenAction_OnSenderSignalIndex(const KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KToggleFullScreenAction_Receivers(const KToggleFullScreenAction* self, const char* signal) {
-    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        return vktogglefullscreenaction->receivers(signal);
-    } else {
-        return ((VirtualKToggleFullScreenAction*)self)->receivers(signal);
-    }
+    if (auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self))) {
+        return vktogglefullscreenaction->VirtualKToggleFullScreenAction::receivers(signal);
+    } else
+        qFatal("Error: Protected method KToggleFullScreenAction::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KToggleFullScreenAction_SuperReceivers(const KToggleFullScreenAction* self, const char* signal) {
-    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_Receivers_IsBase(true);
-        return vktogglefullscreenaction->receivers(signal);
-    } else {
-        return ((VirtualKToggleFullScreenAction*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToggleFullScreenAction_OnReceivers(const KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_Receivers_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KToggleFullScreenAction_IsSignalConnected(const KToggleFullScreenAction* self, const QMetaMethod* signal) {
-    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        return vktogglefullscreenaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKToggleFullScreenAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KToggleFullScreenAction_SuperIsSignalConnected(const KToggleFullScreenAction* self, const QMetaMethod* signal) {
-    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
-        vktogglefullscreenaction->setKToggleFullScreenAction_IsSignalConnected_IsBase(true);
-        return vktogglefullscreenaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKToggleFullScreenAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToggleFullScreenAction_OnIsSignalConnected(const KToggleFullScreenAction* self, intptr_t slot) {
-    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
-    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction)
-        vktogglefullscreenaction->setKToggleFullScreenAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_IsSignalConnected_Callback>(slot));
+    if (auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self))) {
+        return vktogglefullscreenaction->VirtualKToggleFullScreenAction::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KToggleFullScreenAction::isSignalConnected called without a directly constructed type");
 }
 
 void KToggleFullScreenAction_Delete(KToggleFullScreenAction* self) {

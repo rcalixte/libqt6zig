@@ -304,1751 +304,908 @@ void KDirModel_OpenUrl2(KDirModel* self, const QUrl* url, int flags) {
 
 // Base class handler implementation
 QMetaObject* KDirModel_SuperMetaObject(const KDirModel* self) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_MetaObject_IsBase(true);
-        return (QMetaObject*)vkdirmodel->metaObject();
-    } else {
-        return (QMetaObject*)self->KDirModel::metaObject();
-    }
+    return (QMetaObject*)self->KDirModel::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnMetaObject(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_MetaObject_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_MetaObject_Callback>(slot));
+void KDirModel_OnMetaObject(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_metaobject_callback = reinterpret_cast<VirtualKDirModel::KDirModel_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KDirModel_SuperMetacast(KDirModel* self, const char* param1) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Metacast_IsBase(true);
-        return vkdirmodel->qt_metacast(param1);
-    } else {
-        return self->KDirModel::qt_metacast(param1);
-    }
+    return self->KDirModel::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnMetacast(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Metacast_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Metacast_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_metacast_callback = reinterpret_cast<VirtualKDirModel::KDirModel_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KDirModel_SuperMetacall(KDirModel* self, int param1, int param2, void** param3) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Metacall_IsBase(true);
-        return vkdirmodel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KDirModel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KDirModel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnMetacall(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Metacall_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Metacall_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_metacall_callback = reinterpret_cast<VirtualKDirModel::KDirModel_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KDirModel_SuperCanFetchMore(const KDirModel* self, const QModelIndex* parent) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_CanFetchMore_IsBase(true);
-        return vkdirmodel->canFetchMore(*parent);
-    } else {
-        return self->KDirModel::canFetchMore(*parent);
-    }
+    return self->KDirModel::canFetchMore(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnCanFetchMore(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_CanFetchMore_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_CanFetchMore_Callback>(slot));
+void KDirModel_OnCanFetchMore(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_canfetchmore_callback = reinterpret_cast<VirtualKDirModel::KDirModel_CanFetchMore_Callback>(slot);
 }
 
 // Base class handler implementation
 int KDirModel_SuperColumnCount(const KDirModel* self, const QModelIndex* parent) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_ColumnCount_IsBase(true);
-        return vkdirmodel->columnCount(*parent);
-    } else {
-        return self->KDirModel::columnCount(*parent);
-    }
+    return self->KDirModel::columnCount(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnColumnCount(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_ColumnCount_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_ColumnCount_Callback>(slot));
+void KDirModel_OnColumnCount(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_columncount_callback = reinterpret_cast<VirtualKDirModel::KDirModel_ColumnCount_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* KDirModel_SuperData(const KDirModel* self, const QModelIndex* index, int role) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Data_IsBase(true);
-        return new QVariant(vkdirmodel->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKDirModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->KDirModel::data(*index, static_cast<int>(role)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnData(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Data_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Data_Callback>(slot));
+void KDirModel_OnData(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_data_callback = reinterpret_cast<VirtualKDirModel::KDirModel_Data_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KDirModel_SuperDropMimeData(KDirModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_DropMimeData_IsBase(true);
-        return vkdirmodel->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->KDirModel::dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->KDirModel::dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnDropMimeData(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_DropMimeData_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_DropMimeData_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_dropmimedata_callback = reinterpret_cast<VirtualKDirModel::KDirModel_DropMimeData_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirModel_SuperFetchMore(KDirModel* self, const QModelIndex* parent) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_FetchMore_IsBase(true);
-        vkdirmodel->fetchMore(*parent);
-    } else {
-        self->KDirModel::fetchMore(*parent);
-    }
+    self->KDirModel::fetchMore(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnFetchMore(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_FetchMore_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_FetchMore_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_fetchmore_callback = reinterpret_cast<VirtualKDirModel::KDirModel_FetchMore_Callback>(slot);
 }
 
 // Base class handler implementation
 int KDirModel_SuperFlags(const KDirModel* self, const QModelIndex* index) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Flags_IsBase(true);
-        return static_cast<int>(vkdirmodel->flags(*index));
-    } else {
-        return static_cast<int>(self->KDirModel::flags(*index));
-    }
+    return static_cast<int>(self->KDirModel::flags(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnFlags(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Flags_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Flags_Callback>(slot));
+void KDirModel_OnFlags(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_flags_callback = reinterpret_cast<VirtualKDirModel::KDirModel_Flags_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KDirModel_SuperHasChildren(const KDirModel* self, const QModelIndex* parent) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_HasChildren_IsBase(true);
-        return vkdirmodel->hasChildren(*parent);
-    } else {
-        return self->KDirModel::hasChildren(*parent);
-    }
+    return self->KDirModel::hasChildren(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnHasChildren(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_HasChildren_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_HasChildren_Callback>(slot));
+void KDirModel_OnHasChildren(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_haschildren_callback = reinterpret_cast<VirtualKDirModel::KDirModel_HasChildren_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* KDirModel_SuperHeaderData(const KDirModel* self, int section, int orientation, int role) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_HeaderData_IsBase(true);
-        return new QVariant(vkdirmodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKDirModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->KDirModel::headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnHeaderData(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_HeaderData_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_HeaderData_Callback>(slot));
+void KDirModel_OnHeaderData(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_headerdata_callback = reinterpret_cast<VirtualKDirModel::KDirModel_HeaderData_Callback>(slot);
 }
 
 // Base class handler implementation
 QModelIndex* KDirModel_SuperIndex(const KDirModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Index_IsBase(true);
-        return new QModelIndex(vkdirmodel->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualKDirModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->KDirModel::index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnIndex(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Index_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Index_Callback>(slot));
+void KDirModel_OnIndex(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_index_callback = reinterpret_cast<VirtualKDirModel::KDirModel_Index_Callback>(slot);
 }
 
 // Base class handler implementation
 QMimeData* KDirModel_SuperMimeData(const KDirModel* self, const libqt_list /* of QModelIndex* */ indexes) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
         indexes_QList.push_back(*(indexes_arr[i]));
     }
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_MimeData_IsBase(true);
-        return vkdirmodel->mimeData(indexes_QList);
-    } else {
-        return self->KDirModel::mimeData(indexes_QList);
-    }
+    return self->KDirModel::mimeData(indexes_QList);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnMimeData(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_MimeData_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_MimeData_Callback>(slot));
+void KDirModel_OnMimeData(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_mimedata_callback = reinterpret_cast<VirtualKDirModel::KDirModel_MimeData_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ KDirModel_SuperMimeTypes(const KDirModel* self) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_MimeTypes_IsBase(true);
-        QList<QString> _ret = vkdirmodel->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->KDirModel::mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->KDirModel::mimeTypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnMimeTypes(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_MimeTypes_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_MimeTypes_Callback>(slot));
+void KDirModel_OnMimeTypes(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_mimetypes_callback = reinterpret_cast<VirtualKDirModel::KDirModel_MimeTypes_Callback>(slot);
 }
 
 // Base class handler implementation
 QModelIndex* KDirModel_SuperParent(const KDirModel* self, const QModelIndex* index) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Parent_IsBase(true);
-        return new QModelIndex(vkdirmodel->parent(*index));
-    } else {
-        return new QModelIndex(((VirtualKDirModel*)self)->parent(*index));
-    }
+    return new QModelIndex(self->KDirModel::parent(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnParent(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Parent_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Parent_Callback>(slot));
+void KDirModel_OnParent(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_parent_callback = reinterpret_cast<VirtualKDirModel::KDirModel_Parent_Callback>(slot);
 }
 
 // Base class handler implementation
 QModelIndex* KDirModel_SuperSibling(const KDirModel* self, int row, int column, const QModelIndex* index) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Sibling_IsBase(true);
-        return new QModelIndex(vkdirmodel->sibling(static_cast<int>(row), static_cast<int>(column), *index));
-    } else {
-        return new QModelIndex(((VirtualKDirModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *index));
-    }
+    return new QModelIndex(self->KDirModel::sibling(static_cast<int>(row), static_cast<int>(column), *index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnSibling(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Sibling_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Sibling_Callback>(slot));
+void KDirModel_OnSibling(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_sibling_callback = reinterpret_cast<VirtualKDirModel::KDirModel_Sibling_Callback>(slot);
 }
 
 // Base class handler implementation
 int KDirModel_SuperRowCount(const KDirModel* self, const QModelIndex* parent) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_RowCount_IsBase(true);
-        return vkdirmodel->rowCount(*parent);
-    } else {
-        return self->KDirModel::rowCount(*parent);
-    }
+    return self->KDirModel::rowCount(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnRowCount(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_RowCount_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_RowCount_Callback>(slot));
+void KDirModel_OnRowCount(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_rowcount_callback = reinterpret_cast<VirtualKDirModel::KDirModel_RowCount_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KDirModel_SuperSetData(KDirModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_SetData_IsBase(true);
-        return vkdirmodel->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return self->KDirModel::setData(*index, *value, static_cast<int>(role));
-    }
+    return self->KDirModel::setData(*index, *value, static_cast<int>(role));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnSetData(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_SetData_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_SetData_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_setdata_callback = reinterpret_cast<VirtualKDirModel::KDirModel_SetData_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirModel_SuperSort(KDirModel* self, int column, int order) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Sort_IsBase(true);
-        vkdirmodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        self->KDirModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
+    self->KDirModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnSort(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Sort_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Sort_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_sort_callback = reinterpret_cast<VirtualKDirModel::KDirModel_Sort_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_map /* of int to libqt_string */ KDirModel_SuperRoleNames(const KDirModel* self) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_RoleNames_IsBase(true);
-        QHash<int, QByteArray> _ret = vkdirmodel->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = self->KDirModel::roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->KDirModel::roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnRoleNames(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_RoleNames_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_RoleNames_Callback>(slot));
+void KDirModel_OnRoleNames(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_rolenames_callback = reinterpret_cast<VirtualKDirModel::KDirModel_RoleNames_Callback>(slot);
 }
 
 // Base class handler implementation
 int KDirModel_SuperSupportedDropActions(const KDirModel* self) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_SupportedDropActions_IsBase(true);
-        return static_cast<int>(vkdirmodel->supportedDropActions());
-    } else {
-        return static_cast<int>(self->KDirModel::supportedDropActions());
-    }
+    return static_cast<int>(self->KDirModel::supportedDropActions());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnSupportedDropActions(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_SupportedDropActions_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_SupportedDropActions_Callback>(slot));
+void KDirModel_OnSupportedDropActions(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_supporteddropactions_callback = reinterpret_cast<VirtualKDirModel::KDirModel_SupportedDropActions_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirModel_SetHeaderData(KDirModel* self, int section, int orientation, const QVariant* value, int role) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    } else {
-        return self->KDirModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    }
+    return self->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
 }
 
 // Base class handler implementation
 bool KDirModel_SuperSetHeaderData(KDirModel* self, int section, int orientation, const QVariant* value, int role) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_SetHeaderData_IsBase(true);
-        return vkdirmodel->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    } else {
-        return self->KDirModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    }
+    return self->KDirModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnSetHeaderData(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_SetHeaderData_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_SetHeaderData_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_setheaderdata_callback = reinterpret_cast<VirtualKDirModel::KDirModel_SetHeaderData_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_map /* of int to QVariant* */ KDirModel_ItemData(const KDirModel* self, const QModelIndex* index) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        QMap<int, QVariant> _ret = vkdirmodel->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<int, QVariant> _ret = self->KDirModel::itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QMap<int, QVariant> _ret = self->itemData(*index);
+    // Convert QMap<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        _varr[_ctr] = new QVariant(_itr->second);
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_map /* of int to QVariant* */ KDirModel_SuperItemData(const KDirModel* self, const QModelIndex* index) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_ItemData_IsBase(true);
-        QMap<int, QVariant> _ret = vkdirmodel->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<int, QVariant> _ret = self->KDirModel::itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QMap<int, QVariant> _ret = self->KDirModel::itemData(*index);
+    // Convert QMap<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        _varr[_ctr] = new QVariant(_itr->second);
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnItemData(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_ItemData_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_ItemData_Callback>(slot));
+void KDirModel_OnItemData(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_itemdata_callback = reinterpret_cast<VirtualKDirModel::KDirModel_ItemData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirModel_SetItemData(KDirModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->setItemData(*index, roles_QMap);
-    } else {
-        return self->KDirModel::setItemData(*index, roles_QMap);
-    }
+    return self->setItemData(*index, roles_QMap);
 }
 
 // Base class handler implementation
 bool KDirModel_SuperSetItemData(KDirModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_SetItemData_IsBase(true);
-        return vkdirmodel->setItemData(*index, roles_QMap);
-    } else {
-        return self->KDirModel::setItemData(*index, roles_QMap);
-    }
+    return self->KDirModel::setItemData(*index, roles_QMap);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnSetItemData(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_SetItemData_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_SetItemData_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_setitemdata_callback = reinterpret_cast<VirtualKDirModel::KDirModel_SetItemData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirModel_ClearItemData(KDirModel* self, const QModelIndex* index) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->clearItemData(*index);
-    } else {
-        return self->KDirModel::clearItemData(*index);
-    }
+    return self->clearItemData(*index);
 }
 
 // Base class handler implementation
 bool KDirModel_SuperClearItemData(KDirModel* self, const QModelIndex* index) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_ClearItemData_IsBase(true);
-        return vkdirmodel->clearItemData(*index);
-    } else {
-        return self->KDirModel::clearItemData(*index);
-    }
+    return self->KDirModel::clearItemData(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnClearItemData(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_ClearItemData_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_ClearItemData_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_clearitemdata_callback = reinterpret_cast<VirtualKDirModel::KDirModel_ClearItemData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirModel_CanDropMimeData(const KDirModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->KDirModel::canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 // Base class handler implementation
 bool KDirModel_SuperCanDropMimeData(const KDirModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_CanDropMimeData_IsBase(true);
-        return vkdirmodel->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->KDirModel::canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->KDirModel::canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnCanDropMimeData(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_CanDropMimeData_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_CanDropMimeData_Callback>(slot));
+void KDirModel_OnCanDropMimeData(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_candropmimedata_callback = reinterpret_cast<VirtualKDirModel::KDirModel_CanDropMimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KDirModel_SupportedDragActions(const KDirModel* self) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return static_cast<int>(vkdirmodel->supportedDragActions());
-    } else {
-        return static_cast<int>(self->KDirModel::supportedDragActions());
-    }
+    return static_cast<int>(self->supportedDragActions());
 }
 
 // Base class handler implementation
 int KDirModel_SuperSupportedDragActions(const KDirModel* self) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_SupportedDragActions_IsBase(true);
-        return static_cast<int>(vkdirmodel->supportedDragActions());
-    } else {
-        return static_cast<int>(self->KDirModel::supportedDragActions());
-    }
+    return static_cast<int>(self->KDirModel::supportedDragActions());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnSupportedDragActions(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_SupportedDragActions_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_SupportedDragActions_Callback>(slot));
+void KDirModel_OnSupportedDragActions(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_supporteddragactions_callback = reinterpret_cast<VirtualKDirModel::KDirModel_SupportedDragActions_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirModel_MoveRows(KDirModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->KDirModel::moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Base class handler implementation
 bool KDirModel_SuperMoveRows(KDirModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_MoveRows_IsBase(true);
-        return vkdirmodel->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->KDirModel::moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->KDirModel::moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnMoveRows(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_MoveRows_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_MoveRows_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_moverows_callback = reinterpret_cast<VirtualKDirModel::KDirModel_MoveRows_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirModel_MoveColumns(KDirModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->KDirModel::moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Base class handler implementation
 bool KDirModel_SuperMoveColumns(KDirModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_MoveColumns_IsBase(true);
-        return vkdirmodel->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->KDirModel::moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->KDirModel::moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnMoveColumns(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_MoveColumns_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_MoveColumns_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_movecolumns_callback = reinterpret_cast<VirtualKDirModel::KDirModel_MoveColumns_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* KDirModel_Buddy(const KDirModel* self, const QModelIndex* index) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return new QModelIndex(vkdirmodel->buddy(*index));
-    } else {
-        return new QModelIndex(((VirtualKDirModel*)self)->buddy(*index));
-    }
+    return new QModelIndex(self->buddy(*index));
 }
 
 // Base class handler implementation
 QModelIndex* KDirModel_SuperBuddy(const KDirModel* self, const QModelIndex* index) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Buddy_IsBase(true);
-        return new QModelIndex(vkdirmodel->buddy(*index));
-    } else {
-        return new QModelIndex(((VirtualKDirModel*)self)->buddy(*index));
-    }
+    return new QModelIndex(self->KDirModel::buddy(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnBuddy(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Buddy_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Buddy_Callback>(slot));
+void KDirModel_OnBuddy(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_buddy_callback = reinterpret_cast<VirtualKDirModel::KDirModel_Buddy_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of QModelIndex* */ KDirModel_Match(const KDirModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        QList<QModelIndex> _ret = vkdirmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = self->KDirModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QModelIndex> _ret = self->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QModelIndex(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of QModelIndex* */ KDirModel_SuperMatch(const KDirModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Match_IsBase(true);
-        QList<QModelIndex> _ret = vkdirmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = self->KDirModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QModelIndex> _ret = self->KDirModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QModelIndex(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnMatch(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Match_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Match_Callback>(slot));
+void KDirModel_OnMatch(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_match_callback = reinterpret_cast<VirtualKDirModel::KDirModel_Match_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KDirModel_Span(const KDirModel* self, const QModelIndex* index) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return new QSize(vkdirmodel->span(*index));
-    } else {
-        return new QSize(((VirtualKDirModel*)self)->span(*index));
-    }
+    return new QSize(self->span(*index));
 }
 
 // Base class handler implementation
 QSize* KDirModel_SuperSpan(const KDirModel* self, const QModelIndex* index) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Span_IsBase(true);
-        return new QSize(vkdirmodel->span(*index));
-    } else {
-        return new QSize(((VirtualKDirModel*)self)->span(*index));
-    }
+    return new QSize(self->KDirModel::span(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnSpan(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Span_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Span_Callback>(slot));
+void KDirModel_OnSpan(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_span_callback = reinterpret_cast<VirtualKDirModel::KDirModel_Span_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirModel_MultiData(const KDirModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->multiData(*index, *roleDataSpan);
-    } else {
-        self->KDirModel::multiData(*index, *roleDataSpan);
-    }
+    self->multiData(*index, *roleDataSpan);
 }
 
 // Base class handler implementation
 void KDirModel_SuperMultiData(const KDirModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_MultiData_IsBase(true);
-        vkdirmodel->multiData(*index, *roleDataSpan);
-    } else {
-        self->KDirModel::multiData(*index, *roleDataSpan);
-    }
+    self->KDirModel::multiData(*index, *roleDataSpan);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirModel_OnMultiData(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_MultiData_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_MultiData_Callback>(slot));
+void KDirModel_OnMultiData(KDirModel* self, intptr_t slot) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
+        vkdirmodel->kdirmodel_multidata_callback = reinterpret_cast<VirtualKDirModel::KDirModel_MultiData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirModel_Submit(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->submit();
-    } else {
-        return self->KDirModel::submit();
-    }
+    return self->submit();
 }
 
 // Base class handler implementation
 bool KDirModel_SuperSubmit(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Submit_IsBase(true);
-        return vkdirmodel->submit();
-    } else {
-        return self->KDirModel::submit();
-    }
+    return self->KDirModel::submit();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnSubmit(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Submit_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Submit_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_submit_callback = reinterpret_cast<VirtualKDirModel::KDirModel_Submit_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirModel_Revert(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->revert();
-    } else {
-        self->KDirModel::revert();
-    }
+    self->revert();
 }
 
 // Base class handler implementation
 void KDirModel_SuperRevert(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Revert_IsBase(true);
-        vkdirmodel->revert();
-    } else {
-        self->KDirModel::revert();
-    }
+    self->KDirModel::revert();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnRevert(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Revert_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Revert_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_revert_callback = reinterpret_cast<VirtualKDirModel::KDirModel_Revert_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirModel_ResetInternalData(KDirModel* self) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
+    if (vkdirmodel) {
         vkdirmodel->resetInternalData();
     } else {
-        ((VirtualKDirModel*)self)->resetInternalData();
+        qFatal("Error: Protected virtual method KDirModel::resetInternalData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirModel_SuperResetInternalData(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_ResetInternalData_IsBase(true);
-        vkdirmodel->resetInternalData();
-    } else {
-        ((VirtualKDirModel*)self)->resetInternalData();
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->KDirModel::resetInternalData();
+    } else
+        qFatal("Error: Protected virtual method KDirModel::resetInternalData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnResetInternalData(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_ResetInternalData_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_ResetInternalData_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_resetinternaldata_callback = reinterpret_cast<VirtualKDirModel::KDirModel_ResetInternalData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirModel_Event(KDirModel* self, QEvent* event) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->event(event);
-    } else {
-        return self->KDirModel::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KDirModel_SuperEvent(KDirModel* self, QEvent* event) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Event_IsBase(true);
-        return vkdirmodel->event(event);
-    } else {
-        return self->KDirModel::event(event);
-    }
+    return self->KDirModel::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnEvent(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Event_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Event_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_event_callback = reinterpret_cast<VirtualKDirModel::KDirModel_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirModel_EventFilter(KDirModel* self, QObject* watched, QEvent* event) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->eventFilter(watched, event);
-    } else {
-        return self->KDirModel::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KDirModel_SuperEventFilter(KDirModel* self, QObject* watched, QEvent* event) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_EventFilter_IsBase(true);
-        return vkdirmodel->eventFilter(watched, event);
-    } else {
-        return self->KDirModel::eventFilter(watched, event);
-    }
+    return self->KDirModel::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnEventFilter(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_EventFilter_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_EventFilter_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_eventfilter_callback = reinterpret_cast<VirtualKDirModel::KDirModel_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirModel_TimerEvent(KDirModel* self, QTimerEvent* event) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
+    if (vkdirmodel) {
         vkdirmodel->timerEvent(event);
     } else {
-        ((VirtualKDirModel*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KDirModel::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirModel_SuperTimerEvent(KDirModel* self, QTimerEvent* event) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_TimerEvent_IsBase(true);
-        vkdirmodel->timerEvent(event);
-    } else {
-        ((VirtualKDirModel*)self)->timerEvent(event);
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->KDirModel::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirModel::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnTimerEvent(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_TimerEvent_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_TimerEvent_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_timerevent_callback = reinterpret_cast<VirtualKDirModel::KDirModel_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirModel_ChildEvent(KDirModel* self, QChildEvent* event) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
+    if (vkdirmodel) {
         vkdirmodel->childEvent(event);
     } else {
-        ((VirtualKDirModel*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KDirModel::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirModel_SuperChildEvent(KDirModel* self, QChildEvent* event) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_ChildEvent_IsBase(true);
-        vkdirmodel->childEvent(event);
-    } else {
-        ((VirtualKDirModel*)self)->childEvent(event);
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->KDirModel::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirModel::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnChildEvent(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_ChildEvent_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_ChildEvent_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_childevent_callback = reinterpret_cast<VirtualKDirModel::KDirModel_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirModel_CustomEvent(KDirModel* self, QEvent* event) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
+    if (vkdirmodel) {
         vkdirmodel->customEvent(event);
     } else {
-        ((VirtualKDirModel*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KDirModel::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirModel_SuperCustomEvent(KDirModel* self, QEvent* event) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_CustomEvent_IsBase(true);
-        vkdirmodel->customEvent(event);
-    } else {
-        ((VirtualKDirModel*)self)->customEvent(event);
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->KDirModel::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirModel::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnCustomEvent(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_CustomEvent_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_CustomEvent_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_customevent_callback = reinterpret_cast<VirtualKDirModel::KDirModel_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirModel_ConnectNotify(KDirModel* self, const QMetaMethod* signal) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
+    if (vkdirmodel) {
         vkdirmodel->connectNotify(*signal);
     } else {
-        ((VirtualKDirModel*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KDirModel::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirModel_SuperConnectNotify(KDirModel* self, const QMetaMethod* signal) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_ConnectNotify_IsBase(true);
-        vkdirmodel->connectNotify(*signal);
-    } else {
-        ((VirtualKDirModel*)self)->connectNotify(*signal);
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->KDirModel::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KDirModel::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnConnectNotify(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_ConnectNotify_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_ConnectNotify_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_connectnotify_callback = reinterpret_cast<VirtualKDirModel::KDirModel_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirModel_DisconnectNotify(KDirModel* self, const QMetaMethod* signal) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
+    if (vkdirmodel) {
         vkdirmodel->disconnectNotify(*signal);
     } else {
-        ((VirtualKDirModel*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KDirModel::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirModel_SuperDisconnectNotify(KDirModel* self, const QMetaMethod* signal) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_DisconnectNotify_IsBase(true);
-        vkdirmodel->disconnectNotify(*signal);
-    } else {
-        ((VirtualKDirModel*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->KDirModel::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KDirModel::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirModel_OnDisconnectNotify(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_DisconnectNotify_Callback>(slot));
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self))
+        vkdirmodel->kdirmodel_disconnectnotify_callback = reinterpret_cast<VirtualKDirModel::KDirModel_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* KDirModel_CreateIndex(const KDirModel* self, int row, int column) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self)))
         return new QModelIndex(vkdirmodel->createIndex(static_cast<int>(row), static_cast<int>(column)));
-    }
-    return {};
+    qFatal("Error: Protected method KDirModel::createIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-QModelIndex* KDirModel_SuperCreateIndex(const KDirModel* self, int row, int column) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_CreateIndex_IsBase(true);
-        return new QModelIndex(vkdirmodel->createIndex(static_cast<int>(row), static_cast<int>(column)));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnCreateIndex(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_CreateIndex_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_CreateIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_EncodeData(const KDirModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    QList<QModelIndex> indexes_QList;
-    indexes_QList.reserve(indexes.len);
-    QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
-    for (size_t i = 0; i < indexes.len; ++i) {
-        indexes_QList.push_back(*(indexes_arr[i]));
-    }
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->encodeData(indexes_QList, *stream);
-    } else {
-        ((VirtualKDirModel*)self)->encodeData(indexes_QList, *stream);
-    }
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self))) {
+        QList<QModelIndex> indexes_QList;
+        indexes_QList.reserve(indexes.len);
+        QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
+        for (size_t i = 0; i < indexes.len; ++i) {
+            indexes_QList.push_back(*(indexes_arr[i]));
+        }
+        vkdirmodel->VirtualKDirModel::encodeData(indexes_QList, *stream);
+    } else
+        qFatal("Error: Protected method KDirModel::encodeData called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperEncodeData(const KDirModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    QList<QModelIndex> indexes_QList;
-    indexes_QList.reserve(indexes.len);
-    QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
-    for (size_t i = 0; i < indexes.len; ++i) {
-        indexes_QList.push_back(*(indexes_arr[i]));
-    }
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_EncodeData_IsBase(true);
-        vkdirmodel->encodeData(indexes_QList, *stream);
-    } else {
-        ((VirtualKDirModel*)self)->encodeData(indexes_QList, *stream);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnEncodeData(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_EncodeData_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_EncodeData_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KDirModel_DecodeData(KDirModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    } else {
-        return ((VirtualKDirModel*)self)->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        return vkdirmodel->VirtualKDirModel::decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
+    } else
+        qFatal("Error: Protected method KDirModel::decodeData called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KDirModel_SuperDecodeData(KDirModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_DecodeData_IsBase(true);
-        return vkdirmodel->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    } else {
-        return ((VirtualKDirModel*)self)->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnDecodeData(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_DecodeData_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_DecodeData_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_BeginInsertRows(KDirModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKDirModel*)self)->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->VirtualKDirModel::beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method KDirModel::beginInsertRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperBeginInsertRows(KDirModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_BeginInsertRows_IsBase(true);
-        vkdirmodel->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKDirModel*)self)->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnBeginInsertRows(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_BeginInsertRows_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_BeginInsertRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_EndInsertRows(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->endInsertRows();
-    } else {
-        ((VirtualKDirModel*)self)->endInsertRows();
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->VirtualKDirModel::endInsertRows();
+    } else
+        qFatal("Error: Protected method KDirModel::endInsertRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperEndInsertRows(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_EndInsertRows_IsBase(true);
-        vkdirmodel->endInsertRows();
-    } else {
-        ((VirtualKDirModel*)self)->endInsertRows();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnEndInsertRows(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_EndInsertRows_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_EndInsertRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_BeginRemoveRows(KDirModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKDirModel*)self)->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->VirtualKDirModel::beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method KDirModel::beginRemoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperBeginRemoveRows(KDirModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_BeginRemoveRows_IsBase(true);
-        vkdirmodel->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKDirModel*)self)->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnBeginRemoveRows(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_BeginRemoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_EndRemoveRows(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->endRemoveRows();
-    } else {
-        ((VirtualKDirModel*)self)->endRemoveRows();
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->VirtualKDirModel::endRemoveRows();
+    } else
+        qFatal("Error: Protected method KDirModel::endRemoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperEndRemoveRows(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_EndRemoveRows_IsBase(true);
-        vkdirmodel->endRemoveRows();
-    } else {
-        ((VirtualKDirModel*)self)->endRemoveRows();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnEndRemoveRows(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_EndRemoveRows_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_EndRemoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KDirModel_BeginMoveRows(KDirModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    } else {
-        return ((VirtualKDirModel*)self)->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        return vkdirmodel->VirtualKDirModel::beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
+    } else
+        qFatal("Error: Protected method KDirModel::beginMoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KDirModel_SuperBeginMoveRows(KDirModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_BeginMoveRows_IsBase(true);
-        return vkdirmodel->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    } else {
-        return ((VirtualKDirModel*)self)->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnBeginMoveRows(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_BeginMoveRows_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_BeginMoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_EndMoveRows(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->endMoveRows();
-    } else {
-        ((VirtualKDirModel*)self)->endMoveRows();
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->VirtualKDirModel::endMoveRows();
+    } else
+        qFatal("Error: Protected method KDirModel::endMoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperEndMoveRows(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_EndMoveRows_IsBase(true);
-        vkdirmodel->endMoveRows();
-    } else {
-        ((VirtualKDirModel*)self)->endMoveRows();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnEndMoveRows(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_EndMoveRows_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_EndMoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_BeginInsertColumns(KDirModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKDirModel*)self)->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->VirtualKDirModel::beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method KDirModel::beginInsertColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperBeginInsertColumns(KDirModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_BeginInsertColumns_IsBase(true);
-        vkdirmodel->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKDirModel*)self)->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnBeginInsertColumns(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_BeginInsertColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_EndInsertColumns(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->endInsertColumns();
-    } else {
-        ((VirtualKDirModel*)self)->endInsertColumns();
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->VirtualKDirModel::endInsertColumns();
+    } else
+        qFatal("Error: Protected method KDirModel::endInsertColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperEndInsertColumns(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_EndInsertColumns_IsBase(true);
-        vkdirmodel->endInsertColumns();
-    } else {
-        ((VirtualKDirModel*)self)->endInsertColumns();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnEndInsertColumns(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_EndInsertColumns_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_EndInsertColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_BeginRemoveColumns(KDirModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKDirModel*)self)->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->VirtualKDirModel::beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method KDirModel::beginRemoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperBeginRemoveColumns(KDirModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_BeginRemoveColumns_IsBase(true);
-        vkdirmodel->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKDirModel*)self)->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnBeginRemoveColumns(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_BeginRemoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_EndRemoveColumns(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->endRemoveColumns();
-    } else {
-        ((VirtualKDirModel*)self)->endRemoveColumns();
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->VirtualKDirModel::endRemoveColumns();
+    } else
+        qFatal("Error: Protected method KDirModel::endRemoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperEndRemoveColumns(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_EndRemoveColumns_IsBase(true);
-        vkdirmodel->endRemoveColumns();
-    } else {
-        ((VirtualKDirModel*)self)->endRemoveColumns();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnEndRemoveColumns(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_EndRemoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KDirModel_BeginMoveColumns(KDirModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    } else {
-        return ((VirtualKDirModel*)self)->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        return vkdirmodel->VirtualKDirModel::beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
+    } else
+        qFatal("Error: Protected method KDirModel::beginMoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KDirModel_SuperBeginMoveColumns(KDirModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_BeginMoveColumns_IsBase(true);
-        return vkdirmodel->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    } else {
-        return ((VirtualKDirModel*)self)->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnBeginMoveColumns(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_BeginMoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_EndMoveColumns(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->endMoveColumns();
-    } else {
-        ((VirtualKDirModel*)self)->endMoveColumns();
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->VirtualKDirModel::endMoveColumns();
+    } else
+        qFatal("Error: Protected method KDirModel::endMoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperEndMoveColumns(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_EndMoveColumns_IsBase(true);
-        vkdirmodel->endMoveColumns();
-    } else {
-        ((VirtualKDirModel*)self)->endMoveColumns();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnEndMoveColumns(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_EndMoveColumns_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_EndMoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_BeginResetModel(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->beginResetModel();
-    } else {
-        ((VirtualKDirModel*)self)->beginResetModel();
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->VirtualKDirModel::beginResetModel();
+    } else
+        qFatal("Error: Protected method KDirModel::beginResetModel called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperBeginResetModel(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_BeginResetModel_IsBase(true);
-        vkdirmodel->beginResetModel();
-    } else {
-        ((VirtualKDirModel*)self)->beginResetModel();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnBeginResetModel(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_BeginResetModel_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_BeginResetModel_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_EndResetModel(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->endResetModel();
-    } else {
-        ((VirtualKDirModel*)self)->endResetModel();
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->VirtualKDirModel::endResetModel();
+    } else
+        qFatal("Error: Protected method KDirModel::endResetModel called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperEndResetModel(KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_EndResetModel_IsBase(true);
-        vkdirmodel->endResetModel();
-    } else {
-        ((VirtualKDirModel*)self)->endResetModel();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnEndResetModel(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_EndResetModel_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_EndResetModel_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_ChangePersistentIndex(KDirModel* self, const QModelIndex* from, const QModelIndex* to) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->changePersistentIndex(*from, *to);
-    } else {
-        ((VirtualKDirModel*)self)->changePersistentIndex(*from, *to);
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        vkdirmodel->VirtualKDirModel::changePersistentIndex(*from, *to);
+    } else
+        qFatal("Error: Protected method KDirModel::changePersistentIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperChangePersistentIndex(KDirModel* self, const QModelIndex* from, const QModelIndex* to) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_ChangePersistentIndex_IsBase(true);
-        vkdirmodel->changePersistentIndex(*from, *to);
-    } else {
-        ((VirtualKDirModel*)self)->changePersistentIndex(*from, *to);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnChangePersistentIndex(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_ChangePersistentIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirModel_ChangePersistentIndexList(KDirModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    QList<QModelIndex> from_QList;
-    from_QList.reserve(from.len);
-    QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
-    for (size_t i = 0; i < from.len; ++i) {
-        from_QList.push_back(*(from_arr[i]));
-    }
-    QList<QModelIndex> to_QList;
-    to_QList.reserve(to.len);
-    QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
-    for (size_t i = 0; i < to.len; ++i) {
-        to_QList.push_back(*(to_arr[i]));
-    }
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->changePersistentIndexList(from_QList, to_QList);
-    } else {
-        ((VirtualKDirModel*)self)->changePersistentIndexList(from_QList, to_QList);
-    }
+    if (auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self)) {
+        QList<QModelIndex> from_QList;
+        from_QList.reserve(from.len);
+        QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
+        for (size_t i = 0; i < from.len; ++i) {
+            from_QList.push_back(*(from_arr[i]));
+        }
+        QList<QModelIndex> to_QList;
+        to_QList.reserve(to.len);
+        QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
+        for (size_t i = 0; i < to.len; ++i) {
+            to_QList.push_back(*(to_arr[i]));
+        }
+        vkdirmodel->VirtualKDirModel::changePersistentIndexList(from_QList, to_QList);
+    } else
+        qFatal("Error: Protected method KDirModel::changePersistentIndexList called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirModel_SuperChangePersistentIndexList(KDirModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    QList<QModelIndex> from_QList;
-    from_QList.reserve(from.len);
-    QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
-    for (size_t i = 0; i < from.len; ++i) {
-        from_QList.push_back(*(from_arr[i]));
-    }
-    QList<QModelIndex> to_QList;
-    to_QList.reserve(to.len);
-    QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
-    for (size_t i = 0; i < to.len; ++i) {
-        to_QList.push_back(*(to_arr[i]));
-    }
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_ChangePersistentIndexList_IsBase(true);
-        vkdirmodel->changePersistentIndexList(from_QList, to_QList);
-    } else {
-        ((VirtualKDirModel*)self)->changePersistentIndexList(from_QList, to_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnChangePersistentIndexList(KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_ChangePersistentIndexList_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of QModelIndex* */ KDirModel_PersistentIndexList(const KDirModel* self) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        QList<QModelIndex> _ret = vkdirmodel->persistentIndexList();
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self))) {
+        QList<QModelIndex> _ret = vkdirmodel->VirtualKDirModel::persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -2058,166 +1215,40 @@ libqt_list /* of QModelIndex* */ KDirModel_PersistentIndexList(const KDirModel* 
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualKDirModel*)self)->persistentIndexList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KDirModel::persistentIndexList called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of QModelIndex* */ KDirModel_SuperPersistentIndexList(const KDirModel* self) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_PersistentIndexList_IsBase(true);
-        QList<QModelIndex> _ret = vkdirmodel->persistentIndexList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualKDirModel*)self)->persistentIndexList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnPersistentIndexList(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_PersistentIndexList_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_PersistentIndexList_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KDirModel_Sender(const KDirModel* self) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->sender();
-    } else {
-        return ((VirtualKDirModel*)self)->sender();
-    }
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self))) {
+        return vkdirmodel->VirtualKDirModel::sender();
+    } else
+        qFatal("Error: Protected method KDirModel::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KDirModel_SuperSender(const KDirModel* self) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Sender_IsBase(true);
-        return vkdirmodel->sender();
-    } else {
-        return ((VirtualKDirModel*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnSender(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Sender_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KDirModel_SenderSignalIndex(const KDirModel* self) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->senderSignalIndex();
-    } else {
-        return ((VirtualKDirModel*)self)->senderSignalIndex();
-    }
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self))) {
+        return vkdirmodel->VirtualKDirModel::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KDirModel::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KDirModel_SuperSenderSignalIndex(const KDirModel* self) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_SenderSignalIndex_IsBase(true);
-        return vkdirmodel->senderSignalIndex();
-    } else {
-        return ((VirtualKDirModel*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnSenderSignalIndex(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KDirModel_Receivers(const KDirModel* self, const char* signal) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->receivers(signal);
-    } else {
-        return ((VirtualKDirModel*)self)->receivers(signal);
-    }
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self))) {
+        return vkdirmodel->VirtualKDirModel::receivers(signal);
+    } else
+        qFatal("Error: Protected method KDirModel::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KDirModel_SuperReceivers(const KDirModel* self, const char* signal) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_Receivers_IsBase(true);
-        return vkdirmodel->receivers(signal);
-    } else {
-        return ((VirtualKDirModel*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnReceivers(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_Receivers_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KDirModel_IsSignalConnected(const KDirModel* self, const QMetaMethod* signal) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return vkdirmodel->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKDirModel*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KDirModel_SuperIsSignalConnected(const KDirModel* self, const QMetaMethod* signal) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        vkdirmodel->setKDirModel_IsSignalConnected_IsBase(true);
-        return vkdirmodel->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKDirModel*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirModel_OnIsSignalConnected(const KDirModel* self, intptr_t slot) {
-    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel)
-        vkdirmodel->setKDirModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_IsSignalConnected_Callback>(slot));
+    if (auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self))) {
+        return vkdirmodel->VirtualKDirModel::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KDirModel::isSignalConnected called without a directly constructed type");
 }
 
 void KDirModel_Delete(KDirModel* self) {

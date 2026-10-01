@@ -35,7 +35,7 @@ bool QObjectCleanupHandler_IsEmpty(const QObjectCleanupHandler* self);
 void QObjectCleanupHandler_Clear(QObjectCleanupHandler* self);
 libqt_string QObjectCleanupHandler_Tr2(const char* s, const char* c);
 libqt_string QObjectCleanupHandler_Tr3(const char* s, const char* c, int n);
-void QObjectCleanupHandler_OnMetaObject(const QObjectCleanupHandler* self, intptr_t slot);
+void QObjectCleanupHandler_OnMetaObject(QObjectCleanupHandler* self, intptr_t slot);
 QMetaObject* QObjectCleanupHandler_SuperMetaObject(const QObjectCleanupHandler* self);
 void QObjectCleanupHandler_OnMetacast(QObjectCleanupHandler* self, intptr_t slot);
 void* QObjectCleanupHandler_SuperMetacast(QObjectCleanupHandler* self, const char* param1);
@@ -63,17 +63,9 @@ void QObjectCleanupHandler_DisconnectNotify(QObjectCleanupHandler* self, const Q
 void QObjectCleanupHandler_OnDisconnectNotify(QObjectCleanupHandler* self, intptr_t slot);
 void QObjectCleanupHandler_SuperDisconnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal);
 QObject* QObjectCleanupHandler_Sender(const QObjectCleanupHandler* self);
-void QObjectCleanupHandler_OnSender(const QObjectCleanupHandler* self, intptr_t slot);
-QObject* QObjectCleanupHandler_SuperSender(const QObjectCleanupHandler* self);
 int QObjectCleanupHandler_SenderSignalIndex(const QObjectCleanupHandler* self);
-void QObjectCleanupHandler_OnSenderSignalIndex(const QObjectCleanupHandler* self, intptr_t slot);
-int QObjectCleanupHandler_SuperSenderSignalIndex(const QObjectCleanupHandler* self);
 int QObjectCleanupHandler_Receivers(const QObjectCleanupHandler* self, const char* signal);
-void QObjectCleanupHandler_OnReceivers(const QObjectCleanupHandler* self, intptr_t slot);
-int QObjectCleanupHandler_SuperReceivers(const QObjectCleanupHandler* self, const char* signal);
 bool QObjectCleanupHandler_IsSignalConnected(const QObjectCleanupHandler* self, const QMetaMethod* signal);
-void QObjectCleanupHandler_OnIsSignalConnected(const QObjectCleanupHandler* self, intptr_t slot);
-bool QObjectCleanupHandler_SuperIsSignalConnected(const QObjectCleanupHandler* self, const QMetaMethod* signal);
 void QObjectCleanupHandler_Delete(QObjectCleanupHandler* self);
 
 #ifdef __cplusplus

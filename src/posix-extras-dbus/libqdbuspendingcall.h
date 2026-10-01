@@ -54,7 +54,7 @@ libqt_string QDBusPendingCallWatcher_Tr2(const char* s, const char* c);
 libqt_string QDBusPendingCallWatcher_Tr3(const char* s, const char* c, int n);
 void QDBusPendingCallWatcher_Finished1(QDBusPendingCallWatcher* self, QDBusPendingCallWatcher* selfVal);
 void QDBusPendingCallWatcher_Connect_Finished1(QDBusPendingCallWatcher* self, intptr_t slot);
-void QDBusPendingCallWatcher_OnMetaObject(const QDBusPendingCallWatcher* self, intptr_t slot);
+void QDBusPendingCallWatcher_OnMetaObject(QDBusPendingCallWatcher* self, intptr_t slot);
 QMetaObject* QDBusPendingCallWatcher_SuperMetaObject(const QDBusPendingCallWatcher* self);
 void QDBusPendingCallWatcher_OnMetacast(QDBusPendingCallWatcher* self, intptr_t slot);
 void* QDBusPendingCallWatcher_SuperMetacast(QDBusPendingCallWatcher* self, const char* param1);
@@ -82,17 +82,9 @@ void QDBusPendingCallWatcher_DisconnectNotify(QDBusPendingCallWatcher* self, con
 void QDBusPendingCallWatcher_OnDisconnectNotify(QDBusPendingCallWatcher* self, intptr_t slot);
 void QDBusPendingCallWatcher_SuperDisconnectNotify(QDBusPendingCallWatcher* self, const QMetaMethod* signal);
 QObject* QDBusPendingCallWatcher_Sender(const QDBusPendingCallWatcher* self);
-void QDBusPendingCallWatcher_OnSender(const QDBusPendingCallWatcher* self, intptr_t slot);
-QObject* QDBusPendingCallWatcher_SuperSender(const QDBusPendingCallWatcher* self);
 int QDBusPendingCallWatcher_SenderSignalIndex(const QDBusPendingCallWatcher* self);
-void QDBusPendingCallWatcher_OnSenderSignalIndex(const QDBusPendingCallWatcher* self, intptr_t slot);
-int QDBusPendingCallWatcher_SuperSenderSignalIndex(const QDBusPendingCallWatcher* self);
 int QDBusPendingCallWatcher_Receivers(const QDBusPendingCallWatcher* self, const char* signal);
-void QDBusPendingCallWatcher_OnReceivers(const QDBusPendingCallWatcher* self, intptr_t slot);
-int QDBusPendingCallWatcher_SuperReceivers(const QDBusPendingCallWatcher* self, const char* signal);
 bool QDBusPendingCallWatcher_IsSignalConnected(const QDBusPendingCallWatcher* self, const QMetaMethod* signal);
-void QDBusPendingCallWatcher_OnIsSignalConnected(const QDBusPendingCallWatcher* self, intptr_t slot);
-bool QDBusPendingCallWatcher_SuperIsSignalConnected(const QDBusPendingCallWatcher* self, const QMetaMethod* signal);
 void QDBusPendingCallWatcher_Delete(QDBusPendingCallWatcher* self);
 
 #ifdef __cplusplus

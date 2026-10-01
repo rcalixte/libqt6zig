@@ -84,1281 +84,760 @@ libqt_string QsciLexerOctave_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QsciLexerOctave_SuperMetaObject(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_MetaObject_IsBase(true);
-        return (QMetaObject*)vqscilexeroctave->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerOctave*)self)->metaObject();
-    }
+    return (QMetaObject*)self->QsciLexerOctave::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnMetaObject(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_MetaObject_Callback>(slot));
+void QsciLexerOctave_OnMetaObject(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_metaobject_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QsciLexerOctave_SuperMetacast(QsciLexerOctave* self, const char* param1) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Metacast_IsBase(true);
-        return vqscilexeroctave->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->qt_metacast(param1);
-    }
+    return self->QsciLexerOctave::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnMetacast(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_Metacast_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Metacast_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_metacast_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QsciLexerOctave_SuperMetacall(QsciLexerOctave* self, int param1, int param2, void** param3) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Metacall_IsBase(true);
-        return vqscilexeroctave->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QsciLexerOctave::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnMetacall(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_Metacall_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Metacall_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_metacall_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerOctave_LexerId(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->lexerId();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->lexerId();
-    }
+    return self->lexerId();
 }
 
 // Base class handler implementation
 int QsciLexerOctave_SuperLexerId(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_LexerId_IsBase(true);
-        return vqscilexeroctave->lexerId();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->lexerId();
-    }
+    return self->QsciLexerOctave::lexerId();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnLexerId(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_LexerId_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_LexerId_Callback>(slot));
+void QsciLexerOctave_OnLexerId(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_lexerid_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_LexerId_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerOctave_AutoCompletionFillups(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return (const char*)vqscilexeroctave->autoCompletionFillups();
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->autoCompletionFillups();
-    }
+    return (const char*)self->autoCompletionFillups();
 }
 
 // Base class handler implementation
 const char* QsciLexerOctave_SuperAutoCompletionFillups(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_AutoCompletionFillups_IsBase(true);
-        return (const char*)vqscilexeroctave->autoCompletionFillups();
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->autoCompletionFillups();
-    }
+    return (const char*)self->QsciLexerOctave::autoCompletionFillups();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnAutoCompletionFillups(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_AutoCompletionFillups_Callback>(slot));
+void QsciLexerOctave_OnAutoCompletionFillups(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_autocompletionfillups_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_AutoCompletionFillups_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of libqt_string */ QsciLexerOctave_AutoCompletionWordSeparators(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        QList<QString> _ret = vqscilexeroctave->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQsciLexerOctave*)self)->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->autoCompletionWordSeparators();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QsciLexerOctave_SuperAutoCompletionWordSeparators(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_AutoCompletionWordSeparators_IsBase(true);
-        QList<QString> _ret = vqscilexeroctave->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQsciLexerOctave*)self)->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->QsciLexerOctave::autoCompletionWordSeparators();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnAutoCompletionWordSeparators(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_AutoCompletionWordSeparators_Callback>(slot));
+void QsciLexerOctave_OnAutoCompletionWordSeparators(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_autocompletionwordseparators_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_AutoCompletionWordSeparators_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerOctave_BlockEnd(const QsciLexerOctave* self, int* style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return (const char*)vqscilexeroctave->blockEnd(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->blockEnd(static_cast<int*>(style));
-    }
+    return (const char*)self->blockEnd(static_cast<int*>(style));
 }
 
 // Base class handler implementation
 const char* QsciLexerOctave_SuperBlockEnd(const QsciLexerOctave* self, int* style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_BlockEnd_IsBase(true);
-        return (const char*)vqscilexeroctave->blockEnd(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->blockEnd(static_cast<int*>(style));
-    }
+    return (const char*)self->QsciLexerOctave::blockEnd(static_cast<int*>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnBlockEnd(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_BlockEnd_Callback>(slot));
+void QsciLexerOctave_OnBlockEnd(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_blockend_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_BlockEnd_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerOctave_BlockLookback(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->blockLookback();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->blockLookback();
-    }
+    return self->blockLookback();
 }
 
 // Base class handler implementation
 int QsciLexerOctave_SuperBlockLookback(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_BlockLookback_IsBase(true);
-        return vqscilexeroctave->blockLookback();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->blockLookback();
-    }
+    return self->QsciLexerOctave::blockLookback();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnBlockLookback(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_BlockLookback_Callback>(slot));
+void QsciLexerOctave_OnBlockLookback(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_blocklookback_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_BlockLookback_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerOctave_BlockStart(const QsciLexerOctave* self, int* style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return (const char*)vqscilexeroctave->blockStart(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->blockStart(static_cast<int*>(style));
-    }
+    return (const char*)self->blockStart(static_cast<int*>(style));
 }
 
 // Base class handler implementation
 const char* QsciLexerOctave_SuperBlockStart(const QsciLexerOctave* self, int* style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_BlockStart_IsBase(true);
-        return (const char*)vqscilexeroctave->blockStart(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->blockStart(static_cast<int*>(style));
-    }
+    return (const char*)self->QsciLexerOctave::blockStart(static_cast<int*>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnBlockStart(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_BlockStart_Callback>(slot));
+void QsciLexerOctave_OnBlockStart(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_blockstart_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_BlockStart_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerOctave_BlockStartKeyword(const QsciLexerOctave* self, int* style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return (const char*)vqscilexeroctave->blockStartKeyword(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->blockStartKeyword(static_cast<int*>(style));
-    }
+    return (const char*)self->blockStartKeyword(static_cast<int*>(style));
 }
 
 // Base class handler implementation
 const char* QsciLexerOctave_SuperBlockStartKeyword(const QsciLexerOctave* self, int* style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_BlockStartKeyword_IsBase(true);
-        return (const char*)vqscilexeroctave->blockStartKeyword(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->blockStartKeyword(static_cast<int*>(style));
-    }
+    return (const char*)self->QsciLexerOctave::blockStartKeyword(static_cast<int*>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnBlockStartKeyword(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_BlockStartKeyword_Callback>(slot));
+void QsciLexerOctave_OnBlockStartKeyword(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_blockstartkeyword_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_BlockStartKeyword_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerOctave_BraceStyle(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->braceStyle();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->braceStyle();
-    }
+    return self->braceStyle();
 }
 
 // Base class handler implementation
 int QsciLexerOctave_SuperBraceStyle(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_BraceStyle_IsBase(true);
-        return vqscilexeroctave->braceStyle();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->braceStyle();
-    }
+    return self->QsciLexerOctave::braceStyle();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnBraceStyle(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_BraceStyle_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_BraceStyle_Callback>(slot));
+void QsciLexerOctave_OnBraceStyle(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_bracestyle_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_BraceStyle_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerOctave_CaseSensitive(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->caseSensitive();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->caseSensitive();
-    }
+    return self->caseSensitive();
 }
 
 // Base class handler implementation
 bool QsciLexerOctave_SuperCaseSensitive(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_CaseSensitive_IsBase(true);
-        return vqscilexeroctave->caseSensitive();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->caseSensitive();
-    }
+    return self->QsciLexerOctave::caseSensitive();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnCaseSensitive(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_CaseSensitive_Callback>(slot));
+void QsciLexerOctave_OnCaseSensitive(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_casesensitive_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_CaseSensitive_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerOctave_Color(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return new QColor(vqscilexeroctave->color(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerOctave*)self)->color(static_cast<int>(style)));
-    }
+    return new QColor(self->color(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerOctave_SuperColor(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Color_IsBase(true);
-        return new QColor(vqscilexeroctave->color(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerOctave*)self)->color(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerOctave::color(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnColor(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_Color_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Color_Callback>(slot));
+void QsciLexerOctave_OnColor(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_color_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Color_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerOctave_EolFill(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->eolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->eolFill(static_cast<int>(style));
-    }
+    return self->eolFill(static_cast<int>(style));
 }
 
 // Base class handler implementation
 bool QsciLexerOctave_SuperEolFill(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_EolFill_IsBase(true);
-        return vqscilexeroctave->eolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->eolFill(static_cast<int>(style));
-    }
+    return self->QsciLexerOctave::eolFill(static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnEolFill(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_EolFill_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_EolFill_Callback>(slot));
+void QsciLexerOctave_OnEolFill(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_eolfill_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_EolFill_Callback>(slot);
 }
 
 // Derived class handler implementation
 QFont* QsciLexerOctave_Font(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return new QFont(vqscilexeroctave->font(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerOctave*)self)->font(static_cast<int>(style)));
-    }
+    return new QFont(self->font(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QFont* QsciLexerOctave_SuperFont(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Font_IsBase(true);
-        return new QFont(vqscilexeroctave->font(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerOctave*)self)->font(static_cast<int>(style)));
-    }
+    return new QFont(self->QsciLexerOctave::font(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnFont(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_Font_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Font_Callback>(slot));
+void QsciLexerOctave_OnFont(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_font_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Font_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerOctave_IndentationGuideView(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->indentationGuideView();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->indentationGuideView();
-    }
+    return self->indentationGuideView();
 }
 
 // Base class handler implementation
 int QsciLexerOctave_SuperIndentationGuideView(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_IndentationGuideView_IsBase(true);
-        return vqscilexeroctave->indentationGuideView();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->indentationGuideView();
-    }
+    return self->QsciLexerOctave::indentationGuideView();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnIndentationGuideView(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_IndentationGuideView_Callback>(slot));
+void QsciLexerOctave_OnIndentationGuideView(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_indentationguideview_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_IndentationGuideView_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerOctave_DefaultStyle(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->defaultStyle();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->defaultStyle();
-    }
+    return self->defaultStyle();
 }
 
 // Base class handler implementation
 int QsciLexerOctave_SuperDefaultStyle(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_DefaultStyle_IsBase(true);
-        return vqscilexeroctave->defaultStyle();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->defaultStyle();
-    }
+    return self->QsciLexerOctave::defaultStyle();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnDefaultStyle(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultStyle_Callback>(slot));
+void QsciLexerOctave_OnDefaultStyle(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_defaultstyle_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultStyle_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string QsciLexerOctave_Description(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        auto _ret = vqscilexeroctave->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQsciLexerOctave*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Base class handler implementation
-libqt_string QsciLexerOctave_SuperDescription(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Description_IsBase(true);
-        auto _ret = vqscilexeroctave->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQsciLexerOctave*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnDescription(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_Description_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Description_Callback>(slot));
+void QsciLexerOctave_OnDescription(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_description_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Description_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerOctave_Paper(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return new QColor(vqscilexeroctave->paper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerOctave*)self)->paper(static_cast<int>(style)));
-    }
+    return new QColor(self->paper(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerOctave_SuperPaper(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Paper_IsBase(true);
-        return new QColor(vqscilexeroctave->paper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerOctave*)self)->paper(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerOctave::paper(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnPaper(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_Paper_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Paper_Callback>(slot));
+void QsciLexerOctave_OnPaper(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_paper_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Paper_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerOctave_DefaultColor2(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return new QColor(vqscilexeroctave->defaultColor(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerOctave*)self)->defaultColor(static_cast<int>(style)));
-    }
+    return new QColor(self->defaultColor(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerOctave_SuperDefaultColor2(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_DefaultColor2_IsBase(true);
-        return new QColor(vqscilexeroctave->defaultColor(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerOctave*)self)->defaultColor(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerOctave::defaultColor(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnDefaultColor2(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultColor2_Callback>(slot));
+void QsciLexerOctave_OnDefaultColor2(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_defaultcolor2_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultColor2_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerOctave_DefaultEolFill(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->defaultEolFill(static_cast<int>(style));
-    }
+    return self->defaultEolFill(static_cast<int>(style));
 }
 
 // Base class handler implementation
 bool QsciLexerOctave_SuperDefaultEolFill(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_DefaultEolFill_IsBase(true);
-        return vqscilexeroctave->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->defaultEolFill(static_cast<int>(style));
-    }
+    return self->QsciLexerOctave::defaultEolFill(static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnDefaultEolFill(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultEolFill_Callback>(slot));
+void QsciLexerOctave_OnDefaultEolFill(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_defaulteolfill_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultEolFill_Callback>(slot);
 }
 
 // Derived class handler implementation
 QFont* QsciLexerOctave_DefaultFont2(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return new QFont(vqscilexeroctave->defaultFont(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerOctave*)self)->defaultFont(static_cast<int>(style)));
-    }
+    return new QFont(self->defaultFont(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QFont* QsciLexerOctave_SuperDefaultFont2(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_DefaultFont2_IsBase(true);
-        return new QFont(vqscilexeroctave->defaultFont(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerOctave*)self)->defaultFont(static_cast<int>(style)));
-    }
+    return new QFont(self->QsciLexerOctave::defaultFont(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnDefaultFont2(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultFont2_Callback>(slot));
+void QsciLexerOctave_OnDefaultFont2(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_defaultfont2_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultFont2_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerOctave_DefaultPaper2(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return new QColor(vqscilexeroctave->defaultPaper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerOctave*)self)->defaultPaper(static_cast<int>(style)));
-    }
+    return new QColor(self->defaultPaper(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerOctave_SuperDefaultPaper2(const QsciLexerOctave* self, int style) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_DefaultPaper2_IsBase(true);
-        return new QColor(vqscilexeroctave->defaultPaper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerOctave*)self)->defaultPaper(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerOctave::defaultPaper(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnDefaultPaper2(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultPaper2_Callback>(slot));
+void QsciLexerOctave_OnDefaultPaper2(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_defaultpaper2_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultPaper2_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerOctave_SetEditor(QsciLexerOctave* self, QsciScintilla* editor) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setEditor(editor);
-    } else {
-        ((VirtualQsciLexerOctave*)self)->setEditor(editor);
-    }
+    self->setEditor(editor);
 }
 
 // Base class handler implementation
 void QsciLexerOctave_SuperSetEditor(QsciLexerOctave* self, QsciScintilla* editor) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_SetEditor_IsBase(true);
-        vqscilexeroctave->setEditor(editor);
-    } else {
-        ((VirtualQsciLexerOctave*)self)->setEditor(editor);
-    }
+    self->QsciLexerOctave::setEditor(editor);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnSetEditor(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_SetEditor_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_seteditor_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_SetEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerOctave_RefreshProperties(QsciLexerOctave* self) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->refreshProperties();
-    } else {
-        ((VirtualQsciLexerOctave*)self)->refreshProperties();
-    }
+    self->refreshProperties();
 }
 
 // Base class handler implementation
 void QsciLexerOctave_SuperRefreshProperties(QsciLexerOctave* self) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_RefreshProperties_IsBase(true);
-        vqscilexeroctave->refreshProperties();
-    } else {
-        ((VirtualQsciLexerOctave*)self)->refreshProperties();
-    }
+    self->QsciLexerOctave::refreshProperties();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnRefreshProperties(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_RefreshProperties_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_RefreshProperties_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_refreshproperties_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_RefreshProperties_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerOctave_StyleBitsNeeded(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->styleBitsNeeded();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->styleBitsNeeded();
-    }
+    return self->styleBitsNeeded();
 }
 
 // Base class handler implementation
 int QsciLexerOctave_SuperStyleBitsNeeded(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_StyleBitsNeeded_IsBase(true);
-        return vqscilexeroctave->styleBitsNeeded();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->styleBitsNeeded();
-    }
+    return self->QsciLexerOctave::styleBitsNeeded();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnStyleBitsNeeded(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_StyleBitsNeeded_Callback>(slot));
+void QsciLexerOctave_OnStyleBitsNeeded(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_stylebitsneeded_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_StyleBitsNeeded_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerOctave_WordCharacters(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return (const char*)vqscilexeroctave->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->wordCharacters();
-    }
+    return (const char*)self->wordCharacters();
 }
 
 // Base class handler implementation
 const char* QsciLexerOctave_SuperWordCharacters(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_WordCharacters_IsBase(true);
-        return (const char*)vqscilexeroctave->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexerOctave*)self)->wordCharacters();
-    }
+    return (const char*)self->QsciLexerOctave::wordCharacters();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnWordCharacters(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_WordCharacters_Callback>(slot));
+void QsciLexerOctave_OnWordCharacters(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_wordcharacters_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_WordCharacters_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerOctave_SetAutoIndentStyle(QsciLexerOctave* self, int autoindentstyle) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    } else {
-        ((VirtualQsciLexerOctave*)self)->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    }
+    self->setAutoIndentStyle(static_cast<int>(autoindentstyle));
 }
 
 // Base class handler implementation
 void QsciLexerOctave_SuperSetAutoIndentStyle(QsciLexerOctave* self, int autoindentstyle) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_SetAutoIndentStyle_IsBase(true);
-        vqscilexeroctave->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    } else {
-        ((VirtualQsciLexerOctave*)self)->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    }
+    self->QsciLexerOctave::setAutoIndentStyle(static_cast<int>(autoindentstyle));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnSetAutoIndentStyle(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_SetAutoIndentStyle_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_setautoindentstyle_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_SetAutoIndentStyle_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerOctave_SetColor(QsciLexerOctave* self, const QColor* c, int style) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setColor(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerOctave*)self)->setColor(*c, static_cast<int>(style));
-    }
+    self->setColor(*c, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerOctave_SuperSetColor(QsciLexerOctave* self, const QColor* c, int style) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_SetColor_IsBase(true);
-        vqscilexeroctave->setColor(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerOctave*)self)->setColor(*c, static_cast<int>(style));
-    }
+    self->QsciLexerOctave::setColor(*c, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnSetColor(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_SetColor_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_SetColor_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_setcolor_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_SetColor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerOctave_SetEolFill(QsciLexerOctave* self, bool eoffill, int style) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setEolFill(eoffill, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerOctave*)self)->setEolFill(eoffill, static_cast<int>(style));
-    }
+    self->setEolFill(eoffill, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerOctave_SuperSetEolFill(QsciLexerOctave* self, bool eoffill, int style) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_SetEolFill_IsBase(true);
-        vqscilexeroctave->setEolFill(eoffill, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerOctave*)self)->setEolFill(eoffill, static_cast<int>(style));
-    }
+    self->QsciLexerOctave::setEolFill(eoffill, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnSetEolFill(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_SetEolFill_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_seteolfill_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_SetEolFill_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerOctave_SetFont(QsciLexerOctave* self, const QFont* f, int style) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setFont(*f, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerOctave*)self)->setFont(*f, static_cast<int>(style));
-    }
+    self->setFont(*f, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerOctave_SuperSetFont(QsciLexerOctave* self, const QFont* f, int style) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_SetFont_IsBase(true);
-        vqscilexeroctave->setFont(*f, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerOctave*)self)->setFont(*f, static_cast<int>(style));
-    }
+    self->QsciLexerOctave::setFont(*f, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnSetFont(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_SetFont_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_SetFont_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_setfont_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_SetFont_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerOctave_SetPaper(QsciLexerOctave* self, const QColor* c, int style) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setPaper(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerOctave*)self)->setPaper(*c, static_cast<int>(style));
-    }
+    self->setPaper(*c, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerOctave_SuperSetPaper(QsciLexerOctave* self, const QColor* c, int style) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_SetPaper_IsBase(true);
-        vqscilexeroctave->setPaper(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerOctave*)self)->setPaper(*c, static_cast<int>(style));
-    }
+    self->QsciLexerOctave::setPaper(*c, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnSetPaper(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_SetPaper_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_setpaper_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_SetPaper_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerOctave_ReadProperties(QsciLexerOctave* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
+    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
+    if (vqscilexeroctave) {
         return vqscilexeroctave->readProperties(*qs, prefix_QString);
     } else {
-        return ((VirtualQsciLexerOctave*)self)->readProperties(*qs, prefix_QString);
+        qFatal("Error: Protected virtual method QsciLexerOctave::readProperties called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QsciLexerOctave_SuperReadProperties(QsciLexerOctave* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_ReadProperties_IsBase(true);
-        return vqscilexeroctave->readProperties(*qs, prefix_QString);
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->readProperties(*qs, prefix_QString);
-    }
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self)) {
+        return vqscilexeroctave->QsciLexerOctave::readProperties(*qs, prefix_QString);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerOctave::readProperties called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnReadProperties(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_ReadProperties_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_readproperties_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_ReadProperties_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerOctave_WriteProperties(const QsciLexerOctave* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
+    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
+    if (vqscilexeroctave) {
         return vqscilexeroctave->writeProperties(*qs, prefix_QString);
     } else {
-        return ((VirtualQsciLexerOctave*)self)->writeProperties(*qs, prefix_QString);
+        qFatal("Error: Protected virtual method QsciLexerOctave::writeProperties called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QsciLexerOctave_SuperWriteProperties(const QsciLexerOctave* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_WriteProperties_IsBase(true);
-        return vqscilexeroctave->writeProperties(*qs, prefix_QString);
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->writeProperties(*qs, prefix_QString);
-    }
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self))) {
+        return vqscilexeroctave->QsciLexerOctave::writeProperties(*qs, prefix_QString);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerOctave::writeProperties called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnWriteProperties(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_WriteProperties_Callback>(slot));
+void QsciLexerOctave_OnWriteProperties(QsciLexerOctave* self, intptr_t slot) {
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self)))
+        vqscilexeroctave->qscilexeroctave_writeproperties_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_WriteProperties_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerOctave_Event(QsciLexerOctave* self, QEvent* event) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->event(event);
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QsciLexerOctave_SuperEvent(QsciLexerOctave* self, QEvent* event) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Event_IsBase(true);
-        return vqscilexeroctave->event(event);
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->event(event);
-    }
+    return self->QsciLexerOctave::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnEvent(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_Event_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Event_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_event_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerOctave_EventFilter(QsciLexerOctave* self, QObject* watched, QEvent* event) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->eventFilter(watched, event);
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QsciLexerOctave_SuperEventFilter(QsciLexerOctave* self, QObject* watched, QEvent* event) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_EventFilter_IsBase(true);
-        return vqscilexeroctave->eventFilter(watched, event);
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->eventFilter(watched, event);
-    }
+    return self->QsciLexerOctave::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnEventFilter(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_EventFilter_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_eventfilter_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerOctave_TimerEvent(QsciLexerOctave* self, QTimerEvent* event) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
+    if (vqscilexeroctave) {
         vqscilexeroctave->timerEvent(event);
     } else {
-        ((VirtualQsciLexerOctave*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QsciLexerOctave::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerOctave_SuperTimerEvent(QsciLexerOctave* self, QTimerEvent* event) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_TimerEvent_IsBase(true);
-        vqscilexeroctave->timerEvent(event);
-    } else {
-        ((VirtualQsciLexerOctave*)self)->timerEvent(event);
-    }
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self)) {
+        vqscilexeroctave->QsciLexerOctave::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerOctave::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnTimerEvent(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_TimerEvent_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_timerevent_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerOctave_ChildEvent(QsciLexerOctave* self, QChildEvent* event) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
+    if (vqscilexeroctave) {
         vqscilexeroctave->childEvent(event);
     } else {
-        ((VirtualQsciLexerOctave*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QsciLexerOctave::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerOctave_SuperChildEvent(QsciLexerOctave* self, QChildEvent* event) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_ChildEvent_IsBase(true);
-        vqscilexeroctave->childEvent(event);
-    } else {
-        ((VirtualQsciLexerOctave*)self)->childEvent(event);
-    }
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self)) {
+        vqscilexeroctave->QsciLexerOctave::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerOctave::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnChildEvent(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_ChildEvent_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_childevent_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerOctave_CustomEvent(QsciLexerOctave* self, QEvent* event) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
+    if (vqscilexeroctave) {
         vqscilexeroctave->customEvent(event);
     } else {
-        ((VirtualQsciLexerOctave*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QsciLexerOctave::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerOctave_SuperCustomEvent(QsciLexerOctave* self, QEvent* event) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_CustomEvent_IsBase(true);
-        vqscilexeroctave->customEvent(event);
-    } else {
-        ((VirtualQsciLexerOctave*)self)->customEvent(event);
-    }
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self)) {
+        vqscilexeroctave->QsciLexerOctave::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerOctave::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnCustomEvent(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_CustomEvent_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_customevent_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerOctave_ConnectNotify(QsciLexerOctave* self, const QMetaMethod* signal) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
+    if (vqscilexeroctave) {
         vqscilexeroctave->connectNotify(*signal);
     } else {
-        ((VirtualQsciLexerOctave*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QsciLexerOctave::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerOctave_SuperConnectNotify(QsciLexerOctave* self, const QMetaMethod* signal) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_ConnectNotify_IsBase(true);
-        vqscilexeroctave->connectNotify(*signal);
-    } else {
-        ((VirtualQsciLexerOctave*)self)->connectNotify(*signal);
-    }
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self)) {
+        vqscilexeroctave->QsciLexerOctave::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerOctave::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnConnectNotify(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_ConnectNotify_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_connectnotify_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerOctave_DisconnectNotify(QsciLexerOctave* self, const QMetaMethod* signal) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
+    if (vqscilexeroctave) {
         vqscilexeroctave->disconnectNotify(*signal);
     } else {
-        ((VirtualQsciLexerOctave*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QsciLexerOctave::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerOctave_SuperDisconnectNotify(QsciLexerOctave* self, const QMetaMethod* signal) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_DisconnectNotify_IsBase(true);
-        vqscilexeroctave->disconnectNotify(*signal);
-    } else {
-        ((VirtualQsciLexerOctave*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self)) {
+        vqscilexeroctave->QsciLexerOctave::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerOctave::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerOctave_OnDisconnectNotify(QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DisconnectNotify_Callback>(slot));
+    if (auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self))
+        vqscilexeroctave->qscilexeroctave_disconnectnotify_callback = reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string QsciLexerOctave_TextAsBytes(const QsciLexerOctave* self, const libqt_string text) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        QByteArray _qb = vqscilexeroctave->textAsBytes(text_QString);
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self))) {
+        QString text_QString = QString::fromUtf8(text.data, text.len);
+        QByteArray _qb = vqscilexeroctave->VirtualQsciLexerOctave::textAsBytes(text_QString);
         libqt_string _str;
         _str.len = _qb.length();
         _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
         return _str;
-    } else {
-        QByteArray _qb = ((VirtualQsciLexerOctave*)self)->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method QsciLexerOctave::textAsBytes called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string QsciLexerOctave_SuperTextAsBytes(const QsciLexerOctave* self, const libqt_string text) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_TextAsBytes_IsBase(true);
-        QByteArray _qb = vqscilexeroctave->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    } else {
-        QByteArray _qb = ((VirtualQsciLexerOctave*)self)->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnTextAsBytes(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_TextAsBytes_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string QsciLexerOctave_BytesAsText(const QsciLexerOctave* self, const char* bytes, int size) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        auto _ret = vqscilexeroctave->bytesAsText(bytes, static_cast<int>(size));
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self))) {
+        auto _ret = vqscilexeroctave->VirtualQsciLexerOctave::bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1367,163 +846,40 @@ libqt_string QsciLexerOctave_BytesAsText(const QsciLexerOctave* self, const char
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualQsciLexerOctave*)self)->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method QsciLexerOctave::bytesAsText called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string QsciLexerOctave_SuperBytesAsText(const QsciLexerOctave* self, const char* bytes, int size) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_BytesAsText_IsBase(true);
-        auto _ret = vqscilexeroctave->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQsciLexerOctave*)self)->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnBytesAsText(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_BytesAsText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QsciLexerOctave_Sender(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->sender();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->sender();
-    }
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self))) {
+        return vqscilexeroctave->VirtualQsciLexerOctave::sender();
+    } else
+        qFatal("Error: Protected method QsciLexerOctave::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QsciLexerOctave_SuperSender(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Sender_IsBase(true);
-        return vqscilexeroctave->sender();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnSender(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_Sender_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QsciLexerOctave_SenderSignalIndex(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->senderSignalIndex();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->senderSignalIndex();
-    }
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self))) {
+        return vqscilexeroctave->VirtualQsciLexerOctave::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QsciLexerOctave::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QsciLexerOctave_SuperSenderSignalIndex(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_SenderSignalIndex_IsBase(true);
-        return vqscilexeroctave->senderSignalIndex();
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnSenderSignalIndex(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QsciLexerOctave_Receivers(const QsciLexerOctave* self, const char* signal) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->receivers(signal);
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->receivers(signal);
-    }
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self))) {
+        return vqscilexeroctave->VirtualQsciLexerOctave::receivers(signal);
+    } else
+        qFatal("Error: Protected method QsciLexerOctave::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QsciLexerOctave_SuperReceivers(const QsciLexerOctave* self, const char* signal) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_Receivers_IsBase(true);
-        return vqscilexeroctave->receivers(signal);
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnReceivers(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_Receivers_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QsciLexerOctave_IsSignalConnected(const QsciLexerOctave* self, const QMetaMethod* signal) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return vqscilexeroctave->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QsciLexerOctave_SuperIsSignalConnected(const QsciLexerOctave* self, const QMetaMethod* signal) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_IsSignalConnected_IsBase(true);
-        return vqscilexeroctave->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnIsSignalConnected(const QsciLexerOctave* self, intptr_t slot) {
-    auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave)
-        vqscilexeroctave->setQsciLexerOctave_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_IsSignalConnected_Callback>(slot));
+    if (auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self))) {
+        return vqscilexeroctave->VirtualQsciLexerOctave::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QsciLexerOctave::isSignalConnected called without a directly constructed type");
 }
 
 void QsciLexerOctave_Delete(QsciLexerOctave* self) {

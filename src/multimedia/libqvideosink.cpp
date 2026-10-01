@@ -151,364 +151,219 @@ libqt_string QVideoSink_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QVideoSink_SuperMetaObject(const QVideoSink* self) {
-    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        vqvideosink->setQVideoSink_MetaObject_IsBase(true);
-        return (QMetaObject*)vqvideosink->metaObject();
-    } else {
-        return (QMetaObject*)self->QVideoSink::metaObject();
-    }
+    return (QMetaObject*)self->QVideoSink::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVideoSink_OnMetaObject(const QVideoSink* self, intptr_t slot) {
-    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
-        vqvideosink->setQVideoSink_MetaObject_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_MetaObject_Callback>(slot));
+void QVideoSink_OnMetaObject(QVideoSink* self, intptr_t slot) {
+    if (auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self)))
+        vqvideosink->qvideosink_metaobject_callback = reinterpret_cast<VirtualQVideoSink::QVideoSink_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QVideoSink_SuperMetacast(QVideoSink* self, const char* param1) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        vqvideosink->setQVideoSink_Metacast_IsBase(true);
-        return vqvideosink->qt_metacast(param1);
-    } else {
-        return self->QVideoSink::qt_metacast(param1);
-    }
+    return self->QVideoSink::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnMetacast(QVideoSink* self, intptr_t slot) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
-        vqvideosink->setQVideoSink_Metacast_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_Metacast_Callback>(slot));
+    if (auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self))
+        vqvideosink->qvideosink_metacast_callback = reinterpret_cast<VirtualQVideoSink::QVideoSink_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QVideoSink_SuperMetacall(QVideoSink* self, int param1, int param2, void** param3) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        vqvideosink->setQVideoSink_Metacall_IsBase(true);
-        return vqvideosink->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QVideoSink::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QVideoSink::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnMetacall(QVideoSink* self, intptr_t slot) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
-        vqvideosink->setQVideoSink_Metacall_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_Metacall_Callback>(slot));
+    if (auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self))
+        vqvideosink->qvideosink_metacall_callback = reinterpret_cast<VirtualQVideoSink::QVideoSink_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVideoSink_Event(QVideoSink* self, QEvent* event) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        return vqvideosink->event(event);
-    } else {
-        return self->QVideoSink::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QVideoSink_SuperEvent(QVideoSink* self, QEvent* event) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        vqvideosink->setQVideoSink_Event_IsBase(true);
-        return vqvideosink->event(event);
-    } else {
-        return self->QVideoSink::event(event);
-    }
+    return self->QVideoSink::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnEvent(QVideoSink* self, intptr_t slot) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
-        vqvideosink->setQVideoSink_Event_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_Event_Callback>(slot));
+    if (auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self))
+        vqvideosink->qvideosink_event_callback = reinterpret_cast<VirtualQVideoSink::QVideoSink_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVideoSink_EventFilter(QVideoSink* self, QObject* watched, QEvent* event) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        return vqvideosink->eventFilter(watched, event);
-    } else {
-        return self->QVideoSink::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QVideoSink_SuperEventFilter(QVideoSink* self, QObject* watched, QEvent* event) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        vqvideosink->setQVideoSink_EventFilter_IsBase(true);
-        return vqvideosink->eventFilter(watched, event);
-    } else {
-        return self->QVideoSink::eventFilter(watched, event);
-    }
+    return self->QVideoSink::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnEventFilter(QVideoSink* self, intptr_t slot) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
-        vqvideosink->setQVideoSink_EventFilter_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_EventFilter_Callback>(slot));
+    if (auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self))
+        vqvideosink->qvideosink_eventfilter_callback = reinterpret_cast<VirtualQVideoSink::QVideoSink_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoSink_TimerEvent(QVideoSink* self, QTimerEvent* event) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink) {
         vqvideosink->timerEvent(event);
     } else {
-        ((VirtualQVideoSink*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QVideoSink::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoSink_SuperTimerEvent(QVideoSink* self, QTimerEvent* event) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        vqvideosink->setQVideoSink_TimerEvent_IsBase(true);
-        vqvideosink->timerEvent(event);
-    } else {
-        ((VirtualQVideoSink*)self)->timerEvent(event);
-    }
+    if (auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self)) {
+        vqvideosink->QVideoSink::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoSink::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnTimerEvent(QVideoSink* self, intptr_t slot) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
-        vqvideosink->setQVideoSink_TimerEvent_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_TimerEvent_Callback>(slot));
+    if (auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self))
+        vqvideosink->qvideosink_timerevent_callback = reinterpret_cast<VirtualQVideoSink::QVideoSink_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoSink_ChildEvent(QVideoSink* self, QChildEvent* event) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink) {
         vqvideosink->childEvent(event);
     } else {
-        ((VirtualQVideoSink*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QVideoSink::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoSink_SuperChildEvent(QVideoSink* self, QChildEvent* event) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        vqvideosink->setQVideoSink_ChildEvent_IsBase(true);
-        vqvideosink->childEvent(event);
-    } else {
-        ((VirtualQVideoSink*)self)->childEvent(event);
-    }
+    if (auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self)) {
+        vqvideosink->QVideoSink::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoSink::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnChildEvent(QVideoSink* self, intptr_t slot) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
-        vqvideosink->setQVideoSink_ChildEvent_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_ChildEvent_Callback>(slot));
+    if (auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self))
+        vqvideosink->qvideosink_childevent_callback = reinterpret_cast<VirtualQVideoSink::QVideoSink_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoSink_CustomEvent(QVideoSink* self, QEvent* event) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink) {
         vqvideosink->customEvent(event);
     } else {
-        ((VirtualQVideoSink*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QVideoSink::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoSink_SuperCustomEvent(QVideoSink* self, QEvent* event) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        vqvideosink->setQVideoSink_CustomEvent_IsBase(true);
-        vqvideosink->customEvent(event);
-    } else {
-        ((VirtualQVideoSink*)self)->customEvent(event);
-    }
+    if (auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self)) {
+        vqvideosink->QVideoSink::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoSink::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnCustomEvent(QVideoSink* self, intptr_t slot) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
-        vqvideosink->setQVideoSink_CustomEvent_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_CustomEvent_Callback>(slot));
+    if (auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self))
+        vqvideosink->qvideosink_customevent_callback = reinterpret_cast<VirtualQVideoSink::QVideoSink_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoSink_ConnectNotify(QVideoSink* self, const QMetaMethod* signal) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink) {
         vqvideosink->connectNotify(*signal);
     } else {
-        ((VirtualQVideoSink*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QVideoSink::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoSink_SuperConnectNotify(QVideoSink* self, const QMetaMethod* signal) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        vqvideosink->setQVideoSink_ConnectNotify_IsBase(true);
-        vqvideosink->connectNotify(*signal);
-    } else {
-        ((VirtualQVideoSink*)self)->connectNotify(*signal);
-    }
+    if (auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self)) {
+        vqvideosink->QVideoSink::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QVideoSink::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnConnectNotify(QVideoSink* self, intptr_t slot) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
-        vqvideosink->setQVideoSink_ConnectNotify_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_ConnectNotify_Callback>(slot));
+    if (auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self))
+        vqvideosink->qvideosink_connectnotify_callback = reinterpret_cast<VirtualQVideoSink::QVideoSink_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoSink_DisconnectNotify(QVideoSink* self, const QMetaMethod* signal) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink) {
         vqvideosink->disconnectNotify(*signal);
     } else {
-        ((VirtualQVideoSink*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QVideoSink::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoSink_SuperDisconnectNotify(QVideoSink* self, const QMetaMethod* signal) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        vqvideosink->setQVideoSink_DisconnectNotify_IsBase(true);
-        vqvideosink->disconnectNotify(*signal);
-    } else {
-        ((VirtualQVideoSink*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self)) {
+        vqvideosink->QVideoSink::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QVideoSink::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnDisconnectNotify(QVideoSink* self, intptr_t slot) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
-        vqvideosink->setQVideoSink_DisconnectNotify_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_DisconnectNotify_Callback>(slot));
+    if (auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self))
+        vqvideosink->qvideosink_disconnectnotify_callback = reinterpret_cast<VirtualQVideoSink::QVideoSink_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QVideoSink_Sender(const QVideoSink* self) {
-    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        return vqvideosink->sender();
-    } else {
-        return ((VirtualQVideoSink*)self)->sender();
-    }
+    if (auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self))) {
+        return vqvideosink->VirtualQVideoSink::sender();
+    } else
+        qFatal("Error: Protected method QVideoSink::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QVideoSink_SuperSender(const QVideoSink* self) {
-    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        vqvideosink->setQVideoSink_Sender_IsBase(true);
-        return vqvideosink->sender();
-    } else {
-        return ((VirtualQVideoSink*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVideoSink_OnSender(const QVideoSink* self, intptr_t slot) {
-    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
-        vqvideosink->setQVideoSink_Sender_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVideoSink_SenderSignalIndex(const QVideoSink* self) {
-    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        return vqvideosink->senderSignalIndex();
-    } else {
-        return ((VirtualQVideoSink*)self)->senderSignalIndex();
-    }
+    if (auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self))) {
+        return vqvideosink->VirtualQVideoSink::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QVideoSink::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVideoSink_SuperSenderSignalIndex(const QVideoSink* self) {
-    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        vqvideosink->setQVideoSink_SenderSignalIndex_IsBase(true);
-        return vqvideosink->senderSignalIndex();
-    } else {
-        return ((VirtualQVideoSink*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVideoSink_OnSenderSignalIndex(const QVideoSink* self, intptr_t slot) {
-    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
-        vqvideosink->setQVideoSink_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVideoSink_Receivers(const QVideoSink* self, const char* signal) {
-    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        return vqvideosink->receivers(signal);
-    } else {
-        return ((VirtualQVideoSink*)self)->receivers(signal);
-    }
+    if (auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self))) {
+        return vqvideosink->VirtualQVideoSink::receivers(signal);
+    } else
+        qFatal("Error: Protected method QVideoSink::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVideoSink_SuperReceivers(const QVideoSink* self, const char* signal) {
-    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        vqvideosink->setQVideoSink_Receivers_IsBase(true);
-        return vqvideosink->receivers(signal);
-    } else {
-        return ((VirtualQVideoSink*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVideoSink_OnReceivers(const QVideoSink* self, intptr_t slot) {
-    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
-        vqvideosink->setQVideoSink_Receivers_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QVideoSink_IsSignalConnected(const QVideoSink* self, const QMetaMethod* signal) {
-    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        return vqvideosink->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQVideoSink*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QVideoSink_SuperIsSignalConnected(const QVideoSink* self, const QMetaMethod* signal) {
-    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        vqvideosink->setQVideoSink_IsSignalConnected_IsBase(true);
-        return vqvideosink->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQVideoSink*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVideoSink_OnIsSignalConnected(const QVideoSink* self, intptr_t slot) {
-    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
-        vqvideosink->setQVideoSink_IsSignalConnected_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_IsSignalConnected_Callback>(slot));
+    if (auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self))) {
+        return vqvideosink->VirtualQVideoSink::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QVideoSink::isSignalConnected called without a directly constructed type");
 }
 
 void QVideoSink_Delete(QVideoSink* self) {

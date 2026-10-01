@@ -177,142 +177,142 @@ void QMdiSubWindow_ShowShaded(QMdiSubWindow* self) {
 
 bool QMdiSubWindow_EventFilter(QMdiSubWindow* self, QObject* object, QEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         return vqmdisubwindow->eventFilter(object, event);
     }
-    return {};
+    qFatal("Error: Protected method QMdiSubWindow::eventFilter called without a directly constructed type");
 }
 
 bool QMdiSubWindow_Event(QMdiSubWindow* self, QEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         return vqmdisubwindow->event(event);
     }
-    return {};
+    qFatal("Error: Protected method QMdiSubWindow::event called without a directly constructed type");
 }
 
 void QMdiSubWindow_ShowEvent(QMdiSubWindow* self, QShowEvent* showEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->showEvent(showEvent);
     }
 }
 
 void QMdiSubWindow_HideEvent(QMdiSubWindow* self, QHideEvent* hideEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->hideEvent(hideEvent);
     }
 }
 
 void QMdiSubWindow_ChangeEvent(QMdiSubWindow* self, QEvent* changeEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->changeEvent(changeEvent);
     }
 }
 
 void QMdiSubWindow_CloseEvent(QMdiSubWindow* self, QCloseEvent* closeEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->closeEvent(closeEvent);
     }
 }
 
 void QMdiSubWindow_LeaveEvent(QMdiSubWindow* self, QEvent* leaveEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->leaveEvent(leaveEvent);
     }
 }
 
 void QMdiSubWindow_ResizeEvent(QMdiSubWindow* self, QResizeEvent* resizeEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->resizeEvent(resizeEvent);
     }
 }
 
 void QMdiSubWindow_TimerEvent(QMdiSubWindow* self, QTimerEvent* timerEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->timerEvent(timerEvent);
     }
 }
 
 void QMdiSubWindow_MoveEvent(QMdiSubWindow* self, QMoveEvent* moveEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->moveEvent(moveEvent);
     }
 }
 
 void QMdiSubWindow_PaintEvent(QMdiSubWindow* self, QPaintEvent* paintEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->paintEvent(paintEvent);
     }
 }
 
 void QMdiSubWindow_MousePressEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->mousePressEvent(mouseEvent);
     }
 }
 
 void QMdiSubWindow_MouseDoubleClickEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->mouseDoubleClickEvent(mouseEvent);
     }
 }
 
 void QMdiSubWindow_MouseReleaseEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->mouseReleaseEvent(mouseEvent);
     }
 }
 
 void QMdiSubWindow_MouseMoveEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->mouseMoveEvent(mouseEvent);
     }
 }
 
 void QMdiSubWindow_KeyPressEvent(QMdiSubWindow* self, QKeyEvent* keyEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->keyPressEvent(keyEvent);
     }
 }
 
 void QMdiSubWindow_ContextMenuEvent(QMdiSubWindow* self, QContextMenuEvent* contextMenuEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->contextMenuEvent(contextMenuEvent);
     }
 }
 
 void QMdiSubWindow_FocusInEvent(QMdiSubWindow* self, QFocusEvent* focusInEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->focusInEvent(focusInEvent);
     }
 }
 
 void QMdiSubWindow_FocusOutEvent(QMdiSubWindow* self, QFocusEvent* focusOutEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->focusOutEvent(focusOutEvent);
     }
 }
 
 void QMdiSubWindow_ChildEvent(QMdiSubWindow* self, QChildEvent* childEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->childEvent(childEvent);
     }
 }
@@ -347,1434 +347,971 @@ void QMdiSubWindow_SetOption2(QMdiSubWindow* self, int option, bool on) {
 
 // Base class handler implementation
 QMetaObject* QMdiSubWindow_SuperMetaObject(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_MetaObject_IsBase(true);
-        return (QMetaObject*)vqmdisubwindow->metaObject();
-    } else {
-        return (QMetaObject*)self->QMdiSubWindow::metaObject();
-    }
+    return (QMetaObject*)self->QMdiSubWindow::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnMetaObject(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_MetaObject_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MetaObject_Callback>(slot));
+void QMdiSubWindow_OnMetaObject(QMdiSubWindow* self, intptr_t slot) {
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self)))
+        vqmdisubwindow->qmdisubwindow_metaobject_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QMdiSubWindow_SuperMetacast(QMdiSubWindow* self, const char* param1) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_Metacast_IsBase(true);
-        return vqmdisubwindow->qt_metacast(param1);
-    } else {
-        return self->QMdiSubWindow::qt_metacast(param1);
-    }
+    return self->QMdiSubWindow::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMetacast(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_Metacast_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Metacast_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_metacast_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QMdiSubWindow_SuperMetacall(QMdiSubWindow* self, int param1, int param2, void** param3) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_Metacall_IsBase(true);
-        return vqmdisubwindow->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QMdiSubWindow::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QMdiSubWindow::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMetacall(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_Metacall_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Metacall_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_metacall_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QMdiSubWindow_SuperSizeHint(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_SizeHint_IsBase(true);
-        return new QSize(vqmdisubwindow->sizeHint());
-    } else {
-        return new QSize(((VirtualQMdiSubWindow*)self)->sizeHint());
-    }
+    return new QSize(self->QMdiSubWindow::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnSizeHint(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_SizeHint_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_SizeHint_Callback>(slot));
+void QMdiSubWindow_OnSizeHint(QMdiSubWindow* self, intptr_t slot) {
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self)))
+        vqmdisubwindow->qmdisubwindow_sizehint_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QMdiSubWindow_SuperMinimumSizeHint(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_MinimumSizeHint_IsBase(true);
-        return new QSize(vqmdisubwindow->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQMdiSubWindow*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QMdiSubWindow::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnMinimumSizeHint(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_MinimumSizeHint_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MinimumSizeHint_Callback>(slot));
+void QMdiSubWindow_OnMinimumSizeHint(QMdiSubWindow* self, intptr_t slot) {
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self)))
+        vqmdisubwindow->qmdisubwindow_minimumsizehint_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QMdiSubWindow_SuperEventFilter(QMdiSubWindow* self, QObject* object, QEvent* event) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_EventFilter_IsBase(true);
-        return vqmdisubwindow->eventFilter(object, event);
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->eventFilter(object, event);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        return vqmdisubwindow->QMdiSubWindow::eventFilter(object, event);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnEventFilter(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_EventFilter_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_EventFilter_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_eventfilter_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QMdiSubWindow_SuperEvent(QMdiSubWindow* self, QEvent* event) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_Event_IsBase(true);
-        return vqmdisubwindow->event(event);
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->event(event);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        return vqmdisubwindow->QMdiSubWindow::event(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_Event_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Event_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_event_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperShowEvent(QMdiSubWindow* self, QShowEvent* showEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_ShowEvent_IsBase(true);
-        vqmdisubwindow->showEvent(showEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->showEvent(showEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::showEvent(showEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnShowEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_ShowEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ShowEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_showevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperHideEvent(QMdiSubWindow* self, QHideEvent* hideEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_HideEvent_IsBase(true);
-        vqmdisubwindow->hideEvent(hideEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->hideEvent(hideEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::hideEvent(hideEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnHideEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_HideEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_HideEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_hideevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_HideEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperChangeEvent(QMdiSubWindow* self, QEvent* changeEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_ChangeEvent_IsBase(true);
-        vqmdisubwindow->changeEvent(changeEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->changeEvent(changeEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::changeEvent(changeEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnChangeEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_ChangeEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ChangeEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_changeevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ChangeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperCloseEvent(QMdiSubWindow* self, QCloseEvent* closeEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_CloseEvent_IsBase(true);
-        vqmdisubwindow->closeEvent(closeEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->closeEvent(closeEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::closeEvent(closeEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnCloseEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_CloseEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_CloseEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_closeevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_CloseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperLeaveEvent(QMdiSubWindow* self, QEvent* leaveEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_LeaveEvent_IsBase(true);
-        vqmdisubwindow->leaveEvent(leaveEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->leaveEvent(leaveEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::leaveEvent(leaveEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnLeaveEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_LeaveEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_LeaveEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_leaveevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_LeaveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperResizeEvent(QMdiSubWindow* self, QResizeEvent* resizeEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_ResizeEvent_IsBase(true);
-        vqmdisubwindow->resizeEvent(resizeEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->resizeEvent(resizeEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::resizeEvent(resizeEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnResizeEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_ResizeEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ResizeEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_resizeevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperTimerEvent(QMdiSubWindow* self, QTimerEvent* timerEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_TimerEvent_IsBase(true);
-        vqmdisubwindow->timerEvent(timerEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->timerEvent(timerEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::timerEvent(timerEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnTimerEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_TimerEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_TimerEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_timerevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_TimerEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperMoveEvent(QMdiSubWindow* self, QMoveEvent* moveEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_MoveEvent_IsBase(true);
-        vqmdisubwindow->moveEvent(moveEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->moveEvent(moveEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::moveEvent(moveEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMoveEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_MoveEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MoveEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_moveevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperPaintEvent(QMdiSubWindow* self, QPaintEvent* paintEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_PaintEvent_IsBase(true);
-        vqmdisubwindow->paintEvent(paintEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->paintEvent(paintEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::paintEvent(paintEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnPaintEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_PaintEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_PaintEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_paintevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperMousePressEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_MousePressEvent_IsBase(true);
-        vqmdisubwindow->mousePressEvent(mouseEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->mousePressEvent(mouseEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::mousePressEvent(mouseEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMousePressEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_MousePressEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MousePressEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_mousepressevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperMouseDoubleClickEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_MouseDoubleClickEvent_IsBase(true);
-        vqmdisubwindow->mouseDoubleClickEvent(mouseEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->mouseDoubleClickEvent(mouseEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::mouseDoubleClickEvent(mouseEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMouseDoubleClickEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_mousedoubleclickevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperMouseReleaseEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_MouseReleaseEvent_IsBase(true);
-        vqmdisubwindow->mouseReleaseEvent(mouseEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->mouseReleaseEvent(mouseEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::mouseReleaseEvent(mouseEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMouseReleaseEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_mousereleaseevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperMouseMoveEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_MouseMoveEvent_IsBase(true);
-        vqmdisubwindow->mouseMoveEvent(mouseEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->mouseMoveEvent(mouseEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::mouseMoveEvent(mouseEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMouseMoveEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_MouseMoveEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MouseMoveEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_mousemoveevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperKeyPressEvent(QMdiSubWindow* self, QKeyEvent* keyEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_KeyPressEvent_IsBase(true);
-        vqmdisubwindow->keyPressEvent(keyEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->keyPressEvent(keyEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::keyPressEvent(keyEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnKeyPressEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_KeyPressEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_KeyPressEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_keypressevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperContextMenuEvent(QMdiSubWindow* self, QContextMenuEvent* contextMenuEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_ContextMenuEvent_IsBase(true);
-        vqmdisubwindow->contextMenuEvent(contextMenuEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->contextMenuEvent(contextMenuEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::contextMenuEvent(contextMenuEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnContextMenuEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_ContextMenuEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ContextMenuEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_contextmenuevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ContextMenuEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperFocusInEvent(QMdiSubWindow* self, QFocusEvent* focusInEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_FocusInEvent_IsBase(true);
-        vqmdisubwindow->focusInEvent(focusInEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->focusInEvent(focusInEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::focusInEvent(focusInEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnFocusInEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_FocusInEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_FocusInEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_focusinevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_FocusInEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperFocusOutEvent(QMdiSubWindow* self, QFocusEvent* focusOutEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_FocusOutEvent_IsBase(true);
-        vqmdisubwindow->focusOutEvent(focusOutEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->focusOutEvent(focusOutEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::focusOutEvent(focusOutEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnFocusOutEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_FocusOutEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_FocusOutEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_focusoutevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_FocusOutEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperChildEvent(QMdiSubWindow* self, QChildEvent* childEvent) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_ChildEvent_IsBase(true);
-        vqmdisubwindow->childEvent(childEvent);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->childEvent(childEvent);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::childEvent(childEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnChildEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_ChildEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ChildEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_childevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QMdiSubWindow_DevType(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return vqmdisubwindow->devType();
-    } else {
-        return self->QMdiSubWindow::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QMdiSubWindow_SuperDevType(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_DevType_IsBase(true);
-        return vqmdisubwindow->devType();
-    } else {
-        return self->QMdiSubWindow::devType();
-    }
+    return self->QMdiSubWindow::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnDevType(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_DevType_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DevType_Callback>(slot));
+void QMdiSubWindow_OnDevType(QMdiSubWindow* self, intptr_t slot) {
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self)))
+        vqmdisubwindow->qmdisubwindow_devtype_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_SetVisible(QMdiSubWindow* self, bool visible) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setVisible(visible);
-    } else {
-        self->QMdiSubWindow::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperSetVisible(QMdiSubWindow* self, bool visible) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_SetVisible_IsBase(true);
-        vqmdisubwindow->setVisible(visible);
-    } else {
-        self->QMdiSubWindow::setVisible(visible);
-    }
+    self->QMdiSubWindow::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnSetVisible(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_SetVisible_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_SetVisible_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_setvisible_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QMdiSubWindow_HeightForWidth(const QMdiSubWindow* self, int param1) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return vqmdisubwindow->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QMdiSubWindow::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QMdiSubWindow_SuperHeightForWidth(const QMdiSubWindow* self, int param1) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_HeightForWidth_IsBase(true);
-        return vqmdisubwindow->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QMdiSubWindow::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QMdiSubWindow::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnHeightForWidth(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_HeightForWidth_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_HeightForWidth_Callback>(slot));
+void QMdiSubWindow_OnHeightForWidth(QMdiSubWindow* self, intptr_t slot) {
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self)))
+        vqmdisubwindow->qmdisubwindow_heightforwidth_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMdiSubWindow_HasHeightForWidth(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return vqmdisubwindow->hasHeightForWidth();
-    } else {
-        return self->QMdiSubWindow::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QMdiSubWindow_SuperHasHeightForWidth(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_HasHeightForWidth_IsBase(true);
-        return vqmdisubwindow->hasHeightForWidth();
-    } else {
-        return self->QMdiSubWindow::hasHeightForWidth();
-    }
+    return self->QMdiSubWindow::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnHasHeightForWidth(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_HasHeightForWidth_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_HasHeightForWidth_Callback>(slot));
+void QMdiSubWindow_OnHasHeightForWidth(QMdiSubWindow* self, intptr_t slot) {
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self)))
+        vqmdisubwindow->qmdisubwindow_hasheightforwidth_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QMdiSubWindow_PaintEngine(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return vqmdisubwindow->paintEngine();
-    } else {
-        return self->QMdiSubWindow::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QMdiSubWindow_SuperPaintEngine(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_PaintEngine_IsBase(true);
-        return vqmdisubwindow->paintEngine();
-    } else {
-        return self->QMdiSubWindow::paintEngine();
-    }
+    return self->QMdiSubWindow::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnPaintEngine(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_PaintEngine_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_PaintEngine_Callback>(slot));
+void QMdiSubWindow_OnPaintEngine(QMdiSubWindow* self, intptr_t slot) {
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self)))
+        vqmdisubwindow->qmdisubwindow_paintengine_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_WheelEvent(QMdiSubWindow* self, QWheelEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->wheelEvent(event);
     } else {
-        ((VirtualQMdiSubWindow*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QMdiSubWindow::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperWheelEvent(QMdiSubWindow* self, QWheelEvent* event) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_WheelEvent_IsBase(true);
-        vqmdisubwindow->wheelEvent(event);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->wheelEvent(event);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnWheelEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_WheelEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_WheelEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_wheelevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_KeyReleaseEvent(QMdiSubWindow* self, QKeyEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->keyReleaseEvent(event);
     } else {
-        ((VirtualQMdiSubWindow*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QMdiSubWindow::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperKeyReleaseEvent(QMdiSubWindow* self, QKeyEvent* event) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_KeyReleaseEvent_IsBase(true);
-        vqmdisubwindow->keyReleaseEvent(event);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnKeyReleaseEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_keyreleaseevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_EnterEvent(QMdiSubWindow* self, QEnterEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->enterEvent(event);
     } else {
-        ((VirtualQMdiSubWindow*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QMdiSubWindow::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperEnterEvent(QMdiSubWindow* self, QEnterEvent* event) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_EnterEvent_IsBase(true);
-        vqmdisubwindow->enterEvent(event);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->enterEvent(event);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnEnterEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_EnterEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_EnterEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_enterevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_TabletEvent(QMdiSubWindow* self, QTabletEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->tabletEvent(event);
     } else {
-        ((VirtualQMdiSubWindow*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QMdiSubWindow::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperTabletEvent(QMdiSubWindow* self, QTabletEvent* event) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_TabletEvent_IsBase(true);
-        vqmdisubwindow->tabletEvent(event);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->tabletEvent(event);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnTabletEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_TabletEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_TabletEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_tabletevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_ActionEvent(QMdiSubWindow* self, QActionEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->actionEvent(event);
     } else {
-        ((VirtualQMdiSubWindow*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QMdiSubWindow::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperActionEvent(QMdiSubWindow* self, QActionEvent* event) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_ActionEvent_IsBase(true);
-        vqmdisubwindow->actionEvent(event);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->actionEvent(event);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnActionEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_ActionEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ActionEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_actionevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_DragEnterEvent(QMdiSubWindow* self, QDragEnterEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->dragEnterEvent(event);
     } else {
-        ((VirtualQMdiSubWindow*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QMdiSubWindow::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperDragEnterEvent(QMdiSubWindow* self, QDragEnterEvent* event) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_DragEnterEvent_IsBase(true);
-        vqmdisubwindow->dragEnterEvent(event);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnDragEnterEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_DragEnterEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DragEnterEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_dragenterevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_DragMoveEvent(QMdiSubWindow* self, QDragMoveEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->dragMoveEvent(event);
     } else {
-        ((VirtualQMdiSubWindow*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QMdiSubWindow::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperDragMoveEvent(QMdiSubWindow* self, QDragMoveEvent* event) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_DragMoveEvent_IsBase(true);
-        vqmdisubwindow->dragMoveEvent(event);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnDragMoveEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_DragMoveEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DragMoveEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_dragmoveevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_DragLeaveEvent(QMdiSubWindow* self, QDragLeaveEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->dragLeaveEvent(event);
     } else {
-        ((VirtualQMdiSubWindow*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QMdiSubWindow::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperDragLeaveEvent(QMdiSubWindow* self, QDragLeaveEvent* event) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_DragLeaveEvent_IsBase(true);
-        vqmdisubwindow->dragLeaveEvent(event);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnDragLeaveEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_DragLeaveEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DragLeaveEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_dragleaveevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_DropEvent(QMdiSubWindow* self, QDropEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->dropEvent(event);
     } else {
-        ((VirtualQMdiSubWindow*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QMdiSubWindow::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperDropEvent(QMdiSubWindow* self, QDropEvent* event) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_DropEvent_IsBase(true);
-        vqmdisubwindow->dropEvent(event);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->dropEvent(event);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnDropEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_DropEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DropEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_dropevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMdiSubWindow_NativeEvent(QMdiSubWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
+    if (vqmdisubwindow) {
         return vqmdisubwindow->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQMdiSubWindow*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QMdiSubWindow::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QMdiSubWindow_SuperNativeEvent(QMdiSubWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_NativeEvent_IsBase(true);
-        return vqmdisubwindow->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        return vqmdisubwindow->QMdiSubWindow::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnNativeEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_NativeEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_NativeEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_nativeevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QMdiSubWindow_Metric(const QMdiSubWindow* self, int param1) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         return vqmdisubwindow->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQMdiSubWindow*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QMdiSubWindow::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QMdiSubWindow_SuperMetric(const QMdiSubWindow* self, int param1) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_Metric_IsBase(true);
-        return vqmdisubwindow->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self))) {
+        return vqmdisubwindow->QMdiSubWindow::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnMetric(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_Metric_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Metric_Callback>(slot));
+void QMdiSubWindow_OnMetric(QMdiSubWindow* self, intptr_t slot) {
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self)))
+        vqmdisubwindow->qmdisubwindow_metric_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_InitPainter(const QMdiSubWindow* self, QPainter* painter) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->initPainter(painter);
     } else {
-        ((VirtualQMdiSubWindow*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QMdiSubWindow::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperInitPainter(const QMdiSubWindow* self, QPainter* painter) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_InitPainter_IsBase(true);
-        vqmdisubwindow->initPainter(painter);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->initPainter(painter);
-    }
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self))) {
+        vqmdisubwindow->QMdiSubWindow::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnInitPainter(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_InitPainter_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_InitPainter_Callback>(slot));
+void QMdiSubWindow_OnInitPainter(QMdiSubWindow* self, intptr_t slot) {
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self)))
+        vqmdisubwindow->qmdisubwindow_initpainter_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QMdiSubWindow_Redirected(const QMdiSubWindow* self, QPoint* offset) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         return vqmdisubwindow->redirected(offset);
     } else {
-        return ((VirtualQMdiSubWindow*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QMdiSubWindow::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QMdiSubWindow_SuperRedirected(const QMdiSubWindow* self, QPoint* offset) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_Redirected_IsBase(true);
-        return vqmdisubwindow->redirected(offset);
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->redirected(offset);
-    }
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self))) {
+        return vqmdisubwindow->QMdiSubWindow::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnRedirected(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_Redirected_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Redirected_Callback>(slot));
+void QMdiSubWindow_OnRedirected(QMdiSubWindow* self, intptr_t slot) {
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self)))
+        vqmdisubwindow->qmdisubwindow_redirected_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QMdiSubWindow_SharedPainter(const QMdiSubWindow* self) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         return vqmdisubwindow->sharedPainter();
     } else {
-        return ((VirtualQMdiSubWindow*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QMdiSubWindow::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QMdiSubWindow_SuperSharedPainter(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_SharedPainter_IsBase(true);
-        return vqmdisubwindow->sharedPainter();
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->sharedPainter();
-    }
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self))) {
+        return vqmdisubwindow->QMdiSubWindow::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnSharedPainter(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_SharedPainter_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_SharedPainter_Callback>(slot));
+void QMdiSubWindow_OnSharedPainter(QMdiSubWindow* self, intptr_t slot) {
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self)))
+        vqmdisubwindow->qmdisubwindow_sharedpainter_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_InputMethodEvent(QMdiSubWindow* self, QInputMethodEvent* param1) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->inputMethodEvent(param1);
     } else {
-        ((VirtualQMdiSubWindow*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QMdiSubWindow::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperInputMethodEvent(QMdiSubWindow* self, QInputMethodEvent* param1) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_InputMethodEvent_IsBase(true);
-        vqmdisubwindow->inputMethodEvent(param1);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnInputMethodEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_InputMethodEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_InputMethodEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_inputmethodevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QMdiSubWindow_InputMethodQuery(const QMdiSubWindow* self, int param1) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return new QVariant(vqmdisubwindow->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQMdiSubWindow*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QMdiSubWindow_SuperInputMethodQuery(const QMdiSubWindow* self, int param1) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_InputMethodQuery_IsBase(true);
-        return new QVariant(vqmdisubwindow->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQMdiSubWindow*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QMdiSubWindow::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnInputMethodQuery(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_InputMethodQuery_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_InputMethodQuery_Callback>(slot));
+void QMdiSubWindow_OnInputMethodQuery(QMdiSubWindow* self, intptr_t slot) {
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self)))
+        vqmdisubwindow->qmdisubwindow_inputmethodquery_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMdiSubWindow_FocusNextPrevChild(QMdiSubWindow* self, bool next) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         return vqmdisubwindow->focusNextPrevChild(next);
     } else {
-        return ((VirtualQMdiSubWindow*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QMdiSubWindow::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QMdiSubWindow_SuperFocusNextPrevChild(QMdiSubWindow* self, bool next) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_FocusNextPrevChild_IsBase(true);
-        return vqmdisubwindow->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        return vqmdisubwindow->QMdiSubWindow::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnFocusNextPrevChild(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_focusnextprevchild_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_CustomEvent(QMdiSubWindow* self, QEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->customEvent(event);
     } else {
-        ((VirtualQMdiSubWindow*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QMdiSubWindow::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperCustomEvent(QMdiSubWindow* self, QEvent* event) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_CustomEvent_IsBase(true);
-        vqmdisubwindow->customEvent(event);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->customEvent(event);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnCustomEvent(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_CustomEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_CustomEvent_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_customevent_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_ConnectNotify(QMdiSubWindow* self, const QMetaMethod* signal) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->connectNotify(*signal);
     } else {
-        ((VirtualQMdiSubWindow*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QMdiSubWindow::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperConnectNotify(QMdiSubWindow* self, const QMetaMethod* signal) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_ConnectNotify_IsBase(true);
-        vqmdisubwindow->connectNotify(*signal);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->connectNotify(*signal);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnConnectNotify(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_ConnectNotify_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ConnectNotify_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_connectnotify_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiSubWindow_DisconnectNotify(QMdiSubWindow* self, const QMetaMethod* signal) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow) {
         vqmdisubwindow->disconnectNotify(*signal);
     } else {
-        ((VirtualQMdiSubWindow*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QMdiSubWindow::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiSubWindow_SuperDisconnectNotify(QMdiSubWindow* self, const QMetaMethod* signal) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_DisconnectNotify_IsBase(true);
-        vqmdisubwindow->disconnectNotify(*signal);
-    } else {
-        ((VirtualQMdiSubWindow*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->QMdiSubWindow::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QMdiSubWindow::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnDisconnectNotify(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_DisconnectNotify_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DisconnectNotify_Callback>(slot));
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self))
+        vqmdisubwindow->qmdisubwindow_disconnectnotify_callback = reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QMdiSubWindow_UpdateMicroFocus(QMdiSubWindow* self) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->updateMicroFocus();
-    } else {
-        ((VirtualQMdiSubWindow*)self)->updateMicroFocus();
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->VirtualQMdiSubWindow::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QMdiSubWindow::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QMdiSubWindow_SuperUpdateMicroFocus(QMdiSubWindow* self) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_UpdateMicroFocus_IsBase(true);
-        vqmdisubwindow->updateMicroFocus();
-    } else {
-        ((VirtualQMdiSubWindow*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnUpdateMicroFocus(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QMdiSubWindow_Create(QMdiSubWindow* self) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->create();
-    } else {
-        ((VirtualQMdiSubWindow*)self)->create();
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->VirtualQMdiSubWindow::create();
+    } else
+        qFatal("Error: Protected method QMdiSubWindow::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QMdiSubWindow_SuperCreate(QMdiSubWindow* self) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_Create_IsBase(true);
-        vqmdisubwindow->create();
-    } else {
-        ((VirtualQMdiSubWindow*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnCreate(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_Create_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QMdiSubWindow_Destroy(QMdiSubWindow* self) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->destroy();
-    } else {
-        ((VirtualQMdiSubWindow*)self)->destroy();
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        vqmdisubwindow->VirtualQMdiSubWindow::destroy();
+    } else
+        qFatal("Error: Protected method QMdiSubWindow::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QMdiSubWindow_SuperDestroy(QMdiSubWindow* self) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_Destroy_IsBase(true);
-        vqmdisubwindow->destroy();
-    } else {
-        ((VirtualQMdiSubWindow*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnDestroy(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_Destroy_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QMdiSubWindow_FocusNextChild(QMdiSubWindow* self) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return vqmdisubwindow->focusNextChild();
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->focusNextChild();
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        return vqmdisubwindow->VirtualQMdiSubWindow::focusNextChild();
+    } else
+        qFatal("Error: Protected method QMdiSubWindow::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QMdiSubWindow_SuperFocusNextChild(QMdiSubWindow* self) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_FocusNextChild_IsBase(true);
-        return vqmdisubwindow->focusNextChild();
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnFocusNextChild(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_FocusNextChild_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QMdiSubWindow_FocusPreviousChild(QMdiSubWindow* self) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return vqmdisubwindow->focusPreviousChild();
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->focusPreviousChild();
-    }
+    if (auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self)) {
+        return vqmdisubwindow->VirtualQMdiSubWindow::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QMdiSubWindow::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QMdiSubWindow_SuperFocusPreviousChild(QMdiSubWindow* self) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_FocusPreviousChild_IsBase(true);
-        return vqmdisubwindow->focusPreviousChild();
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnFocusPreviousChild(QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_FocusPreviousChild_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QMdiSubWindow_Sender(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return vqmdisubwindow->sender();
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->sender();
-    }
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self))) {
+        return vqmdisubwindow->VirtualQMdiSubWindow::sender();
+    } else
+        qFatal("Error: Protected method QMdiSubWindow::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QMdiSubWindow_SuperSender(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_Sender_IsBase(true);
-        return vqmdisubwindow->sender();
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnSender(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_Sender_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QMdiSubWindow_SenderSignalIndex(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return vqmdisubwindow->senderSignalIndex();
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->senderSignalIndex();
-    }
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self))) {
+        return vqmdisubwindow->VirtualQMdiSubWindow::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QMdiSubWindow::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QMdiSubWindow_SuperSenderSignalIndex(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_SenderSignalIndex_IsBase(true);
-        return vqmdisubwindow->senderSignalIndex();
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnSenderSignalIndex(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QMdiSubWindow_Receivers(const QMdiSubWindow* self, const char* signal) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return vqmdisubwindow->receivers(signal);
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->receivers(signal);
-    }
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self))) {
+        return vqmdisubwindow->VirtualQMdiSubWindow::receivers(signal);
+    } else
+        qFatal("Error: Protected method QMdiSubWindow::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QMdiSubWindow_SuperReceivers(const QMdiSubWindow* self, const char* signal) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_Receivers_IsBase(true);
-        return vqmdisubwindow->receivers(signal);
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnReceivers(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_Receivers_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QMdiSubWindow_IsSignalConnected(const QMdiSubWindow* self, const QMetaMethod* signal) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return vqmdisubwindow->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self))) {
+        return vqmdisubwindow->VirtualQMdiSubWindow::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QMdiSubWindow::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QMdiSubWindow_SuperIsSignalConnected(const QMdiSubWindow* self, const QMetaMethod* signal) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_IsSignalConnected_IsBase(true);
-        return vqmdisubwindow->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnIsSignalConnected(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_IsSignalConnected_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QMdiSubWindow_GetDecodedMetricF(const QMdiSubWindow* self, int metricA, int metricB) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return vqmdisubwindow->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QMdiSubWindow_SuperGetDecodedMetricF(const QMdiSubWindow* self, int metricA, int metricB) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        vqmdisubwindow->setQMdiSubWindow_GetDecodedMetricF_IsBase(true);
-        return vqmdisubwindow->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiSubWindow_OnGetDecodedMetricF(const QMdiSubWindow* self, intptr_t slot) {
-    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
-        vqmdisubwindow->setQMdiSubWindow_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self))) {
+        return vqmdisubwindow->VirtualQMdiSubWindow::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QMdiSubWindow::getDecodedMetricF called without a directly constructed type");
 }
 
 void QMdiSubWindow_Delete(QMdiSubWindow* self) {

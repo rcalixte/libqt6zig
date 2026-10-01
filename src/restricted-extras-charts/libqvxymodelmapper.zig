@@ -79,9 +79,9 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QVXYModelMapper) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QVXYModelMapper, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) QMetaObject) void {
         qtc.QVXYModelMapper_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2065,44 +2065,6 @@ pub const QVXYModelMapper = extern struct {
         return qtc.QVXYModelMapper_First(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFirst` instead
-    ///
-    pub const SuperFirst = superFirst;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#first)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    pub fn superFirst(self: QVXYModelMapper) i32 {
-        return qtc.QVXYModelMapper_SuperFirst(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFirst` instead
-    ///
-    pub const OnFirst = onFirst;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#first)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVXYModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onFirst(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setFirst` instead
     ///
     pub const SetFirst = setFirst;
@@ -2123,46 +2085,6 @@ pub const QVXYModelMapper = extern struct {
         qtc.QVXYModelMapper_SetFirst(@ptrCast(self.ptr), @bitCast(_first));
     }
 
-    /// ### DEPRECATED: Use `superSetFirst` instead
-    ///
-    pub const SuperSetFirst = superSetFirst;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setFirst)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    /// ` _first: i32 `
-    ///
-    pub fn superSetFirst(self: QVXYModelMapper, _first: i32) void {
-        qtc.QVXYModelMapper_SuperSetFirst(@ptrCast(self.ptr), @bitCast(_first));
-    }
-
-    /// ### DEPRECATED: Use `onSetFirst` instead
-    ///
-    pub const OnSetFirst = onSetFirst;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setFirst)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVXYModelMapper`
-    ///
-    /// ` callback: *const fn (self: QVXYModelMapper, first: i32) callconv(.c) void `
-    ///
-    pub fn onSetFirst(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnSetFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `count` instead
     ///
     pub const Count = count;
@@ -2179,44 +2101,6 @@ pub const QVXYModelMapper = extern struct {
     ///
     pub fn count(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_Count(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCount` instead
-    ///
-    pub const SuperCount = superCount;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#count)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    pub fn superCount(self: QVXYModelMapper) i32 {
-        return qtc.QVXYModelMapper_SuperCount(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCount` instead
-    ///
-    pub const OnCount = onCount;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#count)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVXYModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onCount(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setCount` instead
@@ -2237,46 +2121,6 @@ pub const QVXYModelMapper = extern struct {
     ///
     pub fn setCount(self: QVXYModelMapper, _count: i32) void {
         qtc.QVXYModelMapper_SetCount(@ptrCast(self.ptr), @bitCast(_count));
-    }
-
-    /// ### DEPRECATED: Use `superSetCount` instead
-    ///
-    pub const SuperSetCount = superSetCount;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setCount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    /// ` _count: i32 `
-    ///
-    pub fn superSetCount(self: QVXYModelMapper, _count: i32) void {
-        qtc.QVXYModelMapper_SuperSetCount(@ptrCast(self.ptr), @bitCast(_count));
-    }
-
-    /// ### DEPRECATED: Use `onSetCount` instead
-    ///
-    pub const OnSetCount = onSetCount;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setCount)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVXYModelMapper`
-    ///
-    /// ` callback: *const fn (self: QVXYModelMapper, count: i32) callconv(.c) void `
-    ///
-    pub fn onSetCount(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnSetCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `orientation` instead
@@ -2301,48 +2145,6 @@ pub const QVXYModelMapper = extern struct {
         return qtc.QVXYModelMapper_Orientation(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superOrientation` instead
-    ///
-    pub const SuperOrientation = superOrientation;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#orientation)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qnamespace_enums.Orientation `
-    ///
-    pub fn superOrientation(self: QVXYModelMapper) i32 {
-        return qtc.QVXYModelMapper_SuperOrientation(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onOrientation` instead
-    ///
-    pub const OnOrientation = onOrientation;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#orientation)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVXYModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onOrientation(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setOrientation` instead
     ///
     pub const SetOrientation = setOrientation;
@@ -2363,46 +2165,6 @@ pub const QVXYModelMapper = extern struct {
         qtc.QVXYModelMapper_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
 
-    /// ### DEPRECATED: Use `superSetOrientation` instead
-    ///
-    pub const SuperSetOrientation = superSetOrientation;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setOrientation)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    /// ` _orientation: qnamespace_enums.Orientation `
-    ///
-    pub fn superSetOrientation(self: QVXYModelMapper, _orientation: i32) void {
-        qtc.QVXYModelMapper_SuperSetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
-    }
-
-    /// ### DEPRECATED: Use `onSetOrientation` instead
-    ///
-    pub const OnSetOrientation = onSetOrientation;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setOrientation)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVXYModelMapper`
-    ///
-    /// ` callback: *const fn (self: QVXYModelMapper, orientation: qnamespace_enums.Orientation) callconv(.c) void `
-    ///
-    pub fn onSetOrientation(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnSetOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `xSection` instead
     ///
     pub const XSection = xSection;
@@ -2419,44 +2181,6 @@ pub const QVXYModelMapper = extern struct {
     ///
     pub fn xSection(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_XSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superXSection` instead
-    ///
-    pub const SuperXSection = superXSection;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#xSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    pub fn superXSection(self: QVXYModelMapper) i32 {
-        return qtc.QVXYModelMapper_SuperXSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onXSection` instead
-    ///
-    pub const OnXSection = onXSection;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#xSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVXYModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onXSection(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnXSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setXSection` instead
@@ -2479,46 +2203,6 @@ pub const QVXYModelMapper = extern struct {
         qtc.QVXYModelMapper_SetXSection(@ptrCast(self.ptr), @bitCast(_xSection));
     }
 
-    /// ### DEPRECATED: Use `superSetXSection` instead
-    ///
-    pub const SuperSetXSection = superSetXSection;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setXSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    /// ` _xSection: i32 `
-    ///
-    pub fn superSetXSection(self: QVXYModelMapper, _xSection: i32) void {
-        qtc.QVXYModelMapper_SuperSetXSection(@ptrCast(self.ptr), @bitCast(_xSection));
-    }
-
-    /// ### DEPRECATED: Use `onSetXSection` instead
-    ///
-    pub const OnSetXSection = onSetXSection;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setXSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVXYModelMapper`
-    ///
-    /// ` callback: *const fn (self: QVXYModelMapper, xSection: i32) callconv(.c) void `
-    ///
-    pub fn onSetXSection(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnSetXSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `ySection` instead
     ///
     pub const YSection = ySection;
@@ -2535,44 +2219,6 @@ pub const QVXYModelMapper = extern struct {
     ///
     pub fn ySection(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_YSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superYSection` instead
-    ///
-    pub const SuperYSection = superYSection;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#ySection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    pub fn superYSection(self: QVXYModelMapper) i32 {
-        return qtc.QVXYModelMapper_SuperYSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onYSection` instead
-    ///
-    pub const OnYSection = onYSection;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#ySection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVXYModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onYSection(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnYSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setYSection` instead
@@ -2595,46 +2241,6 @@ pub const QVXYModelMapper = extern struct {
         qtc.QVXYModelMapper_SetYSection(@ptrCast(self.ptr), @bitCast(_ySection));
     }
 
-    /// ### DEPRECATED: Use `superSetYSection` instead
-    ///
-    pub const SuperSetYSection = superSetYSection;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setYSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    /// ` _ySection: i32 `
-    ///
-    pub fn superSetYSection(self: QVXYModelMapper, _ySection: i32) void {
-        qtc.QVXYModelMapper_SuperSetYSection(@ptrCast(self.ptr), @bitCast(_ySection));
-    }
-
-    /// ### DEPRECATED: Use `onSetYSection` instead
-    ///
-    pub const OnSetYSection = onSetYSection;
-
-    /// Inherited from QXYModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setYSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVXYModelMapper`
-    ///
-    /// ` callback: *const fn (self: QVXYModelMapper, ySection: i32) callconv(.c) void `
-    ///
-    pub fn onSetYSection(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
-        qtc.QVXYModelMapper_OnSetYSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -2653,44 +2259,6 @@ pub const QVXYModelMapper = extern struct {
         return .{ .ptr = qtc.QVXYModelMapper_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    pub fn superSender(self: QVXYModelMapper) QObject {
-        return .{ .ptr = qtc.QVXYModelMapper_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVXYModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QVXYModelMapper, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QVXYModelMapper_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2707,44 +2275,6 @@ pub const QVXYModelMapper = extern struct {
     ///
     pub fn senderSignalIndex(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    pub fn superSenderSignalIndex(self: QVXYModelMapper) i32 {
-        return qtc.QVXYModelMapper_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVXYModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2768,47 +2298,6 @@ pub const QVXYModelMapper = extern struct {
         return qtc.QVXYModelMapper_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QVXYModelMapper, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QVXYModelMapper_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVXYModelMapper`
-    ///
-    /// ` callback: *const fn (self: QVXYModelMapper, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QVXYModelMapper_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2828,47 +2317,6 @@ pub const QVXYModelMapper = extern struct {
     pub fn isSignalConnected(self: QVXYModelMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QVXYModelMapper_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QVXYModelMapper, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QVXYModelMapper_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVXYModelMapper`
-    ///
-    /// ` callback: *const fn (self: QVXYModelMapper, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QMetaMethod) callconv(.c) bool) void {
-        qtc.QVXYModelMapper_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

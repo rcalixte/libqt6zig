@@ -51,7 +51,7 @@ bool KTextEditor__Command_WantsToProcessText(KTextEditor__Command* self, const l
 void KTextEditor__Command_ProcessText(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string text);
 libqt_string KTextEditor__Command_Tr2(const char* s, const char* c);
 libqt_string KTextEditor__Command_Tr3(const char* s, const char* c, int n);
-void KTextEditor__Command_OnMetaObject(const KTextEditor__Command* self, intptr_t slot);
+void KTextEditor__Command_OnMetaObject(KTextEditor__Command* self, intptr_t slot);
 QMetaObject* KTextEditor__Command_SuperMetaObject(const KTextEditor__Command* self);
 void KTextEditor__Command_OnMetacast(KTextEditor__Command* self, intptr_t slot);
 void* KTextEditor__Command_SuperMetacast(KTextEditor__Command* self, const char* param1);
@@ -60,9 +60,7 @@ int KTextEditor__Command_SuperMetacall(KTextEditor__Command* self, int param1, i
 void KTextEditor__Command_OnSupportsRange(KTextEditor__Command* self, intptr_t slot);
 bool KTextEditor__Command_SuperSupportsRange(KTextEditor__Command* self, const libqt_string cmd);
 void KTextEditor__Command_OnExec(KTextEditor__Command* self, intptr_t slot);
-bool KTextEditor__Command_SuperExec(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmd, libqt_string msg, const KTextEditor__Range* range);
 void KTextEditor__Command_OnHelp(KTextEditor__Command* self, intptr_t slot);
-bool KTextEditor__Command_SuperHelp(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmd, libqt_string msg);
 void KTextEditor__Command_OnCompletionObject(KTextEditor__Command* self, intptr_t slot);
 KCompletion* KTextEditor__Command_SuperCompletionObject(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmdname);
 void KTextEditor__Command_OnWantsToProcessText(KTextEditor__Command* self, intptr_t slot);
@@ -91,17 +89,9 @@ void KTextEditor__Command_DisconnectNotify(KTextEditor__Command* self, const QMe
 void KTextEditor__Command_OnDisconnectNotify(KTextEditor__Command* self, intptr_t slot);
 void KTextEditor__Command_SuperDisconnectNotify(KTextEditor__Command* self, const QMetaMethod* signal);
 QObject* KTextEditor__Command_Sender(const KTextEditor__Command* self);
-void KTextEditor__Command_OnSender(const KTextEditor__Command* self, intptr_t slot);
-QObject* KTextEditor__Command_SuperSender(const KTextEditor__Command* self);
 int KTextEditor__Command_SenderSignalIndex(const KTextEditor__Command* self);
-void KTextEditor__Command_OnSenderSignalIndex(const KTextEditor__Command* self, intptr_t slot);
-int KTextEditor__Command_SuperSenderSignalIndex(const KTextEditor__Command* self);
 int KTextEditor__Command_Receivers(const KTextEditor__Command* self, const char* signal);
-void KTextEditor__Command_OnReceivers(const KTextEditor__Command* self, intptr_t slot);
-int KTextEditor__Command_SuperReceivers(const KTextEditor__Command* self, const char* signal);
 bool KTextEditor__Command_IsSignalConnected(const KTextEditor__Command* self, const QMetaMethod* signal);
-void KTextEditor__Command_OnIsSignalConnected(const KTextEditor__Command* self, intptr_t slot);
-bool KTextEditor__Command_SuperIsSignalConnected(const KTextEditor__Command* self, const QMetaMethod* signal);
 void KTextEditor__Command_Delete(KTextEditor__Command* self);
 
 #ifdef __cplusplus

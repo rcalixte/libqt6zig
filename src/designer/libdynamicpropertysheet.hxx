@@ -9,21 +9,16 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QDesignerDynamicPropertySheetExtension so that we can call protected methods
+// This class is a subclass of QDesignerDynamicPropertySheetExtension
 class VirtualQDesignerDynamicPropertySheetExtension : public QDesignerDynamicPropertySheetExtension {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQDesignerDynamicPropertySheetExtension = true;
-
-    // Virtual class public types (including callbacks)
-    using QDesignerDynamicPropertySheetExtension_DynamicPropertiesAllowed_Callback = bool (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QDesignerDynamicPropertySheetExtension_DynamicPropertiesAllowed_Callback = bool (*)(const QDesignerDynamicPropertySheetExtension*);
     using QDesignerDynamicPropertySheetExtension_AddDynamicProperty_Callback = int (*)(QDesignerDynamicPropertySheetExtension*, const char*, QVariant*);
     using QDesignerDynamicPropertySheetExtension_RemoveDynamicProperty_Callback = bool (*)(QDesignerDynamicPropertySheetExtension*, int);
     using QDesignerDynamicPropertySheetExtension_IsDynamicProperty_Callback = bool (*)(const QDesignerDynamicPropertySheetExtension*, int);
     using QDesignerDynamicPropertySheetExtension_CanAddDynamicProperty_Callback = bool (*)(const QDesignerDynamicPropertySheetExtension*, const char*);
 
-  protected:
     // Instance callback storage
     QDesignerDynamicPropertySheetExtension_DynamicPropertiesAllowed_Callback qdesignerdynamicpropertysheetextension_dynamicpropertiesallowed_callback = nullptr;
     QDesignerDynamicPropertySheetExtension_AddDynamicProperty_Callback qdesignerdynamicpropertysheetextension_adddynamicproperty_callback = nullptr;
@@ -31,44 +26,21 @@ class VirtualQDesignerDynamicPropertySheetExtension : public QDesignerDynamicPro
     QDesignerDynamicPropertySheetExtension_IsDynamicProperty_Callback qdesignerdynamicpropertysheetextension_isdynamicproperty_callback = nullptr;
     QDesignerDynamicPropertySheetExtension_CanAddDynamicProperty_Callback qdesignerdynamicpropertysheetextension_canadddynamicproperty_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qdesignerdynamicpropertysheetextension_dynamicpropertiesallowed_isbase = false;
-    mutable bool qdesignerdynamicpropertysheetextension_adddynamicproperty_isbase = false;
-    mutable bool qdesignerdynamicpropertysheetextension_removedynamicproperty_isbase = false;
-    mutable bool qdesignerdynamicpropertysheetextension_isdynamicproperty_isbase = false;
-    mutable bool qdesignerdynamicpropertysheetextension_canadddynamicproperty_isbase = false;
-
-  public:
     VirtualQDesignerDynamicPropertySheetExtension() : QDesignerDynamicPropertySheetExtension() {};
-
-    // Callback setters
-    inline void setQDesignerDynamicPropertySheetExtension_DynamicPropertiesAllowed_Callback(QDesignerDynamicPropertySheetExtension_DynamicPropertiesAllowed_Callback cb) { qdesignerdynamicpropertysheetextension_dynamicpropertiesallowed_callback = cb; }
-    inline void setQDesignerDynamicPropertySheetExtension_AddDynamicProperty_Callback(QDesignerDynamicPropertySheetExtension_AddDynamicProperty_Callback cb) { qdesignerdynamicpropertysheetextension_adddynamicproperty_callback = cb; }
-    inline void setQDesignerDynamicPropertySheetExtension_RemoveDynamicProperty_Callback(QDesignerDynamicPropertySheetExtension_RemoveDynamicProperty_Callback cb) { qdesignerdynamicpropertysheetextension_removedynamicproperty_callback = cb; }
-    inline void setQDesignerDynamicPropertySheetExtension_IsDynamicProperty_Callback(QDesignerDynamicPropertySheetExtension_IsDynamicProperty_Callback cb) { qdesignerdynamicpropertysheetextension_isdynamicproperty_callback = cb; }
-    inline void setQDesignerDynamicPropertySheetExtension_CanAddDynamicProperty_Callback(QDesignerDynamicPropertySheetExtension_CanAddDynamicProperty_Callback cb) { qdesignerdynamicpropertysheetextension_canadddynamicproperty_callback = cb; }
-
-    // Base flag setters
-    inline void setQDesignerDynamicPropertySheetExtension_DynamicPropertiesAllowed_IsBase(bool value) const { qdesignerdynamicpropertysheetextension_dynamicpropertiesallowed_isbase = value; }
-    inline void setQDesignerDynamicPropertySheetExtension_AddDynamicProperty_IsBase(bool value) const { qdesignerdynamicpropertysheetextension_adddynamicproperty_isbase = value; }
-    inline void setQDesignerDynamicPropertySheetExtension_RemoveDynamicProperty_IsBase(bool value) const { qdesignerdynamicpropertysheetextension_removedynamicproperty_isbase = value; }
-    inline void setQDesignerDynamicPropertySheetExtension_IsDynamicProperty_IsBase(bool value) const { qdesignerdynamicpropertysheetextension_isdynamicproperty_isbase = value; }
-    inline void setQDesignerDynamicPropertySheetExtension_CanAddDynamicProperty_IsBase(bool value) const { qdesignerdynamicpropertysheetextension_canadddynamicproperty_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual bool dynamicPropertiesAllowed() const override {
-        auto dynamicpropertiesallowed_cb = qdesignerdynamicpropertysheetextension_dynamicpropertiesallowed_callback;
-        if (dynamicpropertiesallowed_cb) {
-            bool callback_ret = dynamicpropertiesallowed_cb();
+        if (qdesignerdynamicpropertysheetextension_dynamicpropertiesallowed_callback) {
+            bool callback_ret = qdesignerdynamicpropertysheetextension_dynamicpropertiesallowed_callback(this);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerDynamicPropertySheetExtension::dynamicPropertiesAllowed called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int addDynamicProperty(const QString& propertyName, const QVariant& value) override {
-        auto adddynamicproperty_cb = qdesignerdynamicpropertysheetextension_adddynamicproperty_callback;
-        if (adddynamicproperty_cb) {
+        if (qdesignerdynamicpropertysheetextension_adddynamicproperty_callback) {
             const auto propertyName_ret = propertyName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray propertyName_b = propertyName_ret.toUtf8();
@@ -80,39 +52,39 @@ class VirtualQDesignerDynamicPropertySheetExtension : public QDesignerDynamicPro
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-            int callback_ret = adddynamicproperty_cb(this, cbval1, cbval2);
+            int callback_ret = qdesignerdynamicpropertysheetextension_adddynamicproperty_callback(this, cbval1, cbval2);
             libqt_free(propertyName_str);
             return static_cast<int>(callback_ret);
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerDynamicPropertySheetExtension::addDynamicProperty called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool removeDynamicProperty(int index) override {
-        auto removedynamicproperty_cb = qdesignerdynamicpropertysheetextension_removedynamicproperty_callback;
-        if (removedynamicproperty_cb) {
+        if (qdesignerdynamicpropertysheetextension_removedynamicproperty_callback) {
             int cbval1 = index;
-            bool callback_ret = removedynamicproperty_cb(this, cbval1);
+            bool callback_ret = qdesignerdynamicpropertysheetextension_removedynamicproperty_callback(this, cbval1);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerDynamicPropertySheetExtension::removeDynamicProperty called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool isDynamicProperty(int index) const override {
-        auto isdynamicproperty_cb = qdesignerdynamicpropertysheetextension_isdynamicproperty_callback;
-        if (isdynamicproperty_cb) {
+        if (qdesignerdynamicpropertysheetextension_isdynamicproperty_callback) {
             int cbval1 = index;
-            bool callback_ret = isdynamicproperty_cb(this, cbval1);
+            bool callback_ret = qdesignerdynamicpropertysheetextension_isdynamicproperty_callback(this, cbval1);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerDynamicPropertySheetExtension::isDynamicProperty called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool canAddDynamicProperty(const QString& propertyName) const override {
-        auto canadddynamicproperty_cb = qdesignerdynamicpropertysheetextension_canadddynamicproperty_callback;
-        if (canadddynamicproperty_cb) {
+        if (qdesignerdynamicpropertysheetextension_canadddynamicproperty_callback) {
             const auto propertyName_ret = propertyName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray propertyName_b = propertyName_ret.toUtf8();
@@ -121,11 +93,12 @@ class VirtualQDesignerDynamicPropertySheetExtension : public QDesignerDynamicPro
             memcpy((void*)propertyName_str, propertyName_b.data(), propertyName_str_len);
             ((char*)propertyName_str)[propertyName_str_len] = '\0';
             const char* cbval1 = propertyName_str;
-            bool callback_ret = canadddynamicproperty_cb(this, cbval1);
+            bool callback_ret = qdesignerdynamicpropertysheetextension_canadddynamicproperty_callback(this, cbval1);
             libqt_free(propertyName_str);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerDynamicPropertySheetExtension::canAddDynamicProperty called without being implemented");
     }
 };
 

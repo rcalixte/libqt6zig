@@ -76,9 +76,9 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` self: QAbstractSocket `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QAbstractSocket) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QAbstractSocket, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAbstractSocket, callback: *const fn (QAbstractSocket) callconv(.c) QMetaObject) void {
         qtc.QAbstractSocket_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -251,9 +251,9 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` self: QAbstractSocket `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSocket) callconv(.c) void `
     ///
-    pub fn onResume(self: QAbstractSocket, callback: *const fn () callconv(.c) void) void {
+    pub fn onResume(self: QAbstractSocket, callback: *const fn (QAbstractSocket) callconv(.c) void) void {
         qtc.QAbstractSocket_OnResume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -500,9 +500,9 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` self: QAbstractSocket `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSocket) callconv(.c) void `
     ///
-    pub fn onDisconnectFromHost(self: QAbstractSocket, callback: *const fn () callconv(.c) void) void {
+    pub fn onDisconnectFromHost(self: QAbstractSocket, callback: *const fn (QAbstractSocket) callconv(.c) void) void {
         qtc.QAbstractSocket_OnDisconnectFromHost(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -562,9 +562,9 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` self: QAbstractSocket `
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QAbstractSocket) callconv(.c) i64 `
     ///
-    pub fn onBytesAvailable(self: QAbstractSocket, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesAvailable(self: QAbstractSocket, callback: *const fn (QAbstractSocket) callconv(.c) i64) void {
         qtc.QAbstractSocket_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -610,9 +610,9 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` self: QAbstractSocket `
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QAbstractSocket) callconv(.c) i64 `
     ///
-    pub fn onBytesToWrite(self: QAbstractSocket, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesToWrite(self: QAbstractSocket, callback: *const fn (QAbstractSocket) callconv(.c) i64) void {
         qtc.QAbstractSocket_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -814,9 +814,9 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` self: QAbstractSocket `
     ///
-    /// ` callback: *const fn () callconv(.c) isize `
+    /// ` callback: *const fn (self: QAbstractSocket) callconv(.c) isize `
     ///
-    pub fn onSocketDescriptor(self: QAbstractSocket, callback: *const fn () callconv(.c) isize) void {
+    pub fn onSocketDescriptor(self: QAbstractSocket, callback: *const fn (QAbstractSocket) callconv(.c) isize) void {
         qtc.QAbstractSocket_OnSocketDescriptor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1090,9 +1090,9 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` self: QAbstractSocket `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSocket) callconv(.c) void `
     ///
-    pub fn onClose(self: QAbstractSocket, callback: *const fn () callconv(.c) void) void {
+    pub fn onClose(self: QAbstractSocket, callback: *const fn (QAbstractSocket) callconv(.c) void) void {
         qtc.QAbstractSocket_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1138,9 +1138,9 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` self: QAbstractSocket `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractSocket) callconv(.c) bool `
     ///
-    pub fn onIsSequential(self: QAbstractSocket, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSequential(self: QAbstractSocket, callback: *const fn (QAbstractSocket) callconv(.c) bool) void {
         qtc.QAbstractSocket_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1885,42 +1885,6 @@ pub const QAbstractSocket = extern struct {
         qtc.QAbstractSocket_SetSocketState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `onSetSocketState` instead
-    ///
-    pub const OnSetSocketState = onSetSocketState;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` callback: *const fn (self: QAbstractSocket, state: qabstractsocket_enums.SocketState) callconv(.c) void `
-    ///
-    pub fn onSetSocketState(self: QAbstractSocket, callback: *const fn (QAbstractSocket, i32) callconv(.c) void) void {
-        qtc.QAbstractSocket_OnSetSocketState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetSocketState` instead
-    ///
-    pub const SuperSetSocketState = superSetSocketState;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` _state: qabstractsocket_enums.SocketState `
-    ///
-    pub fn superSetSocketState(self: QAbstractSocket, _state: i32) void {
-        qtc.QAbstractSocket_SuperSetSocketState(@ptrCast(self.ptr), @bitCast(_state));
-    }
-
     /// ### DEPRECATED: Use `setSocketError` instead
     ///
     pub const SetSocketError = setSocketError;
@@ -1937,42 +1901,6 @@ pub const QAbstractSocket = extern struct {
         qtc.QAbstractSocket_SetSocketError(@ptrCast(self.ptr), @bitCast(socketError));
     }
 
-    /// ### DEPRECATED: Use `onSetSocketError` instead
-    ///
-    pub const OnSetSocketError = onSetSocketError;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` callback: *const fn (self: QAbstractSocket, socketError: qabstractsocket_enums.SocketError) callconv(.c) void `
-    ///
-    pub fn onSetSocketError(self: QAbstractSocket, callback: *const fn (QAbstractSocket, i32) callconv(.c) void) void {
-        qtc.QAbstractSocket_OnSetSocketError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetSocketError` instead
-    ///
-    pub const SuperSetSocketError = superSetSocketError;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` socketError: qabstractsocket_enums.SocketError `
-    ///
-    pub fn superSetSocketError(self: QAbstractSocket, socketError: i32) void {
-        qtc.QAbstractSocket_SuperSetSocketError(@ptrCast(self.ptr), @bitCast(socketError));
-    }
-
     /// ### DEPRECATED: Use `setLocalPort` instead
     ///
     pub const SetLocalPort = setLocalPort;
@@ -1987,42 +1915,6 @@ pub const QAbstractSocket = extern struct {
     ///
     pub fn setLocalPort(self: QAbstractSocket, port: u16) void {
         qtc.QAbstractSocket_SetLocalPort(@ptrCast(self.ptr), @bitCast(port));
-    }
-
-    /// ### DEPRECATED: Use `onSetLocalPort` instead
-    ///
-    pub const OnSetLocalPort = onSetLocalPort;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` callback: *const fn (self: QAbstractSocket, port: u16) callconv(.c) void `
-    ///
-    pub fn onSetLocalPort(self: QAbstractSocket, callback: *const fn (QAbstractSocket, u16) callconv(.c) void) void {
-        qtc.QAbstractSocket_OnSetLocalPort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetLocalPort` instead
-    ///
-    pub const SuperSetLocalPort = superSetLocalPort;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` port: u16 `
-    ///
-    pub fn superSetLocalPort(self: QAbstractSocket, port: u16) void {
-        qtc.QAbstractSocket_SuperSetLocalPort(@ptrCast(self.ptr), @bitCast(port));
     }
 
     /// ### DEPRECATED: Use `setLocalAddress` instead
@@ -2042,43 +1934,6 @@ pub const QAbstractSocket = extern struct {
         qtc.QAbstractSocket_SetLocalAddress(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetLocalAddress` instead
-    ///
-    pub const OnSetLocalAddress = onSetLocalAddress;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` callback: *const fn (self: QAbstractSocket, address: QHostAddress) callconv(.c) void `
-    ///
-    pub fn onSetLocalAddress(self: QAbstractSocket, callback: *const fn (QAbstractSocket, QHostAddress) callconv(.c) void) void {
-        qtc.QAbstractSocket_OnSetLocalAddress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetLocalAddress` instead
-    ///
-    pub const SuperSetLocalAddress = superSetLocalAddress;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` address: QHostAddress `
-    ///
-    pub fn superSetLocalAddress(self: QAbstractSocket, address: anytype) void {
-        comptime _ = @TypeOf(address)._is_QHostAddress;
-        qtc.QAbstractSocket_SuperSetLocalAddress(@ptrCast(self.ptr), @ptrCast(address.ptr));
-    }
-
     /// ### DEPRECATED: Use `setPeerPort` instead
     ///
     pub const SetPeerPort = setPeerPort;
@@ -2093,42 +1948,6 @@ pub const QAbstractSocket = extern struct {
     ///
     pub fn setPeerPort(self: QAbstractSocket, port: u16) void {
         qtc.QAbstractSocket_SetPeerPort(@ptrCast(self.ptr), @bitCast(port));
-    }
-
-    /// ### DEPRECATED: Use `onSetPeerPort` instead
-    ///
-    pub const OnSetPeerPort = onSetPeerPort;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` callback: *const fn (self: QAbstractSocket, port: u16) callconv(.c) void `
-    ///
-    pub fn onSetPeerPort(self: QAbstractSocket, callback: *const fn (QAbstractSocket, u16) callconv(.c) void) void {
-        qtc.QAbstractSocket_OnSetPeerPort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetPeerPort` instead
-    ///
-    pub const SuperSetPeerPort = superSetPeerPort;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` port: u16 `
-    ///
-    pub fn superSetPeerPort(self: QAbstractSocket, port: u16) void {
-        qtc.QAbstractSocket_SuperSetPeerPort(@ptrCast(self.ptr), @bitCast(port));
     }
 
     /// ### DEPRECATED: Use `setPeerAddress` instead
@@ -2146,43 +1965,6 @@ pub const QAbstractSocket = extern struct {
     pub fn setPeerAddress(self: QAbstractSocket, address: anytype) void {
         comptime _ = @TypeOf(address)._is_QHostAddress;
         qtc.QAbstractSocket_SetPeerAddress(@ptrCast(self.ptr), @ptrCast(address.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetPeerAddress` instead
-    ///
-    pub const OnSetPeerAddress = onSetPeerAddress;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` callback: *const fn (self: QAbstractSocket, address: QHostAddress) callconv(.c) void `
-    ///
-    pub fn onSetPeerAddress(self: QAbstractSocket, callback: *const fn (QAbstractSocket, QHostAddress) callconv(.c) void) void {
-        qtc.QAbstractSocket_OnSetPeerAddress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetPeerAddress` instead
-    ///
-    pub const SuperSetPeerAddress = superSetPeerAddress;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` address: QHostAddress `
-    ///
-    pub fn superSetPeerAddress(self: QAbstractSocket, address: anytype) void {
-        comptime _ = @TypeOf(address)._is_QHostAddress;
-        qtc.QAbstractSocket_SuperSetPeerAddress(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
 
     /// ### DEPRECATED: Use `setPeerName` instead
@@ -2203,46 +1985,6 @@ pub const QAbstractSocket = extern struct {
             .data = name.ptr,
         };
         qtc.QAbstractSocket_SetPeerName(@ptrCast(self.ptr), name_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetPeerName` instead
-    ///
-    pub const OnSetPeerName = onSetPeerName;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` callback: *const fn (self: QAbstractSocket, name: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetPeerName(self: QAbstractSocket, callback: *const fn (QAbstractSocket, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAbstractSocket_OnSetPeerName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetPeerName` instead
-    ///
-    pub const SuperSetPeerName = superSetPeerName;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` name: []const u8 `
-    ///
-    pub fn superSetPeerName(self: QAbstractSocket, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QAbstractSocket_SuperSetPeerName(@ptrCast(self.ptr), name_str);
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -4255,9 +3997,9 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` self: QAbstractSocket`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QAbstractSocket) callconv(.c) i64 `
     ///
-    pub fn onPos(self: QAbstractSocket, callback: *const fn () callconv(.c) i64) void {
+    pub fn onPos(self: QAbstractSocket, callback: *const fn (QAbstractSocket) callconv(.c) i64) void {
         qtc.QAbstractSocket_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4311,9 +4053,9 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` self: QAbstractSocket`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QAbstractSocket) callconv(.c) i64 `
     ///
-    pub fn onSize(self: QAbstractSocket, callback: *const fn () callconv(.c) i64) void {
+    pub fn onSize(self: QAbstractSocket, callback: *const fn (QAbstractSocket) callconv(.c) i64) void {
         qtc.QAbstractSocket_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4427,9 +4169,9 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` self: QAbstractSocket`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractSocket) callconv(.c) bool `
     ///
-    pub fn onAtEnd(self: QAbstractSocket, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAtEnd(self: QAbstractSocket, callback: *const fn (QAbstractSocket) callconv(.c) bool) void {
         qtc.QAbstractSocket_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4483,9 +4225,9 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` self: QAbstractSocket`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractSocket) callconv(.c) bool `
     ///
-    pub fn onReset(self: QAbstractSocket, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReset(self: QAbstractSocket, callback: *const fn (QAbstractSocket) callconv(.c) bool) void {
         qtc.QAbstractSocket_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4539,9 +4281,9 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` self: QAbstractSocket`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractSocket) callconv(.c) bool `
     ///
-    pub fn onCanReadLine(self: QAbstractSocket, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanReadLine(self: QAbstractSocket, callback: *const fn (QAbstractSocket) callconv(.c) bool) void {
         qtc.QAbstractSocket_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5005,46 +4747,6 @@ pub const QAbstractSocket = extern struct {
         qtc.QAbstractSocket_SetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
 
-    /// ### DEPRECATED: Use `superSetOpenMode` instead
-    ///
-    pub const SuperSetOpenMode = superSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
-    ///
-    pub fn superSetOpenMode(self: QAbstractSocket, _openMode: i32) void {
-        qtc.QAbstractSocket_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
-    }
-
-    /// ### DEPRECATED: Use `onSetOpenMode` instead
-    ///
-    pub const OnSetOpenMode = onSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSocket`
-    ///
-    /// ` callback: *const fn (self: QAbstractSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
-    ///
-    pub fn onSetOpenMode(self: QAbstractSocket, callback: *const fn (QAbstractSocket, i32) callconv(.c) void) void {
-        qtc.QAbstractSocket_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setErrorString` instead
     ///
     pub const SetErrorString = setErrorString;
@@ -5069,50 +4771,6 @@ pub const QAbstractSocket = extern struct {
         qtc.QAbstractSocket_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `superSetErrorString` instead
-    ///
-    pub const SuperSetErrorString = superSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` _errorString: []const u8 `
-    ///
-    pub fn superSetErrorString(self: QAbstractSocket, _errorString: []const u8) void {
-        const errorString_str = qtc.libqt_string{
-            .len = _errorString.len,
-            .data = _errorString.ptr,
-        };
-        qtc.QAbstractSocket_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorString` instead
-    ///
-    pub const OnSetErrorString = onSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSocket`
-    ///
-    /// ` callback: *const fn (self: QAbstractSocket, errorString: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorString(self: QAbstractSocket, callback: *const fn (QAbstractSocket, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAbstractSocket_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -5131,44 +4789,6 @@ pub const QAbstractSocket = extern struct {
         return .{ .ptr = qtc.QAbstractSocket_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    pub fn superSender(self: QAbstractSocket) QObject {
-        return .{ .ptr = qtc.QAbstractSocket_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSocket`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QAbstractSocket, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAbstractSocket_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -5185,44 +4805,6 @@ pub const QAbstractSocket = extern struct {
     ///
     pub fn senderSignalIndex(self: QAbstractSocket) i32 {
         return qtc.QAbstractSocket_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    pub fn superSenderSignalIndex(self: QAbstractSocket) i32 {
-        return qtc.QAbstractSocket_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSocket`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QAbstractSocket, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractSocket_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -5246,47 +4828,6 @@ pub const QAbstractSocket = extern struct {
         return qtc.QAbstractSocket_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QAbstractSocket, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QAbstractSocket_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSocket`
-    ///
-    /// ` callback: *const fn (self: QAbstractSocket, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QAbstractSocket, callback: *const fn (QAbstractSocket, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractSocket_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -5306,47 +4847,6 @@ pub const QAbstractSocket = extern struct {
     pub fn isSignalConnected(self: QAbstractSocket, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractSocket_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSocket `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QAbstractSocket, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QAbstractSocket_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractSocket`
-    ///
-    /// ` callback: *const fn (self: QAbstractSocket, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QAbstractSocket, callback: *const fn (QAbstractSocket, QMetaMethod) callconv(.c) bool) void {
-        qtc.QAbstractSocket_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

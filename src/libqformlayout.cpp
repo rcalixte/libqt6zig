@@ -315,1016 +315,561 @@ libqt_string QFormLayout_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QFormLayout_SuperMetaObject(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_MetaObject_IsBase(true);
-        return (QMetaObject*)vqformlayout->metaObject();
-    } else {
-        return (QMetaObject*)self->QFormLayout::metaObject();
-    }
+    return (QMetaObject*)self->QFormLayout::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnMetaObject(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_MetaObject_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_MetaObject_Callback>(slot));
+void QFormLayout_OnMetaObject(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_metaobject_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QFormLayout_SuperMetacast(QFormLayout* self, const char* param1) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_Metacast_IsBase(true);
-        return vqformlayout->qt_metacast(param1);
-    } else {
-        return self->QFormLayout::qt_metacast(param1);
-    }
+    return self->QFormLayout::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnMetacast(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_Metacast_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_Metacast_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_metacast_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QFormLayout_SuperMetacall(QFormLayout* self, int param1, int param2, void** param3) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_Metacall_IsBase(true);
-        return vqformlayout->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QFormLayout::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QFormLayout::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnMetacall(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_Metacall_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_Metacall_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_metacall_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QFormLayout_SuperSpacing(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_Spacing_IsBase(true);
-        return vqformlayout->spacing();
-    } else {
-        return self->QFormLayout::spacing();
-    }
+    return self->QFormLayout::spacing();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnSpacing(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_Spacing_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_Spacing_Callback>(slot));
+void QFormLayout_OnSpacing(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_spacing_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_Spacing_Callback>(slot);
 }
 
 // Base class handler implementation
 void QFormLayout_SuperSetSpacing(QFormLayout* self, int spacing) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_SetSpacing_IsBase(true);
-        vqformlayout->setSpacing(static_cast<int>(spacing));
-    } else {
-        self->QFormLayout::setSpacing(static_cast<int>(spacing));
-    }
+    self->QFormLayout::setSpacing(static_cast<int>(spacing));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnSetSpacing(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_SetSpacing_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_SetSpacing_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_setspacing_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_SetSpacing_Callback>(slot);
 }
 
 // Base class handler implementation
 void QFormLayout_SuperAddItem(QFormLayout* self, QLayoutItem* item) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_AddItem_IsBase(true);
-        vqformlayout->addItem(item);
-    } else {
-        self->QFormLayout::addItem(item);
-    }
+    self->QFormLayout::addItem(item);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnAddItem(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_AddItem_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_AddItem_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_additem_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_AddItem_Callback>(slot);
 }
 
 // Base class handler implementation
 QLayoutItem* QFormLayout_SuperItemAt2(const QFormLayout* self, int index) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_ItemAt2_IsBase(true);
-        return vqformlayout->itemAt(static_cast<int>(index));
-    } else {
-        return self->QFormLayout::itemAt(static_cast<int>(index));
-    }
+    return self->QFormLayout::itemAt(static_cast<int>(index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnItemAt2(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_ItemAt2_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_ItemAt2_Callback>(slot));
+void QFormLayout_OnItemAt2(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_itemat2_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_ItemAt2_Callback>(slot);
 }
 
 // Base class handler implementation
 QLayoutItem* QFormLayout_SuperTakeAt(QFormLayout* self, int index) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_TakeAt_IsBase(true);
-        return vqformlayout->takeAt(static_cast<int>(index));
-    } else {
-        return self->QFormLayout::takeAt(static_cast<int>(index));
-    }
+    return self->QFormLayout::takeAt(static_cast<int>(index));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnTakeAt(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_TakeAt_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_TakeAt_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_takeat_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_TakeAt_Callback>(slot);
 }
 
 // Base class handler implementation
 void QFormLayout_SuperSetGeometry(QFormLayout* self, const QRect* rect) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_SetGeometry_IsBase(true);
-        vqformlayout->setGeometry(*rect);
-    } else {
-        self->QFormLayout::setGeometry(*rect);
-    }
+    self->QFormLayout::setGeometry(*rect);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnSetGeometry(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_SetGeometry_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_SetGeometry_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_setgeometry_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_SetGeometry_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QFormLayout_SuperMinimumSize(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_MinimumSize_IsBase(true);
-        return new QSize(vqformlayout->minimumSize());
-    } else {
-        return new QSize(((VirtualQFormLayout*)self)->minimumSize());
-    }
+    return new QSize(self->QFormLayout::minimumSize());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnMinimumSize(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_MinimumSize_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_MinimumSize_Callback>(slot));
+void QFormLayout_OnMinimumSize(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_minimumsize_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_MinimumSize_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QFormLayout_SuperSizeHint(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_SizeHint_IsBase(true);
-        return new QSize(vqformlayout->sizeHint());
-    } else {
-        return new QSize(((VirtualQFormLayout*)self)->sizeHint());
-    }
+    return new QSize(self->QFormLayout::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnSizeHint(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_SizeHint_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_SizeHint_Callback>(slot));
+void QFormLayout_OnSizeHint(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_sizehint_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void QFormLayout_SuperInvalidate(QFormLayout* self) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_Invalidate_IsBase(true);
-        vqformlayout->invalidate();
-    } else {
-        self->QFormLayout::invalidate();
-    }
+    self->QFormLayout::invalidate();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnInvalidate(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_Invalidate_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_Invalidate_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_invalidate_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_Invalidate_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QFormLayout_SuperHasHeightForWidth(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_HasHeightForWidth_IsBase(true);
-        return vqformlayout->hasHeightForWidth();
-    } else {
-        return self->QFormLayout::hasHeightForWidth();
-    }
+    return self->QFormLayout::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnHasHeightForWidth(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_HasHeightForWidth_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_HasHeightForWidth_Callback>(slot));
+void QFormLayout_OnHasHeightForWidth(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_hasheightforwidth_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_HasHeightForWidth_Callback>(slot);
 }
 
 // Base class handler implementation
 int QFormLayout_SuperHeightForWidth(const QFormLayout* self, int width) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_HeightForWidth_IsBase(true);
-        return vqformlayout->heightForWidth(static_cast<int>(width));
-    } else {
-        return self->QFormLayout::heightForWidth(static_cast<int>(width));
-    }
+    return self->QFormLayout::heightForWidth(static_cast<int>(width));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnHeightForWidth(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_HeightForWidth_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_HeightForWidth_Callback>(slot));
+void QFormLayout_OnHeightForWidth(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_heightforwidth_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_HeightForWidth_Callback>(slot);
 }
 
 // Base class handler implementation
 int QFormLayout_SuperExpandingDirections(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_ExpandingDirections_IsBase(true);
-        return static_cast<int>(vqformlayout->expandingDirections());
-    } else {
-        return static_cast<int>(self->QFormLayout::expandingDirections());
-    }
+    return static_cast<int>(self->QFormLayout::expandingDirections());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnExpandingDirections(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_ExpandingDirections_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_ExpandingDirections_Callback>(slot));
+void QFormLayout_OnExpandingDirections(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_expandingdirections_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_ExpandingDirections_Callback>(slot);
 }
 
 // Base class handler implementation
 int QFormLayout_SuperCount(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_Count_IsBase(true);
-        return vqformlayout->count();
-    } else {
-        return self->QFormLayout::count();
-    }
+    return self->QFormLayout::count();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnCount(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_Count_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_Count_Callback>(slot));
+void QFormLayout_OnCount(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_count_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_Count_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRect* QFormLayout_Geometry(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return new QRect(vqformlayout->geometry());
-    } else {
-        return new QRect(((VirtualQFormLayout*)self)->geometry());
-    }
+    return new QRect(self->geometry());
 }
 
 // Base class handler implementation
 QRect* QFormLayout_SuperGeometry(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_Geometry_IsBase(true);
-        return new QRect(vqformlayout->geometry());
-    } else {
-        return new QRect(((VirtualQFormLayout*)self)->geometry());
-    }
+    return new QRect(self->QFormLayout::geometry());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnGeometry(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_Geometry_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_Geometry_Callback>(slot));
+void QFormLayout_OnGeometry(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_geometry_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_Geometry_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QFormLayout_MaximumSize(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return new QSize(vqformlayout->maximumSize());
-    } else {
-        return new QSize(((VirtualQFormLayout*)self)->maximumSize());
-    }
+    return new QSize(self->maximumSize());
 }
 
 // Base class handler implementation
 QSize* QFormLayout_SuperMaximumSize(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_MaximumSize_IsBase(true);
-        return new QSize(vqformlayout->maximumSize());
-    } else {
-        return new QSize(((VirtualQFormLayout*)self)->maximumSize());
-    }
+    return new QSize(self->QFormLayout::maximumSize());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnMaximumSize(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_MaximumSize_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_MaximumSize_Callback>(slot));
+void QFormLayout_OnMaximumSize(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_maximumsize_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_MaximumSize_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QFormLayout_IndexOf(const QFormLayout* self, const QWidget* param1) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return vqformlayout->indexOf(param1);
-    } else {
-        return self->QFormLayout::indexOf(param1);
-    }
+    return self->indexOf(param1);
 }
 
 // Base class handler implementation
 int QFormLayout_SuperIndexOf(const QFormLayout* self, const QWidget* param1) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_IndexOf_IsBase(true);
-        return vqformlayout->indexOf(param1);
-    } else {
-        return self->QFormLayout::indexOf(param1);
-    }
+    return self->QFormLayout::indexOf(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnIndexOf(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_IndexOf_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_IndexOf_Callback>(slot));
+void QFormLayout_OnIndexOf(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_indexof_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_IndexOf_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QFormLayout_IsEmpty(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return vqformlayout->isEmpty();
-    } else {
-        return self->QFormLayout::isEmpty();
-    }
+    return self->isEmpty();
 }
 
 // Base class handler implementation
 bool QFormLayout_SuperIsEmpty(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_IsEmpty_IsBase(true);
-        return vqformlayout->isEmpty();
-    } else {
-        return self->QFormLayout::isEmpty();
-    }
+    return self->QFormLayout::isEmpty();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnIsEmpty(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_IsEmpty_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_IsEmpty_Callback>(slot));
+void QFormLayout_OnIsEmpty(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_isempty_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_IsEmpty_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QFormLayout_ControlTypes(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return static_cast<int>(vqformlayout->controlTypes());
-    } else {
-        return static_cast<int>(self->QFormLayout::controlTypes());
-    }
+    return static_cast<int>(self->controlTypes());
 }
 
 // Base class handler implementation
 int QFormLayout_SuperControlTypes(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_ControlTypes_IsBase(true);
-        return static_cast<int>(vqformlayout->controlTypes());
-    } else {
-        return static_cast<int>(self->QFormLayout::controlTypes());
-    }
+    return static_cast<int>(self->QFormLayout::controlTypes());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnControlTypes(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_ControlTypes_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_ControlTypes_Callback>(slot));
+void QFormLayout_OnControlTypes(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_controltypes_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_ControlTypes_Callback>(slot);
 }
 
 // Derived class handler implementation
 QLayoutItem* QFormLayout_ReplaceWidget(QFormLayout* self, QWidget* from, QWidget* to, int options) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return vqformlayout->replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
-    } else {
-        return self->QFormLayout::replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
-    }
+    return self->replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
 }
 
 // Base class handler implementation
 QLayoutItem* QFormLayout_SuperReplaceWidget(QFormLayout* self, QWidget* from, QWidget* to, int options) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_ReplaceWidget_IsBase(true);
-        return vqformlayout->replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
-    } else {
-        return self->QFormLayout::replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
-    }
+    return self->QFormLayout::replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnReplaceWidget(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_ReplaceWidget_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_ReplaceWidget_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_replacewidget_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_ReplaceWidget_Callback>(slot);
 }
 
 // Derived class handler implementation
 QLayout* QFormLayout_Layout(QFormLayout* self) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return vqformlayout->layout();
-    } else {
-        return self->QFormLayout::layout();
-    }
+    return self->layout();
 }
 
 // Base class handler implementation
 QLayout* QFormLayout_SuperLayout(QFormLayout* self) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_Layout_IsBase(true);
-        return vqformlayout->layout();
-    } else {
-        return self->QFormLayout::layout();
-    }
+    return self->QFormLayout::layout();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnLayout(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_Layout_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_Layout_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_layout_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_Layout_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFormLayout_ChildEvent(QFormLayout* self, QChildEvent* e) {
     auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
+    if (vqformlayout) {
         vqformlayout->childEvent(e);
     } else {
-        ((VirtualQFormLayout*)self)->childEvent(e);
+        qFatal("Error: Protected virtual method QFormLayout::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFormLayout_SuperChildEvent(QFormLayout* self, QChildEvent* e) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_ChildEvent_IsBase(true);
-        vqformlayout->childEvent(e);
-    } else {
-        ((VirtualQFormLayout*)self)->childEvent(e);
-    }
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self)) {
+        vqformlayout->QFormLayout::childEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QFormLayout::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnChildEvent(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_ChildEvent_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_ChildEvent_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_childevent_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QFormLayout_Event(QFormLayout* self, QEvent* event) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return vqformlayout->event(event);
-    } else {
-        return self->QFormLayout::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QFormLayout_SuperEvent(QFormLayout* self, QEvent* event) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_Event_IsBase(true);
-        return vqformlayout->event(event);
-    } else {
-        return self->QFormLayout::event(event);
-    }
+    return self->QFormLayout::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnEvent(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_Event_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_Event_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_event_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QFormLayout_EventFilter(QFormLayout* self, QObject* watched, QEvent* event) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return vqformlayout->eventFilter(watched, event);
-    } else {
-        return self->QFormLayout::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QFormLayout_SuperEventFilter(QFormLayout* self, QObject* watched, QEvent* event) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_EventFilter_IsBase(true);
-        return vqformlayout->eventFilter(watched, event);
-    } else {
-        return self->QFormLayout::eventFilter(watched, event);
-    }
+    return self->QFormLayout::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnEventFilter(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_EventFilter_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_EventFilter_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_eventfilter_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFormLayout_TimerEvent(QFormLayout* self, QTimerEvent* event) {
     auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
+    if (vqformlayout) {
         vqformlayout->timerEvent(event);
     } else {
-        ((VirtualQFormLayout*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QFormLayout::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFormLayout_SuperTimerEvent(QFormLayout* self, QTimerEvent* event) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_TimerEvent_IsBase(true);
-        vqformlayout->timerEvent(event);
-    } else {
-        ((VirtualQFormLayout*)self)->timerEvent(event);
-    }
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self)) {
+        vqformlayout->QFormLayout::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFormLayout::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnTimerEvent(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_TimerEvent_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_TimerEvent_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_timerevent_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFormLayout_CustomEvent(QFormLayout* self, QEvent* event) {
     auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
+    if (vqformlayout) {
         vqformlayout->customEvent(event);
     } else {
-        ((VirtualQFormLayout*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QFormLayout::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFormLayout_SuperCustomEvent(QFormLayout* self, QEvent* event) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_CustomEvent_IsBase(true);
-        vqformlayout->customEvent(event);
-    } else {
-        ((VirtualQFormLayout*)self)->customEvent(event);
-    }
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self)) {
+        vqformlayout->QFormLayout::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFormLayout::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnCustomEvent(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_CustomEvent_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_CustomEvent_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_customevent_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFormLayout_ConnectNotify(QFormLayout* self, const QMetaMethod* signal) {
     auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
+    if (vqformlayout) {
         vqformlayout->connectNotify(*signal);
     } else {
-        ((VirtualQFormLayout*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QFormLayout::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFormLayout_SuperConnectNotify(QFormLayout* self, const QMetaMethod* signal) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_ConnectNotify_IsBase(true);
-        vqformlayout->connectNotify(*signal);
-    } else {
-        ((VirtualQFormLayout*)self)->connectNotify(*signal);
-    }
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self)) {
+        vqformlayout->QFormLayout::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QFormLayout::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnConnectNotify(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_ConnectNotify_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_ConnectNotify_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_connectnotify_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFormLayout_DisconnectNotify(QFormLayout* self, const QMetaMethod* signal) {
     auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
+    if (vqformlayout) {
         vqformlayout->disconnectNotify(*signal);
     } else {
-        ((VirtualQFormLayout*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QFormLayout::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFormLayout_SuperDisconnectNotify(QFormLayout* self, const QMetaMethod* signal) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_DisconnectNotify_IsBase(true);
-        vqformlayout->disconnectNotify(*signal);
-    } else {
-        ((VirtualQFormLayout*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self)) {
+        vqformlayout->QFormLayout::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QFormLayout::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnDisconnectNotify(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_DisconnectNotify_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_DisconnectNotify_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_disconnectnotify_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QFormLayout_MinimumHeightForWidth(const QFormLayout* self, int param1) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return vqformlayout->minimumHeightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QFormLayout::minimumHeightForWidth(static_cast<int>(param1));
-    }
+    return self->minimumHeightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QFormLayout_SuperMinimumHeightForWidth(const QFormLayout* self, int param1) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_MinimumHeightForWidth_IsBase(true);
-        return vqformlayout->minimumHeightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QFormLayout::minimumHeightForWidth(static_cast<int>(param1));
-    }
+    return self->QFormLayout::minimumHeightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnMinimumHeightForWidth(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_MinimumHeightForWidth_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_MinimumHeightForWidth_Callback>(slot));
+void QFormLayout_OnMinimumHeightForWidth(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_minimumheightforwidth_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_MinimumHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QWidget* QFormLayout_Widget(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return vqformlayout->widget();
-    } else {
-        return self->QFormLayout::widget();
-    }
+    return self->widget();
 }
 
 // Base class handler implementation
 QWidget* QFormLayout_SuperWidget(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_Widget_IsBase(true);
-        return vqformlayout->widget();
-    } else {
-        return self->QFormLayout::widget();
-    }
+    return self->QFormLayout::widget();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnWidget(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_Widget_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_Widget_Callback>(slot));
+void QFormLayout_OnWidget(QFormLayout* self, intptr_t slot) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
+        vqformlayout->qformlayout_widget_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_Widget_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSpacerItem* QFormLayout_SpacerItem(QFormLayout* self) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return vqformlayout->spacerItem();
-    } else {
-        return self->QFormLayout::spacerItem();
-    }
+    return self->spacerItem();
 }
 
 // Base class handler implementation
 QSpacerItem* QFormLayout_SuperSpacerItem(QFormLayout* self) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_SpacerItem_IsBase(true);
-        return vqformlayout->spacerItem();
-    } else {
-        return self->QFormLayout::spacerItem();
-    }
+    return self->QFormLayout::spacerItem();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFormLayout_OnSpacerItem(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_SpacerItem_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_SpacerItem_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self))
+        vqformlayout->qformlayout_spaceritem_callback = reinterpret_cast<VirtualQFormLayout::QFormLayout_SpacerItem_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QFormLayout_WidgetEvent(QFormLayout* self, QEvent* param1) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->widgetEvent(param1);
-    } else {
-        ((VirtualQFormLayout*)self)->widgetEvent(param1);
-    }
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self)) {
+        vqformlayout->VirtualQFormLayout::widgetEvent(param1);
+    } else
+        qFatal("Error: Protected method QFormLayout::widgetEvent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QFormLayout_SuperWidgetEvent(QFormLayout* self, QEvent* param1) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_WidgetEvent_IsBase(true);
-        vqformlayout->widgetEvent(param1);
-    } else {
-        ((VirtualQFormLayout*)self)->widgetEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFormLayout_OnWidgetEvent(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_WidgetEvent_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_WidgetEvent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QFormLayout_AddChildLayout(QFormLayout* self, QLayout* l) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->addChildLayout(l);
-    } else {
-        ((VirtualQFormLayout*)self)->addChildLayout(l);
-    }
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self)) {
+        vqformlayout->VirtualQFormLayout::addChildLayout(l);
+    } else
+        qFatal("Error: Protected method QFormLayout::addChildLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QFormLayout_SuperAddChildLayout(QFormLayout* self, QLayout* l) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_AddChildLayout_IsBase(true);
-        vqformlayout->addChildLayout(l);
-    } else {
-        ((VirtualQFormLayout*)self)->addChildLayout(l);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFormLayout_OnAddChildLayout(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_AddChildLayout_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_AddChildLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QFormLayout_AddChildWidget(QFormLayout* self, QWidget* w) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->addChildWidget(w);
-    } else {
-        ((VirtualQFormLayout*)self)->addChildWidget(w);
-    }
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self)) {
+        vqformlayout->VirtualQFormLayout::addChildWidget(w);
+    } else
+        qFatal("Error: Protected method QFormLayout::addChildWidget called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QFormLayout_SuperAddChildWidget(QFormLayout* self, QWidget* w) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_AddChildWidget_IsBase(true);
-        vqformlayout->addChildWidget(w);
-    } else {
-        ((VirtualQFormLayout*)self)->addChildWidget(w);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFormLayout_OnAddChildWidget(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_AddChildWidget_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_AddChildWidget_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QFormLayout_AdoptLayout(QFormLayout* self, QLayout* layout) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return vqformlayout->adoptLayout(layout);
-    } else {
-        return ((VirtualQFormLayout*)self)->adoptLayout(layout);
-    }
-}
-
-// Base class handler implementation
-bool QFormLayout_SuperAdoptLayout(QFormLayout* self, QLayout* layout) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_AdoptLayout_IsBase(true);
-        return vqformlayout->adoptLayout(layout);
-    } else {
-        return ((VirtualQFormLayout*)self)->adoptLayout(layout);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFormLayout_OnAdoptLayout(QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_AdoptLayout_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_AdoptLayout_Callback>(slot));
+    if (auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self)) {
+        return vqformlayout->VirtualQFormLayout::adoptLayout(layout);
+    } else
+        qFatal("Error: Protected method QFormLayout::adoptLayout called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QRect* QFormLayout_AlignmentRect(const QFormLayout* self, const QRect* param1) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self)))
         return new QRect(vqformlayout->alignmentRect(*param1));
-    }
-    return {};
+    qFatal("Error: Protected method QFormLayout::alignmentRect called without a directly constructed type");
 }
 
-// Base class handler implementation
-QRect* QFormLayout_SuperAlignmentRect(const QFormLayout* self, const QRect* param1) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_AlignmentRect_IsBase(true);
-        return new QRect(vqformlayout->alignmentRect(*param1));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFormLayout_OnAlignmentRect(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_AlignmentRect_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_AlignmentRect_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QFormLayout_Sender(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return vqformlayout->sender();
-    } else {
-        return ((VirtualQFormLayout*)self)->sender();
-    }
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self))) {
+        return vqformlayout->VirtualQFormLayout::sender();
+    } else
+        qFatal("Error: Protected method QFormLayout::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QFormLayout_SuperSender(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_Sender_IsBase(true);
-        return vqformlayout->sender();
-    } else {
-        return ((VirtualQFormLayout*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFormLayout_OnSender(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_Sender_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QFormLayout_SenderSignalIndex(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return vqformlayout->senderSignalIndex();
-    } else {
-        return ((VirtualQFormLayout*)self)->senderSignalIndex();
-    }
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self))) {
+        return vqformlayout->VirtualQFormLayout::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QFormLayout::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QFormLayout_SuperSenderSignalIndex(const QFormLayout* self) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_SenderSignalIndex_IsBase(true);
-        return vqformlayout->senderSignalIndex();
-    } else {
-        return ((VirtualQFormLayout*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFormLayout_OnSenderSignalIndex(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_SenderSignalIndex_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QFormLayout_Receivers(const QFormLayout* self, const char* signal) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return vqformlayout->receivers(signal);
-    } else {
-        return ((VirtualQFormLayout*)self)->receivers(signal);
-    }
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self))) {
+        return vqformlayout->VirtualQFormLayout::receivers(signal);
+    } else
+        qFatal("Error: Protected method QFormLayout::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QFormLayout_SuperReceivers(const QFormLayout* self, const char* signal) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_Receivers_IsBase(true);
-        return vqformlayout->receivers(signal);
-    } else {
-        return ((VirtualQFormLayout*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFormLayout_OnReceivers(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_Receivers_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QFormLayout_IsSignalConnected(const QFormLayout* self, const QMetaMethod* signal) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return vqformlayout->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQFormLayout*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QFormLayout_SuperIsSignalConnected(const QFormLayout* self, const QMetaMethod* signal) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_IsSignalConnected_IsBase(true);
-        return vqformlayout->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQFormLayout*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFormLayout_OnIsSignalConnected(const QFormLayout* self, intptr_t slot) {
-    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout)
-        vqformlayout->setQFormLayout_IsSignalConnected_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_IsSignalConnected_Callback>(slot));
+    if (auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self))) {
+        return vqformlayout->VirtualQFormLayout::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QFormLayout::isSignalConnected called without a directly constructed type");
 }
 
 void QFormLayout_Delete(QFormLayout* self) {

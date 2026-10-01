@@ -73,382 +73,225 @@ libqt_string KNSCore__QuestionListener_Tr3(const char* s, const char* c, int n) 
 
 // Base class handler implementation
 QMetaObject* KNSCore__QuestionListener_SuperMetaObject(const KNSCore__QuestionListener* self) {
-    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_MetaObject_IsBase(true);
-        return (QMetaObject*)vknscorequestionlistener->metaObject();
-    } else {
-        return (QMetaObject*)self->KNSCore::QuestionListener::metaObject();
-    }
+    return (QMetaObject*)self->KNSCore::QuestionListener::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNSCore__QuestionListener_OnMetaObject(const KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_MetaObject_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_MetaObject_Callback>(slot));
+void KNSCore__QuestionListener_OnMetaObject(KNSCore__QuestionListener* self, intptr_t slot) {
+    if (auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self)))
+        vknscorequestionlistener->knscore__questionlistener_metaobject_callback = reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KNSCore__QuestionListener_SuperMetacast(KNSCore__QuestionListener* self, const char* param1) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_Metacast_IsBase(true);
-        return vknscorequestionlistener->qt_metacast(param1);
-    } else {
-        return self->KNSCore::QuestionListener::qt_metacast(param1);
-    }
+    return self->KNSCore::QuestionListener::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__QuestionListener_OnMetacast(KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_Metacast_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_Metacast_Callback>(slot));
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self))
+        vknscorequestionlistener->knscore__questionlistener_metacast_callback = reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KNSCore__QuestionListener_SuperMetacall(KNSCore__QuestionListener* self, int param1, int param2, void** param3) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_Metacall_IsBase(true);
-        return vknscorequestionlistener->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KNSCore::QuestionListener::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KNSCore::QuestionListener::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__QuestionListener_OnMetacall(KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_Metacall_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-void KNSCore__QuestionListener_SuperAskQuestion(KNSCore__QuestionListener* self, KNSCore__Question* question) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_AskQuestion_IsBase(true);
-        vknscorequestionlistener->askQuestion(question);
-    } else {
-        ((VirtualKNSCoreQuestionListener*)self)->askQuestion(question);
-    }
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self))
+        vknscorequestionlistener->knscore__questionlistener_metacall_callback = reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__QuestionListener_OnAskQuestion(KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_AskQuestion_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_AskQuestion_Callback>(slot));
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self))
+        vknscorequestionlistener->knscore__questionlistener_askquestion_callback = reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_AskQuestion_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNSCore__QuestionListener_Event(KNSCore__QuestionListener* self, QEvent* event) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        return vknscorequestionlistener->event(event);
-    } else {
-        return self->KNSCore::QuestionListener::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KNSCore__QuestionListener_SuperEvent(KNSCore__QuestionListener* self, QEvent* event) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_Event_IsBase(true);
-        return vknscorequestionlistener->event(event);
-    } else {
-        return self->KNSCore::QuestionListener::event(event);
-    }
+    return self->KNSCore::QuestionListener::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__QuestionListener_OnEvent(KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_Event_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_Event_Callback>(slot));
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self))
+        vknscorequestionlistener->knscore__questionlistener_event_callback = reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNSCore__QuestionListener_EventFilter(KNSCore__QuestionListener* self, QObject* watched, QEvent* event) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        return vknscorequestionlistener->eventFilter(watched, event);
-    } else {
-        return self->KNSCore::QuestionListener::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KNSCore__QuestionListener_SuperEventFilter(KNSCore__QuestionListener* self, QObject* watched, QEvent* event) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_EventFilter_IsBase(true);
-        return vknscorequestionlistener->eventFilter(watched, event);
-    } else {
-        return self->KNSCore::QuestionListener::eventFilter(watched, event);
-    }
+    return self->KNSCore::QuestionListener::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__QuestionListener_OnEventFilter(KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_EventFilter_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_EventFilter_Callback>(slot));
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self))
+        vknscorequestionlistener->knscore__questionlistener_eventfilter_callback = reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSCore__QuestionListener_TimerEvent(KNSCore__QuestionListener* self, QTimerEvent* event) {
     auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
+    if (vknscorequestionlistener) {
         vknscorequestionlistener->timerEvent(event);
     } else {
-        ((VirtualKNSCoreQuestionListener*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KNSCore::QuestionListener::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSCore__QuestionListener_SuperTimerEvent(KNSCore__QuestionListener* self, QTimerEvent* event) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_TimerEvent_IsBase(true);
-        vknscorequestionlistener->timerEvent(event);
-    } else {
-        ((VirtualKNSCoreQuestionListener*)self)->timerEvent(event);
-    }
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self)) {
+        vknscorequestionlistener->KNSCore::QuestionListener::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNSCore::QuestionListener::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__QuestionListener_OnTimerEvent(KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_TimerEvent_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_TimerEvent_Callback>(slot));
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self))
+        vknscorequestionlistener->knscore__questionlistener_timerevent_callback = reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSCore__QuestionListener_ChildEvent(KNSCore__QuestionListener* self, QChildEvent* event) {
     auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
+    if (vknscorequestionlistener) {
         vknscorequestionlistener->childEvent(event);
     } else {
-        ((VirtualKNSCoreQuestionListener*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KNSCore::QuestionListener::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSCore__QuestionListener_SuperChildEvent(KNSCore__QuestionListener* self, QChildEvent* event) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_ChildEvent_IsBase(true);
-        vknscorequestionlistener->childEvent(event);
-    } else {
-        ((VirtualKNSCoreQuestionListener*)self)->childEvent(event);
-    }
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self)) {
+        vknscorequestionlistener->KNSCore::QuestionListener::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNSCore::QuestionListener::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__QuestionListener_OnChildEvent(KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_ChildEvent_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_ChildEvent_Callback>(slot));
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self))
+        vknscorequestionlistener->knscore__questionlistener_childevent_callback = reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSCore__QuestionListener_CustomEvent(KNSCore__QuestionListener* self, QEvent* event) {
     auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
+    if (vknscorequestionlistener) {
         vknscorequestionlistener->customEvent(event);
     } else {
-        ((VirtualKNSCoreQuestionListener*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KNSCore::QuestionListener::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSCore__QuestionListener_SuperCustomEvent(KNSCore__QuestionListener* self, QEvent* event) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_CustomEvent_IsBase(true);
-        vknscorequestionlistener->customEvent(event);
-    } else {
-        ((VirtualKNSCoreQuestionListener*)self)->customEvent(event);
-    }
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self)) {
+        vknscorequestionlistener->KNSCore::QuestionListener::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNSCore::QuestionListener::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__QuestionListener_OnCustomEvent(KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_CustomEvent_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_CustomEvent_Callback>(slot));
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self))
+        vknscorequestionlistener->knscore__questionlistener_customevent_callback = reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSCore__QuestionListener_ConnectNotify(KNSCore__QuestionListener* self, const QMetaMethod* signal) {
     auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
+    if (vknscorequestionlistener) {
         vknscorequestionlistener->connectNotify(*signal);
     } else {
-        ((VirtualKNSCoreQuestionListener*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KNSCore::QuestionListener::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSCore__QuestionListener_SuperConnectNotify(KNSCore__QuestionListener* self, const QMetaMethod* signal) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_ConnectNotify_IsBase(true);
-        vknscorequestionlistener->connectNotify(*signal);
-    } else {
-        ((VirtualKNSCoreQuestionListener*)self)->connectNotify(*signal);
-    }
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self)) {
+        vknscorequestionlistener->KNSCore::QuestionListener::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNSCore::QuestionListener::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__QuestionListener_OnConnectNotify(KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_ConnectNotify_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_ConnectNotify_Callback>(slot));
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self))
+        vknscorequestionlistener->knscore__questionlistener_connectnotify_callback = reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSCore__QuestionListener_DisconnectNotify(KNSCore__QuestionListener* self, const QMetaMethod* signal) {
     auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
+    if (vknscorequestionlistener) {
         vknscorequestionlistener->disconnectNotify(*signal);
     } else {
-        ((VirtualKNSCoreQuestionListener*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KNSCore::QuestionListener::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSCore__QuestionListener_SuperDisconnectNotify(KNSCore__QuestionListener* self, const QMetaMethod* signal) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_DisconnectNotify_IsBase(true);
-        vknscorequestionlistener->disconnectNotify(*signal);
-    } else {
-        ((VirtualKNSCoreQuestionListener*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self)) {
+        vknscorequestionlistener->KNSCore::QuestionListener::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNSCore::QuestionListener::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__QuestionListener_OnDisconnectNotify(KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_DisconnectNotify_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_DisconnectNotify_Callback>(slot));
+    if (auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self))
+        vknscorequestionlistener->knscore__questionlistener_disconnectnotify_callback = reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KNSCore__QuestionListener_Sender(const KNSCore__QuestionListener* self) {
-    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        return vknscorequestionlistener->sender();
-    } else {
-        return ((VirtualKNSCoreQuestionListener*)self)->sender();
-    }
+    if (auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self))) {
+        return vknscorequestionlistener->VirtualKNSCoreQuestionListener::sender();
+    } else
+        qFatal("Error: Protected method KNSCore::QuestionListener::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KNSCore__QuestionListener_SuperSender(const KNSCore__QuestionListener* self) {
-    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_Sender_IsBase(true);
-        return vknscorequestionlistener->sender();
-    } else {
-        return ((VirtualKNSCoreQuestionListener*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNSCore__QuestionListener_OnSender(const KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_Sender_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNSCore__QuestionListener_SenderSignalIndex(const KNSCore__QuestionListener* self) {
-    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        return vknscorequestionlistener->senderSignalIndex();
-    } else {
-        return ((VirtualKNSCoreQuestionListener*)self)->senderSignalIndex();
-    }
+    if (auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self))) {
+        return vknscorequestionlistener->VirtualKNSCoreQuestionListener::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KNSCore::QuestionListener::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNSCore__QuestionListener_SuperSenderSignalIndex(const KNSCore__QuestionListener* self) {
-    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_SenderSignalIndex_IsBase(true);
-        return vknscorequestionlistener->senderSignalIndex();
-    } else {
-        return ((VirtualKNSCoreQuestionListener*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNSCore__QuestionListener_OnSenderSignalIndex(const KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNSCore__QuestionListener_Receivers(const KNSCore__QuestionListener* self, const char* signal) {
-    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        return vknscorequestionlistener->receivers(signal);
-    } else {
-        return ((VirtualKNSCoreQuestionListener*)self)->receivers(signal);
-    }
+    if (auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self))) {
+        return vknscorequestionlistener->VirtualKNSCoreQuestionListener::receivers(signal);
+    } else
+        qFatal("Error: Protected method KNSCore::QuestionListener::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNSCore__QuestionListener_SuperReceivers(const KNSCore__QuestionListener* self, const char* signal) {
-    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_Receivers_IsBase(true);
-        return vknscorequestionlistener->receivers(signal);
-    } else {
-        return ((VirtualKNSCoreQuestionListener*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNSCore__QuestionListener_OnReceivers(const KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_Receivers_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KNSCore__QuestionListener_IsSignalConnected(const KNSCore__QuestionListener* self, const QMetaMethod* signal) {
-    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        return vknscorequestionlistener->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNSCoreQuestionListener*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KNSCore__QuestionListener_SuperIsSignalConnected(const KNSCore__QuestionListener* self, const QMetaMethod* signal) {
-    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscorequestionlistener->setKNSCore__QuestionListener_IsSignalConnected_IsBase(true);
-        return vknscorequestionlistener->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNSCoreQuestionListener*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNSCore__QuestionListener_OnIsSignalConnected(const KNSCore__QuestionListener* self, intptr_t slot) {
-    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
-    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener)
-        vknscorequestionlistener->setKNSCore__QuestionListener_IsSignalConnected_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_IsSignalConnected_Callback>(slot));
+    if (auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self))) {
+        return vknscorequestionlistener->VirtualKNSCoreQuestionListener::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KNSCore::QuestionListener::isSignalConnected called without a directly constructed type");
 }
 
 void KNSCore__QuestionListener_Delete(KNSCore__QuestionListener* self) {

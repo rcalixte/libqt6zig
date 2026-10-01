@@ -198,574 +198,312 @@ libqt_string KParts__PartManager_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KParts__PartManager_SuperMetaObject(const KParts__PartManager* self) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_MetaObject_IsBase(true);
-        return (QMetaObject*)vkpartspartmanager->metaObject();
-    } else {
-        return (QMetaObject*)self->KParts::PartManager::metaObject();
-    }
+    return (QMetaObject*)self->KParts::PartManager::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__PartManager_OnMetaObject(const KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_MetaObject_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_MetaObject_Callback>(slot));
+void KParts__PartManager_OnMetaObject(KParts__PartManager* self, intptr_t slot) {
+    if (auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self)))
+        vkpartspartmanager->kparts__partmanager_metaobject_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KParts__PartManager_SuperMetacast(KParts__PartManager* self, const char* param1) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_Metacast_IsBase(true);
-        return vkpartspartmanager->qt_metacast(param1);
-    } else {
-        return self->KParts::PartManager::qt_metacast(param1);
-    }
+    return self->KParts::PartManager::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartManager_OnMetacast(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_Metacast_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_Metacast_Callback>(slot));
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self))
+        vkpartspartmanager->kparts__partmanager_metacast_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KParts__PartManager_SuperMetacall(KParts__PartManager* self, int param1, int param2, void** param3) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_Metacall_IsBase(true);
-        return vkpartspartmanager->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KParts::PartManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KParts::PartManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartManager_OnMetacall(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_Metacall_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_Metacall_Callback>(slot));
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self))
+        vkpartspartmanager->kparts__partmanager_metacall_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KParts__PartManager_SuperEventFilter(KParts__PartManager* self, QObject* obj, QEvent* ev) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_EventFilter_IsBase(true);
-        return vkpartspartmanager->eventFilter(obj, ev);
-    } else {
-        return self->KParts::PartManager::eventFilter(obj, ev);
-    }
+    return self->KParts::PartManager::eventFilter(obj, ev);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartManager_OnEventFilter(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_EventFilter_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_EventFilter_Callback>(slot));
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self))
+        vkpartspartmanager->kparts__partmanager_eventfilter_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 void KParts__PartManager_SuperAddPart(KParts__PartManager* self, KParts__Part* part, bool setActive) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_AddPart_IsBase(true);
-        vkpartspartmanager->addPart(part, setActive);
-    } else {
-        self->KParts::PartManager::addPart(part, setActive);
-    }
+    self->KParts::PartManager::addPart(part, setActive);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartManager_OnAddPart(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_AddPart_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_AddPart_Callback>(slot));
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self))
+        vkpartspartmanager->kparts__partmanager_addpart_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_AddPart_Callback>(slot);
 }
 
 // Base class handler implementation
 void KParts__PartManager_SuperRemovePart(KParts__PartManager* self, KParts__Part* part) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_RemovePart_IsBase(true);
-        vkpartspartmanager->removePart(part);
-    } else {
-        self->KParts::PartManager::removePart(part);
-    }
+    self->KParts::PartManager::removePart(part);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartManager_OnRemovePart(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_RemovePart_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_RemovePart_Callback>(slot));
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self))
+        vkpartspartmanager->kparts__partmanager_removepart_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_RemovePart_Callback>(slot);
 }
 
 // Base class handler implementation
 void KParts__PartManager_SuperReplacePart(KParts__PartManager* self, KParts__Part* oldPart, KParts__Part* newPart, bool setActive) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_ReplacePart_IsBase(true);
-        vkpartspartmanager->replacePart(oldPart, newPart, setActive);
-    } else {
-        self->KParts::PartManager::replacePart(oldPart, newPart, setActive);
-    }
+    self->KParts::PartManager::replacePart(oldPart, newPart, setActive);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartManager_OnReplacePart(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_ReplacePart_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_ReplacePart_Callback>(slot));
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self))
+        vkpartspartmanager->kparts__partmanager_replacepart_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_ReplacePart_Callback>(slot);
 }
 
 // Base class handler implementation
 void KParts__PartManager_SuperSetActivePart(KParts__PartManager* self, KParts__Part* part, QWidget* widget) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_SetActivePart_IsBase(true);
-        vkpartspartmanager->setActivePart(part, widget);
-    } else {
-        self->KParts::PartManager::setActivePart(part, widget);
-    }
+    self->KParts::PartManager::setActivePart(part, widget);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartManager_OnSetActivePart(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_SetActivePart_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_SetActivePart_Callback>(slot));
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self))
+        vkpartspartmanager->kparts__partmanager_setactivepart_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_SetActivePart_Callback>(slot);
 }
 
 // Base class handler implementation
 KParts__Part* KParts__PartManager_SuperActivePart(const KParts__PartManager* self) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_ActivePart_IsBase(true);
-        return vkpartspartmanager->activePart();
-    } else {
-        return self->KParts::PartManager::activePart();
-    }
+    return self->KParts::PartManager::activePart();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__PartManager_OnActivePart(const KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_ActivePart_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_ActivePart_Callback>(slot));
+void KParts__PartManager_OnActivePart(KParts__PartManager* self, intptr_t slot) {
+    if (auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self)))
+        vkpartspartmanager->kparts__partmanager_activepart_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_ActivePart_Callback>(slot);
 }
 
 // Base class handler implementation
 QWidget* KParts__PartManager_SuperActiveWidget(const KParts__PartManager* self) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_ActiveWidget_IsBase(true);
-        return vkpartspartmanager->activeWidget();
-    } else {
-        return self->KParts::PartManager::activeWidget();
-    }
+    return self->KParts::PartManager::activeWidget();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__PartManager_OnActiveWidget(const KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_ActiveWidget_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_ActiveWidget_Callback>(slot));
+void KParts__PartManager_OnActiveWidget(KParts__PartManager* self, intptr_t slot) {
+    if (auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self)))
+        vkpartspartmanager->kparts__partmanager_activewidget_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_ActiveWidget_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KParts__PartManager_Event(KParts__PartManager* self, QEvent* event) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        return vkpartspartmanager->event(event);
-    } else {
-        return self->KParts::PartManager::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KParts__PartManager_SuperEvent(KParts__PartManager* self, QEvent* event) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_Event_IsBase(true);
-        return vkpartspartmanager->event(event);
-    } else {
-        return self->KParts::PartManager::event(event);
-    }
+    return self->KParts::PartManager::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartManager_OnEvent(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_Event_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_Event_Callback>(slot));
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self))
+        vkpartspartmanager->kparts__partmanager_event_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__PartManager_TimerEvent(KParts__PartManager* self, QTimerEvent* event) {
     auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
+    if (vkpartspartmanager) {
         vkpartspartmanager->timerEvent(event);
     } else {
-        ((VirtualKPartsPartManager*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KParts::PartManager::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__PartManager_SuperTimerEvent(KParts__PartManager* self, QTimerEvent* event) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_TimerEvent_IsBase(true);
-        vkpartspartmanager->timerEvent(event);
-    } else {
-        ((VirtualKPartsPartManager*)self)->timerEvent(event);
-    }
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self)) {
+        vkpartspartmanager->KParts::PartManager::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::PartManager::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartManager_OnTimerEvent(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_TimerEvent_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_TimerEvent_Callback>(slot));
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self))
+        vkpartspartmanager->kparts__partmanager_timerevent_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__PartManager_ChildEvent(KParts__PartManager* self, QChildEvent* event) {
     auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
+    if (vkpartspartmanager) {
         vkpartspartmanager->childEvent(event);
     } else {
-        ((VirtualKPartsPartManager*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KParts::PartManager::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__PartManager_SuperChildEvent(KParts__PartManager* self, QChildEvent* event) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_ChildEvent_IsBase(true);
-        vkpartspartmanager->childEvent(event);
-    } else {
-        ((VirtualKPartsPartManager*)self)->childEvent(event);
-    }
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self)) {
+        vkpartspartmanager->KParts::PartManager::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::PartManager::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartManager_OnChildEvent(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_ChildEvent_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_ChildEvent_Callback>(slot));
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self))
+        vkpartspartmanager->kparts__partmanager_childevent_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__PartManager_CustomEvent(KParts__PartManager* self, QEvent* event) {
     auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
+    if (vkpartspartmanager) {
         vkpartspartmanager->customEvent(event);
     } else {
-        ((VirtualKPartsPartManager*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KParts::PartManager::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__PartManager_SuperCustomEvent(KParts__PartManager* self, QEvent* event) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_CustomEvent_IsBase(true);
-        vkpartspartmanager->customEvent(event);
-    } else {
-        ((VirtualKPartsPartManager*)self)->customEvent(event);
-    }
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self)) {
+        vkpartspartmanager->KParts::PartManager::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::PartManager::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartManager_OnCustomEvent(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_CustomEvent_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_CustomEvent_Callback>(slot));
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self))
+        vkpartspartmanager->kparts__partmanager_customevent_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__PartManager_ConnectNotify(KParts__PartManager* self, const QMetaMethod* signal) {
     auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
+    if (vkpartspartmanager) {
         vkpartspartmanager->connectNotify(*signal);
     } else {
-        ((VirtualKPartsPartManager*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KParts::PartManager::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__PartManager_SuperConnectNotify(KParts__PartManager* self, const QMetaMethod* signal) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_ConnectNotify_IsBase(true);
-        vkpartspartmanager->connectNotify(*signal);
-    } else {
-        ((VirtualKPartsPartManager*)self)->connectNotify(*signal);
-    }
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self)) {
+        vkpartspartmanager->KParts::PartManager::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KParts::PartManager::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartManager_OnConnectNotify(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_ConnectNotify_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_ConnectNotify_Callback>(slot));
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self))
+        vkpartspartmanager->kparts__partmanager_connectnotify_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__PartManager_DisconnectNotify(KParts__PartManager* self, const QMetaMethod* signal) {
     auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
+    if (vkpartspartmanager) {
         vkpartspartmanager->disconnectNotify(*signal);
     } else {
-        ((VirtualKPartsPartManager*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KParts::PartManager::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__PartManager_SuperDisconnectNotify(KParts__PartManager* self, const QMetaMethod* signal) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_DisconnectNotify_IsBase(true);
-        vkpartspartmanager->disconnectNotify(*signal);
-    } else {
-        ((VirtualKPartsPartManager*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self)) {
+        vkpartspartmanager->KParts::PartManager::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KParts::PartManager::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartManager_OnDisconnectNotify(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_DisconnectNotify_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_DisconnectNotify_Callback>(slot));
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self))
+        vkpartspartmanager->kparts__partmanager_disconnectnotify_callback = reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KParts__PartManager_SetIgnoreExplictFocusRequests(KParts__PartManager* self, bool ignoreExplictFocusRequests) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setIgnoreExplictFocusRequests(ignoreExplictFocusRequests);
-    } else {
-        ((VirtualKPartsPartManager*)self)->setIgnoreExplictFocusRequests(ignoreExplictFocusRequests);
-    }
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self)) {
+        vkpartspartmanager->VirtualKPartsPartManager::setIgnoreExplictFocusRequests(ignoreExplictFocusRequests);
+    } else
+        qFatal("Error: Protected method KParts::PartManager::setIgnoreExplictFocusRequests called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KParts__PartManager_SuperSetIgnoreExplictFocusRequests(KParts__PartManager* self, bool ignoreExplictFocusRequests) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_SetIgnoreExplictFocusRequests_IsBase(true);
-        vkpartspartmanager->setIgnoreExplictFocusRequests(ignoreExplictFocusRequests);
-    } else {
-        ((VirtualKPartsPartManager*)self)->setIgnoreExplictFocusRequests(ignoreExplictFocusRequests);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__PartManager_OnSetIgnoreExplictFocusRequests(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_SetIgnoreExplictFocusRequests_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_SetIgnoreExplictFocusRequests_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KParts__PartManager_SlotObjectDestroyed(KParts__PartManager* self) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->slotObjectDestroyed();
-    } else {
-        ((VirtualKPartsPartManager*)self)->slotObjectDestroyed();
-    }
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self)) {
+        vkpartspartmanager->VirtualKPartsPartManager::slotObjectDestroyed();
+    } else
+        qFatal("Error: Protected method KParts::PartManager::slotObjectDestroyed called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KParts__PartManager_SuperSlotObjectDestroyed(KParts__PartManager* self) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_SlotObjectDestroyed_IsBase(true);
-        vkpartspartmanager->slotObjectDestroyed();
-    } else {
-        ((VirtualKPartsPartManager*)self)->slotObjectDestroyed();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__PartManager_OnSlotObjectDestroyed(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_SlotObjectDestroyed_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_SlotObjectDestroyed_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KParts__PartManager_SlotWidgetDestroyed(KParts__PartManager* self) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->slotWidgetDestroyed();
-    } else {
-        ((VirtualKPartsPartManager*)self)->slotWidgetDestroyed();
-    }
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self)) {
+        vkpartspartmanager->VirtualKPartsPartManager::slotWidgetDestroyed();
+    } else
+        qFatal("Error: Protected method KParts::PartManager::slotWidgetDestroyed called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KParts__PartManager_SuperSlotWidgetDestroyed(KParts__PartManager* self) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_SlotWidgetDestroyed_IsBase(true);
-        vkpartspartmanager->slotWidgetDestroyed();
-    } else {
-        ((VirtualKPartsPartManager*)self)->slotWidgetDestroyed();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__PartManager_OnSlotWidgetDestroyed(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_SlotWidgetDestroyed_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_SlotWidgetDestroyed_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KParts__PartManager_SlotManagedTopLevelWidgetDestroyed(KParts__PartManager* self) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->slotManagedTopLevelWidgetDestroyed();
-    } else {
-        ((VirtualKPartsPartManager*)self)->slotManagedTopLevelWidgetDestroyed();
-    }
+    if (auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self)) {
+        vkpartspartmanager->VirtualKPartsPartManager::slotManagedTopLevelWidgetDestroyed();
+    } else
+        qFatal("Error: Protected method KParts::PartManager::slotManagedTopLevelWidgetDestroyed called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KParts__PartManager_SuperSlotManagedTopLevelWidgetDestroyed(KParts__PartManager* self) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_SlotManagedTopLevelWidgetDestroyed_IsBase(true);
-        vkpartspartmanager->slotManagedTopLevelWidgetDestroyed();
-    } else {
-        ((VirtualKPartsPartManager*)self)->slotManagedTopLevelWidgetDestroyed();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__PartManager_OnSlotManagedTopLevelWidgetDestroyed(KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_SlotManagedTopLevelWidgetDestroyed_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_SlotManagedTopLevelWidgetDestroyed_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KParts__PartManager_Sender(const KParts__PartManager* self) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        return vkpartspartmanager->sender();
-    } else {
-        return ((VirtualKPartsPartManager*)self)->sender();
-    }
+    if (auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self))) {
+        return vkpartspartmanager->VirtualKPartsPartManager::sender();
+    } else
+        qFatal("Error: Protected method KParts::PartManager::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KParts__PartManager_SuperSender(const KParts__PartManager* self) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_Sender_IsBase(true);
-        return vkpartspartmanager->sender();
-    } else {
-        return ((VirtualKPartsPartManager*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__PartManager_OnSender(const KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_Sender_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KParts__PartManager_SenderSignalIndex(const KParts__PartManager* self) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        return vkpartspartmanager->senderSignalIndex();
-    } else {
-        return ((VirtualKPartsPartManager*)self)->senderSignalIndex();
-    }
+    if (auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self))) {
+        return vkpartspartmanager->VirtualKPartsPartManager::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KParts::PartManager::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KParts__PartManager_SuperSenderSignalIndex(const KParts__PartManager* self) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_SenderSignalIndex_IsBase(true);
-        return vkpartspartmanager->senderSignalIndex();
-    } else {
-        return ((VirtualKPartsPartManager*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__PartManager_OnSenderSignalIndex(const KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KParts__PartManager_Receivers(const KParts__PartManager* self, const char* signal) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        return vkpartspartmanager->receivers(signal);
-    } else {
-        return ((VirtualKPartsPartManager*)self)->receivers(signal);
-    }
+    if (auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self))) {
+        return vkpartspartmanager->VirtualKPartsPartManager::receivers(signal);
+    } else
+        qFatal("Error: Protected method KParts::PartManager::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KParts__PartManager_SuperReceivers(const KParts__PartManager* self, const char* signal) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_Receivers_IsBase(true);
-        return vkpartspartmanager->receivers(signal);
-    } else {
-        return ((VirtualKPartsPartManager*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__PartManager_OnReceivers(const KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_Receivers_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KParts__PartManager_IsSignalConnected(const KParts__PartManager* self, const QMetaMethod* signal) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        return vkpartspartmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPartsPartManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KParts__PartManager_SuperIsSignalConnected(const KParts__PartManager* self, const QMetaMethod* signal) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager) {
-        vkpartspartmanager->setKParts__PartManager_IsSignalConnected_IsBase(true);
-        return vkpartspartmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPartsPartManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__PartManager_OnIsSignalConnected(const KParts__PartManager* self, intptr_t slot) {
-    auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self));
-    if (vkpartspartmanager && vkpartspartmanager->isVirtualKPartsPartManager)
-        vkpartspartmanager->setKParts__PartManager_IsSignalConnected_Callback(reinterpret_cast<VirtualKPartsPartManager::KParts__PartManager_IsSignalConnected_Callback>(slot));
+    if (auto* vkpartspartmanager = const_cast<VirtualKPartsPartManager*>(dynamic_cast<const VirtualKPartsPartManager*>(self))) {
+        return vkpartspartmanager->VirtualKPartsPartManager::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KParts::PartManager::isSignalConnected called without a directly constructed type");
 }
 
 void KParts__PartManager_Delete(KParts__PartManager* self) {

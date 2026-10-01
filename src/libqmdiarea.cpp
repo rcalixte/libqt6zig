@@ -229,73 +229,73 @@ void QMdiArea_ActivatePreviousSubWindow(QMdiArea* self) {
 
 void QMdiArea_SetupViewport(QMdiArea* self, QWidget* viewport) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->setupViewport(viewport);
     }
 }
 
 bool QMdiArea_Event(QMdiArea* self, QEvent* event) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         return vqmdiarea->event(event);
     }
-    return {};
+    qFatal("Error: Protected method QMdiArea::event called without a directly constructed type");
 }
 
 bool QMdiArea_EventFilter(QMdiArea* self, QObject* object, QEvent* event) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         return vqmdiarea->eventFilter(object, event);
     }
-    return {};
+    qFatal("Error: Protected method QMdiArea::eventFilter called without a directly constructed type");
 }
 
 void QMdiArea_PaintEvent(QMdiArea* self, QPaintEvent* paintEvent) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->paintEvent(paintEvent);
     }
 }
 
 void QMdiArea_ChildEvent(QMdiArea* self, QChildEvent* childEvent) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->childEvent(childEvent);
     }
 }
 
 void QMdiArea_ResizeEvent(QMdiArea* self, QResizeEvent* resizeEvent) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->resizeEvent(resizeEvent);
     }
 }
 
 void QMdiArea_TimerEvent(QMdiArea* self, QTimerEvent* timerEvent) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->timerEvent(timerEvent);
     }
 }
 
 void QMdiArea_ShowEvent(QMdiArea* self, QShowEvent* showEvent) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->showEvent(showEvent);
     }
 }
 
 bool QMdiArea_ViewportEvent(QMdiArea* self, QEvent* event) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         return vqmdiarea->viewportEvent(event);
     }
-    return {};
+    qFatal("Error: Protected method QMdiArea::viewportEvent called without a directly constructed type");
 }
 
 void QMdiArea_ScrollContentsBy(QMdiArea* self, int dx, int dy) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     }
 }
@@ -347,1754 +347,1208 @@ void QMdiArea_SetOption2(QMdiArea* self, int option, bool on) {
 
 // Base class handler implementation
 QMetaObject* QMdiArea_SuperMetaObject(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_MetaObject_IsBase(true);
-        return (QMetaObject*)vqmdiarea->metaObject();
-    } else {
-        return (QMetaObject*)self->QMdiArea::metaObject();
-    }
+    return (QMetaObject*)self->QMdiArea::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiArea_OnMetaObject(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_MetaObject_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MetaObject_Callback>(slot));
+void QMdiArea_OnMetaObject(QMdiArea* self, intptr_t slot) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
+        vqmdiarea->qmdiarea_metaobject_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QMdiArea_SuperMetacast(QMdiArea* self, const char* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_Metacast_IsBase(true);
-        return vqmdiarea->qt_metacast(param1);
-    } else {
-        return self->QMdiArea::qt_metacast(param1);
-    }
+    return self->QMdiArea::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMetacast(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_Metacast_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Metacast_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_metacast_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QMdiArea_SuperMetacall(QMdiArea* self, int param1, int param2, void** param3) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_Metacall_IsBase(true);
-        return vqmdiarea->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QMdiArea::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QMdiArea::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMetacall(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_Metacall_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Metacall_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_metacall_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QMdiArea_SuperSizeHint(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_SizeHint_IsBase(true);
-        return new QSize(vqmdiarea->sizeHint());
-    } else {
-        return new QSize(((VirtualQMdiArea*)self)->sizeHint());
-    }
+    return new QSize(self->QMdiArea::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiArea_OnSizeHint(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_SizeHint_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SizeHint_Callback>(slot));
+void QMdiArea_OnSizeHint(QMdiArea* self, intptr_t slot) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
+        vqmdiarea->qmdiarea_sizehint_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QMdiArea_SuperMinimumSizeHint(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_MinimumSizeHint_IsBase(true);
-        return new QSize(vqmdiarea->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQMdiArea*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QMdiArea::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiArea_OnMinimumSizeHint(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_MinimumSizeHint_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MinimumSizeHint_Callback>(slot));
+void QMdiArea_OnMinimumSizeHint(QMdiArea* self, intptr_t slot) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
+        vqmdiarea->qmdiarea_minimumsizehint_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiArea_SuperSetupViewport(QMdiArea* self, QWidget* viewport) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_SetupViewport_IsBase(true);
-        vqmdiarea->setupViewport(viewport);
-    } else {
-        ((VirtualQMdiArea*)self)->setupViewport(viewport);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::setupViewport(viewport);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::setupViewport called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnSetupViewport(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_SetupViewport_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SetupViewport_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_setupviewport_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_SetupViewport_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QMdiArea_SuperEvent(QMdiArea* self, QEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_Event_IsBase(true);
-        return vqmdiarea->event(event);
-    } else {
-        return ((VirtualQMdiArea*)self)->event(event);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        return vqmdiarea->QMdiArea::event(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_Event_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Event_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_event_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QMdiArea_SuperEventFilter(QMdiArea* self, QObject* object, QEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_EventFilter_IsBase(true);
-        return vqmdiarea->eventFilter(object, event);
-    } else {
-        return ((VirtualQMdiArea*)self)->eventFilter(object, event);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        return vqmdiarea->QMdiArea::eventFilter(object, event);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnEventFilter(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_EventFilter_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_EventFilter_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_eventfilter_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiArea_SuperPaintEvent(QMdiArea* self, QPaintEvent* paintEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_PaintEvent_IsBase(true);
-        vqmdiarea->paintEvent(paintEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->paintEvent(paintEvent);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::paintEvent(paintEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnPaintEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_PaintEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_PaintEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_paintevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiArea_SuperChildEvent(QMdiArea* self, QChildEvent* childEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ChildEvent_IsBase(true);
-        vqmdiarea->childEvent(childEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->childEvent(childEvent);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::childEvent(childEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnChildEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_ChildEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ChildEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_childevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_ChildEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiArea_SuperResizeEvent(QMdiArea* self, QResizeEvent* resizeEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ResizeEvent_IsBase(true);
-        vqmdiarea->resizeEvent(resizeEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->resizeEvent(resizeEvent);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::resizeEvent(resizeEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnResizeEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_ResizeEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ResizeEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_resizeevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiArea_SuperTimerEvent(QMdiArea* self, QTimerEvent* timerEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_TimerEvent_IsBase(true);
-        vqmdiarea->timerEvent(timerEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->timerEvent(timerEvent);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::timerEvent(timerEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnTimerEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_TimerEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_TimerEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_timerevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_TimerEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiArea_SuperShowEvent(QMdiArea* self, QShowEvent* showEvent) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ShowEvent_IsBase(true);
-        vqmdiarea->showEvent(showEvent);
-    } else {
-        ((VirtualQMdiArea*)self)->showEvent(showEvent);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::showEvent(showEvent);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnShowEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_ShowEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ShowEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_showevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QMdiArea_SuperViewportEvent(QMdiArea* self, QEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ViewportEvent_IsBase(true);
-        return vqmdiarea->viewportEvent(event);
-    } else {
-        return ((VirtualQMdiArea*)self)->viewportEvent(event);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        return vqmdiarea->QMdiArea::viewportEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::viewportEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnViewportEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_ViewportEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ViewportEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_viewportevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_ViewportEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMdiArea_SuperScrollContentsBy(QMdiArea* self, int dx, int dy) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ScrollContentsBy_IsBase(true);
-        vqmdiarea->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQMdiArea*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::scrollContentsBy called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnScrollContentsBy(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_ScrollContentsBy_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ScrollContentsBy_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_scrollcontentsby_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_ScrollContentsBy_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_MousePressEvent(QMdiArea* self, QMouseEvent* param1) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->mousePressEvent(param1);
     } else {
-        ((VirtualQMdiArea*)self)->mousePressEvent(param1);
+        qFatal("Error: Protected virtual method QMdiArea::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperMousePressEvent(QMdiArea* self, QMouseEvent* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_MousePressEvent_IsBase(true);
-        vqmdiarea->mousePressEvent(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->mousePressEvent(param1);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMousePressEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_MousePressEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MousePressEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_mousepressevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_MouseReleaseEvent(QMdiArea* self, QMouseEvent* param1) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->mouseReleaseEvent(param1);
     } else {
-        ((VirtualQMdiArea*)self)->mouseReleaseEvent(param1);
+        qFatal("Error: Protected virtual method QMdiArea::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperMouseReleaseEvent(QMdiArea* self, QMouseEvent* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_MouseReleaseEvent_IsBase(true);
-        vqmdiarea->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMouseReleaseEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_mousereleaseevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_MouseDoubleClickEvent(QMdiArea* self, QMouseEvent* param1) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->mouseDoubleClickEvent(param1);
     } else {
-        ((VirtualQMdiArea*)self)->mouseDoubleClickEvent(param1);
+        qFatal("Error: Protected virtual method QMdiArea::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperMouseDoubleClickEvent(QMdiArea* self, QMouseEvent* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_MouseDoubleClickEvent_IsBase(true);
-        vqmdiarea->mouseDoubleClickEvent(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->mouseDoubleClickEvent(param1);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::mouseDoubleClickEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMouseDoubleClickEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_mousedoubleclickevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_MouseMoveEvent(QMdiArea* self, QMouseEvent* param1) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->mouseMoveEvent(param1);
     } else {
-        ((VirtualQMdiArea*)self)->mouseMoveEvent(param1);
+        qFatal("Error: Protected virtual method QMdiArea::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperMouseMoveEvent(QMdiArea* self, QMouseEvent* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_MouseMoveEvent_IsBase(true);
-        vqmdiarea->mouseMoveEvent(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->mouseMoveEvent(param1);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::mouseMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMouseMoveEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_MouseMoveEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MouseMoveEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_mousemoveevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_WheelEvent(QMdiArea* self, QWheelEvent* param1) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->wheelEvent(param1);
     } else {
-        ((VirtualQMdiArea*)self)->wheelEvent(param1);
+        qFatal("Error: Protected virtual method QMdiArea::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperWheelEvent(QMdiArea* self, QWheelEvent* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_WheelEvent_IsBase(true);
-        vqmdiarea->wheelEvent(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->wheelEvent(param1);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::wheelEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnWheelEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_WheelEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_WheelEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_wheelevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_ContextMenuEvent(QMdiArea* self, QContextMenuEvent* param1) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->contextMenuEvent(param1);
     } else {
-        ((VirtualQMdiArea*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method QMdiArea::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperContextMenuEvent(QMdiArea* self, QContextMenuEvent* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ContextMenuEvent_IsBase(true);
-        vqmdiarea->contextMenuEvent(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnContextMenuEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_ContextMenuEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ContextMenuEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_contextmenuevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_DragEnterEvent(QMdiArea* self, QDragEnterEvent* param1) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->dragEnterEvent(param1);
     } else {
-        ((VirtualQMdiArea*)self)->dragEnterEvent(param1);
+        qFatal("Error: Protected virtual method QMdiArea::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperDragEnterEvent(QMdiArea* self, QDragEnterEvent* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_DragEnterEvent_IsBase(true);
-        vqmdiarea->dragEnterEvent(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->dragEnterEvent(param1);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::dragEnterEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnDragEnterEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_DragEnterEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_DragEnterEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_dragenterevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_DragMoveEvent(QMdiArea* self, QDragMoveEvent* param1) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->dragMoveEvent(param1);
     } else {
-        ((VirtualQMdiArea*)self)->dragMoveEvent(param1);
+        qFatal("Error: Protected virtual method QMdiArea::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperDragMoveEvent(QMdiArea* self, QDragMoveEvent* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_DragMoveEvent_IsBase(true);
-        vqmdiarea->dragMoveEvent(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->dragMoveEvent(param1);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::dragMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnDragMoveEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_DragMoveEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_DragMoveEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_dragmoveevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_DragLeaveEvent(QMdiArea* self, QDragLeaveEvent* param1) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->dragLeaveEvent(param1);
     } else {
-        ((VirtualQMdiArea*)self)->dragLeaveEvent(param1);
+        qFatal("Error: Protected virtual method QMdiArea::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperDragLeaveEvent(QMdiArea* self, QDragLeaveEvent* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_DragLeaveEvent_IsBase(true);
-        vqmdiarea->dragLeaveEvent(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->dragLeaveEvent(param1);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::dragLeaveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnDragLeaveEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_DragLeaveEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_DragLeaveEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_dragleaveevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_DropEvent(QMdiArea* self, QDropEvent* param1) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->dropEvent(param1);
     } else {
-        ((VirtualQMdiArea*)self)->dropEvent(param1);
+        qFatal("Error: Protected virtual method QMdiArea::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperDropEvent(QMdiArea* self, QDropEvent* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_DropEvent_IsBase(true);
-        vqmdiarea->dropEvent(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->dropEvent(param1);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::dropEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnDropEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_DropEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_DropEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_dropevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_KeyPressEvent(QMdiArea* self, QKeyEvent* param1) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->keyPressEvent(param1);
     } else {
-        ((VirtualQMdiArea*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method QMdiArea::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperKeyPressEvent(QMdiArea* self, QKeyEvent* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_KeyPressEvent_IsBase(true);
-        vqmdiarea->keyPressEvent(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->keyPressEvent(param1);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnKeyPressEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_KeyPressEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_KeyPressEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_keypressevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QMdiArea_ViewportSizeHint(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return new QSize(vqmdiarea->viewportSizeHint());
-    }
-    return {};
+    return new QSize((self->*&VirtualQMdiArea::Base::viewportSizeHint)());
 }
 
 // Base class handler implementation
 QSize* QMdiArea_SuperViewportSizeHint(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ViewportSizeHint_IsBase(true);
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
         return new QSize(vqmdiarea->viewportSizeHint());
-    }
-    return {};
+    qFatal("Error: Protected virtual method QMdiArea::viewportSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiArea_OnViewportSizeHint(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_ViewportSizeHint_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ViewportSizeHint_Callback>(slot));
+void QMdiArea_OnViewportSizeHint(QMdiArea* self, intptr_t slot) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
+        vqmdiarea->qmdiarea_viewportsizehint_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_ViewportSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_ChangeEvent(QMdiArea* self, QEvent* param1) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->changeEvent(param1);
     } else {
-        ((VirtualQMdiArea*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QMdiArea::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperChangeEvent(QMdiArea* self, QEvent* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ChangeEvent_IsBase(true);
-        vqmdiarea->changeEvent(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->changeEvent(param1);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnChangeEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_ChangeEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ChangeEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_changeevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_InitStyleOption(const QMdiArea* self, QStyleOptionFrame* option) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->initStyleOption(option);
     } else {
-        ((VirtualQMdiArea*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method QMdiArea::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperInitStyleOption(const QMdiArea* self, QStyleOptionFrame* option) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_InitStyleOption_IsBase(true);
-        vqmdiarea->initStyleOption(option);
-    } else {
-        ((VirtualQMdiArea*)self)->initStyleOption(option);
-    }
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self))) {
+        vqmdiarea->QMdiArea::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiArea_OnInitStyleOption(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_InitStyleOption_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_InitStyleOption_Callback>(slot));
+void QMdiArea_OnInitStyleOption(QMdiArea* self, intptr_t slot) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
+        vqmdiarea->qmdiarea_initstyleoption_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QMdiArea_DevType(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return vqmdiarea->devType();
-    } else {
-        return self->QMdiArea::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QMdiArea_SuperDevType(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_DevType_IsBase(true);
-        return vqmdiarea->devType();
-    } else {
-        return self->QMdiArea::devType();
-    }
+    return self->QMdiArea::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiArea_OnDevType(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_DevType_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_DevType_Callback>(slot));
+void QMdiArea_OnDevType(QMdiArea* self, intptr_t slot) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
+        vqmdiarea->qmdiarea_devtype_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_SetVisible(QMdiArea* self, bool visible) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setVisible(visible);
-    } else {
-        self->QMdiArea::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QMdiArea_SuperSetVisible(QMdiArea* self, bool visible) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_SetVisible_IsBase(true);
-        vqmdiarea->setVisible(visible);
-    } else {
-        self->QMdiArea::setVisible(visible);
-    }
+    self->QMdiArea::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnSetVisible(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_SetVisible_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SetVisible_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_setvisible_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QMdiArea_HeightForWidth(const QMdiArea* self, int param1) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return vqmdiarea->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QMdiArea::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QMdiArea_SuperHeightForWidth(const QMdiArea* self, int param1) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_HeightForWidth_IsBase(true);
-        return vqmdiarea->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QMdiArea::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QMdiArea::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiArea_OnHeightForWidth(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_HeightForWidth_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_HeightForWidth_Callback>(slot));
+void QMdiArea_OnHeightForWidth(QMdiArea* self, intptr_t slot) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
+        vqmdiarea->qmdiarea_heightforwidth_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMdiArea_HasHeightForWidth(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return vqmdiarea->hasHeightForWidth();
-    } else {
-        return self->QMdiArea::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QMdiArea_SuperHasHeightForWidth(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_HasHeightForWidth_IsBase(true);
-        return vqmdiarea->hasHeightForWidth();
-    } else {
-        return self->QMdiArea::hasHeightForWidth();
-    }
+    return self->QMdiArea::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiArea_OnHasHeightForWidth(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_HasHeightForWidth_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_HasHeightForWidth_Callback>(slot));
+void QMdiArea_OnHasHeightForWidth(QMdiArea* self, intptr_t slot) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
+        vqmdiarea->qmdiarea_hasheightforwidth_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QMdiArea_PaintEngine(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return vqmdiarea->paintEngine();
-    } else {
-        return self->QMdiArea::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QMdiArea_SuperPaintEngine(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_PaintEngine_IsBase(true);
-        return vqmdiarea->paintEngine();
-    } else {
-        return self->QMdiArea::paintEngine();
-    }
+    return self->QMdiArea::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiArea_OnPaintEngine(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_PaintEngine_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_PaintEngine_Callback>(slot));
+void QMdiArea_OnPaintEngine(QMdiArea* self, intptr_t slot) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
+        vqmdiarea->qmdiarea_paintengine_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_KeyReleaseEvent(QMdiArea* self, QKeyEvent* event) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->keyReleaseEvent(event);
     } else {
-        ((VirtualQMdiArea*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QMdiArea::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperKeyReleaseEvent(QMdiArea* self, QKeyEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_KeyReleaseEvent_IsBase(true);
-        vqmdiarea->keyReleaseEvent(event);
-    } else {
-        ((VirtualQMdiArea*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnKeyReleaseEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_keyreleaseevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_FocusInEvent(QMdiArea* self, QFocusEvent* event) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->focusInEvent(event);
     } else {
-        ((VirtualQMdiArea*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QMdiArea::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperFocusInEvent(QMdiArea* self, QFocusEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_FocusInEvent_IsBase(true);
-        vqmdiarea->focusInEvent(event);
-    } else {
-        ((VirtualQMdiArea*)self)->focusInEvent(event);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnFocusInEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_FocusInEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_FocusInEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_focusinevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_FocusOutEvent(QMdiArea* self, QFocusEvent* event) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->focusOutEvent(event);
     } else {
-        ((VirtualQMdiArea*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QMdiArea::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperFocusOutEvent(QMdiArea* self, QFocusEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_FocusOutEvent_IsBase(true);
-        vqmdiarea->focusOutEvent(event);
-    } else {
-        ((VirtualQMdiArea*)self)->focusOutEvent(event);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnFocusOutEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_FocusOutEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_FocusOutEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_focusoutevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_EnterEvent(QMdiArea* self, QEnterEvent* event) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->enterEvent(event);
     } else {
-        ((VirtualQMdiArea*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QMdiArea::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperEnterEvent(QMdiArea* self, QEnterEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_EnterEvent_IsBase(true);
-        vqmdiarea->enterEvent(event);
-    } else {
-        ((VirtualQMdiArea*)self)->enterEvent(event);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnEnterEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_EnterEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_EnterEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_enterevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_LeaveEvent(QMdiArea* self, QEvent* event) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->leaveEvent(event);
     } else {
-        ((VirtualQMdiArea*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QMdiArea::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperLeaveEvent(QMdiArea* self, QEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_LeaveEvent_IsBase(true);
-        vqmdiarea->leaveEvent(event);
-    } else {
-        ((VirtualQMdiArea*)self)->leaveEvent(event);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnLeaveEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_LeaveEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_LeaveEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_leaveevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_MoveEvent(QMdiArea* self, QMoveEvent* event) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->moveEvent(event);
     } else {
-        ((VirtualQMdiArea*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QMdiArea::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperMoveEvent(QMdiArea* self, QMoveEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_MoveEvent_IsBase(true);
-        vqmdiarea->moveEvent(event);
-    } else {
-        ((VirtualQMdiArea*)self)->moveEvent(event);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMoveEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_MoveEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MoveEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_moveevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_CloseEvent(QMdiArea* self, QCloseEvent* event) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->closeEvent(event);
     } else {
-        ((VirtualQMdiArea*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QMdiArea::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperCloseEvent(QMdiArea* self, QCloseEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_CloseEvent_IsBase(true);
-        vqmdiarea->closeEvent(event);
-    } else {
-        ((VirtualQMdiArea*)self)->closeEvent(event);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnCloseEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_CloseEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_CloseEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_closeevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_TabletEvent(QMdiArea* self, QTabletEvent* event) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->tabletEvent(event);
     } else {
-        ((VirtualQMdiArea*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QMdiArea::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperTabletEvent(QMdiArea* self, QTabletEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_TabletEvent_IsBase(true);
-        vqmdiarea->tabletEvent(event);
-    } else {
-        ((VirtualQMdiArea*)self)->tabletEvent(event);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnTabletEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_TabletEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_TabletEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_tabletevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_ActionEvent(QMdiArea* self, QActionEvent* event) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->actionEvent(event);
     } else {
-        ((VirtualQMdiArea*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QMdiArea::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperActionEvent(QMdiArea* self, QActionEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ActionEvent_IsBase(true);
-        vqmdiarea->actionEvent(event);
-    } else {
-        ((VirtualQMdiArea*)self)->actionEvent(event);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnActionEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_ActionEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ActionEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_actionevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_HideEvent(QMdiArea* self, QHideEvent* event) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->hideEvent(event);
     } else {
-        ((VirtualQMdiArea*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QMdiArea::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperHideEvent(QMdiArea* self, QHideEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_HideEvent_IsBase(true);
-        vqmdiarea->hideEvent(event);
-    } else {
-        ((VirtualQMdiArea*)self)->hideEvent(event);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnHideEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_HideEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_HideEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_hideevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMdiArea_NativeEvent(QMdiArea* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea) {
         return vqmdiarea->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQMdiArea*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QMdiArea::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QMdiArea_SuperNativeEvent(QMdiArea* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_NativeEvent_IsBase(true);
-        return vqmdiarea->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQMdiArea*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        return vqmdiarea->QMdiArea::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnNativeEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_NativeEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_NativeEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_nativeevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QMdiArea_Metric(const QMdiArea* self, int param1) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         return vqmdiarea->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQMdiArea*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QMdiArea::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QMdiArea_SuperMetric(const QMdiArea* self, int param1) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_Metric_IsBase(true);
-        return vqmdiarea->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQMdiArea*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self))) {
+        return vqmdiarea->QMdiArea::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiArea_OnMetric(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_Metric_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Metric_Callback>(slot));
+void QMdiArea_OnMetric(QMdiArea* self, intptr_t slot) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
+        vqmdiarea->qmdiarea_metric_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_InitPainter(const QMdiArea* self, QPainter* painter) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->initPainter(painter);
     } else {
-        ((VirtualQMdiArea*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QMdiArea::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperInitPainter(const QMdiArea* self, QPainter* painter) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_InitPainter_IsBase(true);
-        vqmdiarea->initPainter(painter);
-    } else {
-        ((VirtualQMdiArea*)self)->initPainter(painter);
-    }
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self))) {
+        vqmdiarea->QMdiArea::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiArea_OnInitPainter(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_InitPainter_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_InitPainter_Callback>(slot));
+void QMdiArea_OnInitPainter(QMdiArea* self, intptr_t slot) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
+        vqmdiarea->qmdiarea_initpainter_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QMdiArea_Redirected(const QMdiArea* self, QPoint* offset) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         return vqmdiarea->redirected(offset);
     } else {
-        return ((VirtualQMdiArea*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QMdiArea::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QMdiArea_SuperRedirected(const QMdiArea* self, QPoint* offset) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_Redirected_IsBase(true);
-        return vqmdiarea->redirected(offset);
-    } else {
-        return ((VirtualQMdiArea*)self)->redirected(offset);
-    }
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self))) {
+        return vqmdiarea->QMdiArea::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiArea_OnRedirected(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_Redirected_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Redirected_Callback>(slot));
+void QMdiArea_OnRedirected(QMdiArea* self, intptr_t slot) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
+        vqmdiarea->qmdiarea_redirected_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QMdiArea_SharedPainter(const QMdiArea* self) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         return vqmdiarea->sharedPainter();
     } else {
-        return ((VirtualQMdiArea*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QMdiArea::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QMdiArea_SuperSharedPainter(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_SharedPainter_IsBase(true);
-        return vqmdiarea->sharedPainter();
-    } else {
-        return ((VirtualQMdiArea*)self)->sharedPainter();
-    }
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self))) {
+        return vqmdiarea->QMdiArea::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiArea_OnSharedPainter(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_SharedPainter_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SharedPainter_Callback>(slot));
+void QMdiArea_OnSharedPainter(QMdiArea* self, intptr_t slot) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
+        vqmdiarea->qmdiarea_sharedpainter_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_InputMethodEvent(QMdiArea* self, QInputMethodEvent* param1) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->inputMethodEvent(param1);
     } else {
-        ((VirtualQMdiArea*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QMdiArea::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperInputMethodEvent(QMdiArea* self, QInputMethodEvent* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_InputMethodEvent_IsBase(true);
-        vqmdiarea->inputMethodEvent(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnInputMethodEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_InputMethodEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_InputMethodEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_inputmethodevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QMdiArea_InputMethodQuery(const QMdiArea* self, int param1) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return new QVariant(vqmdiarea->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQMdiArea*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QMdiArea_SuperInputMethodQuery(const QMdiArea* self, int param1) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_InputMethodQuery_IsBase(true);
-        return new QVariant(vqmdiarea->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQMdiArea*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QMdiArea::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMdiArea_OnInputMethodQuery(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_InputMethodQuery_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_InputMethodQuery_Callback>(slot));
+void QMdiArea_OnInputMethodQuery(QMdiArea* self, intptr_t slot) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
+        vqmdiarea->qmdiarea_inputmethodquery_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMdiArea_FocusNextPrevChild(QMdiArea* self, bool next) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         return vqmdiarea->focusNextPrevChild(next);
     } else {
-        return ((VirtualQMdiArea*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QMdiArea::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QMdiArea_SuperFocusNextPrevChild(QMdiArea* self, bool next) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_FocusNextPrevChild_IsBase(true);
-        return vqmdiarea->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQMdiArea*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        return vqmdiarea->QMdiArea::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnFocusNextPrevChild(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_focusnextprevchild_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_CustomEvent(QMdiArea* self, QEvent* event) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->customEvent(event);
     } else {
-        ((VirtualQMdiArea*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QMdiArea::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperCustomEvent(QMdiArea* self, QEvent* event) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_CustomEvent_IsBase(true);
-        vqmdiarea->customEvent(event);
-    } else {
-        ((VirtualQMdiArea*)self)->customEvent(event);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnCustomEvent(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_CustomEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_CustomEvent_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_customevent_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_ConnectNotify(QMdiArea* self, const QMetaMethod* signal) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->connectNotify(*signal);
     } else {
-        ((VirtualQMdiArea*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QMdiArea::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperConnectNotify(QMdiArea* self, const QMetaMethod* signal) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ConnectNotify_IsBase(true);
-        vqmdiarea->connectNotify(*signal);
-    } else {
-        ((VirtualQMdiArea*)self)->connectNotify(*signal);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnConnectNotify(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_ConnectNotify_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ConnectNotify_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_connectnotify_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMdiArea_DisconnectNotify(QMdiArea* self, const QMetaMethod* signal) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea) {
         vqmdiarea->disconnectNotify(*signal);
     } else {
-        ((VirtualQMdiArea*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QMdiArea::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMdiArea_SuperDisconnectNotify(QMdiArea* self, const QMetaMethod* signal) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_DisconnectNotify_IsBase(true);
-        vqmdiarea->disconnectNotify(*signal);
-    } else {
-        ((VirtualQMdiArea*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->QMdiArea::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QMdiArea::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnDisconnectNotify(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_DisconnectNotify_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_DisconnectNotify_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self))
+        vqmdiarea->qmdiarea_disconnectnotify_callback = reinterpret_cast<VirtualQMdiArea::QMdiArea_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QMdiArea_SetViewportMargins(QMdiArea* self, int left, int top, int right, int bottom) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQMdiArea*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Base class handler implementation
-void QMdiArea_SuperSetViewportMargins(QMdiArea* self, int left, int top, int right, int bottom) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_SetViewportMargins_IsBase(true);
-        vqmdiarea->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQMdiArea*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnSetViewportMargins(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_SetViewportMargins_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SetViewportMargins_Callback>(slot));
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->VirtualQMdiArea::setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+    } else
+        qFatal("Error: Protected method QMdiArea::setViewportMargins called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMargins* QMdiArea_ViewportMargins(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self)))
         return new QMargins(vqmdiarea->viewportMargins());
-    }
-    return {};
+    qFatal("Error: Protected method QMdiArea::viewportMargins called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMargins* QMdiArea_SuperViewportMargins(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_ViewportMargins_IsBase(true);
-        return new QMargins(vqmdiarea->viewportMargins());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnViewportMargins(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_ViewportMargins_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ViewportMargins_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QMdiArea_DrawFrame(QMdiArea* self, QPainter* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->drawFrame(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->drawFrame(param1);
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->VirtualQMdiArea::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method QMdiArea::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QMdiArea_SuperDrawFrame(QMdiArea* self, QPainter* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_DrawFrame_IsBase(true);
-        vqmdiarea->drawFrame(param1);
-    } else {
-        ((VirtualQMdiArea*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnDrawFrame(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_DrawFrame_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QMdiArea_UpdateMicroFocus(QMdiArea* self) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->updateMicroFocus();
-    } else {
-        ((VirtualQMdiArea*)self)->updateMicroFocus();
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->VirtualQMdiArea::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QMdiArea::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QMdiArea_SuperUpdateMicroFocus(QMdiArea* self) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_UpdateMicroFocus_IsBase(true);
-        vqmdiarea->updateMicroFocus();
-    } else {
-        ((VirtualQMdiArea*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnUpdateMicroFocus(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QMdiArea_Create(QMdiArea* self) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->create();
-    } else {
-        ((VirtualQMdiArea*)self)->create();
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->VirtualQMdiArea::create();
+    } else
+        qFatal("Error: Protected method QMdiArea::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QMdiArea_SuperCreate(QMdiArea* self) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_Create_IsBase(true);
-        vqmdiarea->create();
-    } else {
-        ((VirtualQMdiArea*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnCreate(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_Create_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QMdiArea_Destroy(QMdiArea* self) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->destroy();
-    } else {
-        ((VirtualQMdiArea*)self)->destroy();
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        vqmdiarea->VirtualQMdiArea::destroy();
+    } else
+        qFatal("Error: Protected method QMdiArea::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QMdiArea_SuperDestroy(QMdiArea* self) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_Destroy_IsBase(true);
-        vqmdiarea->destroy();
-    } else {
-        ((VirtualQMdiArea*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnDestroy(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_Destroy_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QMdiArea_FocusNextChild(QMdiArea* self) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return vqmdiarea->focusNextChild();
-    } else {
-        return ((VirtualQMdiArea*)self)->focusNextChild();
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        return vqmdiarea->VirtualQMdiArea::focusNextChild();
+    } else
+        qFatal("Error: Protected method QMdiArea::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QMdiArea_SuperFocusNextChild(QMdiArea* self) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_FocusNextChild_IsBase(true);
-        return vqmdiarea->focusNextChild();
-    } else {
-        return ((VirtualQMdiArea*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnFocusNextChild(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_FocusNextChild_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QMdiArea_FocusPreviousChild(QMdiArea* self) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return vqmdiarea->focusPreviousChild();
-    } else {
-        return ((VirtualQMdiArea*)self)->focusPreviousChild();
-    }
+    if (auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self)) {
+        return vqmdiarea->VirtualQMdiArea::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QMdiArea::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QMdiArea_SuperFocusPreviousChild(QMdiArea* self) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_FocusPreviousChild_IsBase(true);
-        return vqmdiarea->focusPreviousChild();
-    } else {
-        return ((VirtualQMdiArea*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnFocusPreviousChild(QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_FocusPreviousChild_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QMdiArea_Sender(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return vqmdiarea->sender();
-    } else {
-        return ((VirtualQMdiArea*)self)->sender();
-    }
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self))) {
+        return vqmdiarea->VirtualQMdiArea::sender();
+    } else
+        qFatal("Error: Protected method QMdiArea::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QMdiArea_SuperSender(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_Sender_IsBase(true);
-        return vqmdiarea->sender();
-    } else {
-        return ((VirtualQMdiArea*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnSender(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_Sender_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QMdiArea_SenderSignalIndex(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return vqmdiarea->senderSignalIndex();
-    } else {
-        return ((VirtualQMdiArea*)self)->senderSignalIndex();
-    }
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self))) {
+        return vqmdiarea->VirtualQMdiArea::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QMdiArea::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QMdiArea_SuperSenderSignalIndex(const QMdiArea* self) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_SenderSignalIndex_IsBase(true);
-        return vqmdiarea->senderSignalIndex();
-    } else {
-        return ((VirtualQMdiArea*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnSenderSignalIndex(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QMdiArea_Receivers(const QMdiArea* self, const char* signal) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return vqmdiarea->receivers(signal);
-    } else {
-        return ((VirtualQMdiArea*)self)->receivers(signal);
-    }
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self))) {
+        return vqmdiarea->VirtualQMdiArea::receivers(signal);
+    } else
+        qFatal("Error: Protected method QMdiArea::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QMdiArea_SuperReceivers(const QMdiArea* self, const char* signal) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_Receivers_IsBase(true);
-        return vqmdiarea->receivers(signal);
-    } else {
-        return ((VirtualQMdiArea*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnReceivers(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_Receivers_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QMdiArea_IsSignalConnected(const QMdiArea* self, const QMetaMethod* signal) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return vqmdiarea->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQMdiArea*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self))) {
+        return vqmdiarea->VirtualQMdiArea::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QMdiArea::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QMdiArea_SuperIsSignalConnected(const QMdiArea* self, const QMetaMethod* signal) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_IsSignalConnected_IsBase(true);
-        return vqmdiarea->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQMdiArea*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnIsSignalConnected(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_IsSignalConnected_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QMdiArea_GetDecodedMetricF(const QMdiArea* self, int metricA, int metricB) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return vqmdiarea->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQMdiArea*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QMdiArea_SuperGetDecodedMetricF(const QMdiArea* self, int metricA, int metricB) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        vqmdiarea->setQMdiArea_GetDecodedMetricF_IsBase(true);
-        return vqmdiarea->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQMdiArea*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMdiArea_OnGetDecodedMetricF(const QMdiArea* self, intptr_t slot) {
-    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
-        vqmdiarea->setQMdiArea_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self))) {
+        return vqmdiarea->VirtualQMdiArea::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QMdiArea::getDecodedMetricF called without a directly constructed type");
 }
 
 void QMdiArea_Delete(QMdiArea* self) {

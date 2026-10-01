@@ -79,400 +79,241 @@ libqt_string QBoxPlotLegendMarker_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QBoxPlotLegendMarker_SuperMetaObject(const QBoxPlotLegendMarker* self) {
-    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_MetaObject_IsBase(true);
-        return (QMetaObject*)vqboxplotlegendmarker->metaObject();
-    } else {
-        return (QMetaObject*)self->QBoxPlotLegendMarker::metaObject();
-    }
+    return (QMetaObject*)self->QBoxPlotLegendMarker::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QBoxPlotLegendMarker_OnMetaObject(const QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_MetaObject_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_MetaObject_Callback>(slot));
+void QBoxPlotLegendMarker_OnMetaObject(QBoxPlotLegendMarker* self, intptr_t slot) {
+    if (auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self)))
+        vqboxplotlegendmarker->qboxplotlegendmarker_metaobject_callback = reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QBoxPlotLegendMarker_SuperMetacast(QBoxPlotLegendMarker* self, const char* param1) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Metacast_IsBase(true);
-        return vqboxplotlegendmarker->qt_metacast(param1);
-    } else {
-        return self->QBoxPlotLegendMarker::qt_metacast(param1);
-    }
+    return self->QBoxPlotLegendMarker::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnMetacast(QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Metacast_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Metacast_Callback>(slot));
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self))
+        vqboxplotlegendmarker->qboxplotlegendmarker_metacast_callback = reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QBoxPlotLegendMarker_SuperMetacall(QBoxPlotLegendMarker* self, int param1, int param2, void** param3) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Metacall_IsBase(true);
-        return vqboxplotlegendmarker->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QBoxPlotLegendMarker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QBoxPlotLegendMarker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnMetacall(QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Metacall_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Metacall_Callback>(slot));
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self))
+        vqboxplotlegendmarker->qboxplotlegendmarker_metacall_callback = reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QBoxPlotLegendMarker_SuperType(QBoxPlotLegendMarker* self) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Type_IsBase(true);
-        return static_cast<int>(vqboxplotlegendmarker->type());
-    } else {
-        return static_cast<int>(self->QBoxPlotLegendMarker::type());
-    }
+    return static_cast<int>(self->QBoxPlotLegendMarker::type());
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnType(QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Type_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Type_Callback>(slot));
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self))
+        vqboxplotlegendmarker->qboxplotlegendmarker_type_callback = reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Type_Callback>(slot);
 }
 
 // Base class handler implementation
 QBoxPlotSeries* QBoxPlotLegendMarker_SuperSeries(QBoxPlotLegendMarker* self) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Series_IsBase(true);
-        return vqboxplotlegendmarker->series();
-    } else {
-        return self->QBoxPlotLegendMarker::series();
-    }
+    return self->QBoxPlotLegendMarker::series();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnSeries(QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Series_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Series_Callback>(slot));
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self))
+        vqboxplotlegendmarker->qboxplotlegendmarker_series_callback = reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Series_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QBoxPlotLegendMarker_Event(QBoxPlotLegendMarker* self, QEvent* event) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        return vqboxplotlegendmarker->event(event);
-    } else {
-        return self->QBoxPlotLegendMarker::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QBoxPlotLegendMarker_SuperEvent(QBoxPlotLegendMarker* self, QEvent* event) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Event_IsBase(true);
-        return vqboxplotlegendmarker->event(event);
-    } else {
-        return self->QBoxPlotLegendMarker::event(event);
-    }
+    return self->QBoxPlotLegendMarker::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnEvent(QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Event_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Event_Callback>(slot));
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self))
+        vqboxplotlegendmarker->qboxplotlegendmarker_event_callback = reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QBoxPlotLegendMarker_EventFilter(QBoxPlotLegendMarker* self, QObject* watched, QEvent* event) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        return vqboxplotlegendmarker->eventFilter(watched, event);
-    } else {
-        return self->QBoxPlotLegendMarker::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QBoxPlotLegendMarker_SuperEventFilter(QBoxPlotLegendMarker* self, QObject* watched, QEvent* event) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_EventFilter_IsBase(true);
-        return vqboxplotlegendmarker->eventFilter(watched, event);
-    } else {
-        return self->QBoxPlotLegendMarker::eventFilter(watched, event);
-    }
+    return self->QBoxPlotLegendMarker::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnEventFilter(QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_EventFilter_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_EventFilter_Callback>(slot));
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self))
+        vqboxplotlegendmarker->qboxplotlegendmarker_eventfilter_callback = reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBoxPlotLegendMarker_TimerEvent(QBoxPlotLegendMarker* self, QTimerEvent* event) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker) {
         vqboxplotlegendmarker->timerEvent(event);
     } else {
-        ((VirtualQBoxPlotLegendMarker*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QBoxPlotLegendMarker::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBoxPlotLegendMarker_SuperTimerEvent(QBoxPlotLegendMarker* self, QTimerEvent* event) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_TimerEvent_IsBase(true);
-        vqboxplotlegendmarker->timerEvent(event);
-    } else {
-        ((VirtualQBoxPlotLegendMarker*)self)->timerEvent(event);
-    }
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self)) {
+        vqboxplotlegendmarker->QBoxPlotLegendMarker::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBoxPlotLegendMarker::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnTimerEvent(QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_TimerEvent_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_TimerEvent_Callback>(slot));
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self))
+        vqboxplotlegendmarker->qboxplotlegendmarker_timerevent_callback = reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBoxPlotLegendMarker_ChildEvent(QBoxPlotLegendMarker* self, QChildEvent* event) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker) {
         vqboxplotlegendmarker->childEvent(event);
     } else {
-        ((VirtualQBoxPlotLegendMarker*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QBoxPlotLegendMarker::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBoxPlotLegendMarker_SuperChildEvent(QBoxPlotLegendMarker* self, QChildEvent* event) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_ChildEvent_IsBase(true);
-        vqboxplotlegendmarker->childEvent(event);
-    } else {
-        ((VirtualQBoxPlotLegendMarker*)self)->childEvent(event);
-    }
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self)) {
+        vqboxplotlegendmarker->QBoxPlotLegendMarker::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBoxPlotLegendMarker::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnChildEvent(QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_ChildEvent_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_ChildEvent_Callback>(slot));
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self))
+        vqboxplotlegendmarker->qboxplotlegendmarker_childevent_callback = reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBoxPlotLegendMarker_CustomEvent(QBoxPlotLegendMarker* self, QEvent* event) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker) {
         vqboxplotlegendmarker->customEvent(event);
     } else {
-        ((VirtualQBoxPlotLegendMarker*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QBoxPlotLegendMarker::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBoxPlotLegendMarker_SuperCustomEvent(QBoxPlotLegendMarker* self, QEvent* event) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_CustomEvent_IsBase(true);
-        vqboxplotlegendmarker->customEvent(event);
-    } else {
-        ((VirtualQBoxPlotLegendMarker*)self)->customEvent(event);
-    }
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self)) {
+        vqboxplotlegendmarker->QBoxPlotLegendMarker::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBoxPlotLegendMarker::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnCustomEvent(QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_CustomEvent_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_CustomEvent_Callback>(slot));
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self))
+        vqboxplotlegendmarker->qboxplotlegendmarker_customevent_callback = reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBoxPlotLegendMarker_ConnectNotify(QBoxPlotLegendMarker* self, const QMetaMethod* signal) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker) {
         vqboxplotlegendmarker->connectNotify(*signal);
     } else {
-        ((VirtualQBoxPlotLegendMarker*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QBoxPlotLegendMarker::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBoxPlotLegendMarker_SuperConnectNotify(QBoxPlotLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_ConnectNotify_IsBase(true);
-        vqboxplotlegendmarker->connectNotify(*signal);
-    } else {
-        ((VirtualQBoxPlotLegendMarker*)self)->connectNotify(*signal);
-    }
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self)) {
+        vqboxplotlegendmarker->QBoxPlotLegendMarker::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QBoxPlotLegendMarker::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnConnectNotify(QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_ConnectNotify_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_ConnectNotify_Callback>(slot));
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self))
+        vqboxplotlegendmarker->qboxplotlegendmarker_connectnotify_callback = reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBoxPlotLegendMarker_DisconnectNotify(QBoxPlotLegendMarker* self, const QMetaMethod* signal) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker) {
         vqboxplotlegendmarker->disconnectNotify(*signal);
     } else {
-        ((VirtualQBoxPlotLegendMarker*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QBoxPlotLegendMarker::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBoxPlotLegendMarker_SuperDisconnectNotify(QBoxPlotLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_DisconnectNotify_IsBase(true);
-        vqboxplotlegendmarker->disconnectNotify(*signal);
-    } else {
-        ((VirtualQBoxPlotLegendMarker*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self)) {
+        vqboxplotlegendmarker->QBoxPlotLegendMarker::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QBoxPlotLegendMarker::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnDisconnectNotify(QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_DisconnectNotify_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_DisconnectNotify_Callback>(slot));
+    if (auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self))
+        vqboxplotlegendmarker->qboxplotlegendmarker_disconnectnotify_callback = reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QBoxPlotLegendMarker_Sender(const QBoxPlotLegendMarker* self) {
-    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        return vqboxplotlegendmarker->sender();
-    } else {
-        return ((VirtualQBoxPlotLegendMarker*)self)->sender();
-    }
+    if (auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self))) {
+        return vqboxplotlegendmarker->VirtualQBoxPlotLegendMarker::sender();
+    } else
+        qFatal("Error: Protected method QBoxPlotLegendMarker::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QBoxPlotLegendMarker_SuperSender(const QBoxPlotLegendMarker* self) {
-    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Sender_IsBase(true);
-        return vqboxplotlegendmarker->sender();
-    } else {
-        return ((VirtualQBoxPlotLegendMarker*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBoxPlotLegendMarker_OnSender(const QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Sender_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QBoxPlotLegendMarker_SenderSignalIndex(const QBoxPlotLegendMarker* self) {
-    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        return vqboxplotlegendmarker->senderSignalIndex();
-    } else {
-        return ((VirtualQBoxPlotLegendMarker*)self)->senderSignalIndex();
-    }
+    if (auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self))) {
+        return vqboxplotlegendmarker->VirtualQBoxPlotLegendMarker::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QBoxPlotLegendMarker::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QBoxPlotLegendMarker_SuperSenderSignalIndex(const QBoxPlotLegendMarker* self) {
-    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_SenderSignalIndex_IsBase(true);
-        return vqboxplotlegendmarker->senderSignalIndex();
-    } else {
-        return ((VirtualQBoxPlotLegendMarker*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBoxPlotLegendMarker_OnSenderSignalIndex(const QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QBoxPlotLegendMarker_Receivers(const QBoxPlotLegendMarker* self, const char* signal) {
-    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        return vqboxplotlegendmarker->receivers(signal);
-    } else {
-        return ((VirtualQBoxPlotLegendMarker*)self)->receivers(signal);
-    }
+    if (auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self))) {
+        return vqboxplotlegendmarker->VirtualQBoxPlotLegendMarker::receivers(signal);
+    } else
+        qFatal("Error: Protected method QBoxPlotLegendMarker::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QBoxPlotLegendMarker_SuperReceivers(const QBoxPlotLegendMarker* self, const char* signal) {
-    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Receivers_IsBase(true);
-        return vqboxplotlegendmarker->receivers(signal);
-    } else {
-        return ((VirtualQBoxPlotLegendMarker*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBoxPlotLegendMarker_OnReceivers(const QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Receivers_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QBoxPlotLegendMarker_IsSignalConnected(const QBoxPlotLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        return vqboxplotlegendmarker->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQBoxPlotLegendMarker*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QBoxPlotLegendMarker_SuperIsSignalConnected(const QBoxPlotLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_IsSignalConnected_IsBase(true);
-        return vqboxplotlegendmarker->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQBoxPlotLegendMarker*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBoxPlotLegendMarker_OnIsSignalConnected(const QBoxPlotLegendMarker* self, intptr_t slot) {
-    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
-        vqboxplotlegendmarker->setQBoxPlotLegendMarker_IsSignalConnected_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_IsSignalConnected_Callback>(slot));
+    if (auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self))) {
+        return vqboxplotlegendmarker->VirtualQBoxPlotLegendMarker::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QBoxPlotLegendMarker::isSignalConnected called without a directly constructed type");
 }
 
 void QBoxPlotLegendMarker_Delete(QBoxPlotLegendMarker* self) {

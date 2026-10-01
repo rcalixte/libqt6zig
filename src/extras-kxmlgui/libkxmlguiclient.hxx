@@ -9,30 +9,25 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KXMLGUIClient so that we can call protected methods
+// This class is a subclass of KXMLGUIClient
 class VirtualKXMLGUIClient final : public KXMLGUIClient {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKXMLGUIClient = true;
-
-    // Virtual class public types (including callbacks)
+    // Virtual class public types (including callbacks and access types)
     using KXMLGUIClient_Action2_Callback = QAction* (*)(const KXMLGUIClient*, QDomElement*);
-    using KXMLGUIClient_ActionCollection_Callback = KActionCollection* (*)();
-    using KXMLGUIClient_ComponentName_Callback = const char* (*)();
-    using KXMLGUIClient_DomDocument_Callback = QDomDocument* (*)();
-    using KXMLGUIClient_XmlFile_Callback = const char* (*)();
-    using KXMLGUIClient_LocalXMLFile_Callback = const char* (*)();
+    using KXMLGUIClient_ActionCollection_Callback = KActionCollection* (*)(const KXMLGUIClient*);
+    using KXMLGUIClient_ComponentName_Callback = const char* (*)(const KXMLGUIClient*);
+    using KXMLGUIClient_DomDocument_Callback = QDomDocument* (*)(const KXMLGUIClient*);
+    using KXMLGUIClient_XmlFile_Callback = const char* (*)(const KXMLGUIClient*);
+    using KXMLGUIClient_LocalXMLFile_Callback = const char* (*)(const KXMLGUIClient*);
     using KXMLGUIClient_SetComponentName_Callback = void (*)(KXMLGUIClient*, const char*, const char*);
     using KXMLGUIClient_SetXMLFile_Callback = void (*)(KXMLGUIClient*, const char*, bool, bool);
     using KXMLGUIClient_SetLocalXMLFile_Callback = void (*)(KXMLGUIClient*, const char*);
     using KXMLGUIClient_SetXML_Callback = void (*)(KXMLGUIClient*, const char*, bool);
     using KXMLGUIClient_SetDOMDocument_Callback = void (*)(KXMLGUIClient*, QDomDocument*, bool);
     using KXMLGUIClient_StateChanged_Callback = void (*)(KXMLGUIClient*, const char*, int);
-    using KXMLGUIClient_StandardsXmlFileLocation_Callback = const char* (*)();
-    using KXMLGUIClient_LoadStandardsXmlFile_Callback = void (*)();
+    using KXMLGUIClient::loadStandardsXmlFile;
+    using KXMLGUIClient::standardsXmlFileLocation;
 
-  protected:
     // Instance callback storage
     KXMLGUIClient_Action2_Callback kxmlguiclient_action2_callback = nullptr;
     KXMLGUIClient_ActionCollection_Callback kxmlguiclient_actioncollection_callback = nullptr;
@@ -46,73 +41,27 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
     KXMLGUIClient_SetXML_Callback kxmlguiclient_setxml_callback = nullptr;
     KXMLGUIClient_SetDOMDocument_Callback kxmlguiclient_setdomdocument_callback = nullptr;
     KXMLGUIClient_StateChanged_Callback kxmlguiclient_statechanged_callback = nullptr;
-    KXMLGUIClient_StandardsXmlFileLocation_Callback kxmlguiclient_standardsxmlfilelocation_callback = nullptr;
-    KXMLGUIClient_LoadStandardsXmlFile_Callback kxmlguiclient_loadstandardsxmlfile_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kxmlguiclient_action2_isbase = false;
-    mutable bool kxmlguiclient_actioncollection_isbase = false;
-    mutable bool kxmlguiclient_componentname_isbase = false;
-    mutable bool kxmlguiclient_domdocument_isbase = false;
-    mutable bool kxmlguiclient_xmlfile_isbase = false;
-    mutable bool kxmlguiclient_localxmlfile_isbase = false;
-    mutable bool kxmlguiclient_setcomponentname_isbase = false;
-    mutable bool kxmlguiclient_setxmlfile_isbase = false;
-    mutable bool kxmlguiclient_setlocalxmlfile_isbase = false;
-    mutable bool kxmlguiclient_setxml_isbase = false;
-    mutable bool kxmlguiclient_setdomdocument_isbase = false;
-    mutable bool kxmlguiclient_statechanged_isbase = false;
-    mutable bool kxmlguiclient_standardsxmlfilelocation_isbase = false;
-    mutable bool kxmlguiclient_loadstandardsxmlfile_isbase = false;
+    // Access struct
+    struct Base : KXMLGUIClient {
+        using KXMLGUIClient::setComponentName;
+        using KXMLGUIClient::setDOMDocument;
+        using KXMLGUIClient::setLocalXMLFile;
+        using KXMLGUIClient::setXML;
+        using KXMLGUIClient::setXMLFile;
+        using KXMLGUIClient::stateChanged;
+    };
 
-  public:
     VirtualKXMLGUIClient() : KXMLGUIClient() {};
     VirtualKXMLGUIClient(KXMLGUIClient* parent) : KXMLGUIClient(parent) {};
 
-    // Callback setters
-    inline void setKXMLGUIClient_Action2_Callback(KXMLGUIClient_Action2_Callback cb) { kxmlguiclient_action2_callback = cb; }
-    inline void setKXMLGUIClient_ActionCollection_Callback(KXMLGUIClient_ActionCollection_Callback cb) { kxmlguiclient_actioncollection_callback = cb; }
-    inline void setKXMLGUIClient_ComponentName_Callback(KXMLGUIClient_ComponentName_Callback cb) { kxmlguiclient_componentname_callback = cb; }
-    inline void setKXMLGUIClient_DomDocument_Callback(KXMLGUIClient_DomDocument_Callback cb) { kxmlguiclient_domdocument_callback = cb; }
-    inline void setKXMLGUIClient_XmlFile_Callback(KXMLGUIClient_XmlFile_Callback cb) { kxmlguiclient_xmlfile_callback = cb; }
-    inline void setKXMLGUIClient_LocalXMLFile_Callback(KXMLGUIClient_LocalXMLFile_Callback cb) { kxmlguiclient_localxmlfile_callback = cb; }
-    inline void setKXMLGUIClient_SetComponentName_Callback(KXMLGUIClient_SetComponentName_Callback cb) { kxmlguiclient_setcomponentname_callback = cb; }
-    inline void setKXMLGUIClient_SetXMLFile_Callback(KXMLGUIClient_SetXMLFile_Callback cb) { kxmlguiclient_setxmlfile_callback = cb; }
-    inline void setKXMLGUIClient_SetLocalXMLFile_Callback(KXMLGUIClient_SetLocalXMLFile_Callback cb) { kxmlguiclient_setlocalxmlfile_callback = cb; }
-    inline void setKXMLGUIClient_SetXML_Callback(KXMLGUIClient_SetXML_Callback cb) { kxmlguiclient_setxml_callback = cb; }
-    inline void setKXMLGUIClient_SetDOMDocument_Callback(KXMLGUIClient_SetDOMDocument_Callback cb) { kxmlguiclient_setdomdocument_callback = cb; }
-    inline void setKXMLGUIClient_StateChanged_Callback(KXMLGUIClient_StateChanged_Callback cb) { kxmlguiclient_statechanged_callback = cb; }
-    inline void setKXMLGUIClient_StandardsXmlFileLocation_Callback(KXMLGUIClient_StandardsXmlFileLocation_Callback cb) { kxmlguiclient_standardsxmlfilelocation_callback = cb; }
-    inline void setKXMLGUIClient_LoadStandardsXmlFile_Callback(KXMLGUIClient_LoadStandardsXmlFile_Callback cb) { kxmlguiclient_loadstandardsxmlfile_callback = cb; }
-
-    // Base flag setters
-    inline void setKXMLGUIClient_Action2_IsBase(bool value) const { kxmlguiclient_action2_isbase = value; }
-    inline void setKXMLGUIClient_ActionCollection_IsBase(bool value) const { kxmlguiclient_actioncollection_isbase = value; }
-    inline void setKXMLGUIClient_ComponentName_IsBase(bool value) const { kxmlguiclient_componentname_isbase = value; }
-    inline void setKXMLGUIClient_DomDocument_IsBase(bool value) const { kxmlguiclient_domdocument_isbase = value; }
-    inline void setKXMLGUIClient_XmlFile_IsBase(bool value) const { kxmlguiclient_xmlfile_isbase = value; }
-    inline void setKXMLGUIClient_LocalXMLFile_IsBase(bool value) const { kxmlguiclient_localxmlfile_isbase = value; }
-    inline void setKXMLGUIClient_SetComponentName_IsBase(bool value) const { kxmlguiclient_setcomponentname_isbase = value; }
-    inline void setKXMLGUIClient_SetXMLFile_IsBase(bool value) const { kxmlguiclient_setxmlfile_isbase = value; }
-    inline void setKXMLGUIClient_SetLocalXMLFile_IsBase(bool value) const { kxmlguiclient_setlocalxmlfile_isbase = value; }
-    inline void setKXMLGUIClient_SetXML_IsBase(bool value) const { kxmlguiclient_setxml_isbase = value; }
-    inline void setKXMLGUIClient_SetDOMDocument_IsBase(bool value) const { kxmlguiclient_setdomdocument_isbase = value; }
-    inline void setKXMLGUIClient_StateChanged_IsBase(bool value) const { kxmlguiclient_statechanged_isbase = value; }
-    inline void setKXMLGUIClient_StandardsXmlFileLocation_IsBase(bool value) const { kxmlguiclient_standardsxmlfilelocation_isbase = value; }
-    inline void setKXMLGUIClient_LoadStandardsXmlFile_IsBase(bool value) const { kxmlguiclient_loadstandardsxmlfile_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual QAction* action(const QDomElement& element) const override {
-        if (kxmlguiclient_action2_isbase) {
-            kxmlguiclient_action2_isbase = false;
-            return KXMLGUIClient::action(element);
-        }
-        auto action2_cb = kxmlguiclient_action2_callback;
-        if (action2_cb) {
+        if (kxmlguiclient_action2_callback) {
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval1 = const_cast<QDomElement*>(&element_ret);
-            QAction* callback_ret = action2_cb(this, cbval1);
+            QAction* callback_ret = kxmlguiclient_action2_callback(this, cbval1);
             return callback_ret;
         }
         return KXMLGUIClient::action(element);
@@ -120,13 +69,8 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
 
     // Virtual method for C ABI access and custom callback
     virtual KActionCollection* actionCollection() const override {
-        if (kxmlguiclient_actioncollection_isbase) {
-            kxmlguiclient_actioncollection_isbase = false;
-            return KXMLGUIClient::actionCollection();
-        }
-        auto actioncollection_cb = kxmlguiclient_actioncollection_callback;
-        if (actioncollection_cb) {
-            KActionCollection* callback_ret = actioncollection_cb();
+        if (kxmlguiclient_actioncollection_callback) {
+            KActionCollection* callback_ret = kxmlguiclient_actioncollection_callback(this);
             return callback_ret;
         }
         return KXMLGUIClient::actionCollection();
@@ -134,13 +78,8 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
 
     // Virtual method for C ABI access and custom callback
     virtual QString componentName() const override {
-        if (kxmlguiclient_componentname_isbase) {
-            kxmlguiclient_componentname_isbase = false;
-            return KXMLGUIClient::componentName();
-        }
-        auto componentname_cb = kxmlguiclient_componentname_callback;
-        if (componentname_cb) {
-            const char* callback_ret = componentname_cb();
+        if (kxmlguiclient_componentname_callback) {
+            const char* callback_ret = kxmlguiclient_componentname_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -149,13 +88,8 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
 
     // Virtual method for C ABI access and custom callback
     virtual QDomDocument domDocument() const override {
-        if (kxmlguiclient_domdocument_isbase) {
-            kxmlguiclient_domdocument_isbase = false;
-            return KXMLGUIClient::domDocument();
-        }
-        auto domdocument_cb = kxmlguiclient_domdocument_callback;
-        if (domdocument_cb) {
-            QDomDocument* callback_ret = domdocument_cb();
+        if (kxmlguiclient_domdocument_callback) {
+            QDomDocument* callback_ret = kxmlguiclient_domdocument_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -165,13 +99,8 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
 
     // Virtual method for C ABI access and custom callback
     virtual QString xmlFile() const override {
-        if (kxmlguiclient_xmlfile_isbase) {
-            kxmlguiclient_xmlfile_isbase = false;
-            return KXMLGUIClient::xmlFile();
-        }
-        auto xmlfile_cb = kxmlguiclient_xmlfile_callback;
-        if (xmlfile_cb) {
-            const char* callback_ret = xmlfile_cb();
+        if (kxmlguiclient_xmlfile_callback) {
+            const char* callback_ret = kxmlguiclient_xmlfile_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -180,13 +109,8 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
 
     // Virtual method for C ABI access and custom callback
     virtual QString localXMLFile() const override {
-        if (kxmlguiclient_localxmlfile_isbase) {
-            kxmlguiclient_localxmlfile_isbase = false;
-            return KXMLGUIClient::localXMLFile();
-        }
-        auto localxmlfile_cb = kxmlguiclient_localxmlfile_callback;
-        if (localxmlfile_cb) {
-            const char* callback_ret = localxmlfile_cb();
+        if (kxmlguiclient_localxmlfile_callback) {
+            const char* callback_ret = kxmlguiclient_localxmlfile_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -195,13 +119,7 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
 
     // Virtual method for C ABI access and custom callback
     virtual void setComponentName(const QString& componentName, const QString& componentDisplayName) override {
-        if (kxmlguiclient_setcomponentname_isbase) {
-            kxmlguiclient_setcomponentname_isbase = false;
-            KXMLGUIClient::setComponentName(componentName, componentDisplayName);
-            return;
-        }
-        auto setcomponentname_cb = kxmlguiclient_setcomponentname_callback;
-        if (setcomponentname_cb) {
+        if (kxmlguiclient_setcomponentname_callback) {
             const auto componentName_ret = componentName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentName_b = componentName_ret.toUtf8();
@@ -218,7 +136,7 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
             memcpy((void*)componentDisplayName_str, componentDisplayName_b.data(), componentDisplayName_str_len);
             ((char*)componentDisplayName_str)[componentDisplayName_str_len] = '\0';
             const char* cbval2 = componentDisplayName_str;
-            setcomponentname_cb(this, cbval1, cbval2);
+            kxmlguiclient_setcomponentname_callback(this, cbval1, cbval2);
             libqt_free(componentName_str);
             libqt_free(componentDisplayName_str);
             return;
@@ -228,13 +146,7 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
 
     // Virtual method for C ABI access and custom callback
     virtual void setXMLFile(const QString& file, bool merge, bool setXMLDoc) override {
-        if (kxmlguiclient_setxmlfile_isbase) {
-            kxmlguiclient_setxmlfile_isbase = false;
-            KXMLGUIClient::setXMLFile(file, merge, setXMLDoc);
-            return;
-        }
-        auto setxmlfile_cb = kxmlguiclient_setxmlfile_callback;
-        if (setxmlfile_cb) {
+        if (kxmlguiclient_setxmlfile_callback) {
             const auto file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -245,7 +157,7 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
             const char* cbval1 = file_str;
             bool cbval2 = merge;
             bool cbval3 = setXMLDoc;
-            setxmlfile_cb(this, cbval1, cbval2, cbval3);
+            kxmlguiclient_setxmlfile_callback(this, cbval1, cbval2, cbval3);
             libqt_free(file_str);
             return;
         }
@@ -254,13 +166,7 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
 
     // Virtual method for C ABI access and custom callback
     virtual void setLocalXMLFile(const QString& file) override {
-        if (kxmlguiclient_setlocalxmlfile_isbase) {
-            kxmlguiclient_setlocalxmlfile_isbase = false;
-            KXMLGUIClient::setLocalXMLFile(file);
-            return;
-        }
-        auto setlocalxmlfile_cb = kxmlguiclient_setlocalxmlfile_callback;
-        if (setlocalxmlfile_cb) {
+        if (kxmlguiclient_setlocalxmlfile_callback) {
             const auto file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -269,7 +175,7 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
             memcpy((void*)file_str, file_b.data(), file_str_len);
             ((char*)file_str)[file_str_len] = '\0';
             const char* cbval1 = file_str;
-            setlocalxmlfile_cb(this, cbval1);
+            kxmlguiclient_setlocalxmlfile_callback(this, cbval1);
             libqt_free(file_str);
             return;
         }
@@ -278,13 +184,7 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
 
     // Virtual method for C ABI access and custom callback
     virtual void setXML(const QString& document, bool merge) override {
-        if (kxmlguiclient_setxml_isbase) {
-            kxmlguiclient_setxml_isbase = false;
-            KXMLGUIClient::setXML(document, merge);
-            return;
-        }
-        auto setxml_cb = kxmlguiclient_setxml_callback;
-        if (setxml_cb) {
+        if (kxmlguiclient_setxml_callback) {
             const auto document_ret = document;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray document_b = document_ret.toUtf8();
@@ -294,7 +194,7 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
             ((char*)document_str)[document_str_len] = '\0';
             const char* cbval1 = document_str;
             bool cbval2 = merge;
-            setxml_cb(this, cbval1, cbval2);
+            kxmlguiclient_setxml_callback(this, cbval1, cbval2);
             libqt_free(document_str);
             return;
         }
@@ -303,18 +203,12 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
 
     // Virtual method for C ABI access and custom callback
     virtual void setDOMDocument(const QDomDocument& document, bool merge) override {
-        if (kxmlguiclient_setdomdocument_isbase) {
-            kxmlguiclient_setdomdocument_isbase = false;
-            KXMLGUIClient::setDOMDocument(document, merge);
-            return;
-        }
-        auto setdomdocument_cb = kxmlguiclient_setdomdocument_callback;
-        if (setdomdocument_cb) {
+        if (kxmlguiclient_setdomdocument_callback) {
             const QDomDocument& document_ret = document;
             // Cast returned reference into pointer
             QDomDocument* cbval1 = const_cast<QDomDocument*>(&document_ret);
             bool cbval2 = merge;
-            setdomdocument_cb(this, cbval1, cbval2);
+            kxmlguiclient_setdomdocument_callback(this, cbval1, cbval2);
             return;
         }
         KXMLGUIClient::setDOMDocument(document, merge);
@@ -322,13 +216,7 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
 
     // Virtual method for C ABI access and custom callback
     virtual void stateChanged(const QString& newstate, KXMLGUIClient::ReverseStateChange reverse) override {
-        if (kxmlguiclient_statechanged_isbase) {
-            kxmlguiclient_statechanged_isbase = false;
-            KXMLGUIClient::stateChanged(newstate, reverse);
-            return;
-        }
-        auto statechanged_cb = kxmlguiclient_statechanged_callback;
-        if (statechanged_cb) {
+        if (kxmlguiclient_statechanged_callback) {
             const auto newstate_ret = newstate;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
@@ -338,60 +226,20 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
             ((char*)newstate_str)[newstate_str_len] = '\0';
             const char* cbval1 = newstate_str;
             int cbval2 = static_cast<int>(reverse);
-            statechanged_cb(this, cbval1, cbval2);
+            kxmlguiclient_statechanged_callback(this, cbval1, cbval2);
             libqt_free(newstate_str);
             return;
         }
         KXMLGUIClient::stateChanged(newstate, reverse);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QString standardsXmlFileLocation() {
-        if (kxmlguiclient_standardsxmlfilelocation_isbase) {
-            kxmlguiclient_standardsxmlfilelocation_isbase = false;
-            return KXMLGUIClient::standardsXmlFileLocation();
-        }
-        auto standardsxmlfilelocation_cb = kxmlguiclient_standardsxmlfilelocation_callback;
-        if (standardsxmlfilelocation_cb) {
-            const char* callback_ret = standardsxmlfilelocation_cb();
-            QString callback_ret_QString = QString::fromUtf8(callback_ret);
-            return callback_ret_QString;
-        }
-        return KXMLGUIClient::standardsXmlFileLocation();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void loadStandardsXmlFile() {
-        if (kxmlguiclient_loadstandardsxmlfile_isbase) {
-            kxmlguiclient_loadstandardsxmlfile_isbase = false;
-            KXMLGUIClient::loadStandardsXmlFile();
-            return;
-        }
-        auto loadstandardsxmlfile_cb = kxmlguiclient_loadstandardsxmlfile_callback;
-        if (loadstandardsxmlfile_cb) {
-            loadstandardsxmlfile_cb();
-            return;
-        }
-        KXMLGUIClient::loadStandardsXmlFile();
-    }
-
     // Friend functions
-    friend void KXMLGUIClient_SetComponentName(KXMLGUIClient* self, const libqt_string componentName, const libqt_string componentDisplayName);
     friend void KXMLGUIClient_SuperSetComponentName(KXMLGUIClient* self, const libqt_string componentName, const libqt_string componentDisplayName);
-    friend void KXMLGUIClient_SetXMLFile(KXMLGUIClient* self, const libqt_string file, bool merge, bool setXMLDoc);
     friend void KXMLGUIClient_SuperSetXMLFile(KXMLGUIClient* self, const libqt_string file, bool merge, bool setXMLDoc);
-    friend void KXMLGUIClient_SetLocalXMLFile(KXMLGUIClient* self, const libqt_string file);
     friend void KXMLGUIClient_SuperSetLocalXMLFile(KXMLGUIClient* self, const libqt_string file);
-    friend void KXMLGUIClient_SetXML(KXMLGUIClient* self, const libqt_string document, bool merge);
     friend void KXMLGUIClient_SuperSetXML(KXMLGUIClient* self, const libqt_string document, bool merge);
-    friend void KXMLGUIClient_SetDOMDocument(KXMLGUIClient* self, const QDomDocument* document, bool merge);
     friend void KXMLGUIClient_SuperSetDOMDocument(KXMLGUIClient* self, const QDomDocument* document, bool merge);
-    friend void KXMLGUIClient_StateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse);
     friend void KXMLGUIClient_SuperStateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse);
-    friend libqt_string KXMLGUIClient_StandardsXmlFileLocation(KXMLGUIClient* self);
-    friend libqt_string KXMLGUIClient_SuperStandardsXmlFileLocation(KXMLGUIClient* self);
-    friend void KXMLGUIClient_LoadStandardsXmlFile(KXMLGUIClient* self);
-    friend void KXMLGUIClient_SuperLoadStandardsXmlFile(KXMLGUIClient* self);
 };
 
 #endif

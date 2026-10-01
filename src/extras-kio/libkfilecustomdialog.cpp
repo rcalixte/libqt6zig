@@ -126,1812 +126,1264 @@ libqt_string KFileCustomDialog_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KFileCustomDialog_SuperMetaObject(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vkfilecustomdialog->metaObject();
-    } else {
-        return (QMetaObject*)self->KFileCustomDialog::metaObject();
-    }
+    return (QMetaObject*)self->KFileCustomDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnMetaObject(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_MetaObject_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MetaObject_Callback>(slot));
+void KFileCustomDialog_OnMetaObject(KFileCustomDialog* self, intptr_t slot) {
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self)))
+        vkfilecustomdialog->kfilecustomdialog_metaobject_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KFileCustomDialog_SuperMetacast(KFileCustomDialog* self, const char* param1) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_Metacast_IsBase(true);
-        return vkfilecustomdialog->qt_metacast(param1);
-    } else {
-        return self->KFileCustomDialog::qt_metacast(param1);
-    }
+    return self->KFileCustomDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMetacast(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_Metacast_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Metacast_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_metacast_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KFileCustomDialog_SuperMetacall(KFileCustomDialog* self, int param1, int param2, void** param3) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_Metacall_IsBase(true);
-        return vkfilecustomdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KFileCustomDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KFileCustomDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMetacall(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_Metacall_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Metacall_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_metacall_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperAccept(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_Accept_IsBase(true);
-        vkfilecustomdialog->accept();
-    } else {
-        self->KFileCustomDialog::accept();
-    }
+    self->KFileCustomDialog::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnAccept(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_Accept_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Accept_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_accept_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_SetVisible(KFileCustomDialog* self, bool visible) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setVisible(visible);
-    } else {
-        self->KFileCustomDialog::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperSetVisible(KFileCustomDialog* self, bool visible) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_SetVisible_IsBase(true);
-        vkfilecustomdialog->setVisible(visible);
-    } else {
-        self->KFileCustomDialog::setVisible(visible);
-    }
+    self->KFileCustomDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnSetVisible(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_SetVisible_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_SetVisible_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_setvisible_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KFileCustomDialog_SizeHint(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return new QSize(vkfilecustomdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKFileCustomDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KFileCustomDialog_SuperSizeHint(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_SizeHint_IsBase(true);
-        return new QSize(vkfilecustomdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKFileCustomDialog*)self)->sizeHint());
-    }
+    return new QSize(self->KFileCustomDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnSizeHint(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_SizeHint_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_SizeHint_Callback>(slot));
+void KFileCustomDialog_OnSizeHint(KFileCustomDialog* self, intptr_t slot) {
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self)))
+        vkfilecustomdialog->kfilecustomdialog_sizehint_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KFileCustomDialog_MinimumSizeHint(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return new QSize(vkfilecustomdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKFileCustomDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KFileCustomDialog_SuperMinimumSizeHint(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vkfilecustomdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKFileCustomDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KFileCustomDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnMinimumSizeHint(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MinimumSizeHint_Callback>(slot));
+void KFileCustomDialog_OnMinimumSizeHint(KFileCustomDialog* self, intptr_t slot) {
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self)))
+        vkfilecustomdialog->kfilecustomdialog_minimumsizehint_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_Open(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->open();
-    } else {
-        self->KFileCustomDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperOpen(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_Open_IsBase(true);
-        vkfilecustomdialog->open();
-    } else {
-        self->KFileCustomDialog::open();
-    }
+    self->KFileCustomDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnOpen(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_Open_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Open_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_open_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFileCustomDialog_Exec(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return vkfilecustomdialog->exec();
-    } else {
-        return self->KFileCustomDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int KFileCustomDialog_SuperExec(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_Exec_IsBase(true);
-        return vkfilecustomdialog->exec();
-    } else {
-        return self->KFileCustomDialog::exec();
-    }
+    return self->KFileCustomDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnExec(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_Exec_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Exec_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_exec_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_Done(KFileCustomDialog* self, int param1) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->done(static_cast<int>(param1));
-    } else {
-        self->KFileCustomDialog::done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperDone(KFileCustomDialog* self, int param1) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_Done_IsBase(true);
-        vkfilecustomdialog->done(static_cast<int>(param1));
-    } else {
-        self->KFileCustomDialog::done(static_cast<int>(param1));
-    }
+    self->KFileCustomDialog::done(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnDone(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_Done_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Done_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_done_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_Reject(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->reject();
-    } else {
-        self->KFileCustomDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperReject(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_Reject_IsBase(true);
-        vkfilecustomdialog->reject();
-    } else {
-        self->KFileCustomDialog::reject();
-    }
+    self->KFileCustomDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnReject(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_Reject_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Reject_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_reject_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_KeyPressEvent(KFileCustomDialog* self, QKeyEvent* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->keyPressEvent(param1);
     } else {
-        ((VirtualKFileCustomDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method KFileCustomDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperKeyPressEvent(KFileCustomDialog* self, QKeyEvent* param1) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_KeyPressEvent_IsBase(true);
-        vkfilecustomdialog->keyPressEvent(param1);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnKeyPressEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_keypressevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_CloseEvent(KFileCustomDialog* self, QCloseEvent* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->closeEvent(param1);
     } else {
-        ((VirtualKFileCustomDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method KFileCustomDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperCloseEvent(KFileCustomDialog* self, QCloseEvent* param1) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_CloseEvent_IsBase(true);
-        vkfilecustomdialog->closeEvent(param1);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnCloseEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_CloseEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_CloseEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_closeevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_ShowEvent(KFileCustomDialog* self, QShowEvent* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->showEvent(param1);
     } else {
-        ((VirtualKFileCustomDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method KFileCustomDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperShowEvent(KFileCustomDialog* self, QShowEvent* param1) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_ShowEvent_IsBase(true);
-        vkfilecustomdialog->showEvent(param1);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->showEvent(param1);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnShowEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_ShowEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ShowEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_showevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_ResizeEvent(KFileCustomDialog* self, QResizeEvent* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->resizeEvent(param1);
     } else {
-        ((VirtualKFileCustomDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method KFileCustomDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperResizeEvent(KFileCustomDialog* self, QResizeEvent* param1) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_ResizeEvent_IsBase(true);
-        vkfilecustomdialog->resizeEvent(param1);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnResizeEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ResizeEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_resizeevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_ContextMenuEvent(KFileCustomDialog* self, QContextMenuEvent* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->contextMenuEvent(param1);
     } else {
-        ((VirtualKFileCustomDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method KFileCustomDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperContextMenuEvent(KFileCustomDialog* self, QContextMenuEvent* param1) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_ContextMenuEvent_IsBase(true);
-        vkfilecustomdialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnContextMenuEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_contextmenuevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFileCustomDialog_EventFilter(KFileCustomDialog* self, QObject* param1, QEvent* param2) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         return vkfilecustomdialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualKFileCustomDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method KFileCustomDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFileCustomDialog_SuperEventFilter(KFileCustomDialog* self, QObject* param1, QEvent* param2) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_EventFilter_IsBase(true);
-        return vkfilecustomdialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        return vkfilecustomdialog->KFileCustomDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnEventFilter(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_EventFilter_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_EventFilter_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_eventfilter_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFileCustomDialog_DevType(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return vkfilecustomdialog->devType();
-    } else {
-        return self->KFileCustomDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KFileCustomDialog_SuperDevType(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_DevType_IsBase(true);
-        return vkfilecustomdialog->devType();
-    } else {
-        return self->KFileCustomDialog::devType();
-    }
+    return self->KFileCustomDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnDevType(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_DevType_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DevType_Callback>(slot));
+void KFileCustomDialog_OnDevType(KFileCustomDialog* self, intptr_t slot) {
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self)))
+        vkfilecustomdialog->kfilecustomdialog_devtype_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFileCustomDialog_HeightForWidth(const KFileCustomDialog* self, int param1) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return vkfilecustomdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KFileCustomDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KFileCustomDialog_SuperHeightForWidth(const KFileCustomDialog* self, int param1) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_HeightForWidth_IsBase(true);
-        return vkfilecustomdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KFileCustomDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KFileCustomDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnHeightForWidth(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_HeightForWidth_Callback>(slot));
+void KFileCustomDialog_OnHeightForWidth(KFileCustomDialog* self, intptr_t slot) {
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self)))
+        vkfilecustomdialog->kfilecustomdialog_heightforwidth_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFileCustomDialog_HasHeightForWidth(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return vkfilecustomdialog->hasHeightForWidth();
-    } else {
-        return self->KFileCustomDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KFileCustomDialog_SuperHasHeightForWidth(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_HasHeightForWidth_IsBase(true);
-        return vkfilecustomdialog->hasHeightForWidth();
-    } else {
-        return self->KFileCustomDialog::hasHeightForWidth();
-    }
+    return self->KFileCustomDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnHasHeightForWidth(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_HasHeightForWidth_Callback>(slot));
+void KFileCustomDialog_OnHasHeightForWidth(KFileCustomDialog* self, intptr_t slot) {
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self)))
+        vkfilecustomdialog->kfilecustomdialog_hasheightforwidth_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KFileCustomDialog_PaintEngine(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return vkfilecustomdialog->paintEngine();
-    } else {
-        return self->KFileCustomDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KFileCustomDialog_SuperPaintEngine(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_PaintEngine_IsBase(true);
-        return vkfilecustomdialog->paintEngine();
-    } else {
-        return self->KFileCustomDialog::paintEngine();
-    }
+    return self->KFileCustomDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnPaintEngine(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_PaintEngine_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_PaintEngine_Callback>(slot));
+void KFileCustomDialog_OnPaintEngine(KFileCustomDialog* self, intptr_t slot) {
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self)))
+        vkfilecustomdialog->kfilecustomdialog_paintengine_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFileCustomDialog_Event(KFileCustomDialog* self, QEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         return vkfilecustomdialog->event(event);
     } else {
-        return ((VirtualKFileCustomDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFileCustomDialog_SuperEvent(KFileCustomDialog* self, QEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_Event_IsBase(true);
-        return vkfilecustomdialog->event(event);
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->event(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        return vkfilecustomdialog->KFileCustomDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_Event_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Event_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_event_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_MousePressEvent(KFileCustomDialog* self, QMouseEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->mousePressEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperMousePressEvent(KFileCustomDialog* self, QMouseEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_MousePressEvent_IsBase(true);
-        vkfilecustomdialog->mousePressEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMousePressEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MousePressEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_mousepressevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_MouseReleaseEvent(KFileCustomDialog* self, QMouseEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperMouseReleaseEvent(KFileCustomDialog* self, QMouseEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_MouseReleaseEvent_IsBase(true);
-        vkfilecustomdialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMouseReleaseEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_mousereleaseevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_MouseDoubleClickEvent(KFileCustomDialog* self, QMouseEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperMouseDoubleClickEvent(KFileCustomDialog* self, QMouseEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_MouseDoubleClickEvent_IsBase(true);
-        vkfilecustomdialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMouseDoubleClickEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_MouseMoveEvent(KFileCustomDialog* self, QMouseEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->mouseMoveEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperMouseMoveEvent(KFileCustomDialog* self, QMouseEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_MouseMoveEvent_IsBase(true);
-        vkfilecustomdialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMouseMoveEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_mousemoveevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_WheelEvent(KFileCustomDialog* self, QWheelEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->wheelEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperWheelEvent(KFileCustomDialog* self, QWheelEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_WheelEvent_IsBase(true);
-        vkfilecustomdialog->wheelEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnWheelEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_WheelEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_WheelEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_wheelevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_KeyReleaseEvent(KFileCustomDialog* self, QKeyEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->keyReleaseEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperKeyReleaseEvent(KFileCustomDialog* self, QKeyEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_KeyReleaseEvent_IsBase(true);
-        vkfilecustomdialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnKeyReleaseEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_keyreleaseevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_FocusInEvent(KFileCustomDialog* self, QFocusEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->focusInEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperFocusInEvent(KFileCustomDialog* self, QFocusEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_FocusInEvent_IsBase(true);
-        vkfilecustomdialog->focusInEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnFocusInEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_FocusInEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_focusinevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_FocusOutEvent(KFileCustomDialog* self, QFocusEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->focusOutEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperFocusOutEvent(KFileCustomDialog* self, QFocusEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_FocusOutEvent_IsBase(true);
-        vkfilecustomdialog->focusOutEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnFocusOutEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_focusoutevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_EnterEvent(KFileCustomDialog* self, QEnterEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->enterEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperEnterEvent(KFileCustomDialog* self, QEnterEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_EnterEvent_IsBase(true);
-        vkfilecustomdialog->enterEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->enterEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnEnterEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_EnterEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_EnterEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_enterevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_LeaveEvent(KFileCustomDialog* self, QEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->leaveEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperLeaveEvent(KFileCustomDialog* self, QEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_LeaveEvent_IsBase(true);
-        vkfilecustomdialog->leaveEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnLeaveEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_LeaveEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_leaveevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_PaintEvent(KFileCustomDialog* self, QPaintEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->paintEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperPaintEvent(KFileCustomDialog* self, QPaintEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_PaintEvent_IsBase(true);
-        vkfilecustomdialog->paintEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->paintEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnPaintEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_PaintEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_PaintEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_paintevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_MoveEvent(KFileCustomDialog* self, QMoveEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->moveEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperMoveEvent(KFileCustomDialog* self, QMoveEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_MoveEvent_IsBase(true);
-        vkfilecustomdialog->moveEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->moveEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMoveEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_MoveEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MoveEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_moveevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_TabletEvent(KFileCustomDialog* self, QTabletEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->tabletEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperTabletEvent(KFileCustomDialog* self, QTabletEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_TabletEvent_IsBase(true);
-        vkfilecustomdialog->tabletEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnTabletEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_TabletEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_TabletEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_tabletevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_ActionEvent(KFileCustomDialog* self, QActionEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->actionEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperActionEvent(KFileCustomDialog* self, QActionEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_ActionEvent_IsBase(true);
-        vkfilecustomdialog->actionEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->actionEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnActionEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_ActionEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ActionEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_actionevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_DragEnterEvent(KFileCustomDialog* self, QDragEnterEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->dragEnterEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperDragEnterEvent(KFileCustomDialog* self, QDragEnterEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_DragEnterEvent_IsBase(true);
-        vkfilecustomdialog->dragEnterEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnDragEnterEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_dragenterevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_DragMoveEvent(KFileCustomDialog* self, QDragMoveEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->dragMoveEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperDragMoveEvent(KFileCustomDialog* self, QDragMoveEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_DragMoveEvent_IsBase(true);
-        vkfilecustomdialog->dragMoveEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnDragMoveEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_dragmoveevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_DragLeaveEvent(KFileCustomDialog* self, QDragLeaveEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->dragLeaveEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperDragLeaveEvent(KFileCustomDialog* self, QDragLeaveEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_DragLeaveEvent_IsBase(true);
-        vkfilecustomdialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnDragLeaveEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_dragleaveevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_DropEvent(KFileCustomDialog* self, QDropEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->dropEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperDropEvent(KFileCustomDialog* self, QDropEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_DropEvent_IsBase(true);
-        vkfilecustomdialog->dropEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->dropEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnDropEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_DropEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DropEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_dropevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_HideEvent(KFileCustomDialog* self, QHideEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->hideEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperHideEvent(KFileCustomDialog* self, QHideEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_HideEvent_IsBase(true);
-        vkfilecustomdialog->hideEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->hideEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnHideEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_HideEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_HideEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_hideevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFileCustomDialog_NativeEvent(KFileCustomDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
+    if (vkfilecustomdialog) {
         return vkfilecustomdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKFileCustomDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KFileCustomDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFileCustomDialog_SuperNativeEvent(KFileCustomDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_NativeEvent_IsBase(true);
-        return vkfilecustomdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        return vkfilecustomdialog->KFileCustomDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnNativeEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_NativeEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_NativeEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_nativeevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_ChangeEvent(KFileCustomDialog* self, QEvent* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->changeEvent(param1);
     } else {
-        ((VirtualKFileCustomDialog*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KFileCustomDialog::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperChangeEvent(KFileCustomDialog* self, QEvent* param1) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_ChangeEvent_IsBase(true);
-        vkfilecustomdialog->changeEvent(param1);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->changeEvent(param1);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnChangeEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ChangeEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_changeevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFileCustomDialog_Metric(const KFileCustomDialog* self, int param1) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         return vkfilecustomdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKFileCustomDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KFileCustomDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KFileCustomDialog_SuperMetric(const KFileCustomDialog* self, int param1) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_Metric_IsBase(true);
-        return vkfilecustomdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self))) {
+        return vkfilecustomdialog->KFileCustomDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnMetric(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_Metric_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Metric_Callback>(slot));
+void KFileCustomDialog_OnMetric(KFileCustomDialog* self, intptr_t slot) {
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self)))
+        vkfilecustomdialog->kfilecustomdialog_metric_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_InitPainter(const KFileCustomDialog* self, QPainter* painter) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->initPainter(painter);
     } else {
-        ((VirtualKFileCustomDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KFileCustomDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperInitPainter(const KFileCustomDialog* self, QPainter* painter) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_InitPainter_IsBase(true);
-        vkfilecustomdialog->initPainter(painter);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->initPainter(painter);
-    }
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self))) {
+        vkfilecustomdialog->KFileCustomDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnInitPainter(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_InitPainter_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_InitPainter_Callback>(slot));
+void KFileCustomDialog_OnInitPainter(KFileCustomDialog* self, intptr_t slot) {
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self)))
+        vkfilecustomdialog->kfilecustomdialog_initpainter_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KFileCustomDialog_Redirected(const KFileCustomDialog* self, QPoint* offset) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         return vkfilecustomdialog->redirected(offset);
     } else {
-        return ((VirtualKFileCustomDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KFileCustomDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KFileCustomDialog_SuperRedirected(const KFileCustomDialog* self, QPoint* offset) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_Redirected_IsBase(true);
-        return vkfilecustomdialog->redirected(offset);
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->redirected(offset);
-    }
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self))) {
+        return vkfilecustomdialog->KFileCustomDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnRedirected(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_Redirected_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Redirected_Callback>(slot));
+void KFileCustomDialog_OnRedirected(KFileCustomDialog* self, intptr_t slot) {
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self)))
+        vkfilecustomdialog->kfilecustomdialog_redirected_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KFileCustomDialog_SharedPainter(const KFileCustomDialog* self) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         return vkfilecustomdialog->sharedPainter();
     } else {
-        return ((VirtualKFileCustomDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KFileCustomDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KFileCustomDialog_SuperSharedPainter(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_SharedPainter_IsBase(true);
-        return vkfilecustomdialog->sharedPainter();
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->sharedPainter();
-    }
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self))) {
+        return vkfilecustomdialog->KFileCustomDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnSharedPainter(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_SharedPainter_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_SharedPainter_Callback>(slot));
+void KFileCustomDialog_OnSharedPainter(KFileCustomDialog* self, intptr_t slot) {
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self)))
+        vkfilecustomdialog->kfilecustomdialog_sharedpainter_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_InputMethodEvent(KFileCustomDialog* self, QInputMethodEvent* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->inputMethodEvent(param1);
     } else {
-        ((VirtualKFileCustomDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KFileCustomDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperInputMethodEvent(KFileCustomDialog* self, QInputMethodEvent* param1) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_InputMethodEvent_IsBase(true);
-        vkfilecustomdialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnInputMethodEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_inputmethodevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KFileCustomDialog_InputMethodQuery(const KFileCustomDialog* self, int param1) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return new QVariant(vkfilecustomdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKFileCustomDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KFileCustomDialog_SuperInputMethodQuery(const KFileCustomDialog* self, int param1) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vkfilecustomdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKFileCustomDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KFileCustomDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnInputMethodQuery(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_InputMethodQuery_Callback>(slot));
+void KFileCustomDialog_OnInputMethodQuery(KFileCustomDialog* self, intptr_t slot) {
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self)))
+        vkfilecustomdialog->kfilecustomdialog_inputmethodquery_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFileCustomDialog_FocusNextPrevChild(KFileCustomDialog* self, bool next) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         return vkfilecustomdialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualKFileCustomDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KFileCustomDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFileCustomDialog_SuperFocusNextPrevChild(KFileCustomDialog* self, bool next) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_FocusNextPrevChild_IsBase(true);
-        return vkfilecustomdialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        return vkfilecustomdialog->KFileCustomDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnFocusNextPrevChild(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_focusnextprevchild_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_TimerEvent(KFileCustomDialog* self, QTimerEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->timerEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperTimerEvent(KFileCustomDialog* self, QTimerEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_TimerEvent_IsBase(true);
-        vkfilecustomdialog->timerEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->timerEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnTimerEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_TimerEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_TimerEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_timerevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_ChildEvent(KFileCustomDialog* self, QChildEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->childEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperChildEvent(KFileCustomDialog* self, QChildEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_ChildEvent_IsBase(true);
-        vkfilecustomdialog->childEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->childEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnChildEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_ChildEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ChildEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_childevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_CustomEvent(KFileCustomDialog* self, QEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->customEvent(event);
     } else {
-        ((VirtualKFileCustomDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KFileCustomDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperCustomEvent(KFileCustomDialog* self, QEvent* event) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_CustomEvent_IsBase(true);
-        vkfilecustomdialog->customEvent(event);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->customEvent(event);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnCustomEvent(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_CustomEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_CustomEvent_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_customevent_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_ConnectNotify(KFileCustomDialog* self, const QMetaMethod* signal) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->connectNotify(*signal);
     } else {
-        ((VirtualKFileCustomDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KFileCustomDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperConnectNotify(KFileCustomDialog* self, const QMetaMethod* signal) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_ConnectNotify_IsBase(true);
-        vkfilecustomdialog->connectNotify(*signal);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnConnectNotify(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ConnectNotify_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_connectnotify_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileCustomDialog_DisconnectNotify(KFileCustomDialog* self, const QMetaMethod* signal) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog) {
         vkfilecustomdialog->disconnectNotify(*signal);
     } else {
-        ((VirtualKFileCustomDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KFileCustomDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileCustomDialog_SuperDisconnectNotify(KFileCustomDialog* self, const QMetaMethod* signal) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_DisconnectNotify_IsBase(true);
-        vkfilecustomdialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->KFileCustomDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFileCustomDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnDisconnectNotify(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self))
+        vkfilecustomdialog->kfilecustomdialog_disconnectnotify_callback = reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFileCustomDialog_AdjustPosition(KFileCustomDialog* self, QWidget* param1) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->VirtualKFileCustomDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method KFileCustomDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFileCustomDialog_SuperAdjustPosition(KFileCustomDialog* self, QWidget* param1) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_AdjustPosition_IsBase(true);
-        vkfilecustomdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKFileCustomDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnAdjustPosition(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFileCustomDialog_UpdateMicroFocus(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->updateMicroFocus();
-    } else {
-        ((VirtualKFileCustomDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->VirtualKFileCustomDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KFileCustomDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFileCustomDialog_SuperUpdateMicroFocus(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_UpdateMicroFocus_IsBase(true);
-        vkfilecustomdialog->updateMicroFocus();
-    } else {
-        ((VirtualKFileCustomDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnUpdateMicroFocus(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFileCustomDialog_Create(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->create();
-    } else {
-        ((VirtualKFileCustomDialog*)self)->create();
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->VirtualKFileCustomDialog::create();
+    } else
+        qFatal("Error: Protected method KFileCustomDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFileCustomDialog_SuperCreate(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_Create_IsBase(true);
-        vkfilecustomdialog->create();
-    } else {
-        ((VirtualKFileCustomDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnCreate(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_Create_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFileCustomDialog_Destroy(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->destroy();
-    } else {
-        ((VirtualKFileCustomDialog*)self)->destroy();
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        vkfilecustomdialog->VirtualKFileCustomDialog::destroy();
+    } else
+        qFatal("Error: Protected method KFileCustomDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFileCustomDialog_SuperDestroy(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_Destroy_IsBase(true);
-        vkfilecustomdialog->destroy();
-    } else {
-        ((VirtualKFileCustomDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnDestroy(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_Destroy_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFileCustomDialog_FocusNextChild(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return vkfilecustomdialog->focusNextChild();
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->focusNextChild();
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        return vkfilecustomdialog->VirtualKFileCustomDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method KFileCustomDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFileCustomDialog_SuperFocusNextChild(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_FocusNextChild_IsBase(true);
-        return vkfilecustomdialog->focusNextChild();
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnFocusNextChild(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFileCustomDialog_FocusPreviousChild(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return vkfilecustomdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self)) {
+        return vkfilecustomdialog->VirtualKFileCustomDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KFileCustomDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFileCustomDialog_SuperFocusPreviousChild(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_FocusPreviousChild_IsBase(true);
-        return vkfilecustomdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnFocusPreviousChild(KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KFileCustomDialog_Sender(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return vkfilecustomdialog->sender();
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->sender();
-    }
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self))) {
+        return vkfilecustomdialog->VirtualKFileCustomDialog::sender();
+    } else
+        qFatal("Error: Protected method KFileCustomDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KFileCustomDialog_SuperSender(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_Sender_IsBase(true);
-        return vkfilecustomdialog->sender();
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnSender(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_Sender_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFileCustomDialog_SenderSignalIndex(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return vkfilecustomdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self))) {
+        return vkfilecustomdialog->VirtualKFileCustomDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KFileCustomDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFileCustomDialog_SuperSenderSignalIndex(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_SenderSignalIndex_IsBase(true);
-        return vkfilecustomdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnSenderSignalIndex(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFileCustomDialog_Receivers(const KFileCustomDialog* self, const char* signal) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return vkfilecustomdialog->receivers(signal);
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->receivers(signal);
-    }
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self))) {
+        return vkfilecustomdialog->VirtualKFileCustomDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method KFileCustomDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFileCustomDialog_SuperReceivers(const KFileCustomDialog* self, const char* signal) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_Receivers_IsBase(true);
-        return vkfilecustomdialog->receivers(signal);
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnReceivers(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_Receivers_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFileCustomDialog_IsSignalConnected(const KFileCustomDialog* self, const QMetaMethod* signal) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return vkfilecustomdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self))) {
+        return vkfilecustomdialog->VirtualKFileCustomDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KFileCustomDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFileCustomDialog_SuperIsSignalConnected(const KFileCustomDialog* self, const QMetaMethod* signal) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_IsSignalConnected_IsBase(true);
-        return vkfilecustomdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnIsSignalConnected(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KFileCustomDialog_GetDecodedMetricF(const KFileCustomDialog* self, int metricA, int metricB) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return vkfilecustomdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KFileCustomDialog_SuperGetDecodedMetricF(const KFileCustomDialog* self, int metricA, int metricB) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        vkfilecustomdialog->setKFileCustomDialog_GetDecodedMetricF_IsBase(true);
-        return vkfilecustomdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileCustomDialog_OnGetDecodedMetricF(const KFileCustomDialog* self, intptr_t slot) {
-    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
-        vkfilecustomdialog->setKFileCustomDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self))) {
+        return vkfilecustomdialog->VirtualKFileCustomDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KFileCustomDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void KFileCustomDialog_Delete(KFileCustomDialog* self) {

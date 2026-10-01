@@ -44,20 +44,18 @@ QVariant* KParts__ListingFilterExtension_Filter(const KParts__ListingFilterExten
 void KParts__ListingFilterExtension_SetFilter(KParts__ListingFilterExtension* self, int mode, const QVariant* filter);
 libqt_string KParts__ListingFilterExtension_Tr2(const char* s, const char* c);
 libqt_string KParts__ListingFilterExtension_Tr3(const char* s, const char* c, int n);
-void KParts__ListingFilterExtension_OnMetaObject(const KParts__ListingFilterExtension* self, intptr_t slot);
+void KParts__ListingFilterExtension_OnMetaObject(KParts__ListingFilterExtension* self, intptr_t slot);
 QMetaObject* KParts__ListingFilterExtension_SuperMetaObject(const KParts__ListingFilterExtension* self);
 void KParts__ListingFilterExtension_OnMetacast(KParts__ListingFilterExtension* self, intptr_t slot);
 void* KParts__ListingFilterExtension_SuperMetacast(KParts__ListingFilterExtension* self, const char* param1);
 void KParts__ListingFilterExtension_OnMetacall(KParts__ListingFilterExtension* self, intptr_t slot);
 int KParts__ListingFilterExtension_SuperMetacall(KParts__ListingFilterExtension* self, int param1, int param2, void** param3);
-void KParts__ListingFilterExtension_OnSupportedFilterModes(const KParts__ListingFilterExtension* self, intptr_t slot);
+void KParts__ListingFilterExtension_OnSupportedFilterModes(KParts__ListingFilterExtension* self, intptr_t slot);
 int KParts__ListingFilterExtension_SuperSupportedFilterModes(const KParts__ListingFilterExtension* self);
-void KParts__ListingFilterExtension_OnSupportsMultipleFilters(const KParts__ListingFilterExtension* self, intptr_t slot);
+void KParts__ListingFilterExtension_OnSupportsMultipleFilters(KParts__ListingFilterExtension* self, intptr_t slot);
 bool KParts__ListingFilterExtension_SuperSupportsMultipleFilters(const KParts__ListingFilterExtension* self, int mode);
-void KParts__ListingFilterExtension_OnFilter(const KParts__ListingFilterExtension* self, intptr_t slot);
-QVariant* KParts__ListingFilterExtension_SuperFilter(const KParts__ListingFilterExtension* self, int mode);
+void KParts__ListingFilterExtension_OnFilter(KParts__ListingFilterExtension* self, intptr_t slot);
 void KParts__ListingFilterExtension_OnSetFilter(KParts__ListingFilterExtension* self, intptr_t slot);
-void KParts__ListingFilterExtension_SuperSetFilter(KParts__ListingFilterExtension* self, int mode, const QVariant* filter);
 bool KParts__ListingFilterExtension_Event(KParts__ListingFilterExtension* self, QEvent* event);
 void KParts__ListingFilterExtension_OnEvent(KParts__ListingFilterExtension* self, intptr_t slot);
 bool KParts__ListingFilterExtension_SuperEvent(KParts__ListingFilterExtension* self, QEvent* event);
@@ -80,17 +78,9 @@ void KParts__ListingFilterExtension_DisconnectNotify(KParts__ListingFilterExtens
 void KParts__ListingFilterExtension_OnDisconnectNotify(KParts__ListingFilterExtension* self, intptr_t slot);
 void KParts__ListingFilterExtension_SuperDisconnectNotify(KParts__ListingFilterExtension* self, const QMetaMethod* signal);
 QObject* KParts__ListingFilterExtension_Sender(const KParts__ListingFilterExtension* self);
-void KParts__ListingFilterExtension_OnSender(const KParts__ListingFilterExtension* self, intptr_t slot);
-QObject* KParts__ListingFilterExtension_SuperSender(const KParts__ListingFilterExtension* self);
 int KParts__ListingFilterExtension_SenderSignalIndex(const KParts__ListingFilterExtension* self);
-void KParts__ListingFilterExtension_OnSenderSignalIndex(const KParts__ListingFilterExtension* self, intptr_t slot);
-int KParts__ListingFilterExtension_SuperSenderSignalIndex(const KParts__ListingFilterExtension* self);
 int KParts__ListingFilterExtension_Receivers(const KParts__ListingFilterExtension* self, const char* signal);
-void KParts__ListingFilterExtension_OnReceivers(const KParts__ListingFilterExtension* self, intptr_t slot);
-int KParts__ListingFilterExtension_SuperReceivers(const KParts__ListingFilterExtension* self, const char* signal);
 bool KParts__ListingFilterExtension_IsSignalConnected(const KParts__ListingFilterExtension* self, const QMetaMethod* signal);
-void KParts__ListingFilterExtension_OnIsSignalConnected(const KParts__ListingFilterExtension* self, intptr_t slot);
-bool KParts__ListingFilterExtension_SuperIsSignalConnected(const KParts__ListingFilterExtension* self, const QMetaMethod* signal);
 void KParts__ListingFilterExtension_Delete(KParts__ListingFilterExtension* self);
 
 #ifdef __cplusplus

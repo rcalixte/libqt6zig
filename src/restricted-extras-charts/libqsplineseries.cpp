@@ -78,494 +78,294 @@ libqt_string QSplineSeries_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QSplineSeries_SuperMetaObject(const QSplineSeries* self) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsplineseries->metaObject();
-    } else {
-        return (QMetaObject*)self->QSplineSeries::metaObject();
-    }
+    return (QMetaObject*)self->QSplineSeries::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplineSeries_OnMetaObject(const QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_MetaObject_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_MetaObject_Callback>(slot));
+void QSplineSeries_OnMetaObject(QSplineSeries* self, intptr_t slot) {
+    if (auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self)))
+        vqsplineseries->qsplineseries_metaobject_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QSplineSeries_SuperMetacast(QSplineSeries* self, const char* param1) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_Metacast_IsBase(true);
-        return vqsplineseries->qt_metacast(param1);
-    } else {
-        return self->QSplineSeries::qt_metacast(param1);
-    }
+    return self->QSplineSeries::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnMetacast(QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_Metacast_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Metacast_Callback>(slot));
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self))
+        vqsplineseries->qsplineseries_metacast_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSplineSeries_SuperMetacall(QSplineSeries* self, int param1, int param2, void** param3) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_Metacall_IsBase(true);
-        return vqsplineseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QSplineSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QSplineSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnMetacall(QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_Metacall_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Metacall_Callback>(slot));
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self))
+        vqsplineseries->qsplineseries_metacall_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSplineSeries_SuperType(const QSplineSeries* self) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_Type_IsBase(true);
-        return static_cast<int>(vqsplineseries->type());
-    } else {
-        return static_cast<int>(self->QSplineSeries::type());
-    }
+    return static_cast<int>(self->QSplineSeries::type());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplineSeries_OnType(const QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_Type_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Type_Callback>(slot));
+void QSplineSeries_OnType(QSplineSeries* self, intptr_t slot) {
+    if (auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self)))
+        vqsplineseries->qsplineseries_type_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Type_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplineSeries_SetPen(QSplineSeries* self, const QPen* pen) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setPen(*pen);
-    } else {
-        self->QSplineSeries::setPen(*pen);
-    }
+    self->setPen(*pen);
 }
 
 // Base class handler implementation
 void QSplineSeries_SuperSetPen(QSplineSeries* self, const QPen* pen) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_SetPen_IsBase(true);
-        vqsplineseries->setPen(*pen);
-    } else {
-        self->QSplineSeries::setPen(*pen);
-    }
+    self->QSplineSeries::setPen(*pen);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnSetPen(QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_SetPen_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_SetPen_Callback>(slot));
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self))
+        vqsplineseries->qsplineseries_setpen_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_SetPen_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplineSeries_SetBrush(QSplineSeries* self, const QBrush* brush) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setBrush(*brush);
-    } else {
-        self->QSplineSeries::setBrush(*brush);
-    }
+    self->setBrush(*brush);
 }
 
 // Base class handler implementation
 void QSplineSeries_SuperSetBrush(QSplineSeries* self, const QBrush* brush) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_SetBrush_IsBase(true);
-        vqsplineseries->setBrush(*brush);
-    } else {
-        self->QSplineSeries::setBrush(*brush);
-    }
+    self->QSplineSeries::setBrush(*brush);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnSetBrush(QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_SetBrush_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_SetBrush_Callback>(slot));
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self))
+        vqsplineseries->qsplineseries_setbrush_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_SetBrush_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplineSeries_SetColor(QSplineSeries* self, const QColor* color) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setColor(*color);
-    } else {
-        self->QSplineSeries::setColor(*color);
-    }
+    self->setColor(*color);
 }
 
 // Base class handler implementation
 void QSplineSeries_SuperSetColor(QSplineSeries* self, const QColor* color) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_SetColor_IsBase(true);
-        vqsplineseries->setColor(*color);
-    } else {
-        self->QSplineSeries::setColor(*color);
-    }
+    self->QSplineSeries::setColor(*color);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnSetColor(QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_SetColor_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_SetColor_Callback>(slot));
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self))
+        vqsplineseries->qsplineseries_setcolor_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_SetColor_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QSplineSeries_Color(const QSplineSeries* self) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        return new QColor(vqsplineseries->color());
-    } else {
-        return new QColor(((VirtualQSplineSeries*)self)->color());
-    }
+    return new QColor(self->color());
 }
 
 // Base class handler implementation
 QColor* QSplineSeries_SuperColor(const QSplineSeries* self) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_Color_IsBase(true);
-        return new QColor(vqsplineseries->color());
-    } else {
-        return new QColor(((VirtualQSplineSeries*)self)->color());
-    }
+    return new QColor(self->QSplineSeries::color());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplineSeries_OnColor(const QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_Color_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Color_Callback>(slot));
+void QSplineSeries_OnColor(QSplineSeries* self, intptr_t slot) {
+    if (auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self)))
+        vqsplineseries->qsplineseries_color_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Color_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSplineSeries_Event(QSplineSeries* self, QEvent* event) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        return vqsplineseries->event(event);
-    } else {
-        return self->QSplineSeries::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QSplineSeries_SuperEvent(QSplineSeries* self, QEvent* event) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_Event_IsBase(true);
-        return vqsplineseries->event(event);
-    } else {
-        return self->QSplineSeries::event(event);
-    }
+    return self->QSplineSeries::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnEvent(QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_Event_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Event_Callback>(slot));
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self))
+        vqsplineseries->qsplineseries_event_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSplineSeries_EventFilter(QSplineSeries* self, QObject* watched, QEvent* event) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        return vqsplineseries->eventFilter(watched, event);
-    } else {
-        return self->QSplineSeries::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QSplineSeries_SuperEventFilter(QSplineSeries* self, QObject* watched, QEvent* event) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_EventFilter_IsBase(true);
-        return vqsplineseries->eventFilter(watched, event);
-    } else {
-        return self->QSplineSeries::eventFilter(watched, event);
-    }
+    return self->QSplineSeries::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnEventFilter(QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_EventFilter_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_EventFilter_Callback>(slot));
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self))
+        vqsplineseries->qsplineseries_eventfilter_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplineSeries_TimerEvent(QSplineSeries* self, QTimerEvent* event) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries) {
         vqsplineseries->timerEvent(event);
     } else {
-        ((VirtualQSplineSeries*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QSplineSeries::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplineSeries_SuperTimerEvent(QSplineSeries* self, QTimerEvent* event) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_TimerEvent_IsBase(true);
-        vqsplineseries->timerEvent(event);
-    } else {
-        ((VirtualQSplineSeries*)self)->timerEvent(event);
-    }
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self)) {
+        vqsplineseries->QSplineSeries::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplineSeries::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnTimerEvent(QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_TimerEvent_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_TimerEvent_Callback>(slot));
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self))
+        vqsplineseries->qsplineseries_timerevent_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplineSeries_ChildEvent(QSplineSeries* self, QChildEvent* event) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries) {
         vqsplineseries->childEvent(event);
     } else {
-        ((VirtualQSplineSeries*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QSplineSeries::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplineSeries_SuperChildEvent(QSplineSeries* self, QChildEvent* event) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_ChildEvent_IsBase(true);
-        vqsplineseries->childEvent(event);
-    } else {
-        ((VirtualQSplineSeries*)self)->childEvent(event);
-    }
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self)) {
+        vqsplineseries->QSplineSeries::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplineSeries::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnChildEvent(QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_ChildEvent_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_ChildEvent_Callback>(slot));
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self))
+        vqsplineseries->qsplineseries_childevent_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplineSeries_CustomEvent(QSplineSeries* self, QEvent* event) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries) {
         vqsplineseries->customEvent(event);
     } else {
-        ((VirtualQSplineSeries*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QSplineSeries::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplineSeries_SuperCustomEvent(QSplineSeries* self, QEvent* event) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_CustomEvent_IsBase(true);
-        vqsplineseries->customEvent(event);
-    } else {
-        ((VirtualQSplineSeries*)self)->customEvent(event);
-    }
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self)) {
+        vqsplineseries->QSplineSeries::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplineSeries::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnCustomEvent(QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_CustomEvent_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_CustomEvent_Callback>(slot));
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self))
+        vqsplineseries->qsplineseries_customevent_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplineSeries_ConnectNotify(QSplineSeries* self, const QMetaMethod* signal) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries) {
         vqsplineseries->connectNotify(*signal);
     } else {
-        ((VirtualQSplineSeries*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QSplineSeries::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplineSeries_SuperConnectNotify(QSplineSeries* self, const QMetaMethod* signal) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_ConnectNotify_IsBase(true);
-        vqsplineseries->connectNotify(*signal);
-    } else {
-        ((VirtualQSplineSeries*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self)) {
+        vqsplineseries->QSplineSeries::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSplineSeries::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnConnectNotify(QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_ConnectNotify_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_ConnectNotify_Callback>(slot));
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self))
+        vqsplineseries->qsplineseries_connectnotify_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplineSeries_DisconnectNotify(QSplineSeries* self, const QMetaMethod* signal) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries) {
         vqsplineseries->disconnectNotify(*signal);
     } else {
-        ((VirtualQSplineSeries*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QSplineSeries::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplineSeries_SuperDisconnectNotify(QSplineSeries* self, const QMetaMethod* signal) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_DisconnectNotify_IsBase(true);
-        vqsplineseries->disconnectNotify(*signal);
-    } else {
-        ((VirtualQSplineSeries*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self)) {
+        vqsplineseries->QSplineSeries::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSplineSeries::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnDisconnectNotify(QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_DisconnectNotify_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_DisconnectNotify_Callback>(slot));
+    if (auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self))
+        vqsplineseries->qsplineseries_disconnectnotify_callback = reinterpret_cast<VirtualQSplineSeries::QSplineSeries_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QSplineSeries_Sender(const QSplineSeries* self) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        return vqsplineseries->sender();
-    } else {
-        return ((VirtualQSplineSeries*)self)->sender();
-    }
+    if (auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self))) {
+        return vqsplineseries->VirtualQSplineSeries::sender();
+    } else
+        qFatal("Error: Protected method QSplineSeries::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QSplineSeries_SuperSender(const QSplineSeries* self) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_Sender_IsBase(true);
-        return vqsplineseries->sender();
-    } else {
-        return ((VirtualQSplineSeries*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplineSeries_OnSender(const QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_Sender_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSplineSeries_SenderSignalIndex(const QSplineSeries* self) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        return vqsplineseries->senderSignalIndex();
-    } else {
-        return ((VirtualQSplineSeries*)self)->senderSignalIndex();
-    }
+    if (auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self))) {
+        return vqsplineseries->VirtualQSplineSeries::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QSplineSeries::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSplineSeries_SuperSenderSignalIndex(const QSplineSeries* self) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_SenderSignalIndex_IsBase(true);
-        return vqsplineseries->senderSignalIndex();
-    } else {
-        return ((VirtualQSplineSeries*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplineSeries_OnSenderSignalIndex(const QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSplineSeries_Receivers(const QSplineSeries* self, const char* signal) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        return vqsplineseries->receivers(signal);
-    } else {
-        return ((VirtualQSplineSeries*)self)->receivers(signal);
-    }
+    if (auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self))) {
+        return vqsplineseries->VirtualQSplineSeries::receivers(signal);
+    } else
+        qFatal("Error: Protected method QSplineSeries::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSplineSeries_SuperReceivers(const QSplineSeries* self, const char* signal) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_Receivers_IsBase(true);
-        return vqsplineseries->receivers(signal);
-    } else {
-        return ((VirtualQSplineSeries*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplineSeries_OnReceivers(const QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_Receivers_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSplineSeries_IsSignalConnected(const QSplineSeries* self, const QMetaMethod* signal) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        return vqsplineseries->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSplineSeries*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QSplineSeries_SuperIsSignalConnected(const QSplineSeries* self, const QMetaMethod* signal) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        vqsplineseries->setQSplineSeries_IsSignalConnected_IsBase(true);
-        return vqsplineseries->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSplineSeries*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplineSeries_OnIsSignalConnected(const QSplineSeries* self, intptr_t slot) {
-    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
-        vqsplineseries->setQSplineSeries_IsSignalConnected_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_IsSignalConnected_Callback>(slot));
+    if (auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self))) {
+        return vqsplineseries->VirtualQSplineSeries::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QSplineSeries::isSignalConnected called without a directly constructed type");
 }
 
 void QSplineSeries_Delete(QSplineSeries* self) {

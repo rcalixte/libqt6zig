@@ -9,15 +9,11 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QPointingDevice so that we can call protected methods
+// This class is a subclass of QPointingDevice
 class VirtualQPointingDevice final : public QPointingDevice {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQPointingDevice = true;
-
-    // Virtual class public types (including callbacks)
-    using QPointingDevice_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QPointingDevice_MetaObject_Callback = QMetaObject* (*)(const QPointingDevice*);
     using QPointingDevice_Metacast_Callback = void* (*)(QPointingDevice*, const char*);
     using QPointingDevice_Metacall_Callback = int (*)(QPointingDevice*, int, int, void**);
     using QPointingDevice_Event_Callback = bool (*)(QPointingDevice*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQPointingDevice final : public QPointingDevice {
     using QPointingDevice_CustomEvent_Callback = void (*)(QPointingDevice*, QEvent*);
     using QPointingDevice_ConnectNotify_Callback = void (*)(QPointingDevice*, QMetaMethod*);
     using QPointingDevice_DisconnectNotify_Callback = void (*)(QPointingDevice*, QMetaMethod*);
-    using QPointingDevice_Sender_Callback = QObject* (*)();
-    using QPointingDevice_SenderSignalIndex_Callback = int (*)();
-    using QPointingDevice_Receivers_Callback = int (*)(const QPointingDevice*, const char*);
-    using QPointingDevice_IsSignalConnected_Callback = bool (*)(const QPointingDevice*, QMetaMethod*);
+    using QPointingDevice::isSignalConnected;
+    using QPointingDevice::receivers;
+    using QPointingDevice::sender;
+    using QPointingDevice::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QPointingDevice_MetaObject_Callback qpointingdevice_metaobject_callback = nullptr;
     QPointingDevice_Metacast_Callback qpointingdevice_metacast_callback = nullptr;
@@ -44,28 +39,16 @@ class VirtualQPointingDevice final : public QPointingDevice {
     QPointingDevice_CustomEvent_Callback qpointingdevice_customevent_callback = nullptr;
     QPointingDevice_ConnectNotify_Callback qpointingdevice_connectnotify_callback = nullptr;
     QPointingDevice_DisconnectNotify_Callback qpointingdevice_disconnectnotify_callback = nullptr;
-    QPointingDevice_Sender_Callback qpointingdevice_sender_callback = nullptr;
-    QPointingDevice_SenderSignalIndex_Callback qpointingdevice_sendersignalindex_callback = nullptr;
-    QPointingDevice_Receivers_Callback qpointingdevice_receivers_callback = nullptr;
-    QPointingDevice_IsSignalConnected_Callback qpointingdevice_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qpointingdevice_metaobject_isbase = false;
-    mutable bool qpointingdevice_metacast_isbase = false;
-    mutable bool qpointingdevice_metacall_isbase = false;
-    mutable bool qpointingdevice_event_isbase = false;
-    mutable bool qpointingdevice_eventfilter_isbase = false;
-    mutable bool qpointingdevice_timerevent_isbase = false;
-    mutable bool qpointingdevice_childevent_isbase = false;
-    mutable bool qpointingdevice_customevent_isbase = false;
-    mutable bool qpointingdevice_connectnotify_isbase = false;
-    mutable bool qpointingdevice_disconnectnotify_isbase = false;
-    mutable bool qpointingdevice_sender_isbase = false;
-    mutable bool qpointingdevice_sendersignalindex_isbase = false;
-    mutable bool qpointingdevice_receivers_isbase = false;
-    mutable bool qpointingdevice_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QPointingDevice {
+        using QPointingDevice::childEvent;
+        using QPointingDevice::connectNotify;
+        using QPointingDevice::customEvent;
+        using QPointingDevice::disconnectNotify;
+        using QPointingDevice::timerEvent;
+    };
 
-  public:
     VirtualQPointingDevice() : QPointingDevice() {};
     VirtualQPointingDevice(const QString& name, qint64 systemId, QInputDevice::DeviceType devType, QPointingDevice::PointerType pType, QFlags<QInputDevice::Capability> caps, int maxPoints, int buttonCount) : QPointingDevice(name, systemId, devType, pType, caps, maxPoints, buttonCount) {};
     VirtualQPointingDevice(QObject* parent) : QPointingDevice(parent) {};
@@ -73,47 +56,10 @@ class VirtualQPointingDevice final : public QPointingDevice {
     VirtualQPointingDevice(const QString& name, qint64 systemId, QInputDevice::DeviceType devType, QPointingDevice::PointerType pType, QFlags<QInputDevice::Capability> caps, int maxPoints, int buttonCount, const QString& seatName, QPointingDeviceUniqueId uniqueId) : QPointingDevice(name, systemId, devType, pType, caps, maxPoints, buttonCount, seatName, uniqueId) {};
     VirtualQPointingDevice(const QString& name, qint64 systemId, QInputDevice::DeviceType devType, QPointingDevice::PointerType pType, QFlags<QInputDevice::Capability> caps, int maxPoints, int buttonCount, const QString& seatName, QPointingDeviceUniqueId uniqueId, QObject* parent) : QPointingDevice(name, systemId, devType, pType, caps, maxPoints, buttonCount, seatName, uniqueId, parent) {};
 
-    // Callback setters
-    inline void setQPointingDevice_MetaObject_Callback(QPointingDevice_MetaObject_Callback cb) { qpointingdevice_metaobject_callback = cb; }
-    inline void setQPointingDevice_Metacast_Callback(QPointingDevice_Metacast_Callback cb) { qpointingdevice_metacast_callback = cb; }
-    inline void setQPointingDevice_Metacall_Callback(QPointingDevice_Metacall_Callback cb) { qpointingdevice_metacall_callback = cb; }
-    inline void setQPointingDevice_Event_Callback(QPointingDevice_Event_Callback cb) { qpointingdevice_event_callback = cb; }
-    inline void setQPointingDevice_EventFilter_Callback(QPointingDevice_EventFilter_Callback cb) { qpointingdevice_eventfilter_callback = cb; }
-    inline void setQPointingDevice_TimerEvent_Callback(QPointingDevice_TimerEvent_Callback cb) { qpointingdevice_timerevent_callback = cb; }
-    inline void setQPointingDevice_ChildEvent_Callback(QPointingDevice_ChildEvent_Callback cb) { qpointingdevice_childevent_callback = cb; }
-    inline void setQPointingDevice_CustomEvent_Callback(QPointingDevice_CustomEvent_Callback cb) { qpointingdevice_customevent_callback = cb; }
-    inline void setQPointingDevice_ConnectNotify_Callback(QPointingDevice_ConnectNotify_Callback cb) { qpointingdevice_connectnotify_callback = cb; }
-    inline void setQPointingDevice_DisconnectNotify_Callback(QPointingDevice_DisconnectNotify_Callback cb) { qpointingdevice_disconnectnotify_callback = cb; }
-    inline void setQPointingDevice_Sender_Callback(QPointingDevice_Sender_Callback cb) { qpointingdevice_sender_callback = cb; }
-    inline void setQPointingDevice_SenderSignalIndex_Callback(QPointingDevice_SenderSignalIndex_Callback cb) { qpointingdevice_sendersignalindex_callback = cb; }
-    inline void setQPointingDevice_Receivers_Callback(QPointingDevice_Receivers_Callback cb) { qpointingdevice_receivers_callback = cb; }
-    inline void setQPointingDevice_IsSignalConnected_Callback(QPointingDevice_IsSignalConnected_Callback cb) { qpointingdevice_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQPointingDevice_MetaObject_IsBase(bool value) const { qpointingdevice_metaobject_isbase = value; }
-    inline void setQPointingDevice_Metacast_IsBase(bool value) const { qpointingdevice_metacast_isbase = value; }
-    inline void setQPointingDevice_Metacall_IsBase(bool value) const { qpointingdevice_metacall_isbase = value; }
-    inline void setQPointingDevice_Event_IsBase(bool value) const { qpointingdevice_event_isbase = value; }
-    inline void setQPointingDevice_EventFilter_IsBase(bool value) const { qpointingdevice_eventfilter_isbase = value; }
-    inline void setQPointingDevice_TimerEvent_IsBase(bool value) const { qpointingdevice_timerevent_isbase = value; }
-    inline void setQPointingDevice_ChildEvent_IsBase(bool value) const { qpointingdevice_childevent_isbase = value; }
-    inline void setQPointingDevice_CustomEvent_IsBase(bool value) const { qpointingdevice_customevent_isbase = value; }
-    inline void setQPointingDevice_ConnectNotify_IsBase(bool value) const { qpointingdevice_connectnotify_isbase = value; }
-    inline void setQPointingDevice_DisconnectNotify_IsBase(bool value) const { qpointingdevice_disconnectnotify_isbase = value; }
-    inline void setQPointingDevice_Sender_IsBase(bool value) const { qpointingdevice_sender_isbase = value; }
-    inline void setQPointingDevice_SenderSignalIndex_IsBase(bool value) const { qpointingdevice_sendersignalindex_isbase = value; }
-    inline void setQPointingDevice_Receivers_IsBase(bool value) const { qpointingdevice_receivers_isbase = value; }
-    inline void setQPointingDevice_IsSignalConnected_IsBase(bool value) const { qpointingdevice_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qpointingdevice_metaobject_isbase) {
-            qpointingdevice_metaobject_isbase = false;
-            return QPointingDevice::metaObject();
-        }
-        auto metaobject_cb = qpointingdevice_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qpointingdevice_metaobject_callback) {
+            QMetaObject* callback_ret = qpointingdevice_metaobject_callback(this);
             return callback_ret;
         }
         return QPointingDevice::metaObject();
@@ -121,14 +67,9 @@ class VirtualQPointingDevice final : public QPointingDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qpointingdevice_metacast_isbase) {
-            qpointingdevice_metacast_isbase = false;
-            return QPointingDevice::qt_metacast(param1);
-        }
-        auto metacast_cb = qpointingdevice_metacast_callback;
-        if (metacast_cb) {
+        if (qpointingdevice_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qpointingdevice_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QPointingDevice::qt_metacast(param1);
@@ -136,16 +77,11 @@ class VirtualQPointingDevice final : public QPointingDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qpointingdevice_metacall_isbase) {
-            qpointingdevice_metacall_isbase = false;
-            return QPointingDevice::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qpointingdevice_metacall_callback;
-        if (metacall_cb) {
+        if (qpointingdevice_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qpointingdevice_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QPointingDevice::qt_metacall(param1, param2, param3);
@@ -153,14 +89,9 @@ class VirtualQPointingDevice final : public QPointingDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qpointingdevice_event_isbase) {
-            qpointingdevice_event_isbase = false;
-            return QPointingDevice::event(event);
-        }
-        auto event_cb = qpointingdevice_event_callback;
-        if (event_cb) {
+        if (qpointingdevice_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qpointingdevice_event_callback(this, cbval1);
             return callback_ret;
         }
         return QPointingDevice::event(event);
@@ -168,15 +99,10 @@ class VirtualQPointingDevice final : public QPointingDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qpointingdevice_eventfilter_isbase) {
-            qpointingdevice_eventfilter_isbase = false;
-            return QPointingDevice::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qpointingdevice_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qpointingdevice_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qpointingdevice_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QPointingDevice::eventFilter(watched, event);
@@ -184,15 +110,9 @@ class VirtualQPointingDevice final : public QPointingDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qpointingdevice_timerevent_isbase) {
-            qpointingdevice_timerevent_isbase = false;
-            QPointingDevice::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qpointingdevice_timerevent_callback;
-        if (timerevent_cb) {
+        if (qpointingdevice_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qpointingdevice_timerevent_callback(this, cbval1);
             return;
         }
         QPointingDevice::timerEvent(event);
@@ -200,15 +120,9 @@ class VirtualQPointingDevice final : public QPointingDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qpointingdevice_childevent_isbase) {
-            qpointingdevice_childevent_isbase = false;
-            QPointingDevice::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qpointingdevice_childevent_callback;
-        if (childevent_cb) {
+        if (qpointingdevice_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qpointingdevice_childevent_callback(this, cbval1);
             return;
         }
         QPointingDevice::childEvent(event);
@@ -216,15 +130,9 @@ class VirtualQPointingDevice final : public QPointingDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qpointingdevice_customevent_isbase) {
-            qpointingdevice_customevent_isbase = false;
-            QPointingDevice::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qpointingdevice_customevent_callback;
-        if (customevent_cb) {
+        if (qpointingdevice_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qpointingdevice_customevent_callback(this, cbval1);
             return;
         }
         QPointingDevice::customEvent(event);
@@ -232,17 +140,11 @@ class VirtualQPointingDevice final : public QPointingDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qpointingdevice_connectnotify_isbase) {
-            qpointingdevice_connectnotify_isbase = false;
-            QPointingDevice::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qpointingdevice_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qpointingdevice_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qpointingdevice_connectnotify_callback(this, cbval1);
             return;
         }
         QPointingDevice::connectNotify(signal);
@@ -250,101 +152,22 @@ class VirtualQPointingDevice final : public QPointingDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qpointingdevice_disconnectnotify_isbase) {
-            qpointingdevice_disconnectnotify_isbase = false;
-            QPointingDevice::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qpointingdevice_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qpointingdevice_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qpointingdevice_disconnectnotify_callback(this, cbval1);
             return;
         }
         QPointingDevice::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qpointingdevice_sender_isbase) {
-            qpointingdevice_sender_isbase = false;
-            return QPointingDevice::sender();
-        }
-        auto sender_cb = qpointingdevice_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QPointingDevice::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qpointingdevice_sendersignalindex_isbase) {
-            qpointingdevice_sendersignalindex_isbase = false;
-            return QPointingDevice::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qpointingdevice_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QPointingDevice::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qpointingdevice_receivers_isbase) {
-            qpointingdevice_receivers_isbase = false;
-            return QPointingDevice::receivers(signal);
-        }
-        auto receivers_cb = qpointingdevice_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QPointingDevice::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qpointingdevice_issignalconnected_isbase) {
-            qpointingdevice_issignalconnected_isbase = false;
-            return QPointingDevice::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qpointingdevice_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QPointingDevice::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QPointingDevice_TimerEvent(QPointingDevice* self, QTimerEvent* event);
     friend void QPointingDevice_SuperTimerEvent(QPointingDevice* self, QTimerEvent* event);
-    friend void QPointingDevice_ChildEvent(QPointingDevice* self, QChildEvent* event);
     friend void QPointingDevice_SuperChildEvent(QPointingDevice* self, QChildEvent* event);
-    friend void QPointingDevice_CustomEvent(QPointingDevice* self, QEvent* event);
     friend void QPointingDevice_SuperCustomEvent(QPointingDevice* self, QEvent* event);
-    friend void QPointingDevice_ConnectNotify(QPointingDevice* self, const QMetaMethod* signal);
     friend void QPointingDevice_SuperConnectNotify(QPointingDevice* self, const QMetaMethod* signal);
-    friend void QPointingDevice_DisconnectNotify(QPointingDevice* self, const QMetaMethod* signal);
     friend void QPointingDevice_SuperDisconnectNotify(QPointingDevice* self, const QMetaMethod* signal);
-    friend QObject* QPointingDevice_Sender(const QPointingDevice* self);
-    friend QObject* QPointingDevice_SuperSender(const QPointingDevice* self);
-    friend int QPointingDevice_SenderSignalIndex(const QPointingDevice* self);
-    friend int QPointingDevice_SuperSenderSignalIndex(const QPointingDevice* self);
-    friend int QPointingDevice_Receivers(const QPointingDevice* self, const char* signal);
-    friend int QPointingDevice_SuperReceivers(const QPointingDevice* self, const char* signal);
-    friend bool QPointingDevice_IsSignalConnected(const QPointingDevice* self, const QMetaMethod* signal);
-    friend bool QPointingDevice_SuperIsSignalConnected(const QPointingDevice* self, const QMetaMethod* signal);
 };
 
 #endif

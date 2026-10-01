@@ -365,9 +365,9 @@ pub const QSvgGenerator = extern struct {
     ///
     /// ` self: QSvgGenerator `
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QSvgGenerator) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QSvgGenerator, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QSvgGenerator, callback: *const fn (QSvgGenerator) callconv(.c) QPaintEngine) void {
         qtc.QSvgGenerator_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -727,9 +727,9 @@ pub const QSvgGenerator = extern struct {
     ///
     /// ` self: QSvgGenerator`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSvgGenerator) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QSvgGenerator, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QSvgGenerator, callback: *const fn (QSvgGenerator) callconv(.c) i32) void {
         qtc.QSvgGenerator_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -907,9 +907,9 @@ pub const QSvgGenerator = extern struct {
     ///
     /// ` self: QSvgGenerator`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QSvgGenerator) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QSvgGenerator, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QSvgGenerator, callback: *const fn (QSvgGenerator) callconv(.c) QPainter) void {
         qtc.QSvgGenerator_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -933,48 +933,6 @@ pub const QSvgGenerator = extern struct {
     ///
     pub fn getDecodedMetricF(self: QSvgGenerator, metricA: i32, metricB: i32) f64 {
         return qtc.QSvgGenerator_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSvgGenerator `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QSvgGenerator, metricA: i32, metricB: i32) f64 {
-        return qtc.QSvgGenerator_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSvgGenerator`
-    ///
-    /// ` callback: *const fn (self: QSvgGenerator, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QSvgGenerator, callback: *const fn (QSvgGenerator, i32, i32) callconv(.c) f64) void {
-        qtc.QSvgGenerator_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

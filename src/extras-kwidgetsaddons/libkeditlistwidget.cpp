@@ -324,1644 +324,1168 @@ void KEditListWidget_InsertItem2(KEditListWidget* self, const libqt_string text,
 
 // Base class handler implementation
 QMetaObject* KEditListWidget_SuperMetaObject(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vkeditlistwidget->metaObject();
-    } else {
-        return (QMetaObject*)self->KEditListWidget::metaObject();
-    }
+    return (QMetaObject*)self->KEditListWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnMetaObject(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_MetaObject_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MetaObject_Callback>(slot));
+void KEditListWidget_OnMetaObject(KEditListWidget* self, intptr_t slot) {
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self)))
+        vkeditlistwidget->keditlistwidget_metaobject_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KEditListWidget_SuperMetacast(KEditListWidget* self, const char* param1) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_Metacast_IsBase(true);
-        return vkeditlistwidget->qt_metacast(param1);
-    } else {
-        return self->KEditListWidget::qt_metacast(param1);
-    }
+    return self->KEditListWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMetacast(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_Metacast_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Metacast_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_metacast_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KEditListWidget_SuperMetacall(KEditListWidget* self, int param1, int param2, void** param3) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_Metacall_IsBase(true);
-        return vkeditlistwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KEditListWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KEditListWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMetacall(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_Metacall_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Metacall_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_metacall_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KEditListWidget_SuperEventFilter(KEditListWidget* self, QObject* o, QEvent* e) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_EventFilter_IsBase(true);
-        return vkeditlistwidget->eventFilter(o, e);
-    } else {
-        return self->KEditListWidget::eventFilter(o, e);
-    }
+    return self->KEditListWidget::eventFilter(o, e);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnEventFilter(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_EventFilter_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_EventFilter_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_eventfilter_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KEditListWidget_DevType(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        return vkeditlistwidget->devType();
-    } else {
-        return self->KEditListWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KEditListWidget_SuperDevType(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_DevType_IsBase(true);
-        return vkeditlistwidget->devType();
-    } else {
-        return self->KEditListWidget::devType();
-    }
+    return self->KEditListWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnDevType(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_DevType_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DevType_Callback>(slot));
+void KEditListWidget_OnDevType(KEditListWidget* self, intptr_t slot) {
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self)))
+        vkeditlistwidget->keditlistwidget_devtype_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_SetVisible(KEditListWidget* self, bool visible) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setVisible(visible);
-    } else {
-        self->KEditListWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperSetVisible(KEditListWidget* self, bool visible) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_SetVisible_IsBase(true);
-        vkeditlistwidget->setVisible(visible);
-    } else {
-        self->KEditListWidget::setVisible(visible);
-    }
+    self->KEditListWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnSetVisible(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_SetVisible_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_SetVisible_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_setvisible_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KEditListWidget_SizeHint(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        return new QSize(vkeditlistwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKEditListWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KEditListWidget_SuperSizeHint(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_SizeHint_IsBase(true);
-        return new QSize(vkeditlistwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKEditListWidget*)self)->sizeHint());
-    }
+    return new QSize(self->KEditListWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnSizeHint(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_SizeHint_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_SizeHint_Callback>(slot));
+void KEditListWidget_OnSizeHint(KEditListWidget* self, intptr_t slot) {
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self)))
+        vkeditlistwidget->keditlistwidget_sizehint_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KEditListWidget_MinimumSizeHint(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        return new QSize(vkeditlistwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKEditListWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KEditListWidget_SuperMinimumSizeHint(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vkeditlistwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKEditListWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KEditListWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnMinimumSizeHint(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MinimumSizeHint_Callback>(slot));
+void KEditListWidget_OnMinimumSizeHint(KEditListWidget* self, intptr_t slot) {
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self)))
+        vkeditlistwidget->keditlistwidget_minimumsizehint_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KEditListWidget_HeightForWidth(const KEditListWidget* self, int param1) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        return vkeditlistwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KEditListWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KEditListWidget_SuperHeightForWidth(const KEditListWidget* self, int param1) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_HeightForWidth_IsBase(true);
-        return vkeditlistwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KEditListWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KEditListWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnHeightForWidth(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_HeightForWidth_Callback>(slot));
+void KEditListWidget_OnHeightForWidth(KEditListWidget* self, intptr_t slot) {
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self)))
+        vkeditlistwidget->keditlistwidget_heightforwidth_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KEditListWidget_HasHeightForWidth(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        return vkeditlistwidget->hasHeightForWidth();
-    } else {
-        return self->KEditListWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KEditListWidget_SuperHasHeightForWidth(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_HasHeightForWidth_IsBase(true);
-        return vkeditlistwidget->hasHeightForWidth();
-    } else {
-        return self->KEditListWidget::hasHeightForWidth();
-    }
+    return self->KEditListWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnHasHeightForWidth(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_HasHeightForWidth_Callback>(slot));
+void KEditListWidget_OnHasHeightForWidth(KEditListWidget* self, intptr_t slot) {
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self)))
+        vkeditlistwidget->keditlistwidget_hasheightforwidth_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KEditListWidget_PaintEngine(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        return vkeditlistwidget->paintEngine();
-    } else {
-        return self->KEditListWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KEditListWidget_SuperPaintEngine(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_PaintEngine_IsBase(true);
-        return vkeditlistwidget->paintEngine();
-    } else {
-        return self->KEditListWidget::paintEngine();
-    }
+    return self->KEditListWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnPaintEngine(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_PaintEngine_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_PaintEngine_Callback>(slot));
+void KEditListWidget_OnPaintEngine(KEditListWidget* self, intptr_t slot) {
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self)))
+        vkeditlistwidget->keditlistwidget_paintengine_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KEditListWidget_Event(KEditListWidget* self, QEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         return vkeditlistwidget->event(event);
     } else {
-        return ((VirtualKEditListWidget*)self)->event(event);
+        qFatal("Error: Protected virtual method KEditListWidget::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KEditListWidget_SuperEvent(KEditListWidget* self, QEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_Event_IsBase(true);
-        return vkeditlistwidget->event(event);
-    } else {
-        return ((VirtualKEditListWidget*)self)->event(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        return vkeditlistwidget->KEditListWidget::event(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_Event_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Event_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_event_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_MousePressEvent(KEditListWidget* self, QMouseEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->mousePressEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperMousePressEvent(KEditListWidget* self, QMouseEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_MousePressEvent_IsBase(true);
-        vkeditlistwidget->mousePressEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMousePressEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MousePressEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_mousepressevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_MouseReleaseEvent(KEditListWidget* self, QMouseEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperMouseReleaseEvent(KEditListWidget* self, QMouseEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_MouseReleaseEvent_IsBase(true);
-        vkeditlistwidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMouseReleaseEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_mousereleaseevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_MouseDoubleClickEvent(KEditListWidget* self, QMouseEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperMouseDoubleClickEvent(KEditListWidget* self, QMouseEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_MouseDoubleClickEvent_IsBase(true);
-        vkeditlistwidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMouseDoubleClickEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_MouseMoveEvent(KEditListWidget* self, QMouseEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->mouseMoveEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperMouseMoveEvent(KEditListWidget* self, QMouseEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_MouseMoveEvent_IsBase(true);
-        vkeditlistwidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMouseMoveEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_mousemoveevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_WheelEvent(KEditListWidget* self, QWheelEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->wheelEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperWheelEvent(KEditListWidget* self, QWheelEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_WheelEvent_IsBase(true);
-        vkeditlistwidget->wheelEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnWheelEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_WheelEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_WheelEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_wheelevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_KeyPressEvent(KEditListWidget* self, QKeyEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->keyPressEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperKeyPressEvent(KEditListWidget* self, QKeyEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_KeyPressEvent_IsBase(true);
-        vkeditlistwidget->keyPressEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnKeyPressEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_keypressevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_KeyReleaseEvent(KEditListWidget* self, QKeyEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->keyReleaseEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperKeyReleaseEvent(KEditListWidget* self, QKeyEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_KeyReleaseEvent_IsBase(true);
-        vkeditlistwidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnKeyReleaseEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_keyreleaseevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_FocusInEvent(KEditListWidget* self, QFocusEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->focusInEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperFocusInEvent(KEditListWidget* self, QFocusEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_FocusInEvent_IsBase(true);
-        vkeditlistwidget->focusInEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnFocusInEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_FocusInEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_focusinevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_FocusOutEvent(KEditListWidget* self, QFocusEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->focusOutEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperFocusOutEvent(KEditListWidget* self, QFocusEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_FocusOutEvent_IsBase(true);
-        vkeditlistwidget->focusOutEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnFocusOutEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_focusoutevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_EnterEvent(KEditListWidget* self, QEnterEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->enterEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperEnterEvent(KEditListWidget* self, QEnterEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_EnterEvent_IsBase(true);
-        vkeditlistwidget->enterEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->enterEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnEnterEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_EnterEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_EnterEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_enterevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_LeaveEvent(KEditListWidget* self, QEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->leaveEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperLeaveEvent(KEditListWidget* self, QEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_LeaveEvent_IsBase(true);
-        vkeditlistwidget->leaveEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnLeaveEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_LeaveEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_leaveevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_PaintEvent(KEditListWidget* self, QPaintEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->paintEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperPaintEvent(KEditListWidget* self, QPaintEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_PaintEvent_IsBase(true);
-        vkeditlistwidget->paintEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->paintEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnPaintEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_PaintEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_PaintEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_paintevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_MoveEvent(KEditListWidget* self, QMoveEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->moveEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperMoveEvent(KEditListWidget* self, QMoveEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_MoveEvent_IsBase(true);
-        vkeditlistwidget->moveEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->moveEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMoveEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_MoveEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MoveEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_moveevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_ResizeEvent(KEditListWidget* self, QResizeEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->resizeEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperResizeEvent(KEditListWidget* self, QResizeEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_ResizeEvent_IsBase(true);
-        vkeditlistwidget->resizeEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnResizeEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ResizeEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_resizeevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_CloseEvent(KEditListWidget* self, QCloseEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->closeEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperCloseEvent(KEditListWidget* self, QCloseEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_CloseEvent_IsBase(true);
-        vkeditlistwidget->closeEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->closeEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnCloseEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_CloseEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_CloseEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_closeevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_ContextMenuEvent(KEditListWidget* self, QContextMenuEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->contextMenuEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperContextMenuEvent(KEditListWidget* self, QContextMenuEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_ContextMenuEvent_IsBase(true);
-        vkeditlistwidget->contextMenuEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnContextMenuEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_contextmenuevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_TabletEvent(KEditListWidget* self, QTabletEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->tabletEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperTabletEvent(KEditListWidget* self, QTabletEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_TabletEvent_IsBase(true);
-        vkeditlistwidget->tabletEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnTabletEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_TabletEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_TabletEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_tabletevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_ActionEvent(KEditListWidget* self, QActionEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->actionEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperActionEvent(KEditListWidget* self, QActionEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_ActionEvent_IsBase(true);
-        vkeditlistwidget->actionEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->actionEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnActionEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_ActionEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ActionEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_actionevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_DragEnterEvent(KEditListWidget* self, QDragEnterEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->dragEnterEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperDragEnterEvent(KEditListWidget* self, QDragEnterEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_DragEnterEvent_IsBase(true);
-        vkeditlistwidget->dragEnterEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnDragEnterEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_dragenterevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_DragMoveEvent(KEditListWidget* self, QDragMoveEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->dragMoveEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperDragMoveEvent(KEditListWidget* self, QDragMoveEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_DragMoveEvent_IsBase(true);
-        vkeditlistwidget->dragMoveEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnDragMoveEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_dragmoveevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_DragLeaveEvent(KEditListWidget* self, QDragLeaveEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->dragLeaveEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperDragLeaveEvent(KEditListWidget* self, QDragLeaveEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_DragLeaveEvent_IsBase(true);
-        vkeditlistwidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnDragLeaveEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_dragleaveevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_DropEvent(KEditListWidget* self, QDropEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->dropEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperDropEvent(KEditListWidget* self, QDropEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_DropEvent_IsBase(true);
-        vkeditlistwidget->dropEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->dropEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnDropEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_DropEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DropEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_dropevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_ShowEvent(KEditListWidget* self, QShowEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->showEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperShowEvent(KEditListWidget* self, QShowEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_ShowEvent_IsBase(true);
-        vkeditlistwidget->showEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->showEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnShowEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_ShowEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ShowEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_showevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_HideEvent(KEditListWidget* self, QHideEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->hideEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperHideEvent(KEditListWidget* self, QHideEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_HideEvent_IsBase(true);
-        vkeditlistwidget->hideEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->hideEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnHideEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_HideEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_HideEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_hideevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KEditListWidget_NativeEvent(KEditListWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
+    if (vkeditlistwidget) {
         return vkeditlistwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKEditListWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KEditListWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KEditListWidget_SuperNativeEvent(KEditListWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_NativeEvent_IsBase(true);
-        return vkeditlistwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKEditListWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        return vkeditlistwidget->KEditListWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnNativeEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_NativeEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_NativeEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_nativeevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_ChangeEvent(KEditListWidget* self, QEvent* param1) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->changeEvent(param1);
     } else {
-        ((VirtualKEditListWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KEditListWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperChangeEvent(KEditListWidget* self, QEvent* param1) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_ChangeEvent_IsBase(true);
-        vkeditlistwidget->changeEvent(param1);
-    } else {
-        ((VirtualKEditListWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnChangeEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ChangeEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_changeevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KEditListWidget_Metric(const KEditListWidget* self, int param1) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         return vkeditlistwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKEditListWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KEditListWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KEditListWidget_SuperMetric(const KEditListWidget* self, int param1) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_Metric_IsBase(true);
-        return vkeditlistwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKEditListWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self))) {
+        return vkeditlistwidget->KEditListWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnMetric(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_Metric_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Metric_Callback>(slot));
+void KEditListWidget_OnMetric(KEditListWidget* self, intptr_t slot) {
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self)))
+        vkeditlistwidget->keditlistwidget_metric_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_InitPainter(const KEditListWidget* self, QPainter* painter) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->initPainter(painter);
     } else {
-        ((VirtualKEditListWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KEditListWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperInitPainter(const KEditListWidget* self, QPainter* painter) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_InitPainter_IsBase(true);
-        vkeditlistwidget->initPainter(painter);
-    } else {
-        ((VirtualKEditListWidget*)self)->initPainter(painter);
-    }
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self))) {
+        vkeditlistwidget->KEditListWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnInitPainter(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_InitPainter_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_InitPainter_Callback>(slot));
+void KEditListWidget_OnInitPainter(KEditListWidget* self, intptr_t slot) {
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self)))
+        vkeditlistwidget->keditlistwidget_initpainter_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KEditListWidget_Redirected(const KEditListWidget* self, QPoint* offset) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         return vkeditlistwidget->redirected(offset);
     } else {
-        return ((VirtualKEditListWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KEditListWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KEditListWidget_SuperRedirected(const KEditListWidget* self, QPoint* offset) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_Redirected_IsBase(true);
-        return vkeditlistwidget->redirected(offset);
-    } else {
-        return ((VirtualKEditListWidget*)self)->redirected(offset);
-    }
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self))) {
+        return vkeditlistwidget->KEditListWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnRedirected(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_Redirected_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Redirected_Callback>(slot));
+void KEditListWidget_OnRedirected(KEditListWidget* self, intptr_t slot) {
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self)))
+        vkeditlistwidget->keditlistwidget_redirected_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KEditListWidget_SharedPainter(const KEditListWidget* self) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         return vkeditlistwidget->sharedPainter();
     } else {
-        return ((VirtualKEditListWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KEditListWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KEditListWidget_SuperSharedPainter(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_SharedPainter_IsBase(true);
-        return vkeditlistwidget->sharedPainter();
-    } else {
-        return ((VirtualKEditListWidget*)self)->sharedPainter();
-    }
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self))) {
+        return vkeditlistwidget->KEditListWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnSharedPainter(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_SharedPainter_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_SharedPainter_Callback>(slot));
+void KEditListWidget_OnSharedPainter(KEditListWidget* self, intptr_t slot) {
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self)))
+        vkeditlistwidget->keditlistwidget_sharedpainter_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_InputMethodEvent(KEditListWidget* self, QInputMethodEvent* param1) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->inputMethodEvent(param1);
     } else {
-        ((VirtualKEditListWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KEditListWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperInputMethodEvent(KEditListWidget* self, QInputMethodEvent* param1) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_InputMethodEvent_IsBase(true);
-        vkeditlistwidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualKEditListWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnInputMethodEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_inputmethodevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KEditListWidget_InputMethodQuery(const KEditListWidget* self, int param1) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        return new QVariant(vkeditlistwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKEditListWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KEditListWidget_SuperInputMethodQuery(const KEditListWidget* self, int param1) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vkeditlistwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKEditListWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KEditListWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnInputMethodQuery(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_InputMethodQuery_Callback>(slot));
+void KEditListWidget_OnInputMethodQuery(KEditListWidget* self, intptr_t slot) {
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self)))
+        vkeditlistwidget->keditlistwidget_inputmethodquery_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KEditListWidget_FocusNextPrevChild(KEditListWidget* self, bool next) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         return vkeditlistwidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualKEditListWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KEditListWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KEditListWidget_SuperFocusNextPrevChild(KEditListWidget* self, bool next) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_FocusNextPrevChild_IsBase(true);
-        return vkeditlistwidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKEditListWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        return vkeditlistwidget->KEditListWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnFocusNextPrevChild(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_focusnextprevchild_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_TimerEvent(KEditListWidget* self, QTimerEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->timerEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperTimerEvent(KEditListWidget* self, QTimerEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_TimerEvent_IsBase(true);
-        vkeditlistwidget->timerEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->timerEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnTimerEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_TimerEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_TimerEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_timerevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_ChildEvent(KEditListWidget* self, QChildEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->childEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperChildEvent(KEditListWidget* self, QChildEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_ChildEvent_IsBase(true);
-        vkeditlistwidget->childEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->childEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnChildEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_ChildEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ChildEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_childevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_CustomEvent(KEditListWidget* self, QEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->customEvent(event);
     } else {
-        ((VirtualKEditListWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KEditListWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperCustomEvent(KEditListWidget* self, QEvent* event) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_CustomEvent_IsBase(true);
-        vkeditlistwidget->customEvent(event);
-    } else {
-        ((VirtualKEditListWidget*)self)->customEvent(event);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnCustomEvent(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_CustomEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_CustomEvent_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_customevent_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_ConnectNotify(KEditListWidget* self, const QMetaMethod* signal) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->connectNotify(*signal);
     } else {
-        ((VirtualKEditListWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KEditListWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperConnectNotify(KEditListWidget* self, const QMetaMethod* signal) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_ConnectNotify_IsBase(true);
-        vkeditlistwidget->connectNotify(*signal);
-    } else {
-        ((VirtualKEditListWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnConnectNotify(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ConnectNotify_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_connectnotify_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditListWidget_DisconnectNotify(KEditListWidget* self, const QMetaMethod* signal) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget) {
         vkeditlistwidget->disconnectNotify(*signal);
     } else {
-        ((VirtualKEditListWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KEditListWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditListWidget_SuperDisconnectNotify(KEditListWidget* self, const QMetaMethod* signal) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_DisconnectNotify_IsBase(true);
-        vkeditlistwidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualKEditListWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->KEditListWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KEditListWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnDisconnectNotify(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self))
+        vkeditlistwidget->keditlistwidget_disconnectnotify_callback = reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEditListWidget_UpdateMicroFocus(KEditListWidget* self) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->updateMicroFocus();
-    } else {
-        ((VirtualKEditListWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->VirtualKEditListWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KEditListWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEditListWidget_SuperUpdateMicroFocus(KEditListWidget* self) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_UpdateMicroFocus_IsBase(true);
-        vkeditlistwidget->updateMicroFocus();
-    } else {
-        ((VirtualKEditListWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnUpdateMicroFocus(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEditListWidget_Create(KEditListWidget* self) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->create();
-    } else {
-        ((VirtualKEditListWidget*)self)->create();
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->VirtualKEditListWidget::create();
+    } else
+        qFatal("Error: Protected method KEditListWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEditListWidget_SuperCreate(KEditListWidget* self) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_Create_IsBase(true);
-        vkeditlistwidget->create();
-    } else {
-        ((VirtualKEditListWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnCreate(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_Create_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEditListWidget_Destroy(KEditListWidget* self) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->destroy();
-    } else {
-        ((VirtualKEditListWidget*)self)->destroy();
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        vkeditlistwidget->VirtualKEditListWidget::destroy();
+    } else
+        qFatal("Error: Protected method KEditListWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEditListWidget_SuperDestroy(KEditListWidget* self) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_Destroy_IsBase(true);
-        vkeditlistwidget->destroy();
-    } else {
-        ((VirtualKEditListWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnDestroy(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_Destroy_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KEditListWidget_FocusNextChild(KEditListWidget* self) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        return vkeditlistwidget->focusNextChild();
-    } else {
-        return ((VirtualKEditListWidget*)self)->focusNextChild();
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        return vkeditlistwidget->VirtualKEditListWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method KEditListWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KEditListWidget_SuperFocusNextChild(KEditListWidget* self) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_FocusNextChild_IsBase(true);
-        return vkeditlistwidget->focusNextChild();
-    } else {
-        return ((VirtualKEditListWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnFocusNextChild(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KEditListWidget_FocusPreviousChild(KEditListWidget* self) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        return vkeditlistwidget->focusPreviousChild();
-    } else {
-        return ((VirtualKEditListWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self)) {
+        return vkeditlistwidget->VirtualKEditListWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KEditListWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KEditListWidget_SuperFocusPreviousChild(KEditListWidget* self) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_FocusPreviousChild_IsBase(true);
-        return vkeditlistwidget->focusPreviousChild();
-    } else {
-        return ((VirtualKEditListWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnFocusPreviousChild(KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KEditListWidget_Sender(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        return vkeditlistwidget->sender();
-    } else {
-        return ((VirtualKEditListWidget*)self)->sender();
-    }
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self))) {
+        return vkeditlistwidget->VirtualKEditListWidget::sender();
+    } else
+        qFatal("Error: Protected method KEditListWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KEditListWidget_SuperSender(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_Sender_IsBase(true);
-        return vkeditlistwidget->sender();
-    } else {
-        return ((VirtualKEditListWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnSender(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_Sender_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KEditListWidget_SenderSignalIndex(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        return vkeditlistwidget->senderSignalIndex();
-    } else {
-        return ((VirtualKEditListWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self))) {
+        return vkeditlistwidget->VirtualKEditListWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KEditListWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KEditListWidget_SuperSenderSignalIndex(const KEditListWidget* self) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_SenderSignalIndex_IsBase(true);
-        return vkeditlistwidget->senderSignalIndex();
-    } else {
-        return ((VirtualKEditListWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnSenderSignalIndex(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KEditListWidget_Receivers(const KEditListWidget* self, const char* signal) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        return vkeditlistwidget->receivers(signal);
-    } else {
-        return ((VirtualKEditListWidget*)self)->receivers(signal);
-    }
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self))) {
+        return vkeditlistwidget->VirtualKEditListWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method KEditListWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KEditListWidget_SuperReceivers(const KEditListWidget* self, const char* signal) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_Receivers_IsBase(true);
-        return vkeditlistwidget->receivers(signal);
-    } else {
-        return ((VirtualKEditListWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnReceivers(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_Receivers_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KEditListWidget_IsSignalConnected(const KEditListWidget* self, const QMetaMethod* signal) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        return vkeditlistwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKEditListWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self))) {
+        return vkeditlistwidget->VirtualKEditListWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KEditListWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KEditListWidget_SuperIsSignalConnected(const KEditListWidget* self, const QMetaMethod* signal) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_IsSignalConnected_IsBase(true);
-        return vkeditlistwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKEditListWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnIsSignalConnected(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KEditListWidget_GetDecodedMetricF(const KEditListWidget* self, int metricA, int metricB) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        return vkeditlistwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKEditListWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KEditListWidget_SuperGetDecodedMetricF(const KEditListWidget* self, int metricA, int metricB) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
-        vkeditlistwidget->setKEditListWidget_GetDecodedMetricF_IsBase(true);
-        return vkeditlistwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKEditListWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditListWidget_OnGetDecodedMetricF(const KEditListWidget* self, intptr_t slot) {
-    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
-        vkeditlistwidget->setKEditListWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self))) {
+        return vkeditlistwidget->VirtualKEditListWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KEditListWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void KEditListWidget_Delete(KEditListWidget* self) {
@@ -1998,38 +1522,24 @@ QLineEdit* KEditListWidget__CustomEditor_LineEdit(const KEditListWidget__CustomE
 
 // Base class handler implementation
 QWidget* KEditListWidget__CustomEditor_SuperRepresentationWidget(const KEditListWidget__CustomEditor* self) {
-    auto* vkeditlistwidgetcustomeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self));
-    if (vkeditlistwidgetcustomeditor && vkeditlistwidgetcustomeditor->isVirtualKEditListWidgetCustomEditor) {
-        vkeditlistwidgetcustomeditor->setKEditListWidget__CustomEditor_RepresentationWidget_IsBase(true);
-        return vkeditlistwidgetcustomeditor->representationWidget();
-    } else {
-        return self->KEditListWidget::CustomEditor::representationWidget();
-    }
+    return self->KEditListWidget::CustomEditor::representationWidget();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditListWidget__CustomEditor_OnRepresentationWidget(const KEditListWidget__CustomEditor* self, intptr_t slot) {
-    auto* vkeditlistwidgetcustomeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self));
-    if (vkeditlistwidgetcustomeditor && vkeditlistwidgetcustomeditor->isVirtualKEditListWidgetCustomEditor)
-        vkeditlistwidgetcustomeditor->setKEditListWidget__CustomEditor_RepresentationWidget_Callback(reinterpret_cast<VirtualKEditListWidgetCustomEditor::KEditListWidget__CustomEditor_RepresentationWidget_Callback>(slot));
+void KEditListWidget__CustomEditor_OnRepresentationWidget(KEditListWidget__CustomEditor* self, intptr_t slot) {
+    if (auto* vkeditlistwidgetcustomeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self)))
+        vkeditlistwidgetcustomeditor->keditlistwidget__customeditor_representationwidget_callback = reinterpret_cast<VirtualKEditListWidgetCustomEditor::KEditListWidget__CustomEditor_RepresentationWidget_Callback>(slot);
 }
 
 // Base class handler implementation
 QLineEdit* KEditListWidget__CustomEditor_SuperLineEdit(const KEditListWidget__CustomEditor* self) {
-    auto* vkeditlistwidgetcustomeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self));
-    if (vkeditlistwidgetcustomeditor && vkeditlistwidgetcustomeditor->isVirtualKEditListWidgetCustomEditor) {
-        vkeditlistwidgetcustomeditor->setKEditListWidget__CustomEditor_LineEdit_IsBase(true);
-        return vkeditlistwidgetcustomeditor->lineEdit();
-    } else {
-        return self->KEditListWidget::CustomEditor::lineEdit();
-    }
+    return self->KEditListWidget::CustomEditor::lineEdit();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditListWidget__CustomEditor_OnLineEdit(const KEditListWidget__CustomEditor* self, intptr_t slot) {
-    auto* vkeditlistwidgetcustomeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self));
-    if (vkeditlistwidgetcustomeditor && vkeditlistwidgetcustomeditor->isVirtualKEditListWidgetCustomEditor)
-        vkeditlistwidgetcustomeditor->setKEditListWidget__CustomEditor_LineEdit_Callback(reinterpret_cast<VirtualKEditListWidgetCustomEditor::KEditListWidget__CustomEditor_LineEdit_Callback>(slot));
+void KEditListWidget__CustomEditor_OnLineEdit(KEditListWidget__CustomEditor* self, intptr_t slot) {
+    if (auto* vkeditlistwidgetcustomeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self)))
+        vkeditlistwidgetcustomeditor->keditlistwidget__customeditor_lineedit_callback = reinterpret_cast<VirtualKEditListWidgetCustomEditor::KEditListWidget__CustomEditor_LineEdit_Callback>(slot);
 }
 
 void KEditListWidget__CustomEditor_Delete(KEditListWidget__CustomEditor* self) {

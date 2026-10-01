@@ -64,17 +64,9 @@ bool KRcc_CreateDevice(KRcc* self, int mode);
 void KRcc_OnCreateDevice(KRcc* self, intptr_t slot);
 bool KRcc_SuperCreateDevice(KRcc* self, int mode);
 void KRcc_SetErrorString(KRcc* self, const libqt_string errorStr);
-void KRcc_OnSetErrorString(KRcc* self, intptr_t slot);
-void KRcc_SuperSetErrorString(KRcc* self, const libqt_string errorStr);
 KArchiveDirectory* KRcc_FindOrCreate(KRcc* self, const libqt_string path);
-void KRcc_OnFindOrCreate(KRcc* self, intptr_t slot);
-KArchiveDirectory* KRcc_SuperFindOrCreate(KRcc* self, const libqt_string path);
 void KRcc_SetDevice(KRcc* self, QIODevice* dev);
-void KRcc_OnSetDevice(KRcc* self, intptr_t slot);
-void KRcc_SuperSetDevice(KRcc* self, QIODevice* dev);
 void KRcc_SetRootDir(KRcc* self, KArchiveDirectory* rootDir);
-void KRcc_OnSetRootDir(KRcc* self, intptr_t slot);
-void KRcc_SuperSetRootDir(KRcc* self, KArchiveDirectory* rootDir);
 void KRcc_Delete(KRcc* self);
 
 #ifdef __cplusplus

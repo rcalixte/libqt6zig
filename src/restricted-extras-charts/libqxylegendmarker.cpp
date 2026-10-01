@@ -79,400 +79,241 @@ libqt_string QXYLegendMarker_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QXYLegendMarker_SuperMetaObject(const QXYLegendMarker* self) {
-    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_MetaObject_IsBase(true);
-        return (QMetaObject*)vqxylegendmarker->metaObject();
-    } else {
-        return (QMetaObject*)self->QXYLegendMarker::metaObject();
-    }
+    return (QMetaObject*)self->QXYLegendMarker::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QXYLegendMarker_OnMetaObject(const QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_MetaObject_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_MetaObject_Callback>(slot));
+void QXYLegendMarker_OnMetaObject(QXYLegendMarker* self, intptr_t slot) {
+    if (auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self)))
+        vqxylegendmarker->qxylegendmarker_metaobject_callback = reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QXYLegendMarker_SuperMetacast(QXYLegendMarker* self, const char* param1) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_Metacast_IsBase(true);
-        return vqxylegendmarker->qt_metacast(param1);
-    } else {
-        return self->QXYLegendMarker::qt_metacast(param1);
-    }
+    return self->QXYLegendMarker::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnMetacast(QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_Metacast_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Metacast_Callback>(slot));
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self))
+        vqxylegendmarker->qxylegendmarker_metacast_callback = reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QXYLegendMarker_SuperMetacall(QXYLegendMarker* self, int param1, int param2, void** param3) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_Metacall_IsBase(true);
-        return vqxylegendmarker->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QXYLegendMarker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QXYLegendMarker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnMetacall(QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_Metacall_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Metacall_Callback>(slot));
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self))
+        vqxylegendmarker->qxylegendmarker_metacall_callback = reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QXYLegendMarker_SuperType(QXYLegendMarker* self) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_Type_IsBase(true);
-        return static_cast<int>(vqxylegendmarker->type());
-    } else {
-        return static_cast<int>(self->QXYLegendMarker::type());
-    }
+    return static_cast<int>(self->QXYLegendMarker::type());
 }
 
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnType(QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_Type_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Type_Callback>(slot));
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self))
+        vqxylegendmarker->qxylegendmarker_type_callback = reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Type_Callback>(slot);
 }
 
 // Base class handler implementation
 QXYSeries* QXYLegendMarker_SuperSeries(QXYLegendMarker* self) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_Series_IsBase(true);
-        return vqxylegendmarker->series();
-    } else {
-        return self->QXYLegendMarker::series();
-    }
+    return self->QXYLegendMarker::series();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnSeries(QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_Series_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Series_Callback>(slot));
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self))
+        vqxylegendmarker->qxylegendmarker_series_callback = reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Series_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QXYLegendMarker_Event(QXYLegendMarker* self, QEvent* event) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        return vqxylegendmarker->event(event);
-    } else {
-        return self->QXYLegendMarker::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QXYLegendMarker_SuperEvent(QXYLegendMarker* self, QEvent* event) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_Event_IsBase(true);
-        return vqxylegendmarker->event(event);
-    } else {
-        return self->QXYLegendMarker::event(event);
-    }
+    return self->QXYLegendMarker::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnEvent(QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_Event_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Event_Callback>(slot));
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self))
+        vqxylegendmarker->qxylegendmarker_event_callback = reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QXYLegendMarker_EventFilter(QXYLegendMarker* self, QObject* watched, QEvent* event) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        return vqxylegendmarker->eventFilter(watched, event);
-    } else {
-        return self->QXYLegendMarker::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QXYLegendMarker_SuperEventFilter(QXYLegendMarker* self, QObject* watched, QEvent* event) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_EventFilter_IsBase(true);
-        return vqxylegendmarker->eventFilter(watched, event);
-    } else {
-        return self->QXYLegendMarker::eventFilter(watched, event);
-    }
+    return self->QXYLegendMarker::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnEventFilter(QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_EventFilter_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_EventFilter_Callback>(slot));
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self))
+        vqxylegendmarker->qxylegendmarker_eventfilter_callback = reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QXYLegendMarker_TimerEvent(QXYLegendMarker* self, QTimerEvent* event) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker) {
         vqxylegendmarker->timerEvent(event);
     } else {
-        ((VirtualQXYLegendMarker*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QXYLegendMarker::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QXYLegendMarker_SuperTimerEvent(QXYLegendMarker* self, QTimerEvent* event) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_TimerEvent_IsBase(true);
-        vqxylegendmarker->timerEvent(event);
-    } else {
-        ((VirtualQXYLegendMarker*)self)->timerEvent(event);
-    }
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self)) {
+        vqxylegendmarker->QXYLegendMarker::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QXYLegendMarker::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnTimerEvent(QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_TimerEvent_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_TimerEvent_Callback>(slot));
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self))
+        vqxylegendmarker->qxylegendmarker_timerevent_callback = reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QXYLegendMarker_ChildEvent(QXYLegendMarker* self, QChildEvent* event) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker) {
         vqxylegendmarker->childEvent(event);
     } else {
-        ((VirtualQXYLegendMarker*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QXYLegendMarker::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QXYLegendMarker_SuperChildEvent(QXYLegendMarker* self, QChildEvent* event) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_ChildEvent_IsBase(true);
-        vqxylegendmarker->childEvent(event);
-    } else {
-        ((VirtualQXYLegendMarker*)self)->childEvent(event);
-    }
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self)) {
+        vqxylegendmarker->QXYLegendMarker::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QXYLegendMarker::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnChildEvent(QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_ChildEvent_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_ChildEvent_Callback>(slot));
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self))
+        vqxylegendmarker->qxylegendmarker_childevent_callback = reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QXYLegendMarker_CustomEvent(QXYLegendMarker* self, QEvent* event) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker) {
         vqxylegendmarker->customEvent(event);
     } else {
-        ((VirtualQXYLegendMarker*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QXYLegendMarker::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QXYLegendMarker_SuperCustomEvent(QXYLegendMarker* self, QEvent* event) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_CustomEvent_IsBase(true);
-        vqxylegendmarker->customEvent(event);
-    } else {
-        ((VirtualQXYLegendMarker*)self)->customEvent(event);
-    }
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self)) {
+        vqxylegendmarker->QXYLegendMarker::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QXYLegendMarker::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnCustomEvent(QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_CustomEvent_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_CustomEvent_Callback>(slot));
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self))
+        vqxylegendmarker->qxylegendmarker_customevent_callback = reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QXYLegendMarker_ConnectNotify(QXYLegendMarker* self, const QMetaMethod* signal) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker) {
         vqxylegendmarker->connectNotify(*signal);
     } else {
-        ((VirtualQXYLegendMarker*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QXYLegendMarker::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QXYLegendMarker_SuperConnectNotify(QXYLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_ConnectNotify_IsBase(true);
-        vqxylegendmarker->connectNotify(*signal);
-    } else {
-        ((VirtualQXYLegendMarker*)self)->connectNotify(*signal);
-    }
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self)) {
+        vqxylegendmarker->QXYLegendMarker::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QXYLegendMarker::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnConnectNotify(QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_ConnectNotify_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_ConnectNotify_Callback>(slot));
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self))
+        vqxylegendmarker->qxylegendmarker_connectnotify_callback = reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QXYLegendMarker_DisconnectNotify(QXYLegendMarker* self, const QMetaMethod* signal) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker) {
         vqxylegendmarker->disconnectNotify(*signal);
     } else {
-        ((VirtualQXYLegendMarker*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QXYLegendMarker::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QXYLegendMarker_SuperDisconnectNotify(QXYLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_DisconnectNotify_IsBase(true);
-        vqxylegendmarker->disconnectNotify(*signal);
-    } else {
-        ((VirtualQXYLegendMarker*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self)) {
+        vqxylegendmarker->QXYLegendMarker::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QXYLegendMarker::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnDisconnectNotify(QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_DisconnectNotify_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_DisconnectNotify_Callback>(slot));
+    if (auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self))
+        vqxylegendmarker->qxylegendmarker_disconnectnotify_callback = reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QXYLegendMarker_Sender(const QXYLegendMarker* self) {
-    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        return vqxylegendmarker->sender();
-    } else {
-        return ((VirtualQXYLegendMarker*)self)->sender();
-    }
+    if (auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self))) {
+        return vqxylegendmarker->VirtualQXYLegendMarker::sender();
+    } else
+        qFatal("Error: Protected method QXYLegendMarker::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QXYLegendMarker_SuperSender(const QXYLegendMarker* self) {
-    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_Sender_IsBase(true);
-        return vqxylegendmarker->sender();
-    } else {
-        return ((VirtualQXYLegendMarker*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QXYLegendMarker_OnSender(const QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_Sender_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QXYLegendMarker_SenderSignalIndex(const QXYLegendMarker* self) {
-    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        return vqxylegendmarker->senderSignalIndex();
-    } else {
-        return ((VirtualQXYLegendMarker*)self)->senderSignalIndex();
-    }
+    if (auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self))) {
+        return vqxylegendmarker->VirtualQXYLegendMarker::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QXYLegendMarker::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QXYLegendMarker_SuperSenderSignalIndex(const QXYLegendMarker* self) {
-    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_SenderSignalIndex_IsBase(true);
-        return vqxylegendmarker->senderSignalIndex();
-    } else {
-        return ((VirtualQXYLegendMarker*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QXYLegendMarker_OnSenderSignalIndex(const QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_SenderSignalIndex_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QXYLegendMarker_Receivers(const QXYLegendMarker* self, const char* signal) {
-    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        return vqxylegendmarker->receivers(signal);
-    } else {
-        return ((VirtualQXYLegendMarker*)self)->receivers(signal);
-    }
+    if (auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self))) {
+        return vqxylegendmarker->VirtualQXYLegendMarker::receivers(signal);
+    } else
+        qFatal("Error: Protected method QXYLegendMarker::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QXYLegendMarker_SuperReceivers(const QXYLegendMarker* self, const char* signal) {
-    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_Receivers_IsBase(true);
-        return vqxylegendmarker->receivers(signal);
-    } else {
-        return ((VirtualQXYLegendMarker*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QXYLegendMarker_OnReceivers(const QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_Receivers_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QXYLegendMarker_IsSignalConnected(const QXYLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        return vqxylegendmarker->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQXYLegendMarker*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QXYLegendMarker_SuperIsSignalConnected(const QXYLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        vqxylegendmarker->setQXYLegendMarker_IsSignalConnected_IsBase(true);
-        return vqxylegendmarker->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQXYLegendMarker*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QXYLegendMarker_OnIsSignalConnected(const QXYLegendMarker* self, intptr_t slot) {
-    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
-        vqxylegendmarker->setQXYLegendMarker_IsSignalConnected_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_IsSignalConnected_Callback>(slot));
+    if (auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self))) {
+        return vqxylegendmarker->VirtualQXYLegendMarker::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QXYLegendMarker::isSignalConnected called without a directly constructed type");
 }
 
 void QXYLegendMarker_Delete(QXYLegendMarker* self) {

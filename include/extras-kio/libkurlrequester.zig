@@ -190,9 +190,9 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KUrlRequester) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KUrlRequester, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KUrlRequester, callback: *const fn (KUrlRequester) callconv(.c) QMetaObject) void {
         qtc.KUrlRequester_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -617,9 +617,9 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` callback: *const fn () callconv(.c) QFileDialog `
+    /// ` callback: *const fn (self: KUrlRequester) callconv(.c) QFileDialog `
     ///
-    pub fn onFileDialog(self: KUrlRequester, callback: *const fn () callconv(.c) QFileDialog) void {
+    pub fn onFileDialog(self: KUrlRequester, callback: *const fn (KUrlRequester) callconv(.c) QFileDialog) void {
         qtc.KUrlRequester_OnFileDialog(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7449,9 +7449,9 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KUrlRequester) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KUrlRequester, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KUrlRequester, callback: *const fn (KUrlRequester) callconv(.c) i32) void {
         qtc.KUrlRequester_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7565,11 +7565,11 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KUrlRequester) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KUrlRequester, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KUrlRequester, callback: *const fn (KUrlRequester) callconv(.c) QSize) void {
         qtc.KUrlRequester_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7623,11 +7623,11 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KUrlRequester) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KUrlRequester, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KUrlRequester, callback: *const fn (KUrlRequester) callconv(.c) QSize) void {
         qtc.KUrlRequester_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7741,9 +7741,9 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlRequester) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KUrlRequester, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KUrlRequester, callback: *const fn (KUrlRequester) callconv(.c) bool) void {
         qtc.KUrlRequester_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7797,9 +7797,9 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KUrlRequester) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KUrlRequester, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KUrlRequester, callback: *const fn (KUrlRequester) callconv(.c) QPaintEngine) void {
         qtc.KUrlRequester_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9663,9 +9663,9 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KUrlRequester) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KUrlRequester, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KUrlRequester, callback: *const fn (KUrlRequester) callconv(.c) QPainter) void {
         qtc.KUrlRequester_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10181,44 +10181,6 @@ pub const KUrlRequester = extern struct {
         qtc.KUrlRequester_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequester `
-    ///
-    pub fn superUpdateMicroFocus(self: KUrlRequester) void {
-        qtc.KUrlRequester_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequester`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KUrlRequester, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlRequester_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -10235,44 +10197,6 @@ pub const KUrlRequester = extern struct {
     ///
     pub fn create(self: KUrlRequester) void {
         qtc.KUrlRequester_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequester `
-    ///
-    pub fn superCreate(self: KUrlRequester) void {
-        qtc.KUrlRequester_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequester`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KUrlRequester, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlRequester_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -10293,44 +10217,6 @@ pub const KUrlRequester = extern struct {
         qtc.KUrlRequester_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequester `
-    ///
-    pub fn superDestroy(self: KUrlRequester) void {
-        qtc.KUrlRequester_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequester`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KUrlRequester, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlRequester_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -10347,44 +10233,6 @@ pub const KUrlRequester = extern struct {
     ///
     pub fn focusNextChild(self: KUrlRequester) bool {
         return qtc.KUrlRequester_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequester `
-    ///
-    pub fn superFocusNextChild(self: KUrlRequester) bool {
-        return qtc.KUrlRequester_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequester`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KUrlRequester, callback: *const fn () callconv(.c) bool) void {
-        qtc.KUrlRequester_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -10405,44 +10253,6 @@ pub const KUrlRequester = extern struct {
         return qtc.KUrlRequester_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequester `
-    ///
-    pub fn superFocusPreviousChild(self: KUrlRequester) bool {
-        return qtc.KUrlRequester_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequester`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KUrlRequester, callback: *const fn () callconv(.c) bool) void {
-        qtc.KUrlRequester_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10461,44 +10271,6 @@ pub const KUrlRequester = extern struct {
         return .{ .ptr = qtc.KUrlRequester_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequester `
-    ///
-    pub fn superSender(self: KUrlRequester) QObject {
-        return .{ .ptr = qtc.KUrlRequester_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequester`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KUrlRequester, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KUrlRequester_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10515,44 +10287,6 @@ pub const KUrlRequester = extern struct {
     ///
     pub fn senderSignalIndex(self: KUrlRequester) i32 {
         return qtc.KUrlRequester_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequester `
-    ///
-    pub fn superSenderSignalIndex(self: KUrlRequester) i32 {
-        return qtc.KUrlRequester_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequester`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KUrlRequester, callback: *const fn () callconv(.c) i32) void {
-        qtc.KUrlRequester_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10576,47 +10310,6 @@ pub const KUrlRequester = extern struct {
         return qtc.KUrlRequester_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequester `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KUrlRequester, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KUrlRequester_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequester`
-    ///
-    /// ` callback: *const fn (self: KUrlRequester, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KUrlRequester_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10636,47 +10329,6 @@ pub const KUrlRequester = extern struct {
     pub fn isSignalConnected(self: KUrlRequester, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KUrlRequester_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequester `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KUrlRequester, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KUrlRequester_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequester`
-    ///
-    /// ` callback: *const fn (self: KUrlRequester, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KUrlRequester, callback: *const fn (KUrlRequester, QMetaMethod) callconv(.c) bool) void {
-        qtc.KUrlRequester_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10699,48 +10351,6 @@ pub const KUrlRequester = extern struct {
     ///
     pub fn getDecodedMetricF(self: KUrlRequester, metricA: i32, metricB: i32) f64 {
         return qtc.KUrlRequester_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequester `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KUrlRequester, metricA: i32, metricB: i32) f64 {
-        return qtc.KUrlRequester_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequester`
-    ///
-    /// ` callback: *const fn (self: KUrlRequester, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KUrlRequester, callback: *const fn (KUrlRequester, i32, i32) callconv(.c) f64) void {
-        qtc.KUrlRequester_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -10845,9 +10455,9 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KUrlComboRequester) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KUrlComboRequester, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester) callconv(.c) QMetaObject) void {
         qtc.KUrlComboRequester_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18012,9 +17622,9 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester`
     ///
-    /// ` callback: *const fn () callconv(.c) QFileDialog `
+    /// ` callback: *const fn (self: KUrlComboRequester) callconv(.c) QFileDialog `
     ///
-    pub fn onFileDialog(self: KUrlComboRequester, callback: *const fn () callconv(.c) QFileDialog) void {
+    pub fn onFileDialog(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester) callconv(.c) QFileDialog) void {
         qtc.KUrlComboRequester_OnFileDialog(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18198,9 +17808,9 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KUrlComboRequester) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KUrlComboRequester, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester) callconv(.c) i32) void {
         qtc.KUrlComboRequester_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18314,11 +17924,11 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KUrlComboRequester) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KUrlComboRequester, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester) callconv(.c) QSize) void {
         qtc.KUrlComboRequester_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18372,11 +17982,11 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KUrlComboRequester) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KUrlComboRequester, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester) callconv(.c) QSize) void {
         qtc.KUrlComboRequester_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18490,9 +18100,9 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlComboRequester) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KUrlComboRequester, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester) callconv(.c) bool) void {
         qtc.KUrlComboRequester_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18546,9 +18156,9 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KUrlComboRequester) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KUrlComboRequester, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester) callconv(.c) QPaintEngine) void {
         qtc.KUrlComboRequester_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20412,9 +20022,9 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KUrlComboRequester) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KUrlComboRequester, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester) callconv(.c) QPainter) void {
         qtc.KUrlComboRequester_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20930,44 +20540,6 @@ pub const KUrlComboRequester = extern struct {
         qtc.KUrlComboRequester_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboRequester `
-    ///
-    pub fn superUpdateMicroFocus(self: KUrlComboRequester) void {
-        qtc.KUrlComboRequester_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboRequester`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KUrlComboRequester, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlComboRequester_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -20984,44 +20556,6 @@ pub const KUrlComboRequester = extern struct {
     ///
     pub fn create(self: KUrlComboRequester) void {
         qtc.KUrlComboRequester_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboRequester `
-    ///
-    pub fn superCreate(self: KUrlComboRequester) void {
-        qtc.KUrlComboRequester_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboRequester`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KUrlComboRequester, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlComboRequester_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -21042,44 +20576,6 @@ pub const KUrlComboRequester = extern struct {
         qtc.KUrlComboRequester_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboRequester `
-    ///
-    pub fn superDestroy(self: KUrlComboRequester) void {
-        qtc.KUrlComboRequester_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboRequester`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KUrlComboRequester, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlComboRequester_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -21096,44 +20592,6 @@ pub const KUrlComboRequester = extern struct {
     ///
     pub fn focusNextChild(self: KUrlComboRequester) bool {
         return qtc.KUrlComboRequester_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboRequester `
-    ///
-    pub fn superFocusNextChild(self: KUrlComboRequester) bool {
-        return qtc.KUrlComboRequester_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboRequester`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KUrlComboRequester, callback: *const fn () callconv(.c) bool) void {
-        qtc.KUrlComboRequester_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -21154,44 +20612,6 @@ pub const KUrlComboRequester = extern struct {
         return qtc.KUrlComboRequester_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboRequester `
-    ///
-    pub fn superFocusPreviousChild(self: KUrlComboRequester) bool {
-        return qtc.KUrlComboRequester_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboRequester`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KUrlComboRequester, callback: *const fn () callconv(.c) bool) void {
-        qtc.KUrlComboRequester_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -21210,44 +20630,6 @@ pub const KUrlComboRequester = extern struct {
         return .{ .ptr = qtc.KUrlComboRequester_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboRequester `
-    ///
-    pub fn superSender(self: KUrlComboRequester) QObject {
-        return .{ .ptr = qtc.KUrlComboRequester_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboRequester`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KUrlComboRequester, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KUrlComboRequester_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -21264,44 +20646,6 @@ pub const KUrlComboRequester = extern struct {
     ///
     pub fn senderSignalIndex(self: KUrlComboRequester) i32 {
         return qtc.KUrlComboRequester_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboRequester `
-    ///
-    pub fn superSenderSignalIndex(self: KUrlComboRequester) i32 {
-        return qtc.KUrlComboRequester_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboRequester`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KUrlComboRequester, callback: *const fn () callconv(.c) i32) void {
-        qtc.KUrlComboRequester_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -21325,47 +20669,6 @@ pub const KUrlComboRequester = extern struct {
         return qtc.KUrlComboRequester_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboRequester `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KUrlComboRequester, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KUrlComboRequester_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboRequester`
-    ///
-    /// ` callback: *const fn (self: KUrlComboRequester, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KUrlComboRequester_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -21385,47 +20688,6 @@ pub const KUrlComboRequester = extern struct {
     pub fn isSignalConnected(self: KUrlComboRequester, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KUrlComboRequester_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboRequester `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KUrlComboRequester, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KUrlComboRequester_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboRequester`
-    ///
-    /// ` callback: *const fn (self: KUrlComboRequester, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMetaMethod) callconv(.c) bool) void {
-        qtc.KUrlComboRequester_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -21448,48 +20710,6 @@ pub const KUrlComboRequester = extern struct {
     ///
     pub fn getDecodedMetricF(self: KUrlComboRequester, metricA: i32, metricB: i32) f64 {
         return qtc.KUrlComboRequester_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboRequester `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KUrlComboRequester, metricA: i32, metricB: i32) f64 {
-        return qtc.KUrlComboRequester_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboRequester`
-    ///
-    /// ` callback: *const fn (self: KUrlComboRequester, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, i32, i32) callconv(.c) f64) void {
-        qtc.KUrlComboRequester_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

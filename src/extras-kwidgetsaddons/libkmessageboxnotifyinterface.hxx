@@ -9,36 +9,20 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KMessageBoxNotifyInterface so that we can call protected methods
+// This class is a subclass of KMessageBoxNotifyInterface
 class VirtualKMessageBoxNotifyInterface : public KMessageBoxNotifyInterface {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKMessageBoxNotifyInterface = true;
-
-    // Virtual class public types (including callbacks)
+    // Virtual class public types (including callbacks and access types)
     using KMessageBoxNotifyInterface_SendNotification_Callback = void (*)(KMessageBoxNotifyInterface*, int, const char*, QWidget*);
 
-  protected:
     // Instance callback storage
     KMessageBoxNotifyInterface_SendNotification_Callback kmessageboxnotifyinterface_sendnotification_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kmessageboxnotifyinterface_sendnotification_isbase = false;
-
-  public:
     VirtualKMessageBoxNotifyInterface() : KMessageBoxNotifyInterface() {};
-
-    // Callback setters
-    inline void setKMessageBoxNotifyInterface_SendNotification_Callback(KMessageBoxNotifyInterface_SendNotification_Callback cb) { kmessageboxnotifyinterface_sendnotification_callback = cb; }
-
-    // Base flag setters
-    inline void setKMessageBoxNotifyInterface_SendNotification_IsBase(bool value) const { kmessageboxnotifyinterface_sendnotification_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void sendNotification(QMessageBox::Icon notificationType, const QString& message, QWidget* parent) override {
-        auto sendnotification_cb = kmessageboxnotifyinterface_sendnotification_callback;
-        if (sendnotification_cb) {
+        if (kmessageboxnotifyinterface_sendnotification_callback) {
             int cbval1 = static_cast<int>(notificationType);
             const auto message_ret = message;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -49,9 +33,12 @@ class VirtualKMessageBoxNotifyInterface : public KMessageBoxNotifyInterface {
             ((char*)message_str)[message_str_len] = '\0';
             const char* cbval2 = message_str;
             QWidget* cbval3 = parent;
-            sendnotification_cb(this, cbval1, cbval2, cbval3);
+            kmessageboxnotifyinterface_sendnotification_callback(this, cbval1, cbval2, cbval3);
             libqt_free(message_str);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method KMessageBoxNotifyInterface::sendNotification called without being implemented");
     }
 };
 

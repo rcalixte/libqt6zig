@@ -372,6 +372,8 @@ pub const KCodecs__Codec = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#maxEncodedSizeFor)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KCodecs__Codec `
@@ -389,6 +391,8 @@ pub const KCodecs__Codec = extern struct {
     pub const MaxDecodedSizeFor = maxDecodedSizeFor;
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#maxDecodedSizeFor)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -408,6 +412,8 @@ pub const KCodecs__Codec = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#makeEncoder)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KCodecs__Codec `
@@ -423,6 +429,8 @@ pub const KCodecs__Codec = extern struct {
     pub const MakeDecoder = makeDecoder;
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#makeDecoder)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -548,6 +556,8 @@ pub const KCodecs__Codec = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#name)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KCodecs__Codec `
@@ -661,6 +671,8 @@ pub const KCodecs__Decoder = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-decoder.html#decode)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KCodecs__Decoder `
@@ -686,6 +698,8 @@ pub const KCodecs__Decoder = extern struct {
     pub const Finish = finish;
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-decoder.html#finish)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -732,6 +746,8 @@ pub const KCodecs__Encoder = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-encoder.html#encode)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KCodecs__Encoder `
@@ -757,6 +773,8 @@ pub const KCodecs__Encoder = extern struct {
     pub const Finish = finish;
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-encoder.html#finish)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

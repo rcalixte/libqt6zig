@@ -18,20 +18,13 @@ void QGeoServiceProviderFactory_OperatorAssign(QGeoServiceProviderFactory* self,
 
 // Base class handler implementation
 void QGeoServiceProviderFactory_SuperSetQmlEngine(QGeoServiceProviderFactory* self, QQmlEngine* engine) {
-    auto* vqgeoserviceproviderfactory = dynamic_cast<VirtualQGeoServiceProviderFactory*>(self);
-    if (vqgeoserviceproviderfactory && vqgeoserviceproviderfactory->isVirtualQGeoServiceProviderFactory) {
-        vqgeoserviceproviderfactory->setQGeoServiceProviderFactory_SetQmlEngine_IsBase(true);
-        vqgeoserviceproviderfactory->setQmlEngine(engine);
-    } else {
-        self->QGeoServiceProviderFactory::setQmlEngine(engine);
-    }
+    self->QGeoServiceProviderFactory::setQmlEngine(engine);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProviderFactory_OnSetQmlEngine(QGeoServiceProviderFactory* self, intptr_t slot) {
-    auto* vqgeoserviceproviderfactory = dynamic_cast<VirtualQGeoServiceProviderFactory*>(self);
-    if (vqgeoserviceproviderfactory && vqgeoserviceproviderfactory->isVirtualQGeoServiceProviderFactory)
-        vqgeoserviceproviderfactory->setQGeoServiceProviderFactory_SetQmlEngine_Callback(reinterpret_cast<VirtualQGeoServiceProviderFactory::QGeoServiceProviderFactory_SetQmlEngine_Callback>(slot));
+    if (auto* vqgeoserviceproviderfactory = dynamic_cast<VirtualQGeoServiceProviderFactory*>(self))
+        vqgeoserviceproviderfactory->qgeoserviceproviderfactory_setqmlengine_callback = reinterpret_cast<VirtualQGeoServiceProviderFactory::QGeoServiceProviderFactory_SetQmlEngine_Callback>(slot);
 }
 
 void QGeoServiceProviderFactory_Delete(QGeoServiceProviderFactory* self) {

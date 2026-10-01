@@ -388,14 +388,14 @@ void Konsole__Emulation_Connect_OutputFromKeypressEvent(Konsole__Emulation* self
 
 void Konsole__Emulation_SetMode(Konsole__Emulation* self, int mode) {
     auto* vkonsole__emulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsole__emulation && vkonsole__emulation->isVirtualKonsoleEmulation) {
+    if (vkonsole__emulation) {
         vkonsole__emulation->setMode(static_cast<int>(mode));
     }
 }
 
 void Konsole__Emulation_ResetMode(Konsole__Emulation* self, int mode) {
     auto* vkonsole__emulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsole__emulation && vkonsole__emulation->isVirtualKonsoleEmulation) {
+    if (vkonsole__emulation) {
         vkonsole__emulation->resetMode(static_cast<int>(mode));
     }
 }
@@ -426,629 +426,323 @@ libqt_string Konsole__Emulation_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* Konsole__Emulation_SuperMetaObject(const Konsole__Emulation* self) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_MetaObject_IsBase(true);
-        return (QMetaObject*)vkonsoleemulation->metaObject();
-    } else {
-        return (QMetaObject*)self->Konsole::Emulation::metaObject();
-    }
+    return (QMetaObject*)self->Konsole::Emulation::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Konsole__Emulation_OnMetaObject(const Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_MetaObject_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_MetaObject_Callback>(slot));
+void Konsole__Emulation_OnMetaObject(Konsole__Emulation* self, intptr_t slot) {
+    if (auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self)))
+        vkonsoleemulation->konsole__emulation_metaobject_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* Konsole__Emulation_SuperMetacast(Konsole__Emulation* self, const char* param1) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_Metacast_IsBase(true);
-        return vkonsoleemulation->qt_metacast(param1);
-    } else {
-        return self->Konsole::Emulation::qt_metacast(param1);
-    }
+    return self->Konsole::Emulation::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnMetacast(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_Metacast_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_Metacast_Callback>(slot));
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_metacast_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int Konsole__Emulation_SuperMetacall(Konsole__Emulation* self, int param1, int param2, void** param3) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_Metacall_IsBase(true);
-        return vkonsoleemulation->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->Konsole::Emulation::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->Konsole::Emulation::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnMetacall(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_Metacall_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_Metacall_Callback>(slot));
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_metacall_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 char Konsole__Emulation_SuperEraseChar(const Konsole__Emulation* self) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_EraseChar_IsBase(true);
-        return vkonsoleemulation->eraseChar();
-    } else {
-        return self->Konsole::Emulation::eraseChar();
-    }
+    return self->Konsole::Emulation::eraseChar();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Konsole__Emulation_OnEraseChar(const Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_EraseChar_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_EraseChar_Callback>(slot));
-}
-
-// Base class handler implementation
-void Konsole__Emulation_SuperClearEntireScreen(Konsole__Emulation* self) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_ClearEntireScreen_IsBase(true);
-        vkonsoleemulation->clearEntireScreen();
-    } else {
-        ((VirtualKonsoleEmulation*)self)->clearEntireScreen();
-    }
+void Konsole__Emulation_OnEraseChar(Konsole__Emulation* self, intptr_t slot) {
+    if (auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self)))
+        vkonsoleemulation->konsole__emulation_erasechar_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_EraseChar_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnClearEntireScreen(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_ClearEntireScreen_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_ClearEntireScreen_Callback>(slot));
-}
-
-// Base class handler implementation
-void Konsole__Emulation_SuperReset(Konsole__Emulation* self) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_Reset_IsBase(true);
-        vkonsoleemulation->reset();
-    } else {
-        ((VirtualKonsoleEmulation*)self)->reset();
-    }
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_clearentirescreen_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_ClearEntireScreen_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnReset(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_Reset_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_Reset_Callback>(slot));
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_reset_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_Reset_Callback>(slot);
 }
 
 // Base class handler implementation
 void Konsole__Emulation_SuperSetImageSize(Konsole__Emulation* self, int lines, int columns) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_SetImageSize_IsBase(true);
-        vkonsoleemulation->setImageSize(static_cast<int>(lines), static_cast<int>(columns));
-    } else {
-        self->Konsole::Emulation::setImageSize(static_cast<int>(lines), static_cast<int>(columns));
-    }
+    self->Konsole::Emulation::setImageSize(static_cast<int>(lines), static_cast<int>(columns));
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnSetImageSize(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_SetImageSize_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SetImageSize_Callback>(slot));
-}
-
-// Base class handler implementation
-void Konsole__Emulation_SuperSendText(Konsole__Emulation* self, const libqt_string text) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_SendText_IsBase(true);
-        vkonsoleemulation->sendText(text_QString);
-    } else {
-        ((VirtualKonsoleEmulation*)self)->sendText(text_QString);
-    }
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_setimagesize_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SetImageSize_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnSendText(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_SendText_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SendText_Callback>(slot));
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_sendtext_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SendText_Callback>(slot);
 }
 
 // Base class handler implementation
 void Konsole__Emulation_SuperSendKeyEvent(Konsole__Emulation* self, QKeyEvent* param1, bool fromPaste) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_SendKeyEvent_IsBase(true);
-        vkonsoleemulation->sendKeyEvent(param1, fromPaste);
-    } else {
-        self->Konsole::Emulation::sendKeyEvent(param1, fromPaste);
-    }
+    self->Konsole::Emulation::sendKeyEvent(param1, fromPaste);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnSendKeyEvent(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_SendKeyEvent_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SendKeyEvent_Callback>(slot));
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_sendkeyevent_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SendKeyEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void Konsole__Emulation_SuperSendMouseEvent(Konsole__Emulation* self, int buttons, int column, int line, int eventType) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_SendMouseEvent_IsBase(true);
-        vkonsoleemulation->sendMouseEvent(static_cast<int>(buttons), static_cast<int>(column), static_cast<int>(line), static_cast<int>(eventType));
-    } else {
-        self->Konsole::Emulation::sendMouseEvent(static_cast<int>(buttons), static_cast<int>(column), static_cast<int>(line), static_cast<int>(eventType));
-    }
+    self->Konsole::Emulation::sendMouseEvent(static_cast<int>(buttons), static_cast<int>(column), static_cast<int>(line), static_cast<int>(eventType));
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnSendMouseEvent(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_SendMouseEvent_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SendMouseEvent_Callback>(slot));
-}
-
-// Base class handler implementation
-void Konsole__Emulation_SuperSendString(Konsole__Emulation* self, const char* string, int length) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_SendString_IsBase(true);
-        vkonsoleemulation->sendString(string, static_cast<int>(length));
-    } else {
-        ((VirtualKonsoleEmulation*)self)->sendString(string, static_cast<int>(length));
-    }
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_sendmouseevent_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SendMouseEvent_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnSendString(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_SendString_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SendString_Callback>(slot));
-}
-
-// Base class handler implementation
-void Konsole__Emulation_SuperSetMode(Konsole__Emulation* self, int mode) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_SetMode_IsBase(true);
-        vkonsoleemulation->setMode(static_cast<int>(mode));
-    } else {
-        ((VirtualKonsoleEmulation*)self)->setMode(static_cast<int>(mode));
-    }
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_sendstring_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SendString_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnSetMode(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_SetMode_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SetMode_Callback>(slot));
-}
-
-// Base class handler implementation
-void Konsole__Emulation_SuperResetMode(Konsole__Emulation* self, int mode) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_ResetMode_IsBase(true);
-        vkonsoleemulation->resetMode(static_cast<int>(mode));
-    } else {
-        ((VirtualKonsoleEmulation*)self)->resetMode(static_cast<int>(mode));
-    }
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_setmode_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SetMode_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnResetMode(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_ResetMode_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_ResetMode_Callback>(slot));
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_resetmode_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_ResetMode_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Konsole__Emulation_Event(Konsole__Emulation* self, QEvent* event) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        return vkonsoleemulation->event(event);
-    } else {
-        return self->Konsole::Emulation::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool Konsole__Emulation_SuperEvent(Konsole__Emulation* self, QEvent* event) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_Event_IsBase(true);
-        return vkonsoleemulation->event(event);
-    } else {
-        return self->Konsole::Emulation::event(event);
-    }
+    return self->Konsole::Emulation::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnEvent(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_Event_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_Event_Callback>(slot));
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_event_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Konsole__Emulation_EventFilter(Konsole__Emulation* self, QObject* watched, QEvent* event) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        return vkonsoleemulation->eventFilter(watched, event);
-    } else {
-        return self->Konsole::Emulation::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool Konsole__Emulation_SuperEventFilter(Konsole__Emulation* self, QObject* watched, QEvent* event) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_EventFilter_IsBase(true);
-        return vkonsoleemulation->eventFilter(watched, event);
-    } else {
-        return self->Konsole::Emulation::eventFilter(watched, event);
-    }
+    return self->Konsole::Emulation::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnEventFilter(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_EventFilter_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_EventFilter_Callback>(slot));
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_eventfilter_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Konsole__Emulation_TimerEvent(Konsole__Emulation* self, QTimerEvent* event) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
+    if (vkonsoleemulation) {
         vkonsoleemulation->timerEvent(event);
     } else {
-        ((VirtualKonsoleEmulation*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method Konsole::Emulation::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Konsole__Emulation_SuperTimerEvent(Konsole__Emulation* self, QTimerEvent* event) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_TimerEvent_IsBase(true);
-        vkonsoleemulation->timerEvent(event);
-    } else {
-        ((VirtualKonsoleEmulation*)self)->timerEvent(event);
-    }
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self)) {
+        vkonsoleemulation->Konsole::Emulation::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Konsole::Emulation::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnTimerEvent(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_TimerEvent_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_TimerEvent_Callback>(slot));
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_timerevent_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Konsole__Emulation_ChildEvent(Konsole__Emulation* self, QChildEvent* event) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
+    if (vkonsoleemulation) {
         vkonsoleemulation->childEvent(event);
     } else {
-        ((VirtualKonsoleEmulation*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method Konsole::Emulation::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Konsole__Emulation_SuperChildEvent(Konsole__Emulation* self, QChildEvent* event) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_ChildEvent_IsBase(true);
-        vkonsoleemulation->childEvent(event);
-    } else {
-        ((VirtualKonsoleEmulation*)self)->childEvent(event);
-    }
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self)) {
+        vkonsoleemulation->Konsole::Emulation::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Konsole::Emulation::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnChildEvent(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_ChildEvent_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_ChildEvent_Callback>(slot));
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_childevent_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Konsole__Emulation_CustomEvent(Konsole__Emulation* self, QEvent* event) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
+    if (vkonsoleemulation) {
         vkonsoleemulation->customEvent(event);
     } else {
-        ((VirtualKonsoleEmulation*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method Konsole::Emulation::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Konsole__Emulation_SuperCustomEvent(Konsole__Emulation* self, QEvent* event) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_CustomEvent_IsBase(true);
-        vkonsoleemulation->customEvent(event);
-    } else {
-        ((VirtualKonsoleEmulation*)self)->customEvent(event);
-    }
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self)) {
+        vkonsoleemulation->Konsole::Emulation::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Konsole::Emulation::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnCustomEvent(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_CustomEvent_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_CustomEvent_Callback>(slot));
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_customevent_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Konsole__Emulation_ConnectNotify(Konsole__Emulation* self, const QMetaMethod* signal) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
+    if (vkonsoleemulation) {
         vkonsoleemulation->connectNotify(*signal);
     } else {
-        ((VirtualKonsoleEmulation*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method Konsole::Emulation::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Konsole__Emulation_SuperConnectNotify(Konsole__Emulation* self, const QMetaMethod* signal) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_ConnectNotify_IsBase(true);
-        vkonsoleemulation->connectNotify(*signal);
-    } else {
-        ((VirtualKonsoleEmulation*)self)->connectNotify(*signal);
-    }
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self)) {
+        vkonsoleemulation->Konsole::Emulation::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Konsole::Emulation::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnConnectNotify(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_ConnectNotify_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_ConnectNotify_Callback>(slot));
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_connectnotify_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Konsole__Emulation_DisconnectNotify(Konsole__Emulation* self, const QMetaMethod* signal) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
+    if (vkonsoleemulation) {
         vkonsoleemulation->disconnectNotify(*signal);
     } else {
-        ((VirtualKonsoleEmulation*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method Konsole::Emulation::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Konsole__Emulation_SuperDisconnectNotify(Konsole__Emulation* self, const QMetaMethod* signal) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_DisconnectNotify_IsBase(true);
-        vkonsoleemulation->disconnectNotify(*signal);
-    } else {
-        ((VirtualKonsoleEmulation*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self)) {
+        vkonsoleemulation->Konsole::Emulation::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Konsole::Emulation::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Emulation_OnDisconnectNotify(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_DisconnectNotify_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_DisconnectNotify_Callback>(slot));
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self))
+        vkonsoleemulation->konsole__emulation_disconnectnotify_callback = reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Konsole__Emulation_SetScreen(Konsole__Emulation* self, int index) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setScreen(static_cast<int>(index));
-    } else {
-        ((VirtualKonsoleEmulation*)self)->setScreen(static_cast<int>(index));
-    }
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self)) {
+        vkonsoleemulation->VirtualKonsoleEmulation::setScreen(static_cast<int>(index));
+    } else
+        qFatal("Error: Protected method Konsole::Emulation::setScreen called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Konsole__Emulation_SuperSetScreen(Konsole__Emulation* self, int index) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_SetScreen_IsBase(true);
-        vkonsoleemulation->setScreen(static_cast<int>(index));
-    } else {
-        ((VirtualKonsoleEmulation*)self)->setScreen(static_cast<int>(index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Konsole__Emulation_OnSetScreen(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_SetScreen_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SetScreen_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Konsole__Emulation_SetCodec(Konsole__Emulation* self, int codec) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setCodec(static_cast<VirtualKonsoleEmulation::EmulationCodec>(codec));
-    } else {
-        ((VirtualKonsoleEmulation*)self)->setCodec(static_cast<VirtualKonsoleEmulation::EmulationCodec>(codec));
-    }
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self)) {
+        vkonsoleemulation->VirtualKonsoleEmulation::setCodec(static_cast<VirtualKonsoleEmulation::EmulationCodec>(codec));
+    } else
+        qFatal("Error: Protected method Konsole::Emulation::setCodec called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Konsole__Emulation_SuperSetCodec(Konsole__Emulation* self, int codec) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_SetCodec_IsBase(true);
-        vkonsoleemulation->setCodec(static_cast<VirtualKonsoleEmulation::EmulationCodec>(codec));
-    } else {
-        ((VirtualKonsoleEmulation*)self)->setCodec(static_cast<VirtualKonsoleEmulation::EmulationCodec>(codec));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Konsole__Emulation_OnSetCodec(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_SetCodec_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SetCodec_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Konsole__Emulation_BufferedUpdate(Konsole__Emulation* self) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->bufferedUpdate();
-    } else {
-        ((VirtualKonsoleEmulation*)self)->bufferedUpdate();
-    }
+    if (auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self)) {
+        vkonsoleemulation->VirtualKonsoleEmulation::bufferedUpdate();
+    } else
+        qFatal("Error: Protected method Konsole::Emulation::bufferedUpdate called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Konsole__Emulation_SuperBufferedUpdate(Konsole__Emulation* self) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_BufferedUpdate_IsBase(true);
-        vkonsoleemulation->bufferedUpdate();
-    } else {
-        ((VirtualKonsoleEmulation*)self)->bufferedUpdate();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Konsole__Emulation_OnBufferedUpdate(Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_BufferedUpdate_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_BufferedUpdate_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* Konsole__Emulation_Sender(const Konsole__Emulation* self) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        return vkonsoleemulation->sender();
-    } else {
-        return ((VirtualKonsoleEmulation*)self)->sender();
-    }
+    if (auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self))) {
+        return vkonsoleemulation->VirtualKonsoleEmulation::sender();
+    } else
+        qFatal("Error: Protected method Konsole::Emulation::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* Konsole__Emulation_SuperSender(const Konsole__Emulation* self) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_Sender_IsBase(true);
-        return vkonsoleemulation->sender();
-    } else {
-        return ((VirtualKonsoleEmulation*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Konsole__Emulation_OnSender(const Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_Sender_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Konsole__Emulation_SenderSignalIndex(const Konsole__Emulation* self) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        return vkonsoleemulation->senderSignalIndex();
-    } else {
-        return ((VirtualKonsoleEmulation*)self)->senderSignalIndex();
-    }
+    if (auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self))) {
+        return vkonsoleemulation->VirtualKonsoleEmulation::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method Konsole::Emulation::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Konsole__Emulation_SuperSenderSignalIndex(const Konsole__Emulation* self) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_SenderSignalIndex_IsBase(true);
-        return vkonsoleemulation->senderSignalIndex();
-    } else {
-        return ((VirtualKonsoleEmulation*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Konsole__Emulation_OnSenderSignalIndex(const Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_SenderSignalIndex_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Konsole__Emulation_Receivers(const Konsole__Emulation* self, const char* signal) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        return vkonsoleemulation->receivers(signal);
-    } else {
-        return ((VirtualKonsoleEmulation*)self)->receivers(signal);
-    }
+    if (auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self))) {
+        return vkonsoleemulation->VirtualKonsoleEmulation::receivers(signal);
+    } else
+        qFatal("Error: Protected method Konsole::Emulation::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Konsole__Emulation_SuperReceivers(const Konsole__Emulation* self, const char* signal) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_Receivers_IsBase(true);
-        return vkonsoleemulation->receivers(signal);
-    } else {
-        return ((VirtualKonsoleEmulation*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Konsole__Emulation_OnReceivers(const Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_Receivers_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Konsole__Emulation_IsSignalConnected(const Konsole__Emulation* self, const QMetaMethod* signal) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        return vkonsoleemulation->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKonsoleEmulation*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool Konsole__Emulation_SuperIsSignalConnected(const Konsole__Emulation* self, const QMetaMethod* signal) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
-        vkonsoleemulation->setKonsole__Emulation_IsSignalConnected_IsBase(true);
-        return vkonsoleemulation->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKonsoleEmulation*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Konsole__Emulation_OnIsSignalConnected(const Konsole__Emulation* self, intptr_t slot) {
-    auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
-    if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation)
-        vkonsoleemulation->setKonsole__Emulation_IsSignalConnected_Callback(reinterpret_cast<VirtualKonsoleEmulation::Konsole__Emulation_IsSignalConnected_Callback>(slot));
+    if (auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self))) {
+        return vkonsoleemulation->VirtualKonsoleEmulation::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method Konsole::Emulation::isSignalConnected called without a directly constructed type");
 }
 
 void Konsole__Emulation_Delete(Konsole__Emulation* self) {

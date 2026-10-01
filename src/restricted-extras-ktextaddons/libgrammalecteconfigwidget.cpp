@@ -107,1654 +107,1173 @@ libqt_string TextGrammarCheck__GrammalecteConfigWidget_Tr3(const char* s, const 
 
 // Base class handler implementation
 QMetaObject* TextGrammarCheck__GrammalecteConfigWidget_SuperMetaObject(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vtextgrammarcheckgrammalecteconfigwidget->metaObject();
-    } else {
-        return (QMetaObject*)self->TextGrammarCheck::GrammalecteConfigWidget::metaObject();
-    }
+    return (QMetaObject*)self->TextGrammarCheck::GrammalecteConfigWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnMetaObject(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MetaObject_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MetaObject_Callback>(slot));
+void TextGrammarCheck__GrammalecteConfigWidget_OnMetaObject(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_metaobject_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextGrammarCheck__GrammalecteConfigWidget_SuperMetacast(TextGrammarCheck__GrammalecteConfigWidget* self, const char* param1) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Metacast_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->qt_metacast(param1);
-    } else {
-        return self->TextGrammarCheck::GrammalecteConfigWidget::qt_metacast(param1);
-    }
+    return self->TextGrammarCheck::GrammalecteConfigWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMetacast(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Metacast_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Metacast_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_metacast_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextGrammarCheck__GrammalecteConfigWidget_SuperMetacall(TextGrammarCheck__GrammalecteConfigWidget* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Metacall_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextGrammarCheck::GrammalecteConfigWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextGrammarCheck::GrammalecteConfigWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMetacall(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Metacall_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Metacall_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_metacall_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextGrammarCheck__GrammalecteConfigWidget_DevType(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return vtextgrammarcheckgrammalecteconfigwidget->devType();
-    } else {
-        return self->TextGrammarCheck::GrammalecteConfigWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int TextGrammarCheck__GrammalecteConfigWidget_SuperDevType(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DevType_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->devType();
-    } else {
-        return self->TextGrammarCheck::GrammalecteConfigWidget::devType();
-    }
+    return self->TextGrammarCheck::GrammalecteConfigWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnDevType(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DevType_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DevType_Callback>(slot));
+void TextGrammarCheck__GrammalecteConfigWidget_OnDevType(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_devtype_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SetVisible(TextGrammarCheck__GrammalecteConfigWidget* self, bool visible) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setVisible(visible);
-    } else {
-        self->TextGrammarCheck::GrammalecteConfigWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperSetVisible(TextGrammarCheck__GrammalecteConfigWidget* self, bool visible) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_SetVisible_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->setVisible(visible);
-    } else {
-        self->TextGrammarCheck::GrammalecteConfigWidget::setVisible(visible);
-    }
+    self->TextGrammarCheck::GrammalecteConfigWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnSetVisible(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_SetVisible_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_SetVisible_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_setvisible_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextGrammarCheck__GrammalecteConfigWidget_SizeHint(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return new QSize(vtextgrammarcheckgrammalecteconfigwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* TextGrammarCheck__GrammalecteConfigWidget_SuperSizeHint(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_SizeHint_IsBase(true);
-        return new QSize(vtextgrammarcheckgrammalecteconfigwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->sizeHint());
-    }
+    return new QSize(self->TextGrammarCheck::GrammalecteConfigWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnSizeHint(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_SizeHint_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_SizeHint_Callback>(slot));
+void TextGrammarCheck__GrammalecteConfigWidget_OnSizeHint(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_sizehint_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextGrammarCheck__GrammalecteConfigWidget_MinimumSizeHint(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return new QSize(vtextgrammarcheckgrammalecteconfigwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* TextGrammarCheck__GrammalecteConfigWidget_SuperMinimumSizeHint(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vtextgrammarcheckgrammalecteconfigwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->TextGrammarCheck::GrammalecteConfigWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnMinimumSizeHint(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MinimumSizeHint_Callback>(slot));
+void TextGrammarCheck__GrammalecteConfigWidget_OnMinimumSizeHint(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_minimumsizehint_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextGrammarCheck__GrammalecteConfigWidget_HeightForWidth(const TextGrammarCheck__GrammalecteConfigWidget* self, int param1) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return vtextgrammarcheckgrammalecteconfigwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextGrammarCheck::GrammalecteConfigWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int TextGrammarCheck__GrammalecteConfigWidget_SuperHeightForWidth(const TextGrammarCheck__GrammalecteConfigWidget* self, int param1) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_HeightForWidth_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextGrammarCheck::GrammalecteConfigWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->TextGrammarCheck::GrammalecteConfigWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnHeightForWidth(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_HeightForWidth_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_HeightForWidth_Callback>(slot));
+void TextGrammarCheck__GrammalecteConfigWidget_OnHeightForWidth(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_heightforwidth_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammalecteConfigWidget_HasHeightForWidth(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return vtextgrammarcheckgrammalecteconfigwidget->hasHeightForWidth();
-    } else {
-        return self->TextGrammarCheck::GrammalecteConfigWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammalecteConfigWidget_SuperHasHeightForWidth(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_HasHeightForWidth_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->hasHeightForWidth();
-    } else {
-        return self->TextGrammarCheck::GrammalecteConfigWidget::hasHeightForWidth();
-    }
+    return self->TextGrammarCheck::GrammalecteConfigWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnHasHeightForWidth(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_HasHeightForWidth_Callback>(slot));
+void TextGrammarCheck__GrammalecteConfigWidget_OnHasHeightForWidth(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_hasheightforwidth_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* TextGrammarCheck__GrammalecteConfigWidget_PaintEngine(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return vtextgrammarcheckgrammalecteconfigwidget->paintEngine();
-    } else {
-        return self->TextGrammarCheck::GrammalecteConfigWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* TextGrammarCheck__GrammalecteConfigWidget_SuperPaintEngine(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_PaintEngine_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->paintEngine();
-    } else {
-        return self->TextGrammarCheck::GrammalecteConfigWidget::paintEngine();
-    }
+    return self->TextGrammarCheck::GrammalecteConfigWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnPaintEngine(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_PaintEngine_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_PaintEngine_Callback>(slot));
+void TextGrammarCheck__GrammalecteConfigWidget_OnPaintEngine(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_paintengine_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammalecteConfigWidget_Event(TextGrammarCheck__GrammalecteConfigWidget* self, QEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         return vtextgrammarcheckgrammalecteconfigwidget->event(event);
     } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->event(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammalecteConfigWidget_SuperEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Event_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->event(event);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->event(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        return vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::event(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Event_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Event_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_event_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_MousePressEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QMouseEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->mousePressEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperMousePressEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QMouseEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MousePressEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->mousePressEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMousePressEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MousePressEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MousePressEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_mousepressevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_MouseReleaseEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QMouseEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperMouseReleaseEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QMouseEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MouseReleaseEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMouseReleaseEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_mousereleaseevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_MouseDoubleClickEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QMouseEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperMouseDoubleClickEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QMouseEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MouseDoubleClickEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMouseDoubleClickEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_MouseMoveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QMouseEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->mouseMoveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperMouseMoveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QMouseEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MouseMoveEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMouseMoveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_mousemoveevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_WheelEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QWheelEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->wheelEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperWheelEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QWheelEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_WheelEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->wheelEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnWheelEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_WheelEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_WheelEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_wheelevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_KeyPressEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QKeyEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->keyPressEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperKeyPressEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QKeyEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_KeyPressEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->keyPressEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnKeyPressEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_keypressevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_KeyReleaseEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QKeyEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->keyReleaseEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperKeyReleaseEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QKeyEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_KeyReleaseEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnKeyReleaseEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_keyreleaseevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_FocusInEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QFocusEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->focusInEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperFocusInEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QFocusEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusInEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->focusInEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnFocusInEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusInEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_FocusInEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_focusinevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_FocusOutEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QFocusEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->focusOutEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperFocusOutEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QFocusEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusOutEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->focusOutEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnFocusOutEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_focusoutevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_EnterEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QEnterEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->enterEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperEnterEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QEnterEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_EnterEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->enterEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->enterEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnEnterEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_EnterEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_EnterEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_enterevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_LeaveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->leaveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperLeaveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_LeaveEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->leaveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnLeaveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_LeaveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_LeaveEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_leaveevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_PaintEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QPaintEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->paintEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperPaintEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QPaintEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_PaintEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->paintEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->paintEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnPaintEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_PaintEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_PaintEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_paintevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_MoveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QMoveEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->moveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperMoveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QMoveEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MoveEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->moveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->moveEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMoveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MoveEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_moveevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_ResizeEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QResizeEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->resizeEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperResizeEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QResizeEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ResizeEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->resizeEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnResizeEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ResizeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ResizeEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_resizeevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_CloseEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QCloseEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->closeEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperCloseEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QCloseEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_CloseEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->closeEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->closeEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnCloseEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_CloseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_CloseEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_closeevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_ContextMenuEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QContextMenuEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->contextMenuEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperContextMenuEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QContextMenuEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ContextMenuEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->contextMenuEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnContextMenuEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_contextmenuevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_TabletEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QTabletEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->tabletEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperTabletEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QTabletEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_TabletEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->tabletEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnTabletEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_TabletEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_TabletEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_tabletevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_ActionEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QActionEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->actionEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperActionEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QActionEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ActionEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->actionEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->actionEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnActionEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ActionEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ActionEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_actionevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_DragEnterEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QDragEnterEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->dragEnterEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperDragEnterEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QDragEnterEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DragEnterEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->dragEnterEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnDragEnterEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_dragenterevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_DragMoveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QDragMoveEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->dragMoveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperDragMoveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QDragMoveEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DragMoveEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->dragMoveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnDragMoveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_dragmoveevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_DragLeaveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QDragLeaveEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->dragLeaveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperDragLeaveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QDragLeaveEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DragLeaveEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnDragLeaveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_dragleaveevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_DropEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QDropEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->dropEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperDropEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QDropEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DropEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->dropEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->dropEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnDropEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DropEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DropEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_dropevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_ShowEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QShowEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->showEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperShowEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QShowEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ShowEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->showEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->showEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnShowEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ShowEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ShowEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_showevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_HideEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QHideEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->hideEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperHideEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QHideEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_HideEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->hideEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->hideEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnHideEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_HideEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_HideEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_hideevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammalecteConfigWidget_NativeEvent(TextGrammarCheck__GrammalecteConfigWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         return vtextgrammarcheckgrammalecteconfigwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammalecteConfigWidget_SuperNativeEvent(TextGrammarCheck__GrammalecteConfigWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_NativeEvent_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        return vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnNativeEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_NativeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_NativeEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_nativeevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_ChangeEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QEvent* param1) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->changeEvent(param1);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperChangeEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QEvent* param1) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ChangeEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->changeEvent(param1);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnChangeEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ChangeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ChangeEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_changeevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextGrammarCheck__GrammalecteConfigWidget_Metric(const TextGrammarCheck__GrammalecteConfigWidget* self, int param1) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         return vtextgrammarcheckgrammalecteconfigwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int TextGrammarCheck__GrammalecteConfigWidget_SuperMetric(const TextGrammarCheck__GrammalecteConfigWidget* self, int param1) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Metric_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))) {
+        return vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnMetric(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Metric_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Metric_Callback>(slot));
+void TextGrammarCheck__GrammalecteConfigWidget_OnMetric(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_metric_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_InitPainter(const TextGrammarCheck__GrammalecteConfigWidget* self, QPainter* painter) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->initPainter(painter);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperInitPainter(const TextGrammarCheck__GrammalecteConfigWidget* self, QPainter* painter) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_InitPainter_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->initPainter(painter);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->initPainter(painter);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnInitPainter(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_InitPainter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_InitPainter_Callback>(slot));
+void TextGrammarCheck__GrammalecteConfigWidget_OnInitPainter(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_initpainter_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* TextGrammarCheck__GrammalecteConfigWidget_Redirected(const TextGrammarCheck__GrammalecteConfigWidget* self, QPoint* offset) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         return vtextgrammarcheckgrammalecteconfigwidget->redirected(offset);
     } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* TextGrammarCheck__GrammalecteConfigWidget_SuperRedirected(const TextGrammarCheck__GrammalecteConfigWidget* self, QPoint* offset) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Redirected_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->redirected(offset);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->redirected(offset);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))) {
+        return vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnRedirected(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Redirected_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Redirected_Callback>(slot));
+void TextGrammarCheck__GrammalecteConfigWidget_OnRedirected(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_redirected_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* TextGrammarCheck__GrammalecteConfigWidget_SharedPainter(const TextGrammarCheck__GrammalecteConfigWidget* self) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         return vtextgrammarcheckgrammalecteconfigwidget->sharedPainter();
     } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* TextGrammarCheck__GrammalecteConfigWidget_SuperSharedPainter(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_SharedPainter_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->sharedPainter();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->sharedPainter();
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))) {
+        return vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnSharedPainter(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_SharedPainter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_SharedPainter_Callback>(slot));
+void TextGrammarCheck__GrammalecteConfigWidget_OnSharedPainter(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_sharedpainter_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_InputMethodEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QInputMethodEvent* param1) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->inputMethodEvent(param1);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperInputMethodEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QInputMethodEvent* param1) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_InputMethodEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnInputMethodEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_inputmethodevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* TextGrammarCheck__GrammalecteConfigWidget_InputMethodQuery(const TextGrammarCheck__GrammalecteConfigWidget* self, int param1) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return new QVariant(vtextgrammarcheckgrammalecteconfigwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* TextGrammarCheck__GrammalecteConfigWidget_SuperInputMethodQuery(const TextGrammarCheck__GrammalecteConfigWidget* self, int param1) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vtextgrammarcheckgrammalecteconfigwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->TextGrammarCheck::GrammalecteConfigWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnInputMethodQuery(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_InputMethodQuery_Callback>(slot));
+void TextGrammarCheck__GrammalecteConfigWidget_OnInputMethodQuery(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_inputmethodquery_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammalecteConfigWidget_FocusNextPrevChild(TextGrammarCheck__GrammalecteConfigWidget* self, bool next) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         return vtextgrammarcheckgrammalecteconfigwidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammalecteConfigWidget_SuperFocusNextPrevChild(TextGrammarCheck__GrammalecteConfigWidget* self, bool next) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusNextPrevChild_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        return vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnFocusNextPrevChild(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_focusnextprevchild_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammalecteConfigWidget_EventFilter(TextGrammarCheck__GrammalecteConfigWidget* self, QObject* watched, QEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return vtextgrammarcheckgrammalecteconfigwidget->eventFilter(watched, event);
-    } else {
-        return self->TextGrammarCheck::GrammalecteConfigWidget::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammalecteConfigWidget_SuperEventFilter(TextGrammarCheck__GrammalecteConfigWidget* self, QObject* watched, QEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_EventFilter_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->eventFilter(watched, event);
-    } else {
-        return self->TextGrammarCheck::GrammalecteConfigWidget::eventFilter(watched, event);
-    }
+    return self->TextGrammarCheck::GrammalecteConfigWidget::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnEventFilter(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_EventFilter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_EventFilter_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_eventfilter_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_TimerEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QTimerEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->timerEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperTimerEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QTimerEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_TimerEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->timerEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->timerEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnTimerEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_TimerEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_TimerEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_timerevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_ChildEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QChildEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->childEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperChildEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QChildEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ChildEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->childEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->childEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnChildEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ChildEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ChildEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_childevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_CustomEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QEvent* event) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->customEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperCustomEvent(TextGrammarCheck__GrammalecteConfigWidget* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_CustomEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->customEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->customEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnCustomEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_CustomEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_CustomEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_customevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_ConnectNotify(TextGrammarCheck__GrammalecteConfigWidget* self, const QMetaMethod* signal) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->connectNotify(*signal);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperConnectNotify(TextGrammarCheck__GrammalecteConfigWidget* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ConnectNotify_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->connectNotify(*signal);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnConnectNotify(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ConnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ConnectNotify_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_connectnotify_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_DisconnectNotify(TextGrammarCheck__GrammalecteConfigWidget* self, const QMetaMethod* signal) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget) {
         vtextgrammarcheckgrammalecteconfigwidget->disconnectNotify(*signal);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_SuperDisconnectNotify(TextGrammarCheck__GrammalecteConfigWidget* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DisconnectNotify_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->TextGrammarCheck::GrammalecteConfigWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteConfigWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnDisconnectNotify(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))
+        vtextgrammarcheckgrammalecteconfigwidget->textgrammarcheck__grammalecteconfigwidget_disconnectnotify_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_UpdateMicroFocus(TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->updateMicroFocus();
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->VirtualTextGrammarCheckGrammalecteConfigWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteConfigWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextGrammarCheck__GrammalecteConfigWidget_SuperUpdateMicroFocus(TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_UpdateMicroFocus_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->updateMicroFocus();
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnUpdateMicroFocus(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_Create(TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->create();
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->create();
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->VirtualTextGrammarCheckGrammalecteConfigWidget::create();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteConfigWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextGrammarCheck__GrammalecteConfigWidget_SuperCreate(TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Create_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->create();
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnCreate(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Create_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextGrammarCheck__GrammalecteConfigWidget_Destroy(TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->destroy();
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->destroy();
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        vtextgrammarcheckgrammalecteconfigwidget->VirtualTextGrammarCheckGrammalecteConfigWidget::destroy();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteConfigWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextGrammarCheck__GrammalecteConfigWidget_SuperDestroy(TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Destroy_IsBase(true);
-        vtextgrammarcheckgrammalecteconfigwidget->destroy();
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnDestroy(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Destroy_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextGrammarCheck__GrammalecteConfigWidget_FocusNextChild(TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return vtextgrammarcheckgrammalecteconfigwidget->focusNextChild();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->focusNextChild();
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        return vtextgrammarcheckgrammalecteconfigwidget->VirtualTextGrammarCheckGrammalecteConfigWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteConfigWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextGrammarCheck__GrammalecteConfigWidget_SuperFocusNextChild(TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusNextChild_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->focusNextChild();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnFocusNextChild(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusNextChild_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextGrammarCheck__GrammalecteConfigWidget_FocusPreviousChild(TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return vtextgrammarcheckgrammalecteconfigwidget->focusPreviousChild();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self)) {
+        return vtextgrammarcheckgrammalecteconfigwidget->VirtualTextGrammarCheckGrammalecteConfigWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteConfigWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextGrammarCheck__GrammalecteConfigWidget_SuperFocusPreviousChild(TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusPreviousChild_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->focusPreviousChild();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnFocusPreviousChild(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextGrammarCheck__GrammalecteConfigWidget_Sender(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return vtextgrammarcheckgrammalecteconfigwidget->sender();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->sender();
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))) {
+        return vtextgrammarcheckgrammalecteconfigwidget->VirtualTextGrammarCheckGrammalecteConfigWidget::sender();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteConfigWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextGrammarCheck__GrammalecteConfigWidget_SuperSender(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Sender_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->sender();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnSender(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Sender_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextGrammarCheck__GrammalecteConfigWidget_SenderSignalIndex(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return vtextgrammarcheckgrammalecteconfigwidget->senderSignalIndex();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))) {
+        return vtextgrammarcheckgrammalecteconfigwidget->VirtualTextGrammarCheckGrammalecteConfigWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteConfigWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextGrammarCheck__GrammalecteConfigWidget_SuperSenderSignalIndex(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_SenderSignalIndex_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->senderSignalIndex();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnSenderSignalIndex(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextGrammarCheck__GrammalecteConfigWidget_Receivers(const TextGrammarCheck__GrammalecteConfigWidget* self, const char* signal) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return vtextgrammarcheckgrammalecteconfigwidget->receivers(signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->receivers(signal);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))) {
+        return vtextgrammarcheckgrammalecteconfigwidget->VirtualTextGrammarCheckGrammalecteConfigWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteConfigWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextGrammarCheck__GrammalecteConfigWidget_SuperReceivers(const TextGrammarCheck__GrammalecteConfigWidget* self, const char* signal) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Receivers_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->receivers(signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnReceivers(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Receivers_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextGrammarCheck__GrammalecteConfigWidget_IsSignalConnected(const TextGrammarCheck__GrammalecteConfigWidget* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return vtextgrammarcheckgrammalecteconfigwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))) {
+        return vtextgrammarcheckgrammalecteconfigwidget->VirtualTextGrammarCheckGrammalecteConfigWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteConfigWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextGrammarCheck__GrammalecteConfigWidget_SuperIsSignalConnected(const TextGrammarCheck__GrammalecteConfigWidget* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_IsSignalConnected_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnIsSignalConnected(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double TextGrammarCheck__GrammalecteConfigWidget_GetDecodedMetricF(const TextGrammarCheck__GrammalecteConfigWidget* self, int metricA, int metricB) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return vtextgrammarcheckgrammalecteconfigwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double TextGrammarCheck__GrammalecteConfigWidget_SuperGetDecodedMetricF(const TextGrammarCheck__GrammalecteConfigWidget* self, int metricA, int metricB) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_GetDecodedMetricF_IsBase(true);
-        return vtextgrammarcheckgrammalecteconfigwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteConfigWidget_OnGetDecodedMetricF(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
-        vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self))) {
+        return vtextgrammarcheckgrammalecteconfigwidget->VirtualTextGrammarCheckGrammalecteConfigWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteConfigWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void TextGrammarCheck__GrammalecteConfigWidget_Delete(TextGrammarCheck__GrammalecteConfigWidget* self) {

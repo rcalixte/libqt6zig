@@ -65,17 +65,9 @@ bool KAr_CreateDevice(KAr* self, int mode);
 void KAr_OnCreateDevice(KAr* self, intptr_t slot);
 bool KAr_SuperCreateDevice(KAr* self, int mode);
 void KAr_SetErrorString(KAr* self, const libqt_string errorStr);
-void KAr_OnSetErrorString(KAr* self, intptr_t slot);
-void KAr_SuperSetErrorString(KAr* self, const libqt_string errorStr);
 KArchiveDirectory* KAr_FindOrCreate(KAr* self, const libqt_string path);
-void KAr_OnFindOrCreate(KAr* self, intptr_t slot);
-KArchiveDirectory* KAr_SuperFindOrCreate(KAr* self, const libqt_string path);
 void KAr_SetDevice(KAr* self, QIODevice* dev);
-void KAr_OnSetDevice(KAr* self, intptr_t slot);
-void KAr_SuperSetDevice(KAr* self, QIODevice* dev);
 void KAr_SetRootDir(KAr* self, KArchiveDirectory* rootDir);
-void KAr_OnSetRootDir(KAr* self, intptr_t slot);
-void KAr_SuperSetRootDir(KAr* self, KArchiveDirectory* rootDir);
 void KAr_Delete(KAr* self);
 
 #ifdef __cplusplus

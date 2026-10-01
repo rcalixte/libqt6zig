@@ -36,16 +36,14 @@ libqt_string QDBusVirtualObject_Introspect(const QDBusVirtualObject* self, const
 bool QDBusVirtualObject_HandleMessage(QDBusVirtualObject* self, const QDBusMessage* message, const QDBusConnection* connection);
 libqt_string QDBusVirtualObject_Tr2(const char* s, const char* c);
 libqt_string QDBusVirtualObject_Tr3(const char* s, const char* c, int n);
-void QDBusVirtualObject_OnMetaObject(const QDBusVirtualObject* self, intptr_t slot);
+void QDBusVirtualObject_OnMetaObject(QDBusVirtualObject* self, intptr_t slot);
 QMetaObject* QDBusVirtualObject_SuperMetaObject(const QDBusVirtualObject* self);
 void QDBusVirtualObject_OnMetacast(QDBusVirtualObject* self, intptr_t slot);
 void* QDBusVirtualObject_SuperMetacast(QDBusVirtualObject* self, const char* param1);
 void QDBusVirtualObject_OnMetacall(QDBusVirtualObject* self, intptr_t slot);
 int QDBusVirtualObject_SuperMetacall(QDBusVirtualObject* self, int param1, int param2, void** param3);
-void QDBusVirtualObject_OnIntrospect(const QDBusVirtualObject* self, intptr_t slot);
-libqt_string QDBusVirtualObject_SuperIntrospect(const QDBusVirtualObject* self, const libqt_string path);
+void QDBusVirtualObject_OnIntrospect(QDBusVirtualObject* self, intptr_t slot);
 void QDBusVirtualObject_OnHandleMessage(QDBusVirtualObject* self, intptr_t slot);
-bool QDBusVirtualObject_SuperHandleMessage(QDBusVirtualObject* self, const QDBusMessage* message, const QDBusConnection* connection);
 bool QDBusVirtualObject_Event(QDBusVirtualObject* self, QEvent* event);
 void QDBusVirtualObject_OnEvent(QDBusVirtualObject* self, intptr_t slot);
 bool QDBusVirtualObject_SuperEvent(QDBusVirtualObject* self, QEvent* event);
@@ -68,17 +66,9 @@ void QDBusVirtualObject_DisconnectNotify(QDBusVirtualObject* self, const QMetaMe
 void QDBusVirtualObject_OnDisconnectNotify(QDBusVirtualObject* self, intptr_t slot);
 void QDBusVirtualObject_SuperDisconnectNotify(QDBusVirtualObject* self, const QMetaMethod* signal);
 QObject* QDBusVirtualObject_Sender(const QDBusVirtualObject* self);
-void QDBusVirtualObject_OnSender(const QDBusVirtualObject* self, intptr_t slot);
-QObject* QDBusVirtualObject_SuperSender(const QDBusVirtualObject* self);
 int QDBusVirtualObject_SenderSignalIndex(const QDBusVirtualObject* self);
-void QDBusVirtualObject_OnSenderSignalIndex(const QDBusVirtualObject* self, intptr_t slot);
-int QDBusVirtualObject_SuperSenderSignalIndex(const QDBusVirtualObject* self);
 int QDBusVirtualObject_Receivers(const QDBusVirtualObject* self, const char* signal);
-void QDBusVirtualObject_OnReceivers(const QDBusVirtualObject* self, intptr_t slot);
-int QDBusVirtualObject_SuperReceivers(const QDBusVirtualObject* self, const char* signal);
 bool QDBusVirtualObject_IsSignalConnected(const QDBusVirtualObject* self, const QMetaMethod* signal);
-void QDBusVirtualObject_OnIsSignalConnected(const QDBusVirtualObject* self, intptr_t slot);
-bool QDBusVirtualObject_SuperIsSignalConnected(const QDBusVirtualObject* self, const QMetaMethod* signal);
 void QDBusVirtualObject_Delete(QDBusVirtualObject* self);
 
 #ifdef __cplusplus

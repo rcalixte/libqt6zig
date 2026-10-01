@@ -90,168 +90,63 @@ void KUriFilterSearchProvider_OperatorAssign(KUriFilterSearchProvider* self, con
 
 // Base class handler implementation
 libqt_string KUriFilterSearchProvider_SuperIconName(const KUriFilterSearchProvider* self) {
-    auto* vkurifiltersearchprovider = const_cast<VirtualKUriFilterSearchProvider*>(dynamic_cast<const VirtualKUriFilterSearchProvider*>(self));
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
-        vkurifiltersearchprovider->setKUriFilterSearchProvider_IconName_IsBase(true);
-        auto _ret = vkurifiltersearchprovider->iconName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KUriFilterSearchProvider::iconName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KUriFilterSearchProvider::iconName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUriFilterSearchProvider_OnIconName(const KUriFilterSearchProvider* self, intptr_t slot) {
-    auto* vkurifiltersearchprovider = const_cast<VirtualKUriFilterSearchProvider*>(dynamic_cast<const VirtualKUriFilterSearchProvider*>(self));
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider)
-        vkurifiltersearchprovider->setKUriFilterSearchProvider_IconName_Callback(reinterpret_cast<VirtualKUriFilterSearchProvider::KUriFilterSearchProvider_IconName_Callback>(slot));
+void KUriFilterSearchProvider_OnIconName(KUriFilterSearchProvider* self, intptr_t slot) {
+    if (auto* vkurifiltersearchprovider = const_cast<VirtualKUriFilterSearchProvider*>(dynamic_cast<const VirtualKUriFilterSearchProvider*>(self)))
+        vkurifiltersearchprovider->kurifiltersearchprovider_iconname_callback = reinterpret_cast<VirtualKUriFilterSearchProvider::KUriFilterSearchProvider_IconName_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUriFilterSearchProvider_SetDesktopEntryName(KUriFilterSearchProvider* self, const libqt_string desktopEntryName) {
-    auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    QString desktopEntryName_QString = QString::fromUtf8(desktopEntryName.data, desktopEntryName.len);
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
-        vkurifiltersearchprovider->setDesktopEntryName(desktopEntryName_QString);
-    } else {
-        ((VirtualKUriFilterSearchProvider*)self)->setDesktopEntryName(desktopEntryName_QString);
-    }
+    if (auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self)) {
+        QString desktopEntryName_QString = QString::fromUtf8(desktopEntryName.data, desktopEntryName.len);
+        vkurifiltersearchprovider->VirtualKUriFilterSearchProvider::setDesktopEntryName(desktopEntryName_QString);
+    } else
+        qFatal("Error: Protected method KUriFilterSearchProvider::setDesktopEntryName called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KUriFilterSearchProvider_SuperSetDesktopEntryName(KUriFilterSearchProvider* self, const libqt_string desktopEntryName) {
-    auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    QString desktopEntryName_QString = QString::fromUtf8(desktopEntryName.data, desktopEntryName.len);
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
-        vkurifiltersearchprovider->setKUriFilterSearchProvider_SetDesktopEntryName_IsBase(true);
-        vkurifiltersearchprovider->setDesktopEntryName(desktopEntryName_QString);
-    } else {
-        ((VirtualKUriFilterSearchProvider*)self)->setDesktopEntryName(desktopEntryName_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUriFilterSearchProvider_OnSetDesktopEntryName(KUriFilterSearchProvider* self, intptr_t slot) {
-    auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider)
-        vkurifiltersearchprovider->setKUriFilterSearchProvider_SetDesktopEntryName_Callback(reinterpret_cast<VirtualKUriFilterSearchProvider::KUriFilterSearchProvider_SetDesktopEntryName_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUriFilterSearchProvider_SetIconName(KUriFilterSearchProvider* self, const libqt_string iconName) {
-    auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    QString iconName_QString = QString::fromUtf8(iconName.data, iconName.len);
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
-        vkurifiltersearchprovider->setIconName(iconName_QString);
-    } else {
-        ((VirtualKUriFilterSearchProvider*)self)->setIconName(iconName_QString);
-    }
+    if (auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self)) {
+        QString iconName_QString = QString::fromUtf8(iconName.data, iconName.len);
+        vkurifiltersearchprovider->VirtualKUriFilterSearchProvider::setIconName(iconName_QString);
+    } else
+        qFatal("Error: Protected method KUriFilterSearchProvider::setIconName called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KUriFilterSearchProvider_SuperSetIconName(KUriFilterSearchProvider* self, const libqt_string iconName) {
-    auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    QString iconName_QString = QString::fromUtf8(iconName.data, iconName.len);
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
-        vkurifiltersearchprovider->setKUriFilterSearchProvider_SetIconName_IsBase(true);
-        vkurifiltersearchprovider->setIconName(iconName_QString);
-    } else {
-        ((VirtualKUriFilterSearchProvider*)self)->setIconName(iconName_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUriFilterSearchProvider_OnSetIconName(KUriFilterSearchProvider* self, intptr_t slot) {
-    auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider)
-        vkurifiltersearchprovider->setKUriFilterSearchProvider_SetIconName_Callback(reinterpret_cast<VirtualKUriFilterSearchProvider::KUriFilterSearchProvider_SetIconName_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUriFilterSearchProvider_SetKeys(KUriFilterSearchProvider* self, const libqt_list /* of libqt_string */ keys) {
-    auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    QList<QString> keys_QList;
-    keys_QList.reserve(keys.len);
-    libqt_string* keys_arr = static_cast<libqt_string*>(keys.data);
-    for (size_t i = 0; i < keys.len; ++i) {
-        QString keys_arr_i_QString = QString::fromUtf8(keys_arr[i].data, keys_arr[i].len);
-        keys_QList.push_back(keys_arr_i_QString);
-    }
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
-        vkurifiltersearchprovider->setKeys(keys_QList);
-    } else {
-        ((VirtualKUriFilterSearchProvider*)self)->setKeys(keys_QList);
-    }
+    if (auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self)) {
+        QList<QString> keys_QList;
+        keys_QList.reserve(keys.len);
+        libqt_string* keys_arr = static_cast<libqt_string*>(keys.data);
+        for (size_t i = 0; i < keys.len; ++i) {
+            QString keys_arr_i_QString = QString::fromUtf8(keys_arr[i].data, keys_arr[i].len);
+            keys_QList.push_back(keys_arr_i_QString);
+        }
+        vkurifiltersearchprovider->VirtualKUriFilterSearchProvider::setKeys(keys_QList);
+    } else
+        qFatal("Error: Protected method KUriFilterSearchProvider::setKeys called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KUriFilterSearchProvider_SuperSetKeys(KUriFilterSearchProvider* self, const libqt_list /* of libqt_string */ keys) {
-    auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    QList<QString> keys_QList;
-    keys_QList.reserve(keys.len);
-    libqt_string* keys_arr = static_cast<libqt_string*>(keys.data);
-    for (size_t i = 0; i < keys.len; ++i) {
-        QString keys_arr_i_QString = QString::fromUtf8(keys_arr[i].data, keys_arr[i].len);
-        keys_QList.push_back(keys_arr_i_QString);
-    }
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
-        vkurifiltersearchprovider->setKUriFilterSearchProvider_SetKeys_IsBase(true);
-        vkurifiltersearchprovider->setKeys(keys_QList);
-    } else {
-        ((VirtualKUriFilterSearchProvider*)self)->setKeys(keys_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUriFilterSearchProvider_OnSetKeys(KUriFilterSearchProvider* self, intptr_t slot) {
-    auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider)
-        vkurifiltersearchprovider->setKUriFilterSearchProvider_SetKeys_Callback(reinterpret_cast<VirtualKUriFilterSearchProvider::KUriFilterSearchProvider_SetKeys_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUriFilterSearchProvider_SetName(KUriFilterSearchProvider* self, const libqt_string name) {
-    auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
-        vkurifiltersearchprovider->setName(name_QString);
-    } else {
-        ((VirtualKUriFilterSearchProvider*)self)->setName(name_QString);
-    }
-}
-
-// Base class handler implementation
-void KUriFilterSearchProvider_SuperSetName(KUriFilterSearchProvider* self, const libqt_string name) {
-    auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
-        vkurifiltersearchprovider->setKUriFilterSearchProvider_SetName_IsBase(true);
-        vkurifiltersearchprovider->setName(name_QString);
-    } else {
-        ((VirtualKUriFilterSearchProvider*)self)->setName(name_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUriFilterSearchProvider_OnSetName(KUriFilterSearchProvider* self, intptr_t slot) {
-    auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider)
-        vkurifiltersearchprovider->setKUriFilterSearchProvider_SetName_Callback(reinterpret_cast<VirtualKUriFilterSearchProvider::KUriFilterSearchProvider_SetName_Callback>(slot));
+    if (auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self)) {
+        QString name_QString = QString::fromUtf8(name.data, name.len);
+        vkurifiltersearchprovider->VirtualKUriFilterSearchProvider::setName(name_QString);
+    } else
+        qFatal("Error: Protected method KUriFilterSearchProvider::setName called without a directly constructed type");
 }
 
 void KUriFilterSearchProvider_Delete(KUriFilterSearchProvider* self) {

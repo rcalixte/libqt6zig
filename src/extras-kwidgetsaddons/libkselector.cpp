@@ -105,49 +105,49 @@ int KSelector_ArrowDirection(const KSelector* self) {
 
 void KSelector_DrawContents(KSelector* self, QPainter* param1) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->drawContents(param1);
     }
 }
 
 void KSelector_DrawArrow(KSelector* self, QPainter* painter, const QPoint* pos) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->drawArrow(painter, *pos);
     }
 }
 
 void KSelector_PaintEvent(KSelector* self, QPaintEvent* param1) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->paintEvent(param1);
     }
 }
 
 void KSelector_MousePressEvent(KSelector* self, QMouseEvent* e) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->mousePressEvent(e);
     }
 }
 
 void KSelector_MouseMoveEvent(KSelector* self, QMouseEvent* e) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->mouseMoveEvent(e);
     }
 }
 
 void KSelector_MouseReleaseEvent(KSelector* self, QMouseEvent* e) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->mouseReleaseEvent(e);
     }
 }
 
 void KSelector_WheelEvent(KSelector* self, QWheelEvent* param1) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->wheelEvent(param1);
     }
 }
@@ -178,1724 +178,1191 @@ libqt_string KSelector_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KSelector_SuperMetaObject(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_MetaObject_IsBase(true);
-        return (QMetaObject*)vkselector->metaObject();
-    } else {
-        return (QMetaObject*)self->KSelector::metaObject();
-    }
+    return (QMetaObject*)self->KSelector::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSelector_OnMetaObject(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_MetaObject_Callback(reinterpret_cast<VirtualKSelector::KSelector_MetaObject_Callback>(slot));
+void KSelector_OnMetaObject(KSelector* self, intptr_t slot) {
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self)))
+        vkselector->kselector_metaobject_callback = reinterpret_cast<VirtualKSelector::KSelector_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KSelector_SuperMetacast(KSelector* self, const char* param1) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_Metacast_IsBase(true);
-        return vkselector->qt_metacast(param1);
-    } else {
-        return self->KSelector::qt_metacast(param1);
-    }
+    return self->KSelector::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMetacast(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_Metacast_Callback(reinterpret_cast<VirtualKSelector::KSelector_Metacast_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_metacast_callback = reinterpret_cast<VirtualKSelector::KSelector_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KSelector_SuperMetacall(KSelector* self, int param1, int param2, void** param3) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_Metacall_IsBase(true);
-        return vkselector->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KSelector::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KSelector::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMetacall(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_Metacall_Callback(reinterpret_cast<VirtualKSelector::KSelector_Metacall_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_metacall_callback = reinterpret_cast<VirtualKSelector::KSelector_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSelector_SuperDrawContents(KSelector* self, QPainter* param1) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_DrawContents_IsBase(true);
-        vkselector->drawContents(param1);
-    } else {
-        ((VirtualKSelector*)self)->drawContents(param1);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::drawContents(param1);
+    } else
+        qFatal("Error: Protected virtual method KSelector::drawContents called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDrawContents(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_DrawContents_Callback(reinterpret_cast<VirtualKSelector::KSelector_DrawContents_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_drawcontents_callback = reinterpret_cast<VirtualKSelector::KSelector_DrawContents_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSelector_SuperDrawArrow(KSelector* self, QPainter* painter, const QPoint* pos) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_DrawArrow_IsBase(true);
-        vkselector->drawArrow(painter, *pos);
-    } else {
-        ((VirtualKSelector*)self)->drawArrow(painter, *pos);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::drawArrow(painter, *pos);
+    } else
+        qFatal("Error: Protected virtual method KSelector::drawArrow called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDrawArrow(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_DrawArrow_Callback(reinterpret_cast<VirtualKSelector::KSelector_DrawArrow_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_drawarrow_callback = reinterpret_cast<VirtualKSelector::KSelector_DrawArrow_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSelector_SuperPaintEvent(KSelector* self, QPaintEvent* param1) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_PaintEvent_IsBase(true);
-        vkselector->paintEvent(param1);
-    } else {
-        ((VirtualKSelector*)self)->paintEvent(param1);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSelector::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnPaintEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_PaintEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_PaintEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_paintevent_callback = reinterpret_cast<VirtualKSelector::KSelector_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSelector_SuperMousePressEvent(KSelector* self, QMouseEvent* e) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_MousePressEvent_IsBase(true);
-        vkselector->mousePressEvent(e);
-    } else {
-        ((VirtualKSelector*)self)->mousePressEvent(e);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KSelector::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMousePressEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_MousePressEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MousePressEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_mousepressevent_callback = reinterpret_cast<VirtualKSelector::KSelector_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSelector_SuperMouseMoveEvent(KSelector* self, QMouseEvent* e) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_MouseMoveEvent_IsBase(true);
-        vkselector->mouseMoveEvent(e);
-    } else {
-        ((VirtualKSelector*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KSelector::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMouseMoveEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_MouseMoveEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MouseMoveEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_mousemoveevent_callback = reinterpret_cast<VirtualKSelector::KSelector_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSelector_SuperMouseReleaseEvent(KSelector* self, QMouseEvent* e) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_MouseReleaseEvent_IsBase(true);
-        vkselector->mouseReleaseEvent(e);
-    } else {
-        ((VirtualKSelector*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KSelector::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMouseReleaseEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_mousereleaseevent_callback = reinterpret_cast<VirtualKSelector::KSelector_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSelector_SuperWheelEvent(KSelector* self, QWheelEvent* param1) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_WheelEvent_IsBase(true);
-        vkselector->wheelEvent(param1);
-    } else {
-        ((VirtualKSelector*)self)->wheelEvent(param1);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::wheelEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSelector::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnWheelEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_WheelEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_WheelEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_wheelevent_callback = reinterpret_cast<VirtualKSelector::KSelector_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSelector_Event(KSelector* self, QEvent* e) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         return vkselector->event(e);
     } else {
-        return ((VirtualKSelector*)self)->event(e);
+        qFatal("Error: Protected virtual method KSelector::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSelector_SuperEvent(KSelector* self, QEvent* e) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_Event_IsBase(true);
-        return vkselector->event(e);
-    } else {
-        return ((VirtualKSelector*)self)->event(e);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        return vkselector->KSelector::event(e);
+    } else
+        qFatal("Error: Protected virtual method KSelector::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_Event_Callback(reinterpret_cast<VirtualKSelector::KSelector_Event_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_event_callback = reinterpret_cast<VirtualKSelector::KSelector_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_SliderChange(KSelector* self, int change) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->sliderChange(static_cast<VirtualKSelector::SliderChange>(change));
     } else {
-        ((VirtualKSelector*)self)->sliderChange(static_cast<VirtualKSelector::SliderChange>(change));
+        qFatal("Error: Protected virtual method KSelector::sliderChange called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperSliderChange(KSelector* self, int change) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_SliderChange_IsBase(true);
-        vkselector->sliderChange(static_cast<VirtualKSelector::SliderChange>(change));
-    } else {
-        ((VirtualKSelector*)self)->sliderChange(static_cast<VirtualKSelector::SliderChange>(change));
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::sliderChange(static_cast<VirtualKSelector::SliderChange>(change));
+    } else
+        qFatal("Error: Protected virtual method KSelector::sliderChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnSliderChange(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_SliderChange_Callback(reinterpret_cast<VirtualKSelector::KSelector_SliderChange_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_sliderchange_callback = reinterpret_cast<VirtualKSelector::KSelector_SliderChange_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_KeyPressEvent(KSelector* self, QKeyEvent* ev) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->keyPressEvent(ev);
     } else {
-        ((VirtualKSelector*)self)->keyPressEvent(ev);
+        qFatal("Error: Protected virtual method KSelector::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperKeyPressEvent(KSelector* self, QKeyEvent* ev) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_KeyPressEvent_IsBase(true);
-        vkselector->keyPressEvent(ev);
-    } else {
-        ((VirtualKSelector*)self)->keyPressEvent(ev);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::keyPressEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KSelector::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnKeyPressEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_KeyPressEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_KeyPressEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_keypressevent_callback = reinterpret_cast<VirtualKSelector::KSelector_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_TimerEvent(KSelector* self, QTimerEvent* param1) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->timerEvent(param1);
     } else {
-        ((VirtualKSelector*)self)->timerEvent(param1);
+        qFatal("Error: Protected virtual method KSelector::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperTimerEvent(KSelector* self, QTimerEvent* param1) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_TimerEvent_IsBase(true);
-        vkselector->timerEvent(param1);
-    } else {
-        ((VirtualKSelector*)self)->timerEvent(param1);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::timerEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSelector::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnTimerEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_TimerEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_TimerEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_timerevent_callback = reinterpret_cast<VirtualKSelector::KSelector_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_ChangeEvent(KSelector* self, QEvent* e) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->changeEvent(e);
     } else {
-        ((VirtualKSelector*)self)->changeEvent(e);
+        qFatal("Error: Protected virtual method KSelector::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperChangeEvent(KSelector* self, QEvent* e) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_ChangeEvent_IsBase(true);
-        vkselector->changeEvent(e);
-    } else {
-        ((VirtualKSelector*)self)->changeEvent(e);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KSelector::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnChangeEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_ChangeEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_ChangeEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_changeevent_callback = reinterpret_cast<VirtualKSelector::KSelector_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSelector_DevType(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return vkselector->devType();
-    } else {
-        return self->KSelector::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KSelector_SuperDevType(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_DevType_IsBase(true);
-        return vkselector->devType();
-    } else {
-        return self->KSelector::devType();
-    }
+    return self->KSelector::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSelector_OnDevType(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_DevType_Callback(reinterpret_cast<VirtualKSelector::KSelector_DevType_Callback>(slot));
+void KSelector_OnDevType(KSelector* self, intptr_t slot) {
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self)))
+        vkselector->kselector_devtype_callback = reinterpret_cast<VirtualKSelector::KSelector_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_SetVisible(KSelector* self, bool visible) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setVisible(visible);
-    } else {
-        self->KSelector::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KSelector_SuperSetVisible(KSelector* self, bool visible) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_SetVisible_IsBase(true);
-        vkselector->setVisible(visible);
-    } else {
-        self->KSelector::setVisible(visible);
-    }
+    self->KSelector::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnSetVisible(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_SetVisible_Callback(reinterpret_cast<VirtualKSelector::KSelector_SetVisible_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_setvisible_callback = reinterpret_cast<VirtualKSelector::KSelector_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KSelector_SizeHint(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return new QSize(vkselector->sizeHint());
-    } else {
-        return new QSize(((VirtualKSelector*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KSelector_SuperSizeHint(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_SizeHint_IsBase(true);
-        return new QSize(vkselector->sizeHint());
-    } else {
-        return new QSize(((VirtualKSelector*)self)->sizeHint());
-    }
+    return new QSize(self->KSelector::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSelector_OnSizeHint(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_SizeHint_Callback(reinterpret_cast<VirtualKSelector::KSelector_SizeHint_Callback>(slot));
+void KSelector_OnSizeHint(KSelector* self, intptr_t slot) {
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self)))
+        vkselector->kselector_sizehint_callback = reinterpret_cast<VirtualKSelector::KSelector_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KSelector_MinimumSizeHint(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return new QSize(vkselector->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKSelector*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KSelector_SuperMinimumSizeHint(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_MinimumSizeHint_IsBase(true);
-        return new QSize(vkselector->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKSelector*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KSelector::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSelector_OnMinimumSizeHint(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_MinimumSizeHint_Callback(reinterpret_cast<VirtualKSelector::KSelector_MinimumSizeHint_Callback>(slot));
+void KSelector_OnMinimumSizeHint(KSelector* self, intptr_t slot) {
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self)))
+        vkselector->kselector_minimumsizehint_callback = reinterpret_cast<VirtualKSelector::KSelector_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSelector_HeightForWidth(const KSelector* self, int param1) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return vkselector->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KSelector::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KSelector_SuperHeightForWidth(const KSelector* self, int param1) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_HeightForWidth_IsBase(true);
-        return vkselector->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KSelector::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KSelector::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSelector_OnHeightForWidth(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_HeightForWidth_Callback(reinterpret_cast<VirtualKSelector::KSelector_HeightForWidth_Callback>(slot));
+void KSelector_OnHeightForWidth(KSelector* self, intptr_t slot) {
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self)))
+        vkselector->kselector_heightforwidth_callback = reinterpret_cast<VirtualKSelector::KSelector_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSelector_HasHeightForWidth(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return vkselector->hasHeightForWidth();
-    } else {
-        return self->KSelector::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KSelector_SuperHasHeightForWidth(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_HasHeightForWidth_IsBase(true);
-        return vkselector->hasHeightForWidth();
-    } else {
-        return self->KSelector::hasHeightForWidth();
-    }
+    return self->KSelector::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSelector_OnHasHeightForWidth(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_HasHeightForWidth_Callback(reinterpret_cast<VirtualKSelector::KSelector_HasHeightForWidth_Callback>(slot));
+void KSelector_OnHasHeightForWidth(KSelector* self, intptr_t slot) {
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self)))
+        vkselector->kselector_hasheightforwidth_callback = reinterpret_cast<VirtualKSelector::KSelector_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KSelector_PaintEngine(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return vkselector->paintEngine();
-    } else {
-        return self->KSelector::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KSelector_SuperPaintEngine(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_PaintEngine_IsBase(true);
-        return vkselector->paintEngine();
-    } else {
-        return self->KSelector::paintEngine();
-    }
+    return self->KSelector::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSelector_OnPaintEngine(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_PaintEngine_Callback(reinterpret_cast<VirtualKSelector::KSelector_PaintEngine_Callback>(slot));
+void KSelector_OnPaintEngine(KSelector* self, intptr_t slot) {
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self)))
+        vkselector->kselector_paintengine_callback = reinterpret_cast<VirtualKSelector::KSelector_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_MouseDoubleClickEvent(KSelector* self, QMouseEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKSelector*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KSelector::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperMouseDoubleClickEvent(KSelector* self, QMouseEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_MouseDoubleClickEvent_IsBase(true);
-        vkselector->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMouseDoubleClickEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_mousedoubleclickevent_callback = reinterpret_cast<VirtualKSelector::KSelector_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_KeyReleaseEvent(KSelector* self, QKeyEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->keyReleaseEvent(event);
     } else {
-        ((VirtualKSelector*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KSelector::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperKeyReleaseEvent(KSelector* self, QKeyEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_KeyReleaseEvent_IsBase(true);
-        vkselector->keyReleaseEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnKeyReleaseEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_keyreleaseevent_callback = reinterpret_cast<VirtualKSelector::KSelector_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_FocusInEvent(KSelector* self, QFocusEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->focusInEvent(event);
     } else {
-        ((VirtualKSelector*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KSelector::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperFocusInEvent(KSelector* self, QFocusEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_FocusInEvent_IsBase(true);
-        vkselector->focusInEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->focusInEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnFocusInEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_FocusInEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_FocusInEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_focusinevent_callback = reinterpret_cast<VirtualKSelector::KSelector_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_FocusOutEvent(KSelector* self, QFocusEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->focusOutEvent(event);
     } else {
-        ((VirtualKSelector*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KSelector::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperFocusOutEvent(KSelector* self, QFocusEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_FocusOutEvent_IsBase(true);
-        vkselector->focusOutEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->focusOutEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnFocusOutEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_FocusOutEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_FocusOutEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_focusoutevent_callback = reinterpret_cast<VirtualKSelector::KSelector_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_EnterEvent(KSelector* self, QEnterEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->enterEvent(event);
     } else {
-        ((VirtualKSelector*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KSelector::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperEnterEvent(KSelector* self, QEnterEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_EnterEvent_IsBase(true);
-        vkselector->enterEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->enterEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnEnterEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_EnterEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_EnterEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_enterevent_callback = reinterpret_cast<VirtualKSelector::KSelector_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_LeaveEvent(KSelector* self, QEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->leaveEvent(event);
     } else {
-        ((VirtualKSelector*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KSelector::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperLeaveEvent(KSelector* self, QEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_LeaveEvent_IsBase(true);
-        vkselector->leaveEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->leaveEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnLeaveEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_LeaveEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_LeaveEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_leaveevent_callback = reinterpret_cast<VirtualKSelector::KSelector_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_MoveEvent(KSelector* self, QMoveEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->moveEvent(event);
     } else {
-        ((VirtualKSelector*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KSelector::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperMoveEvent(KSelector* self, QMoveEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_MoveEvent_IsBase(true);
-        vkselector->moveEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->moveEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMoveEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_MoveEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MoveEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_moveevent_callback = reinterpret_cast<VirtualKSelector::KSelector_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_ResizeEvent(KSelector* self, QResizeEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->resizeEvent(event);
     } else {
-        ((VirtualKSelector*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KSelector::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperResizeEvent(KSelector* self, QResizeEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_ResizeEvent_IsBase(true);
-        vkselector->resizeEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->resizeEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnResizeEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_ResizeEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_ResizeEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_resizeevent_callback = reinterpret_cast<VirtualKSelector::KSelector_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_CloseEvent(KSelector* self, QCloseEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->closeEvent(event);
     } else {
-        ((VirtualKSelector*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KSelector::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperCloseEvent(KSelector* self, QCloseEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_CloseEvent_IsBase(true);
-        vkselector->closeEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->closeEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnCloseEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_CloseEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_CloseEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_closeevent_callback = reinterpret_cast<VirtualKSelector::KSelector_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_ContextMenuEvent(KSelector* self, QContextMenuEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->contextMenuEvent(event);
     } else {
-        ((VirtualKSelector*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KSelector::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperContextMenuEvent(KSelector* self, QContextMenuEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_ContextMenuEvent_IsBase(true);
-        vkselector->contextMenuEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnContextMenuEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_ContextMenuEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_ContextMenuEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_contextmenuevent_callback = reinterpret_cast<VirtualKSelector::KSelector_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_TabletEvent(KSelector* self, QTabletEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->tabletEvent(event);
     } else {
-        ((VirtualKSelector*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KSelector::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperTabletEvent(KSelector* self, QTabletEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_TabletEvent_IsBase(true);
-        vkselector->tabletEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->tabletEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnTabletEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_TabletEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_TabletEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_tabletevent_callback = reinterpret_cast<VirtualKSelector::KSelector_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_ActionEvent(KSelector* self, QActionEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->actionEvent(event);
     } else {
-        ((VirtualKSelector*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KSelector::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperActionEvent(KSelector* self, QActionEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_ActionEvent_IsBase(true);
-        vkselector->actionEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->actionEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnActionEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_ActionEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_ActionEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_actionevent_callback = reinterpret_cast<VirtualKSelector::KSelector_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_DragEnterEvent(KSelector* self, QDragEnterEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->dragEnterEvent(event);
     } else {
-        ((VirtualKSelector*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KSelector::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperDragEnterEvent(KSelector* self, QDragEnterEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_DragEnterEvent_IsBase(true);
-        vkselector->dragEnterEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDragEnterEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_DragEnterEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_DragEnterEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_dragenterevent_callback = reinterpret_cast<VirtualKSelector::KSelector_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_DragMoveEvent(KSelector* self, QDragMoveEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->dragMoveEvent(event);
     } else {
-        ((VirtualKSelector*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KSelector::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperDragMoveEvent(KSelector* self, QDragMoveEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_DragMoveEvent_IsBase(true);
-        vkselector->dragMoveEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDragMoveEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_DragMoveEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_DragMoveEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_dragmoveevent_callback = reinterpret_cast<VirtualKSelector::KSelector_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_DragLeaveEvent(KSelector* self, QDragLeaveEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->dragLeaveEvent(event);
     } else {
-        ((VirtualKSelector*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KSelector::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperDragLeaveEvent(KSelector* self, QDragLeaveEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_DragLeaveEvent_IsBase(true);
-        vkselector->dragLeaveEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDragLeaveEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_DragLeaveEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_DragLeaveEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_dragleaveevent_callback = reinterpret_cast<VirtualKSelector::KSelector_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_DropEvent(KSelector* self, QDropEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->dropEvent(event);
     } else {
-        ((VirtualKSelector*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KSelector::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperDropEvent(KSelector* self, QDropEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_DropEvent_IsBase(true);
-        vkselector->dropEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->dropEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDropEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_DropEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_DropEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_dropevent_callback = reinterpret_cast<VirtualKSelector::KSelector_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_ShowEvent(KSelector* self, QShowEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->showEvent(event);
     } else {
-        ((VirtualKSelector*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KSelector::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperShowEvent(KSelector* self, QShowEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_ShowEvent_IsBase(true);
-        vkselector->showEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->showEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnShowEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_ShowEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_ShowEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_showevent_callback = reinterpret_cast<VirtualKSelector::KSelector_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_HideEvent(KSelector* self, QHideEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->hideEvent(event);
     } else {
-        ((VirtualKSelector*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KSelector::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperHideEvent(KSelector* self, QHideEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_HideEvent_IsBase(true);
-        vkselector->hideEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->hideEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnHideEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_HideEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_HideEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_hideevent_callback = reinterpret_cast<VirtualKSelector::KSelector_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSelector_NativeEvent(KSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector) {
         return vkselector->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKSelector*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KSelector::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSelector_SuperNativeEvent(KSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_NativeEvent_IsBase(true);
-        return vkselector->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKSelector*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        return vkselector->KSelector::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KSelector::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnNativeEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_NativeEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_NativeEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_nativeevent_callback = reinterpret_cast<VirtualKSelector::KSelector_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSelector_Metric(const KSelector* self, int param1) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         return vkselector->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKSelector*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KSelector::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KSelector_SuperMetric(const KSelector* self, int param1) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_Metric_IsBase(true);
-        return vkselector->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKSelector*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self))) {
+        return vkselector->KSelector::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KSelector::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSelector_OnMetric(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_Metric_Callback(reinterpret_cast<VirtualKSelector::KSelector_Metric_Callback>(slot));
+void KSelector_OnMetric(KSelector* self, intptr_t slot) {
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self)))
+        vkselector->kselector_metric_callback = reinterpret_cast<VirtualKSelector::KSelector_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_InitPainter(const KSelector* self, QPainter* painter) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->initPainter(painter);
     } else {
-        ((VirtualKSelector*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KSelector::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperInitPainter(const KSelector* self, QPainter* painter) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_InitPainter_IsBase(true);
-        vkselector->initPainter(painter);
-    } else {
-        ((VirtualKSelector*)self)->initPainter(painter);
-    }
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self))) {
+        vkselector->KSelector::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KSelector::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSelector_OnInitPainter(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_InitPainter_Callback(reinterpret_cast<VirtualKSelector::KSelector_InitPainter_Callback>(slot));
+void KSelector_OnInitPainter(KSelector* self, intptr_t slot) {
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self)))
+        vkselector->kselector_initpainter_callback = reinterpret_cast<VirtualKSelector::KSelector_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KSelector_Redirected(const KSelector* self, QPoint* offset) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         return vkselector->redirected(offset);
     } else {
-        return ((VirtualKSelector*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KSelector::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KSelector_SuperRedirected(const KSelector* self, QPoint* offset) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_Redirected_IsBase(true);
-        return vkselector->redirected(offset);
-    } else {
-        return ((VirtualKSelector*)self)->redirected(offset);
-    }
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self))) {
+        return vkselector->KSelector::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KSelector::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSelector_OnRedirected(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_Redirected_Callback(reinterpret_cast<VirtualKSelector::KSelector_Redirected_Callback>(slot));
+void KSelector_OnRedirected(KSelector* self, intptr_t slot) {
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self)))
+        vkselector->kselector_redirected_callback = reinterpret_cast<VirtualKSelector::KSelector_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KSelector_SharedPainter(const KSelector* self) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         return vkselector->sharedPainter();
     } else {
-        return ((VirtualKSelector*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KSelector::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KSelector_SuperSharedPainter(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_SharedPainter_IsBase(true);
-        return vkselector->sharedPainter();
-    } else {
-        return ((VirtualKSelector*)self)->sharedPainter();
-    }
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self))) {
+        return vkselector->KSelector::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KSelector::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSelector_OnSharedPainter(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_SharedPainter_Callback(reinterpret_cast<VirtualKSelector::KSelector_SharedPainter_Callback>(slot));
+void KSelector_OnSharedPainter(KSelector* self, intptr_t slot) {
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self)))
+        vkselector->kselector_sharedpainter_callback = reinterpret_cast<VirtualKSelector::KSelector_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_InputMethodEvent(KSelector* self, QInputMethodEvent* param1) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->inputMethodEvent(param1);
     } else {
-        ((VirtualKSelector*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KSelector::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperInputMethodEvent(KSelector* self, QInputMethodEvent* param1) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_InputMethodEvent_IsBase(true);
-        vkselector->inputMethodEvent(param1);
-    } else {
-        ((VirtualKSelector*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSelector::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnInputMethodEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_InputMethodEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_InputMethodEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_inputmethodevent_callback = reinterpret_cast<VirtualKSelector::KSelector_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KSelector_InputMethodQuery(const KSelector* self, int param1) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return new QVariant(vkselector->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKSelector*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KSelector_SuperInputMethodQuery(const KSelector* self, int param1) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_InputMethodQuery_IsBase(true);
-        return new QVariant(vkselector->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKSelector*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KSelector::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSelector_OnInputMethodQuery(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_InputMethodQuery_Callback(reinterpret_cast<VirtualKSelector::KSelector_InputMethodQuery_Callback>(slot));
+void KSelector_OnInputMethodQuery(KSelector* self, intptr_t slot) {
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self)))
+        vkselector->kselector_inputmethodquery_callback = reinterpret_cast<VirtualKSelector::KSelector_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSelector_FocusNextPrevChild(KSelector* self, bool next) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         return vkselector->focusNextPrevChild(next);
     } else {
-        return ((VirtualKSelector*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KSelector::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSelector_SuperFocusNextPrevChild(KSelector* self, bool next) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_FocusNextPrevChild_IsBase(true);
-        return vkselector->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKSelector*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        return vkselector->KSelector::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KSelector::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnFocusNextPrevChild(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKSelector::KSelector_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_focusnextprevchild_callback = reinterpret_cast<VirtualKSelector::KSelector_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSelector_EventFilter(KSelector* self, QObject* watched, QEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return vkselector->eventFilter(watched, event);
-    } else {
-        return self->KSelector::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KSelector_SuperEventFilter(KSelector* self, QObject* watched, QEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_EventFilter_IsBase(true);
-        return vkselector->eventFilter(watched, event);
-    } else {
-        return self->KSelector::eventFilter(watched, event);
-    }
+    return self->KSelector::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnEventFilter(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_EventFilter_Callback(reinterpret_cast<VirtualKSelector::KSelector_EventFilter_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_eventfilter_callback = reinterpret_cast<VirtualKSelector::KSelector_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_ChildEvent(KSelector* self, QChildEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->childEvent(event);
     } else {
-        ((VirtualKSelector*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KSelector::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperChildEvent(KSelector* self, QChildEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_ChildEvent_IsBase(true);
-        vkselector->childEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->childEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnChildEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_ChildEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_ChildEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_childevent_callback = reinterpret_cast<VirtualKSelector::KSelector_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_CustomEvent(KSelector* self, QEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->customEvent(event);
     } else {
-        ((VirtualKSelector*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KSelector::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperCustomEvent(KSelector* self, QEvent* event) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_CustomEvent_IsBase(true);
-        vkselector->customEvent(event);
-    } else {
-        ((VirtualKSelector*)self)->customEvent(event);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelector::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnCustomEvent(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_CustomEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_CustomEvent_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_customevent_callback = reinterpret_cast<VirtualKSelector::KSelector_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_ConnectNotify(KSelector* self, const QMetaMethod* signal) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->connectNotify(*signal);
     } else {
-        ((VirtualKSelector*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KSelector::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperConnectNotify(KSelector* self, const QMetaMethod* signal) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_ConnectNotify_IsBase(true);
-        vkselector->connectNotify(*signal);
-    } else {
-        ((VirtualKSelector*)self)->connectNotify(*signal);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSelector::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnConnectNotify(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_ConnectNotify_Callback(reinterpret_cast<VirtualKSelector::KSelector_ConnectNotify_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_connectnotify_callback = reinterpret_cast<VirtualKSelector::KSelector_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelector_DisconnectNotify(KSelector* self, const QMetaMethod* signal) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector) {
         vkselector->disconnectNotify(*signal);
     } else {
-        ((VirtualKSelector*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KSelector::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelector_SuperDisconnectNotify(KSelector* self, const QMetaMethod* signal) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_DisconnectNotify_IsBase(true);
-        vkselector->disconnectNotify(*signal);
-    } else {
-        ((VirtualKSelector*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->KSelector::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSelector::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDisconnectNotify(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_DisconnectNotify_Callback(reinterpret_cast<VirtualKSelector::KSelector_DisconnectNotify_Callback>(slot));
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self))
+        vkselector->kselector_disconnectnotify_callback = reinterpret_cast<VirtualKSelector::KSelector_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSelector_SetRepeatAction(KSelector* self, int action) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    } else {
-        ((VirtualKSelector*)self)->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->VirtualKSelector::setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
+    } else
+        qFatal("Error: Protected method KSelector::setRepeatAction called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSelector_SuperSetRepeatAction(KSelector* self, int action) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_SetRepeatAction_IsBase(true);
-        vkselector->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    } else {
-        ((VirtualKSelector*)self)->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnSetRepeatAction(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_SetRepeatAction_Callback(reinterpret_cast<VirtualKSelector::KSelector_SetRepeatAction_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSelector_RepeatAction(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return static_cast<int>(vkselector->repeatAction());
-    } else {
-        return static_cast<int>(((VirtualKSelector*)self)->repeatAction());
-    }
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self))) {
+        return static_cast<int>(vkselector->VirtualKSelector::repeatAction());
+    } else
+        qFatal("Error: Protected method KSelector::repeatAction called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSelector_SuperRepeatAction(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_RepeatAction_IsBase(true);
-        return static_cast<int>(vkselector->repeatAction());
-    } else {
-        return static_cast<int>(((VirtualKSelector*)self)->repeatAction());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnRepeatAction(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_RepeatAction_Callback(reinterpret_cast<VirtualKSelector::KSelector_RepeatAction_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSelector_UpdateMicroFocus(KSelector* self) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->updateMicroFocus();
-    } else {
-        ((VirtualKSelector*)self)->updateMicroFocus();
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->VirtualKSelector::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KSelector::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSelector_SuperUpdateMicroFocus(KSelector* self) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_UpdateMicroFocus_IsBase(true);
-        vkselector->updateMicroFocus();
-    } else {
-        ((VirtualKSelector*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnUpdateMicroFocus(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKSelector::KSelector_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSelector_Create(KSelector* self) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->create();
-    } else {
-        ((VirtualKSelector*)self)->create();
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->VirtualKSelector::create();
+    } else
+        qFatal("Error: Protected method KSelector::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSelector_SuperCreate(KSelector* self) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_Create_IsBase(true);
-        vkselector->create();
-    } else {
-        ((VirtualKSelector*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnCreate(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_Create_Callback(reinterpret_cast<VirtualKSelector::KSelector_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSelector_Destroy(KSelector* self) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->destroy();
-    } else {
-        ((VirtualKSelector*)self)->destroy();
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        vkselector->VirtualKSelector::destroy();
+    } else
+        qFatal("Error: Protected method KSelector::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSelector_SuperDestroy(KSelector* self) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_Destroy_IsBase(true);
-        vkselector->destroy();
-    } else {
-        ((VirtualKSelector*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnDestroy(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_Destroy_Callback(reinterpret_cast<VirtualKSelector::KSelector_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSelector_FocusNextChild(KSelector* self) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return vkselector->focusNextChild();
-    } else {
-        return ((VirtualKSelector*)self)->focusNextChild();
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        return vkselector->VirtualKSelector::focusNextChild();
+    } else
+        qFatal("Error: Protected method KSelector::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSelector_SuperFocusNextChild(KSelector* self) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_FocusNextChild_IsBase(true);
-        return vkselector->focusNextChild();
-    } else {
-        return ((VirtualKSelector*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnFocusNextChild(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_FocusNextChild_Callback(reinterpret_cast<VirtualKSelector::KSelector_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSelector_FocusPreviousChild(KSelector* self) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return vkselector->focusPreviousChild();
-    } else {
-        return ((VirtualKSelector*)self)->focusPreviousChild();
-    }
+    if (auto* vkselector = dynamic_cast<VirtualKSelector*>(self)) {
+        return vkselector->VirtualKSelector::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KSelector::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSelector_SuperFocusPreviousChild(KSelector* self) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_FocusPreviousChild_IsBase(true);
-        return vkselector->focusPreviousChild();
-    } else {
-        return ((VirtualKSelector*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnFocusPreviousChild(KSelector* self, intptr_t slot) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_FocusPreviousChild_Callback(reinterpret_cast<VirtualKSelector::KSelector_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KSelector_Sender(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return vkselector->sender();
-    } else {
-        return ((VirtualKSelector*)self)->sender();
-    }
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self))) {
+        return vkselector->VirtualKSelector::sender();
+    } else
+        qFatal("Error: Protected method KSelector::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KSelector_SuperSender(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_Sender_IsBase(true);
-        return vkselector->sender();
-    } else {
-        return ((VirtualKSelector*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnSender(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_Sender_Callback(reinterpret_cast<VirtualKSelector::KSelector_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSelector_SenderSignalIndex(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return vkselector->senderSignalIndex();
-    } else {
-        return ((VirtualKSelector*)self)->senderSignalIndex();
-    }
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self))) {
+        return vkselector->VirtualKSelector::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KSelector::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSelector_SuperSenderSignalIndex(const KSelector* self) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_SenderSignalIndex_IsBase(true);
-        return vkselector->senderSignalIndex();
-    } else {
-        return ((VirtualKSelector*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnSenderSignalIndex(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSelector::KSelector_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSelector_Receivers(const KSelector* self, const char* signal) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return vkselector->receivers(signal);
-    } else {
-        return ((VirtualKSelector*)self)->receivers(signal);
-    }
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self))) {
+        return vkselector->VirtualKSelector::receivers(signal);
+    } else
+        qFatal("Error: Protected method KSelector::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSelector_SuperReceivers(const KSelector* self, const char* signal) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_Receivers_IsBase(true);
-        return vkselector->receivers(signal);
-    } else {
-        return ((VirtualKSelector*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnReceivers(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_Receivers_Callback(reinterpret_cast<VirtualKSelector::KSelector_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSelector_IsSignalConnected(const KSelector* self, const QMetaMethod* signal) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return vkselector->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSelector*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self))) {
+        return vkselector->VirtualKSelector::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KSelector::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSelector_SuperIsSignalConnected(const KSelector* self, const QMetaMethod* signal) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_IsSignalConnected_IsBase(true);
-        return vkselector->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSelector*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnIsSignalConnected(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_IsSignalConnected_Callback(reinterpret_cast<VirtualKSelector::KSelector_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KSelector_GetDecodedMetricF(const KSelector* self, int metricA, int metricB) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return vkselector->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKSelector*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KSelector_SuperGetDecodedMetricF(const KSelector* self, int metricA, int metricB) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
-        vkselector->setKSelector_GetDecodedMetricF_IsBase(true);
-        return vkselector->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKSelector*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelector_OnGetDecodedMetricF(const KSelector* self, intptr_t slot) {
-    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector)
-        vkselector->setKSelector_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKSelector::KSelector_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self))) {
+        return vkselector->VirtualKSelector::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KSelector::getDecodedMetricF called without a directly constructed type");
 }
 
 void KSelector_Delete(KSelector* self) {
@@ -2035,17 +1502,17 @@ libqt_string KGradientSelector_SecondText(const KGradientSelector* self) {
 
 void KGradientSelector_DrawContents(KGradientSelector* self, QPainter* param1) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->drawContents(param1);
     }
 }
 
 QSize* KGradientSelector_MinimumSize(const KGradientSelector* self) {
     auto* vkgradientselector = dynamic_cast<const VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         return new QSize(vkgradientselector->minimumSize());
     }
-    return {};
+    qFatal("Error: Protected method KGradientSelector::minimumSize called without a directly constructed type");
 }
 
 libqt_string KGradientSelector_Tr2(const char* s, const char* c) {
@@ -2074,1801 +1541,1264 @@ libqt_string KGradientSelector_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KGradientSelector_SuperMetaObject(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_MetaObject_IsBase(true);
-        return (QMetaObject*)vkgradientselector->metaObject();
-    } else {
-        return (QMetaObject*)self->KGradientSelector::metaObject();
-    }
+    return (QMetaObject*)self->KGradientSelector::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnMetaObject(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_MetaObject_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MetaObject_Callback>(slot));
+void KGradientSelector_OnMetaObject(KGradientSelector* self, intptr_t slot) {
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self)))
+        vkgradientselector->kgradientselector_metaobject_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KGradientSelector_SuperMetacast(KGradientSelector* self, const char* param1) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_Metacast_IsBase(true);
-        return vkgradientselector->qt_metacast(param1);
-    } else {
-        return self->KGradientSelector::qt_metacast(param1);
-    }
+    return self->KGradientSelector::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMetacast(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_Metacast_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Metacast_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_metacast_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KGradientSelector_SuperMetacall(KGradientSelector* self, int param1, int param2, void** param3) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_Metacall_IsBase(true);
-        return vkgradientselector->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KGradientSelector::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KGradientSelector::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMetacall(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_Metacall_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Metacall_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_metacall_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperDrawContents(KGradientSelector* self, QPainter* param1) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_DrawContents_IsBase(true);
-        vkgradientselector->drawContents(param1);
-    } else {
-        ((VirtualKGradientSelector*)self)->drawContents(param1);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::drawContents(param1);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::drawContents called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDrawContents(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_DrawContents_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DrawContents_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_drawcontents_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DrawContents_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KGradientSelector_SuperMinimumSize(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_MinimumSize_IsBase(true);
-        return new QSize(vkgradientselector->minimumSize());
-    }
-    return {};
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self)))
+        return new QSize(vkgradientselector->KGradientSelector::minimumSize());
+    qFatal("Error: Protected virtual method KGradientSelector::minimumSize called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnMinimumSize(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_MinimumSize_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MinimumSize_Callback>(slot));
+void KGradientSelector_OnMinimumSize(KGradientSelector* self, intptr_t slot) {
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self)))
+        vkgradientselector->kgradientselector_minimumsize_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MinimumSize_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_DrawArrow(KGradientSelector* self, QPainter* painter, const QPoint* pos) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->drawArrow(painter, *pos);
     } else {
-        ((VirtualKGradientSelector*)self)->drawArrow(painter, *pos);
+        qFatal("Error: Protected virtual method KGradientSelector::drawArrow called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperDrawArrow(KGradientSelector* self, QPainter* painter, const QPoint* pos) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_DrawArrow_IsBase(true);
-        vkgradientselector->drawArrow(painter, *pos);
-    } else {
-        ((VirtualKGradientSelector*)self)->drawArrow(painter, *pos);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::drawArrow(painter, *pos);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::drawArrow called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDrawArrow(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_DrawArrow_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DrawArrow_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_drawarrow_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DrawArrow_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_PaintEvent(KGradientSelector* self, QPaintEvent* param1) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->paintEvent(param1);
     } else {
-        ((VirtualKGradientSelector*)self)->paintEvent(param1);
+        qFatal("Error: Protected virtual method KGradientSelector::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperPaintEvent(KGradientSelector* self, QPaintEvent* param1) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_PaintEvent_IsBase(true);
-        vkgradientselector->paintEvent(param1);
-    } else {
-        ((VirtualKGradientSelector*)self)->paintEvent(param1);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnPaintEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_PaintEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_PaintEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_paintevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_MousePressEvent(KGradientSelector* self, QMouseEvent* e) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->mousePressEvent(e);
     } else {
-        ((VirtualKGradientSelector*)self)->mousePressEvent(e);
+        qFatal("Error: Protected virtual method KGradientSelector::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperMousePressEvent(KGradientSelector* self, QMouseEvent* e) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_MousePressEvent_IsBase(true);
-        vkgradientselector->mousePressEvent(e);
-    } else {
-        ((VirtualKGradientSelector*)self)->mousePressEvent(e);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMousePressEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_MousePressEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MousePressEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_mousepressevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_MouseMoveEvent(KGradientSelector* self, QMouseEvent* e) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->mouseMoveEvent(e);
     } else {
-        ((VirtualKGradientSelector*)self)->mouseMoveEvent(e);
+        qFatal("Error: Protected virtual method KGradientSelector::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperMouseMoveEvent(KGradientSelector* self, QMouseEvent* e) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_MouseMoveEvent_IsBase(true);
-        vkgradientselector->mouseMoveEvent(e);
-    } else {
-        ((VirtualKGradientSelector*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMouseMoveEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_MouseMoveEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MouseMoveEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_mousemoveevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_MouseReleaseEvent(KGradientSelector* self, QMouseEvent* e) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->mouseReleaseEvent(e);
     } else {
-        ((VirtualKGradientSelector*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method KGradientSelector::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperMouseReleaseEvent(KGradientSelector* self, QMouseEvent* e) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_MouseReleaseEvent_IsBase(true);
-        vkgradientselector->mouseReleaseEvent(e);
-    } else {
-        ((VirtualKGradientSelector*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMouseReleaseEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_mousereleaseevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_WheelEvent(KGradientSelector* self, QWheelEvent* param1) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->wheelEvent(param1);
     } else {
-        ((VirtualKGradientSelector*)self)->wheelEvent(param1);
+        qFatal("Error: Protected virtual method KGradientSelector::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperWheelEvent(KGradientSelector* self, QWheelEvent* param1) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_WheelEvent_IsBase(true);
-        vkgradientselector->wheelEvent(param1);
-    } else {
-        ((VirtualKGradientSelector*)self)->wheelEvent(param1);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::wheelEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnWheelEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_WheelEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_WheelEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_wheelevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KGradientSelector_Event(KGradientSelector* self, QEvent* e) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         return vkgradientselector->event(e);
     } else {
-        return ((VirtualKGradientSelector*)self)->event(e);
+        qFatal("Error: Protected virtual method KGradientSelector::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KGradientSelector_SuperEvent(KGradientSelector* self, QEvent* e) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_Event_IsBase(true);
-        return vkgradientselector->event(e);
-    } else {
-        return ((VirtualKGradientSelector*)self)->event(e);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        return vkgradientselector->KGradientSelector::event(e);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_Event_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Event_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_event_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_SliderChange(KGradientSelector* self, int change) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->sliderChange(static_cast<VirtualKGradientSelector::SliderChange>(change));
     } else {
-        ((VirtualKGradientSelector*)self)->sliderChange(static_cast<VirtualKGradientSelector::SliderChange>(change));
+        qFatal("Error: Protected virtual method KGradientSelector::sliderChange called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperSliderChange(KGradientSelector* self, int change) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_SliderChange_IsBase(true);
-        vkgradientselector->sliderChange(static_cast<VirtualKGradientSelector::SliderChange>(change));
-    } else {
-        ((VirtualKGradientSelector*)self)->sliderChange(static_cast<VirtualKGradientSelector::SliderChange>(change));
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::sliderChange(static_cast<VirtualKGradientSelector::SliderChange>(change));
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::sliderChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnSliderChange(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_SliderChange_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SliderChange_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_sliderchange_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SliderChange_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_KeyPressEvent(KGradientSelector* self, QKeyEvent* ev) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->keyPressEvent(ev);
     } else {
-        ((VirtualKGradientSelector*)self)->keyPressEvent(ev);
+        qFatal("Error: Protected virtual method KGradientSelector::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperKeyPressEvent(KGradientSelector* self, QKeyEvent* ev) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_KeyPressEvent_IsBase(true);
-        vkgradientselector->keyPressEvent(ev);
-    } else {
-        ((VirtualKGradientSelector*)self)->keyPressEvent(ev);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::keyPressEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnKeyPressEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_KeyPressEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_KeyPressEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_keypressevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_TimerEvent(KGradientSelector* self, QTimerEvent* param1) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->timerEvent(param1);
     } else {
-        ((VirtualKGradientSelector*)self)->timerEvent(param1);
+        qFatal("Error: Protected virtual method KGradientSelector::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperTimerEvent(KGradientSelector* self, QTimerEvent* param1) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_TimerEvent_IsBase(true);
-        vkgradientselector->timerEvent(param1);
-    } else {
-        ((VirtualKGradientSelector*)self)->timerEvent(param1);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::timerEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnTimerEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_TimerEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_TimerEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_timerevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_ChangeEvent(KGradientSelector* self, QEvent* e) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->changeEvent(e);
     } else {
-        ((VirtualKGradientSelector*)self)->changeEvent(e);
+        qFatal("Error: Protected virtual method KGradientSelector::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperChangeEvent(KGradientSelector* self, QEvent* e) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_ChangeEvent_IsBase(true);
-        vkgradientselector->changeEvent(e);
-    } else {
-        ((VirtualKGradientSelector*)self)->changeEvent(e);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnChangeEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_ChangeEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ChangeEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_changeevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KGradientSelector_DevType(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return vkgradientselector->devType();
-    } else {
-        return self->KGradientSelector::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KGradientSelector_SuperDevType(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_DevType_IsBase(true);
-        return vkgradientselector->devType();
-    } else {
-        return self->KGradientSelector::devType();
-    }
+    return self->KGradientSelector::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnDevType(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_DevType_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DevType_Callback>(slot));
+void KGradientSelector_OnDevType(KGradientSelector* self, intptr_t slot) {
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self)))
+        vkgradientselector->kgradientselector_devtype_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_SetVisible(KGradientSelector* self, bool visible) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setVisible(visible);
-    } else {
-        self->KGradientSelector::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperSetVisible(KGradientSelector* self, bool visible) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_SetVisible_IsBase(true);
-        vkgradientselector->setVisible(visible);
-    } else {
-        self->KGradientSelector::setVisible(visible);
-    }
+    self->KGradientSelector::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnSetVisible(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_SetVisible_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SetVisible_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_setvisible_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KGradientSelector_SizeHint(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return new QSize(vkgradientselector->sizeHint());
-    } else {
-        return new QSize(((VirtualKGradientSelector*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KGradientSelector_SuperSizeHint(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_SizeHint_IsBase(true);
-        return new QSize(vkgradientselector->sizeHint());
-    } else {
-        return new QSize(((VirtualKGradientSelector*)self)->sizeHint());
-    }
+    return new QSize(self->KGradientSelector::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnSizeHint(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_SizeHint_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SizeHint_Callback>(slot));
+void KGradientSelector_OnSizeHint(KGradientSelector* self, intptr_t slot) {
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self)))
+        vkgradientselector->kgradientselector_sizehint_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KGradientSelector_MinimumSizeHint(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return new QSize(vkgradientselector->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKGradientSelector*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KGradientSelector_SuperMinimumSizeHint(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_MinimumSizeHint_IsBase(true);
-        return new QSize(vkgradientselector->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKGradientSelector*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KGradientSelector::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnMinimumSizeHint(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_MinimumSizeHint_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MinimumSizeHint_Callback>(slot));
+void KGradientSelector_OnMinimumSizeHint(KGradientSelector* self, intptr_t slot) {
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self)))
+        vkgradientselector->kgradientselector_minimumsizehint_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KGradientSelector_HeightForWidth(const KGradientSelector* self, int param1) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return vkgradientselector->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KGradientSelector::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KGradientSelector_SuperHeightForWidth(const KGradientSelector* self, int param1) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_HeightForWidth_IsBase(true);
-        return vkgradientselector->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KGradientSelector::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KGradientSelector::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnHeightForWidth(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_HeightForWidth_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_HeightForWidth_Callback>(slot));
+void KGradientSelector_OnHeightForWidth(KGradientSelector* self, intptr_t slot) {
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self)))
+        vkgradientselector->kgradientselector_heightforwidth_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KGradientSelector_HasHeightForWidth(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return vkgradientselector->hasHeightForWidth();
-    } else {
-        return self->KGradientSelector::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KGradientSelector_SuperHasHeightForWidth(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_HasHeightForWidth_IsBase(true);
-        return vkgradientselector->hasHeightForWidth();
-    } else {
-        return self->KGradientSelector::hasHeightForWidth();
-    }
+    return self->KGradientSelector::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnHasHeightForWidth(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_HasHeightForWidth_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_HasHeightForWidth_Callback>(slot));
+void KGradientSelector_OnHasHeightForWidth(KGradientSelector* self, intptr_t slot) {
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self)))
+        vkgradientselector->kgradientselector_hasheightforwidth_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KGradientSelector_PaintEngine(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return vkgradientselector->paintEngine();
-    } else {
-        return self->KGradientSelector::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KGradientSelector_SuperPaintEngine(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_PaintEngine_IsBase(true);
-        return vkgradientselector->paintEngine();
-    } else {
-        return self->KGradientSelector::paintEngine();
-    }
+    return self->KGradientSelector::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnPaintEngine(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_PaintEngine_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_PaintEngine_Callback>(slot));
+void KGradientSelector_OnPaintEngine(KGradientSelector* self, intptr_t slot) {
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self)))
+        vkgradientselector->kgradientselector_paintengine_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_MouseDoubleClickEvent(KGradientSelector* self, QMouseEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperMouseDoubleClickEvent(KGradientSelector* self, QMouseEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_MouseDoubleClickEvent_IsBase(true);
-        vkgradientselector->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMouseDoubleClickEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_mousedoubleclickevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_KeyReleaseEvent(KGradientSelector* self, QKeyEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->keyReleaseEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperKeyReleaseEvent(KGradientSelector* self, QKeyEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_KeyReleaseEvent_IsBase(true);
-        vkgradientselector->keyReleaseEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnKeyReleaseEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_keyreleaseevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_FocusInEvent(KGradientSelector* self, QFocusEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->focusInEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperFocusInEvent(KGradientSelector* self, QFocusEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_FocusInEvent_IsBase(true);
-        vkgradientselector->focusInEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->focusInEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnFocusInEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_FocusInEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_FocusInEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_focusinevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_FocusOutEvent(KGradientSelector* self, QFocusEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->focusOutEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperFocusOutEvent(KGradientSelector* self, QFocusEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_FocusOutEvent_IsBase(true);
-        vkgradientselector->focusOutEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->focusOutEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnFocusOutEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_FocusOutEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_FocusOutEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_focusoutevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_EnterEvent(KGradientSelector* self, QEnterEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->enterEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperEnterEvent(KGradientSelector* self, QEnterEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_EnterEvent_IsBase(true);
-        vkgradientselector->enterEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->enterEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnEnterEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_EnterEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_EnterEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_enterevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_LeaveEvent(KGradientSelector* self, QEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->leaveEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperLeaveEvent(KGradientSelector* self, QEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_LeaveEvent_IsBase(true);
-        vkgradientselector->leaveEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->leaveEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnLeaveEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_LeaveEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_LeaveEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_leaveevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_MoveEvent(KGradientSelector* self, QMoveEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->moveEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperMoveEvent(KGradientSelector* self, QMoveEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_MoveEvent_IsBase(true);
-        vkgradientselector->moveEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->moveEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMoveEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_MoveEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MoveEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_moveevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_ResizeEvent(KGradientSelector* self, QResizeEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->resizeEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperResizeEvent(KGradientSelector* self, QResizeEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_ResizeEvent_IsBase(true);
-        vkgradientselector->resizeEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->resizeEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnResizeEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_ResizeEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ResizeEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_resizeevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_CloseEvent(KGradientSelector* self, QCloseEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->closeEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperCloseEvent(KGradientSelector* self, QCloseEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_CloseEvent_IsBase(true);
-        vkgradientselector->closeEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->closeEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnCloseEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_CloseEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_CloseEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_closeevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_ContextMenuEvent(KGradientSelector* self, QContextMenuEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->contextMenuEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperContextMenuEvent(KGradientSelector* self, QContextMenuEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_ContextMenuEvent_IsBase(true);
-        vkgradientselector->contextMenuEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnContextMenuEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_ContextMenuEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ContextMenuEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_contextmenuevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_TabletEvent(KGradientSelector* self, QTabletEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->tabletEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperTabletEvent(KGradientSelector* self, QTabletEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_TabletEvent_IsBase(true);
-        vkgradientselector->tabletEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->tabletEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnTabletEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_TabletEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_TabletEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_tabletevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_ActionEvent(KGradientSelector* self, QActionEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->actionEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperActionEvent(KGradientSelector* self, QActionEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_ActionEvent_IsBase(true);
-        vkgradientselector->actionEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->actionEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnActionEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_ActionEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ActionEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_actionevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_DragEnterEvent(KGradientSelector* self, QDragEnterEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->dragEnterEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperDragEnterEvent(KGradientSelector* self, QDragEnterEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_DragEnterEvent_IsBase(true);
-        vkgradientselector->dragEnterEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDragEnterEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_DragEnterEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DragEnterEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_dragenterevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_DragMoveEvent(KGradientSelector* self, QDragMoveEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->dragMoveEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperDragMoveEvent(KGradientSelector* self, QDragMoveEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_DragMoveEvent_IsBase(true);
-        vkgradientselector->dragMoveEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDragMoveEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_DragMoveEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DragMoveEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_dragmoveevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_DragLeaveEvent(KGradientSelector* self, QDragLeaveEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->dragLeaveEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperDragLeaveEvent(KGradientSelector* self, QDragLeaveEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_DragLeaveEvent_IsBase(true);
-        vkgradientselector->dragLeaveEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDragLeaveEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_DragLeaveEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DragLeaveEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_dragleaveevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_DropEvent(KGradientSelector* self, QDropEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->dropEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperDropEvent(KGradientSelector* self, QDropEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_DropEvent_IsBase(true);
-        vkgradientselector->dropEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->dropEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDropEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_DropEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DropEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_dropevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_ShowEvent(KGradientSelector* self, QShowEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->showEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperShowEvent(KGradientSelector* self, QShowEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_ShowEvent_IsBase(true);
-        vkgradientselector->showEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->showEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnShowEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_ShowEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ShowEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_showevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_HideEvent(KGradientSelector* self, QHideEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->hideEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperHideEvent(KGradientSelector* self, QHideEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_HideEvent_IsBase(true);
-        vkgradientselector->hideEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->hideEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnHideEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_HideEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_HideEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_hideevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KGradientSelector_NativeEvent(KGradientSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
+    if (vkgradientselector) {
         return vkgradientselector->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKGradientSelector*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KGradientSelector::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KGradientSelector_SuperNativeEvent(KGradientSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_NativeEvent_IsBase(true);
-        return vkgradientselector->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKGradientSelector*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        return vkgradientselector->KGradientSelector::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnNativeEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_NativeEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_NativeEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_nativeevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KGradientSelector_Metric(const KGradientSelector* self, int param1) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         return vkgradientselector->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKGradientSelector*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KGradientSelector::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KGradientSelector_SuperMetric(const KGradientSelector* self, int param1) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_Metric_IsBase(true);
-        return vkgradientselector->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKGradientSelector*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self))) {
+        return vkgradientselector->KGradientSelector::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnMetric(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_Metric_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Metric_Callback>(slot));
+void KGradientSelector_OnMetric(KGradientSelector* self, intptr_t slot) {
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self)))
+        vkgradientselector->kgradientselector_metric_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_InitPainter(const KGradientSelector* self, QPainter* painter) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->initPainter(painter);
     } else {
-        ((VirtualKGradientSelector*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KGradientSelector::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperInitPainter(const KGradientSelector* self, QPainter* painter) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_InitPainter_IsBase(true);
-        vkgradientselector->initPainter(painter);
-    } else {
-        ((VirtualKGradientSelector*)self)->initPainter(painter);
-    }
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self))) {
+        vkgradientselector->KGradientSelector::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnInitPainter(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_InitPainter_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_InitPainter_Callback>(slot));
+void KGradientSelector_OnInitPainter(KGradientSelector* self, intptr_t slot) {
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self)))
+        vkgradientselector->kgradientselector_initpainter_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KGradientSelector_Redirected(const KGradientSelector* self, QPoint* offset) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         return vkgradientselector->redirected(offset);
     } else {
-        return ((VirtualKGradientSelector*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KGradientSelector::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KGradientSelector_SuperRedirected(const KGradientSelector* self, QPoint* offset) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_Redirected_IsBase(true);
-        return vkgradientselector->redirected(offset);
-    } else {
-        return ((VirtualKGradientSelector*)self)->redirected(offset);
-    }
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self))) {
+        return vkgradientselector->KGradientSelector::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnRedirected(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_Redirected_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Redirected_Callback>(slot));
+void KGradientSelector_OnRedirected(KGradientSelector* self, intptr_t slot) {
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self)))
+        vkgradientselector->kgradientselector_redirected_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KGradientSelector_SharedPainter(const KGradientSelector* self) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         return vkgradientselector->sharedPainter();
     } else {
-        return ((VirtualKGradientSelector*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KGradientSelector::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KGradientSelector_SuperSharedPainter(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_SharedPainter_IsBase(true);
-        return vkgradientselector->sharedPainter();
-    } else {
-        return ((VirtualKGradientSelector*)self)->sharedPainter();
-    }
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self))) {
+        return vkgradientselector->KGradientSelector::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnSharedPainter(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_SharedPainter_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SharedPainter_Callback>(slot));
+void KGradientSelector_OnSharedPainter(KGradientSelector* self, intptr_t slot) {
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self)))
+        vkgradientselector->kgradientselector_sharedpainter_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_InputMethodEvent(KGradientSelector* self, QInputMethodEvent* param1) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->inputMethodEvent(param1);
     } else {
-        ((VirtualKGradientSelector*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KGradientSelector::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperInputMethodEvent(KGradientSelector* self, QInputMethodEvent* param1) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_InputMethodEvent_IsBase(true);
-        vkgradientselector->inputMethodEvent(param1);
-    } else {
-        ((VirtualKGradientSelector*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnInputMethodEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_InputMethodEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_InputMethodEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_inputmethodevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KGradientSelector_InputMethodQuery(const KGradientSelector* self, int param1) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return new QVariant(vkgradientselector->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKGradientSelector*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KGradientSelector_SuperInputMethodQuery(const KGradientSelector* self, int param1) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_InputMethodQuery_IsBase(true);
-        return new QVariant(vkgradientselector->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKGradientSelector*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KGradientSelector::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnInputMethodQuery(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_InputMethodQuery_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_InputMethodQuery_Callback>(slot));
+void KGradientSelector_OnInputMethodQuery(KGradientSelector* self, intptr_t slot) {
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self)))
+        vkgradientselector->kgradientselector_inputmethodquery_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KGradientSelector_FocusNextPrevChild(KGradientSelector* self, bool next) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         return vkgradientselector->focusNextPrevChild(next);
     } else {
-        return ((VirtualKGradientSelector*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KGradientSelector::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KGradientSelector_SuperFocusNextPrevChild(KGradientSelector* self, bool next) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_FocusNextPrevChild_IsBase(true);
-        return vkgradientselector->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKGradientSelector*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        return vkgradientselector->KGradientSelector::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnFocusNextPrevChild(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_focusnextprevchild_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KGradientSelector_EventFilter(KGradientSelector* self, QObject* watched, QEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return vkgradientselector->eventFilter(watched, event);
-    } else {
-        return self->KGradientSelector::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KGradientSelector_SuperEventFilter(KGradientSelector* self, QObject* watched, QEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_EventFilter_IsBase(true);
-        return vkgradientselector->eventFilter(watched, event);
-    } else {
-        return self->KGradientSelector::eventFilter(watched, event);
-    }
+    return self->KGradientSelector::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnEventFilter(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_EventFilter_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_EventFilter_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_eventfilter_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_ChildEvent(KGradientSelector* self, QChildEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->childEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperChildEvent(KGradientSelector* self, QChildEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_ChildEvent_IsBase(true);
-        vkgradientselector->childEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->childEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnChildEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_ChildEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ChildEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_childevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_CustomEvent(KGradientSelector* self, QEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->customEvent(event);
     } else {
-        ((VirtualKGradientSelector*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KGradientSelector::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperCustomEvent(KGradientSelector* self, QEvent* event) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_CustomEvent_IsBase(true);
-        vkgradientselector->customEvent(event);
-    } else {
-        ((VirtualKGradientSelector*)self)->customEvent(event);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnCustomEvent(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_CustomEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_CustomEvent_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_customevent_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_ConnectNotify(KGradientSelector* self, const QMetaMethod* signal) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->connectNotify(*signal);
     } else {
-        ((VirtualKGradientSelector*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KGradientSelector::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperConnectNotify(KGradientSelector* self, const QMetaMethod* signal) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_ConnectNotify_IsBase(true);
-        vkgradientselector->connectNotify(*signal);
-    } else {
-        ((VirtualKGradientSelector*)self)->connectNotify(*signal);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnConnectNotify(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_ConnectNotify_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ConnectNotify_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_connectnotify_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KGradientSelector_DisconnectNotify(KGradientSelector* self, const QMetaMethod* signal) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector) {
         vkgradientselector->disconnectNotify(*signal);
     } else {
-        ((VirtualKGradientSelector*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KGradientSelector::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KGradientSelector_SuperDisconnectNotify(KGradientSelector* self, const QMetaMethod* signal) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_DisconnectNotify_IsBase(true);
-        vkgradientselector->disconnectNotify(*signal);
-    } else {
-        ((VirtualKGradientSelector*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->KGradientSelector::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KGradientSelector::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDisconnectNotify(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_DisconnectNotify_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DisconnectNotify_Callback>(slot));
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self))
+        vkgradientselector->kgradientselector_disconnectnotify_callback = reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KGradientSelector_SetRepeatAction(KGradientSelector* self, int action) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    } else {
-        ((VirtualKGradientSelector*)self)->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->VirtualKGradientSelector::setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
+    } else
+        qFatal("Error: Protected method KGradientSelector::setRepeatAction called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KGradientSelector_SuperSetRepeatAction(KGradientSelector* self, int action) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_SetRepeatAction_IsBase(true);
-        vkgradientselector->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    } else {
-        ((VirtualKGradientSelector*)self)->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnSetRepeatAction(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_SetRepeatAction_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SetRepeatAction_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KGradientSelector_RepeatAction(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return static_cast<int>(vkgradientselector->repeatAction());
-    } else {
-        return static_cast<int>(((VirtualKGradientSelector*)self)->repeatAction());
-    }
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self))) {
+        return static_cast<int>(vkgradientselector->VirtualKGradientSelector::repeatAction());
+    } else
+        qFatal("Error: Protected method KGradientSelector::repeatAction called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KGradientSelector_SuperRepeatAction(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_RepeatAction_IsBase(true);
-        return static_cast<int>(vkgradientselector->repeatAction());
-    } else {
-        return static_cast<int>(((VirtualKGradientSelector*)self)->repeatAction());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnRepeatAction(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_RepeatAction_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_RepeatAction_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KGradientSelector_UpdateMicroFocus(KGradientSelector* self) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->updateMicroFocus();
-    } else {
-        ((VirtualKGradientSelector*)self)->updateMicroFocus();
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->VirtualKGradientSelector::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KGradientSelector::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KGradientSelector_SuperUpdateMicroFocus(KGradientSelector* self) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_UpdateMicroFocus_IsBase(true);
-        vkgradientselector->updateMicroFocus();
-    } else {
-        ((VirtualKGradientSelector*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnUpdateMicroFocus(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KGradientSelector_Create(KGradientSelector* self) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->create();
-    } else {
-        ((VirtualKGradientSelector*)self)->create();
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->VirtualKGradientSelector::create();
+    } else
+        qFatal("Error: Protected method KGradientSelector::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KGradientSelector_SuperCreate(KGradientSelector* self) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_Create_IsBase(true);
-        vkgradientselector->create();
-    } else {
-        ((VirtualKGradientSelector*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnCreate(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_Create_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KGradientSelector_Destroy(KGradientSelector* self) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->destroy();
-    } else {
-        ((VirtualKGradientSelector*)self)->destroy();
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        vkgradientselector->VirtualKGradientSelector::destroy();
+    } else
+        qFatal("Error: Protected method KGradientSelector::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KGradientSelector_SuperDestroy(KGradientSelector* self) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_Destroy_IsBase(true);
-        vkgradientselector->destroy();
-    } else {
-        ((VirtualKGradientSelector*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnDestroy(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_Destroy_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KGradientSelector_FocusNextChild(KGradientSelector* self) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return vkgradientselector->focusNextChild();
-    } else {
-        return ((VirtualKGradientSelector*)self)->focusNextChild();
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        return vkgradientselector->VirtualKGradientSelector::focusNextChild();
+    } else
+        qFatal("Error: Protected method KGradientSelector::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KGradientSelector_SuperFocusNextChild(KGradientSelector* self) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_FocusNextChild_IsBase(true);
-        return vkgradientselector->focusNextChild();
-    } else {
-        return ((VirtualKGradientSelector*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnFocusNextChild(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_FocusNextChild_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KGradientSelector_FocusPreviousChild(KGradientSelector* self) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return vkgradientselector->focusPreviousChild();
-    } else {
-        return ((VirtualKGradientSelector*)self)->focusPreviousChild();
-    }
+    if (auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self)) {
+        return vkgradientselector->VirtualKGradientSelector::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KGradientSelector::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KGradientSelector_SuperFocusPreviousChild(KGradientSelector* self) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_FocusPreviousChild_IsBase(true);
-        return vkgradientselector->focusPreviousChild();
-    } else {
-        return ((VirtualKGradientSelector*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnFocusPreviousChild(KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_FocusPreviousChild_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KGradientSelector_Sender(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return vkgradientselector->sender();
-    } else {
-        return ((VirtualKGradientSelector*)self)->sender();
-    }
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self))) {
+        return vkgradientselector->VirtualKGradientSelector::sender();
+    } else
+        qFatal("Error: Protected method KGradientSelector::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KGradientSelector_SuperSender(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_Sender_IsBase(true);
-        return vkgradientselector->sender();
-    } else {
-        return ((VirtualKGradientSelector*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnSender(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_Sender_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KGradientSelector_SenderSignalIndex(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return vkgradientselector->senderSignalIndex();
-    } else {
-        return ((VirtualKGradientSelector*)self)->senderSignalIndex();
-    }
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self))) {
+        return vkgradientselector->VirtualKGradientSelector::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KGradientSelector::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KGradientSelector_SuperSenderSignalIndex(const KGradientSelector* self) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_SenderSignalIndex_IsBase(true);
-        return vkgradientselector->senderSignalIndex();
-    } else {
-        return ((VirtualKGradientSelector*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnSenderSignalIndex(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_SenderSignalIndex_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KGradientSelector_Receivers(const KGradientSelector* self, const char* signal) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return vkgradientselector->receivers(signal);
-    } else {
-        return ((VirtualKGradientSelector*)self)->receivers(signal);
-    }
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self))) {
+        return vkgradientselector->VirtualKGradientSelector::receivers(signal);
+    } else
+        qFatal("Error: Protected method KGradientSelector::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KGradientSelector_SuperReceivers(const KGradientSelector* self, const char* signal) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_Receivers_IsBase(true);
-        return vkgradientselector->receivers(signal);
-    } else {
-        return ((VirtualKGradientSelector*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnReceivers(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_Receivers_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KGradientSelector_IsSignalConnected(const KGradientSelector* self, const QMetaMethod* signal) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return vkgradientselector->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKGradientSelector*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self))) {
+        return vkgradientselector->VirtualKGradientSelector::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KGradientSelector::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KGradientSelector_SuperIsSignalConnected(const KGradientSelector* self, const QMetaMethod* signal) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_IsSignalConnected_IsBase(true);
-        return vkgradientselector->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKGradientSelector*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnIsSignalConnected(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_IsSignalConnected_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KGradientSelector_GetDecodedMetricF(const KGradientSelector* self, int metricA, int metricB) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return vkgradientselector->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKGradientSelector*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KGradientSelector_SuperGetDecodedMetricF(const KGradientSelector* self, int metricA, int metricB) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        vkgradientselector->setKGradientSelector_GetDecodedMetricF_IsBase(true);
-        return vkgradientselector->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKGradientSelector*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KGradientSelector_OnGetDecodedMetricF(const KGradientSelector* self, intptr_t slot) {
-    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
-        vkgradientselector->setKGradientSelector_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self))) {
+        return vkgradientselector->VirtualKGradientSelector::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KGradientSelector::getDecodedMetricF called without a directly constructed type");
 }
 
 void KGradientSelector_Delete(KGradientSelector* self) {

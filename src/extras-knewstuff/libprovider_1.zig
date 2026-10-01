@@ -66,9 +66,9 @@ pub const KNSCore__Provider = extern struct {
     ///
     /// ` self: KNSCore__Provider `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KNSCore__Provider) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KNSCore__Provider, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider) callconv(.c) QMetaObject) void {
         qtc.KNSCore__Provider_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -219,6 +219,8 @@ pub const KNSCore__Provider = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#id)
     ///
+    /// This method must be implemented with `onId` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KNSCore__Provider `
@@ -245,32 +247,10 @@ pub const KNSCore__Provider = extern struct {
     ///
     /// ` self: KNSCore__Provider `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KNSCore__Provider) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onId(self: KNSCore__Provider, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onId(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider) callconv(.c) [*:0]const u8) void {
         qtc.KNSCore__Provider_OnId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superId` instead
-    ///
-    pub const SuperId = superId;
-
-    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#id)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__Provider `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superId(self: KNSCore__Provider, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KNSCore__Provider_SuperId(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Provider.id: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `setProviderXML` instead
@@ -278,6 +258,8 @@ pub const KNSCore__Provider = extern struct {
     pub const SetProviderXML = setProviderXML;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setProviderXML)
+    ///
+    /// This method must be implemented with `onSetProviderXML` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -308,30 +290,13 @@ pub const KNSCore__Provider = extern struct {
         qtc.KNSCore__Provider_OnSetProviderXML(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetProviderXML` instead
-    ///
-    pub const SuperSetProviderXML = superSetProviderXML;
-
-    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setProviderXML)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__Provider `
-    ///
-    /// ` xmldata: QDomElement `
-    ///
-    pub fn superSetProviderXML(self: KNSCore__Provider, xmldata: anytype) bool {
-        comptime _ = @TypeOf(xmldata)._is_QDomElement;
-        return qtc.KNSCore__Provider_SuperSetProviderXML(@ptrCast(self.ptr), @ptrCast(xmldata.ptr));
-    }
-
     /// ### DEPRECATED: Use `isInitialized` instead
     ///
     pub const IsInitialized = isInitialized;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#isInitialized)
+    ///
+    /// This method must be implemented with `onIsInitialized` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -353,26 +318,10 @@ pub const KNSCore__Provider = extern struct {
     ///
     /// ` self: KNSCore__Provider `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__Provider) callconv(.c) bool `
     ///
-    pub fn onIsInitialized(self: KNSCore__Provider, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsInitialized(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider) callconv(.c) bool) void {
         qtc.KNSCore__Provider_OnIsInitialized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superIsInitialized` instead
-    ///
-    pub const SuperIsInitialized = superIsInitialized;
-
-    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#isInitialized)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__Provider `
-    ///
-    pub fn superIsInitialized(self: KNSCore__Provider) bool {
-        return qtc.KNSCore__Provider_SuperIsInitialized(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setCachedEntries` instead
@@ -380,6 +329,8 @@ pub const KNSCore__Provider = extern struct {
     pub const SetCachedEntries = setCachedEntries;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setCachedEntries)
+    ///
+    /// This method must be implemented with `onSetCachedEntries` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -411,28 +362,6 @@ pub const KNSCore__Provider = extern struct {
     ///
     pub fn onSetCachedEntries(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider, qtc.libqt_list) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnSetCachedEntries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetCachedEntries` instead
-    ///
-    pub const SuperSetCachedEntries = superSetCachedEntries;
-
-    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setCachedEntries)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__Provider `
-    ///
-    /// ` cachedEntries: []KNSCore__Entry `
-    ///
-    pub fn superSetCachedEntries(self: KNSCore__Provider, cachedEntries: []KNSCore__Entry) void {
-        const cachedEntries_list = qtc.libqt_list{
-            .len = cachedEntries.len,
-            .data = @ptrCast(cachedEntries.ptr),
-        };
-        qtc.KNSCore__Provider_SuperSetCachedEntries(@ptrCast(self.ptr), cachedEntries_list);
     }
 
     /// ### DEPRECATED: Use `name` instead
@@ -467,9 +396,9 @@ pub const KNSCore__Provider = extern struct {
     ///
     /// ` self: KNSCore__Provider `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KNSCore__Provider) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onName(self: KNSCore__Provider, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onName(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider) callconv(.c) [*:0]const u8) void {
         qtc.KNSCore__Provider_OnName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -521,11 +450,11 @@ pub const KNSCore__Provider = extern struct {
     ///
     /// ` self: KNSCore__Provider `
     ///
-    /// ` callback: *const fn () callconv(.c) QUrl `
+    /// ` callback: *const fn (self: KNSCore__Provider) callconv(.c) QUrl `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onIcon(self: KNSCore__Provider, callback: *const fn () callconv(.c) QUrl) void {
+    pub fn onIcon(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider) callconv(.c) QUrl) void {
         qtc.KNSCore__Provider_OnIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -550,6 +479,8 @@ pub const KNSCore__Provider = extern struct {
     pub const LoadEntries = loadEntries;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntries)
+    ///
+    /// This method must be implemented with `onLoadEntries` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -578,25 +509,6 @@ pub const KNSCore__Provider = extern struct {
     ///
     pub fn onLoadEntries(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider, KNSCore__Provider__SearchRequest) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnLoadEntries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superLoadEntries` instead
-    ///
-    pub const SuperLoadEntries = superLoadEntries;
-
-    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntries)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__Provider `
-    ///
-    /// ` request: KNSCore__Provider__SearchRequest `
-    ///
-    pub fn superLoadEntries(self: KNSCore__Provider, request: anytype) void {
-        comptime _ = @TypeOf(request)._is_KNSCore__Provider__SearchRequest;
-        qtc.KNSCore__Provider_SuperLoadEntries(@ptrCast(self.ptr), @ptrCast(request.ptr));
     }
 
     /// ### DEPRECATED: Use `loadEntryDetails` instead
@@ -659,6 +571,8 @@ pub const KNSCore__Provider = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadPayloadLink)
     ///
+    /// This method must be implemented with `onLoadPayloadLink` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KNSCore__Provider `
@@ -688,27 +602,6 @@ pub const KNSCore__Provider = extern struct {
     ///
     pub fn onLoadPayloadLink(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider, KNSCore__Entry, i32) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnLoadPayloadLink(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superLoadPayloadLink` instead
-    ///
-    pub const SuperLoadPayloadLink = superLoadPayloadLink;
-
-    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadPayloadLink)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__Provider `
-    ///
-    /// ` entry: KNSCore__Entry `
-    ///
-    /// ` linkId: i32 `
-    ///
-    pub fn superLoadPayloadLink(self: KNSCore__Provider, entry: anytype, linkId: i32) void {
-        comptime _ = @TypeOf(entry)._is_KNSCore__Entry;
-        qtc.KNSCore__Provider_SuperLoadPayloadLink(@ptrCast(self.ptr), @ptrCast(entry.ptr), @bitCast(linkId));
     }
 
     /// ### DEPRECATED: Use `loadComments` instead
@@ -859,9 +752,9 @@ pub const KNSCore__Provider = extern struct {
     ///
     /// ` self: KNSCore__Provider `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__Provider) callconv(.c) void `
     ///
-    pub fn onLoadBasics(self: KNSCore__Provider, callback: *const fn () callconv(.c) void) void {
+    pub fn onLoadBasics(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnLoadBasics(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1079,9 +972,9 @@ pub const KNSCore__Provider = extern struct {
     ///
     /// ` self: KNSCore__Provider `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__Provider) callconv(.c) bool `
     ///
-    pub fn onUserCanVote(self: KNSCore__Provider, callback: *const fn () callconv(.c) bool) void {
+    pub fn onUserCanVote(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider) callconv(.c) bool) void {
         qtc.KNSCore__Provider_OnUserCanVote(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1185,9 +1078,9 @@ pub const KNSCore__Provider = extern struct {
     ///
     /// ` self: KNSCore__Provider `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__Provider) callconv(.c) bool `
     ///
-    pub fn onUserCanBecomeFan(self: KNSCore__Provider, callback: *const fn () callconv(.c) bool) void {
+    pub fn onUserCanBecomeFan(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider) callconv(.c) bool) void {
         qtc.KNSCore__Provider_OnUserCanBecomeFan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1845,46 +1738,6 @@ pub const KNSCore__Provider = extern struct {
         qtc.KNSCore__Provider_SetName(@ptrCast(self.ptr), name_str);
     }
 
-    /// ### DEPRECATED: Use `onSetName` instead
-    ///
-    pub const OnSetName = onSetName;
-
-    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setName)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNSCore__Provider `
-    ///
-    /// ` callback: *const fn (self: KNSCore__Provider, name: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetName(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider, [*:0]const u8) callconv(.c) void) void {
-        qtc.KNSCore__Provider_OnSetName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetName` instead
-    ///
-    pub const SuperSetName = superSetName;
-
-    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setName)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__Provider `
-    ///
-    /// ` _name: []const u8 `
-    ///
-    pub fn superSetName(self: KNSCore__Provider, _name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = _name.len,
-            .data = _name.ptr,
-        };
-        qtc.KNSCore__Provider_SuperSetName(@ptrCast(self.ptr), name_str);
-    }
-
     /// ### DEPRECATED: Use `setIcon` instead
     ///
     pub const SetIcon = setIcon;
@@ -1900,43 +1753,6 @@ pub const KNSCore__Provider = extern struct {
     pub fn setIcon(self: KNSCore__Provider, _icon: anytype) void {
         comptime _ = @TypeOf(_icon)._is_QUrl;
         qtc.KNSCore__Provider_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetIcon` instead
-    ///
-    pub const OnSetIcon = onSetIcon;
-
-    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setIcon)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNSCore__Provider `
-    ///
-    /// ` callback: *const fn (self: KNSCore__Provider, icon: QUrl) callconv(.c) void `
-    ///
-    pub fn onSetIcon(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider, QUrl) callconv(.c) void) void {
-        qtc.KNSCore__Provider_OnSetIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetIcon` instead
-    ///
-    pub const SuperSetIcon = superSetIcon;
-
-    /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setIcon)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__Provider `
-    ///
-    /// ` _icon: QUrl `
-    ///
-    pub fn superSetIcon(self: KNSCore__Provider, _icon: anytype) void {
-        comptime _ = @TypeOf(_icon)._is_QUrl;
-        qtc.KNSCore__Provider_SuperSetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -3416,44 +3232,6 @@ pub const KNSCore__Provider = extern struct {
         return .{ .ptr = qtc.KNSCore__Provider_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__Provider `
-    ///
-    pub fn superSender(self: KNSCore__Provider) QObject {
-        return .{ .ptr = qtc.KNSCore__Provider_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNSCore__Provider`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KNSCore__Provider, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KNSCore__Provider_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3470,44 +3248,6 @@ pub const KNSCore__Provider = extern struct {
     ///
     pub fn senderSignalIndex(self: KNSCore__Provider) i32 {
         return qtc.KNSCore__Provider_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__Provider `
-    ///
-    pub fn superSenderSignalIndex(self: KNSCore__Provider) i32 {
-        return qtc.KNSCore__Provider_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNSCore__Provider`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KNSCore__Provider, callback: *const fn () callconv(.c) i32) void {
-        qtc.KNSCore__Provider_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3531,47 +3271,6 @@ pub const KNSCore__Provider = extern struct {
         return qtc.KNSCore__Provider_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__Provider `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KNSCore__Provider, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KNSCore__Provider_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNSCore__Provider`
-    ///
-    /// ` callback: *const fn (self: KNSCore__Provider, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KNSCore__Provider_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3591,47 +3290,6 @@ pub const KNSCore__Provider = extern struct {
     pub fn isSignalConnected(self: KNSCore__Provider, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KNSCore__Provider_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__Provider `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KNSCore__Provider, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KNSCore__Provider_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNSCore__Provider`
-    ///
-    /// ` callback: *const fn (self: KNSCore__Provider, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KNSCore__Provider, callback: *const fn (KNSCore__Provider, QMetaMethod) callconv(.c) bool) void {
-        qtc.KNSCore__Provider_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

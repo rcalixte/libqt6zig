@@ -9,57 +9,43 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KTextEditor::SessionConfigInterface so that we can call protected methods
+// This class is a subclass of KTextEditor::SessionConfigInterface
 class VirtualKTextEditorSessionConfigInterface : public KTextEditor::SessionConfigInterface {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKTextEditorSessionConfigInterface = true;
-
-    // Virtual class public types (including callbacks)
+    // Virtual class public types (including callbacks and access types)
     using KTextEditor__SessionConfigInterface_ReadSessionConfig_Callback = void (*)(KTextEditor__SessionConfigInterface*, KConfigGroup*);
     using KTextEditor__SessionConfigInterface_WriteSessionConfig_Callback = void (*)(KTextEditor__SessionConfigInterface*, KConfigGroup*);
 
-  protected:
     // Instance callback storage
     KTextEditor__SessionConfigInterface_ReadSessionConfig_Callback ktexteditor__sessionconfiginterface_readsessionconfig_callback = nullptr;
     KTextEditor__SessionConfigInterface_WriteSessionConfig_Callback ktexteditor__sessionconfiginterface_writesessionconfig_callback = nullptr;
 
-    // Instance base flags
-    mutable bool ktexteditor__sessionconfiginterface_readsessionconfig_isbase = false;
-    mutable bool ktexteditor__sessionconfiginterface_writesessionconfig_isbase = false;
-
-  public:
     VirtualKTextEditorSessionConfigInterface() : KTextEditor::SessionConfigInterface() {};
-
-    // Callback setters
-    inline void setKTextEditor__SessionConfigInterface_ReadSessionConfig_Callback(KTextEditor__SessionConfigInterface_ReadSessionConfig_Callback cb) { ktexteditor__sessionconfiginterface_readsessionconfig_callback = cb; }
-    inline void setKTextEditor__SessionConfigInterface_WriteSessionConfig_Callback(KTextEditor__SessionConfigInterface_WriteSessionConfig_Callback cb) { ktexteditor__sessionconfiginterface_writesessionconfig_callback = cb; }
-
-    // Base flag setters
-    inline void setKTextEditor__SessionConfigInterface_ReadSessionConfig_IsBase(bool value) const { ktexteditor__sessionconfiginterface_readsessionconfig_isbase = value; }
-    inline void setKTextEditor__SessionConfigInterface_WriteSessionConfig_IsBase(bool value) const { ktexteditor__sessionconfiginterface_writesessionconfig_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void readSessionConfig(const KConfigGroup& config) override {
-        auto readsessionconfig_cb = ktexteditor__sessionconfiginterface_readsessionconfig_callback;
-        if (readsessionconfig_cb) {
+        if (ktexteditor__sessionconfiginterface_readsessionconfig_callback) {
             const KConfigGroup& config_ret = config;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&config_ret);
-            readsessionconfig_cb(this, cbval1);
+            ktexteditor__sessionconfiginterface_readsessionconfig_callback(this, cbval1);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method KTextEditor::SessionConfigInterface::readSessionConfig called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void writeSessionConfig(KConfigGroup& config) override {
-        auto writesessionconfig_cb = ktexteditor__sessionconfiginterface_writesessionconfig_callback;
-        if (writesessionconfig_cb) {
+        if (ktexteditor__sessionconfiginterface_writesessionconfig_callback) {
             KConfigGroup& config_ret = config;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = &config_ret;
-            writesessionconfig_cb(this, cbval1);
+            ktexteditor__sessionconfiginterface_writesessionconfig_callback(this, cbval1);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method KTextEditor::SessionConfigInterface::writeSessionConfig called without being implemented");
     }
 };
 

@@ -39,15 +39,15 @@ QExtensionManager* QExtensionFactory_ExtensionManager(const QExtensionFactory* s
 QObject* QExtensionFactory_CreateExtension(const QExtensionFactory* self, QObject* object, const libqt_string iid, QObject* parent);
 libqt_string QExtensionFactory_Tr2(const char* s, const char* c);
 libqt_string QExtensionFactory_Tr3(const char* s, const char* c, int n);
-void QExtensionFactory_OnMetaObject(const QExtensionFactory* self, intptr_t slot);
+void QExtensionFactory_OnMetaObject(QExtensionFactory* self, intptr_t slot);
 QMetaObject* QExtensionFactory_SuperMetaObject(const QExtensionFactory* self);
 void QExtensionFactory_OnMetacast(QExtensionFactory* self, intptr_t slot);
 void* QExtensionFactory_SuperMetacast(QExtensionFactory* self, const char* param1);
 void QExtensionFactory_OnMetacall(QExtensionFactory* self, intptr_t slot);
 int QExtensionFactory_SuperMetacall(QExtensionFactory* self, int param1, int param2, void** param3);
-void QExtensionFactory_OnExtension(const QExtensionFactory* self, intptr_t slot);
+void QExtensionFactory_OnExtension(QExtensionFactory* self, intptr_t slot);
 QObject* QExtensionFactory_SuperExtension(const QExtensionFactory* self, QObject* object, const libqt_string iid);
-void QExtensionFactory_OnCreateExtension(const QExtensionFactory* self, intptr_t slot);
+void QExtensionFactory_OnCreateExtension(QExtensionFactory* self, intptr_t slot);
 QObject* QExtensionFactory_SuperCreateExtension(const QExtensionFactory* self, QObject* object, const libqt_string iid, QObject* parent);
 bool QExtensionFactory_Event(QExtensionFactory* self, QEvent* event);
 void QExtensionFactory_OnEvent(QExtensionFactory* self, intptr_t slot);
@@ -71,17 +71,9 @@ void QExtensionFactory_DisconnectNotify(QExtensionFactory* self, const QMetaMeth
 void QExtensionFactory_OnDisconnectNotify(QExtensionFactory* self, intptr_t slot);
 void QExtensionFactory_SuperDisconnectNotify(QExtensionFactory* self, const QMetaMethod* signal);
 QObject* QExtensionFactory_Sender(const QExtensionFactory* self);
-void QExtensionFactory_OnSender(const QExtensionFactory* self, intptr_t slot);
-QObject* QExtensionFactory_SuperSender(const QExtensionFactory* self);
 int QExtensionFactory_SenderSignalIndex(const QExtensionFactory* self);
-void QExtensionFactory_OnSenderSignalIndex(const QExtensionFactory* self, intptr_t slot);
-int QExtensionFactory_SuperSenderSignalIndex(const QExtensionFactory* self);
 int QExtensionFactory_Receivers(const QExtensionFactory* self, const char* signal);
-void QExtensionFactory_OnReceivers(const QExtensionFactory* self, intptr_t slot);
-int QExtensionFactory_SuperReceivers(const QExtensionFactory* self, const char* signal);
 bool QExtensionFactory_IsSignalConnected(const QExtensionFactory* self, const QMetaMethod* signal);
-void QExtensionFactory_OnIsSignalConnected(const QExtensionFactory* self, intptr_t slot);
-bool QExtensionFactory_SuperIsSignalConnected(const QExtensionFactory* self, const QMetaMethod* signal);
 void QExtensionFactory_Delete(QExtensionFactory* self);
 
 #ifdef __cplusplus

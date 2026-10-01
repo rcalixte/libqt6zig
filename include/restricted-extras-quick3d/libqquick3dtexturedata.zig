@@ -84,9 +84,9 @@ pub const QQuick3DTextureData = extern struct {
     ///
     /// ` self: QQuick3DTextureData `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QQuick3DTextureData) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QQuick3DTextureData, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QQuick3DTextureData, callback: *const fn (QQuick3DTextureData) callconv(.c) QMetaObject) void {
         qtc.QQuick3DTextureData_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -452,9 +452,9 @@ pub const QQuick3DTextureData = extern struct {
     ///
     /// ` self: QQuick3DTextureData `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuick3DTextureData) callconv(.c) void `
     ///
-    pub fn onMarkAllDirty(self: QQuick3DTextureData, callback: *const fn () callconv(.c) void) void {
+    pub fn onMarkAllDirty(self: QQuick3DTextureData, callback: *const fn (QQuick3DTextureData) callconv(.c) void) void {
         qtc.QQuick3DTextureData_OnMarkAllDirty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1875,9 +1875,9 @@ pub const QQuick3DTextureData = extern struct {
     ///
     /// ` self: QQuick3DTextureData`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuick3DTextureData) callconv(.c) void `
     ///
-    pub fn onClassBegin(self: QQuick3DTextureData, callback: *const fn () callconv(.c) void) void {
+    pub fn onClassBegin(self: QQuick3DTextureData, callback: *const fn (QQuick3DTextureData) callconv(.c) void) void {
         qtc.QQuick3DTextureData_OnClassBegin(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1931,9 +1931,9 @@ pub const QQuick3DTextureData = extern struct {
     ///
     /// ` self: QQuick3DTextureData`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuick3DTextureData) callconv(.c) void `
     ///
-    pub fn onComponentComplete(self: QQuick3DTextureData, callback: *const fn () callconv(.c) void) void {
+    pub fn onComponentComplete(self: QQuick3DTextureData, callback: *const fn (QQuick3DTextureData) callconv(.c) void) void {
         qtc.QQuick3DTextureData_OnComponentComplete(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1987,9 +1987,9 @@ pub const QQuick3DTextureData = extern struct {
     ///
     /// ` self: QQuick3DTextureData`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuick3DTextureData) callconv(.c) void `
     ///
-    pub fn onPreSync(self: QQuick3DTextureData, callback: *const fn () callconv(.c) void) void {
+    pub fn onPreSync(self: QQuick3DTextureData, callback: *const fn (QQuick3DTextureData) callconv(.c) void) void {
         qtc.QQuick3DTextureData_OnPreSync(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2451,44 +2451,6 @@ pub const QQuick3DTextureData = extern struct {
         return qtc.QQuick3DTextureData_IsComponentComplete(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superIsComponentComplete` instead
-    ///
-    pub const SuperIsComponentComplete = superIsComponentComplete;
-
-    /// Inherited from QQuick3DObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dobject.html#isComponentComplete)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DTextureData `
-    ///
-    pub fn superIsComponentComplete(self: QQuick3DTextureData) bool {
-        return qtc.QQuick3DTextureData_SuperIsComponentComplete(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsComponentComplete` instead
-    ///
-    pub const OnIsComponentComplete = onIsComponentComplete;
-
-    /// Inherited from QQuick3DObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquick3dobject.html#isComponentComplete)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DTextureData`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onIsComponentComplete(self: QQuick3DTextureData, callback: *const fn () callconv(.c) bool) void {
-        qtc.QQuick3DTextureData_OnIsComponentComplete(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -2507,44 +2469,6 @@ pub const QQuick3DTextureData = extern struct {
         return .{ .ptr = qtc.QQuick3DTextureData_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DTextureData `
-    ///
-    pub fn superSender(self: QQuick3DTextureData) QObject {
-        return .{ .ptr = qtc.QQuick3DTextureData_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DTextureData`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QQuick3DTextureData, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QQuick3DTextureData_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2561,44 +2485,6 @@ pub const QQuick3DTextureData = extern struct {
     ///
     pub fn senderSignalIndex(self: QQuick3DTextureData) i32 {
         return qtc.QQuick3DTextureData_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DTextureData `
-    ///
-    pub fn superSenderSignalIndex(self: QQuick3DTextureData) i32 {
-        return qtc.QQuick3DTextureData_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DTextureData`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QQuick3DTextureData, callback: *const fn () callconv(.c) i32) void {
-        qtc.QQuick3DTextureData_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2622,47 +2508,6 @@ pub const QQuick3DTextureData = extern struct {
         return qtc.QQuick3DTextureData_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DTextureData `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QQuick3DTextureData, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QQuick3DTextureData_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DTextureData`
-    ///
-    /// ` callback: *const fn (self: QQuick3DTextureData, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QQuick3DTextureData, callback: *const fn (QQuick3DTextureData, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QQuick3DTextureData_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2682,47 +2527,6 @@ pub const QQuick3DTextureData = extern struct {
     pub fn isSignalConnected(self: QQuick3DTextureData, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QQuick3DTextureData_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuick3DTextureData `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QQuick3DTextureData, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QQuick3DTextureData_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuick3DTextureData`
-    ///
-    /// ` callback: *const fn (self: QQuick3DTextureData, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QQuick3DTextureData, callback: *const fn (QQuick3DTextureData, QMetaMethod) callconv(.c) bool) void {
-        qtc.QQuick3DTextureData_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -79,7 +79,7 @@ bool KArchiveDirectory_CopyTo(const KArchiveDirectory* self, const libqt_string 
 
 void KArchiveDirectory_VirtualHook(KArchiveDirectory* self, int id, void* data) {
     auto* vkarchivedirectory = dynamic_cast<VirtualKArchiveDirectory*>(self);
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
+    if (vkarchivedirectory) {
         vkarchivedirectory->virtual_hook(static_cast<int>(id), data);
     }
 }
@@ -91,94 +91,51 @@ bool KArchiveDirectory_CopyTo2(const KArchiveDirectory* self, const libqt_string
 
 // Base class handler implementation
 bool KArchiveDirectory_SuperIsDirectory(const KArchiveDirectory* self) {
-    auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self));
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
-        vkarchivedirectory->setKArchiveDirectory_IsDirectory_IsBase(true);
-        return vkarchivedirectory->isDirectory();
-    } else {
-        return self->KArchiveDirectory::isDirectory();
-    }
+    return self->KArchiveDirectory::isDirectory();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KArchiveDirectory_OnIsDirectory(const KArchiveDirectory* self, intptr_t slot) {
-    auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self));
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory)
-        vkarchivedirectory->setKArchiveDirectory_IsDirectory_Callback(reinterpret_cast<VirtualKArchiveDirectory::KArchiveDirectory_IsDirectory_Callback>(slot));
+void KArchiveDirectory_OnIsDirectory(KArchiveDirectory* self, intptr_t slot) {
+    if (auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self)))
+        vkarchivedirectory->karchivedirectory_isdirectory_callback = reinterpret_cast<VirtualKArchiveDirectory::KArchiveDirectory_IsDirectory_Callback>(slot);
 }
 
 // Base class handler implementation
 void KArchiveDirectory_SuperVirtualHook(KArchiveDirectory* self, int id, void* data) {
-    auto* vkarchivedirectory = dynamic_cast<VirtualKArchiveDirectory*>(self);
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
-        vkarchivedirectory->setKArchiveDirectory_VirtualHook_IsBase(true);
-        vkarchivedirectory->virtual_hook(static_cast<int>(id), data);
-    } else {
-        ((VirtualKArchiveDirectory*)self)->virtual_hook(static_cast<int>(id), data);
-    }
+    if (auto* vkarchivedirectory = dynamic_cast<VirtualKArchiveDirectory*>(self)) {
+        vkarchivedirectory->KArchiveDirectory::virtual_hook(static_cast<int>(id), data);
+    } else
+        qFatal("Error: Protected virtual method KArchiveDirectory::virtual_hook called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KArchiveDirectory_OnVirtualHook(KArchiveDirectory* self, intptr_t slot) {
-    auto* vkarchivedirectory = dynamic_cast<VirtualKArchiveDirectory*>(self);
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory)
-        vkarchivedirectory->setKArchiveDirectory_VirtualHook_Callback(reinterpret_cast<VirtualKArchiveDirectory::KArchiveDirectory_VirtualHook_Callback>(slot));
+    if (auto* vkarchivedirectory = dynamic_cast<VirtualKArchiveDirectory*>(self))
+        vkarchivedirectory->karchivedirectory_virtualhook_callback = reinterpret_cast<VirtualKArchiveDirectory::KArchiveDirectory_VirtualHook_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KArchiveDirectory_IsFile(const KArchiveDirectory* self) {
-    auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self));
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
-        return vkarchivedirectory->isFile();
-    } else {
-        return self->KArchiveDirectory::isFile();
-    }
+    return self->isFile();
 }
 
 // Base class handler implementation
 bool KArchiveDirectory_SuperIsFile(const KArchiveDirectory* self) {
-    auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self));
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
-        vkarchivedirectory->setKArchiveDirectory_IsFile_IsBase(true);
-        return vkarchivedirectory->isFile();
-    } else {
-        return self->KArchiveDirectory::isFile();
-    }
+    return self->KArchiveDirectory::isFile();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KArchiveDirectory_OnIsFile(const KArchiveDirectory* self, intptr_t slot) {
-    auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self));
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory)
-        vkarchivedirectory->setKArchiveDirectory_IsFile_Callback(reinterpret_cast<VirtualKArchiveDirectory::KArchiveDirectory_IsFile_Callback>(slot));
+void KArchiveDirectory_OnIsFile(KArchiveDirectory* self, intptr_t slot) {
+    if (auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self)))
+        vkarchivedirectory->karchivedirectory_isfile_callback = reinterpret_cast<VirtualKArchiveDirectory::KArchiveDirectory_IsFile_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 KArchive* KArchiveDirectory_Archive(const KArchiveDirectory* self) {
-    auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self));
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
-        return vkarchivedirectory->archive();
-    } else {
-        return ((VirtualKArchiveDirectory*)self)->archive();
-    }
-}
-
-// Base class handler implementation
-KArchive* KArchiveDirectory_SuperArchive(const KArchiveDirectory* self) {
-    auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self));
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
-        vkarchivedirectory->setKArchiveDirectory_Archive_IsBase(true);
-        return vkarchivedirectory->archive();
-    } else {
-        return ((VirtualKArchiveDirectory*)self)->archive();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KArchiveDirectory_OnArchive(const KArchiveDirectory* self, intptr_t slot) {
-    auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self));
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory)
-        vkarchivedirectory->setKArchiveDirectory_Archive_Callback(reinterpret_cast<VirtualKArchiveDirectory::KArchiveDirectory_Archive_Callback>(slot));
+    if (auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self))) {
+        return vkarchivedirectory->VirtualKArchiveDirectory::archive();
+    } else
+        qFatal("Error: Protected method KArchiveDirectory::archive called without a directly constructed type");
 }
 
 void KArchiveDirectory_Delete(KArchiveDirectory* self) {

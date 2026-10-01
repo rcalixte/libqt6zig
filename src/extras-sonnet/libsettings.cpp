@@ -445,364 +445,219 @@ libqt_string Sonnet__Settings_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* Sonnet__Settings_SuperMetaObject(const Sonnet__Settings* self) {
-    auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        vsonnetsettings->setSonnet__Settings_MetaObject_IsBase(true);
-        return (QMetaObject*)vsonnetsettings->metaObject();
-    } else {
-        return (QMetaObject*)self->Sonnet::Settings::metaObject();
-    }
+    return (QMetaObject*)self->Sonnet::Settings::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__Settings_OnMetaObject(const Sonnet__Settings* self, intptr_t slot) {
-    auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
-        vsonnetsettings->setSonnet__Settings_MetaObject_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_MetaObject_Callback>(slot));
+void Sonnet__Settings_OnMetaObject(Sonnet__Settings* self, intptr_t slot) {
+    if (auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self)))
+        vsonnetsettings->sonnet__settings_metaobject_callback = reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* Sonnet__Settings_SuperMetacast(Sonnet__Settings* self, const char* param1) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        vsonnetsettings->setSonnet__Settings_Metacast_IsBase(true);
-        return vsonnetsettings->qt_metacast(param1);
-    } else {
-        return self->Sonnet::Settings::qt_metacast(param1);
-    }
+    return self->Sonnet::Settings::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnMetacast(Sonnet__Settings* self, intptr_t slot) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
-        vsonnetsettings->setSonnet__Settings_Metacast_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_Metacast_Callback>(slot));
+    if (auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self))
+        vsonnetsettings->sonnet__settings_metacast_callback = reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int Sonnet__Settings_SuperMetacall(Sonnet__Settings* self, int param1, int param2, void** param3) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        vsonnetsettings->setSonnet__Settings_Metacall_IsBase(true);
-        return vsonnetsettings->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->Sonnet::Settings::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->Sonnet::Settings::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnMetacall(Sonnet__Settings* self, intptr_t slot) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
-        vsonnetsettings->setSonnet__Settings_Metacall_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_Metacall_Callback>(slot));
+    if (auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self))
+        vsonnetsettings->sonnet__settings_metacall_callback = reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__Settings_Event(Sonnet__Settings* self, QEvent* event) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        return vsonnetsettings->event(event);
-    } else {
-        return self->Sonnet::Settings::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool Sonnet__Settings_SuperEvent(Sonnet__Settings* self, QEvent* event) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        vsonnetsettings->setSonnet__Settings_Event_IsBase(true);
-        return vsonnetsettings->event(event);
-    } else {
-        return self->Sonnet::Settings::event(event);
-    }
+    return self->Sonnet::Settings::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnEvent(Sonnet__Settings* self, intptr_t slot) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
-        vsonnetsettings->setSonnet__Settings_Event_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_Event_Callback>(slot));
+    if (auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self))
+        vsonnetsettings->sonnet__settings_event_callback = reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__Settings_EventFilter(Sonnet__Settings* self, QObject* watched, QEvent* event) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        return vsonnetsettings->eventFilter(watched, event);
-    } else {
-        return self->Sonnet::Settings::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool Sonnet__Settings_SuperEventFilter(Sonnet__Settings* self, QObject* watched, QEvent* event) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        vsonnetsettings->setSonnet__Settings_EventFilter_IsBase(true);
-        return vsonnetsettings->eventFilter(watched, event);
-    } else {
-        return self->Sonnet::Settings::eventFilter(watched, event);
-    }
+    return self->Sonnet::Settings::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnEventFilter(Sonnet__Settings* self, intptr_t slot) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
-        vsonnetsettings->setSonnet__Settings_EventFilter_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_EventFilter_Callback>(slot));
+    if (auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self))
+        vsonnetsettings->sonnet__settings_eventfilter_callback = reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__Settings_TimerEvent(Sonnet__Settings* self, QTimerEvent* event) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings) {
         vsonnetsettings->timerEvent(event);
     } else {
-        ((VirtualSonnetSettings*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::Settings::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__Settings_SuperTimerEvent(Sonnet__Settings* self, QTimerEvent* event) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        vsonnetsettings->setSonnet__Settings_TimerEvent_IsBase(true);
-        vsonnetsettings->timerEvent(event);
-    } else {
-        ((VirtualSonnetSettings*)self)->timerEvent(event);
-    }
+    if (auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self)) {
+        vsonnetsettings->Sonnet::Settings::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::Settings::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnTimerEvent(Sonnet__Settings* self, intptr_t slot) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
-        vsonnetsettings->setSonnet__Settings_TimerEvent_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_TimerEvent_Callback>(slot));
+    if (auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self))
+        vsonnetsettings->sonnet__settings_timerevent_callback = reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__Settings_ChildEvent(Sonnet__Settings* self, QChildEvent* event) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings) {
         vsonnetsettings->childEvent(event);
     } else {
-        ((VirtualSonnetSettings*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::Settings::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__Settings_SuperChildEvent(Sonnet__Settings* self, QChildEvent* event) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        vsonnetsettings->setSonnet__Settings_ChildEvent_IsBase(true);
-        vsonnetsettings->childEvent(event);
-    } else {
-        ((VirtualSonnetSettings*)self)->childEvent(event);
-    }
+    if (auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self)) {
+        vsonnetsettings->Sonnet::Settings::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::Settings::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnChildEvent(Sonnet__Settings* self, intptr_t slot) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
-        vsonnetsettings->setSonnet__Settings_ChildEvent_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_ChildEvent_Callback>(slot));
+    if (auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self))
+        vsonnetsettings->sonnet__settings_childevent_callback = reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__Settings_CustomEvent(Sonnet__Settings* self, QEvent* event) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings) {
         vsonnetsettings->customEvent(event);
     } else {
-        ((VirtualSonnetSettings*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::Settings::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__Settings_SuperCustomEvent(Sonnet__Settings* self, QEvent* event) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        vsonnetsettings->setSonnet__Settings_CustomEvent_IsBase(true);
-        vsonnetsettings->customEvent(event);
-    } else {
-        ((VirtualSonnetSettings*)self)->customEvent(event);
-    }
+    if (auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self)) {
+        vsonnetsettings->Sonnet::Settings::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::Settings::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnCustomEvent(Sonnet__Settings* self, intptr_t slot) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
-        vsonnetsettings->setSonnet__Settings_CustomEvent_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_CustomEvent_Callback>(slot));
+    if (auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self))
+        vsonnetsettings->sonnet__settings_customevent_callback = reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__Settings_ConnectNotify(Sonnet__Settings* self, const QMetaMethod* signal) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings) {
         vsonnetsettings->connectNotify(*signal);
     } else {
-        ((VirtualSonnetSettings*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method Sonnet::Settings::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__Settings_SuperConnectNotify(Sonnet__Settings* self, const QMetaMethod* signal) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        vsonnetsettings->setSonnet__Settings_ConnectNotify_IsBase(true);
-        vsonnetsettings->connectNotify(*signal);
-    } else {
-        ((VirtualSonnetSettings*)self)->connectNotify(*signal);
-    }
+    if (auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self)) {
+        vsonnetsettings->Sonnet::Settings::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::Settings::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnConnectNotify(Sonnet__Settings* self, intptr_t slot) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
-        vsonnetsettings->setSonnet__Settings_ConnectNotify_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_ConnectNotify_Callback>(slot));
+    if (auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self))
+        vsonnetsettings->sonnet__settings_connectnotify_callback = reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__Settings_DisconnectNotify(Sonnet__Settings* self, const QMetaMethod* signal) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings) {
         vsonnetsettings->disconnectNotify(*signal);
     } else {
-        ((VirtualSonnetSettings*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method Sonnet::Settings::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__Settings_SuperDisconnectNotify(Sonnet__Settings* self, const QMetaMethod* signal) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        vsonnetsettings->setSonnet__Settings_DisconnectNotify_IsBase(true);
-        vsonnetsettings->disconnectNotify(*signal);
-    } else {
-        ((VirtualSonnetSettings*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self)) {
+        vsonnetsettings->Sonnet::Settings::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::Settings::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnDisconnectNotify(Sonnet__Settings* self, intptr_t slot) {
-    auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
-        vsonnetsettings->setSonnet__Settings_DisconnectNotify_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_DisconnectNotify_Callback>(slot));
+    if (auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self))
+        vsonnetsettings->sonnet__settings_disconnectnotify_callback = reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* Sonnet__Settings_Sender(const Sonnet__Settings* self) {
-    auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        return vsonnetsettings->sender();
-    } else {
-        return ((VirtualSonnetSettings*)self)->sender();
-    }
+    if (auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self))) {
+        return vsonnetsettings->VirtualSonnetSettings::sender();
+    } else
+        qFatal("Error: Protected method Sonnet::Settings::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* Sonnet__Settings_SuperSender(const Sonnet__Settings* self) {
-    auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        vsonnetsettings->setSonnet__Settings_Sender_IsBase(true);
-        return vsonnetsettings->sender();
-    } else {
-        return ((VirtualSonnetSettings*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Settings_OnSender(const Sonnet__Settings* self, intptr_t slot) {
-    auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
-        vsonnetsettings->setSonnet__Settings_Sender_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Sonnet__Settings_SenderSignalIndex(const Sonnet__Settings* self) {
-    auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        return vsonnetsettings->senderSignalIndex();
-    } else {
-        return ((VirtualSonnetSettings*)self)->senderSignalIndex();
-    }
+    if (auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self))) {
+        return vsonnetsettings->VirtualSonnetSettings::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method Sonnet::Settings::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Sonnet__Settings_SuperSenderSignalIndex(const Sonnet__Settings* self) {
-    auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        vsonnetsettings->setSonnet__Settings_SenderSignalIndex_IsBase(true);
-        return vsonnetsettings->senderSignalIndex();
-    } else {
-        return ((VirtualSonnetSettings*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Settings_OnSenderSignalIndex(const Sonnet__Settings* self, intptr_t slot) {
-    auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
-        vsonnetsettings->setSonnet__Settings_SenderSignalIndex_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Sonnet__Settings_Receivers(const Sonnet__Settings* self, const char* signal) {
-    auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        return vsonnetsettings->receivers(signal);
-    } else {
-        return ((VirtualSonnetSettings*)self)->receivers(signal);
-    }
+    if (auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self))) {
+        return vsonnetsettings->VirtualSonnetSettings::receivers(signal);
+    } else
+        qFatal("Error: Protected method Sonnet::Settings::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Sonnet__Settings_SuperReceivers(const Sonnet__Settings* self, const char* signal) {
-    auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        vsonnetsettings->setSonnet__Settings_Receivers_IsBase(true);
-        return vsonnetsettings->receivers(signal);
-    } else {
-        return ((VirtualSonnetSettings*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Settings_OnReceivers(const Sonnet__Settings* self, intptr_t slot) {
-    auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
-        vsonnetsettings->setSonnet__Settings_Receivers_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Sonnet__Settings_IsSignalConnected(const Sonnet__Settings* self, const QMetaMethod* signal) {
-    auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        return vsonnetsettings->isSignalConnected(*signal);
-    } else {
-        return ((VirtualSonnetSettings*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool Sonnet__Settings_SuperIsSignalConnected(const Sonnet__Settings* self, const QMetaMethod* signal) {
-    auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
-        vsonnetsettings->setSonnet__Settings_IsSignalConnected_IsBase(true);
-        return vsonnetsettings->isSignalConnected(*signal);
-    } else {
-        return ((VirtualSonnetSettings*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Settings_OnIsSignalConnected(const Sonnet__Settings* self, intptr_t slot) {
-    auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
-        vsonnetsettings->setSonnet__Settings_IsSignalConnected_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_IsSignalConnected_Callback>(slot));
+    if (auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self))) {
+        return vsonnetsettings->VirtualSonnetSettings::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method Sonnet::Settings::isSignalConnected called without a directly constructed type");
 }
 
 void Sonnet__Settings_Delete(Sonnet__Settings* self) {

@@ -85,9 +85,9 @@ pub const QAbstractItemDelegate = extern struct {
     ///
     /// ` self: QAbstractItemDelegate `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QAbstractItemDelegate) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QAbstractItemDelegate, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAbstractItemDelegate, callback: *const fn (QAbstractItemDelegate) callconv(.c) QMetaObject) void {
         qtc.QAbstractItemDelegate_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -238,6 +238,8 @@ pub const QAbstractItemDelegate = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paint)
     ///
+    /// This method must be implemented with `onPaint` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractItemDelegate `
@@ -273,36 +275,13 @@ pub const QAbstractItemDelegate = extern struct {
         qtc.QAbstractItemDelegate_OnPaint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superPaint` instead
-    ///
-    pub const SuperPaint = superPaint;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paint)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemDelegate `
-    ///
-    /// ` painter: QPainter `
-    ///
-    /// ` option: QStyleOptionViewItem `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superPaint(self: QAbstractItemDelegate, painter: anytype, option: anytype, index: anytype) void {
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        qtc.QAbstractItemDelegate_SuperPaint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
-    }
-
     /// ### DEPRECATED: Use `sizeHint` instead
     ///
     pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHint)
+    ///
+    /// This method must be implemented with `onSizeHint` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -336,28 +315,6 @@ pub const QAbstractItemDelegate = extern struct {
     ///
     pub fn onSizeHint(self: QAbstractItemDelegate, callback: *const fn (QAbstractItemDelegate, QStyleOptionViewItem, QModelIndex) callconv(.c) QSize) void {
         qtc.QAbstractItemDelegate_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSizeHint` instead
-    ///
-    pub const SuperSizeHint = superSizeHint;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHint)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemDelegate `
-    ///
-    /// ` option: QStyleOptionViewItem `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superSizeHint(self: QAbstractItemDelegate, option: anytype, index: anytype) QSize {
-        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QAbstractItemDelegate_SuperSizeHint(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `createEditor` instead
@@ -857,13 +814,13 @@ pub const QAbstractItemDelegate = extern struct {
     ///
     /// ` self: QAbstractItemDelegate `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QAbstractItemDelegate) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []i32 `
     ///
-    pub fn onPaintingRoles(self: QAbstractItemDelegate, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onPaintingRoles(self: QAbstractItemDelegate, callback: *const fn (QAbstractItemDelegate) callconv(.c) qtc.libqt_list) void {
         qtc.QAbstractItemDelegate_OnPaintingRoles(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2501,44 +2458,6 @@ pub const QAbstractItemDelegate = extern struct {
         return .{ .ptr = qtc.QAbstractItemDelegate_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemDelegate `
-    ///
-    pub fn superSender(self: QAbstractItemDelegate) QObject {
-        return .{ .ptr = qtc.QAbstractItemDelegate_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemDelegate`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QAbstractItemDelegate, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAbstractItemDelegate_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2555,44 +2474,6 @@ pub const QAbstractItemDelegate = extern struct {
     ///
     pub fn senderSignalIndex(self: QAbstractItemDelegate) i32 {
         return qtc.QAbstractItemDelegate_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemDelegate `
-    ///
-    pub fn superSenderSignalIndex(self: QAbstractItemDelegate) i32 {
-        return qtc.QAbstractItemDelegate_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemDelegate`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QAbstractItemDelegate, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractItemDelegate_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2616,47 +2497,6 @@ pub const QAbstractItemDelegate = extern struct {
         return qtc.QAbstractItemDelegate_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemDelegate `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QAbstractItemDelegate, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QAbstractItemDelegate_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemDelegate`
-    ///
-    /// ` callback: *const fn (self: QAbstractItemDelegate, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QAbstractItemDelegate, callback: *const fn (QAbstractItemDelegate, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractItemDelegate_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2676,47 +2516,6 @@ pub const QAbstractItemDelegate = extern struct {
     pub fn isSignalConnected(self: QAbstractItemDelegate, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractItemDelegate_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemDelegate `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QAbstractItemDelegate, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QAbstractItemDelegate_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemDelegate`
-    ///
-    /// ` callback: *const fn (self: QAbstractItemDelegate, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QAbstractItemDelegate, callback: *const fn (QAbstractItemDelegate, QMetaMethod) callconv(.c) bool) void {
-        qtc.QAbstractItemDelegate_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

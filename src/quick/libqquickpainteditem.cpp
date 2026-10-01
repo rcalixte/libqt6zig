@@ -233,22 +233,22 @@ void QQuickPaintedItem_Connect_TextureSizeChanged(QQuickPaintedItem* self, intpt
 
 QSGNode* QQuickPaintedItem_UpdatePaintNode(QQuickPaintedItem* self, QSGNode* param1, QQuickItem__UpdatePaintNodeData* param2) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         return vqquickpainteditem->updatePaintNode(param1, param2);
     }
-    return {};
+    qFatal("Error: Protected method QQuickPaintedItem::updatePaintNode called without a directly constructed type");
 }
 
 void QQuickPaintedItem_ReleaseResources(QQuickPaintedItem* self) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->releaseResources();
     }
 }
 
 void QQuickPaintedItem_ItemChange(QQuickPaintedItem* self, int param1, const QQuickItem__ItemChangeData* param2) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->itemChange(static_cast<QQuickItem::ItemChange>(param1), *param2);
     }
 }
@@ -287,1424 +287,1001 @@ void QQuickPaintedItem_SetPerformanceHint2(QQuickPaintedItem* self, int hint, bo
 
 // Base class handler implementation
 QMetaObject* QQuickPaintedItem_SuperMetaObject(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_MetaObject_IsBase(true);
-        return (QMetaObject*)vqquickpainteditem->metaObject();
-    } else {
-        return (QMetaObject*)self->QQuickPaintedItem::metaObject();
-    }
+    return (QMetaObject*)self->QQuickPaintedItem::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnMetaObject(const QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_MetaObject_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_MetaObject_Callback>(slot));
+void QQuickPaintedItem_OnMetaObject(QQuickPaintedItem* self, intptr_t slot) {
+    if (auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self)))
+        vqquickpainteditem->qquickpainteditem_metaobject_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQuickPaintedItem_SuperMetacast(QQuickPaintedItem* self, const char* param1) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_Metacast_IsBase(true);
-        return vqquickpainteditem->qt_metacast(param1);
-    } else {
-        return self->QQuickPaintedItem::qt_metacast(param1);
-    }
+    return self->QQuickPaintedItem::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnMetacast(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_Metacast_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_Metacast_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_metacast_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQuickPaintedItem_SuperMetacall(QQuickPaintedItem* self, int param1, int param2, void** param3) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_Metacall_IsBase(true);
-        return vqquickpainteditem->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQuickPaintedItem::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQuickPaintedItem::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnMetacall(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_Metacall_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-void QQuickPaintedItem_SuperPaint(QQuickPaintedItem* self, QPainter* painter) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_Paint_IsBase(true);
-        vqquickpainteditem->paint(painter);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->paint(painter);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_metacall_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnPaint(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_Paint_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_Paint_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_paint_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_Paint_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QQuickPaintedItem_SuperIsTextureProvider(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_IsTextureProvider_IsBase(true);
-        return vqquickpainteditem->isTextureProvider();
-    } else {
-        return self->QQuickPaintedItem::isTextureProvider();
-    }
+    return self->QQuickPaintedItem::isTextureProvider();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnIsTextureProvider(const QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_IsTextureProvider_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_IsTextureProvider_Callback>(slot));
+void QQuickPaintedItem_OnIsTextureProvider(QQuickPaintedItem* self, intptr_t slot) {
+    if (auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self)))
+        vqquickpainteditem->qquickpainteditem_istextureprovider_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_IsTextureProvider_Callback>(slot);
 }
 
 // Base class handler implementation
 QSGTextureProvider* QQuickPaintedItem_SuperTextureProvider(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_TextureProvider_IsBase(true);
-        return vqquickpainteditem->textureProvider();
-    } else {
-        return self->QQuickPaintedItem::textureProvider();
-    }
+    return self->QQuickPaintedItem::textureProvider();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnTextureProvider(const QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_TextureProvider_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_TextureProvider_Callback>(slot));
+void QQuickPaintedItem_OnTextureProvider(QQuickPaintedItem* self, intptr_t slot) {
+    if (auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self)))
+        vqquickpainteditem->qquickpainteditem_textureprovider_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_TextureProvider_Callback>(slot);
 }
 
 // Base class handler implementation
 QSGNode* QQuickPaintedItem_SuperUpdatePaintNode(QQuickPaintedItem* self, QSGNode* param1, QQuickItem__UpdatePaintNodeData* param2) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_UpdatePaintNode_IsBase(true);
-        return vqquickpainteditem->updatePaintNode(param1, param2);
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->updatePaintNode(param1, param2);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        return vqquickpainteditem->QQuickPaintedItem::updatePaintNode(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::updatePaintNode called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnUpdatePaintNode(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_UpdatePaintNode_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_UpdatePaintNode_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_updatepaintnode_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_UpdatePaintNode_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperReleaseResources(QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_ReleaseResources_IsBase(true);
-        vqquickpainteditem->releaseResources();
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->releaseResources();
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::releaseResources();
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::releaseResources called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnReleaseResources(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_ReleaseResources_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ReleaseResources_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_releaseresources_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ReleaseResources_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperItemChange(QQuickPaintedItem* self, int param1, const QQuickItem__ItemChangeData* param2) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_ItemChange_IsBase(true);
-        vqquickpainteditem->itemChange(static_cast<QQuickItem::ItemChange>(param1), *param2);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->itemChange(static_cast<QQuickItem::ItemChange>(param1), *param2);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::itemChange(static_cast<QQuickItem::ItemChange>(param1), *param2);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::itemChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnItemChange(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_ItemChange_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ItemChange_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_itemchange_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ItemChange_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRectF* QQuickPaintedItem_BoundingRect(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        return new QRectF(vqquickpainteditem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQQuickPaintedItem*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 // Base class handler implementation
 QRectF* QQuickPaintedItem_SuperBoundingRect(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_BoundingRect_IsBase(true);
-        return new QRectF(vqquickpainteditem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQQuickPaintedItem*)self)->boundingRect());
-    }
+    return new QRectF(self->QQuickPaintedItem::boundingRect());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnBoundingRect(const QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_BoundingRect_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_BoundingRect_Callback>(slot));
+void QQuickPaintedItem_OnBoundingRect(QQuickPaintedItem* self, intptr_t slot) {
+    if (auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self)))
+        vqquickpainteditem->qquickpainteditem_boundingrect_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_BoundingRect_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRectF* QQuickPaintedItem_ClipRect(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        return new QRectF(vqquickpainteditem->clipRect());
-    } else {
-        return new QRectF(((VirtualQQuickPaintedItem*)self)->clipRect());
-    }
+    return new QRectF(self->clipRect());
 }
 
 // Base class handler implementation
 QRectF* QQuickPaintedItem_SuperClipRect(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_ClipRect_IsBase(true);
-        return new QRectF(vqquickpainteditem->clipRect());
-    } else {
-        return new QRectF(((VirtualQQuickPaintedItem*)self)->clipRect());
-    }
+    return new QRectF(self->QQuickPaintedItem::clipRect());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnClipRect(const QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_ClipRect_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ClipRect_Callback>(slot));
+void QQuickPaintedItem_OnClipRect(QQuickPaintedItem* self, intptr_t slot) {
+    if (auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self)))
+        vqquickpainteditem->qquickpainteditem_cliprect_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ClipRect_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickPaintedItem_Contains(const QQuickPaintedItem* self, const QPointF* point) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        return vqquickpainteditem->contains(*point);
-    } else {
-        return self->QQuickPaintedItem::contains(*point);
-    }
+    return self->contains(*point);
 }
 
 // Base class handler implementation
 bool QQuickPaintedItem_SuperContains(const QQuickPaintedItem* self, const QPointF* point) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_Contains_IsBase(true);
-        return vqquickpainteditem->contains(*point);
-    } else {
-        return self->QQuickPaintedItem::contains(*point);
-    }
+    return self->QQuickPaintedItem::contains(*point);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnContains(const QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_Contains_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_Contains_Callback>(slot));
+void QQuickPaintedItem_OnContains(QQuickPaintedItem* self, intptr_t slot) {
+    if (auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self)))
+        vqquickpainteditem->qquickpainteditem_contains_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_Contains_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QQuickPaintedItem_InputMethodQuery(const QQuickPaintedItem* self, int query) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        return new QVariant(vqquickpainteditem->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQQuickPaintedItem*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Base class handler implementation
 QVariant* QQuickPaintedItem_SuperInputMethodQuery(const QQuickPaintedItem* self, int query) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_InputMethodQuery_IsBase(true);
-        return new QVariant(vqquickpainteditem->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQQuickPaintedItem*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->QQuickPaintedItem::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnInputMethodQuery(const QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_InputMethodQuery_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_InputMethodQuery_Callback>(slot));
+void QQuickPaintedItem_OnInputMethodQuery(QQuickPaintedItem* self, intptr_t slot) {
+    if (auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self)))
+        vqquickpainteditem->qquickpainteditem_inputmethodquery_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickPaintedItem_Event(QQuickPaintedItem* self, QEvent* param1) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         return vqquickpainteditem->event(param1);
     } else {
-        return ((VirtualQQuickPaintedItem*)self)->event(param1);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QQuickPaintedItem_SuperEvent(QQuickPaintedItem* self, QEvent* param1) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_Event_IsBase(true);
-        return vqquickpainteditem->event(param1);
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->event(param1);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        return vqquickpainteditem->QQuickPaintedItem::event(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_Event_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_Event_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_event_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_GeometryChange(QQuickPaintedItem* self, const QRectF* newGeometry, const QRectF* oldGeometry) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->geometryChange(*newGeometry, *oldGeometry);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->geometryChange(*newGeometry, *oldGeometry);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::geometryChange called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperGeometryChange(QQuickPaintedItem* self, const QRectF* newGeometry, const QRectF* oldGeometry) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_GeometryChange_IsBase(true);
-        vqquickpainteditem->geometryChange(*newGeometry, *oldGeometry);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->geometryChange(*newGeometry, *oldGeometry);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::geometryChange(*newGeometry, *oldGeometry);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::geometryChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnGeometryChange(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_GeometryChange_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_GeometryChange_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_geometrychange_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_GeometryChange_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_ClassBegin(QQuickPaintedItem* self) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->classBegin();
     } else {
-        ((VirtualQQuickPaintedItem*)self)->classBegin();
+        qFatal("Error: Protected virtual method QQuickPaintedItem::classBegin called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperClassBegin(QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_ClassBegin_IsBase(true);
-        vqquickpainteditem->classBegin();
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->classBegin();
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::classBegin();
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::classBegin called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnClassBegin(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_ClassBegin_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ClassBegin_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_classbegin_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ClassBegin_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_ComponentComplete(QQuickPaintedItem* self) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->componentComplete();
     } else {
-        ((VirtualQQuickPaintedItem*)self)->componentComplete();
+        qFatal("Error: Protected virtual method QQuickPaintedItem::componentComplete called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperComponentComplete(QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_ComponentComplete_IsBase(true);
-        vqquickpainteditem->componentComplete();
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->componentComplete();
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::componentComplete();
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::componentComplete called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnComponentComplete(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_ComponentComplete_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ComponentComplete_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_componentcomplete_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ComponentComplete_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_KeyPressEvent(QQuickPaintedItem* self, QKeyEvent* event) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->keyPressEvent(event);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperKeyPressEvent(QQuickPaintedItem* self, QKeyEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_KeyPressEvent_IsBase(true);
-        vqquickpainteditem->keyPressEvent(event);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->keyPressEvent(event);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnKeyPressEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_KeyPressEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_KeyPressEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_keypressevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_KeyReleaseEvent(QQuickPaintedItem* self, QKeyEvent* event) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->keyReleaseEvent(event);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperKeyReleaseEvent(QQuickPaintedItem* self, QKeyEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_KeyReleaseEvent_IsBase(true);
-        vqquickpainteditem->keyReleaseEvent(event);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnKeyReleaseEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_keyreleaseevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_InputMethodEvent(QQuickPaintedItem* self, QInputMethodEvent* param1) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->inputMethodEvent(param1);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperInputMethodEvent(QQuickPaintedItem* self, QInputMethodEvent* param1) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_InputMethodEvent_IsBase(true);
-        vqquickpainteditem->inputMethodEvent(param1);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnInputMethodEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_InputMethodEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_InputMethodEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_inputmethodevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_FocusInEvent(QQuickPaintedItem* self, QFocusEvent* param1) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->focusInEvent(param1);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->focusInEvent(param1);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperFocusInEvent(QQuickPaintedItem* self, QFocusEvent* param1) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_FocusInEvent_IsBase(true);
-        vqquickpainteditem->focusInEvent(param1);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->focusInEvent(param1);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::focusInEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnFocusInEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_FocusInEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_FocusInEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_focusinevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_FocusOutEvent(QQuickPaintedItem* self, QFocusEvent* param1) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->focusOutEvent(param1);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->focusOutEvent(param1);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperFocusOutEvent(QQuickPaintedItem* self, QFocusEvent* param1) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_FocusOutEvent_IsBase(true);
-        vqquickpainteditem->focusOutEvent(param1);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->focusOutEvent(param1);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::focusOutEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnFocusOutEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_FocusOutEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_FocusOutEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_focusoutevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_MousePressEvent(QQuickPaintedItem* self, QMouseEvent* event) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->mousePressEvent(event);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperMousePressEvent(QQuickPaintedItem* self, QMouseEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_MousePressEvent_IsBase(true);
-        vqquickpainteditem->mousePressEvent(event);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->mousePressEvent(event);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnMousePressEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_MousePressEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_MousePressEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_mousepressevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_MouseMoveEvent(QQuickPaintedItem* self, QMouseEvent* event) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->mouseMoveEvent(event);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperMouseMoveEvent(QQuickPaintedItem* self, QMouseEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_MouseMoveEvent_IsBase(true);
-        vqquickpainteditem->mouseMoveEvent(event);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnMouseMoveEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_MouseMoveEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_MouseMoveEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_mousemoveevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_MouseReleaseEvent(QQuickPaintedItem* self, QMouseEvent* event) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->mouseReleaseEvent(event);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperMouseReleaseEvent(QQuickPaintedItem* self, QMouseEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_MouseReleaseEvent_IsBase(true);
-        vqquickpainteditem->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnMouseReleaseEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_mousereleaseevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_MouseDoubleClickEvent(QQuickPaintedItem* self, QMouseEvent* event) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperMouseDoubleClickEvent(QQuickPaintedItem* self, QMouseEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_MouseDoubleClickEvent_IsBase(true);
-        vqquickpainteditem->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnMouseDoubleClickEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_mousedoubleclickevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_MouseUngrabEvent(QQuickPaintedItem* self) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->mouseUngrabEvent();
     } else {
-        ((VirtualQQuickPaintedItem*)self)->mouseUngrabEvent();
+        qFatal("Error: Protected virtual method QQuickPaintedItem::mouseUngrabEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperMouseUngrabEvent(QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_MouseUngrabEvent_IsBase(true);
-        vqquickpainteditem->mouseUngrabEvent();
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->mouseUngrabEvent();
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::mouseUngrabEvent();
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::mouseUngrabEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnMouseUngrabEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_MouseUngrabEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_MouseUngrabEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_mouseungrabevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_MouseUngrabEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_TouchUngrabEvent(QQuickPaintedItem* self) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->touchUngrabEvent();
     } else {
-        ((VirtualQQuickPaintedItem*)self)->touchUngrabEvent();
+        qFatal("Error: Protected virtual method QQuickPaintedItem::touchUngrabEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperTouchUngrabEvent(QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_TouchUngrabEvent_IsBase(true);
-        vqquickpainteditem->touchUngrabEvent();
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->touchUngrabEvent();
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::touchUngrabEvent();
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::touchUngrabEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnTouchUngrabEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_TouchUngrabEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_TouchUngrabEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_touchungrabevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_TouchUngrabEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_WheelEvent(QQuickPaintedItem* self, QWheelEvent* event) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->wheelEvent(event);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperWheelEvent(QQuickPaintedItem* self, QWheelEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_WheelEvent_IsBase(true);
-        vqquickpainteditem->wheelEvent(event);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->wheelEvent(event);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnWheelEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_WheelEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_WheelEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_wheelevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_TouchEvent(QQuickPaintedItem* self, QTouchEvent* event) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->touchEvent(event);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->touchEvent(event);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::touchEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperTouchEvent(QQuickPaintedItem* self, QTouchEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_TouchEvent_IsBase(true);
-        vqquickpainteditem->touchEvent(event);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->touchEvent(event);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::touchEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::touchEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnTouchEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_TouchEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_TouchEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_touchevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_TouchEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_HoverEnterEvent(QQuickPaintedItem* self, QHoverEvent* event) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->hoverEnterEvent(event);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->hoverEnterEvent(event);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::hoverEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperHoverEnterEvent(QQuickPaintedItem* self, QHoverEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_HoverEnterEvent_IsBase(true);
-        vqquickpainteditem->hoverEnterEvent(event);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->hoverEnterEvent(event);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::hoverEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::hoverEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnHoverEnterEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_HoverEnterEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_HoverEnterEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_hoverenterevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_HoverEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_HoverMoveEvent(QQuickPaintedItem* self, QHoverEvent* event) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->hoverMoveEvent(event);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->hoverMoveEvent(event);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::hoverMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperHoverMoveEvent(QQuickPaintedItem* self, QHoverEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_HoverMoveEvent_IsBase(true);
-        vqquickpainteditem->hoverMoveEvent(event);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->hoverMoveEvent(event);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::hoverMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::hoverMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnHoverMoveEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_HoverMoveEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_HoverMoveEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_hovermoveevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_HoverMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_HoverLeaveEvent(QQuickPaintedItem* self, QHoverEvent* event) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->hoverLeaveEvent(event);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->hoverLeaveEvent(event);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::hoverLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperHoverLeaveEvent(QQuickPaintedItem* self, QHoverEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_HoverLeaveEvent_IsBase(true);
-        vqquickpainteditem->hoverLeaveEvent(event);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->hoverLeaveEvent(event);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::hoverLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::hoverLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnHoverLeaveEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_HoverLeaveEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_HoverLeaveEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_hoverleaveevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_HoverLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_DragEnterEvent(QQuickPaintedItem* self, QDragEnterEvent* param1) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->dragEnterEvent(param1);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->dragEnterEvent(param1);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperDragEnterEvent(QQuickPaintedItem* self, QDragEnterEvent* param1) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_DragEnterEvent_IsBase(true);
-        vqquickpainteditem->dragEnterEvent(param1);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->dragEnterEvent(param1);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::dragEnterEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnDragEnterEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_DragEnterEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_DragEnterEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_dragenterevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_DragMoveEvent(QQuickPaintedItem* self, QDragMoveEvent* param1) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->dragMoveEvent(param1);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->dragMoveEvent(param1);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperDragMoveEvent(QQuickPaintedItem* self, QDragMoveEvent* param1) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_DragMoveEvent_IsBase(true);
-        vqquickpainteditem->dragMoveEvent(param1);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->dragMoveEvent(param1);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::dragMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnDragMoveEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_DragMoveEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_DragMoveEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_dragmoveevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_DragLeaveEvent(QQuickPaintedItem* self, QDragLeaveEvent* param1) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->dragLeaveEvent(param1);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->dragLeaveEvent(param1);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperDragLeaveEvent(QQuickPaintedItem* self, QDragLeaveEvent* param1) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_DragLeaveEvent_IsBase(true);
-        vqquickpainteditem->dragLeaveEvent(param1);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->dragLeaveEvent(param1);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::dragLeaveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnDragLeaveEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_DragLeaveEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_DragLeaveEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_dragleaveevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_DropEvent(QQuickPaintedItem* self, QDropEvent* param1) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->dropEvent(param1);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->dropEvent(param1);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperDropEvent(QQuickPaintedItem* self, QDropEvent* param1) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_DropEvent_IsBase(true);
-        vqquickpainteditem->dropEvent(param1);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->dropEvent(param1);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::dropEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnDropEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_DropEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_DropEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_dropevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickPaintedItem_ChildMouseEventFilter(QQuickPaintedItem* self, QQuickItem* param1, QEvent* param2) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         return vqquickpainteditem->childMouseEventFilter(param1, param2);
     } else {
-        return ((VirtualQQuickPaintedItem*)self)->childMouseEventFilter(param1, param2);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::childMouseEventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QQuickPaintedItem_SuperChildMouseEventFilter(QQuickPaintedItem* self, QQuickItem* param1, QEvent* param2) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_ChildMouseEventFilter_IsBase(true);
-        return vqquickpainteditem->childMouseEventFilter(param1, param2);
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->childMouseEventFilter(param1, param2);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        return vqquickpainteditem->QQuickPaintedItem::childMouseEventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::childMouseEventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnChildMouseEventFilter(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_ChildMouseEventFilter_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ChildMouseEventFilter_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_childmouseeventfilter_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ChildMouseEventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_UpdatePolish(QQuickPaintedItem* self) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->updatePolish();
     } else {
-        ((VirtualQQuickPaintedItem*)self)->updatePolish();
+        qFatal("Error: Protected virtual method QQuickPaintedItem::updatePolish called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperUpdatePolish(QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_UpdatePolish_IsBase(true);
-        vqquickpainteditem->updatePolish();
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->updatePolish();
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::updatePolish();
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::updatePolish called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnUpdatePolish(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_UpdatePolish_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_UpdatePolish_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_updatepolish_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_UpdatePolish_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickPaintedItem_EventFilter(QQuickPaintedItem* self, QObject* watched, QEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        return vqquickpainteditem->eventFilter(watched, event);
-    } else {
-        return self->QQuickPaintedItem::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQuickPaintedItem_SuperEventFilter(QQuickPaintedItem* self, QObject* watched, QEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_EventFilter_IsBase(true);
-        return vqquickpainteditem->eventFilter(watched, event);
-    } else {
-        return self->QQuickPaintedItem::eventFilter(watched, event);
-    }
+    return self->QQuickPaintedItem::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnEventFilter(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_EventFilter_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_EventFilter_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_eventfilter_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_TimerEvent(QQuickPaintedItem* self, QTimerEvent* event) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->timerEvent(event);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperTimerEvent(QQuickPaintedItem* self, QTimerEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_TimerEvent_IsBase(true);
-        vqquickpainteditem->timerEvent(event);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->timerEvent(event);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnTimerEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_TimerEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_TimerEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_timerevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_ChildEvent(QQuickPaintedItem* self, QChildEvent* event) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->childEvent(event);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperChildEvent(QQuickPaintedItem* self, QChildEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_ChildEvent_IsBase(true);
-        vqquickpainteditem->childEvent(event);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->childEvent(event);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnChildEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_ChildEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ChildEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_childevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_CustomEvent(QQuickPaintedItem* self, QEvent* event) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->customEvent(event);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperCustomEvent(QQuickPaintedItem* self, QEvent* event) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_CustomEvent_IsBase(true);
-        vqquickpainteditem->customEvent(event);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->customEvent(event);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnCustomEvent(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_CustomEvent_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_CustomEvent_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_customevent_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_ConnectNotify(QQuickPaintedItem* self, const QMetaMethod* signal) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->connectNotify(*signal);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperConnectNotify(QQuickPaintedItem* self, const QMetaMethod* signal) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_ConnectNotify_IsBase(true);
-        vqquickpainteditem->connectNotify(*signal);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->connectNotify(*signal);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnConnectNotify(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_ConnectNotify_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ConnectNotify_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_connectnotify_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickPaintedItem_DisconnectNotify(QQuickPaintedItem* self, const QMetaMethod* signal) {
     auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
+    if (vqquickpainteditem) {
         vqquickpainteditem->disconnectNotify(*signal);
     } else {
-        ((VirtualQQuickPaintedItem*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuickPaintedItem::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickPaintedItem_SuperDisconnectNotify(QQuickPaintedItem* self, const QMetaMethod* signal) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_DisconnectNotify_IsBase(true);
-        vqquickpainteditem->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->QQuickPaintedItem::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuickPaintedItem::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickPaintedItem_OnDisconnectNotify(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_DisconnectNotify_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_DisconnectNotify_Callback>(slot));
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self))
+        vqquickpainteditem->qquickpainteditem_disconnectnotify_callback = reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuickPaintedItem_IsComponentComplete(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        return vqquickpainteditem->isComponentComplete();
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->isComponentComplete();
-    }
+    if (auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self))) {
+        return vqquickpainteditem->VirtualQQuickPaintedItem::isComponentComplete();
+    } else
+        qFatal("Error: Protected method QQuickPaintedItem::isComponentComplete called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QQuickPaintedItem_SuperIsComponentComplete(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_IsComponentComplete_IsBase(true);
-        return vqquickpainteditem->isComponentComplete();
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->isComponentComplete();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnIsComponentComplete(const QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_IsComponentComplete_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_IsComponentComplete_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QQuickPaintedItem_UpdateInputMethod(QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->updateInputMethod();
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->updateInputMethod();
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->VirtualQQuickPaintedItem::updateInputMethod();
+    } else
+        qFatal("Error: Protected method QQuickPaintedItem::updateInputMethod called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QQuickPaintedItem_SuperUpdateInputMethod(QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_UpdateInputMethod_IsBase(true);
-        vqquickpainteditem->updateInputMethod();
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->updateInputMethod();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnUpdateInputMethod(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_UpdateInputMethod_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_UpdateInputMethod_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuickPaintedItem_WidthValid(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        return vqquickpainteditem->widthValid();
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->widthValid();
-    }
+    if (auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self))) {
+        return vqquickpainteditem->VirtualQQuickPaintedItem::widthValid();
+    } else
+        qFatal("Error: Protected method QQuickPaintedItem::widthValid called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QQuickPaintedItem_SuperWidthValid(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_WidthValid_IsBase(true);
-        return vqquickpainteditem->widthValid();
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->widthValid();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnWidthValid(const QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_WidthValid_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_WidthValid_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuickPaintedItem_HeightValid(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        return vqquickpainteditem->heightValid();
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->heightValid();
-    }
+    if (auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self))) {
+        return vqquickpainteditem->VirtualQQuickPaintedItem::heightValid();
+    } else
+        qFatal("Error: Protected method QQuickPaintedItem::heightValid called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QQuickPaintedItem_SuperHeightValid(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_HeightValid_IsBase(true);
-        return vqquickpainteditem->heightValid();
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->heightValid();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnHeightValid(const QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_HeightValid_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_HeightValid_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QQuickPaintedItem_SetImplicitSize(QQuickPaintedItem* self, double param1, double param2) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setImplicitSize(static_cast<qreal>(param1), static_cast<qreal>(param2));
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->setImplicitSize(static_cast<qreal>(param1), static_cast<qreal>(param2));
-    }
+    if (auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self)) {
+        vqquickpainteditem->VirtualQQuickPaintedItem::setImplicitSize(static_cast<qreal>(param1), static_cast<qreal>(param2));
+    } else
+        qFatal("Error: Protected method QQuickPaintedItem::setImplicitSize called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QQuickPaintedItem_SuperSetImplicitSize(QQuickPaintedItem* self, double param1, double param2) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_SetImplicitSize_IsBase(true);
-        vqquickpainteditem->setImplicitSize(static_cast<qreal>(param1), static_cast<qreal>(param2));
-    } else {
-        ((VirtualQQuickPaintedItem*)self)->setImplicitSize(static_cast<qreal>(param1), static_cast<qreal>(param2));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnSetImplicitSize(QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = dynamic_cast<VirtualQQuickPaintedItem*>(self);
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_SetImplicitSize_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_SetImplicitSize_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQuickPaintedItem_Sender(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        return vqquickpainteditem->sender();
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->sender();
-    }
+    if (auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self))) {
+        return vqquickpainteditem->VirtualQQuickPaintedItem::sender();
+    } else
+        qFatal("Error: Protected method QQuickPaintedItem::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQuickPaintedItem_SuperSender(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_Sender_IsBase(true);
-        return vqquickpainteditem->sender();
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnSender(const QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_Sender_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuickPaintedItem_SenderSignalIndex(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        return vqquickpainteditem->senderSignalIndex();
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->senderSignalIndex();
-    }
+    if (auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self))) {
+        return vqquickpainteditem->VirtualQQuickPaintedItem::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQuickPaintedItem::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuickPaintedItem_SuperSenderSignalIndex(const QQuickPaintedItem* self) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_SenderSignalIndex_IsBase(true);
-        return vqquickpainteditem->senderSignalIndex();
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnSenderSignalIndex(const QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuickPaintedItem_Receivers(const QQuickPaintedItem* self, const char* signal) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        return vqquickpainteditem->receivers(signal);
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->receivers(signal);
-    }
+    if (auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self))) {
+        return vqquickpainteditem->VirtualQQuickPaintedItem::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQuickPaintedItem::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuickPaintedItem_SuperReceivers(const QQuickPaintedItem* self, const char* signal) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_Receivers_IsBase(true);
-        return vqquickpainteditem->receivers(signal);
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnReceivers(const QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_Receivers_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuickPaintedItem_IsSignalConnected(const QQuickPaintedItem* self, const QMetaMethod* signal) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        return vqquickpainteditem->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQuickPaintedItem_SuperIsSignalConnected(const QQuickPaintedItem* self, const QMetaMethod* signal) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem) {
-        vqquickpainteditem->setQQuickPaintedItem_IsSignalConnected_IsBase(true);
-        return vqquickpainteditem->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuickPaintedItem*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickPaintedItem_OnIsSignalConnected(const QQuickPaintedItem* self, intptr_t slot) {
-    auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self));
-    if (vqquickpainteditem && vqquickpainteditem->isVirtualQQuickPaintedItem)
-        vqquickpainteditem->setQQuickPaintedItem_IsSignalConnected_Callback(reinterpret_cast<VirtualQQuickPaintedItem::QQuickPaintedItem_IsSignalConnected_Callback>(slot));
+    if (auto* vqquickpainteditem = const_cast<VirtualQQuickPaintedItem*>(dynamic_cast<const VirtualQQuickPaintedItem*>(self))) {
+        return vqquickpainteditem->VirtualQQuickPaintedItem::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQuickPaintedItem::isSignalConnected called without a directly constructed type");
 }
 
 void QQuickPaintedItem_Delete(QQuickPaintedItem* self) {

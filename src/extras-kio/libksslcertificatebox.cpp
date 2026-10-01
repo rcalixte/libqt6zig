@@ -104,1654 +104,1173 @@ libqt_string KSslCertificateBox_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KSslCertificateBox_SuperMetaObject(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_MetaObject_IsBase(true);
-        return (QMetaObject*)vksslcertificatebox->metaObject();
-    } else {
-        return (QMetaObject*)self->KSslCertificateBox::metaObject();
-    }
+    return (QMetaObject*)self->KSslCertificateBox::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnMetaObject(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_MetaObject_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MetaObject_Callback>(slot));
+void KSslCertificateBox_OnMetaObject(KSslCertificateBox* self, intptr_t slot) {
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self)))
+        vksslcertificatebox->ksslcertificatebox_metaobject_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KSslCertificateBox_SuperMetacast(KSslCertificateBox* self, const char* param1) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_Metacast_IsBase(true);
-        return vksslcertificatebox->qt_metacast(param1);
-    } else {
-        return self->KSslCertificateBox::qt_metacast(param1);
-    }
+    return self->KSslCertificateBox::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMetacast(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_Metacast_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Metacast_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_metacast_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KSslCertificateBox_SuperMetacall(KSslCertificateBox* self, int param1, int param2, void** param3) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_Metacall_IsBase(true);
-        return vksslcertificatebox->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KSslCertificateBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KSslCertificateBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMetacall(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_Metacall_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Metacall_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_metacall_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSslCertificateBox_DevType(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return vksslcertificatebox->devType();
-    } else {
-        return self->KSslCertificateBox::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KSslCertificateBox_SuperDevType(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_DevType_IsBase(true);
-        return vksslcertificatebox->devType();
-    } else {
-        return self->KSslCertificateBox::devType();
-    }
+    return self->KSslCertificateBox::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnDevType(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_DevType_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DevType_Callback>(slot));
+void KSslCertificateBox_OnDevType(KSslCertificateBox* self, intptr_t slot) {
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self)))
+        vksslcertificatebox->ksslcertificatebox_devtype_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_SetVisible(KSslCertificateBox* self, bool visible) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setVisible(visible);
-    } else {
-        self->KSslCertificateBox::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperSetVisible(KSslCertificateBox* self, bool visible) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_SetVisible_IsBase(true);
-        vksslcertificatebox->setVisible(visible);
-    } else {
-        self->KSslCertificateBox::setVisible(visible);
-    }
+    self->KSslCertificateBox::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnSetVisible(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_SetVisible_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_SetVisible_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_setvisible_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KSslCertificateBox_SizeHint(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return new QSize(vksslcertificatebox->sizeHint());
-    } else {
-        return new QSize(((VirtualKSslCertificateBox*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KSslCertificateBox_SuperSizeHint(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_SizeHint_IsBase(true);
-        return new QSize(vksslcertificatebox->sizeHint());
-    } else {
-        return new QSize(((VirtualKSslCertificateBox*)self)->sizeHint());
-    }
+    return new QSize(self->KSslCertificateBox::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnSizeHint(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_SizeHint_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_SizeHint_Callback>(slot));
+void KSslCertificateBox_OnSizeHint(KSslCertificateBox* self, intptr_t slot) {
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self)))
+        vksslcertificatebox->ksslcertificatebox_sizehint_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KSslCertificateBox_MinimumSizeHint(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return new QSize(vksslcertificatebox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKSslCertificateBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KSslCertificateBox_SuperMinimumSizeHint(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_MinimumSizeHint_IsBase(true);
-        return new QSize(vksslcertificatebox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKSslCertificateBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KSslCertificateBox::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnMinimumSizeHint(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MinimumSizeHint_Callback>(slot));
+void KSslCertificateBox_OnMinimumSizeHint(KSslCertificateBox* self, intptr_t slot) {
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self)))
+        vksslcertificatebox->ksslcertificatebox_minimumsizehint_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSslCertificateBox_HeightForWidth(const KSslCertificateBox* self, int param1) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return vksslcertificatebox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KSslCertificateBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KSslCertificateBox_SuperHeightForWidth(const KSslCertificateBox* self, int param1) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_HeightForWidth_IsBase(true);
-        return vksslcertificatebox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KSslCertificateBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KSslCertificateBox::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnHeightForWidth(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_HeightForWidth_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_HeightForWidth_Callback>(slot));
+void KSslCertificateBox_OnHeightForWidth(KSslCertificateBox* self, intptr_t slot) {
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self)))
+        vksslcertificatebox->ksslcertificatebox_heightforwidth_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSslCertificateBox_HasHeightForWidth(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return vksslcertificatebox->hasHeightForWidth();
-    } else {
-        return self->KSslCertificateBox::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KSslCertificateBox_SuperHasHeightForWidth(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_HasHeightForWidth_IsBase(true);
-        return vksslcertificatebox->hasHeightForWidth();
-    } else {
-        return self->KSslCertificateBox::hasHeightForWidth();
-    }
+    return self->KSslCertificateBox::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnHasHeightForWidth(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_HasHeightForWidth_Callback>(slot));
+void KSslCertificateBox_OnHasHeightForWidth(KSslCertificateBox* self, intptr_t slot) {
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self)))
+        vksslcertificatebox->ksslcertificatebox_hasheightforwidth_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KSslCertificateBox_PaintEngine(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return vksslcertificatebox->paintEngine();
-    } else {
-        return self->KSslCertificateBox::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KSslCertificateBox_SuperPaintEngine(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_PaintEngine_IsBase(true);
-        return vksslcertificatebox->paintEngine();
-    } else {
-        return self->KSslCertificateBox::paintEngine();
-    }
+    return self->KSslCertificateBox::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnPaintEngine(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_PaintEngine_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_PaintEngine_Callback>(slot));
+void KSslCertificateBox_OnPaintEngine(KSslCertificateBox* self, intptr_t slot) {
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self)))
+        vksslcertificatebox->ksslcertificatebox_paintengine_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSslCertificateBox_Event(KSslCertificateBox* self, QEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         return vksslcertificatebox->event(event);
     } else {
-        return ((VirtualKSslCertificateBox*)self)->event(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSslCertificateBox_SuperEvent(KSslCertificateBox* self, QEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_Event_IsBase(true);
-        return vksslcertificatebox->event(event);
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->event(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        return vksslcertificatebox->KSslCertificateBox::event(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_Event_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Event_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_event_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_MousePressEvent(KSslCertificateBox* self, QMouseEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->mousePressEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperMousePressEvent(KSslCertificateBox* self, QMouseEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_MousePressEvent_IsBase(true);
-        vksslcertificatebox->mousePressEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->mousePressEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMousePressEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_MousePressEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MousePressEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_mousepressevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_MouseReleaseEvent(KSslCertificateBox* self, QMouseEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->mouseReleaseEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperMouseReleaseEvent(KSslCertificateBox* self, QMouseEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_MouseReleaseEvent_IsBase(true);
-        vksslcertificatebox->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMouseReleaseEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MouseReleaseEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_mousereleaseevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_MouseDoubleClickEvent(KSslCertificateBox* self, QMouseEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperMouseDoubleClickEvent(KSslCertificateBox* self, QMouseEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_MouseDoubleClickEvent_IsBase(true);
-        vksslcertificatebox->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMouseDoubleClickEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_mousedoubleclickevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_MouseMoveEvent(KSslCertificateBox* self, QMouseEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->mouseMoveEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperMouseMoveEvent(KSslCertificateBox* self, QMouseEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_MouseMoveEvent_IsBase(true);
-        vksslcertificatebox->mouseMoveEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMouseMoveEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MouseMoveEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_mousemoveevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_WheelEvent(KSslCertificateBox* self, QWheelEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->wheelEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperWheelEvent(KSslCertificateBox* self, QWheelEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_WheelEvent_IsBase(true);
-        vksslcertificatebox->wheelEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->wheelEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnWheelEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_WheelEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_WheelEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_wheelevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_KeyPressEvent(KSslCertificateBox* self, QKeyEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->keyPressEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperKeyPressEvent(KSslCertificateBox* self, QKeyEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_KeyPressEvent_IsBase(true);
-        vksslcertificatebox->keyPressEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->keyPressEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnKeyPressEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_KeyPressEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_KeyPressEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_keypressevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_KeyReleaseEvent(KSslCertificateBox* self, QKeyEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->keyReleaseEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperKeyReleaseEvent(KSslCertificateBox* self, QKeyEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_KeyReleaseEvent_IsBase(true);
-        vksslcertificatebox->keyReleaseEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnKeyReleaseEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_KeyReleaseEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_keyreleaseevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_FocusInEvent(KSslCertificateBox* self, QFocusEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->focusInEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperFocusInEvent(KSslCertificateBox* self, QFocusEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_FocusInEvent_IsBase(true);
-        vksslcertificatebox->focusInEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->focusInEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnFocusInEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_FocusInEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_FocusInEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_focusinevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_FocusOutEvent(KSslCertificateBox* self, QFocusEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->focusOutEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperFocusOutEvent(KSslCertificateBox* self, QFocusEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_FocusOutEvent_IsBase(true);
-        vksslcertificatebox->focusOutEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->focusOutEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnFocusOutEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_FocusOutEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_FocusOutEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_focusoutevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_EnterEvent(KSslCertificateBox* self, QEnterEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->enterEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperEnterEvent(KSslCertificateBox* self, QEnterEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_EnterEvent_IsBase(true);
-        vksslcertificatebox->enterEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->enterEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnEnterEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_EnterEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_EnterEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_enterevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_LeaveEvent(KSslCertificateBox* self, QEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->leaveEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperLeaveEvent(KSslCertificateBox* self, QEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_LeaveEvent_IsBase(true);
-        vksslcertificatebox->leaveEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->leaveEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnLeaveEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_LeaveEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_LeaveEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_leaveevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_PaintEvent(KSslCertificateBox* self, QPaintEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->paintEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperPaintEvent(KSslCertificateBox* self, QPaintEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_PaintEvent_IsBase(true);
-        vksslcertificatebox->paintEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->paintEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnPaintEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_PaintEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_PaintEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_paintevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_MoveEvent(KSslCertificateBox* self, QMoveEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->moveEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperMoveEvent(KSslCertificateBox* self, QMoveEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_MoveEvent_IsBase(true);
-        vksslcertificatebox->moveEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->moveEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMoveEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_MoveEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MoveEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_moveevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_ResizeEvent(KSslCertificateBox* self, QResizeEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->resizeEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperResizeEvent(KSslCertificateBox* self, QResizeEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_ResizeEvent_IsBase(true);
-        vksslcertificatebox->resizeEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->resizeEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnResizeEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_ResizeEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ResizeEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_resizeevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_CloseEvent(KSslCertificateBox* self, QCloseEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->closeEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperCloseEvent(KSslCertificateBox* self, QCloseEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_CloseEvent_IsBase(true);
-        vksslcertificatebox->closeEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->closeEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnCloseEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_CloseEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_CloseEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_closeevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_ContextMenuEvent(KSslCertificateBox* self, QContextMenuEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->contextMenuEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperContextMenuEvent(KSslCertificateBox* self, QContextMenuEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_ContextMenuEvent_IsBase(true);
-        vksslcertificatebox->contextMenuEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->contextMenuEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnContextMenuEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ContextMenuEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_contextmenuevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_TabletEvent(KSslCertificateBox* self, QTabletEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->tabletEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperTabletEvent(KSslCertificateBox* self, QTabletEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_TabletEvent_IsBase(true);
-        vksslcertificatebox->tabletEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->tabletEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnTabletEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_TabletEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_TabletEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_tabletevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_ActionEvent(KSslCertificateBox* self, QActionEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->actionEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperActionEvent(KSslCertificateBox* self, QActionEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_ActionEvent_IsBase(true);
-        vksslcertificatebox->actionEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->actionEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnActionEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_ActionEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ActionEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_actionevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_DragEnterEvent(KSslCertificateBox* self, QDragEnterEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->dragEnterEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperDragEnterEvent(KSslCertificateBox* self, QDragEnterEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_DragEnterEvent_IsBase(true);
-        vksslcertificatebox->dragEnterEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->dragEnterEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnDragEnterEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_DragEnterEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DragEnterEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_dragenterevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_DragMoveEvent(KSslCertificateBox* self, QDragMoveEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->dragMoveEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperDragMoveEvent(KSslCertificateBox* self, QDragMoveEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_DragMoveEvent_IsBase(true);
-        vksslcertificatebox->dragMoveEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->dragMoveEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnDragMoveEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_DragMoveEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DragMoveEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_dragmoveevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_DragLeaveEvent(KSslCertificateBox* self, QDragLeaveEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->dragLeaveEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperDragLeaveEvent(KSslCertificateBox* self, QDragLeaveEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_DragLeaveEvent_IsBase(true);
-        vksslcertificatebox->dragLeaveEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnDragLeaveEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DragLeaveEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_dragleaveevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_DropEvent(KSslCertificateBox* self, QDropEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->dropEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperDropEvent(KSslCertificateBox* self, QDropEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_DropEvent_IsBase(true);
-        vksslcertificatebox->dropEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->dropEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnDropEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_DropEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DropEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_dropevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_ShowEvent(KSslCertificateBox* self, QShowEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->showEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperShowEvent(KSslCertificateBox* self, QShowEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_ShowEvent_IsBase(true);
-        vksslcertificatebox->showEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->showEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnShowEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_ShowEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ShowEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_showevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_HideEvent(KSslCertificateBox* self, QHideEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->hideEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperHideEvent(KSslCertificateBox* self, QHideEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_HideEvent_IsBase(true);
-        vksslcertificatebox->hideEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->hideEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnHideEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_HideEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_HideEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_hideevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSslCertificateBox_NativeEvent(KSslCertificateBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
+    if (vksslcertificatebox) {
         return vksslcertificatebox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKSslCertificateBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KSslCertificateBox::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSslCertificateBox_SuperNativeEvent(KSslCertificateBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_NativeEvent_IsBase(true);
-        return vksslcertificatebox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        return vksslcertificatebox->KSslCertificateBox::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnNativeEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_NativeEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_NativeEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_nativeevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_ChangeEvent(KSslCertificateBox* self, QEvent* param1) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->changeEvent(param1);
     } else {
-        ((VirtualKSslCertificateBox*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KSslCertificateBox::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperChangeEvent(KSslCertificateBox* self, QEvent* param1) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_ChangeEvent_IsBase(true);
-        vksslcertificatebox->changeEvent(param1);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->changeEvent(param1);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnChangeEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_ChangeEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ChangeEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_changeevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSslCertificateBox_Metric(const KSslCertificateBox* self, int param1) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         return vksslcertificatebox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKSslCertificateBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KSslCertificateBox::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KSslCertificateBox_SuperMetric(const KSslCertificateBox* self, int param1) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_Metric_IsBase(true);
-        return vksslcertificatebox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self))) {
+        return vksslcertificatebox->KSslCertificateBox::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnMetric(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_Metric_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Metric_Callback>(slot));
+void KSslCertificateBox_OnMetric(KSslCertificateBox* self, intptr_t slot) {
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self)))
+        vksslcertificatebox->ksslcertificatebox_metric_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_InitPainter(const KSslCertificateBox* self, QPainter* painter) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->initPainter(painter);
     } else {
-        ((VirtualKSslCertificateBox*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KSslCertificateBox::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperInitPainter(const KSslCertificateBox* self, QPainter* painter) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_InitPainter_IsBase(true);
-        vksslcertificatebox->initPainter(painter);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->initPainter(painter);
-    }
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self))) {
+        vksslcertificatebox->KSslCertificateBox::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnInitPainter(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_InitPainter_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_InitPainter_Callback>(slot));
+void KSslCertificateBox_OnInitPainter(KSslCertificateBox* self, intptr_t slot) {
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self)))
+        vksslcertificatebox->ksslcertificatebox_initpainter_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KSslCertificateBox_Redirected(const KSslCertificateBox* self, QPoint* offset) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         return vksslcertificatebox->redirected(offset);
     } else {
-        return ((VirtualKSslCertificateBox*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KSslCertificateBox::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KSslCertificateBox_SuperRedirected(const KSslCertificateBox* self, QPoint* offset) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_Redirected_IsBase(true);
-        return vksslcertificatebox->redirected(offset);
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->redirected(offset);
-    }
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self))) {
+        return vksslcertificatebox->KSslCertificateBox::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnRedirected(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_Redirected_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Redirected_Callback>(slot));
+void KSslCertificateBox_OnRedirected(KSslCertificateBox* self, intptr_t slot) {
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self)))
+        vksslcertificatebox->ksslcertificatebox_redirected_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KSslCertificateBox_SharedPainter(const KSslCertificateBox* self) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         return vksslcertificatebox->sharedPainter();
     } else {
-        return ((VirtualKSslCertificateBox*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KSslCertificateBox::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KSslCertificateBox_SuperSharedPainter(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_SharedPainter_IsBase(true);
-        return vksslcertificatebox->sharedPainter();
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->sharedPainter();
-    }
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self))) {
+        return vksslcertificatebox->KSslCertificateBox::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnSharedPainter(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_SharedPainter_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_SharedPainter_Callback>(slot));
+void KSslCertificateBox_OnSharedPainter(KSslCertificateBox* self, intptr_t slot) {
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self)))
+        vksslcertificatebox->ksslcertificatebox_sharedpainter_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_InputMethodEvent(KSslCertificateBox* self, QInputMethodEvent* param1) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->inputMethodEvent(param1);
     } else {
-        ((VirtualKSslCertificateBox*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KSslCertificateBox::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperInputMethodEvent(KSslCertificateBox* self, QInputMethodEvent* param1) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_InputMethodEvent_IsBase(true);
-        vksslcertificatebox->inputMethodEvent(param1);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnInputMethodEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_InputMethodEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_InputMethodEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_inputmethodevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KSslCertificateBox_InputMethodQuery(const KSslCertificateBox* self, int param1) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return new QVariant(vksslcertificatebox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKSslCertificateBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KSslCertificateBox_SuperInputMethodQuery(const KSslCertificateBox* self, int param1) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_InputMethodQuery_IsBase(true);
-        return new QVariant(vksslcertificatebox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKSslCertificateBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KSslCertificateBox::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnInputMethodQuery(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_InputMethodQuery_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_InputMethodQuery_Callback>(slot));
+void KSslCertificateBox_OnInputMethodQuery(KSslCertificateBox* self, intptr_t slot) {
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self)))
+        vksslcertificatebox->ksslcertificatebox_inputmethodquery_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSslCertificateBox_FocusNextPrevChild(KSslCertificateBox* self, bool next) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         return vksslcertificatebox->focusNextPrevChild(next);
     } else {
-        return ((VirtualKSslCertificateBox*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KSslCertificateBox::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSslCertificateBox_SuperFocusNextPrevChild(KSslCertificateBox* self, bool next) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_FocusNextPrevChild_IsBase(true);
-        return vksslcertificatebox->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        return vksslcertificatebox->KSslCertificateBox::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnFocusNextPrevChild(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_FocusNextPrevChild_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_focusnextprevchild_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSslCertificateBox_EventFilter(KSslCertificateBox* self, QObject* watched, QEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return vksslcertificatebox->eventFilter(watched, event);
-    } else {
-        return self->KSslCertificateBox::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KSslCertificateBox_SuperEventFilter(KSslCertificateBox* self, QObject* watched, QEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_EventFilter_IsBase(true);
-        return vksslcertificatebox->eventFilter(watched, event);
-    } else {
-        return self->KSslCertificateBox::eventFilter(watched, event);
-    }
+    return self->KSslCertificateBox::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnEventFilter(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_EventFilter_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_EventFilter_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_eventfilter_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_TimerEvent(KSslCertificateBox* self, QTimerEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->timerEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperTimerEvent(KSslCertificateBox* self, QTimerEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_TimerEvent_IsBase(true);
-        vksslcertificatebox->timerEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->timerEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnTimerEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_TimerEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_TimerEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_timerevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_ChildEvent(KSslCertificateBox* self, QChildEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->childEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperChildEvent(KSslCertificateBox* self, QChildEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_ChildEvent_IsBase(true);
-        vksslcertificatebox->childEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->childEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnChildEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_ChildEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ChildEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_childevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_CustomEvent(KSslCertificateBox* self, QEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->customEvent(event);
     } else {
-        ((VirtualKSslCertificateBox*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KSslCertificateBox::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperCustomEvent(KSslCertificateBox* self, QEvent* event) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_CustomEvent_IsBase(true);
-        vksslcertificatebox->customEvent(event);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->customEvent(event);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnCustomEvent(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_CustomEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_CustomEvent_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_customevent_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_ConnectNotify(KSslCertificateBox* self, const QMetaMethod* signal) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->connectNotify(*signal);
     } else {
-        ((VirtualKSslCertificateBox*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KSslCertificateBox::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperConnectNotify(KSslCertificateBox* self, const QMetaMethod* signal) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_ConnectNotify_IsBase(true);
-        vksslcertificatebox->connectNotify(*signal);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->connectNotify(*signal);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnConnectNotify(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_ConnectNotify_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ConnectNotify_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_connectnotify_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSslCertificateBox_DisconnectNotify(KSslCertificateBox* self, const QMetaMethod* signal) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox) {
         vksslcertificatebox->disconnectNotify(*signal);
     } else {
-        ((VirtualKSslCertificateBox*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KSslCertificateBox::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSslCertificateBox_SuperDisconnectNotify(KSslCertificateBox* self, const QMetaMethod* signal) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_DisconnectNotify_IsBase(true);
-        vksslcertificatebox->disconnectNotify(*signal);
-    } else {
-        ((VirtualKSslCertificateBox*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->KSslCertificateBox::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSslCertificateBox::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnDisconnectNotify(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_DisconnectNotify_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DisconnectNotify_Callback>(slot));
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self))
+        vksslcertificatebox->ksslcertificatebox_disconnectnotify_callback = reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSslCertificateBox_UpdateMicroFocus(KSslCertificateBox* self) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->updateMicroFocus();
-    } else {
-        ((VirtualKSslCertificateBox*)self)->updateMicroFocus();
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->VirtualKSslCertificateBox::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KSslCertificateBox::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSslCertificateBox_SuperUpdateMicroFocus(KSslCertificateBox* self) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_UpdateMicroFocus_IsBase(true);
-        vksslcertificatebox->updateMicroFocus();
-    } else {
-        ((VirtualKSslCertificateBox*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnUpdateMicroFocus(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSslCertificateBox_Create(KSslCertificateBox* self) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->create();
-    } else {
-        ((VirtualKSslCertificateBox*)self)->create();
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->VirtualKSslCertificateBox::create();
+    } else
+        qFatal("Error: Protected method KSslCertificateBox::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSslCertificateBox_SuperCreate(KSslCertificateBox* self) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_Create_IsBase(true);
-        vksslcertificatebox->create();
-    } else {
-        ((VirtualKSslCertificateBox*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnCreate(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_Create_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSslCertificateBox_Destroy(KSslCertificateBox* self) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->destroy();
-    } else {
-        ((VirtualKSslCertificateBox*)self)->destroy();
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        vksslcertificatebox->VirtualKSslCertificateBox::destroy();
+    } else
+        qFatal("Error: Protected method KSslCertificateBox::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSslCertificateBox_SuperDestroy(KSslCertificateBox* self) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_Destroy_IsBase(true);
-        vksslcertificatebox->destroy();
-    } else {
-        ((VirtualKSslCertificateBox*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnDestroy(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_Destroy_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSslCertificateBox_FocusNextChild(KSslCertificateBox* self) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return vksslcertificatebox->focusNextChild();
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->focusNextChild();
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        return vksslcertificatebox->VirtualKSslCertificateBox::focusNextChild();
+    } else
+        qFatal("Error: Protected method KSslCertificateBox::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSslCertificateBox_SuperFocusNextChild(KSslCertificateBox* self) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_FocusNextChild_IsBase(true);
-        return vksslcertificatebox->focusNextChild();
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnFocusNextChild(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_FocusNextChild_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSslCertificateBox_FocusPreviousChild(KSslCertificateBox* self) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return vksslcertificatebox->focusPreviousChild();
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->focusPreviousChild();
-    }
+    if (auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self)) {
+        return vksslcertificatebox->VirtualKSslCertificateBox::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KSslCertificateBox::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSslCertificateBox_SuperFocusPreviousChild(KSslCertificateBox* self) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_FocusPreviousChild_IsBase(true);
-        return vksslcertificatebox->focusPreviousChild();
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnFocusPreviousChild(KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KSslCertificateBox_Sender(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return vksslcertificatebox->sender();
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->sender();
-    }
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self))) {
+        return vksslcertificatebox->VirtualKSslCertificateBox::sender();
+    } else
+        qFatal("Error: Protected method KSslCertificateBox::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KSslCertificateBox_SuperSender(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_Sender_IsBase(true);
-        return vksslcertificatebox->sender();
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnSender(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_Sender_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSslCertificateBox_SenderSignalIndex(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return vksslcertificatebox->senderSignalIndex();
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->senderSignalIndex();
-    }
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self))) {
+        return vksslcertificatebox->VirtualKSslCertificateBox::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KSslCertificateBox::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSslCertificateBox_SuperSenderSignalIndex(const KSslCertificateBox* self) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_SenderSignalIndex_IsBase(true);
-        return vksslcertificatebox->senderSignalIndex();
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnSenderSignalIndex(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSslCertificateBox_Receivers(const KSslCertificateBox* self, const char* signal) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return vksslcertificatebox->receivers(signal);
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->receivers(signal);
-    }
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self))) {
+        return vksslcertificatebox->VirtualKSslCertificateBox::receivers(signal);
+    } else
+        qFatal("Error: Protected method KSslCertificateBox::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSslCertificateBox_SuperReceivers(const KSslCertificateBox* self, const char* signal) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_Receivers_IsBase(true);
-        return vksslcertificatebox->receivers(signal);
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnReceivers(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_Receivers_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSslCertificateBox_IsSignalConnected(const KSslCertificateBox* self, const QMetaMethod* signal) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return vksslcertificatebox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self))) {
+        return vksslcertificatebox->VirtualKSslCertificateBox::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KSslCertificateBox::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSslCertificateBox_SuperIsSignalConnected(const KSslCertificateBox* self, const QMetaMethod* signal) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_IsSignalConnected_IsBase(true);
-        return vksslcertificatebox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnIsSignalConnected(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_IsSignalConnected_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KSslCertificateBox_GetDecodedMetricF(const KSslCertificateBox* self, int metricA, int metricB) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        return vksslcertificatebox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KSslCertificateBox_SuperGetDecodedMetricF(const KSslCertificateBox* self, int metricA, int metricB) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
-        vksslcertificatebox->setKSslCertificateBox_GetDecodedMetricF_IsBase(true);
-        return vksslcertificatebox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKSslCertificateBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSslCertificateBox_OnGetDecodedMetricF(const KSslCertificateBox* self, intptr_t slot) {
-    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
-        vksslcertificatebox->setKSslCertificateBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_GetDecodedMetricF_Callback>(slot));
+    if (auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self))) {
+        return vksslcertificatebox->VirtualKSslCertificateBox::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KSslCertificateBox::getDecodedMetricF called without a directly constructed type");
 }
 
 void KSslCertificateBox_Delete(KSslCertificateBox* self) {

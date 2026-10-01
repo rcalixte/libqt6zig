@@ -621,9 +621,9 @@ pub const K7Zip = extern struct {
     ///
     /// ` self: K7Zip `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: K7Zip) callconv(.c) bool `
     ///
-    pub fn onCloseArchive(self: K7Zip, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCloseArchive(self: K7Zip, callback: *const fn (K7Zip) callconv(.c) bool) void {
         qtc.K7Zip_OnCloseArchive(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2058,9 +2058,9 @@ pub const K7Zip = extern struct {
     ///
     /// ` self: K7Zip`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: K7Zip) callconv(.c) bool `
     ///
-    pub fn onClose(self: K7Zip, callback: *const fn () callconv(.c) bool) void {
+    pub fn onClose(self: K7Zip, callback: *const fn (K7Zip) callconv(.c) bool) void {
         qtc.K7Zip_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2114,9 +2114,9 @@ pub const K7Zip = extern struct {
     ///
     /// ` self: K7Zip`
     ///
-    /// ` callback: *const fn () callconv(.c) KArchiveDirectory `
+    /// ` callback: *const fn (self: K7Zip) callconv(.c) KArchiveDirectory `
     ///
-    pub fn onRootDir(self: K7Zip, callback: *const fn () callconv(.c) KArchiveDirectory) void {
+    pub fn onRootDir(self: K7Zip, callback: *const fn (K7Zip) callconv(.c) KArchiveDirectory) void {
         qtc.K7Zip_OnRootDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2204,50 +2204,6 @@ pub const K7Zip = extern struct {
         qtc.K7Zip_SetErrorString(@ptrCast(self.ptr), errorStr_str);
     }
 
-    /// ### DEPRECATED: Use `superSetErrorString` instead
-    ///
-    pub const SuperSetErrorString = superSetErrorString;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setErrorString)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: K7Zip `
-    ///
-    /// ` errorStr: []const u8 `
-    ///
-    pub fn superSetErrorString(self: K7Zip, errorStr: []const u8) void {
-        const errorStr_str = qtc.libqt_string{
-            .len = errorStr.len,
-            .data = errorStr.ptr,
-        };
-        qtc.K7Zip_SuperSetErrorString(@ptrCast(self.ptr), errorStr_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorString` instead
-    ///
-    pub const OnSetErrorString = onSetErrorString;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setErrorString)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: K7Zip`
-    ///
-    /// ` callback: *const fn (self: K7Zip, errorStr: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorString(self: K7Zip, callback: *const fn (K7Zip, [*:0]const u8) callconv(.c) void) void {
-        qtc.K7Zip_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `findOrCreate` instead
     ///
     pub const FindOrCreate = findOrCreate;
@@ -2272,50 +2228,6 @@ pub const K7Zip = extern struct {
         return .{ .ptr = qtc.K7Zip_FindOrCreate(@ptrCast(self.ptr), path_str) };
     }
 
-    /// ### DEPRECATED: Use `superFindOrCreate` instead
-    ///
-    pub const SuperFindOrCreate = superFindOrCreate;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#findOrCreate)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: K7Zip `
-    ///
-    /// ` path: []const u8 `
-    ///
-    pub fn superFindOrCreate(self: K7Zip, path: []const u8) KArchiveDirectory {
-        const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
-        };
-        return .{ .ptr = qtc.K7Zip_SuperFindOrCreate(@ptrCast(self.ptr), path_str) };
-    }
-
-    /// ### DEPRECATED: Use `onFindOrCreate` instead
-    ///
-    pub const OnFindOrCreate = onFindOrCreate;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#findOrCreate)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: K7Zip`
-    ///
-    /// ` callback: *const fn (self: K7Zip, path: [*:0]const u8) callconv(.c) KArchiveDirectory `
-    ///
-    pub fn onFindOrCreate(self: K7Zip, callback: *const fn (K7Zip, [*:0]const u8) callconv(.c) KArchiveDirectory) void {
-        qtc.K7Zip_OnFindOrCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setDevice` instead
     ///
     pub const SetDevice = setDevice;
@@ -2337,47 +2249,6 @@ pub const K7Zip = extern struct {
         qtc.K7Zip_SetDevice(@ptrCast(self.ptr), @ptrCast(dev.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetDevice` instead
-    ///
-    pub const SuperSetDevice = superSetDevice;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setDevice)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: K7Zip `
-    ///
-    /// ` dev: QIODevice `
-    ///
-    pub fn superSetDevice(self: K7Zip, dev: anytype) void {
-        comptime _ = @TypeOf(dev)._is_QIODevice;
-        qtc.K7Zip_SuperSetDevice(@ptrCast(self.ptr), @ptrCast(dev.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDevice` instead
-    ///
-    pub const OnSetDevice = onSetDevice;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setDevice)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: K7Zip`
-    ///
-    /// ` callback: *const fn (self: K7Zip, dev: QIODevice) callconv(.c) void `
-    ///
-    pub fn onSetDevice(self: K7Zip, callback: *const fn (K7Zip, QIODevice) callconv(.c) void) void {
-        qtc.K7Zip_OnSetDevice(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setRootDir` instead
     ///
     pub const SetRootDir = setRootDir;
@@ -2397,47 +2268,6 @@ pub const K7Zip = extern struct {
     pub fn setRootDir(self: K7Zip, _rootDir: anytype) void {
         comptime _ = @TypeOf(_rootDir)._is_KArchiveDirectory;
         qtc.K7Zip_SetRootDir(@ptrCast(self.ptr), @ptrCast(_rootDir.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSetRootDir` instead
-    ///
-    pub const SuperSetRootDir = superSetRootDir;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setRootDir)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: K7Zip `
-    ///
-    /// ` _rootDir: KArchiveDirectory `
-    ///
-    pub fn superSetRootDir(self: K7Zip, _rootDir: anytype) void {
-        comptime _ = @TypeOf(_rootDir)._is_KArchiveDirectory;
-        qtc.K7Zip_SuperSetRootDir(@ptrCast(self.ptr), @ptrCast(_rootDir.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetRootDir` instead
-    ///
-    pub const OnSetRootDir = onSetRootDir;
-
-    /// Inherited from KArchive
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchive.html#setRootDir)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: K7Zip`
-    ///
-    /// ` callback: *const fn (self: K7Zip, rootDir: KArchiveDirectory) callconv(.c) void `
-    ///
-    pub fn onSetRootDir(self: K7Zip, callback: *const fn (K7Zip, KArchiveDirectory) callconv(.c) void) void {
-        qtc.K7Zip_OnSetRootDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

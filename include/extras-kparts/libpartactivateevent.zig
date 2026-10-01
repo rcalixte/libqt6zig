@@ -367,9 +367,9 @@ pub const KParts__PartActivateEvent = extern struct {
     ///
     /// ` self: KParts__PartActivateEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: KParts__PartActivateEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: KParts__PartActivateEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: KParts__PartActivateEvent, callback: *const fn (KParts__PartActivateEvent) callconv(.c) QEvent) void {
         qtc.KParts__PartActivateEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

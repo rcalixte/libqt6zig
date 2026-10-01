@@ -114,24 +114,24 @@ void QState_AssignProperty(QState* self, QObject* object, const char* name, cons
 
 void QState_OnEntry(QState* self, QEvent* event) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate) {
         vqstate->onEntry(event);
     }
 }
 
 void QState_OnExit(QState* self, QEvent* event) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate) {
         vqstate->onExit(event);
     }
 }
 
 bool QState_Event(QState* self, QEvent* e) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate) {
         return vqstate->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QState::event called without a directly constructed type");
 }
 
 libqt_string QState_Tr2(const char* s, const char* c) {
@@ -160,390 +160,245 @@ libqt_string QState_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QState_SuperMetaObject(const QState* self) {
-    auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_MetaObject_IsBase(true);
-        return (QMetaObject*)vqstate->metaObject();
-    } else {
-        return (QMetaObject*)self->QState::metaObject();
-    }
+    return (QMetaObject*)self->QState::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QState_OnMetaObject(const QState* self, intptr_t slot) {
-    auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_MetaObject_Callback(reinterpret_cast<VirtualQState::QState_MetaObject_Callback>(slot));
+void QState_OnMetaObject(QState* self, intptr_t slot) {
+    if (auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self)))
+        vqstate->qstate_metaobject_callback = reinterpret_cast<VirtualQState::QState_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QState_SuperMetacast(QState* self, const char* param1) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_Metacast_IsBase(true);
-        return vqstate->qt_metacast(param1);
-    } else {
-        return self->QState::qt_metacast(param1);
-    }
+    return self->QState::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QState_OnMetacast(QState* self, intptr_t slot) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_Metacast_Callback(reinterpret_cast<VirtualQState::QState_Metacast_Callback>(slot));
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self))
+        vqstate->qstate_metacast_callback = reinterpret_cast<VirtualQState::QState_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QState_SuperMetacall(QState* self, int param1, int param2, void** param3) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_Metacall_IsBase(true);
-        return vqstate->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QState::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QState::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QState_OnMetacall(QState* self, intptr_t slot) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_Metacall_Callback(reinterpret_cast<VirtualQState::QState_Metacall_Callback>(slot));
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self))
+        vqstate->qstate_metacall_callback = reinterpret_cast<VirtualQState::QState_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QState_SuperOnEntry(QState* self, QEvent* event) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_OnEntry_IsBase(true);
-        vqstate->onEntry(event);
-    } else {
-        ((VirtualQState*)self)->onEntry(event);
-    }
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self)) {
+        vqstate->QState::onEntry(event);
+    } else
+        qFatal("Error: Protected virtual method QState::onEntry called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QState_OnOnEntry(QState* self, intptr_t slot) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_OnEntry_Callback(reinterpret_cast<VirtualQState::QState_OnEntry_Callback>(slot));
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self))
+        vqstate->qstate_onentry_callback = reinterpret_cast<VirtualQState::QState_OnEntry_Callback>(slot);
 }
 
 // Base class handler implementation
 void QState_SuperOnExit(QState* self, QEvent* event) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_OnExit_IsBase(true);
-        vqstate->onExit(event);
-    } else {
-        ((VirtualQState*)self)->onExit(event);
-    }
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self)) {
+        vqstate->QState::onExit(event);
+    } else
+        qFatal("Error: Protected virtual method QState::onExit called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QState_OnOnExit(QState* self, intptr_t slot) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_OnExit_Callback(reinterpret_cast<VirtualQState::QState_OnExit_Callback>(slot));
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self))
+        vqstate->qstate_onexit_callback = reinterpret_cast<VirtualQState::QState_OnExit_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QState_SuperEvent(QState* self, QEvent* e) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_Event_IsBase(true);
-        return vqstate->event(e);
-    } else {
-        return ((VirtualQState*)self)->event(e);
-    }
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self)) {
+        return vqstate->QState::event(e);
+    } else
+        qFatal("Error: Protected virtual method QState::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QState_OnEvent(QState* self, intptr_t slot) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_Event_Callback(reinterpret_cast<VirtualQState::QState_Event_Callback>(slot));
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self))
+        vqstate->qstate_event_callback = reinterpret_cast<VirtualQState::QState_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QState_EventFilter(QState* self, QObject* watched, QEvent* event) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        return vqstate->eventFilter(watched, event);
-    } else {
-        return self->QState::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QState_SuperEventFilter(QState* self, QObject* watched, QEvent* event) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_EventFilter_IsBase(true);
-        return vqstate->eventFilter(watched, event);
-    } else {
-        return self->QState::eventFilter(watched, event);
-    }
+    return self->QState::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QState_OnEventFilter(QState* self, intptr_t slot) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_EventFilter_Callback(reinterpret_cast<VirtualQState::QState_EventFilter_Callback>(slot));
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self))
+        vqstate->qstate_eventfilter_callback = reinterpret_cast<VirtualQState::QState_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QState_TimerEvent(QState* self, QTimerEvent* event) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate) {
         vqstate->timerEvent(event);
     } else {
-        ((VirtualQState*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QState::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QState_SuperTimerEvent(QState* self, QTimerEvent* event) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_TimerEvent_IsBase(true);
-        vqstate->timerEvent(event);
-    } else {
-        ((VirtualQState*)self)->timerEvent(event);
-    }
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self)) {
+        vqstate->QState::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QState::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QState_OnTimerEvent(QState* self, intptr_t slot) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_TimerEvent_Callback(reinterpret_cast<VirtualQState::QState_TimerEvent_Callback>(slot));
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self))
+        vqstate->qstate_timerevent_callback = reinterpret_cast<VirtualQState::QState_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QState_ChildEvent(QState* self, QChildEvent* event) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate) {
         vqstate->childEvent(event);
     } else {
-        ((VirtualQState*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QState::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QState_SuperChildEvent(QState* self, QChildEvent* event) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_ChildEvent_IsBase(true);
-        vqstate->childEvent(event);
-    } else {
-        ((VirtualQState*)self)->childEvent(event);
-    }
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self)) {
+        vqstate->QState::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QState::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QState_OnChildEvent(QState* self, intptr_t slot) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_ChildEvent_Callback(reinterpret_cast<VirtualQState::QState_ChildEvent_Callback>(slot));
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self))
+        vqstate->qstate_childevent_callback = reinterpret_cast<VirtualQState::QState_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QState_CustomEvent(QState* self, QEvent* event) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate) {
         vqstate->customEvent(event);
     } else {
-        ((VirtualQState*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QState::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QState_SuperCustomEvent(QState* self, QEvent* event) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_CustomEvent_IsBase(true);
-        vqstate->customEvent(event);
-    } else {
-        ((VirtualQState*)self)->customEvent(event);
-    }
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self)) {
+        vqstate->QState::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QState::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QState_OnCustomEvent(QState* self, intptr_t slot) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_CustomEvent_Callback(reinterpret_cast<VirtualQState::QState_CustomEvent_Callback>(slot));
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self))
+        vqstate->qstate_customevent_callback = reinterpret_cast<VirtualQState::QState_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QState_ConnectNotify(QState* self, const QMetaMethod* signal) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate) {
         vqstate->connectNotify(*signal);
     } else {
-        ((VirtualQState*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QState::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QState_SuperConnectNotify(QState* self, const QMetaMethod* signal) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_ConnectNotify_IsBase(true);
-        vqstate->connectNotify(*signal);
-    } else {
-        ((VirtualQState*)self)->connectNotify(*signal);
-    }
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self)) {
+        vqstate->QState::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QState::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QState_OnConnectNotify(QState* self, intptr_t slot) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_ConnectNotify_Callback(reinterpret_cast<VirtualQState::QState_ConnectNotify_Callback>(slot));
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self))
+        vqstate->qstate_connectnotify_callback = reinterpret_cast<VirtualQState::QState_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QState_DisconnectNotify(QState* self, const QMetaMethod* signal) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate) {
         vqstate->disconnectNotify(*signal);
     } else {
-        ((VirtualQState*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QState::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QState_SuperDisconnectNotify(QState* self, const QMetaMethod* signal) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_DisconnectNotify_IsBase(true);
-        vqstate->disconnectNotify(*signal);
-    } else {
-        ((VirtualQState*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self)) {
+        vqstate->QState::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QState::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QState_OnDisconnectNotify(QState* self, intptr_t slot) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_DisconnectNotify_Callback(reinterpret_cast<VirtualQState::QState_DisconnectNotify_Callback>(slot));
+    if (auto* vqstate = dynamic_cast<VirtualQState*>(self))
+        vqstate->qstate_disconnectnotify_callback = reinterpret_cast<VirtualQState::QState_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QState_Sender(const QState* self) {
-    auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState) {
-        return vqstate->sender();
-    } else {
-        return ((VirtualQState*)self)->sender();
-    }
+    if (auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self))) {
+        return vqstate->VirtualQState::sender();
+    } else
+        qFatal("Error: Protected method QState::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QState_SuperSender(const QState* self) {
-    auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_Sender_IsBase(true);
-        return vqstate->sender();
-    } else {
-        return ((VirtualQState*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QState_OnSender(const QState* self, intptr_t slot) {
-    auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_Sender_Callback(reinterpret_cast<VirtualQState::QState_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QState_SenderSignalIndex(const QState* self) {
-    auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState) {
-        return vqstate->senderSignalIndex();
-    } else {
-        return ((VirtualQState*)self)->senderSignalIndex();
-    }
+    if (auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self))) {
+        return vqstate->VirtualQState::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QState::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QState_SuperSenderSignalIndex(const QState* self) {
-    auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_SenderSignalIndex_IsBase(true);
-        return vqstate->senderSignalIndex();
-    } else {
-        return ((VirtualQState*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QState_OnSenderSignalIndex(const QState* self, intptr_t slot) {
-    auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_SenderSignalIndex_Callback(reinterpret_cast<VirtualQState::QState_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QState_Receivers(const QState* self, const char* signal) {
-    auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState) {
-        return vqstate->receivers(signal);
-    } else {
-        return ((VirtualQState*)self)->receivers(signal);
-    }
+    if (auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self))) {
+        return vqstate->VirtualQState::receivers(signal);
+    } else
+        qFatal("Error: Protected method QState::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QState_SuperReceivers(const QState* self, const char* signal) {
-    auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_Receivers_IsBase(true);
-        return vqstate->receivers(signal);
-    } else {
-        return ((VirtualQState*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QState_OnReceivers(const QState* self, intptr_t slot) {
-    auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_Receivers_Callback(reinterpret_cast<VirtualQState::QState_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QState_IsSignalConnected(const QState* self, const QMetaMethod* signal) {
-    auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState) {
-        return vqstate->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQState*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QState_SuperIsSignalConnected(const QState* self, const QMetaMethod* signal) {
-    auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState) {
-        vqstate->setQState_IsSignalConnected_IsBase(true);
-        return vqstate->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQState*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QState_OnIsSignalConnected(const QState* self, intptr_t slot) {
-    auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState)
-        vqstate->setQState_IsSignalConnected_Callback(reinterpret_cast<VirtualQState::QState_IsSignalConnected_Callback>(slot));
+    if (auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self))) {
+        return vqstate->VirtualQState::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QState::isSignalConnected called without a directly constructed type");
 }
 
 void QState_Connect_Finished(QState* self, intptr_t slot) {

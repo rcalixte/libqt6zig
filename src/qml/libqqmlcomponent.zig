@@ -410,9 +410,9 @@ pub const QQmlComponent = extern struct {
     ///
     /// ` self: QQmlComponent `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QQmlComponent) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QQmlComponent, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QQmlComponent, callback: *const fn (QQmlComponent) callconv(.c) QMetaObject) void {
         qtc.QQmlComponent_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -928,9 +928,9 @@ pub const QQmlComponent = extern struct {
     ///
     /// ` self: QQmlComponent `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQmlComponent) callconv(.c) void `
     ///
-    pub fn onCompleteCreate(self: QQmlComponent, callback: *const fn () callconv(.c) void) void {
+    pub fn onCompleteCreate(self: QQmlComponent, callback: *const fn (QQmlComponent) callconv(.c) void) void {
         qtc.QQmlComponent_OnCompleteCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1158,40 +1158,6 @@ pub const QQmlComponent = extern struct {
         return .{ .ptr = qtc.QQmlComponent_CreateObject2(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onCreateObject2` instead
-    ///
-    pub const OnCreateObject2 = onCreateObject2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlcomponent.html#createObject)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQmlComponent `
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onCreateObject2(self: QQmlComponent, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QQmlComponent_OnCreateObject2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreateObject2` instead
-    ///
-    pub const SuperCreateObject2 = superCreateObject2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlcomponent.html#createObject)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlComponent `
-    ///
-    pub fn superCreateObject2(self: QQmlComponent) QObject {
-        return .{ .ptr = qtc.QQmlComponent_SuperCreateObject2(@ptrCast(self.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `tr2` instead
     ///
     pub const Tr2 = tr2;
@@ -1375,43 +1341,6 @@ pub const QQmlComponent = extern struct {
         return .{ .ptr = qtc.QQmlComponent_CreateObject1(@ptrCast(self.ptr), @ptrCast(_parent.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onCreateObject1` instead
-    ///
-    pub const OnCreateObject1 = onCreateObject1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlcomponent.html#createObject)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQmlComponent `
-    ///
-    /// ` callback: *const fn (self: QQmlComponent, parent: QObject) callconv(.c) QObject `
-    ///
-    pub fn onCreateObject1(self: QQmlComponent, callback: *const fn (QQmlComponent, QObject) callconv(.c) QObject) void {
-        qtc.QQmlComponent_OnCreateObject1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreateObject1` instead
-    ///
-    pub const SuperCreateObject1 = superCreateObject1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlcomponent.html#createObject)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlComponent `
-    ///
-    /// ` _parent: QObject `
-    ///
-    pub fn superCreateObject1(self: QQmlComponent, _parent: anytype) QObject {
-        comptime _ = @TypeOf(_parent)._is_QObject;
-        return .{ .ptr = qtc.QQmlComponent_SuperCreateObject1(@ptrCast(self.ptr), @ptrCast(_parent.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `createObject22` instead
     ///
     pub const CreateObject22 = createObject22;
@@ -1451,67 +1380,6 @@ pub const QQmlComponent = extern struct {
             .values = @ptrCast(properties_values.ptr),
         };
         return .{ .ptr = qtc.QQmlComponent_CreateObject22(@ptrCast(self.ptr), @ptrCast(_parent.ptr), properties_map) };
-    }
-
-    /// ### DEPRECATED: Use `onCreateObject22` instead
-    ///
-    pub const OnCreateObject22 = onCreateObject22;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlcomponent.html#createObject)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQmlComponent `
-    ///
-    /// ` callback: *const fn (self: QQmlComponent, parent: QObject, properties: qtc.libqt_map (ArrayMap_constu8_QVariant)) callconv(.c) QObject `
-    ///
-    pub fn onCreateObject22(self: QQmlComponent, callback: *const fn (QQmlComponent, QObject, qtc.libqt_map) callconv(.c) QObject) void {
-        qtc.QQmlComponent_OnCreateObject22(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreateObject22` instead
-    ///
-    pub const SuperCreateObject22 = superCreateObject22;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlcomponent.html#createObject)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlComponent `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` _parent: QObject `
-    ///
-    /// ` properties: ArrayMap_constu8_QVariant `
-    ///
-    pub fn superCreateObject22(self: QQmlComponent, allocator: std.mem.Allocator, _parent: anytype, properties: ArrayMap_constu8_QVariant) QObject {
-        comptime _ = @TypeOf(_parent)._is_QObject;
-        const properties_count = properties.count();
-        const properties_keys = allocator.alloc(qtc.libqt_string, properties_count) catch @panic("QQmlComponent.createObject22: Memory allocation failed");
-        defer allocator.free(properties_keys);
-        const properties_values = allocator.alloc(QtC.QVariant, properties_count) catch @panic("QQmlComponent.createObject22: Memory allocation failed");
-        defer allocator.free(properties_values);
-        var properties_i: usize = 0;
-        var properties_it = properties.iterator();
-        while (properties_it.next()) |it_entry| : (properties_i += 1) {
-            const properties_key = it_entry.key_ptr.*;
-            properties_keys[properties_i] = qtc.libqt_string{
-                .len = properties_key.len,
-                .data = properties_key.ptr,
-            };
-            properties_values[properties_i] = @ptrCast(it_entry.value_ptr.*.ptr);
-        }
-        const properties_map = qtc.libqt_map{
-            .len = properties_count,
-            .keys = @ptrCast(properties_keys.ptr),
-            .values = @ptrCast(properties_values.ptr),
-        };
-        return .{ .ptr = qtc.QQmlComponent_SuperCreateObject22(@ptrCast(self.ptr), @ptrCast(_parent.ptr), properties_map) };
     }
 
     /// ### DEPRECATED: Use `objectName` instead
@@ -2937,44 +2805,6 @@ pub const QQmlComponent = extern struct {
         return .{ .ptr = qtc.QQmlComponent_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlComponent `
-    ///
-    pub fn superSender(self: QQmlComponent) QObject {
-        return .{ .ptr = qtc.QQmlComponent_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQmlComponent`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QQmlComponent, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QQmlComponent_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2991,44 +2821,6 @@ pub const QQmlComponent = extern struct {
     ///
     pub fn senderSignalIndex(self: QQmlComponent) i32 {
         return qtc.QQmlComponent_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlComponent `
-    ///
-    pub fn superSenderSignalIndex(self: QQmlComponent) i32 {
-        return qtc.QQmlComponent_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQmlComponent`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QQmlComponent, callback: *const fn () callconv(.c) i32) void {
-        qtc.QQmlComponent_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3052,47 +2844,6 @@ pub const QQmlComponent = extern struct {
         return qtc.QQmlComponent_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlComponent `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QQmlComponent, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QQmlComponent_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQmlComponent`
-    ///
-    /// ` callback: *const fn (self: QQmlComponent, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QQmlComponent, callback: *const fn (QQmlComponent, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QQmlComponent_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3112,47 +2863,6 @@ pub const QQmlComponent = extern struct {
     pub fn isSignalConnected(self: QQmlComponent, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QQmlComponent_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlComponent `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QQmlComponent, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QQmlComponent_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQmlComponent`
-    ///
-    /// ` callback: *const fn (self: QQmlComponent, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QQmlComponent, callback: *const fn (QQmlComponent, QMetaMethod) callconv(.c) bool) void {
-        qtc.QQmlComponent_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -53,7 +53,7 @@ void KModifierKeyInfoProvider_KeyRemoved(KModifierKeyInfoProvider* self, int key
 void KModifierKeyInfoProvider_Connect_KeyRemoved(KModifierKeyInfoProvider* self, intptr_t slot);
 libqt_string KModifierKeyInfoProvider_Tr2(const char* s, const char* c);
 libqt_string KModifierKeyInfoProvider_Tr3(const char* s, const char* c, int n);
-void KModifierKeyInfoProvider_OnMetaObject(const KModifierKeyInfoProvider* self, intptr_t slot);
+void KModifierKeyInfoProvider_OnMetaObject(KModifierKeyInfoProvider* self, intptr_t slot);
 QMetaObject* KModifierKeyInfoProvider_SuperMetaObject(const KModifierKeyInfoProvider* self);
 void KModifierKeyInfoProvider_OnMetacast(KModifierKeyInfoProvider* self, intptr_t slot);
 void* KModifierKeyInfoProvider_SuperMetacast(KModifierKeyInfoProvider* self, const char* param1);
@@ -85,20 +85,10 @@ void KModifierKeyInfoProvider_DisconnectNotify(KModifierKeyInfoProvider* self, c
 void KModifierKeyInfoProvider_OnDisconnectNotify(KModifierKeyInfoProvider* self, intptr_t slot);
 void KModifierKeyInfoProvider_SuperDisconnectNotify(KModifierKeyInfoProvider* self, const QMetaMethod* signal);
 void KModifierKeyInfoProvider_StateUpdated(KModifierKeyInfoProvider* self, int key, int state);
-void KModifierKeyInfoProvider_OnStateUpdated(KModifierKeyInfoProvider* self, intptr_t slot);
-void KModifierKeyInfoProvider_SuperStateUpdated(KModifierKeyInfoProvider* self, int key, int state);
 QObject* KModifierKeyInfoProvider_Sender(const KModifierKeyInfoProvider* self);
-void KModifierKeyInfoProvider_OnSender(const KModifierKeyInfoProvider* self, intptr_t slot);
-QObject* KModifierKeyInfoProvider_SuperSender(const KModifierKeyInfoProvider* self);
 int KModifierKeyInfoProvider_SenderSignalIndex(const KModifierKeyInfoProvider* self);
-void KModifierKeyInfoProvider_OnSenderSignalIndex(const KModifierKeyInfoProvider* self, intptr_t slot);
-int KModifierKeyInfoProvider_SuperSenderSignalIndex(const KModifierKeyInfoProvider* self);
 int KModifierKeyInfoProvider_Receivers(const KModifierKeyInfoProvider* self, const char* signal);
-void KModifierKeyInfoProvider_OnReceivers(const KModifierKeyInfoProvider* self, intptr_t slot);
-int KModifierKeyInfoProvider_SuperReceivers(const KModifierKeyInfoProvider* self, const char* signal);
 bool KModifierKeyInfoProvider_IsSignalConnected(const KModifierKeyInfoProvider* self, const QMetaMethod* signal);
-void KModifierKeyInfoProvider_OnIsSignalConnected(const KModifierKeyInfoProvider* self, intptr_t slot);
-bool KModifierKeyInfoProvider_SuperIsSignalConnected(const KModifierKeyInfoProvider* self, const QMetaMethod* signal);
 void KModifierKeyInfoProvider_Delete(KModifierKeyInfoProvider* self);
 
 #ifdef __cplusplus

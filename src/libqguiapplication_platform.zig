@@ -30,6 +30,8 @@ pub const QNativeInterface__QX11Application = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qx11application.html#display)
     ///
+    /// This method must be implemented with `onDisplay` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QNativeInterface__QX11Application `
@@ -52,30 +54,12 @@ pub const QNativeInterface__QX11Application = extern struct {
     ///
     /// ` self: QNativeInterface__QX11Application `
     ///
-    /// ` callback: *const fn () callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QNativeInterface__QX11Application) callconv(.c) ?*anyopaque `
     ///
-    pub fn onDisplay(self: QNativeInterface__QX11Application, callback: *const fn () callconv(.c) ?*anyopaque) void {
+    pub fn onDisplay(self: QNativeInterface__QX11Application, callback: *const fn (QNativeInterface__QX11Application) callconv(.c) ?*anyopaque) void {
         if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
             @compileError("Unsupported operating system");
         qtc.QNativeInterface__QX11Application_OnDisplay(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDisplay` instead
-    ///
-    pub const SuperDisplay = superDisplay;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qx11application.html#display)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNativeInterface__QX11Application `
-    ///
-    pub fn superDisplay(self: QNativeInterface__QX11Application) ?*anyopaque {
-        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
-            @compileError("Unsupported operating system");
-        return @ptrCast(qtc.QNativeInterface__QX11Application_SuperDisplay(@ptrCast(self.ptr)));
     }
 
     /// ### DEPRECATED: Use `connection` instead
@@ -83,6 +67,8 @@ pub const QNativeInterface__QX11Application = extern struct {
     pub const Connection = connection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qx11application.html#connection)
+    ///
+    /// This method must be implemented with `onConnection` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -109,32 +95,11 @@ pub const QNativeInterface__QX11Application = extern struct {
     ///
     /// ` self: QNativeInterface__QX11Application `
     ///
-    /// ` callback: *const fn () callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QNativeInterface__QX11Application) callconv(.c) ?*anyopaque `
     ///
-    pub fn onConnection(self: QNativeInterface__QX11Application, callback: *const fn () callconv(.c) ?*anyopaque) void {
+    pub fn onConnection(self: QNativeInterface__QX11Application, callback: *const fn (QNativeInterface__QX11Application) callconv(.c) ?*anyopaque) void {
         if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         qtc.QNativeInterface__QX11Application_OnConnection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superConnection` instead
-    ///
-    pub const SuperConnection = superConnection;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qx11application.html#connection)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNativeInterface__QX11Application `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ?*xcb_connection_t ` (NOTE: This pointer value could be `null`.)
-    ///
-    pub fn superConnection(self: QNativeInterface__QX11Application) ?*anyopaque {
-        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
-        return @ptrCast(qtc.QNativeInterface__QX11Application_SuperConnection(@ptrCast(self.ptr)));
     }
 };
 
@@ -166,6 +131,8 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#display)
     ///
+    /// This method must be implemented with `onDisplay` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QNativeInterface__QWaylandApplication `
@@ -192,34 +159,12 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     ///
     /// ` self: QNativeInterface__QWaylandApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QNativeInterface__QWaylandApplication) callconv(.c) ?*anyopaque `
     ///
-    pub fn onDisplay(self: QNativeInterface__QWaylandApplication, callback: *const fn () callconv(.c) ?*anyopaque) void {
+    pub fn onDisplay(self: QNativeInterface__QWaylandApplication, callback: *const fn (QNativeInterface__QWaylandApplication) callconv(.c) ?*anyopaque) void {
         if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
             @compileError("Unsupported operating system");
         qtc.QNativeInterface__QWaylandApplication_OnDisplay(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDisplay` instead
-    ///
-    pub const SuperDisplay = superDisplay;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#display)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNativeInterface__QWaylandApplication `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ?*wl_display ` (NOTE: This pointer value could be `null`.)
-    ///
-    pub fn superDisplay(self: QNativeInterface__QWaylandApplication) ?*anyopaque {
-        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
-            @compileError("Unsupported operating system");
-        return @ptrCast(qtc.QNativeInterface__QWaylandApplication_SuperDisplay(@ptrCast(self.ptr)));
     }
 
     /// ### DEPRECATED: Use `compositor` instead
@@ -227,6 +172,8 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     pub const Compositor = compositor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#compositor)
+    ///
+    /// This method must be implemented with `onCompositor` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -254,34 +201,12 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     ///
     /// ` self: QNativeInterface__QWaylandApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QNativeInterface__QWaylandApplication) callconv(.c) ?*anyopaque `
     ///
-    pub fn onCompositor(self: QNativeInterface__QWaylandApplication, callback: *const fn () callconv(.c) ?*anyopaque) void {
+    pub fn onCompositor(self: QNativeInterface__QWaylandApplication, callback: *const fn (QNativeInterface__QWaylandApplication) callconv(.c) ?*anyopaque) void {
         if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
             @compileError("Unsupported operating system");
         qtc.QNativeInterface__QWaylandApplication_OnCompositor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCompositor` instead
-    ///
-    pub const SuperCompositor = superCompositor;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#compositor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNativeInterface__QWaylandApplication `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ?*wl_compositor ` (NOTE: This pointer value could be `null`.)
-    ///
-    pub fn superCompositor(self: QNativeInterface__QWaylandApplication) ?*anyopaque {
-        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
-            @compileError("Unsupported operating system");
-        return @ptrCast(qtc.QNativeInterface__QWaylandApplication_SuperCompositor(@ptrCast(self.ptr)));
     }
 
     /// ### DEPRECATED: Use `seat` instead
@@ -289,6 +214,8 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     pub const Seat = seat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#seat)
+    ///
+    /// This method must be implemented with `onSeat` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -316,34 +243,12 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     ///
     /// ` self: QNativeInterface__QWaylandApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QNativeInterface__QWaylandApplication) callconv(.c) ?*anyopaque `
     ///
-    pub fn onSeat(self: QNativeInterface__QWaylandApplication, callback: *const fn () callconv(.c) ?*anyopaque) void {
+    pub fn onSeat(self: QNativeInterface__QWaylandApplication, callback: *const fn (QNativeInterface__QWaylandApplication) callconv(.c) ?*anyopaque) void {
         if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
             @compileError("Unsupported operating system");
         qtc.QNativeInterface__QWaylandApplication_OnSeat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSeat` instead
-    ///
-    pub const SuperSeat = superSeat;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#seat)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNativeInterface__QWaylandApplication `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ?*wl_seat ` (NOTE: This pointer value could be `null`.)
-    ///
-    pub fn superSeat(self: QNativeInterface__QWaylandApplication) ?*anyopaque {
-        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
-            @compileError("Unsupported operating system");
-        return @ptrCast(qtc.QNativeInterface__QWaylandApplication_SuperSeat(@ptrCast(self.ptr)));
     }
 
     /// ### DEPRECATED: Use `keyboard` instead
@@ -351,6 +256,8 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     pub const Keyboard = keyboard;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#keyboard)
+    ///
+    /// This method must be implemented with `onKeyboard` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -378,34 +285,12 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     ///
     /// ` self: QNativeInterface__QWaylandApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QNativeInterface__QWaylandApplication) callconv(.c) ?*anyopaque `
     ///
-    pub fn onKeyboard(self: QNativeInterface__QWaylandApplication, callback: *const fn () callconv(.c) ?*anyopaque) void {
+    pub fn onKeyboard(self: QNativeInterface__QWaylandApplication, callback: *const fn (QNativeInterface__QWaylandApplication) callconv(.c) ?*anyopaque) void {
         if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
             @compileError("Unsupported operating system");
         qtc.QNativeInterface__QWaylandApplication_OnKeyboard(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superKeyboard` instead
-    ///
-    pub const SuperKeyboard = superKeyboard;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#keyboard)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNativeInterface__QWaylandApplication `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ?*wl_keyboard ` (NOTE: This pointer value could be `null`.)
-    ///
-    pub fn superKeyboard(self: QNativeInterface__QWaylandApplication) ?*anyopaque {
-        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
-            @compileError("Unsupported operating system");
-        return @ptrCast(qtc.QNativeInterface__QWaylandApplication_SuperKeyboard(@ptrCast(self.ptr)));
     }
 
     /// ### DEPRECATED: Use `pointer` instead
@@ -413,6 +298,8 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     pub const Pointer = pointer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#pointer)
+    ///
+    /// This method must be implemented with `onPointer` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -440,34 +327,12 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     ///
     /// ` self: QNativeInterface__QWaylandApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QNativeInterface__QWaylandApplication) callconv(.c) ?*anyopaque `
     ///
-    pub fn onPointer(self: QNativeInterface__QWaylandApplication, callback: *const fn () callconv(.c) ?*anyopaque) void {
+    pub fn onPointer(self: QNativeInterface__QWaylandApplication, callback: *const fn (QNativeInterface__QWaylandApplication) callconv(.c) ?*anyopaque) void {
         if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
             @compileError("Unsupported operating system");
         qtc.QNativeInterface__QWaylandApplication_OnPointer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superPointer` instead
-    ///
-    pub const SuperPointer = superPointer;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#pointer)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNativeInterface__QWaylandApplication `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ?*wl_pointer ` (NOTE: This pointer value could be `null`.)
-    ///
-    pub fn superPointer(self: QNativeInterface__QWaylandApplication) ?*anyopaque {
-        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
-            @compileError("Unsupported operating system");
-        return @ptrCast(qtc.QNativeInterface__QWaylandApplication_SuperPointer(@ptrCast(self.ptr)));
     }
 
     /// ### DEPRECATED: Use `touch` instead
@@ -475,6 +340,8 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     pub const Touch = touch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#touch)
+    ///
+    /// This method must be implemented with `onTouch` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -502,34 +369,12 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     ///
     /// ` self: QNativeInterface__QWaylandApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QNativeInterface__QWaylandApplication) callconv(.c) ?*anyopaque `
     ///
-    pub fn onTouch(self: QNativeInterface__QWaylandApplication, callback: *const fn () callconv(.c) ?*anyopaque) void {
+    pub fn onTouch(self: QNativeInterface__QWaylandApplication, callback: *const fn (QNativeInterface__QWaylandApplication) callconv(.c) ?*anyopaque) void {
         if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
             @compileError("Unsupported operating system");
         qtc.QNativeInterface__QWaylandApplication_OnTouch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTouch` instead
-    ///
-    pub const SuperTouch = superTouch;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#touch)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNativeInterface__QWaylandApplication `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ?*wl_touch ` (NOTE: This pointer value could be `null`.)
-    ///
-    pub fn superTouch(self: QNativeInterface__QWaylandApplication) ?*anyopaque {
-        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
-            @compileError("Unsupported operating system");
-        return @ptrCast(qtc.QNativeInterface__QWaylandApplication_SuperTouch(@ptrCast(self.ptr)));
     }
 
     /// ### DEPRECATED: Use `lastInputSerial` instead
@@ -537,6 +382,8 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     pub const LastInputSerial = lastInputSerial;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#lastInputSerial)
+    ///
+    /// This method must be implemented with `onLastInputSerial` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -560,30 +407,12 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     ///
     /// ` self: QNativeInterface__QWaylandApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) u32 `
+    /// ` callback: *const fn (self: QNativeInterface__QWaylandApplication) callconv(.c) u32 `
     ///
-    pub fn onLastInputSerial(self: QNativeInterface__QWaylandApplication, callback: *const fn () callconv(.c) u32) void {
+    pub fn onLastInputSerial(self: QNativeInterface__QWaylandApplication, callback: *const fn (QNativeInterface__QWaylandApplication) callconv(.c) u32) void {
         if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
             @compileError("Unsupported operating system");
         qtc.QNativeInterface__QWaylandApplication_OnLastInputSerial(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superLastInputSerial` instead
-    ///
-    pub const SuperLastInputSerial = superLastInputSerial;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#lastInputSerial)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNativeInterface__QWaylandApplication `
-    ///
-    pub fn superLastInputSerial(self: QNativeInterface__QWaylandApplication) u32 {
-        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
-            @compileError("Unsupported operating system");
-        return qtc.QNativeInterface__QWaylandApplication_SuperLastInputSerial(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `lastInputSeat` instead
@@ -591,6 +420,8 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     pub const LastInputSeat = lastInputSeat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#lastInputSeat)
+    ///
+    /// This method must be implemented with `onLastInputSeat` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -618,33 +449,11 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     ///
     /// ` self: QNativeInterface__QWaylandApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QNativeInterface__QWaylandApplication) callconv(.c) ?*anyopaque `
     ///
-    pub fn onLastInputSeat(self: QNativeInterface__QWaylandApplication, callback: *const fn () callconv(.c) ?*anyopaque) void {
+    pub fn onLastInputSeat(self: QNativeInterface__QWaylandApplication, callback: *const fn (QNativeInterface__QWaylandApplication) callconv(.c) ?*anyopaque) void {
         if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
             @compileError("Unsupported operating system");
         qtc.QNativeInterface__QWaylandApplication_OnLastInputSeat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superLastInputSeat` instead
-    ///
-    pub const SuperLastInputSeat = superLastInputSeat;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qwaylandapplication.html#lastInputSeat)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNativeInterface__QWaylandApplication `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ?*wl_seat ` (NOTE: This pointer value could be `null`.)
-    ///
-    pub fn superLastInputSeat(self: QNativeInterface__QWaylandApplication) ?*anyopaque {
-        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
-            @compileError("Unsupported operating system");
-        return @ptrCast(qtc.QNativeInterface__QWaylandApplication_SuperLastInputSeat(@ptrCast(self.ptr)));
     }
 };

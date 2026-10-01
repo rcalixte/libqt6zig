@@ -48,7 +48,7 @@ void KCodecAction_Connect_DefaultItemTriggered(KCodecAction* self, intptr_t slot
 void KCodecAction_SlotActionTriggered(KCodecAction* self, QAction* param1);
 libqt_string KCodecAction_Tr2(const char* s, const char* c);
 libqt_string KCodecAction_Tr3(const char* s, const char* c, int n);
-void KCodecAction_OnMetaObject(const KCodecAction* self, intptr_t slot);
+void KCodecAction_OnMetaObject(KCodecAction* self, intptr_t slot);
 QMetaObject* KCodecAction_SuperMetaObject(const KCodecAction* self);
 void KCodecAction_OnMetacast(KCodecAction* self, intptr_t slot);
 void* KCodecAction_SuperMetacast(KCodecAction* self, const char* param1);
@@ -90,23 +90,11 @@ void KCodecAction_DisconnectNotify(KCodecAction* self, const QMetaMethod* signal
 void KCodecAction_OnDisconnectNotify(KCodecAction* self, intptr_t slot);
 void KCodecAction_SuperDisconnectNotify(KCodecAction* self, const QMetaMethod* signal);
 void KCodecAction_SlotToggled(KCodecAction* self, bool param1);
-void KCodecAction_OnSlotToggled(KCodecAction* self, intptr_t slot);
-void KCodecAction_SuperSlotToggled(KCodecAction* self, bool param1);
 libqt_list /* of QWidget* */ KCodecAction_CreatedWidgets(const KCodecAction* self);
-void KCodecAction_OnCreatedWidgets(const KCodecAction* self, intptr_t slot);
-libqt_list /* of QWidget* */ KCodecAction_SuperCreatedWidgets(const KCodecAction* self);
 QObject* KCodecAction_Sender(const KCodecAction* self);
-void KCodecAction_OnSender(const KCodecAction* self, intptr_t slot);
-QObject* KCodecAction_SuperSender(const KCodecAction* self);
 int KCodecAction_SenderSignalIndex(const KCodecAction* self);
-void KCodecAction_OnSenderSignalIndex(const KCodecAction* self, intptr_t slot);
-int KCodecAction_SuperSenderSignalIndex(const KCodecAction* self);
 int KCodecAction_Receivers(const KCodecAction* self, const char* signal);
-void KCodecAction_OnReceivers(const KCodecAction* self, intptr_t slot);
-int KCodecAction_SuperReceivers(const KCodecAction* self, const char* signal);
 bool KCodecAction_IsSignalConnected(const KCodecAction* self, const QMetaMethod* signal);
-void KCodecAction_OnIsSignalConnected(const KCodecAction* self, intptr_t slot);
-bool KCodecAction_SuperIsSignalConnected(const KCodecAction* self, const QMetaMethod* signal);
 void KCodecAction_Delete(KCodecAction* self);
 
 #ifdef __cplusplus

@@ -49,7 +49,7 @@ QAction* KActionCategory_AddAction33(KActionCategory* self, int actionType, cons
 QAction* KActionCategory_AddAction42(KActionCategory* self, int actionType, const libqt_string name, const QObject* receiver, const char* member);
 QAction* KActionCategory_AddAction23(KActionCategory* self, const libqt_string name, const QObject* receiver);
 QAction* KActionCategory_AddAction34(KActionCategory* self, const libqt_string name, const QObject* receiver, const char* member);
-void KActionCategory_OnMetaObject(const KActionCategory* self, intptr_t slot);
+void KActionCategory_OnMetaObject(KActionCategory* self, intptr_t slot);
 QMetaObject* KActionCategory_SuperMetaObject(const KActionCategory* self);
 void KActionCategory_OnMetacast(KActionCategory* self, intptr_t slot);
 void* KActionCategory_SuperMetacast(KActionCategory* self, const char* param1);
@@ -77,17 +77,9 @@ void KActionCategory_DisconnectNotify(KActionCategory* self, const QMetaMethod* 
 void KActionCategory_OnDisconnectNotify(KActionCategory* self, intptr_t slot);
 void KActionCategory_SuperDisconnectNotify(KActionCategory* self, const QMetaMethod* signal);
 QObject* KActionCategory_Sender(const KActionCategory* self);
-void KActionCategory_OnSender(const KActionCategory* self, intptr_t slot);
-QObject* KActionCategory_SuperSender(const KActionCategory* self);
 int KActionCategory_SenderSignalIndex(const KActionCategory* self);
-void KActionCategory_OnSenderSignalIndex(const KActionCategory* self, intptr_t slot);
-int KActionCategory_SuperSenderSignalIndex(const KActionCategory* self);
 int KActionCategory_Receivers(const KActionCategory* self, const char* signal);
-void KActionCategory_OnReceivers(const KActionCategory* self, intptr_t slot);
-int KActionCategory_SuperReceivers(const KActionCategory* self, const char* signal);
 bool KActionCategory_IsSignalConnected(const KActionCategory* self, const QMetaMethod* signal);
-void KActionCategory_OnIsSignalConnected(const KActionCategory* self, intptr_t slot);
-bool KActionCategory_SuperIsSignalConnected(const KActionCategory* self, const QMetaMethod* signal);
 void KActionCategory_Delete(KActionCategory* self);
 
 #ifdef __cplusplus

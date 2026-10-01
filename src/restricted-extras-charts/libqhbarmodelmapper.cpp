@@ -197,644 +197,299 @@ libqt_string QHBarModelMapper_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QHBarModelMapper_SuperMetaObject(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_MetaObject_IsBase(true);
-        return (QMetaObject*)vqhbarmodelmapper->metaObject();
-    } else {
-        return (QMetaObject*)self->QHBarModelMapper::metaObject();
-    }
+    return (QMetaObject*)self->QHBarModelMapper::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnMetaObject(const QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_MetaObject_Callback>(slot));
+void QHBarModelMapper_OnMetaObject(QHBarModelMapper* self, intptr_t slot) {
+    if (auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self)))
+        vqhbarmodelmapper->qhbarmodelmapper_metaobject_callback = reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QHBarModelMapper_SuperMetacast(QHBarModelMapper* self, const char* param1) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_Metacast_IsBase(true);
-        return vqhbarmodelmapper->qt_metacast(param1);
-    } else {
-        return self->QHBarModelMapper::qt_metacast(param1);
-    }
+    return self->QHBarModelMapper::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnMetacast(QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_Metacast_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Metacast_Callback>(slot));
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self))
+        vqhbarmodelmapper->qhbarmodelmapper_metacast_callback = reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QHBarModelMapper_SuperMetacall(QHBarModelMapper* self, int param1, int param2, void** param3) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_Metacall_IsBase(true);
-        return vqhbarmodelmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QHBarModelMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QHBarModelMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnMetacall(QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_Metacall_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Metacall_Callback>(slot));
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self))
+        vqhbarmodelmapper->qhbarmodelmapper_metacall_callback = reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QHBarModelMapper_Event(QHBarModelMapper* self, QEvent* event) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        return vqhbarmodelmapper->event(event);
-    } else {
-        return self->QHBarModelMapper::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QHBarModelMapper_SuperEvent(QHBarModelMapper* self, QEvent* event) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_Event_IsBase(true);
-        return vqhbarmodelmapper->event(event);
-    } else {
-        return self->QHBarModelMapper::event(event);
-    }
+    return self->QHBarModelMapper::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnEvent(QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_Event_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Event_Callback>(slot));
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self))
+        vqhbarmodelmapper->qhbarmodelmapper_event_callback = reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QHBarModelMapper_EventFilter(QHBarModelMapper* self, QObject* watched, QEvent* event) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        return vqhbarmodelmapper->eventFilter(watched, event);
-    } else {
-        return self->QHBarModelMapper::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QHBarModelMapper_SuperEventFilter(QHBarModelMapper* self, QObject* watched, QEvent* event) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_EventFilter_IsBase(true);
-        return vqhbarmodelmapper->eventFilter(watched, event);
-    } else {
-        return self->QHBarModelMapper::eventFilter(watched, event);
-    }
+    return self->QHBarModelMapper::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnEventFilter(QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_EventFilter_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_EventFilter_Callback>(slot));
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self))
+        vqhbarmodelmapper->qhbarmodelmapper_eventfilter_callback = reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHBarModelMapper_TimerEvent(QHBarModelMapper* self, QTimerEvent* event) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper) {
         vqhbarmodelmapper->timerEvent(event);
     } else {
-        ((VirtualQHBarModelMapper*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QHBarModelMapper::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHBarModelMapper_SuperTimerEvent(QHBarModelMapper* self, QTimerEvent* event) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_TimerEvent_IsBase(true);
-        vqhbarmodelmapper->timerEvent(event);
-    } else {
-        ((VirtualQHBarModelMapper*)self)->timerEvent(event);
-    }
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self)) {
+        vqhbarmodelmapper->QHBarModelMapper::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHBarModelMapper::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnTimerEvent(QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_TimerEvent_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_TimerEvent_Callback>(slot));
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self))
+        vqhbarmodelmapper->qhbarmodelmapper_timerevent_callback = reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHBarModelMapper_ChildEvent(QHBarModelMapper* self, QChildEvent* event) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper) {
         vqhbarmodelmapper->childEvent(event);
     } else {
-        ((VirtualQHBarModelMapper*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QHBarModelMapper::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHBarModelMapper_SuperChildEvent(QHBarModelMapper* self, QChildEvent* event) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_ChildEvent_IsBase(true);
-        vqhbarmodelmapper->childEvent(event);
-    } else {
-        ((VirtualQHBarModelMapper*)self)->childEvent(event);
-    }
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self)) {
+        vqhbarmodelmapper->QHBarModelMapper::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHBarModelMapper::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnChildEvent(QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_ChildEvent_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_ChildEvent_Callback>(slot));
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self))
+        vqhbarmodelmapper->qhbarmodelmapper_childevent_callback = reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHBarModelMapper_CustomEvent(QHBarModelMapper* self, QEvent* event) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper) {
         vqhbarmodelmapper->customEvent(event);
     } else {
-        ((VirtualQHBarModelMapper*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QHBarModelMapper::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHBarModelMapper_SuperCustomEvent(QHBarModelMapper* self, QEvent* event) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_CustomEvent_IsBase(true);
-        vqhbarmodelmapper->customEvent(event);
-    } else {
-        ((VirtualQHBarModelMapper*)self)->customEvent(event);
-    }
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self)) {
+        vqhbarmodelmapper->QHBarModelMapper::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHBarModelMapper::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnCustomEvent(QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_CustomEvent_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_CustomEvent_Callback>(slot));
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self))
+        vqhbarmodelmapper->qhbarmodelmapper_customevent_callback = reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHBarModelMapper_ConnectNotify(QHBarModelMapper* self, const QMetaMethod* signal) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper) {
         vqhbarmodelmapper->connectNotify(*signal);
     } else {
-        ((VirtualQHBarModelMapper*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QHBarModelMapper::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHBarModelMapper_SuperConnectNotify(QHBarModelMapper* self, const QMetaMethod* signal) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_ConnectNotify_IsBase(true);
-        vqhbarmodelmapper->connectNotify(*signal);
-    } else {
-        ((VirtualQHBarModelMapper*)self)->connectNotify(*signal);
-    }
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self)) {
+        vqhbarmodelmapper->QHBarModelMapper::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QHBarModelMapper::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnConnectNotify(QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_ConnectNotify_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_ConnectNotify_Callback>(slot));
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self))
+        vqhbarmodelmapper->qhbarmodelmapper_connectnotify_callback = reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHBarModelMapper_DisconnectNotify(QHBarModelMapper* self, const QMetaMethod* signal) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper) {
         vqhbarmodelmapper->disconnectNotify(*signal);
     } else {
-        ((VirtualQHBarModelMapper*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QHBarModelMapper::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHBarModelMapper_SuperDisconnectNotify(QHBarModelMapper* self, const QMetaMethod* signal) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_DisconnectNotify_IsBase(true);
-        vqhbarmodelmapper->disconnectNotify(*signal);
-    } else {
-        ((VirtualQHBarModelMapper*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self)) {
+        vqhbarmodelmapper->QHBarModelMapper::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QHBarModelMapper::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnDisconnectNotify(QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_DisconnectNotify_Callback>(slot));
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self))
+        vqhbarmodelmapper->qhbarmodelmapper_disconnectnotify_callback = reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHBarModelMapper_First(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        return vqhbarmodelmapper->first();
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->first();
-    }
+    if (auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self))) {
+        return vqhbarmodelmapper->VirtualQHBarModelMapper::first();
+    } else
+        qFatal("Error: Protected method QHBarModelMapper::first called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHBarModelMapper_SuperFirst(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_First_IsBase(true);
-        return vqhbarmodelmapper->first();
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->first();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnFirst(const QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_First_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_First_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHBarModelMapper_SetFirst(QHBarModelMapper* self, int first) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setFirst(static_cast<int>(first));
-    } else {
-        ((VirtualQHBarModelMapper*)self)->setFirst(static_cast<int>(first));
-    }
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self)) {
+        vqhbarmodelmapper->VirtualQHBarModelMapper::setFirst(static_cast<int>(first));
+    } else
+        qFatal("Error: Protected method QHBarModelMapper::setFirst called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHBarModelMapper_SuperSetFirst(QHBarModelMapper* self, int first) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_SetFirst_IsBase(true);
-        vqhbarmodelmapper->setFirst(static_cast<int>(first));
-    } else {
-        ((VirtualQHBarModelMapper*)self)->setFirst(static_cast<int>(first));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnSetFirst(QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_SetFirst_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_SetFirst_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHBarModelMapper_Count(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        return vqhbarmodelmapper->count();
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->count();
-    }
+    if (auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self))) {
+        return vqhbarmodelmapper->VirtualQHBarModelMapper::count();
+    } else
+        qFatal("Error: Protected method QHBarModelMapper::count called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHBarModelMapper_SuperCount(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_Count_IsBase(true);
-        return vqhbarmodelmapper->count();
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->count();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnCount(const QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_Count_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Count_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHBarModelMapper_SetCount(QHBarModelMapper* self, int count) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setCount(static_cast<int>(count));
-    } else {
-        ((VirtualQHBarModelMapper*)self)->setCount(static_cast<int>(count));
-    }
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self)) {
+        vqhbarmodelmapper->VirtualQHBarModelMapper::setCount(static_cast<int>(count));
+    } else
+        qFatal("Error: Protected method QHBarModelMapper::setCount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHBarModelMapper_SuperSetCount(QHBarModelMapper* self, int count) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_SetCount_IsBase(true);
-        vqhbarmodelmapper->setCount(static_cast<int>(count));
-    } else {
-        ((VirtualQHBarModelMapper*)self)->setCount(static_cast<int>(count));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnSetCount(QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_SetCount_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_SetCount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHBarModelMapper_FirstBarSetSection(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        return vqhbarmodelmapper->firstBarSetSection();
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->firstBarSetSection();
-    }
+    if (auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self))) {
+        return vqhbarmodelmapper->VirtualQHBarModelMapper::firstBarSetSection();
+    } else
+        qFatal("Error: Protected method QHBarModelMapper::firstBarSetSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHBarModelMapper_SuperFirstBarSetSection(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_FirstBarSetSection_IsBase(true);
-        return vqhbarmodelmapper->firstBarSetSection();
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->firstBarSetSection();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnFirstBarSetSection(const QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_FirstBarSetSection_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_FirstBarSetSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHBarModelMapper_SetFirstBarSetSection(QHBarModelMapper* self, int firstBarSetSection) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setFirstBarSetSection(static_cast<int>(firstBarSetSection));
-    } else {
-        ((VirtualQHBarModelMapper*)self)->setFirstBarSetSection(static_cast<int>(firstBarSetSection));
-    }
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self)) {
+        vqhbarmodelmapper->VirtualQHBarModelMapper::setFirstBarSetSection(static_cast<int>(firstBarSetSection));
+    } else
+        qFatal("Error: Protected method QHBarModelMapper::setFirstBarSetSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHBarModelMapper_SuperSetFirstBarSetSection(QHBarModelMapper* self, int firstBarSetSection) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_SetFirstBarSetSection_IsBase(true);
-        vqhbarmodelmapper->setFirstBarSetSection(static_cast<int>(firstBarSetSection));
-    } else {
-        ((VirtualQHBarModelMapper*)self)->setFirstBarSetSection(static_cast<int>(firstBarSetSection));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnSetFirstBarSetSection(QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_SetFirstBarSetSection_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_SetFirstBarSetSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHBarModelMapper_LastBarSetSection(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        return vqhbarmodelmapper->lastBarSetSection();
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->lastBarSetSection();
-    }
+    if (auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self))) {
+        return vqhbarmodelmapper->VirtualQHBarModelMapper::lastBarSetSection();
+    } else
+        qFatal("Error: Protected method QHBarModelMapper::lastBarSetSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHBarModelMapper_SuperLastBarSetSection(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_LastBarSetSection_IsBase(true);
-        return vqhbarmodelmapper->lastBarSetSection();
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->lastBarSetSection();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnLastBarSetSection(const QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_LastBarSetSection_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_LastBarSetSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHBarModelMapper_SetLastBarSetSection(QHBarModelMapper* self, int lastBarSetSection) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setLastBarSetSection(static_cast<int>(lastBarSetSection));
-    } else {
-        ((VirtualQHBarModelMapper*)self)->setLastBarSetSection(static_cast<int>(lastBarSetSection));
-    }
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self)) {
+        vqhbarmodelmapper->VirtualQHBarModelMapper::setLastBarSetSection(static_cast<int>(lastBarSetSection));
+    } else
+        qFatal("Error: Protected method QHBarModelMapper::setLastBarSetSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHBarModelMapper_SuperSetLastBarSetSection(QHBarModelMapper* self, int lastBarSetSection) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_SetLastBarSetSection_IsBase(true);
-        vqhbarmodelmapper->setLastBarSetSection(static_cast<int>(lastBarSetSection));
-    } else {
-        ((VirtualQHBarModelMapper*)self)->setLastBarSetSection(static_cast<int>(lastBarSetSection));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnSetLastBarSetSection(QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_SetLastBarSetSection_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_SetLastBarSetSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHBarModelMapper_Orientation(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        return static_cast<int>(vqhbarmodelmapper->orientation());
-    } else {
-        return static_cast<int>(((VirtualQHBarModelMapper*)self)->orientation());
-    }
+    if (auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self))) {
+        return static_cast<int>(vqhbarmodelmapper->VirtualQHBarModelMapper::orientation());
+    } else
+        qFatal("Error: Protected method QHBarModelMapper::orientation called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHBarModelMapper_SuperOrientation(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_Orientation_IsBase(true);
-        return static_cast<int>(vqhbarmodelmapper->orientation());
-    } else {
-        return static_cast<int>(((VirtualQHBarModelMapper*)self)->orientation());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnOrientation(const QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_Orientation_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Orientation_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHBarModelMapper_SetOrientation(QHBarModelMapper* self, int orientation) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setOrientation(static_cast<Qt::Orientation>(orientation));
-    } else {
-        ((VirtualQHBarModelMapper*)self)->setOrientation(static_cast<Qt::Orientation>(orientation));
-    }
+    if (auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self)) {
+        vqhbarmodelmapper->VirtualQHBarModelMapper::setOrientation(static_cast<Qt::Orientation>(orientation));
+    } else
+        qFatal("Error: Protected method QHBarModelMapper::setOrientation called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHBarModelMapper_SuperSetOrientation(QHBarModelMapper* self, int orientation) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_SetOrientation_IsBase(true);
-        vqhbarmodelmapper->setOrientation(static_cast<Qt::Orientation>(orientation));
-    } else {
-        ((VirtualQHBarModelMapper*)self)->setOrientation(static_cast<Qt::Orientation>(orientation));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnSetOrientation(QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_SetOrientation_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_SetOrientation_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QHBarModelMapper_Sender(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        return vqhbarmodelmapper->sender();
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->sender();
-    }
+    if (auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self))) {
+        return vqhbarmodelmapper->VirtualQHBarModelMapper::sender();
+    } else
+        qFatal("Error: Protected method QHBarModelMapper::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QHBarModelMapper_SuperSender(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_Sender_IsBase(true);
-        return vqhbarmodelmapper->sender();
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnSender(const QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_Sender_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHBarModelMapper_SenderSignalIndex(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        return vqhbarmodelmapper->senderSignalIndex();
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->senderSignalIndex();
-    }
+    if (auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self))) {
+        return vqhbarmodelmapper->VirtualQHBarModelMapper::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QHBarModelMapper::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHBarModelMapper_SuperSenderSignalIndex(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_SenderSignalIndex_IsBase(true);
-        return vqhbarmodelmapper->senderSignalIndex();
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnSenderSignalIndex(const QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHBarModelMapper_Receivers(const QHBarModelMapper* self, const char* signal) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        return vqhbarmodelmapper->receivers(signal);
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->receivers(signal);
-    }
+    if (auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self))) {
+        return vqhbarmodelmapper->VirtualQHBarModelMapper::receivers(signal);
+    } else
+        qFatal("Error: Protected method QHBarModelMapper::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHBarModelMapper_SuperReceivers(const QHBarModelMapper* self, const char* signal) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_Receivers_IsBase(true);
-        return vqhbarmodelmapper->receivers(signal);
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnReceivers(const QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_Receivers_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QHBarModelMapper_IsSignalConnected(const QHBarModelMapper* self, const QMetaMethod* signal) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        return vqhbarmodelmapper->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QHBarModelMapper_SuperIsSignalConnected(const QHBarModelMapper* self, const QMetaMethod* signal) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        vqhbarmodelmapper->setQHBarModelMapper_IsSignalConnected_IsBase(true);
-        return vqhbarmodelmapper->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHBarModelMapper_OnIsSignalConnected(const QHBarModelMapper* self, intptr_t slot) {
-    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
-        vqhbarmodelmapper->setQHBarModelMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_IsSignalConnected_Callback>(slot));
+    if (auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self))) {
+        return vqhbarmodelmapper->VirtualQHBarModelMapper::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QHBarModelMapper::isSignalConnected called without a directly constructed type");
 }
 
 void QHBarModelMapper_Delete(QHBarModelMapper* self) {

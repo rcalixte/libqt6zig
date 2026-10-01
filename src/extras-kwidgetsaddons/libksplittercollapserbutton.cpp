@@ -91,36 +91,36 @@ void KSplitterCollapserButton_SetCollapsed(KSplitterCollapserButton* self, bool 
 
 bool KSplitterCollapserButton_EventFilter(KSplitterCollapserButton* self, QObject* param1, QEvent* param2) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         return vksplittercollapserbutton->eventFilter(param1, param2);
     }
-    return {};
+    qFatal("Error: Protected method KSplitterCollapserButton::eventFilter called without a directly constructed type");
 }
 
 void KSplitterCollapserButton_PaintEvent(KSplitterCollapserButton* self, QPaintEvent* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->paintEvent(param1);
     }
 }
 
 void KSplitterCollapserButton_EnterEvent(KSplitterCollapserButton* self, QEnterEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->enterEvent(event);
     }
 }
 
 void KSplitterCollapserButton_LeaveEvent(KSplitterCollapserButton* self, QEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->leaveEvent(event);
     }
 }
 
 void KSplitterCollapserButton_ShowEvent(KSplitterCollapserButton* self, QShowEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->showEvent(event);
     }
 }
@@ -151,1706 +151,1222 @@ libqt_string KSplitterCollapserButton_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KSplitterCollapserButton_SuperMetaObject(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_MetaObject_IsBase(true);
-        return (QMetaObject*)vksplittercollapserbutton->metaObject();
-    } else {
-        return (QMetaObject*)self->KSplitterCollapserButton::metaObject();
-    }
+    return (QMetaObject*)self->KSplitterCollapserButton::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnMetaObject(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_MetaObject_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MetaObject_Callback>(slot));
+void KSplitterCollapserButton_OnMetaObject(KSplitterCollapserButton* self, intptr_t slot) {
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self)))
+        vksplittercollapserbutton->ksplittercollapserbutton_metaobject_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KSplitterCollapserButton_SuperMetacast(KSplitterCollapserButton* self, const char* param1) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_Metacast_IsBase(true);
-        return vksplittercollapserbutton->qt_metacast(param1);
-    } else {
-        return self->KSplitterCollapserButton::qt_metacast(param1);
-    }
+    return self->KSplitterCollapserButton::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMetacast(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_Metacast_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Metacast_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_metacast_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KSplitterCollapserButton_SuperMetacall(KSplitterCollapserButton* self, int param1, int param2, void** param3) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_Metacall_IsBase(true);
-        return vksplittercollapserbutton->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KSplitterCollapserButton::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KSplitterCollapserButton::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMetacall(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_Metacall_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Metacall_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_metacall_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KSplitterCollapserButton_SuperSizeHint(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_SizeHint_IsBase(true);
-        return new QSize(vksplittercollapserbutton->sizeHint());
-    } else {
-        return new QSize(((VirtualKSplitterCollapserButton*)self)->sizeHint());
-    }
+    return new QSize(self->KSplitterCollapserButton::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnSizeHint(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_SizeHint_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_SizeHint_Callback>(slot));
+void KSplitterCollapserButton_OnSizeHint(KSplitterCollapserButton* self, intptr_t slot) {
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self)))
+        vksplittercollapserbutton->ksplittercollapserbutton_sizehint_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KSplitterCollapserButton_SuperEventFilter(KSplitterCollapserButton* self, QObject* param1, QEvent* param2) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_EventFilter_IsBase(true);
-        return vksplittercollapserbutton->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        return vksplittercollapserbutton->KSplitterCollapserButton::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnEventFilter(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_EventFilter_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_EventFilter_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_eventfilter_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperPaintEvent(KSplitterCollapserButton* self, QPaintEvent* param1) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_PaintEvent_IsBase(true);
-        vksplittercollapserbutton->paintEvent(param1);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->paintEvent(param1);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnPaintEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_PaintEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_PaintEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_paintevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperEnterEvent(KSplitterCollapserButton* self, QEnterEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_EnterEvent_IsBase(true);
-        vksplittercollapserbutton->enterEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->enterEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnEnterEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_EnterEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_EnterEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_enterevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_EnterEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperLeaveEvent(KSplitterCollapserButton* self, QEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_LeaveEvent_IsBase(true);
-        vksplittercollapserbutton->leaveEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->leaveEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnLeaveEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_LeaveEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_LeaveEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_leaveevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_LeaveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperShowEvent(KSplitterCollapserButton* self, QShowEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_ShowEvent_IsBase(true);
-        vksplittercollapserbutton->showEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->showEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnShowEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_ShowEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ShowEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_showevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KSplitterCollapserButton_MinimumSizeHint(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return new QSize(vksplittercollapserbutton->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKSplitterCollapserButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KSplitterCollapserButton_SuperMinimumSizeHint(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_MinimumSizeHint_IsBase(true);
-        return new QSize(vksplittercollapserbutton->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKSplitterCollapserButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KSplitterCollapserButton::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnMinimumSizeHint(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MinimumSizeHint_Callback>(slot));
+void KSplitterCollapserButton_OnMinimumSizeHint(KSplitterCollapserButton* self, intptr_t slot) {
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self)))
+        vksplittercollapserbutton->ksplittercollapserbutton_minimumsizehint_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSplitterCollapserButton_Event(KSplitterCollapserButton* self, QEvent* e) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         return vksplittercollapserbutton->event(e);
     } else {
-        return ((VirtualKSplitterCollapserButton*)self)->event(e);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSplitterCollapserButton_SuperEvent(KSplitterCollapserButton* self, QEvent* e) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_Event_IsBase(true);
-        return vksplittercollapserbutton->event(e);
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->event(e);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        return vksplittercollapserbutton->KSplitterCollapserButton::event(e);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_Event_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Event_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_event_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_MousePressEvent(KSplitterCollapserButton* self, QMouseEvent* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->mousePressEvent(param1);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->mousePressEvent(param1);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperMousePressEvent(KSplitterCollapserButton* self, QMouseEvent* param1) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_MousePressEvent_IsBase(true);
-        vksplittercollapserbutton->mousePressEvent(param1);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->mousePressEvent(param1);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMousePressEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_MousePressEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MousePressEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_mousepressevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_MouseReleaseEvent(KSplitterCollapserButton* self, QMouseEvent* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->mouseReleaseEvent(param1);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->mouseReleaseEvent(param1);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperMouseReleaseEvent(KSplitterCollapserButton* self, QMouseEvent* param1) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_MouseReleaseEvent_IsBase(true);
-        vksplittercollapserbutton->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMouseReleaseEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MouseReleaseEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_mousereleaseevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_ActionEvent(KSplitterCollapserButton* self, QActionEvent* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->actionEvent(param1);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->actionEvent(param1);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperActionEvent(KSplitterCollapserButton* self, QActionEvent* param1) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_ActionEvent_IsBase(true);
-        vksplittercollapserbutton->actionEvent(param1);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->actionEvent(param1);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::actionEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnActionEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_ActionEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ActionEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_actionevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_TimerEvent(KSplitterCollapserButton* self, QTimerEvent* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->timerEvent(param1);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->timerEvent(param1);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperTimerEvent(KSplitterCollapserButton* self, QTimerEvent* param1) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_TimerEvent_IsBase(true);
-        vksplittercollapserbutton->timerEvent(param1);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->timerEvent(param1);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::timerEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnTimerEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_TimerEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_TimerEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_timerevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_ChangeEvent(KSplitterCollapserButton* self, QEvent* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->changeEvent(param1);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperChangeEvent(KSplitterCollapserButton* self, QEvent* param1) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_ChangeEvent_IsBase(true);
-        vksplittercollapserbutton->changeEvent(param1);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->changeEvent(param1);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnChangeEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_ChangeEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ChangeEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_changeevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSplitterCollapserButton_HitButton(const KSplitterCollapserButton* self, const QPoint* pos) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         return vksplittercollapserbutton->hitButton(*pos);
     } else {
-        return ((VirtualKSplitterCollapserButton*)self)->hitButton(*pos);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::hitButton called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSplitterCollapserButton_SuperHitButton(const KSplitterCollapserButton* self, const QPoint* pos) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_HitButton_IsBase(true);
-        return vksplittercollapserbutton->hitButton(*pos);
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->hitButton(*pos);
-    }
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self))) {
+        return vksplittercollapserbutton->KSplitterCollapserButton::hitButton(*pos);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::hitButton called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnHitButton(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_HitButton_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_HitButton_Callback>(slot));
+void KSplitterCollapserButton_OnHitButton(KSplitterCollapserButton* self, intptr_t slot) {
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self)))
+        vksplittercollapserbutton->ksplittercollapserbutton_hitbutton_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_HitButton_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_CheckStateSet(KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->checkStateSet();
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->checkStateSet();
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::checkStateSet called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperCheckStateSet(KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_CheckStateSet_IsBase(true);
-        vksplittercollapserbutton->checkStateSet();
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->checkStateSet();
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::checkStateSet();
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::checkStateSet called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnCheckStateSet(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_CheckStateSet_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_CheckStateSet_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_checkstateset_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_CheckStateSet_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_NextCheckState(KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->nextCheckState();
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->nextCheckState();
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::nextCheckState called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperNextCheckState(KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_NextCheckState_IsBase(true);
-        vksplittercollapserbutton->nextCheckState();
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->nextCheckState();
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::nextCheckState();
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::nextCheckState called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnNextCheckState(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_NextCheckState_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_NextCheckState_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_nextcheckstate_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_NextCheckState_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_InitStyleOption(const KSplitterCollapserButton* self, QStyleOptionToolButton* option) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->initStyleOption(option);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperInitStyleOption(const KSplitterCollapserButton* self, QStyleOptionToolButton* option) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_InitStyleOption_IsBase(true);
-        vksplittercollapserbutton->initStyleOption(option);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->initStyleOption(option);
-    }
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self))) {
+        vksplittercollapserbutton->KSplitterCollapserButton::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnInitStyleOption(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_InitStyleOption_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_InitStyleOption_Callback>(slot));
+void KSplitterCollapserButton_OnInitStyleOption(KSplitterCollapserButton* self, intptr_t slot) {
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self)))
+        vksplittercollapserbutton->ksplittercollapserbutton_initstyleoption_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_KeyPressEvent(KSplitterCollapserButton* self, QKeyEvent* e) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->keyPressEvent(e);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->keyPressEvent(e);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperKeyPressEvent(KSplitterCollapserButton* self, QKeyEvent* e) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_KeyPressEvent_IsBase(true);
-        vksplittercollapserbutton->keyPressEvent(e);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->keyPressEvent(e);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::keyPressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnKeyPressEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_KeyPressEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_KeyPressEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_keypressevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_KeyReleaseEvent(KSplitterCollapserButton* self, QKeyEvent* e) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->keyReleaseEvent(e);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperKeyReleaseEvent(KSplitterCollapserButton* self, QKeyEvent* e) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_KeyReleaseEvent_IsBase(true);
-        vksplittercollapserbutton->keyReleaseEvent(e);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnKeyReleaseEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_KeyReleaseEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_keyreleaseevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_MouseMoveEvent(KSplitterCollapserButton* self, QMouseEvent* e) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->mouseMoveEvent(e);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->mouseMoveEvent(e);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperMouseMoveEvent(KSplitterCollapserButton* self, QMouseEvent* e) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_MouseMoveEvent_IsBase(true);
-        vksplittercollapserbutton->mouseMoveEvent(e);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMouseMoveEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MouseMoveEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_mousemoveevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_FocusInEvent(KSplitterCollapserButton* self, QFocusEvent* e) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->focusInEvent(e);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->focusInEvent(e);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperFocusInEvent(KSplitterCollapserButton* self, QFocusEvent* e) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_FocusInEvent_IsBase(true);
-        vksplittercollapserbutton->focusInEvent(e);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->focusInEvent(e);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::focusInEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnFocusInEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_FocusInEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_FocusInEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_focusinevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_FocusOutEvent(KSplitterCollapserButton* self, QFocusEvent* e) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->focusOutEvent(e);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->focusOutEvent(e);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperFocusOutEvent(KSplitterCollapserButton* self, QFocusEvent* e) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_FocusOutEvent_IsBase(true);
-        vksplittercollapserbutton->focusOutEvent(e);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->focusOutEvent(e);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::focusOutEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnFocusOutEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_FocusOutEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_FocusOutEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_focusoutevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSplitterCollapserButton_DevType(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return vksplittercollapserbutton->devType();
-    } else {
-        return self->KSplitterCollapserButton::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KSplitterCollapserButton_SuperDevType(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_DevType_IsBase(true);
-        return vksplittercollapserbutton->devType();
-    } else {
-        return self->KSplitterCollapserButton::devType();
-    }
+    return self->KSplitterCollapserButton::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnDevType(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_DevType_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DevType_Callback>(slot));
+void KSplitterCollapserButton_OnDevType(KSplitterCollapserButton* self, intptr_t slot) {
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self)))
+        vksplittercollapserbutton->ksplittercollapserbutton_devtype_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_SetVisible(KSplitterCollapserButton* self, bool visible) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setVisible(visible);
-    } else {
-        self->KSplitterCollapserButton::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperSetVisible(KSplitterCollapserButton* self, bool visible) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_SetVisible_IsBase(true);
-        vksplittercollapserbutton->setVisible(visible);
-    } else {
-        self->KSplitterCollapserButton::setVisible(visible);
-    }
+    self->KSplitterCollapserButton::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnSetVisible(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_SetVisible_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_SetVisible_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_setvisible_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSplitterCollapserButton_HeightForWidth(const KSplitterCollapserButton* self, int param1) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return vksplittercollapserbutton->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KSplitterCollapserButton::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KSplitterCollapserButton_SuperHeightForWidth(const KSplitterCollapserButton* self, int param1) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_HeightForWidth_IsBase(true);
-        return vksplittercollapserbutton->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KSplitterCollapserButton::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KSplitterCollapserButton::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnHeightForWidth(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_HeightForWidth_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_HeightForWidth_Callback>(slot));
+void KSplitterCollapserButton_OnHeightForWidth(KSplitterCollapserButton* self, intptr_t slot) {
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self)))
+        vksplittercollapserbutton->ksplittercollapserbutton_heightforwidth_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSplitterCollapserButton_HasHeightForWidth(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return vksplittercollapserbutton->hasHeightForWidth();
-    } else {
-        return self->KSplitterCollapserButton::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KSplitterCollapserButton_SuperHasHeightForWidth(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_HasHeightForWidth_IsBase(true);
-        return vksplittercollapserbutton->hasHeightForWidth();
-    } else {
-        return self->KSplitterCollapserButton::hasHeightForWidth();
-    }
+    return self->KSplitterCollapserButton::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnHasHeightForWidth(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_HasHeightForWidth_Callback>(slot));
+void KSplitterCollapserButton_OnHasHeightForWidth(KSplitterCollapserButton* self, intptr_t slot) {
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self)))
+        vksplittercollapserbutton->ksplittercollapserbutton_hasheightforwidth_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KSplitterCollapserButton_PaintEngine(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return vksplittercollapserbutton->paintEngine();
-    } else {
-        return self->KSplitterCollapserButton::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KSplitterCollapserButton_SuperPaintEngine(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_PaintEngine_IsBase(true);
-        return vksplittercollapserbutton->paintEngine();
-    } else {
-        return self->KSplitterCollapserButton::paintEngine();
-    }
+    return self->KSplitterCollapserButton::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnPaintEngine(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_PaintEngine_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_PaintEngine_Callback>(slot));
+void KSplitterCollapserButton_OnPaintEngine(KSplitterCollapserButton* self, intptr_t slot) {
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self)))
+        vksplittercollapserbutton->ksplittercollapserbutton_paintengine_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_MouseDoubleClickEvent(KSplitterCollapserButton* self, QMouseEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperMouseDoubleClickEvent(KSplitterCollapserButton* self, QMouseEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_MouseDoubleClickEvent_IsBase(true);
-        vksplittercollapserbutton->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMouseDoubleClickEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_mousedoubleclickevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_WheelEvent(KSplitterCollapserButton* self, QWheelEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->wheelEvent(event);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperWheelEvent(KSplitterCollapserButton* self, QWheelEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_WheelEvent_IsBase(true);
-        vksplittercollapserbutton->wheelEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->wheelEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnWheelEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_WheelEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_WheelEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_wheelevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_MoveEvent(KSplitterCollapserButton* self, QMoveEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->moveEvent(event);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperMoveEvent(KSplitterCollapserButton* self, QMoveEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_MoveEvent_IsBase(true);
-        vksplittercollapserbutton->moveEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->moveEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMoveEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_MoveEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MoveEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_moveevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_ResizeEvent(KSplitterCollapserButton* self, QResizeEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->resizeEvent(event);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperResizeEvent(KSplitterCollapserButton* self, QResizeEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_ResizeEvent_IsBase(true);
-        vksplittercollapserbutton->resizeEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->resizeEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnResizeEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_ResizeEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ResizeEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_resizeevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_CloseEvent(KSplitterCollapserButton* self, QCloseEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->closeEvent(event);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperCloseEvent(KSplitterCollapserButton* self, QCloseEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_CloseEvent_IsBase(true);
-        vksplittercollapserbutton->closeEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->closeEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnCloseEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_CloseEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_CloseEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_closeevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_ContextMenuEvent(KSplitterCollapserButton* self, QContextMenuEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->contextMenuEvent(event);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperContextMenuEvent(KSplitterCollapserButton* self, QContextMenuEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_ContextMenuEvent_IsBase(true);
-        vksplittercollapserbutton->contextMenuEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->contextMenuEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnContextMenuEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ContextMenuEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_contextmenuevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_TabletEvent(KSplitterCollapserButton* self, QTabletEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->tabletEvent(event);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperTabletEvent(KSplitterCollapserButton* self, QTabletEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_TabletEvent_IsBase(true);
-        vksplittercollapserbutton->tabletEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->tabletEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnTabletEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_TabletEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_TabletEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_tabletevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_DragEnterEvent(KSplitterCollapserButton* self, QDragEnterEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->dragEnterEvent(event);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperDragEnterEvent(KSplitterCollapserButton* self, QDragEnterEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_DragEnterEvent_IsBase(true);
-        vksplittercollapserbutton->dragEnterEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->dragEnterEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnDragEnterEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_DragEnterEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DragEnterEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_dragenterevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_DragMoveEvent(KSplitterCollapserButton* self, QDragMoveEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->dragMoveEvent(event);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperDragMoveEvent(KSplitterCollapserButton* self, QDragMoveEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_DragMoveEvent_IsBase(true);
-        vksplittercollapserbutton->dragMoveEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->dragMoveEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnDragMoveEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_DragMoveEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DragMoveEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_dragmoveevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_DragLeaveEvent(KSplitterCollapserButton* self, QDragLeaveEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->dragLeaveEvent(event);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperDragLeaveEvent(KSplitterCollapserButton* self, QDragLeaveEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_DragLeaveEvent_IsBase(true);
-        vksplittercollapserbutton->dragLeaveEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnDragLeaveEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DragLeaveEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_dragleaveevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_DropEvent(KSplitterCollapserButton* self, QDropEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->dropEvent(event);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperDropEvent(KSplitterCollapserButton* self, QDropEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_DropEvent_IsBase(true);
-        vksplittercollapserbutton->dropEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->dropEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnDropEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_DropEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DropEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_dropevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_HideEvent(KSplitterCollapserButton* self, QHideEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->hideEvent(event);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperHideEvent(KSplitterCollapserButton* self, QHideEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_HideEvent_IsBase(true);
-        vksplittercollapserbutton->hideEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->hideEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnHideEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_HideEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_HideEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_hideevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSplitterCollapserButton_NativeEvent(KSplitterCollapserButton* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
+    if (vksplittercollapserbutton) {
         return vksplittercollapserbutton->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKSplitterCollapserButton*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSplitterCollapserButton_SuperNativeEvent(KSplitterCollapserButton* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_NativeEvent_IsBase(true);
-        return vksplittercollapserbutton->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        return vksplittercollapserbutton->KSplitterCollapserButton::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnNativeEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_NativeEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_NativeEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_nativeevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSplitterCollapserButton_Metric(const KSplitterCollapserButton* self, int param1) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         return vksplittercollapserbutton->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKSplitterCollapserButton*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KSplitterCollapserButton_SuperMetric(const KSplitterCollapserButton* self, int param1) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_Metric_IsBase(true);
-        return vksplittercollapserbutton->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self))) {
+        return vksplittercollapserbutton->KSplitterCollapserButton::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnMetric(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_Metric_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Metric_Callback>(slot));
+void KSplitterCollapserButton_OnMetric(KSplitterCollapserButton* self, intptr_t slot) {
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self)))
+        vksplittercollapserbutton->ksplittercollapserbutton_metric_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_InitPainter(const KSplitterCollapserButton* self, QPainter* painter) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->initPainter(painter);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperInitPainter(const KSplitterCollapserButton* self, QPainter* painter) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_InitPainter_IsBase(true);
-        vksplittercollapserbutton->initPainter(painter);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->initPainter(painter);
-    }
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self))) {
+        vksplittercollapserbutton->KSplitterCollapserButton::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnInitPainter(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_InitPainter_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_InitPainter_Callback>(slot));
+void KSplitterCollapserButton_OnInitPainter(KSplitterCollapserButton* self, intptr_t slot) {
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self)))
+        vksplittercollapserbutton->ksplittercollapserbutton_initpainter_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KSplitterCollapserButton_Redirected(const KSplitterCollapserButton* self, QPoint* offset) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         return vksplittercollapserbutton->redirected(offset);
     } else {
-        return ((VirtualKSplitterCollapserButton*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KSplitterCollapserButton_SuperRedirected(const KSplitterCollapserButton* self, QPoint* offset) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_Redirected_IsBase(true);
-        return vksplittercollapserbutton->redirected(offset);
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->redirected(offset);
-    }
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self))) {
+        return vksplittercollapserbutton->KSplitterCollapserButton::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnRedirected(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_Redirected_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Redirected_Callback>(slot));
+void KSplitterCollapserButton_OnRedirected(KSplitterCollapserButton* self, intptr_t slot) {
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self)))
+        vksplittercollapserbutton->ksplittercollapserbutton_redirected_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KSplitterCollapserButton_SharedPainter(const KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         return vksplittercollapserbutton->sharedPainter();
     } else {
-        return ((VirtualKSplitterCollapserButton*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KSplitterCollapserButton_SuperSharedPainter(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_SharedPainter_IsBase(true);
-        return vksplittercollapserbutton->sharedPainter();
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->sharedPainter();
-    }
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self))) {
+        return vksplittercollapserbutton->KSplitterCollapserButton::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnSharedPainter(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_SharedPainter_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_SharedPainter_Callback>(slot));
+void KSplitterCollapserButton_OnSharedPainter(KSplitterCollapserButton* self, intptr_t slot) {
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self)))
+        vksplittercollapserbutton->ksplittercollapserbutton_sharedpainter_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_InputMethodEvent(KSplitterCollapserButton* self, QInputMethodEvent* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->inputMethodEvent(param1);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperInputMethodEvent(KSplitterCollapserButton* self, QInputMethodEvent* param1) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_InputMethodEvent_IsBase(true);
-        vksplittercollapserbutton->inputMethodEvent(param1);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnInputMethodEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_InputMethodEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_InputMethodEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_inputmethodevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KSplitterCollapserButton_InputMethodQuery(const KSplitterCollapserButton* self, int param1) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return new QVariant(vksplittercollapserbutton->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKSplitterCollapserButton*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KSplitterCollapserButton_SuperInputMethodQuery(const KSplitterCollapserButton* self, int param1) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_InputMethodQuery_IsBase(true);
-        return new QVariant(vksplittercollapserbutton->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKSplitterCollapserButton*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KSplitterCollapserButton::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnInputMethodQuery(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_InputMethodQuery_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_InputMethodQuery_Callback>(slot));
+void KSplitterCollapserButton_OnInputMethodQuery(KSplitterCollapserButton* self, intptr_t slot) {
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self)))
+        vksplittercollapserbutton->ksplittercollapserbutton_inputmethodquery_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSplitterCollapserButton_FocusNextPrevChild(KSplitterCollapserButton* self, bool next) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         return vksplittercollapserbutton->focusNextPrevChild(next);
     } else {
-        return ((VirtualKSplitterCollapserButton*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSplitterCollapserButton_SuperFocusNextPrevChild(KSplitterCollapserButton* self, bool next) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_FocusNextPrevChild_IsBase(true);
-        return vksplittercollapserbutton->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        return vksplittercollapserbutton->KSplitterCollapserButton::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnFocusNextPrevChild(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_FocusNextPrevChild_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_focusnextprevchild_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_ChildEvent(KSplitterCollapserButton* self, QChildEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->childEvent(event);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperChildEvent(KSplitterCollapserButton* self, QChildEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_ChildEvent_IsBase(true);
-        vksplittercollapserbutton->childEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->childEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnChildEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_ChildEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ChildEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_childevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_CustomEvent(KSplitterCollapserButton* self, QEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->customEvent(event);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperCustomEvent(KSplitterCollapserButton* self, QEvent* event) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_CustomEvent_IsBase(true);
-        vksplittercollapserbutton->customEvent(event);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->customEvent(event);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnCustomEvent(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_CustomEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_CustomEvent_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_customevent_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_ConnectNotify(KSplitterCollapserButton* self, const QMetaMethod* signal) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->connectNotify(*signal);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperConnectNotify(KSplitterCollapserButton* self, const QMetaMethod* signal) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_ConnectNotify_IsBase(true);
-        vksplittercollapserbutton->connectNotify(*signal);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->connectNotify(*signal);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnConnectNotify(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_ConnectNotify_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ConnectNotify_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_connectnotify_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSplitterCollapserButton_DisconnectNotify(KSplitterCollapserButton* self, const QMetaMethod* signal) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton) {
         vksplittercollapserbutton->disconnectNotify(*signal);
     } else {
-        ((VirtualKSplitterCollapserButton*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSplitterCollapserButton_SuperDisconnectNotify(KSplitterCollapserButton* self, const QMetaMethod* signal) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_DisconnectNotify_IsBase(true);
-        vksplittercollapserbutton->disconnectNotify(*signal);
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->KSplitterCollapserButton::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSplitterCollapserButton::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnDisconnectNotify(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_DisconnectNotify_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DisconnectNotify_Callback>(slot));
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self))
+        vksplittercollapserbutton->ksplittercollapserbutton_disconnectnotify_callback = reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSplitterCollapserButton_UpdateMicroFocus(KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->updateMicroFocus();
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->updateMicroFocus();
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->VirtualKSplitterCollapserButton::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KSplitterCollapserButton::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSplitterCollapserButton_SuperUpdateMicroFocus(KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_UpdateMicroFocus_IsBase(true);
-        vksplittercollapserbutton->updateMicroFocus();
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnUpdateMicroFocus(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSplitterCollapserButton_Create(KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->create();
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->create();
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->VirtualKSplitterCollapserButton::create();
+    } else
+        qFatal("Error: Protected method KSplitterCollapserButton::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSplitterCollapserButton_SuperCreate(KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_Create_IsBase(true);
-        vksplittercollapserbutton->create();
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnCreate(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_Create_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSplitterCollapserButton_Destroy(KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->destroy();
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->destroy();
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        vksplittercollapserbutton->VirtualKSplitterCollapserButton::destroy();
+    } else
+        qFatal("Error: Protected method KSplitterCollapserButton::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSplitterCollapserButton_SuperDestroy(KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_Destroy_IsBase(true);
-        vksplittercollapserbutton->destroy();
-    } else {
-        ((VirtualKSplitterCollapserButton*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnDestroy(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_Destroy_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSplitterCollapserButton_FocusNextChild(KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return vksplittercollapserbutton->focusNextChild();
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->focusNextChild();
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        return vksplittercollapserbutton->VirtualKSplitterCollapserButton::focusNextChild();
+    } else
+        qFatal("Error: Protected method KSplitterCollapserButton::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSplitterCollapserButton_SuperFocusNextChild(KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_FocusNextChild_IsBase(true);
-        return vksplittercollapserbutton->focusNextChild();
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnFocusNextChild(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_FocusNextChild_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSplitterCollapserButton_FocusPreviousChild(KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return vksplittercollapserbutton->focusPreviousChild();
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->focusPreviousChild();
-    }
+    if (auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self)) {
+        return vksplittercollapserbutton->VirtualKSplitterCollapserButton::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KSplitterCollapserButton::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSplitterCollapserButton_SuperFocusPreviousChild(KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_FocusPreviousChild_IsBase(true);
-        return vksplittercollapserbutton->focusPreviousChild();
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnFocusPreviousChild(KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KSplitterCollapserButton_Sender(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return vksplittercollapserbutton->sender();
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->sender();
-    }
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self))) {
+        return vksplittercollapserbutton->VirtualKSplitterCollapserButton::sender();
+    } else
+        qFatal("Error: Protected method KSplitterCollapserButton::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KSplitterCollapserButton_SuperSender(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_Sender_IsBase(true);
-        return vksplittercollapserbutton->sender();
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnSender(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_Sender_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSplitterCollapserButton_SenderSignalIndex(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return vksplittercollapserbutton->senderSignalIndex();
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->senderSignalIndex();
-    }
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self))) {
+        return vksplittercollapserbutton->VirtualKSplitterCollapserButton::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KSplitterCollapserButton::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSplitterCollapserButton_SuperSenderSignalIndex(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_SenderSignalIndex_IsBase(true);
-        return vksplittercollapserbutton->senderSignalIndex();
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnSenderSignalIndex(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSplitterCollapserButton_Receivers(const KSplitterCollapserButton* self, const char* signal) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return vksplittercollapserbutton->receivers(signal);
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->receivers(signal);
-    }
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self))) {
+        return vksplittercollapserbutton->VirtualKSplitterCollapserButton::receivers(signal);
+    } else
+        qFatal("Error: Protected method KSplitterCollapserButton::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSplitterCollapserButton_SuperReceivers(const KSplitterCollapserButton* self, const char* signal) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_Receivers_IsBase(true);
-        return vksplittercollapserbutton->receivers(signal);
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnReceivers(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_Receivers_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSplitterCollapserButton_IsSignalConnected(const KSplitterCollapserButton* self, const QMetaMethod* signal) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return vksplittercollapserbutton->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self))) {
+        return vksplittercollapserbutton->VirtualKSplitterCollapserButton::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KSplitterCollapserButton::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSplitterCollapserButton_SuperIsSignalConnected(const KSplitterCollapserButton* self, const QMetaMethod* signal) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_IsSignalConnected_IsBase(true);
-        return vksplittercollapserbutton->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnIsSignalConnected(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_IsSignalConnected_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KSplitterCollapserButton_GetDecodedMetricF(const KSplitterCollapserButton* self, int metricA, int metricB) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return vksplittercollapserbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KSplitterCollapserButton_SuperGetDecodedMetricF(const KSplitterCollapserButton* self, int metricA, int metricB) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        vksplittercollapserbutton->setKSplitterCollapserButton_GetDecodedMetricF_IsBase(true);
-        return vksplittercollapserbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSplitterCollapserButton_OnGetDecodedMetricF(const KSplitterCollapserButton* self, intptr_t slot) {
-    auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
-        vksplittercollapserbutton->setKSplitterCollapserButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_GetDecodedMetricF_Callback>(slot));
+    if (auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self))) {
+        return vksplittercollapserbutton->VirtualKSplitterCollapserButton::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KSplitterCollapserButton::getDecodedMetricF called without a directly constructed type");
 }
 
 void KSplitterCollapserButton_Delete(KSplitterCollapserButton* self) {

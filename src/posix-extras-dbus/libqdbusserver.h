@@ -43,7 +43,7 @@ void QDBusServer_NewConnection(QDBusServer* self, const QDBusConnection* connect
 void QDBusServer_Connect_NewConnection(QDBusServer* self, intptr_t slot);
 libqt_string QDBusServer_Tr2(const char* s, const char* c);
 libqt_string QDBusServer_Tr3(const char* s, const char* c, int n);
-void QDBusServer_OnMetaObject(const QDBusServer* self, intptr_t slot);
+void QDBusServer_OnMetaObject(QDBusServer* self, intptr_t slot);
 QMetaObject* QDBusServer_SuperMetaObject(const QDBusServer* self);
 void QDBusServer_OnMetacast(QDBusServer* self, intptr_t slot);
 void* QDBusServer_SuperMetacast(QDBusServer* self, const char* param1);
@@ -71,17 +71,9 @@ void QDBusServer_DisconnectNotify(QDBusServer* self, const QMetaMethod* signal);
 void QDBusServer_OnDisconnectNotify(QDBusServer* self, intptr_t slot);
 void QDBusServer_SuperDisconnectNotify(QDBusServer* self, const QMetaMethod* signal);
 QObject* QDBusServer_Sender(const QDBusServer* self);
-void QDBusServer_OnSender(const QDBusServer* self, intptr_t slot);
-QObject* QDBusServer_SuperSender(const QDBusServer* self);
 int QDBusServer_SenderSignalIndex(const QDBusServer* self);
-void QDBusServer_OnSenderSignalIndex(const QDBusServer* self, intptr_t slot);
-int QDBusServer_SuperSenderSignalIndex(const QDBusServer* self);
 int QDBusServer_Receivers(const QDBusServer* self, const char* signal);
-void QDBusServer_OnReceivers(const QDBusServer* self, intptr_t slot);
-int QDBusServer_SuperReceivers(const QDBusServer* self, const char* signal);
 bool QDBusServer_IsSignalConnected(const QDBusServer* self, const QMetaMethod* signal);
-void QDBusServer_OnIsSignalConnected(const QDBusServer* self, intptr_t slot);
-bool QDBusServer_SuperIsSignalConnected(const QDBusServer* self, const QMetaMethod* signal);
 void QDBusServer_Delete(QDBusServer* self);
 
 #ifdef __cplusplus

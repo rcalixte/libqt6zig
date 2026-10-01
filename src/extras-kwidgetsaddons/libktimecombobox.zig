@@ -143,9 +143,9 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KTimeComboBox) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KTimeComboBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KTimeComboBox, callback: *const fn (KTimeComboBox) callconv(.c) QMetaObject) void {
         qtc.KTimeComboBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -798,9 +798,9 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KTimeComboBox) callconv(.c) void `
     ///
-    pub fn onShowPopup(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowPopup(self: KTimeComboBox, callback: *const fn (KTimeComboBox) callconv(.c) void) void {
         qtc.KTimeComboBox_OnShowPopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -846,9 +846,9 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KTimeComboBox) callconv(.c) void `
     ///
-    pub fn onHidePopup(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onHidePopup(self: KTimeComboBox, callback: *const fn (KTimeComboBox) callconv(.c) void) void {
         qtc.KTimeComboBox_OnHidePopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9456,11 +9456,11 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KTimeComboBox) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KTimeComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KTimeComboBox, callback: *const fn (KTimeComboBox) callconv(.c) QSize) void {
         qtc.KTimeComboBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9514,11 +9514,11 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KTimeComboBox) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KTimeComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KTimeComboBox, callback: *const fn (KTimeComboBox) callconv(.c) QSize) void {
         qtc.KTimeComboBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10254,9 +10254,9 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTimeComboBox) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KTimeComboBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KTimeComboBox, callback: *const fn (KTimeComboBox) callconv(.c) i32) void {
         qtc.KTimeComboBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10430,9 +10430,9 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KTimeComboBox) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KTimeComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KTimeComboBox, callback: *const fn (KTimeComboBox) callconv(.c) bool) void {
         qtc.KTimeComboBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10486,9 +10486,9 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KTimeComboBox) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KTimeComboBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KTimeComboBox, callback: *const fn (KTimeComboBox) callconv(.c) QPaintEngine) void {
         qtc.KTimeComboBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11546,9 +11546,9 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KTimeComboBox) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KTimeComboBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KTimeComboBox, callback: *const fn (KTimeComboBox) callconv(.c) QPainter) void {
         qtc.KTimeComboBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11940,44 +11940,6 @@ pub const KTimeComboBox = extern struct {
         qtc.KTimeComboBox_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTimeComboBox `
-    ///
-    pub fn superUpdateMicroFocus(self: KTimeComboBox) void {
-        qtc.KTimeComboBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTimeComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KTimeComboBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -11994,44 +11956,6 @@ pub const KTimeComboBox = extern struct {
     ///
     pub fn create(self: KTimeComboBox) void {
         qtc.KTimeComboBox_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTimeComboBox `
-    ///
-    pub fn superCreate(self: KTimeComboBox) void {
-        qtc.KTimeComboBox_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTimeComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KTimeComboBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -12052,44 +11976,6 @@ pub const KTimeComboBox = extern struct {
         qtc.KTimeComboBox_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTimeComboBox `
-    ///
-    pub fn superDestroy(self: KTimeComboBox) void {
-        qtc.KTimeComboBox_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTimeComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KTimeComboBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -12106,44 +11992,6 @@ pub const KTimeComboBox = extern struct {
     ///
     pub fn focusNextChild(self: KTimeComboBox) bool {
         return qtc.KTimeComboBox_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTimeComboBox `
-    ///
-    pub fn superFocusNextChild(self: KTimeComboBox) bool {
-        return qtc.KTimeComboBox_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTimeComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KTimeComboBox, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTimeComboBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -12164,44 +12012,6 @@ pub const KTimeComboBox = extern struct {
         return qtc.KTimeComboBox_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTimeComboBox `
-    ///
-    pub fn superFocusPreviousChild(self: KTimeComboBox) bool {
-        return qtc.KTimeComboBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTimeComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KTimeComboBox, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTimeComboBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -12220,44 +12030,6 @@ pub const KTimeComboBox = extern struct {
         return .{ .ptr = qtc.KTimeComboBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTimeComboBox `
-    ///
-    pub fn superSender(self: KTimeComboBox) QObject {
-        return .{ .ptr = qtc.KTimeComboBox_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTimeComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KTimeComboBox, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KTimeComboBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -12274,44 +12046,6 @@ pub const KTimeComboBox = extern struct {
     ///
     pub fn senderSignalIndex(self: KTimeComboBox) i32 {
         return qtc.KTimeComboBox_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTimeComboBox `
-    ///
-    pub fn superSenderSignalIndex(self: KTimeComboBox) i32 {
-        return qtc.KTimeComboBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTimeComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KTimeComboBox, callback: *const fn () callconv(.c) i32) void {
-        qtc.KTimeComboBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -12335,47 +12069,6 @@ pub const KTimeComboBox = extern struct {
         return qtc.KTimeComboBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTimeComboBox `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KTimeComboBox, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KTimeComboBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTimeComboBox`
-    ///
-    /// ` callback: *const fn (self: KTimeComboBox, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KTimeComboBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -12395,47 +12088,6 @@ pub const KTimeComboBox = extern struct {
     pub fn isSignalConnected(self: KTimeComboBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KTimeComboBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTimeComboBox `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KTimeComboBox, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KTimeComboBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTimeComboBox`
-    ///
-    /// ` callback: *const fn (self: KTimeComboBox, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMetaMethod) callconv(.c) bool) void {
-        qtc.KTimeComboBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -12458,48 +12110,6 @@ pub const KTimeComboBox = extern struct {
     ///
     pub fn getDecodedMetricF(self: KTimeComboBox, metricA: i32, metricB: i32) f64 {
         return qtc.KTimeComboBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTimeComboBox `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KTimeComboBox, metricA: i32, metricB: i32) f64 {
-        return qtc.KTimeComboBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTimeComboBox`
-    ///
-    /// ` callback: *const fn (self: KTimeComboBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32, i32) callconv(.c) f64) void {
-        qtc.KTimeComboBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -202,364 +202,219 @@ libqt_string QRestAccessManager_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QRestAccessManager_SuperMetaObject(const QRestAccessManager* self) {
-    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        vqrestaccessmanager->setQRestAccessManager_MetaObject_IsBase(true);
-        return (QMetaObject*)vqrestaccessmanager->metaObject();
-    } else {
-        return (QMetaObject*)self->QRestAccessManager::metaObject();
-    }
+    return (QMetaObject*)self->QRestAccessManager::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRestAccessManager_OnMetaObject(const QRestAccessManager* self, intptr_t slot) {
-    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager)
-        vqrestaccessmanager->setQRestAccessManager_MetaObject_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_MetaObject_Callback>(slot));
+void QRestAccessManager_OnMetaObject(QRestAccessManager* self, intptr_t slot) {
+    if (auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self)))
+        vqrestaccessmanager->qrestaccessmanager_metaobject_callback = reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QRestAccessManager_SuperMetacast(QRestAccessManager* self, const char* param1) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        vqrestaccessmanager->setQRestAccessManager_Metacast_IsBase(true);
-        return vqrestaccessmanager->qt_metacast(param1);
-    } else {
-        return self->QRestAccessManager::qt_metacast(param1);
-    }
+    return self->QRestAccessManager::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRestAccessManager_OnMetacast(QRestAccessManager* self, intptr_t slot) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager)
-        vqrestaccessmanager->setQRestAccessManager_Metacast_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_Metacast_Callback>(slot));
+    if (auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self))
+        vqrestaccessmanager->qrestaccessmanager_metacast_callback = reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QRestAccessManager_SuperMetacall(QRestAccessManager* self, int param1, int param2, void** param3) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        vqrestaccessmanager->setQRestAccessManager_Metacall_IsBase(true);
-        return vqrestaccessmanager->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QRestAccessManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QRestAccessManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRestAccessManager_OnMetacall(QRestAccessManager* self, intptr_t slot) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager)
-        vqrestaccessmanager->setQRestAccessManager_Metacall_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_Metacall_Callback>(slot));
+    if (auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self))
+        vqrestaccessmanager->qrestaccessmanager_metacall_callback = reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QRestAccessManager_Event(QRestAccessManager* self, QEvent* event) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        return vqrestaccessmanager->event(event);
-    } else {
-        return self->QRestAccessManager::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QRestAccessManager_SuperEvent(QRestAccessManager* self, QEvent* event) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        vqrestaccessmanager->setQRestAccessManager_Event_IsBase(true);
-        return vqrestaccessmanager->event(event);
-    } else {
-        return self->QRestAccessManager::event(event);
-    }
+    return self->QRestAccessManager::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRestAccessManager_OnEvent(QRestAccessManager* self, intptr_t slot) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager)
-        vqrestaccessmanager->setQRestAccessManager_Event_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_Event_Callback>(slot));
+    if (auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self))
+        vqrestaccessmanager->qrestaccessmanager_event_callback = reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QRestAccessManager_EventFilter(QRestAccessManager* self, QObject* watched, QEvent* event) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        return vqrestaccessmanager->eventFilter(watched, event);
-    } else {
-        return self->QRestAccessManager::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QRestAccessManager_SuperEventFilter(QRestAccessManager* self, QObject* watched, QEvent* event) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        vqrestaccessmanager->setQRestAccessManager_EventFilter_IsBase(true);
-        return vqrestaccessmanager->eventFilter(watched, event);
-    } else {
-        return self->QRestAccessManager::eventFilter(watched, event);
-    }
+    return self->QRestAccessManager::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRestAccessManager_OnEventFilter(QRestAccessManager* self, intptr_t slot) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager)
-        vqrestaccessmanager->setQRestAccessManager_EventFilter_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_EventFilter_Callback>(slot));
+    if (auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self))
+        vqrestaccessmanager->qrestaccessmanager_eventfilter_callback = reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRestAccessManager_TimerEvent(QRestAccessManager* self, QTimerEvent* event) {
     auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
+    if (vqrestaccessmanager) {
         vqrestaccessmanager->timerEvent(event);
     } else {
-        ((VirtualQRestAccessManager*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QRestAccessManager::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRestAccessManager_SuperTimerEvent(QRestAccessManager* self, QTimerEvent* event) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        vqrestaccessmanager->setQRestAccessManager_TimerEvent_IsBase(true);
-        vqrestaccessmanager->timerEvent(event);
-    } else {
-        ((VirtualQRestAccessManager*)self)->timerEvent(event);
-    }
+    if (auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self)) {
+        vqrestaccessmanager->QRestAccessManager::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRestAccessManager::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRestAccessManager_OnTimerEvent(QRestAccessManager* self, intptr_t slot) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager)
-        vqrestaccessmanager->setQRestAccessManager_TimerEvent_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_TimerEvent_Callback>(slot));
+    if (auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self))
+        vqrestaccessmanager->qrestaccessmanager_timerevent_callback = reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRestAccessManager_ChildEvent(QRestAccessManager* self, QChildEvent* event) {
     auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
+    if (vqrestaccessmanager) {
         vqrestaccessmanager->childEvent(event);
     } else {
-        ((VirtualQRestAccessManager*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QRestAccessManager::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRestAccessManager_SuperChildEvent(QRestAccessManager* self, QChildEvent* event) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        vqrestaccessmanager->setQRestAccessManager_ChildEvent_IsBase(true);
-        vqrestaccessmanager->childEvent(event);
-    } else {
-        ((VirtualQRestAccessManager*)self)->childEvent(event);
-    }
+    if (auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self)) {
+        vqrestaccessmanager->QRestAccessManager::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRestAccessManager::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRestAccessManager_OnChildEvent(QRestAccessManager* self, intptr_t slot) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager)
-        vqrestaccessmanager->setQRestAccessManager_ChildEvent_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_ChildEvent_Callback>(slot));
+    if (auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self))
+        vqrestaccessmanager->qrestaccessmanager_childevent_callback = reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRestAccessManager_CustomEvent(QRestAccessManager* self, QEvent* event) {
     auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
+    if (vqrestaccessmanager) {
         vqrestaccessmanager->customEvent(event);
     } else {
-        ((VirtualQRestAccessManager*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QRestAccessManager::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRestAccessManager_SuperCustomEvent(QRestAccessManager* self, QEvent* event) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        vqrestaccessmanager->setQRestAccessManager_CustomEvent_IsBase(true);
-        vqrestaccessmanager->customEvent(event);
-    } else {
-        ((VirtualQRestAccessManager*)self)->customEvent(event);
-    }
+    if (auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self)) {
+        vqrestaccessmanager->QRestAccessManager::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRestAccessManager::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRestAccessManager_OnCustomEvent(QRestAccessManager* self, intptr_t slot) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager)
-        vqrestaccessmanager->setQRestAccessManager_CustomEvent_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_CustomEvent_Callback>(slot));
+    if (auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self))
+        vqrestaccessmanager->qrestaccessmanager_customevent_callback = reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRestAccessManager_ConnectNotify(QRestAccessManager* self, const QMetaMethod* signal) {
     auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
+    if (vqrestaccessmanager) {
         vqrestaccessmanager->connectNotify(*signal);
     } else {
-        ((VirtualQRestAccessManager*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QRestAccessManager::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRestAccessManager_SuperConnectNotify(QRestAccessManager* self, const QMetaMethod* signal) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        vqrestaccessmanager->setQRestAccessManager_ConnectNotify_IsBase(true);
-        vqrestaccessmanager->connectNotify(*signal);
-    } else {
-        ((VirtualQRestAccessManager*)self)->connectNotify(*signal);
-    }
+    if (auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self)) {
+        vqrestaccessmanager->QRestAccessManager::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QRestAccessManager::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRestAccessManager_OnConnectNotify(QRestAccessManager* self, intptr_t slot) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager)
-        vqrestaccessmanager->setQRestAccessManager_ConnectNotify_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_ConnectNotify_Callback>(slot));
+    if (auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self))
+        vqrestaccessmanager->qrestaccessmanager_connectnotify_callback = reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRestAccessManager_DisconnectNotify(QRestAccessManager* self, const QMetaMethod* signal) {
     auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
+    if (vqrestaccessmanager) {
         vqrestaccessmanager->disconnectNotify(*signal);
     } else {
-        ((VirtualQRestAccessManager*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QRestAccessManager::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRestAccessManager_SuperDisconnectNotify(QRestAccessManager* self, const QMetaMethod* signal) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        vqrestaccessmanager->setQRestAccessManager_DisconnectNotify_IsBase(true);
-        vqrestaccessmanager->disconnectNotify(*signal);
-    } else {
-        ((VirtualQRestAccessManager*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self)) {
+        vqrestaccessmanager->QRestAccessManager::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QRestAccessManager::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRestAccessManager_OnDisconnectNotify(QRestAccessManager* self, intptr_t slot) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager)
-        vqrestaccessmanager->setQRestAccessManager_DisconnectNotify_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_DisconnectNotify_Callback>(slot));
+    if (auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self))
+        vqrestaccessmanager->qrestaccessmanager_disconnectnotify_callback = reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QRestAccessManager_Sender(const QRestAccessManager* self) {
-    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        return vqrestaccessmanager->sender();
-    } else {
-        return ((VirtualQRestAccessManager*)self)->sender();
-    }
+    if (auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self))) {
+        return vqrestaccessmanager->VirtualQRestAccessManager::sender();
+    } else
+        qFatal("Error: Protected method QRestAccessManager::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QRestAccessManager_SuperSender(const QRestAccessManager* self) {
-    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        vqrestaccessmanager->setQRestAccessManager_Sender_IsBase(true);
-        return vqrestaccessmanager->sender();
-    } else {
-        return ((VirtualQRestAccessManager*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRestAccessManager_OnSender(const QRestAccessManager* self, intptr_t slot) {
-    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager)
-        vqrestaccessmanager->setQRestAccessManager_Sender_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QRestAccessManager_SenderSignalIndex(const QRestAccessManager* self) {
-    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        return vqrestaccessmanager->senderSignalIndex();
-    } else {
-        return ((VirtualQRestAccessManager*)self)->senderSignalIndex();
-    }
+    if (auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self))) {
+        return vqrestaccessmanager->VirtualQRestAccessManager::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QRestAccessManager::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QRestAccessManager_SuperSenderSignalIndex(const QRestAccessManager* self) {
-    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        vqrestaccessmanager->setQRestAccessManager_SenderSignalIndex_IsBase(true);
-        return vqrestaccessmanager->senderSignalIndex();
-    } else {
-        return ((VirtualQRestAccessManager*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRestAccessManager_OnSenderSignalIndex(const QRestAccessManager* self, intptr_t slot) {
-    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager)
-        vqrestaccessmanager->setQRestAccessManager_SenderSignalIndex_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QRestAccessManager_Receivers(const QRestAccessManager* self, const char* signal) {
-    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        return vqrestaccessmanager->receivers(signal);
-    } else {
-        return ((VirtualQRestAccessManager*)self)->receivers(signal);
-    }
+    if (auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self))) {
+        return vqrestaccessmanager->VirtualQRestAccessManager::receivers(signal);
+    } else
+        qFatal("Error: Protected method QRestAccessManager::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QRestAccessManager_SuperReceivers(const QRestAccessManager* self, const char* signal) {
-    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        vqrestaccessmanager->setQRestAccessManager_Receivers_IsBase(true);
-        return vqrestaccessmanager->receivers(signal);
-    } else {
-        return ((VirtualQRestAccessManager*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRestAccessManager_OnReceivers(const QRestAccessManager* self, intptr_t slot) {
-    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager)
-        vqrestaccessmanager->setQRestAccessManager_Receivers_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QRestAccessManager_IsSignalConnected(const QRestAccessManager* self, const QMetaMethod* signal) {
-    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        return vqrestaccessmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQRestAccessManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QRestAccessManager_SuperIsSignalConnected(const QRestAccessManager* self, const QMetaMethod* signal) {
-    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        vqrestaccessmanager->setQRestAccessManager_IsSignalConnected_IsBase(true);
-        return vqrestaccessmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQRestAccessManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRestAccessManager_OnIsSignalConnected(const QRestAccessManager* self, intptr_t slot) {
-    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager)
-        vqrestaccessmanager->setQRestAccessManager_IsSignalConnected_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_IsSignalConnected_Callback>(slot));
+    if (auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self))) {
+        return vqrestaccessmanager->VirtualQRestAccessManager::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QRestAccessManager::isSignalConnected called without a directly constructed type");
 }
 
 void QRestAccessManager_Delete(QRestAccessManager* self) {

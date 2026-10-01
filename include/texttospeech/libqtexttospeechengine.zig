@@ -81,9 +81,9 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QTextToSpeechEngine) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) QMetaObject) void {
         qtc.QTextToSpeechEngine_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -258,9 +258,9 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTextToSpeechEngine) callconv(.c) i32 `
     ///
-    pub fn onCapabilities(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCapabilities(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) i32) void {
         qtc.QTextToSpeechEngine_OnCapabilities(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -289,6 +289,8 @@ pub const QTextToSpeechEngine = extern struct {
     pub const AvailableLocales = availableLocales;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#availableLocales)
+    ///
+    /// This method must be implemented with `onAvailableLocales` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -320,38 +322,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QTextToSpeechEngine) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QLocale `
     ///
-    pub fn onAvailableLocales(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onAvailableLocales(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) qtc.libqt_list) void {
         qtc.QTextToSpeechEngine_OnAvailableLocales(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAvailableLocales` instead
-    ///
-    pub const SuperAvailableLocales = superAvailableLocales;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#availableLocales)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superAvailableLocales(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []QLocale {
-        const _arr: qtc.libqt_list = qtc.QTextToSpeechEngine_SuperAvailableLocales(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("QTextToSpeechEngine.availableLocales: Memory allocation failed");
-        const _data_val: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `availableVoices` instead
@@ -359,6 +337,8 @@ pub const QTextToSpeechEngine = extern struct {
     pub const AvailableVoices = availableVoices;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#availableVoices)
+    ///
+    /// This method must be implemented with `onAvailableVoices` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -390,38 +370,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QTextToSpeechEngine) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QVoice `
     ///
-    pub fn onAvailableVoices(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onAvailableVoices(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) qtc.libqt_list) void {
         qtc.QTextToSpeechEngine_OnAvailableVoices(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAvailableVoices` instead
-    ///
-    pub const SuperAvailableVoices = superAvailableVoices;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#availableVoices)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superAvailableVoices(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []QVoice {
-        const _arr: qtc.libqt_list = qtc.QTextToSpeechEngine_SuperAvailableVoices(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVoice, _arr.len) catch @panic("QTextToSpeechEngine.availableVoices: Memory allocation failed");
-        const _data_val: [*]QtC.QVoice = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `say` instead
@@ -429,6 +385,8 @@ pub const QTextToSpeechEngine = extern struct {
     pub const Say = say;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#say)
+    ///
+    /// This method must be implemented with `onSay` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -462,33 +420,13 @@ pub const QTextToSpeechEngine = extern struct {
         qtc.QTextToSpeechEngine_OnSay(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSay` instead
-    ///
-    pub const SuperSay = superSay;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#say)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn superSay(self: QTextToSpeechEngine, text: []const u8) void {
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        qtc.QTextToSpeechEngine_SuperSay(@ptrCast(self.ptr), text_str);
-    }
-
     /// ### DEPRECATED: Use `synthesize` instead
     ///
     pub const Synthesize = synthesize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#synthesize)
+    ///
+    /// This method must be implemented with `onSynthesize` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -522,33 +460,13 @@ pub const QTextToSpeechEngine = extern struct {
         qtc.QTextToSpeechEngine_OnSynthesize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSynthesize` instead
-    ///
-    pub const SuperSynthesize = superSynthesize;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#synthesize)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn superSynthesize(self: QTextToSpeechEngine, text: []const u8) void {
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        qtc.QTextToSpeechEngine_SuperSynthesize(@ptrCast(self.ptr), text_str);
-    }
-
     /// ### DEPRECATED: Use `stop` instead
     ///
     pub const Stop = stop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#stop)
+    ///
+    /// This method must be implemented with `onStop` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -578,29 +496,13 @@ pub const QTextToSpeechEngine = extern struct {
         qtc.QTextToSpeechEngine_OnStop(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superStop` instead
-    ///
-    pub const SuperStop = superStop;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#stop)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` boundaryHint: qtexttospeech_enums.BoundaryHint `
-    ///
-    pub fn superStop(self: QTextToSpeechEngine, boundaryHint: i32) void {
-        qtc.QTextToSpeechEngine_SuperStop(@ptrCast(self.ptr), @bitCast(boundaryHint));
-    }
-
     /// ### DEPRECATED: Use `pause` instead
     ///
     pub const Pause = pause;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#pause)
+    ///
+    /// This method must be implemented with `onPause` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -630,24 +532,6 @@ pub const QTextToSpeechEngine = extern struct {
         qtc.QTextToSpeechEngine_OnPause(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superPause` instead
-    ///
-    pub const SuperPause = superPause;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#pause)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` boundaryHint: qtexttospeech_enums.BoundaryHint `
-    ///
-    pub fn superPause(self: QTextToSpeechEngine, boundaryHint: i32) void {
-        qtc.QTextToSpeechEngine_SuperPause(@ptrCast(self.ptr), @bitCast(boundaryHint));
-    }
-
     /// ### DEPRECATED: Use `resume0` instead
     ///
     pub const Resume = resume0;
@@ -655,6 +539,8 @@ pub const QTextToSpeechEngine = extern struct {
     pub const @"resume" = resume0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#resume)
+    ///
+    /// This method must be implemented with `onResume` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -676,26 +562,10 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTextToSpeechEngine) callconv(.c) void `
     ///
-    pub fn onResume(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) void) void {
+    pub fn onResume(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_OnResume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superResume` instead
-    ///
-    pub const SuperResume = superResume;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#resume)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    pub fn superResume(self: QTextToSpeechEngine) void {
-        qtc.QTextToSpeechEngine_SuperResume(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `rate` instead
@@ -703,6 +573,8 @@ pub const QTextToSpeechEngine = extern struct {
     pub const Rate = rate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#rate)
+    ///
+    /// This method must be implemented with `onRate` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -724,26 +596,10 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) f64 `
+    /// ` callback: *const fn (self: QTextToSpeechEngine) callconv(.c) f64 `
     ///
-    pub fn onRate(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) f64) void {
+    pub fn onRate(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) f64) void {
         qtc.QTextToSpeechEngine_OnRate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRate` instead
-    ///
-    pub const SuperRate = superRate;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#rate)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    pub fn superRate(self: QTextToSpeechEngine) f64 {
-        return qtc.QTextToSpeechEngine_SuperRate(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setRate` instead
@@ -751,6 +607,8 @@ pub const QTextToSpeechEngine = extern struct {
     pub const SetRate = setRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setRate)
+    ///
+    /// This method must be implemented with `onSetRate` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -780,29 +638,13 @@ pub const QTextToSpeechEngine = extern struct {
         qtc.QTextToSpeechEngine_OnSetRate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetRate` instead
-    ///
-    pub const SuperSetRate = superSetRate;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setRate)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` _rate: f64 `
-    ///
-    pub fn superSetRate(self: QTextToSpeechEngine, _rate: f64) bool {
-        return qtc.QTextToSpeechEngine_SuperSetRate(@ptrCast(self.ptr), @bitCast(_rate));
-    }
-
     /// ### DEPRECATED: Use `pitch` instead
     ///
     pub const Pitch = pitch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#pitch)
+    ///
+    /// This method must be implemented with `onPitch` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -824,26 +666,10 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) f64 `
+    /// ` callback: *const fn (self: QTextToSpeechEngine) callconv(.c) f64 `
     ///
-    pub fn onPitch(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) f64) void {
+    pub fn onPitch(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) f64) void {
         qtc.QTextToSpeechEngine_OnPitch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superPitch` instead
-    ///
-    pub const SuperPitch = superPitch;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#pitch)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    pub fn superPitch(self: QTextToSpeechEngine) f64 {
-        return qtc.QTextToSpeechEngine_SuperPitch(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setPitch` instead
@@ -851,6 +677,8 @@ pub const QTextToSpeechEngine = extern struct {
     pub const SetPitch = setPitch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setPitch)
+    ///
+    /// This method must be implemented with `onSetPitch` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -880,29 +708,13 @@ pub const QTextToSpeechEngine = extern struct {
         qtc.QTextToSpeechEngine_OnSetPitch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetPitch` instead
-    ///
-    pub const SuperSetPitch = superSetPitch;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setPitch)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` _pitch: f64 `
-    ///
-    pub fn superSetPitch(self: QTextToSpeechEngine, _pitch: f64) bool {
-        return qtc.QTextToSpeechEngine_SuperSetPitch(@ptrCast(self.ptr), @bitCast(_pitch));
-    }
-
     /// ### DEPRECATED: Use `locale` instead
     ///
     pub const Locale = locale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#locale)
+    ///
+    /// This method must be implemented with `onLocale` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -924,28 +736,12 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) QLocale `
+    /// ` callback: *const fn (self: QTextToSpeechEngine) callconv(.c) QLocale `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onLocale(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) QLocale) void {
+    pub fn onLocale(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) QLocale) void {
         qtc.QTextToSpeechEngine_OnLocale(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superLocale` instead
-    ///
-    pub const SuperLocale = superLocale;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#locale)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    pub fn superLocale(self: QTextToSpeechEngine) QLocale {
-        return .{ .ptr = qtc.QTextToSpeechEngine_SuperLocale(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setLocale` instead
@@ -953,6 +749,8 @@ pub const QTextToSpeechEngine = extern struct {
     pub const SetLocale = setLocale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setLocale)
+    ///
+    /// This method must be implemented with `onSetLocale` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -983,30 +781,13 @@ pub const QTextToSpeechEngine = extern struct {
         qtc.QTextToSpeechEngine_OnSetLocale(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetLocale` instead
-    ///
-    pub const SuperSetLocale = superSetLocale;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setLocale)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` _locale: QLocale `
-    ///
-    pub fn superSetLocale(self: QTextToSpeechEngine, _locale: anytype) bool {
-        comptime _ = @TypeOf(_locale)._is_QLocale;
-        return qtc.QTextToSpeechEngine_SuperSetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
-    }
-
     /// ### DEPRECATED: Use `volume` instead
     ///
     pub const Volume = volume;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#volume)
+    ///
+    /// This method must be implemented with `onVolume` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1028,26 +809,10 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) f64 `
+    /// ` callback: *const fn (self: QTextToSpeechEngine) callconv(.c) f64 `
     ///
-    pub fn onVolume(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) f64) void {
+    pub fn onVolume(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) f64) void {
         qtc.QTextToSpeechEngine_OnVolume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superVolume` instead
-    ///
-    pub const SuperVolume = superVolume;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#volume)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    pub fn superVolume(self: QTextToSpeechEngine) f64 {
-        return qtc.QTextToSpeechEngine_SuperVolume(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setVolume` instead
@@ -1055,6 +820,8 @@ pub const QTextToSpeechEngine = extern struct {
     pub const SetVolume = setVolume;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setVolume)
+    ///
+    /// This method must be implemented with `onSetVolume` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1084,29 +851,13 @@ pub const QTextToSpeechEngine = extern struct {
         qtc.QTextToSpeechEngine_OnSetVolume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetVolume` instead
-    ///
-    pub const SuperSetVolume = superSetVolume;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setVolume)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` _volume: f64 `
-    ///
-    pub fn superSetVolume(self: QTextToSpeechEngine, _volume: f64) bool {
-        return qtc.QTextToSpeechEngine_SuperSetVolume(@ptrCast(self.ptr), @bitCast(_volume));
-    }
-
     /// ### DEPRECATED: Use `voice` instead
     ///
     pub const Voice = voice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#voice)
+    ///
+    /// This method must be implemented with `onVoice` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1128,28 +879,12 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) QVoice `
+    /// ` callback: *const fn (self: QTextToSpeechEngine) callconv(.c) QVoice `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onVoice(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) QVoice) void {
+    pub fn onVoice(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) QVoice) void {
         qtc.QTextToSpeechEngine_OnVoice(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superVoice` instead
-    ///
-    pub const SuperVoice = superVoice;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#voice)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    pub fn superVoice(self: QTextToSpeechEngine) QVoice {
-        return .{ .ptr = qtc.QTextToSpeechEngine_SuperVoice(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setVoice` instead
@@ -1157,6 +892,8 @@ pub const QTextToSpeechEngine = extern struct {
     pub const SetVoice = setVoice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setVoice)
+    ///
+    /// This method must be implemented with `onSetVoice` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1187,30 +924,13 @@ pub const QTextToSpeechEngine = extern struct {
         qtc.QTextToSpeechEngine_OnSetVoice(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetVoice` instead
-    ///
-    pub const SuperSetVoice = superSetVoice;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setVoice)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` _voice: QVoice `
-    ///
-    pub fn superSetVoice(self: QTextToSpeechEngine, _voice: anytype) bool {
-        comptime _ = @TypeOf(_voice)._is_QVoice;
-        return qtc.QTextToSpeechEngine_SuperSetVoice(@ptrCast(self.ptr), @ptrCast(_voice.ptr));
-    }
-
     /// ### DEPRECATED: Use `state` instead
     ///
     pub const State = state;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#state)
+    ///
+    /// This method must be implemented with `onState` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1236,30 +956,10 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTextToSpeechEngine) callconv(.c) i32 `
     ///
-    pub fn onState(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onState(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) i32) void {
         qtc.QTextToSpeechEngine_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superState` instead
-    ///
-    pub const SuperState = superState;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#state)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qtexttospeech_enums.State `
-    ///
-    pub fn superState(self: QTextToSpeechEngine) i32 {
-        return qtc.QTextToSpeechEngine_SuperState(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `errorReason` instead
@@ -1267,6 +967,8 @@ pub const QTextToSpeechEngine = extern struct {
     pub const ErrorReason = errorReason;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#errorReason)
+    ///
+    /// This method must be implemented with `onErrorReason` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1292,30 +994,10 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTextToSpeechEngine) callconv(.c) i32 `
     ///
-    pub fn onErrorReason(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onErrorReason(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) i32) void {
         qtc.QTextToSpeechEngine_OnErrorReason(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superErrorReason` instead
-    ///
-    pub const SuperErrorReason = superErrorReason;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#errorReason)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qtexttospeech_enums.ErrorReason `
-    ///
-    pub fn superErrorReason(self: QTextToSpeechEngine) i32 {
-        return qtc.QTextToSpeechEngine_SuperErrorReason(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `errorString` instead
@@ -1323,6 +1005,8 @@ pub const QTextToSpeechEngine = extern struct {
     pub const ErrorString = errorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#errorString)
+    ///
+    /// This method must be implemented with `onErrorString` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1350,32 +1034,10 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QTextToSpeechEngine) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onErrorString(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onErrorString(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) [*:0]const u8) void {
         qtc.QTextToSpeechEngine_OnErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superErrorString` instead
-    ///
-    pub const SuperErrorString = superErrorString;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#errorString)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superErrorString(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextToSpeechEngine_SuperErrorString(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeechEngine.errorString: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `createVoice` instead
@@ -1408,58 +1070,6 @@ pub const QTextToSpeechEngine = extern struct {
         return .{ .ptr = qtc.QTextToSpeechEngine_CreateVoice(@ptrCast(self.ptr), name_str, @ptrCast(_locale.ptr), @bitCast(gender), @bitCast(age), @ptrCast(data.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onCreateVoice` instead
-    ///
-    pub const OnCreateVoice = onCreateVoice;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#createVoice)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` callback: *const fn (self: QTextToSpeechEngine, name: [*:0]const u8, locale: QLocale, gender: qvoice_enums.Gender, age: qvoice_enums.Age, data: QVariant) callconv(.c) QVoice `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCreateVoice(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8, QLocale, i32, i32, QVariant) callconv(.c) QVoice) void {
-        qtc.QTextToSpeechEngine_OnCreateVoice(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreateVoice` instead
-    ///
-    pub const SuperCreateVoice = superCreateVoice;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#createVoice)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` name: []const u8 `
-    ///
-    /// ` _locale: QLocale `
-    ///
-    /// ` gender: qvoice_enums.Gender `
-    ///
-    /// ` age: qvoice_enums.Age `
-    ///
-    /// ` data: QVariant `
-    ///
-    pub fn superCreateVoice(self: QTextToSpeechEngine, name: []const u8, _locale: anytype, gender: i32, age: i32, data: anytype) QVoice {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        comptime _ = @TypeOf(_locale)._is_QLocale;
-        comptime _ = @TypeOf(data)._is_QVariant;
-        return .{ .ptr = qtc.QTextToSpeechEngine_SuperCreateVoice(@ptrCast(self.ptr), name_str, @ptrCast(_locale.ptr), @bitCast(gender), @bitCast(age), @ptrCast(data.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `voiceData` instead
     ///
     pub const VoiceData = voiceData;
@@ -1475,45 +1085,6 @@ pub const QTextToSpeechEngine = extern struct {
     pub fn voiceData(self: QTextToSpeechEngine, _voice: anytype) QVariant {
         comptime _ = @TypeOf(_voice)._is_QVoice;
         return .{ .ptr = qtc.QTextToSpeechEngine_VoiceData(@ptrCast(self.ptr), @ptrCast(_voice.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onVoiceData` instead
-    ///
-    pub const OnVoiceData = onVoiceData;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#voiceData)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` callback: *const fn (self: QTextToSpeechEngine, voice: QVoice) callconv(.c) QVariant `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onVoiceData(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QVoice) callconv(.c) QVariant) void {
-        qtc.QTextToSpeechEngine_OnVoiceData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superVoiceData` instead
-    ///
-    pub const SuperVoiceData = superVoiceData;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#voiceData)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` _voice: QVoice `
-    ///
-    pub fn superVoiceData(self: QTextToSpeechEngine, _voice: anytype) QVariant {
-        comptime _ = @TypeOf(_voice)._is_QVoice;
-        return .{ .ptr = qtc.QTextToSpeechEngine_SuperVoiceData(@ptrCast(self.ptr), @ptrCast(_voice.ptr)) };
     }
 
     /// ### DEPRECATED: Use `stateChanged` instead
@@ -3142,44 +2713,6 @@ pub const QTextToSpeechEngine = extern struct {
         return .{ .ptr = qtc.QTextToSpeechEngine_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    pub fn superSender(self: QTextToSpeechEngine) QObject {
-        return .{ .ptr = qtc.QTextToSpeechEngine_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextToSpeechEngine`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QTextToSpeechEngine_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3196,44 +2729,6 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     pub fn senderSignalIndex(self: QTextToSpeechEngine) i32 {
         return qtc.QTextToSpeechEngine_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    pub fn superSenderSignalIndex(self: QTextToSpeechEngine) i32 {
-        return qtc.QTextToSpeechEngine_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextToSpeechEngine`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTextToSpeechEngine_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3257,47 +2752,6 @@ pub const QTextToSpeechEngine = extern struct {
         return qtc.QTextToSpeechEngine_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QTextToSpeechEngine, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QTextToSpeechEngine_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextToSpeechEngine`
-    ///
-    /// ` callback: *const fn (self: QTextToSpeechEngine, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTextToSpeechEngine_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3317,47 +2771,6 @@ pub const QTextToSpeechEngine = extern struct {
     pub fn isSignalConnected(self: QTextToSpeechEngine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTextToSpeechEngine_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QTextToSpeechEngine, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QTextToSpeechEngine_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextToSpeechEngine`
-    ///
-    /// ` callback: *const fn (self: QTextToSpeechEngine, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QMetaMethod) callconv(.c) bool) void {
-        qtc.QTextToSpeechEngine_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

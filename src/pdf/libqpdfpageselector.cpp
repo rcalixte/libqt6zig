@@ -175,1654 +175,1173 @@ libqt_string QPdfPageSelector_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QPdfPageSelector_SuperMetaObject(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_MetaObject_IsBase(true);
-        return (QMetaObject*)vqpdfpageselector->metaObject();
-    } else {
-        return (QMetaObject*)self->QPdfPageSelector::metaObject();
-    }
+    return (QMetaObject*)self->QPdfPageSelector::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnMetaObject(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_MetaObject_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_MetaObject_Callback>(slot));
+void QPdfPageSelector_OnMetaObject(QPdfPageSelector* self, intptr_t slot) {
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self)))
+        vqpdfpageselector->qpdfpageselector_metaobject_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPdfPageSelector_SuperMetacast(QPdfPageSelector* self, const char* param1) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_Metacast_IsBase(true);
-        return vqpdfpageselector->qt_metacast(param1);
-    } else {
-        return self->QPdfPageSelector::qt_metacast(param1);
-    }
+    return self->QPdfPageSelector::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnMetacast(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_Metacast_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_Metacast_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_metacast_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPdfPageSelector_SuperMetacall(QPdfPageSelector* self, int param1, int param2, void** param3) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_Metacall_IsBase(true);
-        return vqpdfpageselector->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPdfPageSelector::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPdfPageSelector::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnMetacall(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_Metacall_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_Metacall_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_metacall_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPdfPageSelector_DevType(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return vqpdfpageselector->devType();
-    } else {
-        return self->QPdfPageSelector::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QPdfPageSelector_SuperDevType(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_DevType_IsBase(true);
-        return vqpdfpageselector->devType();
-    } else {
-        return self->QPdfPageSelector::devType();
-    }
+    return self->QPdfPageSelector::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnDevType(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_DevType_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_DevType_Callback>(slot));
+void QPdfPageSelector_OnDevType(QPdfPageSelector* self, intptr_t slot) {
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self)))
+        vqpdfpageselector->qpdfpageselector_devtype_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_SetVisible(QPdfPageSelector* self, bool visible) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setVisible(visible);
-    } else {
-        self->QPdfPageSelector::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperSetVisible(QPdfPageSelector* self, bool visible) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_SetVisible_IsBase(true);
-        vqpdfpageselector->setVisible(visible);
-    } else {
-        self->QPdfPageSelector::setVisible(visible);
-    }
+    self->QPdfPageSelector::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnSetVisible(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_SetVisible_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_SetVisible_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_setvisible_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QPdfPageSelector_SizeHint(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return new QSize(vqpdfpageselector->sizeHint());
-    } else {
-        return new QSize(((VirtualQPdfPageSelector*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QPdfPageSelector_SuperSizeHint(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_SizeHint_IsBase(true);
-        return new QSize(vqpdfpageselector->sizeHint());
-    } else {
-        return new QSize(((VirtualQPdfPageSelector*)self)->sizeHint());
-    }
+    return new QSize(self->QPdfPageSelector::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnSizeHint(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_SizeHint_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_SizeHint_Callback>(slot));
+void QPdfPageSelector_OnSizeHint(QPdfPageSelector* self, intptr_t slot) {
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self)))
+        vqpdfpageselector->qpdfpageselector_sizehint_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QPdfPageSelector_MinimumSizeHint(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return new QSize(vqpdfpageselector->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQPdfPageSelector*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QPdfPageSelector_SuperMinimumSizeHint(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_MinimumSizeHint_IsBase(true);
-        return new QSize(vqpdfpageselector->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQPdfPageSelector*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QPdfPageSelector::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnMinimumSizeHint(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_MinimumSizeHint_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_MinimumSizeHint_Callback>(slot));
+void QPdfPageSelector_OnMinimumSizeHint(QPdfPageSelector* self, intptr_t slot) {
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self)))
+        vqpdfpageselector->qpdfpageselector_minimumsizehint_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPdfPageSelector_HeightForWidth(const QPdfPageSelector* self, int param1) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return vqpdfpageselector->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QPdfPageSelector::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QPdfPageSelector_SuperHeightForWidth(const QPdfPageSelector* self, int param1) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_HeightForWidth_IsBase(true);
-        return vqpdfpageselector->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QPdfPageSelector::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QPdfPageSelector::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnHeightForWidth(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_HeightForWidth_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_HeightForWidth_Callback>(slot));
+void QPdfPageSelector_OnHeightForWidth(QPdfPageSelector* self, intptr_t slot) {
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self)))
+        vqpdfpageselector->qpdfpageselector_heightforwidth_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfPageSelector_HasHeightForWidth(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return vqpdfpageselector->hasHeightForWidth();
-    } else {
-        return self->QPdfPageSelector::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QPdfPageSelector_SuperHasHeightForWidth(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_HasHeightForWidth_IsBase(true);
-        return vqpdfpageselector->hasHeightForWidth();
-    } else {
-        return self->QPdfPageSelector::hasHeightForWidth();
-    }
+    return self->QPdfPageSelector::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnHasHeightForWidth(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_HasHeightForWidth_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_HasHeightForWidth_Callback>(slot));
+void QPdfPageSelector_OnHasHeightForWidth(QPdfPageSelector* self, intptr_t slot) {
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self)))
+        vqpdfpageselector->qpdfpageselector_hasheightforwidth_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QPdfPageSelector_PaintEngine(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return vqpdfpageselector->paintEngine();
-    } else {
-        return self->QPdfPageSelector::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QPdfPageSelector_SuperPaintEngine(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_PaintEngine_IsBase(true);
-        return vqpdfpageselector->paintEngine();
-    } else {
-        return self->QPdfPageSelector::paintEngine();
-    }
+    return self->QPdfPageSelector::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnPaintEngine(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_PaintEngine_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_PaintEngine_Callback>(slot));
+void QPdfPageSelector_OnPaintEngine(QPdfPageSelector* self, intptr_t slot) {
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self)))
+        vqpdfpageselector->qpdfpageselector_paintengine_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfPageSelector_Event(QPdfPageSelector* self, QEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         return vqpdfpageselector->event(event);
     } else {
-        return ((VirtualQPdfPageSelector*)self)->event(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPdfPageSelector_SuperEvent(QPdfPageSelector* self, QEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_Event_IsBase(true);
-        return vqpdfpageselector->event(event);
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->event(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        return vqpdfpageselector->QPdfPageSelector::event(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_Event_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_Event_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_event_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_MousePressEvent(QPdfPageSelector* self, QMouseEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->mousePressEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperMousePressEvent(QPdfPageSelector* self, QMouseEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_MousePressEvent_IsBase(true);
-        vqpdfpageselector->mousePressEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->mousePressEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnMousePressEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_MousePressEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_MousePressEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_mousepressevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_MouseReleaseEvent(QPdfPageSelector* self, QMouseEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->mouseReleaseEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperMouseReleaseEvent(QPdfPageSelector* self, QMouseEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_MouseReleaseEvent_IsBase(true);
-        vqpdfpageselector->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnMouseReleaseEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_mousereleaseevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_MouseDoubleClickEvent(QPdfPageSelector* self, QMouseEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperMouseDoubleClickEvent(QPdfPageSelector* self, QMouseEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_MouseDoubleClickEvent_IsBase(true);
-        vqpdfpageselector->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnMouseDoubleClickEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_mousedoubleclickevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_MouseMoveEvent(QPdfPageSelector* self, QMouseEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->mouseMoveEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperMouseMoveEvent(QPdfPageSelector* self, QMouseEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_MouseMoveEvent_IsBase(true);
-        vqpdfpageselector->mouseMoveEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnMouseMoveEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_MouseMoveEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_MouseMoveEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_mousemoveevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_WheelEvent(QPdfPageSelector* self, QWheelEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->wheelEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperWheelEvent(QPdfPageSelector* self, QWheelEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_WheelEvent_IsBase(true);
-        vqpdfpageselector->wheelEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->wheelEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnWheelEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_WheelEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_WheelEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_wheelevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_KeyPressEvent(QPdfPageSelector* self, QKeyEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->keyPressEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperKeyPressEvent(QPdfPageSelector* self, QKeyEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_KeyPressEvent_IsBase(true);
-        vqpdfpageselector->keyPressEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->keyPressEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnKeyPressEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_KeyPressEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_KeyPressEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_keypressevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_KeyReleaseEvent(QPdfPageSelector* self, QKeyEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->keyReleaseEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperKeyReleaseEvent(QPdfPageSelector* self, QKeyEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_KeyReleaseEvent_IsBase(true);
-        vqpdfpageselector->keyReleaseEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnKeyReleaseEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_keyreleaseevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_FocusInEvent(QPdfPageSelector* self, QFocusEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->focusInEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperFocusInEvent(QPdfPageSelector* self, QFocusEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_FocusInEvent_IsBase(true);
-        vqpdfpageselector->focusInEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->focusInEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnFocusInEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_FocusInEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_FocusInEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_focusinevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_FocusOutEvent(QPdfPageSelector* self, QFocusEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->focusOutEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperFocusOutEvent(QPdfPageSelector* self, QFocusEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_FocusOutEvent_IsBase(true);
-        vqpdfpageselector->focusOutEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->focusOutEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnFocusOutEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_FocusOutEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_FocusOutEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_focusoutevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_EnterEvent(QPdfPageSelector* self, QEnterEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->enterEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperEnterEvent(QPdfPageSelector* self, QEnterEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_EnterEvent_IsBase(true);
-        vqpdfpageselector->enterEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->enterEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnEnterEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_EnterEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_EnterEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_enterevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_LeaveEvent(QPdfPageSelector* self, QEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->leaveEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperLeaveEvent(QPdfPageSelector* self, QEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_LeaveEvent_IsBase(true);
-        vqpdfpageselector->leaveEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->leaveEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnLeaveEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_LeaveEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_LeaveEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_leaveevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_PaintEvent(QPdfPageSelector* self, QPaintEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->paintEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperPaintEvent(QPdfPageSelector* self, QPaintEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_PaintEvent_IsBase(true);
-        vqpdfpageselector->paintEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->paintEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnPaintEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_PaintEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_PaintEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_paintevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_MoveEvent(QPdfPageSelector* self, QMoveEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->moveEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperMoveEvent(QPdfPageSelector* self, QMoveEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_MoveEvent_IsBase(true);
-        vqpdfpageselector->moveEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->moveEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnMoveEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_MoveEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_MoveEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_moveevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_ResizeEvent(QPdfPageSelector* self, QResizeEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->resizeEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperResizeEvent(QPdfPageSelector* self, QResizeEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_ResizeEvent_IsBase(true);
-        vqpdfpageselector->resizeEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->resizeEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnResizeEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_ResizeEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_ResizeEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_resizeevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_CloseEvent(QPdfPageSelector* self, QCloseEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->closeEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperCloseEvent(QPdfPageSelector* self, QCloseEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_CloseEvent_IsBase(true);
-        vqpdfpageselector->closeEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->closeEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnCloseEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_CloseEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_CloseEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_closeevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_ContextMenuEvent(QPdfPageSelector* self, QContextMenuEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->contextMenuEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperContextMenuEvent(QPdfPageSelector* self, QContextMenuEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_ContextMenuEvent_IsBase(true);
-        vqpdfpageselector->contextMenuEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnContextMenuEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_ContextMenuEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_ContextMenuEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_contextmenuevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_TabletEvent(QPdfPageSelector* self, QTabletEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->tabletEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperTabletEvent(QPdfPageSelector* self, QTabletEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_TabletEvent_IsBase(true);
-        vqpdfpageselector->tabletEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->tabletEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnTabletEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_TabletEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_TabletEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_tabletevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_ActionEvent(QPdfPageSelector* self, QActionEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->actionEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperActionEvent(QPdfPageSelector* self, QActionEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_ActionEvent_IsBase(true);
-        vqpdfpageselector->actionEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->actionEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnActionEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_ActionEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_ActionEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_actionevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_DragEnterEvent(QPdfPageSelector* self, QDragEnterEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->dragEnterEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperDragEnterEvent(QPdfPageSelector* self, QDragEnterEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_DragEnterEvent_IsBase(true);
-        vqpdfpageselector->dragEnterEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnDragEnterEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_DragEnterEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_DragEnterEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_dragenterevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_DragMoveEvent(QPdfPageSelector* self, QDragMoveEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->dragMoveEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperDragMoveEvent(QPdfPageSelector* self, QDragMoveEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_DragMoveEvent_IsBase(true);
-        vqpdfpageselector->dragMoveEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnDragMoveEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_DragMoveEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_DragMoveEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_dragmoveevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_DragLeaveEvent(QPdfPageSelector* self, QDragLeaveEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->dragLeaveEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperDragLeaveEvent(QPdfPageSelector* self, QDragLeaveEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_DragLeaveEvent_IsBase(true);
-        vqpdfpageselector->dragLeaveEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnDragLeaveEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_DragLeaveEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_DragLeaveEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_dragleaveevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_DropEvent(QPdfPageSelector* self, QDropEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->dropEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperDropEvent(QPdfPageSelector* self, QDropEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_DropEvent_IsBase(true);
-        vqpdfpageselector->dropEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->dropEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnDropEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_DropEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_DropEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_dropevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_ShowEvent(QPdfPageSelector* self, QShowEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->showEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperShowEvent(QPdfPageSelector* self, QShowEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_ShowEvent_IsBase(true);
-        vqpdfpageselector->showEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->showEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnShowEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_ShowEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_ShowEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_showevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_HideEvent(QPdfPageSelector* self, QHideEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->hideEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperHideEvent(QPdfPageSelector* self, QHideEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_HideEvent_IsBase(true);
-        vqpdfpageselector->hideEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->hideEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnHideEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_HideEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_HideEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_hideevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfPageSelector_NativeEvent(QPdfPageSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
+    if (vqpdfpageselector) {
         return vqpdfpageselector->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQPdfPageSelector*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QPdfPageSelector::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPdfPageSelector_SuperNativeEvent(QPdfPageSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_NativeEvent_IsBase(true);
-        return vqpdfpageselector->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        return vqpdfpageselector->QPdfPageSelector::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnNativeEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_NativeEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_NativeEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_nativeevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_ChangeEvent(QPdfPageSelector* self, QEvent* param1) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->changeEvent(param1);
     } else {
-        ((VirtualQPdfPageSelector*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QPdfPageSelector::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperChangeEvent(QPdfPageSelector* self, QEvent* param1) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_ChangeEvent_IsBase(true);
-        vqpdfpageselector->changeEvent(param1);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->changeEvent(param1);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnChangeEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_ChangeEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_ChangeEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_changeevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPdfPageSelector_Metric(const QPdfPageSelector* self, int param1) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         return vqpdfpageselector->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQPdfPageSelector*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QPdfPageSelector::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QPdfPageSelector_SuperMetric(const QPdfPageSelector* self, int param1) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_Metric_IsBase(true);
-        return vqpdfpageselector->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self))) {
+        return vqpdfpageselector->QPdfPageSelector::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnMetric(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_Metric_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_Metric_Callback>(slot));
+void QPdfPageSelector_OnMetric(QPdfPageSelector* self, intptr_t slot) {
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self)))
+        vqpdfpageselector->qpdfpageselector_metric_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_InitPainter(const QPdfPageSelector* self, QPainter* painter) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->initPainter(painter);
     } else {
-        ((VirtualQPdfPageSelector*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QPdfPageSelector::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperInitPainter(const QPdfPageSelector* self, QPainter* painter) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_InitPainter_IsBase(true);
-        vqpdfpageselector->initPainter(painter);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->initPainter(painter);
-    }
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self))) {
+        vqpdfpageselector->QPdfPageSelector::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnInitPainter(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_InitPainter_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_InitPainter_Callback>(slot));
+void QPdfPageSelector_OnInitPainter(QPdfPageSelector* self, intptr_t slot) {
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self)))
+        vqpdfpageselector->qpdfpageselector_initpainter_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QPdfPageSelector_Redirected(const QPdfPageSelector* self, QPoint* offset) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         return vqpdfpageselector->redirected(offset);
     } else {
-        return ((VirtualQPdfPageSelector*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QPdfPageSelector::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QPdfPageSelector_SuperRedirected(const QPdfPageSelector* self, QPoint* offset) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_Redirected_IsBase(true);
-        return vqpdfpageselector->redirected(offset);
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->redirected(offset);
-    }
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self))) {
+        return vqpdfpageselector->QPdfPageSelector::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnRedirected(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_Redirected_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_Redirected_Callback>(slot));
+void QPdfPageSelector_OnRedirected(QPdfPageSelector* self, intptr_t slot) {
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self)))
+        vqpdfpageselector->qpdfpageselector_redirected_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QPdfPageSelector_SharedPainter(const QPdfPageSelector* self) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         return vqpdfpageselector->sharedPainter();
     } else {
-        return ((VirtualQPdfPageSelector*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QPdfPageSelector::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QPdfPageSelector_SuperSharedPainter(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_SharedPainter_IsBase(true);
-        return vqpdfpageselector->sharedPainter();
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->sharedPainter();
-    }
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self))) {
+        return vqpdfpageselector->QPdfPageSelector::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnSharedPainter(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_SharedPainter_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_SharedPainter_Callback>(slot));
+void QPdfPageSelector_OnSharedPainter(QPdfPageSelector* self, intptr_t slot) {
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self)))
+        vqpdfpageselector->qpdfpageselector_sharedpainter_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_InputMethodEvent(QPdfPageSelector* self, QInputMethodEvent* param1) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->inputMethodEvent(param1);
     } else {
-        ((VirtualQPdfPageSelector*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QPdfPageSelector::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperInputMethodEvent(QPdfPageSelector* self, QInputMethodEvent* param1) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_InputMethodEvent_IsBase(true);
-        vqpdfpageselector->inputMethodEvent(param1);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnInputMethodEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_InputMethodEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_InputMethodEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_inputmethodevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QPdfPageSelector_InputMethodQuery(const QPdfPageSelector* self, int param1) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return new QVariant(vqpdfpageselector->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQPdfPageSelector*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QPdfPageSelector_SuperInputMethodQuery(const QPdfPageSelector* self, int param1) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_InputMethodQuery_IsBase(true);
-        return new QVariant(vqpdfpageselector->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQPdfPageSelector*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QPdfPageSelector::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnInputMethodQuery(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_InputMethodQuery_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_InputMethodQuery_Callback>(slot));
+void QPdfPageSelector_OnInputMethodQuery(QPdfPageSelector* self, intptr_t slot) {
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self)))
+        vqpdfpageselector->qpdfpageselector_inputmethodquery_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfPageSelector_FocusNextPrevChild(QPdfPageSelector* self, bool next) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         return vqpdfpageselector->focusNextPrevChild(next);
     } else {
-        return ((VirtualQPdfPageSelector*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QPdfPageSelector::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPdfPageSelector_SuperFocusNextPrevChild(QPdfPageSelector* self, bool next) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_FocusNextPrevChild_IsBase(true);
-        return vqpdfpageselector->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        return vqpdfpageselector->QPdfPageSelector::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnFocusNextPrevChild(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_focusnextprevchild_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPdfPageSelector_EventFilter(QPdfPageSelector* self, QObject* watched, QEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return vqpdfpageselector->eventFilter(watched, event);
-    } else {
-        return self->QPdfPageSelector::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QPdfPageSelector_SuperEventFilter(QPdfPageSelector* self, QObject* watched, QEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_EventFilter_IsBase(true);
-        return vqpdfpageselector->eventFilter(watched, event);
-    } else {
-        return self->QPdfPageSelector::eventFilter(watched, event);
-    }
+    return self->QPdfPageSelector::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnEventFilter(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_EventFilter_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_EventFilter_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_eventfilter_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_TimerEvent(QPdfPageSelector* self, QTimerEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->timerEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperTimerEvent(QPdfPageSelector* self, QTimerEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_TimerEvent_IsBase(true);
-        vqpdfpageselector->timerEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->timerEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnTimerEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_TimerEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_TimerEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_timerevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_ChildEvent(QPdfPageSelector* self, QChildEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->childEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperChildEvent(QPdfPageSelector* self, QChildEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_ChildEvent_IsBase(true);
-        vqpdfpageselector->childEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->childEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnChildEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_ChildEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_ChildEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_childevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_CustomEvent(QPdfPageSelector* self, QEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->customEvent(event);
     } else {
-        ((VirtualQPdfPageSelector*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPdfPageSelector::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperCustomEvent(QPdfPageSelector* self, QEvent* event) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_CustomEvent_IsBase(true);
-        vqpdfpageselector->customEvent(event);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->customEvent(event);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnCustomEvent(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_CustomEvent_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_CustomEvent_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_customevent_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_ConnectNotify(QPdfPageSelector* self, const QMetaMethod* signal) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->connectNotify(*signal);
     } else {
-        ((VirtualQPdfPageSelector*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPdfPageSelector::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperConnectNotify(QPdfPageSelector* self, const QMetaMethod* signal) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_ConnectNotify_IsBase(true);
-        vqpdfpageselector->connectNotify(*signal);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->connectNotify(*signal);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnConnectNotify(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_ConnectNotify_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_ConnectNotify_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_connectnotify_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPdfPageSelector_DisconnectNotify(QPdfPageSelector* self, const QMetaMethod* signal) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
+    if (vqpdfpageselector) {
         vqpdfpageselector->disconnectNotify(*signal);
     } else {
-        ((VirtualQPdfPageSelector*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPdfPageSelector::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPdfPageSelector_SuperDisconnectNotify(QPdfPageSelector* self, const QMetaMethod* signal) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_DisconnectNotify_IsBase(true);
-        vqpdfpageselector->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPdfPageSelector*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->QPdfPageSelector::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPdfPageSelector::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPdfPageSelector_OnDisconnectNotify(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_DisconnectNotify_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_DisconnectNotify_Callback>(slot));
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self))
+        vqpdfpageselector->qpdfpageselector_disconnectnotify_callback = reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfPageSelector_UpdateMicroFocus(QPdfPageSelector* self) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->updateMicroFocus();
-    } else {
-        ((VirtualQPdfPageSelector*)self)->updateMicroFocus();
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->VirtualQPdfPageSelector::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QPdfPageSelector::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfPageSelector_SuperUpdateMicroFocus(QPdfPageSelector* self) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_UpdateMicroFocus_IsBase(true);
-        vqpdfpageselector->updateMicroFocus();
-    } else {
-        ((VirtualQPdfPageSelector*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnUpdateMicroFocus(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfPageSelector_Create(QPdfPageSelector* self) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->create();
-    } else {
-        ((VirtualQPdfPageSelector*)self)->create();
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->VirtualQPdfPageSelector::create();
+    } else
+        qFatal("Error: Protected method QPdfPageSelector::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfPageSelector_SuperCreate(QPdfPageSelector* self) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_Create_IsBase(true);
-        vqpdfpageselector->create();
-    } else {
-        ((VirtualQPdfPageSelector*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnCreate(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_Create_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPdfPageSelector_Destroy(QPdfPageSelector* self) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->destroy();
-    } else {
-        ((VirtualQPdfPageSelector*)self)->destroy();
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        vqpdfpageselector->VirtualQPdfPageSelector::destroy();
+    } else
+        qFatal("Error: Protected method QPdfPageSelector::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPdfPageSelector_SuperDestroy(QPdfPageSelector* self) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_Destroy_IsBase(true);
-        vqpdfpageselector->destroy();
-    } else {
-        ((VirtualQPdfPageSelector*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnDestroy(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_Destroy_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPdfPageSelector_FocusNextChild(QPdfPageSelector* self) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return vqpdfpageselector->focusNextChild();
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->focusNextChild();
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        return vqpdfpageselector->VirtualQPdfPageSelector::focusNextChild();
+    } else
+        qFatal("Error: Protected method QPdfPageSelector::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPdfPageSelector_SuperFocusNextChild(QPdfPageSelector* self) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_FocusNextChild_IsBase(true);
-        return vqpdfpageselector->focusNextChild();
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnFocusNextChild(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_FocusNextChild_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPdfPageSelector_FocusPreviousChild(QPdfPageSelector* self) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return vqpdfpageselector->focusPreviousChild();
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->focusPreviousChild();
-    }
+    if (auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self)) {
+        return vqpdfpageselector->VirtualQPdfPageSelector::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QPdfPageSelector::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPdfPageSelector_SuperFocusPreviousChild(QPdfPageSelector* self) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_FocusPreviousChild_IsBase(true);
-        return vqpdfpageselector->focusPreviousChild();
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnFocusPreviousChild(QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_FocusPreviousChild_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPdfPageSelector_Sender(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return vqpdfpageselector->sender();
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->sender();
-    }
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self))) {
+        return vqpdfpageselector->VirtualQPdfPageSelector::sender();
+    } else
+        qFatal("Error: Protected method QPdfPageSelector::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPdfPageSelector_SuperSender(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_Sender_IsBase(true);
-        return vqpdfpageselector->sender();
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnSender(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_Sender_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPdfPageSelector_SenderSignalIndex(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return vqpdfpageselector->senderSignalIndex();
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->senderSignalIndex();
-    }
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self))) {
+        return vqpdfpageselector->VirtualQPdfPageSelector::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPdfPageSelector::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPdfPageSelector_SuperSenderSignalIndex(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_SenderSignalIndex_IsBase(true);
-        return vqpdfpageselector->senderSignalIndex();
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnSenderSignalIndex(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPdfPageSelector_Receivers(const QPdfPageSelector* self, const char* signal) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return vqpdfpageselector->receivers(signal);
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->receivers(signal);
-    }
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self))) {
+        return vqpdfpageselector->VirtualQPdfPageSelector::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPdfPageSelector::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPdfPageSelector_SuperReceivers(const QPdfPageSelector* self, const char* signal) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_Receivers_IsBase(true);
-        return vqpdfpageselector->receivers(signal);
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnReceivers(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_Receivers_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPdfPageSelector_IsSignalConnected(const QPdfPageSelector* self, const QMetaMethod* signal) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return vqpdfpageselector->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self))) {
+        return vqpdfpageselector->VirtualQPdfPageSelector::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPdfPageSelector::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPdfPageSelector_SuperIsSignalConnected(const QPdfPageSelector* self, const QMetaMethod* signal) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_IsSignalConnected_IsBase(true);
-        return vqpdfpageselector->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnIsSignalConnected(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_IsSignalConnected_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QPdfPageSelector_GetDecodedMetricF(const QPdfPageSelector* self, int metricA, int metricB) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return vqpdfpageselector->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QPdfPageSelector_SuperGetDecodedMetricF(const QPdfPageSelector* self, int metricA, int metricB) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        vqpdfpageselector->setQPdfPageSelector_GetDecodedMetricF_IsBase(true);
-        return vqpdfpageselector->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPdfPageSelector_OnGetDecodedMetricF(const QPdfPageSelector* self, intptr_t slot) {
-    auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector)
-        vqpdfpageselector->setQPdfPageSelector_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPdfPageSelector::QPdfPageSelector_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self))) {
+        return vqpdfpageselector->VirtualQPdfPageSelector::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QPdfPageSelector::getDecodedMetricF called without a directly constructed type");
 }
 
 void QPdfPageSelector_Delete(QPdfPageSelector* self) {

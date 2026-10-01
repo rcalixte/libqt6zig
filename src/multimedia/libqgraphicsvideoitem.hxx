@@ -9,21 +9,17 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QGraphicsVideoItem so that we can call protected methods
+// This class is a subclass of QGraphicsVideoItem
 class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQGraphicsVideoItem = true;
-
-    // Virtual class public types (including callbacks)
+    // Virtual class public types (including callbacks and access types)
     using QGraphicsItem::Extension;
-    using QGraphicsVideoItem_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsVideoItem_MetaObject_Callback = QMetaObject* (*)(const QGraphicsVideoItem*);
     using QGraphicsVideoItem_Metacast_Callback = void* (*)(QGraphicsVideoItem*, const char*);
     using QGraphicsVideoItem_Metacall_Callback = int (*)(QGraphicsVideoItem*, int, int, void**);
-    using QGraphicsVideoItem_BoundingRect_Callback = QRectF* (*)();
+    using QGraphicsVideoItem_BoundingRect_Callback = QRectF* (*)(const QGraphicsVideoItem*);
     using QGraphicsVideoItem_Paint_Callback = void (*)(QGraphicsVideoItem*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
-    using QGraphicsVideoItem_Type_Callback = int (*)();
+    using QGraphicsVideoItem_Type_Callback = int (*)(const QGraphicsVideoItem*);
     using QGraphicsVideoItem_TimerEvent_Callback = void (*)(QGraphicsVideoItem*, QTimerEvent*);
     using QGraphicsVideoItem_ItemChange_Callback = QVariant* (*)(QGraphicsVideoItem*, int, QVariant*);
     using QGraphicsVideoItem_Event_Callback = bool (*)(QGraphicsVideoItem*, QEvent*);
@@ -33,12 +29,12 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
     using QGraphicsVideoItem_ConnectNotify_Callback = void (*)(QGraphicsVideoItem*, QMetaMethod*);
     using QGraphicsVideoItem_DisconnectNotify_Callback = void (*)(QGraphicsVideoItem*, QMetaMethod*);
     using QGraphicsVideoItem_Advance_Callback = void (*)(QGraphicsVideoItem*, int);
-    using QGraphicsVideoItem_Shape_Callback = QPainterPath* (*)();
+    using QGraphicsVideoItem_Shape_Callback = QPainterPath* (*)(const QGraphicsVideoItem*);
     using QGraphicsVideoItem_Contains_Callback = bool (*)(const QGraphicsVideoItem*, QPointF*);
     using QGraphicsVideoItem_CollidesWithItem_Callback = bool (*)(const QGraphicsVideoItem*, QGraphicsItem*, int);
     using QGraphicsVideoItem_CollidesWithPath_Callback = bool (*)(const QGraphicsVideoItem*, QPainterPath*, int);
     using QGraphicsVideoItem_IsObscuredBy_Callback = bool (*)(const QGraphicsVideoItem*, QGraphicsItem*);
-    using QGraphicsVideoItem_OpaqueArea_Callback = QPainterPath* (*)();
+    using QGraphicsVideoItem_OpaqueArea_Callback = QPainterPath* (*)(const QGraphicsVideoItem*);
     using QGraphicsVideoItem_SceneEventFilter_Callback = bool (*)(QGraphicsVideoItem*, QGraphicsItem*, QEvent*);
     using QGraphicsVideoItem_SceneEvent_Callback = bool (*)(QGraphicsVideoItem*, QEvent*);
     using QGraphicsVideoItem_ContextMenuEvent_Callback = void (*)(QGraphicsVideoItem*, QGraphicsSceneContextMenuEvent*);
@@ -63,16 +59,15 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
     using QGraphicsVideoItem_SupportsExtension_Callback = bool (*)(const QGraphicsVideoItem*, int);
     using QGraphicsVideoItem_SetExtension_Callback = void (*)(QGraphicsVideoItem*, int, QVariant*);
     using QGraphicsVideoItem_Extension_Callback = QVariant* (*)(const QGraphicsVideoItem*, QVariant*);
-    using QGraphicsVideoItem_UpdateMicroFocus_Callback = void (*)();
-    using QGraphicsVideoItem_Sender_Callback = QObject* (*)();
-    using QGraphicsVideoItem_SenderSignalIndex_Callback = int (*)();
-    using QGraphicsVideoItem_Receivers_Callback = int (*)(const QGraphicsVideoItem*, const char*);
-    using QGraphicsVideoItem_IsSignalConnected_Callback = bool (*)(const QGraphicsVideoItem*, QMetaMethod*);
-    using QGraphicsVideoItem_AddToIndex_Callback = void (*)();
-    using QGraphicsVideoItem_RemoveFromIndex_Callback = void (*)();
-    using QGraphicsVideoItem_PrepareGeometryChange_Callback = void (*)();
+    using QGraphicsVideoItem::addToIndex;
+    using QGraphicsVideoItem::isSignalConnected;
+    using QGraphicsVideoItem::prepareGeometryChange;
+    using QGraphicsVideoItem::receivers;
+    using QGraphicsVideoItem::removeFromIndex;
+    using QGraphicsVideoItem::sender;
+    using QGraphicsVideoItem::senderSignalIndex;
+    using QGraphicsVideoItem::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QGraphicsVideoItem_MetaObject_Callback qgraphicsvideoitem_metaobject_callback = nullptr;
     QGraphicsVideoItem_Metacast_Callback qgraphicsvideoitem_metacast_callback = nullptr;
@@ -119,193 +114,49 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
     QGraphicsVideoItem_SupportsExtension_Callback qgraphicsvideoitem_supportsextension_callback = nullptr;
     QGraphicsVideoItem_SetExtension_Callback qgraphicsvideoitem_setextension_callback = nullptr;
     QGraphicsVideoItem_Extension_Callback qgraphicsvideoitem_extension_callback = nullptr;
-    QGraphicsVideoItem_UpdateMicroFocus_Callback qgraphicsvideoitem_updatemicrofocus_callback = nullptr;
-    QGraphicsVideoItem_Sender_Callback qgraphicsvideoitem_sender_callback = nullptr;
-    QGraphicsVideoItem_SenderSignalIndex_Callback qgraphicsvideoitem_sendersignalindex_callback = nullptr;
-    QGraphicsVideoItem_Receivers_Callback qgraphicsvideoitem_receivers_callback = nullptr;
-    QGraphicsVideoItem_IsSignalConnected_Callback qgraphicsvideoitem_issignalconnected_callback = nullptr;
-    QGraphicsVideoItem_AddToIndex_Callback qgraphicsvideoitem_addtoindex_callback = nullptr;
-    QGraphicsVideoItem_RemoveFromIndex_Callback qgraphicsvideoitem_removefromindex_callback = nullptr;
-    QGraphicsVideoItem_PrepareGeometryChange_Callback qgraphicsvideoitem_preparegeometrychange_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qgraphicsvideoitem_metaobject_isbase = false;
-    mutable bool qgraphicsvideoitem_metacast_isbase = false;
-    mutable bool qgraphicsvideoitem_metacall_isbase = false;
-    mutable bool qgraphicsvideoitem_boundingrect_isbase = false;
-    mutable bool qgraphicsvideoitem_paint_isbase = false;
-    mutable bool qgraphicsvideoitem_type_isbase = false;
-    mutable bool qgraphicsvideoitem_timerevent_isbase = false;
-    mutable bool qgraphicsvideoitem_itemchange_isbase = false;
-    mutable bool qgraphicsvideoitem_event_isbase = false;
-    mutable bool qgraphicsvideoitem_eventfilter_isbase = false;
-    mutable bool qgraphicsvideoitem_childevent_isbase = false;
-    mutable bool qgraphicsvideoitem_customevent_isbase = false;
-    mutable bool qgraphicsvideoitem_connectnotify_isbase = false;
-    mutable bool qgraphicsvideoitem_disconnectnotify_isbase = false;
-    mutable bool qgraphicsvideoitem_advance_isbase = false;
-    mutable bool qgraphicsvideoitem_shape_isbase = false;
-    mutable bool qgraphicsvideoitem_contains_isbase = false;
-    mutable bool qgraphicsvideoitem_collideswithitem_isbase = false;
-    mutable bool qgraphicsvideoitem_collideswithpath_isbase = false;
-    mutable bool qgraphicsvideoitem_isobscuredby_isbase = false;
-    mutable bool qgraphicsvideoitem_opaquearea_isbase = false;
-    mutable bool qgraphicsvideoitem_sceneeventfilter_isbase = false;
-    mutable bool qgraphicsvideoitem_sceneevent_isbase = false;
-    mutable bool qgraphicsvideoitem_contextmenuevent_isbase = false;
-    mutable bool qgraphicsvideoitem_dragenterevent_isbase = false;
-    mutable bool qgraphicsvideoitem_dragleaveevent_isbase = false;
-    mutable bool qgraphicsvideoitem_dragmoveevent_isbase = false;
-    mutable bool qgraphicsvideoitem_dropevent_isbase = false;
-    mutable bool qgraphicsvideoitem_focusinevent_isbase = false;
-    mutable bool qgraphicsvideoitem_focusoutevent_isbase = false;
-    mutable bool qgraphicsvideoitem_hoverenterevent_isbase = false;
-    mutable bool qgraphicsvideoitem_hovermoveevent_isbase = false;
-    mutable bool qgraphicsvideoitem_hoverleaveevent_isbase = false;
-    mutable bool qgraphicsvideoitem_keypressevent_isbase = false;
-    mutable bool qgraphicsvideoitem_keyreleaseevent_isbase = false;
-    mutable bool qgraphicsvideoitem_mousepressevent_isbase = false;
-    mutable bool qgraphicsvideoitem_mousemoveevent_isbase = false;
-    mutable bool qgraphicsvideoitem_mousereleaseevent_isbase = false;
-    mutable bool qgraphicsvideoitem_mousedoubleclickevent_isbase = false;
-    mutable bool qgraphicsvideoitem_wheelevent_isbase = false;
-    mutable bool qgraphicsvideoitem_inputmethodevent_isbase = false;
-    mutable bool qgraphicsvideoitem_inputmethodquery_isbase = false;
-    mutable bool qgraphicsvideoitem_supportsextension_isbase = false;
-    mutable bool qgraphicsvideoitem_setextension_isbase = false;
-    mutable bool qgraphicsvideoitem_extension_isbase = false;
-    mutable bool qgraphicsvideoitem_updatemicrofocus_isbase = false;
-    mutable bool qgraphicsvideoitem_sender_isbase = false;
-    mutable bool qgraphicsvideoitem_sendersignalindex_isbase = false;
-    mutable bool qgraphicsvideoitem_receivers_isbase = false;
-    mutable bool qgraphicsvideoitem_issignalconnected_isbase = false;
-    mutable bool qgraphicsvideoitem_addtoindex_isbase = false;
-    mutable bool qgraphicsvideoitem_removefromindex_isbase = false;
-    mutable bool qgraphicsvideoitem_preparegeometrychange_isbase = false;
+    // Access struct
+    struct Base : QGraphicsVideoItem {
+        using QGraphicsVideoItem::childEvent;
+        using QGraphicsVideoItem::connectNotify;
+        using QGraphicsVideoItem::contextMenuEvent;
+        using QGraphicsVideoItem::customEvent;
+        using QGraphicsVideoItem::disconnectNotify;
+        using QGraphicsVideoItem::dragEnterEvent;
+        using QGraphicsVideoItem::dragLeaveEvent;
+        using QGraphicsVideoItem::dragMoveEvent;
+        using QGraphicsVideoItem::dropEvent;
+        using QGraphicsVideoItem::event;
+        using QGraphicsVideoItem::extension;
+        using QGraphicsVideoItem::focusInEvent;
+        using QGraphicsVideoItem::focusOutEvent;
+        using QGraphicsVideoItem::hoverEnterEvent;
+        using QGraphicsVideoItem::hoverLeaveEvent;
+        using QGraphicsVideoItem::hoverMoveEvent;
+        using QGraphicsVideoItem::inputMethodEvent;
+        using QGraphicsVideoItem::inputMethodQuery;
+        using QGraphicsVideoItem::itemChange;
+        using QGraphicsVideoItem::keyPressEvent;
+        using QGraphicsVideoItem::keyReleaseEvent;
+        using QGraphicsVideoItem::mouseDoubleClickEvent;
+        using QGraphicsVideoItem::mouseMoveEvent;
+        using QGraphicsVideoItem::mousePressEvent;
+        using QGraphicsVideoItem::mouseReleaseEvent;
+        using QGraphicsVideoItem::sceneEvent;
+        using QGraphicsVideoItem::sceneEventFilter;
+        using QGraphicsVideoItem::setExtension;
+        using QGraphicsVideoItem::supportsExtension;
+        using QGraphicsVideoItem::timerEvent;
+        using QGraphicsVideoItem::wheelEvent;
+    };
 
-  public:
     VirtualQGraphicsVideoItem() : QGraphicsVideoItem() {};
     VirtualQGraphicsVideoItem(QGraphicsItem* parent) : QGraphicsVideoItem(parent) {};
 
-    // Callback setters
-    inline void setQGraphicsVideoItem_MetaObject_Callback(QGraphicsVideoItem_MetaObject_Callback cb) { qgraphicsvideoitem_metaobject_callback = cb; }
-    inline void setQGraphicsVideoItem_Metacast_Callback(QGraphicsVideoItem_Metacast_Callback cb) { qgraphicsvideoitem_metacast_callback = cb; }
-    inline void setQGraphicsVideoItem_Metacall_Callback(QGraphicsVideoItem_Metacall_Callback cb) { qgraphicsvideoitem_metacall_callback = cb; }
-    inline void setQGraphicsVideoItem_BoundingRect_Callback(QGraphicsVideoItem_BoundingRect_Callback cb) { qgraphicsvideoitem_boundingrect_callback = cb; }
-    inline void setQGraphicsVideoItem_Paint_Callback(QGraphicsVideoItem_Paint_Callback cb) { qgraphicsvideoitem_paint_callback = cb; }
-    inline void setQGraphicsVideoItem_Type_Callback(QGraphicsVideoItem_Type_Callback cb) { qgraphicsvideoitem_type_callback = cb; }
-    inline void setQGraphicsVideoItem_TimerEvent_Callback(QGraphicsVideoItem_TimerEvent_Callback cb) { qgraphicsvideoitem_timerevent_callback = cb; }
-    inline void setQGraphicsVideoItem_ItemChange_Callback(QGraphicsVideoItem_ItemChange_Callback cb) { qgraphicsvideoitem_itemchange_callback = cb; }
-    inline void setQGraphicsVideoItem_Event_Callback(QGraphicsVideoItem_Event_Callback cb) { qgraphicsvideoitem_event_callback = cb; }
-    inline void setQGraphicsVideoItem_EventFilter_Callback(QGraphicsVideoItem_EventFilter_Callback cb) { qgraphicsvideoitem_eventfilter_callback = cb; }
-    inline void setQGraphicsVideoItem_ChildEvent_Callback(QGraphicsVideoItem_ChildEvent_Callback cb) { qgraphicsvideoitem_childevent_callback = cb; }
-    inline void setQGraphicsVideoItem_CustomEvent_Callback(QGraphicsVideoItem_CustomEvent_Callback cb) { qgraphicsvideoitem_customevent_callback = cb; }
-    inline void setQGraphicsVideoItem_ConnectNotify_Callback(QGraphicsVideoItem_ConnectNotify_Callback cb) { qgraphicsvideoitem_connectnotify_callback = cb; }
-    inline void setQGraphicsVideoItem_DisconnectNotify_Callback(QGraphicsVideoItem_DisconnectNotify_Callback cb) { qgraphicsvideoitem_disconnectnotify_callback = cb; }
-    inline void setQGraphicsVideoItem_Advance_Callback(QGraphicsVideoItem_Advance_Callback cb) { qgraphicsvideoitem_advance_callback = cb; }
-    inline void setQGraphicsVideoItem_Shape_Callback(QGraphicsVideoItem_Shape_Callback cb) { qgraphicsvideoitem_shape_callback = cb; }
-    inline void setQGraphicsVideoItem_Contains_Callback(QGraphicsVideoItem_Contains_Callback cb) { qgraphicsvideoitem_contains_callback = cb; }
-    inline void setQGraphicsVideoItem_CollidesWithItem_Callback(QGraphicsVideoItem_CollidesWithItem_Callback cb) { qgraphicsvideoitem_collideswithitem_callback = cb; }
-    inline void setQGraphicsVideoItem_CollidesWithPath_Callback(QGraphicsVideoItem_CollidesWithPath_Callback cb) { qgraphicsvideoitem_collideswithpath_callback = cb; }
-    inline void setQGraphicsVideoItem_IsObscuredBy_Callback(QGraphicsVideoItem_IsObscuredBy_Callback cb) { qgraphicsvideoitem_isobscuredby_callback = cb; }
-    inline void setQGraphicsVideoItem_OpaqueArea_Callback(QGraphicsVideoItem_OpaqueArea_Callback cb) { qgraphicsvideoitem_opaquearea_callback = cb; }
-    inline void setQGraphicsVideoItem_SceneEventFilter_Callback(QGraphicsVideoItem_SceneEventFilter_Callback cb) { qgraphicsvideoitem_sceneeventfilter_callback = cb; }
-    inline void setQGraphicsVideoItem_SceneEvent_Callback(QGraphicsVideoItem_SceneEvent_Callback cb) { qgraphicsvideoitem_sceneevent_callback = cb; }
-    inline void setQGraphicsVideoItem_ContextMenuEvent_Callback(QGraphicsVideoItem_ContextMenuEvent_Callback cb) { qgraphicsvideoitem_contextmenuevent_callback = cb; }
-    inline void setQGraphicsVideoItem_DragEnterEvent_Callback(QGraphicsVideoItem_DragEnterEvent_Callback cb) { qgraphicsvideoitem_dragenterevent_callback = cb; }
-    inline void setQGraphicsVideoItem_DragLeaveEvent_Callback(QGraphicsVideoItem_DragLeaveEvent_Callback cb) { qgraphicsvideoitem_dragleaveevent_callback = cb; }
-    inline void setQGraphicsVideoItem_DragMoveEvent_Callback(QGraphicsVideoItem_DragMoveEvent_Callback cb) { qgraphicsvideoitem_dragmoveevent_callback = cb; }
-    inline void setQGraphicsVideoItem_DropEvent_Callback(QGraphicsVideoItem_DropEvent_Callback cb) { qgraphicsvideoitem_dropevent_callback = cb; }
-    inline void setQGraphicsVideoItem_FocusInEvent_Callback(QGraphicsVideoItem_FocusInEvent_Callback cb) { qgraphicsvideoitem_focusinevent_callback = cb; }
-    inline void setQGraphicsVideoItem_FocusOutEvent_Callback(QGraphicsVideoItem_FocusOutEvent_Callback cb) { qgraphicsvideoitem_focusoutevent_callback = cb; }
-    inline void setQGraphicsVideoItem_HoverEnterEvent_Callback(QGraphicsVideoItem_HoverEnterEvent_Callback cb) { qgraphicsvideoitem_hoverenterevent_callback = cb; }
-    inline void setQGraphicsVideoItem_HoverMoveEvent_Callback(QGraphicsVideoItem_HoverMoveEvent_Callback cb) { qgraphicsvideoitem_hovermoveevent_callback = cb; }
-    inline void setQGraphicsVideoItem_HoverLeaveEvent_Callback(QGraphicsVideoItem_HoverLeaveEvent_Callback cb) { qgraphicsvideoitem_hoverleaveevent_callback = cb; }
-    inline void setQGraphicsVideoItem_KeyPressEvent_Callback(QGraphicsVideoItem_KeyPressEvent_Callback cb) { qgraphicsvideoitem_keypressevent_callback = cb; }
-    inline void setQGraphicsVideoItem_KeyReleaseEvent_Callback(QGraphicsVideoItem_KeyReleaseEvent_Callback cb) { qgraphicsvideoitem_keyreleaseevent_callback = cb; }
-    inline void setQGraphicsVideoItem_MousePressEvent_Callback(QGraphicsVideoItem_MousePressEvent_Callback cb) { qgraphicsvideoitem_mousepressevent_callback = cb; }
-    inline void setQGraphicsVideoItem_MouseMoveEvent_Callback(QGraphicsVideoItem_MouseMoveEvent_Callback cb) { qgraphicsvideoitem_mousemoveevent_callback = cb; }
-    inline void setQGraphicsVideoItem_MouseReleaseEvent_Callback(QGraphicsVideoItem_MouseReleaseEvent_Callback cb) { qgraphicsvideoitem_mousereleaseevent_callback = cb; }
-    inline void setQGraphicsVideoItem_MouseDoubleClickEvent_Callback(QGraphicsVideoItem_MouseDoubleClickEvent_Callback cb) { qgraphicsvideoitem_mousedoubleclickevent_callback = cb; }
-    inline void setQGraphicsVideoItem_WheelEvent_Callback(QGraphicsVideoItem_WheelEvent_Callback cb) { qgraphicsvideoitem_wheelevent_callback = cb; }
-    inline void setQGraphicsVideoItem_InputMethodEvent_Callback(QGraphicsVideoItem_InputMethodEvent_Callback cb) { qgraphicsvideoitem_inputmethodevent_callback = cb; }
-    inline void setQGraphicsVideoItem_InputMethodQuery_Callback(QGraphicsVideoItem_InputMethodQuery_Callback cb) { qgraphicsvideoitem_inputmethodquery_callback = cb; }
-    inline void setQGraphicsVideoItem_SupportsExtension_Callback(QGraphicsVideoItem_SupportsExtension_Callback cb) { qgraphicsvideoitem_supportsextension_callback = cb; }
-    inline void setQGraphicsVideoItem_SetExtension_Callback(QGraphicsVideoItem_SetExtension_Callback cb) { qgraphicsvideoitem_setextension_callback = cb; }
-    inline void setQGraphicsVideoItem_Extension_Callback(QGraphicsVideoItem_Extension_Callback cb) { qgraphicsvideoitem_extension_callback = cb; }
-    inline void setQGraphicsVideoItem_UpdateMicroFocus_Callback(QGraphicsVideoItem_UpdateMicroFocus_Callback cb) { qgraphicsvideoitem_updatemicrofocus_callback = cb; }
-    inline void setQGraphicsVideoItem_Sender_Callback(QGraphicsVideoItem_Sender_Callback cb) { qgraphicsvideoitem_sender_callback = cb; }
-    inline void setQGraphicsVideoItem_SenderSignalIndex_Callback(QGraphicsVideoItem_SenderSignalIndex_Callback cb) { qgraphicsvideoitem_sendersignalindex_callback = cb; }
-    inline void setQGraphicsVideoItem_Receivers_Callback(QGraphicsVideoItem_Receivers_Callback cb) { qgraphicsvideoitem_receivers_callback = cb; }
-    inline void setQGraphicsVideoItem_IsSignalConnected_Callback(QGraphicsVideoItem_IsSignalConnected_Callback cb) { qgraphicsvideoitem_issignalconnected_callback = cb; }
-    inline void setQGraphicsVideoItem_AddToIndex_Callback(QGraphicsVideoItem_AddToIndex_Callback cb) { qgraphicsvideoitem_addtoindex_callback = cb; }
-    inline void setQGraphicsVideoItem_RemoveFromIndex_Callback(QGraphicsVideoItem_RemoveFromIndex_Callback cb) { qgraphicsvideoitem_removefromindex_callback = cb; }
-    inline void setQGraphicsVideoItem_PrepareGeometryChange_Callback(QGraphicsVideoItem_PrepareGeometryChange_Callback cb) { qgraphicsvideoitem_preparegeometrychange_callback = cb; }
-
-    // Base flag setters
-    inline void setQGraphicsVideoItem_MetaObject_IsBase(bool value) const { qgraphicsvideoitem_metaobject_isbase = value; }
-    inline void setQGraphicsVideoItem_Metacast_IsBase(bool value) const { qgraphicsvideoitem_metacast_isbase = value; }
-    inline void setQGraphicsVideoItem_Metacall_IsBase(bool value) const { qgraphicsvideoitem_metacall_isbase = value; }
-    inline void setQGraphicsVideoItem_BoundingRect_IsBase(bool value) const { qgraphicsvideoitem_boundingrect_isbase = value; }
-    inline void setQGraphicsVideoItem_Paint_IsBase(bool value) const { qgraphicsvideoitem_paint_isbase = value; }
-    inline void setQGraphicsVideoItem_Type_IsBase(bool value) const { qgraphicsvideoitem_type_isbase = value; }
-    inline void setQGraphicsVideoItem_TimerEvent_IsBase(bool value) const { qgraphicsvideoitem_timerevent_isbase = value; }
-    inline void setQGraphicsVideoItem_ItemChange_IsBase(bool value) const { qgraphicsvideoitem_itemchange_isbase = value; }
-    inline void setQGraphicsVideoItem_Event_IsBase(bool value) const { qgraphicsvideoitem_event_isbase = value; }
-    inline void setQGraphicsVideoItem_EventFilter_IsBase(bool value) const { qgraphicsvideoitem_eventfilter_isbase = value; }
-    inline void setQGraphicsVideoItem_ChildEvent_IsBase(bool value) const { qgraphicsvideoitem_childevent_isbase = value; }
-    inline void setQGraphicsVideoItem_CustomEvent_IsBase(bool value) const { qgraphicsvideoitem_customevent_isbase = value; }
-    inline void setQGraphicsVideoItem_ConnectNotify_IsBase(bool value) const { qgraphicsvideoitem_connectnotify_isbase = value; }
-    inline void setQGraphicsVideoItem_DisconnectNotify_IsBase(bool value) const { qgraphicsvideoitem_disconnectnotify_isbase = value; }
-    inline void setQGraphicsVideoItem_Advance_IsBase(bool value) const { qgraphicsvideoitem_advance_isbase = value; }
-    inline void setQGraphicsVideoItem_Shape_IsBase(bool value) const { qgraphicsvideoitem_shape_isbase = value; }
-    inline void setQGraphicsVideoItem_Contains_IsBase(bool value) const { qgraphicsvideoitem_contains_isbase = value; }
-    inline void setQGraphicsVideoItem_CollidesWithItem_IsBase(bool value) const { qgraphicsvideoitem_collideswithitem_isbase = value; }
-    inline void setQGraphicsVideoItem_CollidesWithPath_IsBase(bool value) const { qgraphicsvideoitem_collideswithpath_isbase = value; }
-    inline void setQGraphicsVideoItem_IsObscuredBy_IsBase(bool value) const { qgraphicsvideoitem_isobscuredby_isbase = value; }
-    inline void setQGraphicsVideoItem_OpaqueArea_IsBase(bool value) const { qgraphicsvideoitem_opaquearea_isbase = value; }
-    inline void setQGraphicsVideoItem_SceneEventFilter_IsBase(bool value) const { qgraphicsvideoitem_sceneeventfilter_isbase = value; }
-    inline void setQGraphicsVideoItem_SceneEvent_IsBase(bool value) const { qgraphicsvideoitem_sceneevent_isbase = value; }
-    inline void setQGraphicsVideoItem_ContextMenuEvent_IsBase(bool value) const { qgraphicsvideoitem_contextmenuevent_isbase = value; }
-    inline void setQGraphicsVideoItem_DragEnterEvent_IsBase(bool value) const { qgraphicsvideoitem_dragenterevent_isbase = value; }
-    inline void setQGraphicsVideoItem_DragLeaveEvent_IsBase(bool value) const { qgraphicsvideoitem_dragleaveevent_isbase = value; }
-    inline void setQGraphicsVideoItem_DragMoveEvent_IsBase(bool value) const { qgraphicsvideoitem_dragmoveevent_isbase = value; }
-    inline void setQGraphicsVideoItem_DropEvent_IsBase(bool value) const { qgraphicsvideoitem_dropevent_isbase = value; }
-    inline void setQGraphicsVideoItem_FocusInEvent_IsBase(bool value) const { qgraphicsvideoitem_focusinevent_isbase = value; }
-    inline void setQGraphicsVideoItem_FocusOutEvent_IsBase(bool value) const { qgraphicsvideoitem_focusoutevent_isbase = value; }
-    inline void setQGraphicsVideoItem_HoverEnterEvent_IsBase(bool value) const { qgraphicsvideoitem_hoverenterevent_isbase = value; }
-    inline void setQGraphicsVideoItem_HoverMoveEvent_IsBase(bool value) const { qgraphicsvideoitem_hovermoveevent_isbase = value; }
-    inline void setQGraphicsVideoItem_HoverLeaveEvent_IsBase(bool value) const { qgraphicsvideoitem_hoverleaveevent_isbase = value; }
-    inline void setQGraphicsVideoItem_KeyPressEvent_IsBase(bool value) const { qgraphicsvideoitem_keypressevent_isbase = value; }
-    inline void setQGraphicsVideoItem_KeyReleaseEvent_IsBase(bool value) const { qgraphicsvideoitem_keyreleaseevent_isbase = value; }
-    inline void setQGraphicsVideoItem_MousePressEvent_IsBase(bool value) const { qgraphicsvideoitem_mousepressevent_isbase = value; }
-    inline void setQGraphicsVideoItem_MouseMoveEvent_IsBase(bool value) const { qgraphicsvideoitem_mousemoveevent_isbase = value; }
-    inline void setQGraphicsVideoItem_MouseReleaseEvent_IsBase(bool value) const { qgraphicsvideoitem_mousereleaseevent_isbase = value; }
-    inline void setQGraphicsVideoItem_MouseDoubleClickEvent_IsBase(bool value) const { qgraphicsvideoitem_mousedoubleclickevent_isbase = value; }
-    inline void setQGraphicsVideoItem_WheelEvent_IsBase(bool value) const { qgraphicsvideoitem_wheelevent_isbase = value; }
-    inline void setQGraphicsVideoItem_InputMethodEvent_IsBase(bool value) const { qgraphicsvideoitem_inputmethodevent_isbase = value; }
-    inline void setQGraphicsVideoItem_InputMethodQuery_IsBase(bool value) const { qgraphicsvideoitem_inputmethodquery_isbase = value; }
-    inline void setQGraphicsVideoItem_SupportsExtension_IsBase(bool value) const { qgraphicsvideoitem_supportsextension_isbase = value; }
-    inline void setQGraphicsVideoItem_SetExtension_IsBase(bool value) const { qgraphicsvideoitem_setextension_isbase = value; }
-    inline void setQGraphicsVideoItem_Extension_IsBase(bool value) const { qgraphicsvideoitem_extension_isbase = value; }
-    inline void setQGraphicsVideoItem_UpdateMicroFocus_IsBase(bool value) const { qgraphicsvideoitem_updatemicrofocus_isbase = value; }
-    inline void setQGraphicsVideoItem_Sender_IsBase(bool value) const { qgraphicsvideoitem_sender_isbase = value; }
-    inline void setQGraphicsVideoItem_SenderSignalIndex_IsBase(bool value) const { qgraphicsvideoitem_sendersignalindex_isbase = value; }
-    inline void setQGraphicsVideoItem_Receivers_IsBase(bool value) const { qgraphicsvideoitem_receivers_isbase = value; }
-    inline void setQGraphicsVideoItem_IsSignalConnected_IsBase(bool value) const { qgraphicsvideoitem_issignalconnected_isbase = value; }
-    inline void setQGraphicsVideoItem_AddToIndex_IsBase(bool value) const { qgraphicsvideoitem_addtoindex_isbase = value; }
-    inline void setQGraphicsVideoItem_RemoveFromIndex_IsBase(bool value) const { qgraphicsvideoitem_removefromindex_isbase = value; }
-    inline void setQGraphicsVideoItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicsvideoitem_preparegeometrychange_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qgraphicsvideoitem_metaobject_isbase) {
-            qgraphicsvideoitem_metaobject_isbase = false;
-            return QGraphicsVideoItem::metaObject();
-        }
-        auto metaobject_cb = qgraphicsvideoitem_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qgraphicsvideoitem_metaobject_callback) {
+            QMetaObject* callback_ret = qgraphicsvideoitem_metaobject_callback(this);
             return callback_ret;
         }
         return QGraphicsVideoItem::metaObject();
@@ -313,14 +164,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qgraphicsvideoitem_metacast_isbase) {
-            qgraphicsvideoitem_metacast_isbase = false;
-            return QGraphicsVideoItem::qt_metacast(param1);
-        }
-        auto metacast_cb = qgraphicsvideoitem_metacast_callback;
-        if (metacast_cb) {
+        if (qgraphicsvideoitem_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qgraphicsvideoitem_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QGraphicsVideoItem::qt_metacast(param1);
@@ -328,16 +174,11 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qgraphicsvideoitem_metacall_isbase) {
-            qgraphicsvideoitem_metacall_isbase = false;
-            return QGraphicsVideoItem::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qgraphicsvideoitem_metacall_callback;
-        if (metacall_cb) {
+        if (qgraphicsvideoitem_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qgraphicsvideoitem_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QGraphicsVideoItem::qt_metacall(param1, param2, param3);
@@ -345,13 +186,8 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual QRectF boundingRect() const override {
-        if (qgraphicsvideoitem_boundingrect_isbase) {
-            qgraphicsvideoitem_boundingrect_isbase = false;
-            return QGraphicsVideoItem::boundingRect();
-        }
-        auto boundingrect_cb = qgraphicsvideoitem_boundingrect_callback;
-        if (boundingrect_cb) {
-            QRectF* callback_ret = boundingrect_cb();
+        if (qgraphicsvideoitem_boundingrect_callback) {
+            QRectF* callback_ret = qgraphicsvideoitem_boundingrect_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -361,17 +197,11 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override {
-        if (qgraphicsvideoitem_paint_isbase) {
-            qgraphicsvideoitem_paint_isbase = false;
-            QGraphicsVideoItem::paint(painter, option, widget);
-            return;
-        }
-        auto paint_cb = qgraphicsvideoitem_paint_callback;
-        if (paint_cb) {
+        if (qgraphicsvideoitem_paint_callback) {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
-            paint_cb(this, cbval1, cbval2, cbval3);
+            qgraphicsvideoitem_paint_callback(this, cbval1, cbval2, cbval3);
             return;
         }
         QGraphicsVideoItem::paint(painter, option, widget);
@@ -379,13 +209,8 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual int type() const override {
-        if (qgraphicsvideoitem_type_isbase) {
-            qgraphicsvideoitem_type_isbase = false;
-            return QGraphicsVideoItem::type();
-        }
-        auto type_cb = qgraphicsvideoitem_type_callback;
-        if (type_cb) {
-            int callback_ret = type_cb();
+        if (qgraphicsvideoitem_type_callback) {
+            int callback_ret = qgraphicsvideoitem_type_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QGraphicsVideoItem::type();
@@ -393,15 +218,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qgraphicsvideoitem_timerevent_isbase) {
-            qgraphicsvideoitem_timerevent_isbase = false;
-            QGraphicsVideoItem::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qgraphicsvideoitem_timerevent_callback;
-        if (timerevent_cb) {
+        if (qgraphicsvideoitem_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qgraphicsvideoitem_timerevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::timerEvent(event);
@@ -409,17 +228,12 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant itemChange(QGraphicsItem::GraphicsItemChange change, const QVariant& value) override {
-        if (qgraphicsvideoitem_itemchange_isbase) {
-            qgraphicsvideoitem_itemchange_isbase = false;
-            return QGraphicsVideoItem::itemChange(change, value);
-        }
-        auto itemchange_cb = qgraphicsvideoitem_itemchange_callback;
-        if (itemchange_cb) {
+        if (qgraphicsvideoitem_itemchange_callback) {
             int cbval1 = static_cast<int>(change);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-            QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
+            QVariant* callback_ret = qgraphicsvideoitem_itemchange_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -429,14 +243,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* ev) override {
-        if (qgraphicsvideoitem_event_isbase) {
-            qgraphicsvideoitem_event_isbase = false;
-            return QGraphicsVideoItem::event(ev);
-        }
-        auto event_cb = qgraphicsvideoitem_event_callback;
-        if (event_cb) {
+        if (qgraphicsvideoitem_event_callback) {
             QEvent* cbval1 = ev;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qgraphicsvideoitem_event_callback(this, cbval1);
             return callback_ret;
         }
         return QGraphicsVideoItem::event(ev);
@@ -444,15 +253,10 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qgraphicsvideoitem_eventfilter_isbase) {
-            qgraphicsvideoitem_eventfilter_isbase = false;
-            return QGraphicsVideoItem::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qgraphicsvideoitem_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qgraphicsvideoitem_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qgraphicsvideoitem_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QGraphicsVideoItem::eventFilter(watched, event);
@@ -460,15 +264,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qgraphicsvideoitem_childevent_isbase) {
-            qgraphicsvideoitem_childevent_isbase = false;
-            QGraphicsVideoItem::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qgraphicsvideoitem_childevent_callback;
-        if (childevent_cb) {
+        if (qgraphicsvideoitem_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qgraphicsvideoitem_childevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::childEvent(event);
@@ -476,15 +274,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qgraphicsvideoitem_customevent_isbase) {
-            qgraphicsvideoitem_customevent_isbase = false;
-            QGraphicsVideoItem::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qgraphicsvideoitem_customevent_callback;
-        if (customevent_cb) {
+        if (qgraphicsvideoitem_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qgraphicsvideoitem_customevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::customEvent(event);
@@ -492,17 +284,11 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qgraphicsvideoitem_connectnotify_isbase) {
-            qgraphicsvideoitem_connectnotify_isbase = false;
-            QGraphicsVideoItem::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qgraphicsvideoitem_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qgraphicsvideoitem_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qgraphicsvideoitem_connectnotify_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::connectNotify(signal);
@@ -510,17 +296,11 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qgraphicsvideoitem_disconnectnotify_isbase) {
-            qgraphicsvideoitem_disconnectnotify_isbase = false;
-            QGraphicsVideoItem::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qgraphicsvideoitem_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qgraphicsvideoitem_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qgraphicsvideoitem_disconnectnotify_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::disconnectNotify(signal);
@@ -528,15 +308,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void advance(int phase) override {
-        if (qgraphicsvideoitem_advance_isbase) {
-            qgraphicsvideoitem_advance_isbase = false;
-            QGraphicsVideoItem::advance(phase);
-            return;
-        }
-        auto advance_cb = qgraphicsvideoitem_advance_callback;
-        if (advance_cb) {
+        if (qgraphicsvideoitem_advance_callback) {
             int cbval1 = phase;
-            advance_cb(this, cbval1);
+            qgraphicsvideoitem_advance_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::advance(phase);
@@ -544,13 +318,8 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainterPath shape() const override {
-        if (qgraphicsvideoitem_shape_isbase) {
-            qgraphicsvideoitem_shape_isbase = false;
-            return QGraphicsVideoItem::shape();
-        }
-        auto shape_cb = qgraphicsvideoitem_shape_callback;
-        if (shape_cb) {
-            QPainterPath* callback_ret = shape_cb();
+        if (qgraphicsvideoitem_shape_callback) {
+            QPainterPath* callback_ret = qgraphicsvideoitem_shape_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -560,16 +329,11 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool contains(const QPointF& point) const override {
-        if (qgraphicsvideoitem_contains_isbase) {
-            qgraphicsvideoitem_contains_isbase = false;
-            return QGraphicsVideoItem::contains(point);
-        }
-        auto contains_cb = qgraphicsvideoitem_contains_callback;
-        if (contains_cb) {
+        if (qgraphicsvideoitem_contains_callback) {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
-            bool callback_ret = contains_cb(this, cbval1);
+            bool callback_ret = qgraphicsvideoitem_contains_callback(this, cbval1);
             return callback_ret;
         }
         return QGraphicsVideoItem::contains(point);
@@ -577,15 +341,10 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool collidesWithItem(const QGraphicsItem* other, Qt::ItemSelectionMode mode) const override {
-        if (qgraphicsvideoitem_collideswithitem_isbase) {
-            qgraphicsvideoitem_collideswithitem_isbase = false;
-            return QGraphicsVideoItem::collidesWithItem(other, mode);
-        }
-        auto collideswithitem_cb = qgraphicsvideoitem_collideswithitem_callback;
-        if (collideswithitem_cb) {
+        if (qgraphicsvideoitem_collideswithitem_callback) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
-            bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
+            bool callback_ret = qgraphicsvideoitem_collideswithitem_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QGraphicsVideoItem::collidesWithItem(other, mode);
@@ -593,17 +352,12 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool collidesWithPath(const QPainterPath& path, Qt::ItemSelectionMode mode) const override {
-        if (qgraphicsvideoitem_collideswithpath_isbase) {
-            qgraphicsvideoitem_collideswithpath_isbase = false;
-            return QGraphicsVideoItem::collidesWithPath(path, mode);
-        }
-        auto collideswithpath_cb = qgraphicsvideoitem_collideswithpath_callback;
-        if (collideswithpath_cb) {
+        if (qgraphicsvideoitem_collideswithpath_callback) {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
-            bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
+            bool callback_ret = qgraphicsvideoitem_collideswithpath_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QGraphicsVideoItem::collidesWithPath(path, mode);
@@ -611,14 +365,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool isObscuredBy(const QGraphicsItem* item) const override {
-        if (qgraphicsvideoitem_isobscuredby_isbase) {
-            qgraphicsvideoitem_isobscuredby_isbase = false;
-            return QGraphicsVideoItem::isObscuredBy(item);
-        }
-        auto isobscuredby_cb = qgraphicsvideoitem_isobscuredby_callback;
-        if (isobscuredby_cb) {
+        if (qgraphicsvideoitem_isobscuredby_callback) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
-            bool callback_ret = isobscuredby_cb(this, cbval1);
+            bool callback_ret = qgraphicsvideoitem_isobscuredby_callback(this, cbval1);
             return callback_ret;
         }
         return QGraphicsVideoItem::isObscuredBy(item);
@@ -626,13 +375,8 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainterPath opaqueArea() const override {
-        if (qgraphicsvideoitem_opaquearea_isbase) {
-            qgraphicsvideoitem_opaquearea_isbase = false;
-            return QGraphicsVideoItem::opaqueArea();
-        }
-        auto opaquearea_cb = qgraphicsvideoitem_opaquearea_callback;
-        if (opaquearea_cb) {
-            QPainterPath* callback_ret = opaquearea_cb();
+        if (qgraphicsvideoitem_opaquearea_callback) {
+            QPainterPath* callback_ret = qgraphicsvideoitem_opaquearea_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -642,15 +386,10 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool sceneEventFilter(QGraphicsItem* watched, QEvent* event) override {
-        if (qgraphicsvideoitem_sceneeventfilter_isbase) {
-            qgraphicsvideoitem_sceneeventfilter_isbase = false;
-            return QGraphicsVideoItem::sceneEventFilter(watched, event);
-        }
-        auto sceneeventfilter_cb = qgraphicsvideoitem_sceneeventfilter_callback;
-        if (sceneeventfilter_cb) {
+        if (qgraphicsvideoitem_sceneeventfilter_callback) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qgraphicsvideoitem_sceneeventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QGraphicsVideoItem::sceneEventFilter(watched, event);
@@ -658,14 +397,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool sceneEvent(QEvent* event) override {
-        if (qgraphicsvideoitem_sceneevent_isbase) {
-            qgraphicsvideoitem_sceneevent_isbase = false;
-            return QGraphicsVideoItem::sceneEvent(event);
-        }
-        auto sceneevent_cb = qgraphicsvideoitem_sceneevent_callback;
-        if (sceneevent_cb) {
+        if (qgraphicsvideoitem_sceneevent_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = sceneevent_cb(this, cbval1);
+            bool callback_ret = qgraphicsvideoitem_sceneevent_callback(this, cbval1);
             return callback_ret;
         }
         return QGraphicsVideoItem::sceneEvent(event);
@@ -673,15 +407,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QGraphicsSceneContextMenuEvent* event) override {
-        if (qgraphicsvideoitem_contextmenuevent_isbase) {
-            qgraphicsvideoitem_contextmenuevent_isbase = false;
-            QGraphicsVideoItem::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qgraphicsvideoitem_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qgraphicsvideoitem_contextmenuevent_callback) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qgraphicsvideoitem_contextmenuevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::contextMenuEvent(event);
@@ -689,15 +417,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QGraphicsSceneDragDropEvent* event) override {
-        if (qgraphicsvideoitem_dragenterevent_isbase) {
-            qgraphicsvideoitem_dragenterevent_isbase = false;
-            QGraphicsVideoItem::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qgraphicsvideoitem_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qgraphicsvideoitem_dragenterevent_callback) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qgraphicsvideoitem_dragenterevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::dragEnterEvent(event);
@@ -705,15 +427,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QGraphicsSceneDragDropEvent* event) override {
-        if (qgraphicsvideoitem_dragleaveevent_isbase) {
-            qgraphicsvideoitem_dragleaveevent_isbase = false;
-            QGraphicsVideoItem::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qgraphicsvideoitem_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qgraphicsvideoitem_dragleaveevent_callback) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qgraphicsvideoitem_dragleaveevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::dragLeaveEvent(event);
@@ -721,15 +437,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QGraphicsSceneDragDropEvent* event) override {
-        if (qgraphicsvideoitem_dragmoveevent_isbase) {
-            qgraphicsvideoitem_dragmoveevent_isbase = false;
-            QGraphicsVideoItem::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qgraphicsvideoitem_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qgraphicsvideoitem_dragmoveevent_callback) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qgraphicsvideoitem_dragmoveevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::dragMoveEvent(event);
@@ -737,15 +447,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QGraphicsSceneDragDropEvent* event) override {
-        if (qgraphicsvideoitem_dropevent_isbase) {
-            qgraphicsvideoitem_dropevent_isbase = false;
-            QGraphicsVideoItem::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qgraphicsvideoitem_dropevent_callback;
-        if (dropevent_cb) {
+        if (qgraphicsvideoitem_dropevent_callback) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qgraphicsvideoitem_dropevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::dropEvent(event);
@@ -753,15 +457,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qgraphicsvideoitem_focusinevent_isbase) {
-            qgraphicsvideoitem_focusinevent_isbase = false;
-            QGraphicsVideoItem::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qgraphicsvideoitem_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qgraphicsvideoitem_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qgraphicsvideoitem_focusinevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::focusInEvent(event);
@@ -769,15 +467,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qgraphicsvideoitem_focusoutevent_isbase) {
-            qgraphicsvideoitem_focusoutevent_isbase = false;
-            QGraphicsVideoItem::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qgraphicsvideoitem_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qgraphicsvideoitem_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qgraphicsvideoitem_focusoutevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::focusOutEvent(event);
@@ -785,15 +477,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void hoverEnterEvent(QGraphicsSceneHoverEvent* event) override {
-        if (qgraphicsvideoitem_hoverenterevent_isbase) {
-            qgraphicsvideoitem_hoverenterevent_isbase = false;
-            QGraphicsVideoItem::hoverEnterEvent(event);
-            return;
-        }
-        auto hoverenterevent_cb = qgraphicsvideoitem_hoverenterevent_callback;
-        if (hoverenterevent_cb) {
+        if (qgraphicsvideoitem_hoverenterevent_callback) {
             QGraphicsSceneHoverEvent* cbval1 = event;
-            hoverenterevent_cb(this, cbval1);
+            qgraphicsvideoitem_hoverenterevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::hoverEnterEvent(event);
@@ -801,15 +487,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void hoverMoveEvent(QGraphicsSceneHoverEvent* event) override {
-        if (qgraphicsvideoitem_hovermoveevent_isbase) {
-            qgraphicsvideoitem_hovermoveevent_isbase = false;
-            QGraphicsVideoItem::hoverMoveEvent(event);
-            return;
-        }
-        auto hovermoveevent_cb = qgraphicsvideoitem_hovermoveevent_callback;
-        if (hovermoveevent_cb) {
+        if (qgraphicsvideoitem_hovermoveevent_callback) {
             QGraphicsSceneHoverEvent* cbval1 = event;
-            hovermoveevent_cb(this, cbval1);
+            qgraphicsvideoitem_hovermoveevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::hoverMoveEvent(event);
@@ -817,15 +497,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void hoverLeaveEvent(QGraphicsSceneHoverEvent* event) override {
-        if (qgraphicsvideoitem_hoverleaveevent_isbase) {
-            qgraphicsvideoitem_hoverleaveevent_isbase = false;
-            QGraphicsVideoItem::hoverLeaveEvent(event);
-            return;
-        }
-        auto hoverleaveevent_cb = qgraphicsvideoitem_hoverleaveevent_callback;
-        if (hoverleaveevent_cb) {
+        if (qgraphicsvideoitem_hoverleaveevent_callback) {
             QGraphicsSceneHoverEvent* cbval1 = event;
-            hoverleaveevent_cb(this, cbval1);
+            qgraphicsvideoitem_hoverleaveevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::hoverLeaveEvent(event);
@@ -833,15 +507,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qgraphicsvideoitem_keypressevent_isbase) {
-            qgraphicsvideoitem_keypressevent_isbase = false;
-            QGraphicsVideoItem::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qgraphicsvideoitem_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qgraphicsvideoitem_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qgraphicsvideoitem_keypressevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::keyPressEvent(event);
@@ -849,15 +517,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qgraphicsvideoitem_keyreleaseevent_isbase) {
-            qgraphicsvideoitem_keyreleaseevent_isbase = false;
-            QGraphicsVideoItem::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qgraphicsvideoitem_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qgraphicsvideoitem_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qgraphicsvideoitem_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::keyReleaseEvent(event);
@@ -865,15 +527,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QGraphicsSceneMouseEvent* event) override {
-        if (qgraphicsvideoitem_mousepressevent_isbase) {
-            qgraphicsvideoitem_mousepressevent_isbase = false;
-            QGraphicsVideoItem::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qgraphicsvideoitem_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qgraphicsvideoitem_mousepressevent_callback) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qgraphicsvideoitem_mousepressevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::mousePressEvent(event);
@@ -881,15 +537,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent* event) override {
-        if (qgraphicsvideoitem_mousemoveevent_isbase) {
-            qgraphicsvideoitem_mousemoveevent_isbase = false;
-            QGraphicsVideoItem::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qgraphicsvideoitem_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qgraphicsvideoitem_mousemoveevent_callback) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qgraphicsvideoitem_mousemoveevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::mouseMoveEvent(event);
@@ -897,15 +547,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override {
-        if (qgraphicsvideoitem_mousereleaseevent_isbase) {
-            qgraphicsvideoitem_mousereleaseevent_isbase = false;
-            QGraphicsVideoItem::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qgraphicsvideoitem_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qgraphicsvideoitem_mousereleaseevent_callback) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qgraphicsvideoitem_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::mouseReleaseEvent(event);
@@ -913,15 +557,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) override {
-        if (qgraphicsvideoitem_mousedoubleclickevent_isbase) {
-            qgraphicsvideoitem_mousedoubleclickevent_isbase = false;
-            QGraphicsVideoItem::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qgraphicsvideoitem_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qgraphicsvideoitem_mousedoubleclickevent_callback) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qgraphicsvideoitem_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::mouseDoubleClickEvent(event);
@@ -929,15 +567,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QGraphicsSceneWheelEvent* event) override {
-        if (qgraphicsvideoitem_wheelevent_isbase) {
-            qgraphicsvideoitem_wheelevent_isbase = false;
-            QGraphicsVideoItem::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qgraphicsvideoitem_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qgraphicsvideoitem_wheelevent_callback) {
             QGraphicsSceneWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qgraphicsvideoitem_wheelevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::wheelEvent(event);
@@ -945,15 +577,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* event) override {
-        if (qgraphicsvideoitem_inputmethodevent_isbase) {
-            qgraphicsvideoitem_inputmethodevent_isbase = false;
-            QGraphicsVideoItem::inputMethodEvent(event);
-            return;
-        }
-        auto inputmethodevent_cb = qgraphicsvideoitem_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qgraphicsvideoitem_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = event;
-            inputmethodevent_cb(this, cbval1);
+            qgraphicsvideoitem_inputmethodevent_callback(this, cbval1);
             return;
         }
         QGraphicsVideoItem::inputMethodEvent(event);
@@ -961,14 +587,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery query) const override {
-        if (qgraphicsvideoitem_inputmethodquery_isbase) {
-            qgraphicsvideoitem_inputmethodquery_isbase = false;
-            return QGraphicsVideoItem::inputMethodQuery(query);
-        }
-        auto inputmethodquery_cb = qgraphicsvideoitem_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qgraphicsvideoitem_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(query);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qgraphicsvideoitem_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -978,14 +599,9 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual bool supportsExtension(QGraphicsItem::Extension extension) const override {
-        if (qgraphicsvideoitem_supportsextension_isbase) {
-            qgraphicsvideoitem_supportsextension_isbase = false;
-            return QGraphicsVideoItem::supportsExtension(extension);
-        }
-        auto supportsextension_cb = qgraphicsvideoitem_supportsextension_callback;
-        if (supportsextension_cb) {
+        if (qgraphicsvideoitem_supportsextension_callback) {
             int cbval1 = static_cast<int>(extension);
-            bool callback_ret = supportsextension_cb(this, cbval1);
+            bool callback_ret = qgraphicsvideoitem_supportsextension_callback(this, cbval1);
             return callback_ret;
         }
         return QGraphicsVideoItem::supportsExtension(extension);
@@ -993,18 +609,12 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual void setExtension(QGraphicsItem::Extension extension, const QVariant& variant) override {
-        if (qgraphicsvideoitem_setextension_isbase) {
-            qgraphicsvideoitem_setextension_isbase = false;
-            QGraphicsVideoItem::setExtension(extension, variant);
-            return;
-        }
-        auto setextension_cb = qgraphicsvideoitem_setextension_callback;
-        if (setextension_cb) {
+        if (qgraphicsvideoitem_setextension_callback) {
             int cbval1 = static_cast<int>(extension);
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
-            setextension_cb(this, cbval1, cbval2);
+            qgraphicsvideoitem_setextension_callback(this, cbval1, cbval2);
             return;
         }
         QGraphicsVideoItem::setExtension(extension, variant);
@@ -1012,16 +622,11 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant extension(const QVariant& variant) const override {
-        if (qgraphicsvideoitem_extension_isbase) {
-            qgraphicsvideoitem_extension_isbase = false;
-            return QGraphicsVideoItem::extension(variant);
-        }
-        auto extension_cb = qgraphicsvideoitem_extension_callback;
-        if (extension_cb) {
+        if (qgraphicsvideoitem_extension_callback) {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
-            QVariant* callback_ret = extension_cb(this, cbval1);
+            QVariant* callback_ret = qgraphicsvideoitem_extension_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1029,205 +634,38 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
         return QGraphicsVideoItem::extension(variant);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qgraphicsvideoitem_updatemicrofocus_isbase) {
-            qgraphicsvideoitem_updatemicrofocus_isbase = false;
-            QGraphicsVideoItem::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qgraphicsvideoitem_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QGraphicsVideoItem::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qgraphicsvideoitem_sender_isbase) {
-            qgraphicsvideoitem_sender_isbase = false;
-            return QGraphicsVideoItem::sender();
-        }
-        auto sender_cb = qgraphicsvideoitem_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QGraphicsVideoItem::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qgraphicsvideoitem_sendersignalindex_isbase) {
-            qgraphicsvideoitem_sendersignalindex_isbase = false;
-            return QGraphicsVideoItem::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qgraphicsvideoitem_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QGraphicsVideoItem::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qgraphicsvideoitem_receivers_isbase) {
-            qgraphicsvideoitem_receivers_isbase = false;
-            return QGraphicsVideoItem::receivers(signal);
-        }
-        auto receivers_cb = qgraphicsvideoitem_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QGraphicsVideoItem::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qgraphicsvideoitem_issignalconnected_isbase) {
-            qgraphicsvideoitem_issignalconnected_isbase = false;
-            return QGraphicsVideoItem::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qgraphicsvideoitem_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QGraphicsVideoItem::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void addToIndex() {
-        if (qgraphicsvideoitem_addtoindex_isbase) {
-            qgraphicsvideoitem_addtoindex_isbase = false;
-            QGraphicsVideoItem::addToIndex();
-            return;
-        }
-        auto addtoindex_cb = qgraphicsvideoitem_addtoindex_callback;
-        if (addtoindex_cb) {
-            addtoindex_cb();
-            return;
-        }
-        QGraphicsVideoItem::addToIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void removeFromIndex() {
-        if (qgraphicsvideoitem_removefromindex_isbase) {
-            qgraphicsvideoitem_removefromindex_isbase = false;
-            QGraphicsVideoItem::removeFromIndex();
-            return;
-        }
-        auto removefromindex_cb = qgraphicsvideoitem_removefromindex_callback;
-        if (removefromindex_cb) {
-            removefromindex_cb();
-            return;
-        }
-        QGraphicsVideoItem::removeFromIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void prepareGeometryChange() {
-        if (qgraphicsvideoitem_preparegeometrychange_isbase) {
-            qgraphicsvideoitem_preparegeometrychange_isbase = false;
-            QGraphicsVideoItem::prepareGeometryChange();
-            return;
-        }
-        auto preparegeometrychange_cb = qgraphicsvideoitem_preparegeometrychange_callback;
-        if (preparegeometrychange_cb) {
-            preparegeometrychange_cb();
-            return;
-        }
-        QGraphicsVideoItem::prepareGeometryChange();
-    }
-
     // Friend functions
-    friend void QGraphicsVideoItem_TimerEvent(QGraphicsVideoItem* self, QTimerEvent* event);
     friend void QGraphicsVideoItem_SuperTimerEvent(QGraphicsVideoItem* self, QTimerEvent* event);
-    friend QVariant* QGraphicsVideoItem_ItemChange(QGraphicsVideoItem* self, int change, const QVariant* value);
     friend QVariant* QGraphicsVideoItem_SuperItemChange(QGraphicsVideoItem* self, int change, const QVariant* value);
-    friend bool QGraphicsVideoItem_Event(QGraphicsVideoItem* self, QEvent* ev);
     friend bool QGraphicsVideoItem_SuperEvent(QGraphicsVideoItem* self, QEvent* ev);
-    friend void QGraphicsVideoItem_ChildEvent(QGraphicsVideoItem* self, QChildEvent* event);
     friend void QGraphicsVideoItem_SuperChildEvent(QGraphicsVideoItem* self, QChildEvent* event);
-    friend void QGraphicsVideoItem_CustomEvent(QGraphicsVideoItem* self, QEvent* event);
     friend void QGraphicsVideoItem_SuperCustomEvent(QGraphicsVideoItem* self, QEvent* event);
-    friend void QGraphicsVideoItem_ConnectNotify(QGraphicsVideoItem* self, const QMetaMethod* signal);
     friend void QGraphicsVideoItem_SuperConnectNotify(QGraphicsVideoItem* self, const QMetaMethod* signal);
-    friend void QGraphicsVideoItem_DisconnectNotify(QGraphicsVideoItem* self, const QMetaMethod* signal);
     friend void QGraphicsVideoItem_SuperDisconnectNotify(QGraphicsVideoItem* self, const QMetaMethod* signal);
-    friend bool QGraphicsVideoItem_SceneEventFilter(QGraphicsVideoItem* self, QGraphicsItem* watched, QEvent* event);
     friend bool QGraphicsVideoItem_SuperSceneEventFilter(QGraphicsVideoItem* self, QGraphicsItem* watched, QEvent* event);
-    friend bool QGraphicsVideoItem_SceneEvent(QGraphicsVideoItem* self, QEvent* event);
     friend bool QGraphicsVideoItem_SuperSceneEvent(QGraphicsVideoItem* self, QEvent* event);
-    friend void QGraphicsVideoItem_ContextMenuEvent(QGraphicsVideoItem* self, QGraphicsSceneContextMenuEvent* event);
     friend void QGraphicsVideoItem_SuperContextMenuEvent(QGraphicsVideoItem* self, QGraphicsSceneContextMenuEvent* event);
-    friend void QGraphicsVideoItem_DragEnterEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event);
     friend void QGraphicsVideoItem_SuperDragEnterEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event);
-    friend void QGraphicsVideoItem_DragLeaveEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event);
     friend void QGraphicsVideoItem_SuperDragLeaveEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event);
-    friend void QGraphicsVideoItem_DragMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event);
     friend void QGraphicsVideoItem_SuperDragMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event);
-    friend void QGraphicsVideoItem_DropEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event);
     friend void QGraphicsVideoItem_SuperDropEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event);
-    friend void QGraphicsVideoItem_FocusInEvent(QGraphicsVideoItem* self, QFocusEvent* event);
     friend void QGraphicsVideoItem_SuperFocusInEvent(QGraphicsVideoItem* self, QFocusEvent* event);
-    friend void QGraphicsVideoItem_FocusOutEvent(QGraphicsVideoItem* self, QFocusEvent* event);
     friend void QGraphicsVideoItem_SuperFocusOutEvent(QGraphicsVideoItem* self, QFocusEvent* event);
-    friend void QGraphicsVideoItem_HoverEnterEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event);
     friend void QGraphicsVideoItem_SuperHoverEnterEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event);
-    friend void QGraphicsVideoItem_HoverMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event);
     friend void QGraphicsVideoItem_SuperHoverMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event);
-    friend void QGraphicsVideoItem_HoverLeaveEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event);
     friend void QGraphicsVideoItem_SuperHoverLeaveEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event);
-    friend void QGraphicsVideoItem_KeyPressEvent(QGraphicsVideoItem* self, QKeyEvent* event);
     friend void QGraphicsVideoItem_SuperKeyPressEvent(QGraphicsVideoItem* self, QKeyEvent* event);
-    friend void QGraphicsVideoItem_KeyReleaseEvent(QGraphicsVideoItem* self, QKeyEvent* event);
     friend void QGraphicsVideoItem_SuperKeyReleaseEvent(QGraphicsVideoItem* self, QKeyEvent* event);
-    friend void QGraphicsVideoItem_MousePressEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event);
     friend void QGraphicsVideoItem_SuperMousePressEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event);
-    friend void QGraphicsVideoItem_MouseMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event);
     friend void QGraphicsVideoItem_SuperMouseMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event);
-    friend void QGraphicsVideoItem_MouseReleaseEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event);
     friend void QGraphicsVideoItem_SuperMouseReleaseEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event);
-    friend void QGraphicsVideoItem_MouseDoubleClickEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event);
     friend void QGraphicsVideoItem_SuperMouseDoubleClickEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event);
-    friend void QGraphicsVideoItem_WheelEvent(QGraphicsVideoItem* self, QGraphicsSceneWheelEvent* event);
     friend void QGraphicsVideoItem_SuperWheelEvent(QGraphicsVideoItem* self, QGraphicsSceneWheelEvent* event);
-    friend void QGraphicsVideoItem_InputMethodEvent(QGraphicsVideoItem* self, QInputMethodEvent* event);
     friend void QGraphicsVideoItem_SuperInputMethodEvent(QGraphicsVideoItem* self, QInputMethodEvent* event);
-    friend QVariant* QGraphicsVideoItem_InputMethodQuery(const QGraphicsVideoItem* self, int query);
     friend QVariant* QGraphicsVideoItem_SuperInputMethodQuery(const QGraphicsVideoItem* self, int query);
-    friend bool QGraphicsVideoItem_SupportsExtension(const QGraphicsVideoItem* self, int extension);
     friend bool QGraphicsVideoItem_SuperSupportsExtension(const QGraphicsVideoItem* self, int extension);
-    friend void QGraphicsVideoItem_SetExtension(QGraphicsVideoItem* self, int extension, const QVariant* variant);
     friend void QGraphicsVideoItem_SuperSetExtension(QGraphicsVideoItem* self, int extension, const QVariant* variant);
-    friend QVariant* QGraphicsVideoItem_Extension(const QGraphicsVideoItem* self, const QVariant* variant);
     friend QVariant* QGraphicsVideoItem_SuperExtension(const QGraphicsVideoItem* self, const QVariant* variant);
-    friend void QGraphicsVideoItem_UpdateMicroFocus(QGraphicsVideoItem* self);
-    friend void QGraphicsVideoItem_SuperUpdateMicroFocus(QGraphicsVideoItem* self);
-    friend QObject* QGraphicsVideoItem_Sender(const QGraphicsVideoItem* self);
-    friend QObject* QGraphicsVideoItem_SuperSender(const QGraphicsVideoItem* self);
-    friend int QGraphicsVideoItem_SenderSignalIndex(const QGraphicsVideoItem* self);
-    friend int QGraphicsVideoItem_SuperSenderSignalIndex(const QGraphicsVideoItem* self);
-    friend int QGraphicsVideoItem_Receivers(const QGraphicsVideoItem* self, const char* signal);
-    friend int QGraphicsVideoItem_SuperReceivers(const QGraphicsVideoItem* self, const char* signal);
-    friend bool QGraphicsVideoItem_IsSignalConnected(const QGraphicsVideoItem* self, const QMetaMethod* signal);
-    friend bool QGraphicsVideoItem_SuperIsSignalConnected(const QGraphicsVideoItem* self, const QMetaMethod* signal);
-    friend void QGraphicsVideoItem_AddToIndex(QGraphicsVideoItem* self);
-    friend void QGraphicsVideoItem_SuperAddToIndex(QGraphicsVideoItem* self);
-    friend void QGraphicsVideoItem_RemoveFromIndex(QGraphicsVideoItem* self);
-    friend void QGraphicsVideoItem_SuperRemoveFromIndex(QGraphicsVideoItem* self);
-    friend void QGraphicsVideoItem_PrepareGeometryChange(QGraphicsVideoItem* self);
-    friend void QGraphicsVideoItem_SuperPrepareGeometryChange(QGraphicsVideoItem* self);
 };
 
 #endif

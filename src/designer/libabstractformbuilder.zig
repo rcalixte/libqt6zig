@@ -282,52 +282,6 @@ pub const QAbstractFormBuilder = extern struct {
         return qtc.QAbstractFormBuilder_ApplyPropertyInternally(@ptrCast(self.ptr), @ptrCast(o.ptr), propertyName_str, @ptrCast(value.ptr));
     }
 
-    /// ### DEPRECATED: Use `onApplyPropertyInternally` instead
-    ///
-    pub const OnApplyPropertyInternally = onApplyPropertyInternally;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#applyPropertyInternally)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractFormBuilder `
-    ///
-    /// ` callback: *const fn (self: QAbstractFormBuilder, o: QObject, propertyName: [*:0]const u8, value: QVariant) callconv(.c) bool `
-    ///
-    pub fn onApplyPropertyInternally(self: QAbstractFormBuilder, callback: *const fn (QAbstractFormBuilder, QObject, [*:0]const u8, QVariant) callconv(.c) bool) void {
-        qtc.QAbstractFormBuilder_OnApplyPropertyInternally(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superApplyPropertyInternally` instead
-    ///
-    pub const SuperApplyPropertyInternally = superApplyPropertyInternally;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#applyPropertyInternally)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractFormBuilder `
-    ///
-    /// ` o: QObject `
-    ///
-    /// ` propertyName: []const u8 `
-    ///
-    /// ` value: QVariant `
-    ///
-    pub fn superApplyPropertyInternally(self: QAbstractFormBuilder, o: anytype, propertyName: []const u8, value: anytype) bool {
-        comptime _ = @TypeOf(o)._is_QObject;
-        const propertyName_str = qtc.libqt_string{
-            .len = propertyName.len,
-            .data = propertyName.ptr,
-        };
-        comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.QAbstractFormBuilder_SuperApplyPropertyInternally(@ptrCast(self.ptr), @ptrCast(o.ptr), propertyName_str, @ptrCast(value.ptr));
-    }
-
     /// ### DEPRECATED: Use `createWidget` instead
     ///
     pub const CreateWidget = createWidget;
@@ -696,40 +650,6 @@ pub const QAbstractFormBuilder = extern struct {
         qtc.QAbstractFormBuilder_Reset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onReset` instead
-    ///
-    pub const OnReset = onReset;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#reset)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractFormBuilder `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onReset(self: QAbstractFormBuilder, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractFormBuilder_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superReset` instead
-    ///
-    pub const SuperReset = superReset;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#reset)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractFormBuilder `
-    ///
-    pub fn superReset(self: QAbstractFormBuilder) void {
-        qtc.QAbstractFormBuilder_SuperReset(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `toolBarAreaMetaEnum` instead
     ///
     pub const ToolBarAreaMetaEnum = toolBarAreaMetaEnum;
@@ -742,42 +662,6 @@ pub const QAbstractFormBuilder = extern struct {
     ///
     pub fn toolBarAreaMetaEnum(self: QAbstractFormBuilder) QMetaEnum {
         return .{ .ptr = qtc.QAbstractFormBuilder_ToolBarAreaMetaEnum(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onToolBarAreaMetaEnum` instead
-    ///
-    pub const OnToolBarAreaMetaEnum = onToolBarAreaMetaEnum;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#toolBarAreaMetaEnum)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractFormBuilder `
-    ///
-    /// ` callback: *const fn () callconv(.c) QMetaEnum `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onToolBarAreaMetaEnum(self: QAbstractFormBuilder, callback: *const fn () callconv(.c) QMetaEnum) void {
-        qtc.QAbstractFormBuilder_OnToolBarAreaMetaEnum(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superToolBarAreaMetaEnum` instead
-    ///
-    pub const SuperToolBarAreaMetaEnum = superToolBarAreaMetaEnum;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#toolBarAreaMetaEnum)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractFormBuilder `
-    ///
-    pub fn superToolBarAreaMetaEnum(self: QAbstractFormBuilder) QMetaEnum {
-        return .{ .ptr = qtc.QAbstractFormBuilder_SuperToolBarAreaMetaEnum(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `delete` instead

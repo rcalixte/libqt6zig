@@ -192,9 +192,9 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KUrlComboBox) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KUrlComboBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KUrlComboBox, callback: *const fn (KUrlComboBox) callconv(.c) QMetaObject) void {
         qtc.KUrlComboBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9786,11 +9786,11 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KUrlComboBox) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KUrlComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KUrlComboBox, callback: *const fn (KUrlComboBox) callconv(.c) QSize) void {
         qtc.KUrlComboBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10132,11 +10132,11 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KUrlComboBox) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KUrlComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KUrlComboBox, callback: *const fn (KUrlComboBox) callconv(.c) QSize) void {
         qtc.KUrlComboBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10190,9 +10190,9 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlComboBox) callconv(.c) void `
     ///
-    pub fn onShowPopup(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowPopup(self: KUrlComboBox, callback: *const fn (KUrlComboBox) callconv(.c) void) void {
         qtc.KUrlComboBox_OnShowPopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10246,9 +10246,9 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlComboBox) callconv(.c) void `
     ///
-    pub fn onHidePopup(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onHidePopup(self: KUrlComboBox, callback: *const fn (KUrlComboBox) callconv(.c) void) void {
         qtc.KUrlComboBox_OnHidePopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11294,9 +11294,9 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KUrlComboBox) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KUrlComboBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KUrlComboBox, callback: *const fn (KUrlComboBox) callconv(.c) i32) void {
         qtc.KUrlComboBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11470,9 +11470,9 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlComboBox) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KUrlComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KUrlComboBox, callback: *const fn (KUrlComboBox) callconv(.c) bool) void {
         qtc.KUrlComboBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11526,9 +11526,9 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KUrlComboBox) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KUrlComboBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KUrlComboBox, callback: *const fn (KUrlComboBox) callconv(.c) QPaintEngine) void {
         qtc.KUrlComboBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12524,9 +12524,9 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KUrlComboBox) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KUrlComboBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KUrlComboBox, callback: *const fn (KUrlComboBox) callconv(.c) QPainter) void {
         qtc.KUrlComboBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13170,44 +13170,6 @@ pub const KUrlComboBox = extern struct {
         qtc.KUrlComboBox_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    pub fn superUpdateMicroFocus(self: KUrlComboBox) void {
-        qtc.KUrlComboBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlComboBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -13224,44 +13186,6 @@ pub const KUrlComboBox = extern struct {
     ///
     pub fn create(self: KUrlComboBox) void {
         qtc.KUrlComboBox_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    pub fn superCreate(self: KUrlComboBox) void {
-        qtc.KUrlComboBox_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlComboBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -13282,44 +13206,6 @@ pub const KUrlComboBox = extern struct {
         qtc.KUrlComboBox_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    pub fn superDestroy(self: KUrlComboBox) void {
-        qtc.KUrlComboBox_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlComboBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -13336,44 +13222,6 @@ pub const KUrlComboBox = extern struct {
     ///
     pub fn focusNextChild(self: KUrlComboBox) bool {
         return qtc.KUrlComboBox_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    pub fn superFocusNextChild(self: KUrlComboBox) bool {
-        return qtc.KUrlComboBox_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KUrlComboBox, callback: *const fn () callconv(.c) bool) void {
-        qtc.KUrlComboBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -13394,44 +13242,6 @@ pub const KUrlComboBox = extern struct {
         return qtc.KUrlComboBox_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    pub fn superFocusPreviousChild(self: KUrlComboBox) bool {
-        return qtc.KUrlComboBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KUrlComboBox, callback: *const fn () callconv(.c) bool) void {
-        qtc.KUrlComboBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -13450,44 +13260,6 @@ pub const KUrlComboBox = extern struct {
         return .{ .ptr = qtc.KUrlComboBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    pub fn superSender(self: KUrlComboBox) QObject {
-        return .{ .ptr = qtc.KUrlComboBox_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KUrlComboBox, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KUrlComboBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -13504,44 +13276,6 @@ pub const KUrlComboBox = extern struct {
     ///
     pub fn senderSignalIndex(self: KUrlComboBox) i32 {
         return qtc.KUrlComboBox_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    pub fn superSenderSignalIndex(self: KUrlComboBox) i32 {
-        return qtc.KUrlComboBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KUrlComboBox, callback: *const fn () callconv(.c) i32) void {
-        qtc.KUrlComboBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -13565,47 +13299,6 @@ pub const KUrlComboBox = extern struct {
         return qtc.KUrlComboBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KUrlComboBox, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KUrlComboBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboBox`
-    ///
-    /// ` callback: *const fn (self: KUrlComboBox, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KUrlComboBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -13625,47 +13318,6 @@ pub const KUrlComboBox = extern struct {
     pub fn isSignalConnected(self: KUrlComboBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KUrlComboBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KUrlComboBox, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KUrlComboBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboBox`
-    ///
-    /// ` callback: *const fn (self: KUrlComboBox, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMetaMethod) callconv(.c) bool) void {
-        qtc.KUrlComboBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -13688,48 +13340,6 @@ pub const KUrlComboBox = extern struct {
     ///
     pub fn getDecodedMetricF(self: KUrlComboBox, metricA: i32, metricB: i32) f64 {
         return qtc.KUrlComboBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KUrlComboBox, metricA: i32, metricB: i32) f64 {
-        return qtc.KUrlComboBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboBox`
-    ///
-    /// ` callback: *const fn (self: KUrlComboBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32, i32) callconv(.c) f64) void {
-        qtc.KUrlComboBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `keyBindingMap` instead
@@ -13779,77 +13389,6 @@ pub const KUrlComboBox = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superKeyBindingMap` instead
-    ///
-    pub const SuperKeyBindingMap = superKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
-    ///
-    pub fn superKeyBindingMap(self: KUrlComboBox, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
-        const _map: qtc.libqt_map = qtc.KUrlComboBox_SuperKeyBindingMap(@ptrCast(self.ptr));
-        var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KUrlComboBox.keyBindingMap: Total capacity allocation failed");
-        defer {
-            const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
-            for (0.._map.len) |i| {
-                qtc.libqt_free(_values[i].data);
-            }
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KUrlComboBox.keyBindingMap: Memory allocation failed");
-            const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
-            for (0.._value.len) |j|
-                _value_slice[j] = .{ .ptr = _value_data[j] };
-            _ret.putAssumeCapacity(_key, _value_slice);
-        }
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onKeyBindingMap` instead
-    ///
-    pub const OnKeyBindingMap = onKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of ArrayMap_i32_SliceQKeySequence `
-    ///
-    pub fn onKeyBindingMap(self: KUrlComboBox, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.KUrlComboBox_OnKeyBindingMap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setKeyBindingMap` instead
     ///
     pub const SetKeyBindingMap = setKeyBindingMap;
@@ -13893,69 +13432,6 @@ pub const KUrlComboBox = extern struct {
         qtc.KUrlComboBox_SetKeyBindingMap(@ptrCast(self.ptr), keyBindingMap_map);
     }
 
-    /// ### DEPRECATED: Use `superSetKeyBindingMap` instead
-    ///
-    pub const SuperSetKeyBindingMap = superSetKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` _keyBindingMap: ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
-    ///
-    pub fn superSetKeyBindingMap(self: KUrlComboBox, allocator: std.mem.Allocator, _keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
-        const keyBindingMap_count = _keyBindingMap.count();
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KUrlComboBox.setKeyBindingMap: Memory allocation failed");
-        defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KUrlComboBox.setKeyBindingMap: Memory allocation failed");
-        defer allocator.free(keyBindingMap_values);
-        var keyBindingMap_i: usize = 0;
-        var keyBindingMap_it = _keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |it_entry| : (keyBindingMap_i += 1) {
-            const keyBindingMap_key = it_entry.key_ptr.*;
-            keyBindingMap_keys[keyBindingMap_i] = @bitCast(keyBindingMap_key);
-            const value = it_entry.value_ptr.*;
-            keyBindingMap_values[keyBindingMap_i] = qtc.libqt_list{
-                .len = value.len,
-                .data = @ptrCast(value.ptr),
-            };
-        }
-        const keyBindingMap_map = qtc.libqt_map{
-            .len = keyBindingMap_count,
-            .keys = @ptrCast(keyBindingMap_keys.ptr),
-            .values = @ptrCast(keyBindingMap_values.ptr),
-        };
-        qtc.KUrlComboBox_SuperSetKeyBindingMap(@ptrCast(self.ptr), keyBindingMap_map);
-    }
-
-    /// ### DEPRECATED: Use `onSetKeyBindingMap` instead
-    ///
-    pub const OnSetKeyBindingMap = onSetKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboBox`
-    ///
-    /// ` callback: *const fn (self: KUrlComboBox, keyBindingMap: qtc.libqt_map (ArrayMap_i32_SliceQKeySequence)) callconv(.c) void `
-    ///
-    pub fn onSetKeyBindingMap(self: KUrlComboBox, callback: *const fn (KUrlComboBox, qtc.libqt_map) callconv(.c) void) void {
-        qtc.KUrlComboBox_OnSetKeyBindingMap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setDelegate` instead
     ///
     pub const SetDelegate = setDelegate;
@@ -13978,48 +13454,6 @@ pub const KUrlComboBox = extern struct {
         qtc.KUrlComboBox_SetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate_.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetDelegate` instead
-    ///
-    pub const SuperSetDelegate = superSetDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    /// ` _delegate: KCompletionBase `
-    ///
-    pub fn superSetDelegate(self: KUrlComboBox, _delegate: anytype) void {
-        comptime _ = @TypeOf(_delegate)._is_KCompletionBase;
-        const _delegate_ = if (@hasDecl(@TypeOf(_delegate), "asKCompletionBase")) _delegate.asKCompletionBase() else _delegate;
-        qtc.KUrlComboBox_SuperSetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate_.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDelegate` instead
-    ///
-    pub const OnSetDelegate = onSetDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboBox`
-    ///
-    /// ` callback: *const fn (self: KUrlComboBox, delegate: KCompletionBase) callconv(.c) void `
-    ///
-    pub fn onSetDelegate(self: KUrlComboBox, callback: *const fn (KUrlComboBox, KCompletionBase) callconv(.c) void) void {
-        qtc.KUrlComboBox_OnSetDelegate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `delegate` instead
     ///
     pub const Delegate = delegate;
@@ -14036,44 +13470,6 @@ pub const KUrlComboBox = extern struct {
     ///
     pub fn delegate(self: KUrlComboBox) KCompletionBase {
         return .{ .ptr = qtc.KUrlComboBox_Delegate(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superDelegate` instead
-    ///
-    pub const SuperDelegate = superDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    pub fn superDelegate(self: KUrlComboBox) KCompletionBase {
-        return .{ .ptr = qtc.KUrlComboBox_SuperDelegate(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDelegate` instead
-    ///
-    pub const OnDelegate = onDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlComboBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) KCompletionBase `
-    ///
-    pub fn onDelegate(self: KUrlComboBox, callback: *const fn () callconv(.c) KCompletionBase) void {
-        qtc.KUrlComboBox_OnDelegate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

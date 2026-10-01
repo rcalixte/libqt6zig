@@ -90,364 +90,219 @@ libqt_string KIO__KUriFilterSearchProviderActions_Tr3(const char* s, const char*
 
 // Base class handler implementation
 QMetaObject* KIO__KUriFilterSearchProviderActions_SuperMetaObject(const KIO__KUriFilterSearchProviderActions* self) {
-    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_MetaObject_IsBase(true);
-        return (QMetaObject*)vkiokurifiltersearchprovideractions->metaObject();
-    } else {
-        return (QMetaObject*)self->KIO::KUriFilterSearchProviderActions::metaObject();
-    }
+    return (QMetaObject*)self->KIO::KUriFilterSearchProviderActions::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIO__KUriFilterSearchProviderActions_OnMetaObject(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
-    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_MetaObject_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_MetaObject_Callback>(slot));
+void KIO__KUriFilterSearchProviderActions_OnMetaObject(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
+    if (auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self)))
+        vkiokurifiltersearchprovideractions->kio__kurifiltersearchprovideractions_metaobject_callback = reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KIO__KUriFilterSearchProviderActions_SuperMetacast(KIO__KUriFilterSearchProviderActions* self, const char* param1) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Metacast_IsBase(true);
-        return vkiokurifiltersearchprovideractions->qt_metacast(param1);
-    } else {
-        return self->KIO::KUriFilterSearchProviderActions::qt_metacast(param1);
-    }
+    return self->KIO::KUriFilterSearchProviderActions::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnMetacast(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Metacast_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_Metacast_Callback>(slot));
+    if (auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self))
+        vkiokurifiltersearchprovideractions->kio__kurifiltersearchprovideractions_metacast_callback = reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KIO__KUriFilterSearchProviderActions_SuperMetacall(KIO__KUriFilterSearchProviderActions* self, int param1, int param2, void** param3) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Metacall_IsBase(true);
-        return vkiokurifiltersearchprovideractions->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KIO::KUriFilterSearchProviderActions::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KIO::KUriFilterSearchProviderActions::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnMetacall(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Metacall_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_Metacall_Callback>(slot));
+    if (auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self))
+        vkiokurifiltersearchprovideractions->kio__kurifiltersearchprovideractions_metacall_callback = reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__KUriFilterSearchProviderActions_Event(KIO__KUriFilterSearchProviderActions* self, QEvent* event) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        return vkiokurifiltersearchprovideractions->event(event);
-    } else {
-        return self->KIO::KUriFilterSearchProviderActions::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KIO__KUriFilterSearchProviderActions_SuperEvent(KIO__KUriFilterSearchProviderActions* self, QEvent* event) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Event_IsBase(true);
-        return vkiokurifiltersearchprovideractions->event(event);
-    } else {
-        return self->KIO::KUriFilterSearchProviderActions::event(event);
-    }
+    return self->KIO::KUriFilterSearchProviderActions::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnEvent(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Event_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_Event_Callback>(slot));
+    if (auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self))
+        vkiokurifiltersearchprovideractions->kio__kurifiltersearchprovideractions_event_callback = reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__KUriFilterSearchProviderActions_EventFilter(KIO__KUriFilterSearchProviderActions* self, QObject* watched, QEvent* event) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        return vkiokurifiltersearchprovideractions->eventFilter(watched, event);
-    } else {
-        return self->KIO::KUriFilterSearchProviderActions::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KIO__KUriFilterSearchProviderActions_SuperEventFilter(KIO__KUriFilterSearchProviderActions* self, QObject* watched, QEvent* event) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_EventFilter_IsBase(true);
-        return vkiokurifiltersearchprovideractions->eventFilter(watched, event);
-    } else {
-        return self->KIO::KUriFilterSearchProviderActions::eventFilter(watched, event);
-    }
+    return self->KIO::KUriFilterSearchProviderActions::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnEventFilter(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_EventFilter_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_EventFilter_Callback>(slot));
+    if (auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self))
+        vkiokurifiltersearchprovideractions->kio__kurifiltersearchprovideractions_eventfilter_callback = reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__KUriFilterSearchProviderActions_TimerEvent(KIO__KUriFilterSearchProviderActions* self, QTimerEvent* event) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions) {
         vkiokurifiltersearchprovideractions->timerEvent(event);
     } else {
-        ((VirtualKIOKUriFilterSearchProviderActions*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KIO::KUriFilterSearchProviderActions::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__KUriFilterSearchProviderActions_SuperTimerEvent(KIO__KUriFilterSearchProviderActions* self, QTimerEvent* event) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_TimerEvent_IsBase(true);
-        vkiokurifiltersearchprovideractions->timerEvent(event);
-    } else {
-        ((VirtualKIOKUriFilterSearchProviderActions*)self)->timerEvent(event);
-    }
+    if (auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self)) {
+        vkiokurifiltersearchprovideractions->KIO::KUriFilterSearchProviderActions::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::KUriFilterSearchProviderActions::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnTimerEvent(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_TimerEvent_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_TimerEvent_Callback>(slot));
+    if (auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self))
+        vkiokurifiltersearchprovideractions->kio__kurifiltersearchprovideractions_timerevent_callback = reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__KUriFilterSearchProviderActions_ChildEvent(KIO__KUriFilterSearchProviderActions* self, QChildEvent* event) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions) {
         vkiokurifiltersearchprovideractions->childEvent(event);
     } else {
-        ((VirtualKIOKUriFilterSearchProviderActions*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KIO::KUriFilterSearchProviderActions::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__KUriFilterSearchProviderActions_SuperChildEvent(KIO__KUriFilterSearchProviderActions* self, QChildEvent* event) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_ChildEvent_IsBase(true);
-        vkiokurifiltersearchprovideractions->childEvent(event);
-    } else {
-        ((VirtualKIOKUriFilterSearchProviderActions*)self)->childEvent(event);
-    }
+    if (auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self)) {
+        vkiokurifiltersearchprovideractions->KIO::KUriFilterSearchProviderActions::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::KUriFilterSearchProviderActions::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnChildEvent(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_ChildEvent_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_ChildEvent_Callback>(slot));
+    if (auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self))
+        vkiokurifiltersearchprovideractions->kio__kurifiltersearchprovideractions_childevent_callback = reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__KUriFilterSearchProviderActions_CustomEvent(KIO__KUriFilterSearchProviderActions* self, QEvent* event) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions) {
         vkiokurifiltersearchprovideractions->customEvent(event);
     } else {
-        ((VirtualKIOKUriFilterSearchProviderActions*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KIO::KUriFilterSearchProviderActions::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__KUriFilterSearchProviderActions_SuperCustomEvent(KIO__KUriFilterSearchProviderActions* self, QEvent* event) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_CustomEvent_IsBase(true);
-        vkiokurifiltersearchprovideractions->customEvent(event);
-    } else {
-        ((VirtualKIOKUriFilterSearchProviderActions*)self)->customEvent(event);
-    }
+    if (auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self)) {
+        vkiokurifiltersearchprovideractions->KIO::KUriFilterSearchProviderActions::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::KUriFilterSearchProviderActions::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnCustomEvent(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_CustomEvent_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_CustomEvent_Callback>(slot));
+    if (auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self))
+        vkiokurifiltersearchprovideractions->kio__kurifiltersearchprovideractions_customevent_callback = reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__KUriFilterSearchProviderActions_ConnectNotify(KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions) {
         vkiokurifiltersearchprovideractions->connectNotify(*signal);
     } else {
-        ((VirtualKIOKUriFilterSearchProviderActions*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::KUriFilterSearchProviderActions::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__KUriFilterSearchProviderActions_SuperConnectNotify(KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_ConnectNotify_IsBase(true);
-        vkiokurifiltersearchprovideractions->connectNotify(*signal);
-    } else {
-        ((VirtualKIOKUriFilterSearchProviderActions*)self)->connectNotify(*signal);
-    }
+    if (auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self)) {
+        vkiokurifiltersearchprovideractions->KIO::KUriFilterSearchProviderActions::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::KUriFilterSearchProviderActions::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnConnectNotify(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_ConnectNotify_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_ConnectNotify_Callback>(slot));
+    if (auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self))
+        vkiokurifiltersearchprovideractions->kio__kurifiltersearchprovideractions_connectnotify_callback = reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__KUriFilterSearchProviderActions_DisconnectNotify(KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions) {
         vkiokurifiltersearchprovideractions->disconnectNotify(*signal);
     } else {
-        ((VirtualKIOKUriFilterSearchProviderActions*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::KUriFilterSearchProviderActions::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__KUriFilterSearchProviderActions_SuperDisconnectNotify(KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_DisconnectNotify_IsBase(true);
-        vkiokurifiltersearchprovideractions->disconnectNotify(*signal);
-    } else {
-        ((VirtualKIOKUriFilterSearchProviderActions*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self)) {
+        vkiokurifiltersearchprovideractions->KIO::KUriFilterSearchProviderActions::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::KUriFilterSearchProviderActions::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnDisconnectNotify(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
-    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_DisconnectNotify_Callback>(slot));
+    if (auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self))
+        vkiokurifiltersearchprovideractions->kio__kurifiltersearchprovideractions_disconnectnotify_callback = reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KIO__KUriFilterSearchProviderActions_Sender(const KIO__KUriFilterSearchProviderActions* self) {
-    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        return vkiokurifiltersearchprovideractions->sender();
-    } else {
-        return ((VirtualKIOKUriFilterSearchProviderActions*)self)->sender();
-    }
+    if (auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self))) {
+        return vkiokurifiltersearchprovideractions->VirtualKIOKUriFilterSearchProviderActions::sender();
+    } else
+        qFatal("Error: Protected method KIO::KUriFilterSearchProviderActions::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KIO__KUriFilterSearchProviderActions_SuperSender(const KIO__KUriFilterSearchProviderActions* self) {
-    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Sender_IsBase(true);
-        return vkiokurifiltersearchprovideractions->sender();
-    } else {
-        return ((VirtualKIOKUriFilterSearchProviderActions*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__KUriFilterSearchProviderActions_OnSender(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
-    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Sender_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__KUriFilterSearchProviderActions_SenderSignalIndex(const KIO__KUriFilterSearchProviderActions* self) {
-    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        return vkiokurifiltersearchprovideractions->senderSignalIndex();
-    } else {
-        return ((VirtualKIOKUriFilterSearchProviderActions*)self)->senderSignalIndex();
-    }
+    if (auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self))) {
+        return vkiokurifiltersearchprovideractions->VirtualKIOKUriFilterSearchProviderActions::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KIO::KUriFilterSearchProviderActions::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__KUriFilterSearchProviderActions_SuperSenderSignalIndex(const KIO__KUriFilterSearchProviderActions* self) {
-    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_SenderSignalIndex_IsBase(true);
-        return vkiokurifiltersearchprovideractions->senderSignalIndex();
-    } else {
-        return ((VirtualKIOKUriFilterSearchProviderActions*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__KUriFilterSearchProviderActions_OnSenderSignalIndex(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
-    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__KUriFilterSearchProviderActions_Receivers(const KIO__KUriFilterSearchProviderActions* self, const char* signal) {
-    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        return vkiokurifiltersearchprovideractions->receivers(signal);
-    } else {
-        return ((VirtualKIOKUriFilterSearchProviderActions*)self)->receivers(signal);
-    }
+    if (auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self))) {
+        return vkiokurifiltersearchprovideractions->VirtualKIOKUriFilterSearchProviderActions::receivers(signal);
+    } else
+        qFatal("Error: Protected method KIO::KUriFilterSearchProviderActions::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__KUriFilterSearchProviderActions_SuperReceivers(const KIO__KUriFilterSearchProviderActions* self, const char* signal) {
-    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Receivers_IsBase(true);
-        return vkiokurifiltersearchprovideractions->receivers(signal);
-    } else {
-        return ((VirtualKIOKUriFilterSearchProviderActions*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__KUriFilterSearchProviderActions_OnReceivers(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
-    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Receivers_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__KUriFilterSearchProviderActions_IsSignalConnected(const KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal) {
-    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        return vkiokurifiltersearchprovideractions->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIOKUriFilterSearchProviderActions*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KIO__KUriFilterSearchProviderActions_SuperIsSignalConnected(const KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal) {
-    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_IsSignalConnected_IsBase(true);
-        return vkiokurifiltersearchprovideractions->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIOKUriFilterSearchProviderActions*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__KUriFilterSearchProviderActions_OnIsSignalConnected(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
-    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
-        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_IsSignalConnected_Callback>(slot));
+    if (auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self))) {
+        return vkiokurifiltersearchprovideractions->VirtualKIOKUriFilterSearchProviderActions::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KIO::KUriFilterSearchProviderActions::isSignalConnected called without a directly constructed type");
 }
 
 void KIO__KUriFilterSearchProviderActions_Delete(KIO__KUriFilterSearchProviderActions* self) {

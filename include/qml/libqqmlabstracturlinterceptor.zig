@@ -29,6 +29,8 @@ pub const QQmlAbstractUrlInterceptor = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlabstracturlinterceptor.html#intercept)
     ///
+    /// This method must be implemented with `onIntercept` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QQmlAbstractUrlInterceptor `
@@ -60,27 +62,6 @@ pub const QQmlAbstractUrlInterceptor = extern struct {
     ///
     pub fn onIntercept(self: QQmlAbstractUrlInterceptor, callback: *const fn (QQmlAbstractUrlInterceptor, QUrl, i32) callconv(.c) QUrl) void {
         qtc.QQmlAbstractUrlInterceptor_OnIntercept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superIntercept` instead
-    ///
-    pub const SuperIntercept = superIntercept;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlabstracturlinterceptor.html#intercept)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlAbstractUrlInterceptor `
-    ///
-    /// ` path: QUrl `
-    ///
-    /// ` typeVal: qqmlabstracturlinterceptor_enums.DataType `
-    ///
-    pub fn superIntercept(self: QQmlAbstractUrlInterceptor, path: anytype, typeVal: i32) QUrl {
-        comptime _ = @TypeOf(path)._is_QUrl;
-        return .{ .ptr = qtc.QQmlAbstractUrlInterceptor_SuperIntercept(@ptrCast(self.ptr), @ptrCast(path.ptr), @bitCast(typeVal)) };
     }
 
     /// ### DEPRECATED: Use `operatorAssign` instead

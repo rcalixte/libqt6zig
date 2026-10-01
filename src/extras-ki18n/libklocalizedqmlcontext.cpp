@@ -2663,336 +2663,203 @@ libqt_string KLocalizedQmlContext_Xi18ndcp14(const KLocalizedQmlContext* self, c
 
 // Base class handler implementation
 QMetaObject* KLocalizedQmlContext_SuperMetaObject(const KLocalizedQmlContext* self) {
-    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        vklocalizedqmlcontext->setKLocalizedQmlContext_MetaObject_IsBase(true);
-        return (QMetaObject*)vklocalizedqmlcontext->metaObject();
-    } else {
-        return (QMetaObject*)self->KLocalizedQmlContext::metaObject();
-    }
+    return (QMetaObject*)self->KLocalizedQmlContext::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLocalizedQmlContext_OnMetaObject(const KLocalizedQmlContext* self, intptr_t slot) {
-    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext)
-        vklocalizedqmlcontext->setKLocalizedQmlContext_MetaObject_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_MetaObject_Callback>(slot));
+void KLocalizedQmlContext_OnMetaObject(KLocalizedQmlContext* self, intptr_t slot) {
+    if (auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self)))
+        vklocalizedqmlcontext->klocalizedqmlcontext_metaobject_callback = reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KLocalizedQmlContext_SuperMetacast(KLocalizedQmlContext* self, const char* param1) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        vklocalizedqmlcontext->setKLocalizedQmlContext_Metacast_IsBase(true);
-        return vklocalizedqmlcontext->qt_metacast(param1);
-    } else {
-        return self->KLocalizedQmlContext::qt_metacast(param1);
-    }
+    return self->KLocalizedQmlContext::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedQmlContext_OnMetacast(KLocalizedQmlContext* self, intptr_t slot) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext)
-        vklocalizedqmlcontext->setKLocalizedQmlContext_Metacast_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_Metacast_Callback>(slot));
+    if (auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self))
+        vklocalizedqmlcontext->klocalizedqmlcontext_metacast_callback = reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KLocalizedQmlContext_SuperMetacall(KLocalizedQmlContext* self, int param1, int param2, void** param3) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        vklocalizedqmlcontext->setKLocalizedQmlContext_Metacall_IsBase(true);
-        return vklocalizedqmlcontext->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KLocalizedQmlContext::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KLocalizedQmlContext::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedQmlContext_OnMetacall(KLocalizedQmlContext* self, intptr_t slot) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext)
-        vklocalizedqmlcontext->setKLocalizedQmlContext_Metacall_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_Metacall_Callback>(slot));
+    if (auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self))
+        vklocalizedqmlcontext->klocalizedqmlcontext_metacall_callback = reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLocalizedQmlContext_Event(KLocalizedQmlContext* self, QEvent* event) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        return vklocalizedqmlcontext->event(event);
-    } else {
-        return self->KLocalizedQmlContext::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KLocalizedQmlContext_SuperEvent(KLocalizedQmlContext* self, QEvent* event) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        vklocalizedqmlcontext->setKLocalizedQmlContext_Event_IsBase(true);
-        return vklocalizedqmlcontext->event(event);
-    } else {
-        return self->KLocalizedQmlContext::event(event);
-    }
+    return self->KLocalizedQmlContext::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedQmlContext_OnEvent(KLocalizedQmlContext* self, intptr_t slot) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext)
-        vklocalizedqmlcontext->setKLocalizedQmlContext_Event_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_Event_Callback>(slot));
+    if (auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self))
+        vklocalizedqmlcontext->klocalizedqmlcontext_event_callback = reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLocalizedQmlContext_TimerEvent(KLocalizedQmlContext* self, QTimerEvent* event) {
     auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
+    if (vklocalizedqmlcontext) {
         vklocalizedqmlcontext->timerEvent(event);
     } else {
-        ((VirtualKLocalizedQmlContext*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KLocalizedQmlContext::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLocalizedQmlContext_SuperTimerEvent(KLocalizedQmlContext* self, QTimerEvent* event) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        vklocalizedqmlcontext->setKLocalizedQmlContext_TimerEvent_IsBase(true);
-        vklocalizedqmlcontext->timerEvent(event);
-    } else {
-        ((VirtualKLocalizedQmlContext*)self)->timerEvent(event);
-    }
+    if (auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self)) {
+        vklocalizedqmlcontext->KLocalizedQmlContext::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLocalizedQmlContext::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedQmlContext_OnTimerEvent(KLocalizedQmlContext* self, intptr_t slot) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext)
-        vklocalizedqmlcontext->setKLocalizedQmlContext_TimerEvent_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_TimerEvent_Callback>(slot));
+    if (auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self))
+        vklocalizedqmlcontext->klocalizedqmlcontext_timerevent_callback = reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLocalizedQmlContext_ChildEvent(KLocalizedQmlContext* self, QChildEvent* event) {
     auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
+    if (vklocalizedqmlcontext) {
         vklocalizedqmlcontext->childEvent(event);
     } else {
-        ((VirtualKLocalizedQmlContext*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KLocalizedQmlContext::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLocalizedQmlContext_SuperChildEvent(KLocalizedQmlContext* self, QChildEvent* event) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        vklocalizedqmlcontext->setKLocalizedQmlContext_ChildEvent_IsBase(true);
-        vklocalizedqmlcontext->childEvent(event);
-    } else {
-        ((VirtualKLocalizedQmlContext*)self)->childEvent(event);
-    }
+    if (auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self)) {
+        vklocalizedqmlcontext->KLocalizedQmlContext::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLocalizedQmlContext::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedQmlContext_OnChildEvent(KLocalizedQmlContext* self, intptr_t slot) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext)
-        vklocalizedqmlcontext->setKLocalizedQmlContext_ChildEvent_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_ChildEvent_Callback>(slot));
+    if (auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self))
+        vklocalizedqmlcontext->klocalizedqmlcontext_childevent_callback = reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLocalizedQmlContext_CustomEvent(KLocalizedQmlContext* self, QEvent* event) {
     auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
+    if (vklocalizedqmlcontext) {
         vklocalizedqmlcontext->customEvent(event);
     } else {
-        ((VirtualKLocalizedQmlContext*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KLocalizedQmlContext::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLocalizedQmlContext_SuperCustomEvent(KLocalizedQmlContext* self, QEvent* event) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        vklocalizedqmlcontext->setKLocalizedQmlContext_CustomEvent_IsBase(true);
-        vklocalizedqmlcontext->customEvent(event);
-    } else {
-        ((VirtualKLocalizedQmlContext*)self)->customEvent(event);
-    }
+    if (auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self)) {
+        vklocalizedqmlcontext->KLocalizedQmlContext::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLocalizedQmlContext::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedQmlContext_OnCustomEvent(KLocalizedQmlContext* self, intptr_t slot) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext)
-        vklocalizedqmlcontext->setKLocalizedQmlContext_CustomEvent_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_CustomEvent_Callback>(slot));
+    if (auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self))
+        vklocalizedqmlcontext->klocalizedqmlcontext_customevent_callback = reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLocalizedQmlContext_ConnectNotify(KLocalizedQmlContext* self, const QMetaMethod* signal) {
     auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
+    if (vklocalizedqmlcontext) {
         vklocalizedqmlcontext->connectNotify(*signal);
     } else {
-        ((VirtualKLocalizedQmlContext*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KLocalizedQmlContext::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLocalizedQmlContext_SuperConnectNotify(KLocalizedQmlContext* self, const QMetaMethod* signal) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        vklocalizedqmlcontext->setKLocalizedQmlContext_ConnectNotify_IsBase(true);
-        vklocalizedqmlcontext->connectNotify(*signal);
-    } else {
-        ((VirtualKLocalizedQmlContext*)self)->connectNotify(*signal);
-    }
+    if (auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self)) {
+        vklocalizedqmlcontext->KLocalizedQmlContext::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KLocalizedQmlContext::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedQmlContext_OnConnectNotify(KLocalizedQmlContext* self, intptr_t slot) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext)
-        vklocalizedqmlcontext->setKLocalizedQmlContext_ConnectNotify_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_ConnectNotify_Callback>(slot));
+    if (auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self))
+        vklocalizedqmlcontext->klocalizedqmlcontext_connectnotify_callback = reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLocalizedQmlContext_DisconnectNotify(KLocalizedQmlContext* self, const QMetaMethod* signal) {
     auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
+    if (vklocalizedqmlcontext) {
         vklocalizedqmlcontext->disconnectNotify(*signal);
     } else {
-        ((VirtualKLocalizedQmlContext*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KLocalizedQmlContext::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLocalizedQmlContext_SuperDisconnectNotify(KLocalizedQmlContext* self, const QMetaMethod* signal) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        vklocalizedqmlcontext->setKLocalizedQmlContext_DisconnectNotify_IsBase(true);
-        vklocalizedqmlcontext->disconnectNotify(*signal);
-    } else {
-        ((VirtualKLocalizedQmlContext*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self)) {
+        vklocalizedqmlcontext->KLocalizedQmlContext::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KLocalizedQmlContext::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedQmlContext_OnDisconnectNotify(KLocalizedQmlContext* self, intptr_t slot) {
-    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext)
-        vklocalizedqmlcontext->setKLocalizedQmlContext_DisconnectNotify_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_DisconnectNotify_Callback>(slot));
+    if (auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self))
+        vklocalizedqmlcontext->klocalizedqmlcontext_disconnectnotify_callback = reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KLocalizedQmlContext_Sender(const KLocalizedQmlContext* self) {
-    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        return vklocalizedqmlcontext->sender();
-    } else {
-        return ((VirtualKLocalizedQmlContext*)self)->sender();
-    }
+    if (auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self))) {
+        return vklocalizedqmlcontext->VirtualKLocalizedQmlContext::sender();
+    } else
+        qFatal("Error: Protected method KLocalizedQmlContext::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KLocalizedQmlContext_SuperSender(const KLocalizedQmlContext* self) {
-    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        vklocalizedqmlcontext->setKLocalizedQmlContext_Sender_IsBase(true);
-        return vklocalizedqmlcontext->sender();
-    } else {
-        return ((VirtualKLocalizedQmlContext*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLocalizedQmlContext_OnSender(const KLocalizedQmlContext* self, intptr_t slot) {
-    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext)
-        vklocalizedqmlcontext->setKLocalizedQmlContext_Sender_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KLocalizedQmlContext_SenderSignalIndex(const KLocalizedQmlContext* self) {
-    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        return vklocalizedqmlcontext->senderSignalIndex();
-    } else {
-        return ((VirtualKLocalizedQmlContext*)self)->senderSignalIndex();
-    }
+    if (auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self))) {
+        return vklocalizedqmlcontext->VirtualKLocalizedQmlContext::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KLocalizedQmlContext::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KLocalizedQmlContext_SuperSenderSignalIndex(const KLocalizedQmlContext* self) {
-    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        vklocalizedqmlcontext->setKLocalizedQmlContext_SenderSignalIndex_IsBase(true);
-        return vklocalizedqmlcontext->senderSignalIndex();
-    } else {
-        return ((VirtualKLocalizedQmlContext*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLocalizedQmlContext_OnSenderSignalIndex(const KLocalizedQmlContext* self, intptr_t slot) {
-    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext)
-        vklocalizedqmlcontext->setKLocalizedQmlContext_SenderSignalIndex_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KLocalizedQmlContext_Receivers(const KLocalizedQmlContext* self, const char* signal) {
-    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        return vklocalizedqmlcontext->receivers(signal);
-    } else {
-        return ((VirtualKLocalizedQmlContext*)self)->receivers(signal);
-    }
+    if (auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self))) {
+        return vklocalizedqmlcontext->VirtualKLocalizedQmlContext::receivers(signal);
+    } else
+        qFatal("Error: Protected method KLocalizedQmlContext::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KLocalizedQmlContext_SuperReceivers(const KLocalizedQmlContext* self, const char* signal) {
-    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        vklocalizedqmlcontext->setKLocalizedQmlContext_Receivers_IsBase(true);
-        return vklocalizedqmlcontext->receivers(signal);
-    } else {
-        return ((VirtualKLocalizedQmlContext*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLocalizedQmlContext_OnReceivers(const KLocalizedQmlContext* self, intptr_t slot) {
-    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext)
-        vklocalizedqmlcontext->setKLocalizedQmlContext_Receivers_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KLocalizedQmlContext_IsSignalConnected(const KLocalizedQmlContext* self, const QMetaMethod* signal) {
-    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        return vklocalizedqmlcontext->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKLocalizedQmlContext*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KLocalizedQmlContext_SuperIsSignalConnected(const KLocalizedQmlContext* self, const QMetaMethod* signal) {
-    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
-        vklocalizedqmlcontext->setKLocalizedQmlContext_IsSignalConnected_IsBase(true);
-        return vklocalizedqmlcontext->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKLocalizedQmlContext*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLocalizedQmlContext_OnIsSignalConnected(const KLocalizedQmlContext* self, intptr_t slot) {
-    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
-    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext)
-        vklocalizedqmlcontext->setKLocalizedQmlContext_IsSignalConnected_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_IsSignalConnected_Callback>(slot));
+    if (auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self))) {
+        return vklocalizedqmlcontext->VirtualKLocalizedQmlContext::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KLocalizedQmlContext::isSignalConnected called without a directly constructed type");
 }
 
 void KLocalizedQmlContext_Delete(KLocalizedQmlContext* self) {

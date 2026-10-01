@@ -297,110 +297,68 @@ int QListWidgetItem_Type(const QListWidgetItem* self) {
 
 // Base class handler implementation
 QListWidgetItem* QListWidgetItem_SuperClone(const QListWidgetItem* self) {
-    auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
-        vqlistwidgetitem->setQListWidgetItem_Clone_IsBase(true);
-        return vqlistwidgetitem->clone();
-    } else {
-        return self->QListWidgetItem::clone();
-    }
+    return self->QListWidgetItem::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidgetItem_OnClone(const QListWidgetItem* self, intptr_t slot) {
-    auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem)
-        vqlistwidgetitem->setQListWidgetItem_Clone_Callback(reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_Clone_Callback>(slot));
+void QListWidgetItem_OnClone(QListWidgetItem* self, intptr_t slot) {
+    if (auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self)))
+        vqlistwidgetitem->qlistwidgetitem_clone_callback = reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_Clone_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QListWidgetItem_SuperData(const QListWidgetItem* self, int role) {
-    auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
-        vqlistwidgetitem->setQListWidgetItem_Data_IsBase(true);
-        return new QVariant(vqlistwidgetitem->data(static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQListWidgetItem*)self)->data(static_cast<int>(role)));
-    }
+    return new QVariant(self->QListWidgetItem::data(static_cast<int>(role)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidgetItem_OnData(const QListWidgetItem* self, intptr_t slot) {
-    auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem)
-        vqlistwidgetitem->setQListWidgetItem_Data_Callback(reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_Data_Callback>(slot));
+void QListWidgetItem_OnData(QListWidgetItem* self, intptr_t slot) {
+    if (auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self)))
+        vqlistwidgetitem->qlistwidgetitem_data_callback = reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_Data_Callback>(slot);
 }
 
 // Base class handler implementation
 void QListWidgetItem_SuperSetData(QListWidgetItem* self, int role, const QVariant* value) {
-    auto* vqlistwidgetitem = dynamic_cast<VirtualQListWidgetItem*>(self);
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
-        vqlistwidgetitem->setQListWidgetItem_SetData_IsBase(true);
-        vqlistwidgetitem->setData(static_cast<int>(role), *value);
-    } else {
-        self->QListWidgetItem::setData(static_cast<int>(role), *value);
-    }
+    self->QListWidgetItem::setData(static_cast<int>(role), *value);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidgetItem_OnSetData(QListWidgetItem* self, intptr_t slot) {
-    auto* vqlistwidgetitem = dynamic_cast<VirtualQListWidgetItem*>(self);
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem)
-        vqlistwidgetitem->setQListWidgetItem_SetData_Callback(reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_SetData_Callback>(slot));
+    if (auto* vqlistwidgetitem = dynamic_cast<VirtualQListWidgetItem*>(self))
+        vqlistwidgetitem->qlistwidgetitem_setdata_callback = reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_SetData_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QListWidgetItem_SuperOperatorLesser(const QListWidgetItem* self, const QListWidgetItem* other) {
-    auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
-        vqlistwidgetitem->setQListWidgetItem_OperatorLesser_IsBase(true);
-        return vqlistwidgetitem->operator<(*other);
-    } else {
-        return self->QListWidgetItem::operator<(*other);
-    }
+    return self->QListWidgetItem::operator<(*other);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidgetItem_OnOperatorLesser(const QListWidgetItem* self, intptr_t slot) {
-    auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem)
-        vqlistwidgetitem->setQListWidgetItem_OperatorLesser_Callback(reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_OperatorLesser_Callback>(slot));
+void QListWidgetItem_OnOperatorLesser(QListWidgetItem* self, intptr_t slot) {
+    if (auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self)))
+        vqlistwidgetitem->qlistwidgetitem_operatorlesser_callback = reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_OperatorLesser_Callback>(slot);
 }
 
 // Base class handler implementation
 void QListWidgetItem_SuperRead(QListWidgetItem* self, QDataStream* in) {
-    auto* vqlistwidgetitem = dynamic_cast<VirtualQListWidgetItem*>(self);
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
-        vqlistwidgetitem->setQListWidgetItem_Read_IsBase(true);
-        vqlistwidgetitem->read(*in);
-    } else {
-        self->QListWidgetItem::read(*in);
-    }
+    self->QListWidgetItem::read(*in);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidgetItem_OnRead(QListWidgetItem* self, intptr_t slot) {
-    auto* vqlistwidgetitem = dynamic_cast<VirtualQListWidgetItem*>(self);
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem)
-        vqlistwidgetitem->setQListWidgetItem_Read_Callback(reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_Read_Callback>(slot));
+    if (auto* vqlistwidgetitem = dynamic_cast<VirtualQListWidgetItem*>(self))
+        vqlistwidgetitem->qlistwidgetitem_read_callback = reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_Read_Callback>(slot);
 }
 
 // Base class handler implementation
 void QListWidgetItem_SuperWrite(const QListWidgetItem* self, QDataStream* out) {
-    auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
-        vqlistwidgetitem->setQListWidgetItem_Write_IsBase(true);
-        vqlistwidgetitem->write(*out);
-    } else {
-        self->QListWidgetItem::write(*out);
-    }
+    self->QListWidgetItem::write(*out);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidgetItem_OnWrite(const QListWidgetItem* self, intptr_t slot) {
-    auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem)
-        vqlistwidgetitem->setQListWidgetItem_Write_Callback(reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_Write_Callback>(slot));
+void QListWidgetItem_OnWrite(QListWidgetItem* self, intptr_t slot) {
+    if (auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self)))
+        vqlistwidgetitem->qlistwidgetitem_write_callback = reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_Write_Callback>(slot);
 }
 
 void QListWidgetItem_Delete(QListWidgetItem* self) {
@@ -625,7 +583,7 @@ QListWidgetItem* QListWidget_ItemFromIndex(const QListWidget* self, const QModel
 
 void QListWidget_DropEvent(QListWidget* self, QDropEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->dropEvent(event);
     }
 }
@@ -789,15 +747,15 @@ void QListWidget_Connect_ItemSelectionChanged(QListWidget* self, intptr_t slot) 
 
 bool QListWidget_Event(QListWidget* self, QEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return vqlistwidget->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QListWidget::event called without a directly constructed type");
 }
 
 libqt_list /* of libqt_string */ QListWidget_MimeTypes(const QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<const VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         QList<QString> _ret = vqlistwidget->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
@@ -817,7 +775,7 @@ libqt_list /* of libqt_string */ QListWidget_MimeTypes(const QListWidget* self) 
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
-    return {};
+    qFatal("Error: Protected method QListWidget::mimeTypes called without a directly constructed type");
 }
 
 QMimeData* QListWidget_MimeData(const QListWidget* self, const libqt_list /* of QListWidgetItem* */ items) {
@@ -828,26 +786,26 @@ QMimeData* QListWidget_MimeData(const QListWidget* self, const libqt_list /* of 
         items_QList.push_back(items_arr[i]);
     }
     auto* vqlistwidget = dynamic_cast<const VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return vqlistwidget->mimeData(items_QList);
     }
-    return {};
+    qFatal("Error: Protected method QListWidget::mimeData called without a directly constructed type");
 }
 
 bool QListWidget_DropMimeData(QListWidget* self, int index, const QMimeData* data, int action) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return vqlistwidget->dropMimeData(static_cast<int>(index), data, static_cast<Qt::DropAction>(action));
     }
-    return {};
+    qFatal("Error: Protected method QListWidget::dropMimeData called without a directly constructed type");
 }
 
 int QListWidget_SupportedDropActions(const QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<const VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return static_cast<int>(vqlistwidget->supportedDropActions());
     }
-    return {};
+    qFatal("Error: Protected method QListWidget::supportedDropActions called without a directly constructed type");
 }
 
 libqt_string QListWidget_Tr2(const char* s, const char* c) {
@@ -884,118 +842,80 @@ void QListWidget_ScrollToItem2(QListWidget* self, const QListWidgetItem* item, i
 
 // Base class handler implementation
 QMetaObject* QListWidget_SuperMetaObject(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vqlistwidget->metaObject();
-    } else {
-        return (QMetaObject*)self->QListWidget::metaObject();
-    }
+    return (QMetaObject*)self->QListWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnMetaObject(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_MetaObject_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MetaObject_Callback>(slot));
+void QListWidget_OnMetaObject(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_metaobject_callback = reinterpret_cast<VirtualQListWidget::QListWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QListWidget_SuperMetacast(QListWidget* self, const char* param1) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_Metacast_IsBase(true);
-        return vqlistwidget->qt_metacast(param1);
-    } else {
-        return self->QListWidget::qt_metacast(param1);
-    }
+    return self->QListWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMetacast(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_Metacast_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Metacast_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_metacast_callback = reinterpret_cast<VirtualQListWidget::QListWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QListWidget_SuperMetacall(QListWidget* self, int param1, int param2, void** param3) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_Metacall_IsBase(true);
-        return vqlistwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QListWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QListWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMetacall(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_Metacall_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Metacall_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_metacall_callback = reinterpret_cast<VirtualQListWidget::QListWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QListWidget_SuperSetSelectionModel(QListWidget* self, QItemSelectionModel* selectionModel) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SetSelectionModel_IsBase(true);
-        vqlistwidget->setSelectionModel(selectionModel);
-    } else {
-        self->QListWidget::setSelectionModel(selectionModel);
-    }
+    self->QListWidget::setSelectionModel(selectionModel);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSetSelectionModel(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SetSelectionModel_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetSelectionModel_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_setselectionmodel_callback = reinterpret_cast<VirtualQListWidget::QListWidget_SetSelectionModel_Callback>(slot);
 }
 
 // Base class handler implementation
 void QListWidget_SuperDropEvent(QListWidget* self, QDropEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_DropEvent_IsBase(true);
-        vqlistwidget->dropEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->dropEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDropEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_DropEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DropEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_dropevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_DropEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QListWidget_SuperEvent(QListWidget* self, QEvent* e) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_Event_IsBase(true);
-        return vqlistwidget->event(e);
-    } else {
-        return ((VirtualQListWidget*)self)->event(e);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        return vqlistwidget->QListWidget::event(e);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_Event_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Event_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_event_callback = reinterpret_cast<VirtualQListWidget::QListWidget_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QListWidget_SuperMimeTypes(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_MimeTypes_IsBase(true);
-        QList<QString> _ret = vqlistwidget->mimeTypes();
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        QList<QString> _ret = vqlistwidget->QListWidget::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -1013,807 +933,620 @@ libqt_list /* of libqt_string */ QListWidget_SuperMimeTypes(const QListWidget* s
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQListWidget*)self)->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected virtual method QListWidget::mimeTypes called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnMimeTypes(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_MimeTypes_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MimeTypes_Callback>(slot));
+void QListWidget_OnMimeTypes(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_mimetypes_callback = reinterpret_cast<VirtualQListWidget::QListWidget_MimeTypes_Callback>(slot);
 }
 
 // Base class handler implementation
 QMimeData* QListWidget_SuperMimeData(const QListWidget* self, const libqt_list /* of QListWidgetItem* */ items) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     QList<QListWidgetItem*> items_QList;
     items_QList.reserve(items.len);
     QListWidgetItem** items_arr = static_cast<QListWidgetItem**>(items.data);
     for (size_t i = 0; i < items.len; ++i) {
         items_QList.push_back(items_arr[i]);
     }
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_MimeData_IsBase(true);
-        return vqlistwidget->mimeData(items_QList);
-    } else {
-        return ((VirtualQListWidget*)self)->mimeData(items_QList);
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return vqlistwidget->QListWidget::mimeData(items_QList);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::mimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnMimeData(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_MimeData_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MimeData_Callback>(slot));
+void QListWidget_OnMimeData(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_mimedata_callback = reinterpret_cast<VirtualQListWidget::QListWidget_MimeData_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QListWidget_SuperDropMimeData(QListWidget* self, int index, const QMimeData* data, int action) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_DropMimeData_IsBase(true);
-        return vqlistwidget->dropMimeData(static_cast<int>(index), data, static_cast<Qt::DropAction>(action));
-    } else {
-        return ((VirtualQListWidget*)self)->dropMimeData(static_cast<int>(index), data, static_cast<Qt::DropAction>(action));
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        return vqlistwidget->QListWidget::dropMimeData(static_cast<int>(index), data, static_cast<Qt::DropAction>(action));
+    } else
+        qFatal("Error: Protected virtual method QListWidget::dropMimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDropMimeData(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_DropMimeData_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DropMimeData_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_dropmimedata_callback = reinterpret_cast<VirtualQListWidget::QListWidget_DropMimeData_Callback>(slot);
 }
 
 // Base class handler implementation
 int QListWidget_SuperSupportedDropActions(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SupportedDropActions_IsBase(true);
-        return static_cast<int>(vqlistwidget->supportedDropActions());
-    } else {
-        return static_cast<int>(((VirtualQListWidget*)self)->supportedDropActions());
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return static_cast<int>(vqlistwidget->QListWidget::supportedDropActions());
+    } else
+        qFatal("Error: Protected virtual method QListWidget::supportedDropActions called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnSupportedDropActions(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SupportedDropActions_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SupportedDropActions_Callback>(slot));
+void QListWidget_OnSupportedDropActions(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_supporteddropactions_callback = reinterpret_cast<VirtualQListWidget::QListWidget_SupportedDropActions_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRect* QListWidget_VisualRect(const QListWidget* self, const QModelIndex* index) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return new QRect(vqlistwidget->visualRect(*index));
-    } else {
-        return new QRect(((VirtualQListWidget*)self)->visualRect(*index));
-    }
+    return new QRect(self->visualRect(*index));
 }
 
 // Base class handler implementation
 QRect* QListWidget_SuperVisualRect(const QListWidget* self, const QModelIndex* index) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_VisualRect_IsBase(true);
-        return new QRect(vqlistwidget->visualRect(*index));
-    } else {
-        return new QRect(((VirtualQListWidget*)self)->visualRect(*index));
-    }
+    return new QRect(self->QListWidget::visualRect(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnVisualRect(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_VisualRect_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_VisualRect_Callback>(slot));
+void QListWidget_OnVisualRect(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_visualrect_callback = reinterpret_cast<VirtualQListWidget::QListWidget_VisualRect_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_ScrollTo(QListWidget* self, const QModelIndex* index, int hint) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        self->QListWidget::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    self->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
 }
 
 // Base class handler implementation
 void QListWidget_SuperScrollTo(QListWidget* self, const QModelIndex* index, int hint) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ScrollTo_IsBase(true);
-        vqlistwidget->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        self->QListWidget::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    self->QListWidget::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnScrollTo(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ScrollTo_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ScrollTo_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_scrollto_callback = reinterpret_cast<VirtualQListWidget::QListWidget_ScrollTo_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* QListWidget_IndexAt(const QListWidget* self, const QPoint* p) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return new QModelIndex(vqlistwidget->indexAt(*p));
-    } else {
-        return new QModelIndex(((VirtualQListWidget*)self)->indexAt(*p));
-    }
+    return new QModelIndex(self->indexAt(*p));
 }
 
 // Base class handler implementation
 QModelIndex* QListWidget_SuperIndexAt(const QListWidget* self, const QPoint* p) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_IndexAt_IsBase(true);
-        return new QModelIndex(vqlistwidget->indexAt(*p));
-    } else {
-        return new QModelIndex(((VirtualQListWidget*)self)->indexAt(*p));
-    }
+    return new QModelIndex(self->QListWidget::indexAt(*p));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnIndexAt(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_IndexAt_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_IndexAt_Callback>(slot));
+void QListWidget_OnIndexAt(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_indexat_callback = reinterpret_cast<VirtualQListWidget::QListWidget_IndexAt_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_DoItemsLayout(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->doItemsLayout();
-    } else {
-        self->QListWidget::doItemsLayout();
-    }
+    self->doItemsLayout();
 }
 
 // Base class handler implementation
 void QListWidget_SuperDoItemsLayout(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_DoItemsLayout_IsBase(true);
-        vqlistwidget->doItemsLayout();
-    } else {
-        self->QListWidget::doItemsLayout();
-    }
+    self->QListWidget::doItemsLayout();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDoItemsLayout(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_DoItemsLayout_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DoItemsLayout_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_doitemslayout_callback = reinterpret_cast<VirtualQListWidget::QListWidget_DoItemsLayout_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_Reset(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->reset();
-    } else {
-        self->QListWidget::reset();
-    }
+    self->reset();
 }
 
 // Base class handler implementation
 void QListWidget_SuperReset(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_Reset_IsBase(true);
-        vqlistwidget->reset();
-    } else {
-        self->QListWidget::reset();
-    }
+    self->QListWidget::reset();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnReset(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_Reset_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Reset_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_reset_callback = reinterpret_cast<VirtualQListWidget::QListWidget_Reset_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_SetRootIndex(QListWidget* self, const QModelIndex* index) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setRootIndex(*index);
-    } else {
-        self->QListWidget::setRootIndex(*index);
-    }
+    self->setRootIndex(*index);
 }
 
 // Base class handler implementation
 void QListWidget_SuperSetRootIndex(QListWidget* self, const QModelIndex* index) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SetRootIndex_IsBase(true);
-        vqlistwidget->setRootIndex(*index);
-    } else {
-        self->QListWidget::setRootIndex(*index);
-    }
+    self->QListWidget::setRootIndex(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSetRootIndex(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SetRootIndex_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetRootIndex_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_setrootindex_callback = reinterpret_cast<VirtualQListWidget::QListWidget_SetRootIndex_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_ScrollContentsBy(QListWidget* self, int dx, int dy) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     } else {
-        ((VirtualQListWidget*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+        qFatal("Error: Protected virtual method QListWidget::scrollContentsBy called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperScrollContentsBy(QListWidget* self, int dx, int dy) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ScrollContentsBy_IsBase(true);
-        vqlistwidget->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQListWidget*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected virtual method QListWidget::scrollContentsBy called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnScrollContentsBy(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ScrollContentsBy_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ScrollContentsBy_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_scrollcontentsby_callback = reinterpret_cast<VirtualQListWidget::QListWidget_ScrollContentsBy_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_DataChanged(QListWidget* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
     int* roles_arr = static_cast<int*>(roles.data);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QList.push_back(static_cast<int>(roles_arr[i]));
     }
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
+    if (vqlistwidget) {
         vqlistwidget->dataChanged(*topLeft, *bottomRight, roles_QList);
     } else {
-        ((VirtualQListWidget*)self)->dataChanged(*topLeft, *bottomRight, roles_QList);
+        qFatal("Error: Protected virtual method QListWidget::dataChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperDataChanged(QListWidget* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
     int* roles_arr = static_cast<int*>(roles.data);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QList.push_back(static_cast<int>(roles_arr[i]));
     }
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_DataChanged_IsBase(true);
-        vqlistwidget->dataChanged(*topLeft, *bottomRight, roles_QList);
-    } else {
-        ((VirtualQListWidget*)self)->dataChanged(*topLeft, *bottomRight, roles_QList);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::dataChanged(*topLeft, *bottomRight, roles_QList);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::dataChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDataChanged(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_DataChanged_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DataChanged_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_datachanged_callback = reinterpret_cast<VirtualQListWidget::QListWidget_DataChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_RowsInserted(QListWidget* self, const QModelIndex* parent, int start, int end) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
     } else {
-        ((VirtualQListWidget*)self)->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+        qFatal("Error: Protected virtual method QListWidget::rowsInserted called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperRowsInserted(QListWidget* self, const QModelIndex* parent, int start, int end) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_RowsInserted_IsBase(true);
-        vqlistwidget->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQListWidget*)self)->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+    } else
+        qFatal("Error: Protected virtual method QListWidget::rowsInserted called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnRowsInserted(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_RowsInserted_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_RowsInserted_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_rowsinserted_callback = reinterpret_cast<VirtualQListWidget::QListWidget_RowsInserted_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_RowsAboutToBeRemoved(QListWidget* self, const QModelIndex* parent, int start, int end) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
     } else {
-        ((VirtualQListWidget*)self)->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+        qFatal("Error: Protected virtual method QListWidget::rowsAboutToBeRemoved called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperRowsAboutToBeRemoved(QListWidget* self, const QModelIndex* parent, int start, int end) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_RowsAboutToBeRemoved_IsBase(true);
-        vqlistwidget->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQListWidget*)self)->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+    } else
+        qFatal("Error: Protected virtual method QListWidget::rowsAboutToBeRemoved called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnRowsAboutToBeRemoved(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_RowsAboutToBeRemoved_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_rowsabouttoberemoved_callback = reinterpret_cast<VirtualQListWidget::QListWidget_RowsAboutToBeRemoved_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_MouseMoveEvent(QListWidget* self, QMouseEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->mouseMoveEvent(e);
     } else {
-        ((VirtualQListWidget*)self)->mouseMoveEvent(e);
+        qFatal("Error: Protected virtual method QListWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperMouseMoveEvent(QListWidget* self, QMouseEvent* e) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_MouseMoveEvent_IsBase(true);
-        vqlistwidget->mouseMoveEvent(e);
-    } else {
-        ((VirtualQListWidget*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMouseMoveEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_mousemoveevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_MouseReleaseEvent(QListWidget* self, QMouseEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->mouseReleaseEvent(e);
     } else {
-        ((VirtualQListWidget*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method QListWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperMouseReleaseEvent(QListWidget* self, QMouseEvent* e) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_MouseReleaseEvent_IsBase(true);
-        vqlistwidget->mouseReleaseEvent(e);
-    } else {
-        ((VirtualQListWidget*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMouseReleaseEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_mousereleaseevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_WheelEvent(QListWidget* self, QWheelEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->wheelEvent(e);
     } else {
-        ((VirtualQListWidget*)self)->wheelEvent(e);
+        qFatal("Error: Protected virtual method QListWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperWheelEvent(QListWidget* self, QWheelEvent* e) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_WheelEvent_IsBase(true);
-        vqlistwidget->wheelEvent(e);
-    } else {
-        ((VirtualQListWidget*)self)->wheelEvent(e);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::wheelEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnWheelEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_WheelEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_WheelEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_wheelevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_TimerEvent(QListWidget* self, QTimerEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->timerEvent(e);
     } else {
-        ((VirtualQListWidget*)self)->timerEvent(e);
+        qFatal("Error: Protected virtual method QListWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperTimerEvent(QListWidget* self, QTimerEvent* e) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_TimerEvent_IsBase(true);
-        vqlistwidget->timerEvent(e);
-    } else {
-        ((VirtualQListWidget*)self)->timerEvent(e);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::timerEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnTimerEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_TimerEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_TimerEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_timerevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_ResizeEvent(QListWidget* self, QResizeEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->resizeEvent(e);
     } else {
-        ((VirtualQListWidget*)self)->resizeEvent(e);
+        qFatal("Error: Protected virtual method QListWidget::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperResizeEvent(QListWidget* self, QResizeEvent* e) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ResizeEvent_IsBase(true);
-        vqlistwidget->resizeEvent(e);
-    } else {
-        ((VirtualQListWidget*)self)->resizeEvent(e);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::resizeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnResizeEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ResizeEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_resizeevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_DragMoveEvent(QListWidget* self, QDragMoveEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->dragMoveEvent(e);
     } else {
-        ((VirtualQListWidget*)self)->dragMoveEvent(e);
+        qFatal("Error: Protected virtual method QListWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperDragMoveEvent(QListWidget* self, QDragMoveEvent* e) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_DragMoveEvent_IsBase(true);
-        vqlistwidget->dragMoveEvent(e);
-    } else {
-        ((VirtualQListWidget*)self)->dragMoveEvent(e);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::dragMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDragMoveEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_dragmoveevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_DragLeaveEvent(QListWidget* self, QDragLeaveEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->dragLeaveEvent(e);
     } else {
-        ((VirtualQListWidget*)self)->dragLeaveEvent(e);
+        qFatal("Error: Protected virtual method QListWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperDragLeaveEvent(QListWidget* self, QDragLeaveEvent* e) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_DragLeaveEvent_IsBase(true);
-        vqlistwidget->dragLeaveEvent(e);
-    } else {
-        ((VirtualQListWidget*)self)->dragLeaveEvent(e);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::dragLeaveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDragLeaveEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_dragleaveevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_StartDrag(QListWidget* self, int supportedActions) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->startDrag(static_cast<Qt::DropActions>(supportedActions));
     } else {
-        ((VirtualQListWidget*)self)->startDrag(static_cast<Qt::DropActions>(supportedActions));
+        qFatal("Error: Protected virtual method QListWidget::startDrag called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperStartDrag(QListWidget* self, int supportedActions) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_StartDrag_IsBase(true);
-        vqlistwidget->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    } else {
-        ((VirtualQListWidget*)self)->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::startDrag(static_cast<Qt::DropActions>(supportedActions));
+    } else
+        qFatal("Error: Protected virtual method QListWidget::startDrag called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnStartDrag(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_StartDrag_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_StartDrag_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_startdrag_callback = reinterpret_cast<VirtualQListWidget::QListWidget_StartDrag_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_InitViewItemOption(const QListWidget* self, QStyleOptionViewItem* option) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->initViewItemOption(option);
     } else {
-        ((VirtualQListWidget*)self)->initViewItemOption(option);
+        qFatal("Error: Protected virtual method QListWidget::initViewItemOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperInitViewItemOption(const QListWidget* self, QStyleOptionViewItem* option) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_InitViewItemOption_IsBase(true);
-        vqlistwidget->initViewItemOption(option);
-    } else {
-        ((VirtualQListWidget*)self)->initViewItemOption(option);
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        vqlistwidget->QListWidget::initViewItemOption(option);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::initViewItemOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnInitViewItemOption(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_InitViewItemOption_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_InitViewItemOption_Callback>(slot));
+void QListWidget_OnInitViewItemOption(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_initviewitemoption_callback = reinterpret_cast<VirtualQListWidget::QListWidget_InitViewItemOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_PaintEvent(QListWidget* self, QPaintEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->paintEvent(e);
     } else {
-        ((VirtualQListWidget*)self)->paintEvent(e);
+        qFatal("Error: Protected virtual method QListWidget::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperPaintEvent(QListWidget* self, QPaintEvent* e) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_PaintEvent_IsBase(true);
-        vqlistwidget->paintEvent(e);
-    } else {
-        ((VirtualQListWidget*)self)->paintEvent(e);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnPaintEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_PaintEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_PaintEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_paintevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QListWidget_HorizontalOffset(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return vqlistwidget->horizontalOffset();
     } else {
-        return ((VirtualQListWidget*)self)->horizontalOffset();
+        qFatal("Error: Protected virtual method QListWidget::horizontalOffset called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QListWidget_SuperHorizontalOffset(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_HorizontalOffset_IsBase(true);
-        return vqlistwidget->horizontalOffset();
-    } else {
-        return ((VirtualQListWidget*)self)->horizontalOffset();
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return vqlistwidget->QListWidget::horizontalOffset();
+    } else
+        qFatal("Error: Protected virtual method QListWidget::horizontalOffset called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnHorizontalOffset(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_HorizontalOffset_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_HorizontalOffset_Callback>(slot));
+void QListWidget_OnHorizontalOffset(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_horizontaloffset_callback = reinterpret_cast<VirtualQListWidget::QListWidget_HorizontalOffset_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QListWidget_VerticalOffset(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return vqlistwidget->verticalOffset();
     } else {
-        return ((VirtualQListWidget*)self)->verticalOffset();
+        qFatal("Error: Protected virtual method QListWidget::verticalOffset called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QListWidget_SuperVerticalOffset(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_VerticalOffset_IsBase(true);
-        return vqlistwidget->verticalOffset();
-    } else {
-        return ((VirtualQListWidget*)self)->verticalOffset();
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return vqlistwidget->QListWidget::verticalOffset();
+    } else
+        qFatal("Error: Protected virtual method QListWidget::verticalOffset called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnVerticalOffset(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_VerticalOffset_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_VerticalOffset_Callback>(slot));
+void QListWidget_OnVerticalOffset(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_verticaloffset_callback = reinterpret_cast<VirtualQListWidget::QListWidget_VerticalOffset_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* QListWidget_MoveCursor(QListWidget* self, int cursorAction, int modifiers) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return new QModelIndex(vqlistwidget->moveCursor(static_cast<VirtualQListWidget::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
-    }
-    return {};
+    return new QModelIndex((self->*&VirtualQListWidget::Base::moveCursor)(static_cast<VirtualQListWidget::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
 }
 
 // Base class handler implementation
 QModelIndex* QListWidget_SuperMoveCursor(QListWidget* self, int cursorAction, int modifiers) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_MoveCursor_IsBase(true);
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
         return new QModelIndex(vqlistwidget->moveCursor(static_cast<VirtualQListWidget::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QListWidget::moveCursor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMoveCursor(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_MoveCursor_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MoveCursor_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_movecursor_callback = reinterpret_cast<VirtualQListWidget::QListWidget_MoveCursor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_SetSelection(QListWidget* self, const QRect* rect, int command) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
     } else {
-        ((VirtualQListWidget*)self)->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
+        qFatal("Error: Protected virtual method QListWidget::setSelection called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperSetSelection(QListWidget* self, const QRect* rect, int command) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SetSelection_IsBase(true);
-        vqlistwidget->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        ((VirtualQListWidget*)self)->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    } else
+        qFatal("Error: Protected virtual method QListWidget::setSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSetSelection(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SetSelection_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetSelection_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_setselection_callback = reinterpret_cast<VirtualQListWidget::QListWidget_SetSelection_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRegion* QListWidget_VisualRegionForSelection(const QListWidget* self, const QItemSelection* selection) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return new QRegion(vqlistwidget->visualRegionForSelection(*selection));
-    }
-    return {};
+    return new QRegion((self->*&VirtualQListWidget::Base::visualRegionForSelection)(*selection));
 }
 
 // Base class handler implementation
 QRegion* QListWidget_SuperVisualRegionForSelection(const QListWidget* self, const QItemSelection* selection) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_VisualRegionForSelection_IsBase(true);
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
         return new QRegion(vqlistwidget->visualRegionForSelection(*selection));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QListWidget::visualRegionForSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnVisualRegionForSelection(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_VisualRegionForSelection_Callback>(slot));
+void QListWidget_OnVisualRegionForSelection(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_visualregionforselection_callback = reinterpret_cast<VirtualQListWidget::QListWidget_VisualRegionForSelection_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of QModelIndex* */ QListWidget_SelectedIndexes(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         QList<QModelIndex> _ret = vqlistwidget->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
@@ -1825,25 +1558,14 @@ libqt_list /* of QModelIndex* */ QListWidget_SelectedIndexes(const QListWidget* 
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QList<QModelIndex> _ret = ((VirtualQListWidget*)self)->selectedIndexes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+        qFatal("Error: Protected virtual method QListWidget::selectedIndexes called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 libqt_list /* of QModelIndex* */ QListWidget_SuperSelectedIndexes(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SelectedIndexes_IsBase(true);
-        QList<QModelIndex> _ret = vqlistwidget->selectedIndexes();
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        QList<QModelIndex> _ret = vqlistwidget->QListWidget::selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -1853,2511 +1575,1584 @@ libqt_list /* of QModelIndex* */ QListWidget_SuperSelectedIndexes(const QListWid
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualQListWidget*)self)->selectedIndexes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected virtual method QListWidget::selectedIndexes called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnSelectedIndexes(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SelectedIndexes_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SelectedIndexes_Callback>(slot));
+void QListWidget_OnSelectedIndexes(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_selectedindexes_callback = reinterpret_cast<VirtualQListWidget::QListWidget_SelectedIndexes_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_UpdateGeometries(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->updateGeometries();
     } else {
-        ((VirtualQListWidget*)self)->updateGeometries();
+        qFatal("Error: Protected virtual method QListWidget::updateGeometries called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperUpdateGeometries(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_UpdateGeometries_IsBase(true);
-        vqlistwidget->updateGeometries();
-    } else {
-        ((VirtualQListWidget*)self)->updateGeometries();
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::updateGeometries();
+    } else
+        qFatal("Error: Protected virtual method QListWidget::updateGeometries called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnUpdateGeometries(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_UpdateGeometries_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_UpdateGeometries_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_updategeometries_callback = reinterpret_cast<VirtualQListWidget::QListWidget_UpdateGeometries_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QListWidget_IsIndexHidden(const QListWidget* self, const QModelIndex* index) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return vqlistwidget->isIndexHidden(*index);
     } else {
-        return ((VirtualQListWidget*)self)->isIndexHidden(*index);
+        qFatal("Error: Protected virtual method QListWidget::isIndexHidden called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QListWidget_SuperIsIndexHidden(const QListWidget* self, const QModelIndex* index) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_IsIndexHidden_IsBase(true);
-        return vqlistwidget->isIndexHidden(*index);
-    } else {
-        return ((VirtualQListWidget*)self)->isIndexHidden(*index);
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return vqlistwidget->QListWidget::isIndexHidden(*index);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::isIndexHidden called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnIsIndexHidden(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_IsIndexHidden_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_IsIndexHidden_Callback>(slot));
+void QListWidget_OnIsIndexHidden(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_isindexhidden_callback = reinterpret_cast<VirtualQListWidget::QListWidget_IsIndexHidden_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_SelectionChanged(QListWidget* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->selectionChanged(*selected, *deselected);
     } else {
-        ((VirtualQListWidget*)self)->selectionChanged(*selected, *deselected);
+        qFatal("Error: Protected virtual method QListWidget::selectionChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperSelectionChanged(QListWidget* self, const QItemSelection* selected, const QItemSelection* deselected) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SelectionChanged_IsBase(true);
-        vqlistwidget->selectionChanged(*selected, *deselected);
-    } else {
-        ((VirtualQListWidget*)self)->selectionChanged(*selected, *deselected);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::selectionChanged(*selected, *deselected);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::selectionChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSelectionChanged(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SelectionChanged_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SelectionChanged_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_selectionchanged_callback = reinterpret_cast<VirtualQListWidget::QListWidget_SelectionChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_CurrentChanged(QListWidget* self, const QModelIndex* current, const QModelIndex* previous) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->currentChanged(*current, *previous);
     } else {
-        ((VirtualQListWidget*)self)->currentChanged(*current, *previous);
+        qFatal("Error: Protected virtual method QListWidget::currentChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperCurrentChanged(QListWidget* self, const QModelIndex* current, const QModelIndex* previous) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_CurrentChanged_IsBase(true);
-        vqlistwidget->currentChanged(*current, *previous);
-    } else {
-        ((VirtualQListWidget*)self)->currentChanged(*current, *previous);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::currentChanged(*current, *previous);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::currentChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnCurrentChanged(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_CurrentChanged_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_CurrentChanged_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_currentchanged_callback = reinterpret_cast<VirtualQListWidget::QListWidget_CurrentChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QListWidget_ViewportSizeHint(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return new QSize(vqlistwidget->viewportSizeHint());
-    }
-    return {};
+    return new QSize((self->*&VirtualQListWidget::Base::viewportSizeHint)());
 }
 
 // Base class handler implementation
 QSize* QListWidget_SuperViewportSizeHint(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ViewportSizeHint_IsBase(true);
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
         return new QSize(vqlistwidget->viewportSizeHint());
-    }
-    return {};
+    qFatal("Error: Protected virtual method QListWidget::viewportSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnViewportSizeHint(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ViewportSizeHint_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ViewportSizeHint_Callback>(slot));
+void QListWidget_OnViewportSizeHint(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_viewportsizehint_callback = reinterpret_cast<VirtualQListWidget::QListWidget_ViewportSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_KeyboardSearch(QListWidget* self, const libqt_string search) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->keyboardSearch(search_QString);
-    } else {
-        self->QListWidget::keyboardSearch(search_QString);
-    }
+    self->keyboardSearch(search_QString);
 }
 
 // Base class handler implementation
 void QListWidget_SuperKeyboardSearch(QListWidget* self, const libqt_string search) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_KeyboardSearch_IsBase(true);
-        vqlistwidget->keyboardSearch(search_QString);
-    } else {
-        self->QListWidget::keyboardSearch(search_QString);
-    }
+    self->QListWidget::keyboardSearch(search_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnKeyboardSearch(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_KeyboardSearch_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_KeyboardSearch_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_keyboardsearch_callback = reinterpret_cast<VirtualQListWidget::QListWidget_KeyboardSearch_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QListWidget_SizeHintForRow(const QListWidget* self, int row) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return vqlistwidget->sizeHintForRow(static_cast<int>(row));
-    } else {
-        return self->QListWidget::sizeHintForRow(static_cast<int>(row));
-    }
+    return self->sizeHintForRow(static_cast<int>(row));
 }
 
 // Base class handler implementation
 int QListWidget_SuperSizeHintForRow(const QListWidget* self, int row) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SizeHintForRow_IsBase(true);
-        return vqlistwidget->sizeHintForRow(static_cast<int>(row));
-    } else {
-        return self->QListWidget::sizeHintForRow(static_cast<int>(row));
-    }
+    return self->QListWidget::sizeHintForRow(static_cast<int>(row));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnSizeHintForRow(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SizeHintForRow_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SizeHintForRow_Callback>(slot));
+void QListWidget_OnSizeHintForRow(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_sizehintforrow_callback = reinterpret_cast<VirtualQListWidget::QListWidget_SizeHintForRow_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QListWidget_SizeHintForColumn(const QListWidget* self, int column) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return vqlistwidget->sizeHintForColumn(static_cast<int>(column));
-    } else {
-        return self->QListWidget::sizeHintForColumn(static_cast<int>(column));
-    }
+    return self->sizeHintForColumn(static_cast<int>(column));
 }
 
 // Base class handler implementation
 int QListWidget_SuperSizeHintForColumn(const QListWidget* self, int column) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SizeHintForColumn_IsBase(true);
-        return vqlistwidget->sizeHintForColumn(static_cast<int>(column));
-    } else {
-        return self->QListWidget::sizeHintForColumn(static_cast<int>(column));
-    }
+    return self->QListWidget::sizeHintForColumn(static_cast<int>(column));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnSizeHintForColumn(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SizeHintForColumn_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SizeHintForColumn_Callback>(slot));
+void QListWidget_OnSizeHintForColumn(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_sizehintforcolumn_callback = reinterpret_cast<VirtualQListWidget::QListWidget_SizeHintForColumn_Callback>(slot);
 }
 
 // Derived class handler implementation
 QAbstractItemDelegate* QListWidget_ItemDelegateForIndex(const QListWidget* self, const QModelIndex* index) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return vqlistwidget->itemDelegateForIndex(*index);
-    } else {
-        return self->QListWidget::itemDelegateForIndex(*index);
-    }
+    return self->itemDelegateForIndex(*index);
 }
 
 // Base class handler implementation
 QAbstractItemDelegate* QListWidget_SuperItemDelegateForIndex(const QListWidget* self, const QModelIndex* index) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ItemDelegateForIndex_IsBase(true);
-        return vqlistwidget->itemDelegateForIndex(*index);
-    } else {
-        return self->QListWidget::itemDelegateForIndex(*index);
-    }
+    return self->QListWidget::itemDelegateForIndex(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnItemDelegateForIndex(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ItemDelegateForIndex_Callback>(slot));
+void QListWidget_OnItemDelegateForIndex(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_itemdelegateforindex_callback = reinterpret_cast<VirtualQListWidget::QListWidget_ItemDelegateForIndex_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QListWidget_InputMethodQuery(const QListWidget* self, int query) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return new QVariant(vqlistwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQListWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Base class handler implementation
 QVariant* QListWidget_SuperInputMethodQuery(const QListWidget* self, int query) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vqlistwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQListWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->QListWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnInputMethodQuery(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_InputMethodQuery_Callback>(slot));
+void QListWidget_OnInputMethodQuery(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_inputmethodquery_callback = reinterpret_cast<VirtualQListWidget::QListWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_SelectAll(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->selectAll();
-    } else {
-        self->QListWidget::selectAll();
-    }
+    self->selectAll();
 }
 
 // Base class handler implementation
 void QListWidget_SuperSelectAll(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SelectAll_IsBase(true);
-        vqlistwidget->selectAll();
-    } else {
-        self->QListWidget::selectAll();
-    }
+    self->QListWidget::selectAll();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSelectAll(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SelectAll_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SelectAll_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_selectall_callback = reinterpret_cast<VirtualQListWidget::QListWidget_SelectAll_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_UpdateEditorData(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->updateEditorData();
     } else {
-        ((VirtualQListWidget*)self)->updateEditorData();
+        qFatal("Error: Protected virtual method QListWidget::updateEditorData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperUpdateEditorData(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_UpdateEditorData_IsBase(true);
-        vqlistwidget->updateEditorData();
-    } else {
-        ((VirtualQListWidget*)self)->updateEditorData();
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::updateEditorData();
+    } else
+        qFatal("Error: Protected virtual method QListWidget::updateEditorData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnUpdateEditorData(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_UpdateEditorData_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_UpdateEditorData_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_updateeditordata_callback = reinterpret_cast<VirtualQListWidget::QListWidget_UpdateEditorData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_UpdateEditorGeometries(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->updateEditorGeometries();
     } else {
-        ((VirtualQListWidget*)self)->updateEditorGeometries();
+        qFatal("Error: Protected virtual method QListWidget::updateEditorGeometries called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperUpdateEditorGeometries(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_UpdateEditorGeometries_IsBase(true);
-        vqlistwidget->updateEditorGeometries();
-    } else {
-        ((VirtualQListWidget*)self)->updateEditorGeometries();
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::updateEditorGeometries();
+    } else
+        qFatal("Error: Protected virtual method QListWidget::updateEditorGeometries called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnUpdateEditorGeometries(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_UpdateEditorGeometries_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_updateeditorgeometries_callback = reinterpret_cast<VirtualQListWidget::QListWidget_UpdateEditorGeometries_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_VerticalScrollbarAction(QListWidget* self, int action) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->verticalScrollbarAction(static_cast<int>(action));
     } else {
-        ((VirtualQListWidget*)self)->verticalScrollbarAction(static_cast<int>(action));
+        qFatal("Error: Protected virtual method QListWidget::verticalScrollbarAction called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperVerticalScrollbarAction(QListWidget* self, int action) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_VerticalScrollbarAction_IsBase(true);
-        vqlistwidget->verticalScrollbarAction(static_cast<int>(action));
-    } else {
-        ((VirtualQListWidget*)self)->verticalScrollbarAction(static_cast<int>(action));
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::verticalScrollbarAction(static_cast<int>(action));
+    } else
+        qFatal("Error: Protected virtual method QListWidget::verticalScrollbarAction called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnVerticalScrollbarAction(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_VerticalScrollbarAction_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_verticalscrollbaraction_callback = reinterpret_cast<VirtualQListWidget::QListWidget_VerticalScrollbarAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_HorizontalScrollbarAction(QListWidget* self, int action) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->horizontalScrollbarAction(static_cast<int>(action));
     } else {
-        ((VirtualQListWidget*)self)->horizontalScrollbarAction(static_cast<int>(action));
+        qFatal("Error: Protected virtual method QListWidget::horizontalScrollbarAction called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperHorizontalScrollbarAction(QListWidget* self, int action) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_HorizontalScrollbarAction_IsBase(true);
-        vqlistwidget->horizontalScrollbarAction(static_cast<int>(action));
-    } else {
-        ((VirtualQListWidget*)self)->horizontalScrollbarAction(static_cast<int>(action));
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::horizontalScrollbarAction(static_cast<int>(action));
+    } else
+        qFatal("Error: Protected virtual method QListWidget::horizontalScrollbarAction called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnHorizontalScrollbarAction(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_HorizontalScrollbarAction_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_horizontalscrollbaraction_callback = reinterpret_cast<VirtualQListWidget::QListWidget_HorizontalScrollbarAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_VerticalScrollbarValueChanged(QListWidget* self, int value) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->verticalScrollbarValueChanged(static_cast<int>(value));
     } else {
-        ((VirtualQListWidget*)self)->verticalScrollbarValueChanged(static_cast<int>(value));
+        qFatal("Error: Protected virtual method QListWidget::verticalScrollbarValueChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperVerticalScrollbarValueChanged(QListWidget* self, int value) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_VerticalScrollbarValueChanged_IsBase(true);
-        vqlistwidget->verticalScrollbarValueChanged(static_cast<int>(value));
-    } else {
-        ((VirtualQListWidget*)self)->verticalScrollbarValueChanged(static_cast<int>(value));
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::verticalScrollbarValueChanged(static_cast<int>(value));
+    } else
+        qFatal("Error: Protected virtual method QListWidget::verticalScrollbarValueChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnVerticalScrollbarValueChanged(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_VerticalScrollbarValueChanged_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_verticalscrollbarvaluechanged_callback = reinterpret_cast<VirtualQListWidget::QListWidget_VerticalScrollbarValueChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_HorizontalScrollbarValueChanged(QListWidget* self, int value) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->horizontalScrollbarValueChanged(static_cast<int>(value));
     } else {
-        ((VirtualQListWidget*)self)->horizontalScrollbarValueChanged(static_cast<int>(value));
+        qFatal("Error: Protected virtual method QListWidget::horizontalScrollbarValueChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperHorizontalScrollbarValueChanged(QListWidget* self, int value) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_HorizontalScrollbarValueChanged_IsBase(true);
-        vqlistwidget->horizontalScrollbarValueChanged(static_cast<int>(value));
-    } else {
-        ((VirtualQListWidget*)self)->horizontalScrollbarValueChanged(static_cast<int>(value));
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::horizontalScrollbarValueChanged(static_cast<int>(value));
+    } else
+        qFatal("Error: Protected virtual method QListWidget::horizontalScrollbarValueChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnHorizontalScrollbarValueChanged(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_HorizontalScrollbarValueChanged_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_horizontalscrollbarvaluechanged_callback = reinterpret_cast<VirtualQListWidget::QListWidget_HorizontalScrollbarValueChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_CloseEditor(QListWidget* self, QWidget* editor, int hint) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
     } else {
-        ((VirtualQListWidget*)self)->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
+        qFatal("Error: Protected virtual method QListWidget::closeEditor called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperCloseEditor(QListWidget* self, QWidget* editor, int hint) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_CloseEditor_IsBase(true);
-        vqlistwidget->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
-    } else {
-        ((VirtualQListWidget*)self)->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
+    } else
+        qFatal("Error: Protected virtual method QListWidget::closeEditor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnCloseEditor(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_CloseEditor_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_CloseEditor_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_closeeditor_callback = reinterpret_cast<VirtualQListWidget::QListWidget_CloseEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_CommitData(QListWidget* self, QWidget* editor) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->commitData(editor);
     } else {
-        ((VirtualQListWidget*)self)->commitData(editor);
+        qFatal("Error: Protected virtual method QListWidget::commitData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperCommitData(QListWidget* self, QWidget* editor) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_CommitData_IsBase(true);
-        vqlistwidget->commitData(editor);
-    } else {
-        ((VirtualQListWidget*)self)->commitData(editor);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::commitData(editor);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::commitData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnCommitData(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_CommitData_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_CommitData_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_commitdata_callback = reinterpret_cast<VirtualQListWidget::QListWidget_CommitData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_EditorDestroyed(QListWidget* self, QObject* editor) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->editorDestroyed(editor);
     } else {
-        ((VirtualQListWidget*)self)->editorDestroyed(editor);
+        qFatal("Error: Protected virtual method QListWidget::editorDestroyed called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperEditorDestroyed(QListWidget* self, QObject* editor) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_EditorDestroyed_IsBase(true);
-        vqlistwidget->editorDestroyed(editor);
-    } else {
-        ((VirtualQListWidget*)self)->editorDestroyed(editor);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::editorDestroyed(editor);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::editorDestroyed called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnEditorDestroyed(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_EditorDestroyed_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_EditorDestroyed_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_editordestroyed_callback = reinterpret_cast<VirtualQListWidget::QListWidget_EditorDestroyed_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QListWidget_Edit2(QListWidget* self, const QModelIndex* index, int trigger, QEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return vqlistwidget->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
     } else {
-        return ((VirtualQListWidget*)self)->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
+        qFatal("Error: Protected virtual method QListWidget::edit2 called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QListWidget_SuperEdit2(QListWidget* self, const QModelIndex* index, int trigger, QEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_Edit2_IsBase(true);
-        return vqlistwidget->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
-    } else {
-        return ((VirtualQListWidget*)self)->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        return vqlistwidget->QListWidget::edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::edit2 called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnEdit2(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_Edit2_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Edit2_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_edit2_callback = reinterpret_cast<VirtualQListWidget::QListWidget_Edit2_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QListWidget_SelectionCommand(const QListWidget* self, const QModelIndex* index, const QEvent* event) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return static_cast<int>(vqlistwidget->selectionCommand(*index, event));
     } else {
-        return static_cast<int>(((VirtualQListWidget*)self)->selectionCommand(*index, event));
+        qFatal("Error: Protected virtual method QListWidget::selectionCommand called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QListWidget_SuperSelectionCommand(const QListWidget* self, const QModelIndex* index, const QEvent* event) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SelectionCommand_IsBase(true);
-        return static_cast<int>(vqlistwidget->selectionCommand(*index, event));
-    } else {
-        return static_cast<int>(((VirtualQListWidget*)self)->selectionCommand(*index, event));
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return static_cast<int>(vqlistwidget->QListWidget::selectionCommand(*index, event));
+    } else
+        qFatal("Error: Protected virtual method QListWidget::selectionCommand called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnSelectionCommand(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SelectionCommand_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SelectionCommand_Callback>(slot));
+void QListWidget_OnSelectionCommand(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_selectioncommand_callback = reinterpret_cast<VirtualQListWidget::QListWidget_SelectionCommand_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QListWidget_FocusNextPrevChild(QListWidget* self, bool next) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return vqlistwidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualQListWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QListWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QListWidget_SuperFocusNextPrevChild(QListWidget* self, bool next) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_FocusNextPrevChild_IsBase(true);
-        return vqlistwidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQListWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        return vqlistwidget->QListWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnFocusNextPrevChild(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_focusnextprevchild_callback = reinterpret_cast<VirtualQListWidget::QListWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QListWidget_ViewportEvent(QListWidget* self, QEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return vqlistwidget->viewportEvent(event);
     } else {
-        return ((VirtualQListWidget*)self)->viewportEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::viewportEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QListWidget_SuperViewportEvent(QListWidget* self, QEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ViewportEvent_IsBase(true);
-        return vqlistwidget->viewportEvent(event);
-    } else {
-        return ((VirtualQListWidget*)self)->viewportEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        return vqlistwidget->QListWidget::viewportEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::viewportEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnViewportEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ViewportEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ViewportEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_viewportevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_ViewportEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_MousePressEvent(QListWidget* self, QMouseEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->mousePressEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperMousePressEvent(QListWidget* self, QMouseEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_MousePressEvent_IsBase(true);
-        vqlistwidget->mousePressEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMousePressEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MousePressEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_mousepressevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_MouseDoubleClickEvent(QListWidget* self, QMouseEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperMouseDoubleClickEvent(QListWidget* self, QMouseEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_MouseDoubleClickEvent_IsBase(true);
-        vqlistwidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMouseDoubleClickEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_DragEnterEvent(QListWidget* self, QDragEnterEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->dragEnterEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperDragEnterEvent(QListWidget* self, QDragEnterEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_DragEnterEvent_IsBase(true);
-        vqlistwidget->dragEnterEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDragEnterEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_dragenterevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_FocusInEvent(QListWidget* self, QFocusEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->focusInEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperFocusInEvent(QListWidget* self, QFocusEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_FocusInEvent_IsBase(true);
-        vqlistwidget->focusInEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnFocusInEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_FocusInEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_focusinevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_FocusOutEvent(QListWidget* self, QFocusEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->focusOutEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperFocusOutEvent(QListWidget* self, QFocusEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_FocusOutEvent_IsBase(true);
-        vqlistwidget->focusOutEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnFocusOutEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_focusoutevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_KeyPressEvent(QListWidget* self, QKeyEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->keyPressEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperKeyPressEvent(QListWidget* self, QKeyEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_KeyPressEvent_IsBase(true);
-        vqlistwidget->keyPressEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnKeyPressEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_keypressevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_InputMethodEvent(QListWidget* self, QInputMethodEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->inputMethodEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->inputMethodEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperInputMethodEvent(QListWidget* self, QInputMethodEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_InputMethodEvent_IsBase(true);
-        vqlistwidget->inputMethodEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->inputMethodEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::inputMethodEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnInputMethodEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_inputmethodevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QListWidget_EventFilter(QListWidget* self, QObject* object, QEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return vqlistwidget->eventFilter(object, event);
     } else {
-        return ((VirtualQListWidget*)self)->eventFilter(object, event);
+        qFatal("Error: Protected virtual method QListWidget::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QListWidget_SuperEventFilter(QListWidget* self, QObject* object, QEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_EventFilter_IsBase(true);
-        return vqlistwidget->eventFilter(object, event);
-    } else {
-        return ((VirtualQListWidget*)self)->eventFilter(object, event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        return vqlistwidget->QListWidget::eventFilter(object, event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnEventFilter(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_EventFilter_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_EventFilter_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_eventfilter_callback = reinterpret_cast<VirtualQListWidget::QListWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QListWidget_MinimumSizeHint(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return new QSize(vqlistwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQListWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QListWidget_SuperMinimumSizeHint(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vqlistwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQListWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QListWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnMinimumSizeHint(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MinimumSizeHint_Callback>(slot));
+void QListWidget_OnMinimumSizeHint(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_minimumsizehint_callback = reinterpret_cast<VirtualQListWidget::QListWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QListWidget_SizeHint(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return new QSize(vqlistwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQListWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QListWidget_SuperSizeHint(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SizeHint_IsBase(true);
-        return new QSize(vqlistwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQListWidget*)self)->sizeHint());
-    }
+    return new QSize(self->QListWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnSizeHint(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SizeHint_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SizeHint_Callback>(slot));
+void QListWidget_OnSizeHint(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_sizehint_callback = reinterpret_cast<VirtualQListWidget::QListWidget_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_SetupViewport(QListWidget* self, QWidget* viewport) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setupViewport(viewport);
-    } else {
-        self->QListWidget::setupViewport(viewport);
-    }
+    self->setupViewport(viewport);
 }
 
 // Base class handler implementation
 void QListWidget_SuperSetupViewport(QListWidget* self, QWidget* viewport) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SetupViewport_IsBase(true);
-        vqlistwidget->setupViewport(viewport);
-    } else {
-        self->QListWidget::setupViewport(viewport);
-    }
+    self->QListWidget::setupViewport(viewport);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSetupViewport(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SetupViewport_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetupViewport_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_setupviewport_callback = reinterpret_cast<VirtualQListWidget::QListWidget_SetupViewport_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_ContextMenuEvent(QListWidget* self, QContextMenuEvent* param1) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->contextMenuEvent(param1);
     } else {
-        ((VirtualQListWidget*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method QListWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperContextMenuEvent(QListWidget* self, QContextMenuEvent* param1) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ContextMenuEvent_IsBase(true);
-        vqlistwidget->contextMenuEvent(param1);
-    } else {
-        ((VirtualQListWidget*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnContextMenuEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_contextmenuevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_ChangeEvent(QListWidget* self, QEvent* param1) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->changeEvent(param1);
     } else {
-        ((VirtualQListWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QListWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperChangeEvent(QListWidget* self, QEvent* param1) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ChangeEvent_IsBase(true);
-        vqlistwidget->changeEvent(param1);
-    } else {
-        ((VirtualQListWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnChangeEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ChangeEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_changeevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_InitStyleOption(const QListWidget* self, QStyleOptionFrame* option) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->initStyleOption(option);
     } else {
-        ((VirtualQListWidget*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method QListWidget::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperInitStyleOption(const QListWidget* self, QStyleOptionFrame* option) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_InitStyleOption_IsBase(true);
-        vqlistwidget->initStyleOption(option);
-    } else {
-        ((VirtualQListWidget*)self)->initStyleOption(option);
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        vqlistwidget->QListWidget::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnInitStyleOption(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_InitStyleOption_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_InitStyleOption_Callback>(slot));
+void QListWidget_OnInitStyleOption(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_initstyleoption_callback = reinterpret_cast<VirtualQListWidget::QListWidget_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QListWidget_DevType(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return vqlistwidget->devType();
-    } else {
-        return self->QListWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QListWidget_SuperDevType(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_DevType_IsBase(true);
-        return vqlistwidget->devType();
-    } else {
-        return self->QListWidget::devType();
-    }
+    return self->QListWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnDevType(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_DevType_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DevType_Callback>(slot));
+void QListWidget_OnDevType(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_devtype_callback = reinterpret_cast<VirtualQListWidget::QListWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_SetVisible(QListWidget* self, bool visible) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setVisible(visible);
-    } else {
-        self->QListWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QListWidget_SuperSetVisible(QListWidget* self, bool visible) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SetVisible_IsBase(true);
-        vqlistwidget->setVisible(visible);
-    } else {
-        self->QListWidget::setVisible(visible);
-    }
+    self->QListWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSetVisible(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SetVisible_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetVisible_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_setvisible_callback = reinterpret_cast<VirtualQListWidget::QListWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QListWidget_HeightForWidth(const QListWidget* self, int param1) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return vqlistwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QListWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QListWidget_SuperHeightForWidth(const QListWidget* self, int param1) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_HeightForWidth_IsBase(true);
-        return vqlistwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QListWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QListWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnHeightForWidth(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_HeightForWidth_Callback>(slot));
+void QListWidget_OnHeightForWidth(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_heightforwidth_callback = reinterpret_cast<VirtualQListWidget::QListWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QListWidget_HasHeightForWidth(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return vqlistwidget->hasHeightForWidth();
-    } else {
-        return self->QListWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QListWidget_SuperHasHeightForWidth(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_HasHeightForWidth_IsBase(true);
-        return vqlistwidget->hasHeightForWidth();
-    } else {
-        return self->QListWidget::hasHeightForWidth();
-    }
+    return self->QListWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnHasHeightForWidth(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_HasHeightForWidth_Callback>(slot));
+void QListWidget_OnHasHeightForWidth(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_hasheightforwidth_callback = reinterpret_cast<VirtualQListWidget::QListWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QListWidget_PaintEngine(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return vqlistwidget->paintEngine();
-    } else {
-        return self->QListWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QListWidget_SuperPaintEngine(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_PaintEngine_IsBase(true);
-        return vqlistwidget->paintEngine();
-    } else {
-        return self->QListWidget::paintEngine();
-    }
+    return self->QListWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnPaintEngine(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_PaintEngine_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_PaintEngine_Callback>(slot));
+void QListWidget_OnPaintEngine(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_paintengine_callback = reinterpret_cast<VirtualQListWidget::QListWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_KeyReleaseEvent(QListWidget* self, QKeyEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->keyReleaseEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperKeyReleaseEvent(QListWidget* self, QKeyEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_KeyReleaseEvent_IsBase(true);
-        vqlistwidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnKeyReleaseEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_keyreleaseevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_EnterEvent(QListWidget* self, QEnterEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->enterEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperEnterEvent(QListWidget* self, QEnterEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_EnterEvent_IsBase(true);
-        vqlistwidget->enterEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->enterEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnEnterEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_EnterEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_EnterEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_enterevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_LeaveEvent(QListWidget* self, QEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->leaveEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperLeaveEvent(QListWidget* self, QEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_LeaveEvent_IsBase(true);
-        vqlistwidget->leaveEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnLeaveEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_LeaveEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_leaveevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_MoveEvent(QListWidget* self, QMoveEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->moveEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperMoveEvent(QListWidget* self, QMoveEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_MoveEvent_IsBase(true);
-        vqlistwidget->moveEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->moveEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMoveEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_MoveEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MoveEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_moveevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_CloseEvent(QListWidget* self, QCloseEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->closeEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperCloseEvent(QListWidget* self, QCloseEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_CloseEvent_IsBase(true);
-        vqlistwidget->closeEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->closeEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnCloseEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_CloseEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_CloseEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_closeevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_TabletEvent(QListWidget* self, QTabletEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->tabletEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperTabletEvent(QListWidget* self, QTabletEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_TabletEvent_IsBase(true);
-        vqlistwidget->tabletEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnTabletEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_TabletEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_TabletEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_tabletevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_ActionEvent(QListWidget* self, QActionEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->actionEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperActionEvent(QListWidget* self, QActionEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ActionEvent_IsBase(true);
-        vqlistwidget->actionEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->actionEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnActionEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ActionEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ActionEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_actionevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_ShowEvent(QListWidget* self, QShowEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->showEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperShowEvent(QListWidget* self, QShowEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ShowEvent_IsBase(true);
-        vqlistwidget->showEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->showEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnShowEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ShowEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ShowEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_showevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_HideEvent(QListWidget* self, QHideEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->hideEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperHideEvent(QListWidget* self, QHideEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_HideEvent_IsBase(true);
-        vqlistwidget->hideEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->hideEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnHideEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_HideEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_HideEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_hideevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QListWidget_NativeEvent(QListWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
+    if (vqlistwidget) {
         return vqlistwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQListWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QListWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QListWidget_SuperNativeEvent(QListWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_NativeEvent_IsBase(true);
-        return vqlistwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQListWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        return vqlistwidget->QListWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QListWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnNativeEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_NativeEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_NativeEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_nativeevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QListWidget_Metric(const QListWidget* self, int param1) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return vqlistwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQListWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QListWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QListWidget_SuperMetric(const QListWidget* self, int param1) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_Metric_IsBase(true);
-        return vqlistwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQListWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return vqlistwidget->QListWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QListWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnMetric(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_Metric_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Metric_Callback>(slot));
+void QListWidget_OnMetric(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_metric_callback = reinterpret_cast<VirtualQListWidget::QListWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_InitPainter(const QListWidget* self, QPainter* painter) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->initPainter(painter);
     } else {
-        ((VirtualQListWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QListWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperInitPainter(const QListWidget* self, QPainter* painter) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_InitPainter_IsBase(true);
-        vqlistwidget->initPainter(painter);
-    } else {
-        ((VirtualQListWidget*)self)->initPainter(painter);
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        vqlistwidget->QListWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnInitPainter(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_InitPainter_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_InitPainter_Callback>(slot));
+void QListWidget_OnInitPainter(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_initpainter_callback = reinterpret_cast<VirtualQListWidget::QListWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QListWidget_Redirected(const QListWidget* self, QPoint* offset) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return vqlistwidget->redirected(offset);
     } else {
-        return ((VirtualQListWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QListWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QListWidget_SuperRedirected(const QListWidget* self, QPoint* offset) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_Redirected_IsBase(true);
-        return vqlistwidget->redirected(offset);
-    } else {
-        return ((VirtualQListWidget*)self)->redirected(offset);
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return vqlistwidget->QListWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnRedirected(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_Redirected_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Redirected_Callback>(slot));
+void QListWidget_OnRedirected(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_redirected_callback = reinterpret_cast<VirtualQListWidget::QListWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QListWidget_SharedPainter(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         return vqlistwidget->sharedPainter();
     } else {
-        return ((VirtualQListWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QListWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QListWidget_SuperSharedPainter(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SharedPainter_IsBase(true);
-        return vqlistwidget->sharedPainter();
-    } else {
-        return ((VirtualQListWidget*)self)->sharedPainter();
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return vqlistwidget->QListWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QListWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QListWidget_OnSharedPainter(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SharedPainter_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SharedPainter_Callback>(slot));
+void QListWidget_OnSharedPainter(QListWidget* self, intptr_t slot) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
+        vqlistwidget->qlistwidget_sharedpainter_callback = reinterpret_cast<VirtualQListWidget::QListWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_ChildEvent(QListWidget* self, QChildEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->childEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperChildEvent(QListWidget* self, QChildEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ChildEvent_IsBase(true);
-        vqlistwidget->childEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->childEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnChildEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ChildEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ChildEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_childevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_CustomEvent(QListWidget* self, QEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->customEvent(event);
     } else {
-        ((VirtualQListWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QListWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperCustomEvent(QListWidget* self, QEvent* event) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_CustomEvent_IsBase(true);
-        vqlistwidget->customEvent(event);
-    } else {
-        ((VirtualQListWidget*)self)->customEvent(event);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnCustomEvent(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_CustomEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_CustomEvent_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_customevent_callback = reinterpret_cast<VirtualQListWidget::QListWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_ConnectNotify(QListWidget* self, const QMetaMethod* signal) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->connectNotify(*signal);
     } else {
-        ((VirtualQListWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QListWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperConnectNotify(QListWidget* self, const QMetaMethod* signal) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ConnectNotify_IsBase(true);
-        vqlistwidget->connectNotify(*signal);
-    } else {
-        ((VirtualQListWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnConnectNotify(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ConnectNotify_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_connectnotify_callback = reinterpret_cast<VirtualQListWidget::QListWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QListWidget_DisconnectNotify(QListWidget* self, const QMetaMethod* signal) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget) {
         vqlistwidget->disconnectNotify(*signal);
     } else {
-        ((VirtualQListWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QListWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QListWidget_SuperDisconnectNotify(QListWidget* self, const QMetaMethod* signal) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_DisconnectNotify_IsBase(true);
-        vqlistwidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualQListWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->QListWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QListWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDisconnectNotify(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self))
+        vqlistwidget->qlistwidget_disconnectnotify_callback = reinterpret_cast<VirtualQListWidget::QListWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_ResizeContents(QListWidget* self, int width, int height) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->resizeContents(static_cast<int>(width), static_cast<int>(height));
-    } else {
-        ((VirtualQListWidget*)self)->resizeContents(static_cast<int>(width), static_cast<int>(height));
-    }
-}
-
-// Base class handler implementation
-void QListWidget_SuperResizeContents(QListWidget* self, int width, int height) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ResizeContents_IsBase(true);
-        vqlistwidget->resizeContents(static_cast<int>(width), static_cast<int>(height));
-    } else {
-        ((VirtualQListWidget*)self)->resizeContents(static_cast<int>(width), static_cast<int>(height));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnResizeContents(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ResizeContents_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ResizeContents_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::resizeContents(static_cast<int>(width), static_cast<int>(height));
+    } else
+        qFatal("Error: Protected method QListWidget::resizeContents called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QSize* QListWidget_ContentsSize(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
         return new QSize(vqlistwidget->contentsSize());
-    }
-    return {};
-}
-
-// Base class handler implementation
-QSize* QListWidget_SuperContentsSize(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ContentsSize_IsBase(true);
-        return new QSize(vqlistwidget->contentsSize());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnContentsSize(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ContentsSize_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ContentsSize_Callback>(slot));
+    qFatal("Error: Protected method QListWidget::contentsSize called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QRect* QListWidget_RectForIndex(const QListWidget* self, const QModelIndex* index) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
         return new QRect(vqlistwidget->rectForIndex(*index));
-    }
-    return {};
+    qFatal("Error: Protected method QListWidget::rectForIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-QRect* QListWidget_SuperRectForIndex(const QListWidget* self, const QModelIndex* index) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_RectForIndex_IsBase(true);
-        return new QRect(vqlistwidget->rectForIndex(*index));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnRectForIndex(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_RectForIndex_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_RectForIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_SetPositionForIndex(QListWidget* self, const QPoint* position, const QModelIndex* index) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setPositionForIndex(*position, *index);
-    } else {
-        ((VirtualQListWidget*)self)->setPositionForIndex(*position, *index);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::setPositionForIndex(*position, *index);
+    } else
+        qFatal("Error: Protected method QListWidget::setPositionForIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QListWidget_SuperSetPositionForIndex(QListWidget* self, const QPoint* position, const QModelIndex* index) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SetPositionForIndex_IsBase(true);
-        vqlistwidget->setPositionForIndex(*position, *index);
-    } else {
-        ((VirtualQListWidget*)self)->setPositionForIndex(*position, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnSetPositionForIndex(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SetPositionForIndex_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetPositionForIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QListWidget_State(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return static_cast<int>(vqlistwidget->state());
-    } else {
-        return static_cast<int>(((VirtualQListWidget*)self)->state());
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return static_cast<int>(vqlistwidget->VirtualQListWidget::state());
+    } else
+        qFatal("Error: Protected method QListWidget::state called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QListWidget_SuperState(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_State_IsBase(true);
-        return static_cast<int>(vqlistwidget->state());
-    } else {
-        return static_cast<int>(((VirtualQListWidget*)self)->state());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnState(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_State_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_State_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_SetState(QListWidget* self, int state) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setState(static_cast<VirtualQListWidget::State>(state));
-    } else {
-        ((VirtualQListWidget*)self)->setState(static_cast<VirtualQListWidget::State>(state));
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::setState(static_cast<VirtualQListWidget::State>(state));
+    } else
+        qFatal("Error: Protected method QListWidget::setState called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QListWidget_SuperSetState(QListWidget* self, int state) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SetState_IsBase(true);
-        vqlistwidget->setState(static_cast<VirtualQListWidget::State>(state));
-    } else {
-        ((VirtualQListWidget*)self)->setState(static_cast<VirtualQListWidget::State>(state));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnSetState(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SetState_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetState_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_ScheduleDelayedItemsLayout(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->scheduleDelayedItemsLayout();
-    } else {
-        ((VirtualQListWidget*)self)->scheduleDelayedItemsLayout();
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::scheduleDelayedItemsLayout();
+    } else
+        qFatal("Error: Protected method QListWidget::scheduleDelayedItemsLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QListWidget_SuperScheduleDelayedItemsLayout(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ScheduleDelayedItemsLayout_IsBase(true);
-        vqlistwidget->scheduleDelayedItemsLayout();
-    } else {
-        ((VirtualQListWidget*)self)->scheduleDelayedItemsLayout();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnScheduleDelayedItemsLayout(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ScheduleDelayedItemsLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_ExecuteDelayedItemsLayout(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->executeDelayedItemsLayout();
-    } else {
-        ((VirtualQListWidget*)self)->executeDelayedItemsLayout();
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::executeDelayedItemsLayout();
+    } else
+        qFatal("Error: Protected method QListWidget::executeDelayedItemsLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QListWidget_SuperExecuteDelayedItemsLayout(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ExecuteDelayedItemsLayout_IsBase(true);
-        vqlistwidget->executeDelayedItemsLayout();
-    } else {
-        ((VirtualQListWidget*)self)->executeDelayedItemsLayout();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnExecuteDelayedItemsLayout(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ExecuteDelayedItemsLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_SetDirtyRegion(QListWidget* self, const QRegion* region) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setDirtyRegion(*region);
-    } else {
-        ((VirtualQListWidget*)self)->setDirtyRegion(*region);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::setDirtyRegion(*region);
+    } else
+        qFatal("Error: Protected method QListWidget::setDirtyRegion called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QListWidget_SuperSetDirtyRegion(QListWidget* self, const QRegion* region) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SetDirtyRegion_IsBase(true);
-        vqlistwidget->setDirtyRegion(*region);
-    } else {
-        ((VirtualQListWidget*)self)->setDirtyRegion(*region);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnSetDirtyRegion(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SetDirtyRegion_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetDirtyRegion_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_ScrollDirtyRegion(QListWidget* self, int dx, int dy) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQListWidget*)self)->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Base class handler implementation
-void QListWidget_SuperScrollDirtyRegion(QListWidget* self, int dx, int dy) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ScrollDirtyRegion_IsBase(true);
-        vqlistwidget->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQListWidget*)self)->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnScrollDirtyRegion(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ScrollDirtyRegion_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected method QListWidget::scrollDirtyRegion called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QPoint* QListWidget_DirtyRegionOffset(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
         return new QPoint(vqlistwidget->dirtyRegionOffset());
-    }
-    return {};
+    qFatal("Error: Protected method QListWidget::dirtyRegionOffset called without a directly constructed type");
 }
 
-// Base class handler implementation
-QPoint* QListWidget_SuperDirtyRegionOffset(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_DirtyRegionOffset_IsBase(true);
-        return new QPoint(vqlistwidget->dirtyRegionOffset());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnDirtyRegionOffset(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_DirtyRegionOffset_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DirtyRegionOffset_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_StartAutoScroll(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->startAutoScroll();
-    } else {
-        ((VirtualQListWidget*)self)->startAutoScroll();
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::startAutoScroll();
+    } else
+        qFatal("Error: Protected method QListWidget::startAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QListWidget_SuperStartAutoScroll(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_StartAutoScroll_IsBase(true);
-        vqlistwidget->startAutoScroll();
-    } else {
-        ((VirtualQListWidget*)self)->startAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnStartAutoScroll(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_StartAutoScroll_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_StartAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_StopAutoScroll(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->stopAutoScroll();
-    } else {
-        ((VirtualQListWidget*)self)->stopAutoScroll();
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::stopAutoScroll();
+    } else
+        qFatal("Error: Protected method QListWidget::stopAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QListWidget_SuperStopAutoScroll(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_StopAutoScroll_IsBase(true);
-        vqlistwidget->stopAutoScroll();
-    } else {
-        ((VirtualQListWidget*)self)->stopAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnStopAutoScroll(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_StopAutoScroll_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_StopAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_DoAutoScroll(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->doAutoScroll();
-    } else {
-        ((VirtualQListWidget*)self)->doAutoScroll();
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::doAutoScroll();
+    } else
+        qFatal("Error: Protected method QListWidget::doAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QListWidget_SuperDoAutoScroll(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_DoAutoScroll_IsBase(true);
-        vqlistwidget->doAutoScroll();
-    } else {
-        ((VirtualQListWidget*)self)->doAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnDoAutoScroll(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_DoAutoScroll_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DoAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QListWidget_DropIndicatorPosition(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return static_cast<int>(vqlistwidget->dropIndicatorPosition());
-    } else {
-        return static_cast<int>(((VirtualQListWidget*)self)->dropIndicatorPosition());
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return static_cast<int>(vqlistwidget->VirtualQListWidget::dropIndicatorPosition());
+    } else
+        qFatal("Error: Protected method QListWidget::dropIndicatorPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QListWidget_SuperDropIndicatorPosition(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_DropIndicatorPosition_IsBase(true);
-        return static_cast<int>(vqlistwidget->dropIndicatorPosition());
-    } else {
-        return static_cast<int>(((VirtualQListWidget*)self)->dropIndicatorPosition());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnDropIndicatorPosition(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_DropIndicatorPosition_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DropIndicatorPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_SetViewportMargins(QListWidget* self, int left, int top, int right, int bottom) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQListWidget*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Base class handler implementation
-void QListWidget_SuperSetViewportMargins(QListWidget* self, int left, int top, int right, int bottom) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SetViewportMargins_IsBase(true);
-        vqlistwidget->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQListWidget*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnSetViewportMargins(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SetViewportMargins_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetViewportMargins_Callback>(slot));
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+    } else
+        qFatal("Error: Protected method QListWidget::setViewportMargins called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMargins* QListWidget_ViewportMargins(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self)))
         return new QMargins(vqlistwidget->viewportMargins());
-    }
-    return {};
+    qFatal("Error: Protected method QListWidget::viewportMargins called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMargins* QListWidget_SuperViewportMargins(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_ViewportMargins_IsBase(true);
-        return new QMargins(vqlistwidget->viewportMargins());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnViewportMargins(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_ViewportMargins_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ViewportMargins_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_DrawFrame(QListWidget* self, QPainter* param1) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->drawFrame(param1);
-    } else {
-        ((VirtualQListWidget*)self)->drawFrame(param1);
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method QListWidget::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QListWidget_SuperDrawFrame(QListWidget* self, QPainter* param1) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_DrawFrame_IsBase(true);
-        vqlistwidget->drawFrame(param1);
-    } else {
-        ((VirtualQListWidget*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnDrawFrame(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_DrawFrame_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_UpdateMicroFocus(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->updateMicroFocus();
-    } else {
-        ((VirtualQListWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QListWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QListWidget_SuperUpdateMicroFocus(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_UpdateMicroFocus_IsBase(true);
-        vqlistwidget->updateMicroFocus();
-    } else {
-        ((VirtualQListWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnUpdateMicroFocus(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_Create(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->create();
-    } else {
-        ((VirtualQListWidget*)self)->create();
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::create();
+    } else
+        qFatal("Error: Protected method QListWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QListWidget_SuperCreate(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_Create_IsBase(true);
-        vqlistwidget->create();
-    } else {
-        ((VirtualQListWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnCreate(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_Create_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QListWidget_Destroy(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->destroy();
-    } else {
-        ((VirtualQListWidget*)self)->destroy();
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        vqlistwidget->VirtualQListWidget::destroy();
+    } else
+        qFatal("Error: Protected method QListWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QListWidget_SuperDestroy(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_Destroy_IsBase(true);
-        vqlistwidget->destroy();
-    } else {
-        ((VirtualQListWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnDestroy(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_Destroy_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QListWidget_FocusNextChild(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return vqlistwidget->focusNextChild();
-    } else {
-        return ((VirtualQListWidget*)self)->focusNextChild();
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        return vqlistwidget->VirtualQListWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method QListWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QListWidget_SuperFocusNextChild(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_FocusNextChild_IsBase(true);
-        return vqlistwidget->focusNextChild();
-    } else {
-        return ((VirtualQListWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnFocusNextChild(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QListWidget_FocusPreviousChild(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return vqlistwidget->focusPreviousChild();
-    } else {
-        return ((VirtualQListWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self)) {
+        return vqlistwidget->VirtualQListWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QListWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QListWidget_SuperFocusPreviousChild(QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_FocusPreviousChild_IsBase(true);
-        return vqlistwidget->focusPreviousChild();
-    } else {
-        return ((VirtualQListWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnFocusPreviousChild(QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QListWidget_Sender(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return vqlistwidget->sender();
-    } else {
-        return ((VirtualQListWidget*)self)->sender();
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return vqlistwidget->VirtualQListWidget::sender();
+    } else
+        qFatal("Error: Protected method QListWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QListWidget_SuperSender(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_Sender_IsBase(true);
-        return vqlistwidget->sender();
-    } else {
-        return ((VirtualQListWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnSender(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_Sender_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QListWidget_SenderSignalIndex(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return vqlistwidget->senderSignalIndex();
-    } else {
-        return ((VirtualQListWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return vqlistwidget->VirtualQListWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QListWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QListWidget_SuperSenderSignalIndex(const QListWidget* self) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_SenderSignalIndex_IsBase(true);
-        return vqlistwidget->senderSignalIndex();
-    } else {
-        return ((VirtualQListWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnSenderSignalIndex(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QListWidget_Receivers(const QListWidget* self, const char* signal) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return vqlistwidget->receivers(signal);
-    } else {
-        return ((VirtualQListWidget*)self)->receivers(signal);
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return vqlistwidget->VirtualQListWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method QListWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QListWidget_SuperReceivers(const QListWidget* self, const char* signal) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_Receivers_IsBase(true);
-        return vqlistwidget->receivers(signal);
-    } else {
-        return ((VirtualQListWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnReceivers(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_Receivers_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QListWidget_IsSignalConnected(const QListWidget* self, const QMetaMethod* signal) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return vqlistwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQListWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return vqlistwidget->VirtualQListWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QListWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QListWidget_SuperIsSignalConnected(const QListWidget* self, const QMetaMethod* signal) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_IsSignalConnected_IsBase(true);
-        return vqlistwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQListWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnIsSignalConnected(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QListWidget_GetDecodedMetricF(const QListWidget* self, int metricA, int metricB) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return vqlistwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQListWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QListWidget_SuperGetDecodedMetricF(const QListWidget* self, int metricA, int metricB) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        vqlistwidget->setQListWidget_GetDecodedMetricF_IsBase(true);
-        return vqlistwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQListWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QListWidget_OnGetDecodedMetricF(const QListWidget* self, intptr_t slot) {
-    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
-        vqlistwidget->setQListWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self))) {
+        return vqlistwidget->VirtualQListWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QListWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void QListWidget_Delete(QListWidget* self) {

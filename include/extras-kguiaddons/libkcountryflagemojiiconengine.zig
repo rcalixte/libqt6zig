@@ -65,9 +65,9 @@ pub const KCountryFlagEmojiIconEngine = extern struct {
     ///
     /// ` self: KCountryFlagEmojiIconEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) QIconEngine `
+    /// ` callback: *const fn (self: KCountryFlagEmojiIconEngine) callconv(.c) QIconEngine `
     ///
-    pub fn onClone(self: KCountryFlagEmojiIconEngine, callback: *const fn () callconv(.c) QIconEngine) void {
+    pub fn onClone(self: KCountryFlagEmojiIconEngine, callback: *const fn (KCountryFlagEmojiIconEngine) callconv(.c) QIconEngine) void {
         qtc.KCountryFlagEmojiIconEngine_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -119,9 +119,9 @@ pub const KCountryFlagEmojiIconEngine = extern struct {
     ///
     /// ` self: KCountryFlagEmojiIconEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KCountryFlagEmojiIconEngine) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onKey(self: KCountryFlagEmojiIconEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onKey(self: KCountryFlagEmojiIconEngine, callback: *const fn (KCountryFlagEmojiIconEngine) callconv(.c) [*:0]const u8) void {
         qtc.KCountryFlagEmojiIconEngine_OnKey(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -373,9 +373,9 @@ pub const KCountryFlagEmojiIconEngine = extern struct {
     ///
     /// ` self: KCountryFlagEmojiIconEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KCountryFlagEmojiIconEngine) callconv(.c) bool `
     ///
-    pub fn onIsNull(self: KCountryFlagEmojiIconEngine, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsNull(self: KCountryFlagEmojiIconEngine, callback: *const fn (KCountryFlagEmojiIconEngine) callconv(.c) bool) void {
         qtc.KCountryFlagEmojiIconEngine_OnIsNull(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -906,9 +906,9 @@ pub const KCountryFlagEmojiIconEngine = extern struct {
     ///
     /// ` self: KCountryFlagEmojiIconEngine`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KCountryFlagEmojiIconEngine) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onIconName(self: KCountryFlagEmojiIconEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onIconName(self: KCountryFlagEmojiIconEngine, callback: *const fn (KCountryFlagEmojiIconEngine) callconv(.c) [*:0]const u8) void {
         qtc.KCountryFlagEmojiIconEngine_OnIconName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

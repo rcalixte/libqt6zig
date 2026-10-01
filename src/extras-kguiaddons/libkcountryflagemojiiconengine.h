@@ -33,9 +33,9 @@ QPixmap* KCountryFlagEmojiIconEngine_Pixmap(KCountryFlagEmojiIconEngine* self, c
 QPixmap* KCountryFlagEmojiIconEngine_ScaledPixmap(KCountryFlagEmojiIconEngine* self, const QSize* size, int mode, int state, double scale);
 bool KCountryFlagEmojiIconEngine_IsNull(KCountryFlagEmojiIconEngine* self);
 void KCountryFlagEmojiIconEngine_SetGlobalDefaultFont(const QFont* font);
-void KCountryFlagEmojiIconEngine_OnClone(const KCountryFlagEmojiIconEngine* self, intptr_t slot);
+void KCountryFlagEmojiIconEngine_OnClone(KCountryFlagEmojiIconEngine* self, intptr_t slot);
 QIconEngine* KCountryFlagEmojiIconEngine_SuperClone(const KCountryFlagEmojiIconEngine* self);
-void KCountryFlagEmojiIconEngine_OnKey(const KCountryFlagEmojiIconEngine* self, intptr_t slot);
+void KCountryFlagEmojiIconEngine_OnKey(KCountryFlagEmojiIconEngine* self, intptr_t slot);
 libqt_string KCountryFlagEmojiIconEngine_SuperKey(const KCountryFlagEmojiIconEngine* self);
 void KCountryFlagEmojiIconEngine_OnPaint(KCountryFlagEmojiIconEngine* self, intptr_t slot);
 void KCountryFlagEmojiIconEngine_SuperPaint(KCountryFlagEmojiIconEngine* self, QPainter* painter, const QRect* rect, int mode, int state);
@@ -58,7 +58,7 @@ bool KCountryFlagEmojiIconEngine_Read(KCountryFlagEmojiIconEngine* self, QDataSt
 void KCountryFlagEmojiIconEngine_OnRead(KCountryFlagEmojiIconEngine* self, intptr_t slot);
 bool KCountryFlagEmojiIconEngine_SuperRead(KCountryFlagEmojiIconEngine* self, QDataStream* in);
 bool KCountryFlagEmojiIconEngine_Write(const KCountryFlagEmojiIconEngine* self, QDataStream* out);
-void KCountryFlagEmojiIconEngine_OnWrite(const KCountryFlagEmojiIconEngine* self, intptr_t slot);
+void KCountryFlagEmojiIconEngine_OnWrite(KCountryFlagEmojiIconEngine* self, intptr_t slot);
 bool KCountryFlagEmojiIconEngine_SuperWrite(const KCountryFlagEmojiIconEngine* self, QDataStream* out);
 libqt_list /* of QSize* */ KCountryFlagEmojiIconEngine_AvailableSizes(KCountryFlagEmojiIconEngine* self, int mode, int state);
 void KCountryFlagEmojiIconEngine_OnAvailableSizes(KCountryFlagEmojiIconEngine* self, intptr_t slot);

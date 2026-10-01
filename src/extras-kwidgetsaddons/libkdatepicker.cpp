@@ -116,22 +116,22 @@ void KDatePicker_SetDateRange(KDatePicker* self, const QDate* minDate) {
 
 bool KDatePicker_EventFilter(KDatePicker* self, QObject* o, QEvent* e) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         return vkdatepicker->eventFilter(o, e);
     }
-    return {};
+    qFatal("Error: Protected method KDatePicker::eventFilter called without a directly constructed type");
 }
 
 void KDatePicker_ResizeEvent(KDatePicker* self, QResizeEvent* param1) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->resizeEvent(param1);
     }
 }
 
 void KDatePicker_ChangeEvent(KDatePicker* self, QEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->changeEvent(event);
     }
 }
@@ -227,2006 +227,1274 @@ void KDatePicker_SetDateRange2(KDatePicker* self, const QDate* minDate, const QD
 
 // Base class handler implementation
 QMetaObject* KDatePicker_SuperMetaObject(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_MetaObject_IsBase(true);
-        return (QMetaObject*)vkdatepicker->metaObject();
-    } else {
-        return (QMetaObject*)self->KDatePicker::metaObject();
-    }
+    return (QMetaObject*)self->KDatePicker::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDatePicker_OnMetaObject(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_MetaObject_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MetaObject_Callback>(slot));
+void KDatePicker_OnMetaObject(KDatePicker* self, intptr_t slot) {
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self)))
+        vkdatepicker->kdatepicker_metaobject_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KDatePicker_SuperMetacast(KDatePicker* self, const char* param1) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_Metacast_IsBase(true);
-        return vkdatepicker->qt_metacast(param1);
-    } else {
-        return self->KDatePicker::qt_metacast(param1);
-    }
+    return self->KDatePicker::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMetacast(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_Metacast_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Metacast_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_metacast_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KDatePicker_SuperMetacall(KDatePicker* self, int param1, int param2, void** param3) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_Metacall_IsBase(true);
-        return vkdatepicker->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KDatePicker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KDatePicker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMetacall(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_Metacall_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Metacall_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_metacall_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KDatePicker_SuperSizeHint(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_SizeHint_IsBase(true);
-        return new QSize(vkdatepicker->sizeHint());
-    } else {
-        return new QSize(((VirtualKDatePicker*)self)->sizeHint());
-    }
+    return new QSize(self->KDatePicker::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDatePicker_OnSizeHint(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_SizeHint_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_SizeHint_Callback>(slot));
+void KDatePicker_OnSizeHint(KDatePicker* self, intptr_t slot) {
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self)))
+        vkdatepicker->kdatepicker_sizehint_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KDatePicker_SuperEventFilter(KDatePicker* self, QObject* o, QEvent* e) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_EventFilter_IsBase(true);
-        return vkdatepicker->eventFilter(o, e);
-    } else {
-        return ((VirtualKDatePicker*)self)->eventFilter(o, e);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        return vkdatepicker->KDatePicker::eventFilter(o, e);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnEventFilter(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_EventFilter_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_EventFilter_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_eventfilter_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDatePicker_SuperResizeEvent(KDatePicker* self, QResizeEvent* param1) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_ResizeEvent_IsBase(true);
-        vkdatepicker->resizeEvent(param1);
-    } else {
-        ((VirtualKDatePicker*)self)->resizeEvent(param1);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnResizeEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_ResizeEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ResizeEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_resizeevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDatePicker_SuperChangeEvent(KDatePicker* self, QEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_ChangeEvent_IsBase(true);
-        vkdatepicker->changeEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->changeEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::changeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnChangeEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_ChangeEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ChangeEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_changeevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDatePicker_Event(KDatePicker* self, QEvent* e) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         return vkdatepicker->event(e);
     } else {
-        return ((VirtualKDatePicker*)self)->event(e);
+        qFatal("Error: Protected virtual method KDatePicker::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KDatePicker_SuperEvent(KDatePicker* self, QEvent* e) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_Event_IsBase(true);
-        return vkdatepicker->event(e);
-    } else {
-        return ((VirtualKDatePicker*)self)->event(e);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        return vkdatepicker->KDatePicker::event(e);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_Event_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Event_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_event_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_PaintEvent(KDatePicker* self, QPaintEvent* param1) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->paintEvent(param1);
     } else {
-        ((VirtualKDatePicker*)self)->paintEvent(param1);
+        qFatal("Error: Protected virtual method KDatePicker::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperPaintEvent(KDatePicker* self, QPaintEvent* param1) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_PaintEvent_IsBase(true);
-        vkdatepicker->paintEvent(param1);
-    } else {
-        ((VirtualKDatePicker*)self)->paintEvent(param1);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnPaintEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_PaintEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_PaintEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_paintevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_InitStyleOption(const KDatePicker* self, QStyleOptionFrame* option) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->initStyleOption(option);
     } else {
-        ((VirtualKDatePicker*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KDatePicker::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperInitStyleOption(const KDatePicker* self, QStyleOptionFrame* option) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_InitStyleOption_IsBase(true);
-        vkdatepicker->initStyleOption(option);
-    } else {
-        ((VirtualKDatePicker*)self)->initStyleOption(option);
-    }
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self))) {
+        vkdatepicker->KDatePicker::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDatePicker_OnInitStyleOption(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_InitStyleOption_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_InitStyleOption_Callback>(slot));
+void KDatePicker_OnInitStyleOption(KDatePicker* self, intptr_t slot) {
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self)))
+        vkdatepicker->kdatepicker_initstyleoption_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KDatePicker_DevType(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return vkdatepicker->devType();
-    } else {
-        return self->KDatePicker::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KDatePicker_SuperDevType(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_DevType_IsBase(true);
-        return vkdatepicker->devType();
-    } else {
-        return self->KDatePicker::devType();
-    }
+    return self->KDatePicker::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDatePicker_OnDevType(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_DevType_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DevType_Callback>(slot));
+void KDatePicker_OnDevType(KDatePicker* self, intptr_t slot) {
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self)))
+        vkdatepicker->kdatepicker_devtype_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_SetVisible(KDatePicker* self, bool visible) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setVisible(visible);
-    } else {
-        self->KDatePicker::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KDatePicker_SuperSetVisible(KDatePicker* self, bool visible) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_SetVisible_IsBase(true);
-        vkdatepicker->setVisible(visible);
-    } else {
-        self->KDatePicker::setVisible(visible);
-    }
+    self->KDatePicker::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnSetVisible(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_SetVisible_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_SetVisible_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_setvisible_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KDatePicker_MinimumSizeHint(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return new QSize(vkdatepicker->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKDatePicker*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KDatePicker_SuperMinimumSizeHint(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_MinimumSizeHint_IsBase(true);
-        return new QSize(vkdatepicker->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKDatePicker*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KDatePicker::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDatePicker_OnMinimumSizeHint(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_MinimumSizeHint_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MinimumSizeHint_Callback>(slot));
+void KDatePicker_OnMinimumSizeHint(KDatePicker* self, intptr_t slot) {
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self)))
+        vkdatepicker->kdatepicker_minimumsizehint_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KDatePicker_HeightForWidth(const KDatePicker* self, int param1) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return vkdatepicker->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KDatePicker::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KDatePicker_SuperHeightForWidth(const KDatePicker* self, int param1) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_HeightForWidth_IsBase(true);
-        return vkdatepicker->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KDatePicker::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KDatePicker::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDatePicker_OnHeightForWidth(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_HeightForWidth_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_HeightForWidth_Callback>(slot));
+void KDatePicker_OnHeightForWidth(KDatePicker* self, intptr_t slot) {
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self)))
+        vkdatepicker->kdatepicker_heightforwidth_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDatePicker_HasHeightForWidth(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return vkdatepicker->hasHeightForWidth();
-    } else {
-        return self->KDatePicker::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KDatePicker_SuperHasHeightForWidth(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_HasHeightForWidth_IsBase(true);
-        return vkdatepicker->hasHeightForWidth();
-    } else {
-        return self->KDatePicker::hasHeightForWidth();
-    }
+    return self->KDatePicker::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDatePicker_OnHasHeightForWidth(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_HasHeightForWidth_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_HasHeightForWidth_Callback>(slot));
+void KDatePicker_OnHasHeightForWidth(KDatePicker* self, intptr_t slot) {
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self)))
+        vkdatepicker->kdatepicker_hasheightforwidth_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KDatePicker_PaintEngine(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return vkdatepicker->paintEngine();
-    } else {
-        return self->KDatePicker::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KDatePicker_SuperPaintEngine(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_PaintEngine_IsBase(true);
-        return vkdatepicker->paintEngine();
-    } else {
-        return self->KDatePicker::paintEngine();
-    }
+    return self->KDatePicker::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDatePicker_OnPaintEngine(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_PaintEngine_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_PaintEngine_Callback>(slot));
+void KDatePicker_OnPaintEngine(KDatePicker* self, intptr_t slot) {
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self)))
+        vkdatepicker->kdatepicker_paintengine_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_MousePressEvent(KDatePicker* self, QMouseEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->mousePressEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperMousePressEvent(KDatePicker* self, QMouseEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_MousePressEvent_IsBase(true);
-        vkdatepicker->mousePressEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->mousePressEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMousePressEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_MousePressEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MousePressEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_mousepressevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_MouseReleaseEvent(KDatePicker* self, QMouseEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->mouseReleaseEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperMouseReleaseEvent(KDatePicker* self, QMouseEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_MouseReleaseEvent_IsBase(true);
-        vkdatepicker->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMouseReleaseEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_mousereleaseevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_MouseDoubleClickEvent(KDatePicker* self, QMouseEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperMouseDoubleClickEvent(KDatePicker* self, QMouseEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_MouseDoubleClickEvent_IsBase(true);
-        vkdatepicker->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMouseDoubleClickEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_mousedoubleclickevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_MouseMoveEvent(KDatePicker* self, QMouseEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->mouseMoveEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperMouseMoveEvent(KDatePicker* self, QMouseEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_MouseMoveEvent_IsBase(true);
-        vkdatepicker->mouseMoveEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMouseMoveEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_MouseMoveEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MouseMoveEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_mousemoveevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_WheelEvent(KDatePicker* self, QWheelEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->wheelEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperWheelEvent(KDatePicker* self, QWheelEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_WheelEvent_IsBase(true);
-        vkdatepicker->wheelEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->wheelEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnWheelEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_WheelEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_WheelEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_wheelevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_KeyPressEvent(KDatePicker* self, QKeyEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->keyPressEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperKeyPressEvent(KDatePicker* self, QKeyEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_KeyPressEvent_IsBase(true);
-        vkdatepicker->keyPressEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->keyPressEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnKeyPressEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_KeyPressEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_KeyPressEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_keypressevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_KeyReleaseEvent(KDatePicker* self, QKeyEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->keyReleaseEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperKeyReleaseEvent(KDatePicker* self, QKeyEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_KeyReleaseEvent_IsBase(true);
-        vkdatepicker->keyReleaseEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnKeyReleaseEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_keyreleaseevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_FocusInEvent(KDatePicker* self, QFocusEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->focusInEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperFocusInEvent(KDatePicker* self, QFocusEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_FocusInEvent_IsBase(true);
-        vkdatepicker->focusInEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->focusInEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnFocusInEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_FocusInEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_FocusInEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_focusinevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_FocusOutEvent(KDatePicker* self, QFocusEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->focusOutEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperFocusOutEvent(KDatePicker* self, QFocusEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_FocusOutEvent_IsBase(true);
-        vkdatepicker->focusOutEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->focusOutEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnFocusOutEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_FocusOutEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_FocusOutEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_focusoutevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_EnterEvent(KDatePicker* self, QEnterEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->enterEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperEnterEvent(KDatePicker* self, QEnterEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_EnterEvent_IsBase(true);
-        vkdatepicker->enterEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->enterEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnEnterEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_EnterEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_EnterEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_enterevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_LeaveEvent(KDatePicker* self, QEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->leaveEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperLeaveEvent(KDatePicker* self, QEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_LeaveEvent_IsBase(true);
-        vkdatepicker->leaveEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->leaveEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnLeaveEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_LeaveEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_LeaveEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_leaveevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_MoveEvent(KDatePicker* self, QMoveEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->moveEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperMoveEvent(KDatePicker* self, QMoveEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_MoveEvent_IsBase(true);
-        vkdatepicker->moveEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->moveEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMoveEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_MoveEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MoveEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_moveevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_CloseEvent(KDatePicker* self, QCloseEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->closeEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperCloseEvent(KDatePicker* self, QCloseEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_CloseEvent_IsBase(true);
-        vkdatepicker->closeEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->closeEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnCloseEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_CloseEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_CloseEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_closeevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_ContextMenuEvent(KDatePicker* self, QContextMenuEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->contextMenuEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperContextMenuEvent(KDatePicker* self, QContextMenuEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_ContextMenuEvent_IsBase(true);
-        vkdatepicker->contextMenuEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnContextMenuEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_ContextMenuEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ContextMenuEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_contextmenuevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_TabletEvent(KDatePicker* self, QTabletEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->tabletEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperTabletEvent(KDatePicker* self, QTabletEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_TabletEvent_IsBase(true);
-        vkdatepicker->tabletEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->tabletEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnTabletEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_TabletEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_TabletEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_tabletevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_ActionEvent(KDatePicker* self, QActionEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->actionEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperActionEvent(KDatePicker* self, QActionEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_ActionEvent_IsBase(true);
-        vkdatepicker->actionEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->actionEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnActionEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_ActionEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ActionEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_actionevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_DragEnterEvent(KDatePicker* self, QDragEnterEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->dragEnterEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperDragEnterEvent(KDatePicker* self, QDragEnterEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_DragEnterEvent_IsBase(true);
-        vkdatepicker->dragEnterEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnDragEnterEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_DragEnterEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DragEnterEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_dragenterevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_DragMoveEvent(KDatePicker* self, QDragMoveEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->dragMoveEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperDragMoveEvent(KDatePicker* self, QDragMoveEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_DragMoveEvent_IsBase(true);
-        vkdatepicker->dragMoveEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnDragMoveEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_DragMoveEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DragMoveEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_dragmoveevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_DragLeaveEvent(KDatePicker* self, QDragLeaveEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->dragLeaveEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperDragLeaveEvent(KDatePicker* self, QDragLeaveEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_DragLeaveEvent_IsBase(true);
-        vkdatepicker->dragLeaveEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnDragLeaveEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_DragLeaveEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DragLeaveEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_dragleaveevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_DropEvent(KDatePicker* self, QDropEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->dropEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperDropEvent(KDatePicker* self, QDropEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_DropEvent_IsBase(true);
-        vkdatepicker->dropEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->dropEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnDropEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_DropEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DropEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_dropevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_ShowEvent(KDatePicker* self, QShowEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->showEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperShowEvent(KDatePicker* self, QShowEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_ShowEvent_IsBase(true);
-        vkdatepicker->showEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->showEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnShowEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_ShowEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ShowEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_showevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_HideEvent(KDatePicker* self, QHideEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->hideEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperHideEvent(KDatePicker* self, QHideEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_HideEvent_IsBase(true);
-        vkdatepicker->hideEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->hideEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnHideEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_HideEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_HideEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_hideevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDatePicker_NativeEvent(KDatePicker* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
+    if (vkdatepicker) {
         return vkdatepicker->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKDatePicker*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KDatePicker::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KDatePicker_SuperNativeEvent(KDatePicker* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_NativeEvent_IsBase(true);
-        return vkdatepicker->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKDatePicker*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        return vkdatepicker->KDatePicker::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnNativeEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_NativeEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_NativeEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_nativeevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KDatePicker_Metric(const KDatePicker* self, int param1) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         return vkdatepicker->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKDatePicker*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KDatePicker::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KDatePicker_SuperMetric(const KDatePicker* self, int param1) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_Metric_IsBase(true);
-        return vkdatepicker->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKDatePicker*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self))) {
+        return vkdatepicker->KDatePicker::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDatePicker_OnMetric(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_Metric_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Metric_Callback>(slot));
+void KDatePicker_OnMetric(KDatePicker* self, intptr_t slot) {
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self)))
+        vkdatepicker->kdatepicker_metric_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_InitPainter(const KDatePicker* self, QPainter* painter) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->initPainter(painter);
     } else {
-        ((VirtualKDatePicker*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KDatePicker::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperInitPainter(const KDatePicker* self, QPainter* painter) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_InitPainter_IsBase(true);
-        vkdatepicker->initPainter(painter);
-    } else {
-        ((VirtualKDatePicker*)self)->initPainter(painter);
-    }
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self))) {
+        vkdatepicker->KDatePicker::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDatePicker_OnInitPainter(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_InitPainter_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_InitPainter_Callback>(slot));
+void KDatePicker_OnInitPainter(KDatePicker* self, intptr_t slot) {
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self)))
+        vkdatepicker->kdatepicker_initpainter_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KDatePicker_Redirected(const KDatePicker* self, QPoint* offset) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         return vkdatepicker->redirected(offset);
     } else {
-        return ((VirtualKDatePicker*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KDatePicker::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KDatePicker_SuperRedirected(const KDatePicker* self, QPoint* offset) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_Redirected_IsBase(true);
-        return vkdatepicker->redirected(offset);
-    } else {
-        return ((VirtualKDatePicker*)self)->redirected(offset);
-    }
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self))) {
+        return vkdatepicker->KDatePicker::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDatePicker_OnRedirected(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_Redirected_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Redirected_Callback>(slot));
+void KDatePicker_OnRedirected(KDatePicker* self, intptr_t slot) {
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self)))
+        vkdatepicker->kdatepicker_redirected_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KDatePicker_SharedPainter(const KDatePicker* self) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         return vkdatepicker->sharedPainter();
     } else {
-        return ((VirtualKDatePicker*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KDatePicker::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KDatePicker_SuperSharedPainter(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_SharedPainter_IsBase(true);
-        return vkdatepicker->sharedPainter();
-    } else {
-        return ((VirtualKDatePicker*)self)->sharedPainter();
-    }
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self))) {
+        return vkdatepicker->KDatePicker::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDatePicker_OnSharedPainter(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_SharedPainter_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_SharedPainter_Callback>(slot));
+void KDatePicker_OnSharedPainter(KDatePicker* self, intptr_t slot) {
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self)))
+        vkdatepicker->kdatepicker_sharedpainter_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_InputMethodEvent(KDatePicker* self, QInputMethodEvent* param1) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->inputMethodEvent(param1);
     } else {
-        ((VirtualKDatePicker*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KDatePicker::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperInputMethodEvent(KDatePicker* self, QInputMethodEvent* param1) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_InputMethodEvent_IsBase(true);
-        vkdatepicker->inputMethodEvent(param1);
-    } else {
-        ((VirtualKDatePicker*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnInputMethodEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_InputMethodEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_InputMethodEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_inputmethodevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KDatePicker_InputMethodQuery(const KDatePicker* self, int param1) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return new QVariant(vkdatepicker->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKDatePicker*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KDatePicker_SuperInputMethodQuery(const KDatePicker* self, int param1) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_InputMethodQuery_IsBase(true);
-        return new QVariant(vkdatepicker->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKDatePicker*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KDatePicker::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDatePicker_OnInputMethodQuery(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_InputMethodQuery_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_InputMethodQuery_Callback>(slot));
+void KDatePicker_OnInputMethodQuery(KDatePicker* self, intptr_t slot) {
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self)))
+        vkdatepicker->kdatepicker_inputmethodquery_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDatePicker_FocusNextPrevChild(KDatePicker* self, bool next) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         return vkdatepicker->focusNextPrevChild(next);
     } else {
-        return ((VirtualKDatePicker*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KDatePicker::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KDatePicker_SuperFocusNextPrevChild(KDatePicker* self, bool next) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_FocusNextPrevChild_IsBase(true);
-        return vkdatepicker->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKDatePicker*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        return vkdatepicker->KDatePicker::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnFocusNextPrevChild(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_focusnextprevchild_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_TimerEvent(KDatePicker* self, QTimerEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->timerEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperTimerEvent(KDatePicker* self, QTimerEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_TimerEvent_IsBase(true);
-        vkdatepicker->timerEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->timerEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnTimerEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_TimerEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_TimerEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_timerevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_ChildEvent(KDatePicker* self, QChildEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->childEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperChildEvent(KDatePicker* self, QChildEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_ChildEvent_IsBase(true);
-        vkdatepicker->childEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->childEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnChildEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_ChildEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ChildEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_childevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_CustomEvent(KDatePicker* self, QEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->customEvent(event);
     } else {
-        ((VirtualKDatePicker*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KDatePicker::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperCustomEvent(KDatePicker* self, QEvent* event) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_CustomEvent_IsBase(true);
-        vkdatepicker->customEvent(event);
-    } else {
-        ((VirtualKDatePicker*)self)->customEvent(event);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnCustomEvent(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_CustomEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_CustomEvent_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_customevent_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_ConnectNotify(KDatePicker* self, const QMetaMethod* signal) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->connectNotify(*signal);
     } else {
-        ((VirtualKDatePicker*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KDatePicker::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperConnectNotify(KDatePicker* self, const QMetaMethod* signal) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_ConnectNotify_IsBase(true);
-        vkdatepicker->connectNotify(*signal);
-    } else {
-        ((VirtualKDatePicker*)self)->connectNotify(*signal);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnConnectNotify(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_ConnectNotify_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ConnectNotify_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_connectnotify_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDatePicker_DisconnectNotify(KDatePicker* self, const QMetaMethod* signal) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker) {
         vkdatepicker->disconnectNotify(*signal);
     } else {
-        ((VirtualKDatePicker*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KDatePicker::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDatePicker_SuperDisconnectNotify(KDatePicker* self, const QMetaMethod* signal) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_DisconnectNotify_IsBase(true);
-        vkdatepicker->disconnectNotify(*signal);
-    } else {
-        ((VirtualKDatePicker*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->KDatePicker::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KDatePicker::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnDisconnectNotify(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_DisconnectNotify_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DisconnectNotify_Callback>(slot));
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self))
+        vkdatepicker->kdatepicker_disconnectnotify_callback = reinterpret_cast<VirtualKDatePicker::KDatePicker_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_DateChangedSlot(KDatePicker* self, const QDate* date) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->dateChangedSlot(*date);
-    } else {
-        ((VirtualKDatePicker*)self)->dateChangedSlot(*date);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::dateChangedSlot(*date);
+    } else
+        qFatal("Error: Protected method KDatePicker::dateChangedSlot called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperDateChangedSlot(KDatePicker* self, const QDate* date) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_DateChangedSlot_IsBase(true);
-        vkdatepicker->dateChangedSlot(*date);
-    } else {
-        ((VirtualKDatePicker*)self)->dateChangedSlot(*date);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnDateChangedSlot(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_DateChangedSlot_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DateChangedSlot_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_TableClickedSlot(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->tableClickedSlot();
-    } else {
-        ((VirtualKDatePicker*)self)->tableClickedSlot();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::tableClickedSlot();
+    } else
+        qFatal("Error: Protected method KDatePicker::tableClickedSlot called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperTableClickedSlot(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_TableClickedSlot_IsBase(true);
-        vkdatepicker->tableClickedSlot();
-    } else {
-        ((VirtualKDatePicker*)self)->tableClickedSlot();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnTableClickedSlot(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_TableClickedSlot_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_TableClickedSlot_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_MonthForwardClicked(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->monthForwardClicked();
-    } else {
-        ((VirtualKDatePicker*)self)->monthForwardClicked();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::monthForwardClicked();
+    } else
+        qFatal("Error: Protected method KDatePicker::monthForwardClicked called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperMonthForwardClicked(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_MonthForwardClicked_IsBase(true);
-        vkdatepicker->monthForwardClicked();
-    } else {
-        ((VirtualKDatePicker*)self)->monthForwardClicked();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnMonthForwardClicked(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_MonthForwardClicked_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MonthForwardClicked_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_MonthBackwardClicked(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->monthBackwardClicked();
-    } else {
-        ((VirtualKDatePicker*)self)->monthBackwardClicked();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::monthBackwardClicked();
+    } else
+        qFatal("Error: Protected method KDatePicker::monthBackwardClicked called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperMonthBackwardClicked(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_MonthBackwardClicked_IsBase(true);
-        vkdatepicker->monthBackwardClicked();
-    } else {
-        ((VirtualKDatePicker*)self)->monthBackwardClicked();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnMonthBackwardClicked(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_MonthBackwardClicked_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MonthBackwardClicked_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_YearForwardClicked(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->yearForwardClicked();
-    } else {
-        ((VirtualKDatePicker*)self)->yearForwardClicked();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::yearForwardClicked();
+    } else
+        qFatal("Error: Protected method KDatePicker::yearForwardClicked called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperYearForwardClicked(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_YearForwardClicked_IsBase(true);
-        vkdatepicker->yearForwardClicked();
-    } else {
-        ((VirtualKDatePicker*)self)->yearForwardClicked();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnYearForwardClicked(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_YearForwardClicked_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_YearForwardClicked_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_YearBackwardClicked(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->yearBackwardClicked();
-    } else {
-        ((VirtualKDatePicker*)self)->yearBackwardClicked();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::yearBackwardClicked();
+    } else
+        qFatal("Error: Protected method KDatePicker::yearBackwardClicked called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperYearBackwardClicked(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_YearBackwardClicked_IsBase(true);
-        vkdatepicker->yearBackwardClicked();
-    } else {
-        ((VirtualKDatePicker*)self)->yearBackwardClicked();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnYearBackwardClicked(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_YearBackwardClicked_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_YearBackwardClicked_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_SelectMonthClicked(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->selectMonthClicked();
-    } else {
-        ((VirtualKDatePicker*)self)->selectMonthClicked();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::selectMonthClicked();
+    } else
+        qFatal("Error: Protected method KDatePicker::selectMonthClicked called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperSelectMonthClicked(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_SelectMonthClicked_IsBase(true);
-        vkdatepicker->selectMonthClicked();
-    } else {
-        ((VirtualKDatePicker*)self)->selectMonthClicked();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnSelectMonthClicked(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_SelectMonthClicked_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_SelectMonthClicked_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_SelectYearClicked(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->selectYearClicked();
-    } else {
-        ((VirtualKDatePicker*)self)->selectYearClicked();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::selectYearClicked();
+    } else
+        qFatal("Error: Protected method KDatePicker::selectYearClicked called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperSelectYearClicked(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_SelectYearClicked_IsBase(true);
-        vkdatepicker->selectYearClicked();
-    } else {
-        ((VirtualKDatePicker*)self)->selectYearClicked();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnSelectYearClicked(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_SelectYearClicked_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_SelectYearClicked_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_UncheckYearSelector(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->uncheckYearSelector();
-    } else {
-        ((VirtualKDatePicker*)self)->uncheckYearSelector();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::uncheckYearSelector();
+    } else
+        qFatal("Error: Protected method KDatePicker::uncheckYearSelector called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperUncheckYearSelector(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_UncheckYearSelector_IsBase(true);
-        vkdatepicker->uncheckYearSelector();
-    } else {
-        ((VirtualKDatePicker*)self)->uncheckYearSelector();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnUncheckYearSelector(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_UncheckYearSelector_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_UncheckYearSelector_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_LineEnterPressed(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->lineEnterPressed();
-    } else {
-        ((VirtualKDatePicker*)self)->lineEnterPressed();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::lineEnterPressed();
+    } else
+        qFatal("Error: Protected method KDatePicker::lineEnterPressed called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperLineEnterPressed(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_LineEnterPressed_IsBase(true);
-        vkdatepicker->lineEnterPressed();
-    } else {
-        ((VirtualKDatePicker*)self)->lineEnterPressed();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnLineEnterPressed(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_LineEnterPressed_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_LineEnterPressed_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_TodayButtonClicked(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->todayButtonClicked();
-    } else {
-        ((VirtualKDatePicker*)self)->todayButtonClicked();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::todayButtonClicked();
+    } else
+        qFatal("Error: Protected method KDatePicker::todayButtonClicked called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperTodayButtonClicked(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_TodayButtonClicked_IsBase(true);
-        vkdatepicker->todayButtonClicked();
-    } else {
-        ((VirtualKDatePicker*)self)->todayButtonClicked();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnTodayButtonClicked(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_TodayButtonClicked_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_TodayButtonClicked_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_WeekSelected(KDatePicker* self, int param1) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->weekSelected(static_cast<int>(param1));
-    } else {
-        ((VirtualKDatePicker*)self)->weekSelected(static_cast<int>(param1));
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::weekSelected(static_cast<int>(param1));
+    } else
+        qFatal("Error: Protected method KDatePicker::weekSelected called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperWeekSelected(KDatePicker* self, int param1) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_WeekSelected_IsBase(true);
-        vkdatepicker->weekSelected(static_cast<int>(param1));
-    } else {
-        ((VirtualKDatePicker*)self)->weekSelected(static_cast<int>(param1));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnWeekSelected(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_WeekSelected_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_WeekSelected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_DrawFrame(KDatePicker* self, QPainter* param1) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->drawFrame(param1);
-    } else {
-        ((VirtualKDatePicker*)self)->drawFrame(param1);
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method KDatePicker::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperDrawFrame(KDatePicker* self, QPainter* param1) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_DrawFrame_IsBase(true);
-        vkdatepicker->drawFrame(param1);
-    } else {
-        ((VirtualKDatePicker*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnDrawFrame(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_DrawFrame_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_UpdateMicroFocus(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->updateMicroFocus();
-    } else {
-        ((VirtualKDatePicker*)self)->updateMicroFocus();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KDatePicker::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperUpdateMicroFocus(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_UpdateMicroFocus_IsBase(true);
-        vkdatepicker->updateMicroFocus();
-    } else {
-        ((VirtualKDatePicker*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnUpdateMicroFocus(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_Create(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->create();
-    } else {
-        ((VirtualKDatePicker*)self)->create();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::create();
+    } else
+        qFatal("Error: Protected method KDatePicker::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperCreate(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_Create_IsBase(true);
-        vkdatepicker->create();
-    } else {
-        ((VirtualKDatePicker*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnCreate(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_Create_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDatePicker_Destroy(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->destroy();
-    } else {
-        ((VirtualKDatePicker*)self)->destroy();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        vkdatepicker->VirtualKDatePicker::destroy();
+    } else
+        qFatal("Error: Protected method KDatePicker::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDatePicker_SuperDestroy(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_Destroy_IsBase(true);
-        vkdatepicker->destroy();
-    } else {
-        ((VirtualKDatePicker*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnDestroy(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_Destroy_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KDatePicker_FocusNextChild(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return vkdatepicker->focusNextChild();
-    } else {
-        return ((VirtualKDatePicker*)self)->focusNextChild();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        return vkdatepicker->VirtualKDatePicker::focusNextChild();
+    } else
+        qFatal("Error: Protected method KDatePicker::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KDatePicker_SuperFocusNextChild(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_FocusNextChild_IsBase(true);
-        return vkdatepicker->focusNextChild();
-    } else {
-        return ((VirtualKDatePicker*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnFocusNextChild(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_FocusNextChild_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KDatePicker_FocusPreviousChild(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return vkdatepicker->focusPreviousChild();
-    } else {
-        return ((VirtualKDatePicker*)self)->focusPreviousChild();
-    }
+    if (auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self)) {
+        return vkdatepicker->VirtualKDatePicker::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KDatePicker::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KDatePicker_SuperFocusPreviousChild(KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_FocusPreviousChild_IsBase(true);
-        return vkdatepicker->focusPreviousChild();
-    } else {
-        return ((VirtualKDatePicker*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnFocusPreviousChild(KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_FocusPreviousChild_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KDatePicker_Sender(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return vkdatepicker->sender();
-    } else {
-        return ((VirtualKDatePicker*)self)->sender();
-    }
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self))) {
+        return vkdatepicker->VirtualKDatePicker::sender();
+    } else
+        qFatal("Error: Protected method KDatePicker::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KDatePicker_SuperSender(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_Sender_IsBase(true);
-        return vkdatepicker->sender();
-    } else {
-        return ((VirtualKDatePicker*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnSender(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_Sender_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KDatePicker_SenderSignalIndex(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return vkdatepicker->senderSignalIndex();
-    } else {
-        return ((VirtualKDatePicker*)self)->senderSignalIndex();
-    }
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self))) {
+        return vkdatepicker->VirtualKDatePicker::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KDatePicker::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KDatePicker_SuperSenderSignalIndex(const KDatePicker* self) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_SenderSignalIndex_IsBase(true);
-        return vkdatepicker->senderSignalIndex();
-    } else {
-        return ((VirtualKDatePicker*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnSenderSignalIndex(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KDatePicker_Receivers(const KDatePicker* self, const char* signal) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return vkdatepicker->receivers(signal);
-    } else {
-        return ((VirtualKDatePicker*)self)->receivers(signal);
-    }
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self))) {
+        return vkdatepicker->VirtualKDatePicker::receivers(signal);
+    } else
+        qFatal("Error: Protected method KDatePicker::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KDatePicker_SuperReceivers(const KDatePicker* self, const char* signal) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_Receivers_IsBase(true);
-        return vkdatepicker->receivers(signal);
-    } else {
-        return ((VirtualKDatePicker*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnReceivers(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_Receivers_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KDatePicker_IsSignalConnected(const KDatePicker* self, const QMetaMethod* signal) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return vkdatepicker->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKDatePicker*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self))) {
+        return vkdatepicker->VirtualKDatePicker::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KDatePicker::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KDatePicker_SuperIsSignalConnected(const KDatePicker* self, const QMetaMethod* signal) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_IsSignalConnected_IsBase(true);
-        return vkdatepicker->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKDatePicker*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnIsSignalConnected(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_IsSignalConnected_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KDatePicker_GetDecodedMetricF(const KDatePicker* self, int metricA, int metricB) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return vkdatepicker->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKDatePicker*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KDatePicker_SuperGetDecodedMetricF(const KDatePicker* self, int metricA, int metricB) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        vkdatepicker->setKDatePicker_GetDecodedMetricF_IsBase(true);
-        return vkdatepicker->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKDatePicker*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDatePicker_OnGetDecodedMetricF(const KDatePicker* self, intptr_t slot) {
-    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
-        vkdatepicker->setKDatePicker_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self))) {
+        return vkdatepicker->VirtualKDatePicker::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KDatePicker::getDecodedMetricF called without a directly constructed type");
 }
 
 void KDatePicker_Delete(KDatePicker* self) {

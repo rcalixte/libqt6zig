@@ -247,9 +247,9 @@ pub const KZipFileEntry = extern struct {
     ///
     /// ` self: KZipFileEntry `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_string `
+    /// ` callback: *const fn (self: KZipFileEntry) callconv(.c) qtc.libqt_string `
     ///
-    pub fn onData(self: KZipFileEntry, callback: *const fn () callconv(.c) qtc.libqt_string) void {
+    pub fn onData(self: KZipFileEntry, callback: *const fn (KZipFileEntry) callconv(.c) qtc.libqt_string) void {
         qtc.KZipFileEntry_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -301,9 +301,9 @@ pub const KZipFileEntry = extern struct {
     ///
     /// ` self: KZipFileEntry `
     ///
-    /// ` callback: *const fn () callconv(.c) QIODevice `
+    /// ` callback: *const fn (self: KZipFileEntry) callconv(.c) QIODevice `
     ///
-    pub fn onCreateDevice(self: KZipFileEntry, callback: *const fn () callconv(.c) QIODevice) void {
+    pub fn onCreateDevice(self: KZipFileEntry, callback: *const fn (KZipFileEntry) callconv(.c) QIODevice) void {
         qtc.KZipFileEntry_OnCreateDevice(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -565,9 +565,9 @@ pub const KZipFileEntry = extern struct {
     ///
     /// ` self: KZipFileEntry`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KZipFileEntry) callconv(.c) bool `
     ///
-    pub fn onIsFile(self: KZipFileEntry, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsFile(self: KZipFileEntry, callback: *const fn (KZipFileEntry) callconv(.c) bool) void {
         qtc.KZipFileEntry_OnIsFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -685,9 +685,9 @@ pub const KZipFileEntry = extern struct {
     ///
     /// ` self: KZipFileEntry`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KZipFileEntry) callconv(.c) bool `
     ///
-    pub fn onIsDirectory(self: KZipFileEntry, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsDirectory(self: KZipFileEntry, callback: *const fn (KZipFileEntry) callconv(.c) bool) void {
         qtc.KZipFileEntry_OnIsDirectory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -707,44 +707,6 @@ pub const KZipFileEntry = extern struct {
     ///
     pub fn archive(self: KZipFileEntry) KArchive {
         return .{ .ptr = qtc.KZipFileEntry_Archive(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superArchive` instead
-    ///
-    pub const SuperArchive = superArchive;
-
-    /// Inherited from KArchiveEntry
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchiveentry.html#archive)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KZipFileEntry `
-    ///
-    pub fn superArchive(self: KZipFileEntry) KArchive {
-        return .{ .ptr = qtc.KZipFileEntry_SuperArchive(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onArchive` instead
-    ///
-    pub const OnArchive = onArchive;
-
-    /// Inherited from KArchiveEntry
-    ///
-    /// ### [Upstream resources](https://api.kde.org/karchiveentry.html#archive)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KZipFileEntry`
-    ///
-    /// ` callback: *const fn () callconv(.c) KArchive `
-    ///
-    pub fn onArchive(self: KZipFileEntry, callback: *const fn () callconv(.c) KArchive) void {
-        qtc.KZipFileEntry_OnArchive(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

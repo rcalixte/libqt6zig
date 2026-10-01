@@ -9,18 +9,14 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QGroupBox so that we can call protected methods
+// This class is a subclass of QGroupBox
 class VirtualQGroupBox final : public QGroupBox {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQGroupBox = true;
-
-    // Virtual class public types (including callbacks)
-    using QGroupBox_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QGroupBox_MetaObject_Callback = QMetaObject* (*)(const QGroupBox*);
     using QGroupBox_Metacast_Callback = void* (*)(QGroupBox*, const char*);
     using QGroupBox_Metacall_Callback = int (*)(QGroupBox*, int, int, void**);
-    using QGroupBox_MinimumSizeHint_Callback = QSize* (*)();
+    using QGroupBox_MinimumSizeHint_Callback = QSize* (*)(const QGroupBox*);
     using QGroupBox_Event_Callback = bool (*)(QGroupBox*, QEvent*);
     using QGroupBox_ChildEvent_Callback = void (*)(QGroupBox*, QChildEvent*);
     using QGroupBox_ResizeEvent_Callback = void (*)(QGroupBox*, QResizeEvent*);
@@ -31,12 +27,12 @@ class VirtualQGroupBox final : public QGroupBox {
     using QGroupBox_MouseMoveEvent_Callback = void (*)(QGroupBox*, QMouseEvent*);
     using QGroupBox_MouseReleaseEvent_Callback = void (*)(QGroupBox*, QMouseEvent*);
     using QGroupBox_InitStyleOption_Callback = void (*)(const QGroupBox*, QStyleOptionGroupBox*);
-    using QGroupBox_DevType_Callback = int (*)();
+    using QGroupBox_DevType_Callback = int (*)(const QGroupBox*);
     using QGroupBox_SetVisible_Callback = void (*)(QGroupBox*, bool);
-    using QGroupBox_SizeHint_Callback = QSize* (*)();
+    using QGroupBox_SizeHint_Callback = QSize* (*)(const QGroupBox*);
     using QGroupBox_HeightForWidth_Callback = int (*)(const QGroupBox*, int);
-    using QGroupBox_HasHeightForWidth_Callback = bool (*)();
-    using QGroupBox_PaintEngine_Callback = QPaintEngine* (*)();
+    using QGroupBox_HasHeightForWidth_Callback = bool (*)(const QGroupBox*);
+    using QGroupBox_PaintEngine_Callback = QPaintEngine* (*)(const QGroupBox*);
     using QGroupBox_MouseDoubleClickEvent_Callback = void (*)(QGroupBox*, QMouseEvent*);
     using QGroupBox_WheelEvent_Callback = void (*)(QGroupBox*, QWheelEvent*);
     using QGroupBox_KeyPressEvent_Callback = void (*)(QGroupBox*, QKeyEvent*);
@@ -59,7 +55,7 @@ class VirtualQGroupBox final : public QGroupBox {
     using QGroupBox_Metric_Callback = int (*)(const QGroupBox*, int);
     using QGroupBox_InitPainter_Callback = void (*)(const QGroupBox*, QPainter*);
     using QGroupBox_Redirected_Callback = QPaintDevice* (*)(const QGroupBox*, QPoint*);
-    using QGroupBox_SharedPainter_Callback = QPainter* (*)();
+    using QGroupBox_SharedPainter_Callback = QPainter* (*)(const QGroupBox*);
     using QGroupBox_InputMethodEvent_Callback = void (*)(QGroupBox*, QInputMethodEvent*);
     using QGroupBox_InputMethodQuery_Callback = QVariant* (*)(const QGroupBox*, int);
     using QGroupBox_FocusNextPrevChild_Callback = bool (*)(QGroupBox*, bool);
@@ -68,18 +64,17 @@ class VirtualQGroupBox final : public QGroupBox {
     using QGroupBox_CustomEvent_Callback = void (*)(QGroupBox*, QEvent*);
     using QGroupBox_ConnectNotify_Callback = void (*)(QGroupBox*, QMetaMethod*);
     using QGroupBox_DisconnectNotify_Callback = void (*)(QGroupBox*, QMetaMethod*);
-    using QGroupBox_UpdateMicroFocus_Callback = void (*)();
-    using QGroupBox_Create_Callback = void (*)();
-    using QGroupBox_Destroy_Callback = void (*)();
-    using QGroupBox_FocusNextChild_Callback = bool (*)();
-    using QGroupBox_FocusPreviousChild_Callback = bool (*)();
-    using QGroupBox_Sender_Callback = QObject* (*)();
-    using QGroupBox_SenderSignalIndex_Callback = int (*)();
-    using QGroupBox_Receivers_Callback = int (*)(const QGroupBox*, const char*);
-    using QGroupBox_IsSignalConnected_Callback = bool (*)(const QGroupBox*, QMetaMethod*);
-    using QGroupBox_GetDecodedMetricF_Callback = double (*)(const QGroupBox*, int, int);
+    using QGroupBox::create;
+    using QGroupBox::destroy;
+    using QGroupBox::focusNextChild;
+    using QGroupBox::focusPreviousChild;
+    using QGroupBox::getDecodedMetricF;
+    using QGroupBox::isSignalConnected;
+    using QGroupBox::receivers;
+    using QGroupBox::sender;
+    using QGroupBox::senderSignalIndex;
+    using QGroupBox::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QGroupBox_MetaObject_Callback qgroupbox_metaobject_callback = nullptr;
     QGroupBox_Metacast_Callback qgroupbox_metacast_callback = nullptr;
@@ -132,221 +127,59 @@ class VirtualQGroupBox final : public QGroupBox {
     QGroupBox_CustomEvent_Callback qgroupbox_customevent_callback = nullptr;
     QGroupBox_ConnectNotify_Callback qgroupbox_connectnotify_callback = nullptr;
     QGroupBox_DisconnectNotify_Callback qgroupbox_disconnectnotify_callback = nullptr;
-    QGroupBox_UpdateMicroFocus_Callback qgroupbox_updatemicrofocus_callback = nullptr;
-    QGroupBox_Create_Callback qgroupbox_create_callback = nullptr;
-    QGroupBox_Destroy_Callback qgroupbox_destroy_callback = nullptr;
-    QGroupBox_FocusNextChild_Callback qgroupbox_focusnextchild_callback = nullptr;
-    QGroupBox_FocusPreviousChild_Callback qgroupbox_focuspreviouschild_callback = nullptr;
-    QGroupBox_Sender_Callback qgroupbox_sender_callback = nullptr;
-    QGroupBox_SenderSignalIndex_Callback qgroupbox_sendersignalindex_callback = nullptr;
-    QGroupBox_Receivers_Callback qgroupbox_receivers_callback = nullptr;
-    QGroupBox_IsSignalConnected_Callback qgroupbox_issignalconnected_callback = nullptr;
-    QGroupBox_GetDecodedMetricF_Callback qgroupbox_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qgroupbox_metaobject_isbase = false;
-    mutable bool qgroupbox_metacast_isbase = false;
-    mutable bool qgroupbox_metacall_isbase = false;
-    mutable bool qgroupbox_minimumsizehint_isbase = false;
-    mutable bool qgroupbox_event_isbase = false;
-    mutable bool qgroupbox_childevent_isbase = false;
-    mutable bool qgroupbox_resizeevent_isbase = false;
-    mutable bool qgroupbox_paintevent_isbase = false;
-    mutable bool qgroupbox_focusinevent_isbase = false;
-    mutable bool qgroupbox_changeevent_isbase = false;
-    mutable bool qgroupbox_mousepressevent_isbase = false;
-    mutable bool qgroupbox_mousemoveevent_isbase = false;
-    mutable bool qgroupbox_mousereleaseevent_isbase = false;
-    mutable bool qgroupbox_initstyleoption_isbase = false;
-    mutable bool qgroupbox_devtype_isbase = false;
-    mutable bool qgroupbox_setvisible_isbase = false;
-    mutable bool qgroupbox_sizehint_isbase = false;
-    mutable bool qgroupbox_heightforwidth_isbase = false;
-    mutable bool qgroupbox_hasheightforwidth_isbase = false;
-    mutable bool qgroupbox_paintengine_isbase = false;
-    mutable bool qgroupbox_mousedoubleclickevent_isbase = false;
-    mutable bool qgroupbox_wheelevent_isbase = false;
-    mutable bool qgroupbox_keypressevent_isbase = false;
-    mutable bool qgroupbox_keyreleaseevent_isbase = false;
-    mutable bool qgroupbox_focusoutevent_isbase = false;
-    mutable bool qgroupbox_enterevent_isbase = false;
-    mutable bool qgroupbox_leaveevent_isbase = false;
-    mutable bool qgroupbox_moveevent_isbase = false;
-    mutable bool qgroupbox_closeevent_isbase = false;
-    mutable bool qgroupbox_contextmenuevent_isbase = false;
-    mutable bool qgroupbox_tabletevent_isbase = false;
-    mutable bool qgroupbox_actionevent_isbase = false;
-    mutable bool qgroupbox_dragenterevent_isbase = false;
-    mutable bool qgroupbox_dragmoveevent_isbase = false;
-    mutable bool qgroupbox_dragleaveevent_isbase = false;
-    mutable bool qgroupbox_dropevent_isbase = false;
-    mutable bool qgroupbox_showevent_isbase = false;
-    mutable bool qgroupbox_hideevent_isbase = false;
-    mutable bool qgroupbox_nativeevent_isbase = false;
-    mutable bool qgroupbox_metric_isbase = false;
-    mutable bool qgroupbox_initpainter_isbase = false;
-    mutable bool qgroupbox_redirected_isbase = false;
-    mutable bool qgroupbox_sharedpainter_isbase = false;
-    mutable bool qgroupbox_inputmethodevent_isbase = false;
-    mutable bool qgroupbox_inputmethodquery_isbase = false;
-    mutable bool qgroupbox_focusnextprevchild_isbase = false;
-    mutable bool qgroupbox_eventfilter_isbase = false;
-    mutable bool qgroupbox_timerevent_isbase = false;
-    mutable bool qgroupbox_customevent_isbase = false;
-    mutable bool qgroupbox_connectnotify_isbase = false;
-    mutable bool qgroupbox_disconnectnotify_isbase = false;
-    mutable bool qgroupbox_updatemicrofocus_isbase = false;
-    mutable bool qgroupbox_create_isbase = false;
-    mutable bool qgroupbox_destroy_isbase = false;
-    mutable bool qgroupbox_focusnextchild_isbase = false;
-    mutable bool qgroupbox_focuspreviouschild_isbase = false;
-    mutable bool qgroupbox_sender_isbase = false;
-    mutable bool qgroupbox_sendersignalindex_isbase = false;
-    mutable bool qgroupbox_receivers_isbase = false;
-    mutable bool qgroupbox_issignalconnected_isbase = false;
-    mutable bool qgroupbox_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QGroupBox {
+        using QGroupBox::actionEvent;
+        using QGroupBox::changeEvent;
+        using QGroupBox::childEvent;
+        using QGroupBox::closeEvent;
+        using QGroupBox::connectNotify;
+        using QGroupBox::contextMenuEvent;
+        using QGroupBox::customEvent;
+        using QGroupBox::disconnectNotify;
+        using QGroupBox::dragEnterEvent;
+        using QGroupBox::dragLeaveEvent;
+        using QGroupBox::dragMoveEvent;
+        using QGroupBox::dropEvent;
+        using QGroupBox::enterEvent;
+        using QGroupBox::event;
+        using QGroupBox::focusInEvent;
+        using QGroupBox::focusNextPrevChild;
+        using QGroupBox::focusOutEvent;
+        using QGroupBox::hideEvent;
+        using QGroupBox::initPainter;
+        using QGroupBox::initStyleOption;
+        using QGroupBox::inputMethodEvent;
+        using QGroupBox::keyPressEvent;
+        using QGroupBox::keyReleaseEvent;
+        using QGroupBox::leaveEvent;
+        using QGroupBox::metric;
+        using QGroupBox::mouseDoubleClickEvent;
+        using QGroupBox::mouseMoveEvent;
+        using QGroupBox::mousePressEvent;
+        using QGroupBox::mouseReleaseEvent;
+        using QGroupBox::moveEvent;
+        using QGroupBox::nativeEvent;
+        using QGroupBox::paintEvent;
+        using QGroupBox::redirected;
+        using QGroupBox::resizeEvent;
+        using QGroupBox::sharedPainter;
+        using QGroupBox::showEvent;
+        using QGroupBox::tabletEvent;
+        using QGroupBox::timerEvent;
+        using QGroupBox::wheelEvent;
+    };
 
-  public:
     VirtualQGroupBox(QWidget* parent) : QGroupBox(parent) {};
     VirtualQGroupBox() : QGroupBox() {};
     VirtualQGroupBox(const QString& title) : QGroupBox(title) {};
     VirtualQGroupBox(const QString& title, QWidget* parent) : QGroupBox(title, parent) {};
 
-    // Callback setters
-    inline void setQGroupBox_MetaObject_Callback(QGroupBox_MetaObject_Callback cb) { qgroupbox_metaobject_callback = cb; }
-    inline void setQGroupBox_Metacast_Callback(QGroupBox_Metacast_Callback cb) { qgroupbox_metacast_callback = cb; }
-    inline void setQGroupBox_Metacall_Callback(QGroupBox_Metacall_Callback cb) { qgroupbox_metacall_callback = cb; }
-    inline void setQGroupBox_MinimumSizeHint_Callback(QGroupBox_MinimumSizeHint_Callback cb) { qgroupbox_minimumsizehint_callback = cb; }
-    inline void setQGroupBox_Event_Callback(QGroupBox_Event_Callback cb) { qgroupbox_event_callback = cb; }
-    inline void setQGroupBox_ChildEvent_Callback(QGroupBox_ChildEvent_Callback cb) { qgroupbox_childevent_callback = cb; }
-    inline void setQGroupBox_ResizeEvent_Callback(QGroupBox_ResizeEvent_Callback cb) { qgroupbox_resizeevent_callback = cb; }
-    inline void setQGroupBox_PaintEvent_Callback(QGroupBox_PaintEvent_Callback cb) { qgroupbox_paintevent_callback = cb; }
-    inline void setQGroupBox_FocusInEvent_Callback(QGroupBox_FocusInEvent_Callback cb) { qgroupbox_focusinevent_callback = cb; }
-    inline void setQGroupBox_ChangeEvent_Callback(QGroupBox_ChangeEvent_Callback cb) { qgroupbox_changeevent_callback = cb; }
-    inline void setQGroupBox_MousePressEvent_Callback(QGroupBox_MousePressEvent_Callback cb) { qgroupbox_mousepressevent_callback = cb; }
-    inline void setQGroupBox_MouseMoveEvent_Callback(QGroupBox_MouseMoveEvent_Callback cb) { qgroupbox_mousemoveevent_callback = cb; }
-    inline void setQGroupBox_MouseReleaseEvent_Callback(QGroupBox_MouseReleaseEvent_Callback cb) { qgroupbox_mousereleaseevent_callback = cb; }
-    inline void setQGroupBox_InitStyleOption_Callback(QGroupBox_InitStyleOption_Callback cb) { qgroupbox_initstyleoption_callback = cb; }
-    inline void setQGroupBox_DevType_Callback(QGroupBox_DevType_Callback cb) { qgroupbox_devtype_callback = cb; }
-    inline void setQGroupBox_SetVisible_Callback(QGroupBox_SetVisible_Callback cb) { qgroupbox_setvisible_callback = cb; }
-    inline void setQGroupBox_SizeHint_Callback(QGroupBox_SizeHint_Callback cb) { qgroupbox_sizehint_callback = cb; }
-    inline void setQGroupBox_HeightForWidth_Callback(QGroupBox_HeightForWidth_Callback cb) { qgroupbox_heightforwidth_callback = cb; }
-    inline void setQGroupBox_HasHeightForWidth_Callback(QGroupBox_HasHeightForWidth_Callback cb) { qgroupbox_hasheightforwidth_callback = cb; }
-    inline void setQGroupBox_PaintEngine_Callback(QGroupBox_PaintEngine_Callback cb) { qgroupbox_paintengine_callback = cb; }
-    inline void setQGroupBox_MouseDoubleClickEvent_Callback(QGroupBox_MouseDoubleClickEvent_Callback cb) { qgroupbox_mousedoubleclickevent_callback = cb; }
-    inline void setQGroupBox_WheelEvent_Callback(QGroupBox_WheelEvent_Callback cb) { qgroupbox_wheelevent_callback = cb; }
-    inline void setQGroupBox_KeyPressEvent_Callback(QGroupBox_KeyPressEvent_Callback cb) { qgroupbox_keypressevent_callback = cb; }
-    inline void setQGroupBox_KeyReleaseEvent_Callback(QGroupBox_KeyReleaseEvent_Callback cb) { qgroupbox_keyreleaseevent_callback = cb; }
-    inline void setQGroupBox_FocusOutEvent_Callback(QGroupBox_FocusOutEvent_Callback cb) { qgroupbox_focusoutevent_callback = cb; }
-    inline void setQGroupBox_EnterEvent_Callback(QGroupBox_EnterEvent_Callback cb) { qgroupbox_enterevent_callback = cb; }
-    inline void setQGroupBox_LeaveEvent_Callback(QGroupBox_LeaveEvent_Callback cb) { qgroupbox_leaveevent_callback = cb; }
-    inline void setQGroupBox_MoveEvent_Callback(QGroupBox_MoveEvent_Callback cb) { qgroupbox_moveevent_callback = cb; }
-    inline void setQGroupBox_CloseEvent_Callback(QGroupBox_CloseEvent_Callback cb) { qgroupbox_closeevent_callback = cb; }
-    inline void setQGroupBox_ContextMenuEvent_Callback(QGroupBox_ContextMenuEvent_Callback cb) { qgroupbox_contextmenuevent_callback = cb; }
-    inline void setQGroupBox_TabletEvent_Callback(QGroupBox_TabletEvent_Callback cb) { qgroupbox_tabletevent_callback = cb; }
-    inline void setQGroupBox_ActionEvent_Callback(QGroupBox_ActionEvent_Callback cb) { qgroupbox_actionevent_callback = cb; }
-    inline void setQGroupBox_DragEnterEvent_Callback(QGroupBox_DragEnterEvent_Callback cb) { qgroupbox_dragenterevent_callback = cb; }
-    inline void setQGroupBox_DragMoveEvent_Callback(QGroupBox_DragMoveEvent_Callback cb) { qgroupbox_dragmoveevent_callback = cb; }
-    inline void setQGroupBox_DragLeaveEvent_Callback(QGroupBox_DragLeaveEvent_Callback cb) { qgroupbox_dragleaveevent_callback = cb; }
-    inline void setQGroupBox_DropEvent_Callback(QGroupBox_DropEvent_Callback cb) { qgroupbox_dropevent_callback = cb; }
-    inline void setQGroupBox_ShowEvent_Callback(QGroupBox_ShowEvent_Callback cb) { qgroupbox_showevent_callback = cb; }
-    inline void setQGroupBox_HideEvent_Callback(QGroupBox_HideEvent_Callback cb) { qgroupbox_hideevent_callback = cb; }
-    inline void setQGroupBox_NativeEvent_Callback(QGroupBox_NativeEvent_Callback cb) { qgroupbox_nativeevent_callback = cb; }
-    inline void setQGroupBox_Metric_Callback(QGroupBox_Metric_Callback cb) { qgroupbox_metric_callback = cb; }
-    inline void setQGroupBox_InitPainter_Callback(QGroupBox_InitPainter_Callback cb) { qgroupbox_initpainter_callback = cb; }
-    inline void setQGroupBox_Redirected_Callback(QGroupBox_Redirected_Callback cb) { qgroupbox_redirected_callback = cb; }
-    inline void setQGroupBox_SharedPainter_Callback(QGroupBox_SharedPainter_Callback cb) { qgroupbox_sharedpainter_callback = cb; }
-    inline void setQGroupBox_InputMethodEvent_Callback(QGroupBox_InputMethodEvent_Callback cb) { qgroupbox_inputmethodevent_callback = cb; }
-    inline void setQGroupBox_InputMethodQuery_Callback(QGroupBox_InputMethodQuery_Callback cb) { qgroupbox_inputmethodquery_callback = cb; }
-    inline void setQGroupBox_FocusNextPrevChild_Callback(QGroupBox_FocusNextPrevChild_Callback cb) { qgroupbox_focusnextprevchild_callback = cb; }
-    inline void setQGroupBox_EventFilter_Callback(QGroupBox_EventFilter_Callback cb) { qgroupbox_eventfilter_callback = cb; }
-    inline void setQGroupBox_TimerEvent_Callback(QGroupBox_TimerEvent_Callback cb) { qgroupbox_timerevent_callback = cb; }
-    inline void setQGroupBox_CustomEvent_Callback(QGroupBox_CustomEvent_Callback cb) { qgroupbox_customevent_callback = cb; }
-    inline void setQGroupBox_ConnectNotify_Callback(QGroupBox_ConnectNotify_Callback cb) { qgroupbox_connectnotify_callback = cb; }
-    inline void setQGroupBox_DisconnectNotify_Callback(QGroupBox_DisconnectNotify_Callback cb) { qgroupbox_disconnectnotify_callback = cb; }
-    inline void setQGroupBox_UpdateMicroFocus_Callback(QGroupBox_UpdateMicroFocus_Callback cb) { qgroupbox_updatemicrofocus_callback = cb; }
-    inline void setQGroupBox_Create_Callback(QGroupBox_Create_Callback cb) { qgroupbox_create_callback = cb; }
-    inline void setQGroupBox_Destroy_Callback(QGroupBox_Destroy_Callback cb) { qgroupbox_destroy_callback = cb; }
-    inline void setQGroupBox_FocusNextChild_Callback(QGroupBox_FocusNextChild_Callback cb) { qgroupbox_focusnextchild_callback = cb; }
-    inline void setQGroupBox_FocusPreviousChild_Callback(QGroupBox_FocusPreviousChild_Callback cb) { qgroupbox_focuspreviouschild_callback = cb; }
-    inline void setQGroupBox_Sender_Callback(QGroupBox_Sender_Callback cb) { qgroupbox_sender_callback = cb; }
-    inline void setQGroupBox_SenderSignalIndex_Callback(QGroupBox_SenderSignalIndex_Callback cb) { qgroupbox_sendersignalindex_callback = cb; }
-    inline void setQGroupBox_Receivers_Callback(QGroupBox_Receivers_Callback cb) { qgroupbox_receivers_callback = cb; }
-    inline void setQGroupBox_IsSignalConnected_Callback(QGroupBox_IsSignalConnected_Callback cb) { qgroupbox_issignalconnected_callback = cb; }
-    inline void setQGroupBox_GetDecodedMetricF_Callback(QGroupBox_GetDecodedMetricF_Callback cb) { qgroupbox_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQGroupBox_MetaObject_IsBase(bool value) const { qgroupbox_metaobject_isbase = value; }
-    inline void setQGroupBox_Metacast_IsBase(bool value) const { qgroupbox_metacast_isbase = value; }
-    inline void setQGroupBox_Metacall_IsBase(bool value) const { qgroupbox_metacall_isbase = value; }
-    inline void setQGroupBox_MinimumSizeHint_IsBase(bool value) const { qgroupbox_minimumsizehint_isbase = value; }
-    inline void setQGroupBox_Event_IsBase(bool value) const { qgroupbox_event_isbase = value; }
-    inline void setQGroupBox_ChildEvent_IsBase(bool value) const { qgroupbox_childevent_isbase = value; }
-    inline void setQGroupBox_ResizeEvent_IsBase(bool value) const { qgroupbox_resizeevent_isbase = value; }
-    inline void setQGroupBox_PaintEvent_IsBase(bool value) const { qgroupbox_paintevent_isbase = value; }
-    inline void setQGroupBox_FocusInEvent_IsBase(bool value) const { qgroupbox_focusinevent_isbase = value; }
-    inline void setQGroupBox_ChangeEvent_IsBase(bool value) const { qgroupbox_changeevent_isbase = value; }
-    inline void setQGroupBox_MousePressEvent_IsBase(bool value) const { qgroupbox_mousepressevent_isbase = value; }
-    inline void setQGroupBox_MouseMoveEvent_IsBase(bool value) const { qgroupbox_mousemoveevent_isbase = value; }
-    inline void setQGroupBox_MouseReleaseEvent_IsBase(bool value) const { qgroupbox_mousereleaseevent_isbase = value; }
-    inline void setQGroupBox_InitStyleOption_IsBase(bool value) const { qgroupbox_initstyleoption_isbase = value; }
-    inline void setQGroupBox_DevType_IsBase(bool value) const { qgroupbox_devtype_isbase = value; }
-    inline void setQGroupBox_SetVisible_IsBase(bool value) const { qgroupbox_setvisible_isbase = value; }
-    inline void setQGroupBox_SizeHint_IsBase(bool value) const { qgroupbox_sizehint_isbase = value; }
-    inline void setQGroupBox_HeightForWidth_IsBase(bool value) const { qgroupbox_heightforwidth_isbase = value; }
-    inline void setQGroupBox_HasHeightForWidth_IsBase(bool value) const { qgroupbox_hasheightforwidth_isbase = value; }
-    inline void setQGroupBox_PaintEngine_IsBase(bool value) const { qgroupbox_paintengine_isbase = value; }
-    inline void setQGroupBox_MouseDoubleClickEvent_IsBase(bool value) const { qgroupbox_mousedoubleclickevent_isbase = value; }
-    inline void setQGroupBox_WheelEvent_IsBase(bool value) const { qgroupbox_wheelevent_isbase = value; }
-    inline void setQGroupBox_KeyPressEvent_IsBase(bool value) const { qgroupbox_keypressevent_isbase = value; }
-    inline void setQGroupBox_KeyReleaseEvent_IsBase(bool value) const { qgroupbox_keyreleaseevent_isbase = value; }
-    inline void setQGroupBox_FocusOutEvent_IsBase(bool value) const { qgroupbox_focusoutevent_isbase = value; }
-    inline void setQGroupBox_EnterEvent_IsBase(bool value) const { qgroupbox_enterevent_isbase = value; }
-    inline void setQGroupBox_LeaveEvent_IsBase(bool value) const { qgroupbox_leaveevent_isbase = value; }
-    inline void setQGroupBox_MoveEvent_IsBase(bool value) const { qgroupbox_moveevent_isbase = value; }
-    inline void setQGroupBox_CloseEvent_IsBase(bool value) const { qgroupbox_closeevent_isbase = value; }
-    inline void setQGroupBox_ContextMenuEvent_IsBase(bool value) const { qgroupbox_contextmenuevent_isbase = value; }
-    inline void setQGroupBox_TabletEvent_IsBase(bool value) const { qgroupbox_tabletevent_isbase = value; }
-    inline void setQGroupBox_ActionEvent_IsBase(bool value) const { qgroupbox_actionevent_isbase = value; }
-    inline void setQGroupBox_DragEnterEvent_IsBase(bool value) const { qgroupbox_dragenterevent_isbase = value; }
-    inline void setQGroupBox_DragMoveEvent_IsBase(bool value) const { qgroupbox_dragmoveevent_isbase = value; }
-    inline void setQGroupBox_DragLeaveEvent_IsBase(bool value) const { qgroupbox_dragleaveevent_isbase = value; }
-    inline void setQGroupBox_DropEvent_IsBase(bool value) const { qgroupbox_dropevent_isbase = value; }
-    inline void setQGroupBox_ShowEvent_IsBase(bool value) const { qgroupbox_showevent_isbase = value; }
-    inline void setQGroupBox_HideEvent_IsBase(bool value) const { qgroupbox_hideevent_isbase = value; }
-    inline void setQGroupBox_NativeEvent_IsBase(bool value) const { qgroupbox_nativeevent_isbase = value; }
-    inline void setQGroupBox_Metric_IsBase(bool value) const { qgroupbox_metric_isbase = value; }
-    inline void setQGroupBox_InitPainter_IsBase(bool value) const { qgroupbox_initpainter_isbase = value; }
-    inline void setQGroupBox_Redirected_IsBase(bool value) const { qgroupbox_redirected_isbase = value; }
-    inline void setQGroupBox_SharedPainter_IsBase(bool value) const { qgroupbox_sharedpainter_isbase = value; }
-    inline void setQGroupBox_InputMethodEvent_IsBase(bool value) const { qgroupbox_inputmethodevent_isbase = value; }
-    inline void setQGroupBox_InputMethodQuery_IsBase(bool value) const { qgroupbox_inputmethodquery_isbase = value; }
-    inline void setQGroupBox_FocusNextPrevChild_IsBase(bool value) const { qgroupbox_focusnextprevchild_isbase = value; }
-    inline void setQGroupBox_EventFilter_IsBase(bool value) const { qgroupbox_eventfilter_isbase = value; }
-    inline void setQGroupBox_TimerEvent_IsBase(bool value) const { qgroupbox_timerevent_isbase = value; }
-    inline void setQGroupBox_CustomEvent_IsBase(bool value) const { qgroupbox_customevent_isbase = value; }
-    inline void setQGroupBox_ConnectNotify_IsBase(bool value) const { qgroupbox_connectnotify_isbase = value; }
-    inline void setQGroupBox_DisconnectNotify_IsBase(bool value) const { qgroupbox_disconnectnotify_isbase = value; }
-    inline void setQGroupBox_UpdateMicroFocus_IsBase(bool value) const { qgroupbox_updatemicrofocus_isbase = value; }
-    inline void setQGroupBox_Create_IsBase(bool value) const { qgroupbox_create_isbase = value; }
-    inline void setQGroupBox_Destroy_IsBase(bool value) const { qgroupbox_destroy_isbase = value; }
-    inline void setQGroupBox_FocusNextChild_IsBase(bool value) const { qgroupbox_focusnextchild_isbase = value; }
-    inline void setQGroupBox_FocusPreviousChild_IsBase(bool value) const { qgroupbox_focuspreviouschild_isbase = value; }
-    inline void setQGroupBox_Sender_IsBase(bool value) const { qgroupbox_sender_isbase = value; }
-    inline void setQGroupBox_SenderSignalIndex_IsBase(bool value) const { qgroupbox_sendersignalindex_isbase = value; }
-    inline void setQGroupBox_Receivers_IsBase(bool value) const { qgroupbox_receivers_isbase = value; }
-    inline void setQGroupBox_IsSignalConnected_IsBase(bool value) const { qgroupbox_issignalconnected_isbase = value; }
-    inline void setQGroupBox_GetDecodedMetricF_IsBase(bool value) const { qgroupbox_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qgroupbox_metaobject_isbase) {
-            qgroupbox_metaobject_isbase = false;
-            return QGroupBox::metaObject();
-        }
-        auto metaobject_cb = qgroupbox_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qgroupbox_metaobject_callback) {
+            QMetaObject* callback_ret = qgroupbox_metaobject_callback(this);
             return callback_ret;
         }
         return QGroupBox::metaObject();
@@ -354,14 +187,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qgroupbox_metacast_isbase) {
-            qgroupbox_metacast_isbase = false;
-            return QGroupBox::qt_metacast(param1);
-        }
-        auto metacast_cb = qgroupbox_metacast_callback;
-        if (metacast_cb) {
+        if (qgroupbox_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qgroupbox_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QGroupBox::qt_metacast(param1);
@@ -369,16 +197,11 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qgroupbox_metacall_isbase) {
-            qgroupbox_metacall_isbase = false;
-            return QGroupBox::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qgroupbox_metacall_callback;
-        if (metacall_cb) {
+        if (qgroupbox_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qgroupbox_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QGroupBox::qt_metacall(param1, param2, param3);
@@ -386,13 +209,8 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qgroupbox_minimumsizehint_isbase) {
-            qgroupbox_minimumsizehint_isbase = false;
-            return QGroupBox::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qgroupbox_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qgroupbox_minimumsizehint_callback) {
+            QSize* callback_ret = qgroupbox_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -402,14 +220,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qgroupbox_event_isbase) {
-            qgroupbox_event_isbase = false;
-            return QGroupBox::event(event);
-        }
-        auto event_cb = qgroupbox_event_callback;
-        if (event_cb) {
+        if (qgroupbox_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qgroupbox_event_callback(this, cbval1);
             return callback_ret;
         }
         return QGroupBox::event(event);
@@ -417,15 +230,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qgroupbox_childevent_isbase) {
-            qgroupbox_childevent_isbase = false;
-            QGroupBox::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qgroupbox_childevent_callback;
-        if (childevent_cb) {
+        if (qgroupbox_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qgroupbox_childevent_callback(this, cbval1);
             return;
         }
         QGroupBox::childEvent(event);
@@ -433,15 +240,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (qgroupbox_resizeevent_isbase) {
-            qgroupbox_resizeevent_isbase = false;
-            QGroupBox::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = qgroupbox_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qgroupbox_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            qgroupbox_resizeevent_callback(this, cbval1);
             return;
         }
         QGroupBox::resizeEvent(event);
@@ -449,15 +250,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (qgroupbox_paintevent_isbase) {
-            qgroupbox_paintevent_isbase = false;
-            QGroupBox::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = qgroupbox_paintevent_callback;
-        if (paintevent_cb) {
+        if (qgroupbox_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            qgroupbox_paintevent_callback(this, cbval1);
             return;
         }
         QGroupBox::paintEvent(event);
@@ -465,15 +260,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qgroupbox_focusinevent_isbase) {
-            qgroupbox_focusinevent_isbase = false;
-            QGroupBox::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qgroupbox_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qgroupbox_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qgroupbox_focusinevent_callback(this, cbval1);
             return;
         }
         QGroupBox::focusInEvent(event);
@@ -481,15 +270,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* event) override {
-        if (qgroupbox_changeevent_isbase) {
-            qgroupbox_changeevent_isbase = false;
-            QGroupBox::changeEvent(event);
-            return;
-        }
-        auto changeevent_cb = qgroupbox_changeevent_callback;
-        if (changeevent_cb) {
+        if (qgroupbox_changeevent_callback) {
             QEvent* cbval1 = event;
-            changeevent_cb(this, cbval1);
+            qgroupbox_changeevent_callback(this, cbval1);
             return;
         }
         QGroupBox::changeEvent(event);
@@ -497,15 +280,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (qgroupbox_mousepressevent_isbase) {
-            qgroupbox_mousepressevent_isbase = false;
-            QGroupBox::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qgroupbox_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qgroupbox_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qgroupbox_mousepressevent_callback(this, cbval1);
             return;
         }
         QGroupBox::mousePressEvent(event);
@@ -513,15 +290,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qgroupbox_mousemoveevent_isbase) {
-            qgroupbox_mousemoveevent_isbase = false;
-            QGroupBox::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qgroupbox_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qgroupbox_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qgroupbox_mousemoveevent_callback(this, cbval1);
             return;
         }
         QGroupBox::mouseMoveEvent(event);
@@ -529,15 +300,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qgroupbox_mousereleaseevent_isbase) {
-            qgroupbox_mousereleaseevent_isbase = false;
-            QGroupBox::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qgroupbox_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qgroupbox_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qgroupbox_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QGroupBox::mouseReleaseEvent(event);
@@ -545,15 +310,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionGroupBox* option) const override {
-        if (qgroupbox_initstyleoption_isbase) {
-            qgroupbox_initstyleoption_isbase = false;
-            QGroupBox::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = qgroupbox_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (qgroupbox_initstyleoption_callback) {
             QStyleOptionGroupBox* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            qgroupbox_initstyleoption_callback(this, cbval1);
             return;
         }
         QGroupBox::initStyleOption(option);
@@ -561,13 +320,8 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qgroupbox_devtype_isbase) {
-            qgroupbox_devtype_isbase = false;
-            return QGroupBox::devType();
-        }
-        auto devtype_cb = qgroupbox_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qgroupbox_devtype_callback) {
+            int callback_ret = qgroupbox_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QGroupBox::devType();
@@ -575,15 +329,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qgroupbox_setvisible_isbase) {
-            qgroupbox_setvisible_isbase = false;
-            QGroupBox::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qgroupbox_setvisible_callback;
-        if (setvisible_cb) {
+        if (qgroupbox_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qgroupbox_setvisible_callback(this, cbval1);
             return;
         }
         QGroupBox::setVisible(visible);
@@ -591,13 +339,8 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qgroupbox_sizehint_isbase) {
-            qgroupbox_sizehint_isbase = false;
-            return QGroupBox::sizeHint();
-        }
-        auto sizehint_cb = qgroupbox_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qgroupbox_sizehint_callback) {
+            QSize* callback_ret = qgroupbox_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -607,14 +350,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qgroupbox_heightforwidth_isbase) {
-            qgroupbox_heightforwidth_isbase = false;
-            return QGroupBox::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qgroupbox_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qgroupbox_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qgroupbox_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QGroupBox::heightForWidth(param1);
@@ -622,13 +360,8 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qgroupbox_hasheightforwidth_isbase) {
-            qgroupbox_hasheightforwidth_isbase = false;
-            return QGroupBox::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qgroupbox_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qgroupbox_hasheightforwidth_callback) {
+            bool callback_ret = qgroupbox_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QGroupBox::hasHeightForWidth();
@@ -636,13 +369,8 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qgroupbox_paintengine_isbase) {
-            qgroupbox_paintengine_isbase = false;
-            return QGroupBox::paintEngine();
-        }
-        auto paintengine_cb = qgroupbox_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qgroupbox_paintengine_callback) {
+            QPaintEngine* callback_ret = qgroupbox_paintengine_callback(this);
             return callback_ret;
         }
         return QGroupBox::paintEngine();
@@ -650,15 +378,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qgroupbox_mousedoubleclickevent_isbase) {
-            qgroupbox_mousedoubleclickevent_isbase = false;
-            QGroupBox::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qgroupbox_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qgroupbox_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qgroupbox_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QGroupBox::mouseDoubleClickEvent(event);
@@ -666,15 +388,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qgroupbox_wheelevent_isbase) {
-            qgroupbox_wheelevent_isbase = false;
-            QGroupBox::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qgroupbox_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qgroupbox_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qgroupbox_wheelevent_callback(this, cbval1);
             return;
         }
         QGroupBox::wheelEvent(event);
@@ -682,15 +398,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qgroupbox_keypressevent_isbase) {
-            qgroupbox_keypressevent_isbase = false;
-            QGroupBox::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qgroupbox_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qgroupbox_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qgroupbox_keypressevent_callback(this, cbval1);
             return;
         }
         QGroupBox::keyPressEvent(event);
@@ -698,15 +408,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qgroupbox_keyreleaseevent_isbase) {
-            qgroupbox_keyreleaseevent_isbase = false;
-            QGroupBox::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qgroupbox_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qgroupbox_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qgroupbox_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QGroupBox::keyReleaseEvent(event);
@@ -714,15 +418,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qgroupbox_focusoutevent_isbase) {
-            qgroupbox_focusoutevent_isbase = false;
-            QGroupBox::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qgroupbox_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qgroupbox_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qgroupbox_focusoutevent_callback(this, cbval1);
             return;
         }
         QGroupBox::focusOutEvent(event);
@@ -730,15 +428,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qgroupbox_enterevent_isbase) {
-            qgroupbox_enterevent_isbase = false;
-            QGroupBox::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qgroupbox_enterevent_callback;
-        if (enterevent_cb) {
+        if (qgroupbox_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qgroupbox_enterevent_callback(this, cbval1);
             return;
         }
         QGroupBox::enterEvent(event);
@@ -746,15 +438,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qgroupbox_leaveevent_isbase) {
-            qgroupbox_leaveevent_isbase = false;
-            QGroupBox::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qgroupbox_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qgroupbox_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qgroupbox_leaveevent_callback(this, cbval1);
             return;
         }
         QGroupBox::leaveEvent(event);
@@ -762,15 +448,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qgroupbox_moveevent_isbase) {
-            qgroupbox_moveevent_isbase = false;
-            QGroupBox::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qgroupbox_moveevent_callback;
-        if (moveevent_cb) {
+        if (qgroupbox_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qgroupbox_moveevent_callback(this, cbval1);
             return;
         }
         QGroupBox::moveEvent(event);
@@ -778,15 +458,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qgroupbox_closeevent_isbase) {
-            qgroupbox_closeevent_isbase = false;
-            QGroupBox::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qgroupbox_closeevent_callback;
-        if (closeevent_cb) {
+        if (qgroupbox_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qgroupbox_closeevent_callback(this, cbval1);
             return;
         }
         QGroupBox::closeEvent(event);
@@ -794,15 +468,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (qgroupbox_contextmenuevent_isbase) {
-            qgroupbox_contextmenuevent_isbase = false;
-            QGroupBox::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qgroupbox_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qgroupbox_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qgroupbox_contextmenuevent_callback(this, cbval1);
             return;
         }
         QGroupBox::contextMenuEvent(event);
@@ -810,15 +478,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qgroupbox_tabletevent_isbase) {
-            qgroupbox_tabletevent_isbase = false;
-            QGroupBox::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qgroupbox_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qgroupbox_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qgroupbox_tabletevent_callback(this, cbval1);
             return;
         }
         QGroupBox::tabletEvent(event);
@@ -826,15 +488,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qgroupbox_actionevent_isbase) {
-            qgroupbox_actionevent_isbase = false;
-            QGroupBox::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qgroupbox_actionevent_callback;
-        if (actionevent_cb) {
+        if (qgroupbox_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qgroupbox_actionevent_callback(this, cbval1);
             return;
         }
         QGroupBox::actionEvent(event);
@@ -842,15 +498,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qgroupbox_dragenterevent_isbase) {
-            qgroupbox_dragenterevent_isbase = false;
-            QGroupBox::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qgroupbox_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qgroupbox_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qgroupbox_dragenterevent_callback(this, cbval1);
             return;
         }
         QGroupBox::dragEnterEvent(event);
@@ -858,15 +508,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qgroupbox_dragmoveevent_isbase) {
-            qgroupbox_dragmoveevent_isbase = false;
-            QGroupBox::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qgroupbox_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qgroupbox_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qgroupbox_dragmoveevent_callback(this, cbval1);
             return;
         }
         QGroupBox::dragMoveEvent(event);
@@ -874,15 +518,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qgroupbox_dragleaveevent_isbase) {
-            qgroupbox_dragleaveevent_isbase = false;
-            QGroupBox::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qgroupbox_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qgroupbox_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qgroupbox_dragleaveevent_callback(this, cbval1);
             return;
         }
         QGroupBox::dragLeaveEvent(event);
@@ -890,15 +528,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qgroupbox_dropevent_isbase) {
-            qgroupbox_dropevent_isbase = false;
-            QGroupBox::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qgroupbox_dropevent_callback;
-        if (dropevent_cb) {
+        if (qgroupbox_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qgroupbox_dropevent_callback(this, cbval1);
             return;
         }
         QGroupBox::dropEvent(event);
@@ -906,15 +538,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (qgroupbox_showevent_isbase) {
-            qgroupbox_showevent_isbase = false;
-            QGroupBox::showEvent(event);
-            return;
-        }
-        auto showevent_cb = qgroupbox_showevent_callback;
-        if (showevent_cb) {
+        if (qgroupbox_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            qgroupbox_showevent_callback(this, cbval1);
             return;
         }
         QGroupBox::showEvent(event);
@@ -922,15 +548,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qgroupbox_hideevent_isbase) {
-            qgroupbox_hideevent_isbase = false;
-            QGroupBox::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qgroupbox_hideevent_callback;
-        if (hideevent_cb) {
+        if (qgroupbox_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qgroupbox_hideevent_callback(this, cbval1);
             return;
         }
         QGroupBox::hideEvent(event);
@@ -938,12 +558,7 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qgroupbox_nativeevent_isbase) {
-            qgroupbox_nativeevent_isbase = false;
-            return QGroupBox::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qgroupbox_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qgroupbox_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -953,7 +568,7 @@ class VirtualQGroupBox final : public QGroupBox {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qgroupbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -962,14 +577,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qgroupbox_metric_isbase) {
-            qgroupbox_metric_isbase = false;
-            return QGroupBox::metric(param1);
-        }
-        auto metric_cb = qgroupbox_metric_callback;
-        if (metric_cb) {
+        if (qgroupbox_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qgroupbox_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QGroupBox::metric(param1);
@@ -977,15 +587,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qgroupbox_initpainter_isbase) {
-            qgroupbox_initpainter_isbase = false;
-            QGroupBox::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qgroupbox_initpainter_callback;
-        if (initpainter_cb) {
+        if (qgroupbox_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qgroupbox_initpainter_callback(this, cbval1);
             return;
         }
         QGroupBox::initPainter(painter);
@@ -993,14 +597,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qgroupbox_redirected_isbase) {
-            qgroupbox_redirected_isbase = false;
-            return QGroupBox::redirected(offset);
-        }
-        auto redirected_cb = qgroupbox_redirected_callback;
-        if (redirected_cb) {
+        if (qgroupbox_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qgroupbox_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QGroupBox::redirected(offset);
@@ -1008,13 +607,8 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qgroupbox_sharedpainter_isbase) {
-            qgroupbox_sharedpainter_isbase = false;
-            return QGroupBox::sharedPainter();
-        }
-        auto sharedpainter_cb = qgroupbox_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qgroupbox_sharedpainter_callback) {
+            QPainter* callback_ret = qgroupbox_sharedpainter_callback(this);
             return callback_ret;
         }
         return QGroupBox::sharedPainter();
@@ -1022,15 +616,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qgroupbox_inputmethodevent_isbase) {
-            qgroupbox_inputmethodevent_isbase = false;
-            QGroupBox::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qgroupbox_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qgroupbox_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qgroupbox_inputmethodevent_callback(this, cbval1);
             return;
         }
         QGroupBox::inputMethodEvent(param1);
@@ -1038,14 +626,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qgroupbox_inputmethodquery_isbase) {
-            qgroupbox_inputmethodquery_isbase = false;
-            return QGroupBox::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qgroupbox_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qgroupbox_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qgroupbox_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1055,14 +638,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qgroupbox_focusnextprevchild_isbase) {
-            qgroupbox_focusnextprevchild_isbase = false;
-            return QGroupBox::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qgroupbox_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qgroupbox_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qgroupbox_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QGroupBox::focusNextPrevChild(next);
@@ -1070,15 +648,10 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qgroupbox_eventfilter_isbase) {
-            qgroupbox_eventfilter_isbase = false;
-            return QGroupBox::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qgroupbox_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qgroupbox_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qgroupbox_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QGroupBox::eventFilter(watched, event);
@@ -1086,15 +659,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qgroupbox_timerevent_isbase) {
-            qgroupbox_timerevent_isbase = false;
-            QGroupBox::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qgroupbox_timerevent_callback;
-        if (timerevent_cb) {
+        if (qgroupbox_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qgroupbox_timerevent_callback(this, cbval1);
             return;
         }
         QGroupBox::timerEvent(event);
@@ -1102,15 +669,9 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qgroupbox_customevent_isbase) {
-            qgroupbox_customevent_isbase = false;
-            QGroupBox::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qgroupbox_customevent_callback;
-        if (customevent_cb) {
+        if (qgroupbox_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qgroupbox_customevent_callback(this, cbval1);
             return;
         }
         QGroupBox::customEvent(event);
@@ -1118,17 +679,11 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qgroupbox_connectnotify_isbase) {
-            qgroupbox_connectnotify_isbase = false;
-            QGroupBox::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qgroupbox_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qgroupbox_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qgroupbox_connectnotify_callback(this, cbval1);
             return;
         }
         QGroupBox::connectNotify(signal);
@@ -1136,270 +691,56 @@ class VirtualQGroupBox final : public QGroupBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qgroupbox_disconnectnotify_isbase) {
-            qgroupbox_disconnectnotify_isbase = false;
-            QGroupBox::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qgroupbox_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qgroupbox_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qgroupbox_disconnectnotify_callback(this, cbval1);
             return;
         }
         QGroupBox::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qgroupbox_updatemicrofocus_isbase) {
-            qgroupbox_updatemicrofocus_isbase = false;
-            QGroupBox::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qgroupbox_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QGroupBox::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qgroupbox_create_isbase) {
-            qgroupbox_create_isbase = false;
-            QGroupBox::create();
-            return;
-        }
-        auto create_cb = qgroupbox_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QGroupBox::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qgroupbox_destroy_isbase) {
-            qgroupbox_destroy_isbase = false;
-            QGroupBox::destroy();
-            return;
-        }
-        auto destroy_cb = qgroupbox_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QGroupBox::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qgroupbox_focusnextchild_isbase) {
-            qgroupbox_focusnextchild_isbase = false;
-            return QGroupBox::focusNextChild();
-        }
-        auto focusnextchild_cb = qgroupbox_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QGroupBox::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qgroupbox_focuspreviouschild_isbase) {
-            qgroupbox_focuspreviouschild_isbase = false;
-            return QGroupBox::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qgroupbox_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QGroupBox::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qgroupbox_sender_isbase) {
-            qgroupbox_sender_isbase = false;
-            return QGroupBox::sender();
-        }
-        auto sender_cb = qgroupbox_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QGroupBox::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qgroupbox_sendersignalindex_isbase) {
-            qgroupbox_sendersignalindex_isbase = false;
-            return QGroupBox::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qgroupbox_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QGroupBox::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qgroupbox_receivers_isbase) {
-            qgroupbox_receivers_isbase = false;
-            return QGroupBox::receivers(signal);
-        }
-        auto receivers_cb = qgroupbox_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QGroupBox::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qgroupbox_issignalconnected_isbase) {
-            qgroupbox_issignalconnected_isbase = false;
-            return QGroupBox::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qgroupbox_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QGroupBox::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qgroupbox_getdecodedmetricf_isbase) {
-            qgroupbox_getdecodedmetricf_isbase = false;
-            return QGroupBox::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qgroupbox_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QGroupBox::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool QGroupBox_Event(QGroupBox* self, QEvent* event);
     friend bool QGroupBox_SuperEvent(QGroupBox* self, QEvent* event);
-    friend void QGroupBox_ChildEvent(QGroupBox* self, QChildEvent* event);
     friend void QGroupBox_SuperChildEvent(QGroupBox* self, QChildEvent* event);
-    friend void QGroupBox_ResizeEvent(QGroupBox* self, QResizeEvent* event);
     friend void QGroupBox_SuperResizeEvent(QGroupBox* self, QResizeEvent* event);
-    friend void QGroupBox_PaintEvent(QGroupBox* self, QPaintEvent* event);
     friend void QGroupBox_SuperPaintEvent(QGroupBox* self, QPaintEvent* event);
-    friend void QGroupBox_FocusInEvent(QGroupBox* self, QFocusEvent* event);
     friend void QGroupBox_SuperFocusInEvent(QGroupBox* self, QFocusEvent* event);
-    friend void QGroupBox_ChangeEvent(QGroupBox* self, QEvent* event);
     friend void QGroupBox_SuperChangeEvent(QGroupBox* self, QEvent* event);
-    friend void QGroupBox_MousePressEvent(QGroupBox* self, QMouseEvent* event);
     friend void QGroupBox_SuperMousePressEvent(QGroupBox* self, QMouseEvent* event);
-    friend void QGroupBox_MouseMoveEvent(QGroupBox* self, QMouseEvent* event);
     friend void QGroupBox_SuperMouseMoveEvent(QGroupBox* self, QMouseEvent* event);
-    friend void QGroupBox_MouseReleaseEvent(QGroupBox* self, QMouseEvent* event);
     friend void QGroupBox_SuperMouseReleaseEvent(QGroupBox* self, QMouseEvent* event);
-    friend void QGroupBox_InitStyleOption(const QGroupBox* self, QStyleOptionGroupBox* option);
     friend void QGroupBox_SuperInitStyleOption(const QGroupBox* self, QStyleOptionGroupBox* option);
-    friend void QGroupBox_MouseDoubleClickEvent(QGroupBox* self, QMouseEvent* event);
     friend void QGroupBox_SuperMouseDoubleClickEvent(QGroupBox* self, QMouseEvent* event);
-    friend void QGroupBox_WheelEvent(QGroupBox* self, QWheelEvent* event);
     friend void QGroupBox_SuperWheelEvent(QGroupBox* self, QWheelEvent* event);
-    friend void QGroupBox_KeyPressEvent(QGroupBox* self, QKeyEvent* event);
     friend void QGroupBox_SuperKeyPressEvent(QGroupBox* self, QKeyEvent* event);
-    friend void QGroupBox_KeyReleaseEvent(QGroupBox* self, QKeyEvent* event);
     friend void QGroupBox_SuperKeyReleaseEvent(QGroupBox* self, QKeyEvent* event);
-    friend void QGroupBox_FocusOutEvent(QGroupBox* self, QFocusEvent* event);
     friend void QGroupBox_SuperFocusOutEvent(QGroupBox* self, QFocusEvent* event);
-    friend void QGroupBox_EnterEvent(QGroupBox* self, QEnterEvent* event);
     friend void QGroupBox_SuperEnterEvent(QGroupBox* self, QEnterEvent* event);
-    friend void QGroupBox_LeaveEvent(QGroupBox* self, QEvent* event);
     friend void QGroupBox_SuperLeaveEvent(QGroupBox* self, QEvent* event);
-    friend void QGroupBox_MoveEvent(QGroupBox* self, QMoveEvent* event);
     friend void QGroupBox_SuperMoveEvent(QGroupBox* self, QMoveEvent* event);
-    friend void QGroupBox_CloseEvent(QGroupBox* self, QCloseEvent* event);
     friend void QGroupBox_SuperCloseEvent(QGroupBox* self, QCloseEvent* event);
-    friend void QGroupBox_ContextMenuEvent(QGroupBox* self, QContextMenuEvent* event);
     friend void QGroupBox_SuperContextMenuEvent(QGroupBox* self, QContextMenuEvent* event);
-    friend void QGroupBox_TabletEvent(QGroupBox* self, QTabletEvent* event);
     friend void QGroupBox_SuperTabletEvent(QGroupBox* self, QTabletEvent* event);
-    friend void QGroupBox_ActionEvent(QGroupBox* self, QActionEvent* event);
     friend void QGroupBox_SuperActionEvent(QGroupBox* self, QActionEvent* event);
-    friend void QGroupBox_DragEnterEvent(QGroupBox* self, QDragEnterEvent* event);
     friend void QGroupBox_SuperDragEnterEvent(QGroupBox* self, QDragEnterEvent* event);
-    friend void QGroupBox_DragMoveEvent(QGroupBox* self, QDragMoveEvent* event);
     friend void QGroupBox_SuperDragMoveEvent(QGroupBox* self, QDragMoveEvent* event);
-    friend void QGroupBox_DragLeaveEvent(QGroupBox* self, QDragLeaveEvent* event);
     friend void QGroupBox_SuperDragLeaveEvent(QGroupBox* self, QDragLeaveEvent* event);
-    friend void QGroupBox_DropEvent(QGroupBox* self, QDropEvent* event);
     friend void QGroupBox_SuperDropEvent(QGroupBox* self, QDropEvent* event);
-    friend void QGroupBox_ShowEvent(QGroupBox* self, QShowEvent* event);
     friend void QGroupBox_SuperShowEvent(QGroupBox* self, QShowEvent* event);
-    friend void QGroupBox_HideEvent(QGroupBox* self, QHideEvent* event);
     friend void QGroupBox_SuperHideEvent(QGroupBox* self, QHideEvent* event);
-    friend bool QGroupBox_NativeEvent(QGroupBox* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QGroupBox_SuperNativeEvent(QGroupBox* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int QGroupBox_Metric(const QGroupBox* self, int param1);
     friend int QGroupBox_SuperMetric(const QGroupBox* self, int param1);
-    friend void QGroupBox_InitPainter(const QGroupBox* self, QPainter* painter);
     friend void QGroupBox_SuperInitPainter(const QGroupBox* self, QPainter* painter);
-    friend QPaintDevice* QGroupBox_Redirected(const QGroupBox* self, QPoint* offset);
     friend QPaintDevice* QGroupBox_SuperRedirected(const QGroupBox* self, QPoint* offset);
-    friend QPainter* QGroupBox_SharedPainter(const QGroupBox* self);
     friend QPainter* QGroupBox_SuperSharedPainter(const QGroupBox* self);
-    friend void QGroupBox_InputMethodEvent(QGroupBox* self, QInputMethodEvent* param1);
     friend void QGroupBox_SuperInputMethodEvent(QGroupBox* self, QInputMethodEvent* param1);
-    friend bool QGroupBox_FocusNextPrevChild(QGroupBox* self, bool next);
     friend bool QGroupBox_SuperFocusNextPrevChild(QGroupBox* self, bool next);
-    friend void QGroupBox_TimerEvent(QGroupBox* self, QTimerEvent* event);
     friend void QGroupBox_SuperTimerEvent(QGroupBox* self, QTimerEvent* event);
-    friend void QGroupBox_CustomEvent(QGroupBox* self, QEvent* event);
     friend void QGroupBox_SuperCustomEvent(QGroupBox* self, QEvent* event);
-    friend void QGroupBox_ConnectNotify(QGroupBox* self, const QMetaMethod* signal);
     friend void QGroupBox_SuperConnectNotify(QGroupBox* self, const QMetaMethod* signal);
-    friend void QGroupBox_DisconnectNotify(QGroupBox* self, const QMetaMethod* signal);
     friend void QGroupBox_SuperDisconnectNotify(QGroupBox* self, const QMetaMethod* signal);
-    friend void QGroupBox_UpdateMicroFocus(QGroupBox* self);
-    friend void QGroupBox_SuperUpdateMicroFocus(QGroupBox* self);
-    friend void QGroupBox_Create(QGroupBox* self);
-    friend void QGroupBox_SuperCreate(QGroupBox* self);
-    friend void QGroupBox_Destroy(QGroupBox* self);
-    friend void QGroupBox_SuperDestroy(QGroupBox* self);
-    friend bool QGroupBox_FocusNextChild(QGroupBox* self);
-    friend bool QGroupBox_SuperFocusNextChild(QGroupBox* self);
-    friend bool QGroupBox_FocusPreviousChild(QGroupBox* self);
-    friend bool QGroupBox_SuperFocusPreviousChild(QGroupBox* self);
-    friend QObject* QGroupBox_Sender(const QGroupBox* self);
-    friend QObject* QGroupBox_SuperSender(const QGroupBox* self);
-    friend int QGroupBox_SenderSignalIndex(const QGroupBox* self);
-    friend int QGroupBox_SuperSenderSignalIndex(const QGroupBox* self);
-    friend int QGroupBox_Receivers(const QGroupBox* self, const char* signal);
-    friend int QGroupBox_SuperReceivers(const QGroupBox* self, const char* signal);
-    friend bool QGroupBox_IsSignalConnected(const QGroupBox* self, const QMetaMethod* signal);
-    friend bool QGroupBox_SuperIsSignalConnected(const QGroupBox* self, const QMetaMethod* signal);
-    friend double QGroupBox_GetDecodedMetricF(const QGroupBox* self, int metricA, int metricB);
-    friend double QGroupBox_SuperGetDecodedMetricF(const QGroupBox* self, int metricA, int metricB);
 };
 
 #endif

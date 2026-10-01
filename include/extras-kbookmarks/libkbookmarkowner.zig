@@ -59,9 +59,9 @@ pub const KBookmarkOwner = extern struct {
     ///
     /// ` self: KBookmarkOwner `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KBookmarkOwner) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onCurrentTitle(self: KBookmarkOwner, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onCurrentTitle(self: KBookmarkOwner, callback: *const fn (KBookmarkOwner) callconv(.c) [*:0]const u8) void {
         qtc.KBookmarkOwner_OnCurrentTitle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -113,11 +113,11 @@ pub const KBookmarkOwner = extern struct {
     ///
     /// ` self: KBookmarkOwner `
     ///
-    /// ` callback: *const fn () callconv(.c) QUrl `
+    /// ` callback: *const fn (self: KBookmarkOwner) callconv(.c) QUrl `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onCurrentUrl(self: KBookmarkOwner, callback: *const fn () callconv(.c) QUrl) void {
+    pub fn onCurrentUrl(self: KBookmarkOwner, callback: *const fn (KBookmarkOwner) callconv(.c) QUrl) void {
         qtc.KBookmarkOwner_OnCurrentUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -169,9 +169,9 @@ pub const KBookmarkOwner = extern struct {
     ///
     /// ` self: KBookmarkOwner `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KBookmarkOwner) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onCurrentIcon(self: KBookmarkOwner, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onCurrentIcon(self: KBookmarkOwner, callback: *const fn (KBookmarkOwner) callconv(.c) [*:0]const u8) void {
         qtc.KBookmarkOwner_OnCurrentIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -223,9 +223,9 @@ pub const KBookmarkOwner = extern struct {
     ///
     /// ` self: KBookmarkOwner `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KBookmarkOwner) callconv(.c) bool `
     ///
-    pub fn onSupportsTabs(self: KBookmarkOwner, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSupportsTabs(self: KBookmarkOwner, callback: *const fn (KBookmarkOwner) callconv(.c) bool) void {
         qtc.KBookmarkOwner_OnSupportsTabs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -281,13 +281,13 @@ pub const KBookmarkOwner = extern struct {
     ///
     /// ` self: KBookmarkOwner `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: KBookmarkOwner) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []KBookmarkOwner__FutureBookmark `
     ///
-    pub fn onCurrentBookmarkList(self: KBookmarkOwner, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onCurrentBookmarkList(self: KBookmarkOwner, callback: *const fn (KBookmarkOwner) callconv(.c) qtc.libqt_list) void {
         qtc.KBookmarkOwner_OnCurrentBookmarkList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -373,6 +373,8 @@ pub const KBookmarkOwner = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#openBookmark)
     ///
+    /// This method must be implemented with `onOpenBookmark` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KBookmarkOwner `
@@ -404,29 +406,6 @@ pub const KBookmarkOwner = extern struct {
     ///
     pub fn onOpenBookmark(self: KBookmarkOwner, callback: *const fn (KBookmarkOwner, KBookmark, i32, i32) callconv(.c) void) void {
         qtc.KBookmarkOwner_OnOpenBookmark(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superOpenBookmark` instead
-    ///
-    pub const SuperOpenBookmark = superOpenBookmark;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#openBookmark)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkOwner `
-    ///
-    /// ` bm: KBookmark `
-    ///
-    /// ` mb: flag of qnamespace_enums.MouseButton `
-    ///
-    /// ` km: flag of qnamespace_enums.KeyboardModifier `
-    ///
-    pub fn superOpenBookmark(self: KBookmarkOwner, bm: anytype, mb: i32, km: i32) void {
-        comptime _ = @TypeOf(bm)._is_KBookmark;
-        qtc.KBookmarkOwner_SuperOpenBookmark(@ptrCast(self.ptr), @ptrCast(bm.ptr), @bitCast(mb), @bitCast(km));
     }
 
     /// ### DEPRECATED: Use `openFolderinTabs` instead

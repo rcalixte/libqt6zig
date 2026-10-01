@@ -84,7 +84,7 @@ void QMediaCaptureSession_AudioOutputChanged(QMediaCaptureSession* self);
 void QMediaCaptureSession_Connect_AudioOutputChanged(QMediaCaptureSession* self, intptr_t slot);
 libqt_string QMediaCaptureSession_Tr2(const char* s, const char* c);
 libqt_string QMediaCaptureSession_Tr3(const char* s, const char* c, int n);
-void QMediaCaptureSession_OnMetaObject(const QMediaCaptureSession* self, intptr_t slot);
+void QMediaCaptureSession_OnMetaObject(QMediaCaptureSession* self, intptr_t slot);
 QMetaObject* QMediaCaptureSession_SuperMetaObject(const QMediaCaptureSession* self);
 void QMediaCaptureSession_OnMetacast(QMediaCaptureSession* self, intptr_t slot);
 void* QMediaCaptureSession_SuperMetacast(QMediaCaptureSession* self, const char* param1);
@@ -112,17 +112,9 @@ void QMediaCaptureSession_DisconnectNotify(QMediaCaptureSession* self, const QMe
 void QMediaCaptureSession_OnDisconnectNotify(QMediaCaptureSession* self, intptr_t slot);
 void QMediaCaptureSession_SuperDisconnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal);
 QObject* QMediaCaptureSession_Sender(const QMediaCaptureSession* self);
-void QMediaCaptureSession_OnSender(const QMediaCaptureSession* self, intptr_t slot);
-QObject* QMediaCaptureSession_SuperSender(const QMediaCaptureSession* self);
 int QMediaCaptureSession_SenderSignalIndex(const QMediaCaptureSession* self);
-void QMediaCaptureSession_OnSenderSignalIndex(const QMediaCaptureSession* self, intptr_t slot);
-int QMediaCaptureSession_SuperSenderSignalIndex(const QMediaCaptureSession* self);
 int QMediaCaptureSession_Receivers(const QMediaCaptureSession* self, const char* signal);
-void QMediaCaptureSession_OnReceivers(const QMediaCaptureSession* self, intptr_t slot);
-int QMediaCaptureSession_SuperReceivers(const QMediaCaptureSession* self, const char* signal);
 bool QMediaCaptureSession_IsSignalConnected(const QMediaCaptureSession* self, const QMetaMethod* signal);
-void QMediaCaptureSession_OnIsSignalConnected(const QMediaCaptureSession* self, intptr_t slot);
-bool QMediaCaptureSession_SuperIsSignalConnected(const QMediaCaptureSession* self, const QMetaMethod* signal);
 void QMediaCaptureSession_Delete(QMediaCaptureSession* self);
 
 #ifdef __cplusplus

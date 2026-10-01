@@ -79,7 +79,7 @@ bool QSettings_Event(QSettings* self, QEvent* event);
 libqt_string QSettings_Tr2(const char* s, const char* c);
 libqt_string QSettings_Tr3(const char* s, const char* c, int n);
 void QSettings_BeginWriteArray2(QSettings* self, libqt_string prefix, int size);
-void QSettings_OnMetaObject(const QSettings* self, intptr_t slot);
+void QSettings_OnMetaObject(QSettings* self, intptr_t slot);
 QMetaObject* QSettings_SuperMetaObject(const QSettings* self);
 void QSettings_OnMetacast(QSettings* self, intptr_t slot);
 void* QSettings_SuperMetacast(QSettings* self, const char* param1);
@@ -106,17 +106,9 @@ void QSettings_DisconnectNotify(QSettings* self, const QMetaMethod* signal);
 void QSettings_OnDisconnectNotify(QSettings* self, intptr_t slot);
 void QSettings_SuperDisconnectNotify(QSettings* self, const QMetaMethod* signal);
 QObject* QSettings_Sender(const QSettings* self);
-void QSettings_OnSender(const QSettings* self, intptr_t slot);
-QObject* QSettings_SuperSender(const QSettings* self);
 int QSettings_SenderSignalIndex(const QSettings* self);
-void QSettings_OnSenderSignalIndex(const QSettings* self, intptr_t slot);
-int QSettings_SuperSenderSignalIndex(const QSettings* self);
 int QSettings_Receivers(const QSettings* self, const char* signal);
-void QSettings_OnReceivers(const QSettings* self, intptr_t slot);
-int QSettings_SuperReceivers(const QSettings* self, const char* signal);
 bool QSettings_IsSignalConnected(const QSettings* self, const QMetaMethod* signal);
-void QSettings_OnIsSignalConnected(const QSettings* self, intptr_t slot);
-bool QSettings_SuperIsSignalConnected(const QSettings* self, const QMetaMethod* signal);
 void QSettings_Delete(QSettings* self);
 
 #ifdef __cplusplus

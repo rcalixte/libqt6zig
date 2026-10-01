@@ -140,9 +140,9 @@ pub const KBugReport = extern struct {
     ///
     /// ` self: KBugReport `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KBugReport) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KBugReport, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KBugReport, callback: *const fn (KBugReport) callconv(.c) QMetaObject) void {
         qtc.KBugReport_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -313,9 +313,9 @@ pub const KBugReport = extern struct {
     ///
     /// ` self: KBugReport `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KBugReport) callconv(.c) void `
     ///
-    pub fn onAccept(self: KBugReport, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: KBugReport, callback: *const fn (KBugReport) callconv(.c) void) void {
         qtc.KBugReport_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -347,40 +347,6 @@ pub const KBugReport = extern struct {
     ///
     pub fn sendBugReport(self: KBugReport) bool {
         return qtc.KBugReport_SendBugReport(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSendBugReport` instead
-    ///
-    pub const OnSendBugReport = onSendBugReport;
-
-    /// ### [Upstream resources](https://api.kde.org/kbugreport.html#sendBugReport)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBugReport `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onSendBugReport(self: KBugReport, callback: *const fn () callconv(.c) bool) void {
-        qtc.KBugReport_OnSendBugReport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSendBugReport` instead
-    ///
-    pub const SuperSendBugReport = superSendBugReport;
-
-    /// ### [Upstream resources](https://api.kde.org/kbugreport.html#sendBugReport)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBugReport `
-    ///
-    pub fn superSendBugReport(self: KBugReport) bool {
-        return qtc.KBugReport_SuperSendBugReport(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -6943,11 +6909,11 @@ pub const KBugReport = extern struct {
     ///
     /// ` self: KBugReport`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KBugReport) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KBugReport, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KBugReport, callback: *const fn (KBugReport) callconv(.c) QSize) void {
         qtc.KBugReport_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7001,11 +6967,11 @@ pub const KBugReport = extern struct {
     ///
     /// ` self: KBugReport`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KBugReport) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KBugReport, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KBugReport, callback: *const fn (KBugReport) callconv(.c) QSize) void {
         qtc.KBugReport_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7059,9 +7025,9 @@ pub const KBugReport = extern struct {
     ///
     /// ` self: KBugReport`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KBugReport) callconv(.c) void `
     ///
-    pub fn onOpen(self: KBugReport, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: KBugReport, callback: *const fn (KBugReport) callconv(.c) void) void {
         qtc.KBugReport_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7115,9 +7081,9 @@ pub const KBugReport = extern struct {
     ///
     /// ` self: KBugReport`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KBugReport) callconv(.c) i32 `
     ///
-    pub fn onExec(self: KBugReport, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: KBugReport, callback: *const fn (KBugReport) callconv(.c) i32) void {
         qtc.KBugReport_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7231,9 +7197,9 @@ pub const KBugReport = extern struct {
     ///
     /// ` self: KBugReport`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KBugReport) callconv(.c) void `
     ///
-    pub fn onReject(self: KBugReport, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: KBugReport, callback: *const fn (KBugReport) callconv(.c) void) void {
         qtc.KBugReport_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7665,9 +7631,9 @@ pub const KBugReport = extern struct {
     ///
     /// ` self: KBugReport`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KBugReport) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KBugReport, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KBugReport, callback: *const fn (KBugReport) callconv(.c) i32) void {
         qtc.KBugReport_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7781,9 +7747,9 @@ pub const KBugReport = extern struct {
     ///
     /// ` self: KBugReport`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KBugReport) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KBugReport, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KBugReport, callback: *const fn (KBugReport) callconv(.c) bool) void {
         qtc.KBugReport_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7837,9 +7803,9 @@ pub const KBugReport = extern struct {
     ///
     /// ` self: KBugReport`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KBugReport) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KBugReport, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KBugReport, callback: *const fn (KBugReport) callconv(.c) QPaintEngine) void {
         qtc.KBugReport_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9455,9 +9421,9 @@ pub const KBugReport = extern struct {
     ///
     /// ` self: KBugReport`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KBugReport) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KBugReport, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KBugReport, callback: *const fn (KBugReport) callconv(.c) QPainter) void {
         qtc.KBugReport_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9976,47 +9942,6 @@ pub const KBugReport = extern struct {
         qtc.KBugReport_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAdjustPosition` instead
-    ///
-    pub const SuperAdjustPosition = superAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBugReport `
-    ///
-    /// ` param1: QWidget `
-    ///
-    pub fn superAdjustPosition(self: KBugReport, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWidget;
-        qtc.KBugReport_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAdjustPosition` instead
-    ///
-    pub const OnAdjustPosition = onAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBugReport`
-    ///
-    /// ` callback: *const fn (self: KBugReport, param1: QWidget) callconv(.c) void `
-    ///
-    pub fn onAdjustPosition(self: KBugReport, callback: *const fn (KBugReport, QWidget) callconv(.c) void) void {
-        qtc.KBugReport_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -10033,44 +9958,6 @@ pub const KBugReport = extern struct {
     ///
     pub fn updateMicroFocus(self: KBugReport) void {
         qtc.KBugReport_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBugReport `
-    ///
-    pub fn superUpdateMicroFocus(self: KBugReport) void {
-        qtc.KBugReport_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBugReport`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KBugReport, callback: *const fn () callconv(.c) void) void {
-        qtc.KBugReport_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -10091,44 +9978,6 @@ pub const KBugReport = extern struct {
         qtc.KBugReport_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBugReport `
-    ///
-    pub fn superCreate(self: KBugReport) void {
-        qtc.KBugReport_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBugReport`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KBugReport, callback: *const fn () callconv(.c) void) void {
-        qtc.KBugReport_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10145,44 +9994,6 @@ pub const KBugReport = extern struct {
     ///
     pub fn destroy(self: KBugReport) void {
         qtc.KBugReport_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBugReport `
-    ///
-    pub fn superDestroy(self: KBugReport) void {
-        qtc.KBugReport_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBugReport`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KBugReport, callback: *const fn () callconv(.c) void) void {
-        qtc.KBugReport_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10203,44 +10014,6 @@ pub const KBugReport = extern struct {
         return qtc.KBugReport_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBugReport `
-    ///
-    pub fn superFocusNextChild(self: KBugReport) bool {
-        return qtc.KBugReport_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBugReport`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KBugReport, callback: *const fn () callconv(.c) bool) void {
-        qtc.KBugReport_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10257,44 +10030,6 @@ pub const KBugReport = extern struct {
     ///
     pub fn focusPreviousChild(self: KBugReport) bool {
         return qtc.KBugReport_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBugReport `
-    ///
-    pub fn superFocusPreviousChild(self: KBugReport) bool {
-        return qtc.KBugReport_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBugReport`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KBugReport, callback: *const fn () callconv(.c) bool) void {
-        qtc.KBugReport_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10315,44 +10050,6 @@ pub const KBugReport = extern struct {
         return .{ .ptr = qtc.KBugReport_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBugReport `
-    ///
-    pub fn superSender(self: KBugReport) QObject {
-        return .{ .ptr = qtc.KBugReport_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBugReport`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KBugReport, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KBugReport_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10369,44 +10066,6 @@ pub const KBugReport = extern struct {
     ///
     pub fn senderSignalIndex(self: KBugReport) i32 {
         return qtc.KBugReport_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBugReport `
-    ///
-    pub fn superSenderSignalIndex(self: KBugReport) i32 {
-        return qtc.KBugReport_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBugReport`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KBugReport, callback: *const fn () callconv(.c) i32) void {
-        qtc.KBugReport_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10430,47 +10089,6 @@ pub const KBugReport = extern struct {
         return qtc.KBugReport_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBugReport `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KBugReport, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KBugReport_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBugReport`
-    ///
-    /// ` callback: *const fn (self: KBugReport, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KBugReport, callback: *const fn (KBugReport, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KBugReport_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10490,47 +10108,6 @@ pub const KBugReport = extern struct {
     pub fn isSignalConnected(self: KBugReport, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KBugReport_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBugReport `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KBugReport, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KBugReport_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBugReport`
-    ///
-    /// ` callback: *const fn (self: KBugReport, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KBugReport, callback: *const fn (KBugReport, QMetaMethod) callconv(.c) bool) void {
-        qtc.KBugReport_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10553,48 +10130,6 @@ pub const KBugReport = extern struct {
     ///
     pub fn getDecodedMetricF(self: KBugReport, metricA: i32, metricB: i32) f64 {
         return qtc.KBugReport_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBugReport `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KBugReport, metricA: i32, metricB: i32) f64 {
-        return qtc.KBugReport_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBugReport`
-    ///
-    /// ` callback: *const fn (self: KBugReport, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KBugReport, callback: *const fn (KBugReport, i32, i32) callconv(.c) f64) void {
-        qtc.KBugReport_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

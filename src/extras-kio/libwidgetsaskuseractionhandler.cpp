@@ -123,123 +123,80 @@ libqt_string KIO__WidgetsAskUserActionHandler_Tr3(const char* s, const char* c, 
 
 // Base class handler implementation
 QMetaObject* KIO__WidgetsAskUserActionHandler_SuperMetaObject(const KIO__WidgetsAskUserActionHandler* self) {
-    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_MetaObject_IsBase(true);
-        return (QMetaObject*)vkiowidgetsaskuseractionhandler->metaObject();
-    } else {
-        return (QMetaObject*)self->KIO::WidgetsAskUserActionHandler::metaObject();
-    }
+    return (QMetaObject*)self->KIO::WidgetsAskUserActionHandler::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIO__WidgetsAskUserActionHandler_OnMetaObject(const KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_MetaObject_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_MetaObject_Callback>(slot));
+void KIO__WidgetsAskUserActionHandler_OnMetaObject(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
+    if (auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self)))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_metaobject_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KIO__WidgetsAskUserActionHandler_SuperMetacast(KIO__WidgetsAskUserActionHandler* self, const char* param1) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_Metacast_IsBase(true);
-        return vkiowidgetsaskuseractionhandler->qt_metacast(param1);
-    } else {
-        return self->KIO::WidgetsAskUserActionHandler::qt_metacast(param1);
-    }
+    return self->KIO::WidgetsAskUserActionHandler::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__WidgetsAskUserActionHandler_OnMetacast(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_Metacast_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_Metacast_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_metacast_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KIO__WidgetsAskUserActionHandler_SuperMetacall(KIO__WidgetsAskUserActionHandler* self, int param1, int param2, void** param3) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_Metacall_IsBase(true);
-        return vkiowidgetsaskuseractionhandler->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KIO::WidgetsAskUserActionHandler::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KIO::WidgetsAskUserActionHandler::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__WidgetsAskUserActionHandler_OnMetacall(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_Metacall_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_Metacall_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_metacall_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KIO__WidgetsAskUserActionHandler_SuperAskUserRename(KIO__WidgetsAskUserActionHandler* self, KJob* job, const libqt_string title, const QUrl* src, const QUrl* dest, int options, unsigned long long sizeSrc, unsigned long long sizeDest, const QDateTime* ctimeSrc, const QDateTime* ctimeDest, const QDateTime* mtimeSrc, const QDateTime* mtimeDest) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
     QString title_QString = QString::fromUtf8(title.data, title.len);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_AskUserRename_IsBase(true);
-        vkiowidgetsaskuseractionhandler->askUserRename(job, title_QString, *src, *dest, static_cast<KIO::RenameDialog_Options>(options), static_cast<KIO::filesize_t>(sizeSrc), static_cast<KIO::filesize_t>(sizeDest), *ctimeSrc, *ctimeDest, *mtimeSrc, *mtimeDest);
-    } else {
-        self->KIO::WidgetsAskUserActionHandler::askUserRename(job, title_QString, *src, *dest, static_cast<KIO::RenameDialog_Options>(options), static_cast<KIO::filesize_t>(sizeSrc), static_cast<KIO::filesize_t>(sizeDest), *ctimeSrc, *ctimeDest, *mtimeSrc, *mtimeDest);
-    }
+    self->KIO::WidgetsAskUserActionHandler::askUserRename(job, title_QString, *src, *dest, static_cast<KIO::RenameDialog_Options>(options), static_cast<KIO::filesize_t>(sizeSrc), static_cast<KIO::filesize_t>(sizeDest), *ctimeSrc, *ctimeDest, *mtimeSrc, *mtimeDest);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__WidgetsAskUserActionHandler_OnAskUserRename(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_AskUserRename_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_AskUserRename_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_askuserrename_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_AskUserRename_Callback>(slot);
 }
 
 // Base class handler implementation
 void KIO__WidgetsAskUserActionHandler_SuperAskUserSkip(KIO__WidgetsAskUserActionHandler* self, KJob* job, int options, const libqt_string error_text) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
     QString error_text_QString = QString::fromUtf8(error_text.data, error_text.len);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_AskUserSkip_IsBase(true);
-        vkiowidgetsaskuseractionhandler->askUserSkip(job, static_cast<KIO::SkipDialog_Options>(options), error_text_QString);
-    } else {
-        self->KIO::WidgetsAskUserActionHandler::askUserSkip(job, static_cast<KIO::SkipDialog_Options>(options), error_text_QString);
-    }
+    self->KIO::WidgetsAskUserActionHandler::askUserSkip(job, static_cast<KIO::SkipDialog_Options>(options), error_text_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__WidgetsAskUserActionHandler_OnAskUserSkip(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_AskUserSkip_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_AskUserSkip_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_askuserskip_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_AskUserSkip_Callback>(slot);
 }
 
 // Base class handler implementation
 void KIO__WidgetsAskUserActionHandler_SuperAskUserDelete(KIO__WidgetsAskUserActionHandler* self, const libqt_list /* of QUrl* */ urls, int deletionType, int confirmationType, QWidget* parent) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
     QList<QUrl> urls_QList;
     urls_QList.reserve(urls.len);
     QUrl** urls_arr = static_cast<QUrl**>(urls.data);
     for (size_t i = 0; i < urls.len; ++i) {
         urls_QList.push_back(*(urls_arr[i]));
     }
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_AskUserDelete_IsBase(true);
-        vkiowidgetsaskuseractionhandler->askUserDelete(urls_QList, static_cast<KIO::AskUserActionInterface::DeletionType>(deletionType), static_cast<KIO::AskUserActionInterface::ConfirmationType>(confirmationType), parent);
-    } else {
-        self->KIO::WidgetsAskUserActionHandler::askUserDelete(urls_QList, static_cast<KIO::AskUserActionInterface::DeletionType>(deletionType), static_cast<KIO::AskUserActionInterface::ConfirmationType>(confirmationType), parent);
-    }
+    self->KIO::WidgetsAskUserActionHandler::askUserDelete(urls_QList, static_cast<KIO::AskUserActionInterface::DeletionType>(deletionType), static_cast<KIO::AskUserActionInterface::ConfirmationType>(confirmationType), parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__WidgetsAskUserActionHandler_OnAskUserDelete(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_AskUserDelete_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_AskUserDelete_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_askuserdelete_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_AskUserDelete_Callback>(slot);
 }
 
 // Base class handler implementation
 void KIO__WidgetsAskUserActionHandler_SuperRequestUserMessageBox(KIO__WidgetsAskUserActionHandler* self, int typeVal, const libqt_string text, const libqt_string title, const libqt_string primaryActionText, const libqt_string secondaryActionText, const libqt_string primaryActionIconName, const libqt_string secondaryActionIconName, const libqt_string dontAskAgainName, const libqt_string details, QWidget* parent) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     QString title_QString = QString::fromUtf8(title.data, title.len);
     QString primaryActionText_QString = QString::fromUtf8(primaryActionText.data, primaryActionText.len);
@@ -248,24 +205,17 @@ void KIO__WidgetsAskUserActionHandler_SuperRequestUserMessageBox(KIO__WidgetsAsk
     QString secondaryActionIconName_QString = QString::fromUtf8(secondaryActionIconName.data, secondaryActionIconName.len);
     QString dontAskAgainName_QString = QString::fromUtf8(dontAskAgainName.data, dontAskAgainName.len);
     QString details_QString = QString::fromUtf8(details.data, details.len);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_RequestUserMessageBox_IsBase(true);
-        vkiowidgetsaskuseractionhandler->requestUserMessageBox(static_cast<KIO::AskUserActionInterface::MessageDialogType>(typeVal), text_QString, title_QString, primaryActionText_QString, secondaryActionText_QString, primaryActionIconName_QString, secondaryActionIconName_QString, dontAskAgainName_QString, details_QString, parent);
-    } else {
-        self->KIO::WidgetsAskUserActionHandler::requestUserMessageBox(static_cast<KIO::AskUserActionInterface::MessageDialogType>(typeVal), text_QString, title_QString, primaryActionText_QString, secondaryActionText_QString, primaryActionIconName_QString, secondaryActionIconName_QString, dontAskAgainName_QString, details_QString, parent);
-    }
+    self->KIO::WidgetsAskUserActionHandler::requestUserMessageBox(static_cast<KIO::AskUserActionInterface::MessageDialogType>(typeVal), text_QString, title_QString, primaryActionText_QString, secondaryActionText_QString, primaryActionIconName_QString, secondaryActionIconName_QString, dontAskAgainName_QString, details_QString, parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__WidgetsAskUserActionHandler_OnRequestUserMessageBox(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_RequestUserMessageBox_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_RequestUserMessageBox_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_requestusermessagebox_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_RequestUserMessageBox_Callback>(slot);
 }
 
 // Base class handler implementation
 void KIO__WidgetsAskUserActionHandler_SuperAskIgnoreSslErrors(KIO__WidgetsAskUserActionHandler* self, const libqt_map /* of libqt_string to QVariant* */ sslErrorData, QWidget* parent) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
     QMap<QString, QVariant> sslErrorData_QMap;
     libqt_string* sslErrorData_karr = static_cast<libqt_string*>(sslErrorData.keys);
     QVariant** sslErrorData_varr = static_cast<QVariant**>(sslErrorData.values);
@@ -273,327 +223,197 @@ void KIO__WidgetsAskUserActionHandler_SuperAskIgnoreSslErrors(KIO__WidgetsAskUse
         QString sslErrorData_karr_i_QString = QString::fromUtf8(sslErrorData_karr[i].data, sslErrorData_karr[i].len);
         sslErrorData_QMap.insert(sslErrorData_karr_i_QString, *(sslErrorData_varr[i]));
     }
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_AskIgnoreSslErrors_IsBase(true);
-        vkiowidgetsaskuseractionhandler->askIgnoreSslErrors(sslErrorData_QMap, parent);
-    } else {
-        self->KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(sslErrorData_QMap, parent);
-    }
+    self->KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(sslErrorData_QMap, parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__WidgetsAskUserActionHandler_OnAskIgnoreSslErrors(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_AskIgnoreSslErrors_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_AskIgnoreSslErrors_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_askignoresslerrors_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_AskIgnoreSslErrors_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__WidgetsAskUserActionHandler_Event(KIO__WidgetsAskUserActionHandler* self, QEvent* event) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        return vkiowidgetsaskuseractionhandler->event(event);
-    } else {
-        return self->KIO::WidgetsAskUserActionHandler::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KIO__WidgetsAskUserActionHandler_SuperEvent(KIO__WidgetsAskUserActionHandler* self, QEvent* event) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_Event_IsBase(true);
-        return vkiowidgetsaskuseractionhandler->event(event);
-    } else {
-        return self->KIO::WidgetsAskUserActionHandler::event(event);
-    }
+    return self->KIO::WidgetsAskUserActionHandler::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__WidgetsAskUserActionHandler_OnEvent(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_Event_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_Event_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_event_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__WidgetsAskUserActionHandler_EventFilter(KIO__WidgetsAskUserActionHandler* self, QObject* watched, QEvent* event) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        return vkiowidgetsaskuseractionhandler->eventFilter(watched, event);
-    } else {
-        return self->KIO::WidgetsAskUserActionHandler::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KIO__WidgetsAskUserActionHandler_SuperEventFilter(KIO__WidgetsAskUserActionHandler* self, QObject* watched, QEvent* event) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_EventFilter_IsBase(true);
-        return vkiowidgetsaskuseractionhandler->eventFilter(watched, event);
-    } else {
-        return self->KIO::WidgetsAskUserActionHandler::eventFilter(watched, event);
-    }
+    return self->KIO::WidgetsAskUserActionHandler::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__WidgetsAskUserActionHandler_OnEventFilter(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_EventFilter_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_EventFilter_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_eventfilter_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__WidgetsAskUserActionHandler_TimerEvent(KIO__WidgetsAskUserActionHandler* self, QTimerEvent* event) {
     auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
+    if (vkiowidgetsaskuseractionhandler) {
         vkiowidgetsaskuseractionhandler->timerEvent(event);
     } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KIO::WidgetsAskUserActionHandler::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__WidgetsAskUserActionHandler_SuperTimerEvent(KIO__WidgetsAskUserActionHandler* self, QTimerEvent* event) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_TimerEvent_IsBase(true);
-        vkiowidgetsaskuseractionhandler->timerEvent(event);
-    } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->timerEvent(event);
-    }
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self)) {
+        vkiowidgetsaskuseractionhandler->KIO::WidgetsAskUserActionHandler::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::WidgetsAskUserActionHandler::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__WidgetsAskUserActionHandler_OnTimerEvent(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_TimerEvent_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_TimerEvent_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_timerevent_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__WidgetsAskUserActionHandler_ChildEvent(KIO__WidgetsAskUserActionHandler* self, QChildEvent* event) {
     auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
+    if (vkiowidgetsaskuseractionhandler) {
         vkiowidgetsaskuseractionhandler->childEvent(event);
     } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KIO::WidgetsAskUserActionHandler::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__WidgetsAskUserActionHandler_SuperChildEvent(KIO__WidgetsAskUserActionHandler* self, QChildEvent* event) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_ChildEvent_IsBase(true);
-        vkiowidgetsaskuseractionhandler->childEvent(event);
-    } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->childEvent(event);
-    }
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self)) {
+        vkiowidgetsaskuseractionhandler->KIO::WidgetsAskUserActionHandler::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::WidgetsAskUserActionHandler::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__WidgetsAskUserActionHandler_OnChildEvent(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_ChildEvent_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_ChildEvent_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_childevent_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__WidgetsAskUserActionHandler_CustomEvent(KIO__WidgetsAskUserActionHandler* self, QEvent* event) {
     auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
+    if (vkiowidgetsaskuseractionhandler) {
         vkiowidgetsaskuseractionhandler->customEvent(event);
     } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KIO::WidgetsAskUserActionHandler::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__WidgetsAskUserActionHandler_SuperCustomEvent(KIO__WidgetsAskUserActionHandler* self, QEvent* event) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_CustomEvent_IsBase(true);
-        vkiowidgetsaskuseractionhandler->customEvent(event);
-    } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->customEvent(event);
-    }
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self)) {
+        vkiowidgetsaskuseractionhandler->KIO::WidgetsAskUserActionHandler::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::WidgetsAskUserActionHandler::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__WidgetsAskUserActionHandler_OnCustomEvent(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_CustomEvent_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_CustomEvent_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_customevent_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__WidgetsAskUserActionHandler_ConnectNotify(KIO__WidgetsAskUserActionHandler* self, const QMetaMethod* signal) {
     auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
+    if (vkiowidgetsaskuseractionhandler) {
         vkiowidgetsaskuseractionhandler->connectNotify(*signal);
     } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::WidgetsAskUserActionHandler::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__WidgetsAskUserActionHandler_SuperConnectNotify(KIO__WidgetsAskUserActionHandler* self, const QMetaMethod* signal) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_ConnectNotify_IsBase(true);
-        vkiowidgetsaskuseractionhandler->connectNotify(*signal);
-    } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->connectNotify(*signal);
-    }
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self)) {
+        vkiowidgetsaskuseractionhandler->KIO::WidgetsAskUserActionHandler::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::WidgetsAskUserActionHandler::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__WidgetsAskUserActionHandler_OnConnectNotify(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_ConnectNotify_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_ConnectNotify_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_connectnotify_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__WidgetsAskUserActionHandler_DisconnectNotify(KIO__WidgetsAskUserActionHandler* self, const QMetaMethod* signal) {
     auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
+    if (vkiowidgetsaskuseractionhandler) {
         vkiowidgetsaskuseractionhandler->disconnectNotify(*signal);
     } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::WidgetsAskUserActionHandler::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__WidgetsAskUserActionHandler_SuperDisconnectNotify(KIO__WidgetsAskUserActionHandler* self, const QMetaMethod* signal) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_DisconnectNotify_IsBase(true);
-        vkiowidgetsaskuseractionhandler->disconnectNotify(*signal);
-    } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self)) {
+        vkiowidgetsaskuseractionhandler->KIO::WidgetsAskUserActionHandler::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::WidgetsAskUserActionHandler::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__WidgetsAskUserActionHandler_OnDisconnectNotify(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_DisconnectNotify_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self))
+        vkiowidgetsaskuseractionhandler->kio__widgetsaskuseractionhandler_disconnectnotify_callback = reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KIO__WidgetsAskUserActionHandler_Sender(const KIO__WidgetsAskUserActionHandler* self) {
-    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        return vkiowidgetsaskuseractionhandler->sender();
-    } else {
-        return ((VirtualKIOWidgetsAskUserActionHandler*)self)->sender();
-    }
+    if (auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self))) {
+        return vkiowidgetsaskuseractionhandler->VirtualKIOWidgetsAskUserActionHandler::sender();
+    } else
+        qFatal("Error: Protected method KIO::WidgetsAskUserActionHandler::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KIO__WidgetsAskUserActionHandler_SuperSender(const KIO__WidgetsAskUserActionHandler* self) {
-    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_Sender_IsBase(true);
-        return vkiowidgetsaskuseractionhandler->sender();
-    } else {
-        return ((VirtualKIOWidgetsAskUserActionHandler*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__WidgetsAskUserActionHandler_OnSender(const KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_Sender_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__WidgetsAskUserActionHandler_SenderSignalIndex(const KIO__WidgetsAskUserActionHandler* self) {
-    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        return vkiowidgetsaskuseractionhandler->senderSignalIndex();
-    } else {
-        return ((VirtualKIOWidgetsAskUserActionHandler*)self)->senderSignalIndex();
-    }
+    if (auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self))) {
+        return vkiowidgetsaskuseractionhandler->VirtualKIOWidgetsAskUserActionHandler::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KIO::WidgetsAskUserActionHandler::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__WidgetsAskUserActionHandler_SuperSenderSignalIndex(const KIO__WidgetsAskUserActionHandler* self) {
-    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_SenderSignalIndex_IsBase(true);
-        return vkiowidgetsaskuseractionhandler->senderSignalIndex();
-    } else {
-        return ((VirtualKIOWidgetsAskUserActionHandler*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__WidgetsAskUserActionHandler_OnSenderSignalIndex(const KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__WidgetsAskUserActionHandler_Receivers(const KIO__WidgetsAskUserActionHandler* self, const char* signal) {
-    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        return vkiowidgetsaskuseractionhandler->receivers(signal);
-    } else {
-        return ((VirtualKIOWidgetsAskUserActionHandler*)self)->receivers(signal);
-    }
+    if (auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self))) {
+        return vkiowidgetsaskuseractionhandler->VirtualKIOWidgetsAskUserActionHandler::receivers(signal);
+    } else
+        qFatal("Error: Protected method KIO::WidgetsAskUserActionHandler::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__WidgetsAskUserActionHandler_SuperReceivers(const KIO__WidgetsAskUserActionHandler* self, const char* signal) {
-    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_Receivers_IsBase(true);
-        return vkiowidgetsaskuseractionhandler->receivers(signal);
-    } else {
-        return ((VirtualKIOWidgetsAskUserActionHandler*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__WidgetsAskUserActionHandler_OnReceivers(const KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_Receivers_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__WidgetsAskUserActionHandler_IsSignalConnected(const KIO__WidgetsAskUserActionHandler* self, const QMetaMethod* signal) {
-    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        return vkiowidgetsaskuseractionhandler->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIOWidgetsAskUserActionHandler*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KIO__WidgetsAskUserActionHandler_SuperIsSignalConnected(const KIO__WidgetsAskUserActionHandler* self, const QMetaMethod* signal) {
-    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_IsSignalConnected_IsBase(true);
-        return vkiowidgetsaskuseractionhandler->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIOWidgetsAskUserActionHandler*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__WidgetsAskUserActionHandler_OnIsSignalConnected(const KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
-    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
-    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler)
-        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_IsSignalConnected_Callback>(slot));
+    if (auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self))) {
+        return vkiowidgetsaskuseractionhandler->VirtualKIOWidgetsAskUserActionHandler::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KIO::WidgetsAskUserActionHandler::isSignalConnected called without a directly constructed type");
 }
 
 void KIO__WidgetsAskUserActionHandler_Delete(KIO__WidgetsAskUserActionHandler* self) {

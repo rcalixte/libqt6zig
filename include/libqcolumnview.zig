@@ -147,9 +147,9 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QColumnView, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) QMetaObject) void {
         qtc.QColumnView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -467,11 +467,11 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QColumnView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) QSize) void {
         qtc.QColumnView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -735,9 +735,9 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) void `
     ///
-    pub fn onSelectAll(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectAll(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) void) void {
         qtc.QColumnView_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1165,9 +1165,9 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) i32 `
     ///
-    pub fn onHorizontalOffset(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHorizontalOffset(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) i32) void {
         qtc.QColumnView_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1213,9 +1213,9 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) i32 `
     ///
-    pub fn onVerticalOffset(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onVerticalOffset(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) i32) void {
         qtc.QColumnView_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1482,43 +1482,6 @@ pub const QColumnView = extern struct {
     pub fn initializeColumn(self: QColumnView, column: anytype) void {
         comptime _ = @TypeOf(column)._is_QAbstractItemView;
         qtc.QColumnView_InitializeColumn(@ptrCast(self.ptr), @ptrCast(column.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onInitializeColumn` instead
-    ///
-    pub const OnInitializeColumn = onInitializeColumn;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#initializeColumn)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView `
-    ///
-    /// ` callback: *const fn (self: QColumnView, column: QAbstractItemView) callconv(.c) void `
-    ///
-    pub fn onInitializeColumn(self: QColumnView, callback: *const fn (QColumnView, QAbstractItemView) callconv(.c) void) void {
-        qtc.QColumnView_OnInitializeColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superInitializeColumn` instead
-    ///
-    pub const SuperInitializeColumn = superInitializeColumn;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#initializeColumn)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    /// ` column: QAbstractItemView `
-    ///
-    pub fn superInitializeColumn(self: QColumnView, column: anytype) void {
-        comptime _ = @TypeOf(column)._is_QAbstractItemView;
-        qtc.QColumnView_SuperInitializeColumn(@ptrCast(self.ptr), @ptrCast(column.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -9956,9 +9919,9 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) void `
     ///
-    pub fn onReset(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) void) void {
         qtc.QColumnView_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10012,9 +9975,9 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) void `
     ///
-    pub fn onDoItemsLayout(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoItemsLayout(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) void) void {
         qtc.QColumnView_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10286,9 +10249,9 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorData(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorData(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) void) void {
         qtc.QColumnView_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10342,9 +10305,9 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorGeometries(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorGeometries(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) void) void {
         qtc.QColumnView_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10398,9 +10361,9 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) void `
     ///
-    pub fn onUpdateGeometries(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometries(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) void) void {
         qtc.QColumnView_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10902,13 +10865,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView`
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn onSelectedIndexes(self: QColumnView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectedIndexes(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) qtc.libqt_list) void {
         qtc.QColumnView_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12290,11 +12253,11 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: QColumnView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) QSize) void {
         qtc.QColumnView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12348,11 +12311,11 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QColumnView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) QSize) void {
         qtc.QColumnView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12778,9 +12741,9 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) i32) void {
         qtc.QColumnView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12954,9 +12917,9 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QColumnView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) bool) void {
         qtc.QColumnView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13010,9 +12973,9 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QColumnView, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) QPaintEngine) void {
         qtc.QColumnView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13884,9 +13847,9 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QColumnView) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QColumnView, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) QPainter) void {
         qtc.QColumnView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14160,48 +14123,6 @@ pub const QColumnView = extern struct {
         return qtc.QColumnView_State(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superState` instead
-    ///
-    pub const SuperState = superState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.State `
-    ///
-    pub fn superState(self: QColumnView) i32 {
-        return qtc.QColumnView_SuperState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onState` instead
-    ///
-    pub const OnState = onState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onState(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QColumnView_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setState` instead
     ///
     pub const SetState = setState;
@@ -14222,46 +14143,6 @@ pub const QColumnView = extern struct {
         qtc.QColumnView_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `superSetState` instead
-    ///
-    pub const SuperSetState = superSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    /// ` _state: qabstractitemview_enums.State `
-    ///
-    pub fn superSetState(self: QColumnView, _state: i32) void {
-        qtc.QColumnView_SuperSetState(@ptrCast(self.ptr), @bitCast(_state));
-    }
-
-    /// ### DEPRECATED: Use `onSetState` instead
-    ///
-    pub const OnSetState = onSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn (self: QColumnView, state: qabstractitemview_enums.State) callconv(.c) void `
-    ///
-    pub fn onSetState(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) void) void {
-        qtc.QColumnView_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `scheduleDelayedItemsLayout` instead
     ///
     pub const ScheduleDelayedItemsLayout = scheduleDelayedItemsLayout;
@@ -14280,44 +14161,6 @@ pub const QColumnView = extern struct {
         qtc.QColumnView_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superScheduleDelayedItemsLayout` instead
-    ///
-    pub const SuperScheduleDelayedItemsLayout = superScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn superScheduleDelayedItemsLayout(self: QColumnView) void {
-        qtc.QColumnView_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onScheduleDelayedItemsLayout` instead
-    ///
-    pub const OnScheduleDelayedItemsLayout = onScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onScheduleDelayedItemsLayout(self: QColumnView, callback: *const fn () callconv(.c) void) void {
-        qtc.QColumnView_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `executeDelayedItemsLayout` instead
     ///
     pub const ExecuteDelayedItemsLayout = executeDelayedItemsLayout;
@@ -14334,44 +14177,6 @@ pub const QColumnView = extern struct {
     ///
     pub fn executeDelayedItemsLayout(self: QColumnView) void {
         qtc.QColumnView_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superExecuteDelayedItemsLayout` instead
-    ///
-    pub const SuperExecuteDelayedItemsLayout = superExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn superExecuteDelayedItemsLayout(self: QColumnView) void {
-        qtc.QColumnView_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onExecuteDelayedItemsLayout` instead
-    ///
-    pub const OnExecuteDelayedItemsLayout = onExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onExecuteDelayedItemsLayout(self: QColumnView, callback: *const fn () callconv(.c) void) void {
-        qtc.QColumnView_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setDirtyRegion` instead
@@ -14393,47 +14198,6 @@ pub const QColumnView = extern struct {
     pub fn setDirtyRegion(self: QColumnView, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QColumnView_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSetDirtyRegion` instead
-    ///
-    pub const SuperSetDirtyRegion = superSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    /// ` region: QRegion `
-    ///
-    pub fn superSetDirtyRegion(self: QColumnView, region: anytype) void {
-        comptime _ = @TypeOf(region)._is_QRegion;
-        qtc.QColumnView_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDirtyRegion` instead
-    ///
-    pub const OnSetDirtyRegion = onSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn (self: QColumnView, region: QRegion) callconv(.c) void `
-    ///
-    pub fn onSetDirtyRegion(self: QColumnView, callback: *const fn (QColumnView, QRegion) callconv(.c) void) void {
-        qtc.QColumnView_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `scrollDirtyRegion` instead
@@ -14458,48 +14222,6 @@ pub const QColumnView = extern struct {
         qtc.QColumnView_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `superScrollDirtyRegion` instead
-    ///
-    pub const SuperScrollDirtyRegion = superScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    /// ` dx: i32 `
-    ///
-    /// ` dy: i32 `
-    ///
-    pub fn superScrollDirtyRegion(self: QColumnView, dx: i32, dy: i32) void {
-        qtc.QColumnView_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
-    }
-
-    /// ### DEPRECATED: Use `onScrollDirtyRegion` instead
-    ///
-    pub const OnScrollDirtyRegion = onScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn (self: QColumnView, dx: i32, dy: i32) callconv(.c) void `
-    ///
-    pub fn onScrollDirtyRegion(self: QColumnView, callback: *const fn (QColumnView, i32, i32) callconv(.c) void) void {
-        qtc.QColumnView_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `dirtyRegionOffset` instead
     ///
     pub const DirtyRegionOffset = dirtyRegionOffset;
@@ -14516,46 +14238,6 @@ pub const QColumnView = extern struct {
     ///
     pub fn dirtyRegionOffset(self: QColumnView) QPoint {
         return .{ .ptr = qtc.QColumnView_DirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superDirtyRegionOffset` instead
-    ///
-    pub const SuperDirtyRegionOffset = superDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn superDirtyRegionOffset(self: QColumnView) QPoint {
-        return .{ .ptr = qtc.QColumnView_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDirtyRegionOffset` instead
-    ///
-    pub const OnDirtyRegionOffset = onDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QPoint `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onDirtyRegionOffset(self: QColumnView, callback: *const fn () callconv(.c) QPoint) void {
-        qtc.QColumnView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `startAutoScroll` instead
@@ -14576,44 +14258,6 @@ pub const QColumnView = extern struct {
         qtc.QColumnView_StartAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStartAutoScroll` instead
-    ///
-    pub const SuperStartAutoScroll = superStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn superStartAutoScroll(self: QColumnView) void {
-        qtc.QColumnView_SuperStartAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStartAutoScroll` instead
-    ///
-    pub const OnStartAutoScroll = onStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStartAutoScroll(self: QColumnView, callback: *const fn () callconv(.c) void) void {
-        qtc.QColumnView_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `stopAutoScroll` instead
     ///
     pub const StopAutoScroll = stopAutoScroll;
@@ -14632,44 +14276,6 @@ pub const QColumnView = extern struct {
         qtc.QColumnView_StopAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStopAutoScroll` instead
-    ///
-    pub const SuperStopAutoScroll = superStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn superStopAutoScroll(self: QColumnView) void {
-        qtc.QColumnView_SuperStopAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStopAutoScroll` instead
-    ///
-    pub const OnStopAutoScroll = onStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStopAutoScroll(self: QColumnView, callback: *const fn () callconv(.c) void) void {
-        qtc.QColumnView_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `doAutoScroll` instead
     ///
     pub const DoAutoScroll = doAutoScroll;
@@ -14686,44 +14292,6 @@ pub const QColumnView = extern struct {
     ///
     pub fn doAutoScroll(self: QColumnView) void {
         qtc.QColumnView_DoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDoAutoScroll` instead
-    ///
-    pub const SuperDoAutoScroll = superDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn superDoAutoScroll(self: QColumnView) void {
-        qtc.QColumnView_SuperDoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDoAutoScroll` instead
-    ///
-    pub const OnDoAutoScroll = onDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDoAutoScroll(self: QColumnView, callback: *const fn () callconv(.c) void) void {
-        qtc.QColumnView_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `dropIndicatorPosition` instead
@@ -14746,48 +14314,6 @@ pub const QColumnView = extern struct {
     ///
     pub fn dropIndicatorPosition(self: QColumnView) i32 {
         return qtc.QColumnView_DropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDropIndicatorPosition` instead
-    ///
-    pub const SuperDropIndicatorPosition = superDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.DropIndicatorPosition `
-    ///
-    pub fn superDropIndicatorPosition(self: QColumnView) i32 {
-        return qtc.QColumnView_SuperDropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDropIndicatorPosition` instead
-    ///
-    pub const OnDropIndicatorPosition = onDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onDropIndicatorPosition(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QColumnView_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setViewportMargins` instead
@@ -14816,52 +14342,6 @@ pub const QColumnView = extern struct {
         qtc.QColumnView_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: QColumnView, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QColumnView_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn (self: QColumnView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: QColumnView, callback: *const fn (QColumnView, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QColumnView_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -14878,46 +14358,6 @@ pub const QColumnView = extern struct {
     ///
     pub fn viewportMargins(self: QColumnView) QMargins {
         return .{ .ptr = qtc.QColumnView_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn superViewportMargins(self: QColumnView) QMargins {
-        return .{ .ptr = qtc.QColumnView_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: QColumnView, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.QColumnView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -14941,47 +14381,6 @@ pub const QColumnView = extern struct {
         qtc.QColumnView_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: QColumnView, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.QColumnView_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn (self: QColumnView, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: QColumnView, callback: *const fn (QColumnView, QPainter) callconv(.c) void) void {
-        qtc.QColumnView_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -14998,44 +14397,6 @@ pub const QColumnView = extern struct {
     ///
     pub fn updateMicroFocus(self: QColumnView) void {
         qtc.QColumnView_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn superUpdateMicroFocus(self: QColumnView) void {
-        qtc.QColumnView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QColumnView, callback: *const fn () callconv(.c) void) void {
-        qtc.QColumnView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -15056,44 +14417,6 @@ pub const QColumnView = extern struct {
         qtc.QColumnView_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn superCreate(self: QColumnView) void {
-        qtc.QColumnView_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QColumnView, callback: *const fn () callconv(.c) void) void {
-        qtc.QColumnView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -15110,44 +14433,6 @@ pub const QColumnView = extern struct {
     ///
     pub fn destroy(self: QColumnView) void {
         qtc.QColumnView_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn superDestroy(self: QColumnView) void {
-        qtc.QColumnView_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QColumnView, callback: *const fn () callconv(.c) void) void {
-        qtc.QColumnView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -15168,44 +14453,6 @@ pub const QColumnView = extern struct {
         return qtc.QColumnView_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn superFocusNextChild(self: QColumnView) bool {
-        return qtc.QColumnView_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QColumnView, callback: *const fn () callconv(.c) bool) void {
-        qtc.QColumnView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -15222,44 +14469,6 @@ pub const QColumnView = extern struct {
     ///
     pub fn focusPreviousChild(self: QColumnView) bool {
         return qtc.QColumnView_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn superFocusPreviousChild(self: QColumnView) bool {
-        return qtc.QColumnView_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QColumnView, callback: *const fn () callconv(.c) bool) void {
-        qtc.QColumnView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -15280,44 +14489,6 @@ pub const QColumnView = extern struct {
         return .{ .ptr = qtc.QColumnView_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn superSender(self: QColumnView) QObject {
-        return .{ .ptr = qtc.QColumnView_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QColumnView, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QColumnView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -15334,44 +14505,6 @@ pub const QColumnView = extern struct {
     ///
     pub fn senderSignalIndex(self: QColumnView) i32 {
         return qtc.QColumnView_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn superSenderSignalIndex(self: QColumnView) i32 {
-        return qtc.QColumnView_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QColumnView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -15395,47 +14528,6 @@ pub const QColumnView = extern struct {
         return qtc.QColumnView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QColumnView, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QColumnView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn (self: QColumnView, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QColumnView, callback: *const fn (QColumnView, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QColumnView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -15455,47 +14547,6 @@ pub const QColumnView = extern struct {
     pub fn isSignalConnected(self: QColumnView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QColumnView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QColumnView, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QColumnView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn (self: QColumnView, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QColumnView, callback: *const fn (QColumnView, QMetaMethod) callconv(.c) bool) void {
-        qtc.QColumnView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -15518,48 +14569,6 @@ pub const QColumnView = extern struct {
     ///
     pub fn getDecodedMetricF(self: QColumnView, metricA: i32, metricB: i32) f64 {
         return qtc.QColumnView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QColumnView, metricA: i32, metricB: i32) f64 {
-        return qtc.QColumnView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColumnView`
-    ///
-    /// ` callback: *const fn (self: QColumnView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QColumnView, callback: *const fn (QColumnView, i32, i32) callconv(.c) f64) void {
-        qtc.QColumnView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

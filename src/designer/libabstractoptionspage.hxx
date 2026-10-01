@@ -9,83 +9,63 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QDesignerOptionsPageInterface so that we can call protected methods
+// This class is a subclass of QDesignerOptionsPageInterface
 class VirtualQDesignerOptionsPageInterface : public QDesignerOptionsPageInterface {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQDesignerOptionsPageInterface = true;
-
-    // Virtual class public types (including callbacks)
-    using QDesignerOptionsPageInterface_Name_Callback = const char* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QDesignerOptionsPageInterface_Name_Callback = const char* (*)(const QDesignerOptionsPageInterface*);
     using QDesignerOptionsPageInterface_CreatePage_Callback = QWidget* (*)(QDesignerOptionsPageInterface*, QWidget*);
-    using QDesignerOptionsPageInterface_Apply_Callback = void (*)();
-    using QDesignerOptionsPageInterface_Finish_Callback = void (*)();
+    using QDesignerOptionsPageInterface_Apply_Callback = void (*)(QDesignerOptionsPageInterface*);
+    using QDesignerOptionsPageInterface_Finish_Callback = void (*)(QDesignerOptionsPageInterface*);
 
-  protected:
     // Instance callback storage
     QDesignerOptionsPageInterface_Name_Callback qdesigneroptionspageinterface_name_callback = nullptr;
     QDesignerOptionsPageInterface_CreatePage_Callback qdesigneroptionspageinterface_createpage_callback = nullptr;
     QDesignerOptionsPageInterface_Apply_Callback qdesigneroptionspageinterface_apply_callback = nullptr;
     QDesignerOptionsPageInterface_Finish_Callback qdesigneroptionspageinterface_finish_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qdesigneroptionspageinterface_name_isbase = false;
-    mutable bool qdesigneroptionspageinterface_createpage_isbase = false;
-    mutable bool qdesigneroptionspageinterface_apply_isbase = false;
-    mutable bool qdesigneroptionspageinterface_finish_isbase = false;
-
-  public:
     VirtualQDesignerOptionsPageInterface() : QDesignerOptionsPageInterface() {};
-
-    // Callback setters
-    inline void setQDesignerOptionsPageInterface_Name_Callback(QDesignerOptionsPageInterface_Name_Callback cb) { qdesigneroptionspageinterface_name_callback = cb; }
-    inline void setQDesignerOptionsPageInterface_CreatePage_Callback(QDesignerOptionsPageInterface_CreatePage_Callback cb) { qdesigneroptionspageinterface_createpage_callback = cb; }
-    inline void setQDesignerOptionsPageInterface_Apply_Callback(QDesignerOptionsPageInterface_Apply_Callback cb) { qdesigneroptionspageinterface_apply_callback = cb; }
-    inline void setQDesignerOptionsPageInterface_Finish_Callback(QDesignerOptionsPageInterface_Finish_Callback cb) { qdesigneroptionspageinterface_finish_callback = cb; }
-
-    // Base flag setters
-    inline void setQDesignerOptionsPageInterface_Name_IsBase(bool value) const { qdesigneroptionspageinterface_name_isbase = value; }
-    inline void setQDesignerOptionsPageInterface_CreatePage_IsBase(bool value) const { qdesigneroptionspageinterface_createpage_isbase = value; }
-    inline void setQDesignerOptionsPageInterface_Apply_IsBase(bool value) const { qdesigneroptionspageinterface_apply_isbase = value; }
-    inline void setQDesignerOptionsPageInterface_Finish_IsBase(bool value) const { qdesigneroptionspageinterface_finish_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QString name() const override {
-        auto name_cb = qdesigneroptionspageinterface_name_callback;
-        if (name_cb) {
-            const char* callback_ret = name_cb();
+        if (qdesigneroptionspageinterface_name_callback) {
+            const char* callback_ret = qdesigneroptionspageinterface_name_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerOptionsPageInterface::name called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QWidget* createPage(QWidget* parent) override {
-        auto createpage_cb = qdesigneroptionspageinterface_createpage_callback;
-        if (createpage_cb) {
+        if (qdesigneroptionspageinterface_createpage_callback) {
             QWidget* cbval1 = parent;
-            QWidget* callback_ret = createpage_cb(this, cbval1);
+            QWidget* callback_ret = qdesigneroptionspageinterface_createpage_callback(this, cbval1);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerOptionsPageInterface::createPage called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void apply() override {
-        auto apply_cb = qdesigneroptionspageinterface_apply_callback;
-        if (apply_cb) {
-            apply_cb();
+        if (qdesigneroptionspageinterface_apply_callback) {
+            qdesigneroptionspageinterface_apply_callback(this);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerOptionsPageInterface::apply called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void finish() override {
-        auto finish_cb = qdesigneroptionspageinterface_finish_callback;
-        if (finish_cb) {
-            finish_cb();
+        if (qdesigneroptionspageinterface_finish_callback) {
+            qdesigneroptionspageinterface_finish_callback(this);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerOptionsPageInterface::finish called without being implemented");
     }
 };
 

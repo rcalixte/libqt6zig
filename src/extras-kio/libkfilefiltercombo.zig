@@ -151,9 +151,9 @@ pub const KFileFilterCombo = extern struct {
     ///
     /// ` self: KFileFilterCombo `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KFileFilterCombo) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KFileFilterCombo, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KFileFilterCombo, callback: *const fn (KFileFilterCombo) callconv(.c) QMetaObject) void {
         qtc.KFileFilterCombo_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9504,11 +9504,11 @@ pub const KFileFilterCombo = extern struct {
     ///
     /// ` self: KFileFilterCombo`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KFileFilterCombo) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KFileFilterCombo, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KFileFilterCombo, callback: *const fn (KFileFilterCombo) callconv(.c) QSize) void {
         qtc.KFileFilterCombo_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9850,11 +9850,11 @@ pub const KFileFilterCombo = extern struct {
     ///
     /// ` self: KFileFilterCombo`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KFileFilterCombo) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KFileFilterCombo, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KFileFilterCombo, callback: *const fn (KFileFilterCombo) callconv(.c) QSize) void {
         qtc.KFileFilterCombo_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9908,9 +9908,9 @@ pub const KFileFilterCombo = extern struct {
     ///
     /// ` self: KFileFilterCombo`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KFileFilterCombo) callconv(.c) void `
     ///
-    pub fn onShowPopup(self: KFileFilterCombo, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowPopup(self: KFileFilterCombo, callback: *const fn (KFileFilterCombo) callconv(.c) void) void {
         qtc.KFileFilterCombo_OnShowPopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9964,9 +9964,9 @@ pub const KFileFilterCombo = extern struct {
     ///
     /// ` self: KFileFilterCombo`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KFileFilterCombo) callconv(.c) void `
     ///
-    pub fn onHidePopup(self: KFileFilterCombo, callback: *const fn () callconv(.c) void) void {
+    pub fn onHidePopup(self: KFileFilterCombo, callback: *const fn (KFileFilterCombo) callconv(.c) void) void {
         qtc.KFileFilterCombo_OnHidePopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11074,9 +11074,9 @@ pub const KFileFilterCombo = extern struct {
     ///
     /// ` self: KFileFilterCombo`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KFileFilterCombo) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KFileFilterCombo, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KFileFilterCombo, callback: *const fn (KFileFilterCombo) callconv(.c) i32) void {
         qtc.KFileFilterCombo_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11250,9 +11250,9 @@ pub const KFileFilterCombo = extern struct {
     ///
     /// ` self: KFileFilterCombo`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KFileFilterCombo) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KFileFilterCombo, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KFileFilterCombo, callback: *const fn (KFileFilterCombo) callconv(.c) bool) void {
         qtc.KFileFilterCombo_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11306,9 +11306,9 @@ pub const KFileFilterCombo = extern struct {
     ///
     /// ` self: KFileFilterCombo`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KFileFilterCombo) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KFileFilterCombo, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KFileFilterCombo, callback: *const fn (KFileFilterCombo) callconv(.c) QPaintEngine) void {
         qtc.KFileFilterCombo_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12366,9 +12366,9 @@ pub const KFileFilterCombo = extern struct {
     ///
     /// ` self: KFileFilterCombo`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KFileFilterCombo) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KFileFilterCombo, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KFileFilterCombo, callback: *const fn (KFileFilterCombo) callconv(.c) QPainter) void {
         qtc.KFileFilterCombo_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13010,44 +13010,6 @@ pub const KFileFilterCombo = extern struct {
         qtc.KFileFilterCombo_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileFilterCombo `
-    ///
-    pub fn superUpdateMicroFocus(self: KFileFilterCombo) void {
-        qtc.KFileFilterCombo_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileFilterCombo`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KFileFilterCombo, callback: *const fn () callconv(.c) void) void {
-        qtc.KFileFilterCombo_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -13064,44 +13026,6 @@ pub const KFileFilterCombo = extern struct {
     ///
     pub fn create(self: KFileFilterCombo) void {
         qtc.KFileFilterCombo_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileFilterCombo `
-    ///
-    pub fn superCreate(self: KFileFilterCombo) void {
-        qtc.KFileFilterCombo_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileFilterCombo`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KFileFilterCombo, callback: *const fn () callconv(.c) void) void {
-        qtc.KFileFilterCombo_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -13122,44 +13046,6 @@ pub const KFileFilterCombo = extern struct {
         qtc.KFileFilterCombo_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileFilterCombo `
-    ///
-    pub fn superDestroy(self: KFileFilterCombo) void {
-        qtc.KFileFilterCombo_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileFilterCombo`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KFileFilterCombo, callback: *const fn () callconv(.c) void) void {
-        qtc.KFileFilterCombo_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -13176,44 +13062,6 @@ pub const KFileFilterCombo = extern struct {
     ///
     pub fn focusNextChild(self: KFileFilterCombo) bool {
         return qtc.KFileFilterCombo_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileFilterCombo `
-    ///
-    pub fn superFocusNextChild(self: KFileFilterCombo) bool {
-        return qtc.KFileFilterCombo_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileFilterCombo`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KFileFilterCombo, callback: *const fn () callconv(.c) bool) void {
-        qtc.KFileFilterCombo_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -13234,44 +13082,6 @@ pub const KFileFilterCombo = extern struct {
         return qtc.KFileFilterCombo_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileFilterCombo `
-    ///
-    pub fn superFocusPreviousChild(self: KFileFilterCombo) bool {
-        return qtc.KFileFilterCombo_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileFilterCombo`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KFileFilterCombo, callback: *const fn () callconv(.c) bool) void {
-        qtc.KFileFilterCombo_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -13290,44 +13100,6 @@ pub const KFileFilterCombo = extern struct {
         return .{ .ptr = qtc.KFileFilterCombo_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileFilterCombo `
-    ///
-    pub fn superSender(self: KFileFilterCombo) QObject {
-        return .{ .ptr = qtc.KFileFilterCombo_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileFilterCombo`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KFileFilterCombo, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KFileFilterCombo_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -13344,44 +13116,6 @@ pub const KFileFilterCombo = extern struct {
     ///
     pub fn senderSignalIndex(self: KFileFilterCombo) i32 {
         return qtc.KFileFilterCombo_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileFilterCombo `
-    ///
-    pub fn superSenderSignalIndex(self: KFileFilterCombo) i32 {
-        return qtc.KFileFilterCombo_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileFilterCombo`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KFileFilterCombo, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFileFilterCombo_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -13405,47 +13139,6 @@ pub const KFileFilterCombo = extern struct {
         return qtc.KFileFilterCombo_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileFilterCombo `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KFileFilterCombo, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KFileFilterCombo_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileFilterCombo`
-    ///
-    /// ` callback: *const fn (self: KFileFilterCombo, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KFileFilterCombo, callback: *const fn (KFileFilterCombo, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KFileFilterCombo_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -13465,47 +13158,6 @@ pub const KFileFilterCombo = extern struct {
     pub fn isSignalConnected(self: KFileFilterCombo, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KFileFilterCombo_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileFilterCombo `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KFileFilterCombo, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KFileFilterCombo_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileFilterCombo`
-    ///
-    /// ` callback: *const fn (self: KFileFilterCombo, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KFileFilterCombo, callback: *const fn (KFileFilterCombo, QMetaMethod) callconv(.c) bool) void {
-        qtc.KFileFilterCombo_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -13528,48 +13180,6 @@ pub const KFileFilterCombo = extern struct {
     ///
     pub fn getDecodedMetricF(self: KFileFilterCombo, metricA: i32, metricB: i32) f64 {
         return qtc.KFileFilterCombo_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileFilterCombo `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KFileFilterCombo, metricA: i32, metricB: i32) f64 {
-        return qtc.KFileFilterCombo_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileFilterCombo`
-    ///
-    /// ` callback: *const fn (self: KFileFilterCombo, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KFileFilterCombo, callback: *const fn (KFileFilterCombo, i32, i32) callconv(.c) f64) void {
-        qtc.KFileFilterCombo_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `keyBindingMap` instead
@@ -13619,77 +13229,6 @@ pub const KFileFilterCombo = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superKeyBindingMap` instead
-    ///
-    pub const SuperKeyBindingMap = superKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileFilterCombo `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
-    ///
-    pub fn superKeyBindingMap(self: KFileFilterCombo, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
-        const _map: qtc.libqt_map = qtc.KFileFilterCombo_SuperKeyBindingMap(@ptrCast(self.ptr));
-        var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KFileFilterCombo.keyBindingMap: Total capacity allocation failed");
-        defer {
-            const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
-            for (0.._map.len) |i| {
-                qtc.libqt_free(_values[i].data);
-            }
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KFileFilterCombo.keyBindingMap: Memory allocation failed");
-            const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
-            for (0.._value.len) |j|
-                _value_slice[j] = .{ .ptr = _value_data[j] };
-            _ret.putAssumeCapacity(_key, _value_slice);
-        }
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onKeyBindingMap` instead
-    ///
-    pub const OnKeyBindingMap = onKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileFilterCombo`
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of ArrayMap_i32_SliceQKeySequence `
-    ///
-    pub fn onKeyBindingMap(self: KFileFilterCombo, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.KFileFilterCombo_OnKeyBindingMap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setKeyBindingMap` instead
     ///
     pub const SetKeyBindingMap = setKeyBindingMap;
@@ -13733,69 +13272,6 @@ pub const KFileFilterCombo = extern struct {
         qtc.KFileFilterCombo_SetKeyBindingMap(@ptrCast(self.ptr), keyBindingMap_map);
     }
 
-    /// ### DEPRECATED: Use `superSetKeyBindingMap` instead
-    ///
-    pub const SuperSetKeyBindingMap = superSetKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileFilterCombo `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` _keyBindingMap: ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
-    ///
-    pub fn superSetKeyBindingMap(self: KFileFilterCombo, allocator: std.mem.Allocator, _keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
-        const keyBindingMap_count = _keyBindingMap.count();
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KFileFilterCombo.setKeyBindingMap: Memory allocation failed");
-        defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KFileFilterCombo.setKeyBindingMap: Memory allocation failed");
-        defer allocator.free(keyBindingMap_values);
-        var keyBindingMap_i: usize = 0;
-        var keyBindingMap_it = _keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |it_entry| : (keyBindingMap_i += 1) {
-            const keyBindingMap_key = it_entry.key_ptr.*;
-            keyBindingMap_keys[keyBindingMap_i] = @bitCast(keyBindingMap_key);
-            const value = it_entry.value_ptr.*;
-            keyBindingMap_values[keyBindingMap_i] = qtc.libqt_list{
-                .len = value.len,
-                .data = @ptrCast(value.ptr),
-            };
-        }
-        const keyBindingMap_map = qtc.libqt_map{
-            .len = keyBindingMap_count,
-            .keys = @ptrCast(keyBindingMap_keys.ptr),
-            .values = @ptrCast(keyBindingMap_values.ptr),
-        };
-        qtc.KFileFilterCombo_SuperSetKeyBindingMap(@ptrCast(self.ptr), keyBindingMap_map);
-    }
-
-    /// ### DEPRECATED: Use `onSetKeyBindingMap` instead
-    ///
-    pub const OnSetKeyBindingMap = onSetKeyBindingMap;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileFilterCombo`
-    ///
-    /// ` callback: *const fn (self: KFileFilterCombo, keyBindingMap: qtc.libqt_map (ArrayMap_i32_SliceQKeySequence)) callconv(.c) void `
-    ///
-    pub fn onSetKeyBindingMap(self: KFileFilterCombo, callback: *const fn (KFileFilterCombo, qtc.libqt_map) callconv(.c) void) void {
-        qtc.KFileFilterCombo_OnSetKeyBindingMap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setDelegate` instead
     ///
     pub const SetDelegate = setDelegate;
@@ -13818,48 +13294,6 @@ pub const KFileFilterCombo = extern struct {
         qtc.KFileFilterCombo_SetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate_.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetDelegate` instead
-    ///
-    pub const SuperSetDelegate = superSetDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileFilterCombo `
-    ///
-    /// ` _delegate: KCompletionBase `
-    ///
-    pub fn superSetDelegate(self: KFileFilterCombo, _delegate: anytype) void {
-        comptime _ = @TypeOf(_delegate)._is_KCompletionBase;
-        const _delegate_ = if (@hasDecl(@TypeOf(_delegate), "asKCompletionBase")) _delegate.asKCompletionBase() else _delegate;
-        qtc.KFileFilterCombo_SuperSetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate_.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDelegate` instead
-    ///
-    pub const OnSetDelegate = onSetDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileFilterCombo`
-    ///
-    /// ` callback: *const fn (self: KFileFilterCombo, delegate: KCompletionBase) callconv(.c) void `
-    ///
-    pub fn onSetDelegate(self: KFileFilterCombo, callback: *const fn (KFileFilterCombo, KCompletionBase) callconv(.c) void) void {
-        qtc.KFileFilterCombo_OnSetDelegate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `delegate` instead
     ///
     pub const Delegate = delegate;
@@ -13876,44 +13310,6 @@ pub const KFileFilterCombo = extern struct {
     ///
     pub fn delegate(self: KFileFilterCombo) KCompletionBase {
         return .{ .ptr = qtc.KFileFilterCombo_Delegate(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superDelegate` instead
-    ///
-    pub const SuperDelegate = superDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileFilterCombo `
-    ///
-    pub fn superDelegate(self: KFileFilterCombo) KCompletionBase {
-        return .{ .ptr = qtc.KFileFilterCombo_SuperDelegate(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDelegate` instead
-    ///
-    pub const OnDelegate = onDelegate;
-
-    /// Inherited from KCompletionBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileFilterCombo`
-    ///
-    /// ` callback: *const fn () callconv(.c) KCompletionBase `
-    ///
-    pub fn onDelegate(self: KFileFilterCombo, callback: *const fn () callconv(.c) KCompletionBase) void {
-        qtc.KFileFilterCombo_OnDelegate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

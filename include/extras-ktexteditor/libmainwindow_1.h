@@ -87,7 +87,7 @@ bool KTextEditor__MainWindow_ShowMessage(KTextEditor__MainWindow* self, const li
 libqt_string KTextEditor__MainWindow_Tr2(const char* s, const char* c);
 libqt_string KTextEditor__MainWindow_Tr3(const char* s, const char* c, int n);
 KTextEditor__View* KTextEditor__MainWindow_OpenUrl2(KTextEditor__MainWindow* self, const QUrl* url, const libqt_string encoding);
-void KTextEditor__MainWindow_OnMetaObject(const KTextEditor__MainWindow* self, intptr_t slot);
+void KTextEditor__MainWindow_OnMetaObject(KTextEditor__MainWindow* self, intptr_t slot);
 QMetaObject* KTextEditor__MainWindow_SuperMetaObject(const KTextEditor__MainWindow* self);
 void KTextEditor__MainWindow_OnMetacast(KTextEditor__MainWindow* self, intptr_t slot);
 void* KTextEditor__MainWindow_SuperMetacast(KTextEditor__MainWindow* self, const char* param1);
@@ -115,17 +115,9 @@ void KTextEditor__MainWindow_DisconnectNotify(KTextEditor__MainWindow* self, con
 void KTextEditor__MainWindow_OnDisconnectNotify(KTextEditor__MainWindow* self, intptr_t slot);
 void KTextEditor__MainWindow_SuperDisconnectNotify(KTextEditor__MainWindow* self, const QMetaMethod* signal);
 QObject* KTextEditor__MainWindow_Sender(const KTextEditor__MainWindow* self);
-void KTextEditor__MainWindow_OnSender(const KTextEditor__MainWindow* self, intptr_t slot);
-QObject* KTextEditor__MainWindow_SuperSender(const KTextEditor__MainWindow* self);
 int KTextEditor__MainWindow_SenderSignalIndex(const KTextEditor__MainWindow* self);
-void KTextEditor__MainWindow_OnSenderSignalIndex(const KTextEditor__MainWindow* self, intptr_t slot);
-int KTextEditor__MainWindow_SuperSenderSignalIndex(const KTextEditor__MainWindow* self);
 int KTextEditor__MainWindow_Receivers(const KTextEditor__MainWindow* self, const char* signal);
-void KTextEditor__MainWindow_OnReceivers(const KTextEditor__MainWindow* self, intptr_t slot);
-int KTextEditor__MainWindow_SuperReceivers(const KTextEditor__MainWindow* self, const char* signal);
 bool KTextEditor__MainWindow_IsSignalConnected(const KTextEditor__MainWindow* self, const QMetaMethod* signal);
-void KTextEditor__MainWindow_OnIsSignalConnected(const KTextEditor__MainWindow* self, intptr_t slot);
-bool KTextEditor__MainWindow_SuperIsSignalConnected(const KTextEditor__MainWindow* self, const QMetaMethod* signal);
 void KTextEditor__MainWindow_Delete(KTextEditor__MainWindow* self);
 
 #ifdef __cplusplus

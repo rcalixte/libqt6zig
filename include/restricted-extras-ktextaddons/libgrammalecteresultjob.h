@@ -49,7 +49,7 @@ void TextGrammarCheck__GrammalecteResultJob_Error(TextGrammarCheck__GrammalecteR
 void TextGrammarCheck__GrammalecteResultJob_Connect_Error(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
 libqt_string TextGrammarCheck__GrammalecteResultJob_Tr2(const char* s, const char* c);
 libqt_string TextGrammarCheck__GrammalecteResultJob_Tr3(const char* s, const char* c, int n);
-void TextGrammarCheck__GrammalecteResultJob_OnMetaObject(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+void TextGrammarCheck__GrammalecteResultJob_OnMetaObject(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
 QMetaObject* TextGrammarCheck__GrammalecteResultJob_SuperMetaObject(const TextGrammarCheck__GrammalecteResultJob* self);
 void TextGrammarCheck__GrammalecteResultJob_OnMetacast(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
 void* TextGrammarCheck__GrammalecteResultJob_SuperMetacast(TextGrammarCheck__GrammalecteResultJob* self, const char* param1);
@@ -77,17 +77,9 @@ void TextGrammarCheck__GrammalecteResultJob_DisconnectNotify(TextGrammarCheck__G
 void TextGrammarCheck__GrammalecteResultJob_OnDisconnectNotify(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
 void TextGrammarCheck__GrammalecteResultJob_SuperDisconnectNotify(TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal);
 QObject* TextGrammarCheck__GrammalecteResultJob_Sender(const TextGrammarCheck__GrammalecteResultJob* self);
-void TextGrammarCheck__GrammalecteResultJob_OnSender(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
-QObject* TextGrammarCheck__GrammalecteResultJob_SuperSender(const TextGrammarCheck__GrammalecteResultJob* self);
 int TextGrammarCheck__GrammalecteResultJob_SenderSignalIndex(const TextGrammarCheck__GrammalecteResultJob* self);
-void TextGrammarCheck__GrammalecteResultJob_OnSenderSignalIndex(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
-int TextGrammarCheck__GrammalecteResultJob_SuperSenderSignalIndex(const TextGrammarCheck__GrammalecteResultJob* self);
 int TextGrammarCheck__GrammalecteResultJob_Receivers(const TextGrammarCheck__GrammalecteResultJob* self, const char* signal);
-void TextGrammarCheck__GrammalecteResultJob_OnReceivers(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
-int TextGrammarCheck__GrammalecteResultJob_SuperReceivers(const TextGrammarCheck__GrammalecteResultJob* self, const char* signal);
 bool TextGrammarCheck__GrammalecteResultJob_IsSignalConnected(const TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal);
-void TextGrammarCheck__GrammalecteResultJob_OnIsSignalConnected(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
-bool TextGrammarCheck__GrammalecteResultJob_SuperIsSignalConnected(const TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal);
 void TextGrammarCheck__GrammalecteResultJob_Delete(TextGrammarCheck__GrammalecteResultJob* self);
 
 #ifdef __cplusplus

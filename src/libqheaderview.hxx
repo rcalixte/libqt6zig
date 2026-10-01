@@ -9,25 +9,21 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QHeaderView so that we can call protected methods
+// This class is a subclass of QHeaderView
 class VirtualQHeaderView final : public QHeaderView {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQHeaderView = true;
-
-    // Virtual class public types (including callbacks)
+    // Virtual class public types (including callbacks and access types)
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
-    using QHeaderView_MetaObject_Callback = QMetaObject* (*)();
+    using QHeaderView_MetaObject_Callback = QMetaObject* (*)(const QHeaderView*);
     using QHeaderView_Metacast_Callback = void* (*)(QHeaderView*, const char*);
     using QHeaderView_Metacall_Callback = int (*)(QHeaderView*, int, int, void**);
     using QHeaderView_SetModel_Callback = void (*)(QHeaderView*, QAbstractItemModel*);
-    using QHeaderView_SizeHint_Callback = QSize* (*)();
+    using QHeaderView_SizeHint_Callback = QSize* (*)(const QHeaderView*);
     using QHeaderView_SetVisible_Callback = void (*)(QHeaderView*, bool);
-    using QHeaderView_DoItemsLayout_Callback = void (*)();
-    using QHeaderView_Reset_Callback = void (*)();
+    using QHeaderView_DoItemsLayout_Callback = void (*)(QHeaderView*);
+    using QHeaderView_Reset_Callback = void (*)(QHeaderView*);
     using QHeaderView_CurrentChanged_Callback = void (*)(QHeaderView*, QModelIndex*, QModelIndex*);
     using QHeaderView_Event_Callback = bool (*)(QHeaderView*, QEvent*);
     using QHeaderView_PaintEvent_Callback = void (*)(QHeaderView*, QPaintEvent*);
@@ -38,9 +34,9 @@ class VirtualQHeaderView final : public QHeaderView {
     using QHeaderView_ViewportEvent_Callback = bool (*)(QHeaderView*, QEvent*);
     using QHeaderView_PaintSection_Callback = void (*)(const QHeaderView*, QPainter*, QRect*, int);
     using QHeaderView_SectionSizeFromContents_Callback = QSize* (*)(const QHeaderView*, int);
-    using QHeaderView_HorizontalOffset_Callback = int (*)();
-    using QHeaderView_VerticalOffset_Callback = int (*)();
-    using QHeaderView_UpdateGeometries_Callback = void (*)();
+    using QHeaderView_HorizontalOffset_Callback = int (*)(const QHeaderView*);
+    using QHeaderView_VerticalOffset_Callback = int (*)(const QHeaderView*);
+    using QHeaderView_UpdateGeometries_Callback = void (*)(QHeaderView*);
     using QHeaderView_ScrollContentsBy_Callback = void (*)(QHeaderView*, int, int);
     using QHeaderView_DataChanged_Callback = void (*)(QHeaderView*, QModelIndex*, QModelIndex*, libqt_list /* of int */);
     using QHeaderView_RowsInserted_Callback = void (*)(QHeaderView*, QModelIndex*, int, int);
@@ -60,11 +56,11 @@ class VirtualQHeaderView final : public QHeaderView {
     using QHeaderView_ItemDelegateForIndex_Callback = QAbstractItemDelegate* (*)(const QHeaderView*, QModelIndex*);
     using QHeaderView_InputMethodQuery_Callback = QVariant* (*)(const QHeaderView*, int);
     using QHeaderView_SetRootIndex_Callback = void (*)(QHeaderView*, QModelIndex*);
-    using QHeaderView_SelectAll_Callback = void (*)();
+    using QHeaderView_SelectAll_Callback = void (*)(QHeaderView*);
     using QHeaderView_RowsAboutToBeRemoved_Callback = void (*)(QHeaderView*, QModelIndex*, int, int);
     using QHeaderView_SelectionChanged_Callback = void (*)(QHeaderView*, QItemSelection*, QItemSelection*);
-    using QHeaderView_UpdateEditorData_Callback = void (*)();
-    using QHeaderView_UpdateEditorGeometries_Callback = void (*)();
+    using QHeaderView_UpdateEditorData_Callback = void (*)(QHeaderView*);
+    using QHeaderView_UpdateEditorGeometries_Callback = void (*)(QHeaderView*);
     using QHeaderView_VerticalScrollbarAction_Callback = void (*)(QHeaderView*, int);
     using QHeaderView_HorizontalScrollbarAction_Callback = void (*)(QHeaderView*, int);
     using QHeaderView_VerticalScrollbarValueChanged_Callback = void (*)(QHeaderView*, int);
@@ -72,7 +68,7 @@ class VirtualQHeaderView final : public QHeaderView {
     using QHeaderView_CloseEditor_Callback = void (*)(QHeaderView*, QWidget*, int);
     using QHeaderView_CommitData_Callback = void (*)(QHeaderView*, QWidget*);
     using QHeaderView_EditorDestroyed_Callback = void (*)(QHeaderView*, QObject*);
-    using QHeaderView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QHeaderView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)(const QHeaderView*);
     using QHeaderView_Edit2_Callback = bool (*)(QHeaderView*, QModelIndex*, int, QEvent*);
     using QHeaderView_SelectionCommand_Callback = int (*)(const QHeaderView*, QModelIndex*, QEvent*);
     using QHeaderView_StartDrag_Callback = void (*)(QHeaderView*, int);
@@ -89,16 +85,16 @@ class VirtualQHeaderView final : public QHeaderView {
     using QHeaderView_TimerEvent_Callback = void (*)(QHeaderView*, QTimerEvent*);
     using QHeaderView_InputMethodEvent_Callback = void (*)(QHeaderView*, QInputMethodEvent*);
     using QHeaderView_EventFilter_Callback = bool (*)(QHeaderView*, QObject*, QEvent*);
-    using QHeaderView_ViewportSizeHint_Callback = QSize* (*)();
-    using QHeaderView_MinimumSizeHint_Callback = QSize* (*)();
+    using QHeaderView_ViewportSizeHint_Callback = QSize* (*)(const QHeaderView*);
+    using QHeaderView_MinimumSizeHint_Callback = QSize* (*)(const QHeaderView*);
     using QHeaderView_SetupViewport_Callback = void (*)(QHeaderView*, QWidget*);
     using QHeaderView_WheelEvent_Callback = void (*)(QHeaderView*, QWheelEvent*);
     using QHeaderView_ContextMenuEvent_Callback = void (*)(QHeaderView*, QContextMenuEvent*);
     using QHeaderView_ChangeEvent_Callback = void (*)(QHeaderView*, QEvent*);
-    using QHeaderView_DevType_Callback = int (*)();
+    using QHeaderView_DevType_Callback = int (*)(const QHeaderView*);
     using QHeaderView_HeightForWidth_Callback = int (*)(const QHeaderView*, int);
-    using QHeaderView_HasHeightForWidth_Callback = bool (*)();
-    using QHeaderView_PaintEngine_Callback = QPaintEngine* (*)();
+    using QHeaderView_HasHeightForWidth_Callback = bool (*)(const QHeaderView*);
+    using QHeaderView_PaintEngine_Callback = QPaintEngine* (*)(const QHeaderView*);
     using QHeaderView_KeyReleaseEvent_Callback = void (*)(QHeaderView*, QKeyEvent*);
     using QHeaderView_EnterEvent_Callback = void (*)(QHeaderView*, QEnterEvent*);
     using QHeaderView_LeaveEvent_Callback = void (*)(QHeaderView*, QEvent*);
@@ -112,44 +108,42 @@ class VirtualQHeaderView final : public QHeaderView {
     using QHeaderView_Metric_Callback = int (*)(const QHeaderView*, int);
     using QHeaderView_InitPainter_Callback = void (*)(const QHeaderView*, QPainter*);
     using QHeaderView_Redirected_Callback = QPaintDevice* (*)(const QHeaderView*, QPoint*);
-    using QHeaderView_SharedPainter_Callback = QPainter* (*)();
+    using QHeaderView_SharedPainter_Callback = QPainter* (*)(const QHeaderView*);
     using QHeaderView_ChildEvent_Callback = void (*)(QHeaderView*, QChildEvent*);
     using QHeaderView_CustomEvent_Callback = void (*)(QHeaderView*, QEvent*);
     using QHeaderView_ConnectNotify_Callback = void (*)(QHeaderView*, QMetaMethod*);
     using QHeaderView_DisconnectNotify_Callback = void (*)(QHeaderView*, QMetaMethod*);
-    using QHeaderView_UpdateSection_Callback = void (*)(QHeaderView*, int);
-    using QHeaderView_ResizeSections2_Callback = void (*)();
-    using QHeaderView_SectionsInserted_Callback = void (*)(QHeaderView*, QModelIndex*, int, int);
-    using QHeaderView_SectionsAboutToBeRemoved_Callback = void (*)(QHeaderView*, QModelIndex*, int, int);
-    using QHeaderView_Initialize_Callback = void (*)();
-    using QHeaderView_InitializeSections_Callback = void (*)();
-    using QHeaderView_InitializeSections2_Callback = void (*)(QHeaderView*, int, int);
-    using QHeaderView_State_Callback = int (*)();
-    using QHeaderView_SetState_Callback = void (*)(QHeaderView*, int);
-    using QHeaderView_ScheduleDelayedItemsLayout_Callback = void (*)();
-    using QHeaderView_ExecuteDelayedItemsLayout_Callback = void (*)();
-    using QHeaderView_SetDirtyRegion_Callback = void (*)(QHeaderView*, QRegion*);
-    using QHeaderView_ScrollDirtyRegion_Callback = void (*)(QHeaderView*, int, int);
-    using QHeaderView_DirtyRegionOffset_Callback = QPoint* (*)();
-    using QHeaderView_StartAutoScroll_Callback = void (*)();
-    using QHeaderView_StopAutoScroll_Callback = void (*)();
-    using QHeaderView_DoAutoScroll_Callback = void (*)();
-    using QHeaderView_DropIndicatorPosition_Callback = int (*)();
-    using QHeaderView_SetViewportMargins_Callback = void (*)(QHeaderView*, int, int, int, int);
-    using QHeaderView_ViewportMargins_Callback = QMargins* (*)();
-    using QHeaderView_DrawFrame_Callback = void (*)(QHeaderView*, QPainter*);
-    using QHeaderView_UpdateMicroFocus_Callback = void (*)();
-    using QHeaderView_Create_Callback = void (*)();
-    using QHeaderView_Destroy_Callback = void (*)();
-    using QHeaderView_FocusNextChild_Callback = bool (*)();
-    using QHeaderView_FocusPreviousChild_Callback = bool (*)();
-    using QHeaderView_Sender_Callback = QObject* (*)();
-    using QHeaderView_SenderSignalIndex_Callback = int (*)();
-    using QHeaderView_Receivers_Callback = int (*)(const QHeaderView*, const char*);
-    using QHeaderView_IsSignalConnected_Callback = bool (*)(const QHeaderView*, QMetaMethod*);
-    using QHeaderView_GetDecodedMetricF_Callback = double (*)(const QHeaderView*, int, int);
+    using QHeaderView::create;
+    using QHeaderView::destroy;
+    using QHeaderView::dirtyRegionOffset;
+    using QHeaderView::doAutoScroll;
+    using QHeaderView::drawFrame;
+    using QHeaderView::dropIndicatorPosition;
+    using QHeaderView::executeDelayedItemsLayout;
+    using QHeaderView::focusNextChild;
+    using QHeaderView::focusPreviousChild;
+    using QHeaderView::getDecodedMetricF;
+    using QHeaderView::initialize;
+    using QHeaderView::initializeSections;
+    using QHeaderView::isSignalConnected;
+    using QHeaderView::receivers;
+    using QHeaderView::resizeSections;
+    using QHeaderView::scheduleDelayedItemsLayout;
+    using QHeaderView::scrollDirtyRegion;
+    using QHeaderView::sectionsAboutToBeRemoved;
+    using QHeaderView::sectionsInserted;
+    using QHeaderView::sender;
+    using QHeaderView::senderSignalIndex;
+    using QHeaderView::setDirtyRegion;
+    using QHeaderView::setState;
+    using QHeaderView::setViewportMargins;
+    using QHeaderView::startAutoScroll;
+    using QHeaderView::state;
+    using QHeaderView::stopAutoScroll;
+    using QHeaderView::updateMicroFocus;
+    using QHeaderView::updateSection;
+    using QHeaderView::viewportMargins;
 
-  protected:
     // Instance callback storage
     QHeaderView_MetaObject_Callback qheaderview_metaobject_callback = nullptr;
     QHeaderView_Metacast_Callback qheaderview_metacast_callback = nullptr;
@@ -248,441 +242,92 @@ class VirtualQHeaderView final : public QHeaderView {
     QHeaderView_CustomEvent_Callback qheaderview_customevent_callback = nullptr;
     QHeaderView_ConnectNotify_Callback qheaderview_connectnotify_callback = nullptr;
     QHeaderView_DisconnectNotify_Callback qheaderview_disconnectnotify_callback = nullptr;
-    QHeaderView_UpdateSection_Callback qheaderview_updatesection_callback = nullptr;
-    QHeaderView_ResizeSections2_Callback qheaderview_resizesections2_callback = nullptr;
-    QHeaderView_SectionsInserted_Callback qheaderview_sectionsinserted_callback = nullptr;
-    QHeaderView_SectionsAboutToBeRemoved_Callback qheaderview_sectionsabouttoberemoved_callback = nullptr;
-    QHeaderView_Initialize_Callback qheaderview_initialize_callback = nullptr;
-    QHeaderView_InitializeSections_Callback qheaderview_initializesections_callback = nullptr;
-    QHeaderView_InitializeSections2_Callback qheaderview_initializesections2_callback = nullptr;
-    QHeaderView_State_Callback qheaderview_state_callback = nullptr;
-    QHeaderView_SetState_Callback qheaderview_setstate_callback = nullptr;
-    QHeaderView_ScheduleDelayedItemsLayout_Callback qheaderview_scheduledelayeditemslayout_callback = nullptr;
-    QHeaderView_ExecuteDelayedItemsLayout_Callback qheaderview_executedelayeditemslayout_callback = nullptr;
-    QHeaderView_SetDirtyRegion_Callback qheaderview_setdirtyregion_callback = nullptr;
-    QHeaderView_ScrollDirtyRegion_Callback qheaderview_scrolldirtyregion_callback = nullptr;
-    QHeaderView_DirtyRegionOffset_Callback qheaderview_dirtyregionoffset_callback = nullptr;
-    QHeaderView_StartAutoScroll_Callback qheaderview_startautoscroll_callback = nullptr;
-    QHeaderView_StopAutoScroll_Callback qheaderview_stopautoscroll_callback = nullptr;
-    QHeaderView_DoAutoScroll_Callback qheaderview_doautoscroll_callback = nullptr;
-    QHeaderView_DropIndicatorPosition_Callback qheaderview_dropindicatorposition_callback = nullptr;
-    QHeaderView_SetViewportMargins_Callback qheaderview_setviewportmargins_callback = nullptr;
-    QHeaderView_ViewportMargins_Callback qheaderview_viewportmargins_callback = nullptr;
-    QHeaderView_DrawFrame_Callback qheaderview_drawframe_callback = nullptr;
-    QHeaderView_UpdateMicroFocus_Callback qheaderview_updatemicrofocus_callback = nullptr;
-    QHeaderView_Create_Callback qheaderview_create_callback = nullptr;
-    QHeaderView_Destroy_Callback qheaderview_destroy_callback = nullptr;
-    QHeaderView_FocusNextChild_Callback qheaderview_focusnextchild_callback = nullptr;
-    QHeaderView_FocusPreviousChild_Callback qheaderview_focuspreviouschild_callback = nullptr;
-    QHeaderView_Sender_Callback qheaderview_sender_callback = nullptr;
-    QHeaderView_SenderSignalIndex_Callback qheaderview_sendersignalindex_callback = nullptr;
-    QHeaderView_Receivers_Callback qheaderview_receivers_callback = nullptr;
-    QHeaderView_IsSignalConnected_Callback qheaderview_issignalconnected_callback = nullptr;
-    QHeaderView_GetDecodedMetricF_Callback qheaderview_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qheaderview_metaobject_isbase = false;
-    mutable bool qheaderview_metacast_isbase = false;
-    mutable bool qheaderview_metacall_isbase = false;
-    mutable bool qheaderview_setmodel_isbase = false;
-    mutable bool qheaderview_sizehint_isbase = false;
-    mutable bool qheaderview_setvisible_isbase = false;
-    mutable bool qheaderview_doitemslayout_isbase = false;
-    mutable bool qheaderview_reset_isbase = false;
-    mutable bool qheaderview_currentchanged_isbase = false;
-    mutable bool qheaderview_event_isbase = false;
-    mutable bool qheaderview_paintevent_isbase = false;
-    mutable bool qheaderview_mousepressevent_isbase = false;
-    mutable bool qheaderview_mousemoveevent_isbase = false;
-    mutable bool qheaderview_mousereleaseevent_isbase = false;
-    mutable bool qheaderview_mousedoubleclickevent_isbase = false;
-    mutable bool qheaderview_viewportevent_isbase = false;
-    mutable bool qheaderview_paintsection_isbase = false;
-    mutable bool qheaderview_sectionsizefromcontents_isbase = false;
-    mutable bool qheaderview_horizontaloffset_isbase = false;
-    mutable bool qheaderview_verticaloffset_isbase = false;
-    mutable bool qheaderview_updategeometries_isbase = false;
-    mutable bool qheaderview_scrollcontentsby_isbase = false;
-    mutable bool qheaderview_datachanged_isbase = false;
-    mutable bool qheaderview_rowsinserted_isbase = false;
-    mutable bool qheaderview_visualrect_isbase = false;
-    mutable bool qheaderview_scrollto_isbase = false;
-    mutable bool qheaderview_indexat_isbase = false;
-    mutable bool qheaderview_isindexhidden_isbase = false;
-    mutable bool qheaderview_movecursor_isbase = false;
-    mutable bool qheaderview_setselection_isbase = false;
-    mutable bool qheaderview_visualregionforselection_isbase = false;
-    mutable bool qheaderview_initstyleoptionforindex_isbase = false;
-    mutable bool qheaderview_initstyleoption_isbase = false;
-    mutable bool qheaderview_setselectionmodel_isbase = false;
-    mutable bool qheaderview_keyboardsearch_isbase = false;
-    mutable bool qheaderview_sizehintforrow_isbase = false;
-    mutable bool qheaderview_sizehintforcolumn_isbase = false;
-    mutable bool qheaderview_itemdelegateforindex_isbase = false;
-    mutable bool qheaderview_inputmethodquery_isbase = false;
-    mutable bool qheaderview_setrootindex_isbase = false;
-    mutable bool qheaderview_selectall_isbase = false;
-    mutable bool qheaderview_rowsabouttoberemoved_isbase = false;
-    mutable bool qheaderview_selectionchanged_isbase = false;
-    mutable bool qheaderview_updateeditordata_isbase = false;
-    mutable bool qheaderview_updateeditorgeometries_isbase = false;
-    mutable bool qheaderview_verticalscrollbaraction_isbase = false;
-    mutable bool qheaderview_horizontalscrollbaraction_isbase = false;
-    mutable bool qheaderview_verticalscrollbarvaluechanged_isbase = false;
-    mutable bool qheaderview_horizontalscrollbarvaluechanged_isbase = false;
-    mutable bool qheaderview_closeeditor_isbase = false;
-    mutable bool qheaderview_commitdata_isbase = false;
-    mutable bool qheaderview_editordestroyed_isbase = false;
-    mutable bool qheaderview_selectedindexes_isbase = false;
-    mutable bool qheaderview_edit2_isbase = false;
-    mutable bool qheaderview_selectioncommand_isbase = false;
-    mutable bool qheaderview_startdrag_isbase = false;
-    mutable bool qheaderview_initviewitemoption_isbase = false;
-    mutable bool qheaderview_focusnextprevchild_isbase = false;
-    mutable bool qheaderview_dragenterevent_isbase = false;
-    mutable bool qheaderview_dragmoveevent_isbase = false;
-    mutable bool qheaderview_dragleaveevent_isbase = false;
-    mutable bool qheaderview_dropevent_isbase = false;
-    mutable bool qheaderview_focusinevent_isbase = false;
-    mutable bool qheaderview_focusoutevent_isbase = false;
-    mutable bool qheaderview_keypressevent_isbase = false;
-    mutable bool qheaderview_resizeevent_isbase = false;
-    mutable bool qheaderview_timerevent_isbase = false;
-    mutable bool qheaderview_inputmethodevent_isbase = false;
-    mutable bool qheaderview_eventfilter_isbase = false;
-    mutable bool qheaderview_viewportsizehint_isbase = false;
-    mutable bool qheaderview_minimumsizehint_isbase = false;
-    mutable bool qheaderview_setupviewport_isbase = false;
-    mutable bool qheaderview_wheelevent_isbase = false;
-    mutable bool qheaderview_contextmenuevent_isbase = false;
-    mutable bool qheaderview_changeevent_isbase = false;
-    mutable bool qheaderview_devtype_isbase = false;
-    mutable bool qheaderview_heightforwidth_isbase = false;
-    mutable bool qheaderview_hasheightforwidth_isbase = false;
-    mutable bool qheaderview_paintengine_isbase = false;
-    mutable bool qheaderview_keyreleaseevent_isbase = false;
-    mutable bool qheaderview_enterevent_isbase = false;
-    mutable bool qheaderview_leaveevent_isbase = false;
-    mutable bool qheaderview_moveevent_isbase = false;
-    mutable bool qheaderview_closeevent_isbase = false;
-    mutable bool qheaderview_tabletevent_isbase = false;
-    mutable bool qheaderview_actionevent_isbase = false;
-    mutable bool qheaderview_showevent_isbase = false;
-    mutable bool qheaderview_hideevent_isbase = false;
-    mutable bool qheaderview_nativeevent_isbase = false;
-    mutable bool qheaderview_metric_isbase = false;
-    mutable bool qheaderview_initpainter_isbase = false;
-    mutable bool qheaderview_redirected_isbase = false;
-    mutable bool qheaderview_sharedpainter_isbase = false;
-    mutable bool qheaderview_childevent_isbase = false;
-    mutable bool qheaderview_customevent_isbase = false;
-    mutable bool qheaderview_connectnotify_isbase = false;
-    mutable bool qheaderview_disconnectnotify_isbase = false;
-    mutable bool qheaderview_updatesection_isbase = false;
-    mutable bool qheaderview_resizesections2_isbase = false;
-    mutable bool qheaderview_sectionsinserted_isbase = false;
-    mutable bool qheaderview_sectionsabouttoberemoved_isbase = false;
-    mutable bool qheaderview_initialize_isbase = false;
-    mutable bool qheaderview_initializesections_isbase = false;
-    mutable bool qheaderview_initializesections2_isbase = false;
-    mutable bool qheaderview_state_isbase = false;
-    mutable bool qheaderview_setstate_isbase = false;
-    mutable bool qheaderview_scheduledelayeditemslayout_isbase = false;
-    mutable bool qheaderview_executedelayeditemslayout_isbase = false;
-    mutable bool qheaderview_setdirtyregion_isbase = false;
-    mutable bool qheaderview_scrolldirtyregion_isbase = false;
-    mutable bool qheaderview_dirtyregionoffset_isbase = false;
-    mutable bool qheaderview_startautoscroll_isbase = false;
-    mutable bool qheaderview_stopautoscroll_isbase = false;
-    mutable bool qheaderview_doautoscroll_isbase = false;
-    mutable bool qheaderview_dropindicatorposition_isbase = false;
-    mutable bool qheaderview_setviewportmargins_isbase = false;
-    mutable bool qheaderview_viewportmargins_isbase = false;
-    mutable bool qheaderview_drawframe_isbase = false;
-    mutable bool qheaderview_updatemicrofocus_isbase = false;
-    mutable bool qheaderview_create_isbase = false;
-    mutable bool qheaderview_destroy_isbase = false;
-    mutable bool qheaderview_focusnextchild_isbase = false;
-    mutable bool qheaderview_focuspreviouschild_isbase = false;
-    mutable bool qheaderview_sender_isbase = false;
-    mutable bool qheaderview_sendersignalindex_isbase = false;
-    mutable bool qheaderview_receivers_isbase = false;
-    mutable bool qheaderview_issignalconnected_isbase = false;
-    mutable bool qheaderview_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QHeaderView {
+        using QHeaderView::actionEvent;
+        using QHeaderView::changeEvent;
+        using QHeaderView::childEvent;
+        using QHeaderView::closeEditor;
+        using QHeaderView::closeEvent;
+        using QHeaderView::commitData;
+        using QHeaderView::connectNotify;
+        using QHeaderView::contextMenuEvent;
+        using QHeaderView::currentChanged;
+        using QHeaderView::customEvent;
+        using QHeaderView::dataChanged;
+        using QHeaderView::disconnectNotify;
+        using QHeaderView::dragEnterEvent;
+        using QHeaderView::dragLeaveEvent;
+        using QHeaderView::dragMoveEvent;
+        using QHeaderView::dropEvent;
+        using QHeaderView::edit;
+        using QHeaderView::editorDestroyed;
+        using QHeaderView::enterEvent;
+        using QHeaderView::event;
+        using QHeaderView::eventFilter;
+        using QHeaderView::focusInEvent;
+        using QHeaderView::focusNextPrevChild;
+        using QHeaderView::focusOutEvent;
+        using QHeaderView::hideEvent;
+        using QHeaderView::horizontalOffset;
+        using QHeaderView::horizontalScrollbarAction;
+        using QHeaderView::horizontalScrollbarValueChanged;
+        using QHeaderView::indexAt;
+        using QHeaderView::initPainter;
+        using QHeaderView::initStyleOptionForIndex;
+        using QHeaderView::initViewItemOption;
+        using QHeaderView::inputMethodEvent;
+        using QHeaderView::isIndexHidden;
+        using QHeaderView::keyPressEvent;
+        using QHeaderView::keyReleaseEvent;
+        using QHeaderView::leaveEvent;
+        using QHeaderView::metric;
+        using QHeaderView::mouseDoubleClickEvent;
+        using QHeaderView::mouseMoveEvent;
+        using QHeaderView::mousePressEvent;
+        using QHeaderView::mouseReleaseEvent;
+        using QHeaderView::moveCursor;
+        using QHeaderView::moveEvent;
+        using QHeaderView::nativeEvent;
+        using QHeaderView::paintEvent;
+        using QHeaderView::paintSection;
+        using QHeaderView::redirected;
+        using QHeaderView::resizeEvent;
+        using QHeaderView::rowsAboutToBeRemoved;
+        using QHeaderView::rowsInserted;
+        using QHeaderView::scrollContentsBy;
+        using QHeaderView::scrollTo;
+        using QHeaderView::sectionSizeFromContents;
+        using QHeaderView::selectedIndexes;
+        using QHeaderView::selectionChanged;
+        using QHeaderView::selectionCommand;
+        using QHeaderView::setSelection;
+        using QHeaderView::sharedPainter;
+        using QHeaderView::showEvent;
+        using QHeaderView::startDrag;
+        using QHeaderView::tabletEvent;
+        using QHeaderView::timerEvent;
+        using QHeaderView::updateEditorData;
+        using QHeaderView::updateEditorGeometries;
+        using QHeaderView::updateGeometries;
+        using QHeaderView::verticalOffset;
+        using QHeaderView::verticalScrollbarAction;
+        using QHeaderView::verticalScrollbarValueChanged;
+        using QHeaderView::viewportEvent;
+        using QHeaderView::viewportSizeHint;
+        using QHeaderView::visualRect;
+        using QHeaderView::visualRegionForSelection;
+        using QHeaderView::wheelEvent;
+    };
 
-  public:
     VirtualQHeaderView(Qt::Orientation orientation) : QHeaderView(orientation) {};
     VirtualQHeaderView(Qt::Orientation orientation, QWidget* parent) : QHeaderView(orientation, parent) {};
 
-    // Callback setters
-    inline void setQHeaderView_MetaObject_Callback(QHeaderView_MetaObject_Callback cb) { qheaderview_metaobject_callback = cb; }
-    inline void setQHeaderView_Metacast_Callback(QHeaderView_Metacast_Callback cb) { qheaderview_metacast_callback = cb; }
-    inline void setQHeaderView_Metacall_Callback(QHeaderView_Metacall_Callback cb) { qheaderview_metacall_callback = cb; }
-    inline void setQHeaderView_SetModel_Callback(QHeaderView_SetModel_Callback cb) { qheaderview_setmodel_callback = cb; }
-    inline void setQHeaderView_SizeHint_Callback(QHeaderView_SizeHint_Callback cb) { qheaderview_sizehint_callback = cb; }
-    inline void setQHeaderView_SetVisible_Callback(QHeaderView_SetVisible_Callback cb) { qheaderview_setvisible_callback = cb; }
-    inline void setQHeaderView_DoItemsLayout_Callback(QHeaderView_DoItemsLayout_Callback cb) { qheaderview_doitemslayout_callback = cb; }
-    inline void setQHeaderView_Reset_Callback(QHeaderView_Reset_Callback cb) { qheaderview_reset_callback = cb; }
-    inline void setQHeaderView_CurrentChanged_Callback(QHeaderView_CurrentChanged_Callback cb) { qheaderview_currentchanged_callback = cb; }
-    inline void setQHeaderView_Event_Callback(QHeaderView_Event_Callback cb) { qheaderview_event_callback = cb; }
-    inline void setQHeaderView_PaintEvent_Callback(QHeaderView_PaintEvent_Callback cb) { qheaderview_paintevent_callback = cb; }
-    inline void setQHeaderView_MousePressEvent_Callback(QHeaderView_MousePressEvent_Callback cb) { qheaderview_mousepressevent_callback = cb; }
-    inline void setQHeaderView_MouseMoveEvent_Callback(QHeaderView_MouseMoveEvent_Callback cb) { qheaderview_mousemoveevent_callback = cb; }
-    inline void setQHeaderView_MouseReleaseEvent_Callback(QHeaderView_MouseReleaseEvent_Callback cb) { qheaderview_mousereleaseevent_callback = cb; }
-    inline void setQHeaderView_MouseDoubleClickEvent_Callback(QHeaderView_MouseDoubleClickEvent_Callback cb) { qheaderview_mousedoubleclickevent_callback = cb; }
-    inline void setQHeaderView_ViewportEvent_Callback(QHeaderView_ViewportEvent_Callback cb) { qheaderview_viewportevent_callback = cb; }
-    inline void setQHeaderView_PaintSection_Callback(QHeaderView_PaintSection_Callback cb) { qheaderview_paintsection_callback = cb; }
-    inline void setQHeaderView_SectionSizeFromContents_Callback(QHeaderView_SectionSizeFromContents_Callback cb) { qheaderview_sectionsizefromcontents_callback = cb; }
-    inline void setQHeaderView_HorizontalOffset_Callback(QHeaderView_HorizontalOffset_Callback cb) { qheaderview_horizontaloffset_callback = cb; }
-    inline void setQHeaderView_VerticalOffset_Callback(QHeaderView_VerticalOffset_Callback cb) { qheaderview_verticaloffset_callback = cb; }
-    inline void setQHeaderView_UpdateGeometries_Callback(QHeaderView_UpdateGeometries_Callback cb) { qheaderview_updategeometries_callback = cb; }
-    inline void setQHeaderView_ScrollContentsBy_Callback(QHeaderView_ScrollContentsBy_Callback cb) { qheaderview_scrollcontentsby_callback = cb; }
-    inline void setQHeaderView_DataChanged_Callback(QHeaderView_DataChanged_Callback cb) { qheaderview_datachanged_callback = cb; }
-    inline void setQHeaderView_RowsInserted_Callback(QHeaderView_RowsInserted_Callback cb) { qheaderview_rowsinserted_callback = cb; }
-    inline void setQHeaderView_VisualRect_Callback(QHeaderView_VisualRect_Callback cb) { qheaderview_visualrect_callback = cb; }
-    inline void setQHeaderView_ScrollTo_Callback(QHeaderView_ScrollTo_Callback cb) { qheaderview_scrollto_callback = cb; }
-    inline void setQHeaderView_IndexAt_Callback(QHeaderView_IndexAt_Callback cb) { qheaderview_indexat_callback = cb; }
-    inline void setQHeaderView_IsIndexHidden_Callback(QHeaderView_IsIndexHidden_Callback cb) { qheaderview_isindexhidden_callback = cb; }
-    inline void setQHeaderView_MoveCursor_Callback(QHeaderView_MoveCursor_Callback cb) { qheaderview_movecursor_callback = cb; }
-    inline void setQHeaderView_SetSelection_Callback(QHeaderView_SetSelection_Callback cb) { qheaderview_setselection_callback = cb; }
-    inline void setQHeaderView_VisualRegionForSelection_Callback(QHeaderView_VisualRegionForSelection_Callback cb) { qheaderview_visualregionforselection_callback = cb; }
-    inline void setQHeaderView_InitStyleOptionForIndex_Callback(QHeaderView_InitStyleOptionForIndex_Callback cb) { qheaderview_initstyleoptionforindex_callback = cb; }
-    inline void setQHeaderView_InitStyleOption_Callback(QHeaderView_InitStyleOption_Callback cb) { qheaderview_initstyleoption_callback = cb; }
-    inline void setQHeaderView_SetSelectionModel_Callback(QHeaderView_SetSelectionModel_Callback cb) { qheaderview_setselectionmodel_callback = cb; }
-    inline void setQHeaderView_KeyboardSearch_Callback(QHeaderView_KeyboardSearch_Callback cb) { qheaderview_keyboardsearch_callback = cb; }
-    inline void setQHeaderView_SizeHintForRow_Callback(QHeaderView_SizeHintForRow_Callback cb) { qheaderview_sizehintforrow_callback = cb; }
-    inline void setQHeaderView_SizeHintForColumn_Callback(QHeaderView_SizeHintForColumn_Callback cb) { qheaderview_sizehintforcolumn_callback = cb; }
-    inline void setQHeaderView_ItemDelegateForIndex_Callback(QHeaderView_ItemDelegateForIndex_Callback cb) { qheaderview_itemdelegateforindex_callback = cb; }
-    inline void setQHeaderView_InputMethodQuery_Callback(QHeaderView_InputMethodQuery_Callback cb) { qheaderview_inputmethodquery_callback = cb; }
-    inline void setQHeaderView_SetRootIndex_Callback(QHeaderView_SetRootIndex_Callback cb) { qheaderview_setrootindex_callback = cb; }
-    inline void setQHeaderView_SelectAll_Callback(QHeaderView_SelectAll_Callback cb) { qheaderview_selectall_callback = cb; }
-    inline void setQHeaderView_RowsAboutToBeRemoved_Callback(QHeaderView_RowsAboutToBeRemoved_Callback cb) { qheaderview_rowsabouttoberemoved_callback = cb; }
-    inline void setQHeaderView_SelectionChanged_Callback(QHeaderView_SelectionChanged_Callback cb) { qheaderview_selectionchanged_callback = cb; }
-    inline void setQHeaderView_UpdateEditorData_Callback(QHeaderView_UpdateEditorData_Callback cb) { qheaderview_updateeditordata_callback = cb; }
-    inline void setQHeaderView_UpdateEditorGeometries_Callback(QHeaderView_UpdateEditorGeometries_Callback cb) { qheaderview_updateeditorgeometries_callback = cb; }
-    inline void setQHeaderView_VerticalScrollbarAction_Callback(QHeaderView_VerticalScrollbarAction_Callback cb) { qheaderview_verticalscrollbaraction_callback = cb; }
-    inline void setQHeaderView_HorizontalScrollbarAction_Callback(QHeaderView_HorizontalScrollbarAction_Callback cb) { qheaderview_horizontalscrollbaraction_callback = cb; }
-    inline void setQHeaderView_VerticalScrollbarValueChanged_Callback(QHeaderView_VerticalScrollbarValueChanged_Callback cb) { qheaderview_verticalscrollbarvaluechanged_callback = cb; }
-    inline void setQHeaderView_HorizontalScrollbarValueChanged_Callback(QHeaderView_HorizontalScrollbarValueChanged_Callback cb) { qheaderview_horizontalscrollbarvaluechanged_callback = cb; }
-    inline void setQHeaderView_CloseEditor_Callback(QHeaderView_CloseEditor_Callback cb) { qheaderview_closeeditor_callback = cb; }
-    inline void setQHeaderView_CommitData_Callback(QHeaderView_CommitData_Callback cb) { qheaderview_commitdata_callback = cb; }
-    inline void setQHeaderView_EditorDestroyed_Callback(QHeaderView_EditorDestroyed_Callback cb) { qheaderview_editordestroyed_callback = cb; }
-    inline void setQHeaderView_SelectedIndexes_Callback(QHeaderView_SelectedIndexes_Callback cb) { qheaderview_selectedindexes_callback = cb; }
-    inline void setQHeaderView_Edit2_Callback(QHeaderView_Edit2_Callback cb) { qheaderview_edit2_callback = cb; }
-    inline void setQHeaderView_SelectionCommand_Callback(QHeaderView_SelectionCommand_Callback cb) { qheaderview_selectioncommand_callback = cb; }
-    inline void setQHeaderView_StartDrag_Callback(QHeaderView_StartDrag_Callback cb) { qheaderview_startdrag_callback = cb; }
-    inline void setQHeaderView_InitViewItemOption_Callback(QHeaderView_InitViewItemOption_Callback cb) { qheaderview_initviewitemoption_callback = cb; }
-    inline void setQHeaderView_FocusNextPrevChild_Callback(QHeaderView_FocusNextPrevChild_Callback cb) { qheaderview_focusnextprevchild_callback = cb; }
-    inline void setQHeaderView_DragEnterEvent_Callback(QHeaderView_DragEnterEvent_Callback cb) { qheaderview_dragenterevent_callback = cb; }
-    inline void setQHeaderView_DragMoveEvent_Callback(QHeaderView_DragMoveEvent_Callback cb) { qheaderview_dragmoveevent_callback = cb; }
-    inline void setQHeaderView_DragLeaveEvent_Callback(QHeaderView_DragLeaveEvent_Callback cb) { qheaderview_dragleaveevent_callback = cb; }
-    inline void setQHeaderView_DropEvent_Callback(QHeaderView_DropEvent_Callback cb) { qheaderview_dropevent_callback = cb; }
-    inline void setQHeaderView_FocusInEvent_Callback(QHeaderView_FocusInEvent_Callback cb) { qheaderview_focusinevent_callback = cb; }
-    inline void setQHeaderView_FocusOutEvent_Callback(QHeaderView_FocusOutEvent_Callback cb) { qheaderview_focusoutevent_callback = cb; }
-    inline void setQHeaderView_KeyPressEvent_Callback(QHeaderView_KeyPressEvent_Callback cb) { qheaderview_keypressevent_callback = cb; }
-    inline void setQHeaderView_ResizeEvent_Callback(QHeaderView_ResizeEvent_Callback cb) { qheaderview_resizeevent_callback = cb; }
-    inline void setQHeaderView_TimerEvent_Callback(QHeaderView_TimerEvent_Callback cb) { qheaderview_timerevent_callback = cb; }
-    inline void setQHeaderView_InputMethodEvent_Callback(QHeaderView_InputMethodEvent_Callback cb) { qheaderview_inputmethodevent_callback = cb; }
-    inline void setQHeaderView_EventFilter_Callback(QHeaderView_EventFilter_Callback cb) { qheaderview_eventfilter_callback = cb; }
-    inline void setQHeaderView_ViewportSizeHint_Callback(QHeaderView_ViewportSizeHint_Callback cb) { qheaderview_viewportsizehint_callback = cb; }
-    inline void setQHeaderView_MinimumSizeHint_Callback(QHeaderView_MinimumSizeHint_Callback cb) { qheaderview_minimumsizehint_callback = cb; }
-    inline void setQHeaderView_SetupViewport_Callback(QHeaderView_SetupViewport_Callback cb) { qheaderview_setupviewport_callback = cb; }
-    inline void setQHeaderView_WheelEvent_Callback(QHeaderView_WheelEvent_Callback cb) { qheaderview_wheelevent_callback = cb; }
-    inline void setQHeaderView_ContextMenuEvent_Callback(QHeaderView_ContextMenuEvent_Callback cb) { qheaderview_contextmenuevent_callback = cb; }
-    inline void setQHeaderView_ChangeEvent_Callback(QHeaderView_ChangeEvent_Callback cb) { qheaderview_changeevent_callback = cb; }
-    inline void setQHeaderView_DevType_Callback(QHeaderView_DevType_Callback cb) { qheaderview_devtype_callback = cb; }
-    inline void setQHeaderView_HeightForWidth_Callback(QHeaderView_HeightForWidth_Callback cb) { qheaderview_heightforwidth_callback = cb; }
-    inline void setQHeaderView_HasHeightForWidth_Callback(QHeaderView_HasHeightForWidth_Callback cb) { qheaderview_hasheightforwidth_callback = cb; }
-    inline void setQHeaderView_PaintEngine_Callback(QHeaderView_PaintEngine_Callback cb) { qheaderview_paintengine_callback = cb; }
-    inline void setQHeaderView_KeyReleaseEvent_Callback(QHeaderView_KeyReleaseEvent_Callback cb) { qheaderview_keyreleaseevent_callback = cb; }
-    inline void setQHeaderView_EnterEvent_Callback(QHeaderView_EnterEvent_Callback cb) { qheaderview_enterevent_callback = cb; }
-    inline void setQHeaderView_LeaveEvent_Callback(QHeaderView_LeaveEvent_Callback cb) { qheaderview_leaveevent_callback = cb; }
-    inline void setQHeaderView_MoveEvent_Callback(QHeaderView_MoveEvent_Callback cb) { qheaderview_moveevent_callback = cb; }
-    inline void setQHeaderView_CloseEvent_Callback(QHeaderView_CloseEvent_Callback cb) { qheaderview_closeevent_callback = cb; }
-    inline void setQHeaderView_TabletEvent_Callback(QHeaderView_TabletEvent_Callback cb) { qheaderview_tabletevent_callback = cb; }
-    inline void setQHeaderView_ActionEvent_Callback(QHeaderView_ActionEvent_Callback cb) { qheaderview_actionevent_callback = cb; }
-    inline void setQHeaderView_ShowEvent_Callback(QHeaderView_ShowEvent_Callback cb) { qheaderview_showevent_callback = cb; }
-    inline void setQHeaderView_HideEvent_Callback(QHeaderView_HideEvent_Callback cb) { qheaderview_hideevent_callback = cb; }
-    inline void setQHeaderView_NativeEvent_Callback(QHeaderView_NativeEvent_Callback cb) { qheaderview_nativeevent_callback = cb; }
-    inline void setQHeaderView_Metric_Callback(QHeaderView_Metric_Callback cb) { qheaderview_metric_callback = cb; }
-    inline void setQHeaderView_InitPainter_Callback(QHeaderView_InitPainter_Callback cb) { qheaderview_initpainter_callback = cb; }
-    inline void setQHeaderView_Redirected_Callback(QHeaderView_Redirected_Callback cb) { qheaderview_redirected_callback = cb; }
-    inline void setQHeaderView_SharedPainter_Callback(QHeaderView_SharedPainter_Callback cb) { qheaderview_sharedpainter_callback = cb; }
-    inline void setQHeaderView_ChildEvent_Callback(QHeaderView_ChildEvent_Callback cb) { qheaderview_childevent_callback = cb; }
-    inline void setQHeaderView_CustomEvent_Callback(QHeaderView_CustomEvent_Callback cb) { qheaderview_customevent_callback = cb; }
-    inline void setQHeaderView_ConnectNotify_Callback(QHeaderView_ConnectNotify_Callback cb) { qheaderview_connectnotify_callback = cb; }
-    inline void setQHeaderView_DisconnectNotify_Callback(QHeaderView_DisconnectNotify_Callback cb) { qheaderview_disconnectnotify_callback = cb; }
-    inline void setQHeaderView_UpdateSection_Callback(QHeaderView_UpdateSection_Callback cb) { qheaderview_updatesection_callback = cb; }
-    inline void setQHeaderView_ResizeSections2_Callback(QHeaderView_ResizeSections2_Callback cb) { qheaderview_resizesections2_callback = cb; }
-    inline void setQHeaderView_SectionsInserted_Callback(QHeaderView_SectionsInserted_Callback cb) { qheaderview_sectionsinserted_callback = cb; }
-    inline void setQHeaderView_SectionsAboutToBeRemoved_Callback(QHeaderView_SectionsAboutToBeRemoved_Callback cb) { qheaderview_sectionsabouttoberemoved_callback = cb; }
-    inline void setQHeaderView_Initialize_Callback(QHeaderView_Initialize_Callback cb) { qheaderview_initialize_callback = cb; }
-    inline void setQHeaderView_InitializeSections_Callback(QHeaderView_InitializeSections_Callback cb) { qheaderview_initializesections_callback = cb; }
-    inline void setQHeaderView_InitializeSections2_Callback(QHeaderView_InitializeSections2_Callback cb) { qheaderview_initializesections2_callback = cb; }
-    inline void setQHeaderView_State_Callback(QHeaderView_State_Callback cb) { qheaderview_state_callback = cb; }
-    inline void setQHeaderView_SetState_Callback(QHeaderView_SetState_Callback cb) { qheaderview_setstate_callback = cb; }
-    inline void setQHeaderView_ScheduleDelayedItemsLayout_Callback(QHeaderView_ScheduleDelayedItemsLayout_Callback cb) { qheaderview_scheduledelayeditemslayout_callback = cb; }
-    inline void setQHeaderView_ExecuteDelayedItemsLayout_Callback(QHeaderView_ExecuteDelayedItemsLayout_Callback cb) { qheaderview_executedelayeditemslayout_callback = cb; }
-    inline void setQHeaderView_SetDirtyRegion_Callback(QHeaderView_SetDirtyRegion_Callback cb) { qheaderview_setdirtyregion_callback = cb; }
-    inline void setQHeaderView_ScrollDirtyRegion_Callback(QHeaderView_ScrollDirtyRegion_Callback cb) { qheaderview_scrolldirtyregion_callback = cb; }
-    inline void setQHeaderView_DirtyRegionOffset_Callback(QHeaderView_DirtyRegionOffset_Callback cb) { qheaderview_dirtyregionoffset_callback = cb; }
-    inline void setQHeaderView_StartAutoScroll_Callback(QHeaderView_StartAutoScroll_Callback cb) { qheaderview_startautoscroll_callback = cb; }
-    inline void setQHeaderView_StopAutoScroll_Callback(QHeaderView_StopAutoScroll_Callback cb) { qheaderview_stopautoscroll_callback = cb; }
-    inline void setQHeaderView_DoAutoScroll_Callback(QHeaderView_DoAutoScroll_Callback cb) { qheaderview_doautoscroll_callback = cb; }
-    inline void setQHeaderView_DropIndicatorPosition_Callback(QHeaderView_DropIndicatorPosition_Callback cb) { qheaderview_dropindicatorposition_callback = cb; }
-    inline void setQHeaderView_SetViewportMargins_Callback(QHeaderView_SetViewportMargins_Callback cb) { qheaderview_setviewportmargins_callback = cb; }
-    inline void setQHeaderView_ViewportMargins_Callback(QHeaderView_ViewportMargins_Callback cb) { qheaderview_viewportmargins_callback = cb; }
-    inline void setQHeaderView_DrawFrame_Callback(QHeaderView_DrawFrame_Callback cb) { qheaderview_drawframe_callback = cb; }
-    inline void setQHeaderView_UpdateMicroFocus_Callback(QHeaderView_UpdateMicroFocus_Callback cb) { qheaderview_updatemicrofocus_callback = cb; }
-    inline void setQHeaderView_Create_Callback(QHeaderView_Create_Callback cb) { qheaderview_create_callback = cb; }
-    inline void setQHeaderView_Destroy_Callback(QHeaderView_Destroy_Callback cb) { qheaderview_destroy_callback = cb; }
-    inline void setQHeaderView_FocusNextChild_Callback(QHeaderView_FocusNextChild_Callback cb) { qheaderview_focusnextchild_callback = cb; }
-    inline void setQHeaderView_FocusPreviousChild_Callback(QHeaderView_FocusPreviousChild_Callback cb) { qheaderview_focuspreviouschild_callback = cb; }
-    inline void setQHeaderView_Sender_Callback(QHeaderView_Sender_Callback cb) { qheaderview_sender_callback = cb; }
-    inline void setQHeaderView_SenderSignalIndex_Callback(QHeaderView_SenderSignalIndex_Callback cb) { qheaderview_sendersignalindex_callback = cb; }
-    inline void setQHeaderView_Receivers_Callback(QHeaderView_Receivers_Callback cb) { qheaderview_receivers_callback = cb; }
-    inline void setQHeaderView_IsSignalConnected_Callback(QHeaderView_IsSignalConnected_Callback cb) { qheaderview_issignalconnected_callback = cb; }
-    inline void setQHeaderView_GetDecodedMetricF_Callback(QHeaderView_GetDecodedMetricF_Callback cb) { qheaderview_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQHeaderView_MetaObject_IsBase(bool value) const { qheaderview_metaobject_isbase = value; }
-    inline void setQHeaderView_Metacast_IsBase(bool value) const { qheaderview_metacast_isbase = value; }
-    inline void setQHeaderView_Metacall_IsBase(bool value) const { qheaderview_metacall_isbase = value; }
-    inline void setQHeaderView_SetModel_IsBase(bool value) const { qheaderview_setmodel_isbase = value; }
-    inline void setQHeaderView_SizeHint_IsBase(bool value) const { qheaderview_sizehint_isbase = value; }
-    inline void setQHeaderView_SetVisible_IsBase(bool value) const { qheaderview_setvisible_isbase = value; }
-    inline void setQHeaderView_DoItemsLayout_IsBase(bool value) const { qheaderview_doitemslayout_isbase = value; }
-    inline void setQHeaderView_Reset_IsBase(bool value) const { qheaderview_reset_isbase = value; }
-    inline void setQHeaderView_CurrentChanged_IsBase(bool value) const { qheaderview_currentchanged_isbase = value; }
-    inline void setQHeaderView_Event_IsBase(bool value) const { qheaderview_event_isbase = value; }
-    inline void setQHeaderView_PaintEvent_IsBase(bool value) const { qheaderview_paintevent_isbase = value; }
-    inline void setQHeaderView_MousePressEvent_IsBase(bool value) const { qheaderview_mousepressevent_isbase = value; }
-    inline void setQHeaderView_MouseMoveEvent_IsBase(bool value) const { qheaderview_mousemoveevent_isbase = value; }
-    inline void setQHeaderView_MouseReleaseEvent_IsBase(bool value) const { qheaderview_mousereleaseevent_isbase = value; }
-    inline void setQHeaderView_MouseDoubleClickEvent_IsBase(bool value) const { qheaderview_mousedoubleclickevent_isbase = value; }
-    inline void setQHeaderView_ViewportEvent_IsBase(bool value) const { qheaderview_viewportevent_isbase = value; }
-    inline void setQHeaderView_PaintSection_IsBase(bool value) const { qheaderview_paintsection_isbase = value; }
-    inline void setQHeaderView_SectionSizeFromContents_IsBase(bool value) const { qheaderview_sectionsizefromcontents_isbase = value; }
-    inline void setQHeaderView_HorizontalOffset_IsBase(bool value) const { qheaderview_horizontaloffset_isbase = value; }
-    inline void setQHeaderView_VerticalOffset_IsBase(bool value) const { qheaderview_verticaloffset_isbase = value; }
-    inline void setQHeaderView_UpdateGeometries_IsBase(bool value) const { qheaderview_updategeometries_isbase = value; }
-    inline void setQHeaderView_ScrollContentsBy_IsBase(bool value) const { qheaderview_scrollcontentsby_isbase = value; }
-    inline void setQHeaderView_DataChanged_IsBase(bool value) const { qheaderview_datachanged_isbase = value; }
-    inline void setQHeaderView_RowsInserted_IsBase(bool value) const { qheaderview_rowsinserted_isbase = value; }
-    inline void setQHeaderView_VisualRect_IsBase(bool value) const { qheaderview_visualrect_isbase = value; }
-    inline void setQHeaderView_ScrollTo_IsBase(bool value) const { qheaderview_scrollto_isbase = value; }
-    inline void setQHeaderView_IndexAt_IsBase(bool value) const { qheaderview_indexat_isbase = value; }
-    inline void setQHeaderView_IsIndexHidden_IsBase(bool value) const { qheaderview_isindexhidden_isbase = value; }
-    inline void setQHeaderView_MoveCursor_IsBase(bool value) const { qheaderview_movecursor_isbase = value; }
-    inline void setQHeaderView_SetSelection_IsBase(bool value) const { qheaderview_setselection_isbase = value; }
-    inline void setQHeaderView_VisualRegionForSelection_IsBase(bool value) const { qheaderview_visualregionforselection_isbase = value; }
-    inline void setQHeaderView_InitStyleOptionForIndex_IsBase(bool value) const { qheaderview_initstyleoptionforindex_isbase = value; }
-    inline void setQHeaderView_InitStyleOption_IsBase(bool value) const { qheaderview_initstyleoption_isbase = value; }
-    inline void setQHeaderView_SetSelectionModel_IsBase(bool value) const { qheaderview_setselectionmodel_isbase = value; }
-    inline void setQHeaderView_KeyboardSearch_IsBase(bool value) const { qheaderview_keyboardsearch_isbase = value; }
-    inline void setQHeaderView_SizeHintForRow_IsBase(bool value) const { qheaderview_sizehintforrow_isbase = value; }
-    inline void setQHeaderView_SizeHintForColumn_IsBase(bool value) const { qheaderview_sizehintforcolumn_isbase = value; }
-    inline void setQHeaderView_ItemDelegateForIndex_IsBase(bool value) const { qheaderview_itemdelegateforindex_isbase = value; }
-    inline void setQHeaderView_InputMethodQuery_IsBase(bool value) const { qheaderview_inputmethodquery_isbase = value; }
-    inline void setQHeaderView_SetRootIndex_IsBase(bool value) const { qheaderview_setrootindex_isbase = value; }
-    inline void setQHeaderView_SelectAll_IsBase(bool value) const { qheaderview_selectall_isbase = value; }
-    inline void setQHeaderView_RowsAboutToBeRemoved_IsBase(bool value) const { qheaderview_rowsabouttoberemoved_isbase = value; }
-    inline void setQHeaderView_SelectionChanged_IsBase(bool value) const { qheaderview_selectionchanged_isbase = value; }
-    inline void setQHeaderView_UpdateEditorData_IsBase(bool value) const { qheaderview_updateeditordata_isbase = value; }
-    inline void setQHeaderView_UpdateEditorGeometries_IsBase(bool value) const { qheaderview_updateeditorgeometries_isbase = value; }
-    inline void setQHeaderView_VerticalScrollbarAction_IsBase(bool value) const { qheaderview_verticalscrollbaraction_isbase = value; }
-    inline void setQHeaderView_HorizontalScrollbarAction_IsBase(bool value) const { qheaderview_horizontalscrollbaraction_isbase = value; }
-    inline void setQHeaderView_VerticalScrollbarValueChanged_IsBase(bool value) const { qheaderview_verticalscrollbarvaluechanged_isbase = value; }
-    inline void setQHeaderView_HorizontalScrollbarValueChanged_IsBase(bool value) const { qheaderview_horizontalscrollbarvaluechanged_isbase = value; }
-    inline void setQHeaderView_CloseEditor_IsBase(bool value) const { qheaderview_closeeditor_isbase = value; }
-    inline void setQHeaderView_CommitData_IsBase(bool value) const { qheaderview_commitdata_isbase = value; }
-    inline void setQHeaderView_EditorDestroyed_IsBase(bool value) const { qheaderview_editordestroyed_isbase = value; }
-    inline void setQHeaderView_SelectedIndexes_IsBase(bool value) const { qheaderview_selectedindexes_isbase = value; }
-    inline void setQHeaderView_Edit2_IsBase(bool value) const { qheaderview_edit2_isbase = value; }
-    inline void setQHeaderView_SelectionCommand_IsBase(bool value) const { qheaderview_selectioncommand_isbase = value; }
-    inline void setQHeaderView_StartDrag_IsBase(bool value) const { qheaderview_startdrag_isbase = value; }
-    inline void setQHeaderView_InitViewItemOption_IsBase(bool value) const { qheaderview_initviewitemoption_isbase = value; }
-    inline void setQHeaderView_FocusNextPrevChild_IsBase(bool value) const { qheaderview_focusnextprevchild_isbase = value; }
-    inline void setQHeaderView_DragEnterEvent_IsBase(bool value) const { qheaderview_dragenterevent_isbase = value; }
-    inline void setQHeaderView_DragMoveEvent_IsBase(bool value) const { qheaderview_dragmoveevent_isbase = value; }
-    inline void setQHeaderView_DragLeaveEvent_IsBase(bool value) const { qheaderview_dragleaveevent_isbase = value; }
-    inline void setQHeaderView_DropEvent_IsBase(bool value) const { qheaderview_dropevent_isbase = value; }
-    inline void setQHeaderView_FocusInEvent_IsBase(bool value) const { qheaderview_focusinevent_isbase = value; }
-    inline void setQHeaderView_FocusOutEvent_IsBase(bool value) const { qheaderview_focusoutevent_isbase = value; }
-    inline void setQHeaderView_KeyPressEvent_IsBase(bool value) const { qheaderview_keypressevent_isbase = value; }
-    inline void setQHeaderView_ResizeEvent_IsBase(bool value) const { qheaderview_resizeevent_isbase = value; }
-    inline void setQHeaderView_TimerEvent_IsBase(bool value) const { qheaderview_timerevent_isbase = value; }
-    inline void setQHeaderView_InputMethodEvent_IsBase(bool value) const { qheaderview_inputmethodevent_isbase = value; }
-    inline void setQHeaderView_EventFilter_IsBase(bool value) const { qheaderview_eventfilter_isbase = value; }
-    inline void setQHeaderView_ViewportSizeHint_IsBase(bool value) const { qheaderview_viewportsizehint_isbase = value; }
-    inline void setQHeaderView_MinimumSizeHint_IsBase(bool value) const { qheaderview_minimumsizehint_isbase = value; }
-    inline void setQHeaderView_SetupViewport_IsBase(bool value) const { qheaderview_setupviewport_isbase = value; }
-    inline void setQHeaderView_WheelEvent_IsBase(bool value) const { qheaderview_wheelevent_isbase = value; }
-    inline void setQHeaderView_ContextMenuEvent_IsBase(bool value) const { qheaderview_contextmenuevent_isbase = value; }
-    inline void setQHeaderView_ChangeEvent_IsBase(bool value) const { qheaderview_changeevent_isbase = value; }
-    inline void setQHeaderView_DevType_IsBase(bool value) const { qheaderview_devtype_isbase = value; }
-    inline void setQHeaderView_HeightForWidth_IsBase(bool value) const { qheaderview_heightforwidth_isbase = value; }
-    inline void setQHeaderView_HasHeightForWidth_IsBase(bool value) const { qheaderview_hasheightforwidth_isbase = value; }
-    inline void setQHeaderView_PaintEngine_IsBase(bool value) const { qheaderview_paintengine_isbase = value; }
-    inline void setQHeaderView_KeyReleaseEvent_IsBase(bool value) const { qheaderview_keyreleaseevent_isbase = value; }
-    inline void setQHeaderView_EnterEvent_IsBase(bool value) const { qheaderview_enterevent_isbase = value; }
-    inline void setQHeaderView_LeaveEvent_IsBase(bool value) const { qheaderview_leaveevent_isbase = value; }
-    inline void setQHeaderView_MoveEvent_IsBase(bool value) const { qheaderview_moveevent_isbase = value; }
-    inline void setQHeaderView_CloseEvent_IsBase(bool value) const { qheaderview_closeevent_isbase = value; }
-    inline void setQHeaderView_TabletEvent_IsBase(bool value) const { qheaderview_tabletevent_isbase = value; }
-    inline void setQHeaderView_ActionEvent_IsBase(bool value) const { qheaderview_actionevent_isbase = value; }
-    inline void setQHeaderView_ShowEvent_IsBase(bool value) const { qheaderview_showevent_isbase = value; }
-    inline void setQHeaderView_HideEvent_IsBase(bool value) const { qheaderview_hideevent_isbase = value; }
-    inline void setQHeaderView_NativeEvent_IsBase(bool value) const { qheaderview_nativeevent_isbase = value; }
-    inline void setQHeaderView_Metric_IsBase(bool value) const { qheaderview_metric_isbase = value; }
-    inline void setQHeaderView_InitPainter_IsBase(bool value) const { qheaderview_initpainter_isbase = value; }
-    inline void setQHeaderView_Redirected_IsBase(bool value) const { qheaderview_redirected_isbase = value; }
-    inline void setQHeaderView_SharedPainter_IsBase(bool value) const { qheaderview_sharedpainter_isbase = value; }
-    inline void setQHeaderView_ChildEvent_IsBase(bool value) const { qheaderview_childevent_isbase = value; }
-    inline void setQHeaderView_CustomEvent_IsBase(bool value) const { qheaderview_customevent_isbase = value; }
-    inline void setQHeaderView_ConnectNotify_IsBase(bool value) const { qheaderview_connectnotify_isbase = value; }
-    inline void setQHeaderView_DisconnectNotify_IsBase(bool value) const { qheaderview_disconnectnotify_isbase = value; }
-    inline void setQHeaderView_UpdateSection_IsBase(bool value) const { qheaderview_updatesection_isbase = value; }
-    inline void setQHeaderView_ResizeSections2_IsBase(bool value) const { qheaderview_resizesections2_isbase = value; }
-    inline void setQHeaderView_SectionsInserted_IsBase(bool value) const { qheaderview_sectionsinserted_isbase = value; }
-    inline void setQHeaderView_SectionsAboutToBeRemoved_IsBase(bool value) const { qheaderview_sectionsabouttoberemoved_isbase = value; }
-    inline void setQHeaderView_Initialize_IsBase(bool value) const { qheaderview_initialize_isbase = value; }
-    inline void setQHeaderView_InitializeSections_IsBase(bool value) const { qheaderview_initializesections_isbase = value; }
-    inline void setQHeaderView_InitializeSections2_IsBase(bool value) const { qheaderview_initializesections2_isbase = value; }
-    inline void setQHeaderView_State_IsBase(bool value) const { qheaderview_state_isbase = value; }
-    inline void setQHeaderView_SetState_IsBase(bool value) const { qheaderview_setstate_isbase = value; }
-    inline void setQHeaderView_ScheduleDelayedItemsLayout_IsBase(bool value) const { qheaderview_scheduledelayeditemslayout_isbase = value; }
-    inline void setQHeaderView_ExecuteDelayedItemsLayout_IsBase(bool value) const { qheaderview_executedelayeditemslayout_isbase = value; }
-    inline void setQHeaderView_SetDirtyRegion_IsBase(bool value) const { qheaderview_setdirtyregion_isbase = value; }
-    inline void setQHeaderView_ScrollDirtyRegion_IsBase(bool value) const { qheaderview_scrolldirtyregion_isbase = value; }
-    inline void setQHeaderView_DirtyRegionOffset_IsBase(bool value) const { qheaderview_dirtyregionoffset_isbase = value; }
-    inline void setQHeaderView_StartAutoScroll_IsBase(bool value) const { qheaderview_startautoscroll_isbase = value; }
-    inline void setQHeaderView_StopAutoScroll_IsBase(bool value) const { qheaderview_stopautoscroll_isbase = value; }
-    inline void setQHeaderView_DoAutoScroll_IsBase(bool value) const { qheaderview_doautoscroll_isbase = value; }
-    inline void setQHeaderView_DropIndicatorPosition_IsBase(bool value) const { qheaderview_dropindicatorposition_isbase = value; }
-    inline void setQHeaderView_SetViewportMargins_IsBase(bool value) const { qheaderview_setviewportmargins_isbase = value; }
-    inline void setQHeaderView_ViewportMargins_IsBase(bool value) const { qheaderview_viewportmargins_isbase = value; }
-    inline void setQHeaderView_DrawFrame_IsBase(bool value) const { qheaderview_drawframe_isbase = value; }
-    inline void setQHeaderView_UpdateMicroFocus_IsBase(bool value) const { qheaderview_updatemicrofocus_isbase = value; }
-    inline void setQHeaderView_Create_IsBase(bool value) const { qheaderview_create_isbase = value; }
-    inline void setQHeaderView_Destroy_IsBase(bool value) const { qheaderview_destroy_isbase = value; }
-    inline void setQHeaderView_FocusNextChild_IsBase(bool value) const { qheaderview_focusnextchild_isbase = value; }
-    inline void setQHeaderView_FocusPreviousChild_IsBase(bool value) const { qheaderview_focuspreviouschild_isbase = value; }
-    inline void setQHeaderView_Sender_IsBase(bool value) const { qheaderview_sender_isbase = value; }
-    inline void setQHeaderView_SenderSignalIndex_IsBase(bool value) const { qheaderview_sendersignalindex_isbase = value; }
-    inline void setQHeaderView_Receivers_IsBase(bool value) const { qheaderview_receivers_isbase = value; }
-    inline void setQHeaderView_IsSignalConnected_IsBase(bool value) const { qheaderview_issignalconnected_isbase = value; }
-    inline void setQHeaderView_GetDecodedMetricF_IsBase(bool value) const { qheaderview_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qheaderview_metaobject_isbase) {
-            qheaderview_metaobject_isbase = false;
-            return QHeaderView::metaObject();
-        }
-        auto metaobject_cb = qheaderview_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qheaderview_metaobject_callback) {
+            QMetaObject* callback_ret = qheaderview_metaobject_callback(this);
             return callback_ret;
         }
         return QHeaderView::metaObject();
@@ -690,14 +335,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qheaderview_metacast_isbase) {
-            qheaderview_metacast_isbase = false;
-            return QHeaderView::qt_metacast(param1);
-        }
-        auto metacast_cb = qheaderview_metacast_callback;
-        if (metacast_cb) {
+        if (qheaderview_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qheaderview_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QHeaderView::qt_metacast(param1);
@@ -705,16 +345,11 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qheaderview_metacall_isbase) {
-            qheaderview_metacall_isbase = false;
-            return QHeaderView::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qheaderview_metacall_callback;
-        if (metacall_cb) {
+        if (qheaderview_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qheaderview_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QHeaderView::qt_metacall(param1, param2, param3);
@@ -722,15 +357,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void setModel(QAbstractItemModel* model) override {
-        if (qheaderview_setmodel_isbase) {
-            qheaderview_setmodel_isbase = false;
-            QHeaderView::setModel(model);
-            return;
-        }
-        auto setmodel_cb = qheaderview_setmodel_callback;
-        if (setmodel_cb) {
+        if (qheaderview_setmodel_callback) {
             QAbstractItemModel* cbval1 = model;
-            setmodel_cb(this, cbval1);
+            qheaderview_setmodel_callback(this, cbval1);
             return;
         }
         QHeaderView::setModel(model);
@@ -738,13 +367,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qheaderview_sizehint_isbase) {
-            qheaderview_sizehint_isbase = false;
-            return QHeaderView::sizeHint();
-        }
-        auto sizehint_cb = qheaderview_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qheaderview_sizehint_callback) {
+            QSize* callback_ret = qheaderview_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -754,15 +378,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool v) override {
-        if (qheaderview_setvisible_isbase) {
-            qheaderview_setvisible_isbase = false;
-            QHeaderView::setVisible(v);
-            return;
-        }
-        auto setvisible_cb = qheaderview_setvisible_callback;
-        if (setvisible_cb) {
+        if (qheaderview_setvisible_callback) {
             bool cbval1 = v;
-            setvisible_cb(this, cbval1);
+            qheaderview_setvisible_callback(this, cbval1);
             return;
         }
         QHeaderView::setVisible(v);
@@ -770,14 +388,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void doItemsLayout() override {
-        if (qheaderview_doitemslayout_isbase) {
-            qheaderview_doitemslayout_isbase = false;
-            QHeaderView::doItemsLayout();
-            return;
-        }
-        auto doitemslayout_cb = qheaderview_doitemslayout_callback;
-        if (doitemslayout_cb) {
-            doitemslayout_cb();
+        if (qheaderview_doitemslayout_callback) {
+            qheaderview_doitemslayout_callback(this);
             return;
         }
         QHeaderView::doItemsLayout();
@@ -785,14 +397,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void reset() override {
-        if (qheaderview_reset_isbase) {
-            qheaderview_reset_isbase = false;
-            QHeaderView::reset();
-            return;
-        }
-        auto reset_cb = qheaderview_reset_callback;
-        if (reset_cb) {
-            reset_cb();
+        if (qheaderview_reset_callback) {
+            qheaderview_reset_callback(this);
             return;
         }
         QHeaderView::reset();
@@ -800,20 +406,14 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void currentChanged(const QModelIndex& current, const QModelIndex& old) override {
-        if (qheaderview_currentchanged_isbase) {
-            qheaderview_currentchanged_isbase = false;
-            QHeaderView::currentChanged(current, old);
-            return;
-        }
-        auto currentchanged_cb = qheaderview_currentchanged_callback;
-        if (currentchanged_cb) {
+        if (qheaderview_currentchanged_callback) {
             const QModelIndex& current_ret = current;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&current_ret);
             const QModelIndex& old_ret = old;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&old_ret);
-            currentchanged_cb(this, cbval1, cbval2);
+            qheaderview_currentchanged_callback(this, cbval1, cbval2);
             return;
         }
         QHeaderView::currentChanged(current, old);
@@ -821,14 +421,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* e) override {
-        if (qheaderview_event_isbase) {
-            qheaderview_event_isbase = false;
-            return QHeaderView::event(e);
-        }
-        auto event_cb = qheaderview_event_callback;
-        if (event_cb) {
+        if (qheaderview_event_callback) {
             QEvent* cbval1 = e;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qheaderview_event_callback(this, cbval1);
             return callback_ret;
         }
         return QHeaderView::event(e);
@@ -836,15 +431,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* e) override {
-        if (qheaderview_paintevent_isbase) {
-            qheaderview_paintevent_isbase = false;
-            QHeaderView::paintEvent(e);
-            return;
-        }
-        auto paintevent_cb = qheaderview_paintevent_callback;
-        if (paintevent_cb) {
+        if (qheaderview_paintevent_callback) {
             QPaintEvent* cbval1 = e;
-            paintevent_cb(this, cbval1);
+            qheaderview_paintevent_callback(this, cbval1);
             return;
         }
         QHeaderView::paintEvent(e);
@@ -852,15 +441,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* e) override {
-        if (qheaderview_mousepressevent_isbase) {
-            qheaderview_mousepressevent_isbase = false;
-            QHeaderView::mousePressEvent(e);
-            return;
-        }
-        auto mousepressevent_cb = qheaderview_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qheaderview_mousepressevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousepressevent_cb(this, cbval1);
+            qheaderview_mousepressevent_callback(this, cbval1);
             return;
         }
         QHeaderView::mousePressEvent(e);
@@ -868,15 +451,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* e) override {
-        if (qheaderview_mousemoveevent_isbase) {
-            qheaderview_mousemoveevent_isbase = false;
-            QHeaderView::mouseMoveEvent(e);
-            return;
-        }
-        auto mousemoveevent_cb = qheaderview_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qheaderview_mousemoveevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousemoveevent_cb(this, cbval1);
+            qheaderview_mousemoveevent_callback(this, cbval1);
             return;
         }
         QHeaderView::mouseMoveEvent(e);
@@ -884,15 +461,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* e) override {
-        if (qheaderview_mousereleaseevent_isbase) {
-            qheaderview_mousereleaseevent_isbase = false;
-            QHeaderView::mouseReleaseEvent(e);
-            return;
-        }
-        auto mousereleaseevent_cb = qheaderview_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qheaderview_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousereleaseevent_cb(this, cbval1);
+            qheaderview_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QHeaderView::mouseReleaseEvent(e);
@@ -900,15 +471,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* e) override {
-        if (qheaderview_mousedoubleclickevent_isbase) {
-            qheaderview_mousedoubleclickevent_isbase = false;
-            QHeaderView::mouseDoubleClickEvent(e);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qheaderview_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qheaderview_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousedoubleclickevent_cb(this, cbval1);
+            qheaderview_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QHeaderView::mouseDoubleClickEvent(e);
@@ -916,14 +481,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool viewportEvent(QEvent* e) override {
-        if (qheaderview_viewportevent_isbase) {
-            qheaderview_viewportevent_isbase = false;
-            return QHeaderView::viewportEvent(e);
-        }
-        auto viewportevent_cb = qheaderview_viewportevent_callback;
-        if (viewportevent_cb) {
+        if (qheaderview_viewportevent_callback) {
             QEvent* cbval1 = e;
-            bool callback_ret = viewportevent_cb(this, cbval1);
+            bool callback_ret = qheaderview_viewportevent_callback(this, cbval1);
             return callback_ret;
         }
         return QHeaderView::viewportEvent(e);
@@ -931,19 +491,13 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintSection(QPainter* painter, const QRect& rect, int logicalIndex) const override {
-        if (qheaderview_paintsection_isbase) {
-            qheaderview_paintsection_isbase = false;
-            QHeaderView::paintSection(painter, rect, logicalIndex);
-            return;
-        }
-        auto paintsection_cb = qheaderview_paintsection_callback;
-        if (paintsection_cb) {
+        if (qheaderview_paintsection_callback) {
             QPainter* cbval1 = painter;
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval2 = const_cast<QRect*>(&rect_ret);
             int cbval3 = logicalIndex;
-            paintsection_cb(this, cbval1, cbval2, cbval3);
+            qheaderview_paintsection_callback(this, cbval1, cbval2, cbval3);
             return;
         }
         QHeaderView::paintSection(painter, rect, logicalIndex);
@@ -951,14 +505,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sectionSizeFromContents(int logicalIndex) const override {
-        if (qheaderview_sectionsizefromcontents_isbase) {
-            qheaderview_sectionsizefromcontents_isbase = false;
-            return QHeaderView::sectionSizeFromContents(logicalIndex);
-        }
-        auto sectionsizefromcontents_cb = qheaderview_sectionsizefromcontents_callback;
-        if (sectionsizefromcontents_cb) {
+        if (qheaderview_sectionsizefromcontents_callback) {
             int cbval1 = logicalIndex;
-            QSize* callback_ret = sectionsizefromcontents_cb(this, cbval1);
+            QSize* callback_ret = qheaderview_sectionsizefromcontents_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -968,13 +517,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual int horizontalOffset() const override {
-        if (qheaderview_horizontaloffset_isbase) {
-            qheaderview_horizontaloffset_isbase = false;
-            return QHeaderView::horizontalOffset();
-        }
-        auto horizontaloffset_cb = qheaderview_horizontaloffset_callback;
-        if (horizontaloffset_cb) {
-            int callback_ret = horizontaloffset_cb();
+        if (qheaderview_horizontaloffset_callback) {
+            int callback_ret = qheaderview_horizontaloffset_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QHeaderView::horizontalOffset();
@@ -982,13 +526,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual int verticalOffset() const override {
-        if (qheaderview_verticaloffset_isbase) {
-            qheaderview_verticaloffset_isbase = false;
-            return QHeaderView::verticalOffset();
-        }
-        auto verticaloffset_cb = qheaderview_verticaloffset_callback;
-        if (verticaloffset_cb) {
-            int callback_ret = verticaloffset_cb();
+        if (qheaderview_verticaloffset_callback) {
+            int callback_ret = qheaderview_verticaloffset_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QHeaderView::verticalOffset();
@@ -996,14 +535,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void updateGeometries() override {
-        if (qheaderview_updategeometries_isbase) {
-            qheaderview_updategeometries_isbase = false;
-            QHeaderView::updateGeometries();
-            return;
-        }
-        auto updategeometries_cb = qheaderview_updategeometries_callback;
-        if (updategeometries_cb) {
-            updategeometries_cb();
+        if (qheaderview_updategeometries_callback) {
+            qheaderview_updategeometries_callback(this);
             return;
         }
         QHeaderView::updateGeometries();
@@ -1011,16 +544,10 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void scrollContentsBy(int dx, int dy) override {
-        if (qheaderview_scrollcontentsby_isbase) {
-            qheaderview_scrollcontentsby_isbase = false;
-            QHeaderView::scrollContentsBy(dx, dy);
-            return;
-        }
-        auto scrollcontentsby_cb = qheaderview_scrollcontentsby_callback;
-        if (scrollcontentsby_cb) {
+        if (qheaderview_scrollcontentsby_callback) {
             int cbval1 = dx;
             int cbval2 = dy;
-            scrollcontentsby_cb(this, cbval1, cbval2);
+            qheaderview_scrollcontentsby_callback(this, cbval1, cbval2);
             return;
         }
         QHeaderView::scrollContentsBy(dx, dy);
@@ -1028,13 +555,7 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void dataChanged(const QModelIndex& topLeft, const QModelIndex& bottomRight, const QList<int>& roles) override {
-        if (qheaderview_datachanged_isbase) {
-            qheaderview_datachanged_isbase = false;
-            QHeaderView::dataChanged(topLeft, bottomRight, roles);
-            return;
-        }
-        auto datachanged_cb = qheaderview_datachanged_callback;
-        if (datachanged_cb) {
+        if (qheaderview_datachanged_callback) {
             const QModelIndex& topLeft_ret = topLeft;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&topLeft_ret);
@@ -1051,7 +572,7 @@ class VirtualQHeaderView final : public QHeaderView {
             roles_out.len = roles_ret.size();
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
-            datachanged_cb(this, cbval1, cbval2, cbval3);
+            qheaderview_datachanged_callback(this, cbval1, cbval2, cbval3);
             free(roles_arr);
             return;
         }
@@ -1060,19 +581,13 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void rowsInserted(const QModelIndex& parent, int start, int end) override {
-        if (qheaderview_rowsinserted_isbase) {
-            qheaderview_rowsinserted_isbase = false;
-            QHeaderView::rowsInserted(parent, start, end);
-            return;
-        }
-        auto rowsinserted_cb = qheaderview_rowsinserted_callback;
-        if (rowsinserted_cb) {
+        if (qheaderview_rowsinserted_callback) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-            rowsinserted_cb(this, cbval1, cbval2, cbval3);
+            qheaderview_rowsinserted_callback(this, cbval1, cbval2, cbval3);
             return;
         }
         QHeaderView::rowsInserted(parent, start, end);
@@ -1080,16 +595,11 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QRect visualRect(const QModelIndex& index) const override {
-        if (qheaderview_visualrect_isbase) {
-            qheaderview_visualrect_isbase = false;
-            return QHeaderView::visualRect(index);
-        }
-        auto visualrect_cb = qheaderview_visualrect_callback;
-        if (visualrect_cb) {
+        if (qheaderview_visualrect_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            QRect* callback_ret = visualrect_cb(this, cbval1);
+            QRect* callback_ret = qheaderview_visualrect_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1099,18 +609,12 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void scrollTo(const QModelIndex& index, QAbstractItemView::ScrollHint hint) override {
-        if (qheaderview_scrollto_isbase) {
-            qheaderview_scrollto_isbase = false;
-            QHeaderView::scrollTo(index, hint);
-            return;
-        }
-        auto scrollto_cb = qheaderview_scrollto_callback;
-        if (scrollto_cb) {
+        if (qheaderview_scrollto_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
-            scrollto_cb(this, cbval1, cbval2);
+            qheaderview_scrollto_callback(this, cbval1, cbval2);
             return;
         }
         QHeaderView::scrollTo(index, hint);
@@ -1118,16 +622,11 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex indexAt(const QPoint& p) const override {
-        if (qheaderview_indexat_isbase) {
-            qheaderview_indexat_isbase = false;
-            return QHeaderView::indexAt(p);
-        }
-        auto indexat_cb = qheaderview_indexat_callback;
-        if (indexat_cb) {
+        if (qheaderview_indexat_callback) {
             const QPoint& p_ret = p;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
-            QModelIndex* callback_ret = indexat_cb(this, cbval1);
+            QModelIndex* callback_ret = qheaderview_indexat_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1137,16 +636,11 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool isIndexHidden(const QModelIndex& index) const override {
-        if (qheaderview_isindexhidden_isbase) {
-            qheaderview_isindexhidden_isbase = false;
-            return QHeaderView::isIndexHidden(index);
-        }
-        auto isindexhidden_cb = qheaderview_isindexhidden_callback;
-        if (isindexhidden_cb) {
+        if (qheaderview_isindexhidden_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            bool callback_ret = isindexhidden_cb(this, cbval1);
+            bool callback_ret = qheaderview_isindexhidden_callback(this, cbval1);
             return callback_ret;
         }
         return QHeaderView::isIndexHidden(index);
@@ -1154,15 +648,10 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex moveCursor(QAbstractItemView::CursorAction param1, Qt::KeyboardModifiers param2) override {
-        if (qheaderview_movecursor_isbase) {
-            qheaderview_movecursor_isbase = false;
-            return QHeaderView::moveCursor(param1, param2);
-        }
-        auto movecursor_cb = qheaderview_movecursor_callback;
-        if (movecursor_cb) {
+        if (qheaderview_movecursor_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = static_cast<int>(param2);
-            QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
+            QModelIndex* callback_ret = qheaderview_movecursor_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1172,18 +661,12 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void setSelection(const QRect& rect, QItemSelectionModel::SelectionFlags flags) override {
-        if (qheaderview_setselection_isbase) {
-            qheaderview_setselection_isbase = false;
-            QHeaderView::setSelection(rect, flags);
-            return;
-        }
-        auto setselection_cb = qheaderview_setselection_callback;
-        if (setselection_cb) {
+        if (qheaderview_setselection_callback) {
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(flags);
-            setselection_cb(this, cbval1, cbval2);
+            qheaderview_setselection_callback(this, cbval1, cbval2);
             return;
         }
         QHeaderView::setSelection(rect, flags);
@@ -1191,16 +674,11 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QRegion visualRegionForSelection(const QItemSelection& selection) const override {
-        if (qheaderview_visualregionforselection_isbase) {
-            qheaderview_visualregionforselection_isbase = false;
-            return QHeaderView::visualRegionForSelection(selection);
-        }
-        auto visualregionforselection_cb = qheaderview_visualregionforselection_callback;
-        if (visualregionforselection_cb) {
+        if (qheaderview_visualregionforselection_callback) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
-            QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
+            QRegion* callback_ret = qheaderview_visualregionforselection_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1210,16 +688,10 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOptionForIndex(QStyleOptionHeader* option, int logicalIndex) const override {
-        if (qheaderview_initstyleoptionforindex_isbase) {
-            qheaderview_initstyleoptionforindex_isbase = false;
-            QHeaderView::initStyleOptionForIndex(option, logicalIndex);
-            return;
-        }
-        auto initstyleoptionforindex_cb = qheaderview_initstyleoptionforindex_callback;
-        if (initstyleoptionforindex_cb) {
+        if (qheaderview_initstyleoptionforindex_callback) {
             QStyleOptionHeader* cbval1 = option;
             int cbval2 = logicalIndex;
-            initstyleoptionforindex_cb(this, cbval1, cbval2);
+            qheaderview_initstyleoptionforindex_callback(this, cbval1, cbval2);
             return;
         }
         QHeaderView::initStyleOptionForIndex(option, logicalIndex);
@@ -1227,15 +699,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionHeader* option) const override {
-        if (qheaderview_initstyleoption_isbase) {
-            qheaderview_initstyleoption_isbase = false;
-            QHeaderView::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = qheaderview_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (qheaderview_initstyleoption_callback) {
             QStyleOptionHeader* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            qheaderview_initstyleoption_callback(this, cbval1);
             return;
         }
         QHeaderView::initStyleOption(option);
@@ -1243,15 +709,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void setSelectionModel(QItemSelectionModel* selectionModel) override {
-        if (qheaderview_setselectionmodel_isbase) {
-            qheaderview_setselectionmodel_isbase = false;
-            QHeaderView::setSelectionModel(selectionModel);
-            return;
-        }
-        auto setselectionmodel_cb = qheaderview_setselectionmodel_callback;
-        if (setselectionmodel_cb) {
+        if (qheaderview_setselectionmodel_callback) {
             QItemSelectionModel* cbval1 = selectionModel;
-            setselectionmodel_cb(this, cbval1);
+            qheaderview_setselectionmodel_callback(this, cbval1);
             return;
         }
         QHeaderView::setSelectionModel(selectionModel);
@@ -1259,13 +719,7 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyboardSearch(const QString& search) override {
-        if (qheaderview_keyboardsearch_isbase) {
-            qheaderview_keyboardsearch_isbase = false;
-            QHeaderView::keyboardSearch(search);
-            return;
-        }
-        auto keyboardsearch_cb = qheaderview_keyboardsearch_callback;
-        if (keyboardsearch_cb) {
+        if (qheaderview_keyboardsearch_callback) {
             const auto search_ret = search;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
@@ -1274,7 +728,7 @@ class VirtualQHeaderView final : public QHeaderView {
             memcpy((void*)search_str, search_b.data(), search_str_len);
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
-            keyboardsearch_cb(this, cbval1);
+            qheaderview_keyboardsearch_callback(this, cbval1);
             libqt_free(search_str);
             return;
         }
@@ -1283,14 +737,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual int sizeHintForRow(int row) const override {
-        if (qheaderview_sizehintforrow_isbase) {
-            qheaderview_sizehintforrow_isbase = false;
-            return QHeaderView::sizeHintForRow(row);
-        }
-        auto sizehintforrow_cb = qheaderview_sizehintforrow_callback;
-        if (sizehintforrow_cb) {
+        if (qheaderview_sizehintforrow_callback) {
             int cbval1 = row;
-            int callback_ret = sizehintforrow_cb(this, cbval1);
+            int callback_ret = qheaderview_sizehintforrow_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QHeaderView::sizeHintForRow(row);
@@ -1298,14 +747,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual int sizeHintForColumn(int column) const override {
-        if (qheaderview_sizehintforcolumn_isbase) {
-            qheaderview_sizehintforcolumn_isbase = false;
-            return QHeaderView::sizeHintForColumn(column);
-        }
-        auto sizehintforcolumn_cb = qheaderview_sizehintforcolumn_callback;
-        if (sizehintforcolumn_cb) {
+        if (qheaderview_sizehintforcolumn_callback) {
             int cbval1 = column;
-            int callback_ret = sizehintforcolumn_cb(this, cbval1);
+            int callback_ret = qheaderview_sizehintforcolumn_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QHeaderView::sizeHintForColumn(column);
@@ -1313,16 +757,11 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QAbstractItemDelegate* itemDelegateForIndex(const QModelIndex& index) const override {
-        if (qheaderview_itemdelegateforindex_isbase) {
-            qheaderview_itemdelegateforindex_isbase = false;
-            return QHeaderView::itemDelegateForIndex(index);
-        }
-        auto itemdelegateforindex_cb = qheaderview_itemdelegateforindex_callback;
-        if (itemdelegateforindex_cb) {
+        if (qheaderview_itemdelegateforindex_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
+            QAbstractItemDelegate* callback_ret = qheaderview_itemdelegateforindex_callback(this, cbval1);
             return callback_ret;
         }
         return QHeaderView::itemDelegateForIndex(index);
@@ -1330,14 +769,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery query) const override {
-        if (qheaderview_inputmethodquery_isbase) {
-            qheaderview_inputmethodquery_isbase = false;
-            return QHeaderView::inputMethodQuery(query);
-        }
-        auto inputmethodquery_cb = qheaderview_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qheaderview_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(query);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qheaderview_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1347,17 +781,11 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void setRootIndex(const QModelIndex& index) override {
-        if (qheaderview_setrootindex_isbase) {
-            qheaderview_setrootindex_isbase = false;
-            QHeaderView::setRootIndex(index);
-            return;
-        }
-        auto setrootindex_cb = qheaderview_setrootindex_callback;
-        if (setrootindex_cb) {
+        if (qheaderview_setrootindex_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            setrootindex_cb(this, cbval1);
+            qheaderview_setrootindex_callback(this, cbval1);
             return;
         }
         QHeaderView::setRootIndex(index);
@@ -1365,14 +793,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void selectAll() override {
-        if (qheaderview_selectall_isbase) {
-            qheaderview_selectall_isbase = false;
-            QHeaderView::selectAll();
-            return;
-        }
-        auto selectall_cb = qheaderview_selectall_callback;
-        if (selectall_cb) {
-            selectall_cb();
+        if (qheaderview_selectall_callback) {
+            qheaderview_selectall_callback(this);
             return;
         }
         QHeaderView::selectAll();
@@ -1380,19 +802,13 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void rowsAboutToBeRemoved(const QModelIndex& parent, int start, int end) override {
-        if (qheaderview_rowsabouttoberemoved_isbase) {
-            qheaderview_rowsabouttoberemoved_isbase = false;
-            QHeaderView::rowsAboutToBeRemoved(parent, start, end);
-            return;
-        }
-        auto rowsabouttoberemoved_cb = qheaderview_rowsabouttoberemoved_callback;
-        if (rowsabouttoberemoved_cb) {
+        if (qheaderview_rowsabouttoberemoved_callback) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-            rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
+            qheaderview_rowsabouttoberemoved_callback(this, cbval1, cbval2, cbval3);
             return;
         }
         QHeaderView::rowsAboutToBeRemoved(parent, start, end);
@@ -1400,20 +816,14 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void selectionChanged(const QItemSelection& selected, const QItemSelection& deselected) override {
-        if (qheaderview_selectionchanged_isbase) {
-            qheaderview_selectionchanged_isbase = false;
-            QHeaderView::selectionChanged(selected, deselected);
-            return;
-        }
-        auto selectionchanged_cb = qheaderview_selectionchanged_callback;
-        if (selectionchanged_cb) {
+        if (qheaderview_selectionchanged_callback) {
             const QItemSelection& selected_ret = selected;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selected_ret);
             const QItemSelection& deselected_ret = deselected;
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
-            selectionchanged_cb(this, cbval1, cbval2);
+            qheaderview_selectionchanged_callback(this, cbval1, cbval2);
             return;
         }
         QHeaderView::selectionChanged(selected, deselected);
@@ -1421,14 +831,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void updateEditorData() override {
-        if (qheaderview_updateeditordata_isbase) {
-            qheaderview_updateeditordata_isbase = false;
-            QHeaderView::updateEditorData();
-            return;
-        }
-        auto updateeditordata_cb = qheaderview_updateeditordata_callback;
-        if (updateeditordata_cb) {
-            updateeditordata_cb();
+        if (qheaderview_updateeditordata_callback) {
+            qheaderview_updateeditordata_callback(this);
             return;
         }
         QHeaderView::updateEditorData();
@@ -1436,14 +840,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void updateEditorGeometries() override {
-        if (qheaderview_updateeditorgeometries_isbase) {
-            qheaderview_updateeditorgeometries_isbase = false;
-            QHeaderView::updateEditorGeometries();
-            return;
-        }
-        auto updateeditorgeometries_cb = qheaderview_updateeditorgeometries_callback;
-        if (updateeditorgeometries_cb) {
-            updateeditorgeometries_cb();
+        if (qheaderview_updateeditorgeometries_callback) {
+            qheaderview_updateeditorgeometries_callback(this);
             return;
         }
         QHeaderView::updateEditorGeometries();
@@ -1451,15 +849,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void verticalScrollbarAction(int action) override {
-        if (qheaderview_verticalscrollbaraction_isbase) {
-            qheaderview_verticalscrollbaraction_isbase = false;
-            QHeaderView::verticalScrollbarAction(action);
-            return;
-        }
-        auto verticalscrollbaraction_cb = qheaderview_verticalscrollbaraction_callback;
-        if (verticalscrollbaraction_cb) {
+        if (qheaderview_verticalscrollbaraction_callback) {
             int cbval1 = action;
-            verticalscrollbaraction_cb(this, cbval1);
+            qheaderview_verticalscrollbaraction_callback(this, cbval1);
             return;
         }
         QHeaderView::verticalScrollbarAction(action);
@@ -1467,15 +859,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void horizontalScrollbarAction(int action) override {
-        if (qheaderview_horizontalscrollbaraction_isbase) {
-            qheaderview_horizontalscrollbaraction_isbase = false;
-            QHeaderView::horizontalScrollbarAction(action);
-            return;
-        }
-        auto horizontalscrollbaraction_cb = qheaderview_horizontalscrollbaraction_callback;
-        if (horizontalscrollbaraction_cb) {
+        if (qheaderview_horizontalscrollbaraction_callback) {
             int cbval1 = action;
-            horizontalscrollbaraction_cb(this, cbval1);
+            qheaderview_horizontalscrollbaraction_callback(this, cbval1);
             return;
         }
         QHeaderView::horizontalScrollbarAction(action);
@@ -1483,15 +869,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void verticalScrollbarValueChanged(int value) override {
-        if (qheaderview_verticalscrollbarvaluechanged_isbase) {
-            qheaderview_verticalscrollbarvaluechanged_isbase = false;
-            QHeaderView::verticalScrollbarValueChanged(value);
-            return;
-        }
-        auto verticalscrollbarvaluechanged_cb = qheaderview_verticalscrollbarvaluechanged_callback;
-        if (verticalscrollbarvaluechanged_cb) {
+        if (qheaderview_verticalscrollbarvaluechanged_callback) {
             int cbval1 = value;
-            verticalscrollbarvaluechanged_cb(this, cbval1);
+            qheaderview_verticalscrollbarvaluechanged_callback(this, cbval1);
             return;
         }
         QHeaderView::verticalScrollbarValueChanged(value);
@@ -1499,15 +879,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void horizontalScrollbarValueChanged(int value) override {
-        if (qheaderview_horizontalscrollbarvaluechanged_isbase) {
-            qheaderview_horizontalscrollbarvaluechanged_isbase = false;
-            QHeaderView::horizontalScrollbarValueChanged(value);
-            return;
-        }
-        auto horizontalscrollbarvaluechanged_cb = qheaderview_horizontalscrollbarvaluechanged_callback;
-        if (horizontalscrollbarvaluechanged_cb) {
+        if (qheaderview_horizontalscrollbarvaluechanged_callback) {
             int cbval1 = value;
-            horizontalscrollbarvaluechanged_cb(this, cbval1);
+            qheaderview_horizontalscrollbarvaluechanged_callback(this, cbval1);
             return;
         }
         QHeaderView::horizontalScrollbarValueChanged(value);
@@ -1515,16 +889,10 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEditor(QWidget* editor, QAbstractItemDelegate::EndEditHint hint) override {
-        if (qheaderview_closeeditor_isbase) {
-            qheaderview_closeeditor_isbase = false;
-            QHeaderView::closeEditor(editor, hint);
-            return;
-        }
-        auto closeeditor_cb = qheaderview_closeeditor_callback;
-        if (closeeditor_cb) {
+        if (qheaderview_closeeditor_callback) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
-            closeeditor_cb(this, cbval1, cbval2);
+            qheaderview_closeeditor_callback(this, cbval1, cbval2);
             return;
         }
         QHeaderView::closeEditor(editor, hint);
@@ -1532,15 +900,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void commitData(QWidget* editor) override {
-        if (qheaderview_commitdata_isbase) {
-            qheaderview_commitdata_isbase = false;
-            QHeaderView::commitData(editor);
-            return;
-        }
-        auto commitdata_cb = qheaderview_commitdata_callback;
-        if (commitdata_cb) {
+        if (qheaderview_commitdata_callback) {
             QWidget* cbval1 = editor;
-            commitdata_cb(this, cbval1);
+            qheaderview_commitdata_callback(this, cbval1);
             return;
         }
         QHeaderView::commitData(editor);
@@ -1548,15 +910,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void editorDestroyed(QObject* editor) override {
-        if (qheaderview_editordestroyed_isbase) {
-            qheaderview_editordestroyed_isbase = false;
-            QHeaderView::editorDestroyed(editor);
-            return;
-        }
-        auto editordestroyed_cb = qheaderview_editordestroyed_callback;
-        if (editordestroyed_cb) {
+        if (qheaderview_editordestroyed_callback) {
             QObject* cbval1 = editor;
-            editordestroyed_cb(this, cbval1);
+            qheaderview_editordestroyed_callback(this, cbval1);
             return;
         }
         QHeaderView::editorDestroyed(editor);
@@ -1564,13 +920,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QModelIndex> selectedIndexes() const override {
-        if (qheaderview_selectedindexes_isbase) {
-            qheaderview_selectedindexes_isbase = false;
-            return QHeaderView::selectedIndexes();
-        }
-        auto selectedindexes_cb = qheaderview_selectedindexes_callback;
-        if (selectedindexes_cb) {
-            libqt_list /* of QModelIndex* */ callback_ret = selectedindexes_cb();
+        if (qheaderview_selectedindexes_callback) {
+            libqt_list /* of QModelIndex* */ callback_ret = qheaderview_selectedindexes_callback(this);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -1585,18 +936,13 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool edit(const QModelIndex& index, QAbstractItemView::EditTrigger trigger, QEvent* event) override {
-        if (qheaderview_edit2_isbase) {
-            qheaderview_edit2_isbase = false;
-            return QHeaderView::edit(index, trigger, event);
-        }
-        auto edit2_cb = qheaderview_edit2_callback;
-        if (edit2_cb) {
+        if (qheaderview_edit2_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
-            bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qheaderview_edit2_callback(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
         return QHeaderView::edit(index, trigger, event);
@@ -1604,17 +950,12 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QItemSelectionModel::SelectionFlags selectionCommand(const QModelIndex& index, const QEvent* event) const override {
-        if (qheaderview_selectioncommand_isbase) {
-            qheaderview_selectioncommand_isbase = false;
-            return QHeaderView::selectionCommand(index, event);
-        }
-        auto selectioncommand_cb = qheaderview_selectioncommand_callback;
-        if (selectioncommand_cb) {
+        if (qheaderview_selectioncommand_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
-            int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
+            int callback_ret = qheaderview_selectioncommand_callback(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
         }
         return QHeaderView::selectionCommand(index, event);
@@ -1622,15 +963,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void startDrag(Qt::DropActions supportedActions) override {
-        if (qheaderview_startdrag_isbase) {
-            qheaderview_startdrag_isbase = false;
-            QHeaderView::startDrag(supportedActions);
-            return;
-        }
-        auto startdrag_cb = qheaderview_startdrag_callback;
-        if (startdrag_cb) {
+        if (qheaderview_startdrag_callback) {
             int cbval1 = static_cast<int>(supportedActions);
-            startdrag_cb(this, cbval1);
+            qheaderview_startdrag_callback(this, cbval1);
             return;
         }
         QHeaderView::startDrag(supportedActions);
@@ -1638,15 +973,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void initViewItemOption(QStyleOptionViewItem* option) const override {
-        if (qheaderview_initviewitemoption_isbase) {
-            qheaderview_initviewitemoption_isbase = false;
-            QHeaderView::initViewItemOption(option);
-            return;
-        }
-        auto initviewitemoption_cb = qheaderview_initviewitemoption_callback;
-        if (initviewitemoption_cb) {
+        if (qheaderview_initviewitemoption_callback) {
             QStyleOptionViewItem* cbval1 = option;
-            initviewitemoption_cb(this, cbval1);
+            qheaderview_initviewitemoption_callback(this, cbval1);
             return;
         }
         QHeaderView::initViewItemOption(option);
@@ -1654,14 +983,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qheaderview_focusnextprevchild_isbase) {
-            qheaderview_focusnextprevchild_isbase = false;
-            return QHeaderView::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qheaderview_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qheaderview_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qheaderview_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QHeaderView::focusNextPrevChild(next);
@@ -1669,15 +993,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qheaderview_dragenterevent_isbase) {
-            qheaderview_dragenterevent_isbase = false;
-            QHeaderView::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qheaderview_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qheaderview_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qheaderview_dragenterevent_callback(this, cbval1);
             return;
         }
         QHeaderView::dragEnterEvent(event);
@@ -1685,15 +1003,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qheaderview_dragmoveevent_isbase) {
-            qheaderview_dragmoveevent_isbase = false;
-            QHeaderView::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qheaderview_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qheaderview_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qheaderview_dragmoveevent_callback(this, cbval1);
             return;
         }
         QHeaderView::dragMoveEvent(event);
@@ -1701,15 +1013,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qheaderview_dragleaveevent_isbase) {
-            qheaderview_dragleaveevent_isbase = false;
-            QHeaderView::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qheaderview_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qheaderview_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qheaderview_dragleaveevent_callback(this, cbval1);
             return;
         }
         QHeaderView::dragLeaveEvent(event);
@@ -1717,15 +1023,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qheaderview_dropevent_isbase) {
-            qheaderview_dropevent_isbase = false;
-            QHeaderView::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qheaderview_dropevent_callback;
-        if (dropevent_cb) {
+        if (qheaderview_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qheaderview_dropevent_callback(this, cbval1);
             return;
         }
         QHeaderView::dropEvent(event);
@@ -1733,15 +1033,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qheaderview_focusinevent_isbase) {
-            qheaderview_focusinevent_isbase = false;
-            QHeaderView::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qheaderview_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qheaderview_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qheaderview_focusinevent_callback(this, cbval1);
             return;
         }
         QHeaderView::focusInEvent(event);
@@ -1749,15 +1043,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qheaderview_focusoutevent_isbase) {
-            qheaderview_focusoutevent_isbase = false;
-            QHeaderView::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qheaderview_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qheaderview_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qheaderview_focusoutevent_callback(this, cbval1);
             return;
         }
         QHeaderView::focusOutEvent(event);
@@ -1765,15 +1053,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qheaderview_keypressevent_isbase) {
-            qheaderview_keypressevent_isbase = false;
-            QHeaderView::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qheaderview_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qheaderview_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qheaderview_keypressevent_callback(this, cbval1);
             return;
         }
         QHeaderView::keyPressEvent(event);
@@ -1781,15 +1063,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (qheaderview_resizeevent_isbase) {
-            qheaderview_resizeevent_isbase = false;
-            QHeaderView::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = qheaderview_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qheaderview_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            qheaderview_resizeevent_callback(this, cbval1);
             return;
         }
         QHeaderView::resizeEvent(event);
@@ -1797,15 +1073,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qheaderview_timerevent_isbase) {
-            qheaderview_timerevent_isbase = false;
-            QHeaderView::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qheaderview_timerevent_callback;
-        if (timerevent_cb) {
+        if (qheaderview_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qheaderview_timerevent_callback(this, cbval1);
             return;
         }
         QHeaderView::timerEvent(event);
@@ -1813,15 +1083,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* event) override {
-        if (qheaderview_inputmethodevent_isbase) {
-            qheaderview_inputmethodevent_isbase = false;
-            QHeaderView::inputMethodEvent(event);
-            return;
-        }
-        auto inputmethodevent_cb = qheaderview_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qheaderview_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = event;
-            inputmethodevent_cb(this, cbval1);
+            qheaderview_inputmethodevent_callback(this, cbval1);
             return;
         }
         QHeaderView::inputMethodEvent(event);
@@ -1829,15 +1093,10 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* object, QEvent* event) override {
-        if (qheaderview_eventfilter_isbase) {
-            qheaderview_eventfilter_isbase = false;
-            return QHeaderView::eventFilter(object, event);
-        }
-        auto eventfilter_cb = qheaderview_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qheaderview_eventfilter_callback) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qheaderview_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QHeaderView::eventFilter(object, event);
@@ -1845,13 +1104,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize viewportSizeHint() const override {
-        if (qheaderview_viewportsizehint_isbase) {
-            qheaderview_viewportsizehint_isbase = false;
-            return QHeaderView::viewportSizeHint();
-        }
-        auto viewportsizehint_cb = qheaderview_viewportsizehint_callback;
-        if (viewportsizehint_cb) {
-            QSize* callback_ret = viewportsizehint_cb();
+        if (qheaderview_viewportsizehint_callback) {
+            QSize* callback_ret = qheaderview_viewportsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1861,13 +1115,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qheaderview_minimumsizehint_isbase) {
-            qheaderview_minimumsizehint_isbase = false;
-            return QHeaderView::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qheaderview_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qheaderview_minimumsizehint_callback) {
+            QSize* callback_ret = qheaderview_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1877,15 +1126,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void setupViewport(QWidget* viewport) override {
-        if (qheaderview_setupviewport_isbase) {
-            qheaderview_setupviewport_isbase = false;
-            QHeaderView::setupViewport(viewport);
-            return;
-        }
-        auto setupviewport_cb = qheaderview_setupviewport_callback;
-        if (setupviewport_cb) {
+        if (qheaderview_setupviewport_callback) {
             QWidget* cbval1 = viewport;
-            setupviewport_cb(this, cbval1);
+            qheaderview_setupviewport_callback(this, cbval1);
             return;
         }
         QHeaderView::setupViewport(viewport);
@@ -1893,15 +1136,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* param1) override {
-        if (qheaderview_wheelevent_isbase) {
-            qheaderview_wheelevent_isbase = false;
-            QHeaderView::wheelEvent(param1);
-            return;
-        }
-        auto wheelevent_cb = qheaderview_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qheaderview_wheelevent_callback) {
             QWheelEvent* cbval1 = param1;
-            wheelevent_cb(this, cbval1);
+            qheaderview_wheelevent_callback(this, cbval1);
             return;
         }
         QHeaderView::wheelEvent(param1);
@@ -1909,15 +1146,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* param1) override {
-        if (qheaderview_contextmenuevent_isbase) {
-            qheaderview_contextmenuevent_isbase = false;
-            QHeaderView::contextMenuEvent(param1);
-            return;
-        }
-        auto contextmenuevent_cb = qheaderview_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qheaderview_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = param1;
-            contextmenuevent_cb(this, cbval1);
+            qheaderview_contextmenuevent_callback(this, cbval1);
             return;
         }
         QHeaderView::contextMenuEvent(param1);
@@ -1925,15 +1156,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (qheaderview_changeevent_isbase) {
-            qheaderview_changeevent_isbase = false;
-            QHeaderView::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = qheaderview_changeevent_callback;
-        if (changeevent_cb) {
+        if (qheaderview_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            qheaderview_changeevent_callback(this, cbval1);
             return;
         }
         QHeaderView::changeEvent(param1);
@@ -1941,13 +1166,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qheaderview_devtype_isbase) {
-            qheaderview_devtype_isbase = false;
-            return QHeaderView::devType();
-        }
-        auto devtype_cb = qheaderview_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qheaderview_devtype_callback) {
+            int callback_ret = qheaderview_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QHeaderView::devType();
@@ -1955,14 +1175,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qheaderview_heightforwidth_isbase) {
-            qheaderview_heightforwidth_isbase = false;
-            return QHeaderView::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qheaderview_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qheaderview_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qheaderview_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QHeaderView::heightForWidth(param1);
@@ -1970,13 +1185,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qheaderview_hasheightforwidth_isbase) {
-            qheaderview_hasheightforwidth_isbase = false;
-            return QHeaderView::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qheaderview_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qheaderview_hasheightforwidth_callback) {
+            bool callback_ret = qheaderview_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QHeaderView::hasHeightForWidth();
@@ -1984,13 +1194,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qheaderview_paintengine_isbase) {
-            qheaderview_paintengine_isbase = false;
-            return QHeaderView::paintEngine();
-        }
-        auto paintengine_cb = qheaderview_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qheaderview_paintengine_callback) {
+            QPaintEngine* callback_ret = qheaderview_paintengine_callback(this);
             return callback_ret;
         }
         return QHeaderView::paintEngine();
@@ -1998,15 +1203,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qheaderview_keyreleaseevent_isbase) {
-            qheaderview_keyreleaseevent_isbase = false;
-            QHeaderView::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qheaderview_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qheaderview_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qheaderview_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QHeaderView::keyReleaseEvent(event);
@@ -2014,15 +1213,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qheaderview_enterevent_isbase) {
-            qheaderview_enterevent_isbase = false;
-            QHeaderView::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qheaderview_enterevent_callback;
-        if (enterevent_cb) {
+        if (qheaderview_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qheaderview_enterevent_callback(this, cbval1);
             return;
         }
         QHeaderView::enterEvent(event);
@@ -2030,15 +1223,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qheaderview_leaveevent_isbase) {
-            qheaderview_leaveevent_isbase = false;
-            QHeaderView::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qheaderview_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qheaderview_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qheaderview_leaveevent_callback(this, cbval1);
             return;
         }
         QHeaderView::leaveEvent(event);
@@ -2046,15 +1233,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qheaderview_moveevent_isbase) {
-            qheaderview_moveevent_isbase = false;
-            QHeaderView::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qheaderview_moveevent_callback;
-        if (moveevent_cb) {
+        if (qheaderview_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qheaderview_moveevent_callback(this, cbval1);
             return;
         }
         QHeaderView::moveEvent(event);
@@ -2062,15 +1243,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qheaderview_closeevent_isbase) {
-            qheaderview_closeevent_isbase = false;
-            QHeaderView::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qheaderview_closeevent_callback;
-        if (closeevent_cb) {
+        if (qheaderview_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qheaderview_closeevent_callback(this, cbval1);
             return;
         }
         QHeaderView::closeEvent(event);
@@ -2078,15 +1253,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qheaderview_tabletevent_isbase) {
-            qheaderview_tabletevent_isbase = false;
-            QHeaderView::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qheaderview_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qheaderview_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qheaderview_tabletevent_callback(this, cbval1);
             return;
         }
         QHeaderView::tabletEvent(event);
@@ -2094,15 +1263,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qheaderview_actionevent_isbase) {
-            qheaderview_actionevent_isbase = false;
-            QHeaderView::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qheaderview_actionevent_callback;
-        if (actionevent_cb) {
+        if (qheaderview_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qheaderview_actionevent_callback(this, cbval1);
             return;
         }
         QHeaderView::actionEvent(event);
@@ -2110,15 +1273,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (qheaderview_showevent_isbase) {
-            qheaderview_showevent_isbase = false;
-            QHeaderView::showEvent(event);
-            return;
-        }
-        auto showevent_cb = qheaderview_showevent_callback;
-        if (showevent_cb) {
+        if (qheaderview_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            qheaderview_showevent_callback(this, cbval1);
             return;
         }
         QHeaderView::showEvent(event);
@@ -2126,15 +1283,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qheaderview_hideevent_isbase) {
-            qheaderview_hideevent_isbase = false;
-            QHeaderView::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qheaderview_hideevent_callback;
-        if (hideevent_cb) {
+        if (qheaderview_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qheaderview_hideevent_callback(this, cbval1);
             return;
         }
         QHeaderView::hideEvent(event);
@@ -2142,12 +1293,7 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qheaderview_nativeevent_isbase) {
-            qheaderview_nativeevent_isbase = false;
-            return QHeaderView::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qheaderview_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qheaderview_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2157,7 +1303,7 @@ class VirtualQHeaderView final : public QHeaderView {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qheaderview_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -2166,14 +1312,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qheaderview_metric_isbase) {
-            qheaderview_metric_isbase = false;
-            return QHeaderView::metric(param1);
-        }
-        auto metric_cb = qheaderview_metric_callback;
-        if (metric_cb) {
+        if (qheaderview_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qheaderview_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QHeaderView::metric(param1);
@@ -2181,15 +1322,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qheaderview_initpainter_isbase) {
-            qheaderview_initpainter_isbase = false;
-            QHeaderView::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qheaderview_initpainter_callback;
-        if (initpainter_cb) {
+        if (qheaderview_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qheaderview_initpainter_callback(this, cbval1);
             return;
         }
         QHeaderView::initPainter(painter);
@@ -2197,14 +1332,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qheaderview_redirected_isbase) {
-            qheaderview_redirected_isbase = false;
-            return QHeaderView::redirected(offset);
-        }
-        auto redirected_cb = qheaderview_redirected_callback;
-        if (redirected_cb) {
+        if (qheaderview_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qheaderview_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QHeaderView::redirected(offset);
@@ -2212,13 +1342,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qheaderview_sharedpainter_isbase) {
-            qheaderview_sharedpainter_isbase = false;
-            return QHeaderView::sharedPainter();
-        }
-        auto sharedpainter_cb = qheaderview_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qheaderview_sharedpainter_callback) {
+            QPainter* callback_ret = qheaderview_sharedpainter_callback(this);
             return callback_ret;
         }
         return QHeaderView::sharedPainter();
@@ -2226,15 +1351,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qheaderview_childevent_isbase) {
-            qheaderview_childevent_isbase = false;
-            QHeaderView::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qheaderview_childevent_callback;
-        if (childevent_cb) {
+        if (qheaderview_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qheaderview_childevent_callback(this, cbval1);
             return;
         }
         QHeaderView::childEvent(event);
@@ -2242,15 +1361,9 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qheaderview_customevent_isbase) {
-            qheaderview_customevent_isbase = false;
-            QHeaderView::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qheaderview_customevent_callback;
-        if (customevent_cb) {
+        if (qheaderview_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qheaderview_customevent_callback(this, cbval1);
             return;
         }
         QHeaderView::customEvent(event);
@@ -2258,17 +1371,11 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qheaderview_connectnotify_isbase) {
-            qheaderview_connectnotify_isbase = false;
-            QHeaderView::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qheaderview_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qheaderview_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qheaderview_connectnotify_callback(this, cbval1);
             return;
         }
         QHeaderView::connectNotify(signal);
@@ -2276,723 +1383,92 @@ class VirtualQHeaderView final : public QHeaderView {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qheaderview_disconnectnotify_isbase) {
-            qheaderview_disconnectnotify_isbase = false;
-            QHeaderView::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qheaderview_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qheaderview_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qheaderview_disconnectnotify_callback(this, cbval1);
             return;
         }
         QHeaderView::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateSection(int logicalIndex) {
-        if (qheaderview_updatesection_isbase) {
-            qheaderview_updatesection_isbase = false;
-            QHeaderView::updateSection(logicalIndex);
-            return;
-        }
-        auto updatesection_cb = qheaderview_updatesection_callback;
-        if (updatesection_cb) {
-            int cbval1 = logicalIndex;
-            updatesection_cb(this, cbval1);
-            return;
-        }
-        QHeaderView::updateSection(logicalIndex);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void resizeSections() {
-        if (qheaderview_resizesections2_isbase) {
-            qheaderview_resizesections2_isbase = false;
-            QHeaderView::resizeSections();
-            return;
-        }
-        auto resizesections2_cb = qheaderview_resizesections2_callback;
-        if (resizesections2_cb) {
-            resizesections2_cb();
-            return;
-        }
-        QHeaderView::resizeSections();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void sectionsInserted(const QModelIndex& parent, int logicalFirst, int logicalLast) {
-        if (qheaderview_sectionsinserted_isbase) {
-            qheaderview_sectionsinserted_isbase = false;
-            QHeaderView::sectionsInserted(parent, logicalFirst, logicalLast);
-            return;
-        }
-        auto sectionsinserted_cb = qheaderview_sectionsinserted_callback;
-        if (sectionsinserted_cb) {
-            const QModelIndex& parent_ret = parent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            int cbval2 = logicalFirst;
-            int cbval3 = logicalLast;
-            sectionsinserted_cb(this, cbval1, cbval2, cbval3);
-            return;
-        }
-        QHeaderView::sectionsInserted(parent, logicalFirst, logicalLast);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void sectionsAboutToBeRemoved(const QModelIndex& parent, int logicalFirst, int logicalLast) {
-        if (qheaderview_sectionsabouttoberemoved_isbase) {
-            qheaderview_sectionsabouttoberemoved_isbase = false;
-            QHeaderView::sectionsAboutToBeRemoved(parent, logicalFirst, logicalLast);
-            return;
-        }
-        auto sectionsabouttoberemoved_cb = qheaderview_sectionsabouttoberemoved_callback;
-        if (sectionsabouttoberemoved_cb) {
-            const QModelIndex& parent_ret = parent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            int cbval2 = logicalFirst;
-            int cbval3 = logicalLast;
-            sectionsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
-            return;
-        }
-        QHeaderView::sectionsAboutToBeRemoved(parent, logicalFirst, logicalLast);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void initialize() {
-        if (qheaderview_initialize_isbase) {
-            qheaderview_initialize_isbase = false;
-            QHeaderView::initialize();
-            return;
-        }
-        auto initialize_cb = qheaderview_initialize_callback;
-        if (initialize_cb) {
-            initialize_cb();
-            return;
-        }
-        QHeaderView::initialize();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void initializeSections() {
-        if (qheaderview_initializesections_isbase) {
-            qheaderview_initializesections_isbase = false;
-            QHeaderView::initializeSections();
-            return;
-        }
-        auto initializesections_cb = qheaderview_initializesections_callback;
-        if (initializesections_cb) {
-            initializesections_cb();
-            return;
-        }
-        QHeaderView::initializeSections();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void initializeSections(int start, int end) {
-        if (qheaderview_initializesections2_isbase) {
-            qheaderview_initializesections2_isbase = false;
-            QHeaderView::initializeSections(start, end);
-            return;
-        }
-        auto initializesections2_cb = qheaderview_initializesections2_callback;
-        if (initializesections2_cb) {
-            int cbval1 = start;
-            int cbval2 = end;
-            initializesections2_cb(this, cbval1, cbval2);
-            return;
-        }
-        QHeaderView::initializeSections(start, end);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QAbstractItemView::State state() const {
-        if (qheaderview_state_isbase) {
-            qheaderview_state_isbase = false;
-            return QHeaderView::state();
-        }
-        auto state_cb = qheaderview_state_callback;
-        if (state_cb) {
-            int callback_ret = state_cb();
-            return static_cast<VirtualQHeaderView::State>(callback_ret);
-        }
-        return QHeaderView::state();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setState(QAbstractItemView::State state) {
-        if (qheaderview_setstate_isbase) {
-            qheaderview_setstate_isbase = false;
-            QHeaderView::setState(state);
-            return;
-        }
-        auto setstate_cb = qheaderview_setstate_callback;
-        if (setstate_cb) {
-            int cbval1 = static_cast<int>(state);
-            setstate_cb(this, cbval1);
-            return;
-        }
-        QHeaderView::setState(state);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void scheduleDelayedItemsLayout() {
-        if (qheaderview_scheduledelayeditemslayout_isbase) {
-            qheaderview_scheduledelayeditemslayout_isbase = false;
-            QHeaderView::scheduleDelayedItemsLayout();
-            return;
-        }
-        auto scheduledelayeditemslayout_cb = qheaderview_scheduledelayeditemslayout_callback;
-        if (scheduledelayeditemslayout_cb) {
-            scheduledelayeditemslayout_cb();
-            return;
-        }
-        QHeaderView::scheduleDelayedItemsLayout();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void executeDelayedItemsLayout() {
-        if (qheaderview_executedelayeditemslayout_isbase) {
-            qheaderview_executedelayeditemslayout_isbase = false;
-            QHeaderView::executeDelayedItemsLayout();
-            return;
-        }
-        auto executedelayeditemslayout_cb = qheaderview_executedelayeditemslayout_callback;
-        if (executedelayeditemslayout_cb) {
-            executedelayeditemslayout_cb();
-            return;
-        }
-        QHeaderView::executeDelayedItemsLayout();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setDirtyRegion(const QRegion& region) {
-        if (qheaderview_setdirtyregion_isbase) {
-            qheaderview_setdirtyregion_isbase = false;
-            QHeaderView::setDirtyRegion(region);
-            return;
-        }
-        auto setdirtyregion_cb = qheaderview_setdirtyregion_callback;
-        if (setdirtyregion_cb) {
-            const QRegion& region_ret = region;
-            // Cast returned reference into pointer
-            QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
-            setdirtyregion_cb(this, cbval1);
-            return;
-        }
-        QHeaderView::setDirtyRegion(region);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void scrollDirtyRegion(int dx, int dy) {
-        if (qheaderview_scrolldirtyregion_isbase) {
-            qheaderview_scrolldirtyregion_isbase = false;
-            QHeaderView::scrollDirtyRegion(dx, dy);
-            return;
-        }
-        auto scrolldirtyregion_cb = qheaderview_scrolldirtyregion_callback;
-        if (scrolldirtyregion_cb) {
-            int cbval1 = dx;
-            int cbval2 = dy;
-            scrolldirtyregion_cb(this, cbval1, cbval2);
-            return;
-        }
-        QHeaderView::scrollDirtyRegion(dx, dy);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QPoint dirtyRegionOffset() const {
-        if (qheaderview_dirtyregionoffset_isbase) {
-            qheaderview_dirtyregionoffset_isbase = false;
-            return QHeaderView::dirtyRegionOffset();
-        }
-        auto dirtyregionoffset_cb = qheaderview_dirtyregionoffset_callback;
-        if (dirtyregionoffset_cb) {
-            QPoint* callback_ret = dirtyregionoffset_cb();
-            auto callback_ret_Value = std::move(*callback_ret);
-            delete callback_ret;
-            return callback_ret_Value;
-        }
-        return QHeaderView::dirtyRegionOffset();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void startAutoScroll() {
-        if (qheaderview_startautoscroll_isbase) {
-            qheaderview_startautoscroll_isbase = false;
-            QHeaderView::startAutoScroll();
-            return;
-        }
-        auto startautoscroll_cb = qheaderview_startautoscroll_callback;
-        if (startautoscroll_cb) {
-            startautoscroll_cb();
-            return;
-        }
-        QHeaderView::startAutoScroll();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void stopAutoScroll() {
-        if (qheaderview_stopautoscroll_isbase) {
-            qheaderview_stopautoscroll_isbase = false;
-            QHeaderView::stopAutoScroll();
-            return;
-        }
-        auto stopautoscroll_cb = qheaderview_stopautoscroll_callback;
-        if (stopautoscroll_cb) {
-            stopautoscroll_cb();
-            return;
-        }
-        QHeaderView::stopAutoScroll();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void doAutoScroll() {
-        if (qheaderview_doautoscroll_isbase) {
-            qheaderview_doautoscroll_isbase = false;
-            QHeaderView::doAutoScroll();
-            return;
-        }
-        auto doautoscroll_cb = qheaderview_doautoscroll_callback;
-        if (doautoscroll_cb) {
-            doautoscroll_cb();
-            return;
-        }
-        QHeaderView::doAutoScroll();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QAbstractItemView::DropIndicatorPosition dropIndicatorPosition() const {
-        if (qheaderview_dropindicatorposition_isbase) {
-            qheaderview_dropindicatorposition_isbase = false;
-            return QHeaderView::dropIndicatorPosition();
-        }
-        auto dropindicatorposition_cb = qheaderview_dropindicatorposition_callback;
-        if (dropindicatorposition_cb) {
-            int callback_ret = dropindicatorposition_cb();
-            return static_cast<VirtualQHeaderView::DropIndicatorPosition>(callback_ret);
-        }
-        return QHeaderView::dropIndicatorPosition();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setViewportMargins(int left, int top, int right, int bottom) {
-        if (qheaderview_setviewportmargins_isbase) {
-            qheaderview_setviewportmargins_isbase = false;
-            QHeaderView::setViewportMargins(left, top, right, bottom);
-            return;
-        }
-        auto setviewportmargins_cb = qheaderview_setviewportmargins_callback;
-        if (setviewportmargins_cb) {
-            int cbval1 = left;
-            int cbval2 = top;
-            int cbval3 = right;
-            int cbval4 = bottom;
-            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
-            return;
-        }
-        QHeaderView::setViewportMargins(left, top, right, bottom);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QMargins viewportMargins() const {
-        if (qheaderview_viewportmargins_isbase) {
-            qheaderview_viewportmargins_isbase = false;
-            return QHeaderView::viewportMargins();
-        }
-        auto viewportmargins_cb = qheaderview_viewportmargins_callback;
-        if (viewportmargins_cb) {
-            QMargins* callback_ret = viewportmargins_cb();
-            auto callback_ret_Value = std::move(*callback_ret);
-            delete callback_ret;
-            return callback_ret_Value;
-        }
-        return QHeaderView::viewportMargins();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void drawFrame(QPainter* param1) {
-        if (qheaderview_drawframe_isbase) {
-            qheaderview_drawframe_isbase = false;
-            QHeaderView::drawFrame(param1);
-            return;
-        }
-        auto drawframe_cb = qheaderview_drawframe_callback;
-        if (drawframe_cb) {
-            QPainter* cbval1 = param1;
-            drawframe_cb(this, cbval1);
-            return;
-        }
-        QHeaderView::drawFrame(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qheaderview_updatemicrofocus_isbase) {
-            qheaderview_updatemicrofocus_isbase = false;
-            QHeaderView::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qheaderview_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QHeaderView::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qheaderview_create_isbase) {
-            qheaderview_create_isbase = false;
-            QHeaderView::create();
-            return;
-        }
-        auto create_cb = qheaderview_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QHeaderView::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qheaderview_destroy_isbase) {
-            qheaderview_destroy_isbase = false;
-            QHeaderView::destroy();
-            return;
-        }
-        auto destroy_cb = qheaderview_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QHeaderView::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qheaderview_focusnextchild_isbase) {
-            qheaderview_focusnextchild_isbase = false;
-            return QHeaderView::focusNextChild();
-        }
-        auto focusnextchild_cb = qheaderview_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QHeaderView::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qheaderview_focuspreviouschild_isbase) {
-            qheaderview_focuspreviouschild_isbase = false;
-            return QHeaderView::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qheaderview_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QHeaderView::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qheaderview_sender_isbase) {
-            qheaderview_sender_isbase = false;
-            return QHeaderView::sender();
-        }
-        auto sender_cb = qheaderview_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QHeaderView::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qheaderview_sendersignalindex_isbase) {
-            qheaderview_sendersignalindex_isbase = false;
-            return QHeaderView::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qheaderview_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QHeaderView::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qheaderview_receivers_isbase) {
-            qheaderview_receivers_isbase = false;
-            return QHeaderView::receivers(signal);
-        }
-        auto receivers_cb = qheaderview_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QHeaderView::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qheaderview_issignalconnected_isbase) {
-            qheaderview_issignalconnected_isbase = false;
-            return QHeaderView::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qheaderview_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QHeaderView::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qheaderview_getdecodedmetricf_isbase) {
-            qheaderview_getdecodedmetricf_isbase = false;
-            return QHeaderView::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qheaderview_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QHeaderView::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void QHeaderView_CurrentChanged(QHeaderView* self, const QModelIndex* current, const QModelIndex* old);
     friend void QHeaderView_SuperCurrentChanged(QHeaderView* self, const QModelIndex* current, const QModelIndex* old);
-    friend bool QHeaderView_Event(QHeaderView* self, QEvent* e);
     friend bool QHeaderView_SuperEvent(QHeaderView* self, QEvent* e);
-    friend void QHeaderView_PaintEvent(QHeaderView* self, QPaintEvent* e);
     friend void QHeaderView_SuperPaintEvent(QHeaderView* self, QPaintEvent* e);
-    friend void QHeaderView_MousePressEvent(QHeaderView* self, QMouseEvent* e);
     friend void QHeaderView_SuperMousePressEvent(QHeaderView* self, QMouseEvent* e);
-    friend void QHeaderView_MouseMoveEvent(QHeaderView* self, QMouseEvent* e);
     friend void QHeaderView_SuperMouseMoveEvent(QHeaderView* self, QMouseEvent* e);
-    friend void QHeaderView_MouseReleaseEvent(QHeaderView* self, QMouseEvent* e);
     friend void QHeaderView_SuperMouseReleaseEvent(QHeaderView* self, QMouseEvent* e);
-    friend void QHeaderView_MouseDoubleClickEvent(QHeaderView* self, QMouseEvent* e);
     friend void QHeaderView_SuperMouseDoubleClickEvent(QHeaderView* self, QMouseEvent* e);
-    friend bool QHeaderView_ViewportEvent(QHeaderView* self, QEvent* e);
     friend bool QHeaderView_SuperViewportEvent(QHeaderView* self, QEvent* e);
-    friend void QHeaderView_PaintSection(const QHeaderView* self, QPainter* painter, const QRect* rect, int logicalIndex);
     friend void QHeaderView_SuperPaintSection(const QHeaderView* self, QPainter* painter, const QRect* rect, int logicalIndex);
-    friend QSize* QHeaderView_SectionSizeFromContents(const QHeaderView* self, int logicalIndex);
     friend QSize* QHeaderView_SuperSectionSizeFromContents(const QHeaderView* self, int logicalIndex);
-    friend int QHeaderView_HorizontalOffset(const QHeaderView* self);
     friend int QHeaderView_SuperHorizontalOffset(const QHeaderView* self);
-    friend int QHeaderView_VerticalOffset(const QHeaderView* self);
     friend int QHeaderView_SuperVerticalOffset(const QHeaderView* self);
-    friend void QHeaderView_UpdateGeometries(QHeaderView* self);
     friend void QHeaderView_SuperUpdateGeometries(QHeaderView* self);
-    friend void QHeaderView_ScrollContentsBy(QHeaderView* self, int dx, int dy);
     friend void QHeaderView_SuperScrollContentsBy(QHeaderView* self, int dx, int dy);
-    friend void QHeaderView_DataChanged(QHeaderView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles);
     friend void QHeaderView_SuperDataChanged(QHeaderView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles);
-    friend void QHeaderView_RowsInserted(QHeaderView* self, const QModelIndex* parent, int start, int end);
     friend void QHeaderView_SuperRowsInserted(QHeaderView* self, const QModelIndex* parent, int start, int end);
-    friend QRect* QHeaderView_VisualRect(const QHeaderView* self, const QModelIndex* index);
     friend QRect* QHeaderView_SuperVisualRect(const QHeaderView* self, const QModelIndex* index);
-    friend void QHeaderView_ScrollTo(QHeaderView* self, const QModelIndex* index, int hint);
     friend void QHeaderView_SuperScrollTo(QHeaderView* self, const QModelIndex* index, int hint);
-    friend QModelIndex* QHeaderView_IndexAt(const QHeaderView* self, const QPoint* p);
     friend QModelIndex* QHeaderView_SuperIndexAt(const QHeaderView* self, const QPoint* p);
-    friend bool QHeaderView_IsIndexHidden(const QHeaderView* self, const QModelIndex* index);
     friend bool QHeaderView_SuperIsIndexHidden(const QHeaderView* self, const QModelIndex* index);
-    friend QModelIndex* QHeaderView_MoveCursor(QHeaderView* self, int param1, int param2);
     friend QModelIndex* QHeaderView_SuperMoveCursor(QHeaderView* self, int param1, int param2);
-    friend void QHeaderView_SetSelection(QHeaderView* self, const QRect* rect, int flags);
     friend void QHeaderView_SuperSetSelection(QHeaderView* self, const QRect* rect, int flags);
-    friend QRegion* QHeaderView_VisualRegionForSelection(const QHeaderView* self, const QItemSelection* selection);
     friend QRegion* QHeaderView_SuperVisualRegionForSelection(const QHeaderView* self, const QItemSelection* selection);
-    friend void QHeaderView_InitStyleOptionForIndex(const QHeaderView* self, QStyleOptionHeader* option, int logicalIndex);
     friend void QHeaderView_SuperInitStyleOptionForIndex(const QHeaderView* self, QStyleOptionHeader* option, int logicalIndex);
-    friend void QHeaderView_InitStyleOption(const QHeaderView* self, QStyleOptionHeader* option);
     friend void QHeaderView_SuperInitStyleOption(const QHeaderView* self, QStyleOptionHeader* option);
-    friend void QHeaderView_RowsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int start, int end);
     friend void QHeaderView_SuperRowsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int start, int end);
-    friend void QHeaderView_SelectionChanged(QHeaderView* self, const QItemSelection* selected, const QItemSelection* deselected);
     friend void QHeaderView_SuperSelectionChanged(QHeaderView* self, const QItemSelection* selected, const QItemSelection* deselected);
-    friend void QHeaderView_UpdateEditorData(QHeaderView* self);
     friend void QHeaderView_SuperUpdateEditorData(QHeaderView* self);
-    friend void QHeaderView_UpdateEditorGeometries(QHeaderView* self);
     friend void QHeaderView_SuperUpdateEditorGeometries(QHeaderView* self);
-    friend void QHeaderView_VerticalScrollbarAction(QHeaderView* self, int action);
     friend void QHeaderView_SuperVerticalScrollbarAction(QHeaderView* self, int action);
-    friend void QHeaderView_HorizontalScrollbarAction(QHeaderView* self, int action);
     friend void QHeaderView_SuperHorizontalScrollbarAction(QHeaderView* self, int action);
-    friend void QHeaderView_VerticalScrollbarValueChanged(QHeaderView* self, int value);
     friend void QHeaderView_SuperVerticalScrollbarValueChanged(QHeaderView* self, int value);
-    friend void QHeaderView_HorizontalScrollbarValueChanged(QHeaderView* self, int value);
     friend void QHeaderView_SuperHorizontalScrollbarValueChanged(QHeaderView* self, int value);
-    friend void QHeaderView_CloseEditor(QHeaderView* self, QWidget* editor, int hint);
     friend void QHeaderView_SuperCloseEditor(QHeaderView* self, QWidget* editor, int hint);
-    friend void QHeaderView_CommitData(QHeaderView* self, QWidget* editor);
     friend void QHeaderView_SuperCommitData(QHeaderView* self, QWidget* editor);
-    friend void QHeaderView_EditorDestroyed(QHeaderView* self, QObject* editor);
     friend void QHeaderView_SuperEditorDestroyed(QHeaderView* self, QObject* editor);
-    friend libqt_list /* of QModelIndex* */ QHeaderView_SelectedIndexes(const QHeaderView* self);
     friend libqt_list /* of QModelIndex* */ QHeaderView_SuperSelectedIndexes(const QHeaderView* self);
-    friend bool QHeaderView_Edit2(QHeaderView* self, const QModelIndex* index, int trigger, QEvent* event);
     friend bool QHeaderView_SuperEdit2(QHeaderView* self, const QModelIndex* index, int trigger, QEvent* event);
-    friend int QHeaderView_SelectionCommand(const QHeaderView* self, const QModelIndex* index, const QEvent* event);
     friend int QHeaderView_SuperSelectionCommand(const QHeaderView* self, const QModelIndex* index, const QEvent* event);
-    friend void QHeaderView_StartDrag(QHeaderView* self, int supportedActions);
     friend void QHeaderView_SuperStartDrag(QHeaderView* self, int supportedActions);
-    friend void QHeaderView_InitViewItemOption(const QHeaderView* self, QStyleOptionViewItem* option);
     friend void QHeaderView_SuperInitViewItemOption(const QHeaderView* self, QStyleOptionViewItem* option);
-    friend bool QHeaderView_FocusNextPrevChild(QHeaderView* self, bool next);
     friend bool QHeaderView_SuperFocusNextPrevChild(QHeaderView* self, bool next);
-    friend void QHeaderView_DragEnterEvent(QHeaderView* self, QDragEnterEvent* event);
     friend void QHeaderView_SuperDragEnterEvent(QHeaderView* self, QDragEnterEvent* event);
-    friend void QHeaderView_DragMoveEvent(QHeaderView* self, QDragMoveEvent* event);
     friend void QHeaderView_SuperDragMoveEvent(QHeaderView* self, QDragMoveEvent* event);
-    friend void QHeaderView_DragLeaveEvent(QHeaderView* self, QDragLeaveEvent* event);
     friend void QHeaderView_SuperDragLeaveEvent(QHeaderView* self, QDragLeaveEvent* event);
-    friend void QHeaderView_DropEvent(QHeaderView* self, QDropEvent* event);
     friend void QHeaderView_SuperDropEvent(QHeaderView* self, QDropEvent* event);
-    friend void QHeaderView_FocusInEvent(QHeaderView* self, QFocusEvent* event);
     friend void QHeaderView_SuperFocusInEvent(QHeaderView* self, QFocusEvent* event);
-    friend void QHeaderView_FocusOutEvent(QHeaderView* self, QFocusEvent* event);
     friend void QHeaderView_SuperFocusOutEvent(QHeaderView* self, QFocusEvent* event);
-    friend void QHeaderView_KeyPressEvent(QHeaderView* self, QKeyEvent* event);
     friend void QHeaderView_SuperKeyPressEvent(QHeaderView* self, QKeyEvent* event);
-    friend void QHeaderView_ResizeEvent(QHeaderView* self, QResizeEvent* event);
     friend void QHeaderView_SuperResizeEvent(QHeaderView* self, QResizeEvent* event);
-    friend void QHeaderView_TimerEvent(QHeaderView* self, QTimerEvent* event);
     friend void QHeaderView_SuperTimerEvent(QHeaderView* self, QTimerEvent* event);
-    friend void QHeaderView_InputMethodEvent(QHeaderView* self, QInputMethodEvent* event);
     friend void QHeaderView_SuperInputMethodEvent(QHeaderView* self, QInputMethodEvent* event);
-    friend bool QHeaderView_EventFilter(QHeaderView* self, QObject* object, QEvent* event);
     friend bool QHeaderView_SuperEventFilter(QHeaderView* self, QObject* object, QEvent* event);
-    friend QSize* QHeaderView_ViewportSizeHint(const QHeaderView* self);
     friend QSize* QHeaderView_SuperViewportSizeHint(const QHeaderView* self);
-    friend void QHeaderView_WheelEvent(QHeaderView* self, QWheelEvent* param1);
     friend void QHeaderView_SuperWheelEvent(QHeaderView* self, QWheelEvent* param1);
-    friend void QHeaderView_ContextMenuEvent(QHeaderView* self, QContextMenuEvent* param1);
     friend void QHeaderView_SuperContextMenuEvent(QHeaderView* self, QContextMenuEvent* param1);
-    friend void QHeaderView_ChangeEvent(QHeaderView* self, QEvent* param1);
     friend void QHeaderView_SuperChangeEvent(QHeaderView* self, QEvent* param1);
-    friend void QHeaderView_KeyReleaseEvent(QHeaderView* self, QKeyEvent* event);
     friend void QHeaderView_SuperKeyReleaseEvent(QHeaderView* self, QKeyEvent* event);
-    friend void QHeaderView_EnterEvent(QHeaderView* self, QEnterEvent* event);
     friend void QHeaderView_SuperEnterEvent(QHeaderView* self, QEnterEvent* event);
-    friend void QHeaderView_LeaveEvent(QHeaderView* self, QEvent* event);
     friend void QHeaderView_SuperLeaveEvent(QHeaderView* self, QEvent* event);
-    friend void QHeaderView_MoveEvent(QHeaderView* self, QMoveEvent* event);
     friend void QHeaderView_SuperMoveEvent(QHeaderView* self, QMoveEvent* event);
-    friend void QHeaderView_CloseEvent(QHeaderView* self, QCloseEvent* event);
     friend void QHeaderView_SuperCloseEvent(QHeaderView* self, QCloseEvent* event);
-    friend void QHeaderView_TabletEvent(QHeaderView* self, QTabletEvent* event);
     friend void QHeaderView_SuperTabletEvent(QHeaderView* self, QTabletEvent* event);
-    friend void QHeaderView_ActionEvent(QHeaderView* self, QActionEvent* event);
     friend void QHeaderView_SuperActionEvent(QHeaderView* self, QActionEvent* event);
-    friend void QHeaderView_ShowEvent(QHeaderView* self, QShowEvent* event);
     friend void QHeaderView_SuperShowEvent(QHeaderView* self, QShowEvent* event);
-    friend void QHeaderView_HideEvent(QHeaderView* self, QHideEvent* event);
     friend void QHeaderView_SuperHideEvent(QHeaderView* self, QHideEvent* event);
-    friend bool QHeaderView_NativeEvent(QHeaderView* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QHeaderView_SuperNativeEvent(QHeaderView* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int QHeaderView_Metric(const QHeaderView* self, int param1);
     friend int QHeaderView_SuperMetric(const QHeaderView* self, int param1);
-    friend void QHeaderView_InitPainter(const QHeaderView* self, QPainter* painter);
     friend void QHeaderView_SuperInitPainter(const QHeaderView* self, QPainter* painter);
-    friend QPaintDevice* QHeaderView_Redirected(const QHeaderView* self, QPoint* offset);
     friend QPaintDevice* QHeaderView_SuperRedirected(const QHeaderView* self, QPoint* offset);
-    friend QPainter* QHeaderView_SharedPainter(const QHeaderView* self);
     friend QPainter* QHeaderView_SuperSharedPainter(const QHeaderView* self);
-    friend void QHeaderView_ChildEvent(QHeaderView* self, QChildEvent* event);
     friend void QHeaderView_SuperChildEvent(QHeaderView* self, QChildEvent* event);
-    friend void QHeaderView_CustomEvent(QHeaderView* self, QEvent* event);
     friend void QHeaderView_SuperCustomEvent(QHeaderView* self, QEvent* event);
-    friend void QHeaderView_ConnectNotify(QHeaderView* self, const QMetaMethod* signal);
     friend void QHeaderView_SuperConnectNotify(QHeaderView* self, const QMetaMethod* signal);
-    friend void QHeaderView_DisconnectNotify(QHeaderView* self, const QMetaMethod* signal);
     friend void QHeaderView_SuperDisconnectNotify(QHeaderView* self, const QMetaMethod* signal);
-    friend void QHeaderView_UpdateSection(QHeaderView* self, int logicalIndex);
-    friend void QHeaderView_SuperUpdateSection(QHeaderView* self, int logicalIndex);
-    friend void QHeaderView_ResizeSections2(QHeaderView* self);
-    friend void QHeaderView_SuperResizeSections2(QHeaderView* self);
-    friend void QHeaderView_SectionsInserted(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast);
-    friend void QHeaderView_SuperSectionsInserted(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast);
-    friend void QHeaderView_SectionsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast);
-    friend void QHeaderView_SuperSectionsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast);
-    friend void QHeaderView_Initialize(QHeaderView* self);
-    friend void QHeaderView_SuperInitialize(QHeaderView* self);
-    friend void QHeaderView_InitializeSections(QHeaderView* self);
-    friend void QHeaderView_SuperInitializeSections(QHeaderView* self);
-    friend void QHeaderView_InitializeSections2(QHeaderView* self, int start, int end);
-    friend void QHeaderView_SuperInitializeSections2(QHeaderView* self, int start, int end);
-    friend int QHeaderView_State(const QHeaderView* self);
-    friend int QHeaderView_SuperState(const QHeaderView* self);
-    friend void QHeaderView_SetState(QHeaderView* self, int state);
-    friend void QHeaderView_SuperSetState(QHeaderView* self, int state);
-    friend void QHeaderView_ScheduleDelayedItemsLayout(QHeaderView* self);
-    friend void QHeaderView_SuperScheduleDelayedItemsLayout(QHeaderView* self);
-    friend void QHeaderView_ExecuteDelayedItemsLayout(QHeaderView* self);
-    friend void QHeaderView_SuperExecuteDelayedItemsLayout(QHeaderView* self);
-    friend void QHeaderView_SetDirtyRegion(QHeaderView* self, const QRegion* region);
-    friend void QHeaderView_SuperSetDirtyRegion(QHeaderView* self, const QRegion* region);
-    friend void QHeaderView_ScrollDirtyRegion(QHeaderView* self, int dx, int dy);
-    friend void QHeaderView_SuperScrollDirtyRegion(QHeaderView* self, int dx, int dy);
-    friend QPoint* QHeaderView_DirtyRegionOffset(const QHeaderView* self);
-    friend QPoint* QHeaderView_SuperDirtyRegionOffset(const QHeaderView* self);
-    friend void QHeaderView_StartAutoScroll(QHeaderView* self);
-    friend void QHeaderView_SuperStartAutoScroll(QHeaderView* self);
-    friend void QHeaderView_StopAutoScroll(QHeaderView* self);
-    friend void QHeaderView_SuperStopAutoScroll(QHeaderView* self);
-    friend void QHeaderView_DoAutoScroll(QHeaderView* self);
-    friend void QHeaderView_SuperDoAutoScroll(QHeaderView* self);
-    friend int QHeaderView_DropIndicatorPosition(const QHeaderView* self);
-    friend int QHeaderView_SuperDropIndicatorPosition(const QHeaderView* self);
-    friend void QHeaderView_SetViewportMargins(QHeaderView* self, int left, int top, int right, int bottom);
-    friend void QHeaderView_SuperSetViewportMargins(QHeaderView* self, int left, int top, int right, int bottom);
-    friend QMargins* QHeaderView_ViewportMargins(const QHeaderView* self);
-    friend QMargins* QHeaderView_SuperViewportMargins(const QHeaderView* self);
-    friend void QHeaderView_DrawFrame(QHeaderView* self, QPainter* param1);
-    friend void QHeaderView_SuperDrawFrame(QHeaderView* self, QPainter* param1);
-    friend void QHeaderView_UpdateMicroFocus(QHeaderView* self);
-    friend void QHeaderView_SuperUpdateMicroFocus(QHeaderView* self);
-    friend void QHeaderView_Create(QHeaderView* self);
-    friend void QHeaderView_SuperCreate(QHeaderView* self);
-    friend void QHeaderView_Destroy(QHeaderView* self);
-    friend void QHeaderView_SuperDestroy(QHeaderView* self);
-    friend bool QHeaderView_FocusNextChild(QHeaderView* self);
-    friend bool QHeaderView_SuperFocusNextChild(QHeaderView* self);
-    friend bool QHeaderView_FocusPreviousChild(QHeaderView* self);
-    friend bool QHeaderView_SuperFocusPreviousChild(QHeaderView* self);
-    friend QObject* QHeaderView_Sender(const QHeaderView* self);
-    friend QObject* QHeaderView_SuperSender(const QHeaderView* self);
-    friend int QHeaderView_SenderSignalIndex(const QHeaderView* self);
-    friend int QHeaderView_SuperSenderSignalIndex(const QHeaderView* self);
-    friend int QHeaderView_Receivers(const QHeaderView* self, const char* signal);
-    friend int QHeaderView_SuperReceivers(const QHeaderView* self, const char* signal);
-    friend bool QHeaderView_IsSignalConnected(const QHeaderView* self, const QMetaMethod* signal);
-    friend bool QHeaderView_SuperIsSignalConnected(const QHeaderView* self, const QMetaMethod* signal);
-    friend double QHeaderView_GetDecodedMetricF(const QHeaderView* self, int metricA, int metricB);
-    friend double QHeaderView_SuperGetDecodedMetricF(const QHeaderView* self, int metricA, int metricB);
 };
 
 #endif

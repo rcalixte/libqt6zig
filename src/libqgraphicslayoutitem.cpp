@@ -165,10 +165,10 @@ bool QGraphicsLayoutItem_OwnedByLayout(const QGraphicsLayoutItem* self) {
 
 QSizeF* QGraphicsLayoutItem_SizeHint(const QGraphicsLayoutItem* self, int which, const QSizeF* constraint) {
     auto* vqgraphicslayoutitem = dynamic_cast<const VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
+    if (vqgraphicslayoutitem) {
         return new QSizeF(vqgraphicslayoutitem->sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
     }
-    return {};
+    qFatal("Error: Protected method QGraphicsLayoutItem::sizeHint called without a directly constructed type");
 }
 
 void QGraphicsLayoutItem_SetSizePolicy3(QGraphicsLayoutItem* self, int hPolicy, int vPolicy, int controlType) {
@@ -181,147 +181,68 @@ QSizeF* QGraphicsLayoutItem_EffectiveSizeHint2(const QGraphicsLayoutItem* self, 
 
 // Base class handler implementation
 void QGraphicsLayoutItem_SuperSetGeometry(QGraphicsLayoutItem* self, const QRectF* rect) {
-    auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
-        vqgraphicslayoutitem->setQGraphicsLayoutItem_SetGeometry_IsBase(true);
-        vqgraphicslayoutitem->setGeometry(*rect);
-    } else {
-        self->QGraphicsLayoutItem::setGeometry(*rect);
-    }
+    self->QGraphicsLayoutItem::setGeometry(*rect);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLayoutItem_OnSetGeometry(QGraphicsLayoutItem* self, intptr_t slot) {
-    auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem)
-        vqgraphicslayoutitem->setQGraphicsLayoutItem_SetGeometry_Callback(reinterpret_cast<VirtualQGraphicsLayoutItem::QGraphicsLayoutItem_SetGeometry_Callback>(slot));
+    if (auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self))
+        vqgraphicslayoutitem->qgraphicslayoutitem_setgeometry_callback = reinterpret_cast<VirtualQGraphicsLayoutItem::QGraphicsLayoutItem_SetGeometry_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsLayoutItem_SuperGetContentsMargins(const QGraphicsLayoutItem* self, double* left, double* top, double* right, double* bottom) {
-    auto* vqgraphicslayoutitem = const_cast<VirtualQGraphicsLayoutItem*>(dynamic_cast<const VirtualQGraphicsLayoutItem*>(self));
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
-        vqgraphicslayoutitem->setQGraphicsLayoutItem_GetContentsMargins_IsBase(true);
-        vqgraphicslayoutitem->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    } else {
-        self->QGraphicsLayoutItem::getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    }
+    self->QGraphicsLayoutItem::getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsLayoutItem_OnGetContentsMargins(const QGraphicsLayoutItem* self, intptr_t slot) {
-    auto* vqgraphicslayoutitem = const_cast<VirtualQGraphicsLayoutItem*>(dynamic_cast<const VirtualQGraphicsLayoutItem*>(self));
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem)
-        vqgraphicslayoutitem->setQGraphicsLayoutItem_GetContentsMargins_Callback(reinterpret_cast<VirtualQGraphicsLayoutItem::QGraphicsLayoutItem_GetContentsMargins_Callback>(slot));
+void QGraphicsLayoutItem_OnGetContentsMargins(QGraphicsLayoutItem* self, intptr_t slot) {
+    if (auto* vqgraphicslayoutitem = const_cast<VirtualQGraphicsLayoutItem*>(dynamic_cast<const VirtualQGraphicsLayoutItem*>(self)))
+        vqgraphicslayoutitem->qgraphicslayoutitem_getcontentsmargins_callback = reinterpret_cast<VirtualQGraphicsLayoutItem::QGraphicsLayoutItem_GetContentsMargins_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsLayoutItem_SuperUpdateGeometry(QGraphicsLayoutItem* self) {
-    auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
-        vqgraphicslayoutitem->setQGraphicsLayoutItem_UpdateGeometry_IsBase(true);
-        vqgraphicslayoutitem->updateGeometry();
-    } else {
-        self->QGraphicsLayoutItem::updateGeometry();
-    }
+    self->QGraphicsLayoutItem::updateGeometry();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLayoutItem_OnUpdateGeometry(QGraphicsLayoutItem* self, intptr_t slot) {
-    auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem)
-        vqgraphicslayoutitem->setQGraphicsLayoutItem_UpdateGeometry_Callback(reinterpret_cast<VirtualQGraphicsLayoutItem::QGraphicsLayoutItem_UpdateGeometry_Callback>(slot));
+    if (auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self))
+        vqgraphicslayoutitem->qgraphicslayoutitem_updategeometry_callback = reinterpret_cast<VirtualQGraphicsLayoutItem::QGraphicsLayoutItem_UpdateGeometry_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QGraphicsLayoutItem_SuperIsEmpty(const QGraphicsLayoutItem* self) {
-    auto* vqgraphicslayoutitem = const_cast<VirtualQGraphicsLayoutItem*>(dynamic_cast<const VirtualQGraphicsLayoutItem*>(self));
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
-        vqgraphicslayoutitem->setQGraphicsLayoutItem_IsEmpty_IsBase(true);
-        return vqgraphicslayoutitem->isEmpty();
-    } else {
-        return self->QGraphicsLayoutItem::isEmpty();
-    }
+    return self->QGraphicsLayoutItem::isEmpty();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsLayoutItem_OnIsEmpty(const QGraphicsLayoutItem* self, intptr_t slot) {
-    auto* vqgraphicslayoutitem = const_cast<VirtualQGraphicsLayoutItem*>(dynamic_cast<const VirtualQGraphicsLayoutItem*>(self));
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem)
-        vqgraphicslayoutitem->setQGraphicsLayoutItem_IsEmpty_Callback(reinterpret_cast<VirtualQGraphicsLayoutItem::QGraphicsLayoutItem_IsEmpty_Callback>(slot));
-}
-
-// Base class handler implementation
-QSizeF* QGraphicsLayoutItem_SuperSizeHint(const QGraphicsLayoutItem* self, int which, const QSizeF* constraint) {
-    auto* vqgraphicslayoutitem = const_cast<VirtualQGraphicsLayoutItem*>(dynamic_cast<const VirtualQGraphicsLayoutItem*>(self));
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
-        vqgraphicslayoutitem->setQGraphicsLayoutItem_SizeHint_IsBase(true);
-        return new QSizeF(vqgraphicslayoutitem->sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
-    }
-    return {};
+void QGraphicsLayoutItem_OnIsEmpty(QGraphicsLayoutItem* self, intptr_t slot) {
+    if (auto* vqgraphicslayoutitem = const_cast<VirtualQGraphicsLayoutItem*>(dynamic_cast<const VirtualQGraphicsLayoutItem*>(self)))
+        vqgraphicslayoutitem->qgraphicslayoutitem_isempty_callback = reinterpret_cast<VirtualQGraphicsLayoutItem::QGraphicsLayoutItem_IsEmpty_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsLayoutItem_OnSizeHint(const QGraphicsLayoutItem* self, intptr_t slot) {
-    auto* vqgraphicslayoutitem = const_cast<VirtualQGraphicsLayoutItem*>(dynamic_cast<const VirtualQGraphicsLayoutItem*>(self));
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem)
-        vqgraphicslayoutitem->setQGraphicsLayoutItem_SizeHint_Callback(reinterpret_cast<VirtualQGraphicsLayoutItem::QGraphicsLayoutItem_SizeHint_Callback>(slot));
+void QGraphicsLayoutItem_OnSizeHint(QGraphicsLayoutItem* self, intptr_t slot) {
+    if (auto* vqgraphicslayoutitem = const_cast<VirtualQGraphicsLayoutItem*>(dynamic_cast<const VirtualQGraphicsLayoutItem*>(self)))
+        vqgraphicslayoutitem->qgraphicslayoutitem_sizehint_callback = reinterpret_cast<VirtualQGraphicsLayoutItem::QGraphicsLayoutItem_SizeHint_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGraphicsLayoutItem_SetGraphicsItem(QGraphicsLayoutItem* self, QGraphicsItem* item) {
-    auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
-        vqgraphicslayoutitem->setGraphicsItem(item);
-    } else {
-        ((VirtualQGraphicsLayoutItem*)self)->setGraphicsItem(item);
-    }
+    if (auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self)) {
+        vqgraphicslayoutitem->VirtualQGraphicsLayoutItem::setGraphicsItem(item);
+    } else
+        qFatal("Error: Protected method QGraphicsLayoutItem::setGraphicsItem called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGraphicsLayoutItem_SuperSetGraphicsItem(QGraphicsLayoutItem* self, QGraphicsItem* item) {
-    auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
-        vqgraphicslayoutitem->setQGraphicsLayoutItem_SetGraphicsItem_IsBase(true);
-        vqgraphicslayoutitem->setGraphicsItem(item);
-    } else {
-        ((VirtualQGraphicsLayoutItem*)self)->setGraphicsItem(item);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsLayoutItem_OnSetGraphicsItem(QGraphicsLayoutItem* self, intptr_t slot) {
-    auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem)
-        vqgraphicslayoutitem->setQGraphicsLayoutItem_SetGraphicsItem_Callback(reinterpret_cast<VirtualQGraphicsLayoutItem::QGraphicsLayoutItem_SetGraphicsItem_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGraphicsLayoutItem_SetOwnedByLayout(QGraphicsLayoutItem* self, bool ownedByLayout) {
-    auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
-        vqgraphicslayoutitem->setOwnedByLayout(ownedByLayout);
-    } else {
-        ((VirtualQGraphicsLayoutItem*)self)->setOwnedByLayout(ownedByLayout);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsLayoutItem_SuperSetOwnedByLayout(QGraphicsLayoutItem* self, bool ownedByLayout) {
-    auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
-        vqgraphicslayoutitem->setQGraphicsLayoutItem_SetOwnedByLayout_IsBase(true);
-        vqgraphicslayoutitem->setOwnedByLayout(ownedByLayout);
-    } else {
-        ((VirtualQGraphicsLayoutItem*)self)->setOwnedByLayout(ownedByLayout);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsLayoutItem_OnSetOwnedByLayout(QGraphicsLayoutItem* self, intptr_t slot) {
-    auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem)
-        vqgraphicslayoutitem->setQGraphicsLayoutItem_SetOwnedByLayout_Callback(reinterpret_cast<VirtualQGraphicsLayoutItem::QGraphicsLayoutItem_SetOwnedByLayout_Callback>(slot));
+    if (auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self)) {
+        vqgraphicslayoutitem->VirtualQGraphicsLayoutItem::setOwnedByLayout(ownedByLayout);
+    } else
+        qFatal("Error: Protected method QGraphicsLayoutItem::setOwnedByLayout called without a directly constructed type");
 }
 
 void QGraphicsLayoutItem_Delete(QGraphicsLayoutItem* self) {

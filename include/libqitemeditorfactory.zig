@@ -13,43 +13,6 @@ pub const QItemEditorCreatorBase = extern struct {
 
     pub const _is_QItemEditorCreatorBase = {};
 
-    /// ### DEPRECATED: Use `createWidget` instead
-    ///
-    pub const CreateWidget = createWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#createWidget)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemEditorCreatorBase `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn createWidget(self: QItemEditorCreatorBase, parent: anytype) QWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QItemEditorCreatorBase_CreateWidget(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `valuePropertyName` instead
-    ///
-    pub const ValuePropertyName = valuePropertyName;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#valuePropertyName)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemEditorCreatorBase `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn valuePropertyName(self: QItemEditorCreatorBase, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QItemEditorCreatorBase_ValuePropertyName(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QItemEditorCreatorBase.valuePropertyName: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `operatorAssign` instead
     ///
     pub const OperatorAssign = operatorAssign;

@@ -34,7 +34,7 @@ void QAudioListener_SetRotation(QAudioListener* self, const QQuaternion* q);
 QQuaternion* QAudioListener_Rotation(const QAudioListener* self);
 QAudioEngine* QAudioListener_Engine(const QAudioListener* self);
 QMetaObject* QAudioListener_MetaObject(const QAudioListener* self);
-void QAudioListener_OnMetaObject(const QAudioListener* self, intptr_t slot);
+void QAudioListener_OnMetaObject(QAudioListener* self, intptr_t slot);
 QMetaObject* QAudioListener_SuperMetaObject(const QAudioListener* self);
 void* QAudioListener_Metacast(QAudioListener* self, const char* param1);
 void QAudioListener_OnMetacast(QAudioListener* self, intptr_t slot);
@@ -64,17 +64,9 @@ void QAudioListener_DisconnectNotify(QAudioListener* self, const QMetaMethod* si
 void QAudioListener_OnDisconnectNotify(QAudioListener* self, intptr_t slot);
 void QAudioListener_SuperDisconnectNotify(QAudioListener* self, const QMetaMethod* signal);
 QObject* QAudioListener_Sender(const QAudioListener* self);
-void QAudioListener_OnSender(const QAudioListener* self, intptr_t slot);
-QObject* QAudioListener_SuperSender(const QAudioListener* self);
 int QAudioListener_SenderSignalIndex(const QAudioListener* self);
-void QAudioListener_OnSenderSignalIndex(const QAudioListener* self, intptr_t slot);
-int QAudioListener_SuperSenderSignalIndex(const QAudioListener* self);
 int QAudioListener_Receivers(const QAudioListener* self, const char* signal);
-void QAudioListener_OnReceivers(const QAudioListener* self, intptr_t slot);
-int QAudioListener_SuperReceivers(const QAudioListener* self, const char* signal);
 bool QAudioListener_IsSignalConnected(const QAudioListener* self, const QMetaMethod* signal);
-void QAudioListener_OnIsSignalConnected(const QAudioListener* self, intptr_t slot);
-bool QAudioListener_SuperIsSignalConnected(const QAudioListener* self, const QMetaMethod* signal);
 void QAudioListener_Delete(QAudioListener* self);
 
 #ifdef __cplusplus

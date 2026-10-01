@@ -137,6 +137,8 @@ pub const QImageIOHandler = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#canRead)
     ///
+    /// This method must be implemented with `onCanRead` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QImageIOHandler `
@@ -157,26 +159,10 @@ pub const QImageIOHandler = extern struct {
     ///
     /// ` self: QImageIOHandler `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QImageIOHandler) callconv(.c) bool `
     ///
-    pub fn onCanRead(self: QImageIOHandler, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanRead(self: QImageIOHandler, callback: *const fn (QImageIOHandler) callconv(.c) bool) void {
         qtc.QImageIOHandler_OnCanRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCanRead` instead
-    ///
-    pub const SuperCanRead = superCanRead;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#canRead)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImageIOHandler `
-    ///
-    pub fn superCanRead(self: QImageIOHandler) bool {
-        return qtc.QImageIOHandler_SuperCanRead(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `read` instead
@@ -184,6 +170,8 @@ pub const QImageIOHandler = extern struct {
     pub const Read = read;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#read)
+    ///
+    /// This method must be implemented with `onRead` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -212,25 +200,6 @@ pub const QImageIOHandler = extern struct {
     ///
     pub fn onRead(self: QImageIOHandler, callback: *const fn (QImageIOHandler, QImage) callconv(.c) bool) void {
         qtc.QImageIOHandler_OnRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRead` instead
-    ///
-    pub const SuperRead = superRead;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#read)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImageIOHandler `
-    ///
-    /// ` image: QImage `
-    ///
-    pub fn superRead(self: QImageIOHandler, image: anytype) bool {
-        comptime _ = @TypeOf(image)._is_QImage;
-        return qtc.QImageIOHandler_SuperRead(@ptrCast(self.ptr), @ptrCast(image.ptr));
     }
 
     /// ### DEPRECATED: Use `write` instead
@@ -477,9 +446,9 @@ pub const QImageIOHandler = extern struct {
     ///
     /// ` self: QImageIOHandler `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QImageIOHandler) callconv(.c) bool `
     ///
-    pub fn onJumpToNextImage(self: QImageIOHandler, callback: *const fn () callconv(.c) bool) void {
+    pub fn onJumpToNextImage(self: QImageIOHandler, callback: *const fn (QImageIOHandler) callconv(.c) bool) void {
         qtc.QImageIOHandler_OnJumpToNextImage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -577,9 +546,9 @@ pub const QImageIOHandler = extern struct {
     ///
     /// ` self: QImageIOHandler `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QImageIOHandler) callconv(.c) i32 `
     ///
-    pub fn onLoopCount(self: QImageIOHandler, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLoopCount(self: QImageIOHandler, callback: *const fn (QImageIOHandler) callconv(.c) i32) void {
         qtc.QImageIOHandler_OnLoopCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -625,9 +594,9 @@ pub const QImageIOHandler = extern struct {
     ///
     /// ` self: QImageIOHandler `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QImageIOHandler) callconv(.c) i32 `
     ///
-    pub fn onImageCount(self: QImageIOHandler, callback: *const fn () callconv(.c) i32) void {
+    pub fn onImageCount(self: QImageIOHandler, callback: *const fn (QImageIOHandler) callconv(.c) i32) void {
         qtc.QImageIOHandler_OnImageCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -673,9 +642,9 @@ pub const QImageIOHandler = extern struct {
     ///
     /// ` self: QImageIOHandler `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QImageIOHandler) callconv(.c) i32 `
     ///
-    pub fn onNextImageDelay(self: QImageIOHandler, callback: *const fn () callconv(.c) i32) void {
+    pub fn onNextImageDelay(self: QImageIOHandler, callback: *const fn (QImageIOHandler) callconv(.c) i32) void {
         qtc.QImageIOHandler_OnNextImageDelay(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -721,9 +690,9 @@ pub const QImageIOHandler = extern struct {
     ///
     /// ` self: QImageIOHandler `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QImageIOHandler) callconv(.c) i32 `
     ///
-    pub fn onCurrentImageNumber(self: QImageIOHandler, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCurrentImageNumber(self: QImageIOHandler, callback: *const fn (QImageIOHandler) callconv(.c) i32) void {
         qtc.QImageIOHandler_OnCurrentImageNumber(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -769,11 +738,11 @@ pub const QImageIOHandler = extern struct {
     ///
     /// ` self: QImageIOHandler `
     ///
-    /// ` callback: *const fn () callconv(.c) QRect `
+    /// ` callback: *const fn (self: QImageIOHandler) callconv(.c) QRect `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onCurrentImageRect(self: QImageIOHandler, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onCurrentImageRect(self: QImageIOHandler, callback: *const fn (QImageIOHandler) callconv(.c) QRect) void {
         qtc.QImageIOHandler_OnCurrentImageRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -892,9 +861,9 @@ pub const QImageIOPlugin = extern struct {
     ///
     /// ` self: QImageIOPlugin `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QImageIOPlugin) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QImageIOPlugin, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QImageIOPlugin, callback: *const fn (QImageIOPlugin) callconv(.c) QMetaObject) void {
         qtc.QImageIOPlugin_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1045,6 +1014,8 @@ pub const QImageIOPlugin = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#capabilities)
     ///
+    /// This method must be implemented with `onCapabilities` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QImageIOPlugin `
@@ -1084,40 +1055,13 @@ pub const QImageIOPlugin = extern struct {
         qtc.QImageIOPlugin_OnCapabilities(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superCapabilities` instead
-    ///
-    pub const SuperCapabilities = superCapabilities;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#capabilities)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImageIOPlugin `
-    ///
-    /// ` _device: QIODevice `
-    ///
-    /// ` _format: []u8 `
-    ///
-    /// ## Returns:
-    ///
-    /// ` flag of qimageiohandler_enums.Capability `
-    ///
-    pub fn superCapabilities(self: QImageIOPlugin, _device: anytype, _format: []u8) i32 {
-        comptime _ = @TypeOf(_device)._is_QIODevice;
-        const format_str = qtc.libqt_string{
-            .len = _format.len,
-            .data = _format.ptr,
-        };
-        return qtc.QImageIOPlugin_SuperCapabilities(@ptrCast(self.ptr), @ptrCast(_device.ptr), format_str);
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#create)
+    ///
+    /// This method must be implemented with `onCreate` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1152,31 +1096,6 @@ pub const QImageIOPlugin = extern struct {
     ///
     pub fn onCreate(self: QImageIOPlugin, callback: *const fn (QImageIOPlugin, QIODevice, qtc.libqt_string) callconv(.c) QImageIOHandler) void {
         qtc.QImageIOPlugin_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageioplugin.html#create)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImageIOPlugin `
-    ///
-    /// ` _device: QIODevice `
-    ///
-    /// ` _format: []u8 `
-    ///
-    pub fn superCreate(self: QImageIOPlugin, _device: anytype, _format: []u8) QImageIOHandler {
-        comptime _ = @TypeOf(_device)._is_QIODevice;
-        const format_str = qtc.libqt_string{
-            .len = _format.len,
-            .data = _format.ptr,
-        };
-        return .{ .ptr = qtc.QImageIOPlugin_SuperCreate(@ptrCast(self.ptr), @ptrCast(_device.ptr), format_str) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2656,44 +2575,6 @@ pub const QImageIOPlugin = extern struct {
         return .{ .ptr = qtc.QImageIOPlugin_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImageIOPlugin `
-    ///
-    pub fn superSender(self: QImageIOPlugin) QObject {
-        return .{ .ptr = qtc.QImageIOPlugin_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QImageIOPlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QImageIOPlugin, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QImageIOPlugin_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2710,44 +2591,6 @@ pub const QImageIOPlugin = extern struct {
     ///
     pub fn senderSignalIndex(self: QImageIOPlugin) i32 {
         return qtc.QImageIOPlugin_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImageIOPlugin `
-    ///
-    pub fn superSenderSignalIndex(self: QImageIOPlugin) i32 {
-        return qtc.QImageIOPlugin_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QImageIOPlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QImageIOPlugin, callback: *const fn () callconv(.c) i32) void {
-        qtc.QImageIOPlugin_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2771,47 +2614,6 @@ pub const QImageIOPlugin = extern struct {
         return qtc.QImageIOPlugin_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImageIOPlugin `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QImageIOPlugin, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QImageIOPlugin_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QImageIOPlugin`
-    ///
-    /// ` callback: *const fn (self: QImageIOPlugin, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QImageIOPlugin, callback: *const fn (QImageIOPlugin, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QImageIOPlugin_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2831,47 +2633,6 @@ pub const QImageIOPlugin = extern struct {
     pub fn isSignalConnected(self: QImageIOPlugin, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QImageIOPlugin_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImageIOPlugin `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QImageIOPlugin, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QImageIOPlugin_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QImageIOPlugin`
-    ///
-    /// ` callback: *const fn (self: QImageIOPlugin, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QImageIOPlugin, callback: *const fn (QImageIOPlugin, QMetaMethod) callconv(.c) bool) void {
-        qtc.QImageIOPlugin_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

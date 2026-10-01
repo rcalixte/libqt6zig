@@ -194,1710 +194,1205 @@ void KRecentFilesMenu_AddUrl2(KRecentFilesMenu* self, const QUrl* url, const lib
 
 // Base class handler implementation
 QMetaObject* KRecentFilesMenu_SuperMetaObject(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_MetaObject_IsBase(true);
-        return (QMetaObject*)vkrecentfilesmenu->metaObject();
-    } else {
-        return (QMetaObject*)self->KRecentFilesMenu::metaObject();
-    }
+    return (QMetaObject*)self->KRecentFilesMenu::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnMetaObject(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_MetaObject_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MetaObject_Callback>(slot));
+void KRecentFilesMenu_OnMetaObject(KRecentFilesMenu* self, intptr_t slot) {
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self)))
+        vkrecentfilesmenu->krecentfilesmenu_metaobject_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KRecentFilesMenu_SuperMetacast(KRecentFilesMenu* self, const char* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_Metacast_IsBase(true);
-        return vkrecentfilesmenu->qt_metacast(param1);
-    } else {
-        return self->KRecentFilesMenu::qt_metacast(param1);
-    }
+    return self->KRecentFilesMenu::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMetacast(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_Metacast_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Metacast_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_metacast_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KRecentFilesMenu_SuperMetacall(KRecentFilesMenu* self, int param1, int param2, void** param3) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_Metacall_IsBase(true);
-        return vkrecentfilesmenu->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KRecentFilesMenu::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KRecentFilesMenu::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMetacall(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_Metacall_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Metacall_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_metacall_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KRecentFilesMenu_SizeHint(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return new QSize(vkrecentfilesmenu->sizeHint());
-    } else {
-        return new QSize(((VirtualKRecentFilesMenu*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KRecentFilesMenu_SuperSizeHint(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_SizeHint_IsBase(true);
-        return new QSize(vkrecentfilesmenu->sizeHint());
-    } else {
-        return new QSize(((VirtualKRecentFilesMenu*)self)->sizeHint());
-    }
+    return new QSize(self->KRecentFilesMenu::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnSizeHint(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_SizeHint_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_SizeHint_Callback>(slot));
+void KRecentFilesMenu_OnSizeHint(KRecentFilesMenu* self, intptr_t slot) {
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self)))
+        vkrecentfilesmenu->krecentfilesmenu_sizehint_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_ChangeEvent(KRecentFilesMenu* self, QEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->changeEvent(param1);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperChangeEvent(KRecentFilesMenu* self, QEvent* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_ChangeEvent_IsBase(true);
-        vkrecentfilesmenu->changeEvent(param1);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->changeEvent(param1);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnChangeEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_ChangeEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ChangeEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_changeevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_KeyPressEvent(KRecentFilesMenu* self, QKeyEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->keyPressEvent(param1);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperKeyPressEvent(KRecentFilesMenu* self, QKeyEvent* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_KeyPressEvent_IsBase(true);
-        vkrecentfilesmenu->keyPressEvent(param1);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnKeyPressEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_KeyPressEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_KeyPressEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_keypressevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_MouseReleaseEvent(KRecentFilesMenu* self, QMouseEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->mouseReleaseEvent(param1);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->mouseReleaseEvent(param1);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperMouseReleaseEvent(KRecentFilesMenu* self, QMouseEvent* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_MouseReleaseEvent_IsBase(true);
-        vkrecentfilesmenu->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMouseReleaseEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_mousereleaseevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_MousePressEvent(KRecentFilesMenu* self, QMouseEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->mousePressEvent(param1);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->mousePressEvent(param1);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperMousePressEvent(KRecentFilesMenu* self, QMouseEvent* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_MousePressEvent_IsBase(true);
-        vkrecentfilesmenu->mousePressEvent(param1);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->mousePressEvent(param1);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMousePressEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_MousePressEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MousePressEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_mousepressevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_MouseMoveEvent(KRecentFilesMenu* self, QMouseEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->mouseMoveEvent(param1);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->mouseMoveEvent(param1);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperMouseMoveEvent(KRecentFilesMenu* self, QMouseEvent* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_MouseMoveEvent_IsBase(true);
-        vkrecentfilesmenu->mouseMoveEvent(param1);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->mouseMoveEvent(param1);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::mouseMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMouseMoveEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_MouseMoveEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MouseMoveEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_mousemoveevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_WheelEvent(KRecentFilesMenu* self, QWheelEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->wheelEvent(param1);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->wheelEvent(param1);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperWheelEvent(KRecentFilesMenu* self, QWheelEvent* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_WheelEvent_IsBase(true);
-        vkrecentfilesmenu->wheelEvent(param1);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->wheelEvent(param1);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::wheelEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnWheelEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_WheelEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_WheelEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_wheelevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_EnterEvent(KRecentFilesMenu* self, QEnterEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->enterEvent(param1);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->enterEvent(param1);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperEnterEvent(KRecentFilesMenu* self, QEnterEvent* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_EnterEvent_IsBase(true);
-        vkrecentfilesmenu->enterEvent(param1);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->enterEvent(param1);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::enterEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnEnterEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_EnterEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_EnterEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_enterevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_LeaveEvent(KRecentFilesMenu* self, QEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->leaveEvent(param1);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->leaveEvent(param1);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperLeaveEvent(KRecentFilesMenu* self, QEvent* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_LeaveEvent_IsBase(true);
-        vkrecentfilesmenu->leaveEvent(param1);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->leaveEvent(param1);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::leaveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnLeaveEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_LeaveEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_LeaveEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_leaveevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_HideEvent(KRecentFilesMenu* self, QHideEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->hideEvent(param1);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->hideEvent(param1);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperHideEvent(KRecentFilesMenu* self, QHideEvent* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_HideEvent_IsBase(true);
-        vkrecentfilesmenu->hideEvent(param1);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->hideEvent(param1);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::hideEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnHideEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_HideEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_HideEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_hideevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_PaintEvent(KRecentFilesMenu* self, QPaintEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->paintEvent(param1);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->paintEvent(param1);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperPaintEvent(KRecentFilesMenu* self, QPaintEvent* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_PaintEvent_IsBase(true);
-        vkrecentfilesmenu->paintEvent(param1);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->paintEvent(param1);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnPaintEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_PaintEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_PaintEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_paintevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_ActionEvent(KRecentFilesMenu* self, QActionEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->actionEvent(param1);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->actionEvent(param1);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperActionEvent(KRecentFilesMenu* self, QActionEvent* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_ActionEvent_IsBase(true);
-        vkrecentfilesmenu->actionEvent(param1);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->actionEvent(param1);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::actionEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnActionEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_ActionEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ActionEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_actionevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_TimerEvent(KRecentFilesMenu* self, QTimerEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->timerEvent(param1);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->timerEvent(param1);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperTimerEvent(KRecentFilesMenu* self, QTimerEvent* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_TimerEvent_IsBase(true);
-        vkrecentfilesmenu->timerEvent(param1);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->timerEvent(param1);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::timerEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnTimerEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_TimerEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_TimerEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_timerevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRecentFilesMenu_Event(KRecentFilesMenu* self, QEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         return vkrecentfilesmenu->event(param1);
     } else {
-        return ((VirtualKRecentFilesMenu*)self)->event(param1);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRecentFilesMenu_SuperEvent(KRecentFilesMenu* self, QEvent* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_Event_IsBase(true);
-        return vkrecentfilesmenu->event(param1);
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->event(param1);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        return vkrecentfilesmenu->KRecentFilesMenu::event(param1);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_Event_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Event_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_event_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRecentFilesMenu_FocusNextPrevChild(KRecentFilesMenu* self, bool next) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         return vkrecentfilesmenu->focusNextPrevChild(next);
     } else {
-        return ((VirtualKRecentFilesMenu*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRecentFilesMenu_SuperFocusNextPrevChild(KRecentFilesMenu* self, bool next) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_FocusNextPrevChild_IsBase(true);
-        return vkrecentfilesmenu->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        return vkrecentfilesmenu->KRecentFilesMenu::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnFocusNextPrevChild(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_focusnextprevchild_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_InitStyleOption(const KRecentFilesMenu* self, QStyleOptionMenuItem* option, const QAction* action) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->initStyleOption(option, action);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->initStyleOption(option, action);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperInitStyleOption(const KRecentFilesMenu* self, QStyleOptionMenuItem* option, const QAction* action) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_InitStyleOption_IsBase(true);
-        vkrecentfilesmenu->initStyleOption(option, action);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->initStyleOption(option, action);
-    }
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self))) {
+        vkrecentfilesmenu->KRecentFilesMenu::initStyleOption(option, action);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnInitStyleOption(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_InitStyleOption_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_InitStyleOption_Callback>(slot));
+void KRecentFilesMenu_OnInitStyleOption(KRecentFilesMenu* self, intptr_t slot) {
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self)))
+        vkrecentfilesmenu->krecentfilesmenu_initstyleoption_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRecentFilesMenu_DevType(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return vkrecentfilesmenu->devType();
-    } else {
-        return self->KRecentFilesMenu::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KRecentFilesMenu_SuperDevType(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_DevType_IsBase(true);
-        return vkrecentfilesmenu->devType();
-    } else {
-        return self->KRecentFilesMenu::devType();
-    }
+    return self->KRecentFilesMenu::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnDevType(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_DevType_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DevType_Callback>(slot));
+void KRecentFilesMenu_OnDevType(KRecentFilesMenu* self, intptr_t slot) {
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self)))
+        vkrecentfilesmenu->krecentfilesmenu_devtype_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_SetVisible(KRecentFilesMenu* self, bool visible) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setVisible(visible);
-    } else {
-        self->KRecentFilesMenu::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperSetVisible(KRecentFilesMenu* self, bool visible) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_SetVisible_IsBase(true);
-        vkrecentfilesmenu->setVisible(visible);
-    } else {
-        self->KRecentFilesMenu::setVisible(visible);
-    }
+    self->KRecentFilesMenu::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnSetVisible(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_SetVisible_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_SetVisible_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_setvisible_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KRecentFilesMenu_MinimumSizeHint(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return new QSize(vkrecentfilesmenu->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKRecentFilesMenu*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KRecentFilesMenu_SuperMinimumSizeHint(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_MinimumSizeHint_IsBase(true);
-        return new QSize(vkrecentfilesmenu->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKRecentFilesMenu*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KRecentFilesMenu::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnMinimumSizeHint(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_MinimumSizeHint_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MinimumSizeHint_Callback>(slot));
+void KRecentFilesMenu_OnMinimumSizeHint(KRecentFilesMenu* self, intptr_t slot) {
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self)))
+        vkrecentfilesmenu->krecentfilesmenu_minimumsizehint_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRecentFilesMenu_HeightForWidth(const KRecentFilesMenu* self, int param1) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return vkrecentfilesmenu->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KRecentFilesMenu::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KRecentFilesMenu_SuperHeightForWidth(const KRecentFilesMenu* self, int param1) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_HeightForWidth_IsBase(true);
-        return vkrecentfilesmenu->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KRecentFilesMenu::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KRecentFilesMenu::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnHeightForWidth(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_HeightForWidth_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_HeightForWidth_Callback>(slot));
+void KRecentFilesMenu_OnHeightForWidth(KRecentFilesMenu* self, intptr_t slot) {
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self)))
+        vkrecentfilesmenu->krecentfilesmenu_heightforwidth_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRecentFilesMenu_HasHeightForWidth(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return vkrecentfilesmenu->hasHeightForWidth();
-    } else {
-        return self->KRecentFilesMenu::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KRecentFilesMenu_SuperHasHeightForWidth(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_HasHeightForWidth_IsBase(true);
-        return vkrecentfilesmenu->hasHeightForWidth();
-    } else {
-        return self->KRecentFilesMenu::hasHeightForWidth();
-    }
+    return self->KRecentFilesMenu::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnHasHeightForWidth(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_HasHeightForWidth_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_HasHeightForWidth_Callback>(slot));
+void KRecentFilesMenu_OnHasHeightForWidth(KRecentFilesMenu* self, intptr_t slot) {
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self)))
+        vkrecentfilesmenu->krecentfilesmenu_hasheightforwidth_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KRecentFilesMenu_PaintEngine(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return vkrecentfilesmenu->paintEngine();
-    } else {
-        return self->KRecentFilesMenu::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KRecentFilesMenu_SuperPaintEngine(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_PaintEngine_IsBase(true);
-        return vkrecentfilesmenu->paintEngine();
-    } else {
-        return self->KRecentFilesMenu::paintEngine();
-    }
+    return self->KRecentFilesMenu::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnPaintEngine(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_PaintEngine_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_PaintEngine_Callback>(slot));
+void KRecentFilesMenu_OnPaintEngine(KRecentFilesMenu* self, intptr_t slot) {
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self)))
+        vkrecentfilesmenu->krecentfilesmenu_paintengine_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_MouseDoubleClickEvent(KRecentFilesMenu* self, QMouseEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperMouseDoubleClickEvent(KRecentFilesMenu* self, QMouseEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_MouseDoubleClickEvent_IsBase(true);
-        vkrecentfilesmenu->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMouseDoubleClickEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_mousedoubleclickevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_KeyReleaseEvent(KRecentFilesMenu* self, QKeyEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->keyReleaseEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperKeyReleaseEvent(KRecentFilesMenu* self, QKeyEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_KeyReleaseEvent_IsBase(true);
-        vkrecentfilesmenu->keyReleaseEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnKeyReleaseEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_keyreleaseevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_FocusInEvent(KRecentFilesMenu* self, QFocusEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->focusInEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperFocusInEvent(KRecentFilesMenu* self, QFocusEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_FocusInEvent_IsBase(true);
-        vkrecentfilesmenu->focusInEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->focusInEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnFocusInEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_FocusInEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_FocusInEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_focusinevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_FocusOutEvent(KRecentFilesMenu* self, QFocusEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->focusOutEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperFocusOutEvent(KRecentFilesMenu* self, QFocusEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_FocusOutEvent_IsBase(true);
-        vkrecentfilesmenu->focusOutEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->focusOutEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnFocusOutEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_FocusOutEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_FocusOutEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_focusoutevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_MoveEvent(KRecentFilesMenu* self, QMoveEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->moveEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperMoveEvent(KRecentFilesMenu* self, QMoveEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_MoveEvent_IsBase(true);
-        vkrecentfilesmenu->moveEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->moveEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMoveEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_MoveEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MoveEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_moveevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_ResizeEvent(KRecentFilesMenu* self, QResizeEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->resizeEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperResizeEvent(KRecentFilesMenu* self, QResizeEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_ResizeEvent_IsBase(true);
-        vkrecentfilesmenu->resizeEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->resizeEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnResizeEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_ResizeEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ResizeEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_resizeevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_CloseEvent(KRecentFilesMenu* self, QCloseEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->closeEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperCloseEvent(KRecentFilesMenu* self, QCloseEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_CloseEvent_IsBase(true);
-        vkrecentfilesmenu->closeEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->closeEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnCloseEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_CloseEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_CloseEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_closeevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_ContextMenuEvent(KRecentFilesMenu* self, QContextMenuEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->contextMenuEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperContextMenuEvent(KRecentFilesMenu* self, QContextMenuEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_ContextMenuEvent_IsBase(true);
-        vkrecentfilesmenu->contextMenuEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnContextMenuEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_ContextMenuEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ContextMenuEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_contextmenuevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_TabletEvent(KRecentFilesMenu* self, QTabletEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->tabletEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperTabletEvent(KRecentFilesMenu* self, QTabletEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_TabletEvent_IsBase(true);
-        vkrecentfilesmenu->tabletEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->tabletEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnTabletEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_TabletEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_TabletEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_tabletevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_DragEnterEvent(KRecentFilesMenu* self, QDragEnterEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->dragEnterEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperDragEnterEvent(KRecentFilesMenu* self, QDragEnterEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_DragEnterEvent_IsBase(true);
-        vkrecentfilesmenu->dragEnterEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnDragEnterEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_DragEnterEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DragEnterEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_dragenterevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_DragMoveEvent(KRecentFilesMenu* self, QDragMoveEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->dragMoveEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperDragMoveEvent(KRecentFilesMenu* self, QDragMoveEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_DragMoveEvent_IsBase(true);
-        vkrecentfilesmenu->dragMoveEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnDragMoveEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_DragMoveEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DragMoveEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_dragmoveevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_DragLeaveEvent(KRecentFilesMenu* self, QDragLeaveEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->dragLeaveEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperDragLeaveEvent(KRecentFilesMenu* self, QDragLeaveEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_DragLeaveEvent_IsBase(true);
-        vkrecentfilesmenu->dragLeaveEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnDragLeaveEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_DragLeaveEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DragLeaveEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_dragleaveevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_DropEvent(KRecentFilesMenu* self, QDropEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->dropEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperDropEvent(KRecentFilesMenu* self, QDropEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_DropEvent_IsBase(true);
-        vkrecentfilesmenu->dropEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->dropEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnDropEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_DropEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DropEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_dropevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_ShowEvent(KRecentFilesMenu* self, QShowEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->showEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperShowEvent(KRecentFilesMenu* self, QShowEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_ShowEvent_IsBase(true);
-        vkrecentfilesmenu->showEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->showEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnShowEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_ShowEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ShowEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_showevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRecentFilesMenu_NativeEvent(KRecentFilesMenu* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
+    if (vkrecentfilesmenu) {
         return vkrecentfilesmenu->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKRecentFilesMenu*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KRecentFilesMenu::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRecentFilesMenu_SuperNativeEvent(KRecentFilesMenu* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_NativeEvent_IsBase(true);
-        return vkrecentfilesmenu->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        return vkrecentfilesmenu->KRecentFilesMenu::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnNativeEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_NativeEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_NativeEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_nativeevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRecentFilesMenu_Metric(const KRecentFilesMenu* self, int param1) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         return vkrecentfilesmenu->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKRecentFilesMenu*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KRecentFilesMenu::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KRecentFilesMenu_SuperMetric(const KRecentFilesMenu* self, int param1) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_Metric_IsBase(true);
-        return vkrecentfilesmenu->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self))) {
+        return vkrecentfilesmenu->KRecentFilesMenu::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnMetric(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_Metric_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Metric_Callback>(slot));
+void KRecentFilesMenu_OnMetric(KRecentFilesMenu* self, intptr_t slot) {
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self)))
+        vkrecentfilesmenu->krecentfilesmenu_metric_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_InitPainter(const KRecentFilesMenu* self, QPainter* painter) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->initPainter(painter);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperInitPainter(const KRecentFilesMenu* self, QPainter* painter) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_InitPainter_IsBase(true);
-        vkrecentfilesmenu->initPainter(painter);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->initPainter(painter);
-    }
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self))) {
+        vkrecentfilesmenu->KRecentFilesMenu::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnInitPainter(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_InitPainter_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_InitPainter_Callback>(slot));
+void KRecentFilesMenu_OnInitPainter(KRecentFilesMenu* self, intptr_t slot) {
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self)))
+        vkrecentfilesmenu->krecentfilesmenu_initpainter_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KRecentFilesMenu_Redirected(const KRecentFilesMenu* self, QPoint* offset) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         return vkrecentfilesmenu->redirected(offset);
     } else {
-        return ((VirtualKRecentFilesMenu*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KRecentFilesMenu_SuperRedirected(const KRecentFilesMenu* self, QPoint* offset) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_Redirected_IsBase(true);
-        return vkrecentfilesmenu->redirected(offset);
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->redirected(offset);
-    }
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self))) {
+        return vkrecentfilesmenu->KRecentFilesMenu::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnRedirected(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_Redirected_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Redirected_Callback>(slot));
+void KRecentFilesMenu_OnRedirected(KRecentFilesMenu* self, intptr_t slot) {
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self)))
+        vkrecentfilesmenu->krecentfilesmenu_redirected_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KRecentFilesMenu_SharedPainter(const KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         return vkrecentfilesmenu->sharedPainter();
     } else {
-        return ((VirtualKRecentFilesMenu*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KRecentFilesMenu::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KRecentFilesMenu_SuperSharedPainter(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_SharedPainter_IsBase(true);
-        return vkrecentfilesmenu->sharedPainter();
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->sharedPainter();
-    }
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self))) {
+        return vkrecentfilesmenu->KRecentFilesMenu::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnSharedPainter(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_SharedPainter_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_SharedPainter_Callback>(slot));
+void KRecentFilesMenu_OnSharedPainter(KRecentFilesMenu* self, intptr_t slot) {
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self)))
+        vkrecentfilesmenu->krecentfilesmenu_sharedpainter_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_InputMethodEvent(KRecentFilesMenu* self, QInputMethodEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->inputMethodEvent(param1);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperInputMethodEvent(KRecentFilesMenu* self, QInputMethodEvent* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_InputMethodEvent_IsBase(true);
-        vkrecentfilesmenu->inputMethodEvent(param1);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnInputMethodEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_InputMethodEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_InputMethodEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_inputmethodevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KRecentFilesMenu_InputMethodQuery(const KRecentFilesMenu* self, int param1) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return new QVariant(vkrecentfilesmenu->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKRecentFilesMenu*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KRecentFilesMenu_SuperInputMethodQuery(const KRecentFilesMenu* self, int param1) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_InputMethodQuery_IsBase(true);
-        return new QVariant(vkrecentfilesmenu->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKRecentFilesMenu*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KRecentFilesMenu::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnInputMethodQuery(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_InputMethodQuery_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_InputMethodQuery_Callback>(slot));
+void KRecentFilesMenu_OnInputMethodQuery(KRecentFilesMenu* self, intptr_t slot) {
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self)))
+        vkrecentfilesmenu->krecentfilesmenu_inputmethodquery_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRecentFilesMenu_EventFilter(KRecentFilesMenu* self, QObject* watched, QEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return vkrecentfilesmenu->eventFilter(watched, event);
-    } else {
-        return self->KRecentFilesMenu::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KRecentFilesMenu_SuperEventFilter(KRecentFilesMenu* self, QObject* watched, QEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_EventFilter_IsBase(true);
-        return vkrecentfilesmenu->eventFilter(watched, event);
-    } else {
-        return self->KRecentFilesMenu::eventFilter(watched, event);
-    }
+    return self->KRecentFilesMenu::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnEventFilter(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_EventFilter_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_EventFilter_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_eventfilter_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_ChildEvent(KRecentFilesMenu* self, QChildEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->childEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperChildEvent(KRecentFilesMenu* self, QChildEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_ChildEvent_IsBase(true);
-        vkrecentfilesmenu->childEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->childEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnChildEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_ChildEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ChildEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_childevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_CustomEvent(KRecentFilesMenu* self, QEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->customEvent(event);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperCustomEvent(KRecentFilesMenu* self, QEvent* event) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_CustomEvent_IsBase(true);
-        vkrecentfilesmenu->customEvent(event);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->customEvent(event);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnCustomEvent(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_CustomEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_CustomEvent_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_customevent_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_ConnectNotify(KRecentFilesMenu* self, const QMetaMethod* signal) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->connectNotify(*signal);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperConnectNotify(KRecentFilesMenu* self, const QMetaMethod* signal) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_ConnectNotify_IsBase(true);
-        vkrecentfilesmenu->connectNotify(*signal);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->connectNotify(*signal);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnConnectNotify(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_ConnectNotify_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ConnectNotify_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_connectnotify_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRecentFilesMenu_DisconnectNotify(KRecentFilesMenu* self, const QMetaMethod* signal) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu) {
         vkrecentfilesmenu->disconnectNotify(*signal);
     } else {
-        ((VirtualKRecentFilesMenu*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KRecentFilesMenu::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRecentFilesMenu_SuperDisconnectNotify(KRecentFilesMenu* self, const QMetaMethod* signal) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_DisconnectNotify_IsBase(true);
-        vkrecentfilesmenu->disconnectNotify(*signal);
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->KRecentFilesMenu::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KRecentFilesMenu::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnDisconnectNotify(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_DisconnectNotify_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DisconnectNotify_Callback>(slot));
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self))
+        vkrecentfilesmenu->krecentfilesmenu_disconnectnotify_callback = reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KRecentFilesMenu_ColumnCount(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return vkrecentfilesmenu->columnCount();
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->columnCount();
-    }
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self))) {
+        return vkrecentfilesmenu->VirtualKRecentFilesMenu::columnCount();
+    } else
+        qFatal("Error: Protected method KRecentFilesMenu::columnCount called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KRecentFilesMenu_SuperColumnCount(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_ColumnCount_IsBase(true);
-        return vkrecentfilesmenu->columnCount();
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->columnCount();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnColumnCount(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_ColumnCount_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ColumnCount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRecentFilesMenu_UpdateMicroFocus(KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->updateMicroFocus();
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->updateMicroFocus();
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->VirtualKRecentFilesMenu::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KRecentFilesMenu::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRecentFilesMenu_SuperUpdateMicroFocus(KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_UpdateMicroFocus_IsBase(true);
-        vkrecentfilesmenu->updateMicroFocus();
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnUpdateMicroFocus(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRecentFilesMenu_Create(KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->create();
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->create();
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->VirtualKRecentFilesMenu::create();
+    } else
+        qFatal("Error: Protected method KRecentFilesMenu::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRecentFilesMenu_SuperCreate(KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_Create_IsBase(true);
-        vkrecentfilesmenu->create();
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnCreate(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_Create_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRecentFilesMenu_Destroy(KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->destroy();
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->destroy();
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        vkrecentfilesmenu->VirtualKRecentFilesMenu::destroy();
+    } else
+        qFatal("Error: Protected method KRecentFilesMenu::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRecentFilesMenu_SuperDestroy(KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_Destroy_IsBase(true);
-        vkrecentfilesmenu->destroy();
-    } else {
-        ((VirtualKRecentFilesMenu*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnDestroy(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_Destroy_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRecentFilesMenu_FocusNextChild(KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return vkrecentfilesmenu->focusNextChild();
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->focusNextChild();
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        return vkrecentfilesmenu->VirtualKRecentFilesMenu::focusNextChild();
+    } else
+        qFatal("Error: Protected method KRecentFilesMenu::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRecentFilesMenu_SuperFocusNextChild(KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_FocusNextChild_IsBase(true);
-        return vkrecentfilesmenu->focusNextChild();
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnFocusNextChild(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_FocusNextChild_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRecentFilesMenu_FocusPreviousChild(KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return vkrecentfilesmenu->focusPreviousChild();
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->focusPreviousChild();
-    }
+    if (auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self)) {
+        return vkrecentfilesmenu->VirtualKRecentFilesMenu::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KRecentFilesMenu::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRecentFilesMenu_SuperFocusPreviousChild(KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_FocusPreviousChild_IsBase(true);
-        return vkrecentfilesmenu->focusPreviousChild();
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnFocusPreviousChild(KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_FocusPreviousChild_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KRecentFilesMenu_Sender(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return vkrecentfilesmenu->sender();
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->sender();
-    }
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self))) {
+        return vkrecentfilesmenu->VirtualKRecentFilesMenu::sender();
+    } else
+        qFatal("Error: Protected method KRecentFilesMenu::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KRecentFilesMenu_SuperSender(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_Sender_IsBase(true);
-        return vkrecentfilesmenu->sender();
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnSender(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_Sender_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KRecentFilesMenu_SenderSignalIndex(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return vkrecentfilesmenu->senderSignalIndex();
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->senderSignalIndex();
-    }
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self))) {
+        return vkrecentfilesmenu->VirtualKRecentFilesMenu::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KRecentFilesMenu::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KRecentFilesMenu_SuperSenderSignalIndex(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_SenderSignalIndex_IsBase(true);
-        return vkrecentfilesmenu->senderSignalIndex();
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnSenderSignalIndex(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_SenderSignalIndex_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KRecentFilesMenu_Receivers(const KRecentFilesMenu* self, const char* signal) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return vkrecentfilesmenu->receivers(signal);
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->receivers(signal);
-    }
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self))) {
+        return vkrecentfilesmenu->VirtualKRecentFilesMenu::receivers(signal);
+    } else
+        qFatal("Error: Protected method KRecentFilesMenu::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KRecentFilesMenu_SuperReceivers(const KRecentFilesMenu* self, const char* signal) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_Receivers_IsBase(true);
-        return vkrecentfilesmenu->receivers(signal);
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnReceivers(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_Receivers_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRecentFilesMenu_IsSignalConnected(const KRecentFilesMenu* self, const QMetaMethod* signal) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return vkrecentfilesmenu->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self))) {
+        return vkrecentfilesmenu->VirtualKRecentFilesMenu::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KRecentFilesMenu::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRecentFilesMenu_SuperIsSignalConnected(const KRecentFilesMenu* self, const QMetaMethod* signal) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_IsSignalConnected_IsBase(true);
-        return vkrecentfilesmenu->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnIsSignalConnected(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_IsSignalConnected_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KRecentFilesMenu_GetDecodedMetricF(const KRecentFilesMenu* self, int metricA, int metricB) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return vkrecentfilesmenu->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KRecentFilesMenu_SuperGetDecodedMetricF(const KRecentFilesMenu* self, int metricA, int metricB) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        vkrecentfilesmenu->setKRecentFilesMenu_GetDecodedMetricF_IsBase(true);
-        return vkrecentfilesmenu->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRecentFilesMenu_OnGetDecodedMetricF(const KRecentFilesMenu* self, intptr_t slot) {
-    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
-        vkrecentfilesmenu->setKRecentFilesMenu_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self))) {
+        return vkrecentfilesmenu->VirtualKRecentFilesMenu::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KRecentFilesMenu::getDecodedMetricF called without a directly constructed type");
 }
 
 void KRecentFilesMenu_Delete(KRecentFilesMenu* self) {

@@ -31,7 +31,7 @@ QRectF* QSGSimpleRectNode_Rect(const QSGSimpleRectNode* self);
 void QSGSimpleRectNode_SetColor(QSGSimpleRectNode* self, const QColor* color);
 QColor* QSGSimpleRectNode_Color(const QSGSimpleRectNode* self);
 bool QSGSimpleRectNode_IsSubtreeBlocked(const QSGSimpleRectNode* self);
-void QSGSimpleRectNode_OnIsSubtreeBlocked(const QSGSimpleRectNode* self, intptr_t slot);
+void QSGSimpleRectNode_OnIsSubtreeBlocked(QSGSimpleRectNode* self, intptr_t slot);
 bool QSGSimpleRectNode_SuperIsSubtreeBlocked(const QSGSimpleRectNode* self);
 void QSGSimpleRectNode_Preprocess(QSGSimpleRectNode* self);
 void QSGSimpleRectNode_OnPreprocess(QSGSimpleRectNode* self, intptr_t slot);

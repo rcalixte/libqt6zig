@@ -167,28 +167,18 @@ bool KConfigSkeletonItem_IsDefault(const KConfigSkeletonItem* self);
 bool KConfigSkeletonItem_IsSaveNeeded(const KConfigSkeletonItem* self);
 QVariant* KConfigSkeletonItem_GetDefault(const KConfigSkeletonItem* self);
 void KConfigSkeletonItem_OnReadConfig(KConfigSkeletonItem* self, intptr_t slot);
-void KConfigSkeletonItem_SuperReadConfig(KConfigSkeletonItem* self, KConfig* param1);
 void KConfigSkeletonItem_OnWriteConfig(KConfigSkeletonItem* self, intptr_t slot);
-void KConfigSkeletonItem_SuperWriteConfig(KConfigSkeletonItem* self, KConfig* param1);
 void KConfigSkeletonItem_OnReadDefault(KConfigSkeletonItem* self, intptr_t slot);
-void KConfigSkeletonItem_SuperReadDefault(KConfigSkeletonItem* self, KConfig* param1);
 void KConfigSkeletonItem_OnSetProperty(KConfigSkeletonItem* self, intptr_t slot);
-void KConfigSkeletonItem_SuperSetProperty(KConfigSkeletonItem* self, const QVariant* p);
-void KConfigSkeletonItem_OnIsEqual(const KConfigSkeletonItem* self, intptr_t slot);
-bool KConfigSkeletonItem_SuperIsEqual(const KConfigSkeletonItem* self, const QVariant* p);
-void KConfigSkeletonItem_OnProperty(const KConfigSkeletonItem* self, intptr_t slot);
-QVariant* KConfigSkeletonItem_SuperProperty(const KConfigSkeletonItem* self);
-void KConfigSkeletonItem_OnMinValue(const KConfigSkeletonItem* self, intptr_t slot);
+void KConfigSkeletonItem_OnIsEqual(KConfigSkeletonItem* self, intptr_t slot);
+void KConfigSkeletonItem_OnProperty(KConfigSkeletonItem* self, intptr_t slot);
+void KConfigSkeletonItem_OnMinValue(KConfigSkeletonItem* self, intptr_t slot);
 QVariant* KConfigSkeletonItem_SuperMinValue(const KConfigSkeletonItem* self);
-void KConfigSkeletonItem_OnMaxValue(const KConfigSkeletonItem* self, intptr_t slot);
+void KConfigSkeletonItem_OnMaxValue(KConfigSkeletonItem* self, intptr_t slot);
 QVariant* KConfigSkeletonItem_SuperMaxValue(const KConfigSkeletonItem* self);
 void KConfigSkeletonItem_OnSetDefault(KConfigSkeletonItem* self, intptr_t slot);
-void KConfigSkeletonItem_SuperSetDefault(KConfigSkeletonItem* self);
 void KConfigSkeletonItem_OnSwapDefault(KConfigSkeletonItem* self, intptr_t slot);
-void KConfigSkeletonItem_SuperSwapDefault(KConfigSkeletonItem* self);
 void KConfigSkeletonItem_ReadImmutability(KConfigSkeletonItem* self, const KConfigGroup* group);
-void KConfigSkeletonItem_OnReadImmutability(KConfigSkeletonItem* self, intptr_t slot);
-void KConfigSkeletonItem_SuperReadImmutability(KConfigSkeletonItem* self, const KConfigGroup* group);
 void KConfigSkeletonItem_Delete(KConfigSkeletonItem* self);
 
 KPropertySkeletonItem* KPropertySkeletonItem_new(QObject* object, const libqt_string propertyName, const QVariant* defaultValue);
@@ -202,11 +192,11 @@ void KPropertySkeletonItem_ReadDefault(KPropertySkeletonItem* self, KConfig* par
 void KPropertySkeletonItem_SetDefault(KPropertySkeletonItem* self);
 void KPropertySkeletonItem_SwapDefault(KPropertySkeletonItem* self);
 void KPropertySkeletonItem_SetNotifyFunction(KPropertySkeletonItem* self, intptr_t impl);
-void KPropertySkeletonItem_OnProperty(const KPropertySkeletonItem* self, intptr_t slot);
+void KPropertySkeletonItem_OnProperty(KPropertySkeletonItem* self, intptr_t slot);
 QVariant* KPropertySkeletonItem_SuperProperty(const KPropertySkeletonItem* self);
 void KPropertySkeletonItem_OnSetProperty(KPropertySkeletonItem* self, intptr_t slot);
 void KPropertySkeletonItem_SuperSetProperty(KPropertySkeletonItem* self, const QVariant* p);
-void KPropertySkeletonItem_OnIsEqual(const KPropertySkeletonItem* self, intptr_t slot);
+void KPropertySkeletonItem_OnIsEqual(KPropertySkeletonItem* self, intptr_t slot);
 bool KPropertySkeletonItem_SuperIsEqual(const KPropertySkeletonItem* self, const QVariant* p);
 void KPropertySkeletonItem_OnReadConfig(KPropertySkeletonItem* self, intptr_t slot);
 void KPropertySkeletonItem_SuperReadConfig(KPropertySkeletonItem* self, KConfig* param1);
@@ -219,14 +209,12 @@ void KPropertySkeletonItem_SuperSetDefault(KPropertySkeletonItem* self);
 void KPropertySkeletonItem_OnSwapDefault(KPropertySkeletonItem* self, intptr_t slot);
 void KPropertySkeletonItem_SuperSwapDefault(KPropertySkeletonItem* self);
 QVariant* KPropertySkeletonItem_MinValue(const KPropertySkeletonItem* self);
-void KPropertySkeletonItem_OnMinValue(const KPropertySkeletonItem* self, intptr_t slot);
+void KPropertySkeletonItem_OnMinValue(KPropertySkeletonItem* self, intptr_t slot);
 QVariant* KPropertySkeletonItem_SuperMinValue(const KPropertySkeletonItem* self);
 QVariant* KPropertySkeletonItem_MaxValue(const KPropertySkeletonItem* self);
-void KPropertySkeletonItem_OnMaxValue(const KPropertySkeletonItem* self, intptr_t slot);
+void KPropertySkeletonItem_OnMaxValue(KPropertySkeletonItem* self, intptr_t slot);
 QVariant* KPropertySkeletonItem_SuperMaxValue(const KPropertySkeletonItem* self);
 void KPropertySkeletonItem_ReadImmutability(KPropertySkeletonItem* self, const KConfigGroup* group);
-void KPropertySkeletonItem_OnReadImmutability(KPropertySkeletonItem* self, intptr_t slot);
-void KPropertySkeletonItem_SuperReadImmutability(KPropertySkeletonItem* self, const KConfigGroup* group);
 void KPropertySkeletonItem_Delete(KPropertySkeletonItem* self);
 
 void KConfigCompilerSignallingItem_ReadConfig(KConfigCompilerSignallingItem* self, KConfig* param1);
@@ -335,7 +323,7 @@ KCoreConfigSkeleton__ItemStringList* KCoreConfigSkeleton_AddItemStringList3(KCor
 KCoreConfigSkeleton__ItemStringList* KCoreConfigSkeleton_AddItemStringList4(KCoreConfigSkeleton* self, const libqt_string name, libqt_list /* of libqt_string */ reference, const libqt_list /* of libqt_string */ defaultValue, const libqt_string key);
 KCoreConfigSkeleton__ItemIntList* KCoreConfigSkeleton_AddItemIntList3(KCoreConfigSkeleton* self, const libqt_string name, libqt_list /* of int */ reference, const libqt_list /* of int */ defaultValue);
 KCoreConfigSkeleton__ItemIntList* KCoreConfigSkeleton_AddItemIntList4(KCoreConfigSkeleton* self, const libqt_string name, libqt_list /* of int */ reference, const libqt_list /* of int */ defaultValue, const libqt_string key);
-void KCoreConfigSkeleton_OnMetaObject(const KCoreConfigSkeleton* self, intptr_t slot);
+void KCoreConfigSkeleton_OnMetaObject(KCoreConfigSkeleton* self, intptr_t slot);
 QMetaObject* KCoreConfigSkeleton_SuperMetaObject(const KCoreConfigSkeleton* self);
 void KCoreConfigSkeleton_OnMetacast(KCoreConfigSkeleton* self, intptr_t slot);
 void* KCoreConfigSkeleton_SuperMetacast(KCoreConfigSkeleton* self, const char* param1);
@@ -375,17 +363,9 @@ void KCoreConfigSkeleton_DisconnectNotify(KCoreConfigSkeleton* self, const QMeta
 void KCoreConfigSkeleton_OnDisconnectNotify(KCoreConfigSkeleton* self, intptr_t slot);
 void KCoreConfigSkeleton_SuperDisconnectNotify(KCoreConfigSkeleton* self, const QMetaMethod* signal);
 QObject* KCoreConfigSkeleton_Sender(const KCoreConfigSkeleton* self);
-void KCoreConfigSkeleton_OnSender(const KCoreConfigSkeleton* self, intptr_t slot);
-QObject* KCoreConfigSkeleton_SuperSender(const KCoreConfigSkeleton* self);
 int KCoreConfigSkeleton_SenderSignalIndex(const KCoreConfigSkeleton* self);
-void KCoreConfigSkeleton_OnSenderSignalIndex(const KCoreConfigSkeleton* self, intptr_t slot);
-int KCoreConfigSkeleton_SuperSenderSignalIndex(const KCoreConfigSkeleton* self);
 int KCoreConfigSkeleton_Receivers(const KCoreConfigSkeleton* self, const char* signal);
-void KCoreConfigSkeleton_OnReceivers(const KCoreConfigSkeleton* self, intptr_t slot);
-int KCoreConfigSkeleton_SuperReceivers(const KCoreConfigSkeleton* self, const char* signal);
 bool KCoreConfigSkeleton_IsSignalConnected(const KCoreConfigSkeleton* self, const QMetaMethod* signal);
-void KCoreConfigSkeleton_OnIsSignalConnected(const KCoreConfigSkeleton* self, intptr_t slot);
-bool KCoreConfigSkeleton_SuperIsSignalConnected(const KCoreConfigSkeleton* self, const QMetaMethod* signal);
 void KCoreConfigSkeleton_Delete(KCoreConfigSkeleton* self);
 
 KCoreConfigSkeleton__ItemString* KCoreConfigSkeleton__ItemString_new(const libqt_string _group, const libqt_string _key, libqt_string reference);
@@ -402,9 +382,9 @@ void KCoreConfigSkeleton__ItemString_OnReadConfig(KCoreConfigSkeleton__ItemStrin
 void KCoreConfigSkeleton__ItemString_SuperReadConfig(KCoreConfigSkeleton__ItemString* self, KConfig* config);
 void KCoreConfigSkeleton__ItemString_OnSetProperty(KCoreConfigSkeleton__ItemString* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemString_SuperSetProperty(KCoreConfigSkeleton__ItemString* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemString_OnIsEqual(const KCoreConfigSkeleton__ItemString* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemString_OnIsEqual(KCoreConfigSkeleton__ItemString* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemString_SuperIsEqual(const KCoreConfigSkeleton__ItemString* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemString_OnProperty(const KCoreConfigSkeleton__ItemString* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemString_OnProperty(KCoreConfigSkeleton__ItemString* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemString_SuperProperty(const KCoreConfigSkeleton__ItemString* self);
 void KCoreConfigSkeleton__ItemString_Delete(KCoreConfigSkeleton__ItemString* self);
 
@@ -420,10 +400,10 @@ void KCoreConfigSkeleton__ItemPassword_SetProperty(KCoreConfigSkeleton__ItemPass
 void KCoreConfigSkeleton__ItemPassword_OnSetProperty(KCoreConfigSkeleton__ItemPassword* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemPassword_SuperSetProperty(KCoreConfigSkeleton__ItemPassword* self, const QVariant* p);
 bool KCoreConfigSkeleton__ItemPassword_IsEqual(const KCoreConfigSkeleton__ItemPassword* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemPassword_OnIsEqual(const KCoreConfigSkeleton__ItemPassword* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemPassword_OnIsEqual(KCoreConfigSkeleton__ItemPassword* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemPassword_SuperIsEqual(const KCoreConfigSkeleton__ItemPassword* self, const QVariant* p);
 QVariant* KCoreConfigSkeleton__ItemPassword_Property(const KCoreConfigSkeleton__ItemPassword* self);
-void KCoreConfigSkeleton__ItemPassword_OnProperty(const KCoreConfigSkeleton__ItemPassword* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemPassword_OnProperty(KCoreConfigSkeleton__ItemPassword* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemPassword_SuperProperty(const KCoreConfigSkeleton__ItemPassword* self);
 void KCoreConfigSkeleton__ItemPassword_Delete(KCoreConfigSkeleton__ItemPassword* self);
 
@@ -439,10 +419,10 @@ void KCoreConfigSkeleton__ItemPath_SetProperty(KCoreConfigSkeleton__ItemPath* se
 void KCoreConfigSkeleton__ItemPath_OnSetProperty(KCoreConfigSkeleton__ItemPath* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemPath_SuperSetProperty(KCoreConfigSkeleton__ItemPath* self, const QVariant* p);
 bool KCoreConfigSkeleton__ItemPath_IsEqual(const KCoreConfigSkeleton__ItemPath* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemPath_OnIsEqual(const KCoreConfigSkeleton__ItemPath* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemPath_OnIsEqual(KCoreConfigSkeleton__ItemPath* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemPath_SuperIsEqual(const KCoreConfigSkeleton__ItemPath* self, const QVariant* p);
 QVariant* KCoreConfigSkeleton__ItemPath_Property(const KCoreConfigSkeleton__ItemPath* self);
-void KCoreConfigSkeleton__ItemPath_OnProperty(const KCoreConfigSkeleton__ItemPath* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemPath_OnProperty(KCoreConfigSkeleton__ItemPath* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemPath_SuperProperty(const KCoreConfigSkeleton__ItemPath* self);
 void KCoreConfigSkeleton__ItemPath_Delete(KCoreConfigSkeleton__ItemPath* self);
 
@@ -459,9 +439,9 @@ void KCoreConfigSkeleton__ItemUrl_OnReadConfig(KCoreConfigSkeleton__ItemUrl* sel
 void KCoreConfigSkeleton__ItemUrl_SuperReadConfig(KCoreConfigSkeleton__ItemUrl* self, KConfig* config);
 void KCoreConfigSkeleton__ItemUrl_OnSetProperty(KCoreConfigSkeleton__ItemUrl* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemUrl_SuperSetProperty(KCoreConfigSkeleton__ItemUrl* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemUrl_OnIsEqual(const KCoreConfigSkeleton__ItemUrl* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemUrl_OnIsEqual(KCoreConfigSkeleton__ItemUrl* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemUrl_SuperIsEqual(const KCoreConfigSkeleton__ItemUrl* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemUrl_OnProperty(const KCoreConfigSkeleton__ItemUrl* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemUrl_OnProperty(KCoreConfigSkeleton__ItemUrl* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemUrl_SuperProperty(const KCoreConfigSkeleton__ItemUrl* self);
 void KCoreConfigSkeleton__ItemUrl_Delete(KCoreConfigSkeleton__ItemUrl* self);
 
@@ -475,9 +455,9 @@ void KCoreConfigSkeleton__ItemProperty_OnReadConfig(KCoreConfigSkeleton__ItemPro
 void KCoreConfigSkeleton__ItemProperty_SuperReadConfig(KCoreConfigSkeleton__ItemProperty* self, KConfig* config);
 void KCoreConfigSkeleton__ItemProperty_OnSetProperty(KCoreConfigSkeleton__ItemProperty* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemProperty_SuperSetProperty(KCoreConfigSkeleton__ItemProperty* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemProperty_OnIsEqual(const KCoreConfigSkeleton__ItemProperty* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemProperty_OnIsEqual(KCoreConfigSkeleton__ItemProperty* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemProperty_SuperIsEqual(const KCoreConfigSkeleton__ItemProperty* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemProperty_OnProperty(const KCoreConfigSkeleton__ItemProperty* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemProperty_OnProperty(KCoreConfigSkeleton__ItemProperty* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemProperty_SuperProperty(const KCoreConfigSkeleton__ItemProperty* self);
 void KCoreConfigSkeleton__ItemProperty_Delete(KCoreConfigSkeleton__ItemProperty* self);
 
@@ -491,9 +471,9 @@ void KCoreConfigSkeleton__ItemBool_OnReadConfig(KCoreConfigSkeleton__ItemBool* s
 void KCoreConfigSkeleton__ItemBool_SuperReadConfig(KCoreConfigSkeleton__ItemBool* self, KConfig* config);
 void KCoreConfigSkeleton__ItemBool_OnSetProperty(KCoreConfigSkeleton__ItemBool* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemBool_SuperSetProperty(KCoreConfigSkeleton__ItemBool* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemBool_OnIsEqual(const KCoreConfigSkeleton__ItemBool* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemBool_OnIsEqual(KCoreConfigSkeleton__ItemBool* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemBool_SuperIsEqual(const KCoreConfigSkeleton__ItemBool* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemBool_OnProperty(const KCoreConfigSkeleton__ItemBool* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemBool_OnProperty(KCoreConfigSkeleton__ItemBool* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemBool_SuperProperty(const KCoreConfigSkeleton__ItemBool* self);
 void KCoreConfigSkeleton__ItemBool_Delete(KCoreConfigSkeleton__ItemBool* self);
 
@@ -509,13 +489,13 @@ void KCoreConfigSkeleton__ItemInt_OnReadConfig(KCoreConfigSkeleton__ItemInt* sel
 void KCoreConfigSkeleton__ItemInt_SuperReadConfig(KCoreConfigSkeleton__ItemInt* self, KConfig* config);
 void KCoreConfigSkeleton__ItemInt_OnSetProperty(KCoreConfigSkeleton__ItemInt* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemInt_SuperSetProperty(KCoreConfigSkeleton__ItemInt* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemInt_OnIsEqual(const KCoreConfigSkeleton__ItemInt* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemInt_OnIsEqual(KCoreConfigSkeleton__ItemInt* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemInt_SuperIsEqual(const KCoreConfigSkeleton__ItemInt* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemInt_OnProperty(const KCoreConfigSkeleton__ItemInt* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemInt_OnProperty(KCoreConfigSkeleton__ItemInt* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemInt_SuperProperty(const KCoreConfigSkeleton__ItemInt* self);
-void KCoreConfigSkeleton__ItemInt_OnMinValue(const KCoreConfigSkeleton__ItemInt* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemInt_OnMinValue(KCoreConfigSkeleton__ItemInt* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemInt_SuperMinValue(const KCoreConfigSkeleton__ItemInt* self);
-void KCoreConfigSkeleton__ItemInt_OnMaxValue(const KCoreConfigSkeleton__ItemInt* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemInt_OnMaxValue(KCoreConfigSkeleton__ItemInt* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemInt_SuperMaxValue(const KCoreConfigSkeleton__ItemInt* self);
 void KCoreConfigSkeleton__ItemInt_Delete(KCoreConfigSkeleton__ItemInt* self);
 
@@ -533,13 +513,13 @@ void KCoreConfigSkeleton__ItemLongLong_OnReadConfig(KCoreConfigSkeleton__ItemLon
 void KCoreConfigSkeleton__ItemLongLong_SuperReadConfig(KCoreConfigSkeleton__ItemLongLong* self, KConfig* config);
 void KCoreConfigSkeleton__ItemLongLong_OnSetProperty(KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemLongLong_SuperSetProperty(KCoreConfigSkeleton__ItemLongLong* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemLongLong_OnIsEqual(const KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemLongLong_OnIsEqual(KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemLongLong_SuperIsEqual(const KCoreConfigSkeleton__ItemLongLong* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemLongLong_OnProperty(const KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemLongLong_OnProperty(KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemLongLong_SuperProperty(const KCoreConfigSkeleton__ItemLongLong* self);
-void KCoreConfigSkeleton__ItemLongLong_OnMinValue(const KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemLongLong_OnMinValue(KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemLongLong_SuperMinValue(const KCoreConfigSkeleton__ItemLongLong* self);
-void KCoreConfigSkeleton__ItemLongLong_OnMaxValue(const KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemLongLong_OnMaxValue(KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemLongLong_SuperMaxValue(const KCoreConfigSkeleton__ItemLongLong* self);
 void KCoreConfigSkeleton__ItemLongLong_Delete(KCoreConfigSkeleton__ItemLongLong* self);
 
@@ -573,16 +553,16 @@ void KCoreConfigSkeleton__ItemEnum_SetProperty(KCoreConfigSkeleton__ItemEnum* se
 void KCoreConfigSkeleton__ItemEnum_OnSetProperty(KCoreConfigSkeleton__ItemEnum* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemEnum_SuperSetProperty(KCoreConfigSkeleton__ItemEnum* self, const QVariant* p);
 bool KCoreConfigSkeleton__ItemEnum_IsEqual(const KCoreConfigSkeleton__ItemEnum* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemEnum_OnIsEqual(const KCoreConfigSkeleton__ItemEnum* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemEnum_OnIsEqual(KCoreConfigSkeleton__ItemEnum* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemEnum_SuperIsEqual(const KCoreConfigSkeleton__ItemEnum* self, const QVariant* p);
 QVariant* KCoreConfigSkeleton__ItemEnum_Property(const KCoreConfigSkeleton__ItemEnum* self);
-void KCoreConfigSkeleton__ItemEnum_OnProperty(const KCoreConfigSkeleton__ItemEnum* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemEnum_OnProperty(KCoreConfigSkeleton__ItemEnum* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemEnum_SuperProperty(const KCoreConfigSkeleton__ItemEnum* self);
 QVariant* KCoreConfigSkeleton__ItemEnum_MinValue(const KCoreConfigSkeleton__ItemEnum* self);
-void KCoreConfigSkeleton__ItemEnum_OnMinValue(const KCoreConfigSkeleton__ItemEnum* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemEnum_OnMinValue(KCoreConfigSkeleton__ItemEnum* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemEnum_SuperMinValue(const KCoreConfigSkeleton__ItemEnum* self);
 QVariant* KCoreConfigSkeleton__ItemEnum_MaxValue(const KCoreConfigSkeleton__ItemEnum* self);
-void KCoreConfigSkeleton__ItemEnum_OnMaxValue(const KCoreConfigSkeleton__ItemEnum* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemEnum_OnMaxValue(KCoreConfigSkeleton__ItemEnum* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemEnum_SuperMaxValue(const KCoreConfigSkeleton__ItemEnum* self);
 void KCoreConfigSkeleton__ItemEnum_Delete(KCoreConfigSkeleton__ItemEnum* self);
 
@@ -600,13 +580,13 @@ void KCoreConfigSkeleton__ItemUInt_OnReadConfig(KCoreConfigSkeleton__ItemUInt* s
 void KCoreConfigSkeleton__ItemUInt_SuperReadConfig(KCoreConfigSkeleton__ItemUInt* self, KConfig* config);
 void KCoreConfigSkeleton__ItemUInt_OnSetProperty(KCoreConfigSkeleton__ItemUInt* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemUInt_SuperSetProperty(KCoreConfigSkeleton__ItemUInt* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemUInt_OnIsEqual(const KCoreConfigSkeleton__ItemUInt* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemUInt_OnIsEqual(KCoreConfigSkeleton__ItemUInt* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemUInt_SuperIsEqual(const KCoreConfigSkeleton__ItemUInt* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemUInt_OnProperty(const KCoreConfigSkeleton__ItemUInt* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemUInt_OnProperty(KCoreConfigSkeleton__ItemUInt* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemUInt_SuperProperty(const KCoreConfigSkeleton__ItemUInt* self);
-void KCoreConfigSkeleton__ItemUInt_OnMinValue(const KCoreConfigSkeleton__ItemUInt* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemUInt_OnMinValue(KCoreConfigSkeleton__ItemUInt* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemUInt_SuperMinValue(const KCoreConfigSkeleton__ItemUInt* self);
-void KCoreConfigSkeleton__ItemUInt_OnMaxValue(const KCoreConfigSkeleton__ItemUInt* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemUInt_OnMaxValue(KCoreConfigSkeleton__ItemUInt* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemUInt_SuperMaxValue(const KCoreConfigSkeleton__ItemUInt* self);
 void KCoreConfigSkeleton__ItemUInt_Delete(KCoreConfigSkeleton__ItemUInt* self);
 
@@ -624,13 +604,13 @@ void KCoreConfigSkeleton__ItemULongLong_OnReadConfig(KCoreConfigSkeleton__ItemUL
 void KCoreConfigSkeleton__ItemULongLong_SuperReadConfig(KCoreConfigSkeleton__ItemULongLong* self, KConfig* config);
 void KCoreConfigSkeleton__ItemULongLong_OnSetProperty(KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemULongLong_SuperSetProperty(KCoreConfigSkeleton__ItemULongLong* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemULongLong_OnIsEqual(const KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemULongLong_OnIsEqual(KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemULongLong_SuperIsEqual(const KCoreConfigSkeleton__ItemULongLong* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemULongLong_OnProperty(const KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemULongLong_OnProperty(KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemULongLong_SuperProperty(const KCoreConfigSkeleton__ItemULongLong* self);
-void KCoreConfigSkeleton__ItemULongLong_OnMinValue(const KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemULongLong_OnMinValue(KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemULongLong_SuperMinValue(const KCoreConfigSkeleton__ItemULongLong* self);
-void KCoreConfigSkeleton__ItemULongLong_OnMaxValue(const KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemULongLong_OnMaxValue(KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemULongLong_SuperMaxValue(const KCoreConfigSkeleton__ItemULongLong* self);
 void KCoreConfigSkeleton__ItemULongLong_Delete(KCoreConfigSkeleton__ItemULongLong* self);
 
@@ -648,13 +628,13 @@ void KCoreConfigSkeleton__ItemDouble_OnReadConfig(KCoreConfigSkeleton__ItemDoubl
 void KCoreConfigSkeleton__ItemDouble_SuperReadConfig(KCoreConfigSkeleton__ItemDouble* self, KConfig* config);
 void KCoreConfigSkeleton__ItemDouble_OnSetProperty(KCoreConfigSkeleton__ItemDouble* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemDouble_SuperSetProperty(KCoreConfigSkeleton__ItemDouble* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemDouble_OnIsEqual(const KCoreConfigSkeleton__ItemDouble* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemDouble_OnIsEqual(KCoreConfigSkeleton__ItemDouble* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemDouble_SuperIsEqual(const KCoreConfigSkeleton__ItemDouble* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemDouble_OnProperty(const KCoreConfigSkeleton__ItemDouble* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemDouble_OnProperty(KCoreConfigSkeleton__ItemDouble* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemDouble_SuperProperty(const KCoreConfigSkeleton__ItemDouble* self);
-void KCoreConfigSkeleton__ItemDouble_OnMinValue(const KCoreConfigSkeleton__ItemDouble* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemDouble_OnMinValue(KCoreConfigSkeleton__ItemDouble* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemDouble_SuperMinValue(const KCoreConfigSkeleton__ItemDouble* self);
-void KCoreConfigSkeleton__ItemDouble_OnMaxValue(const KCoreConfigSkeleton__ItemDouble* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemDouble_OnMaxValue(KCoreConfigSkeleton__ItemDouble* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemDouble_SuperMaxValue(const KCoreConfigSkeleton__ItemDouble* self);
 void KCoreConfigSkeleton__ItemDouble_Delete(KCoreConfigSkeleton__ItemDouble* self);
 
@@ -668,9 +648,9 @@ void KCoreConfigSkeleton__ItemRect_OnReadConfig(KCoreConfigSkeleton__ItemRect* s
 void KCoreConfigSkeleton__ItemRect_SuperReadConfig(KCoreConfigSkeleton__ItemRect* self, KConfig* config);
 void KCoreConfigSkeleton__ItemRect_OnSetProperty(KCoreConfigSkeleton__ItemRect* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemRect_SuperSetProperty(KCoreConfigSkeleton__ItemRect* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemRect_OnIsEqual(const KCoreConfigSkeleton__ItemRect* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemRect_OnIsEqual(KCoreConfigSkeleton__ItemRect* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemRect_SuperIsEqual(const KCoreConfigSkeleton__ItemRect* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemRect_OnProperty(const KCoreConfigSkeleton__ItemRect* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemRect_OnProperty(KCoreConfigSkeleton__ItemRect* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemRect_SuperProperty(const KCoreConfigSkeleton__ItemRect* self);
 void KCoreConfigSkeleton__ItemRect_Delete(KCoreConfigSkeleton__ItemRect* self);
 
@@ -684,9 +664,9 @@ void KCoreConfigSkeleton__ItemRectF_OnReadConfig(KCoreConfigSkeleton__ItemRectF*
 void KCoreConfigSkeleton__ItemRectF_SuperReadConfig(KCoreConfigSkeleton__ItemRectF* self, KConfig* config);
 void KCoreConfigSkeleton__ItemRectF_OnSetProperty(KCoreConfigSkeleton__ItemRectF* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemRectF_SuperSetProperty(KCoreConfigSkeleton__ItemRectF* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemRectF_OnIsEqual(const KCoreConfigSkeleton__ItemRectF* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemRectF_OnIsEqual(KCoreConfigSkeleton__ItemRectF* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemRectF_SuperIsEqual(const KCoreConfigSkeleton__ItemRectF* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemRectF_OnProperty(const KCoreConfigSkeleton__ItemRectF* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemRectF_OnProperty(KCoreConfigSkeleton__ItemRectF* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemRectF_SuperProperty(const KCoreConfigSkeleton__ItemRectF* self);
 void KCoreConfigSkeleton__ItemRectF_Delete(KCoreConfigSkeleton__ItemRectF* self);
 
@@ -700,9 +680,9 @@ void KCoreConfigSkeleton__ItemPoint_OnReadConfig(KCoreConfigSkeleton__ItemPoint*
 void KCoreConfigSkeleton__ItemPoint_SuperReadConfig(KCoreConfigSkeleton__ItemPoint* self, KConfig* config);
 void KCoreConfigSkeleton__ItemPoint_OnSetProperty(KCoreConfigSkeleton__ItemPoint* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemPoint_SuperSetProperty(KCoreConfigSkeleton__ItemPoint* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemPoint_OnIsEqual(const KCoreConfigSkeleton__ItemPoint* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemPoint_OnIsEqual(KCoreConfigSkeleton__ItemPoint* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemPoint_SuperIsEqual(const KCoreConfigSkeleton__ItemPoint* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemPoint_OnProperty(const KCoreConfigSkeleton__ItemPoint* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemPoint_OnProperty(KCoreConfigSkeleton__ItemPoint* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemPoint_SuperProperty(const KCoreConfigSkeleton__ItemPoint* self);
 void KCoreConfigSkeleton__ItemPoint_Delete(KCoreConfigSkeleton__ItemPoint* self);
 
@@ -716,9 +696,9 @@ void KCoreConfigSkeleton__ItemPointF_OnReadConfig(KCoreConfigSkeleton__ItemPoint
 void KCoreConfigSkeleton__ItemPointF_SuperReadConfig(KCoreConfigSkeleton__ItemPointF* self, KConfig* config);
 void KCoreConfigSkeleton__ItemPointF_OnSetProperty(KCoreConfigSkeleton__ItemPointF* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemPointF_SuperSetProperty(KCoreConfigSkeleton__ItemPointF* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemPointF_OnIsEqual(const KCoreConfigSkeleton__ItemPointF* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemPointF_OnIsEqual(KCoreConfigSkeleton__ItemPointF* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemPointF_SuperIsEqual(const KCoreConfigSkeleton__ItemPointF* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemPointF_OnProperty(const KCoreConfigSkeleton__ItemPointF* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemPointF_OnProperty(KCoreConfigSkeleton__ItemPointF* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemPointF_SuperProperty(const KCoreConfigSkeleton__ItemPointF* self);
 void KCoreConfigSkeleton__ItemPointF_Delete(KCoreConfigSkeleton__ItemPointF* self);
 
@@ -732,9 +712,9 @@ void KCoreConfigSkeleton__ItemSize_OnReadConfig(KCoreConfigSkeleton__ItemSize* s
 void KCoreConfigSkeleton__ItemSize_SuperReadConfig(KCoreConfigSkeleton__ItemSize* self, KConfig* config);
 void KCoreConfigSkeleton__ItemSize_OnSetProperty(KCoreConfigSkeleton__ItemSize* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemSize_SuperSetProperty(KCoreConfigSkeleton__ItemSize* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemSize_OnIsEqual(const KCoreConfigSkeleton__ItemSize* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemSize_OnIsEqual(KCoreConfigSkeleton__ItemSize* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemSize_SuperIsEqual(const KCoreConfigSkeleton__ItemSize* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemSize_OnProperty(const KCoreConfigSkeleton__ItemSize* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemSize_OnProperty(KCoreConfigSkeleton__ItemSize* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemSize_SuperProperty(const KCoreConfigSkeleton__ItemSize* self);
 void KCoreConfigSkeleton__ItemSize_Delete(KCoreConfigSkeleton__ItemSize* self);
 
@@ -748,9 +728,9 @@ void KCoreConfigSkeleton__ItemSizeF_OnReadConfig(KCoreConfigSkeleton__ItemSizeF*
 void KCoreConfigSkeleton__ItemSizeF_SuperReadConfig(KCoreConfigSkeleton__ItemSizeF* self, KConfig* config);
 void KCoreConfigSkeleton__ItemSizeF_OnSetProperty(KCoreConfigSkeleton__ItemSizeF* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemSizeF_SuperSetProperty(KCoreConfigSkeleton__ItemSizeF* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemSizeF_OnIsEqual(const KCoreConfigSkeleton__ItemSizeF* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemSizeF_OnIsEqual(KCoreConfigSkeleton__ItemSizeF* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemSizeF_SuperIsEqual(const KCoreConfigSkeleton__ItemSizeF* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemSizeF_OnProperty(const KCoreConfigSkeleton__ItemSizeF* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemSizeF_OnProperty(KCoreConfigSkeleton__ItemSizeF* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemSizeF_SuperProperty(const KCoreConfigSkeleton__ItemSizeF* self);
 void KCoreConfigSkeleton__ItemSizeF_Delete(KCoreConfigSkeleton__ItemSizeF* self);
 
@@ -764,9 +744,9 @@ void KCoreConfigSkeleton__ItemDateTime_OnReadConfig(KCoreConfigSkeleton__ItemDat
 void KCoreConfigSkeleton__ItemDateTime_SuperReadConfig(KCoreConfigSkeleton__ItemDateTime* self, KConfig* config);
 void KCoreConfigSkeleton__ItemDateTime_OnSetProperty(KCoreConfigSkeleton__ItemDateTime* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemDateTime_SuperSetProperty(KCoreConfigSkeleton__ItemDateTime* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemDateTime_OnIsEqual(const KCoreConfigSkeleton__ItemDateTime* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemDateTime_OnIsEqual(KCoreConfigSkeleton__ItemDateTime* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemDateTime_SuperIsEqual(const KCoreConfigSkeleton__ItemDateTime* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemDateTime_OnProperty(const KCoreConfigSkeleton__ItemDateTime* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemDateTime_OnProperty(KCoreConfigSkeleton__ItemDateTime* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemDateTime_SuperProperty(const KCoreConfigSkeleton__ItemDateTime* self);
 void KCoreConfigSkeleton__ItemDateTime_Delete(KCoreConfigSkeleton__ItemDateTime* self);
 
@@ -780,9 +760,9 @@ void KCoreConfigSkeleton__ItemStringList_OnReadConfig(KCoreConfigSkeleton__ItemS
 void KCoreConfigSkeleton__ItemStringList_SuperReadConfig(KCoreConfigSkeleton__ItemStringList* self, KConfig* config);
 void KCoreConfigSkeleton__ItemStringList_OnSetProperty(KCoreConfigSkeleton__ItemStringList* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemStringList_SuperSetProperty(KCoreConfigSkeleton__ItemStringList* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemStringList_OnIsEqual(const KCoreConfigSkeleton__ItemStringList* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemStringList_OnIsEqual(KCoreConfigSkeleton__ItemStringList* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemStringList_SuperIsEqual(const KCoreConfigSkeleton__ItemStringList* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemStringList_OnProperty(const KCoreConfigSkeleton__ItemStringList* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemStringList_OnProperty(KCoreConfigSkeleton__ItemStringList* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemStringList_SuperProperty(const KCoreConfigSkeleton__ItemStringList* self);
 void KCoreConfigSkeleton__ItemStringList_Delete(KCoreConfigSkeleton__ItemStringList* self);
 
@@ -798,10 +778,10 @@ void KCoreConfigSkeleton__ItemPathList_SetProperty(KCoreConfigSkeleton__ItemPath
 void KCoreConfigSkeleton__ItemPathList_OnSetProperty(KCoreConfigSkeleton__ItemPathList* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemPathList_SuperSetProperty(KCoreConfigSkeleton__ItemPathList* self, const QVariant* p);
 bool KCoreConfigSkeleton__ItemPathList_IsEqual(const KCoreConfigSkeleton__ItemPathList* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemPathList_OnIsEqual(const KCoreConfigSkeleton__ItemPathList* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemPathList_OnIsEqual(KCoreConfigSkeleton__ItemPathList* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemPathList_SuperIsEqual(const KCoreConfigSkeleton__ItemPathList* self, const QVariant* p);
 QVariant* KCoreConfigSkeleton__ItemPathList_Property(const KCoreConfigSkeleton__ItemPathList* self);
-void KCoreConfigSkeleton__ItemPathList_OnProperty(const KCoreConfigSkeleton__ItemPathList* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemPathList_OnProperty(KCoreConfigSkeleton__ItemPathList* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemPathList_SuperProperty(const KCoreConfigSkeleton__ItemPathList* self);
 void KCoreConfigSkeleton__ItemPathList_Delete(KCoreConfigSkeleton__ItemPathList* self);
 
@@ -818,9 +798,9 @@ void KCoreConfigSkeleton__ItemUrlList_OnWriteConfig(KCoreConfigSkeleton__ItemUrl
 void KCoreConfigSkeleton__ItemUrlList_SuperWriteConfig(KCoreConfigSkeleton__ItemUrlList* self, KConfig* config);
 void KCoreConfigSkeleton__ItemUrlList_OnSetProperty(KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemUrlList_SuperSetProperty(KCoreConfigSkeleton__ItemUrlList* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemUrlList_OnIsEqual(const KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemUrlList_OnIsEqual(KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemUrlList_SuperIsEqual(const KCoreConfigSkeleton__ItemUrlList* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemUrlList_OnProperty(const KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemUrlList_OnProperty(KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemUrlList_SuperProperty(const KCoreConfigSkeleton__ItemUrlList* self);
 void KCoreConfigSkeleton__ItemUrlList_Delete(KCoreConfigSkeleton__ItemUrlList* self);
 
@@ -834,9 +814,9 @@ void KCoreConfigSkeleton__ItemIntList_OnReadConfig(KCoreConfigSkeleton__ItemIntL
 void KCoreConfigSkeleton__ItemIntList_SuperReadConfig(KCoreConfigSkeleton__ItemIntList* self, KConfig* config);
 void KCoreConfigSkeleton__ItemIntList_OnSetProperty(KCoreConfigSkeleton__ItemIntList* self, intptr_t slot);
 void KCoreConfigSkeleton__ItemIntList_SuperSetProperty(KCoreConfigSkeleton__ItemIntList* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemIntList_OnIsEqual(const KCoreConfigSkeleton__ItemIntList* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemIntList_OnIsEqual(KCoreConfigSkeleton__ItemIntList* self, intptr_t slot);
 bool KCoreConfigSkeleton__ItemIntList_SuperIsEqual(const KCoreConfigSkeleton__ItemIntList* self, const QVariant* p);
-void KCoreConfigSkeleton__ItemIntList_OnProperty(const KCoreConfigSkeleton__ItemIntList* self, intptr_t slot);
+void KCoreConfigSkeleton__ItemIntList_OnProperty(KCoreConfigSkeleton__ItemIntList* self, intptr_t slot);
 QVariant* KCoreConfigSkeleton__ItemIntList_SuperProperty(const KCoreConfigSkeleton__ItemIntList* self);
 void KCoreConfigSkeleton__ItemIntList_Delete(KCoreConfigSkeleton__ItemIntList* self);
 

@@ -77,9 +77,9 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QStylePlugin) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QStylePlugin, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QStylePlugin, callback: *const fn (QStylePlugin) callconv(.c) QMetaObject) void {
         qtc.QStylePlugin_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -230,6 +230,8 @@ pub const QStylePlugin = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleplugin.html#create)
     ///
+    /// This method must be implemented with `onCreate` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QStylePlugin `
@@ -260,28 +262,6 @@ pub const QStylePlugin = extern struct {
     ///
     pub fn onCreate(self: QStylePlugin, callback: *const fn (QStylePlugin, [*:0]const u8) callconv(.c) QStyle) void {
         qtc.QStylePlugin_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleplugin.html#create)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStylePlugin `
-    ///
-    /// ` key: []const u8 `
-    ///
-    pub fn superCreate(self: QStylePlugin, key: []const u8) QStyle {
-        const key_str = qtc.libqt_string{
-            .len = key.len,
-            .data = key.ptr,
-        };
-        return .{ .ptr = qtc.QStylePlugin_SuperCreate(@ptrCast(self.ptr), key_str) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1761,44 +1741,6 @@ pub const QStylePlugin = extern struct {
         return .{ .ptr = qtc.QStylePlugin_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStylePlugin `
-    ///
-    pub fn superSender(self: QStylePlugin) QObject {
-        return .{ .ptr = qtc.QStylePlugin_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStylePlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QStylePlugin, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QStylePlugin_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1815,44 +1757,6 @@ pub const QStylePlugin = extern struct {
     ///
     pub fn senderSignalIndex(self: QStylePlugin) i32 {
         return qtc.QStylePlugin_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStylePlugin `
-    ///
-    pub fn superSenderSignalIndex(self: QStylePlugin) i32 {
-        return qtc.QStylePlugin_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStylePlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QStylePlugin, callback: *const fn () callconv(.c) i32) void {
-        qtc.QStylePlugin_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1876,47 +1780,6 @@ pub const QStylePlugin = extern struct {
         return qtc.QStylePlugin_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStylePlugin `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QStylePlugin, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QStylePlugin_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStylePlugin`
-    ///
-    /// ` callback: *const fn (self: QStylePlugin, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QStylePlugin, callback: *const fn (QStylePlugin, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QStylePlugin_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -1936,47 +1799,6 @@ pub const QStylePlugin = extern struct {
     pub fn isSignalConnected(self: QStylePlugin, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QStylePlugin_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStylePlugin `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QStylePlugin, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QStylePlugin_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStylePlugin`
-    ///
-    /// ` callback: *const fn (self: QStylePlugin, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QStylePlugin, callback: *const fn (QStylePlugin, QMetaMethod) callconv(.c) bool) void {
-        qtc.QStylePlugin_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

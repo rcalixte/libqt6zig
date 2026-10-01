@@ -124,9 +124,9 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
     ///
     /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KSyntaxHighlighting__SyntaxHighlighter) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn (KSyntaxHighlighting__SyntaxHighlighter) callconv(.c) QMetaObject) void {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2183,51 +2183,6 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_SetFormat(@ptrCast(self.ptr), @bitCast(start), @bitCast(count), @ptrCast(_format.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetFormat` instead
-    ///
-    pub const SuperSetFormat = superSetFormat;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
-    ///
-    /// ` start: i32 `
-    ///
-    /// ` count: i32 `
-    ///
-    /// ` _format: QTextCharFormat `
-    ///
-    pub fn superSetFormat(self: KSyntaxHighlighting__SyntaxHighlighter, start: i32, count: i32, _format: anytype) void {
-        comptime _ = @TypeOf(_format)._is_QTextCharFormat;
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperSetFormat(@ptrCast(self.ptr), @bitCast(start), @bitCast(count), @ptrCast(_format.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetFormat` instead
-    ///
-    pub const OnSetFormat = onSetFormat;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter`
-    ///
-    /// ` callback: *const fn (self: KSyntaxHighlighting__SyntaxHighlighter, start: i32, count: i32, format: QTextCharFormat) callconv(.c) void `
-    ///
-    pub fn onSetFormat(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn (KSyntaxHighlighting__SyntaxHighlighter, i32, i32, QTextCharFormat) callconv(.c) void) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_OnSetFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `format` instead
     ///
     pub const Format = format;
@@ -2248,48 +2203,6 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
         return .{ .ptr = qtc.KSyntaxHighlighting__SyntaxHighlighter_Format(@ptrCast(self.ptr), @bitCast(pos)) };
     }
 
-    /// ### DEPRECATED: Use `superFormat` instead
-    ///
-    pub const SuperFormat = superFormat;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
-    ///
-    /// ` pos: i32 `
-    ///
-    pub fn superFormat(self: KSyntaxHighlighting__SyntaxHighlighter, pos: i32) QTextCharFormat {
-        return .{ .ptr = qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperFormat(@ptrCast(self.ptr), @bitCast(pos)) };
-    }
-
-    /// ### DEPRECATED: Use `onFormat` instead
-    ///
-    pub const OnFormat = onFormat;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter`
-    ///
-    /// ` callback: *const fn (self: KSyntaxHighlighting__SyntaxHighlighter, pos: i32) callconv(.c) QTextCharFormat `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onFormat(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn (KSyntaxHighlighting__SyntaxHighlighter, i32) callconv(.c) QTextCharFormat) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `previousBlockState` instead
     ///
     pub const PreviousBlockState = previousBlockState;
@@ -2306,44 +2219,6 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
     ///
     pub fn previousBlockState(self: KSyntaxHighlighting__SyntaxHighlighter) i32 {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_PreviousBlockState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superPreviousBlockState` instead
-    ///
-    pub const SuperPreviousBlockState = superPreviousBlockState;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
-    ///
-    pub fn superPreviousBlockState(self: KSyntaxHighlighting__SyntaxHighlighter) i32 {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperPreviousBlockState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onPreviousBlockState` instead
-    ///
-    pub const OnPreviousBlockState = onPreviousBlockState;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onPreviousBlockState(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn () callconv(.c) i32) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_OnPreviousBlockState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `currentBlockState` instead
@@ -2364,44 +2239,6 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_CurrentBlockState(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCurrentBlockState` instead
-    ///
-    pub const SuperCurrentBlockState = superCurrentBlockState;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
-    ///
-    pub fn superCurrentBlockState(self: KSyntaxHighlighting__SyntaxHighlighter) i32 {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperCurrentBlockState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCurrentBlockState` instead
-    ///
-    pub const OnCurrentBlockState = onCurrentBlockState;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onCurrentBlockState(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn () callconv(.c) i32) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_OnCurrentBlockState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setCurrentBlockState` instead
     ///
     pub const SetCurrentBlockState = setCurrentBlockState;
@@ -2420,46 +2257,6 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
     ///
     pub fn setCurrentBlockState(self: KSyntaxHighlighting__SyntaxHighlighter, newState: i32) void {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_SetCurrentBlockState(@ptrCast(self.ptr), @bitCast(newState));
-    }
-
-    /// ### DEPRECATED: Use `superSetCurrentBlockState` instead
-    ///
-    pub const SuperSetCurrentBlockState = superSetCurrentBlockState;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
-    ///
-    /// ` newState: i32 `
-    ///
-    pub fn superSetCurrentBlockState(self: KSyntaxHighlighting__SyntaxHighlighter, newState: i32) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperSetCurrentBlockState(@ptrCast(self.ptr), @bitCast(newState));
-    }
-
-    /// ### DEPRECATED: Use `onSetCurrentBlockState` instead
-    ///
-    pub const OnSetCurrentBlockState = onSetCurrentBlockState;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter`
-    ///
-    /// ` callback: *const fn (self: KSyntaxHighlighting__SyntaxHighlighter, newState: i32) callconv(.c) void `
-    ///
-    pub fn onSetCurrentBlockState(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn (KSyntaxHighlighting__SyntaxHighlighter, i32) callconv(.c) void) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_OnSetCurrentBlockState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setCurrentBlockUserData` instead
@@ -2483,47 +2280,6 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_SetCurrentBlockUserData(@ptrCast(self.ptr), @ptrCast(data.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetCurrentBlockUserData` instead
-    ///
-    pub const SuperSetCurrentBlockUserData = superSetCurrentBlockUserData;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
-    ///
-    /// ` data: QTextBlockUserData `
-    ///
-    pub fn superSetCurrentBlockUserData(self: KSyntaxHighlighting__SyntaxHighlighter, data: anytype) void {
-        comptime _ = @TypeOf(data)._is_QTextBlockUserData;
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperSetCurrentBlockUserData(@ptrCast(self.ptr), @ptrCast(data.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetCurrentBlockUserData` instead
-    ///
-    pub const OnSetCurrentBlockUserData = onSetCurrentBlockUserData;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter`
-    ///
-    /// ` callback: *const fn (self: KSyntaxHighlighting__SyntaxHighlighter, data: QTextBlockUserData) callconv(.c) void `
-    ///
-    pub fn onSetCurrentBlockUserData(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn (KSyntaxHighlighting__SyntaxHighlighter, QTextBlockUserData) callconv(.c) void) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_OnSetCurrentBlockUserData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `currentBlockUserData` instead
     ///
     pub const CurrentBlockUserData = currentBlockUserData;
@@ -2540,44 +2296,6 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
     ///
     pub fn currentBlockUserData(self: KSyntaxHighlighting__SyntaxHighlighter) QTextBlockUserData {
         return .{ .ptr = qtc.KSyntaxHighlighting__SyntaxHighlighter_CurrentBlockUserData(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superCurrentBlockUserData` instead
-    ///
-    pub const SuperCurrentBlockUserData = superCurrentBlockUserData;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
-    ///
-    pub fn superCurrentBlockUserData(self: KSyntaxHighlighting__SyntaxHighlighter) QTextBlockUserData {
-        return .{ .ptr = qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperCurrentBlockUserData(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onCurrentBlockUserData` instead
-    ///
-    pub const OnCurrentBlockUserData = onCurrentBlockUserData;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter`
-    ///
-    /// ` callback: *const fn () callconv(.c) QTextBlockUserData `
-    ///
-    pub fn onCurrentBlockUserData(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn () callconv(.c) QTextBlockUserData) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_OnCurrentBlockUserData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `currentBlock` instead
@@ -2598,46 +2316,6 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
         return .{ .ptr = qtc.KSyntaxHighlighting__SyntaxHighlighter_CurrentBlock(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superCurrentBlock` instead
-    ///
-    pub const SuperCurrentBlock = superCurrentBlock;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
-    ///
-    pub fn superCurrentBlock(self: KSyntaxHighlighting__SyntaxHighlighter) QTextBlock {
-        return .{ .ptr = qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperCurrentBlock(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onCurrentBlock` instead
-    ///
-    pub const OnCurrentBlock = onCurrentBlock;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter`
-    ///
-    /// ` callback: *const fn () callconv(.c) QTextBlock `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCurrentBlock(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn () callconv(.c) QTextBlock) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_OnCurrentBlock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -2656,44 +2334,6 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
         return .{ .ptr = qtc.KSyntaxHighlighting__SyntaxHighlighter_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
-    ///
-    pub fn superSender(self: KSyntaxHighlighting__SyntaxHighlighter) QObject {
-        return .{ .ptr = qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2710,44 +2350,6 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
     ///
     pub fn senderSignalIndex(self: KSyntaxHighlighting__SyntaxHighlighter) i32 {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
-    ///
-    pub fn superSenderSignalIndex(self: KSyntaxHighlighting__SyntaxHighlighter) i32 {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn () callconv(.c) i32) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2771,47 +2373,6 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KSyntaxHighlighting__SyntaxHighlighter, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter`
-    ///
-    /// ` callback: *const fn (self: KSyntaxHighlighting__SyntaxHighlighter, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn (KSyntaxHighlighting__SyntaxHighlighter, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2831,47 +2392,6 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
     pub fn isSignalConnected(self: KSyntaxHighlighting__SyntaxHighlighter, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KSyntaxHighlighting__SyntaxHighlighter, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter`
-    ///
-    /// ` callback: *const fn (self: KSyntaxHighlighting__SyntaxHighlighter, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn (KSyntaxHighlighting__SyntaxHighlighter, QMetaMethod) callconv(.c) bool) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `highlightLine` instead
@@ -2899,55 +2419,6 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
         };
         comptime _ = @TypeOf(state)._is_KSyntaxHighlighting__State;
         return .{ .ptr = qtc.KSyntaxHighlighting__SyntaxHighlighter_HighlightLine(@ptrCast(self.ptr), text_str, @ptrCast(state.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superHighlightLine` instead
-    ///
-    pub const SuperHighlightLine = superHighlightLine;
-
-    /// Inherited from KSyntaxHighlighting::AbstractHighlighter
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-abstracthighlighter.html#highlightLine)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
-    ///
-    /// ` text: []const u8 `
-    ///
-    /// ` state: KSyntaxHighlighting__State `
-    ///
-    pub fn superHighlightLine(self: KSyntaxHighlighting__SyntaxHighlighter, text: []const u8, state: anytype) KSyntaxHighlighting__State {
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        comptime _ = @TypeOf(state)._is_KSyntaxHighlighting__State;
-        return .{ .ptr = qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperHighlightLine(@ptrCast(self.ptr), text_str, @ptrCast(state.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onHighlightLine` instead
-    ///
-    pub const OnHighlightLine = onHighlightLine;
-
-    /// Inherited from KSyntaxHighlighting::AbstractHighlighter
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-abstracthighlighter.html#highlightLine)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSyntaxHighlighting__SyntaxHighlighter`
-    ///
-    /// ` callback: *const fn (self: KSyntaxHighlighting__SyntaxHighlighter, text: [*:0]const u8, state: KSyntaxHighlighting__State) callconv(.c) KSyntaxHighlighting__State `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onHighlightLine(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn (KSyntaxHighlighting__SyntaxHighlighter, [*:0]const u8, KSyntaxHighlighting__State) callconv(.c) KSyntaxHighlighting__State) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_OnHighlightLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

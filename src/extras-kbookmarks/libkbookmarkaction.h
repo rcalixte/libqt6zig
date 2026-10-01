@@ -38,7 +38,7 @@ libqt_string KBookmarkAction_Tr(const char* s);
 void KBookmarkAction_SlotSelected(KBookmarkAction* self, int mb, int km);
 libqt_string KBookmarkAction_Tr2(const char* s, const char* c);
 libqt_string KBookmarkAction_Tr3(const char* s, const char* c, int n);
-void KBookmarkAction_OnMetaObject(const KBookmarkAction* self, intptr_t slot);
+void KBookmarkAction_OnMetaObject(KBookmarkAction* self, intptr_t slot);
 QMetaObject* KBookmarkAction_SuperMetaObject(const KBookmarkAction* self);
 void KBookmarkAction_OnMetacast(KBookmarkAction* self, intptr_t slot);
 void* KBookmarkAction_SuperMetacast(KBookmarkAction* self, const char* param1);
@@ -66,17 +66,9 @@ void KBookmarkAction_DisconnectNotify(KBookmarkAction* self, const QMetaMethod* 
 void KBookmarkAction_OnDisconnectNotify(KBookmarkAction* self, intptr_t slot);
 void KBookmarkAction_SuperDisconnectNotify(KBookmarkAction* self, const QMetaMethod* signal);
 QObject* KBookmarkAction_Sender(const KBookmarkAction* self);
-void KBookmarkAction_OnSender(const KBookmarkAction* self, intptr_t slot);
-QObject* KBookmarkAction_SuperSender(const KBookmarkAction* self);
 int KBookmarkAction_SenderSignalIndex(const KBookmarkAction* self);
-void KBookmarkAction_OnSenderSignalIndex(const KBookmarkAction* self, intptr_t slot);
-int KBookmarkAction_SuperSenderSignalIndex(const KBookmarkAction* self);
 int KBookmarkAction_Receivers(const KBookmarkAction* self, const char* signal);
-void KBookmarkAction_OnReceivers(const KBookmarkAction* self, intptr_t slot);
-int KBookmarkAction_SuperReceivers(const KBookmarkAction* self, const char* signal);
 bool KBookmarkAction_IsSignalConnected(const KBookmarkAction* self, const QMetaMethod* signal);
-void KBookmarkAction_OnIsSignalConnected(const KBookmarkAction* self, intptr_t slot);
-bool KBookmarkAction_SuperIsSignalConnected(const KBookmarkAction* self, const QMetaMethod* signal);
 void KBookmarkAction_Delete(KBookmarkAction* self);
 
 #ifdef __cplusplus

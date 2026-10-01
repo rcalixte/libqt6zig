@@ -188,9 +188,9 @@ pub const QTextEdit = extern struct {
     ///
     /// ` self: QTextEdit `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QTextEdit) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QTextEdit, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTextEdit, callback: *const fn (QTextEdit) callconv(.c) QMetaObject) void {
         qtc.QTextEdit_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3287,9 +3287,9 @@ pub const QTextEdit = extern struct {
     ///
     /// ` self: QTextEdit `
     ///
-    /// ` callback: *const fn () callconv(.c) QMimeData `
+    /// ` callback: *const fn (self: QTextEdit) callconv(.c) QMimeData `
     ///
-    pub fn onCreateMimeDataFromSelection(self: QTextEdit, callback: *const fn () callconv(.c) QMimeData) void {
+    pub fn onCreateMimeDataFromSelection(self: QTextEdit, callback: *const fn (QTextEdit) callconv(.c) QMimeData) void {
         qtc.QTextEdit_OnCreateMimeDataFromSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3595,42 +3595,6 @@ pub const QTextEdit = extern struct {
     ///
     pub fn zoomInF(self: QTextEdit, range: f32) void {
         qtc.QTextEdit_ZoomInF(@ptrCast(self.ptr), @bitCast(range));
-    }
-
-    /// ### DEPRECATED: Use `onZoomInF` instead
-    ///
-    pub const OnZoomInF = onZoomInF;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextEdit `
-    ///
-    /// ` callback: *const fn (self: QTextEdit, range: f32) callconv(.c) void `
-    ///
-    pub fn onZoomInF(self: QTextEdit, callback: *const fn (QTextEdit, f32) callconv(.c) void) void {
-        qtc.QTextEdit_OnZoomInF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superZoomInF` instead
-    ///
-    pub const SuperZoomInF = superZoomInF;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextEdit `
-    ///
-    /// ` range: f32 `
-    ///
-    pub fn superZoomInF(self: QTextEdit, range: f32) void {
-        qtc.QTextEdit_SuperZoomInF(@ptrCast(self.ptr), @bitCast(range));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -10586,11 +10550,11 @@ pub const QTextEdit = extern struct {
     ///
     /// ` self: QTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QTextEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QTextEdit, callback: *const fn (QTextEdit) callconv(.c) QSize) void {
         qtc.QTextEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10644,11 +10608,11 @@ pub const QTextEdit = extern struct {
     ///
     /// ` self: QTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QTextEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QTextEdit, callback: *const fn (QTextEdit) callconv(.c) QSize) void {
         qtc.QTextEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10894,11 +10858,11 @@ pub const QTextEdit = extern struct {
     ///
     /// ` self: QTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QTextEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: QTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QTextEdit, callback: *const fn (QTextEdit) callconv(.c) QSize) void {
         qtc.QTextEdit_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11014,9 +10978,9 @@ pub const QTextEdit = extern struct {
     ///
     /// ` self: QTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTextEdit) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QTextEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QTextEdit, callback: *const fn (QTextEdit) callconv(.c) i32) void {
         qtc.QTextEdit_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11190,9 +11154,9 @@ pub const QTextEdit = extern struct {
     ///
     /// ` self: QTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextEdit) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QTextEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QTextEdit, callback: *const fn (QTextEdit) callconv(.c) bool) void {
         qtc.QTextEdit_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11246,9 +11210,9 @@ pub const QTextEdit = extern struct {
     ///
     /// ` self: QTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QTextEdit) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QTextEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QTextEdit, callback: *const fn (QTextEdit) callconv(.c) QPaintEngine) void {
         qtc.QTextEdit_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11996,9 +11960,9 @@ pub const QTextEdit = extern struct {
     ///
     /// ` self: QTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QTextEdit) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QTextEdit, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QTextEdit, callback: *const fn (QTextEdit) callconv(.c) QPainter) void {
         qtc.QTextEdit_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12276,52 +12240,6 @@ pub const QTextEdit = extern struct {
         qtc.QTextEdit_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextEdit `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: QTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QTextEdit_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextEdit`
-    ///
-    /// ` callback: *const fn (self: QTextEdit, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: QTextEdit, callback: *const fn (QTextEdit, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTextEdit_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -12338,46 +12256,6 @@ pub const QTextEdit = extern struct {
     ///
     pub fn viewportMargins(self: QTextEdit) QMargins {
         return .{ .ptr = qtc.QTextEdit_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextEdit `
-    ///
-    pub fn superViewportMargins(self: QTextEdit) QMargins {
-        return .{ .ptr = qtc.QTextEdit_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: QTextEdit, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.QTextEdit_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -12401,47 +12279,6 @@ pub const QTextEdit = extern struct {
         qtc.QTextEdit_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextEdit `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: QTextEdit, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.QTextEdit_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextEdit`
-    ///
-    /// ` callback: *const fn (self: QTextEdit, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: QTextEdit, callback: *const fn (QTextEdit, QPainter) callconv(.c) void) void {
-        qtc.QTextEdit_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -12458,44 +12295,6 @@ pub const QTextEdit = extern struct {
     ///
     pub fn updateMicroFocus(self: QTextEdit) void {
         qtc.QTextEdit_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextEdit `
-    ///
-    pub fn superUpdateMicroFocus(self: QTextEdit) void {
-        qtc.QTextEdit_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QTextEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.QTextEdit_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -12516,44 +12315,6 @@ pub const QTextEdit = extern struct {
         qtc.QTextEdit_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextEdit `
-    ///
-    pub fn superCreate(self: QTextEdit) void {
-        qtc.QTextEdit_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QTextEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.QTextEdit_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -12570,44 +12331,6 @@ pub const QTextEdit = extern struct {
     ///
     pub fn destroy(self: QTextEdit) void {
         qtc.QTextEdit_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextEdit `
-    ///
-    pub fn superDestroy(self: QTextEdit) void {
-        qtc.QTextEdit_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QTextEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.QTextEdit_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -12628,44 +12351,6 @@ pub const QTextEdit = extern struct {
         return qtc.QTextEdit_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextEdit `
-    ///
-    pub fn superFocusNextChild(self: QTextEdit) bool {
-        return qtc.QTextEdit_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QTextEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTextEdit_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -12682,44 +12367,6 @@ pub const QTextEdit = extern struct {
     ///
     pub fn focusPreviousChild(self: QTextEdit) bool {
         return qtc.QTextEdit_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextEdit `
-    ///
-    pub fn superFocusPreviousChild(self: QTextEdit) bool {
-        return qtc.QTextEdit_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QTextEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTextEdit_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -12740,44 +12387,6 @@ pub const QTextEdit = extern struct {
         return .{ .ptr = qtc.QTextEdit_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextEdit `
-    ///
-    pub fn superSender(self: QTextEdit) QObject {
-        return .{ .ptr = qtc.QTextEdit_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QTextEdit, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QTextEdit_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -12794,44 +12403,6 @@ pub const QTextEdit = extern struct {
     ///
     pub fn senderSignalIndex(self: QTextEdit) i32 {
         return qtc.QTextEdit_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextEdit `
-    ///
-    pub fn superSenderSignalIndex(self: QTextEdit) i32 {
-        return qtc.QTextEdit_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QTextEdit, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTextEdit_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -12855,47 +12426,6 @@ pub const QTextEdit = extern struct {
         return qtc.QTextEdit_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextEdit `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QTextEdit, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QTextEdit_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextEdit`
-    ///
-    /// ` callback: *const fn (self: QTextEdit, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QTextEdit, callback: *const fn (QTextEdit, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTextEdit_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -12915,47 +12445,6 @@ pub const QTextEdit = extern struct {
     pub fn isSignalConnected(self: QTextEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTextEdit_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextEdit `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QTextEdit, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QTextEdit_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextEdit`
-    ///
-    /// ` callback: *const fn (self: QTextEdit, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QTextEdit, callback: *const fn (QTextEdit, QMetaMethod) callconv(.c) bool) void {
-        qtc.QTextEdit_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -12978,48 +12467,6 @@ pub const QTextEdit = extern struct {
     ///
     pub fn getDecodedMetricF(self: QTextEdit, metricA: i32, metricB: i32) f64 {
         return qtc.QTextEdit_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextEdit `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QTextEdit, metricA: i32, metricB: i32) f64 {
-        return qtc.QTextEdit_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextEdit`
-    ///
-    /// ` callback: *const fn (self: QTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QTextEdit, callback: *const fn (QTextEdit, i32, i32) callconv(.c) f64) void {
-        qtc.QTextEdit_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

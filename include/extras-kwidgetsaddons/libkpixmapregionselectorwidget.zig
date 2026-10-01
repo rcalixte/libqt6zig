@@ -133,9 +133,9 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KPixmapRegionSelectorWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KPixmapRegionSelectorWidget, callback: *const fn (KPixmapRegionSelectorWidget) callconv(.c) QMetaObject) void {
         qtc.KPixmapRegionSelectorWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -534,9 +534,9 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMenu `
+    /// ` callback: *const fn (self: KPixmapRegionSelectorWidget) callconv(.c) QMenu `
     ///
-    pub fn onCreatePopupMenu(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) QMenu) void {
+    pub fn onCreatePopupMenu(self: KPixmapRegionSelectorWidget, callback: *const fn (KPixmapRegionSelectorWidget) callconv(.c) QMenu) void {
         qtc.KPixmapRegionSelectorWidget_OnCreatePopupMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6926,9 +6926,9 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPixmapRegionSelectorWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KPixmapRegionSelectorWidget, callback: *const fn (KPixmapRegionSelectorWidget) callconv(.c) i32) void {
         qtc.KPixmapRegionSelectorWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7042,11 +7042,11 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KPixmapRegionSelectorWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KPixmapRegionSelectorWidget, callback: *const fn (KPixmapRegionSelectorWidget) callconv(.c) QSize) void {
         qtc.KPixmapRegionSelectorWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7100,11 +7100,11 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KPixmapRegionSelectorWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KPixmapRegionSelectorWidget, callback: *const fn (KPixmapRegionSelectorWidget) callconv(.c) QSize) void {
         qtc.KPixmapRegionSelectorWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7218,9 +7218,9 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KPixmapRegionSelectorWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KPixmapRegionSelectorWidget, callback: *const fn (KPixmapRegionSelectorWidget) callconv(.c) bool) void {
         qtc.KPixmapRegionSelectorWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7274,9 +7274,9 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KPixmapRegionSelectorWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KPixmapRegionSelectorWidget, callback: *const fn (KPixmapRegionSelectorWidget) callconv(.c) QPaintEngine) void {
         qtc.KPixmapRegionSelectorWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9202,9 +9202,9 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KPixmapRegionSelectorWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KPixmapRegionSelectorWidget, callback: *const fn (KPixmapRegionSelectorWidget) callconv(.c) QPainter) void {
         qtc.KPixmapRegionSelectorWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9720,44 +9720,6 @@ pub const KPixmapRegionSelectorWidget = extern struct {
         qtc.KPixmapRegionSelectorWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapRegionSelectorWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: KPixmapRegionSelectorWidget) void {
-        qtc.KPixmapRegionSelectorWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPixmapRegionSelectorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KPixmapRegionSelectorWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9774,44 +9736,6 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     ///
     pub fn create(self: KPixmapRegionSelectorWidget) void {
         qtc.KPixmapRegionSelectorWidget_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapRegionSelectorWidget `
-    ///
-    pub fn superCreate(self: KPixmapRegionSelectorWidget) void {
-        qtc.KPixmapRegionSelectorWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPixmapRegionSelectorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KPixmapRegionSelectorWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9832,44 +9756,6 @@ pub const KPixmapRegionSelectorWidget = extern struct {
         qtc.KPixmapRegionSelectorWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapRegionSelectorWidget `
-    ///
-    pub fn superDestroy(self: KPixmapRegionSelectorWidget) void {
-        qtc.KPixmapRegionSelectorWidget_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPixmapRegionSelectorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KPixmapRegionSelectorWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9886,44 +9772,6 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     ///
     pub fn focusNextChild(self: KPixmapRegionSelectorWidget) bool {
         return qtc.KPixmapRegionSelectorWidget_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapRegionSelectorWidget `
-    ///
-    pub fn superFocusNextChild(self: KPixmapRegionSelectorWidget) bool {
-        return qtc.KPixmapRegionSelectorWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPixmapRegionSelectorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.KPixmapRegionSelectorWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -9944,44 +9792,6 @@ pub const KPixmapRegionSelectorWidget = extern struct {
         return qtc.KPixmapRegionSelectorWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapRegionSelectorWidget `
-    ///
-    pub fn superFocusPreviousChild(self: KPixmapRegionSelectorWidget) bool {
-        return qtc.KPixmapRegionSelectorWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPixmapRegionSelectorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.KPixmapRegionSelectorWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10000,44 +9810,6 @@ pub const KPixmapRegionSelectorWidget = extern struct {
         return .{ .ptr = qtc.KPixmapRegionSelectorWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapRegionSelectorWidget `
-    ///
-    pub fn superSender(self: KPixmapRegionSelectorWidget) QObject {
-        return .{ .ptr = qtc.KPixmapRegionSelectorWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPixmapRegionSelectorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KPixmapRegionSelectorWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10054,44 +9826,6 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: KPixmapRegionSelectorWidget) i32 {
         return qtc.KPixmapRegionSelectorWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapRegionSelectorWidget `
-    ///
-    pub fn superSenderSignalIndex(self: KPixmapRegionSelectorWidget) i32 {
-        return qtc.KPixmapRegionSelectorWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPixmapRegionSelectorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.KPixmapRegionSelectorWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10115,47 +9849,6 @@ pub const KPixmapRegionSelectorWidget = extern struct {
         return qtc.KPixmapRegionSelectorWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapRegionSelectorWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KPixmapRegionSelectorWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KPixmapRegionSelectorWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPixmapRegionSelectorWidget`
-    ///
-    /// ` callback: *const fn (self: KPixmapRegionSelectorWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KPixmapRegionSelectorWidget, callback: *const fn (KPixmapRegionSelectorWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KPixmapRegionSelectorWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10175,47 +9868,6 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     pub fn isSignalConnected(self: KPixmapRegionSelectorWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPixmapRegionSelectorWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapRegionSelectorWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KPixmapRegionSelectorWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KPixmapRegionSelectorWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPixmapRegionSelectorWidget`
-    ///
-    /// ` callback: *const fn (self: KPixmapRegionSelectorWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KPixmapRegionSelectorWidget, callback: *const fn (KPixmapRegionSelectorWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.KPixmapRegionSelectorWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10238,48 +9890,6 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     ///
     pub fn getDecodedMetricF(self: KPixmapRegionSelectorWidget, metricA: i32, metricB: i32) f64 {
         return qtc.KPixmapRegionSelectorWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapRegionSelectorWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KPixmapRegionSelectorWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.KPixmapRegionSelectorWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPixmapRegionSelectorWidget`
-    ///
-    /// ` callback: *const fn (self: KPixmapRegionSelectorWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KPixmapRegionSelectorWidget, callback: *const fn (KPixmapRegionSelectorWidget, i32, i32) callconv(.c) f64) void {
-        qtc.KPixmapRegionSelectorWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

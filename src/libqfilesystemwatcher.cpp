@@ -199,364 +199,219 @@ libqt_string QFileSystemWatcher_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QFileSystemWatcher_SuperMetaObject(const QFileSystemWatcher* self) {
-    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_MetaObject_IsBase(true);
-        return (QMetaObject*)vqfilesystemwatcher->metaObject();
-    } else {
-        return (QMetaObject*)self->QFileSystemWatcher::metaObject();
-    }
+    return (QMetaObject*)self->QFileSystemWatcher::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFileSystemWatcher_OnMetaObject(const QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
-        vqfilesystemwatcher->setQFileSystemWatcher_MetaObject_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_MetaObject_Callback>(slot));
+void QFileSystemWatcher_OnMetaObject(QFileSystemWatcher* self, intptr_t slot) {
+    if (auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self)))
+        vqfilesystemwatcher->qfilesystemwatcher_metaobject_callback = reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QFileSystemWatcher_SuperMetacast(QFileSystemWatcher* self, const char* param1) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_Metacast_IsBase(true);
-        return vqfilesystemwatcher->qt_metacast(param1);
-    } else {
-        return self->QFileSystemWatcher::qt_metacast(param1);
-    }
+    return self->QFileSystemWatcher::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnMetacast(QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
-        vqfilesystemwatcher->setQFileSystemWatcher_Metacast_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Metacast_Callback>(slot));
+    if (auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self))
+        vqfilesystemwatcher->qfilesystemwatcher_metacast_callback = reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QFileSystemWatcher_SuperMetacall(QFileSystemWatcher* self, int param1, int param2, void** param3) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_Metacall_IsBase(true);
-        return vqfilesystemwatcher->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QFileSystemWatcher::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QFileSystemWatcher::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnMetacall(QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
-        vqfilesystemwatcher->setQFileSystemWatcher_Metacall_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Metacall_Callback>(slot));
+    if (auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self))
+        vqfilesystemwatcher->qfilesystemwatcher_metacall_callback = reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QFileSystemWatcher_Event(QFileSystemWatcher* self, QEvent* event) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        return vqfilesystemwatcher->event(event);
-    } else {
-        return self->QFileSystemWatcher::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QFileSystemWatcher_SuperEvent(QFileSystemWatcher* self, QEvent* event) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_Event_IsBase(true);
-        return vqfilesystemwatcher->event(event);
-    } else {
-        return self->QFileSystemWatcher::event(event);
-    }
+    return self->QFileSystemWatcher::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnEvent(QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
-        vqfilesystemwatcher->setQFileSystemWatcher_Event_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Event_Callback>(slot));
+    if (auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self))
+        vqfilesystemwatcher->qfilesystemwatcher_event_callback = reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QFileSystemWatcher_EventFilter(QFileSystemWatcher* self, QObject* watched, QEvent* event) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        return vqfilesystemwatcher->eventFilter(watched, event);
-    } else {
-        return self->QFileSystemWatcher::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QFileSystemWatcher_SuperEventFilter(QFileSystemWatcher* self, QObject* watched, QEvent* event) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_EventFilter_IsBase(true);
-        return vqfilesystemwatcher->eventFilter(watched, event);
-    } else {
-        return self->QFileSystemWatcher::eventFilter(watched, event);
-    }
+    return self->QFileSystemWatcher::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnEventFilter(QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
-        vqfilesystemwatcher->setQFileSystemWatcher_EventFilter_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_EventFilter_Callback>(slot));
+    if (auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self))
+        vqfilesystemwatcher->qfilesystemwatcher_eventfilter_callback = reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileSystemWatcher_TimerEvent(QFileSystemWatcher* self, QTimerEvent* event) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher) {
         vqfilesystemwatcher->timerEvent(event);
     } else {
-        ((VirtualQFileSystemWatcher*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QFileSystemWatcher::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileSystemWatcher_SuperTimerEvent(QFileSystemWatcher* self, QTimerEvent* event) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_TimerEvent_IsBase(true);
-        vqfilesystemwatcher->timerEvent(event);
-    } else {
-        ((VirtualQFileSystemWatcher*)self)->timerEvent(event);
-    }
+    if (auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self)) {
+        vqfilesystemwatcher->QFileSystemWatcher::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileSystemWatcher::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnTimerEvent(QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
-        vqfilesystemwatcher->setQFileSystemWatcher_TimerEvent_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_TimerEvent_Callback>(slot));
+    if (auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self))
+        vqfilesystemwatcher->qfilesystemwatcher_timerevent_callback = reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileSystemWatcher_ChildEvent(QFileSystemWatcher* self, QChildEvent* event) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher) {
         vqfilesystemwatcher->childEvent(event);
     } else {
-        ((VirtualQFileSystemWatcher*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QFileSystemWatcher::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileSystemWatcher_SuperChildEvent(QFileSystemWatcher* self, QChildEvent* event) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_ChildEvent_IsBase(true);
-        vqfilesystemwatcher->childEvent(event);
-    } else {
-        ((VirtualQFileSystemWatcher*)self)->childEvent(event);
-    }
+    if (auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self)) {
+        vqfilesystemwatcher->QFileSystemWatcher::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileSystemWatcher::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnChildEvent(QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
-        vqfilesystemwatcher->setQFileSystemWatcher_ChildEvent_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_ChildEvent_Callback>(slot));
+    if (auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self))
+        vqfilesystemwatcher->qfilesystemwatcher_childevent_callback = reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileSystemWatcher_CustomEvent(QFileSystemWatcher* self, QEvent* event) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher) {
         vqfilesystemwatcher->customEvent(event);
     } else {
-        ((VirtualQFileSystemWatcher*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QFileSystemWatcher::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileSystemWatcher_SuperCustomEvent(QFileSystemWatcher* self, QEvent* event) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_CustomEvent_IsBase(true);
-        vqfilesystemwatcher->customEvent(event);
-    } else {
-        ((VirtualQFileSystemWatcher*)self)->customEvent(event);
-    }
+    if (auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self)) {
+        vqfilesystemwatcher->QFileSystemWatcher::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QFileSystemWatcher::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnCustomEvent(QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
-        vqfilesystemwatcher->setQFileSystemWatcher_CustomEvent_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_CustomEvent_Callback>(slot));
+    if (auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self))
+        vqfilesystemwatcher->qfilesystemwatcher_customevent_callback = reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileSystemWatcher_ConnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher) {
         vqfilesystemwatcher->connectNotify(*signal);
     } else {
-        ((VirtualQFileSystemWatcher*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QFileSystemWatcher::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileSystemWatcher_SuperConnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_ConnectNotify_IsBase(true);
-        vqfilesystemwatcher->connectNotify(*signal);
-    } else {
-        ((VirtualQFileSystemWatcher*)self)->connectNotify(*signal);
-    }
+    if (auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self)) {
+        vqfilesystemwatcher->QFileSystemWatcher::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QFileSystemWatcher::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnConnectNotify(QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
-        vqfilesystemwatcher->setQFileSystemWatcher_ConnectNotify_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_ConnectNotify_Callback>(slot));
+    if (auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self))
+        vqfilesystemwatcher->qfilesystemwatcher_connectnotify_callback = reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QFileSystemWatcher_DisconnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher) {
         vqfilesystemwatcher->disconnectNotify(*signal);
     } else {
-        ((VirtualQFileSystemWatcher*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QFileSystemWatcher::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QFileSystemWatcher_SuperDisconnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_DisconnectNotify_IsBase(true);
-        vqfilesystemwatcher->disconnectNotify(*signal);
-    } else {
-        ((VirtualQFileSystemWatcher*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self)) {
+        vqfilesystemwatcher->QFileSystemWatcher::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QFileSystemWatcher::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnDisconnectNotify(QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
-        vqfilesystemwatcher->setQFileSystemWatcher_DisconnectNotify_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_DisconnectNotify_Callback>(slot));
+    if (auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self))
+        vqfilesystemwatcher->qfilesystemwatcher_disconnectnotify_callback = reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QFileSystemWatcher_Sender(const QFileSystemWatcher* self) {
-    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        return vqfilesystemwatcher->sender();
-    } else {
-        return ((VirtualQFileSystemWatcher*)self)->sender();
-    }
+    if (auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self))) {
+        return vqfilesystemwatcher->VirtualQFileSystemWatcher::sender();
+    } else
+        qFatal("Error: Protected method QFileSystemWatcher::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QFileSystemWatcher_SuperSender(const QFileSystemWatcher* self) {
-    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_Sender_IsBase(true);
-        return vqfilesystemwatcher->sender();
-    } else {
-        return ((VirtualQFileSystemWatcher*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileSystemWatcher_OnSender(const QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
-        vqfilesystemwatcher->setQFileSystemWatcher_Sender_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QFileSystemWatcher_SenderSignalIndex(const QFileSystemWatcher* self) {
-    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        return vqfilesystemwatcher->senderSignalIndex();
-    } else {
-        return ((VirtualQFileSystemWatcher*)self)->senderSignalIndex();
-    }
+    if (auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self))) {
+        return vqfilesystemwatcher->VirtualQFileSystemWatcher::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QFileSystemWatcher::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QFileSystemWatcher_SuperSenderSignalIndex(const QFileSystemWatcher* self) {
-    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_SenderSignalIndex_IsBase(true);
-        return vqfilesystemwatcher->senderSignalIndex();
-    } else {
-        return ((VirtualQFileSystemWatcher*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileSystemWatcher_OnSenderSignalIndex(const QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
-        vqfilesystemwatcher->setQFileSystemWatcher_SenderSignalIndex_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QFileSystemWatcher_Receivers(const QFileSystemWatcher* self, const char* signal) {
-    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        return vqfilesystemwatcher->receivers(signal);
-    } else {
-        return ((VirtualQFileSystemWatcher*)self)->receivers(signal);
-    }
+    if (auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self))) {
+        return vqfilesystemwatcher->VirtualQFileSystemWatcher::receivers(signal);
+    } else
+        qFatal("Error: Protected method QFileSystemWatcher::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QFileSystemWatcher_SuperReceivers(const QFileSystemWatcher* self, const char* signal) {
-    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_Receivers_IsBase(true);
-        return vqfilesystemwatcher->receivers(signal);
-    } else {
-        return ((VirtualQFileSystemWatcher*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileSystemWatcher_OnReceivers(const QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
-        vqfilesystemwatcher->setQFileSystemWatcher_Receivers_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QFileSystemWatcher_IsSignalConnected(const QFileSystemWatcher* self, const QMetaMethod* signal) {
-    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        return vqfilesystemwatcher->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQFileSystemWatcher*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QFileSystemWatcher_SuperIsSignalConnected(const QFileSystemWatcher* self, const QMetaMethod* signal) {
-    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
-        vqfilesystemwatcher->setQFileSystemWatcher_IsSignalConnected_IsBase(true);
-        return vqfilesystemwatcher->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQFileSystemWatcher*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QFileSystemWatcher_OnIsSignalConnected(const QFileSystemWatcher* self, intptr_t slot) {
-    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
-        vqfilesystemwatcher->setQFileSystemWatcher_IsSignalConnected_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_IsSignalConnected_Callback>(slot));
+    if (auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self))) {
+        return vqfilesystemwatcher->VirtualQFileSystemWatcher::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QFileSystemWatcher::isSignalConnected called without a directly constructed type");
 }
 
 void QFileSystemWatcher_Connect_FileChanged(QFileSystemWatcher* self, intptr_t slot) {

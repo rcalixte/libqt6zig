@@ -149,9 +149,9 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KCategorizedView, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) QMetaObject) void {
         qtc.KCategorizedView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -696,9 +696,9 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) void `
     ///
-    pub fn onReset(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) void) void {
         qtc.KCategorizedView_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1610,9 +1610,9 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) void `
     ///
-    pub fn onUpdateGeometries(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometries(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) void) void {
         qtc.KCategorizedView_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1852,9 +1852,9 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) void `
     ///
-    pub fn onSlotLayoutChanged(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
+    pub fn onSlotLayoutChanged(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) void) void {
         qtc.KCategorizedView_OnSlotLayoutChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10639,9 +10639,9 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) void `
     ///
-    pub fn onDoItemsLayout(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoItemsLayout(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) void) void {
         qtc.KCategorizedView_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11069,9 +11069,9 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) i32 `
     ///
-    pub fn onHorizontalOffset(self: KCategorizedView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHorizontalOffset(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) i32) void {
         qtc.KCategorizedView_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11125,9 +11125,9 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) i32 `
     ///
-    pub fn onVerticalOffset(self: KCategorizedView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onVerticalOffset(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) i32) void {
         qtc.KCategorizedView_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11263,13 +11263,13 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn onSelectedIndexes(self: KCategorizedView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectedIndexes(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) qtc.libqt_list) void {
         qtc.KCategorizedView_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11453,11 +11453,11 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: KCategorizedView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) QSize) void {
         qtc.KCategorizedView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11885,9 +11885,9 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) void `
     ///
-    pub fn onSelectAll(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectAll(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) void) void {
         qtc.KCategorizedView_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11941,9 +11941,9 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorData(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorData(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) void) void {
         qtc.KCategorizedView_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11997,9 +11997,9 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorGeometries(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorGeometries(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) void) void {
         qtc.KCategorizedView_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13131,11 +13131,11 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KCategorizedView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) QSize) void {
         qtc.KCategorizedView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13189,11 +13189,11 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KCategorizedView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) QSize) void {
         qtc.KCategorizedView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13495,9 +13495,9 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KCategorizedView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) i32) void {
         qtc.KCategorizedView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13671,9 +13671,9 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KCategorizedView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) bool) void {
         qtc.KCategorizedView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13727,9 +13727,9 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KCategorizedView, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) QPaintEngine) void {
         qtc.KCategorizedView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14539,9 +14539,9 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KCategorizedView) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KCategorizedView, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KCategorizedView, callback: *const fn (KCategorizedView) callconv(.c) QPainter) void {
         qtc.KCategorizedView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14815,48 +14815,6 @@ pub const KCategorizedView = extern struct {
         qtc.KCategorizedView_ResizeContents(@ptrCast(self.ptr), @bitCast(_width), @bitCast(_height));
     }
 
-    /// ### DEPRECATED: Use `superResizeContents` instead
-    ///
-    pub const SuperResizeContents = superResizeContents;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    /// ` _width: i32 `
-    ///
-    /// ` _height: i32 `
-    ///
-    pub fn superResizeContents(self: KCategorizedView, _width: i32, _height: i32) void {
-        qtc.KCategorizedView_SuperResizeContents(@ptrCast(self.ptr), @bitCast(_width), @bitCast(_height));
-    }
-
-    /// ### DEPRECATED: Use `onResizeContents` instead
-    ///
-    pub const OnResizeContents = onResizeContents;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn (self: KCategorizedView, width: i32, height: i32) callconv(.c) void `
-    ///
-    pub fn onResizeContents(self: KCategorizedView, callback: *const fn (KCategorizedView, i32, i32) callconv(.c) void) void {
-        qtc.KCategorizedView_OnResizeContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `contentsSize` instead
     ///
     pub const ContentsSize = contentsSize;
@@ -14873,46 +14831,6 @@ pub const KCategorizedView = extern struct {
     ///
     pub fn contentsSize(self: KCategorizedView) QSize {
         return .{ .ptr = qtc.KCategorizedView_ContentsSize(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superContentsSize` instead
-    ///
-    pub const SuperContentsSize = superContentsSize;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superContentsSize(self: KCategorizedView) QSize {
-        return .{ .ptr = qtc.KCategorizedView_SuperContentsSize(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onContentsSize` instead
-    ///
-    pub const OnContentsSize = onContentsSize;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QSize `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onContentsSize(self: KCategorizedView, callback: *const fn () callconv(.c) QSize) void {
-        qtc.KCategorizedView_OnContentsSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `rectForIndex` instead
@@ -14934,49 +14852,6 @@ pub const KCategorizedView = extern struct {
     pub fn rectForIndex(self: KCategorizedView, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KCategorizedView_RectForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superRectForIndex` instead
-    ///
-    pub const SuperRectForIndex = superRectForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superRectForIndex(self: KCategorizedView, index: anytype) QRect {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KCategorizedView_SuperRectForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onRectForIndex` instead
-    ///
-    pub const OnRectForIndex = onRectForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn (self: KCategorizedView, index: QModelIndex) callconv(.c) QRect `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onRectForIndex(self: KCategorizedView, callback: *const fn (KCategorizedView, QModelIndex) callconv(.c) QRect) void {
-        qtc.KCategorizedView_OnRectForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setPositionForIndex` instead
@@ -15003,50 +14878,6 @@ pub const KCategorizedView = extern struct {
         qtc.KCategorizedView_SetPositionForIndex(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetPositionForIndex` instead
-    ///
-    pub const SuperSetPositionForIndex = superSetPositionForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    /// ` position: QPoint `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superSetPositionForIndex(self: KCategorizedView, position: anytype, index: anytype) void {
-        comptime _ = @TypeOf(position)._is_QPoint;
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        qtc.KCategorizedView_SuperSetPositionForIndex(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(index.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetPositionForIndex` instead
-    ///
-    pub const OnSetPositionForIndex = onSetPositionForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn (self: KCategorizedView, position: QPoint, index: QModelIndex) callconv(.c) void `
-    ///
-    pub fn onSetPositionForIndex(self: KCategorizedView, callback: *const fn (KCategorizedView, QPoint, QModelIndex) callconv(.c) void) void {
-        qtc.KCategorizedView_OnSetPositionForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `state` instead
     ///
     pub const State = state;
@@ -15069,48 +14900,6 @@ pub const KCategorizedView = extern struct {
         return qtc.KCategorizedView_State(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superState` instead
-    ///
-    pub const SuperState = superState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.State `
-    ///
-    pub fn superState(self: KCategorizedView) i32 {
-        return qtc.KCategorizedView_SuperState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onState` instead
-    ///
-    pub const OnState = onState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onState(self: KCategorizedView, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCategorizedView_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setState` instead
     ///
     pub const SetState = setState;
@@ -15131,46 +14920,6 @@ pub const KCategorizedView = extern struct {
         qtc.KCategorizedView_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `superSetState` instead
-    ///
-    pub const SuperSetState = superSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    /// ` _state: qabstractitemview_enums.State `
-    ///
-    pub fn superSetState(self: KCategorizedView, _state: i32) void {
-        qtc.KCategorizedView_SuperSetState(@ptrCast(self.ptr), @bitCast(_state));
-    }
-
-    /// ### DEPRECATED: Use `onSetState` instead
-    ///
-    pub const OnSetState = onSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn (self: KCategorizedView, state: qabstractitemview_enums.State) callconv(.c) void `
-    ///
-    pub fn onSetState(self: KCategorizedView, callback: *const fn (KCategorizedView, i32) callconv(.c) void) void {
-        qtc.KCategorizedView_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `scheduleDelayedItemsLayout` instead
     ///
     pub const ScheduleDelayedItemsLayout = scheduleDelayedItemsLayout;
@@ -15189,44 +14938,6 @@ pub const KCategorizedView = extern struct {
         qtc.KCategorizedView_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superScheduleDelayedItemsLayout` instead
-    ///
-    pub const SuperScheduleDelayedItemsLayout = superScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superScheduleDelayedItemsLayout(self: KCategorizedView) void {
-        qtc.KCategorizedView_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onScheduleDelayedItemsLayout` instead
-    ///
-    pub const OnScheduleDelayedItemsLayout = onScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onScheduleDelayedItemsLayout(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
-        qtc.KCategorizedView_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `executeDelayedItemsLayout` instead
     ///
     pub const ExecuteDelayedItemsLayout = executeDelayedItemsLayout;
@@ -15243,44 +14954,6 @@ pub const KCategorizedView = extern struct {
     ///
     pub fn executeDelayedItemsLayout(self: KCategorizedView) void {
         qtc.KCategorizedView_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superExecuteDelayedItemsLayout` instead
-    ///
-    pub const SuperExecuteDelayedItemsLayout = superExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superExecuteDelayedItemsLayout(self: KCategorizedView) void {
-        qtc.KCategorizedView_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onExecuteDelayedItemsLayout` instead
-    ///
-    pub const OnExecuteDelayedItemsLayout = onExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onExecuteDelayedItemsLayout(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
-        qtc.KCategorizedView_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setDirtyRegion` instead
@@ -15302,47 +14975,6 @@ pub const KCategorizedView = extern struct {
     pub fn setDirtyRegion(self: KCategorizedView, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.KCategorizedView_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSetDirtyRegion` instead
-    ///
-    pub const SuperSetDirtyRegion = superSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    /// ` region: QRegion `
-    ///
-    pub fn superSetDirtyRegion(self: KCategorizedView, region: anytype) void {
-        comptime _ = @TypeOf(region)._is_QRegion;
-        qtc.KCategorizedView_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDirtyRegion` instead
-    ///
-    pub const OnSetDirtyRegion = onSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn (self: KCategorizedView, region: QRegion) callconv(.c) void `
-    ///
-    pub fn onSetDirtyRegion(self: KCategorizedView, callback: *const fn (KCategorizedView, QRegion) callconv(.c) void) void {
-        qtc.KCategorizedView_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `scrollDirtyRegion` instead
@@ -15367,48 +14999,6 @@ pub const KCategorizedView = extern struct {
         qtc.KCategorizedView_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `superScrollDirtyRegion` instead
-    ///
-    pub const SuperScrollDirtyRegion = superScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    /// ` dx: i32 `
-    ///
-    /// ` dy: i32 `
-    ///
-    pub fn superScrollDirtyRegion(self: KCategorizedView, dx: i32, dy: i32) void {
-        qtc.KCategorizedView_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
-    }
-
-    /// ### DEPRECATED: Use `onScrollDirtyRegion` instead
-    ///
-    pub const OnScrollDirtyRegion = onScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn (self: KCategorizedView, dx: i32, dy: i32) callconv(.c) void `
-    ///
-    pub fn onScrollDirtyRegion(self: KCategorizedView, callback: *const fn (KCategorizedView, i32, i32) callconv(.c) void) void {
-        qtc.KCategorizedView_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `dirtyRegionOffset` instead
     ///
     pub const DirtyRegionOffset = dirtyRegionOffset;
@@ -15425,46 +15015,6 @@ pub const KCategorizedView = extern struct {
     ///
     pub fn dirtyRegionOffset(self: KCategorizedView) QPoint {
         return .{ .ptr = qtc.KCategorizedView_DirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superDirtyRegionOffset` instead
-    ///
-    pub const SuperDirtyRegionOffset = superDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superDirtyRegionOffset(self: KCategorizedView) QPoint {
-        return .{ .ptr = qtc.KCategorizedView_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDirtyRegionOffset` instead
-    ///
-    pub const OnDirtyRegionOffset = onDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QPoint `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onDirtyRegionOffset(self: KCategorizedView, callback: *const fn () callconv(.c) QPoint) void {
-        qtc.KCategorizedView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `startAutoScroll` instead
@@ -15485,44 +15035,6 @@ pub const KCategorizedView = extern struct {
         qtc.KCategorizedView_StartAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStartAutoScroll` instead
-    ///
-    pub const SuperStartAutoScroll = superStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superStartAutoScroll(self: KCategorizedView) void {
-        qtc.KCategorizedView_SuperStartAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStartAutoScroll` instead
-    ///
-    pub const OnStartAutoScroll = onStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStartAutoScroll(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
-        qtc.KCategorizedView_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `stopAutoScroll` instead
     ///
     pub const StopAutoScroll = stopAutoScroll;
@@ -15541,44 +15053,6 @@ pub const KCategorizedView = extern struct {
         qtc.KCategorizedView_StopAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStopAutoScroll` instead
-    ///
-    pub const SuperStopAutoScroll = superStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superStopAutoScroll(self: KCategorizedView) void {
-        qtc.KCategorizedView_SuperStopAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStopAutoScroll` instead
-    ///
-    pub const OnStopAutoScroll = onStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStopAutoScroll(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
-        qtc.KCategorizedView_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `doAutoScroll` instead
     ///
     pub const DoAutoScroll = doAutoScroll;
@@ -15595,44 +15069,6 @@ pub const KCategorizedView = extern struct {
     ///
     pub fn doAutoScroll(self: KCategorizedView) void {
         qtc.KCategorizedView_DoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDoAutoScroll` instead
-    ///
-    pub const SuperDoAutoScroll = superDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superDoAutoScroll(self: KCategorizedView) void {
-        qtc.KCategorizedView_SuperDoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDoAutoScroll` instead
-    ///
-    pub const OnDoAutoScroll = onDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDoAutoScroll(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
-        qtc.KCategorizedView_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `dropIndicatorPosition` instead
@@ -15655,48 +15091,6 @@ pub const KCategorizedView = extern struct {
     ///
     pub fn dropIndicatorPosition(self: KCategorizedView) i32 {
         return qtc.KCategorizedView_DropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDropIndicatorPosition` instead
-    ///
-    pub const SuperDropIndicatorPosition = superDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.DropIndicatorPosition `
-    ///
-    pub fn superDropIndicatorPosition(self: KCategorizedView) i32 {
-        return qtc.KCategorizedView_SuperDropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDropIndicatorPosition` instead
-    ///
-    pub const OnDropIndicatorPosition = onDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onDropIndicatorPosition(self: KCategorizedView, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCategorizedView_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setViewportMargins` instead
@@ -15725,52 +15119,6 @@ pub const KCategorizedView = extern struct {
         qtc.KCategorizedView_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: KCategorizedView, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.KCategorizedView_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn (self: KCategorizedView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: KCategorizedView, callback: *const fn (KCategorizedView, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.KCategorizedView_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -15787,46 +15135,6 @@ pub const KCategorizedView = extern struct {
     ///
     pub fn viewportMargins(self: KCategorizedView) QMargins {
         return .{ .ptr = qtc.KCategorizedView_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superViewportMargins(self: KCategorizedView) QMargins {
-        return .{ .ptr = qtc.KCategorizedView_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: KCategorizedView, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.KCategorizedView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -15850,47 +15158,6 @@ pub const KCategorizedView = extern struct {
         qtc.KCategorizedView_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: KCategorizedView, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.KCategorizedView_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn (self: KCategorizedView, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: KCategorizedView, callback: *const fn (KCategorizedView, QPainter) callconv(.c) void) void {
-        qtc.KCategorizedView_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -15907,44 +15174,6 @@ pub const KCategorizedView = extern struct {
     ///
     pub fn updateMicroFocus(self: KCategorizedView) void {
         qtc.KCategorizedView_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superUpdateMicroFocus(self: KCategorizedView) void {
-        qtc.KCategorizedView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
-        qtc.KCategorizedView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -15965,44 +15194,6 @@ pub const KCategorizedView = extern struct {
         qtc.KCategorizedView_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superCreate(self: KCategorizedView) void {
-        qtc.KCategorizedView_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
-        qtc.KCategorizedView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -16019,44 +15210,6 @@ pub const KCategorizedView = extern struct {
     ///
     pub fn destroy(self: KCategorizedView) void {
         qtc.KCategorizedView_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superDestroy(self: KCategorizedView) void {
-        qtc.KCategorizedView_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KCategorizedView, callback: *const fn () callconv(.c) void) void {
-        qtc.KCategorizedView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -16077,44 +15230,6 @@ pub const KCategorizedView = extern struct {
         return qtc.KCategorizedView_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superFocusNextChild(self: KCategorizedView) bool {
-        return qtc.KCategorizedView_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KCategorizedView, callback: *const fn () callconv(.c) bool) void {
-        qtc.KCategorizedView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -16131,44 +15246,6 @@ pub const KCategorizedView = extern struct {
     ///
     pub fn focusPreviousChild(self: KCategorizedView) bool {
         return qtc.KCategorizedView_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superFocusPreviousChild(self: KCategorizedView) bool {
-        return qtc.KCategorizedView_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KCategorizedView, callback: *const fn () callconv(.c) bool) void {
-        qtc.KCategorizedView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -16189,44 +15266,6 @@ pub const KCategorizedView = extern struct {
         return .{ .ptr = qtc.KCategorizedView_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superSender(self: KCategorizedView) QObject {
-        return .{ .ptr = qtc.KCategorizedView_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KCategorizedView, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KCategorizedView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -16243,44 +15282,6 @@ pub const KCategorizedView = extern struct {
     ///
     pub fn senderSignalIndex(self: KCategorizedView) i32 {
         return qtc.KCategorizedView_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    pub fn superSenderSignalIndex(self: KCategorizedView) i32 {
-        return qtc.KCategorizedView_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KCategorizedView, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCategorizedView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -16304,47 +15305,6 @@ pub const KCategorizedView = extern struct {
         return qtc.KCategorizedView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KCategorizedView, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KCategorizedView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn (self: KCategorizedView, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KCategorizedView, callback: *const fn (KCategorizedView, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KCategorizedView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -16364,47 +15324,6 @@ pub const KCategorizedView = extern struct {
     pub fn isSignalConnected(self: KCategorizedView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCategorizedView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KCategorizedView, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KCategorizedView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn (self: KCategorizedView, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KCategorizedView, callback: *const fn (KCategorizedView, QMetaMethod) callconv(.c) bool) void {
-        qtc.KCategorizedView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -16427,48 +15346,6 @@ pub const KCategorizedView = extern struct {
     ///
     pub fn getDecodedMetricF(self: KCategorizedView, metricA: i32, metricB: i32) f64 {
         return qtc.KCategorizedView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedView `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KCategorizedView, metricA: i32, metricB: i32) f64 {
-        return qtc.KCategorizedView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCategorizedView`
-    ///
-    /// ` callback: *const fn (self: KCategorizedView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KCategorizedView, callback: *const fn (KCategorizedView, i32, i32) callconv(.c) f64) void {
-        qtc.KCategorizedView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

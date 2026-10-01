@@ -46,7 +46,7 @@ void QMouseEventTransition_OnTransition(QMouseEventTransition* self, QEvent* eve
 bool QMouseEventTransition_EventTest(QMouseEventTransition* self, QEvent* event);
 libqt_string QMouseEventTransition_Tr2(const char* s, const char* c);
 libqt_string QMouseEventTransition_Tr3(const char* s, const char* c, int n);
-void QMouseEventTransition_OnMetaObject(const QMouseEventTransition* self, intptr_t slot);
+void QMouseEventTransition_OnMetaObject(QMouseEventTransition* self, intptr_t slot);
 QMetaObject* QMouseEventTransition_SuperMetaObject(const QMouseEventTransition* self);
 void QMouseEventTransition_OnMetacast(QMouseEventTransition* self, intptr_t slot);
 void* QMouseEventTransition_SuperMetacast(QMouseEventTransition* self, const char* param1);
@@ -78,17 +78,9 @@ void QMouseEventTransition_DisconnectNotify(QMouseEventTransition* self, const Q
 void QMouseEventTransition_OnDisconnectNotify(QMouseEventTransition* self, intptr_t slot);
 void QMouseEventTransition_SuperDisconnectNotify(QMouseEventTransition* self, const QMetaMethod* signal);
 QObject* QMouseEventTransition_Sender(const QMouseEventTransition* self);
-void QMouseEventTransition_OnSender(const QMouseEventTransition* self, intptr_t slot);
-QObject* QMouseEventTransition_SuperSender(const QMouseEventTransition* self);
 int QMouseEventTransition_SenderSignalIndex(const QMouseEventTransition* self);
-void QMouseEventTransition_OnSenderSignalIndex(const QMouseEventTransition* self, intptr_t slot);
-int QMouseEventTransition_SuperSenderSignalIndex(const QMouseEventTransition* self);
 int QMouseEventTransition_Receivers(const QMouseEventTransition* self, const char* signal);
-void QMouseEventTransition_OnReceivers(const QMouseEventTransition* self, intptr_t slot);
-int QMouseEventTransition_SuperReceivers(const QMouseEventTransition* self, const char* signal);
 bool QMouseEventTransition_IsSignalConnected(const QMouseEventTransition* self, const QMetaMethod* signal);
-void QMouseEventTransition_OnIsSignalConnected(const QMouseEventTransition* self, intptr_t slot);
-bool QMouseEventTransition_SuperIsSignalConnected(const QMouseEventTransition* self, const QMetaMethod* signal);
 void QMouseEventTransition_Delete(QMouseEventTransition* self);
 
 #ifdef __cplusplus

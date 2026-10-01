@@ -151,7 +151,7 @@ void QCamera_HueChanged(QCamera* self);
 void QCamera_Connect_HueChanged(QCamera* self, intptr_t slot);
 libqt_string QCamera_Tr2(const char* s, const char* c);
 libqt_string QCamera_Tr3(const char* s, const char* c, int n);
-void QCamera_OnMetaObject(const QCamera* self, intptr_t slot);
+void QCamera_OnMetaObject(QCamera* self, intptr_t slot);
 QMetaObject* QCamera_SuperMetaObject(const QCamera* self);
 void QCamera_OnMetacast(QCamera* self, intptr_t slot);
 void* QCamera_SuperMetacast(QCamera* self, const char* param1);
@@ -179,17 +179,9 @@ void QCamera_DisconnectNotify(QCamera* self, const QMetaMethod* signal);
 void QCamera_OnDisconnectNotify(QCamera* self, intptr_t slot);
 void QCamera_SuperDisconnectNotify(QCamera* self, const QMetaMethod* signal);
 QObject* QCamera_Sender(const QCamera* self);
-void QCamera_OnSender(const QCamera* self, intptr_t slot);
-QObject* QCamera_SuperSender(const QCamera* self);
 int QCamera_SenderSignalIndex(const QCamera* self);
-void QCamera_OnSenderSignalIndex(const QCamera* self, intptr_t slot);
-int QCamera_SuperSenderSignalIndex(const QCamera* self);
 int QCamera_Receivers(const QCamera* self, const char* signal);
-void QCamera_OnReceivers(const QCamera* self, intptr_t slot);
-int QCamera_SuperReceivers(const QCamera* self, const char* signal);
 bool QCamera_IsSignalConnected(const QCamera* self, const QMetaMethod* signal);
-void QCamera_OnIsSignalConnected(const QCamera* self, intptr_t slot);
-bool QCamera_SuperIsSignalConnected(const QCamera* self, const QMetaMethod* signal);
 void QCamera_Delete(QCamera* self);
 
 #ifdef __cplusplus

@@ -206,9 +206,9 @@ pub const QTextToSpeech = extern struct {
     ///
     /// ` self: QTextToSpeech `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QTextToSpeech) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QTextToSpeech, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTextToSpeech, callback: *const fn (QTextToSpeech) callconv(.c) QMetaObject) void {
         qtc.QTextToSpeech_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1134,57 +1134,6 @@ pub const QTextToSpeech = extern struct {
     pub fn allVoices(self: QTextToSpeech, allocator: std.mem.Allocator, _locale: anytype) []QVoice {
         comptime _ = @TypeOf(_locale)._is_QLocale;
         const _arr: qtc.libqt_list = qtc.QTextToSpeech_AllVoices(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVoice, _arr.len) catch @panic("QTextToSpeech.allVoices: Memory allocation failed");
-        const _data_val: [*]QtC.QVoice = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onAllVoices` instead
-    ///
-    pub const OnAllVoices = onAllVoices;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeech.html#allVoices)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextToSpeech `
-    ///
-    /// ` callback: *const fn (self: QTextToSpeech, locale: QLocale) callconv(.c) qtc.libqt_list `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of []QVoice `
-    ///
-    pub fn onAllVoices(self: QTextToSpeech, callback: *const fn (QTextToSpeech, QLocale) callconv(.c) qtc.libqt_list) void {
-        qtc.QTextToSpeech_OnAllVoices(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAllVoices` instead
-    ///
-    pub const SuperAllVoices = superAllVoices;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeech.html#allVoices)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeech `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` _locale: QLocale `
-    ///
-    pub fn superAllVoices(self: QTextToSpeech, allocator: std.mem.Allocator, _locale: anytype) []QVoice {
-        comptime _ = @TypeOf(_locale)._is_QLocale;
-        const _arr: qtc.libqt_list = qtc.QTextToSpeech_SuperAllVoices(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QVoice, _arr.len) catch @panic("QTextToSpeech.allVoices: Memory allocation failed");
         const _data_val: [*]QtC.QVoice = @ptrCast(@alignCast(_arr.data));
@@ -2746,44 +2695,6 @@ pub const QTextToSpeech = extern struct {
         return .{ .ptr = qtc.QTextToSpeech_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeech `
-    ///
-    pub fn superSender(self: QTextToSpeech) QObject {
-        return .{ .ptr = qtc.QTextToSpeech_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextToSpeech`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QTextToSpeech, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QTextToSpeech_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2800,44 +2711,6 @@ pub const QTextToSpeech = extern struct {
     ///
     pub fn senderSignalIndex(self: QTextToSpeech) i32 {
         return qtc.QTextToSpeech_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeech `
-    ///
-    pub fn superSenderSignalIndex(self: QTextToSpeech) i32 {
-        return qtc.QTextToSpeech_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextToSpeech`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QTextToSpeech, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTextToSpeech_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2861,47 +2734,6 @@ pub const QTextToSpeech = extern struct {
         return qtc.QTextToSpeech_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeech `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QTextToSpeech, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QTextToSpeech_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextToSpeech`
-    ///
-    /// ` callback: *const fn (self: QTextToSpeech, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QTextToSpeech, callback: *const fn (QTextToSpeech, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTextToSpeech_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2921,47 +2753,6 @@ pub const QTextToSpeech = extern struct {
     pub fn isSignalConnected(self: QTextToSpeech, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTextToSpeech_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeech `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QTextToSpeech, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QTextToSpeech_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextToSpeech`
-    ///
-    /// ` callback: *const fn (self: QTextToSpeech, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QTextToSpeech, callback: *const fn (QTextToSpeech, QMetaMethod) callconv(.c) bool) void {
-        qtc.QTextToSpeech_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

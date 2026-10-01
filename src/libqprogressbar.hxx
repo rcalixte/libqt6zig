@@ -9,28 +9,24 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QProgressBar so that we can call protected methods
+// This class is a subclass of QProgressBar
 class VirtualQProgressBar final : public QProgressBar {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQProgressBar = true;
-
-    // Virtual class public types (including callbacks)
-    using QProgressBar_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QProgressBar_MetaObject_Callback = QMetaObject* (*)(const QProgressBar*);
     using QProgressBar_Metacast_Callback = void* (*)(QProgressBar*, const char*);
     using QProgressBar_Metacall_Callback = int (*)(QProgressBar*, int, int, void**);
-    using QProgressBar_Text_Callback = const char* (*)();
-    using QProgressBar_SizeHint_Callback = QSize* (*)();
-    using QProgressBar_MinimumSizeHint_Callback = QSize* (*)();
+    using QProgressBar_Text_Callback = const char* (*)(const QProgressBar*);
+    using QProgressBar_SizeHint_Callback = QSize* (*)(const QProgressBar*);
+    using QProgressBar_MinimumSizeHint_Callback = QSize* (*)(const QProgressBar*);
     using QProgressBar_Event_Callback = bool (*)(QProgressBar*, QEvent*);
     using QProgressBar_PaintEvent_Callback = void (*)(QProgressBar*, QPaintEvent*);
     using QProgressBar_InitStyleOption_Callback = void (*)(const QProgressBar*, QStyleOptionProgressBar*);
-    using QProgressBar_DevType_Callback = int (*)();
+    using QProgressBar_DevType_Callback = int (*)(const QProgressBar*);
     using QProgressBar_SetVisible_Callback = void (*)(QProgressBar*, bool);
     using QProgressBar_HeightForWidth_Callback = int (*)(const QProgressBar*, int);
-    using QProgressBar_HasHeightForWidth_Callback = bool (*)();
-    using QProgressBar_PaintEngine_Callback = QPaintEngine* (*)();
+    using QProgressBar_HasHeightForWidth_Callback = bool (*)(const QProgressBar*);
+    using QProgressBar_PaintEngine_Callback = QPaintEngine* (*)(const QProgressBar*);
     using QProgressBar_MousePressEvent_Callback = void (*)(QProgressBar*, QMouseEvent*);
     using QProgressBar_MouseReleaseEvent_Callback = void (*)(QProgressBar*, QMouseEvent*);
     using QProgressBar_MouseDoubleClickEvent_Callback = void (*)(QProgressBar*, QMouseEvent*);
@@ -59,7 +55,7 @@ class VirtualQProgressBar final : public QProgressBar {
     using QProgressBar_Metric_Callback = int (*)(const QProgressBar*, int);
     using QProgressBar_InitPainter_Callback = void (*)(const QProgressBar*, QPainter*);
     using QProgressBar_Redirected_Callback = QPaintDevice* (*)(const QProgressBar*, QPoint*);
-    using QProgressBar_SharedPainter_Callback = QPainter* (*)();
+    using QProgressBar_SharedPainter_Callback = QPainter* (*)(const QProgressBar*);
     using QProgressBar_InputMethodEvent_Callback = void (*)(QProgressBar*, QInputMethodEvent*);
     using QProgressBar_InputMethodQuery_Callback = QVariant* (*)(const QProgressBar*, int);
     using QProgressBar_FocusNextPrevChild_Callback = bool (*)(QProgressBar*, bool);
@@ -69,18 +65,17 @@ class VirtualQProgressBar final : public QProgressBar {
     using QProgressBar_CustomEvent_Callback = void (*)(QProgressBar*, QEvent*);
     using QProgressBar_ConnectNotify_Callback = void (*)(QProgressBar*, QMetaMethod*);
     using QProgressBar_DisconnectNotify_Callback = void (*)(QProgressBar*, QMetaMethod*);
-    using QProgressBar_UpdateMicroFocus_Callback = void (*)();
-    using QProgressBar_Create_Callback = void (*)();
-    using QProgressBar_Destroy_Callback = void (*)();
-    using QProgressBar_FocusNextChild_Callback = bool (*)();
-    using QProgressBar_FocusPreviousChild_Callback = bool (*)();
-    using QProgressBar_Sender_Callback = QObject* (*)();
-    using QProgressBar_SenderSignalIndex_Callback = int (*)();
-    using QProgressBar_Receivers_Callback = int (*)(const QProgressBar*, const char*);
-    using QProgressBar_IsSignalConnected_Callback = bool (*)(const QProgressBar*, QMetaMethod*);
-    using QProgressBar_GetDecodedMetricF_Callback = double (*)(const QProgressBar*, int, int);
+    using QProgressBar::create;
+    using QProgressBar::destroy;
+    using QProgressBar::focusNextChild;
+    using QProgressBar::focusPreviousChild;
+    using QProgressBar::getDecodedMetricF;
+    using QProgressBar::isSignalConnected;
+    using QProgressBar::receivers;
+    using QProgressBar::sender;
+    using QProgressBar::senderSignalIndex;
+    using QProgressBar::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QProgressBar_MetaObject_Callback qprogressbar_metaobject_callback = nullptr;
     QProgressBar_Metacast_Callback qprogressbar_metacast_callback = nullptr;
@@ -134,222 +129,57 @@ class VirtualQProgressBar final : public QProgressBar {
     QProgressBar_CustomEvent_Callback qprogressbar_customevent_callback = nullptr;
     QProgressBar_ConnectNotify_Callback qprogressbar_connectnotify_callback = nullptr;
     QProgressBar_DisconnectNotify_Callback qprogressbar_disconnectnotify_callback = nullptr;
-    QProgressBar_UpdateMicroFocus_Callback qprogressbar_updatemicrofocus_callback = nullptr;
-    QProgressBar_Create_Callback qprogressbar_create_callback = nullptr;
-    QProgressBar_Destroy_Callback qprogressbar_destroy_callback = nullptr;
-    QProgressBar_FocusNextChild_Callback qprogressbar_focusnextchild_callback = nullptr;
-    QProgressBar_FocusPreviousChild_Callback qprogressbar_focuspreviouschild_callback = nullptr;
-    QProgressBar_Sender_Callback qprogressbar_sender_callback = nullptr;
-    QProgressBar_SenderSignalIndex_Callback qprogressbar_sendersignalindex_callback = nullptr;
-    QProgressBar_Receivers_Callback qprogressbar_receivers_callback = nullptr;
-    QProgressBar_IsSignalConnected_Callback qprogressbar_issignalconnected_callback = nullptr;
-    QProgressBar_GetDecodedMetricF_Callback qprogressbar_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qprogressbar_metaobject_isbase = false;
-    mutable bool qprogressbar_metacast_isbase = false;
-    mutable bool qprogressbar_metacall_isbase = false;
-    mutable bool qprogressbar_text_isbase = false;
-    mutable bool qprogressbar_sizehint_isbase = false;
-    mutable bool qprogressbar_minimumsizehint_isbase = false;
-    mutable bool qprogressbar_event_isbase = false;
-    mutable bool qprogressbar_paintevent_isbase = false;
-    mutable bool qprogressbar_initstyleoption_isbase = false;
-    mutable bool qprogressbar_devtype_isbase = false;
-    mutable bool qprogressbar_setvisible_isbase = false;
-    mutable bool qprogressbar_heightforwidth_isbase = false;
-    mutable bool qprogressbar_hasheightforwidth_isbase = false;
-    mutable bool qprogressbar_paintengine_isbase = false;
-    mutable bool qprogressbar_mousepressevent_isbase = false;
-    mutable bool qprogressbar_mousereleaseevent_isbase = false;
-    mutable bool qprogressbar_mousedoubleclickevent_isbase = false;
-    mutable bool qprogressbar_mousemoveevent_isbase = false;
-    mutable bool qprogressbar_wheelevent_isbase = false;
-    mutable bool qprogressbar_keypressevent_isbase = false;
-    mutable bool qprogressbar_keyreleaseevent_isbase = false;
-    mutable bool qprogressbar_focusinevent_isbase = false;
-    mutable bool qprogressbar_focusoutevent_isbase = false;
-    mutable bool qprogressbar_enterevent_isbase = false;
-    mutable bool qprogressbar_leaveevent_isbase = false;
-    mutable bool qprogressbar_moveevent_isbase = false;
-    mutable bool qprogressbar_resizeevent_isbase = false;
-    mutable bool qprogressbar_closeevent_isbase = false;
-    mutable bool qprogressbar_contextmenuevent_isbase = false;
-    mutable bool qprogressbar_tabletevent_isbase = false;
-    mutable bool qprogressbar_actionevent_isbase = false;
-    mutable bool qprogressbar_dragenterevent_isbase = false;
-    mutable bool qprogressbar_dragmoveevent_isbase = false;
-    mutable bool qprogressbar_dragleaveevent_isbase = false;
-    mutable bool qprogressbar_dropevent_isbase = false;
-    mutable bool qprogressbar_showevent_isbase = false;
-    mutable bool qprogressbar_hideevent_isbase = false;
-    mutable bool qprogressbar_nativeevent_isbase = false;
-    mutable bool qprogressbar_changeevent_isbase = false;
-    mutable bool qprogressbar_metric_isbase = false;
-    mutable bool qprogressbar_initpainter_isbase = false;
-    mutable bool qprogressbar_redirected_isbase = false;
-    mutable bool qprogressbar_sharedpainter_isbase = false;
-    mutable bool qprogressbar_inputmethodevent_isbase = false;
-    mutable bool qprogressbar_inputmethodquery_isbase = false;
-    mutable bool qprogressbar_focusnextprevchild_isbase = false;
-    mutable bool qprogressbar_eventfilter_isbase = false;
-    mutable bool qprogressbar_timerevent_isbase = false;
-    mutable bool qprogressbar_childevent_isbase = false;
-    mutable bool qprogressbar_customevent_isbase = false;
-    mutable bool qprogressbar_connectnotify_isbase = false;
-    mutable bool qprogressbar_disconnectnotify_isbase = false;
-    mutable bool qprogressbar_updatemicrofocus_isbase = false;
-    mutable bool qprogressbar_create_isbase = false;
-    mutable bool qprogressbar_destroy_isbase = false;
-    mutable bool qprogressbar_focusnextchild_isbase = false;
-    mutable bool qprogressbar_focuspreviouschild_isbase = false;
-    mutable bool qprogressbar_sender_isbase = false;
-    mutable bool qprogressbar_sendersignalindex_isbase = false;
-    mutable bool qprogressbar_receivers_isbase = false;
-    mutable bool qprogressbar_issignalconnected_isbase = false;
-    mutable bool qprogressbar_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QProgressBar {
+        using QProgressBar::actionEvent;
+        using QProgressBar::changeEvent;
+        using QProgressBar::childEvent;
+        using QProgressBar::closeEvent;
+        using QProgressBar::connectNotify;
+        using QProgressBar::contextMenuEvent;
+        using QProgressBar::customEvent;
+        using QProgressBar::disconnectNotify;
+        using QProgressBar::dragEnterEvent;
+        using QProgressBar::dragLeaveEvent;
+        using QProgressBar::dragMoveEvent;
+        using QProgressBar::dropEvent;
+        using QProgressBar::enterEvent;
+        using QProgressBar::event;
+        using QProgressBar::focusInEvent;
+        using QProgressBar::focusNextPrevChild;
+        using QProgressBar::focusOutEvent;
+        using QProgressBar::hideEvent;
+        using QProgressBar::initPainter;
+        using QProgressBar::initStyleOption;
+        using QProgressBar::inputMethodEvent;
+        using QProgressBar::keyPressEvent;
+        using QProgressBar::keyReleaseEvent;
+        using QProgressBar::leaveEvent;
+        using QProgressBar::metric;
+        using QProgressBar::mouseDoubleClickEvent;
+        using QProgressBar::mouseMoveEvent;
+        using QProgressBar::mousePressEvent;
+        using QProgressBar::mouseReleaseEvent;
+        using QProgressBar::moveEvent;
+        using QProgressBar::nativeEvent;
+        using QProgressBar::paintEvent;
+        using QProgressBar::redirected;
+        using QProgressBar::resizeEvent;
+        using QProgressBar::sharedPainter;
+        using QProgressBar::showEvent;
+        using QProgressBar::tabletEvent;
+        using QProgressBar::timerEvent;
+        using QProgressBar::wheelEvent;
+    };
 
-  public:
     VirtualQProgressBar(QWidget* parent) : QProgressBar(parent) {};
     VirtualQProgressBar() : QProgressBar() {};
 
-    // Callback setters
-    inline void setQProgressBar_MetaObject_Callback(QProgressBar_MetaObject_Callback cb) { qprogressbar_metaobject_callback = cb; }
-    inline void setQProgressBar_Metacast_Callback(QProgressBar_Metacast_Callback cb) { qprogressbar_metacast_callback = cb; }
-    inline void setQProgressBar_Metacall_Callback(QProgressBar_Metacall_Callback cb) { qprogressbar_metacall_callback = cb; }
-    inline void setQProgressBar_Text_Callback(QProgressBar_Text_Callback cb) { qprogressbar_text_callback = cb; }
-    inline void setQProgressBar_SizeHint_Callback(QProgressBar_SizeHint_Callback cb) { qprogressbar_sizehint_callback = cb; }
-    inline void setQProgressBar_MinimumSizeHint_Callback(QProgressBar_MinimumSizeHint_Callback cb) { qprogressbar_minimumsizehint_callback = cb; }
-    inline void setQProgressBar_Event_Callback(QProgressBar_Event_Callback cb) { qprogressbar_event_callback = cb; }
-    inline void setQProgressBar_PaintEvent_Callback(QProgressBar_PaintEvent_Callback cb) { qprogressbar_paintevent_callback = cb; }
-    inline void setQProgressBar_InitStyleOption_Callback(QProgressBar_InitStyleOption_Callback cb) { qprogressbar_initstyleoption_callback = cb; }
-    inline void setQProgressBar_DevType_Callback(QProgressBar_DevType_Callback cb) { qprogressbar_devtype_callback = cb; }
-    inline void setQProgressBar_SetVisible_Callback(QProgressBar_SetVisible_Callback cb) { qprogressbar_setvisible_callback = cb; }
-    inline void setQProgressBar_HeightForWidth_Callback(QProgressBar_HeightForWidth_Callback cb) { qprogressbar_heightforwidth_callback = cb; }
-    inline void setQProgressBar_HasHeightForWidth_Callback(QProgressBar_HasHeightForWidth_Callback cb) { qprogressbar_hasheightforwidth_callback = cb; }
-    inline void setQProgressBar_PaintEngine_Callback(QProgressBar_PaintEngine_Callback cb) { qprogressbar_paintengine_callback = cb; }
-    inline void setQProgressBar_MousePressEvent_Callback(QProgressBar_MousePressEvent_Callback cb) { qprogressbar_mousepressevent_callback = cb; }
-    inline void setQProgressBar_MouseReleaseEvent_Callback(QProgressBar_MouseReleaseEvent_Callback cb) { qprogressbar_mousereleaseevent_callback = cb; }
-    inline void setQProgressBar_MouseDoubleClickEvent_Callback(QProgressBar_MouseDoubleClickEvent_Callback cb) { qprogressbar_mousedoubleclickevent_callback = cb; }
-    inline void setQProgressBar_MouseMoveEvent_Callback(QProgressBar_MouseMoveEvent_Callback cb) { qprogressbar_mousemoveevent_callback = cb; }
-    inline void setQProgressBar_WheelEvent_Callback(QProgressBar_WheelEvent_Callback cb) { qprogressbar_wheelevent_callback = cb; }
-    inline void setQProgressBar_KeyPressEvent_Callback(QProgressBar_KeyPressEvent_Callback cb) { qprogressbar_keypressevent_callback = cb; }
-    inline void setQProgressBar_KeyReleaseEvent_Callback(QProgressBar_KeyReleaseEvent_Callback cb) { qprogressbar_keyreleaseevent_callback = cb; }
-    inline void setQProgressBar_FocusInEvent_Callback(QProgressBar_FocusInEvent_Callback cb) { qprogressbar_focusinevent_callback = cb; }
-    inline void setQProgressBar_FocusOutEvent_Callback(QProgressBar_FocusOutEvent_Callback cb) { qprogressbar_focusoutevent_callback = cb; }
-    inline void setQProgressBar_EnterEvent_Callback(QProgressBar_EnterEvent_Callback cb) { qprogressbar_enterevent_callback = cb; }
-    inline void setQProgressBar_LeaveEvent_Callback(QProgressBar_LeaveEvent_Callback cb) { qprogressbar_leaveevent_callback = cb; }
-    inline void setQProgressBar_MoveEvent_Callback(QProgressBar_MoveEvent_Callback cb) { qprogressbar_moveevent_callback = cb; }
-    inline void setQProgressBar_ResizeEvent_Callback(QProgressBar_ResizeEvent_Callback cb) { qprogressbar_resizeevent_callback = cb; }
-    inline void setQProgressBar_CloseEvent_Callback(QProgressBar_CloseEvent_Callback cb) { qprogressbar_closeevent_callback = cb; }
-    inline void setQProgressBar_ContextMenuEvent_Callback(QProgressBar_ContextMenuEvent_Callback cb) { qprogressbar_contextmenuevent_callback = cb; }
-    inline void setQProgressBar_TabletEvent_Callback(QProgressBar_TabletEvent_Callback cb) { qprogressbar_tabletevent_callback = cb; }
-    inline void setQProgressBar_ActionEvent_Callback(QProgressBar_ActionEvent_Callback cb) { qprogressbar_actionevent_callback = cb; }
-    inline void setQProgressBar_DragEnterEvent_Callback(QProgressBar_DragEnterEvent_Callback cb) { qprogressbar_dragenterevent_callback = cb; }
-    inline void setQProgressBar_DragMoveEvent_Callback(QProgressBar_DragMoveEvent_Callback cb) { qprogressbar_dragmoveevent_callback = cb; }
-    inline void setQProgressBar_DragLeaveEvent_Callback(QProgressBar_DragLeaveEvent_Callback cb) { qprogressbar_dragleaveevent_callback = cb; }
-    inline void setQProgressBar_DropEvent_Callback(QProgressBar_DropEvent_Callback cb) { qprogressbar_dropevent_callback = cb; }
-    inline void setQProgressBar_ShowEvent_Callback(QProgressBar_ShowEvent_Callback cb) { qprogressbar_showevent_callback = cb; }
-    inline void setQProgressBar_HideEvent_Callback(QProgressBar_HideEvent_Callback cb) { qprogressbar_hideevent_callback = cb; }
-    inline void setQProgressBar_NativeEvent_Callback(QProgressBar_NativeEvent_Callback cb) { qprogressbar_nativeevent_callback = cb; }
-    inline void setQProgressBar_ChangeEvent_Callback(QProgressBar_ChangeEvent_Callback cb) { qprogressbar_changeevent_callback = cb; }
-    inline void setQProgressBar_Metric_Callback(QProgressBar_Metric_Callback cb) { qprogressbar_metric_callback = cb; }
-    inline void setQProgressBar_InitPainter_Callback(QProgressBar_InitPainter_Callback cb) { qprogressbar_initpainter_callback = cb; }
-    inline void setQProgressBar_Redirected_Callback(QProgressBar_Redirected_Callback cb) { qprogressbar_redirected_callback = cb; }
-    inline void setQProgressBar_SharedPainter_Callback(QProgressBar_SharedPainter_Callback cb) { qprogressbar_sharedpainter_callback = cb; }
-    inline void setQProgressBar_InputMethodEvent_Callback(QProgressBar_InputMethodEvent_Callback cb) { qprogressbar_inputmethodevent_callback = cb; }
-    inline void setQProgressBar_InputMethodQuery_Callback(QProgressBar_InputMethodQuery_Callback cb) { qprogressbar_inputmethodquery_callback = cb; }
-    inline void setQProgressBar_FocusNextPrevChild_Callback(QProgressBar_FocusNextPrevChild_Callback cb) { qprogressbar_focusnextprevchild_callback = cb; }
-    inline void setQProgressBar_EventFilter_Callback(QProgressBar_EventFilter_Callback cb) { qprogressbar_eventfilter_callback = cb; }
-    inline void setQProgressBar_TimerEvent_Callback(QProgressBar_TimerEvent_Callback cb) { qprogressbar_timerevent_callback = cb; }
-    inline void setQProgressBar_ChildEvent_Callback(QProgressBar_ChildEvent_Callback cb) { qprogressbar_childevent_callback = cb; }
-    inline void setQProgressBar_CustomEvent_Callback(QProgressBar_CustomEvent_Callback cb) { qprogressbar_customevent_callback = cb; }
-    inline void setQProgressBar_ConnectNotify_Callback(QProgressBar_ConnectNotify_Callback cb) { qprogressbar_connectnotify_callback = cb; }
-    inline void setQProgressBar_DisconnectNotify_Callback(QProgressBar_DisconnectNotify_Callback cb) { qprogressbar_disconnectnotify_callback = cb; }
-    inline void setQProgressBar_UpdateMicroFocus_Callback(QProgressBar_UpdateMicroFocus_Callback cb) { qprogressbar_updatemicrofocus_callback = cb; }
-    inline void setQProgressBar_Create_Callback(QProgressBar_Create_Callback cb) { qprogressbar_create_callback = cb; }
-    inline void setQProgressBar_Destroy_Callback(QProgressBar_Destroy_Callback cb) { qprogressbar_destroy_callback = cb; }
-    inline void setQProgressBar_FocusNextChild_Callback(QProgressBar_FocusNextChild_Callback cb) { qprogressbar_focusnextchild_callback = cb; }
-    inline void setQProgressBar_FocusPreviousChild_Callback(QProgressBar_FocusPreviousChild_Callback cb) { qprogressbar_focuspreviouschild_callback = cb; }
-    inline void setQProgressBar_Sender_Callback(QProgressBar_Sender_Callback cb) { qprogressbar_sender_callback = cb; }
-    inline void setQProgressBar_SenderSignalIndex_Callback(QProgressBar_SenderSignalIndex_Callback cb) { qprogressbar_sendersignalindex_callback = cb; }
-    inline void setQProgressBar_Receivers_Callback(QProgressBar_Receivers_Callback cb) { qprogressbar_receivers_callback = cb; }
-    inline void setQProgressBar_IsSignalConnected_Callback(QProgressBar_IsSignalConnected_Callback cb) { qprogressbar_issignalconnected_callback = cb; }
-    inline void setQProgressBar_GetDecodedMetricF_Callback(QProgressBar_GetDecodedMetricF_Callback cb) { qprogressbar_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQProgressBar_MetaObject_IsBase(bool value) const { qprogressbar_metaobject_isbase = value; }
-    inline void setQProgressBar_Metacast_IsBase(bool value) const { qprogressbar_metacast_isbase = value; }
-    inline void setQProgressBar_Metacall_IsBase(bool value) const { qprogressbar_metacall_isbase = value; }
-    inline void setQProgressBar_Text_IsBase(bool value) const { qprogressbar_text_isbase = value; }
-    inline void setQProgressBar_SizeHint_IsBase(bool value) const { qprogressbar_sizehint_isbase = value; }
-    inline void setQProgressBar_MinimumSizeHint_IsBase(bool value) const { qprogressbar_minimumsizehint_isbase = value; }
-    inline void setQProgressBar_Event_IsBase(bool value) const { qprogressbar_event_isbase = value; }
-    inline void setQProgressBar_PaintEvent_IsBase(bool value) const { qprogressbar_paintevent_isbase = value; }
-    inline void setQProgressBar_InitStyleOption_IsBase(bool value) const { qprogressbar_initstyleoption_isbase = value; }
-    inline void setQProgressBar_DevType_IsBase(bool value) const { qprogressbar_devtype_isbase = value; }
-    inline void setQProgressBar_SetVisible_IsBase(bool value) const { qprogressbar_setvisible_isbase = value; }
-    inline void setQProgressBar_HeightForWidth_IsBase(bool value) const { qprogressbar_heightforwidth_isbase = value; }
-    inline void setQProgressBar_HasHeightForWidth_IsBase(bool value) const { qprogressbar_hasheightforwidth_isbase = value; }
-    inline void setQProgressBar_PaintEngine_IsBase(bool value) const { qprogressbar_paintengine_isbase = value; }
-    inline void setQProgressBar_MousePressEvent_IsBase(bool value) const { qprogressbar_mousepressevent_isbase = value; }
-    inline void setQProgressBar_MouseReleaseEvent_IsBase(bool value) const { qprogressbar_mousereleaseevent_isbase = value; }
-    inline void setQProgressBar_MouseDoubleClickEvent_IsBase(bool value) const { qprogressbar_mousedoubleclickevent_isbase = value; }
-    inline void setQProgressBar_MouseMoveEvent_IsBase(bool value) const { qprogressbar_mousemoveevent_isbase = value; }
-    inline void setQProgressBar_WheelEvent_IsBase(bool value) const { qprogressbar_wheelevent_isbase = value; }
-    inline void setQProgressBar_KeyPressEvent_IsBase(bool value) const { qprogressbar_keypressevent_isbase = value; }
-    inline void setQProgressBar_KeyReleaseEvent_IsBase(bool value) const { qprogressbar_keyreleaseevent_isbase = value; }
-    inline void setQProgressBar_FocusInEvent_IsBase(bool value) const { qprogressbar_focusinevent_isbase = value; }
-    inline void setQProgressBar_FocusOutEvent_IsBase(bool value) const { qprogressbar_focusoutevent_isbase = value; }
-    inline void setQProgressBar_EnterEvent_IsBase(bool value) const { qprogressbar_enterevent_isbase = value; }
-    inline void setQProgressBar_LeaveEvent_IsBase(bool value) const { qprogressbar_leaveevent_isbase = value; }
-    inline void setQProgressBar_MoveEvent_IsBase(bool value) const { qprogressbar_moveevent_isbase = value; }
-    inline void setQProgressBar_ResizeEvent_IsBase(bool value) const { qprogressbar_resizeevent_isbase = value; }
-    inline void setQProgressBar_CloseEvent_IsBase(bool value) const { qprogressbar_closeevent_isbase = value; }
-    inline void setQProgressBar_ContextMenuEvent_IsBase(bool value) const { qprogressbar_contextmenuevent_isbase = value; }
-    inline void setQProgressBar_TabletEvent_IsBase(bool value) const { qprogressbar_tabletevent_isbase = value; }
-    inline void setQProgressBar_ActionEvent_IsBase(bool value) const { qprogressbar_actionevent_isbase = value; }
-    inline void setQProgressBar_DragEnterEvent_IsBase(bool value) const { qprogressbar_dragenterevent_isbase = value; }
-    inline void setQProgressBar_DragMoveEvent_IsBase(bool value) const { qprogressbar_dragmoveevent_isbase = value; }
-    inline void setQProgressBar_DragLeaveEvent_IsBase(bool value) const { qprogressbar_dragleaveevent_isbase = value; }
-    inline void setQProgressBar_DropEvent_IsBase(bool value) const { qprogressbar_dropevent_isbase = value; }
-    inline void setQProgressBar_ShowEvent_IsBase(bool value) const { qprogressbar_showevent_isbase = value; }
-    inline void setQProgressBar_HideEvent_IsBase(bool value) const { qprogressbar_hideevent_isbase = value; }
-    inline void setQProgressBar_NativeEvent_IsBase(bool value) const { qprogressbar_nativeevent_isbase = value; }
-    inline void setQProgressBar_ChangeEvent_IsBase(bool value) const { qprogressbar_changeevent_isbase = value; }
-    inline void setQProgressBar_Metric_IsBase(bool value) const { qprogressbar_metric_isbase = value; }
-    inline void setQProgressBar_InitPainter_IsBase(bool value) const { qprogressbar_initpainter_isbase = value; }
-    inline void setQProgressBar_Redirected_IsBase(bool value) const { qprogressbar_redirected_isbase = value; }
-    inline void setQProgressBar_SharedPainter_IsBase(bool value) const { qprogressbar_sharedpainter_isbase = value; }
-    inline void setQProgressBar_InputMethodEvent_IsBase(bool value) const { qprogressbar_inputmethodevent_isbase = value; }
-    inline void setQProgressBar_InputMethodQuery_IsBase(bool value) const { qprogressbar_inputmethodquery_isbase = value; }
-    inline void setQProgressBar_FocusNextPrevChild_IsBase(bool value) const { qprogressbar_focusnextprevchild_isbase = value; }
-    inline void setQProgressBar_EventFilter_IsBase(bool value) const { qprogressbar_eventfilter_isbase = value; }
-    inline void setQProgressBar_TimerEvent_IsBase(bool value) const { qprogressbar_timerevent_isbase = value; }
-    inline void setQProgressBar_ChildEvent_IsBase(bool value) const { qprogressbar_childevent_isbase = value; }
-    inline void setQProgressBar_CustomEvent_IsBase(bool value) const { qprogressbar_customevent_isbase = value; }
-    inline void setQProgressBar_ConnectNotify_IsBase(bool value) const { qprogressbar_connectnotify_isbase = value; }
-    inline void setQProgressBar_DisconnectNotify_IsBase(bool value) const { qprogressbar_disconnectnotify_isbase = value; }
-    inline void setQProgressBar_UpdateMicroFocus_IsBase(bool value) const { qprogressbar_updatemicrofocus_isbase = value; }
-    inline void setQProgressBar_Create_IsBase(bool value) const { qprogressbar_create_isbase = value; }
-    inline void setQProgressBar_Destroy_IsBase(bool value) const { qprogressbar_destroy_isbase = value; }
-    inline void setQProgressBar_FocusNextChild_IsBase(bool value) const { qprogressbar_focusnextchild_isbase = value; }
-    inline void setQProgressBar_FocusPreviousChild_IsBase(bool value) const { qprogressbar_focuspreviouschild_isbase = value; }
-    inline void setQProgressBar_Sender_IsBase(bool value) const { qprogressbar_sender_isbase = value; }
-    inline void setQProgressBar_SenderSignalIndex_IsBase(bool value) const { qprogressbar_sendersignalindex_isbase = value; }
-    inline void setQProgressBar_Receivers_IsBase(bool value) const { qprogressbar_receivers_isbase = value; }
-    inline void setQProgressBar_IsSignalConnected_IsBase(bool value) const { qprogressbar_issignalconnected_isbase = value; }
-    inline void setQProgressBar_GetDecodedMetricF_IsBase(bool value) const { qprogressbar_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qprogressbar_metaobject_isbase) {
-            qprogressbar_metaobject_isbase = false;
-            return QProgressBar::metaObject();
-        }
-        auto metaobject_cb = qprogressbar_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qprogressbar_metaobject_callback) {
+            QMetaObject* callback_ret = qprogressbar_metaobject_callback(this);
             return callback_ret;
         }
         return QProgressBar::metaObject();
@@ -357,14 +187,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qprogressbar_metacast_isbase) {
-            qprogressbar_metacast_isbase = false;
-            return QProgressBar::qt_metacast(param1);
-        }
-        auto metacast_cb = qprogressbar_metacast_callback;
-        if (metacast_cb) {
+        if (qprogressbar_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qprogressbar_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QProgressBar::qt_metacast(param1);
@@ -372,16 +197,11 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qprogressbar_metacall_isbase) {
-            qprogressbar_metacall_isbase = false;
-            return QProgressBar::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qprogressbar_metacall_callback;
-        if (metacall_cb) {
+        if (qprogressbar_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qprogressbar_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QProgressBar::qt_metacall(param1, param2, param3);
@@ -389,13 +209,8 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QString text() const override {
-        if (qprogressbar_text_isbase) {
-            qprogressbar_text_isbase = false;
-            return QProgressBar::text();
-        }
-        auto text_cb = qprogressbar_text_callback;
-        if (text_cb) {
-            const char* callback_ret = text_cb();
+        if (qprogressbar_text_callback) {
+            const char* callback_ret = qprogressbar_text_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -404,13 +219,8 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qprogressbar_sizehint_isbase) {
-            qprogressbar_sizehint_isbase = false;
-            return QProgressBar::sizeHint();
-        }
-        auto sizehint_cb = qprogressbar_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qprogressbar_sizehint_callback) {
+            QSize* callback_ret = qprogressbar_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -420,13 +230,8 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qprogressbar_minimumsizehint_isbase) {
-            qprogressbar_minimumsizehint_isbase = false;
-            return QProgressBar::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qprogressbar_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qprogressbar_minimumsizehint_callback) {
+            QSize* callback_ret = qprogressbar_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -436,14 +241,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* e) override {
-        if (qprogressbar_event_isbase) {
-            qprogressbar_event_isbase = false;
-            return QProgressBar::event(e);
-        }
-        auto event_cb = qprogressbar_event_callback;
-        if (event_cb) {
+        if (qprogressbar_event_callback) {
             QEvent* cbval1 = e;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qprogressbar_event_callback(this, cbval1);
             return callback_ret;
         }
         return QProgressBar::event(e);
@@ -451,15 +251,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* param1) override {
-        if (qprogressbar_paintevent_isbase) {
-            qprogressbar_paintevent_isbase = false;
-            QProgressBar::paintEvent(param1);
-            return;
-        }
-        auto paintevent_cb = qprogressbar_paintevent_callback;
-        if (paintevent_cb) {
+        if (qprogressbar_paintevent_callback) {
             QPaintEvent* cbval1 = param1;
-            paintevent_cb(this, cbval1);
+            qprogressbar_paintevent_callback(this, cbval1);
             return;
         }
         QProgressBar::paintEvent(param1);
@@ -467,15 +261,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionProgressBar* option) const override {
-        if (qprogressbar_initstyleoption_isbase) {
-            qprogressbar_initstyleoption_isbase = false;
-            QProgressBar::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = qprogressbar_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (qprogressbar_initstyleoption_callback) {
             QStyleOptionProgressBar* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            qprogressbar_initstyleoption_callback(this, cbval1);
             return;
         }
         QProgressBar::initStyleOption(option);
@@ -483,13 +271,8 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qprogressbar_devtype_isbase) {
-            qprogressbar_devtype_isbase = false;
-            return QProgressBar::devType();
-        }
-        auto devtype_cb = qprogressbar_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qprogressbar_devtype_callback) {
+            int callback_ret = qprogressbar_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QProgressBar::devType();
@@ -497,15 +280,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qprogressbar_setvisible_isbase) {
-            qprogressbar_setvisible_isbase = false;
-            QProgressBar::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qprogressbar_setvisible_callback;
-        if (setvisible_cb) {
+        if (qprogressbar_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qprogressbar_setvisible_callback(this, cbval1);
             return;
         }
         QProgressBar::setVisible(visible);
@@ -513,14 +290,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qprogressbar_heightforwidth_isbase) {
-            qprogressbar_heightforwidth_isbase = false;
-            return QProgressBar::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qprogressbar_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qprogressbar_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qprogressbar_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QProgressBar::heightForWidth(param1);
@@ -528,13 +300,8 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qprogressbar_hasheightforwidth_isbase) {
-            qprogressbar_hasheightforwidth_isbase = false;
-            return QProgressBar::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qprogressbar_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qprogressbar_hasheightforwidth_callback) {
+            bool callback_ret = qprogressbar_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QProgressBar::hasHeightForWidth();
@@ -542,13 +309,8 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qprogressbar_paintengine_isbase) {
-            qprogressbar_paintengine_isbase = false;
-            return QProgressBar::paintEngine();
-        }
-        auto paintengine_cb = qprogressbar_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qprogressbar_paintengine_callback) {
+            QPaintEngine* callback_ret = qprogressbar_paintengine_callback(this);
             return callback_ret;
         }
         return QProgressBar::paintEngine();
@@ -556,15 +318,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (qprogressbar_mousepressevent_isbase) {
-            qprogressbar_mousepressevent_isbase = false;
-            QProgressBar::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qprogressbar_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qprogressbar_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qprogressbar_mousepressevent_callback(this, cbval1);
             return;
         }
         QProgressBar::mousePressEvent(event);
@@ -572,15 +328,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qprogressbar_mousereleaseevent_isbase) {
-            qprogressbar_mousereleaseevent_isbase = false;
-            QProgressBar::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qprogressbar_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qprogressbar_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qprogressbar_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QProgressBar::mouseReleaseEvent(event);
@@ -588,15 +338,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qprogressbar_mousedoubleclickevent_isbase) {
-            qprogressbar_mousedoubleclickevent_isbase = false;
-            QProgressBar::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qprogressbar_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qprogressbar_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qprogressbar_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QProgressBar::mouseDoubleClickEvent(event);
@@ -604,15 +348,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qprogressbar_mousemoveevent_isbase) {
-            qprogressbar_mousemoveevent_isbase = false;
-            QProgressBar::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qprogressbar_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qprogressbar_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qprogressbar_mousemoveevent_callback(this, cbval1);
             return;
         }
         QProgressBar::mouseMoveEvent(event);
@@ -620,15 +358,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qprogressbar_wheelevent_isbase) {
-            qprogressbar_wheelevent_isbase = false;
-            QProgressBar::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qprogressbar_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qprogressbar_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qprogressbar_wheelevent_callback(this, cbval1);
             return;
         }
         QProgressBar::wheelEvent(event);
@@ -636,15 +368,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qprogressbar_keypressevent_isbase) {
-            qprogressbar_keypressevent_isbase = false;
-            QProgressBar::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qprogressbar_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qprogressbar_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qprogressbar_keypressevent_callback(this, cbval1);
             return;
         }
         QProgressBar::keyPressEvent(event);
@@ -652,15 +378,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qprogressbar_keyreleaseevent_isbase) {
-            qprogressbar_keyreleaseevent_isbase = false;
-            QProgressBar::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qprogressbar_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qprogressbar_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qprogressbar_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QProgressBar::keyReleaseEvent(event);
@@ -668,15 +388,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qprogressbar_focusinevent_isbase) {
-            qprogressbar_focusinevent_isbase = false;
-            QProgressBar::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qprogressbar_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qprogressbar_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qprogressbar_focusinevent_callback(this, cbval1);
             return;
         }
         QProgressBar::focusInEvent(event);
@@ -684,15 +398,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qprogressbar_focusoutevent_isbase) {
-            qprogressbar_focusoutevent_isbase = false;
-            QProgressBar::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qprogressbar_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qprogressbar_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qprogressbar_focusoutevent_callback(this, cbval1);
             return;
         }
         QProgressBar::focusOutEvent(event);
@@ -700,15 +408,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qprogressbar_enterevent_isbase) {
-            qprogressbar_enterevent_isbase = false;
-            QProgressBar::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qprogressbar_enterevent_callback;
-        if (enterevent_cb) {
+        if (qprogressbar_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qprogressbar_enterevent_callback(this, cbval1);
             return;
         }
         QProgressBar::enterEvent(event);
@@ -716,15 +418,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qprogressbar_leaveevent_isbase) {
-            qprogressbar_leaveevent_isbase = false;
-            QProgressBar::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qprogressbar_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qprogressbar_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qprogressbar_leaveevent_callback(this, cbval1);
             return;
         }
         QProgressBar::leaveEvent(event);
@@ -732,15 +428,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qprogressbar_moveevent_isbase) {
-            qprogressbar_moveevent_isbase = false;
-            QProgressBar::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qprogressbar_moveevent_callback;
-        if (moveevent_cb) {
+        if (qprogressbar_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qprogressbar_moveevent_callback(this, cbval1);
             return;
         }
         QProgressBar::moveEvent(event);
@@ -748,15 +438,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (qprogressbar_resizeevent_isbase) {
-            qprogressbar_resizeevent_isbase = false;
-            QProgressBar::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = qprogressbar_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qprogressbar_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            qprogressbar_resizeevent_callback(this, cbval1);
             return;
         }
         QProgressBar::resizeEvent(event);
@@ -764,15 +448,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qprogressbar_closeevent_isbase) {
-            qprogressbar_closeevent_isbase = false;
-            QProgressBar::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qprogressbar_closeevent_callback;
-        if (closeevent_cb) {
+        if (qprogressbar_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qprogressbar_closeevent_callback(this, cbval1);
             return;
         }
         QProgressBar::closeEvent(event);
@@ -780,15 +458,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (qprogressbar_contextmenuevent_isbase) {
-            qprogressbar_contextmenuevent_isbase = false;
-            QProgressBar::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qprogressbar_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qprogressbar_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qprogressbar_contextmenuevent_callback(this, cbval1);
             return;
         }
         QProgressBar::contextMenuEvent(event);
@@ -796,15 +468,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qprogressbar_tabletevent_isbase) {
-            qprogressbar_tabletevent_isbase = false;
-            QProgressBar::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qprogressbar_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qprogressbar_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qprogressbar_tabletevent_callback(this, cbval1);
             return;
         }
         QProgressBar::tabletEvent(event);
@@ -812,15 +478,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qprogressbar_actionevent_isbase) {
-            qprogressbar_actionevent_isbase = false;
-            QProgressBar::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qprogressbar_actionevent_callback;
-        if (actionevent_cb) {
+        if (qprogressbar_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qprogressbar_actionevent_callback(this, cbval1);
             return;
         }
         QProgressBar::actionEvent(event);
@@ -828,15 +488,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qprogressbar_dragenterevent_isbase) {
-            qprogressbar_dragenterevent_isbase = false;
-            QProgressBar::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qprogressbar_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qprogressbar_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qprogressbar_dragenterevent_callback(this, cbval1);
             return;
         }
         QProgressBar::dragEnterEvent(event);
@@ -844,15 +498,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qprogressbar_dragmoveevent_isbase) {
-            qprogressbar_dragmoveevent_isbase = false;
-            QProgressBar::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qprogressbar_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qprogressbar_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qprogressbar_dragmoveevent_callback(this, cbval1);
             return;
         }
         QProgressBar::dragMoveEvent(event);
@@ -860,15 +508,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qprogressbar_dragleaveevent_isbase) {
-            qprogressbar_dragleaveevent_isbase = false;
-            QProgressBar::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qprogressbar_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qprogressbar_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qprogressbar_dragleaveevent_callback(this, cbval1);
             return;
         }
         QProgressBar::dragLeaveEvent(event);
@@ -876,15 +518,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qprogressbar_dropevent_isbase) {
-            qprogressbar_dropevent_isbase = false;
-            QProgressBar::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qprogressbar_dropevent_callback;
-        if (dropevent_cb) {
+        if (qprogressbar_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qprogressbar_dropevent_callback(this, cbval1);
             return;
         }
         QProgressBar::dropEvent(event);
@@ -892,15 +528,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (qprogressbar_showevent_isbase) {
-            qprogressbar_showevent_isbase = false;
-            QProgressBar::showEvent(event);
-            return;
-        }
-        auto showevent_cb = qprogressbar_showevent_callback;
-        if (showevent_cb) {
+        if (qprogressbar_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            qprogressbar_showevent_callback(this, cbval1);
             return;
         }
         QProgressBar::showEvent(event);
@@ -908,15 +538,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qprogressbar_hideevent_isbase) {
-            qprogressbar_hideevent_isbase = false;
-            QProgressBar::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qprogressbar_hideevent_callback;
-        if (hideevent_cb) {
+        if (qprogressbar_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qprogressbar_hideevent_callback(this, cbval1);
             return;
         }
         QProgressBar::hideEvent(event);
@@ -924,12 +548,7 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qprogressbar_nativeevent_isbase) {
-            qprogressbar_nativeevent_isbase = false;
-            return QProgressBar::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qprogressbar_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qprogressbar_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -939,7 +558,7 @@ class VirtualQProgressBar final : public QProgressBar {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qprogressbar_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -948,15 +567,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (qprogressbar_changeevent_isbase) {
-            qprogressbar_changeevent_isbase = false;
-            QProgressBar::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = qprogressbar_changeevent_callback;
-        if (changeevent_cb) {
+        if (qprogressbar_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            qprogressbar_changeevent_callback(this, cbval1);
             return;
         }
         QProgressBar::changeEvent(param1);
@@ -964,14 +577,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qprogressbar_metric_isbase) {
-            qprogressbar_metric_isbase = false;
-            return QProgressBar::metric(param1);
-        }
-        auto metric_cb = qprogressbar_metric_callback;
-        if (metric_cb) {
+        if (qprogressbar_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qprogressbar_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QProgressBar::metric(param1);
@@ -979,15 +587,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qprogressbar_initpainter_isbase) {
-            qprogressbar_initpainter_isbase = false;
-            QProgressBar::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qprogressbar_initpainter_callback;
-        if (initpainter_cb) {
+        if (qprogressbar_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qprogressbar_initpainter_callback(this, cbval1);
             return;
         }
         QProgressBar::initPainter(painter);
@@ -995,14 +597,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qprogressbar_redirected_isbase) {
-            qprogressbar_redirected_isbase = false;
-            return QProgressBar::redirected(offset);
-        }
-        auto redirected_cb = qprogressbar_redirected_callback;
-        if (redirected_cb) {
+        if (qprogressbar_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qprogressbar_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QProgressBar::redirected(offset);
@@ -1010,13 +607,8 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qprogressbar_sharedpainter_isbase) {
-            qprogressbar_sharedpainter_isbase = false;
-            return QProgressBar::sharedPainter();
-        }
-        auto sharedpainter_cb = qprogressbar_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qprogressbar_sharedpainter_callback) {
+            QPainter* callback_ret = qprogressbar_sharedpainter_callback(this);
             return callback_ret;
         }
         return QProgressBar::sharedPainter();
@@ -1024,15 +616,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qprogressbar_inputmethodevent_isbase) {
-            qprogressbar_inputmethodevent_isbase = false;
-            QProgressBar::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qprogressbar_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qprogressbar_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qprogressbar_inputmethodevent_callback(this, cbval1);
             return;
         }
         QProgressBar::inputMethodEvent(param1);
@@ -1040,14 +626,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qprogressbar_inputmethodquery_isbase) {
-            qprogressbar_inputmethodquery_isbase = false;
-            return QProgressBar::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qprogressbar_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qprogressbar_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qprogressbar_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1057,14 +638,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qprogressbar_focusnextprevchild_isbase) {
-            qprogressbar_focusnextprevchild_isbase = false;
-            return QProgressBar::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qprogressbar_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qprogressbar_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qprogressbar_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QProgressBar::focusNextPrevChild(next);
@@ -1072,15 +648,10 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qprogressbar_eventfilter_isbase) {
-            qprogressbar_eventfilter_isbase = false;
-            return QProgressBar::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qprogressbar_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qprogressbar_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qprogressbar_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QProgressBar::eventFilter(watched, event);
@@ -1088,15 +659,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qprogressbar_timerevent_isbase) {
-            qprogressbar_timerevent_isbase = false;
-            QProgressBar::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qprogressbar_timerevent_callback;
-        if (timerevent_cb) {
+        if (qprogressbar_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qprogressbar_timerevent_callback(this, cbval1);
             return;
         }
         QProgressBar::timerEvent(event);
@@ -1104,15 +669,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qprogressbar_childevent_isbase) {
-            qprogressbar_childevent_isbase = false;
-            QProgressBar::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qprogressbar_childevent_callback;
-        if (childevent_cb) {
+        if (qprogressbar_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qprogressbar_childevent_callback(this, cbval1);
             return;
         }
         QProgressBar::childEvent(event);
@@ -1120,15 +679,9 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qprogressbar_customevent_isbase) {
-            qprogressbar_customevent_isbase = false;
-            QProgressBar::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qprogressbar_customevent_callback;
-        if (customevent_cb) {
+        if (qprogressbar_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qprogressbar_customevent_callback(this, cbval1);
             return;
         }
         QProgressBar::customEvent(event);
@@ -1136,17 +689,11 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qprogressbar_connectnotify_isbase) {
-            qprogressbar_connectnotify_isbase = false;
-            QProgressBar::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qprogressbar_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qprogressbar_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qprogressbar_connectnotify_callback(this, cbval1);
             return;
         }
         QProgressBar::connectNotify(signal);
@@ -1154,270 +701,56 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qprogressbar_disconnectnotify_isbase) {
-            qprogressbar_disconnectnotify_isbase = false;
-            QProgressBar::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qprogressbar_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qprogressbar_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qprogressbar_disconnectnotify_callback(this, cbval1);
             return;
         }
         QProgressBar::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qprogressbar_updatemicrofocus_isbase) {
-            qprogressbar_updatemicrofocus_isbase = false;
-            QProgressBar::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qprogressbar_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QProgressBar::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qprogressbar_create_isbase) {
-            qprogressbar_create_isbase = false;
-            QProgressBar::create();
-            return;
-        }
-        auto create_cb = qprogressbar_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QProgressBar::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qprogressbar_destroy_isbase) {
-            qprogressbar_destroy_isbase = false;
-            QProgressBar::destroy();
-            return;
-        }
-        auto destroy_cb = qprogressbar_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QProgressBar::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qprogressbar_focusnextchild_isbase) {
-            qprogressbar_focusnextchild_isbase = false;
-            return QProgressBar::focusNextChild();
-        }
-        auto focusnextchild_cb = qprogressbar_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QProgressBar::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qprogressbar_focuspreviouschild_isbase) {
-            qprogressbar_focuspreviouschild_isbase = false;
-            return QProgressBar::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qprogressbar_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QProgressBar::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qprogressbar_sender_isbase) {
-            qprogressbar_sender_isbase = false;
-            return QProgressBar::sender();
-        }
-        auto sender_cb = qprogressbar_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QProgressBar::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qprogressbar_sendersignalindex_isbase) {
-            qprogressbar_sendersignalindex_isbase = false;
-            return QProgressBar::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qprogressbar_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QProgressBar::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qprogressbar_receivers_isbase) {
-            qprogressbar_receivers_isbase = false;
-            return QProgressBar::receivers(signal);
-        }
-        auto receivers_cb = qprogressbar_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QProgressBar::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qprogressbar_issignalconnected_isbase) {
-            qprogressbar_issignalconnected_isbase = false;
-            return QProgressBar::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qprogressbar_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QProgressBar::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qprogressbar_getdecodedmetricf_isbase) {
-            qprogressbar_getdecodedmetricf_isbase = false;
-            return QProgressBar::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qprogressbar_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QProgressBar::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool QProgressBar_Event(QProgressBar* self, QEvent* e);
     friend bool QProgressBar_SuperEvent(QProgressBar* self, QEvent* e);
-    friend void QProgressBar_PaintEvent(QProgressBar* self, QPaintEvent* param1);
     friend void QProgressBar_SuperPaintEvent(QProgressBar* self, QPaintEvent* param1);
-    friend void QProgressBar_InitStyleOption(const QProgressBar* self, QStyleOptionProgressBar* option);
     friend void QProgressBar_SuperInitStyleOption(const QProgressBar* self, QStyleOptionProgressBar* option);
-    friend void QProgressBar_MousePressEvent(QProgressBar* self, QMouseEvent* event);
     friend void QProgressBar_SuperMousePressEvent(QProgressBar* self, QMouseEvent* event);
-    friend void QProgressBar_MouseReleaseEvent(QProgressBar* self, QMouseEvent* event);
     friend void QProgressBar_SuperMouseReleaseEvent(QProgressBar* self, QMouseEvent* event);
-    friend void QProgressBar_MouseDoubleClickEvent(QProgressBar* self, QMouseEvent* event);
     friend void QProgressBar_SuperMouseDoubleClickEvent(QProgressBar* self, QMouseEvent* event);
-    friend void QProgressBar_MouseMoveEvent(QProgressBar* self, QMouseEvent* event);
     friend void QProgressBar_SuperMouseMoveEvent(QProgressBar* self, QMouseEvent* event);
-    friend void QProgressBar_WheelEvent(QProgressBar* self, QWheelEvent* event);
     friend void QProgressBar_SuperWheelEvent(QProgressBar* self, QWheelEvent* event);
-    friend void QProgressBar_KeyPressEvent(QProgressBar* self, QKeyEvent* event);
     friend void QProgressBar_SuperKeyPressEvent(QProgressBar* self, QKeyEvent* event);
-    friend void QProgressBar_KeyReleaseEvent(QProgressBar* self, QKeyEvent* event);
     friend void QProgressBar_SuperKeyReleaseEvent(QProgressBar* self, QKeyEvent* event);
-    friend void QProgressBar_FocusInEvent(QProgressBar* self, QFocusEvent* event);
     friend void QProgressBar_SuperFocusInEvent(QProgressBar* self, QFocusEvent* event);
-    friend void QProgressBar_FocusOutEvent(QProgressBar* self, QFocusEvent* event);
     friend void QProgressBar_SuperFocusOutEvent(QProgressBar* self, QFocusEvent* event);
-    friend void QProgressBar_EnterEvent(QProgressBar* self, QEnterEvent* event);
     friend void QProgressBar_SuperEnterEvent(QProgressBar* self, QEnterEvent* event);
-    friend void QProgressBar_LeaveEvent(QProgressBar* self, QEvent* event);
     friend void QProgressBar_SuperLeaveEvent(QProgressBar* self, QEvent* event);
-    friend void QProgressBar_MoveEvent(QProgressBar* self, QMoveEvent* event);
     friend void QProgressBar_SuperMoveEvent(QProgressBar* self, QMoveEvent* event);
-    friend void QProgressBar_ResizeEvent(QProgressBar* self, QResizeEvent* event);
     friend void QProgressBar_SuperResizeEvent(QProgressBar* self, QResizeEvent* event);
-    friend void QProgressBar_CloseEvent(QProgressBar* self, QCloseEvent* event);
     friend void QProgressBar_SuperCloseEvent(QProgressBar* self, QCloseEvent* event);
-    friend void QProgressBar_ContextMenuEvent(QProgressBar* self, QContextMenuEvent* event);
     friend void QProgressBar_SuperContextMenuEvent(QProgressBar* self, QContextMenuEvent* event);
-    friend void QProgressBar_TabletEvent(QProgressBar* self, QTabletEvent* event);
     friend void QProgressBar_SuperTabletEvent(QProgressBar* self, QTabletEvent* event);
-    friend void QProgressBar_ActionEvent(QProgressBar* self, QActionEvent* event);
     friend void QProgressBar_SuperActionEvent(QProgressBar* self, QActionEvent* event);
-    friend void QProgressBar_DragEnterEvent(QProgressBar* self, QDragEnterEvent* event);
     friend void QProgressBar_SuperDragEnterEvent(QProgressBar* self, QDragEnterEvent* event);
-    friend void QProgressBar_DragMoveEvent(QProgressBar* self, QDragMoveEvent* event);
     friend void QProgressBar_SuperDragMoveEvent(QProgressBar* self, QDragMoveEvent* event);
-    friend void QProgressBar_DragLeaveEvent(QProgressBar* self, QDragLeaveEvent* event);
     friend void QProgressBar_SuperDragLeaveEvent(QProgressBar* self, QDragLeaveEvent* event);
-    friend void QProgressBar_DropEvent(QProgressBar* self, QDropEvent* event);
     friend void QProgressBar_SuperDropEvent(QProgressBar* self, QDropEvent* event);
-    friend void QProgressBar_ShowEvent(QProgressBar* self, QShowEvent* event);
     friend void QProgressBar_SuperShowEvent(QProgressBar* self, QShowEvent* event);
-    friend void QProgressBar_HideEvent(QProgressBar* self, QHideEvent* event);
     friend void QProgressBar_SuperHideEvent(QProgressBar* self, QHideEvent* event);
-    friend bool QProgressBar_NativeEvent(QProgressBar* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QProgressBar_SuperNativeEvent(QProgressBar* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void QProgressBar_ChangeEvent(QProgressBar* self, QEvent* param1);
     friend void QProgressBar_SuperChangeEvent(QProgressBar* self, QEvent* param1);
-    friend int QProgressBar_Metric(const QProgressBar* self, int param1);
     friend int QProgressBar_SuperMetric(const QProgressBar* self, int param1);
-    friend void QProgressBar_InitPainter(const QProgressBar* self, QPainter* painter);
     friend void QProgressBar_SuperInitPainter(const QProgressBar* self, QPainter* painter);
-    friend QPaintDevice* QProgressBar_Redirected(const QProgressBar* self, QPoint* offset);
     friend QPaintDevice* QProgressBar_SuperRedirected(const QProgressBar* self, QPoint* offset);
-    friend QPainter* QProgressBar_SharedPainter(const QProgressBar* self);
     friend QPainter* QProgressBar_SuperSharedPainter(const QProgressBar* self);
-    friend void QProgressBar_InputMethodEvent(QProgressBar* self, QInputMethodEvent* param1);
     friend void QProgressBar_SuperInputMethodEvent(QProgressBar* self, QInputMethodEvent* param1);
-    friend bool QProgressBar_FocusNextPrevChild(QProgressBar* self, bool next);
     friend bool QProgressBar_SuperFocusNextPrevChild(QProgressBar* self, bool next);
-    friend void QProgressBar_TimerEvent(QProgressBar* self, QTimerEvent* event);
     friend void QProgressBar_SuperTimerEvent(QProgressBar* self, QTimerEvent* event);
-    friend void QProgressBar_ChildEvent(QProgressBar* self, QChildEvent* event);
     friend void QProgressBar_SuperChildEvent(QProgressBar* self, QChildEvent* event);
-    friend void QProgressBar_CustomEvent(QProgressBar* self, QEvent* event);
     friend void QProgressBar_SuperCustomEvent(QProgressBar* self, QEvent* event);
-    friend void QProgressBar_ConnectNotify(QProgressBar* self, const QMetaMethod* signal);
     friend void QProgressBar_SuperConnectNotify(QProgressBar* self, const QMetaMethod* signal);
-    friend void QProgressBar_DisconnectNotify(QProgressBar* self, const QMetaMethod* signal);
     friend void QProgressBar_SuperDisconnectNotify(QProgressBar* self, const QMetaMethod* signal);
-    friend void QProgressBar_UpdateMicroFocus(QProgressBar* self);
-    friend void QProgressBar_SuperUpdateMicroFocus(QProgressBar* self);
-    friend void QProgressBar_Create(QProgressBar* self);
-    friend void QProgressBar_SuperCreate(QProgressBar* self);
-    friend void QProgressBar_Destroy(QProgressBar* self);
-    friend void QProgressBar_SuperDestroy(QProgressBar* self);
-    friend bool QProgressBar_FocusNextChild(QProgressBar* self);
-    friend bool QProgressBar_SuperFocusNextChild(QProgressBar* self);
-    friend bool QProgressBar_FocusPreviousChild(QProgressBar* self);
-    friend bool QProgressBar_SuperFocusPreviousChild(QProgressBar* self);
-    friend QObject* QProgressBar_Sender(const QProgressBar* self);
-    friend QObject* QProgressBar_SuperSender(const QProgressBar* self);
-    friend int QProgressBar_SenderSignalIndex(const QProgressBar* self);
-    friend int QProgressBar_SuperSenderSignalIndex(const QProgressBar* self);
-    friend int QProgressBar_Receivers(const QProgressBar* self, const char* signal);
-    friend int QProgressBar_SuperReceivers(const QProgressBar* self, const char* signal);
-    friend bool QProgressBar_IsSignalConnected(const QProgressBar* self, const QMetaMethod* signal);
-    friend bool QProgressBar_SuperIsSignalConnected(const QProgressBar* self, const QMetaMethod* signal);
-    friend double QProgressBar_GetDecodedMetricF(const QProgressBar* self, int metricA, int metricB);
-    friend double QProgressBar_SuperGetDecodedMetricF(const QProgressBar* self, int metricA, int metricB);
 };
 
 #endif

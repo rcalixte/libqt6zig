@@ -9,18 +9,14 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QPieSeries so that we can call protected methods
+// This class is a subclass of QPieSeries
 class VirtualQPieSeries final : public QPieSeries {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQPieSeries = true;
-
-    // Virtual class public types (including callbacks)
-    using QPieSeries_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QPieSeries_MetaObject_Callback = QMetaObject* (*)(const QPieSeries*);
     using QPieSeries_Metacast_Callback = void* (*)(QPieSeries*, const char*);
     using QPieSeries_Metacall_Callback = int (*)(QPieSeries*, int, int, void**);
-    using QPieSeries_Type_Callback = int (*)();
+    using QPieSeries_Type_Callback = int (*)(const QPieSeries*);
     using QPieSeries_Event_Callback = bool (*)(QPieSeries*, QEvent*);
     using QPieSeries_EventFilter_Callback = bool (*)(QPieSeries*, QObject*, QEvent*);
     using QPieSeries_TimerEvent_Callback = void (*)(QPieSeries*, QTimerEvent*);
@@ -28,12 +24,11 @@ class VirtualQPieSeries final : public QPieSeries {
     using QPieSeries_CustomEvent_Callback = void (*)(QPieSeries*, QEvent*);
     using QPieSeries_ConnectNotify_Callback = void (*)(QPieSeries*, QMetaMethod*);
     using QPieSeries_DisconnectNotify_Callback = void (*)(QPieSeries*, QMetaMethod*);
-    using QPieSeries_Sender_Callback = QObject* (*)();
-    using QPieSeries_SenderSignalIndex_Callback = int (*)();
-    using QPieSeries_Receivers_Callback = int (*)(const QPieSeries*, const char*);
-    using QPieSeries_IsSignalConnected_Callback = bool (*)(const QPieSeries*, QMetaMethod*);
+    using QPieSeries::isSignalConnected;
+    using QPieSeries::receivers;
+    using QPieSeries::sender;
+    using QPieSeries::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QPieSeries_MetaObject_Callback qpieseries_metaobject_callback = nullptr;
     QPieSeries_Metacast_Callback qpieseries_metacast_callback = nullptr;
@@ -46,75 +41,23 @@ class VirtualQPieSeries final : public QPieSeries {
     QPieSeries_CustomEvent_Callback qpieseries_customevent_callback = nullptr;
     QPieSeries_ConnectNotify_Callback qpieseries_connectnotify_callback = nullptr;
     QPieSeries_DisconnectNotify_Callback qpieseries_disconnectnotify_callback = nullptr;
-    QPieSeries_Sender_Callback qpieseries_sender_callback = nullptr;
-    QPieSeries_SenderSignalIndex_Callback qpieseries_sendersignalindex_callback = nullptr;
-    QPieSeries_Receivers_Callback qpieseries_receivers_callback = nullptr;
-    QPieSeries_IsSignalConnected_Callback qpieseries_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qpieseries_metaobject_isbase = false;
-    mutable bool qpieseries_metacast_isbase = false;
-    mutable bool qpieseries_metacall_isbase = false;
-    mutable bool qpieseries_type_isbase = false;
-    mutable bool qpieseries_event_isbase = false;
-    mutable bool qpieseries_eventfilter_isbase = false;
-    mutable bool qpieseries_timerevent_isbase = false;
-    mutable bool qpieseries_childevent_isbase = false;
-    mutable bool qpieseries_customevent_isbase = false;
-    mutable bool qpieseries_connectnotify_isbase = false;
-    mutable bool qpieseries_disconnectnotify_isbase = false;
-    mutable bool qpieseries_sender_isbase = false;
-    mutable bool qpieseries_sendersignalindex_isbase = false;
-    mutable bool qpieseries_receivers_isbase = false;
-    mutable bool qpieseries_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QPieSeries {
+        using QPieSeries::childEvent;
+        using QPieSeries::connectNotify;
+        using QPieSeries::customEvent;
+        using QPieSeries::disconnectNotify;
+        using QPieSeries::timerEvent;
+    };
 
-  public:
     VirtualQPieSeries() : QPieSeries() {};
     VirtualQPieSeries(QObject* parent) : QPieSeries(parent) {};
 
-    // Callback setters
-    inline void setQPieSeries_MetaObject_Callback(QPieSeries_MetaObject_Callback cb) { qpieseries_metaobject_callback = cb; }
-    inline void setQPieSeries_Metacast_Callback(QPieSeries_Metacast_Callback cb) { qpieseries_metacast_callback = cb; }
-    inline void setQPieSeries_Metacall_Callback(QPieSeries_Metacall_Callback cb) { qpieseries_metacall_callback = cb; }
-    inline void setQPieSeries_Type_Callback(QPieSeries_Type_Callback cb) { qpieseries_type_callback = cb; }
-    inline void setQPieSeries_Event_Callback(QPieSeries_Event_Callback cb) { qpieseries_event_callback = cb; }
-    inline void setQPieSeries_EventFilter_Callback(QPieSeries_EventFilter_Callback cb) { qpieseries_eventfilter_callback = cb; }
-    inline void setQPieSeries_TimerEvent_Callback(QPieSeries_TimerEvent_Callback cb) { qpieseries_timerevent_callback = cb; }
-    inline void setQPieSeries_ChildEvent_Callback(QPieSeries_ChildEvent_Callback cb) { qpieseries_childevent_callback = cb; }
-    inline void setQPieSeries_CustomEvent_Callback(QPieSeries_CustomEvent_Callback cb) { qpieseries_customevent_callback = cb; }
-    inline void setQPieSeries_ConnectNotify_Callback(QPieSeries_ConnectNotify_Callback cb) { qpieseries_connectnotify_callback = cb; }
-    inline void setQPieSeries_DisconnectNotify_Callback(QPieSeries_DisconnectNotify_Callback cb) { qpieseries_disconnectnotify_callback = cb; }
-    inline void setQPieSeries_Sender_Callback(QPieSeries_Sender_Callback cb) { qpieseries_sender_callback = cb; }
-    inline void setQPieSeries_SenderSignalIndex_Callback(QPieSeries_SenderSignalIndex_Callback cb) { qpieseries_sendersignalindex_callback = cb; }
-    inline void setQPieSeries_Receivers_Callback(QPieSeries_Receivers_Callback cb) { qpieseries_receivers_callback = cb; }
-    inline void setQPieSeries_IsSignalConnected_Callback(QPieSeries_IsSignalConnected_Callback cb) { qpieseries_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQPieSeries_MetaObject_IsBase(bool value) const { qpieseries_metaobject_isbase = value; }
-    inline void setQPieSeries_Metacast_IsBase(bool value) const { qpieseries_metacast_isbase = value; }
-    inline void setQPieSeries_Metacall_IsBase(bool value) const { qpieseries_metacall_isbase = value; }
-    inline void setQPieSeries_Type_IsBase(bool value) const { qpieseries_type_isbase = value; }
-    inline void setQPieSeries_Event_IsBase(bool value) const { qpieseries_event_isbase = value; }
-    inline void setQPieSeries_EventFilter_IsBase(bool value) const { qpieseries_eventfilter_isbase = value; }
-    inline void setQPieSeries_TimerEvent_IsBase(bool value) const { qpieseries_timerevent_isbase = value; }
-    inline void setQPieSeries_ChildEvent_IsBase(bool value) const { qpieseries_childevent_isbase = value; }
-    inline void setQPieSeries_CustomEvent_IsBase(bool value) const { qpieseries_customevent_isbase = value; }
-    inline void setQPieSeries_ConnectNotify_IsBase(bool value) const { qpieseries_connectnotify_isbase = value; }
-    inline void setQPieSeries_DisconnectNotify_IsBase(bool value) const { qpieseries_disconnectnotify_isbase = value; }
-    inline void setQPieSeries_Sender_IsBase(bool value) const { qpieseries_sender_isbase = value; }
-    inline void setQPieSeries_SenderSignalIndex_IsBase(bool value) const { qpieseries_sendersignalindex_isbase = value; }
-    inline void setQPieSeries_Receivers_IsBase(bool value) const { qpieseries_receivers_isbase = value; }
-    inline void setQPieSeries_IsSignalConnected_IsBase(bool value) const { qpieseries_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qpieseries_metaobject_isbase) {
-            qpieseries_metaobject_isbase = false;
-            return QPieSeries::metaObject();
-        }
-        auto metaobject_cb = qpieseries_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qpieseries_metaobject_callback) {
+            QMetaObject* callback_ret = qpieseries_metaobject_callback(this);
             return callback_ret;
         }
         return QPieSeries::metaObject();
@@ -122,14 +65,9 @@ class VirtualQPieSeries final : public QPieSeries {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qpieseries_metacast_isbase) {
-            qpieseries_metacast_isbase = false;
-            return QPieSeries::qt_metacast(param1);
-        }
-        auto metacast_cb = qpieseries_metacast_callback;
-        if (metacast_cb) {
+        if (qpieseries_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qpieseries_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QPieSeries::qt_metacast(param1);
@@ -137,16 +75,11 @@ class VirtualQPieSeries final : public QPieSeries {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qpieseries_metacall_isbase) {
-            qpieseries_metacall_isbase = false;
-            return QPieSeries::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qpieseries_metacall_callback;
-        if (metacall_cb) {
+        if (qpieseries_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qpieseries_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QPieSeries::qt_metacall(param1, param2, param3);
@@ -154,13 +87,8 @@ class VirtualQPieSeries final : public QPieSeries {
 
     // Virtual method for C ABI access and custom callback
     virtual QAbstractSeries::SeriesType type() const override {
-        if (qpieseries_type_isbase) {
-            qpieseries_type_isbase = false;
-            return QPieSeries::type();
-        }
-        auto type_cb = qpieseries_type_callback;
-        if (type_cb) {
-            int callback_ret = type_cb();
+        if (qpieseries_type_callback) {
+            int callback_ret = qpieseries_type_callback(this);
             return static_cast<QAbstractSeries::SeriesType>(callback_ret);
         }
         return QPieSeries::type();
@@ -168,14 +96,9 @@ class VirtualQPieSeries final : public QPieSeries {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qpieseries_event_isbase) {
-            qpieseries_event_isbase = false;
-            return QPieSeries::event(event);
-        }
-        auto event_cb = qpieseries_event_callback;
-        if (event_cb) {
+        if (qpieseries_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qpieseries_event_callback(this, cbval1);
             return callback_ret;
         }
         return QPieSeries::event(event);
@@ -183,15 +106,10 @@ class VirtualQPieSeries final : public QPieSeries {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qpieseries_eventfilter_isbase) {
-            qpieseries_eventfilter_isbase = false;
-            return QPieSeries::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qpieseries_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qpieseries_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qpieseries_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QPieSeries::eventFilter(watched, event);
@@ -199,15 +117,9 @@ class VirtualQPieSeries final : public QPieSeries {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qpieseries_timerevent_isbase) {
-            qpieseries_timerevent_isbase = false;
-            QPieSeries::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qpieseries_timerevent_callback;
-        if (timerevent_cb) {
+        if (qpieseries_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qpieseries_timerevent_callback(this, cbval1);
             return;
         }
         QPieSeries::timerEvent(event);
@@ -215,15 +127,9 @@ class VirtualQPieSeries final : public QPieSeries {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qpieseries_childevent_isbase) {
-            qpieseries_childevent_isbase = false;
-            QPieSeries::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qpieseries_childevent_callback;
-        if (childevent_cb) {
+        if (qpieseries_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qpieseries_childevent_callback(this, cbval1);
             return;
         }
         QPieSeries::childEvent(event);
@@ -231,15 +137,9 @@ class VirtualQPieSeries final : public QPieSeries {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qpieseries_customevent_isbase) {
-            qpieseries_customevent_isbase = false;
-            QPieSeries::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qpieseries_customevent_callback;
-        if (customevent_cb) {
+        if (qpieseries_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qpieseries_customevent_callback(this, cbval1);
             return;
         }
         QPieSeries::customEvent(event);
@@ -247,17 +147,11 @@ class VirtualQPieSeries final : public QPieSeries {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qpieseries_connectnotify_isbase) {
-            qpieseries_connectnotify_isbase = false;
-            QPieSeries::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qpieseries_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qpieseries_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qpieseries_connectnotify_callback(this, cbval1);
             return;
         }
         QPieSeries::connectNotify(signal);
@@ -265,101 +159,22 @@ class VirtualQPieSeries final : public QPieSeries {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qpieseries_disconnectnotify_isbase) {
-            qpieseries_disconnectnotify_isbase = false;
-            QPieSeries::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qpieseries_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qpieseries_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qpieseries_disconnectnotify_callback(this, cbval1);
             return;
         }
         QPieSeries::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qpieseries_sender_isbase) {
-            qpieseries_sender_isbase = false;
-            return QPieSeries::sender();
-        }
-        auto sender_cb = qpieseries_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QPieSeries::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qpieseries_sendersignalindex_isbase) {
-            qpieseries_sendersignalindex_isbase = false;
-            return QPieSeries::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qpieseries_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QPieSeries::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qpieseries_receivers_isbase) {
-            qpieseries_receivers_isbase = false;
-            return QPieSeries::receivers(signal);
-        }
-        auto receivers_cb = qpieseries_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QPieSeries::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qpieseries_issignalconnected_isbase) {
-            qpieseries_issignalconnected_isbase = false;
-            return QPieSeries::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qpieseries_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QPieSeries::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QPieSeries_TimerEvent(QPieSeries* self, QTimerEvent* event);
     friend void QPieSeries_SuperTimerEvent(QPieSeries* self, QTimerEvent* event);
-    friend void QPieSeries_ChildEvent(QPieSeries* self, QChildEvent* event);
     friend void QPieSeries_SuperChildEvent(QPieSeries* self, QChildEvent* event);
-    friend void QPieSeries_CustomEvent(QPieSeries* self, QEvent* event);
     friend void QPieSeries_SuperCustomEvent(QPieSeries* self, QEvent* event);
-    friend void QPieSeries_ConnectNotify(QPieSeries* self, const QMetaMethod* signal);
     friend void QPieSeries_SuperConnectNotify(QPieSeries* self, const QMetaMethod* signal);
-    friend void QPieSeries_DisconnectNotify(QPieSeries* self, const QMetaMethod* signal);
     friend void QPieSeries_SuperDisconnectNotify(QPieSeries* self, const QMetaMethod* signal);
-    friend QObject* QPieSeries_Sender(const QPieSeries* self);
-    friend QObject* QPieSeries_SuperSender(const QPieSeries* self);
-    friend int QPieSeries_SenderSignalIndex(const QPieSeries* self);
-    friend int QPieSeries_SuperSenderSignalIndex(const QPieSeries* self);
-    friend int QPieSeries_Receivers(const QPieSeries* self, const char* signal);
-    friend int QPieSeries_SuperReceivers(const QPieSeries* self, const char* signal);
-    friend bool QPieSeries_IsSignalConnected(const QPieSeries* self, const QMetaMethod* signal);
-    friend bool QPieSeries_SuperIsSignalConnected(const QPieSeries* self, const QMetaMethod* signal);
 };
 
 #endif

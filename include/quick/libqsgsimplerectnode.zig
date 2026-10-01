@@ -881,9 +881,9 @@ pub const QSGSimpleRectNode = extern struct {
     ///
     /// ` self: QSGSimpleRectNode`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGSimpleRectNode) callconv(.c) bool `
     ///
-    pub fn onIsSubtreeBlocked(self: QSGSimpleRectNode, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSubtreeBlocked(self: QSGSimpleRectNode, callback: *const fn (QSGSimpleRectNode) callconv(.c) bool) void {
         qtc.QSGSimpleRectNode_OnIsSubtreeBlocked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -937,9 +937,9 @@ pub const QSGSimpleRectNode = extern struct {
     ///
     /// ` self: QSGSimpleRectNode`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QSGSimpleRectNode) callconv(.c) void `
     ///
-    pub fn onPreprocess(self: QSGSimpleRectNode, callback: *const fn () callconv(.c) void) void {
+    pub fn onPreprocess(self: QSGSimpleRectNode, callback: *const fn (QSGSimpleRectNode) callconv(.c) void) void {
         qtc.QSGSimpleRectNode_OnPreprocess(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

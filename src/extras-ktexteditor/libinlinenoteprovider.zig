@@ -65,9 +65,9 @@ pub const KTextEditor__InlineNoteProvider = extern struct {
     ///
     /// ` self: KTextEditor__InlineNoteProvider `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KTextEditor__InlineNoteProvider) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KTextEditor__InlineNoteProvider, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KTextEditor__InlineNoteProvider, callback: *const fn (KTextEditor__InlineNoteProvider) callconv(.c) QMetaObject) void {
         qtc.KTextEditor__InlineNoteProvider_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -218,6 +218,8 @@ pub const KTextEditor__InlineNoteProvider = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotes)
     ///
+    /// This method must be implemented with `onInlineNotes` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__InlineNoteProvider `
@@ -259,36 +261,13 @@ pub const KTextEditor__InlineNoteProvider = extern struct {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNotes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superInlineNotes` instead
-    ///
-    pub const SuperInlineNotes = superInlineNotes;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotes)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__InlineNoteProvider `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` line: i32 `
-    ///
-    pub fn superInlineNotes(self: KTextEditor__InlineNoteProvider, allocator: std.mem.Allocator, line: i32) []i32 {
-        const _arr: qtc.libqt_list = qtc.KTextEditor__InlineNoteProvider_SuperInlineNotes(@ptrCast(self.ptr), @bitCast(line));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KTextEditor__InlineNoteProvider.inlineNotes: Memory allocation failed");
-        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data_val[0.._arr.len]);
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `inlineNoteSize` instead
     ///
     pub const InlineNoteSize = inlineNoteSize;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteSize)
+    ///
+    /// This method must be implemented with `onInlineNoteSize` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -321,30 +300,13 @@ pub const KTextEditor__InlineNoteProvider = extern struct {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNoteSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superInlineNoteSize` instead
-    ///
-    pub const SuperInlineNoteSize = superInlineNoteSize;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteSize)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__InlineNoteProvider `
-    ///
-    /// ` note: KTextEditor__InlineNote `
-    ///
-    pub fn superInlineNoteSize(self: KTextEditor__InlineNoteProvider, note: anytype) QSize {
-        comptime _ = @TypeOf(note)._is_KTextEditor__InlineNote;
-        return .{ .ptr = qtc.KTextEditor__InlineNoteProvider_SuperInlineNoteSize(@ptrCast(self.ptr), @ptrCast(note.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `paintInlineNote` instead
     ///
     pub const PaintInlineNote = paintInlineNote;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#paintInlineNote)
+    ///
+    /// This method must be implemented with `onPaintInlineNote` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -378,30 +340,6 @@ pub const KTextEditor__InlineNoteProvider = extern struct {
     ///
     pub fn onPaintInlineNote(self: KTextEditor__InlineNoteProvider, callback: *const fn (KTextEditor__InlineNoteProvider, KTextEditor__InlineNote, QPainter, i32) callconv(.c) void) void {
         qtc.KTextEditor__InlineNoteProvider_OnPaintInlineNote(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superPaintInlineNote` instead
-    ///
-    pub const SuperPaintInlineNote = superPaintInlineNote;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#paintInlineNote)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__InlineNoteProvider `
-    ///
-    /// ` note: KTextEditor__InlineNote `
-    ///
-    /// ` painter: QPainter `
-    ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
-    ///
-    pub fn superPaintInlineNote(self: KTextEditor__InlineNoteProvider, note: anytype, painter: anytype, direction: i32) void {
-        comptime _ = @TypeOf(note)._is_KTextEditor__InlineNote;
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        qtc.KTextEditor__InlineNoteProvider_SuperPaintInlineNote(@ptrCast(self.ptr), @ptrCast(note.ptr), @ptrCast(painter.ptr), @bitCast(direction));
     }
 
     /// ### DEPRECATED: Use `inlineNoteActivated` instead
@@ -2181,44 +2119,6 @@ pub const KTextEditor__InlineNoteProvider = extern struct {
         return .{ .ptr = qtc.KTextEditor__InlineNoteProvider_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__InlineNoteProvider `
-    ///
-    pub fn superSender(self: KTextEditor__InlineNoteProvider) QObject {
-        return .{ .ptr = qtc.KTextEditor__InlineNoteProvider_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__InlineNoteProvider`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KTextEditor__InlineNoteProvider, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KTextEditor__InlineNoteProvider_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2235,44 +2135,6 @@ pub const KTextEditor__InlineNoteProvider = extern struct {
     ///
     pub fn senderSignalIndex(self: KTextEditor__InlineNoteProvider) i32 {
         return qtc.KTextEditor__InlineNoteProvider_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__InlineNoteProvider `
-    ///
-    pub fn superSenderSignalIndex(self: KTextEditor__InlineNoteProvider) i32 {
-        return qtc.KTextEditor__InlineNoteProvider_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__InlineNoteProvider`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KTextEditor__InlineNoteProvider, callback: *const fn () callconv(.c) i32) void {
-        qtc.KTextEditor__InlineNoteProvider_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2296,47 +2158,6 @@ pub const KTextEditor__InlineNoteProvider = extern struct {
         return qtc.KTextEditor__InlineNoteProvider_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__InlineNoteProvider `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KTextEditor__InlineNoteProvider, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KTextEditor__InlineNoteProvider_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__InlineNoteProvider`
-    ///
-    /// ` callback: *const fn (self: KTextEditor__InlineNoteProvider, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KTextEditor__InlineNoteProvider, callback: *const fn (KTextEditor__InlineNoteProvider, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KTextEditor__InlineNoteProvider_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2356,47 +2177,6 @@ pub const KTextEditor__InlineNoteProvider = extern struct {
     pub fn isSignalConnected(self: KTextEditor__InlineNoteProvider, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KTextEditor__InlineNoteProvider_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__InlineNoteProvider `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KTextEditor__InlineNoteProvider, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KTextEditor__InlineNoteProvider_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__InlineNoteProvider`
-    ///
-    /// ` callback: *const fn (self: KTextEditor__InlineNoteProvider, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KTextEditor__InlineNoteProvider, callback: *const fn (KTextEditor__InlineNoteProvider, QMetaMethod) callconv(.c) bool) void {
-        qtc.KTextEditor__InlineNoteProvider_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

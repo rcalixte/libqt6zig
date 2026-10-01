@@ -9,18 +9,14 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KRatingWidget so that we can call protected methods
+// This class is a subclass of KRatingWidget
 class VirtualKRatingWidget final : public KRatingWidget {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKRatingWidget = true;
-
-    // Virtual class public types (including callbacks)
-    using KRatingWidget_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KRatingWidget_MetaObject_Callback = QMetaObject* (*)(const KRatingWidget*);
     using KRatingWidget_Metacast_Callback = void* (*)(KRatingWidget*, const char*);
     using KRatingWidget_Metacall_Callback = int (*)(KRatingWidget*, int, int, void**);
-    using KRatingWidget_SizeHint_Callback = QSize* (*)();
+    using KRatingWidget_SizeHint_Callback = QSize* (*)(const KRatingWidget*);
     using KRatingWidget_MousePressEvent_Callback = void (*)(KRatingWidget*, QMouseEvent*);
     using KRatingWidget_MouseMoveEvent_Callback = void (*)(KRatingWidget*, QMouseEvent*);
     using KRatingWidget_LeaveEvent_Callback = void (*)(KRatingWidget*, QEvent*);
@@ -29,12 +25,12 @@ class VirtualKRatingWidget final : public KRatingWidget {
     using KRatingWidget_Event_Callback = bool (*)(KRatingWidget*, QEvent*);
     using KRatingWidget_ChangeEvent_Callback = void (*)(KRatingWidget*, QEvent*);
     using KRatingWidget_InitStyleOption_Callback = void (*)(const KRatingWidget*, QStyleOptionFrame*);
-    using KRatingWidget_DevType_Callback = int (*)();
+    using KRatingWidget_DevType_Callback = int (*)(const KRatingWidget*);
     using KRatingWidget_SetVisible_Callback = void (*)(KRatingWidget*, bool);
-    using KRatingWidget_MinimumSizeHint_Callback = QSize* (*)();
+    using KRatingWidget_MinimumSizeHint_Callback = QSize* (*)(const KRatingWidget*);
     using KRatingWidget_HeightForWidth_Callback = int (*)(const KRatingWidget*, int);
-    using KRatingWidget_HasHeightForWidth_Callback = bool (*)();
-    using KRatingWidget_PaintEngine_Callback = QPaintEngine* (*)();
+    using KRatingWidget_HasHeightForWidth_Callback = bool (*)(const KRatingWidget*);
+    using KRatingWidget_PaintEngine_Callback = QPaintEngine* (*)(const KRatingWidget*);
     using KRatingWidget_MouseReleaseEvent_Callback = void (*)(KRatingWidget*, QMouseEvent*);
     using KRatingWidget_MouseDoubleClickEvent_Callback = void (*)(KRatingWidget*, QMouseEvent*);
     using KRatingWidget_WheelEvent_Callback = void (*)(KRatingWidget*, QWheelEvent*);
@@ -58,7 +54,7 @@ class VirtualKRatingWidget final : public KRatingWidget {
     using KRatingWidget_Metric_Callback = int (*)(const KRatingWidget*, int);
     using KRatingWidget_InitPainter_Callback = void (*)(const KRatingWidget*, QPainter*);
     using KRatingWidget_Redirected_Callback = QPaintDevice* (*)(const KRatingWidget*, QPoint*);
-    using KRatingWidget_SharedPainter_Callback = QPainter* (*)();
+    using KRatingWidget_SharedPainter_Callback = QPainter* (*)(const KRatingWidget*);
     using KRatingWidget_InputMethodEvent_Callback = void (*)(KRatingWidget*, QInputMethodEvent*);
     using KRatingWidget_InputMethodQuery_Callback = QVariant* (*)(const KRatingWidget*, int);
     using KRatingWidget_FocusNextPrevChild_Callback = bool (*)(KRatingWidget*, bool);
@@ -68,19 +64,18 @@ class VirtualKRatingWidget final : public KRatingWidget {
     using KRatingWidget_CustomEvent_Callback = void (*)(KRatingWidget*, QEvent*);
     using KRatingWidget_ConnectNotify_Callback = void (*)(KRatingWidget*, QMetaMethod*);
     using KRatingWidget_DisconnectNotify_Callback = void (*)(KRatingWidget*, QMetaMethod*);
-    using KRatingWidget_DrawFrame_Callback = void (*)(KRatingWidget*, QPainter*);
-    using KRatingWidget_UpdateMicroFocus_Callback = void (*)();
-    using KRatingWidget_Create_Callback = void (*)();
-    using KRatingWidget_Destroy_Callback = void (*)();
-    using KRatingWidget_FocusNextChild_Callback = bool (*)();
-    using KRatingWidget_FocusPreviousChild_Callback = bool (*)();
-    using KRatingWidget_Sender_Callback = QObject* (*)();
-    using KRatingWidget_SenderSignalIndex_Callback = int (*)();
-    using KRatingWidget_Receivers_Callback = int (*)(const KRatingWidget*, const char*);
-    using KRatingWidget_IsSignalConnected_Callback = bool (*)(const KRatingWidget*, QMetaMethod*);
-    using KRatingWidget_GetDecodedMetricF_Callback = double (*)(const KRatingWidget*, int, int);
+    using KRatingWidget::create;
+    using KRatingWidget::destroy;
+    using KRatingWidget::drawFrame;
+    using KRatingWidget::focusNextChild;
+    using KRatingWidget::focusPreviousChild;
+    using KRatingWidget::getDecodedMetricF;
+    using KRatingWidget::isSignalConnected;
+    using KRatingWidget::receivers;
+    using KRatingWidget::sender;
+    using KRatingWidget::senderSignalIndex;
+    using KRatingWidget::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     KRatingWidget_MetaObject_Callback kratingwidget_metaobject_callback = nullptr;
     KRatingWidget_Metacast_Callback kratingwidget_metacast_callback = nullptr;
@@ -133,223 +128,57 @@ class VirtualKRatingWidget final : public KRatingWidget {
     KRatingWidget_CustomEvent_Callback kratingwidget_customevent_callback = nullptr;
     KRatingWidget_ConnectNotify_Callback kratingwidget_connectnotify_callback = nullptr;
     KRatingWidget_DisconnectNotify_Callback kratingwidget_disconnectnotify_callback = nullptr;
-    KRatingWidget_DrawFrame_Callback kratingwidget_drawframe_callback = nullptr;
-    KRatingWidget_UpdateMicroFocus_Callback kratingwidget_updatemicrofocus_callback = nullptr;
-    KRatingWidget_Create_Callback kratingwidget_create_callback = nullptr;
-    KRatingWidget_Destroy_Callback kratingwidget_destroy_callback = nullptr;
-    KRatingWidget_FocusNextChild_Callback kratingwidget_focusnextchild_callback = nullptr;
-    KRatingWidget_FocusPreviousChild_Callback kratingwidget_focuspreviouschild_callback = nullptr;
-    KRatingWidget_Sender_Callback kratingwidget_sender_callback = nullptr;
-    KRatingWidget_SenderSignalIndex_Callback kratingwidget_sendersignalindex_callback = nullptr;
-    KRatingWidget_Receivers_Callback kratingwidget_receivers_callback = nullptr;
-    KRatingWidget_IsSignalConnected_Callback kratingwidget_issignalconnected_callback = nullptr;
-    KRatingWidget_GetDecodedMetricF_Callback kratingwidget_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kratingwidget_metaobject_isbase = false;
-    mutable bool kratingwidget_metacast_isbase = false;
-    mutable bool kratingwidget_metacall_isbase = false;
-    mutable bool kratingwidget_sizehint_isbase = false;
-    mutable bool kratingwidget_mousepressevent_isbase = false;
-    mutable bool kratingwidget_mousemoveevent_isbase = false;
-    mutable bool kratingwidget_leaveevent_isbase = false;
-    mutable bool kratingwidget_paintevent_isbase = false;
-    mutable bool kratingwidget_resizeevent_isbase = false;
-    mutable bool kratingwidget_event_isbase = false;
-    mutable bool kratingwidget_changeevent_isbase = false;
-    mutable bool kratingwidget_initstyleoption_isbase = false;
-    mutable bool kratingwidget_devtype_isbase = false;
-    mutable bool kratingwidget_setvisible_isbase = false;
-    mutable bool kratingwidget_minimumsizehint_isbase = false;
-    mutable bool kratingwidget_heightforwidth_isbase = false;
-    mutable bool kratingwidget_hasheightforwidth_isbase = false;
-    mutable bool kratingwidget_paintengine_isbase = false;
-    mutable bool kratingwidget_mousereleaseevent_isbase = false;
-    mutable bool kratingwidget_mousedoubleclickevent_isbase = false;
-    mutable bool kratingwidget_wheelevent_isbase = false;
-    mutable bool kratingwidget_keypressevent_isbase = false;
-    mutable bool kratingwidget_keyreleaseevent_isbase = false;
-    mutable bool kratingwidget_focusinevent_isbase = false;
-    mutable bool kratingwidget_focusoutevent_isbase = false;
-    mutable bool kratingwidget_enterevent_isbase = false;
-    mutable bool kratingwidget_moveevent_isbase = false;
-    mutable bool kratingwidget_closeevent_isbase = false;
-    mutable bool kratingwidget_contextmenuevent_isbase = false;
-    mutable bool kratingwidget_tabletevent_isbase = false;
-    mutable bool kratingwidget_actionevent_isbase = false;
-    mutable bool kratingwidget_dragenterevent_isbase = false;
-    mutable bool kratingwidget_dragmoveevent_isbase = false;
-    mutable bool kratingwidget_dragleaveevent_isbase = false;
-    mutable bool kratingwidget_dropevent_isbase = false;
-    mutable bool kratingwidget_showevent_isbase = false;
-    mutable bool kratingwidget_hideevent_isbase = false;
-    mutable bool kratingwidget_nativeevent_isbase = false;
-    mutable bool kratingwidget_metric_isbase = false;
-    mutable bool kratingwidget_initpainter_isbase = false;
-    mutable bool kratingwidget_redirected_isbase = false;
-    mutable bool kratingwidget_sharedpainter_isbase = false;
-    mutable bool kratingwidget_inputmethodevent_isbase = false;
-    mutable bool kratingwidget_inputmethodquery_isbase = false;
-    mutable bool kratingwidget_focusnextprevchild_isbase = false;
-    mutable bool kratingwidget_eventfilter_isbase = false;
-    mutable bool kratingwidget_timerevent_isbase = false;
-    mutable bool kratingwidget_childevent_isbase = false;
-    mutable bool kratingwidget_customevent_isbase = false;
-    mutable bool kratingwidget_connectnotify_isbase = false;
-    mutable bool kratingwidget_disconnectnotify_isbase = false;
-    mutable bool kratingwidget_drawframe_isbase = false;
-    mutable bool kratingwidget_updatemicrofocus_isbase = false;
-    mutable bool kratingwidget_create_isbase = false;
-    mutable bool kratingwidget_destroy_isbase = false;
-    mutable bool kratingwidget_focusnextchild_isbase = false;
-    mutable bool kratingwidget_focuspreviouschild_isbase = false;
-    mutable bool kratingwidget_sender_isbase = false;
-    mutable bool kratingwidget_sendersignalindex_isbase = false;
-    mutable bool kratingwidget_receivers_isbase = false;
-    mutable bool kratingwidget_issignalconnected_isbase = false;
-    mutable bool kratingwidget_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KRatingWidget {
+        using KRatingWidget::actionEvent;
+        using KRatingWidget::changeEvent;
+        using KRatingWidget::childEvent;
+        using KRatingWidget::closeEvent;
+        using KRatingWidget::connectNotify;
+        using KRatingWidget::contextMenuEvent;
+        using KRatingWidget::customEvent;
+        using KRatingWidget::disconnectNotify;
+        using KRatingWidget::dragEnterEvent;
+        using KRatingWidget::dragLeaveEvent;
+        using KRatingWidget::dragMoveEvent;
+        using KRatingWidget::dropEvent;
+        using KRatingWidget::enterEvent;
+        using KRatingWidget::event;
+        using KRatingWidget::focusInEvent;
+        using KRatingWidget::focusNextPrevChild;
+        using KRatingWidget::focusOutEvent;
+        using KRatingWidget::hideEvent;
+        using KRatingWidget::initPainter;
+        using KRatingWidget::initStyleOption;
+        using KRatingWidget::inputMethodEvent;
+        using KRatingWidget::keyPressEvent;
+        using KRatingWidget::keyReleaseEvent;
+        using KRatingWidget::leaveEvent;
+        using KRatingWidget::metric;
+        using KRatingWidget::mouseDoubleClickEvent;
+        using KRatingWidget::mouseMoveEvent;
+        using KRatingWidget::mousePressEvent;
+        using KRatingWidget::mouseReleaseEvent;
+        using KRatingWidget::moveEvent;
+        using KRatingWidget::nativeEvent;
+        using KRatingWidget::paintEvent;
+        using KRatingWidget::redirected;
+        using KRatingWidget::resizeEvent;
+        using KRatingWidget::sharedPainter;
+        using KRatingWidget::showEvent;
+        using KRatingWidget::tabletEvent;
+        using KRatingWidget::timerEvent;
+        using KRatingWidget::wheelEvent;
+    };
 
-  public:
     VirtualKRatingWidget(QWidget* parent) : KRatingWidget(parent) {};
     VirtualKRatingWidget() : KRatingWidget() {};
 
-    // Callback setters
-    inline void setKRatingWidget_MetaObject_Callback(KRatingWidget_MetaObject_Callback cb) { kratingwidget_metaobject_callback = cb; }
-    inline void setKRatingWidget_Metacast_Callback(KRatingWidget_Metacast_Callback cb) { kratingwidget_metacast_callback = cb; }
-    inline void setKRatingWidget_Metacall_Callback(KRatingWidget_Metacall_Callback cb) { kratingwidget_metacall_callback = cb; }
-    inline void setKRatingWidget_SizeHint_Callback(KRatingWidget_SizeHint_Callback cb) { kratingwidget_sizehint_callback = cb; }
-    inline void setKRatingWidget_MousePressEvent_Callback(KRatingWidget_MousePressEvent_Callback cb) { kratingwidget_mousepressevent_callback = cb; }
-    inline void setKRatingWidget_MouseMoveEvent_Callback(KRatingWidget_MouseMoveEvent_Callback cb) { kratingwidget_mousemoveevent_callback = cb; }
-    inline void setKRatingWidget_LeaveEvent_Callback(KRatingWidget_LeaveEvent_Callback cb) { kratingwidget_leaveevent_callback = cb; }
-    inline void setKRatingWidget_PaintEvent_Callback(KRatingWidget_PaintEvent_Callback cb) { kratingwidget_paintevent_callback = cb; }
-    inline void setKRatingWidget_ResizeEvent_Callback(KRatingWidget_ResizeEvent_Callback cb) { kratingwidget_resizeevent_callback = cb; }
-    inline void setKRatingWidget_Event_Callback(KRatingWidget_Event_Callback cb) { kratingwidget_event_callback = cb; }
-    inline void setKRatingWidget_ChangeEvent_Callback(KRatingWidget_ChangeEvent_Callback cb) { kratingwidget_changeevent_callback = cb; }
-    inline void setKRatingWidget_InitStyleOption_Callback(KRatingWidget_InitStyleOption_Callback cb) { kratingwidget_initstyleoption_callback = cb; }
-    inline void setKRatingWidget_DevType_Callback(KRatingWidget_DevType_Callback cb) { kratingwidget_devtype_callback = cb; }
-    inline void setKRatingWidget_SetVisible_Callback(KRatingWidget_SetVisible_Callback cb) { kratingwidget_setvisible_callback = cb; }
-    inline void setKRatingWidget_MinimumSizeHint_Callback(KRatingWidget_MinimumSizeHint_Callback cb) { kratingwidget_minimumsizehint_callback = cb; }
-    inline void setKRatingWidget_HeightForWidth_Callback(KRatingWidget_HeightForWidth_Callback cb) { kratingwidget_heightforwidth_callback = cb; }
-    inline void setKRatingWidget_HasHeightForWidth_Callback(KRatingWidget_HasHeightForWidth_Callback cb) { kratingwidget_hasheightforwidth_callback = cb; }
-    inline void setKRatingWidget_PaintEngine_Callback(KRatingWidget_PaintEngine_Callback cb) { kratingwidget_paintengine_callback = cb; }
-    inline void setKRatingWidget_MouseReleaseEvent_Callback(KRatingWidget_MouseReleaseEvent_Callback cb) { kratingwidget_mousereleaseevent_callback = cb; }
-    inline void setKRatingWidget_MouseDoubleClickEvent_Callback(KRatingWidget_MouseDoubleClickEvent_Callback cb) { kratingwidget_mousedoubleclickevent_callback = cb; }
-    inline void setKRatingWidget_WheelEvent_Callback(KRatingWidget_WheelEvent_Callback cb) { kratingwidget_wheelevent_callback = cb; }
-    inline void setKRatingWidget_KeyPressEvent_Callback(KRatingWidget_KeyPressEvent_Callback cb) { kratingwidget_keypressevent_callback = cb; }
-    inline void setKRatingWidget_KeyReleaseEvent_Callback(KRatingWidget_KeyReleaseEvent_Callback cb) { kratingwidget_keyreleaseevent_callback = cb; }
-    inline void setKRatingWidget_FocusInEvent_Callback(KRatingWidget_FocusInEvent_Callback cb) { kratingwidget_focusinevent_callback = cb; }
-    inline void setKRatingWidget_FocusOutEvent_Callback(KRatingWidget_FocusOutEvent_Callback cb) { kratingwidget_focusoutevent_callback = cb; }
-    inline void setKRatingWidget_EnterEvent_Callback(KRatingWidget_EnterEvent_Callback cb) { kratingwidget_enterevent_callback = cb; }
-    inline void setKRatingWidget_MoveEvent_Callback(KRatingWidget_MoveEvent_Callback cb) { kratingwidget_moveevent_callback = cb; }
-    inline void setKRatingWidget_CloseEvent_Callback(KRatingWidget_CloseEvent_Callback cb) { kratingwidget_closeevent_callback = cb; }
-    inline void setKRatingWidget_ContextMenuEvent_Callback(KRatingWidget_ContextMenuEvent_Callback cb) { kratingwidget_contextmenuevent_callback = cb; }
-    inline void setKRatingWidget_TabletEvent_Callback(KRatingWidget_TabletEvent_Callback cb) { kratingwidget_tabletevent_callback = cb; }
-    inline void setKRatingWidget_ActionEvent_Callback(KRatingWidget_ActionEvent_Callback cb) { kratingwidget_actionevent_callback = cb; }
-    inline void setKRatingWidget_DragEnterEvent_Callback(KRatingWidget_DragEnterEvent_Callback cb) { kratingwidget_dragenterevent_callback = cb; }
-    inline void setKRatingWidget_DragMoveEvent_Callback(KRatingWidget_DragMoveEvent_Callback cb) { kratingwidget_dragmoveevent_callback = cb; }
-    inline void setKRatingWidget_DragLeaveEvent_Callback(KRatingWidget_DragLeaveEvent_Callback cb) { kratingwidget_dragleaveevent_callback = cb; }
-    inline void setKRatingWidget_DropEvent_Callback(KRatingWidget_DropEvent_Callback cb) { kratingwidget_dropevent_callback = cb; }
-    inline void setKRatingWidget_ShowEvent_Callback(KRatingWidget_ShowEvent_Callback cb) { kratingwidget_showevent_callback = cb; }
-    inline void setKRatingWidget_HideEvent_Callback(KRatingWidget_HideEvent_Callback cb) { kratingwidget_hideevent_callback = cb; }
-    inline void setKRatingWidget_NativeEvent_Callback(KRatingWidget_NativeEvent_Callback cb) { kratingwidget_nativeevent_callback = cb; }
-    inline void setKRatingWidget_Metric_Callback(KRatingWidget_Metric_Callback cb) { kratingwidget_metric_callback = cb; }
-    inline void setKRatingWidget_InitPainter_Callback(KRatingWidget_InitPainter_Callback cb) { kratingwidget_initpainter_callback = cb; }
-    inline void setKRatingWidget_Redirected_Callback(KRatingWidget_Redirected_Callback cb) { kratingwidget_redirected_callback = cb; }
-    inline void setKRatingWidget_SharedPainter_Callback(KRatingWidget_SharedPainter_Callback cb) { kratingwidget_sharedpainter_callback = cb; }
-    inline void setKRatingWidget_InputMethodEvent_Callback(KRatingWidget_InputMethodEvent_Callback cb) { kratingwidget_inputmethodevent_callback = cb; }
-    inline void setKRatingWidget_InputMethodQuery_Callback(KRatingWidget_InputMethodQuery_Callback cb) { kratingwidget_inputmethodquery_callback = cb; }
-    inline void setKRatingWidget_FocusNextPrevChild_Callback(KRatingWidget_FocusNextPrevChild_Callback cb) { kratingwidget_focusnextprevchild_callback = cb; }
-    inline void setKRatingWidget_EventFilter_Callback(KRatingWidget_EventFilter_Callback cb) { kratingwidget_eventfilter_callback = cb; }
-    inline void setKRatingWidget_TimerEvent_Callback(KRatingWidget_TimerEvent_Callback cb) { kratingwidget_timerevent_callback = cb; }
-    inline void setKRatingWidget_ChildEvent_Callback(KRatingWidget_ChildEvent_Callback cb) { kratingwidget_childevent_callback = cb; }
-    inline void setKRatingWidget_CustomEvent_Callback(KRatingWidget_CustomEvent_Callback cb) { kratingwidget_customevent_callback = cb; }
-    inline void setKRatingWidget_ConnectNotify_Callback(KRatingWidget_ConnectNotify_Callback cb) { kratingwidget_connectnotify_callback = cb; }
-    inline void setKRatingWidget_DisconnectNotify_Callback(KRatingWidget_DisconnectNotify_Callback cb) { kratingwidget_disconnectnotify_callback = cb; }
-    inline void setKRatingWidget_DrawFrame_Callback(KRatingWidget_DrawFrame_Callback cb) { kratingwidget_drawframe_callback = cb; }
-    inline void setKRatingWidget_UpdateMicroFocus_Callback(KRatingWidget_UpdateMicroFocus_Callback cb) { kratingwidget_updatemicrofocus_callback = cb; }
-    inline void setKRatingWidget_Create_Callback(KRatingWidget_Create_Callback cb) { kratingwidget_create_callback = cb; }
-    inline void setKRatingWidget_Destroy_Callback(KRatingWidget_Destroy_Callback cb) { kratingwidget_destroy_callback = cb; }
-    inline void setKRatingWidget_FocusNextChild_Callback(KRatingWidget_FocusNextChild_Callback cb) { kratingwidget_focusnextchild_callback = cb; }
-    inline void setKRatingWidget_FocusPreviousChild_Callback(KRatingWidget_FocusPreviousChild_Callback cb) { kratingwidget_focuspreviouschild_callback = cb; }
-    inline void setKRatingWidget_Sender_Callback(KRatingWidget_Sender_Callback cb) { kratingwidget_sender_callback = cb; }
-    inline void setKRatingWidget_SenderSignalIndex_Callback(KRatingWidget_SenderSignalIndex_Callback cb) { kratingwidget_sendersignalindex_callback = cb; }
-    inline void setKRatingWidget_Receivers_Callback(KRatingWidget_Receivers_Callback cb) { kratingwidget_receivers_callback = cb; }
-    inline void setKRatingWidget_IsSignalConnected_Callback(KRatingWidget_IsSignalConnected_Callback cb) { kratingwidget_issignalconnected_callback = cb; }
-    inline void setKRatingWidget_GetDecodedMetricF_Callback(KRatingWidget_GetDecodedMetricF_Callback cb) { kratingwidget_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKRatingWidget_MetaObject_IsBase(bool value) const { kratingwidget_metaobject_isbase = value; }
-    inline void setKRatingWidget_Metacast_IsBase(bool value) const { kratingwidget_metacast_isbase = value; }
-    inline void setKRatingWidget_Metacall_IsBase(bool value) const { kratingwidget_metacall_isbase = value; }
-    inline void setKRatingWidget_SizeHint_IsBase(bool value) const { kratingwidget_sizehint_isbase = value; }
-    inline void setKRatingWidget_MousePressEvent_IsBase(bool value) const { kratingwidget_mousepressevent_isbase = value; }
-    inline void setKRatingWidget_MouseMoveEvent_IsBase(bool value) const { kratingwidget_mousemoveevent_isbase = value; }
-    inline void setKRatingWidget_LeaveEvent_IsBase(bool value) const { kratingwidget_leaveevent_isbase = value; }
-    inline void setKRatingWidget_PaintEvent_IsBase(bool value) const { kratingwidget_paintevent_isbase = value; }
-    inline void setKRatingWidget_ResizeEvent_IsBase(bool value) const { kratingwidget_resizeevent_isbase = value; }
-    inline void setKRatingWidget_Event_IsBase(bool value) const { kratingwidget_event_isbase = value; }
-    inline void setKRatingWidget_ChangeEvent_IsBase(bool value) const { kratingwidget_changeevent_isbase = value; }
-    inline void setKRatingWidget_InitStyleOption_IsBase(bool value) const { kratingwidget_initstyleoption_isbase = value; }
-    inline void setKRatingWidget_DevType_IsBase(bool value) const { kratingwidget_devtype_isbase = value; }
-    inline void setKRatingWidget_SetVisible_IsBase(bool value) const { kratingwidget_setvisible_isbase = value; }
-    inline void setKRatingWidget_MinimumSizeHint_IsBase(bool value) const { kratingwidget_minimumsizehint_isbase = value; }
-    inline void setKRatingWidget_HeightForWidth_IsBase(bool value) const { kratingwidget_heightforwidth_isbase = value; }
-    inline void setKRatingWidget_HasHeightForWidth_IsBase(bool value) const { kratingwidget_hasheightforwidth_isbase = value; }
-    inline void setKRatingWidget_PaintEngine_IsBase(bool value) const { kratingwidget_paintengine_isbase = value; }
-    inline void setKRatingWidget_MouseReleaseEvent_IsBase(bool value) const { kratingwidget_mousereleaseevent_isbase = value; }
-    inline void setKRatingWidget_MouseDoubleClickEvent_IsBase(bool value) const { kratingwidget_mousedoubleclickevent_isbase = value; }
-    inline void setKRatingWidget_WheelEvent_IsBase(bool value) const { kratingwidget_wheelevent_isbase = value; }
-    inline void setKRatingWidget_KeyPressEvent_IsBase(bool value) const { kratingwidget_keypressevent_isbase = value; }
-    inline void setKRatingWidget_KeyReleaseEvent_IsBase(bool value) const { kratingwidget_keyreleaseevent_isbase = value; }
-    inline void setKRatingWidget_FocusInEvent_IsBase(bool value) const { kratingwidget_focusinevent_isbase = value; }
-    inline void setKRatingWidget_FocusOutEvent_IsBase(bool value) const { kratingwidget_focusoutevent_isbase = value; }
-    inline void setKRatingWidget_EnterEvent_IsBase(bool value) const { kratingwidget_enterevent_isbase = value; }
-    inline void setKRatingWidget_MoveEvent_IsBase(bool value) const { kratingwidget_moveevent_isbase = value; }
-    inline void setKRatingWidget_CloseEvent_IsBase(bool value) const { kratingwidget_closeevent_isbase = value; }
-    inline void setKRatingWidget_ContextMenuEvent_IsBase(bool value) const { kratingwidget_contextmenuevent_isbase = value; }
-    inline void setKRatingWidget_TabletEvent_IsBase(bool value) const { kratingwidget_tabletevent_isbase = value; }
-    inline void setKRatingWidget_ActionEvent_IsBase(bool value) const { kratingwidget_actionevent_isbase = value; }
-    inline void setKRatingWidget_DragEnterEvent_IsBase(bool value) const { kratingwidget_dragenterevent_isbase = value; }
-    inline void setKRatingWidget_DragMoveEvent_IsBase(bool value) const { kratingwidget_dragmoveevent_isbase = value; }
-    inline void setKRatingWidget_DragLeaveEvent_IsBase(bool value) const { kratingwidget_dragleaveevent_isbase = value; }
-    inline void setKRatingWidget_DropEvent_IsBase(bool value) const { kratingwidget_dropevent_isbase = value; }
-    inline void setKRatingWidget_ShowEvent_IsBase(bool value) const { kratingwidget_showevent_isbase = value; }
-    inline void setKRatingWidget_HideEvent_IsBase(bool value) const { kratingwidget_hideevent_isbase = value; }
-    inline void setKRatingWidget_NativeEvent_IsBase(bool value) const { kratingwidget_nativeevent_isbase = value; }
-    inline void setKRatingWidget_Metric_IsBase(bool value) const { kratingwidget_metric_isbase = value; }
-    inline void setKRatingWidget_InitPainter_IsBase(bool value) const { kratingwidget_initpainter_isbase = value; }
-    inline void setKRatingWidget_Redirected_IsBase(bool value) const { kratingwidget_redirected_isbase = value; }
-    inline void setKRatingWidget_SharedPainter_IsBase(bool value) const { kratingwidget_sharedpainter_isbase = value; }
-    inline void setKRatingWidget_InputMethodEvent_IsBase(bool value) const { kratingwidget_inputmethodevent_isbase = value; }
-    inline void setKRatingWidget_InputMethodQuery_IsBase(bool value) const { kratingwidget_inputmethodquery_isbase = value; }
-    inline void setKRatingWidget_FocusNextPrevChild_IsBase(bool value) const { kratingwidget_focusnextprevchild_isbase = value; }
-    inline void setKRatingWidget_EventFilter_IsBase(bool value) const { kratingwidget_eventfilter_isbase = value; }
-    inline void setKRatingWidget_TimerEvent_IsBase(bool value) const { kratingwidget_timerevent_isbase = value; }
-    inline void setKRatingWidget_ChildEvent_IsBase(bool value) const { kratingwidget_childevent_isbase = value; }
-    inline void setKRatingWidget_CustomEvent_IsBase(bool value) const { kratingwidget_customevent_isbase = value; }
-    inline void setKRatingWidget_ConnectNotify_IsBase(bool value) const { kratingwidget_connectnotify_isbase = value; }
-    inline void setKRatingWidget_DisconnectNotify_IsBase(bool value) const { kratingwidget_disconnectnotify_isbase = value; }
-    inline void setKRatingWidget_DrawFrame_IsBase(bool value) const { kratingwidget_drawframe_isbase = value; }
-    inline void setKRatingWidget_UpdateMicroFocus_IsBase(bool value) const { kratingwidget_updatemicrofocus_isbase = value; }
-    inline void setKRatingWidget_Create_IsBase(bool value) const { kratingwidget_create_isbase = value; }
-    inline void setKRatingWidget_Destroy_IsBase(bool value) const { kratingwidget_destroy_isbase = value; }
-    inline void setKRatingWidget_FocusNextChild_IsBase(bool value) const { kratingwidget_focusnextchild_isbase = value; }
-    inline void setKRatingWidget_FocusPreviousChild_IsBase(bool value) const { kratingwidget_focuspreviouschild_isbase = value; }
-    inline void setKRatingWidget_Sender_IsBase(bool value) const { kratingwidget_sender_isbase = value; }
-    inline void setKRatingWidget_SenderSignalIndex_IsBase(bool value) const { kratingwidget_sendersignalindex_isbase = value; }
-    inline void setKRatingWidget_Receivers_IsBase(bool value) const { kratingwidget_receivers_isbase = value; }
-    inline void setKRatingWidget_IsSignalConnected_IsBase(bool value) const { kratingwidget_issignalconnected_isbase = value; }
-    inline void setKRatingWidget_GetDecodedMetricF_IsBase(bool value) const { kratingwidget_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kratingwidget_metaobject_isbase) {
-            kratingwidget_metaobject_isbase = false;
-            return KRatingWidget::metaObject();
-        }
-        auto metaobject_cb = kratingwidget_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kratingwidget_metaobject_callback) {
+            QMetaObject* callback_ret = kratingwidget_metaobject_callback(this);
             return callback_ret;
         }
         return KRatingWidget::metaObject();
@@ -357,14 +186,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kratingwidget_metacast_isbase) {
-            kratingwidget_metacast_isbase = false;
-            return KRatingWidget::qt_metacast(param1);
-        }
-        auto metacast_cb = kratingwidget_metacast_callback;
-        if (metacast_cb) {
+        if (kratingwidget_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kratingwidget_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KRatingWidget::qt_metacast(param1);
@@ -372,16 +196,11 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kratingwidget_metacall_isbase) {
-            kratingwidget_metacall_isbase = false;
-            return KRatingWidget::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kratingwidget_metacall_callback;
-        if (metacall_cb) {
+        if (kratingwidget_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kratingwidget_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KRatingWidget::qt_metacall(param1, param2, param3);
@@ -389,13 +208,8 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (kratingwidget_sizehint_isbase) {
-            kratingwidget_sizehint_isbase = false;
-            return KRatingWidget::sizeHint();
-        }
-        auto sizehint_cb = kratingwidget_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (kratingwidget_sizehint_callback) {
+            QSize* callback_ret = kratingwidget_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -405,15 +219,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* e) override {
-        if (kratingwidget_mousepressevent_isbase) {
-            kratingwidget_mousepressevent_isbase = false;
-            KRatingWidget::mousePressEvent(e);
-            return;
-        }
-        auto mousepressevent_cb = kratingwidget_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (kratingwidget_mousepressevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousepressevent_cb(this, cbval1);
+            kratingwidget_mousepressevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::mousePressEvent(e);
@@ -421,15 +229,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* e) override {
-        if (kratingwidget_mousemoveevent_isbase) {
-            kratingwidget_mousemoveevent_isbase = false;
-            KRatingWidget::mouseMoveEvent(e);
-            return;
-        }
-        auto mousemoveevent_cb = kratingwidget_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (kratingwidget_mousemoveevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousemoveevent_cb(this, cbval1);
+            kratingwidget_mousemoveevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::mouseMoveEvent(e);
@@ -437,15 +239,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* e) override {
-        if (kratingwidget_leaveevent_isbase) {
-            kratingwidget_leaveevent_isbase = false;
-            KRatingWidget::leaveEvent(e);
-            return;
-        }
-        auto leaveevent_cb = kratingwidget_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (kratingwidget_leaveevent_callback) {
             QEvent* cbval1 = e;
-            leaveevent_cb(this, cbval1);
+            kratingwidget_leaveevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::leaveEvent(e);
@@ -453,15 +249,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* e) override {
-        if (kratingwidget_paintevent_isbase) {
-            kratingwidget_paintevent_isbase = false;
-            KRatingWidget::paintEvent(e);
-            return;
-        }
-        auto paintevent_cb = kratingwidget_paintevent_callback;
-        if (paintevent_cb) {
+        if (kratingwidget_paintevent_callback) {
             QPaintEvent* cbval1 = e;
-            paintevent_cb(this, cbval1);
+            kratingwidget_paintevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::paintEvent(e);
@@ -469,15 +259,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* e) override {
-        if (kratingwidget_resizeevent_isbase) {
-            kratingwidget_resizeevent_isbase = false;
-            KRatingWidget::resizeEvent(e);
-            return;
-        }
-        auto resizeevent_cb = kratingwidget_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (kratingwidget_resizeevent_callback) {
             QResizeEvent* cbval1 = e;
-            resizeevent_cb(this, cbval1);
+            kratingwidget_resizeevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::resizeEvent(e);
@@ -485,14 +269,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* e) override {
-        if (kratingwidget_event_isbase) {
-            kratingwidget_event_isbase = false;
-            return KRatingWidget::event(e);
-        }
-        auto event_cb = kratingwidget_event_callback;
-        if (event_cb) {
+        if (kratingwidget_event_callback) {
             QEvent* cbval1 = e;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kratingwidget_event_callback(this, cbval1);
             return callback_ret;
         }
         return KRatingWidget::event(e);
@@ -500,15 +279,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (kratingwidget_changeevent_isbase) {
-            kratingwidget_changeevent_isbase = false;
-            KRatingWidget::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = kratingwidget_changeevent_callback;
-        if (changeevent_cb) {
+        if (kratingwidget_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            kratingwidget_changeevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::changeEvent(param1);
@@ -516,15 +289,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionFrame* option) const override {
-        if (kratingwidget_initstyleoption_isbase) {
-            kratingwidget_initstyleoption_isbase = false;
-            KRatingWidget::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = kratingwidget_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (kratingwidget_initstyleoption_callback) {
             QStyleOptionFrame* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            kratingwidget_initstyleoption_callback(this, cbval1);
             return;
         }
         KRatingWidget::initStyleOption(option);
@@ -532,13 +299,8 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (kratingwidget_devtype_isbase) {
-            kratingwidget_devtype_isbase = false;
-            return KRatingWidget::devType();
-        }
-        auto devtype_cb = kratingwidget_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (kratingwidget_devtype_callback) {
+            int callback_ret = kratingwidget_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KRatingWidget::devType();
@@ -546,15 +308,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (kratingwidget_setvisible_isbase) {
-            kratingwidget_setvisible_isbase = false;
-            KRatingWidget::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = kratingwidget_setvisible_callback;
-        if (setvisible_cb) {
+        if (kratingwidget_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            kratingwidget_setvisible_callback(this, cbval1);
             return;
         }
         KRatingWidget::setVisible(visible);
@@ -562,13 +318,8 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (kratingwidget_minimumsizehint_isbase) {
-            kratingwidget_minimumsizehint_isbase = false;
-            return KRatingWidget::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = kratingwidget_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (kratingwidget_minimumsizehint_callback) {
+            QSize* callback_ret = kratingwidget_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -578,14 +329,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (kratingwidget_heightforwidth_isbase) {
-            kratingwidget_heightforwidth_isbase = false;
-            return KRatingWidget::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = kratingwidget_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (kratingwidget_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = kratingwidget_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KRatingWidget::heightForWidth(param1);
@@ -593,13 +339,8 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (kratingwidget_hasheightforwidth_isbase) {
-            kratingwidget_hasheightforwidth_isbase = false;
-            return KRatingWidget::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = kratingwidget_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (kratingwidget_hasheightforwidth_callback) {
+            bool callback_ret = kratingwidget_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KRatingWidget::hasHeightForWidth();
@@ -607,13 +348,8 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (kratingwidget_paintengine_isbase) {
-            kratingwidget_paintengine_isbase = false;
-            return KRatingWidget::paintEngine();
-        }
-        auto paintengine_cb = kratingwidget_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (kratingwidget_paintengine_callback) {
+            QPaintEngine* callback_ret = kratingwidget_paintengine_callback(this);
             return callback_ret;
         }
         return KRatingWidget::paintEngine();
@@ -621,15 +357,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (kratingwidget_mousereleaseevent_isbase) {
-            kratingwidget_mousereleaseevent_isbase = false;
-            KRatingWidget::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = kratingwidget_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (kratingwidget_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            kratingwidget_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::mouseReleaseEvent(event);
@@ -637,15 +367,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (kratingwidget_mousedoubleclickevent_isbase) {
-            kratingwidget_mousedoubleclickevent_isbase = false;
-            KRatingWidget::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = kratingwidget_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (kratingwidget_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            kratingwidget_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::mouseDoubleClickEvent(event);
@@ -653,15 +377,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (kratingwidget_wheelevent_isbase) {
-            kratingwidget_wheelevent_isbase = false;
-            KRatingWidget::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = kratingwidget_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (kratingwidget_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            kratingwidget_wheelevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::wheelEvent(event);
@@ -669,15 +387,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (kratingwidget_keypressevent_isbase) {
-            kratingwidget_keypressevent_isbase = false;
-            KRatingWidget::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = kratingwidget_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (kratingwidget_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            kratingwidget_keypressevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::keyPressEvent(event);
@@ -685,15 +397,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (kratingwidget_keyreleaseevent_isbase) {
-            kratingwidget_keyreleaseevent_isbase = false;
-            KRatingWidget::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = kratingwidget_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (kratingwidget_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            kratingwidget_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::keyReleaseEvent(event);
@@ -701,15 +407,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (kratingwidget_focusinevent_isbase) {
-            kratingwidget_focusinevent_isbase = false;
-            KRatingWidget::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = kratingwidget_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (kratingwidget_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            kratingwidget_focusinevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::focusInEvent(event);
@@ -717,15 +417,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (kratingwidget_focusoutevent_isbase) {
-            kratingwidget_focusoutevent_isbase = false;
-            KRatingWidget::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = kratingwidget_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (kratingwidget_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            kratingwidget_focusoutevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::focusOutEvent(event);
@@ -733,15 +427,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (kratingwidget_enterevent_isbase) {
-            kratingwidget_enterevent_isbase = false;
-            KRatingWidget::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = kratingwidget_enterevent_callback;
-        if (enterevent_cb) {
+        if (kratingwidget_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            kratingwidget_enterevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::enterEvent(event);
@@ -749,15 +437,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (kratingwidget_moveevent_isbase) {
-            kratingwidget_moveevent_isbase = false;
-            KRatingWidget::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = kratingwidget_moveevent_callback;
-        if (moveevent_cb) {
+        if (kratingwidget_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            kratingwidget_moveevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::moveEvent(event);
@@ -765,15 +447,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (kratingwidget_closeevent_isbase) {
-            kratingwidget_closeevent_isbase = false;
-            KRatingWidget::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = kratingwidget_closeevent_callback;
-        if (closeevent_cb) {
+        if (kratingwidget_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            kratingwidget_closeevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::closeEvent(event);
@@ -781,15 +457,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (kratingwidget_contextmenuevent_isbase) {
-            kratingwidget_contextmenuevent_isbase = false;
-            KRatingWidget::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = kratingwidget_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (kratingwidget_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            kratingwidget_contextmenuevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::contextMenuEvent(event);
@@ -797,15 +467,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (kratingwidget_tabletevent_isbase) {
-            kratingwidget_tabletevent_isbase = false;
-            KRatingWidget::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = kratingwidget_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (kratingwidget_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            kratingwidget_tabletevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::tabletEvent(event);
@@ -813,15 +477,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (kratingwidget_actionevent_isbase) {
-            kratingwidget_actionevent_isbase = false;
-            KRatingWidget::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = kratingwidget_actionevent_callback;
-        if (actionevent_cb) {
+        if (kratingwidget_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            kratingwidget_actionevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::actionEvent(event);
@@ -829,15 +487,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (kratingwidget_dragenterevent_isbase) {
-            kratingwidget_dragenterevent_isbase = false;
-            KRatingWidget::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = kratingwidget_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (kratingwidget_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            kratingwidget_dragenterevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::dragEnterEvent(event);
@@ -845,15 +497,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (kratingwidget_dragmoveevent_isbase) {
-            kratingwidget_dragmoveevent_isbase = false;
-            KRatingWidget::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = kratingwidget_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (kratingwidget_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            kratingwidget_dragmoveevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::dragMoveEvent(event);
@@ -861,15 +507,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (kratingwidget_dragleaveevent_isbase) {
-            kratingwidget_dragleaveevent_isbase = false;
-            KRatingWidget::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = kratingwidget_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (kratingwidget_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            kratingwidget_dragleaveevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::dragLeaveEvent(event);
@@ -877,15 +517,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (kratingwidget_dropevent_isbase) {
-            kratingwidget_dropevent_isbase = false;
-            KRatingWidget::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = kratingwidget_dropevent_callback;
-        if (dropevent_cb) {
+        if (kratingwidget_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            kratingwidget_dropevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::dropEvent(event);
@@ -893,15 +527,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (kratingwidget_showevent_isbase) {
-            kratingwidget_showevent_isbase = false;
-            KRatingWidget::showEvent(event);
-            return;
-        }
-        auto showevent_cb = kratingwidget_showevent_callback;
-        if (showevent_cb) {
+        if (kratingwidget_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            kratingwidget_showevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::showEvent(event);
@@ -909,15 +537,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (kratingwidget_hideevent_isbase) {
-            kratingwidget_hideevent_isbase = false;
-            KRatingWidget::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = kratingwidget_hideevent_callback;
-        if (hideevent_cb) {
+        if (kratingwidget_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            kratingwidget_hideevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::hideEvent(event);
@@ -925,12 +547,7 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (kratingwidget_nativeevent_isbase) {
-            kratingwidget_nativeevent_isbase = false;
-            return KRatingWidget::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = kratingwidget_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (kratingwidget_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -940,7 +557,7 @@ class VirtualKRatingWidget final : public KRatingWidget {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kratingwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -949,14 +566,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (kratingwidget_metric_isbase) {
-            kratingwidget_metric_isbase = false;
-            return KRatingWidget::metric(param1);
-        }
-        auto metric_cb = kratingwidget_metric_callback;
-        if (metric_cb) {
+        if (kratingwidget_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = kratingwidget_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KRatingWidget::metric(param1);
@@ -964,15 +576,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (kratingwidget_initpainter_isbase) {
-            kratingwidget_initpainter_isbase = false;
-            KRatingWidget::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = kratingwidget_initpainter_callback;
-        if (initpainter_cb) {
+        if (kratingwidget_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            kratingwidget_initpainter_callback(this, cbval1);
             return;
         }
         KRatingWidget::initPainter(painter);
@@ -980,14 +586,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (kratingwidget_redirected_isbase) {
-            kratingwidget_redirected_isbase = false;
-            return KRatingWidget::redirected(offset);
-        }
-        auto redirected_cb = kratingwidget_redirected_callback;
-        if (redirected_cb) {
+        if (kratingwidget_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = kratingwidget_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KRatingWidget::redirected(offset);
@@ -995,13 +596,8 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (kratingwidget_sharedpainter_isbase) {
-            kratingwidget_sharedpainter_isbase = false;
-            return KRatingWidget::sharedPainter();
-        }
-        auto sharedpainter_cb = kratingwidget_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (kratingwidget_sharedpainter_callback) {
+            QPainter* callback_ret = kratingwidget_sharedpainter_callback(this);
             return callback_ret;
         }
         return KRatingWidget::sharedPainter();
@@ -1009,15 +605,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (kratingwidget_inputmethodevent_isbase) {
-            kratingwidget_inputmethodevent_isbase = false;
-            KRatingWidget::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = kratingwidget_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (kratingwidget_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            kratingwidget_inputmethodevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::inputMethodEvent(param1);
@@ -1025,14 +615,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (kratingwidget_inputmethodquery_isbase) {
-            kratingwidget_inputmethodquery_isbase = false;
-            return KRatingWidget::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = kratingwidget_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (kratingwidget_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = kratingwidget_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1042,14 +627,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (kratingwidget_focusnextprevchild_isbase) {
-            kratingwidget_focusnextprevchild_isbase = false;
-            return KRatingWidget::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = kratingwidget_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (kratingwidget_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = kratingwidget_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KRatingWidget::focusNextPrevChild(next);
@@ -1057,15 +637,10 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kratingwidget_eventfilter_isbase) {
-            kratingwidget_eventfilter_isbase = false;
-            return KRatingWidget::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kratingwidget_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kratingwidget_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kratingwidget_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KRatingWidget::eventFilter(watched, event);
@@ -1073,15 +648,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kratingwidget_timerevent_isbase) {
-            kratingwidget_timerevent_isbase = false;
-            KRatingWidget::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kratingwidget_timerevent_callback;
-        if (timerevent_cb) {
+        if (kratingwidget_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kratingwidget_timerevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::timerEvent(event);
@@ -1089,15 +658,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kratingwidget_childevent_isbase) {
-            kratingwidget_childevent_isbase = false;
-            KRatingWidget::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kratingwidget_childevent_callback;
-        if (childevent_cb) {
+        if (kratingwidget_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kratingwidget_childevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::childEvent(event);
@@ -1105,15 +668,9 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kratingwidget_customevent_isbase) {
-            kratingwidget_customevent_isbase = false;
-            KRatingWidget::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kratingwidget_customevent_callback;
-        if (customevent_cb) {
+        if (kratingwidget_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kratingwidget_customevent_callback(this, cbval1);
             return;
         }
         KRatingWidget::customEvent(event);
@@ -1121,17 +678,11 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kratingwidget_connectnotify_isbase) {
-            kratingwidget_connectnotify_isbase = false;
-            KRatingWidget::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kratingwidget_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kratingwidget_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kratingwidget_connectnotify_callback(this, cbval1);
             return;
         }
         KRatingWidget::connectNotify(signal);
@@ -1139,288 +690,56 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kratingwidget_disconnectnotify_isbase) {
-            kratingwidget_disconnectnotify_isbase = false;
-            KRatingWidget::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kratingwidget_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kratingwidget_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kratingwidget_disconnectnotify_callback(this, cbval1);
             return;
         }
         KRatingWidget::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void drawFrame(QPainter* param1) {
-        if (kratingwidget_drawframe_isbase) {
-            kratingwidget_drawframe_isbase = false;
-            KRatingWidget::drawFrame(param1);
-            return;
-        }
-        auto drawframe_cb = kratingwidget_drawframe_callback;
-        if (drawframe_cb) {
-            QPainter* cbval1 = param1;
-            drawframe_cb(this, cbval1);
-            return;
-        }
-        KRatingWidget::drawFrame(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (kratingwidget_updatemicrofocus_isbase) {
-            kratingwidget_updatemicrofocus_isbase = false;
-            KRatingWidget::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = kratingwidget_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KRatingWidget::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (kratingwidget_create_isbase) {
-            kratingwidget_create_isbase = false;
-            KRatingWidget::create();
-            return;
-        }
-        auto create_cb = kratingwidget_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KRatingWidget::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (kratingwidget_destroy_isbase) {
-            kratingwidget_destroy_isbase = false;
-            KRatingWidget::destroy();
-            return;
-        }
-        auto destroy_cb = kratingwidget_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KRatingWidget::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (kratingwidget_focusnextchild_isbase) {
-            kratingwidget_focusnextchild_isbase = false;
-            return KRatingWidget::focusNextChild();
-        }
-        auto focusnextchild_cb = kratingwidget_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KRatingWidget::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (kratingwidget_focuspreviouschild_isbase) {
-            kratingwidget_focuspreviouschild_isbase = false;
-            return KRatingWidget::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = kratingwidget_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KRatingWidget::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kratingwidget_sender_isbase) {
-            kratingwidget_sender_isbase = false;
-            return KRatingWidget::sender();
-        }
-        auto sender_cb = kratingwidget_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KRatingWidget::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kratingwidget_sendersignalindex_isbase) {
-            kratingwidget_sendersignalindex_isbase = false;
-            return KRatingWidget::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kratingwidget_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KRatingWidget::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kratingwidget_receivers_isbase) {
-            kratingwidget_receivers_isbase = false;
-            return KRatingWidget::receivers(signal);
-        }
-        auto receivers_cb = kratingwidget_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KRatingWidget::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kratingwidget_issignalconnected_isbase) {
-            kratingwidget_issignalconnected_isbase = false;
-            return KRatingWidget::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kratingwidget_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KRatingWidget::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (kratingwidget_getdecodedmetricf_isbase) {
-            kratingwidget_getdecodedmetricf_isbase = false;
-            return KRatingWidget::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = kratingwidget_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KRatingWidget::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void KRatingWidget_MousePressEvent(KRatingWidget* self, QMouseEvent* e);
     friend void KRatingWidget_SuperMousePressEvent(KRatingWidget* self, QMouseEvent* e);
-    friend void KRatingWidget_MouseMoveEvent(KRatingWidget* self, QMouseEvent* e);
     friend void KRatingWidget_SuperMouseMoveEvent(KRatingWidget* self, QMouseEvent* e);
-    friend void KRatingWidget_LeaveEvent(KRatingWidget* self, QEvent* e);
     friend void KRatingWidget_SuperLeaveEvent(KRatingWidget* self, QEvent* e);
-    friend void KRatingWidget_PaintEvent(KRatingWidget* self, QPaintEvent* e);
     friend void KRatingWidget_SuperPaintEvent(KRatingWidget* self, QPaintEvent* e);
-    friend void KRatingWidget_ResizeEvent(KRatingWidget* self, QResizeEvent* e);
     friend void KRatingWidget_SuperResizeEvent(KRatingWidget* self, QResizeEvent* e);
-    friend bool KRatingWidget_Event(KRatingWidget* self, QEvent* e);
     friend bool KRatingWidget_SuperEvent(KRatingWidget* self, QEvent* e);
-    friend void KRatingWidget_ChangeEvent(KRatingWidget* self, QEvent* param1);
     friend void KRatingWidget_SuperChangeEvent(KRatingWidget* self, QEvent* param1);
-    friend void KRatingWidget_InitStyleOption(const KRatingWidget* self, QStyleOptionFrame* option);
     friend void KRatingWidget_SuperInitStyleOption(const KRatingWidget* self, QStyleOptionFrame* option);
-    friend void KRatingWidget_MouseReleaseEvent(KRatingWidget* self, QMouseEvent* event);
     friend void KRatingWidget_SuperMouseReleaseEvent(KRatingWidget* self, QMouseEvent* event);
-    friend void KRatingWidget_MouseDoubleClickEvent(KRatingWidget* self, QMouseEvent* event);
     friend void KRatingWidget_SuperMouseDoubleClickEvent(KRatingWidget* self, QMouseEvent* event);
-    friend void KRatingWidget_WheelEvent(KRatingWidget* self, QWheelEvent* event);
     friend void KRatingWidget_SuperWheelEvent(KRatingWidget* self, QWheelEvent* event);
-    friend void KRatingWidget_KeyPressEvent(KRatingWidget* self, QKeyEvent* event);
     friend void KRatingWidget_SuperKeyPressEvent(KRatingWidget* self, QKeyEvent* event);
-    friend void KRatingWidget_KeyReleaseEvent(KRatingWidget* self, QKeyEvent* event);
     friend void KRatingWidget_SuperKeyReleaseEvent(KRatingWidget* self, QKeyEvent* event);
-    friend void KRatingWidget_FocusInEvent(KRatingWidget* self, QFocusEvent* event);
     friend void KRatingWidget_SuperFocusInEvent(KRatingWidget* self, QFocusEvent* event);
-    friend void KRatingWidget_FocusOutEvent(KRatingWidget* self, QFocusEvent* event);
     friend void KRatingWidget_SuperFocusOutEvent(KRatingWidget* self, QFocusEvent* event);
-    friend void KRatingWidget_EnterEvent(KRatingWidget* self, QEnterEvent* event);
     friend void KRatingWidget_SuperEnterEvent(KRatingWidget* self, QEnterEvent* event);
-    friend void KRatingWidget_MoveEvent(KRatingWidget* self, QMoveEvent* event);
     friend void KRatingWidget_SuperMoveEvent(KRatingWidget* self, QMoveEvent* event);
-    friend void KRatingWidget_CloseEvent(KRatingWidget* self, QCloseEvent* event);
     friend void KRatingWidget_SuperCloseEvent(KRatingWidget* self, QCloseEvent* event);
-    friend void KRatingWidget_ContextMenuEvent(KRatingWidget* self, QContextMenuEvent* event);
     friend void KRatingWidget_SuperContextMenuEvent(KRatingWidget* self, QContextMenuEvent* event);
-    friend void KRatingWidget_TabletEvent(KRatingWidget* self, QTabletEvent* event);
     friend void KRatingWidget_SuperTabletEvent(KRatingWidget* self, QTabletEvent* event);
-    friend void KRatingWidget_ActionEvent(KRatingWidget* self, QActionEvent* event);
     friend void KRatingWidget_SuperActionEvent(KRatingWidget* self, QActionEvent* event);
-    friend void KRatingWidget_DragEnterEvent(KRatingWidget* self, QDragEnterEvent* event);
     friend void KRatingWidget_SuperDragEnterEvent(KRatingWidget* self, QDragEnterEvent* event);
-    friend void KRatingWidget_DragMoveEvent(KRatingWidget* self, QDragMoveEvent* event);
     friend void KRatingWidget_SuperDragMoveEvent(KRatingWidget* self, QDragMoveEvent* event);
-    friend void KRatingWidget_DragLeaveEvent(KRatingWidget* self, QDragLeaveEvent* event);
     friend void KRatingWidget_SuperDragLeaveEvent(KRatingWidget* self, QDragLeaveEvent* event);
-    friend void KRatingWidget_DropEvent(KRatingWidget* self, QDropEvent* event);
     friend void KRatingWidget_SuperDropEvent(KRatingWidget* self, QDropEvent* event);
-    friend void KRatingWidget_ShowEvent(KRatingWidget* self, QShowEvent* event);
     friend void KRatingWidget_SuperShowEvent(KRatingWidget* self, QShowEvent* event);
-    friend void KRatingWidget_HideEvent(KRatingWidget* self, QHideEvent* event);
     friend void KRatingWidget_SuperHideEvent(KRatingWidget* self, QHideEvent* event);
-    friend bool KRatingWidget_NativeEvent(KRatingWidget* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KRatingWidget_SuperNativeEvent(KRatingWidget* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int KRatingWidget_Metric(const KRatingWidget* self, int param1);
     friend int KRatingWidget_SuperMetric(const KRatingWidget* self, int param1);
-    friend void KRatingWidget_InitPainter(const KRatingWidget* self, QPainter* painter);
     friend void KRatingWidget_SuperInitPainter(const KRatingWidget* self, QPainter* painter);
-    friend QPaintDevice* KRatingWidget_Redirected(const KRatingWidget* self, QPoint* offset);
     friend QPaintDevice* KRatingWidget_SuperRedirected(const KRatingWidget* self, QPoint* offset);
-    friend QPainter* KRatingWidget_SharedPainter(const KRatingWidget* self);
     friend QPainter* KRatingWidget_SuperSharedPainter(const KRatingWidget* self);
-    friend void KRatingWidget_InputMethodEvent(KRatingWidget* self, QInputMethodEvent* param1);
     friend void KRatingWidget_SuperInputMethodEvent(KRatingWidget* self, QInputMethodEvent* param1);
-    friend bool KRatingWidget_FocusNextPrevChild(KRatingWidget* self, bool next);
     friend bool KRatingWidget_SuperFocusNextPrevChild(KRatingWidget* self, bool next);
-    friend void KRatingWidget_TimerEvent(KRatingWidget* self, QTimerEvent* event);
     friend void KRatingWidget_SuperTimerEvent(KRatingWidget* self, QTimerEvent* event);
-    friend void KRatingWidget_ChildEvent(KRatingWidget* self, QChildEvent* event);
     friend void KRatingWidget_SuperChildEvent(KRatingWidget* self, QChildEvent* event);
-    friend void KRatingWidget_CustomEvent(KRatingWidget* self, QEvent* event);
     friend void KRatingWidget_SuperCustomEvent(KRatingWidget* self, QEvent* event);
-    friend void KRatingWidget_ConnectNotify(KRatingWidget* self, const QMetaMethod* signal);
     friend void KRatingWidget_SuperConnectNotify(KRatingWidget* self, const QMetaMethod* signal);
-    friend void KRatingWidget_DisconnectNotify(KRatingWidget* self, const QMetaMethod* signal);
     friend void KRatingWidget_SuperDisconnectNotify(KRatingWidget* self, const QMetaMethod* signal);
-    friend void KRatingWidget_DrawFrame(KRatingWidget* self, QPainter* param1);
-    friend void KRatingWidget_SuperDrawFrame(KRatingWidget* self, QPainter* param1);
-    friend void KRatingWidget_UpdateMicroFocus(KRatingWidget* self);
-    friend void KRatingWidget_SuperUpdateMicroFocus(KRatingWidget* self);
-    friend void KRatingWidget_Create(KRatingWidget* self);
-    friend void KRatingWidget_SuperCreate(KRatingWidget* self);
-    friend void KRatingWidget_Destroy(KRatingWidget* self);
-    friend void KRatingWidget_SuperDestroy(KRatingWidget* self);
-    friend bool KRatingWidget_FocusNextChild(KRatingWidget* self);
-    friend bool KRatingWidget_SuperFocusNextChild(KRatingWidget* self);
-    friend bool KRatingWidget_FocusPreviousChild(KRatingWidget* self);
-    friend bool KRatingWidget_SuperFocusPreviousChild(KRatingWidget* self);
-    friend QObject* KRatingWidget_Sender(const KRatingWidget* self);
-    friend QObject* KRatingWidget_SuperSender(const KRatingWidget* self);
-    friend int KRatingWidget_SenderSignalIndex(const KRatingWidget* self);
-    friend int KRatingWidget_SuperSenderSignalIndex(const KRatingWidget* self);
-    friend int KRatingWidget_Receivers(const KRatingWidget* self, const char* signal);
-    friend int KRatingWidget_SuperReceivers(const KRatingWidget* self, const char* signal);
-    friend bool KRatingWidget_IsSignalConnected(const KRatingWidget* self, const QMetaMethod* signal);
-    friend bool KRatingWidget_SuperIsSignalConnected(const KRatingWidget* self, const QMetaMethod* signal);
-    friend double KRatingWidget_GetDecodedMetricF(const KRatingWidget* self, int metricA, int metricB);
-    friend double KRatingWidget_SuperGetDecodedMetricF(const KRatingWidget* self, int metricA, int metricB);
 };
 
 #endif

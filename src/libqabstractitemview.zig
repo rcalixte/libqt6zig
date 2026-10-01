@@ -145,9 +145,9 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QAbstractItemView, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) QMetaObject) void {
         qtc.QAbstractItemView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1094,6 +1094,8 @@ pub const QAbstractItemView = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRect)
     ///
+    /// This method must be implemented with `onVisualRect` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractItemView `
@@ -1125,30 +1127,13 @@ pub const QAbstractItemView = extern struct {
         qtc.QAbstractItemView_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superVisualRect` instead
-    ///
-    pub const SuperVisualRect = superVisualRect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superVisualRect(self: QAbstractItemView, index: anytype) QRect {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QAbstractItemView_SuperVisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `scrollTo` instead
     ///
     pub const ScrollTo = scrollTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollTo)
+    ///
+    /// This method must be implemented with `onScrollTo` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1181,32 +1166,13 @@ pub const QAbstractItemView = extern struct {
         qtc.QAbstractItemView_OnScrollTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superScrollTo` instead
-    ///
-    pub const SuperScrollTo = superScrollTo;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollTo)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    /// ` hint: qabstractitemview_enums.ScrollHint `
-    ///
-    pub fn superScrollTo(self: QAbstractItemView, index: anytype, hint: i32) void {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        qtc.QAbstractItemView_SuperScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
-    }
-
     /// ### DEPRECATED: Use `indexAt` instead
     ///
     pub const IndexAt = indexAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexAt)
+    ///
+    /// This method must be implemented with `onIndexAt` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1237,25 +1203,6 @@ pub const QAbstractItemView = extern struct {
     ///
     pub fn onIndexAt(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QPoint) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemView_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superIndexAt` instead
-    ///
-    pub const SuperIndexAt = superIndexAt;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexAt)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` point: QPoint `
-    ///
-    pub fn superIndexAt(self: QAbstractItemView, point: anytype) QModelIndex {
-        comptime _ = @TypeOf(point)._is_QPoint;
-        return .{ .ptr = qtc.QAbstractItemView_SuperIndexAt(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `sizeHintForIndex` instead
@@ -1688,9 +1635,9 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) void `
     ///
-    pub fn onReset(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) void) void {
         qtc.QAbstractItemView_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1790,9 +1737,9 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) void `
     ///
-    pub fn onDoItemsLayout(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoItemsLayout(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) void) void {
         qtc.QAbstractItemView_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1838,9 +1785,9 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) void `
     ///
-    pub fn onSelectAll(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectAll(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) void) void {
         qtc.QAbstractItemView_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2295,9 +2242,9 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorData(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorData(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) void) void {
         qtc.QAbstractItemView_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2343,9 +2290,9 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorGeometries(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorGeometries(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) void) void {
         qtc.QAbstractItemView_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2391,9 +2338,9 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) void `
     ///
-    pub fn onUpdateGeometries(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometries(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) void) void {
         qtc.QAbstractItemView_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3021,6 +2968,8 @@ pub const QAbstractItemView = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#moveCursor)
     ///
+    /// This method must be implemented with `onMoveCursor` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractItemView `
@@ -3053,31 +3002,13 @@ pub const QAbstractItemView = extern struct {
         qtc.QAbstractItemView_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superMoveCursor` instead
-    ///
-    pub const SuperMoveCursor = superMoveCursor;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#moveCursor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` cursorAction: qabstractitemview_enums.CursorAction `
-    ///
-    /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
-    ///
-    pub fn superMoveCursor(self: QAbstractItemView, cursorAction: i32, modifiers: i32) QModelIndex {
-        return .{ .ptr = qtc.QAbstractItemView_SuperMoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
-    }
-
     /// ### DEPRECATED: Use `horizontalOffset` instead
     ///
     pub const HorizontalOffset = horizontalOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalOffset)
+    ///
+    /// This method must be implemented with `onHorizontalOffset` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -3099,26 +3030,10 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) i32 `
     ///
-    pub fn onHorizontalOffset(self: QAbstractItemView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHorizontalOffset(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) i32) void {
         qtc.QAbstractItemView_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHorizontalOffset` instead
-    ///
-    pub const SuperHorizontalOffset = superHorizontalOffset;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalOffset)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superHorizontalOffset(self: QAbstractItemView) i32 {
-        return qtc.QAbstractItemView_SuperHorizontalOffset(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `verticalOffset` instead
@@ -3126,6 +3041,8 @@ pub const QAbstractItemView = extern struct {
     pub const VerticalOffset = verticalOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalOffset)
+    ///
+    /// This method must be implemented with `onVerticalOffset` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -3147,26 +3064,10 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) i32 `
     ///
-    pub fn onVerticalOffset(self: QAbstractItemView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onVerticalOffset(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) i32) void {
         qtc.QAbstractItemView_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superVerticalOffset` instead
-    ///
-    pub const SuperVerticalOffset = superVerticalOffset;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalOffset)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superVerticalOffset(self: QAbstractItemView) i32 {
-        return qtc.QAbstractItemView_SuperVerticalOffset(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `isIndexHidden` instead
@@ -3174,6 +3075,8 @@ pub const QAbstractItemView = extern struct {
     pub const IsIndexHidden = isIndexHidden;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#isIndexHidden)
+    ///
+    /// This method must be implemented with `onIsIndexHidden` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -3204,30 +3107,13 @@ pub const QAbstractItemView = extern struct {
         qtc.QAbstractItemView_OnIsIndexHidden(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superIsIndexHidden` instead
-    ///
-    pub const SuperIsIndexHidden = superIsIndexHidden;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#isIndexHidden)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superIsIndexHidden(self: QAbstractItemView, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QAbstractItemView_SuperIsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
-    }
-
     /// ### DEPRECATED: Use `setSelection` instead
     ///
     pub const SetSelection = setSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelection)
+    ///
+    /// This method must be implemented with `onSetSelection` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -3260,32 +3146,13 @@ pub const QAbstractItemView = extern struct {
         qtc.QAbstractItemView_OnSetSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetSelection` instead
-    ///
-    pub const SuperSetSelection = superSetSelection;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelection)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` _rect: QRect `
-    ///
-    /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
-    ///
-    pub fn superSetSelection(self: QAbstractItemView, _rect: anytype, command: i32) void {
-        comptime _ = @TypeOf(_rect)._is_QRect;
-        qtc.QAbstractItemView_SuperSetSelection(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(command));
-    }
-
     /// ### DEPRECATED: Use `visualRegionForSelection` instead
     ///
     pub const VisualRegionForSelection = visualRegionForSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRegionForSelection)
+    ///
+    /// This method must be implemented with `onVisualRegionForSelection` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -3316,25 +3183,6 @@ pub const QAbstractItemView = extern struct {
     ///
     pub fn onVisualRegionForSelection(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QItemSelection) callconv(.c) QRegion) void {
         qtc.QAbstractItemView_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superVisualRegionForSelection` instead
-    ///
-    pub const SuperVisualRegionForSelection = superVisualRegionForSelection;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRegionForSelection)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` selection: QItemSelection `
-    ///
-    pub fn superVisualRegionForSelection(self: QAbstractItemView, selection: anytype) QRegion {
-        comptime _ = @TypeOf(selection)._is_QItemSelection;
-        return .{ .ptr = qtc.QAbstractItemView_SuperVisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
     /// ### DEPRECATED: Use `selectedIndexes` instead
@@ -3373,13 +3221,13 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn onSelectedIndexes(self: QAbstractItemView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectedIndexes(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) qtc.libqt_list) void {
         qtc.QAbstractItemView_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3663,44 +3511,6 @@ pub const QAbstractItemView = extern struct {
         return qtc.QAbstractItemView_State(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onState` instead
-    ///
-    pub const OnState = onState;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onState(self: QAbstractItemView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superState` instead
-    ///
-    pub const SuperState = superState;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.State `
-    ///
-    pub fn superState(self: QAbstractItemView) i32 {
-        return qtc.QAbstractItemView_SuperState(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `setState` instead
     ///
     pub const SetState = setState;
@@ -3717,42 +3527,6 @@ pub const QAbstractItemView = extern struct {
         qtc.QAbstractItemView_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `onSetState` instead
-    ///
-    pub const OnSetState = onSetState;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemView, state: qabstractitemview_enums.State) callconv(.c) void `
-    ///
-    pub fn onSetState(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetState` instead
-    ///
-    pub const SuperSetState = superSetState;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` _state: qabstractitemview_enums.State `
-    ///
-    pub fn superSetState(self: QAbstractItemView, _state: i32) void {
-        qtc.QAbstractItemView_SuperSetState(@ptrCast(self.ptr), @bitCast(_state));
-    }
-
     /// ### DEPRECATED: Use `scheduleDelayedItemsLayout` instead
     ///
     pub const ScheduleDelayedItemsLayout = scheduleDelayedItemsLayout;
@@ -3767,40 +3541,6 @@ pub const QAbstractItemView = extern struct {
         qtc.QAbstractItemView_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onScheduleDelayedItemsLayout` instead
-    ///
-    pub const OnScheduleDelayedItemsLayout = onScheduleDelayedItemsLayout;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onScheduleDelayedItemsLayout(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superScheduleDelayedItemsLayout` instead
-    ///
-    pub const SuperScheduleDelayedItemsLayout = superScheduleDelayedItemsLayout;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superScheduleDelayedItemsLayout(self: QAbstractItemView) void {
-        qtc.QAbstractItemView_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `executeDelayedItemsLayout` instead
     ///
     pub const ExecuteDelayedItemsLayout = executeDelayedItemsLayout;
@@ -3813,40 +3553,6 @@ pub const QAbstractItemView = extern struct {
     ///
     pub fn executeDelayedItemsLayout(self: QAbstractItemView) void {
         qtc.QAbstractItemView_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onExecuteDelayedItemsLayout` instead
-    ///
-    pub const OnExecuteDelayedItemsLayout = onExecuteDelayedItemsLayout;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onExecuteDelayedItemsLayout(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superExecuteDelayedItemsLayout` instead
-    ///
-    pub const SuperExecuteDelayedItemsLayout = superExecuteDelayedItemsLayout;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superExecuteDelayedItemsLayout(self: QAbstractItemView) void {
-        qtc.QAbstractItemView_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setDirtyRegion` instead
@@ -3864,43 +3570,6 @@ pub const QAbstractItemView = extern struct {
     pub fn setDirtyRegion(self: QAbstractItemView, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QAbstractItemView_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDirtyRegion` instead
-    ///
-    pub const OnSetDirtyRegion = onSetDirtyRegion;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemView, region: QRegion) callconv(.c) void `
-    ///
-    pub fn onSetDirtyRegion(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QRegion) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetDirtyRegion` instead
-    ///
-    pub const SuperSetDirtyRegion = superSetDirtyRegion;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` region: QRegion `
-    ///
-    pub fn superSetDirtyRegion(self: QAbstractItemView, region: anytype) void {
-        comptime _ = @TypeOf(region)._is_QRegion;
-        qtc.QAbstractItemView_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
 
     /// ### DEPRECATED: Use `scrollDirtyRegion` instead
@@ -3921,44 +3590,6 @@ pub const QAbstractItemView = extern struct {
         qtc.QAbstractItemView_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `onScrollDirtyRegion` instead
-    ///
-    pub const OnScrollDirtyRegion = onScrollDirtyRegion;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` callback: *const fn (self: QAbstractItemView, dx: i32, dy: i32) callconv(.c) void `
-    ///
-    pub fn onScrollDirtyRegion(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superScrollDirtyRegion` instead
-    ///
-    pub const SuperScrollDirtyRegion = superScrollDirtyRegion;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` dx: i32 `
-    ///
-    /// ` dy: i32 `
-    ///
-    pub fn superScrollDirtyRegion(self: QAbstractItemView, dx: i32, dy: i32) void {
-        qtc.QAbstractItemView_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
-    }
-
     /// ### DEPRECATED: Use `dirtyRegionOffset` instead
     ///
     pub const DirtyRegionOffset = dirtyRegionOffset;
@@ -3971,42 +3602,6 @@ pub const QAbstractItemView = extern struct {
     ///
     pub fn dirtyRegionOffset(self: QAbstractItemView) QPoint {
         return .{ .ptr = qtc.QAbstractItemView_DirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDirtyRegionOffset` instead
-    ///
-    pub const OnDirtyRegionOffset = onDirtyRegionOffset;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` callback: *const fn () callconv(.c) QPoint `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onDirtyRegionOffset(self: QAbstractItemView, callback: *const fn () callconv(.c) QPoint) void {
-        qtc.QAbstractItemView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDirtyRegionOffset` instead
-    ///
-    pub const SuperDirtyRegionOffset = superDirtyRegionOffset;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superDirtyRegionOffset(self: QAbstractItemView) QPoint {
-        return .{ .ptr = qtc.QAbstractItemView_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `startAutoScroll` instead
@@ -4023,40 +3618,6 @@ pub const QAbstractItemView = extern struct {
         qtc.QAbstractItemView_StartAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onStartAutoScroll` instead
-    ///
-    pub const OnStartAutoScroll = onStartAutoScroll;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStartAutoScroll(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superStartAutoScroll` instead
-    ///
-    pub const SuperStartAutoScroll = superStartAutoScroll;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superStartAutoScroll(self: QAbstractItemView) void {
-        qtc.QAbstractItemView_SuperStartAutoScroll(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `stopAutoScroll` instead
     ///
     pub const StopAutoScroll = stopAutoScroll;
@@ -4071,40 +3632,6 @@ pub const QAbstractItemView = extern struct {
         qtc.QAbstractItemView_StopAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onStopAutoScroll` instead
-    ///
-    pub const OnStopAutoScroll = onStopAutoScroll;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStopAutoScroll(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superStopAutoScroll` instead
-    ///
-    pub const SuperStopAutoScroll = superStopAutoScroll;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superStopAutoScroll(self: QAbstractItemView) void {
-        qtc.QAbstractItemView_SuperStopAutoScroll(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `doAutoScroll` instead
     ///
     pub const DoAutoScroll = doAutoScroll;
@@ -4117,40 +3644,6 @@ pub const QAbstractItemView = extern struct {
     ///
     pub fn doAutoScroll(self: QAbstractItemView) void {
         qtc.QAbstractItemView_DoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDoAutoScroll` instead
-    ///
-    pub const OnDoAutoScroll = onDoAutoScroll;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDoAutoScroll(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDoAutoScroll` instead
-    ///
-    pub const SuperDoAutoScroll = superDoAutoScroll;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superDoAutoScroll(self: QAbstractItemView) void {
-        qtc.QAbstractItemView_SuperDoAutoScroll(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `focusNextPrevChild` instead
@@ -5147,44 +4640,6 @@ pub const QAbstractItemView = extern struct {
         return qtc.QAbstractItemView_DropIndicatorPosition(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onDropIndicatorPosition` instead
-    ///
-    pub const OnDropIndicatorPosition = onDropIndicatorPosition;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onDropIndicatorPosition(self: QAbstractItemView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDropIndicatorPosition` instead
-    ///
-    pub const SuperDropIndicatorPosition = superDropIndicatorPosition;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.DropIndicatorPosition `
-    ///
-    pub fn superDropIndicatorPosition(self: QAbstractItemView) i32 {
-        return qtc.QAbstractItemView_SuperDropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `viewportSizeHint` instead
     ///
     pub const ViewportSizeHint = viewportSizeHint;
@@ -5211,11 +4666,11 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: QAbstractItemView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) QSize) void {
         qtc.QAbstractItemView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12075,11 +11530,11 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QAbstractItemView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) QSize) void {
         qtc.QAbstractItemView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12133,11 +11588,11 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QAbstractItemView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) QSize) void {
         qtc.QAbstractItemView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12627,9 +12082,9 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QAbstractItemView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) i32) void {
         qtc.QAbstractItemView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12803,9 +12258,9 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QAbstractItemView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) bool) void {
         qtc.QAbstractItemView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12859,9 +12314,9 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QAbstractItemView, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) QPaintEngine) void {
         qtc.QAbstractItemView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13733,9 +13188,9 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QAbstractItemView, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) QPainter) void {
         qtc.QAbstractItemView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14013,52 +13468,6 @@ pub const QAbstractItemView = extern struct {
         qtc.QAbstractItemView_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: QAbstractItemView, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QAbstractItemView_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView`
-    ///
-    /// ` callback: *const fn (self: QAbstractItemView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -14075,46 +13484,6 @@ pub const QAbstractItemView = extern struct {
     ///
     pub fn viewportMargins(self: QAbstractItemView) QMargins {
         return .{ .ptr = qtc.QAbstractItemView_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superViewportMargins(self: QAbstractItemView) QMargins {
-        return .{ .ptr = qtc.QAbstractItemView_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: QAbstractItemView, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.QAbstractItemView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -14138,47 +13507,6 @@ pub const QAbstractItemView = extern struct {
         qtc.QAbstractItemView_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: QAbstractItemView, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.QAbstractItemView_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView`
-    ///
-    /// ` callback: *const fn (self: QAbstractItemView, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QPainter) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -14195,44 +13523,6 @@ pub const QAbstractItemView = extern struct {
     ///
     pub fn updateMicroFocus(self: QAbstractItemView) void {
         qtc.QAbstractItemView_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superUpdateMicroFocus(self: QAbstractItemView) void {
-        qtc.QAbstractItemView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -14253,44 +13543,6 @@ pub const QAbstractItemView = extern struct {
         qtc.QAbstractItemView_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superCreate(self: QAbstractItemView) void {
-        qtc.QAbstractItemView_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -14307,44 +13559,6 @@ pub const QAbstractItemView = extern struct {
     ///
     pub fn destroy(self: QAbstractItemView) void {
         qtc.QAbstractItemView_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superDestroy(self: QAbstractItemView) void {
-        qtc.QAbstractItemView_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -14365,44 +13579,6 @@ pub const QAbstractItemView = extern struct {
         return qtc.QAbstractItemView_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superFocusNextChild(self: QAbstractItemView) bool {
-        return qtc.QAbstractItemView_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QAbstractItemView, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractItemView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -14419,44 +13595,6 @@ pub const QAbstractItemView = extern struct {
     ///
     pub fn focusPreviousChild(self: QAbstractItemView) bool {
         return qtc.QAbstractItemView_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superFocusPreviousChild(self: QAbstractItemView) bool {
-        return qtc.QAbstractItemView_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QAbstractItemView, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractItemView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -14477,44 +13615,6 @@ pub const QAbstractItemView = extern struct {
         return .{ .ptr = qtc.QAbstractItemView_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superSender(self: QAbstractItemView) QObject {
-        return .{ .ptr = qtc.QAbstractItemView_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QAbstractItemView, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAbstractItemView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -14531,44 +13631,6 @@ pub const QAbstractItemView = extern struct {
     ///
     pub fn senderSignalIndex(self: QAbstractItemView) i32 {
         return qtc.QAbstractItemView_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    pub fn superSenderSignalIndex(self: QAbstractItemView) i32 {
-        return qtc.QAbstractItemView_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QAbstractItemView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -14592,47 +13654,6 @@ pub const QAbstractItemView = extern struct {
         return qtc.QAbstractItemView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QAbstractItemView, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QAbstractItemView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView`
-    ///
-    /// ` callback: *const fn (self: QAbstractItemView, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QAbstractItemView, callback: *const fn (QAbstractItemView, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -14652,47 +13673,6 @@ pub const QAbstractItemView = extern struct {
     pub fn isSignalConnected(self: QAbstractItemView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractItemView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QAbstractItemView, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QAbstractItemView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView`
-    ///
-    /// ` callback: *const fn (self: QAbstractItemView, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QMetaMethod) callconv(.c) bool) void {
-        qtc.QAbstractItemView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -14715,48 +13695,6 @@ pub const QAbstractItemView = extern struct {
     ///
     pub fn getDecodedMetricF(self: QAbstractItemView, metricA: i32, metricB: i32) f64 {
         return qtc.QAbstractItemView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractItemView `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QAbstractItemView, metricA: i32, metricB: i32) f64 {
-        return qtc.QAbstractItemView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractItemView`
-    ///
-    /// ` callback: *const fn (self: QAbstractItemView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32, i32) callconv(.c) f64) void {
-        qtc.QAbstractItemView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -197,364 +197,219 @@ libqt_string TextGrammarCheck__GrammalecteResultJob_Tr3(const char* s, const cha
 
 // Base class handler implementation
 QMetaObject* TextGrammarCheck__GrammalecteResultJob_SuperMetaObject(const TextGrammarCheck__GrammalecteResultJob* self) {
-    auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_MetaObject_IsBase(true);
-        return (QMetaObject*)vtextgrammarcheckgrammalecteresultjob->metaObject();
-    } else {
-        return (QMetaObject*)self->TextGrammarCheck::GrammalecteResultJob::metaObject();
-    }
+    return (QMetaObject*)self->TextGrammarCheck::GrammalecteResultJob::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteResultJob_OnMetaObject(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_MetaObject_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_MetaObject_Callback>(slot));
+void TextGrammarCheck__GrammalecteResultJob_OnMetaObject(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self)))
+        vtextgrammarcheckgrammalecteresultjob->textgrammarcheck__grammalecteresultjob_metaobject_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextGrammarCheck__GrammalecteResultJob_SuperMetacast(TextGrammarCheck__GrammalecteResultJob* self, const char* param1) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Metacast_IsBase(true);
-        return vtextgrammarcheckgrammalecteresultjob->qt_metacast(param1);
-    } else {
-        return self->TextGrammarCheck::GrammalecteResultJob::qt_metacast(param1);
-    }
+    return self->TextGrammarCheck::GrammalecteResultJob::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnMetacast(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Metacast_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_Metacast_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self))
+        vtextgrammarcheckgrammalecteresultjob->textgrammarcheck__grammalecteresultjob_metacast_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextGrammarCheck__GrammalecteResultJob_SuperMetacall(TextGrammarCheck__GrammalecteResultJob* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Metacall_IsBase(true);
-        return vtextgrammarcheckgrammalecteresultjob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextGrammarCheck::GrammalecteResultJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextGrammarCheck::GrammalecteResultJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnMetacall(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Metacall_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_Metacall_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self))
+        vtextgrammarcheckgrammalecteresultjob->textgrammarcheck__grammalecteresultjob_metacall_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammalecteResultJob_Event(TextGrammarCheck__GrammalecteResultJob* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        return vtextgrammarcheckgrammalecteresultjob->event(event);
-    } else {
-        return self->TextGrammarCheck::GrammalecteResultJob::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammalecteResultJob_SuperEvent(TextGrammarCheck__GrammalecteResultJob* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Event_IsBase(true);
-        return vtextgrammarcheckgrammalecteresultjob->event(event);
-    } else {
-        return self->TextGrammarCheck::GrammalecteResultJob::event(event);
-    }
+    return self->TextGrammarCheck::GrammalecteResultJob::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnEvent(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Event_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_Event_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self))
+        vtextgrammarcheckgrammalecteresultjob->textgrammarcheck__grammalecteresultjob_event_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammalecteResultJob_EventFilter(TextGrammarCheck__GrammalecteResultJob* self, QObject* watched, QEvent* event) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        return vtextgrammarcheckgrammalecteresultjob->eventFilter(watched, event);
-    } else {
-        return self->TextGrammarCheck::GrammalecteResultJob::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammalecteResultJob_SuperEventFilter(TextGrammarCheck__GrammalecteResultJob* self, QObject* watched, QEvent* event) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_EventFilter_IsBase(true);
-        return vtextgrammarcheckgrammalecteresultjob->eventFilter(watched, event);
-    } else {
-        return self->TextGrammarCheck::GrammalecteResultJob::eventFilter(watched, event);
-    }
+    return self->TextGrammarCheck::GrammalecteResultJob::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnEventFilter(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_EventFilter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_EventFilter_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self))
+        vtextgrammarcheckgrammalecteresultjob->textgrammarcheck__grammalecteresultjob_eventfilter_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteResultJob_TimerEvent(TextGrammarCheck__GrammalecteResultJob* self, QTimerEvent* event) {
     auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob) {
         vtextgrammarcheckgrammalecteresultjob->timerEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteResultJob::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteResultJob_SuperTimerEvent(TextGrammarCheck__GrammalecteResultJob* self, QTimerEvent* event) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_TimerEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteresultjob->timerEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->timerEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self)) {
+        vtextgrammarcheckgrammalecteresultjob->TextGrammarCheck::GrammalecteResultJob::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteResultJob::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnTimerEvent(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_TimerEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_TimerEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self))
+        vtextgrammarcheckgrammalecteresultjob->textgrammarcheck__grammalecteresultjob_timerevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteResultJob_ChildEvent(TextGrammarCheck__GrammalecteResultJob* self, QChildEvent* event) {
     auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob) {
         vtextgrammarcheckgrammalecteresultjob->childEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteResultJob::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteResultJob_SuperChildEvent(TextGrammarCheck__GrammalecteResultJob* self, QChildEvent* event) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_ChildEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteresultjob->childEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->childEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self)) {
+        vtextgrammarcheckgrammalecteresultjob->TextGrammarCheck::GrammalecteResultJob::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteResultJob::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnChildEvent(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_ChildEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_ChildEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self))
+        vtextgrammarcheckgrammalecteresultjob->textgrammarcheck__grammalecteresultjob_childevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteResultJob_CustomEvent(TextGrammarCheck__GrammalecteResultJob* self, QEvent* event) {
     auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob) {
         vtextgrammarcheckgrammalecteresultjob->customEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteResultJob::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteResultJob_SuperCustomEvent(TextGrammarCheck__GrammalecteResultJob* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_CustomEvent_IsBase(true);
-        vtextgrammarcheckgrammalecteresultjob->customEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->customEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self)) {
+        vtextgrammarcheckgrammalecteresultjob->TextGrammarCheck::GrammalecteResultJob::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteResultJob::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnCustomEvent(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_CustomEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_CustomEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self))
+        vtextgrammarcheckgrammalecteresultjob->textgrammarcheck__grammalecteresultjob_customevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteResultJob_ConnectNotify(TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal) {
     auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob) {
         vtextgrammarcheckgrammalecteresultjob->connectNotify(*signal);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteResultJob::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteResultJob_SuperConnectNotify(TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_ConnectNotify_IsBase(true);
-        vtextgrammarcheckgrammalecteresultjob->connectNotify(*signal);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->connectNotify(*signal);
-    }
+    if (auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self)) {
+        vtextgrammarcheckgrammalecteresultjob->TextGrammarCheck::GrammalecteResultJob::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteResultJob::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnConnectNotify(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_ConnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_ConnectNotify_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self))
+        vtextgrammarcheckgrammalecteresultjob->textgrammarcheck__grammalecteresultjob_connectnotify_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteResultJob_DisconnectNotify(TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal) {
     auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob) {
         vtextgrammarcheckgrammalecteresultjob->disconnectNotify(*signal);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteResultJob::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteResultJob_SuperDisconnectNotify(TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_DisconnectNotify_IsBase(true);
-        vtextgrammarcheckgrammalecteresultjob->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self)) {
+        vtextgrammarcheckgrammalecteresultjob->TextGrammarCheck::GrammalecteResultJob::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteResultJob::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnDisconnectNotify(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_DisconnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_DisconnectNotify_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self))
+        vtextgrammarcheckgrammalecteresultjob->textgrammarcheck__grammalecteresultjob_disconnectnotify_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextGrammarCheck__GrammalecteResultJob_Sender(const TextGrammarCheck__GrammalecteResultJob* self) {
-    auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        return vtextgrammarcheckgrammalecteresultjob->sender();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->sender();
-    }
+    if (auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self))) {
+        return vtextgrammarcheckgrammalecteresultjob->VirtualTextGrammarCheckGrammalecteResultJob::sender();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteResultJob::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextGrammarCheck__GrammalecteResultJob_SuperSender(const TextGrammarCheck__GrammalecteResultJob* self) {
-    auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Sender_IsBase(true);
-        return vtextgrammarcheckgrammalecteresultjob->sender();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteResultJob_OnSender(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Sender_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextGrammarCheck__GrammalecteResultJob_SenderSignalIndex(const TextGrammarCheck__GrammalecteResultJob* self) {
-    auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        return vtextgrammarcheckgrammalecteresultjob->senderSignalIndex();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->senderSignalIndex();
-    }
+    if (auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self))) {
+        return vtextgrammarcheckgrammalecteresultjob->VirtualTextGrammarCheckGrammalecteResultJob::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteResultJob::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextGrammarCheck__GrammalecteResultJob_SuperSenderSignalIndex(const TextGrammarCheck__GrammalecteResultJob* self) {
-    auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_SenderSignalIndex_IsBase(true);
-        return vtextgrammarcheckgrammalecteresultjob->senderSignalIndex();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteResultJob_OnSenderSignalIndex(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextGrammarCheck__GrammalecteResultJob_Receivers(const TextGrammarCheck__GrammalecteResultJob* self, const char* signal) {
-    auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        return vtextgrammarcheckgrammalecteresultjob->receivers(signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->receivers(signal);
-    }
+    if (auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self))) {
+        return vtextgrammarcheckgrammalecteresultjob->VirtualTextGrammarCheckGrammalecteResultJob::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteResultJob::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextGrammarCheck__GrammalecteResultJob_SuperReceivers(const TextGrammarCheck__GrammalecteResultJob* self, const char* signal) {
-    auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Receivers_IsBase(true);
-        return vtextgrammarcheckgrammalecteresultjob->receivers(signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteResultJob_OnReceivers(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Receivers_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextGrammarCheck__GrammalecteResultJob_IsSignalConnected(const TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        return vtextgrammarcheckgrammalecteresultjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool TextGrammarCheck__GrammalecteResultJob_SuperIsSignalConnected(const TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_IsSignalConnected_IsBase(true);
-        return vtextgrammarcheckgrammalecteresultjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteResultJob_OnIsSignalConnected(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
-        vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_IsSignalConnected_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_IsSignalConnected_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self))) {
+        return vtextgrammarcheckgrammalecteresultjob->VirtualTextGrammarCheckGrammalecteResultJob::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteResultJob::isSignalConnected called without a directly constructed type");
 }
 
 void TextGrammarCheck__GrammalecteResultJob_Delete(TextGrammarCheck__GrammalecteResultJob* self) {

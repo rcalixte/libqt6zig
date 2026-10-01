@@ -256,9 +256,9 @@ pub const QPixmap = extern struct {
     ///
     /// ` self: QPixmap `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPixmap) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QPixmap, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QPixmap, callback: *const fn (QPixmap) callconv(.c) i32) void {
         qtc.QPixmap_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -930,9 +930,9 @@ pub const QPixmap = extern struct {
     ///
     /// ` self: QPixmap `
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QPixmap) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QPixmap, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QPixmap, callback: *const fn (QPixmap) callconv(.c) QPaintEngine) void {
         qtc.QPixmap_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1033,45 +1033,6 @@ pub const QPixmap = extern struct {
     pub fn fromImageInPlace(self: QPixmap, image: anytype) QPixmap {
         comptime _ = @TypeOf(image)._is_QImage;
         return .{ .ptr = qtc.QPixmap_FromImageInPlace(@ptrCast(self.ptr), @ptrCast(image.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onFromImageInPlace` instead
-    ///
-    pub const OnFromImageInPlace = onFromImageInPlace;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageInPlace)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPixmap `
-    ///
-    /// ` callback: *const fn (self: QPixmap, image: QImage) callconv(.c) QPixmap `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onFromImageInPlace(self: QPixmap, callback: *const fn (QPixmap, QImage) callconv(.c) QPixmap) void {
-        qtc.QPixmap_OnFromImageInPlace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superFromImageInPlace` instead
-    ///
-    pub const SuperFromImageInPlace = superFromImageInPlace;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageInPlace)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPixmap `
-    ///
-    /// ` image: QImage `
-    ///
-    pub fn superFromImageInPlace(self: QPixmap, image: anytype) QPixmap {
-        comptime _ = @TypeOf(image)._is_QImage;
-        return .{ .ptr = qtc.QPixmap_SuperFromImageInPlace(@ptrCast(self.ptr), @ptrCast(image.ptr)) };
     }
 
     /// ### DEPRECATED: Use `fill1` instead
@@ -1635,47 +1596,6 @@ pub const QPixmap = extern struct {
         return .{ .ptr = qtc.QPixmap_FromImageInPlace2(@ptrCast(self.ptr), @ptrCast(image.ptr), @bitCast(flags)) };
     }
 
-    /// ### DEPRECATED: Use `onFromImageInPlace2` instead
-    ///
-    pub const OnFromImageInPlace2 = onFromImageInPlace2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageInPlace)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPixmap `
-    ///
-    /// ` callback: *const fn (self: QPixmap, image: QImage, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) QPixmap `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onFromImageInPlace2(self: QPixmap, callback: *const fn (QPixmap, QImage, i32) callconv(.c) QPixmap) void {
-        qtc.QPixmap_OnFromImageInPlace2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superFromImageInPlace2` instead
-    ///
-    pub const SuperFromImageInPlace2 = superFromImageInPlace2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageInPlace)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPixmap `
-    ///
-    /// ` image: QImage `
-    ///
-    /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
-    ///
-    pub fn superFromImageInPlace2(self: QPixmap, image: anytype, flags: i32) QPixmap {
-        comptime _ = @TypeOf(image)._is_QImage;
-        return .{ .ptr = qtc.QPixmap_SuperFromImageInPlace2(@ptrCast(self.ptr), @ptrCast(image.ptr), @bitCast(flags)) };
-    }
-
     /// ### DEPRECATED: Use `paintingActive` instead
     ///
     pub const PaintingActive = paintingActive;
@@ -2024,9 +1944,9 @@ pub const QPixmap = extern struct {
     ///
     /// ` self: QPixmap`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QPixmap) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QPixmap, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QPixmap, callback: *const fn (QPixmap) callconv(.c) QPainter) void {
         qtc.QPixmap_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2050,48 +1970,6 @@ pub const QPixmap = extern struct {
     ///
     pub fn getDecodedMetricF(self: QPixmap, metricA: i32, metricB: i32) f64 {
         return qtc.QPixmap_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPixmap `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QPixmap, metricA: i32, metricB: i32) f64 {
-        return qtc.QPixmap_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPixmap`
-    ///
-    /// ` callback: *const fn (self: QPixmap, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QPixmap, callback: *const fn (QPixmap, i32, i32) callconv(.c) f64) void {
-        qtc.QPixmap_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

@@ -60,7 +60,7 @@ void QButtonGroup_Connect_IdToggled(QButtonGroup* self, intptr_t slot);
 libqt_string QButtonGroup_Tr2(const char* s, const char* c);
 libqt_string QButtonGroup_Tr3(const char* s, const char* c, int n);
 void QButtonGroup_AddButton2(QButtonGroup* self, QAbstractButton* param1, int id);
-void QButtonGroup_OnMetaObject(const QButtonGroup* self, intptr_t slot);
+void QButtonGroup_OnMetaObject(QButtonGroup* self, intptr_t slot);
 QMetaObject* QButtonGroup_SuperMetaObject(const QButtonGroup* self);
 void QButtonGroup_OnMetacast(QButtonGroup* self, intptr_t slot);
 void* QButtonGroup_SuperMetacast(QButtonGroup* self, const char* param1);
@@ -88,17 +88,9 @@ void QButtonGroup_DisconnectNotify(QButtonGroup* self, const QMetaMethod* signal
 void QButtonGroup_OnDisconnectNotify(QButtonGroup* self, intptr_t slot);
 void QButtonGroup_SuperDisconnectNotify(QButtonGroup* self, const QMetaMethod* signal);
 QObject* QButtonGroup_Sender(const QButtonGroup* self);
-void QButtonGroup_OnSender(const QButtonGroup* self, intptr_t slot);
-QObject* QButtonGroup_SuperSender(const QButtonGroup* self);
 int QButtonGroup_SenderSignalIndex(const QButtonGroup* self);
-void QButtonGroup_OnSenderSignalIndex(const QButtonGroup* self, intptr_t slot);
-int QButtonGroup_SuperSenderSignalIndex(const QButtonGroup* self);
 int QButtonGroup_Receivers(const QButtonGroup* self, const char* signal);
-void QButtonGroup_OnReceivers(const QButtonGroup* self, intptr_t slot);
-int QButtonGroup_SuperReceivers(const QButtonGroup* self, const char* signal);
 bool QButtonGroup_IsSignalConnected(const QButtonGroup* self, const QMetaMethod* signal);
-void QButtonGroup_OnIsSignalConnected(const QButtonGroup* self, intptr_t slot);
-bool QButtonGroup_SuperIsSignalConnected(const QButtonGroup* self, const QMetaMethod* signal);
 void QButtonGroup_Delete(QButtonGroup* self);
 
 #ifdef __cplusplus

@@ -215,7 +215,7 @@ libqt_string KLocalizedQmlContext_Xi18ndcp11(const KLocalizedQmlContext* self, c
 libqt_string KLocalizedQmlContext_Xi18ndcp12(const KLocalizedQmlContext* self, const libqt_string domain, const libqt_string context, const libqt_string singular, const libqt_string plural, const QVariant* param1, const QVariant* param2, const QVariant* param3, const QVariant* param4, const QVariant* param5, const QVariant* param6, const QVariant* param7, const QVariant* param8);
 libqt_string KLocalizedQmlContext_Xi18ndcp13(const KLocalizedQmlContext* self, const libqt_string domain, const libqt_string context, const libqt_string singular, const libqt_string plural, const QVariant* param1, const QVariant* param2, const QVariant* param3, const QVariant* param4, const QVariant* param5, const QVariant* param6, const QVariant* param7, const QVariant* param8, const QVariant* param9);
 libqt_string KLocalizedQmlContext_Xi18ndcp14(const KLocalizedQmlContext* self, const libqt_string domain, const libqt_string context, const libqt_string singular, const libqt_string plural, const QVariant* param1, const QVariant* param2, const QVariant* param3, const QVariant* param4, const QVariant* param5, const QVariant* param6, const QVariant* param7, const QVariant* param8, const QVariant* param9, const QVariant* param10);
-void KLocalizedQmlContext_OnMetaObject(const KLocalizedQmlContext* self, intptr_t slot);
+void KLocalizedQmlContext_OnMetaObject(KLocalizedQmlContext* self, intptr_t slot);
 QMetaObject* KLocalizedQmlContext_SuperMetaObject(const KLocalizedQmlContext* self);
 void KLocalizedQmlContext_OnMetacast(KLocalizedQmlContext* self, intptr_t slot);
 void* KLocalizedQmlContext_SuperMetacast(KLocalizedQmlContext* self, const char* param1);
@@ -240,17 +240,9 @@ void KLocalizedQmlContext_DisconnectNotify(KLocalizedQmlContext* self, const QMe
 void KLocalizedQmlContext_OnDisconnectNotify(KLocalizedQmlContext* self, intptr_t slot);
 void KLocalizedQmlContext_SuperDisconnectNotify(KLocalizedQmlContext* self, const QMetaMethod* signal);
 QObject* KLocalizedQmlContext_Sender(const KLocalizedQmlContext* self);
-void KLocalizedQmlContext_OnSender(const KLocalizedQmlContext* self, intptr_t slot);
-QObject* KLocalizedQmlContext_SuperSender(const KLocalizedQmlContext* self);
 int KLocalizedQmlContext_SenderSignalIndex(const KLocalizedQmlContext* self);
-void KLocalizedQmlContext_OnSenderSignalIndex(const KLocalizedQmlContext* self, intptr_t slot);
-int KLocalizedQmlContext_SuperSenderSignalIndex(const KLocalizedQmlContext* self);
 int KLocalizedQmlContext_Receivers(const KLocalizedQmlContext* self, const char* signal);
-void KLocalizedQmlContext_OnReceivers(const KLocalizedQmlContext* self, intptr_t slot);
-int KLocalizedQmlContext_SuperReceivers(const KLocalizedQmlContext* self, const char* signal);
 bool KLocalizedQmlContext_IsSignalConnected(const KLocalizedQmlContext* self, const QMetaMethod* signal);
-void KLocalizedQmlContext_OnIsSignalConnected(const KLocalizedQmlContext* self, intptr_t slot);
-bool KLocalizedQmlContext_SuperIsSignalConnected(const KLocalizedQmlContext* self, const QMetaMethod* signal);
 void KLocalizedQmlContext_Delete(KLocalizedQmlContext* self);
 
 KLocalizedQmlContext* KLocalization_SetupLocalizedContext(QQmlEngine* engine);

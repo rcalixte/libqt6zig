@@ -84,400 +84,241 @@ libqt_string QPieLegendMarker_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QPieLegendMarker_SuperMetaObject(const QPieLegendMarker* self) {
-    auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_MetaObject_IsBase(true);
-        return (QMetaObject*)vqpielegendmarker->metaObject();
-    } else {
-        return (QMetaObject*)self->QPieLegendMarker::metaObject();
-    }
+    return (QMetaObject*)self->QPieLegendMarker::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPieLegendMarker_OnMetaObject(const QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_MetaObject_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_MetaObject_Callback>(slot));
+void QPieLegendMarker_OnMetaObject(QPieLegendMarker* self, intptr_t slot) {
+    if (auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self)))
+        vqpielegendmarker->qpielegendmarker_metaobject_callback = reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPieLegendMarker_SuperMetacast(QPieLegendMarker* self, const char* param1) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_Metacast_IsBase(true);
-        return vqpielegendmarker->qt_metacast(param1);
-    } else {
-        return self->QPieLegendMarker::qt_metacast(param1);
-    }
+    return self->QPieLegendMarker::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnMetacast(QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_Metacast_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Metacast_Callback>(slot));
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self))
+        vqpielegendmarker->qpielegendmarker_metacast_callback = reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPieLegendMarker_SuperMetacall(QPieLegendMarker* self, int param1, int param2, void** param3) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_Metacall_IsBase(true);
-        return vqpielegendmarker->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPieLegendMarker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPieLegendMarker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnMetacall(QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_Metacall_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Metacall_Callback>(slot));
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self))
+        vqpielegendmarker->qpielegendmarker_metacall_callback = reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPieLegendMarker_SuperType(QPieLegendMarker* self) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_Type_IsBase(true);
-        return static_cast<int>(vqpielegendmarker->type());
-    } else {
-        return static_cast<int>(self->QPieLegendMarker::type());
-    }
+    return static_cast<int>(self->QPieLegendMarker::type());
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnType(QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_Type_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Type_Callback>(slot));
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self))
+        vqpielegendmarker->qpielegendmarker_type_callback = reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Type_Callback>(slot);
 }
 
 // Base class handler implementation
 QPieSeries* QPieLegendMarker_SuperSeries(QPieLegendMarker* self) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_Series_IsBase(true);
-        return vqpielegendmarker->series();
-    } else {
-        return self->QPieLegendMarker::series();
-    }
+    return self->QPieLegendMarker::series();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnSeries(QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_Series_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Series_Callback>(slot));
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self))
+        vqpielegendmarker->qpielegendmarker_series_callback = reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Series_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPieLegendMarker_Event(QPieLegendMarker* self, QEvent* event) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        return vqpielegendmarker->event(event);
-    } else {
-        return self->QPieLegendMarker::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QPieLegendMarker_SuperEvent(QPieLegendMarker* self, QEvent* event) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_Event_IsBase(true);
-        return vqpielegendmarker->event(event);
-    } else {
-        return self->QPieLegendMarker::event(event);
-    }
+    return self->QPieLegendMarker::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnEvent(QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_Event_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Event_Callback>(slot));
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self))
+        vqpielegendmarker->qpielegendmarker_event_callback = reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPieLegendMarker_EventFilter(QPieLegendMarker* self, QObject* watched, QEvent* event) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        return vqpielegendmarker->eventFilter(watched, event);
-    } else {
-        return self->QPieLegendMarker::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QPieLegendMarker_SuperEventFilter(QPieLegendMarker* self, QObject* watched, QEvent* event) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_EventFilter_IsBase(true);
-        return vqpielegendmarker->eventFilter(watched, event);
-    } else {
-        return self->QPieLegendMarker::eventFilter(watched, event);
-    }
+    return self->QPieLegendMarker::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnEventFilter(QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_EventFilter_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_EventFilter_Callback>(slot));
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self))
+        vqpielegendmarker->qpielegendmarker_eventfilter_callback = reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieLegendMarker_TimerEvent(QPieLegendMarker* self, QTimerEvent* event) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker) {
         vqpielegendmarker->timerEvent(event);
     } else {
-        ((VirtualQPieLegendMarker*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPieLegendMarker::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieLegendMarker_SuperTimerEvent(QPieLegendMarker* self, QTimerEvent* event) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_TimerEvent_IsBase(true);
-        vqpielegendmarker->timerEvent(event);
-    } else {
-        ((VirtualQPieLegendMarker*)self)->timerEvent(event);
-    }
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self)) {
+        vqpielegendmarker->QPieLegendMarker::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPieLegendMarker::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnTimerEvent(QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_TimerEvent_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_TimerEvent_Callback>(slot));
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self))
+        vqpielegendmarker->qpielegendmarker_timerevent_callback = reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieLegendMarker_ChildEvent(QPieLegendMarker* self, QChildEvent* event) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker) {
         vqpielegendmarker->childEvent(event);
     } else {
-        ((VirtualQPieLegendMarker*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPieLegendMarker::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieLegendMarker_SuperChildEvent(QPieLegendMarker* self, QChildEvent* event) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_ChildEvent_IsBase(true);
-        vqpielegendmarker->childEvent(event);
-    } else {
-        ((VirtualQPieLegendMarker*)self)->childEvent(event);
-    }
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self)) {
+        vqpielegendmarker->QPieLegendMarker::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPieLegendMarker::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnChildEvent(QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_ChildEvent_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_ChildEvent_Callback>(slot));
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self))
+        vqpielegendmarker->qpielegendmarker_childevent_callback = reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieLegendMarker_CustomEvent(QPieLegendMarker* self, QEvent* event) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker) {
         vqpielegendmarker->customEvent(event);
     } else {
-        ((VirtualQPieLegendMarker*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPieLegendMarker::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieLegendMarker_SuperCustomEvent(QPieLegendMarker* self, QEvent* event) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_CustomEvent_IsBase(true);
-        vqpielegendmarker->customEvent(event);
-    } else {
-        ((VirtualQPieLegendMarker*)self)->customEvent(event);
-    }
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self)) {
+        vqpielegendmarker->QPieLegendMarker::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPieLegendMarker::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnCustomEvent(QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_CustomEvent_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_CustomEvent_Callback>(slot));
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self))
+        vqpielegendmarker->qpielegendmarker_customevent_callback = reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieLegendMarker_ConnectNotify(QPieLegendMarker* self, const QMetaMethod* signal) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker) {
         vqpielegendmarker->connectNotify(*signal);
     } else {
-        ((VirtualQPieLegendMarker*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPieLegendMarker::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieLegendMarker_SuperConnectNotify(QPieLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_ConnectNotify_IsBase(true);
-        vqpielegendmarker->connectNotify(*signal);
-    } else {
-        ((VirtualQPieLegendMarker*)self)->connectNotify(*signal);
-    }
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self)) {
+        vqpielegendmarker->QPieLegendMarker::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPieLegendMarker::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnConnectNotify(QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_ConnectNotify_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_ConnectNotify_Callback>(slot));
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self))
+        vqpielegendmarker->qpielegendmarker_connectnotify_callback = reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPieLegendMarker_DisconnectNotify(QPieLegendMarker* self, const QMetaMethod* signal) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker) {
         vqpielegendmarker->disconnectNotify(*signal);
     } else {
-        ((VirtualQPieLegendMarker*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPieLegendMarker::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPieLegendMarker_SuperDisconnectNotify(QPieLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_DisconnectNotify_IsBase(true);
-        vqpielegendmarker->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPieLegendMarker*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self)) {
+        vqpielegendmarker->QPieLegendMarker::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPieLegendMarker::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnDisconnectNotify(QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_DisconnectNotify_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_DisconnectNotify_Callback>(slot));
+    if (auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self))
+        vqpielegendmarker->qpielegendmarker_disconnectnotify_callback = reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPieLegendMarker_Sender(const QPieLegendMarker* self) {
-    auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        return vqpielegendmarker->sender();
-    } else {
-        return ((VirtualQPieLegendMarker*)self)->sender();
-    }
+    if (auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self))) {
+        return vqpielegendmarker->VirtualQPieLegendMarker::sender();
+    } else
+        qFatal("Error: Protected method QPieLegendMarker::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPieLegendMarker_SuperSender(const QPieLegendMarker* self) {
-    auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_Sender_IsBase(true);
-        return vqpielegendmarker->sender();
-    } else {
-        return ((VirtualQPieLegendMarker*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieLegendMarker_OnSender(const QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_Sender_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPieLegendMarker_SenderSignalIndex(const QPieLegendMarker* self) {
-    auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        return vqpielegendmarker->senderSignalIndex();
-    } else {
-        return ((VirtualQPieLegendMarker*)self)->senderSignalIndex();
-    }
+    if (auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self))) {
+        return vqpielegendmarker->VirtualQPieLegendMarker::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPieLegendMarker::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPieLegendMarker_SuperSenderSignalIndex(const QPieLegendMarker* self) {
-    auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_SenderSignalIndex_IsBase(true);
-        return vqpielegendmarker->senderSignalIndex();
-    } else {
-        return ((VirtualQPieLegendMarker*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieLegendMarker_OnSenderSignalIndex(const QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPieLegendMarker_Receivers(const QPieLegendMarker* self, const char* signal) {
-    auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        return vqpielegendmarker->receivers(signal);
-    } else {
-        return ((VirtualQPieLegendMarker*)self)->receivers(signal);
-    }
+    if (auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self))) {
+        return vqpielegendmarker->VirtualQPieLegendMarker::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPieLegendMarker::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPieLegendMarker_SuperReceivers(const QPieLegendMarker* self, const char* signal) {
-    auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_Receivers_IsBase(true);
-        return vqpielegendmarker->receivers(signal);
-    } else {
-        return ((VirtualQPieLegendMarker*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieLegendMarker_OnReceivers(const QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_Receivers_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPieLegendMarker_IsSignalConnected(const QPieLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        return vqpielegendmarker->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPieLegendMarker*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QPieLegendMarker_SuperIsSignalConnected(const QPieLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        vqpielegendmarker->setQPieLegendMarker_IsSignalConnected_IsBase(true);
-        return vqpielegendmarker->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPieLegendMarker*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPieLegendMarker_OnIsSignalConnected(const QPieLegendMarker* self, intptr_t slot) {
-    auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
-        vqpielegendmarker->setQPieLegendMarker_IsSignalConnected_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_IsSignalConnected_Callback>(slot));
+    if (auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self))) {
+        return vqpielegendmarker->VirtualQPieLegendMarker::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPieLegendMarker::isSignalConnected called without a directly constructed type");
 }
 
 void QPieLegendMarker_Delete(QPieLegendMarker* self) {

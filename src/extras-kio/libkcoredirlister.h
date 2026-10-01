@@ -112,7 +112,7 @@ libqt_string KCoreDirLister_Tr3(const char* s, const char* c, int n);
 bool KCoreDirLister_OpenUrl2(KCoreDirLister* self, const QUrl* dirUrl, int flags);
 KFileItemList* KCoreDirLister_Items1(const KCoreDirLister* self, int which);
 KFileItemList* KCoreDirLister_ItemsForDir2(const KCoreDirLister* self, const QUrl* dirUrl, int which);
-void KCoreDirLister_OnMetaObject(const KCoreDirLister* self, intptr_t slot);
+void KCoreDirLister_OnMetaObject(KCoreDirLister* self, intptr_t slot);
 QMetaObject* KCoreDirLister_SuperMetaObject(const KCoreDirLister* self);
 void KCoreDirLister_OnMetacast(KCoreDirLister* self, intptr_t slot);
 void* KCoreDirLister_SuperMetacast(KCoreDirLister* self, const char* param1);
@@ -142,17 +142,9 @@ void KCoreDirLister_DisconnectNotify(KCoreDirLister* self, const QMetaMethod* si
 void KCoreDirLister_OnDisconnectNotify(KCoreDirLister* self, intptr_t slot);
 void KCoreDirLister_SuperDisconnectNotify(KCoreDirLister* self, const QMetaMethod* signal);
 QObject* KCoreDirLister_Sender(const KCoreDirLister* self);
-void KCoreDirLister_OnSender(const KCoreDirLister* self, intptr_t slot);
-QObject* KCoreDirLister_SuperSender(const KCoreDirLister* self);
 int KCoreDirLister_SenderSignalIndex(const KCoreDirLister* self);
-void KCoreDirLister_OnSenderSignalIndex(const KCoreDirLister* self, intptr_t slot);
-int KCoreDirLister_SuperSenderSignalIndex(const KCoreDirLister* self);
 int KCoreDirLister_Receivers(const KCoreDirLister* self, const char* signal);
-void KCoreDirLister_OnReceivers(const KCoreDirLister* self, intptr_t slot);
-int KCoreDirLister_SuperReceivers(const KCoreDirLister* self, const char* signal);
 bool KCoreDirLister_IsSignalConnected(const KCoreDirLister* self, const QMetaMethod* signal);
-void KCoreDirLister_OnIsSignalConnected(const KCoreDirLister* self, intptr_t slot);
-bool KCoreDirLister_SuperIsSignalConnected(const KCoreDirLister* self, const QMetaMethod* signal);
 void KCoreDirLister_Delete(KCoreDirLister* self);
 
 #ifdef __cplusplus

@@ -119,330 +119,206 @@ libqt_string KFileMetaData__ExtractorPlugin_Tr3(const char* s, const char* c, in
 
 // Base class handler implementation
 QMetaObject* KFileMetaData__ExtractorPlugin_SuperMetaObject(const KFileMetaData__ExtractorPlugin* self) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_MetaObject_IsBase(true);
-        return (QMetaObject*)vkfilemetadataextractorplugin->metaObject();
-    } else {
-        return (QMetaObject*)self->KFileMetaData::ExtractorPlugin::metaObject();
-    }
+    return (QMetaObject*)self->KFileMetaData::ExtractorPlugin::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileMetaData__ExtractorPlugin_OnMetaObject(const KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_MetaObject_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_MetaObject_Callback>(slot));
+void KFileMetaData__ExtractorPlugin_OnMetaObject(KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
+    if (auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self)))
+        vkfilemetadataextractorplugin->kfilemetadata__extractorplugin_metaobject_callback = reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KFileMetaData__ExtractorPlugin_SuperMetacast(KFileMetaData__ExtractorPlugin* self, const char* param1) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Metacast_IsBase(true);
-        return vkfilemetadataextractorplugin->qt_metacast(param1);
-    } else {
-        return self->KFileMetaData::ExtractorPlugin::qt_metacast(param1);
-    }
+    return self->KFileMetaData::ExtractorPlugin::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractorPlugin_OnMetacast(KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Metacast_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_Metacast_Callback>(slot));
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self))
+        vkfilemetadataextractorplugin->kfilemetadata__extractorplugin_metacast_callback = reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KFileMetaData__ExtractorPlugin_SuperMetacall(KFileMetaData__ExtractorPlugin* self, int param1, int param2, void** param3) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Metacall_IsBase(true);
-        return vkfilemetadataextractorplugin->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KFileMetaData::ExtractorPlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KFileMetaData::ExtractorPlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractorPlugin_OnMetacall(KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Metacall_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_SuperMimetypes(const KFileMetaData__ExtractorPlugin* self) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Mimetypes_IsBase(true);
-        QList<QString> _ret = vkfilemetadataextractorplugin->mimetypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualKFileMetaDataExtractorPlugin*)self)->mimetypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self))
+        vkfilemetadataextractorplugin->kfilemetadata__extractorplugin_metacall_callback = reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileMetaData__ExtractorPlugin_OnMimetypes(const KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Mimetypes_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_Mimetypes_Callback>(slot));
-}
-
-// Base class handler implementation
-void KFileMetaData__ExtractorPlugin_SuperExtract(KFileMetaData__ExtractorPlugin* self, KFileMetaData__ExtractionResult* result) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Extract_IsBase(true);
-        vkfilemetadataextractorplugin->extract(result);
-    } else {
-        ((VirtualKFileMetaDataExtractorPlugin*)self)->extract(result);
-    }
+void KFileMetaData__ExtractorPlugin_OnMimetypes(KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
+    if (auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self)))
+        vkfilemetadataextractorplugin->kfilemetadata__extractorplugin_mimetypes_callback = reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_Mimetypes_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractorPlugin_OnExtract(KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Extract_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_Extract_Callback>(slot));
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self))
+        vkfilemetadataextractorplugin->kfilemetadata__extractorplugin_extract_callback = reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_Extract_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFileMetaData__ExtractorPlugin_Event(KFileMetaData__ExtractorPlugin* self, QEvent* event) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        return vkfilemetadataextractorplugin->event(event);
-    } else {
-        return self->KFileMetaData::ExtractorPlugin::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KFileMetaData__ExtractorPlugin_SuperEvent(KFileMetaData__ExtractorPlugin* self, QEvent* event) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Event_IsBase(true);
-        return vkfilemetadataextractorplugin->event(event);
-    } else {
-        return self->KFileMetaData::ExtractorPlugin::event(event);
-    }
+    return self->KFileMetaData::ExtractorPlugin::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractorPlugin_OnEvent(KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Event_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_Event_Callback>(slot));
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self))
+        vkfilemetadataextractorplugin->kfilemetadata__extractorplugin_event_callback = reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFileMetaData__ExtractorPlugin_EventFilter(KFileMetaData__ExtractorPlugin* self, QObject* watched, QEvent* event) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        return vkfilemetadataextractorplugin->eventFilter(watched, event);
-    } else {
-        return self->KFileMetaData::ExtractorPlugin::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KFileMetaData__ExtractorPlugin_SuperEventFilter(KFileMetaData__ExtractorPlugin* self, QObject* watched, QEvent* event) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_EventFilter_IsBase(true);
-        return vkfilemetadataextractorplugin->eventFilter(watched, event);
-    } else {
-        return self->KFileMetaData::ExtractorPlugin::eventFilter(watched, event);
-    }
+    return self->KFileMetaData::ExtractorPlugin::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractorPlugin_OnEventFilter(KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_EventFilter_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_EventFilter_Callback>(slot));
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self))
+        vkfilemetadataextractorplugin->kfilemetadata__extractorplugin_eventfilter_callback = reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileMetaData__ExtractorPlugin_TimerEvent(KFileMetaData__ExtractorPlugin* self, QTimerEvent* event) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
+    if (vkfilemetadataextractorplugin) {
         vkfilemetadataextractorplugin->timerEvent(event);
     } else {
-        ((VirtualKFileMetaDataExtractorPlugin*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KFileMetaData::ExtractorPlugin::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileMetaData__ExtractorPlugin_SuperTimerEvent(KFileMetaData__ExtractorPlugin* self, QTimerEvent* event) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_TimerEvent_IsBase(true);
-        vkfilemetadataextractorplugin->timerEvent(event);
-    } else {
-        ((VirtualKFileMetaDataExtractorPlugin*)self)->timerEvent(event);
-    }
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self)) {
+        vkfilemetadataextractorplugin->KFileMetaData::ExtractorPlugin::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileMetaData::ExtractorPlugin::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractorPlugin_OnTimerEvent(KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_TimerEvent_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_TimerEvent_Callback>(slot));
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self))
+        vkfilemetadataextractorplugin->kfilemetadata__extractorplugin_timerevent_callback = reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileMetaData__ExtractorPlugin_ChildEvent(KFileMetaData__ExtractorPlugin* self, QChildEvent* event) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
+    if (vkfilemetadataextractorplugin) {
         vkfilemetadataextractorplugin->childEvent(event);
     } else {
-        ((VirtualKFileMetaDataExtractorPlugin*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KFileMetaData::ExtractorPlugin::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileMetaData__ExtractorPlugin_SuperChildEvent(KFileMetaData__ExtractorPlugin* self, QChildEvent* event) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_ChildEvent_IsBase(true);
-        vkfilemetadataextractorplugin->childEvent(event);
-    } else {
-        ((VirtualKFileMetaDataExtractorPlugin*)self)->childEvent(event);
-    }
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self)) {
+        vkfilemetadataextractorplugin->KFileMetaData::ExtractorPlugin::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileMetaData::ExtractorPlugin::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractorPlugin_OnChildEvent(KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_ChildEvent_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_ChildEvent_Callback>(slot));
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self))
+        vkfilemetadataextractorplugin->kfilemetadata__extractorplugin_childevent_callback = reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileMetaData__ExtractorPlugin_CustomEvent(KFileMetaData__ExtractorPlugin* self, QEvent* event) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
+    if (vkfilemetadataextractorplugin) {
         vkfilemetadataextractorplugin->customEvent(event);
     } else {
-        ((VirtualKFileMetaDataExtractorPlugin*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KFileMetaData::ExtractorPlugin::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileMetaData__ExtractorPlugin_SuperCustomEvent(KFileMetaData__ExtractorPlugin* self, QEvent* event) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_CustomEvent_IsBase(true);
-        vkfilemetadataextractorplugin->customEvent(event);
-    } else {
-        ((VirtualKFileMetaDataExtractorPlugin*)self)->customEvent(event);
-    }
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self)) {
+        vkfilemetadataextractorplugin->KFileMetaData::ExtractorPlugin::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileMetaData::ExtractorPlugin::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractorPlugin_OnCustomEvent(KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_CustomEvent_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_CustomEvent_Callback>(slot));
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self))
+        vkfilemetadataextractorplugin->kfilemetadata__extractorplugin_customevent_callback = reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileMetaData__ExtractorPlugin_ConnectNotify(KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
+    if (vkfilemetadataextractorplugin) {
         vkfilemetadataextractorplugin->connectNotify(*signal);
     } else {
-        ((VirtualKFileMetaDataExtractorPlugin*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KFileMetaData::ExtractorPlugin::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileMetaData__ExtractorPlugin_SuperConnectNotify(KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_ConnectNotify_IsBase(true);
-        vkfilemetadataextractorplugin->connectNotify(*signal);
-    } else {
-        ((VirtualKFileMetaDataExtractorPlugin*)self)->connectNotify(*signal);
-    }
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self)) {
+        vkfilemetadataextractorplugin->KFileMetaData::ExtractorPlugin::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFileMetaData::ExtractorPlugin::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractorPlugin_OnConnectNotify(KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_ConnectNotify_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_ConnectNotify_Callback>(slot));
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self))
+        vkfilemetadataextractorplugin->kfilemetadata__extractorplugin_connectnotify_callback = reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileMetaData__ExtractorPlugin_DisconnectNotify(KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
+    if (vkfilemetadataextractorplugin) {
         vkfilemetadataextractorplugin->disconnectNotify(*signal);
     } else {
-        ((VirtualKFileMetaDataExtractorPlugin*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KFileMetaData::ExtractorPlugin::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileMetaData__ExtractorPlugin_SuperDisconnectNotify(KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_DisconnectNotify_IsBase(true);
-        vkfilemetadataextractorplugin->disconnectNotify(*signal);
-    } else {
-        ((VirtualKFileMetaDataExtractorPlugin*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self)) {
+        vkfilemetadataextractorplugin->KFileMetaData::ExtractorPlugin::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFileMetaData::ExtractorPlugin::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractorPlugin_OnDisconnectNotify(KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_DisconnectNotify_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_DisconnectNotify_Callback>(slot));
+    if (auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self))
+        vkfilemetadataextractorplugin->kfilemetadata__extractorplugin_disconnectnotify_callback = reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string KFileMetaData__ExtractorPlugin_GetSupportedMimeType(const KFileMetaData__ExtractorPlugin* self, const libqt_string mimetype) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    QString mimetype_QString = QString::fromUtf8(mimetype.data, mimetype.len);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        auto _ret = vkfilemetadataextractorplugin->getSupportedMimeType(mimetype_QString);
+    if (auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self))) {
+        QString mimetype_QString = QString::fromUtf8(mimetype.data, mimetype.len);
+        auto _ret = vkfilemetadataextractorplugin->VirtualKFileMetaDataExtractorPlugin::getSupportedMimeType(mimetype_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -451,164 +327,40 @@ libqt_string KFileMetaData__ExtractorPlugin_GetSupportedMimeType(const KFileMeta
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualKFileMetaDataExtractorPlugin*)self)->getSupportedMimeType(mimetype_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method KFileMetaData::ExtractorPlugin::getSupportedMimeType called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string KFileMetaData__ExtractorPlugin_SuperGetSupportedMimeType(const KFileMetaData__ExtractorPlugin* self, const libqt_string mimetype) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    QString mimetype_QString = QString::fromUtf8(mimetype.data, mimetype.len);
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_GetSupportedMimeType_IsBase(true);
-        auto _ret = vkfilemetadataextractorplugin->getSupportedMimeType(mimetype_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKFileMetaDataExtractorPlugin*)self)->getSupportedMimeType(mimetype_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileMetaData__ExtractorPlugin_OnGetSupportedMimeType(const KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_GetSupportedMimeType_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_GetSupportedMimeType_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KFileMetaData__ExtractorPlugin_Sender(const KFileMetaData__ExtractorPlugin* self) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        return vkfilemetadataextractorplugin->sender();
-    } else {
-        return ((VirtualKFileMetaDataExtractorPlugin*)self)->sender();
-    }
+    if (auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self))) {
+        return vkfilemetadataextractorplugin->VirtualKFileMetaDataExtractorPlugin::sender();
+    } else
+        qFatal("Error: Protected method KFileMetaData::ExtractorPlugin::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KFileMetaData__ExtractorPlugin_SuperSender(const KFileMetaData__ExtractorPlugin* self) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Sender_IsBase(true);
-        return vkfilemetadataextractorplugin->sender();
-    } else {
-        return ((VirtualKFileMetaDataExtractorPlugin*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileMetaData__ExtractorPlugin_OnSender(const KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Sender_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFileMetaData__ExtractorPlugin_SenderSignalIndex(const KFileMetaData__ExtractorPlugin* self) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        return vkfilemetadataextractorplugin->senderSignalIndex();
-    } else {
-        return ((VirtualKFileMetaDataExtractorPlugin*)self)->senderSignalIndex();
-    }
+    if (auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self))) {
+        return vkfilemetadataextractorplugin->VirtualKFileMetaDataExtractorPlugin::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KFileMetaData::ExtractorPlugin::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFileMetaData__ExtractorPlugin_SuperSenderSignalIndex(const KFileMetaData__ExtractorPlugin* self) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_SenderSignalIndex_IsBase(true);
-        return vkfilemetadataextractorplugin->senderSignalIndex();
-    } else {
-        return ((VirtualKFileMetaDataExtractorPlugin*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileMetaData__ExtractorPlugin_OnSenderSignalIndex(const KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFileMetaData__ExtractorPlugin_Receivers(const KFileMetaData__ExtractorPlugin* self, const char* signal) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        return vkfilemetadataextractorplugin->receivers(signal);
-    } else {
-        return ((VirtualKFileMetaDataExtractorPlugin*)self)->receivers(signal);
-    }
+    if (auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self))) {
+        return vkfilemetadataextractorplugin->VirtualKFileMetaDataExtractorPlugin::receivers(signal);
+    } else
+        qFatal("Error: Protected method KFileMetaData::ExtractorPlugin::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFileMetaData__ExtractorPlugin_SuperReceivers(const KFileMetaData__ExtractorPlugin* self, const char* signal) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Receivers_IsBase(true);
-        return vkfilemetadataextractorplugin->receivers(signal);
-    } else {
-        return ((VirtualKFileMetaDataExtractorPlugin*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileMetaData__ExtractorPlugin_OnReceivers(const KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Receivers_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFileMetaData__ExtractorPlugin_IsSignalConnected(const KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        return vkfilemetadataextractorplugin->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFileMetaDataExtractorPlugin*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KFileMetaData__ExtractorPlugin_SuperIsSignalConnected(const KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_IsSignalConnected_IsBase(true);
-        return vkfilemetadataextractorplugin->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFileMetaDataExtractorPlugin*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileMetaData__ExtractorPlugin_OnIsSignalConnected(const KFileMetaData__ExtractorPlugin* self, intptr_t slot) {
-    auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
-    if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin)
-        vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_IsSignalConnected_Callback(reinterpret_cast<VirtualKFileMetaDataExtractorPlugin::KFileMetaData__ExtractorPlugin_IsSignalConnected_Callback>(slot));
+    if (auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self))) {
+        return vkfilemetadataextractorplugin->VirtualKFileMetaDataExtractorPlugin::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KFileMetaData::ExtractorPlugin::isSignalConnected called without a directly constructed type");
 }
 
 void KFileMetaData__ExtractorPlugin_Delete(KFileMetaData__ExtractorPlugin* self) {

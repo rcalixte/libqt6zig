@@ -147,9 +147,9 @@ pub const KXMLGUIClient = extern struct {
     ///
     /// ` self: KXMLGUIClient `
     ///
-    /// ` callback: *const fn () callconv(.c) KActionCollection `
+    /// ` callback: *const fn (self: KXMLGUIClient) callconv(.c) KActionCollection `
     ///
-    pub fn onActionCollection(self: KXMLGUIClient, callback: *const fn () callconv(.c) KActionCollection) void {
+    pub fn onActionCollection(self: KXMLGUIClient, callback: *const fn (KXMLGUIClient) callconv(.c) KActionCollection) void {
         qtc.KXMLGUIClient_OnActionCollection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -201,9 +201,9 @@ pub const KXMLGUIClient = extern struct {
     ///
     /// ` self: KXMLGUIClient `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KXMLGUIClient) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onComponentName(self: KXMLGUIClient, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onComponentName(self: KXMLGUIClient, callback: *const fn (KXMLGUIClient) callconv(.c) [*:0]const u8) void {
         qtc.KXMLGUIClient_OnComponentName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -255,11 +255,11 @@ pub const KXMLGUIClient = extern struct {
     ///
     /// ` self: KXMLGUIClient `
     ///
-    /// ` callback: *const fn () callconv(.c) QDomDocument `
+    /// ` callback: *const fn (self: KXMLGUIClient) callconv(.c) QDomDocument `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onDomDocument(self: KXMLGUIClient, callback: *const fn () callconv(.c) QDomDocument) void {
+    pub fn onDomDocument(self: KXMLGUIClient, callback: *const fn (KXMLGUIClient) callconv(.c) QDomDocument) void {
         qtc.KXMLGUIClient_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -311,9 +311,9 @@ pub const KXMLGUIClient = extern struct {
     ///
     /// ` self: KXMLGUIClient `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KXMLGUIClient) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onXmlFile(self: KXMLGUIClient, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onXmlFile(self: KXMLGUIClient, callback: *const fn (KXMLGUIClient) callconv(.c) [*:0]const u8) void {
         qtc.KXMLGUIClient_OnXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -371,9 +371,9 @@ pub const KXMLGUIClient = extern struct {
     ///
     /// ` self: KXMLGUIClient `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KXMLGUIClient) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onLocalXMLFile(self: KXMLGUIClient, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onLocalXMLFile(self: KXMLGUIClient, callback: *const fn (KXMLGUIClient) callconv(.c) [*:0]const u8) void {
         qtc.KXMLGUIClient_OnLocalXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -992,46 +992,6 @@ pub const KXMLGUIClient = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `onStandardsXmlFileLocation` instead
-    ///
-    pub const OnStandardsXmlFileLocation = onStandardsXmlFileLocation;
-
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXMLGUIClient `
-    ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onStandardsXmlFileLocation(self: KXMLGUIClient, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KXMLGUIClient_OnStandardsXmlFileLocation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superStandardsXmlFileLocation` instead
-    ///
-    pub const SuperStandardsXmlFileLocation = superStandardsXmlFileLocation;
-
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXMLGUIClient `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superStandardsXmlFileLocation(self: KXMLGUIClient, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KXMLGUIClient_SuperStandardsXmlFileLocation(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXMLGUIClient.standardsXmlFileLocation: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `loadStandardsXmlFile` instead
     ///
     pub const LoadStandardsXmlFile = loadStandardsXmlFile;
@@ -1044,40 +1004,6 @@ pub const KXMLGUIClient = extern struct {
     ///
     pub fn loadStandardsXmlFile(self: KXMLGUIClient) void {
         qtc.KXMLGUIClient_LoadStandardsXmlFile(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onLoadStandardsXmlFile` instead
-    ///
-    pub const OnLoadStandardsXmlFile = onLoadStandardsXmlFile;
-
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KXMLGUIClient `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onLoadStandardsXmlFile(self: KXMLGUIClient, callback: *const fn () callconv(.c) void) void {
-        qtc.KXMLGUIClient_OnLoadStandardsXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superLoadStandardsXmlFile` instead
-    ///
-    pub const SuperLoadStandardsXmlFile = superLoadStandardsXmlFile;
-
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXMLGUIClient `
-    ///
-    pub fn superLoadStandardsXmlFile(self: KXMLGUIClient) void {
-        qtc.KXMLGUIClient_SuperLoadStandardsXmlFile(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setLocalXMLFile` instead

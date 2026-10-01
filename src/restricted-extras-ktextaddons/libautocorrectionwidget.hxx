@@ -9,24 +9,20 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of TextAutoCorrectionWidgets::AutoCorrectionWidget so that we can call protected methods
+// This class is a subclass of TextAutoCorrectionWidgets::AutoCorrectionWidget
 class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAutoCorrectionWidgets::AutoCorrectionWidget {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualTextAutoCorrectionWidgetsAutoCorrectionWidget = true;
-
-    // Virtual class public types (including callbacks)
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using TextAutoCorrectionWidgets__AutoCorrectionWidget_MetaObject_Callback = QMetaObject* (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*);
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_Metacast_Callback = void* (*)(TextAutoCorrectionWidgets__AutoCorrectionWidget*, const char*);
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_Metacall_Callback = int (*)(TextAutoCorrectionWidgets__AutoCorrectionWidget*, int, int, void**);
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_DevType_Callback = int (*)();
+    using TextAutoCorrectionWidgets__AutoCorrectionWidget_DevType_Callback = int (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*);
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_SetVisible_Callback = void (*)(TextAutoCorrectionWidgets__AutoCorrectionWidget*, bool);
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_SizeHint_Callback = QSize* (*)();
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_MinimumSizeHint_Callback = QSize* (*)();
+    using TextAutoCorrectionWidgets__AutoCorrectionWidget_SizeHint_Callback = QSize* (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*);
+    using TextAutoCorrectionWidgets__AutoCorrectionWidget_MinimumSizeHint_Callback = QSize* (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*);
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_HeightForWidth_Callback = int (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*, int);
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_HasHeightForWidth_Callback = bool (*)();
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_PaintEngine_Callback = QPaintEngine* (*)();
+    using TextAutoCorrectionWidgets__AutoCorrectionWidget_HasHeightForWidth_Callback = bool (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*);
+    using TextAutoCorrectionWidgets__AutoCorrectionWidget_PaintEngine_Callback = QPaintEngine* (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*);
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_Event_Callback = bool (*)(TextAutoCorrectionWidgets__AutoCorrectionWidget*, QEvent*);
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_MousePressEvent_Callback = void (*)(TextAutoCorrectionWidgets__AutoCorrectionWidget*, QMouseEvent*);
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_MouseReleaseEvent_Callback = void (*)(TextAutoCorrectionWidgets__AutoCorrectionWidget*, QMouseEvent*);
@@ -57,7 +53,7 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_Metric_Callback = int (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*, int);
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_InitPainter_Callback = void (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*, QPainter*);
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_Redirected_Callback = QPaintDevice* (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*, QPoint*);
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_SharedPainter_Callback = QPainter* (*)();
+    using TextAutoCorrectionWidgets__AutoCorrectionWidget_SharedPainter_Callback = QPainter* (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*);
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_InputMethodEvent_Callback = void (*)(TextAutoCorrectionWidgets__AutoCorrectionWidget*, QInputMethodEvent*);
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_InputMethodQuery_Callback = QVariant* (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*, int);
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusNextPrevChild_Callback = bool (*)(TextAutoCorrectionWidgets__AutoCorrectionWidget*, bool);
@@ -67,18 +63,17 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_CustomEvent_Callback = void (*)(TextAutoCorrectionWidgets__AutoCorrectionWidget*, QEvent*);
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_ConnectNotify_Callback = void (*)(TextAutoCorrectionWidgets__AutoCorrectionWidget*, QMetaMethod*);
     using TextAutoCorrectionWidgets__AutoCorrectionWidget_DisconnectNotify_Callback = void (*)(TextAutoCorrectionWidgets__AutoCorrectionWidget*, QMetaMethod*);
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_UpdateMicroFocus_Callback = void (*)();
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_Create_Callback = void (*)();
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_Destroy_Callback = void (*)();
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusNextChild_Callback = bool (*)();
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusPreviousChild_Callback = bool (*)();
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_Sender_Callback = QObject* (*)();
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_SenderSignalIndex_Callback = int (*)();
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_Receivers_Callback = int (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*, const char*);
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_IsSignalConnected_Callback = bool (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*, QMetaMethod*);
-    using TextAutoCorrectionWidgets__AutoCorrectionWidget_GetDecodedMetricF_Callback = double (*)(const TextAutoCorrectionWidgets__AutoCorrectionWidget*, int, int);
+    using TextAutoCorrectionWidgets::AutoCorrectionWidget::create;
+    using TextAutoCorrectionWidgets::AutoCorrectionWidget::destroy;
+    using TextAutoCorrectionWidgets::AutoCorrectionWidget::focusNextChild;
+    using TextAutoCorrectionWidgets::AutoCorrectionWidget::focusPreviousChild;
+    using TextAutoCorrectionWidgets::AutoCorrectionWidget::getDecodedMetricF;
+    using TextAutoCorrectionWidgets::AutoCorrectionWidget::isSignalConnected;
+    using TextAutoCorrectionWidgets::AutoCorrectionWidget::receivers;
+    using TextAutoCorrectionWidgets::AutoCorrectionWidget::sender;
+    using TextAutoCorrectionWidgets::AutoCorrectionWidget::senderSignalIndex;
+    using TextAutoCorrectionWidgets::AutoCorrectionWidget::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     TextAutoCorrectionWidgets__AutoCorrectionWidget_MetaObject_Callback textautocorrectionwidgets__autocorrectionwidget_metaobject_callback = nullptr;
     TextAutoCorrectionWidgets__AutoCorrectionWidget_Metacast_Callback textautocorrectionwidgets__autocorrectionwidget_metacast_callback = nullptr;
@@ -130,216 +125,56 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
     TextAutoCorrectionWidgets__AutoCorrectionWidget_CustomEvent_Callback textautocorrectionwidgets__autocorrectionwidget_customevent_callback = nullptr;
     TextAutoCorrectionWidgets__AutoCorrectionWidget_ConnectNotify_Callback textautocorrectionwidgets__autocorrectionwidget_connectnotify_callback = nullptr;
     TextAutoCorrectionWidgets__AutoCorrectionWidget_DisconnectNotify_Callback textautocorrectionwidgets__autocorrectionwidget_disconnectnotify_callback = nullptr;
-    TextAutoCorrectionWidgets__AutoCorrectionWidget_UpdateMicroFocus_Callback textautocorrectionwidgets__autocorrectionwidget_updatemicrofocus_callback = nullptr;
-    TextAutoCorrectionWidgets__AutoCorrectionWidget_Create_Callback textautocorrectionwidgets__autocorrectionwidget_create_callback = nullptr;
-    TextAutoCorrectionWidgets__AutoCorrectionWidget_Destroy_Callback textautocorrectionwidgets__autocorrectionwidget_destroy_callback = nullptr;
-    TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusNextChild_Callback textautocorrectionwidgets__autocorrectionwidget_focusnextchild_callback = nullptr;
-    TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusPreviousChild_Callback textautocorrectionwidgets__autocorrectionwidget_focuspreviouschild_callback = nullptr;
-    TextAutoCorrectionWidgets__AutoCorrectionWidget_Sender_Callback textautocorrectionwidgets__autocorrectionwidget_sender_callback = nullptr;
-    TextAutoCorrectionWidgets__AutoCorrectionWidget_SenderSignalIndex_Callback textautocorrectionwidgets__autocorrectionwidget_sendersignalindex_callback = nullptr;
-    TextAutoCorrectionWidgets__AutoCorrectionWidget_Receivers_Callback textautocorrectionwidgets__autocorrectionwidget_receivers_callback = nullptr;
-    TextAutoCorrectionWidgets__AutoCorrectionWidget_IsSignalConnected_Callback textautocorrectionwidgets__autocorrectionwidget_issignalconnected_callback = nullptr;
-    TextAutoCorrectionWidgets__AutoCorrectionWidget_GetDecodedMetricF_Callback textautocorrectionwidgets__autocorrectionwidget_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_metaobject_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_metacast_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_metacall_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_devtype_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_setvisible_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_sizehint_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_minimumsizehint_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_heightforwidth_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_hasheightforwidth_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_paintengine_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_event_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_mousepressevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_mousereleaseevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_mousedoubleclickevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_mousemoveevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_wheelevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_keypressevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_keyreleaseevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_focusinevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_focusoutevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_enterevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_leaveevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_paintevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_moveevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_resizeevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_closeevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_contextmenuevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_tabletevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_actionevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_dragenterevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_dragmoveevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_dragleaveevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_dropevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_showevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_hideevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_nativeevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_changeevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_metric_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_initpainter_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_redirected_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_sharedpainter_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_inputmethodevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_inputmethodquery_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_focusnextprevchild_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_eventfilter_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_timerevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_childevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_customevent_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_connectnotify_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_disconnectnotify_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_updatemicrofocus_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_create_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_destroy_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_focusnextchild_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_focuspreviouschild_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_sender_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_sendersignalindex_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_receivers_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_issignalconnected_isbase = false;
-    mutable bool textautocorrectionwidgets__autocorrectionwidget_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : TextAutoCorrectionWidgets::AutoCorrectionWidget {
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::actionEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::changeEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::childEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::closeEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::connectNotify;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::contextMenuEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::customEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::disconnectNotify;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::dragEnterEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::dragLeaveEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::dragMoveEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::dropEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::enterEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::event;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::focusInEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::focusNextPrevChild;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::focusOutEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::hideEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::initPainter;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::inputMethodEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::keyPressEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::keyReleaseEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::leaveEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::metric;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::mouseDoubleClickEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::mouseMoveEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::mousePressEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::mouseReleaseEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::moveEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::nativeEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::paintEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::redirected;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::resizeEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::sharedPainter;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::showEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::tabletEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::timerEvent;
+        using TextAutoCorrectionWidgets::AutoCorrectionWidget::wheelEvent;
+    };
 
-  public:
     VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget(QWidget* parent) : TextAutoCorrectionWidgets::AutoCorrectionWidget(parent) {};
     VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget() : TextAutoCorrectionWidgets::AutoCorrectionWidget() {};
 
-    // Callback setters
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_MetaObject_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_MetaObject_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_metaobject_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Metacast_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_Metacast_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_metacast_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Metacall_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_Metacall_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_metacall_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_DevType_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_DevType_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_devtype_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_SetVisible_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_SetVisible_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_setvisible_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_SizeHint_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_SizeHint_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_sizehint_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_MinimumSizeHint_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_MinimumSizeHint_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_minimumsizehint_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_HeightForWidth_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_HeightForWidth_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_heightforwidth_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_HasHeightForWidth_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_HasHeightForWidth_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_hasheightforwidth_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_PaintEngine_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_PaintEngine_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_paintengine_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Event_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_Event_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_event_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_MousePressEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_MousePressEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_mousepressevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_MouseReleaseEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_MouseReleaseEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_mousereleaseevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_MouseDoubleClickEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_MouseDoubleClickEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_mousedoubleclickevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_MouseMoveEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_MouseMoveEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_mousemoveevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_WheelEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_WheelEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_wheelevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_KeyPressEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_KeyPressEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_keypressevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_KeyReleaseEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_KeyReleaseEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_keyreleaseevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_FocusInEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusInEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_focusinevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_FocusOutEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusOutEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_focusoutevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_EnterEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_EnterEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_enterevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_LeaveEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_LeaveEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_leaveevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_PaintEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_PaintEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_paintevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_MoveEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_MoveEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_moveevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_ResizeEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_ResizeEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_resizeevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_CloseEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_CloseEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_closeevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_ContextMenuEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_ContextMenuEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_contextmenuevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_TabletEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_TabletEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_tabletevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_ActionEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_ActionEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_actionevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_DragEnterEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_DragEnterEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_dragenterevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_DragMoveEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_DragMoveEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_dragmoveevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_DragLeaveEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_DragLeaveEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_dragleaveevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_DropEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_DropEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_dropevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_ShowEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_ShowEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_showevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_HideEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_HideEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_hideevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_NativeEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_NativeEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_nativeevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_ChangeEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_ChangeEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_changeevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Metric_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_Metric_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_metric_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_InitPainter_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_InitPainter_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_initpainter_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Redirected_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_Redirected_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_redirected_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_SharedPainter_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_SharedPainter_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_sharedpainter_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_InputMethodEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_InputMethodEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_inputmethodevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_InputMethodQuery_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_InputMethodQuery_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_inputmethodquery_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_FocusNextPrevChild_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusNextPrevChild_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_focusnextprevchild_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_EventFilter_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_EventFilter_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_eventfilter_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_TimerEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_TimerEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_timerevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_ChildEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_ChildEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_childevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_CustomEvent_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_CustomEvent_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_customevent_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_ConnectNotify_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_ConnectNotify_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_connectnotify_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_DisconnectNotify_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_DisconnectNotify_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_disconnectnotify_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_UpdateMicroFocus_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_UpdateMicroFocus_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_updatemicrofocus_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Create_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_Create_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_create_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Destroy_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_Destroy_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_destroy_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_FocusNextChild_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusNextChild_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_focusnextchild_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_FocusPreviousChild_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusPreviousChild_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_focuspreviouschild_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Sender_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_Sender_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_sender_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_SenderSignalIndex_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_SenderSignalIndex_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_sendersignalindex_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Receivers_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_Receivers_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_receivers_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_IsSignalConnected_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_IsSignalConnected_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_issignalconnected_callback = cb; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_GetDecodedMetricF_Callback(TextAutoCorrectionWidgets__AutoCorrectionWidget_GetDecodedMetricF_Callback cb) { textautocorrectionwidgets__autocorrectionwidget_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_MetaObject_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_metaobject_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Metacast_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_metacast_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Metacall_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_metacall_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_DevType_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_devtype_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_SetVisible_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_setvisible_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_SizeHint_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_sizehint_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_MinimumSizeHint_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_minimumsizehint_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_HeightForWidth_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_heightforwidth_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_HasHeightForWidth_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_hasheightforwidth_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_PaintEngine_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_paintengine_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Event_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_event_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_MousePressEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_mousepressevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_MouseReleaseEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_mousereleaseevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_MouseDoubleClickEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_mousedoubleclickevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_MouseMoveEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_mousemoveevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_WheelEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_wheelevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_KeyPressEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_keypressevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_KeyReleaseEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_keyreleaseevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_FocusInEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_focusinevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_FocusOutEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_focusoutevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_EnterEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_enterevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_LeaveEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_leaveevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_PaintEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_paintevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_MoveEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_moveevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_ResizeEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_resizeevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_CloseEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_closeevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_ContextMenuEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_contextmenuevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_TabletEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_tabletevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_ActionEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_actionevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_DragEnterEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_dragenterevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_DragMoveEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_dragmoveevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_DragLeaveEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_dragleaveevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_DropEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_dropevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_ShowEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_showevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_HideEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_hideevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_NativeEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_nativeevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_ChangeEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_changeevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Metric_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_metric_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_InitPainter_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_initpainter_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Redirected_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_redirected_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_SharedPainter_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_sharedpainter_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_InputMethodEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_inputmethodevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_InputMethodQuery_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_inputmethodquery_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_FocusNextPrevChild_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_focusnextprevchild_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_EventFilter_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_eventfilter_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_TimerEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_timerevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_ChildEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_childevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_CustomEvent_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_customevent_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_ConnectNotify_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_connectnotify_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_DisconnectNotify_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_disconnectnotify_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_UpdateMicroFocus_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_updatemicrofocus_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Create_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_create_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Destroy_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_destroy_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_FocusNextChild_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_focusnextchild_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_FocusPreviousChild_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_focuspreviouschild_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Sender_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_sender_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_SenderSignalIndex_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_sendersignalindex_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_Receivers_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_receivers_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_IsSignalConnected_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_issignalconnected_isbase = value; }
-    inline void setTextAutoCorrectionWidgets__AutoCorrectionWidget_GetDecodedMetricF_IsBase(bool value) const { textautocorrectionwidgets__autocorrectionwidget_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (textautocorrectionwidgets__autocorrectionwidget_metaobject_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_metaobject_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::metaObject();
-        }
-        auto metaobject_cb = textautocorrectionwidgets__autocorrectionwidget_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (textautocorrectionwidgets__autocorrectionwidget_metaobject_callback) {
+            QMetaObject* callback_ret = textautocorrectionwidgets__autocorrectionwidget_metaobject_callback(this);
             return callback_ret;
         }
         return TextAutoCorrectionWidgets__AutoCorrectionWidget::metaObject();
@@ -347,14 +182,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_metacast_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_metacast_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::qt_metacast(param1);
-        }
-        auto metacast_cb = textautocorrectionwidgets__autocorrectionwidget_metacast_callback;
-        if (metacast_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = textautocorrectionwidgets__autocorrectionwidget_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return TextAutoCorrectionWidgets__AutoCorrectionWidget::qt_metacast(param1);
@@ -362,16 +192,11 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_metacall_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_metacall_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = textautocorrectionwidgets__autocorrectionwidget_metacall_callback;
-        if (metacall_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = textautocorrectionwidgets__autocorrectionwidget_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return TextAutoCorrectionWidgets__AutoCorrectionWidget::qt_metacall(param1, param2, param3);
@@ -379,13 +204,8 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (textautocorrectionwidgets__autocorrectionwidget_devtype_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_devtype_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::devType();
-        }
-        auto devtype_cb = textautocorrectionwidgets__autocorrectionwidget_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (textautocorrectionwidgets__autocorrectionwidget_devtype_callback) {
+            int callback_ret = textautocorrectionwidgets__autocorrectionwidget_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return TextAutoCorrectionWidgets__AutoCorrectionWidget::devType();
@@ -393,15 +213,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_setvisible_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_setvisible_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = textautocorrectionwidgets__autocorrectionwidget_setvisible_callback;
-        if (setvisible_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_setvisible_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::setVisible(visible);
@@ -409,13 +223,8 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (textautocorrectionwidgets__autocorrectionwidget_sizehint_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_sizehint_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::sizeHint();
-        }
-        auto sizehint_cb = textautocorrectionwidgets__autocorrectionwidget_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (textautocorrectionwidgets__autocorrectionwidget_sizehint_callback) {
+            QSize* callback_ret = textautocorrectionwidgets__autocorrectionwidget_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -425,13 +234,8 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (textautocorrectionwidgets__autocorrectionwidget_minimumsizehint_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_minimumsizehint_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = textautocorrectionwidgets__autocorrectionwidget_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (textautocorrectionwidgets__autocorrectionwidget_minimumsizehint_callback) {
+            QSize* callback_ret = textautocorrectionwidgets__autocorrectionwidget_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -441,14 +245,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (textautocorrectionwidgets__autocorrectionwidget_heightforwidth_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_heightforwidth_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = textautocorrectionwidgets__autocorrectionwidget_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = textautocorrectionwidgets__autocorrectionwidget_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return TextAutoCorrectionWidgets__AutoCorrectionWidget::heightForWidth(param1);
@@ -456,13 +255,8 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (textautocorrectionwidgets__autocorrectionwidget_hasheightforwidth_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_hasheightforwidth_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = textautocorrectionwidgets__autocorrectionwidget_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (textautocorrectionwidgets__autocorrectionwidget_hasheightforwidth_callback) {
+            bool callback_ret = textautocorrectionwidgets__autocorrectionwidget_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return TextAutoCorrectionWidgets__AutoCorrectionWidget::hasHeightForWidth();
@@ -470,13 +264,8 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (textautocorrectionwidgets__autocorrectionwidget_paintengine_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_paintengine_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::paintEngine();
-        }
-        auto paintengine_cb = textautocorrectionwidgets__autocorrectionwidget_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (textautocorrectionwidgets__autocorrectionwidget_paintengine_callback) {
+            QPaintEngine* callback_ret = textautocorrectionwidgets__autocorrectionwidget_paintengine_callback(this);
             return callback_ret;
         }
         return TextAutoCorrectionWidgets__AutoCorrectionWidget::paintEngine();
@@ -484,14 +273,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_event_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_event_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::event(event);
-        }
-        auto event_cb = textautocorrectionwidgets__autocorrectionwidget_event_callback;
-        if (event_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = textautocorrectionwidgets__autocorrectionwidget_event_callback(this, cbval1);
             return callback_ret;
         }
         return TextAutoCorrectionWidgets__AutoCorrectionWidget::event(event);
@@ -499,15 +283,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_mousepressevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_mousepressevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = textautocorrectionwidgets__autocorrectionwidget_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_mousepressevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::mousePressEvent(event);
@@ -515,15 +293,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_mousereleaseevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_mousereleaseevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = textautocorrectionwidgets__autocorrectionwidget_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_mousereleaseevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::mouseReleaseEvent(event);
@@ -531,15 +303,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_mousedoubleclickevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_mousedoubleclickevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = textautocorrectionwidgets__autocorrectionwidget_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::mouseDoubleClickEvent(event);
@@ -547,15 +313,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_mousemoveevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_mousemoveevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = textautocorrectionwidgets__autocorrectionwidget_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_mousemoveevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::mouseMoveEvent(event);
@@ -563,15 +323,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_wheelevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_wheelevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = textautocorrectionwidgets__autocorrectionwidget_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_wheelevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::wheelEvent(event);
@@ -579,15 +333,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_keypressevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_keypressevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = textautocorrectionwidgets__autocorrectionwidget_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_keypressevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::keyPressEvent(event);
@@ -595,15 +343,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_keyreleaseevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_keyreleaseevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = textautocorrectionwidgets__autocorrectionwidget_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_keyreleaseevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::keyReleaseEvent(event);
@@ -611,15 +353,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_focusinevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_focusinevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = textautocorrectionwidgets__autocorrectionwidget_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_focusinevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::focusInEvent(event);
@@ -627,15 +363,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_focusoutevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_focusoutevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = textautocorrectionwidgets__autocorrectionwidget_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_focusoutevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::focusOutEvent(event);
@@ -643,15 +373,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_enterevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_enterevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = textautocorrectionwidgets__autocorrectionwidget_enterevent_callback;
-        if (enterevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_enterevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::enterEvent(event);
@@ -659,15 +383,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_leaveevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_leaveevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = textautocorrectionwidgets__autocorrectionwidget_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_leaveevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::leaveEvent(event);
@@ -675,15 +393,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_paintevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_paintevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = textautocorrectionwidgets__autocorrectionwidget_paintevent_callback;
-        if (paintevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_paintevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::paintEvent(event);
@@ -691,15 +403,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_moveevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_moveevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = textautocorrectionwidgets__autocorrectionwidget_moveevent_callback;
-        if (moveevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_moveevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::moveEvent(event);
@@ -707,15 +413,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_resizeevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_resizeevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = textautocorrectionwidgets__autocorrectionwidget_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_resizeevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::resizeEvent(event);
@@ -723,15 +423,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_closeevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_closeevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = textautocorrectionwidgets__autocorrectionwidget_closeevent_callback;
-        if (closeevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_closeevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::closeEvent(event);
@@ -739,15 +433,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_contextmenuevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_contextmenuevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = textautocorrectionwidgets__autocorrectionwidget_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_contextmenuevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::contextMenuEvent(event);
@@ -755,15 +443,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_tabletevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_tabletevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = textautocorrectionwidgets__autocorrectionwidget_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_tabletevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::tabletEvent(event);
@@ -771,15 +453,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_actionevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_actionevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = textautocorrectionwidgets__autocorrectionwidget_actionevent_callback;
-        if (actionevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_actionevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::actionEvent(event);
@@ -787,15 +463,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_dragenterevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_dragenterevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = textautocorrectionwidgets__autocorrectionwidget_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_dragenterevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::dragEnterEvent(event);
@@ -803,15 +473,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_dragmoveevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_dragmoveevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = textautocorrectionwidgets__autocorrectionwidget_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_dragmoveevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::dragMoveEvent(event);
@@ -819,15 +483,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_dragleaveevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_dragleaveevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = textautocorrectionwidgets__autocorrectionwidget_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_dragleaveevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::dragLeaveEvent(event);
@@ -835,15 +493,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_dropevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_dropevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = textautocorrectionwidgets__autocorrectionwidget_dropevent_callback;
-        if (dropevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_dropevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::dropEvent(event);
@@ -851,15 +503,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_showevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_showevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::showEvent(event);
-            return;
-        }
-        auto showevent_cb = textautocorrectionwidgets__autocorrectionwidget_showevent_callback;
-        if (showevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_showevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::showEvent(event);
@@ -867,15 +513,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_hideevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_hideevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = textautocorrectionwidgets__autocorrectionwidget_hideevent_callback;
-        if (hideevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_hideevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::hideEvent(event);
@@ -883,12 +523,7 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_nativeevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_nativeevent_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = textautocorrectionwidgets__autocorrectionwidget_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -898,7 +533,7 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = textautocorrectionwidgets__autocorrectionwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -907,15 +542,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_changeevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_changeevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = textautocorrectionwidgets__autocorrectionwidget_changeevent_callback;
-        if (changeevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_changeevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::changeEvent(param1);
@@ -923,14 +552,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (textautocorrectionwidgets__autocorrectionwidget_metric_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_metric_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::metric(param1);
-        }
-        auto metric_cb = textautocorrectionwidgets__autocorrectionwidget_metric_callback;
-        if (metric_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = textautocorrectionwidgets__autocorrectionwidget_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return TextAutoCorrectionWidgets__AutoCorrectionWidget::metric(param1);
@@ -938,15 +562,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (textautocorrectionwidgets__autocorrectionwidget_initpainter_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_initpainter_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = textautocorrectionwidgets__autocorrectionwidget_initpainter_callback;
-        if (initpainter_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_initpainter_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::initPainter(painter);
@@ -954,14 +572,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (textautocorrectionwidgets__autocorrectionwidget_redirected_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_redirected_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::redirected(offset);
-        }
-        auto redirected_cb = textautocorrectionwidgets__autocorrectionwidget_redirected_callback;
-        if (redirected_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = textautocorrectionwidgets__autocorrectionwidget_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return TextAutoCorrectionWidgets__AutoCorrectionWidget::redirected(offset);
@@ -969,13 +582,8 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (textautocorrectionwidgets__autocorrectionwidget_sharedpainter_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_sharedpainter_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::sharedPainter();
-        }
-        auto sharedpainter_cb = textautocorrectionwidgets__autocorrectionwidget_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (textautocorrectionwidgets__autocorrectionwidget_sharedpainter_callback) {
+            QPainter* callback_ret = textautocorrectionwidgets__autocorrectionwidget_sharedpainter_callback(this);
             return callback_ret;
         }
         return TextAutoCorrectionWidgets__AutoCorrectionWidget::sharedPainter();
@@ -983,15 +591,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_inputmethodevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_inputmethodevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = textautocorrectionwidgets__autocorrectionwidget_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_inputmethodevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::inputMethodEvent(param1);
@@ -999,14 +601,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (textautocorrectionwidgets__autocorrectionwidget_inputmethodquery_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_inputmethodquery_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = textautocorrectionwidgets__autocorrectionwidget_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = textautocorrectionwidgets__autocorrectionwidget_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1016,14 +613,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_focusnextprevchild_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_focusnextprevchild_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = textautocorrectionwidgets__autocorrectionwidget_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = textautocorrectionwidgets__autocorrectionwidget_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return TextAutoCorrectionWidgets__AutoCorrectionWidget::focusNextPrevChild(next);
@@ -1031,15 +623,10 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_eventfilter_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_eventfilter_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = textautocorrectionwidgets__autocorrectionwidget_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = textautocorrectionwidgets__autocorrectionwidget_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return TextAutoCorrectionWidgets__AutoCorrectionWidget::eventFilter(watched, event);
@@ -1047,15 +634,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_timerevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_timerevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = textautocorrectionwidgets__autocorrectionwidget_timerevent_callback;
-        if (timerevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_timerevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::timerEvent(event);
@@ -1063,15 +644,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_childevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_childevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::childEvent(event);
-            return;
-        }
-        auto childevent_cb = textautocorrectionwidgets__autocorrectionwidget_childevent_callback;
-        if (childevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_childevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::childEvent(event);
@@ -1079,15 +654,9 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_customevent_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_customevent_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::customEvent(event);
-            return;
-        }
-        auto customevent_cb = textautocorrectionwidgets__autocorrectionwidget_customevent_callback;
-        if (customevent_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_customevent_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::customEvent(event);
@@ -1095,17 +664,11 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_connectnotify_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_connectnotify_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = textautocorrectionwidgets__autocorrectionwidget_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_connectnotify_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::connectNotify(signal);
@@ -1113,268 +676,55 @@ class VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget final : public TextAu
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (textautocorrectionwidgets__autocorrectionwidget_disconnectnotify_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_disconnectnotify_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = textautocorrectionwidgets__autocorrectionwidget_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (textautocorrectionwidgets__autocorrectionwidget_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            textautocorrectionwidgets__autocorrectionwidget_disconnectnotify_callback(this, cbval1);
             return;
         }
         TextAutoCorrectionWidgets__AutoCorrectionWidget::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (textautocorrectionwidgets__autocorrectionwidget_updatemicrofocus_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_updatemicrofocus_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = textautocorrectionwidgets__autocorrectionwidget_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        TextAutoCorrectionWidgets__AutoCorrectionWidget::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (textautocorrectionwidgets__autocorrectionwidget_create_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_create_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::create();
-            return;
-        }
-        auto create_cb = textautocorrectionwidgets__autocorrectionwidget_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        TextAutoCorrectionWidgets__AutoCorrectionWidget::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (textautocorrectionwidgets__autocorrectionwidget_destroy_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_destroy_isbase = false;
-            TextAutoCorrectionWidgets__AutoCorrectionWidget::destroy();
-            return;
-        }
-        auto destroy_cb = textautocorrectionwidgets__autocorrectionwidget_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        TextAutoCorrectionWidgets__AutoCorrectionWidget::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (textautocorrectionwidgets__autocorrectionwidget_focusnextchild_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_focusnextchild_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::focusNextChild();
-        }
-        auto focusnextchild_cb = textautocorrectionwidgets__autocorrectionwidget_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return TextAutoCorrectionWidgets__AutoCorrectionWidget::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (textautocorrectionwidgets__autocorrectionwidget_focuspreviouschild_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_focuspreviouschild_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = textautocorrectionwidgets__autocorrectionwidget_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return TextAutoCorrectionWidgets__AutoCorrectionWidget::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (textautocorrectionwidgets__autocorrectionwidget_sender_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_sender_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::sender();
-        }
-        auto sender_cb = textautocorrectionwidgets__autocorrectionwidget_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return TextAutoCorrectionWidgets__AutoCorrectionWidget::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (textautocorrectionwidgets__autocorrectionwidget_sendersignalindex_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_sendersignalindex_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = textautocorrectionwidgets__autocorrectionwidget_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return TextAutoCorrectionWidgets__AutoCorrectionWidget::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (textautocorrectionwidgets__autocorrectionwidget_receivers_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_receivers_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::receivers(signal);
-        }
-        auto receivers_cb = textautocorrectionwidgets__autocorrectionwidget_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return TextAutoCorrectionWidgets__AutoCorrectionWidget::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (textautocorrectionwidgets__autocorrectionwidget_issignalconnected_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_issignalconnected_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = textautocorrectionwidgets__autocorrectionwidget_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return TextAutoCorrectionWidgets__AutoCorrectionWidget::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (textautocorrectionwidgets__autocorrectionwidget_getdecodedmetricf_isbase) {
-            textautocorrectionwidgets__autocorrectionwidget_getdecodedmetricf_isbase = false;
-            return TextAutoCorrectionWidgets__AutoCorrectionWidget::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = textautocorrectionwidgets__autocorrectionwidget_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return TextAutoCorrectionWidgets__AutoCorrectionWidget::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool TextAutoCorrectionWidgets__AutoCorrectionWidget_Event(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QEvent* event);
     friend bool TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_MousePressEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QMouseEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperMousePressEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QMouseEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_MouseReleaseEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QMouseEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperMouseReleaseEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QMouseEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_MouseDoubleClickEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QMouseEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperMouseDoubleClickEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QMouseEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_MouseMoveEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QMouseEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperMouseMoveEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QMouseEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_WheelEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QWheelEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperWheelEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QWheelEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_KeyPressEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QKeyEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperKeyPressEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QKeyEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_KeyReleaseEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QKeyEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperKeyReleaseEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QKeyEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusInEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QFocusEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperFocusInEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QFocusEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusOutEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QFocusEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperFocusOutEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QFocusEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_EnterEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QEnterEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperEnterEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QEnterEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_LeaveEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperLeaveEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_PaintEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QPaintEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperPaintEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QPaintEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_MoveEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QMoveEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperMoveEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QMoveEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_ResizeEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QResizeEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperResizeEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QResizeEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_CloseEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QCloseEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperCloseEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QCloseEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_ContextMenuEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QContextMenuEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperContextMenuEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QContextMenuEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_TabletEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QTabletEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperTabletEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QTabletEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_ActionEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QActionEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperActionEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QActionEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_DragEnterEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QDragEnterEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperDragEnterEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QDragEnterEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_DragMoveEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QDragMoveEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperDragMoveEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QDragMoveEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_DragLeaveEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QDragLeaveEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperDragLeaveEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QDragLeaveEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_DropEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QDropEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperDropEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QDropEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_ShowEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QShowEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperShowEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QShowEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_HideEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QHideEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperHideEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QHideEvent* event);
-    friend bool TextAutoCorrectionWidgets__AutoCorrectionWidget_NativeEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperNativeEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_ChangeEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QEvent* param1);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperChangeEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QEvent* param1);
-    friend int TextAutoCorrectionWidgets__AutoCorrectionWidget_Metric(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self, int param1);
     friend int TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperMetric(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self, int param1);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_InitPainter(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QPainter* painter);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperInitPainter(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QPainter* painter);
-    friend QPaintDevice* TextAutoCorrectionWidgets__AutoCorrectionWidget_Redirected(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QPoint* offset);
     friend QPaintDevice* TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperRedirected(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QPoint* offset);
-    friend QPainter* TextAutoCorrectionWidgets__AutoCorrectionWidget_SharedPainter(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
     friend QPainter* TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperSharedPainter(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_InputMethodEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QInputMethodEvent* param1);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperInputMethodEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QInputMethodEvent* param1);
-    friend bool TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusNextPrevChild(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, bool next);
     friend bool TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperFocusNextPrevChild(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, bool next);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_TimerEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QTimerEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperTimerEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QTimerEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_ChildEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QChildEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperChildEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QChildEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_CustomEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QEvent* event);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperCustomEvent(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, QEvent* event);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_ConnectNotify(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, const QMetaMethod* signal);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperConnectNotify(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, const QMetaMethod* signal);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_DisconnectNotify(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, const QMetaMethod* signal);
     friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperDisconnectNotify(TextAutoCorrectionWidgets::AutoCorrectionWidget* self, const QMetaMethod* signal);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_UpdateMicroFocus(TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperUpdateMicroFocus(TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_Create(TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperCreate(TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_Destroy(TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend void TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperDestroy(TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend bool TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusNextChild(TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend bool TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperFocusNextChild(TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend bool TextAutoCorrectionWidgets__AutoCorrectionWidget_FocusPreviousChild(TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend bool TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperFocusPreviousChild(TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend QObject* TextAutoCorrectionWidgets__AutoCorrectionWidget_Sender(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend QObject* TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperSender(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend int TextAutoCorrectionWidgets__AutoCorrectionWidget_SenderSignalIndex(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend int TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperSenderSignalIndex(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self);
-    friend int TextAutoCorrectionWidgets__AutoCorrectionWidget_Receivers(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self, const char* signal);
-    friend int TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperReceivers(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self, const char* signal);
-    friend bool TextAutoCorrectionWidgets__AutoCorrectionWidget_IsSignalConnected(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self, const QMetaMethod* signal);
-    friend bool TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperIsSignalConnected(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self, const QMetaMethod* signal);
-    friend double TextAutoCorrectionWidgets__AutoCorrectionWidget_GetDecodedMetricF(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self, int metricA, int metricB);
-    friend double TextAutoCorrectionWidgets__AutoCorrectionWidget_SuperGetDecodedMetricF(const TextAutoCorrectionWidgets::AutoCorrectionWidget* self, int metricA, int metricB);
 };
 
 #endif

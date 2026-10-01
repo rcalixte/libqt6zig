@@ -29,6 +29,8 @@ pub const QAccessibleInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#isValid)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleInterface `
@@ -42,6 +44,8 @@ pub const QAccessibleInterface = extern struct {
     pub const Object = object;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#object)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -108,6 +112,8 @@ pub const QAccessibleInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#childAt)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleInterface `
@@ -126,6 +132,8 @@ pub const QAccessibleInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#parent)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleInterface `
@@ -139,6 +147,8 @@ pub const QAccessibleInterface = extern struct {
     pub const Child = child;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#child)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -156,6 +166,8 @@ pub const QAccessibleInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#childCount)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleInterface `
@@ -169,6 +181,8 @@ pub const QAccessibleInterface = extern struct {
     pub const IndexOfChild = indexOfChild;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#indexOfChild)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -186,6 +200,8 @@ pub const QAccessibleInterface = extern struct {
     pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#text)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -209,6 +225,8 @@ pub const QAccessibleInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#setText)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleInterface `
@@ -231,6 +249,8 @@ pub const QAccessibleInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#rect)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleInterface `
@@ -244,6 +264,8 @@ pub const QAccessibleInterface = extern struct {
     pub const Role = role;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#role)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -262,6 +284,8 @@ pub const QAccessibleInterface = extern struct {
     pub const State = state;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#state)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -507,6 +531,8 @@ pub const QAccessibleTextInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#selection)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTextInterface `
@@ -527,6 +553,8 @@ pub const QAccessibleTextInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#selectionCount)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTextInterface `
@@ -540,6 +568,8 @@ pub const QAccessibleTextInterface = extern struct {
     pub const AddSelection = addSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#addSelection)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -559,6 +589,8 @@ pub const QAccessibleTextInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#removeSelection)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTextInterface `
@@ -574,6 +606,8 @@ pub const QAccessibleTextInterface = extern struct {
     pub const SetSelection = setSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#setSelection)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -595,6 +629,8 @@ pub const QAccessibleTextInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#cursorPosition)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTextInterface `
@@ -608,6 +644,8 @@ pub const QAccessibleTextInterface = extern struct {
     pub const SetCursorPosition = setCursorPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#setCursorPosition)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -624,6 +662,8 @@ pub const QAccessibleTextInterface = extern struct {
     pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#text)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -733,6 +773,8 @@ pub const QAccessibleTextInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#characterCount)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTextInterface `
@@ -746,6 +788,8 @@ pub const QAccessibleTextInterface = extern struct {
     pub const CharacterRect = characterRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#characterRect)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -762,6 +806,8 @@ pub const QAccessibleTextInterface = extern struct {
     pub const OffsetAtPoint = offsetAtPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#offsetAtPoint)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -780,6 +826,8 @@ pub const QAccessibleTextInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#scrollToSubstring)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTextInterface `
@@ -797,6 +845,8 @@ pub const QAccessibleTextInterface = extern struct {
     pub const Attributes = attributes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#attributes)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -868,6 +918,8 @@ pub const QAccessibleEditableTextInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleeditabletextinterface.html#deleteText)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleEditableTextInterface `
@@ -885,6 +937,8 @@ pub const QAccessibleEditableTextInterface = extern struct {
     pub const InsertText = insertText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleeditabletextinterface.html#insertText)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -907,6 +961,8 @@ pub const QAccessibleEditableTextInterface = extern struct {
     pub const ReplaceText = replaceText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleeditabletextinterface.html#replaceText)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -976,6 +1032,8 @@ pub const QAccessibleValueInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#currentValue)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleValueInterface `
@@ -989,6 +1047,8 @@ pub const QAccessibleValueInterface = extern struct {
     pub const SetCurrentValue = setCurrentValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#setCurrentValue)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1007,6 +1067,8 @@ pub const QAccessibleValueInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#maximumValue)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleValueInterface `
@@ -1021,6 +1083,8 @@ pub const QAccessibleValueInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#minimumValue)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleValueInterface `
@@ -1034,6 +1098,8 @@ pub const QAccessibleValueInterface = extern struct {
     pub const MinimumStepSize = minimumStepSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#minimumStepSize)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1093,6 +1159,8 @@ pub const QAccessibleTableCellInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#isSelected)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableCellInterface `
@@ -1106,6 +1174,8 @@ pub const QAccessibleTableCellInterface = extern struct {
     pub const ColumnHeaderCells = columnHeaderCells;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#columnHeaderCells)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1129,6 +1199,8 @@ pub const QAccessibleTableCellInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#rowHeaderCells)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableCellInterface `
@@ -1151,6 +1223,8 @@ pub const QAccessibleTableCellInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#columnIndex)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableCellInterface `
@@ -1164,6 +1238,8 @@ pub const QAccessibleTableCellInterface = extern struct {
     pub const RowIndex = rowIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#rowIndex)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1179,6 +1255,8 @@ pub const QAccessibleTableCellInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#columnExtent)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableCellInterface `
@@ -1193,6 +1271,8 @@ pub const QAccessibleTableCellInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#rowExtent)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableCellInterface `
@@ -1206,6 +1286,8 @@ pub const QAccessibleTableCellInterface = extern struct {
     pub const Table = table;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#table)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1265,6 +1347,8 @@ pub const QAccessibleTableInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#caption)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableInterface `
@@ -1279,6 +1363,8 @@ pub const QAccessibleTableInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#summary)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableInterface `
@@ -1292,6 +1378,8 @@ pub const QAccessibleTableInterface = extern struct {
     pub const CellAt = cellAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#cellAt)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1311,6 +1399,8 @@ pub const QAccessibleTableInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectedCellCount)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableInterface `
@@ -1324,6 +1414,8 @@ pub const QAccessibleTableInterface = extern struct {
     pub const SelectedCells = selectedCells;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectedCells)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1347,6 +1439,8 @@ pub const QAccessibleTableInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#columnDescription)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableInterface `
@@ -1368,6 +1462,8 @@ pub const QAccessibleTableInterface = extern struct {
     pub const RowDescription = rowDescription;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#rowDescription)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1391,6 +1487,8 @@ pub const QAccessibleTableInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectedColumnCount)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableInterface `
@@ -1404,6 +1502,8 @@ pub const QAccessibleTableInterface = extern struct {
     pub const SelectedRowCount = selectedRowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectedRowCount)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1419,6 +1519,8 @@ pub const QAccessibleTableInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#columnCount)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableInterface `
@@ -1433,6 +1535,8 @@ pub const QAccessibleTableInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#rowCount)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableInterface `
@@ -1446,6 +1550,8 @@ pub const QAccessibleTableInterface = extern struct {
     pub const SelectedColumns = selectedColumns;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectedColumns)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1468,6 +1574,8 @@ pub const QAccessibleTableInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectedRows)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableInterface `
@@ -1489,6 +1597,8 @@ pub const QAccessibleTableInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#isColumnSelected)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableInterface `
@@ -1504,6 +1614,8 @@ pub const QAccessibleTableInterface = extern struct {
     pub const IsRowSelected = isRowSelected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#isRowSelected)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1521,6 +1633,8 @@ pub const QAccessibleTableInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectRow)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableInterface `
@@ -1536,6 +1650,8 @@ pub const QAccessibleTableInterface = extern struct {
     pub const SelectColumn = selectColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectColumn)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1553,6 +1669,8 @@ pub const QAccessibleTableInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#unselectRow)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableInterface `
@@ -1569,6 +1687,8 @@ pub const QAccessibleTableInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#unselectColumn)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleTableInterface `
@@ -1584,6 +1704,8 @@ pub const QAccessibleTableInterface = extern struct {
     pub const ModelChange = modelChange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#modelChange)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1645,6 +1767,8 @@ pub const QAccessibleActionInterface = extern struct {
     pub const ActionNames = actionNames;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#actionNames)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1728,6 +1852,8 @@ pub const QAccessibleActionInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#doAction)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleActionInterface `
@@ -1747,6 +1873,8 @@ pub const QAccessibleActionInterface = extern struct {
     pub const KeyBindingsForAction = keyBindingsForAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#keyBindingsForAction)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -2045,6 +2173,8 @@ pub const QAccessibleImageInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleimageinterface.html#imageDescription)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleImageInterface `
@@ -2065,6 +2195,8 @@ pub const QAccessibleImageInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleimageinterface.html#imageSize)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleImageInterface `
@@ -2078,6 +2210,8 @@ pub const QAccessibleImageInterface = extern struct {
     pub const ImagePosition = imagePosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleimageinterface.html#imagePosition)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -2137,6 +2271,8 @@ pub const QAccessibleHyperlinkInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#anchor)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleHyperlinkInterface `
@@ -2156,6 +2292,8 @@ pub const QAccessibleHyperlinkInterface = extern struct {
     pub const AnchorTarget = anchorTarget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#anchorTarget)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -2177,6 +2315,8 @@ pub const QAccessibleHyperlinkInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#startIndex)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleHyperlinkInterface `
@@ -2191,6 +2331,8 @@ pub const QAccessibleHyperlinkInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#endIndex)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleHyperlinkInterface `
@@ -2204,6 +2346,8 @@ pub const QAccessibleHyperlinkInterface = extern struct {
     pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#isValid)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -2263,6 +2407,8 @@ pub const QAccessibleSelectionInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleselectioninterface.html#selectedItemCount)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleSelectionInterface `
@@ -2276,6 +2422,8 @@ pub const QAccessibleSelectionInterface = extern struct {
     pub const SelectedItems = selectedItems;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleselectioninterface.html#selectedItems)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -2332,6 +2480,8 @@ pub const QAccessibleSelectionInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleselectioninterface.html#select)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleSelectionInterface `
@@ -2348,6 +2498,8 @@ pub const QAccessibleSelectionInterface = extern struct {
     pub const Unselect = unselect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleselectioninterface.html#unselect)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -2366,6 +2518,8 @@ pub const QAccessibleSelectionInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleselectioninterface.html#selectAll)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleSelectionInterface `
@@ -2379,6 +2533,8 @@ pub const QAccessibleSelectionInterface = extern struct {
     pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleselectioninterface.html#clear)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -2438,6 +2594,8 @@ pub const QAccessibleAttributesInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleattributesinterface.html#attributeKeys)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessibleAttributesInterface `
@@ -2462,6 +2620,8 @@ pub const QAccessibleAttributesInterface = extern struct {
     pub const AttributeValue = attributeValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleattributesinterface.html#attributeValue)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -2655,9 +2815,9 @@ pub const QAccessibleEvent = extern struct {
     ///
     /// ` self: QAccessibleEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleEvent) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onAccessibleInterface(self: QAccessibleEvent, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onAccessibleInterface(self: QAccessibleEvent, callback: *const fn (QAccessibleEvent) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleEvent_OnAccessibleInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2893,9 +3053,9 @@ pub const QAccessibleStateChangeEvent = extern struct {
     ///
     /// ` self: QAccessibleStateChangeEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleStateChangeEvent) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onAccessibleInterface(self: QAccessibleStateChangeEvent, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onAccessibleInterface(self: QAccessibleStateChangeEvent, callback: *const fn (QAccessibleStateChangeEvent) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleStateChangeEvent_OnAccessibleInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3129,9 +3289,9 @@ pub const QAccessibleTextCursorEvent = extern struct {
     ///
     /// ` self: QAccessibleTextCursorEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleTextCursorEvent) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onAccessibleInterface(self: QAccessibleTextCursorEvent, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onAccessibleInterface(self: QAccessibleTextCursorEvent, callback: *const fn (QAccessibleTextCursorEvent) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleTextCursorEvent_OnAccessibleInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3420,9 +3580,9 @@ pub const QAccessibleTextSelectionEvent = extern struct {
     ///
     /// ` self: QAccessibleTextSelectionEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleTextSelectionEvent) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onAccessibleInterface(self: QAccessibleTextSelectionEvent, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onAccessibleInterface(self: QAccessibleTextSelectionEvent, callback: *const fn (QAccessibleTextSelectionEvent) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleTextSelectionEvent_OnAccessibleInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3707,9 +3867,9 @@ pub const QAccessibleTextInsertEvent = extern struct {
     ///
     /// ` self: QAccessibleTextInsertEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleTextInsertEvent) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onAccessibleInterface(self: QAccessibleTextInsertEvent, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onAccessibleInterface(self: QAccessibleTextInsertEvent, callback: *const fn (QAccessibleTextInsertEvent) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleTextInsertEvent_OnAccessibleInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3994,9 +4154,9 @@ pub const QAccessibleTextRemoveEvent = extern struct {
     ///
     /// ` self: QAccessibleTextRemoveEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleTextRemoveEvent) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onAccessibleInterface(self: QAccessibleTextRemoveEvent, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onAccessibleInterface(self: QAccessibleTextRemoveEvent, callback: *const fn (QAccessibleTextRemoveEvent) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleTextRemoveEvent_OnAccessibleInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4313,9 +4473,9 @@ pub const QAccessibleTextUpdateEvent = extern struct {
     ///
     /// ` self: QAccessibleTextUpdateEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleTextUpdateEvent) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onAccessibleInterface(self: QAccessibleTextUpdateEvent, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onAccessibleInterface(self: QAccessibleTextUpdateEvent, callback: *const fn (QAccessibleTextUpdateEvent) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleTextUpdateEvent_OnAccessibleInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4552,9 +4712,9 @@ pub const QAccessibleValueChangeEvent = extern struct {
     ///
     /// ` self: QAccessibleValueChangeEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleValueChangeEvent) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onAccessibleInterface(self: QAccessibleValueChangeEvent, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onAccessibleInterface(self: QAccessibleValueChangeEvent, callback: *const fn (QAccessibleValueChangeEvent) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleValueChangeEvent_OnAccessibleInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4912,9 +5072,9 @@ pub const QAccessibleTableModelChangeEvent = extern struct {
     ///
     /// ` self: QAccessibleTableModelChangeEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleTableModelChangeEvent) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onAccessibleInterface(self: QAccessibleTableModelChangeEvent, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onAccessibleInterface(self: QAccessibleTableModelChangeEvent, callback: *const fn (QAccessibleTableModelChangeEvent) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleTableModelChangeEvent_OnAccessibleInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5180,9 +5340,9 @@ pub const QAccessibleAnnouncementEvent = extern struct {
     ///
     /// ` self: QAccessibleAnnouncementEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleAnnouncementEvent) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onAccessibleInterface(self: QAccessibleAnnouncementEvent, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onAccessibleInterface(self: QAccessibleAnnouncementEvent, callback: *const fn (QAccessibleAnnouncementEvent) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleAnnouncementEvent_OnAccessibleInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

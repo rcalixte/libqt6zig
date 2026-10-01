@@ -157,35 +157,35 @@ void KRatingWidget_SetPixmapSize(KRatingWidget* self, int size) {
 
 void KRatingWidget_MousePressEvent(KRatingWidget* self, QMouseEvent* e) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->mousePressEvent(e);
     }
 }
 
 void KRatingWidget_MouseMoveEvent(KRatingWidget* self, QMouseEvent* e) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->mouseMoveEvent(e);
     }
 }
 
 void KRatingWidget_LeaveEvent(KRatingWidget* self, QEvent* e) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->leaveEvent(e);
     }
 }
 
 void KRatingWidget_PaintEvent(KRatingWidget* self, QPaintEvent* e) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->paintEvent(e);
     }
 }
 
 void KRatingWidget_ResizeEvent(KRatingWidget* self, QResizeEvent* e) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->resizeEvent(e);
     }
 }
@@ -216,1650 +216,1150 @@ libqt_string KRatingWidget_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KRatingWidget_SuperMetaObject(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vkratingwidget->metaObject();
-    } else {
-        return (QMetaObject*)self->KRatingWidget::metaObject();
-    }
+    return (QMetaObject*)self->KRatingWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnMetaObject(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_MetaObject_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MetaObject_Callback>(slot));
+void KRatingWidget_OnMetaObject(KRatingWidget* self, intptr_t slot) {
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self)))
+        vkratingwidget->kratingwidget_metaobject_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KRatingWidget_SuperMetacast(KRatingWidget* self, const char* param1) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_Metacast_IsBase(true);
-        return vkratingwidget->qt_metacast(param1);
-    } else {
-        return self->KRatingWidget::qt_metacast(param1);
-    }
+    return self->KRatingWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnMetacast(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_Metacast_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Metacast_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_metacast_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KRatingWidget_SuperMetacall(KRatingWidget* self, int param1, int param2, void** param3) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_Metacall_IsBase(true);
-        return vkratingwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KRatingWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KRatingWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnMetacall(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_Metacall_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Metacall_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_metacall_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KRatingWidget_SuperSizeHint(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_SizeHint_IsBase(true);
-        return new QSize(vkratingwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKRatingWidget*)self)->sizeHint());
-    }
+    return new QSize(self->KRatingWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnSizeHint(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_SizeHint_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_SizeHint_Callback>(slot));
+void KRatingWidget_OnSizeHint(KRatingWidget* self, intptr_t slot) {
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self)))
+        vkratingwidget->kratingwidget_sizehint_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperMousePressEvent(KRatingWidget* self, QMouseEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_MousePressEvent_IsBase(true);
-        vkratingwidget->mousePressEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->mousePressEvent(e);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnMousePressEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MousePressEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_mousepressevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperMouseMoveEvent(KRatingWidget* self, QMouseEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_MouseMoveEvent_IsBase(true);
-        vkratingwidget->mouseMoveEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnMouseMoveEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_mousemoveevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperLeaveEvent(KRatingWidget* self, QEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_LeaveEvent_IsBase(true);
-        vkratingwidget->leaveEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->leaveEvent(e);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::leaveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnLeaveEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_LeaveEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_leaveevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_LeaveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperPaintEvent(KRatingWidget* self, QPaintEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_PaintEvent_IsBase(true);
-        vkratingwidget->paintEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->paintEvent(e);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnPaintEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_PaintEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_PaintEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_paintevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperResizeEvent(KRatingWidget* self, QResizeEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_ResizeEvent_IsBase(true);
-        vkratingwidget->resizeEvent(e);
-    } else {
-        ((VirtualKRatingWidget*)self)->resizeEvent(e);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::resizeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnResizeEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ResizeEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_resizeevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRatingWidget_Event(KRatingWidget* self, QEvent* e) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         return vkratingwidget->event(e);
     } else {
-        return ((VirtualKRatingWidget*)self)->event(e);
+        qFatal("Error: Protected virtual method KRatingWidget::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRatingWidget_SuperEvent(KRatingWidget* self, QEvent* e) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_Event_IsBase(true);
-        return vkratingwidget->event(e);
-    } else {
-        return ((VirtualKRatingWidget*)self)->event(e);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        return vkratingwidget->KRatingWidget::event(e);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_Event_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Event_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_event_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_ChangeEvent(KRatingWidget* self, QEvent* param1) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->changeEvent(param1);
     } else {
-        ((VirtualKRatingWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KRatingWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperChangeEvent(KRatingWidget* self, QEvent* param1) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_ChangeEvent_IsBase(true);
-        vkratingwidget->changeEvent(param1);
-    } else {
-        ((VirtualKRatingWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnChangeEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ChangeEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_changeevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_InitStyleOption(const KRatingWidget* self, QStyleOptionFrame* option) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->initStyleOption(option);
     } else {
-        ((VirtualKRatingWidget*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KRatingWidget::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperInitStyleOption(const KRatingWidget* self, QStyleOptionFrame* option) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_InitStyleOption_IsBase(true);
-        vkratingwidget->initStyleOption(option);
-    } else {
-        ((VirtualKRatingWidget*)self)->initStyleOption(option);
-    }
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self))) {
+        vkratingwidget->KRatingWidget::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnInitStyleOption(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_InitStyleOption_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_InitStyleOption_Callback>(slot));
+void KRatingWidget_OnInitStyleOption(KRatingWidget* self, intptr_t slot) {
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self)))
+        vkratingwidget->kratingwidget_initstyleoption_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRatingWidget_DevType(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return vkratingwidget->devType();
-    } else {
-        return self->KRatingWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KRatingWidget_SuperDevType(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_DevType_IsBase(true);
-        return vkratingwidget->devType();
-    } else {
-        return self->KRatingWidget::devType();
-    }
+    return self->KRatingWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnDevType(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_DevType_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_DevType_Callback>(slot));
+void KRatingWidget_OnDevType(KRatingWidget* self, intptr_t slot) {
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self)))
+        vkratingwidget->kratingwidget_devtype_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_SetVisible(KRatingWidget* self, bool visible) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setVisible(visible);
-    } else {
-        self->KRatingWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperSetVisible(KRatingWidget* self, bool visible) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_SetVisible_IsBase(true);
-        vkratingwidget->setVisible(visible);
-    } else {
-        self->KRatingWidget::setVisible(visible);
-    }
+    self->KRatingWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnSetVisible(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_SetVisible_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_SetVisible_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_setvisible_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KRatingWidget_MinimumSizeHint(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return new QSize(vkratingwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKRatingWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KRatingWidget_SuperMinimumSizeHint(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vkratingwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKRatingWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KRatingWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnMinimumSizeHint(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MinimumSizeHint_Callback>(slot));
+void KRatingWidget_OnMinimumSizeHint(KRatingWidget* self, intptr_t slot) {
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self)))
+        vkratingwidget->kratingwidget_minimumsizehint_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRatingWidget_HeightForWidth(const KRatingWidget* self, int param1) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return vkratingwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KRatingWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KRatingWidget_SuperHeightForWidth(const KRatingWidget* self, int param1) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_HeightForWidth_IsBase(true);
-        return vkratingwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KRatingWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KRatingWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnHeightForWidth(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_HeightForWidth_Callback>(slot));
+void KRatingWidget_OnHeightForWidth(KRatingWidget* self, intptr_t slot) {
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self)))
+        vkratingwidget->kratingwidget_heightforwidth_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRatingWidget_HasHeightForWidth(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return vkratingwidget->hasHeightForWidth();
-    } else {
-        return self->KRatingWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KRatingWidget_SuperHasHeightForWidth(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_HasHeightForWidth_IsBase(true);
-        return vkratingwidget->hasHeightForWidth();
-    } else {
-        return self->KRatingWidget::hasHeightForWidth();
-    }
+    return self->KRatingWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnHasHeightForWidth(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_HasHeightForWidth_Callback>(slot));
+void KRatingWidget_OnHasHeightForWidth(KRatingWidget* self, intptr_t slot) {
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self)))
+        vkratingwidget->kratingwidget_hasheightforwidth_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KRatingWidget_PaintEngine(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return vkratingwidget->paintEngine();
-    } else {
-        return self->KRatingWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KRatingWidget_SuperPaintEngine(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_PaintEngine_IsBase(true);
-        return vkratingwidget->paintEngine();
-    } else {
-        return self->KRatingWidget::paintEngine();
-    }
+    return self->KRatingWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnPaintEngine(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_PaintEngine_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_PaintEngine_Callback>(slot));
+void KRatingWidget_OnPaintEngine(KRatingWidget* self, intptr_t slot) {
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self)))
+        vkratingwidget->kratingwidget_paintengine_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_MouseReleaseEvent(KRatingWidget* self, QMouseEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperMouseReleaseEvent(KRatingWidget* self, QMouseEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_MouseReleaseEvent_IsBase(true);
-        vkratingwidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnMouseReleaseEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_mousereleaseevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_MouseDoubleClickEvent(KRatingWidget* self, QMouseEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperMouseDoubleClickEvent(KRatingWidget* self, QMouseEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_MouseDoubleClickEvent_IsBase(true);
-        vkratingwidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnMouseDoubleClickEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_WheelEvent(KRatingWidget* self, QWheelEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->wheelEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperWheelEvent(KRatingWidget* self, QWheelEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_WheelEvent_IsBase(true);
-        vkratingwidget->wheelEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnWheelEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_WheelEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_WheelEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_wheelevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_KeyPressEvent(KRatingWidget* self, QKeyEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->keyPressEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperKeyPressEvent(KRatingWidget* self, QKeyEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_KeyPressEvent_IsBase(true);
-        vkratingwidget->keyPressEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnKeyPressEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_keypressevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_KeyReleaseEvent(KRatingWidget* self, QKeyEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->keyReleaseEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperKeyReleaseEvent(KRatingWidget* self, QKeyEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_KeyReleaseEvent_IsBase(true);
-        vkratingwidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnKeyReleaseEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_keyreleaseevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_FocusInEvent(KRatingWidget* self, QFocusEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->focusInEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperFocusInEvent(KRatingWidget* self, QFocusEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_FocusInEvent_IsBase(true);
-        vkratingwidget->focusInEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnFocusInEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_FocusInEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_focusinevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_FocusOutEvent(KRatingWidget* self, QFocusEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->focusOutEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperFocusOutEvent(KRatingWidget* self, QFocusEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_FocusOutEvent_IsBase(true);
-        vkratingwidget->focusOutEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnFocusOutEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_focusoutevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_EnterEvent(KRatingWidget* self, QEnterEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->enterEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperEnterEvent(KRatingWidget* self, QEnterEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_EnterEvent_IsBase(true);
-        vkratingwidget->enterEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->enterEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnEnterEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_EnterEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_EnterEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_enterevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_MoveEvent(KRatingWidget* self, QMoveEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->moveEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperMoveEvent(KRatingWidget* self, QMoveEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_MoveEvent_IsBase(true);
-        vkratingwidget->moveEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->moveEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnMoveEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_MoveEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MoveEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_moveevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_CloseEvent(KRatingWidget* self, QCloseEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->closeEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperCloseEvent(KRatingWidget* self, QCloseEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_CloseEvent_IsBase(true);
-        vkratingwidget->closeEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->closeEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnCloseEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_CloseEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_CloseEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_closeevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_ContextMenuEvent(KRatingWidget* self, QContextMenuEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->contextMenuEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperContextMenuEvent(KRatingWidget* self, QContextMenuEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_ContextMenuEvent_IsBase(true);
-        vkratingwidget->contextMenuEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnContextMenuEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_contextmenuevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_TabletEvent(KRatingWidget* self, QTabletEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->tabletEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperTabletEvent(KRatingWidget* self, QTabletEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_TabletEvent_IsBase(true);
-        vkratingwidget->tabletEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnTabletEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_TabletEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_TabletEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_tabletevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_ActionEvent(KRatingWidget* self, QActionEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->actionEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperActionEvent(KRatingWidget* self, QActionEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_ActionEvent_IsBase(true);
-        vkratingwidget->actionEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->actionEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnActionEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_ActionEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ActionEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_actionevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_DragEnterEvent(KRatingWidget* self, QDragEnterEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->dragEnterEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperDragEnterEvent(KRatingWidget* self, QDragEnterEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_DragEnterEvent_IsBase(true);
-        vkratingwidget->dragEnterEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnDragEnterEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_dragenterevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_DragMoveEvent(KRatingWidget* self, QDragMoveEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->dragMoveEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperDragMoveEvent(KRatingWidget* self, QDragMoveEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_DragMoveEvent_IsBase(true);
-        vkratingwidget->dragMoveEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnDragMoveEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_dragmoveevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_DragLeaveEvent(KRatingWidget* self, QDragLeaveEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->dragLeaveEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperDragLeaveEvent(KRatingWidget* self, QDragLeaveEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_DragLeaveEvent_IsBase(true);
-        vkratingwidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnDragLeaveEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_dragleaveevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_DropEvent(KRatingWidget* self, QDropEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->dropEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperDropEvent(KRatingWidget* self, QDropEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_DropEvent_IsBase(true);
-        vkratingwidget->dropEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->dropEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnDropEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_DropEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_DropEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_dropevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_ShowEvent(KRatingWidget* self, QShowEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->showEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperShowEvent(KRatingWidget* self, QShowEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_ShowEvent_IsBase(true);
-        vkratingwidget->showEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->showEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnShowEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_ShowEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ShowEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_showevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_HideEvent(KRatingWidget* self, QHideEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->hideEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperHideEvent(KRatingWidget* self, QHideEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_HideEvent_IsBase(true);
-        vkratingwidget->hideEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->hideEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnHideEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_HideEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_HideEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_hideevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRatingWidget_NativeEvent(KRatingWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget) {
         return vkratingwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKRatingWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KRatingWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRatingWidget_SuperNativeEvent(KRatingWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_NativeEvent_IsBase(true);
-        return vkratingwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKRatingWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        return vkratingwidget->KRatingWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnNativeEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_NativeEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_NativeEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_nativeevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRatingWidget_Metric(const KRatingWidget* self, int param1) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         return vkratingwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKRatingWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KRatingWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KRatingWidget_SuperMetric(const KRatingWidget* self, int param1) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_Metric_IsBase(true);
-        return vkratingwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKRatingWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self))) {
+        return vkratingwidget->KRatingWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnMetric(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_Metric_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Metric_Callback>(slot));
+void KRatingWidget_OnMetric(KRatingWidget* self, intptr_t slot) {
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self)))
+        vkratingwidget->kratingwidget_metric_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_InitPainter(const KRatingWidget* self, QPainter* painter) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->initPainter(painter);
     } else {
-        ((VirtualKRatingWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KRatingWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperInitPainter(const KRatingWidget* self, QPainter* painter) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_InitPainter_IsBase(true);
-        vkratingwidget->initPainter(painter);
-    } else {
-        ((VirtualKRatingWidget*)self)->initPainter(painter);
-    }
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self))) {
+        vkratingwidget->KRatingWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnInitPainter(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_InitPainter_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_InitPainter_Callback>(slot));
+void KRatingWidget_OnInitPainter(KRatingWidget* self, intptr_t slot) {
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self)))
+        vkratingwidget->kratingwidget_initpainter_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KRatingWidget_Redirected(const KRatingWidget* self, QPoint* offset) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         return vkratingwidget->redirected(offset);
     } else {
-        return ((VirtualKRatingWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KRatingWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KRatingWidget_SuperRedirected(const KRatingWidget* self, QPoint* offset) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_Redirected_IsBase(true);
-        return vkratingwidget->redirected(offset);
-    } else {
-        return ((VirtualKRatingWidget*)self)->redirected(offset);
-    }
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self))) {
+        return vkratingwidget->KRatingWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnRedirected(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_Redirected_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Redirected_Callback>(slot));
+void KRatingWidget_OnRedirected(KRatingWidget* self, intptr_t slot) {
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self)))
+        vkratingwidget->kratingwidget_redirected_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KRatingWidget_SharedPainter(const KRatingWidget* self) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         return vkratingwidget->sharedPainter();
     } else {
-        return ((VirtualKRatingWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KRatingWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KRatingWidget_SuperSharedPainter(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_SharedPainter_IsBase(true);
-        return vkratingwidget->sharedPainter();
-    } else {
-        return ((VirtualKRatingWidget*)self)->sharedPainter();
-    }
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self))) {
+        return vkratingwidget->KRatingWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnSharedPainter(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_SharedPainter_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_SharedPainter_Callback>(slot));
+void KRatingWidget_OnSharedPainter(KRatingWidget* self, intptr_t slot) {
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self)))
+        vkratingwidget->kratingwidget_sharedpainter_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_InputMethodEvent(KRatingWidget* self, QInputMethodEvent* param1) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->inputMethodEvent(param1);
     } else {
-        ((VirtualKRatingWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KRatingWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperInputMethodEvent(KRatingWidget* self, QInputMethodEvent* param1) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_InputMethodEvent_IsBase(true);
-        vkratingwidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualKRatingWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnInputMethodEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_inputmethodevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KRatingWidget_InputMethodQuery(const KRatingWidget* self, int param1) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return new QVariant(vkratingwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKRatingWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KRatingWidget_SuperInputMethodQuery(const KRatingWidget* self, int param1) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vkratingwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKRatingWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KRatingWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnInputMethodQuery(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_InputMethodQuery_Callback>(slot));
+void KRatingWidget_OnInputMethodQuery(KRatingWidget* self, intptr_t slot) {
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self)))
+        vkratingwidget->kratingwidget_inputmethodquery_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRatingWidget_FocusNextPrevChild(KRatingWidget* self, bool next) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         return vkratingwidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualKRatingWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KRatingWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRatingWidget_SuperFocusNextPrevChild(KRatingWidget* self, bool next) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_FocusNextPrevChild_IsBase(true);
-        return vkratingwidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKRatingWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        return vkratingwidget->KRatingWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnFocusNextPrevChild(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_focusnextprevchild_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRatingWidget_EventFilter(KRatingWidget* self, QObject* watched, QEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return vkratingwidget->eventFilter(watched, event);
-    } else {
-        return self->KRatingWidget::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KRatingWidget_SuperEventFilter(KRatingWidget* self, QObject* watched, QEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_EventFilter_IsBase(true);
-        return vkratingwidget->eventFilter(watched, event);
-    } else {
-        return self->KRatingWidget::eventFilter(watched, event);
-    }
+    return self->KRatingWidget::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnEventFilter(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_EventFilter_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_EventFilter_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_eventfilter_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_TimerEvent(KRatingWidget* self, QTimerEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->timerEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperTimerEvent(KRatingWidget* self, QTimerEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_TimerEvent_IsBase(true);
-        vkratingwidget->timerEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->timerEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnTimerEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_TimerEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_TimerEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_timerevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_ChildEvent(KRatingWidget* self, QChildEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->childEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperChildEvent(KRatingWidget* self, QChildEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_ChildEvent_IsBase(true);
-        vkratingwidget->childEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->childEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnChildEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_ChildEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ChildEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_childevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_CustomEvent(KRatingWidget* self, QEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->customEvent(event);
     } else {
-        ((VirtualKRatingWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KRatingWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperCustomEvent(KRatingWidget* self, QEvent* event) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_CustomEvent_IsBase(true);
-        vkratingwidget->customEvent(event);
-    } else {
-        ((VirtualKRatingWidget*)self)->customEvent(event);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnCustomEvent(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_CustomEvent_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_CustomEvent_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_customevent_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_ConnectNotify(KRatingWidget* self, const QMetaMethod* signal) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->connectNotify(*signal);
     } else {
-        ((VirtualKRatingWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KRatingWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperConnectNotify(KRatingWidget* self, const QMetaMethod* signal) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_ConnectNotify_IsBase(true);
-        vkratingwidget->connectNotify(*signal);
-    } else {
-        ((VirtualKRatingWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnConnectNotify(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ConnectNotify_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_connectnotify_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRatingWidget_DisconnectNotify(KRatingWidget* self, const QMetaMethod* signal) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+    if (vkratingwidget) {
         vkratingwidget->disconnectNotify(*signal);
     } else {
-        ((VirtualKRatingWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KRatingWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRatingWidget_SuperDisconnectNotify(KRatingWidget* self, const QMetaMethod* signal) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_DisconnectNotify_IsBase(true);
-        vkratingwidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualKRatingWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->KRatingWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KRatingWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRatingWidget_OnDisconnectNotify(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self))
+        vkratingwidget->kratingwidget_disconnectnotify_callback = reinterpret_cast<VirtualKRatingWidget::KRatingWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRatingWidget_DrawFrame(KRatingWidget* self, QPainter* param1) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->drawFrame(param1);
-    } else {
-        ((VirtualKRatingWidget*)self)->drawFrame(param1);
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->VirtualKRatingWidget::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method KRatingWidget::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRatingWidget_SuperDrawFrame(KRatingWidget* self, QPainter* param1) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_DrawFrame_IsBase(true);
-        vkratingwidget->drawFrame(param1);
-    } else {
-        ((VirtualKRatingWidget*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnDrawFrame(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_DrawFrame_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRatingWidget_UpdateMicroFocus(KRatingWidget* self) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->updateMicroFocus();
-    } else {
-        ((VirtualKRatingWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->VirtualKRatingWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KRatingWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRatingWidget_SuperUpdateMicroFocus(KRatingWidget* self) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_UpdateMicroFocus_IsBase(true);
-        vkratingwidget->updateMicroFocus();
-    } else {
-        ((VirtualKRatingWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnUpdateMicroFocus(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRatingWidget_Create(KRatingWidget* self) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->create();
-    } else {
-        ((VirtualKRatingWidget*)self)->create();
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->VirtualKRatingWidget::create();
+    } else
+        qFatal("Error: Protected method KRatingWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRatingWidget_SuperCreate(KRatingWidget* self) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_Create_IsBase(true);
-        vkratingwidget->create();
-    } else {
-        ((VirtualKRatingWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnCreate(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_Create_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRatingWidget_Destroy(KRatingWidget* self) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->destroy();
-    } else {
-        ((VirtualKRatingWidget*)self)->destroy();
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        vkratingwidget->VirtualKRatingWidget::destroy();
+    } else
+        qFatal("Error: Protected method KRatingWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRatingWidget_SuperDestroy(KRatingWidget* self) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_Destroy_IsBase(true);
-        vkratingwidget->destroy();
-    } else {
-        ((VirtualKRatingWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnDestroy(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_Destroy_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRatingWidget_FocusNextChild(KRatingWidget* self) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return vkratingwidget->focusNextChild();
-    } else {
-        return ((VirtualKRatingWidget*)self)->focusNextChild();
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        return vkratingwidget->VirtualKRatingWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method KRatingWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRatingWidget_SuperFocusNextChild(KRatingWidget* self) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_FocusNextChild_IsBase(true);
-        return vkratingwidget->focusNextChild();
-    } else {
-        return ((VirtualKRatingWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnFocusNextChild(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRatingWidget_FocusPreviousChild(KRatingWidget* self) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return vkratingwidget->focusPreviousChild();
-    } else {
-        return ((VirtualKRatingWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self)) {
+        return vkratingwidget->VirtualKRatingWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KRatingWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRatingWidget_SuperFocusPreviousChild(KRatingWidget* self) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_FocusPreviousChild_IsBase(true);
-        return vkratingwidget->focusPreviousChild();
-    } else {
-        return ((VirtualKRatingWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnFocusPreviousChild(KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KRatingWidget_Sender(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return vkratingwidget->sender();
-    } else {
-        return ((VirtualKRatingWidget*)self)->sender();
-    }
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self))) {
+        return vkratingwidget->VirtualKRatingWidget::sender();
+    } else
+        qFatal("Error: Protected method KRatingWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KRatingWidget_SuperSender(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_Sender_IsBase(true);
-        return vkratingwidget->sender();
-    } else {
-        return ((VirtualKRatingWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnSender(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_Sender_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KRatingWidget_SenderSignalIndex(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return vkratingwidget->senderSignalIndex();
-    } else {
-        return ((VirtualKRatingWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self))) {
+        return vkratingwidget->VirtualKRatingWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KRatingWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KRatingWidget_SuperSenderSignalIndex(const KRatingWidget* self) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_SenderSignalIndex_IsBase(true);
-        return vkratingwidget->senderSignalIndex();
-    } else {
-        return ((VirtualKRatingWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnSenderSignalIndex(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KRatingWidget_Receivers(const KRatingWidget* self, const char* signal) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return vkratingwidget->receivers(signal);
-    } else {
-        return ((VirtualKRatingWidget*)self)->receivers(signal);
-    }
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self))) {
+        return vkratingwidget->VirtualKRatingWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method KRatingWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KRatingWidget_SuperReceivers(const KRatingWidget* self, const char* signal) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_Receivers_IsBase(true);
-        return vkratingwidget->receivers(signal);
-    } else {
-        return ((VirtualKRatingWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnReceivers(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_Receivers_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRatingWidget_IsSignalConnected(const KRatingWidget* self, const QMetaMethod* signal) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return vkratingwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKRatingWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self))) {
+        return vkratingwidget->VirtualKRatingWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KRatingWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRatingWidget_SuperIsSignalConnected(const KRatingWidget* self, const QMetaMethod* signal) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_IsSignalConnected_IsBase(true);
-        return vkratingwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKRatingWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnIsSignalConnected(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KRatingWidget_GetDecodedMetricF(const KRatingWidget* self, int metricA, int metricB) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return vkratingwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKRatingWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KRatingWidget_SuperGetDecodedMetricF(const KRatingWidget* self, int metricA, int metricB) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        vkratingwidget->setKRatingWidget_GetDecodedMetricF_IsBase(true);
-        return vkratingwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKRatingWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRatingWidget_OnGetDecodedMetricF(const KRatingWidget* self, intptr_t slot) {
-    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget)
-        vkratingwidget->setKRatingWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self))) {
+        return vkratingwidget->VirtualKRatingWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KRatingWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void KRatingWidget_Delete(KRatingWidget* self) {

@@ -307,24 +307,24 @@ void KFileWidget_SlotCancel(KFileWidget* self) {
 
 void KFileWidget_ResizeEvent(KFileWidget* self, QResizeEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->resizeEvent(event);
     }
 }
 
 void KFileWidget_ShowEvent(KFileWidget* self, QShowEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->showEvent(event);
     }
 }
 
 bool KFileWidget_EventFilter(KFileWidget* self, QObject* watched, QEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         return vkfilewidget->eventFilter(watched, event);
     }
-    return {};
+    qFatal("Error: Protected method KFileWidget::eventFilter called without a directly constructed type");
 }
 
 void KFileWidget_FileSelected(KFileWidget* self, const QUrl* param1) {
@@ -449,1614 +449,1146 @@ void KFileWidget_SetFilters2(KFileWidget* self, const libqt_list /* of KFileFilt
 
 // Base class handler implementation
 QMetaObject* KFileWidget_SuperMetaObject(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vkfilewidget->metaObject();
-    } else {
-        return (QMetaObject*)self->KFileWidget::metaObject();
-    }
+    return (QMetaObject*)self->KFileWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileWidget_OnMetaObject(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_MetaObject_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MetaObject_Callback>(slot));
+void KFileWidget_OnMetaObject(KFileWidget* self, intptr_t slot) {
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self)))
+        vkfilewidget->kfilewidget_metaobject_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KFileWidget_SuperMetacast(KFileWidget* self, const char* param1) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_Metacast_IsBase(true);
-        return vkfilewidget->qt_metacast(param1);
-    } else {
-        return self->KFileWidget::qt_metacast(param1);
-    }
+    return self->KFileWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMetacast(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_Metacast_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Metacast_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_metacast_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KFileWidget_SuperMetacall(KFileWidget* self, int param1, int param2, void** param3) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_Metacall_IsBase(true);
-        return vkfilewidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KFileWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KFileWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMetacall(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_Metacall_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Metacall_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_metacall_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KFileWidget_SuperSizeHint(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_SizeHint_IsBase(true);
-        return new QSize(vkfilewidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKFileWidget*)self)->sizeHint());
-    }
+    return new QSize(self->KFileWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileWidget_OnSizeHint(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_SizeHint_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_SizeHint_Callback>(slot));
+void KFileWidget_OnSizeHint(KFileWidget* self, intptr_t slot) {
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self)))
+        vkfilewidget->kfilewidget_sizehint_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFileWidget_SuperResizeEvent(KFileWidget* self, QResizeEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_ResizeEvent_IsBase(true);
-        vkfilewidget->resizeEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnResizeEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_ResizeEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_resizeevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFileWidget_SuperShowEvent(KFileWidget* self, QShowEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_ShowEvent_IsBase(true);
-        vkfilewidget->showEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->showEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnShowEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_ShowEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_ShowEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_showevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KFileWidget_SuperEventFilter(KFileWidget* self, QObject* watched, QEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_EventFilter_IsBase(true);
-        return vkfilewidget->eventFilter(watched, event);
-    } else {
-        return ((VirtualKFileWidget*)self)->eventFilter(watched, event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        return vkfilewidget->KFileWidget::eventFilter(watched, event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnEventFilter(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_EventFilter_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_EventFilter_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_eventfilter_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFileWidget_DevType(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return vkfilewidget->devType();
-    } else {
-        return self->KFileWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KFileWidget_SuperDevType(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_DevType_IsBase(true);
-        return vkfilewidget->devType();
-    } else {
-        return self->KFileWidget::devType();
-    }
+    return self->KFileWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileWidget_OnDevType(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_DevType_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_DevType_Callback>(slot));
+void KFileWidget_OnDevType(KFileWidget* self, intptr_t slot) {
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self)))
+        vkfilewidget->kfilewidget_devtype_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_SetVisible(KFileWidget* self, bool visible) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setVisible(visible);
-    } else {
-        self->KFileWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KFileWidget_SuperSetVisible(KFileWidget* self, bool visible) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_SetVisible_IsBase(true);
-        vkfilewidget->setVisible(visible);
-    } else {
-        self->KFileWidget::setVisible(visible);
-    }
+    self->KFileWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnSetVisible(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_SetVisible_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_SetVisible_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_setvisible_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KFileWidget_MinimumSizeHint(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return new QSize(vkfilewidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKFileWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KFileWidget_SuperMinimumSizeHint(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vkfilewidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKFileWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KFileWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileWidget_OnMinimumSizeHint(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MinimumSizeHint_Callback>(slot));
+void KFileWidget_OnMinimumSizeHint(KFileWidget* self, intptr_t slot) {
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self)))
+        vkfilewidget->kfilewidget_minimumsizehint_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFileWidget_HeightForWidth(const KFileWidget* self, int param1) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return vkfilewidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KFileWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KFileWidget_SuperHeightForWidth(const KFileWidget* self, int param1) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_HeightForWidth_IsBase(true);
-        return vkfilewidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KFileWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KFileWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileWidget_OnHeightForWidth(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_HeightForWidth_Callback>(slot));
+void KFileWidget_OnHeightForWidth(KFileWidget* self, intptr_t slot) {
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self)))
+        vkfilewidget->kfilewidget_heightforwidth_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFileWidget_HasHeightForWidth(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return vkfilewidget->hasHeightForWidth();
-    } else {
-        return self->KFileWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KFileWidget_SuperHasHeightForWidth(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_HasHeightForWidth_IsBase(true);
-        return vkfilewidget->hasHeightForWidth();
-    } else {
-        return self->KFileWidget::hasHeightForWidth();
-    }
+    return self->KFileWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileWidget_OnHasHeightForWidth(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_HasHeightForWidth_Callback>(slot));
+void KFileWidget_OnHasHeightForWidth(KFileWidget* self, intptr_t slot) {
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self)))
+        vkfilewidget->kfilewidget_hasheightforwidth_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KFileWidget_PaintEngine(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return vkfilewidget->paintEngine();
-    } else {
-        return self->KFileWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KFileWidget_SuperPaintEngine(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_PaintEngine_IsBase(true);
-        return vkfilewidget->paintEngine();
-    } else {
-        return self->KFileWidget::paintEngine();
-    }
+    return self->KFileWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileWidget_OnPaintEngine(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_PaintEngine_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_PaintEngine_Callback>(slot));
+void KFileWidget_OnPaintEngine(KFileWidget* self, intptr_t slot) {
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self)))
+        vkfilewidget->kfilewidget_paintengine_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFileWidget_Event(KFileWidget* self, QEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         return vkfilewidget->event(event);
     } else {
-        return ((VirtualKFileWidget*)self)->event(event);
+        qFatal("Error: Protected virtual method KFileWidget::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFileWidget_SuperEvent(KFileWidget* self, QEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_Event_IsBase(true);
-        return vkfilewidget->event(event);
-    } else {
-        return ((VirtualKFileWidget*)self)->event(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        return vkfilewidget->KFileWidget::event(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_Event_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Event_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_event_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_MousePressEvent(KFileWidget* self, QMouseEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->mousePressEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperMousePressEvent(KFileWidget* self, QMouseEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_MousePressEvent_IsBase(true);
-        vkfilewidget->mousePressEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMousePressEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MousePressEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_mousepressevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_MouseReleaseEvent(KFileWidget* self, QMouseEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperMouseReleaseEvent(KFileWidget* self, QMouseEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_MouseReleaseEvent_IsBase(true);
-        vkfilewidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMouseReleaseEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_mousereleaseevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_MouseDoubleClickEvent(KFileWidget* self, QMouseEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperMouseDoubleClickEvent(KFileWidget* self, QMouseEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_MouseDoubleClickEvent_IsBase(true);
-        vkfilewidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMouseDoubleClickEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_MouseMoveEvent(KFileWidget* self, QMouseEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->mouseMoveEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperMouseMoveEvent(KFileWidget* self, QMouseEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_MouseMoveEvent_IsBase(true);
-        vkfilewidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMouseMoveEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_mousemoveevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_WheelEvent(KFileWidget* self, QWheelEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->wheelEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperWheelEvent(KFileWidget* self, QWheelEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_WheelEvent_IsBase(true);
-        vkfilewidget->wheelEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnWheelEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_WheelEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_WheelEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_wheelevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_KeyPressEvent(KFileWidget* self, QKeyEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->keyPressEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperKeyPressEvent(KFileWidget* self, QKeyEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_KeyPressEvent_IsBase(true);
-        vkfilewidget->keyPressEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnKeyPressEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_keypressevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_KeyReleaseEvent(KFileWidget* self, QKeyEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->keyReleaseEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperKeyReleaseEvent(KFileWidget* self, QKeyEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_KeyReleaseEvent_IsBase(true);
-        vkfilewidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnKeyReleaseEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_keyreleaseevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_FocusInEvent(KFileWidget* self, QFocusEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->focusInEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperFocusInEvent(KFileWidget* self, QFocusEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_FocusInEvent_IsBase(true);
-        vkfilewidget->focusInEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnFocusInEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_FocusInEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_focusinevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_FocusOutEvent(KFileWidget* self, QFocusEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->focusOutEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperFocusOutEvent(KFileWidget* self, QFocusEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_FocusOutEvent_IsBase(true);
-        vkfilewidget->focusOutEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnFocusOutEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_focusoutevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_EnterEvent(KFileWidget* self, QEnterEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->enterEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperEnterEvent(KFileWidget* self, QEnterEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_EnterEvent_IsBase(true);
-        vkfilewidget->enterEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->enterEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnEnterEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_EnterEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_EnterEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_enterevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_LeaveEvent(KFileWidget* self, QEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->leaveEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperLeaveEvent(KFileWidget* self, QEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_LeaveEvent_IsBase(true);
-        vkfilewidget->leaveEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnLeaveEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_LeaveEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_leaveevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_PaintEvent(KFileWidget* self, QPaintEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->paintEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperPaintEvent(KFileWidget* self, QPaintEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_PaintEvent_IsBase(true);
-        vkfilewidget->paintEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->paintEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnPaintEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_PaintEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_PaintEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_paintevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_MoveEvent(KFileWidget* self, QMoveEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->moveEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperMoveEvent(KFileWidget* self, QMoveEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_MoveEvent_IsBase(true);
-        vkfilewidget->moveEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->moveEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMoveEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_MoveEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MoveEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_moveevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_CloseEvent(KFileWidget* self, QCloseEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->closeEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperCloseEvent(KFileWidget* self, QCloseEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_CloseEvent_IsBase(true);
-        vkfilewidget->closeEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->closeEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnCloseEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_CloseEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_CloseEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_closeevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_ContextMenuEvent(KFileWidget* self, QContextMenuEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->contextMenuEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperContextMenuEvent(KFileWidget* self, QContextMenuEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_ContextMenuEvent_IsBase(true);
-        vkfilewidget->contextMenuEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnContextMenuEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_contextmenuevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_TabletEvent(KFileWidget* self, QTabletEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->tabletEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperTabletEvent(KFileWidget* self, QTabletEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_TabletEvent_IsBase(true);
-        vkfilewidget->tabletEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnTabletEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_TabletEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_TabletEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_tabletevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_ActionEvent(KFileWidget* self, QActionEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->actionEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperActionEvent(KFileWidget* self, QActionEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_ActionEvent_IsBase(true);
-        vkfilewidget->actionEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->actionEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnActionEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_ActionEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_ActionEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_actionevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_DragEnterEvent(KFileWidget* self, QDragEnterEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->dragEnterEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperDragEnterEvent(KFileWidget* self, QDragEnterEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_DragEnterEvent_IsBase(true);
-        vkfilewidget->dragEnterEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnDragEnterEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_dragenterevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_DragMoveEvent(KFileWidget* self, QDragMoveEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->dragMoveEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperDragMoveEvent(KFileWidget* self, QDragMoveEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_DragMoveEvent_IsBase(true);
-        vkfilewidget->dragMoveEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnDragMoveEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_dragmoveevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_DragLeaveEvent(KFileWidget* self, QDragLeaveEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->dragLeaveEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperDragLeaveEvent(KFileWidget* self, QDragLeaveEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_DragLeaveEvent_IsBase(true);
-        vkfilewidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnDragLeaveEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_dragleaveevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_DropEvent(KFileWidget* self, QDropEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->dropEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperDropEvent(KFileWidget* self, QDropEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_DropEvent_IsBase(true);
-        vkfilewidget->dropEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->dropEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnDropEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_DropEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_DropEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_dropevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_HideEvent(KFileWidget* self, QHideEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->hideEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperHideEvent(KFileWidget* self, QHideEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_HideEvent_IsBase(true);
-        vkfilewidget->hideEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->hideEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnHideEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_HideEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_HideEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_hideevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFileWidget_NativeEvent(KFileWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
+    if (vkfilewidget) {
         return vkfilewidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKFileWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KFileWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFileWidget_SuperNativeEvent(KFileWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_NativeEvent_IsBase(true);
-        return vkfilewidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKFileWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        return vkfilewidget->KFileWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnNativeEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_NativeEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_NativeEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_nativeevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_ChangeEvent(KFileWidget* self, QEvent* param1) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->changeEvent(param1);
     } else {
-        ((VirtualKFileWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KFileWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperChangeEvent(KFileWidget* self, QEvent* param1) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_ChangeEvent_IsBase(true);
-        vkfilewidget->changeEvent(param1);
-    } else {
-        ((VirtualKFileWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnChangeEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_ChangeEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_changeevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFileWidget_Metric(const KFileWidget* self, int param1) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         return vkfilewidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKFileWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KFileWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KFileWidget_SuperMetric(const KFileWidget* self, int param1) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_Metric_IsBase(true);
-        return vkfilewidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKFileWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self))) {
+        return vkfilewidget->KFileWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileWidget_OnMetric(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_Metric_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Metric_Callback>(slot));
+void KFileWidget_OnMetric(KFileWidget* self, intptr_t slot) {
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self)))
+        vkfilewidget->kfilewidget_metric_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_InitPainter(const KFileWidget* self, QPainter* painter) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->initPainter(painter);
     } else {
-        ((VirtualKFileWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KFileWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperInitPainter(const KFileWidget* self, QPainter* painter) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_InitPainter_IsBase(true);
-        vkfilewidget->initPainter(painter);
-    } else {
-        ((VirtualKFileWidget*)self)->initPainter(painter);
-    }
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self))) {
+        vkfilewidget->KFileWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileWidget_OnInitPainter(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_InitPainter_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_InitPainter_Callback>(slot));
+void KFileWidget_OnInitPainter(KFileWidget* self, intptr_t slot) {
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self)))
+        vkfilewidget->kfilewidget_initpainter_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KFileWidget_Redirected(const KFileWidget* self, QPoint* offset) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         return vkfilewidget->redirected(offset);
     } else {
-        return ((VirtualKFileWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KFileWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KFileWidget_SuperRedirected(const KFileWidget* self, QPoint* offset) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_Redirected_IsBase(true);
-        return vkfilewidget->redirected(offset);
-    } else {
-        return ((VirtualKFileWidget*)self)->redirected(offset);
-    }
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self))) {
+        return vkfilewidget->KFileWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileWidget_OnRedirected(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_Redirected_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Redirected_Callback>(slot));
+void KFileWidget_OnRedirected(KFileWidget* self, intptr_t slot) {
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self)))
+        vkfilewidget->kfilewidget_redirected_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KFileWidget_SharedPainter(const KFileWidget* self) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         return vkfilewidget->sharedPainter();
     } else {
-        return ((VirtualKFileWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KFileWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KFileWidget_SuperSharedPainter(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_SharedPainter_IsBase(true);
-        return vkfilewidget->sharedPainter();
-    } else {
-        return ((VirtualKFileWidget*)self)->sharedPainter();
-    }
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self))) {
+        return vkfilewidget->KFileWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileWidget_OnSharedPainter(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_SharedPainter_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_SharedPainter_Callback>(slot));
+void KFileWidget_OnSharedPainter(KFileWidget* self, intptr_t slot) {
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self)))
+        vkfilewidget->kfilewidget_sharedpainter_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_InputMethodEvent(KFileWidget* self, QInputMethodEvent* param1) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->inputMethodEvent(param1);
     } else {
-        ((VirtualKFileWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KFileWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperInputMethodEvent(KFileWidget* self, QInputMethodEvent* param1) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_InputMethodEvent_IsBase(true);
-        vkfilewidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualKFileWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnInputMethodEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_inputmethodevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KFileWidget_InputMethodQuery(const KFileWidget* self, int param1) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return new QVariant(vkfilewidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKFileWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KFileWidget_SuperInputMethodQuery(const KFileWidget* self, int param1) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vkfilewidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKFileWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KFileWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileWidget_OnInputMethodQuery(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_InputMethodQuery_Callback>(slot));
+void KFileWidget_OnInputMethodQuery(KFileWidget* self, intptr_t slot) {
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self)))
+        vkfilewidget->kfilewidget_inputmethodquery_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFileWidget_FocusNextPrevChild(KFileWidget* self, bool next) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         return vkfilewidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualKFileWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KFileWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFileWidget_SuperFocusNextPrevChild(KFileWidget* self, bool next) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_FocusNextPrevChild_IsBase(true);
-        return vkfilewidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKFileWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        return vkfilewidget->KFileWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnFocusNextPrevChild(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_focusnextprevchild_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_TimerEvent(KFileWidget* self, QTimerEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->timerEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperTimerEvent(KFileWidget* self, QTimerEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_TimerEvent_IsBase(true);
-        vkfilewidget->timerEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->timerEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnTimerEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_TimerEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_TimerEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_timerevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_ChildEvent(KFileWidget* self, QChildEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->childEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperChildEvent(KFileWidget* self, QChildEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_ChildEvent_IsBase(true);
-        vkfilewidget->childEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->childEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnChildEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_ChildEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_ChildEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_childevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_CustomEvent(KFileWidget* self, QEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->customEvent(event);
     } else {
-        ((VirtualKFileWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KFileWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperCustomEvent(KFileWidget* self, QEvent* event) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_CustomEvent_IsBase(true);
-        vkfilewidget->customEvent(event);
-    } else {
-        ((VirtualKFileWidget*)self)->customEvent(event);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnCustomEvent(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_CustomEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_CustomEvent_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_customevent_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_ConnectNotify(KFileWidget* self, const QMetaMethod* signal) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->connectNotify(*signal);
     } else {
-        ((VirtualKFileWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KFileWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperConnectNotify(KFileWidget* self, const QMetaMethod* signal) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_ConnectNotify_IsBase(true);
-        vkfilewidget->connectNotify(*signal);
-    } else {
-        ((VirtualKFileWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnConnectNotify(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_ConnectNotify_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_connectnotify_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileWidget_DisconnectNotify(KFileWidget* self, const QMetaMethod* signal) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget) {
         vkfilewidget->disconnectNotify(*signal);
     } else {
-        ((VirtualKFileWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KFileWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileWidget_SuperDisconnectNotify(KFileWidget* self, const QMetaMethod* signal) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_DisconnectNotify_IsBase(true);
-        vkfilewidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualKFileWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->KFileWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFileWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnDisconnectNotify(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self))
+        vkfilewidget->kfilewidget_disconnectnotify_callback = reinterpret_cast<VirtualKFileWidget::KFileWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFileWidget_UpdateMicroFocus(KFileWidget* self) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->updateMicroFocus();
-    } else {
-        ((VirtualKFileWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->VirtualKFileWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KFileWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFileWidget_SuperUpdateMicroFocus(KFileWidget* self) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_UpdateMicroFocus_IsBase(true);
-        vkfilewidget->updateMicroFocus();
-    } else {
-        ((VirtualKFileWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileWidget_OnUpdateMicroFocus(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFileWidget_Create(KFileWidget* self) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->create();
-    } else {
-        ((VirtualKFileWidget*)self)->create();
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->VirtualKFileWidget::create();
+    } else
+        qFatal("Error: Protected method KFileWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFileWidget_SuperCreate(KFileWidget* self) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_Create_IsBase(true);
-        vkfilewidget->create();
-    } else {
-        ((VirtualKFileWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileWidget_OnCreate(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_Create_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFileWidget_Destroy(KFileWidget* self) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->destroy();
-    } else {
-        ((VirtualKFileWidget*)self)->destroy();
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        vkfilewidget->VirtualKFileWidget::destroy();
+    } else
+        qFatal("Error: Protected method KFileWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFileWidget_SuperDestroy(KFileWidget* self) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_Destroy_IsBase(true);
-        vkfilewidget->destroy();
-    } else {
-        ((VirtualKFileWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileWidget_OnDestroy(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_Destroy_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFileWidget_FocusNextChild(KFileWidget* self) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return vkfilewidget->focusNextChild();
-    } else {
-        return ((VirtualKFileWidget*)self)->focusNextChild();
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        return vkfilewidget->VirtualKFileWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method KFileWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFileWidget_SuperFocusNextChild(KFileWidget* self) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_FocusNextChild_IsBase(true);
-        return vkfilewidget->focusNextChild();
-    } else {
-        return ((VirtualKFileWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileWidget_OnFocusNextChild(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFileWidget_FocusPreviousChild(KFileWidget* self) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return vkfilewidget->focusPreviousChild();
-    } else {
-        return ((VirtualKFileWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self)) {
+        return vkfilewidget->VirtualKFileWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KFileWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFileWidget_SuperFocusPreviousChild(KFileWidget* self) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_FocusPreviousChild_IsBase(true);
-        return vkfilewidget->focusPreviousChild();
-    } else {
-        return ((VirtualKFileWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileWidget_OnFocusPreviousChild(KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KFileWidget_Sender(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return vkfilewidget->sender();
-    } else {
-        return ((VirtualKFileWidget*)self)->sender();
-    }
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self))) {
+        return vkfilewidget->VirtualKFileWidget::sender();
+    } else
+        qFatal("Error: Protected method KFileWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KFileWidget_SuperSender(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_Sender_IsBase(true);
-        return vkfilewidget->sender();
-    } else {
-        return ((VirtualKFileWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileWidget_OnSender(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_Sender_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFileWidget_SenderSignalIndex(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return vkfilewidget->senderSignalIndex();
-    } else {
-        return ((VirtualKFileWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self))) {
+        return vkfilewidget->VirtualKFileWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KFileWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFileWidget_SuperSenderSignalIndex(const KFileWidget* self) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_SenderSignalIndex_IsBase(true);
-        return vkfilewidget->senderSignalIndex();
-    } else {
-        return ((VirtualKFileWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileWidget_OnSenderSignalIndex(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFileWidget_Receivers(const KFileWidget* self, const char* signal) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return vkfilewidget->receivers(signal);
-    } else {
-        return ((VirtualKFileWidget*)self)->receivers(signal);
-    }
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self))) {
+        return vkfilewidget->VirtualKFileWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method KFileWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFileWidget_SuperReceivers(const KFileWidget* self, const char* signal) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_Receivers_IsBase(true);
-        return vkfilewidget->receivers(signal);
-    } else {
-        return ((VirtualKFileWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileWidget_OnReceivers(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_Receivers_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFileWidget_IsSignalConnected(const KFileWidget* self, const QMetaMethod* signal) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return vkfilewidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFileWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self))) {
+        return vkfilewidget->VirtualKFileWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KFileWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFileWidget_SuperIsSignalConnected(const KFileWidget* self, const QMetaMethod* signal) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_IsSignalConnected_IsBase(true);
-        return vkfilewidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFileWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileWidget_OnIsSignalConnected(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KFileWidget_GetDecodedMetricF(const KFileWidget* self, int metricA, int metricB) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return vkfilewidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKFileWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KFileWidget_SuperGetDecodedMetricF(const KFileWidget* self, int metricA, int metricB) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        vkfilewidget->setKFileWidget_GetDecodedMetricF_IsBase(true);
-        return vkfilewidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKFileWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileWidget_OnGetDecodedMetricF(const KFileWidget* self, intptr_t slot) {
-    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
-        vkfilewidget->setKFileWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self))) {
+        return vkfilewidget->VirtualKFileWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KFileWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void KFileWidget_Delete(KFileWidget* self) {

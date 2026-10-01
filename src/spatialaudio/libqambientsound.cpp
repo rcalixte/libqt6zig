@@ -166,364 +166,219 @@ libqt_string QAmbientSound_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QAmbientSound_SuperMetaObject(const QAmbientSound* self) {
-    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_MetaObject_IsBase(true);
-        return (QMetaObject*)vqambientsound->metaObject();
-    } else {
-        return (QMetaObject*)self->QAmbientSound::metaObject();
-    }
+    return (QMetaObject*)self->QAmbientSound::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAmbientSound_OnMetaObject(const QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound)
-        vqambientsound->setQAmbientSound_MetaObject_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_MetaObject_Callback>(slot));
+void QAmbientSound_OnMetaObject(QAmbientSound* self, intptr_t slot) {
+    if (auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self)))
+        vqambientsound->qambientsound_metaobject_callback = reinterpret_cast<VirtualQAmbientSound::QAmbientSound_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QAmbientSound_SuperMetacast(QAmbientSound* self, const char* param1) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_Metacast_IsBase(true);
-        return vqambientsound->qt_metacast(param1);
-    } else {
-        return self->QAmbientSound::qt_metacast(param1);
-    }
+    return self->QAmbientSound::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAmbientSound_OnMetacast(QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound)
-        vqambientsound->setQAmbientSound_Metacast_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_Metacast_Callback>(slot));
+    if (auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self))
+        vqambientsound->qambientsound_metacast_callback = reinterpret_cast<VirtualQAmbientSound::QAmbientSound_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAmbientSound_SuperMetacall(QAmbientSound* self, int param1, int param2, void** param3) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_Metacall_IsBase(true);
-        return vqambientsound->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QAmbientSound::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QAmbientSound::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAmbientSound_OnMetacall(QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound)
-        vqambientsound->setQAmbientSound_Metacall_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_Metacall_Callback>(slot));
+    if (auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self))
+        vqambientsound->qambientsound_metacall_callback = reinterpret_cast<VirtualQAmbientSound::QAmbientSound_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAmbientSound_Event(QAmbientSound* self, QEvent* event) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        return vqambientsound->event(event);
-    } else {
-        return self->QAmbientSound::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QAmbientSound_SuperEvent(QAmbientSound* self, QEvent* event) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_Event_IsBase(true);
-        return vqambientsound->event(event);
-    } else {
-        return self->QAmbientSound::event(event);
-    }
+    return self->QAmbientSound::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAmbientSound_OnEvent(QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound)
-        vqambientsound->setQAmbientSound_Event_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_Event_Callback>(slot));
+    if (auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self))
+        vqambientsound->qambientsound_event_callback = reinterpret_cast<VirtualQAmbientSound::QAmbientSound_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAmbientSound_EventFilter(QAmbientSound* self, QObject* watched, QEvent* event) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        return vqambientsound->eventFilter(watched, event);
-    } else {
-        return self->QAmbientSound::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QAmbientSound_SuperEventFilter(QAmbientSound* self, QObject* watched, QEvent* event) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_EventFilter_IsBase(true);
-        return vqambientsound->eventFilter(watched, event);
-    } else {
-        return self->QAmbientSound::eventFilter(watched, event);
-    }
+    return self->QAmbientSound::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAmbientSound_OnEventFilter(QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound)
-        vqambientsound->setQAmbientSound_EventFilter_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_EventFilter_Callback>(slot));
+    if (auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self))
+        vqambientsound->qambientsound_eventfilter_callback = reinterpret_cast<VirtualQAmbientSound::QAmbientSound_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAmbientSound_TimerEvent(QAmbientSound* self, QTimerEvent* event) {
     auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
+    if (vqambientsound) {
         vqambientsound->timerEvent(event);
     } else {
-        ((VirtualQAmbientSound*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QAmbientSound::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAmbientSound_SuperTimerEvent(QAmbientSound* self, QTimerEvent* event) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_TimerEvent_IsBase(true);
-        vqambientsound->timerEvent(event);
-    } else {
-        ((VirtualQAmbientSound*)self)->timerEvent(event);
-    }
+    if (auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self)) {
+        vqambientsound->QAmbientSound::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAmbientSound::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAmbientSound_OnTimerEvent(QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound)
-        vqambientsound->setQAmbientSound_TimerEvent_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_TimerEvent_Callback>(slot));
+    if (auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self))
+        vqambientsound->qambientsound_timerevent_callback = reinterpret_cast<VirtualQAmbientSound::QAmbientSound_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAmbientSound_ChildEvent(QAmbientSound* self, QChildEvent* event) {
     auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
+    if (vqambientsound) {
         vqambientsound->childEvent(event);
     } else {
-        ((VirtualQAmbientSound*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QAmbientSound::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAmbientSound_SuperChildEvent(QAmbientSound* self, QChildEvent* event) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_ChildEvent_IsBase(true);
-        vqambientsound->childEvent(event);
-    } else {
-        ((VirtualQAmbientSound*)self)->childEvent(event);
-    }
+    if (auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self)) {
+        vqambientsound->QAmbientSound::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAmbientSound::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAmbientSound_OnChildEvent(QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound)
-        vqambientsound->setQAmbientSound_ChildEvent_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_ChildEvent_Callback>(slot));
+    if (auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self))
+        vqambientsound->qambientsound_childevent_callback = reinterpret_cast<VirtualQAmbientSound::QAmbientSound_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAmbientSound_CustomEvent(QAmbientSound* self, QEvent* event) {
     auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
+    if (vqambientsound) {
         vqambientsound->customEvent(event);
     } else {
-        ((VirtualQAmbientSound*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QAmbientSound::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAmbientSound_SuperCustomEvent(QAmbientSound* self, QEvent* event) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_CustomEvent_IsBase(true);
-        vqambientsound->customEvent(event);
-    } else {
-        ((VirtualQAmbientSound*)self)->customEvent(event);
-    }
+    if (auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self)) {
+        vqambientsound->QAmbientSound::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAmbientSound::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAmbientSound_OnCustomEvent(QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound)
-        vqambientsound->setQAmbientSound_CustomEvent_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_CustomEvent_Callback>(slot));
+    if (auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self))
+        vqambientsound->qambientsound_customevent_callback = reinterpret_cast<VirtualQAmbientSound::QAmbientSound_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAmbientSound_ConnectNotify(QAmbientSound* self, const QMetaMethod* signal) {
     auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
+    if (vqambientsound) {
         vqambientsound->connectNotify(*signal);
     } else {
-        ((VirtualQAmbientSound*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QAmbientSound::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAmbientSound_SuperConnectNotify(QAmbientSound* self, const QMetaMethod* signal) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_ConnectNotify_IsBase(true);
-        vqambientsound->connectNotify(*signal);
-    } else {
-        ((VirtualQAmbientSound*)self)->connectNotify(*signal);
-    }
+    if (auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self)) {
+        vqambientsound->QAmbientSound::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAmbientSound::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAmbientSound_OnConnectNotify(QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound)
-        vqambientsound->setQAmbientSound_ConnectNotify_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_ConnectNotify_Callback>(slot));
+    if (auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self))
+        vqambientsound->qambientsound_connectnotify_callback = reinterpret_cast<VirtualQAmbientSound::QAmbientSound_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAmbientSound_DisconnectNotify(QAmbientSound* self, const QMetaMethod* signal) {
     auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
+    if (vqambientsound) {
         vqambientsound->disconnectNotify(*signal);
     } else {
-        ((VirtualQAmbientSound*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QAmbientSound::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAmbientSound_SuperDisconnectNotify(QAmbientSound* self, const QMetaMethod* signal) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_DisconnectNotify_IsBase(true);
-        vqambientsound->disconnectNotify(*signal);
-    } else {
-        ((VirtualQAmbientSound*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self)) {
+        vqambientsound->QAmbientSound::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAmbientSound::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAmbientSound_OnDisconnectNotify(QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound)
-        vqambientsound->setQAmbientSound_DisconnectNotify_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_DisconnectNotify_Callback>(slot));
+    if (auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self))
+        vqambientsound->qambientsound_disconnectnotify_callback = reinterpret_cast<VirtualQAmbientSound::QAmbientSound_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QAmbientSound_Sender(const QAmbientSound* self) {
-    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        return vqambientsound->sender();
-    } else {
-        return ((VirtualQAmbientSound*)self)->sender();
-    }
+    if (auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self))) {
+        return vqambientsound->VirtualQAmbientSound::sender();
+    } else
+        qFatal("Error: Protected method QAmbientSound::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QAmbientSound_SuperSender(const QAmbientSound* self) {
-    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_Sender_IsBase(true);
-        return vqambientsound->sender();
-    } else {
-        return ((VirtualQAmbientSound*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAmbientSound_OnSender(const QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound)
-        vqambientsound->setQAmbientSound_Sender_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAmbientSound_SenderSignalIndex(const QAmbientSound* self) {
-    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        return vqambientsound->senderSignalIndex();
-    } else {
-        return ((VirtualQAmbientSound*)self)->senderSignalIndex();
-    }
+    if (auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self))) {
+        return vqambientsound->VirtualQAmbientSound::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QAmbientSound::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAmbientSound_SuperSenderSignalIndex(const QAmbientSound* self) {
-    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_SenderSignalIndex_IsBase(true);
-        return vqambientsound->senderSignalIndex();
-    } else {
-        return ((VirtualQAmbientSound*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAmbientSound_OnSenderSignalIndex(const QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound)
-        vqambientsound->setQAmbientSound_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAmbientSound_Receivers(const QAmbientSound* self, const char* signal) {
-    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        return vqambientsound->receivers(signal);
-    } else {
-        return ((VirtualQAmbientSound*)self)->receivers(signal);
-    }
+    if (auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self))) {
+        return vqambientsound->VirtualQAmbientSound::receivers(signal);
+    } else
+        qFatal("Error: Protected method QAmbientSound::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAmbientSound_SuperReceivers(const QAmbientSound* self, const char* signal) {
-    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_Receivers_IsBase(true);
-        return vqambientsound->receivers(signal);
-    } else {
-        return ((VirtualQAmbientSound*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAmbientSound_OnReceivers(const QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound)
-        vqambientsound->setQAmbientSound_Receivers_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAmbientSound_IsSignalConnected(const QAmbientSound* self, const QMetaMethod* signal) {
-    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        return vqambientsound->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAmbientSound*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QAmbientSound_SuperIsSignalConnected(const QAmbientSound* self, const QMetaMethod* signal) {
-    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        vqambientsound->setQAmbientSound_IsSignalConnected_IsBase(true);
-        return vqambientsound->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAmbientSound*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAmbientSound_OnIsSignalConnected(const QAmbientSound* self, intptr_t slot) {
-    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound)
-        vqambientsound->setQAmbientSound_IsSignalConnected_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_IsSignalConnected_Callback>(slot));
+    if (auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self))) {
+        return vqambientsound->VirtualQAmbientSound::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QAmbientSound::isSignalConnected called without a directly constructed type");
 }
 
 void QAmbientSound_Delete(QAmbientSound* self) {

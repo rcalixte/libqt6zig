@@ -181,9 +181,9 @@ pub const QDBusInterface = extern struct {
     ///
     /// ` self: QDBusInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QDBusInterface) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QDBusInterface, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDBusInterface, callback: *const fn (QDBusInterface) callconv(.c) QMetaObject) void {
         qtc.QDBusInterface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2110,49 +2110,6 @@ pub const QDBusInterface = extern struct {
         return .{ .ptr = qtc.QDBusInterface_InternalPropGet(@ptrCast(self.ptr), propname_Cstring) };
     }
 
-    /// ### DEPRECATED: Use `superInternalPropGet` instead
-    ///
-    pub const SuperInternalPropGet = superInternalPropGet;
-
-    /// Inherited from QDBusAbstractInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#internalPropGet)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDBusInterface `
-    ///
-    /// ` propname: [:0]const u8 `
-    ///
-    pub fn superInternalPropGet(self: QDBusInterface, propname: [:0]const u8) QVariant {
-        const propname_Cstring = propname.ptr;
-        return .{ .ptr = qtc.QDBusInterface_SuperInternalPropGet(@ptrCast(self.ptr), propname_Cstring) };
-    }
-
-    /// ### DEPRECATED: Use `onInternalPropGet` instead
-    ///
-    pub const OnInternalPropGet = onInternalPropGet;
-
-    /// Inherited from QDBusAbstractInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#internalPropGet)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDBusInterface`
-    ///
-    /// ` callback: *const fn (self: QDBusInterface, propname: [*:0]const u8) callconv(.c) QVariant `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onInternalPropGet(self: QDBusInterface, callback: *const fn (QDBusInterface, [*:0]const u8) callconv(.c) QVariant) void {
-        qtc.QDBusInterface_OnInternalPropGet(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `internalPropSet` instead
     ///
     pub const InternalPropSet = internalPropSet;
@@ -2175,50 +2132,6 @@ pub const QDBusInterface = extern struct {
         const propname_Cstring = propname.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QDBusInterface_InternalPropSet(@ptrCast(self.ptr), propname_Cstring, @ptrCast(value.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superInternalPropSet` instead
-    ///
-    pub const SuperInternalPropSet = superInternalPropSet;
-
-    /// Inherited from QDBusAbstractInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#internalPropSet)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDBusInterface `
-    ///
-    /// ` propname: [:0]const u8 `
-    ///
-    /// ` value: QVariant `
-    ///
-    pub fn superInternalPropSet(self: QDBusInterface, propname: [:0]const u8, value: anytype) void {
-        const propname_Cstring = propname.ptr;
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QDBusInterface_SuperInternalPropSet(@ptrCast(self.ptr), propname_Cstring, @ptrCast(value.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onInternalPropSet` instead
-    ///
-    pub const OnInternalPropSet = onInternalPropSet;
-
-    /// Inherited from QDBusAbstractInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#internalPropSet)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDBusInterface`
-    ///
-    /// ` callback: *const fn (self: QDBusInterface, propname: [*:0]const u8, value: QVariant) callconv(.c) void `
-    ///
-    pub fn onInternalPropSet(self: QDBusInterface, callback: *const fn (QDBusInterface, [*:0]const u8, QVariant) callconv(.c) void) void {
-        qtc.QDBusInterface_OnInternalPropSet(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `internalConstCall` instead
@@ -2247,54 +2160,6 @@ pub const QDBusInterface = extern struct {
         return .{ .ptr = qtc.QDBusInterface_InternalConstCall(@ptrCast(self.ptr), @bitCast(mode), method_str) };
     }
 
-    /// ### DEPRECATED: Use `superInternalConstCall` instead
-    ///
-    pub const SuperInternalConstCall = superInternalConstCall;
-
-    /// Inherited from QDBusAbstractInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#internalConstCall)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDBusInterface `
-    ///
-    /// ` mode: qdbusconnection_enums.CallMode `
-    ///
-    /// ` method: []const u8 `
-    ///
-    pub fn superInternalConstCall(self: QDBusInterface, mode: i32, method: []const u8) QDBusMessage {
-        const method_str = qtc.libqt_string{
-            .len = method.len,
-            .data = method.ptr,
-        };
-        return .{ .ptr = qtc.QDBusInterface_SuperInternalConstCall(@ptrCast(self.ptr), @bitCast(mode), method_str) };
-    }
-
-    /// ### DEPRECATED: Use `onInternalConstCall` instead
-    ///
-    pub const OnInternalConstCall = onInternalConstCall;
-
-    /// Inherited from QDBusAbstractInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#internalConstCall)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDBusInterface`
-    ///
-    /// ` callback: *const fn (self: QDBusInterface, mode: qdbusconnection_enums.CallMode, method: [*:0]const u8) callconv(.c) QDBusMessage `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onInternalConstCall(self: QDBusInterface, callback: *const fn (QDBusInterface, i32, [*:0]const u8) callconv(.c) QDBusMessage) void {
-        qtc.QDBusInterface_OnInternalConstCall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -2313,44 +2178,6 @@ pub const QDBusInterface = extern struct {
         return .{ .ptr = qtc.QDBusInterface_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDBusInterface `
-    ///
-    pub fn superSender(self: QDBusInterface) QObject {
-        return .{ .ptr = qtc.QDBusInterface_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDBusInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QDBusInterface, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QDBusInterface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2367,44 +2194,6 @@ pub const QDBusInterface = extern struct {
     ///
     pub fn senderSignalIndex(self: QDBusInterface) i32 {
         return qtc.QDBusInterface_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDBusInterface `
-    ///
-    pub fn superSenderSignalIndex(self: QDBusInterface) i32 {
-        return qtc.QDBusInterface_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDBusInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QDBusInterface, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDBusInterface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2428,47 +2217,6 @@ pub const QDBusInterface = extern struct {
         return qtc.QDBusInterface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDBusInterface `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QDBusInterface, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QDBusInterface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDBusInterface`
-    ///
-    /// ` callback: *const fn (self: QDBusInterface, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QDBusInterface, callback: *const fn (QDBusInterface, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDBusInterface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2488,47 +2236,6 @@ pub const QDBusInterface = extern struct {
     pub fn isSignalConnected(self: QDBusInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDBusInterface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDBusInterface `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QDBusInterface, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QDBusInterface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDBusInterface`
-    ///
-    /// ` callback: *const fn (self: QDBusInterface, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QDBusInterface, callback: *const fn (QDBusInterface, QMetaMethod) callconv(.c) bool) void {
-        qtc.QDBusInterface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -1,9 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const QMatrix4x4 = @import("libqt6").QMatrix4x4;
-const QRect = @import("libqt6").QRect;
 const QRectF = @import("libqt6").QRectF;
-const QRegion = @import("libqt6").QRegion;
 const QSGClipNode = @import("libqt6").QSGClipNode;
 const QSGNode = @import("libqt6").QSGNode;
 const qsgnode_enums = @import("libqsgnode.zig").enums;
@@ -60,9 +58,9 @@ pub const QSGRenderNode = extern struct {
     ///
     /// ` self: QSGRenderNode `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSGRenderNode) callconv(.c) i32 `
     ///
-    pub fn onChangedStates(self: QSGRenderNode, callback: *const fn () callconv(.c) i32) void {
+    pub fn onChangedStates(self: QSGRenderNode, callback: *const fn (QSGRenderNode) callconv(.c) i32) void {
         qtc.QSGRenderNode_OnChangedStates(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -112,9 +110,9 @@ pub const QSGRenderNode = extern struct {
     ///
     /// ` self: QSGRenderNode `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QSGRenderNode) callconv(.c) void `
     ///
-    pub fn onPrepare(self: QSGRenderNode, callback: *const fn () callconv(.c) void) void {
+    pub fn onPrepare(self: QSGRenderNode, callback: *const fn (QSGRenderNode) callconv(.c) void) void {
         qtc.QSGRenderNode_OnPrepare(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -139,6 +137,8 @@ pub const QSGRenderNode = extern struct {
     pub const Render = render;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrendernode.html#render)
+    ///
+    /// This method must be implemented with `onRender` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -169,25 +169,6 @@ pub const QSGRenderNode = extern struct {
         qtc.QSGRenderNode_OnRender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superRender` instead
-    ///
-    pub const SuperRender = superRender;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrendernode.html#render)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGRenderNode `
-    ///
-    /// ` state: QSGRenderNode__RenderState `
-    ///
-    pub fn superRender(self: QSGRenderNode, state: anytype) void {
-        comptime _ = @TypeOf(state)._is_QSGRenderNode__RenderState;
-        qtc.QSGRenderNode_SuperRender(@ptrCast(self.ptr), @ptrCast(state.ptr));
-    }
-
     /// ### DEPRECATED: Use `releaseResources` instead
     ///
     pub const ReleaseResources = releaseResources;
@@ -214,9 +195,9 @@ pub const QSGRenderNode = extern struct {
     ///
     /// ` self: QSGRenderNode `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QSGRenderNode) callconv(.c) void `
     ///
-    pub fn onReleaseResources(self: QSGRenderNode, callback: *const fn () callconv(.c) void) void {
+    pub fn onReleaseResources(self: QSGRenderNode, callback: *const fn (QSGRenderNode) callconv(.c) void) void {
         qtc.QSGRenderNode_OnReleaseResources(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -266,9 +247,9 @@ pub const QSGRenderNode = extern struct {
     ///
     /// ` self: QSGRenderNode `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSGRenderNode) callconv(.c) i32 `
     ///
-    pub fn onFlags(self: QSGRenderNode, callback: *const fn () callconv(.c) i32) void {
+    pub fn onFlags(self: QSGRenderNode, callback: *const fn (QSGRenderNode) callconv(.c) i32) void {
         qtc.QSGRenderNode_OnFlags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -318,11 +299,11 @@ pub const QSGRenderNode = extern struct {
     ///
     /// ` self: QSGRenderNode `
     ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
+    /// ` callback: *const fn (self: QSGRenderNode) callconv(.c) QRectF `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onRect(self: QSGRenderNode, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onRect(self: QSGRenderNode, callback: *const fn (QSGRenderNode) callconv(.c) QRectF) void {
         qtc.QSGRenderNode_OnRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -866,9 +847,9 @@ pub const QSGRenderNode = extern struct {
     ///
     /// ` self: QSGRenderNode`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGRenderNode) callconv(.c) bool `
     ///
-    pub fn onIsSubtreeBlocked(self: QSGRenderNode, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSubtreeBlocked(self: QSGRenderNode, callback: *const fn (QSGRenderNode) callconv(.c) bool) void {
         qtc.QSGRenderNode_OnIsSubtreeBlocked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -922,9 +903,9 @@ pub const QSGRenderNode = extern struct {
     ///
     /// ` self: QSGRenderNode`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QSGRenderNode) callconv(.c) void `
     ///
-    pub fn onPreprocess(self: QSGRenderNode, callback: *const fn () callconv(.c) void) void {
+    pub fn onPreprocess(self: QSGRenderNode, callback: *const fn (QSGRenderNode) callconv(.c) void) void {
         qtc.QSGRenderNode_OnPreprocess(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -954,90 +935,6 @@ pub const QSGRenderNode__RenderState = extern struct {
     ptr: QtC.QSGRenderNode__RenderState,
 
     pub const _is_QSGRenderNode__RenderState = {};
-
-    /// ### DEPRECATED: Use `projectionMatrix` instead
-    ///
-    pub const ProjectionMatrix = projectionMatrix;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrendernode-renderstate.html#projectionMatrix)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGRenderNode__RenderState `
-    ///
-    pub fn projectionMatrix(self: QSGRenderNode__RenderState) QMatrix4x4 {
-        return .{ .ptr = qtc.QSGRenderNode__RenderState_ProjectionMatrix(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `scissorRect` instead
-    ///
-    pub const ScissorRect = scissorRect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrendernode-renderstate.html#scissorRect)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGRenderNode__RenderState `
-    ///
-    pub fn scissorRect(self: QSGRenderNode__RenderState) QRect {
-        return .{ .ptr = qtc.QSGRenderNode__RenderState_ScissorRect(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `scissorEnabled` instead
-    ///
-    pub const ScissorEnabled = scissorEnabled;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrendernode-renderstate.html#scissorEnabled)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGRenderNode__RenderState `
-    ///
-    pub fn scissorEnabled(self: QSGRenderNode__RenderState) bool {
-        return qtc.QSGRenderNode__RenderState_ScissorEnabled(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `stencilValue` instead
-    ///
-    pub const StencilValue = stencilValue;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrendernode-renderstate.html#stencilValue)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGRenderNode__RenderState `
-    ///
-    pub fn stencilValue(self: QSGRenderNode__RenderState) i32 {
-        return qtc.QSGRenderNode__RenderState_StencilValue(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `stencilEnabled` instead
-    ///
-    pub const StencilEnabled = stencilEnabled;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrendernode-renderstate.html#stencilEnabled)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGRenderNode__RenderState `
-    ///
-    pub fn stencilEnabled(self: QSGRenderNode__RenderState) bool {
-        return qtc.QSGRenderNode__RenderState_StencilEnabled(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `clipRegion` instead
-    ///
-    pub const ClipRegion = clipRegion;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrendernode-renderstate.html#clipRegion)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGRenderNode__RenderState `
-    ///
-    pub fn clipRegion(self: QSGRenderNode__RenderState) QRegion {
-        return .{ .ptr = qtc.QSGRenderNode__RenderState_ClipRegion(@ptrCast(self.ptr)) };
-    }
 
     /// ### DEPRECATED: Use `get` instead
     ///

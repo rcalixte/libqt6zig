@@ -105,417 +105,308 @@ libqt_string KFontAction_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KFontAction_SuperMetaObject(const KFontAction* self) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_MetaObject_IsBase(true);
-        return (QMetaObject*)vkfontaction->metaObject();
-    } else {
-        return (QMetaObject*)self->KFontAction::metaObject();
-    }
+    return (QMetaObject*)self->KFontAction::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontAction_OnMetaObject(const KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_MetaObject_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_MetaObject_Callback>(slot));
+void KFontAction_OnMetaObject(KFontAction* self, intptr_t slot) {
+    if (auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self)))
+        vkfontaction->kfontaction_metaobject_callback = reinterpret_cast<VirtualKFontAction::KFontAction_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KFontAction_SuperMetacast(KFontAction* self, const char* param1) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_Metacast_IsBase(true);
-        return vkfontaction->qt_metacast(param1);
-    } else {
-        return self->KFontAction::qt_metacast(param1);
-    }
+    return self->KFontAction::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnMetacast(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_Metacast_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_Metacast_Callback>(slot));
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self))
+        vkfontaction->kfontaction_metacast_callback = reinterpret_cast<VirtualKFontAction::KFontAction_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KFontAction_SuperMetacall(KFontAction* self, int param1, int param2, void** param3) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_Metacall_IsBase(true);
-        return vkfontaction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KFontAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KFontAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnMetacall(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_Metacall_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_Metacall_Callback>(slot));
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self))
+        vkfontaction->kfontaction_metacall_callback = reinterpret_cast<VirtualKFontAction::KFontAction_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QWidget* KFontAction_SuperCreateWidget(KFontAction* self, QWidget* parent) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_CreateWidget_IsBase(true);
-        return vkfontaction->createWidget(parent);
-    } else {
-        return self->KFontAction::createWidget(parent);
-    }
+    return self->KFontAction::createWidget(parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnCreateWidget(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_CreateWidget_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_CreateWidget_Callback>(slot));
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self))
+        vkfontaction->kfontaction_createwidget_callback = reinterpret_cast<VirtualKFontAction::KFontAction_CreateWidget_Callback>(slot);
 }
 
 // Derived class handler implementation
 QAction* KFontAction_RemoveAction(KFontAction* self, QAction* action) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        return vkfontaction->removeAction(action);
-    } else {
-        return self->KFontAction::removeAction(action);
-    }
+    return self->removeAction(action);
 }
 
 // Base class handler implementation
 QAction* KFontAction_SuperRemoveAction(KFontAction* self, QAction* action) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_RemoveAction_IsBase(true);
-        return vkfontaction->removeAction(action);
-    } else {
-        return self->KFontAction::removeAction(action);
-    }
+    return self->KFontAction::removeAction(action);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnRemoveAction(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_RemoveAction_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_RemoveAction_Callback>(slot));
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self))
+        vkfontaction->kfontaction_removeaction_callback = reinterpret_cast<VirtualKFontAction::KFontAction_RemoveAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontAction_InsertAction(KFontAction* self, QAction* before, QAction* action) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->insertAction(before, action);
-    } else {
-        self->KFontAction::insertAction(before, action);
-    }
+    self->insertAction(before, action);
 }
 
 // Base class handler implementation
 void KFontAction_SuperInsertAction(KFontAction* self, QAction* before, QAction* action) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_InsertAction_IsBase(true);
-        vkfontaction->insertAction(before, action);
-    } else {
-        self->KFontAction::insertAction(before, action);
-    }
+    self->KFontAction::insertAction(before, action);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnInsertAction(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_InsertAction_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_InsertAction_Callback>(slot));
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self))
+        vkfontaction->kfontaction_insertaction_callback = reinterpret_cast<VirtualKFontAction::KFontAction_InsertAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontAction_SlotActionTriggered(KFontAction* self, QAction* action) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction) {
         vkfontaction->slotActionTriggered(action);
     } else {
-        ((VirtualKFontAction*)self)->slotActionTriggered(action);
+        qFatal("Error: Protected virtual method KFontAction::slotActionTriggered called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontAction_SuperSlotActionTriggered(KFontAction* self, QAction* action) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_SlotActionTriggered_IsBase(true);
-        vkfontaction->slotActionTriggered(action);
-    } else {
-        ((VirtualKFontAction*)self)->slotActionTriggered(action);
-    }
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self)) {
+        vkfontaction->KFontAction::slotActionTriggered(action);
+    } else
+        qFatal("Error: Protected virtual method KFontAction::slotActionTriggered called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnSlotActionTriggered(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_SlotActionTriggered_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_SlotActionTriggered_Callback>(slot));
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self))
+        vkfontaction->kfontaction_slotactiontriggered_callback = reinterpret_cast<VirtualKFontAction::KFontAction_SlotActionTriggered_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontAction_DeleteWidget(KFontAction* self, QWidget* widget) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction) {
         vkfontaction->deleteWidget(widget);
     } else {
-        ((VirtualKFontAction*)self)->deleteWidget(widget);
+        qFatal("Error: Protected virtual method KFontAction::deleteWidget called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontAction_SuperDeleteWidget(KFontAction* self, QWidget* widget) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_DeleteWidget_IsBase(true);
-        vkfontaction->deleteWidget(widget);
-    } else {
-        ((VirtualKFontAction*)self)->deleteWidget(widget);
-    }
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self)) {
+        vkfontaction->KFontAction::deleteWidget(widget);
+    } else
+        qFatal("Error: Protected virtual method KFontAction::deleteWidget called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnDeleteWidget(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_DeleteWidget_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_DeleteWidget_Callback>(slot));
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self))
+        vkfontaction->kfontaction_deletewidget_callback = reinterpret_cast<VirtualKFontAction::KFontAction_DeleteWidget_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFontAction_Event(KFontAction* self, QEvent* event) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction) {
         return vkfontaction->event(event);
     } else {
-        return ((VirtualKFontAction*)self)->event(event);
+        qFatal("Error: Protected virtual method KFontAction::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFontAction_SuperEvent(KFontAction* self, QEvent* event) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_Event_IsBase(true);
-        return vkfontaction->event(event);
-    } else {
-        return ((VirtualKFontAction*)self)->event(event);
-    }
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self)) {
+        return vkfontaction->KFontAction::event(event);
+    } else
+        qFatal("Error: Protected virtual method KFontAction::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnEvent(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_Event_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_Event_Callback>(slot));
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self))
+        vkfontaction->kfontaction_event_callback = reinterpret_cast<VirtualKFontAction::KFontAction_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFontAction_EventFilter(KFontAction* self, QObject* watched, QEvent* event) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction) {
         return vkfontaction->eventFilter(watched, event);
     } else {
-        return ((VirtualKFontAction*)self)->eventFilter(watched, event);
+        qFatal("Error: Protected virtual method KFontAction::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFontAction_SuperEventFilter(KFontAction* self, QObject* watched, QEvent* event) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_EventFilter_IsBase(true);
-        return vkfontaction->eventFilter(watched, event);
-    } else {
-        return ((VirtualKFontAction*)self)->eventFilter(watched, event);
-    }
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self)) {
+        return vkfontaction->KFontAction::eventFilter(watched, event);
+    } else
+        qFatal("Error: Protected virtual method KFontAction::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnEventFilter(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_EventFilter_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_EventFilter_Callback>(slot));
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self))
+        vkfontaction->kfontaction_eventfilter_callback = reinterpret_cast<VirtualKFontAction::KFontAction_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontAction_TimerEvent(KFontAction* self, QTimerEvent* event) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction) {
         vkfontaction->timerEvent(event);
     } else {
-        ((VirtualKFontAction*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KFontAction::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontAction_SuperTimerEvent(KFontAction* self, QTimerEvent* event) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_TimerEvent_IsBase(true);
-        vkfontaction->timerEvent(event);
-    } else {
-        ((VirtualKFontAction*)self)->timerEvent(event);
-    }
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self)) {
+        vkfontaction->KFontAction::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontAction::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnTimerEvent(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_TimerEvent_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_TimerEvent_Callback>(slot));
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self))
+        vkfontaction->kfontaction_timerevent_callback = reinterpret_cast<VirtualKFontAction::KFontAction_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontAction_ChildEvent(KFontAction* self, QChildEvent* event) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction) {
         vkfontaction->childEvent(event);
     } else {
-        ((VirtualKFontAction*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KFontAction::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontAction_SuperChildEvent(KFontAction* self, QChildEvent* event) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_ChildEvent_IsBase(true);
-        vkfontaction->childEvent(event);
-    } else {
-        ((VirtualKFontAction*)self)->childEvent(event);
-    }
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self)) {
+        vkfontaction->KFontAction::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontAction::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnChildEvent(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_ChildEvent_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_ChildEvent_Callback>(slot));
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self))
+        vkfontaction->kfontaction_childevent_callback = reinterpret_cast<VirtualKFontAction::KFontAction_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontAction_CustomEvent(KFontAction* self, QEvent* event) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction) {
         vkfontaction->customEvent(event);
     } else {
-        ((VirtualKFontAction*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KFontAction::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontAction_SuperCustomEvent(KFontAction* self, QEvent* event) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_CustomEvent_IsBase(true);
-        vkfontaction->customEvent(event);
-    } else {
-        ((VirtualKFontAction*)self)->customEvent(event);
-    }
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self)) {
+        vkfontaction->KFontAction::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontAction::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnCustomEvent(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_CustomEvent_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_CustomEvent_Callback>(slot));
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self))
+        vkfontaction->kfontaction_customevent_callback = reinterpret_cast<VirtualKFontAction::KFontAction_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontAction_ConnectNotify(KFontAction* self, const QMetaMethod* signal) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction) {
         vkfontaction->connectNotify(*signal);
     } else {
-        ((VirtualKFontAction*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KFontAction::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontAction_SuperConnectNotify(KFontAction* self, const QMetaMethod* signal) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_ConnectNotify_IsBase(true);
-        vkfontaction->connectNotify(*signal);
-    } else {
-        ((VirtualKFontAction*)self)->connectNotify(*signal);
-    }
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self)) {
+        vkfontaction->KFontAction::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFontAction::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnConnectNotify(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_ConnectNotify_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_ConnectNotify_Callback>(slot));
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self))
+        vkfontaction->kfontaction_connectnotify_callback = reinterpret_cast<VirtualKFontAction::KFontAction_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontAction_DisconnectNotify(KFontAction* self, const QMetaMethod* signal) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction) {
         vkfontaction->disconnectNotify(*signal);
     } else {
-        ((VirtualKFontAction*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KFontAction::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontAction_SuperDisconnectNotify(KFontAction* self, const QMetaMethod* signal) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_DisconnectNotify_IsBase(true);
-        vkfontaction->disconnectNotify(*signal);
-    } else {
-        ((VirtualKFontAction*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self)) {
+        vkfontaction->KFontAction::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFontAction::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnDisconnectNotify(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_DisconnectNotify_Callback>(slot));
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self))
+        vkfontaction->kfontaction_disconnectnotify_callback = reinterpret_cast<VirtualKFontAction::KFontAction_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFontAction_SlotToggled(KFontAction* self, bool param1) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->slotToggled(param1);
-    } else {
-        ((VirtualKFontAction*)self)->slotToggled(param1);
-    }
+    if (auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self)) {
+        vkfontaction->VirtualKFontAction::slotToggled(param1);
+    } else
+        qFatal("Error: Protected method KFontAction::slotToggled called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFontAction_SuperSlotToggled(KFontAction* self, bool param1) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_SlotToggled_IsBase(true);
-        vkfontaction->slotToggled(param1);
-    } else {
-        ((VirtualKFontAction*)self)->slotToggled(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontAction_OnSlotToggled(KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_SlotToggled_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_SlotToggled_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of QWidget* */ KFontAction_CreatedWidgets(const KFontAction* self) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        QList<QWidget*> _ret = vkfontaction->createdWidgets();
+    if (auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self))) {
+        QList<QWidget*> _ret = vkfontaction->VirtualKFontAction::createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
         QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -525,166 +416,40 @@ libqt_list /* of QWidget* */ KFontAction_CreatedWidgets(const KFontAction* self)
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QWidget*> _ret = ((VirtualKFontAction*)self)->createdWidgets();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KFontAction::createdWidgets called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of QWidget* */ KFontAction_SuperCreatedWidgets(const KFontAction* self) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_CreatedWidgets_IsBase(true);
-        QList<QWidget*> _ret = vkfontaction->createdWidgets();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QWidget*> _ret = ((VirtualKFontAction*)self)->createdWidgets();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontAction_OnCreatedWidgets(const KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_CreatedWidgets_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_CreatedWidgets_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KFontAction_Sender(const KFontAction* self) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        return vkfontaction->sender();
-    } else {
-        return ((VirtualKFontAction*)self)->sender();
-    }
+    if (auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self))) {
+        return vkfontaction->VirtualKFontAction::sender();
+    } else
+        qFatal("Error: Protected method KFontAction::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KFontAction_SuperSender(const KFontAction* self) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_Sender_IsBase(true);
-        return vkfontaction->sender();
-    } else {
-        return ((VirtualKFontAction*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontAction_OnSender(const KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_Sender_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFontAction_SenderSignalIndex(const KFontAction* self) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        return vkfontaction->senderSignalIndex();
-    } else {
-        return ((VirtualKFontAction*)self)->senderSignalIndex();
-    }
+    if (auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self))) {
+        return vkfontaction->VirtualKFontAction::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KFontAction::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFontAction_SuperSenderSignalIndex(const KFontAction* self) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_SenderSignalIndex_IsBase(true);
-        return vkfontaction->senderSignalIndex();
-    } else {
-        return ((VirtualKFontAction*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontAction_OnSenderSignalIndex(const KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFontAction_Receivers(const KFontAction* self, const char* signal) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        return vkfontaction->receivers(signal);
-    } else {
-        return ((VirtualKFontAction*)self)->receivers(signal);
-    }
+    if (auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self))) {
+        return vkfontaction->VirtualKFontAction::receivers(signal);
+    } else
+        qFatal("Error: Protected method KFontAction::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFontAction_SuperReceivers(const KFontAction* self, const char* signal) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_Receivers_IsBase(true);
-        return vkfontaction->receivers(signal);
-    } else {
-        return ((VirtualKFontAction*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontAction_OnReceivers(const KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_Receivers_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFontAction_IsSignalConnected(const KFontAction* self, const QMetaMethod* signal) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        return vkfontaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFontAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KFontAction_SuperIsSignalConnected(const KFontAction* self, const QMetaMethod* signal) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        vkfontaction->setKFontAction_IsSignalConnected_IsBase(true);
-        return vkfontaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFontAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontAction_OnIsSignalConnected(const KFontAction* self, intptr_t slot) {
-    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction)
-        vkfontaction->setKFontAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_IsSignalConnected_Callback>(slot));
+    if (auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self))) {
+        return vkfontaction->VirtualKFontAction::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KFontAction::isSignalConnected called without a directly constructed type");
 }
 
 void KFontAction_Delete(KFontAction* self) {

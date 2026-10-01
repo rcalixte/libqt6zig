@@ -107,9 +107,9 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QWebSocketServer) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QWebSocketServer, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QWebSocketServer, callback: *const fn (QWebSocketServer) callconv(.c) QMetaObject) void {
         qtc.QWebSocketServer_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -550,9 +550,9 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` callback: *const fn () callconv(.c) QWebSocket `
+    /// ` callback: *const fn (self: QWebSocketServer) callconv(.c) QWebSocket `
     ///
-    pub fn onNextPendingConnection(self: QWebSocketServer, callback: *const fn () callconv(.c) QWebSocket) void {
+    pub fn onNextPendingConnection(self: QWebSocketServer, callback: *const fn (QWebSocketServer) callconv(.c) QWebSocket) void {
         qtc.QWebSocketServer_OnNextPendingConnection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2728,44 +2728,6 @@ pub const QWebSocketServer = extern struct {
         return .{ .ptr = qtc.QWebSocketServer_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebSocketServer `
-    ///
-    pub fn superSender(self: QWebSocketServer) QObject {
-        return .{ .ptr = qtc.QWebSocketServer_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWebSocketServer`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QWebSocketServer, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QWebSocketServer_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2782,44 +2744,6 @@ pub const QWebSocketServer = extern struct {
     ///
     pub fn senderSignalIndex(self: QWebSocketServer) i32 {
         return qtc.QWebSocketServer_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebSocketServer `
-    ///
-    pub fn superSenderSignalIndex(self: QWebSocketServer) i32 {
-        return qtc.QWebSocketServer_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWebSocketServer`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QWebSocketServer, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWebSocketServer_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2843,47 +2767,6 @@ pub const QWebSocketServer = extern struct {
         return qtc.QWebSocketServer_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebSocketServer `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QWebSocketServer, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QWebSocketServer_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWebSocketServer`
-    ///
-    /// ` callback: *const fn (self: QWebSocketServer, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QWebSocketServer, callback: *const fn (QWebSocketServer, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QWebSocketServer_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2903,47 +2786,6 @@ pub const QWebSocketServer = extern struct {
     pub fn isSignalConnected(self: QWebSocketServer, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QWebSocketServer_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebSocketServer `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QWebSocketServer, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QWebSocketServer_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWebSocketServer`
-    ///
-    /// ` callback: *const fn (self: QWebSocketServer, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QMetaMethod) callconv(.c) bool) void {
-        qtc.QWebSocketServer_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -136,7 +136,7 @@ QNetworkProxy* QTcpServer_Proxy(const QTcpServer* self) {
 
 void QTcpServer_IncomingConnection(QTcpServer* self, intptr_t handle) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver) {
         vqtcpserver->incomingConnection((qintptr)(handle));
     }
 }
@@ -210,446 +210,263 @@ bool QTcpServer_WaitForNewConnection2(QTcpServer* self, int msec, bool* timedOut
 
 // Base class handler implementation
 QMetaObject* QTcpServer_SuperMetaObject(const QTcpServer* self) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_MetaObject_IsBase(true);
-        return (QMetaObject*)vqtcpserver->metaObject();
-    } else {
-        return (QMetaObject*)self->QTcpServer::metaObject();
-    }
+    return (QMetaObject*)self->QTcpServer::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTcpServer_OnMetaObject(const QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_MetaObject_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_MetaObject_Callback>(slot));
+void QTcpServer_OnMetaObject(QTcpServer* self, intptr_t slot) {
+    if (auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self)))
+        vqtcpserver->qtcpserver_metaobject_callback = reinterpret_cast<VirtualQTcpServer::QTcpServer_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QTcpServer_SuperMetacast(QTcpServer* self, const char* param1) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_Metacast_IsBase(true);
-        return vqtcpserver->qt_metacast(param1);
-    } else {
-        return self->QTcpServer::qt_metacast(param1);
-    }
+    return self->QTcpServer::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnMetacast(QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_Metacast_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_Metacast_Callback>(slot));
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self))
+        vqtcpserver->qtcpserver_metacast_callback = reinterpret_cast<VirtualQTcpServer::QTcpServer_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QTcpServer_SuperMetacall(QTcpServer* self, int param1, int param2, void** param3) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_Metacall_IsBase(true);
-        return vqtcpserver->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QTcpServer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QTcpServer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnMetacall(QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_Metacall_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_Metacall_Callback>(slot));
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self))
+        vqtcpserver->qtcpserver_metacall_callback = reinterpret_cast<VirtualQTcpServer::QTcpServer_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QTcpServer_SuperHasPendingConnections(const QTcpServer* self) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_HasPendingConnections_IsBase(true);
-        return vqtcpserver->hasPendingConnections();
-    } else {
-        return self->QTcpServer::hasPendingConnections();
-    }
+    return self->QTcpServer::hasPendingConnections();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTcpServer_OnHasPendingConnections(const QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_HasPendingConnections_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_HasPendingConnections_Callback>(slot));
+void QTcpServer_OnHasPendingConnections(QTcpServer* self, intptr_t slot) {
+    if (auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self)))
+        vqtcpserver->qtcpserver_haspendingconnections_callback = reinterpret_cast<VirtualQTcpServer::QTcpServer_HasPendingConnections_Callback>(slot);
 }
 
 // Base class handler implementation
 QTcpSocket* QTcpServer_SuperNextPendingConnection(QTcpServer* self) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_NextPendingConnection_IsBase(true);
-        return vqtcpserver->nextPendingConnection();
-    } else {
-        return self->QTcpServer::nextPendingConnection();
-    }
+    return self->QTcpServer::nextPendingConnection();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnNextPendingConnection(QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_NextPendingConnection_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_NextPendingConnection_Callback>(slot));
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self))
+        vqtcpserver->qtcpserver_nextpendingconnection_callback = reinterpret_cast<VirtualQTcpServer::QTcpServer_NextPendingConnection_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTcpServer_SuperIncomingConnection(QTcpServer* self, intptr_t handle) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_IncomingConnection_IsBase(true);
-        vqtcpserver->incomingConnection((qintptr)(handle));
-    } else {
-        ((VirtualQTcpServer*)self)->incomingConnection((qintptr)(handle));
-    }
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self)) {
+        vqtcpserver->QTcpServer::incomingConnection((qintptr)(handle));
+    } else
+        qFatal("Error: Protected virtual method QTcpServer::incomingConnection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnIncomingConnection(QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_IncomingConnection_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_IncomingConnection_Callback>(slot));
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self))
+        vqtcpserver->qtcpserver_incomingconnection_callback = reinterpret_cast<VirtualQTcpServer::QTcpServer_IncomingConnection_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTcpServer_Event(QTcpServer* self, QEvent* event) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        return vqtcpserver->event(event);
-    } else {
-        return self->QTcpServer::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QTcpServer_SuperEvent(QTcpServer* self, QEvent* event) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_Event_IsBase(true);
-        return vqtcpserver->event(event);
-    } else {
-        return self->QTcpServer::event(event);
-    }
+    return self->QTcpServer::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnEvent(QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_Event_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_Event_Callback>(slot));
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self))
+        vqtcpserver->qtcpserver_event_callback = reinterpret_cast<VirtualQTcpServer::QTcpServer_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTcpServer_EventFilter(QTcpServer* self, QObject* watched, QEvent* event) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        return vqtcpserver->eventFilter(watched, event);
-    } else {
-        return self->QTcpServer::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QTcpServer_SuperEventFilter(QTcpServer* self, QObject* watched, QEvent* event) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_EventFilter_IsBase(true);
-        return vqtcpserver->eventFilter(watched, event);
-    } else {
-        return self->QTcpServer::eventFilter(watched, event);
-    }
+    return self->QTcpServer::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnEventFilter(QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_EventFilter_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_EventFilter_Callback>(slot));
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self))
+        vqtcpserver->qtcpserver_eventfilter_callback = reinterpret_cast<VirtualQTcpServer::QTcpServer_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTcpServer_TimerEvent(QTcpServer* self, QTimerEvent* event) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver) {
         vqtcpserver->timerEvent(event);
     } else {
-        ((VirtualQTcpServer*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QTcpServer::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTcpServer_SuperTimerEvent(QTcpServer* self, QTimerEvent* event) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_TimerEvent_IsBase(true);
-        vqtcpserver->timerEvent(event);
-    } else {
-        ((VirtualQTcpServer*)self)->timerEvent(event);
-    }
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self)) {
+        vqtcpserver->QTcpServer::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTcpServer::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnTimerEvent(QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_TimerEvent_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_TimerEvent_Callback>(slot));
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self))
+        vqtcpserver->qtcpserver_timerevent_callback = reinterpret_cast<VirtualQTcpServer::QTcpServer_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTcpServer_ChildEvent(QTcpServer* self, QChildEvent* event) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver) {
         vqtcpserver->childEvent(event);
     } else {
-        ((VirtualQTcpServer*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QTcpServer::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTcpServer_SuperChildEvent(QTcpServer* self, QChildEvent* event) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_ChildEvent_IsBase(true);
-        vqtcpserver->childEvent(event);
-    } else {
-        ((VirtualQTcpServer*)self)->childEvent(event);
-    }
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self)) {
+        vqtcpserver->QTcpServer::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTcpServer::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnChildEvent(QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_ChildEvent_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_ChildEvent_Callback>(slot));
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self))
+        vqtcpserver->qtcpserver_childevent_callback = reinterpret_cast<VirtualQTcpServer::QTcpServer_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTcpServer_CustomEvent(QTcpServer* self, QEvent* event) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver) {
         vqtcpserver->customEvent(event);
     } else {
-        ((VirtualQTcpServer*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QTcpServer::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTcpServer_SuperCustomEvent(QTcpServer* self, QEvent* event) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_CustomEvent_IsBase(true);
-        vqtcpserver->customEvent(event);
-    } else {
-        ((VirtualQTcpServer*)self)->customEvent(event);
-    }
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self)) {
+        vqtcpserver->QTcpServer::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTcpServer::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnCustomEvent(QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_CustomEvent_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_CustomEvent_Callback>(slot));
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self))
+        vqtcpserver->qtcpserver_customevent_callback = reinterpret_cast<VirtualQTcpServer::QTcpServer_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTcpServer_ConnectNotify(QTcpServer* self, const QMetaMethod* signal) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver) {
         vqtcpserver->connectNotify(*signal);
     } else {
-        ((VirtualQTcpServer*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QTcpServer::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTcpServer_SuperConnectNotify(QTcpServer* self, const QMetaMethod* signal) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_ConnectNotify_IsBase(true);
-        vqtcpserver->connectNotify(*signal);
-    } else {
-        ((VirtualQTcpServer*)self)->connectNotify(*signal);
-    }
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self)) {
+        vqtcpserver->QTcpServer::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTcpServer::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnConnectNotify(QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_ConnectNotify_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_ConnectNotify_Callback>(slot));
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self))
+        vqtcpserver->qtcpserver_connectnotify_callback = reinterpret_cast<VirtualQTcpServer::QTcpServer_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTcpServer_DisconnectNotify(QTcpServer* self, const QMetaMethod* signal) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver) {
         vqtcpserver->disconnectNotify(*signal);
     } else {
-        ((VirtualQTcpServer*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QTcpServer::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTcpServer_SuperDisconnectNotify(QTcpServer* self, const QMetaMethod* signal) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_DisconnectNotify_IsBase(true);
-        vqtcpserver->disconnectNotify(*signal);
-    } else {
-        ((VirtualQTcpServer*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self)) {
+        vqtcpserver->QTcpServer::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTcpServer::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnDisconnectNotify(QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_DisconnectNotify_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_DisconnectNotify_Callback>(slot));
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self))
+        vqtcpserver->qtcpserver_disconnectnotify_callback = reinterpret_cast<VirtualQTcpServer::QTcpServer_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTcpServer_AddPendingConnection(QTcpServer* self, QTcpSocket* socket) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->addPendingConnection(socket);
-    } else {
-        ((VirtualQTcpServer*)self)->addPendingConnection(socket);
-    }
+    if (auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self)) {
+        vqtcpserver->VirtualQTcpServer::addPendingConnection(socket);
+    } else
+        qFatal("Error: Protected method QTcpServer::addPendingConnection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTcpServer_SuperAddPendingConnection(QTcpServer* self, QTcpSocket* socket) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_AddPendingConnection_IsBase(true);
-        vqtcpserver->addPendingConnection(socket);
-    } else {
-        ((VirtualQTcpServer*)self)->addPendingConnection(socket);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTcpServer_OnAddPendingConnection(QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_AddPendingConnection_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_AddPendingConnection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QTcpServer_Sender(const QTcpServer* self) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        return vqtcpserver->sender();
-    } else {
-        return ((VirtualQTcpServer*)self)->sender();
-    }
+    if (auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self))) {
+        return vqtcpserver->VirtualQTcpServer::sender();
+    } else
+        qFatal("Error: Protected method QTcpServer::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QTcpServer_SuperSender(const QTcpServer* self) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_Sender_IsBase(true);
-        return vqtcpserver->sender();
-    } else {
-        return ((VirtualQTcpServer*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTcpServer_OnSender(const QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_Sender_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTcpServer_SenderSignalIndex(const QTcpServer* self) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        return vqtcpserver->senderSignalIndex();
-    } else {
-        return ((VirtualQTcpServer*)self)->senderSignalIndex();
-    }
+    if (auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self))) {
+        return vqtcpserver->VirtualQTcpServer::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QTcpServer::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTcpServer_SuperSenderSignalIndex(const QTcpServer* self) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_SenderSignalIndex_IsBase(true);
-        return vqtcpserver->senderSignalIndex();
-    } else {
-        return ((VirtualQTcpServer*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTcpServer_OnSenderSignalIndex(const QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTcpServer_Receivers(const QTcpServer* self, const char* signal) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        return vqtcpserver->receivers(signal);
-    } else {
-        return ((VirtualQTcpServer*)self)->receivers(signal);
-    }
+    if (auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self))) {
+        return vqtcpserver->VirtualQTcpServer::receivers(signal);
+    } else
+        qFatal("Error: Protected method QTcpServer::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTcpServer_SuperReceivers(const QTcpServer* self, const char* signal) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_Receivers_IsBase(true);
-        return vqtcpserver->receivers(signal);
-    } else {
-        return ((VirtualQTcpServer*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTcpServer_OnReceivers(const QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_Receivers_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTcpServer_IsSignalConnected(const QTcpServer* self, const QMetaMethod* signal) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        return vqtcpserver->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTcpServer*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QTcpServer_SuperIsSignalConnected(const QTcpServer* self, const QMetaMethod* signal) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        vqtcpserver->setQTcpServer_IsSignalConnected_IsBase(true);
-        return vqtcpserver->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTcpServer*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTcpServer_OnIsSignalConnected(const QTcpServer* self, intptr_t slot) {
-    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
-        vqtcpserver->setQTcpServer_IsSignalConnected_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_IsSignalConnected_Callback>(slot));
+    if (auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self))) {
+        return vqtcpserver->VirtualQTcpServer::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QTcpServer::isSignalConnected called without a directly constructed type");
 }
 
 void QTcpServer_Connect_PendingConnectionAvailable(QTcpServer* self, intptr_t slot) {

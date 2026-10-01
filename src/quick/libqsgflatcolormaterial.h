@@ -28,11 +28,11 @@ QSGMaterialShader* QSGFlatColorMaterial_CreateShader(const QSGFlatColorMaterial*
 void QSGFlatColorMaterial_SetColor(QSGFlatColorMaterial* self, const QColor* color);
 QColor* QSGFlatColorMaterial_Color(const QSGFlatColorMaterial* self);
 int QSGFlatColorMaterial_Compare(const QSGFlatColorMaterial* self, const QSGMaterial* other);
-void QSGFlatColorMaterial_OnType(const QSGFlatColorMaterial* self, intptr_t slot);
+void QSGFlatColorMaterial_OnType(QSGFlatColorMaterial* self, intptr_t slot);
 QSGMaterialType* QSGFlatColorMaterial_SuperType(const QSGFlatColorMaterial* self);
-void QSGFlatColorMaterial_OnCreateShader(const QSGFlatColorMaterial* self, intptr_t slot);
+void QSGFlatColorMaterial_OnCreateShader(QSGFlatColorMaterial* self, intptr_t slot);
 QSGMaterialShader* QSGFlatColorMaterial_SuperCreateShader(const QSGFlatColorMaterial* self, int renderMode);
-void QSGFlatColorMaterial_OnCompare(const QSGFlatColorMaterial* self, intptr_t slot);
+void QSGFlatColorMaterial_OnCompare(QSGFlatColorMaterial* self, intptr_t slot);
 int QSGFlatColorMaterial_SuperCompare(const QSGFlatColorMaterial* self, const QSGMaterial* other);
 void QSGFlatColorMaterial_Delete(QSGFlatColorMaterial* self);
 

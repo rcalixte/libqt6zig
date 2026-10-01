@@ -452,259 +452,193 @@ void QTextToSpeech_Pause1(QTextToSpeech* self, int boundaryHint) {
 
 // Base class handler implementation
 QMetaObject* QTextToSpeech_SuperMetaObject(const QTextToSpeech* self) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_MetaObject_IsBase(true);
-        return (QMetaObject*)vqtexttospeech->metaObject();
-    } else {
-        return (QMetaObject*)self->QTextToSpeech::metaObject();
-    }
+    return (QMetaObject*)self->QTextToSpeech::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTextToSpeech_OnMetaObject(const QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_MetaObject_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_MetaObject_Callback>(slot));
+void QTextToSpeech_OnMetaObject(QTextToSpeech* self, intptr_t slot) {
+    if (auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self)))
+        vqtexttospeech->qtexttospeech_metaobject_callback = reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QTextToSpeech_SuperMetacast(QTextToSpeech* self, const char* param1) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_Metacast_IsBase(true);
-        return vqtexttospeech->qt_metacast(param1);
-    } else {
-        return self->QTextToSpeech::qt_metacast(param1);
-    }
+    return self->QTextToSpeech::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnMetacast(QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_Metacast_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_Metacast_Callback>(slot));
+    if (auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self))
+        vqtexttospeech->qtexttospeech_metacast_callback = reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QTextToSpeech_SuperMetacall(QTextToSpeech* self, int param1, int param2, void** param3) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_Metacall_IsBase(true);
-        return vqtexttospeech->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QTextToSpeech::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QTextToSpeech::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnMetacall(QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_Metacall_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_Metacall_Callback>(slot));
+    if (auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self))
+        vqtexttospeech->qtexttospeech_metacall_callback = reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTextToSpeech_Event(QTextToSpeech* self, QEvent* event) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        return vqtexttospeech->event(event);
-    } else {
-        return self->QTextToSpeech::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QTextToSpeech_SuperEvent(QTextToSpeech* self, QEvent* event) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_Event_IsBase(true);
-        return vqtexttospeech->event(event);
-    } else {
-        return self->QTextToSpeech::event(event);
-    }
+    return self->QTextToSpeech::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnEvent(QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_Event_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_Event_Callback>(slot));
+    if (auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self))
+        vqtexttospeech->qtexttospeech_event_callback = reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTextToSpeech_EventFilter(QTextToSpeech* self, QObject* watched, QEvent* event) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        return vqtexttospeech->eventFilter(watched, event);
-    } else {
-        return self->QTextToSpeech::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QTextToSpeech_SuperEventFilter(QTextToSpeech* self, QObject* watched, QEvent* event) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_EventFilter_IsBase(true);
-        return vqtexttospeech->eventFilter(watched, event);
-    } else {
-        return self->QTextToSpeech::eventFilter(watched, event);
-    }
+    return self->QTextToSpeech::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnEventFilter(QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_EventFilter_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_EventFilter_Callback>(slot));
+    if (auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self))
+        vqtexttospeech->qtexttospeech_eventfilter_callback = reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextToSpeech_TimerEvent(QTextToSpeech* self, QTimerEvent* event) {
     auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech) {
         vqtexttospeech->timerEvent(event);
     } else {
-        ((VirtualQTextToSpeech*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QTextToSpeech::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextToSpeech_SuperTimerEvent(QTextToSpeech* self, QTimerEvent* event) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_TimerEvent_IsBase(true);
-        vqtexttospeech->timerEvent(event);
-    } else {
-        ((VirtualQTextToSpeech*)self)->timerEvent(event);
-    }
+    if (auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self)) {
+        vqtexttospeech->QTextToSpeech::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTextToSpeech::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnTimerEvent(QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_TimerEvent_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_TimerEvent_Callback>(slot));
+    if (auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self))
+        vqtexttospeech->qtexttospeech_timerevent_callback = reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextToSpeech_ChildEvent(QTextToSpeech* self, QChildEvent* event) {
     auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech) {
         vqtexttospeech->childEvent(event);
     } else {
-        ((VirtualQTextToSpeech*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QTextToSpeech::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextToSpeech_SuperChildEvent(QTextToSpeech* self, QChildEvent* event) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_ChildEvent_IsBase(true);
-        vqtexttospeech->childEvent(event);
-    } else {
-        ((VirtualQTextToSpeech*)self)->childEvent(event);
-    }
+    if (auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self)) {
+        vqtexttospeech->QTextToSpeech::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTextToSpeech::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnChildEvent(QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_ChildEvent_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_ChildEvent_Callback>(slot));
+    if (auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self))
+        vqtexttospeech->qtexttospeech_childevent_callback = reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextToSpeech_CustomEvent(QTextToSpeech* self, QEvent* event) {
     auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech) {
         vqtexttospeech->customEvent(event);
     } else {
-        ((VirtualQTextToSpeech*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QTextToSpeech::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextToSpeech_SuperCustomEvent(QTextToSpeech* self, QEvent* event) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_CustomEvent_IsBase(true);
-        vqtexttospeech->customEvent(event);
-    } else {
-        ((VirtualQTextToSpeech*)self)->customEvent(event);
-    }
+    if (auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self)) {
+        vqtexttospeech->QTextToSpeech::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTextToSpeech::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnCustomEvent(QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_CustomEvent_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_CustomEvent_Callback>(slot));
+    if (auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self))
+        vqtexttospeech->qtexttospeech_customevent_callback = reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextToSpeech_ConnectNotify(QTextToSpeech* self, const QMetaMethod* signal) {
     auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech) {
         vqtexttospeech->connectNotify(*signal);
     } else {
-        ((VirtualQTextToSpeech*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QTextToSpeech::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextToSpeech_SuperConnectNotify(QTextToSpeech* self, const QMetaMethod* signal) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_ConnectNotify_IsBase(true);
-        vqtexttospeech->connectNotify(*signal);
-    } else {
-        ((VirtualQTextToSpeech*)self)->connectNotify(*signal);
-    }
+    if (auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self)) {
+        vqtexttospeech->QTextToSpeech::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTextToSpeech::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnConnectNotify(QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_ConnectNotify_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_ConnectNotify_Callback>(slot));
+    if (auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self))
+        vqtexttospeech->qtexttospeech_connectnotify_callback = reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextToSpeech_DisconnectNotify(QTextToSpeech* self, const QMetaMethod* signal) {
     auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech) {
         vqtexttospeech->disconnectNotify(*signal);
     } else {
-        ((VirtualQTextToSpeech*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QTextToSpeech::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextToSpeech_SuperDisconnectNotify(QTextToSpeech* self, const QMetaMethod* signal) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_DisconnectNotify_IsBase(true);
-        vqtexttospeech->disconnectNotify(*signal);
-    } else {
-        ((VirtualQTextToSpeech*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self)) {
+        vqtexttospeech->QTextToSpeech::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTextToSpeech::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnDisconnectNotify(QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_DisconnectNotify_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_DisconnectNotify_Callback>(slot));
+    if (auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self))
+        vqtexttospeech->qtexttospeech_disconnectnotify_callback = reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of QVoice* */ QTextToSpeech_AllVoices(const QTextToSpeech* self, const QLocale* locale) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        QList<QVoice> _ret = vqtexttospeech->allVoices(locale);
+    if (auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self))) {
+        QList<QVoice> _ret = vqtexttospeech->VirtualQTextToSpeech::allVoices(locale);
         // Convert QList<> from C++ memory to manually-managed C memory
         QVoice** _arr = static_cast<QVoice**>(malloc(sizeof(QVoice*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -714,166 +648,40 @@ libqt_list /* of QVoice* */ QTextToSpeech_AllVoices(const QTextToSpeech* self, c
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QVoice> _ret = ((VirtualQTextToSpeech*)self)->allVoices(locale);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QVoice** _arr = static_cast<QVoice**>(malloc(sizeof(QVoice*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QVoice(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method QTextToSpeech::allVoices called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of QVoice* */ QTextToSpeech_SuperAllVoices(const QTextToSpeech* self, const QLocale* locale) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_AllVoices_IsBase(true);
-        QList<QVoice> _ret = vqtexttospeech->allVoices(locale);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QVoice** _arr = static_cast<QVoice**>(malloc(sizeof(QVoice*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QVoice(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QVoice> _ret = ((VirtualQTextToSpeech*)self)->allVoices(locale);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QVoice** _arr = static_cast<QVoice**>(malloc(sizeof(QVoice*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QVoice(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextToSpeech_OnAllVoices(const QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_AllVoices_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_AllVoices_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QTextToSpeech_Sender(const QTextToSpeech* self) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        return vqtexttospeech->sender();
-    } else {
-        return ((VirtualQTextToSpeech*)self)->sender();
-    }
+    if (auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self))) {
+        return vqtexttospeech->VirtualQTextToSpeech::sender();
+    } else
+        qFatal("Error: Protected method QTextToSpeech::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QTextToSpeech_SuperSender(const QTextToSpeech* self) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_Sender_IsBase(true);
-        return vqtexttospeech->sender();
-    } else {
-        return ((VirtualQTextToSpeech*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextToSpeech_OnSender(const QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_Sender_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTextToSpeech_SenderSignalIndex(const QTextToSpeech* self) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        return vqtexttospeech->senderSignalIndex();
-    } else {
-        return ((VirtualQTextToSpeech*)self)->senderSignalIndex();
-    }
+    if (auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self))) {
+        return vqtexttospeech->VirtualQTextToSpeech::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QTextToSpeech::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTextToSpeech_SuperSenderSignalIndex(const QTextToSpeech* self) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_SenderSignalIndex_IsBase(true);
-        return vqtexttospeech->senderSignalIndex();
-    } else {
-        return ((VirtualQTextToSpeech*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextToSpeech_OnSenderSignalIndex(const QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTextToSpeech_Receivers(const QTextToSpeech* self, const char* signal) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        return vqtexttospeech->receivers(signal);
-    } else {
-        return ((VirtualQTextToSpeech*)self)->receivers(signal);
-    }
+    if (auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self))) {
+        return vqtexttospeech->VirtualQTextToSpeech::receivers(signal);
+    } else
+        qFatal("Error: Protected method QTextToSpeech::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTextToSpeech_SuperReceivers(const QTextToSpeech* self, const char* signal) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_Receivers_IsBase(true);
-        return vqtexttospeech->receivers(signal);
-    } else {
-        return ((VirtualQTextToSpeech*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextToSpeech_OnReceivers(const QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_Receivers_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTextToSpeech_IsSignalConnected(const QTextToSpeech* self, const QMetaMethod* signal) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        return vqtexttospeech->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTextToSpeech*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QTextToSpeech_SuperIsSignalConnected(const QTextToSpeech* self, const QMetaMethod* signal) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        vqtexttospeech->setQTextToSpeech_IsSignalConnected_IsBase(true);
-        return vqtexttospeech->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTextToSpeech*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextToSpeech_OnIsSignalConnected(const QTextToSpeech* self, intptr_t slot) {
-    auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
-        vqtexttospeech->setQTextToSpeech_IsSignalConnected_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_IsSignalConnected_Callback>(slot));
+    if (auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self))) {
+        return vqtexttospeech->VirtualQTextToSpeech::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QTextToSpeech::isSignalConnected called without a directly constructed type");
 }
 
 void QTextToSpeech_Delete(QTextToSpeech* self) {

@@ -164,364 +164,219 @@ libqt_string QPluginLoader_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QPluginLoader_SuperMetaObject(const QPluginLoader* self) {
-    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_MetaObject_IsBase(true);
-        return (QMetaObject*)vqpluginloader->metaObject();
-    } else {
-        return (QMetaObject*)self->QPluginLoader::metaObject();
-    }
+    return (QMetaObject*)self->QPluginLoader::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPluginLoader_OnMetaObject(const QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
-        vqpluginloader->setQPluginLoader_MetaObject_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_MetaObject_Callback>(slot));
+void QPluginLoader_OnMetaObject(QPluginLoader* self, intptr_t slot) {
+    if (auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self)))
+        vqpluginloader->qpluginloader_metaobject_callback = reinterpret_cast<VirtualQPluginLoader::QPluginLoader_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPluginLoader_SuperMetacast(QPluginLoader* self, const char* param1) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_Metacast_IsBase(true);
-        return vqpluginloader->qt_metacast(param1);
-    } else {
-        return self->QPluginLoader::qt_metacast(param1);
-    }
+    return self->QPluginLoader::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnMetacast(QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
-        vqpluginloader->setQPluginLoader_Metacast_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Metacast_Callback>(slot));
+    if (auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self))
+        vqpluginloader->qpluginloader_metacast_callback = reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPluginLoader_SuperMetacall(QPluginLoader* self, int param1, int param2, void** param3) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_Metacall_IsBase(true);
-        return vqpluginloader->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPluginLoader::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPluginLoader::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnMetacall(QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
-        vqpluginloader->setQPluginLoader_Metacall_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Metacall_Callback>(slot));
+    if (auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self))
+        vqpluginloader->qpluginloader_metacall_callback = reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPluginLoader_Event(QPluginLoader* self, QEvent* event) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        return vqpluginloader->event(event);
-    } else {
-        return self->QPluginLoader::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QPluginLoader_SuperEvent(QPluginLoader* self, QEvent* event) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_Event_IsBase(true);
-        return vqpluginloader->event(event);
-    } else {
-        return self->QPluginLoader::event(event);
-    }
+    return self->QPluginLoader::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnEvent(QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
-        vqpluginloader->setQPluginLoader_Event_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Event_Callback>(slot));
+    if (auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self))
+        vqpluginloader->qpluginloader_event_callback = reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPluginLoader_EventFilter(QPluginLoader* self, QObject* watched, QEvent* event) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        return vqpluginloader->eventFilter(watched, event);
-    } else {
-        return self->QPluginLoader::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QPluginLoader_SuperEventFilter(QPluginLoader* self, QObject* watched, QEvent* event) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_EventFilter_IsBase(true);
-        return vqpluginloader->eventFilter(watched, event);
-    } else {
-        return self->QPluginLoader::eventFilter(watched, event);
-    }
+    return self->QPluginLoader::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnEventFilter(QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
-        vqpluginloader->setQPluginLoader_EventFilter_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_EventFilter_Callback>(slot));
+    if (auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self))
+        vqpluginloader->qpluginloader_eventfilter_callback = reinterpret_cast<VirtualQPluginLoader::QPluginLoader_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPluginLoader_TimerEvent(QPluginLoader* self, QTimerEvent* event) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader) {
         vqpluginloader->timerEvent(event);
     } else {
-        ((VirtualQPluginLoader*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPluginLoader::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPluginLoader_SuperTimerEvent(QPluginLoader* self, QTimerEvent* event) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_TimerEvent_IsBase(true);
-        vqpluginloader->timerEvent(event);
-    } else {
-        ((VirtualQPluginLoader*)self)->timerEvent(event);
-    }
+    if (auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self)) {
+        vqpluginloader->QPluginLoader::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPluginLoader::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnTimerEvent(QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
-        vqpluginloader->setQPluginLoader_TimerEvent_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_TimerEvent_Callback>(slot));
+    if (auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self))
+        vqpluginloader->qpluginloader_timerevent_callback = reinterpret_cast<VirtualQPluginLoader::QPluginLoader_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPluginLoader_ChildEvent(QPluginLoader* self, QChildEvent* event) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader) {
         vqpluginloader->childEvent(event);
     } else {
-        ((VirtualQPluginLoader*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPluginLoader::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPluginLoader_SuperChildEvent(QPluginLoader* self, QChildEvent* event) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_ChildEvent_IsBase(true);
-        vqpluginloader->childEvent(event);
-    } else {
-        ((VirtualQPluginLoader*)self)->childEvent(event);
-    }
+    if (auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self)) {
+        vqpluginloader->QPluginLoader::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPluginLoader::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnChildEvent(QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
-        vqpluginloader->setQPluginLoader_ChildEvent_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_ChildEvent_Callback>(slot));
+    if (auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self))
+        vqpluginloader->qpluginloader_childevent_callback = reinterpret_cast<VirtualQPluginLoader::QPluginLoader_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPluginLoader_CustomEvent(QPluginLoader* self, QEvent* event) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader) {
         vqpluginloader->customEvent(event);
     } else {
-        ((VirtualQPluginLoader*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPluginLoader::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPluginLoader_SuperCustomEvent(QPluginLoader* self, QEvent* event) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_CustomEvent_IsBase(true);
-        vqpluginloader->customEvent(event);
-    } else {
-        ((VirtualQPluginLoader*)self)->customEvent(event);
-    }
+    if (auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self)) {
+        vqpluginloader->QPluginLoader::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPluginLoader::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnCustomEvent(QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
-        vqpluginloader->setQPluginLoader_CustomEvent_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_CustomEvent_Callback>(slot));
+    if (auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self))
+        vqpluginloader->qpluginloader_customevent_callback = reinterpret_cast<VirtualQPluginLoader::QPluginLoader_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPluginLoader_ConnectNotify(QPluginLoader* self, const QMetaMethod* signal) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader) {
         vqpluginloader->connectNotify(*signal);
     } else {
-        ((VirtualQPluginLoader*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPluginLoader::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPluginLoader_SuperConnectNotify(QPluginLoader* self, const QMetaMethod* signal) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_ConnectNotify_IsBase(true);
-        vqpluginloader->connectNotify(*signal);
-    } else {
-        ((VirtualQPluginLoader*)self)->connectNotify(*signal);
-    }
+    if (auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self)) {
+        vqpluginloader->QPluginLoader::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPluginLoader::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnConnectNotify(QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
-        vqpluginloader->setQPluginLoader_ConnectNotify_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_ConnectNotify_Callback>(slot));
+    if (auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self))
+        vqpluginloader->qpluginloader_connectnotify_callback = reinterpret_cast<VirtualQPluginLoader::QPluginLoader_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPluginLoader_DisconnectNotify(QPluginLoader* self, const QMetaMethod* signal) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader) {
         vqpluginloader->disconnectNotify(*signal);
     } else {
-        ((VirtualQPluginLoader*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPluginLoader::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPluginLoader_SuperDisconnectNotify(QPluginLoader* self, const QMetaMethod* signal) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_DisconnectNotify_IsBase(true);
-        vqpluginloader->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPluginLoader*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self)) {
+        vqpluginloader->QPluginLoader::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPluginLoader::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnDisconnectNotify(QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
-        vqpluginloader->setQPluginLoader_DisconnectNotify_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_DisconnectNotify_Callback>(slot));
+    if (auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self))
+        vqpluginloader->qpluginloader_disconnectnotify_callback = reinterpret_cast<VirtualQPluginLoader::QPluginLoader_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPluginLoader_Sender(const QPluginLoader* self) {
-    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        return vqpluginloader->sender();
-    } else {
-        return ((VirtualQPluginLoader*)self)->sender();
-    }
+    if (auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self))) {
+        return vqpluginloader->VirtualQPluginLoader::sender();
+    } else
+        qFatal("Error: Protected method QPluginLoader::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPluginLoader_SuperSender(const QPluginLoader* self) {
-    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_Sender_IsBase(true);
-        return vqpluginloader->sender();
-    } else {
-        return ((VirtualQPluginLoader*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPluginLoader_OnSender(const QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
-        vqpluginloader->setQPluginLoader_Sender_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPluginLoader_SenderSignalIndex(const QPluginLoader* self) {
-    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        return vqpluginloader->senderSignalIndex();
-    } else {
-        return ((VirtualQPluginLoader*)self)->senderSignalIndex();
-    }
+    if (auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self))) {
+        return vqpluginloader->VirtualQPluginLoader::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPluginLoader::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPluginLoader_SuperSenderSignalIndex(const QPluginLoader* self) {
-    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_SenderSignalIndex_IsBase(true);
-        return vqpluginloader->senderSignalIndex();
-    } else {
-        return ((VirtualQPluginLoader*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPluginLoader_OnSenderSignalIndex(const QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
-        vqpluginloader->setQPluginLoader_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPluginLoader_Receivers(const QPluginLoader* self, const char* signal) {
-    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        return vqpluginloader->receivers(signal);
-    } else {
-        return ((VirtualQPluginLoader*)self)->receivers(signal);
-    }
+    if (auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self))) {
+        return vqpluginloader->VirtualQPluginLoader::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPluginLoader::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPluginLoader_SuperReceivers(const QPluginLoader* self, const char* signal) {
-    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_Receivers_IsBase(true);
-        return vqpluginloader->receivers(signal);
-    } else {
-        return ((VirtualQPluginLoader*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPluginLoader_OnReceivers(const QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
-        vqpluginloader->setQPluginLoader_Receivers_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPluginLoader_IsSignalConnected(const QPluginLoader* self, const QMetaMethod* signal) {
-    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        return vqpluginloader->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPluginLoader*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QPluginLoader_SuperIsSignalConnected(const QPluginLoader* self, const QMetaMethod* signal) {
-    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        vqpluginloader->setQPluginLoader_IsSignalConnected_IsBase(true);
-        return vqpluginloader->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPluginLoader*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPluginLoader_OnIsSignalConnected(const QPluginLoader* self, intptr_t slot) {
-    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
-        vqpluginloader->setQPluginLoader_IsSignalConnected_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_IsSignalConnected_Callback>(slot));
+    if (auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self))) {
+        return vqpluginloader->VirtualQPluginLoader::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPluginLoader::isSignalConnected called without a directly constructed type");
 }
 
 void QPluginLoader_Delete(QPluginLoader* self) {

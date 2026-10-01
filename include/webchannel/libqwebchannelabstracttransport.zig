@@ -77,9 +77,9 @@ pub const QWebChannelAbstractTransport = extern struct {
     ///
     /// ` self: QWebChannelAbstractTransport `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QWebChannelAbstractTransport) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QWebChannelAbstractTransport, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QWebChannelAbstractTransport, callback: *const fn (QWebChannelAbstractTransport) callconv(.c) QMetaObject) void {
         qtc.QWebChannelAbstractTransport_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -230,6 +230,8 @@ pub const QWebChannelAbstractTransport = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannelabstracttransport.html#sendMessage)
     ///
+    /// This method must be implemented with `onSendMessage` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QWebChannelAbstractTransport `
@@ -257,25 +259,6 @@ pub const QWebChannelAbstractTransport = extern struct {
     ///
     pub fn onSendMessage(self: QWebChannelAbstractTransport, callback: *const fn (QWebChannelAbstractTransport, QJsonObject) callconv(.c) void) void {
         qtc.QWebChannelAbstractTransport_OnSendMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSendMessage` instead
-    ///
-    pub const SuperSendMessage = superSendMessage;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannelabstracttransport.html#sendMessage)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebChannelAbstractTransport `
-    ///
-    /// ` message: QJsonObject `
-    ///
-    pub fn superSendMessage(self: QWebChannelAbstractTransport, message: anytype) void {
-        comptime _ = @TypeOf(message)._is_QJsonObject;
-        qtc.QWebChannelAbstractTransport_SuperSendMessage(@ptrCast(self.ptr), @ptrCast(message.ptr));
     }
 
     /// ### DEPRECATED: Use `messageReceived` instead
@@ -1791,44 +1774,6 @@ pub const QWebChannelAbstractTransport = extern struct {
         return .{ .ptr = qtc.QWebChannelAbstractTransport_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebChannelAbstractTransport `
-    ///
-    pub fn superSender(self: QWebChannelAbstractTransport) QObject {
-        return .{ .ptr = qtc.QWebChannelAbstractTransport_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWebChannelAbstractTransport`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QWebChannelAbstractTransport, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QWebChannelAbstractTransport_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1845,44 +1790,6 @@ pub const QWebChannelAbstractTransport = extern struct {
     ///
     pub fn senderSignalIndex(self: QWebChannelAbstractTransport) i32 {
         return qtc.QWebChannelAbstractTransport_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebChannelAbstractTransport `
-    ///
-    pub fn superSenderSignalIndex(self: QWebChannelAbstractTransport) i32 {
-        return qtc.QWebChannelAbstractTransport_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWebChannelAbstractTransport`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QWebChannelAbstractTransport, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWebChannelAbstractTransport_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1906,47 +1813,6 @@ pub const QWebChannelAbstractTransport = extern struct {
         return qtc.QWebChannelAbstractTransport_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebChannelAbstractTransport `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QWebChannelAbstractTransport, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QWebChannelAbstractTransport_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWebChannelAbstractTransport`
-    ///
-    /// ` callback: *const fn (self: QWebChannelAbstractTransport, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QWebChannelAbstractTransport, callback: *const fn (QWebChannelAbstractTransport, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QWebChannelAbstractTransport_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -1966,47 +1832,6 @@ pub const QWebChannelAbstractTransport = extern struct {
     pub fn isSignalConnected(self: QWebChannelAbstractTransport, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QWebChannelAbstractTransport_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebChannelAbstractTransport `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QWebChannelAbstractTransport, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QWebChannelAbstractTransport_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWebChannelAbstractTransport`
-    ///
-    /// ` callback: *const fn (self: QWebChannelAbstractTransport, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QWebChannelAbstractTransport, callback: *const fn (QWebChannelAbstractTransport, QMetaMethod) callconv(.c) bool) void {
-        qtc.QWebChannelAbstractTransport_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

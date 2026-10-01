@@ -190,69 +190,69 @@ void QOpenGLWidget_Connect_Resized(QOpenGLWidget* self, intptr_t slot) {
 
 void QOpenGLWidget_InitializeGL(QOpenGLWidget* self) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->initializeGL();
     }
 }
 
 void QOpenGLWidget_ResizeGL(QOpenGLWidget* self, int w, int h) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->resizeGL(static_cast<int>(w), static_cast<int>(h));
     }
 }
 
 void QOpenGLWidget_PaintGL(QOpenGLWidget* self) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->paintGL();
     }
 }
 
 void QOpenGLWidget_PaintEvent(QOpenGLWidget* self, QPaintEvent* e) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->paintEvent(e);
     }
 }
 
 void QOpenGLWidget_ResizeEvent(QOpenGLWidget* self, QResizeEvent* e) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->resizeEvent(e);
     }
 }
 
 bool QOpenGLWidget_Event(QOpenGLWidget* self, QEvent* e) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         return vqopenglwidget->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QOpenGLWidget::event called without a directly constructed type");
 }
 
 int QOpenGLWidget_Metric(const QOpenGLWidget* self, int metric) {
     auto* vqopenglwidget = dynamic_cast<const VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         return vqopenglwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
     }
-    return {};
+    qFatal("Error: Protected method QOpenGLWidget::metric called without a directly constructed type");
 }
 
 QPaintDevice* QOpenGLWidget_Redirected(const QOpenGLWidget* self, QPoint* p) {
     auto* vqopenglwidget = dynamic_cast<const VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         return vqopenglwidget->redirected(p);
     }
-    return {};
+    qFatal("Error: Protected method QOpenGLWidget::redirected called without a directly constructed type");
 }
 
 QPaintEngine* QOpenGLWidget_PaintEngine(const QOpenGLWidget* self) {
     auto* vqopenglwidget = dynamic_cast<const VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         return vqopenglwidget->paintEngine();
     }
-    return {};
+    qFatal("Error: Protected method QOpenGLWidget::paintEngine called without a directly constructed type");
 }
 
 libqt_string QOpenGLWidget_Tr2(const char* s, const char* c) {
@@ -281,1648 +281,1163 @@ libqt_string QOpenGLWidget_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QOpenGLWidget_SuperMetaObject(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vqopenglwidget->metaObject();
-    } else {
-        return (QMetaObject*)self->QOpenGLWidget::metaObject();
-    }
+    return (QMetaObject*)self->QOpenGLWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnMetaObject(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MetaObject_Callback>(slot));
+void QOpenGLWidget_OnMetaObject(QOpenGLWidget* self, intptr_t slot) {
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self)))
+        vqopenglwidget->qopenglwidget_metaobject_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QOpenGLWidget_SuperMetacast(QOpenGLWidget* self, const char* param1) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_Metacast_IsBase(true);
-        return vqopenglwidget->qt_metacast(param1);
-    } else {
-        return self->QOpenGLWidget::qt_metacast(param1);
-    }
+    return self->QOpenGLWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMetacast(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_Metacast_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Metacast_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_metacast_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QOpenGLWidget_SuperMetacall(QOpenGLWidget* self, int param1, int param2, void** param3) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_Metacall_IsBase(true);
-        return vqopenglwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QOpenGLWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QOpenGLWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMetacall(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_Metacall_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Metacall_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_metacall_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperInitializeGL(QOpenGLWidget* self) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_InitializeGL_IsBase(true);
-        vqopenglwidget->initializeGL();
-    } else {
-        ((VirtualQOpenGLWidget*)self)->initializeGL();
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::initializeGL();
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::initializeGL called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnInitializeGL(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_InitializeGL_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_InitializeGL_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_initializegl_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_InitializeGL_Callback>(slot);
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperResizeGL(QOpenGLWidget* self, int w, int h) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_ResizeGL_IsBase(true);
-        vqopenglwidget->resizeGL(static_cast<int>(w), static_cast<int>(h));
-    } else {
-        ((VirtualQOpenGLWidget*)self)->resizeGL(static_cast<int>(w), static_cast<int>(h));
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::resizeGL(static_cast<int>(w), static_cast<int>(h));
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::resizeGL called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnResizeGL(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_ResizeGL_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ResizeGL_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_resizegl_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ResizeGL_Callback>(slot);
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperPaintGL(QOpenGLWidget* self) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_PaintGL_IsBase(true);
-        vqopenglwidget->paintGL();
-    } else {
-        ((VirtualQOpenGLWidget*)self)->paintGL();
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::paintGL();
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::paintGL called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnPaintGL(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_PaintGL_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_PaintGL_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_paintgl_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_PaintGL_Callback>(slot);
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperPaintEvent(QOpenGLWidget* self, QPaintEvent* e) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_PaintEvent_IsBase(true);
-        vqopenglwidget->paintEvent(e);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->paintEvent(e);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnPaintEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_PaintEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_PaintEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_paintevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperResizeEvent(QOpenGLWidget* self, QResizeEvent* e) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_ResizeEvent_IsBase(true);
-        vqopenglwidget->resizeEvent(e);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->resizeEvent(e);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::resizeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnResizeEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ResizeEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_resizeevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QOpenGLWidget_SuperEvent(QOpenGLWidget* self, QEvent* e) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_Event_IsBase(true);
-        return vqopenglwidget->event(e);
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->event(e);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        return vqopenglwidget->QOpenGLWidget::event(e);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_Event_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Event_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_event_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 int QOpenGLWidget_SuperMetric(const QOpenGLWidget* self, int metric) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_Metric_IsBase(true);
-        return vqopenglwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
-    }
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self))) {
+        return vqopenglwidget->QOpenGLWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnMetric(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_Metric_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Metric_Callback>(slot));
+void QOpenGLWidget_OnMetric(QOpenGLWidget* self, intptr_t slot) {
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self)))
+        vqopenglwidget->qopenglwidget_metric_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Metric_Callback>(slot);
 }
 
 // Base class handler implementation
 QPaintDevice* QOpenGLWidget_SuperRedirected(const QOpenGLWidget* self, QPoint* p) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_Redirected_IsBase(true);
-        return vqopenglwidget->redirected(p);
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->redirected(p);
-    }
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self))) {
+        return vqopenglwidget->QOpenGLWidget::redirected(p);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnRedirected(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_Redirected_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Redirected_Callback>(slot));
+void QOpenGLWidget_OnRedirected(QOpenGLWidget* self, intptr_t slot) {
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self)))
+        vqopenglwidget->qopenglwidget_redirected_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Redirected_Callback>(slot);
 }
 
 // Base class handler implementation
 QPaintEngine* QOpenGLWidget_SuperPaintEngine(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_PaintEngine_IsBase(true);
-        return vqopenglwidget->paintEngine();
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->paintEngine();
-    }
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self))) {
+        return vqopenglwidget->QOpenGLWidget::paintEngine();
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::paintEngine called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnPaintEngine(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_PaintEngine_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_PaintEngine_Callback>(slot));
+void QOpenGLWidget_OnPaintEngine(QOpenGLWidget* self, intptr_t slot) {
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self)))
+        vqopenglwidget->qopenglwidget_paintengine_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QOpenGLWidget_DevType(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        return vqopenglwidget->devType();
-    } else {
-        return self->QOpenGLWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QOpenGLWidget_SuperDevType(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_DevType_IsBase(true);
-        return vqopenglwidget->devType();
-    } else {
-        return self->QOpenGLWidget::devType();
-    }
+    return self->QOpenGLWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnDevType(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_DevType_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DevType_Callback>(slot));
+void QOpenGLWidget_OnDevType(QOpenGLWidget* self, intptr_t slot) {
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self)))
+        vqopenglwidget->qopenglwidget_devtype_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_SetVisible(QOpenGLWidget* self, bool visible) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setVisible(visible);
-    } else {
-        self->QOpenGLWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperSetVisible(QOpenGLWidget* self, bool visible) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_SetVisible_IsBase(true);
-        vqopenglwidget->setVisible(visible);
-    } else {
-        self->QOpenGLWidget::setVisible(visible);
-    }
+    self->QOpenGLWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnSetVisible(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_SetVisible_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_SetVisible_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_setvisible_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QOpenGLWidget_SizeHint(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        return new QSize(vqopenglwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQOpenGLWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QOpenGLWidget_SuperSizeHint(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_SizeHint_IsBase(true);
-        return new QSize(vqopenglwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQOpenGLWidget*)self)->sizeHint());
-    }
+    return new QSize(self->QOpenGLWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnSizeHint(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_SizeHint_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_SizeHint_Callback>(slot));
+void QOpenGLWidget_OnSizeHint(QOpenGLWidget* self, intptr_t slot) {
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self)))
+        vqopenglwidget->qopenglwidget_sizehint_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QOpenGLWidget_MinimumSizeHint(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        return new QSize(vqopenglwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQOpenGLWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QOpenGLWidget_SuperMinimumSizeHint(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vqopenglwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQOpenGLWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QOpenGLWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnMinimumSizeHint(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MinimumSizeHint_Callback>(slot));
+void QOpenGLWidget_OnMinimumSizeHint(QOpenGLWidget* self, intptr_t slot) {
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self)))
+        vqopenglwidget->qopenglwidget_minimumsizehint_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QOpenGLWidget_HeightForWidth(const QOpenGLWidget* self, int param1) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        return vqopenglwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QOpenGLWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QOpenGLWidget_SuperHeightForWidth(const QOpenGLWidget* self, int param1) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_HeightForWidth_IsBase(true);
-        return vqopenglwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QOpenGLWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QOpenGLWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnHeightForWidth(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_HeightForWidth_Callback>(slot));
+void QOpenGLWidget_OnHeightForWidth(QOpenGLWidget* self, intptr_t slot) {
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self)))
+        vqopenglwidget->qopenglwidget_heightforwidth_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLWidget_HasHeightForWidth(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        return vqopenglwidget->hasHeightForWidth();
-    } else {
-        return self->QOpenGLWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QOpenGLWidget_SuperHasHeightForWidth(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_HasHeightForWidth_IsBase(true);
-        return vqopenglwidget->hasHeightForWidth();
-    } else {
-        return self->QOpenGLWidget::hasHeightForWidth();
-    }
+    return self->QOpenGLWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnHasHeightForWidth(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_HasHeightForWidth_Callback>(slot));
+void QOpenGLWidget_OnHasHeightForWidth(QOpenGLWidget* self, intptr_t slot) {
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self)))
+        vqopenglwidget->qopenglwidget_hasheightforwidth_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_MousePressEvent(QOpenGLWidget* self, QMouseEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->mousePressEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperMousePressEvent(QOpenGLWidget* self, QMouseEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_MousePressEvent_IsBase(true);
-        vqopenglwidget->mousePressEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMousePressEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MousePressEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_mousepressevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_MouseReleaseEvent(QOpenGLWidget* self, QMouseEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperMouseReleaseEvent(QOpenGLWidget* self, QMouseEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_MouseReleaseEvent_IsBase(true);
-        vqopenglwidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMouseReleaseEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_mousereleaseevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_MouseDoubleClickEvent(QOpenGLWidget* self, QMouseEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperMouseDoubleClickEvent(QOpenGLWidget* self, QMouseEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_MouseDoubleClickEvent_IsBase(true);
-        vqopenglwidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMouseDoubleClickEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_MouseMoveEvent(QOpenGLWidget* self, QMouseEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->mouseMoveEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperMouseMoveEvent(QOpenGLWidget* self, QMouseEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_MouseMoveEvent_IsBase(true);
-        vqopenglwidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMouseMoveEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_mousemoveevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_WheelEvent(QOpenGLWidget* self, QWheelEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->wheelEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperWheelEvent(QOpenGLWidget* self, QWheelEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_WheelEvent_IsBase(true);
-        vqopenglwidget->wheelEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnWheelEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_WheelEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_WheelEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_wheelevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_KeyPressEvent(QOpenGLWidget* self, QKeyEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->keyPressEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperKeyPressEvent(QOpenGLWidget* self, QKeyEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_KeyPressEvent_IsBase(true);
-        vqopenglwidget->keyPressEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnKeyPressEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_keypressevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_KeyReleaseEvent(QOpenGLWidget* self, QKeyEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->keyReleaseEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperKeyReleaseEvent(QOpenGLWidget* self, QKeyEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_KeyReleaseEvent_IsBase(true);
-        vqopenglwidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnKeyReleaseEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_keyreleaseevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_FocusInEvent(QOpenGLWidget* self, QFocusEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->focusInEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperFocusInEvent(QOpenGLWidget* self, QFocusEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_FocusInEvent_IsBase(true);
-        vqopenglwidget->focusInEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnFocusInEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_FocusInEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_focusinevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_FocusOutEvent(QOpenGLWidget* self, QFocusEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->focusOutEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperFocusOutEvent(QOpenGLWidget* self, QFocusEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_FocusOutEvent_IsBase(true);
-        vqopenglwidget->focusOutEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnFocusOutEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_focusoutevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_EnterEvent(QOpenGLWidget* self, QEnterEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->enterEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperEnterEvent(QOpenGLWidget* self, QEnterEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_EnterEvent_IsBase(true);
-        vqopenglwidget->enterEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->enterEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnEnterEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_EnterEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_EnterEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_enterevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_LeaveEvent(QOpenGLWidget* self, QEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->leaveEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperLeaveEvent(QOpenGLWidget* self, QEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_LeaveEvent_IsBase(true);
-        vqopenglwidget->leaveEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnLeaveEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_LeaveEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_leaveevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_MoveEvent(QOpenGLWidget* self, QMoveEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->moveEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperMoveEvent(QOpenGLWidget* self, QMoveEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_MoveEvent_IsBase(true);
-        vqopenglwidget->moveEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->moveEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMoveEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_MoveEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MoveEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_moveevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_CloseEvent(QOpenGLWidget* self, QCloseEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->closeEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperCloseEvent(QOpenGLWidget* self, QCloseEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_CloseEvent_IsBase(true);
-        vqopenglwidget->closeEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->closeEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnCloseEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_CloseEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_CloseEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_closeevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_ContextMenuEvent(QOpenGLWidget* self, QContextMenuEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->contextMenuEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperContextMenuEvent(QOpenGLWidget* self, QContextMenuEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_ContextMenuEvent_IsBase(true);
-        vqopenglwidget->contextMenuEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnContextMenuEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_contextmenuevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_TabletEvent(QOpenGLWidget* self, QTabletEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->tabletEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperTabletEvent(QOpenGLWidget* self, QTabletEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_TabletEvent_IsBase(true);
-        vqopenglwidget->tabletEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnTabletEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_TabletEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_TabletEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_tabletevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_ActionEvent(QOpenGLWidget* self, QActionEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->actionEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperActionEvent(QOpenGLWidget* self, QActionEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_ActionEvent_IsBase(true);
-        vqopenglwidget->actionEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->actionEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnActionEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_ActionEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ActionEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_actionevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_DragEnterEvent(QOpenGLWidget* self, QDragEnterEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->dragEnterEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperDragEnterEvent(QOpenGLWidget* self, QDragEnterEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_DragEnterEvent_IsBase(true);
-        vqopenglwidget->dragEnterEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnDragEnterEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_dragenterevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_DragMoveEvent(QOpenGLWidget* self, QDragMoveEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->dragMoveEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperDragMoveEvent(QOpenGLWidget* self, QDragMoveEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_DragMoveEvent_IsBase(true);
-        vqopenglwidget->dragMoveEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnDragMoveEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_dragmoveevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_DragLeaveEvent(QOpenGLWidget* self, QDragLeaveEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->dragLeaveEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperDragLeaveEvent(QOpenGLWidget* self, QDragLeaveEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_DragLeaveEvent_IsBase(true);
-        vqopenglwidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnDragLeaveEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_dragleaveevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_DropEvent(QOpenGLWidget* self, QDropEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->dropEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperDropEvent(QOpenGLWidget* self, QDropEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_DropEvent_IsBase(true);
-        vqopenglwidget->dropEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->dropEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnDropEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_DropEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DropEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_dropevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_ShowEvent(QOpenGLWidget* self, QShowEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->showEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperShowEvent(QOpenGLWidget* self, QShowEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_ShowEvent_IsBase(true);
-        vqopenglwidget->showEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->showEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnShowEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_ShowEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ShowEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_showevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_HideEvent(QOpenGLWidget* self, QHideEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->hideEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperHideEvent(QOpenGLWidget* self, QHideEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_HideEvent_IsBase(true);
-        vqopenglwidget->hideEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->hideEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnHideEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_HideEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_HideEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_hideevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLWidget_NativeEvent(QOpenGLWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
+    if (vqopenglwidget) {
         return vqopenglwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQOpenGLWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QOpenGLWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QOpenGLWidget_SuperNativeEvent(QOpenGLWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_NativeEvent_IsBase(true);
-        return vqopenglwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        return vqopenglwidget->QOpenGLWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnNativeEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_NativeEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_NativeEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_nativeevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_ChangeEvent(QOpenGLWidget* self, QEvent* param1) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->changeEvent(param1);
     } else {
-        ((VirtualQOpenGLWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperChangeEvent(QOpenGLWidget* self, QEvent* param1) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_ChangeEvent_IsBase(true);
-        vqopenglwidget->changeEvent(param1);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnChangeEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ChangeEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_changeevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_InitPainter(const QOpenGLWidget* self, QPainter* painter) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->initPainter(painter);
     } else {
-        ((VirtualQOpenGLWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QOpenGLWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperInitPainter(const QOpenGLWidget* self, QPainter* painter) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_InitPainter_IsBase(true);
-        vqopenglwidget->initPainter(painter);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->initPainter(painter);
-    }
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self))) {
+        vqopenglwidget->QOpenGLWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnInitPainter(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_InitPainter_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_InitPainter_Callback>(slot));
+void QOpenGLWidget_OnInitPainter(QOpenGLWidget* self, intptr_t slot) {
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self)))
+        vqopenglwidget->qopenglwidget_initpainter_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QOpenGLWidget_SharedPainter(const QOpenGLWidget* self) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         return vqopenglwidget->sharedPainter();
     } else {
-        return ((VirtualQOpenGLWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QOpenGLWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QOpenGLWidget_SuperSharedPainter(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_SharedPainter_IsBase(true);
-        return vqopenglwidget->sharedPainter();
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->sharedPainter();
-    }
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self))) {
+        return vqopenglwidget->QOpenGLWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnSharedPainter(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_SharedPainter_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_SharedPainter_Callback>(slot));
+void QOpenGLWidget_OnSharedPainter(QOpenGLWidget* self, intptr_t slot) {
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self)))
+        vqopenglwidget->qopenglwidget_sharedpainter_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_InputMethodEvent(QOpenGLWidget* self, QInputMethodEvent* param1) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->inputMethodEvent(param1);
     } else {
-        ((VirtualQOpenGLWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperInputMethodEvent(QOpenGLWidget* self, QInputMethodEvent* param1) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_InputMethodEvent_IsBase(true);
-        vqopenglwidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnInputMethodEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_inputmethodevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QOpenGLWidget_InputMethodQuery(const QOpenGLWidget* self, int param1) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        return new QVariant(vqopenglwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQOpenGLWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QOpenGLWidget_SuperInputMethodQuery(const QOpenGLWidget* self, int param1) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vqopenglwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQOpenGLWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QOpenGLWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnInputMethodQuery(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_InputMethodQuery_Callback>(slot));
+void QOpenGLWidget_OnInputMethodQuery(QOpenGLWidget* self, intptr_t slot) {
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self)))
+        vqopenglwidget->qopenglwidget_inputmethodquery_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLWidget_FocusNextPrevChild(QOpenGLWidget* self, bool next) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         return vqopenglwidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualQOpenGLWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QOpenGLWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QOpenGLWidget_SuperFocusNextPrevChild(QOpenGLWidget* self, bool next) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_FocusNextPrevChild_IsBase(true);
-        return vqopenglwidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        return vqopenglwidget->QOpenGLWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnFocusNextPrevChild(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_focusnextprevchild_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLWidget_EventFilter(QOpenGLWidget* self, QObject* watched, QEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        return vqopenglwidget->eventFilter(watched, event);
-    } else {
-        return self->QOpenGLWidget::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QOpenGLWidget_SuperEventFilter(QOpenGLWidget* self, QObject* watched, QEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_EventFilter_IsBase(true);
-        return vqopenglwidget->eventFilter(watched, event);
-    } else {
-        return self->QOpenGLWidget::eventFilter(watched, event);
-    }
+    return self->QOpenGLWidget::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnEventFilter(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_EventFilter_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_EventFilter_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_eventfilter_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_TimerEvent(QOpenGLWidget* self, QTimerEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->timerEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperTimerEvent(QOpenGLWidget* self, QTimerEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_TimerEvent_IsBase(true);
-        vqopenglwidget->timerEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->timerEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnTimerEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_TimerEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_TimerEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_timerevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_ChildEvent(QOpenGLWidget* self, QChildEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->childEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperChildEvent(QOpenGLWidget* self, QChildEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_ChildEvent_IsBase(true);
-        vqopenglwidget->childEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->childEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnChildEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_ChildEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ChildEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_childevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_CustomEvent(QOpenGLWidget* self, QEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->customEvent(event);
     } else {
-        ((VirtualQOpenGLWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperCustomEvent(QOpenGLWidget* self, QEvent* event) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_CustomEvent_IsBase(true);
-        vqopenglwidget->customEvent(event);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->customEvent(event);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnCustomEvent(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_CustomEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_CustomEvent_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_customevent_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_ConnectNotify(QOpenGLWidget* self, const QMetaMethod* signal) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->connectNotify(*signal);
     } else {
-        ((VirtualQOpenGLWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QOpenGLWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperConnectNotify(QOpenGLWidget* self, const QMetaMethod* signal) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_ConnectNotify_IsBase(true);
-        vqopenglwidget->connectNotify(*signal);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnConnectNotify(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ConnectNotify_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_connectnotify_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWidget_DisconnectNotify(QOpenGLWidget* self, const QMetaMethod* signal) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget) {
         vqopenglwidget->disconnectNotify(*signal);
     } else {
-        ((VirtualQOpenGLWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QOpenGLWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWidget_SuperDisconnectNotify(QOpenGLWidget* self, const QMetaMethod* signal) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_DisconnectNotify_IsBase(true);
-        vqopenglwidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualQOpenGLWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->QOpenGLWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnDisconnectNotify(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self))
+        vqopenglwidget->qopenglwidget_disconnectnotify_callback = reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QOpenGLWidget_UpdateMicroFocus(QOpenGLWidget* self) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->updateMicroFocus();
-    } else {
-        ((VirtualQOpenGLWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->VirtualQOpenGLWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QOpenGLWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QOpenGLWidget_SuperUpdateMicroFocus(QOpenGLWidget* self) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_UpdateMicroFocus_IsBase(true);
-        vqopenglwidget->updateMicroFocus();
-    } else {
-        ((VirtualQOpenGLWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnUpdateMicroFocus(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QOpenGLWidget_Create(QOpenGLWidget* self) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->create();
-    } else {
-        ((VirtualQOpenGLWidget*)self)->create();
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->VirtualQOpenGLWidget::create();
+    } else
+        qFatal("Error: Protected method QOpenGLWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QOpenGLWidget_SuperCreate(QOpenGLWidget* self) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_Create_IsBase(true);
-        vqopenglwidget->create();
-    } else {
-        ((VirtualQOpenGLWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnCreate(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_Create_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QOpenGLWidget_Destroy(QOpenGLWidget* self) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->destroy();
-    } else {
-        ((VirtualQOpenGLWidget*)self)->destroy();
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        vqopenglwidget->VirtualQOpenGLWidget::destroy();
+    } else
+        qFatal("Error: Protected method QOpenGLWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QOpenGLWidget_SuperDestroy(QOpenGLWidget* self) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_Destroy_IsBase(true);
-        vqopenglwidget->destroy();
-    } else {
-        ((VirtualQOpenGLWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnDestroy(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_Destroy_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QOpenGLWidget_FocusNextChild(QOpenGLWidget* self) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        return vqopenglwidget->focusNextChild();
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->focusNextChild();
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        return vqopenglwidget->VirtualQOpenGLWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method QOpenGLWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QOpenGLWidget_SuperFocusNextChild(QOpenGLWidget* self) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_FocusNextChild_IsBase(true);
-        return vqopenglwidget->focusNextChild();
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnFocusNextChild(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QOpenGLWidget_FocusPreviousChild(QOpenGLWidget* self) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        return vqopenglwidget->focusPreviousChild();
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self)) {
+        return vqopenglwidget->VirtualQOpenGLWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QOpenGLWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QOpenGLWidget_SuperFocusPreviousChild(QOpenGLWidget* self) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_FocusPreviousChild_IsBase(true);
-        return vqopenglwidget->focusPreviousChild();
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnFocusPreviousChild(QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QOpenGLWidget_Sender(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        return vqopenglwidget->sender();
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->sender();
-    }
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self))) {
+        return vqopenglwidget->VirtualQOpenGLWidget::sender();
+    } else
+        qFatal("Error: Protected method QOpenGLWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QOpenGLWidget_SuperSender(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_Sender_IsBase(true);
-        return vqopenglwidget->sender();
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnSender(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_Sender_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QOpenGLWidget_SenderSignalIndex(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        return vqopenglwidget->senderSignalIndex();
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self))) {
+        return vqopenglwidget->VirtualQOpenGLWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QOpenGLWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QOpenGLWidget_SuperSenderSignalIndex(const QOpenGLWidget* self) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_SenderSignalIndex_IsBase(true);
-        return vqopenglwidget->senderSignalIndex();
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnSenderSignalIndex(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QOpenGLWidget_Receivers(const QOpenGLWidget* self, const char* signal) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        return vqopenglwidget->receivers(signal);
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->receivers(signal);
-    }
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self))) {
+        return vqopenglwidget->VirtualQOpenGLWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method QOpenGLWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QOpenGLWidget_SuperReceivers(const QOpenGLWidget* self, const char* signal) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_Receivers_IsBase(true);
-        return vqopenglwidget->receivers(signal);
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnReceivers(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_Receivers_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QOpenGLWidget_IsSignalConnected(const QOpenGLWidget* self, const QMetaMethod* signal) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        return vqopenglwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self))) {
+        return vqopenglwidget->VirtualQOpenGLWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QOpenGLWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QOpenGLWidget_SuperIsSignalConnected(const QOpenGLWidget* self, const QMetaMethod* signal) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_IsSignalConnected_IsBase(true);
-        return vqopenglwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnIsSignalConnected(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QOpenGLWidget_GetDecodedMetricF(const QOpenGLWidget* self, int metricA, int metricB) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        return vqopenglwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QOpenGLWidget_SuperGetDecodedMetricF(const QOpenGLWidget* self, int metricA, int metricB) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
-        vqopenglwidget->setQOpenGLWidget_GetDecodedMetricF_IsBase(true);
-        return vqopenglwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQOpenGLWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWidget_OnGetDecodedMetricF(const QOpenGLWidget* self, intptr_t slot) {
-    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
-        vqopenglwidget->setQOpenGLWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self))) {
+        return vqopenglwidget->VirtualQOpenGLWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QOpenGLWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void QOpenGLWidget_Delete(QOpenGLWidget* self) {

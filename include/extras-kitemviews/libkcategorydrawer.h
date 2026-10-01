@@ -51,19 +51,19 @@ void KCategoryDrawer_MouseButtonDoubleClicked(KCategoryDrawer* self, const QMode
 void KCategoryDrawer_MouseLeft(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect);
 libqt_string KCategoryDrawer_Tr2(const char* s, const char* c);
 libqt_string KCategoryDrawer_Tr3(const char* s, const char* c, int n);
-void KCategoryDrawer_OnMetaObject(const KCategoryDrawer* self, intptr_t slot);
+void KCategoryDrawer_OnMetaObject(KCategoryDrawer* self, intptr_t slot);
 QMetaObject* KCategoryDrawer_SuperMetaObject(const KCategoryDrawer* self);
 void KCategoryDrawer_OnMetacast(KCategoryDrawer* self, intptr_t slot);
 void* KCategoryDrawer_SuperMetacast(KCategoryDrawer* self, const char* param1);
 void KCategoryDrawer_OnMetacall(KCategoryDrawer* self, intptr_t slot);
 int KCategoryDrawer_SuperMetacall(KCategoryDrawer* self, int param1, int param2, void** param3);
-void KCategoryDrawer_OnDrawCategory(const KCategoryDrawer* self, intptr_t slot);
+void KCategoryDrawer_OnDrawCategory(KCategoryDrawer* self, intptr_t slot);
 void KCategoryDrawer_SuperDrawCategory(const KCategoryDrawer* self, const QModelIndex* index, int sortRole, const QStyleOption* option, QPainter* painter);
-void KCategoryDrawer_OnCategoryHeight(const KCategoryDrawer* self, intptr_t slot);
+void KCategoryDrawer_OnCategoryHeight(KCategoryDrawer* self, intptr_t slot);
 int KCategoryDrawer_SuperCategoryHeight(const KCategoryDrawer* self, const QModelIndex* index, const QStyleOption* option);
-void KCategoryDrawer_OnLeftMargin(const KCategoryDrawer* self, intptr_t slot);
+void KCategoryDrawer_OnLeftMargin(KCategoryDrawer* self, intptr_t slot);
 int KCategoryDrawer_SuperLeftMargin(const KCategoryDrawer* self);
-void KCategoryDrawer_OnRightMargin(const KCategoryDrawer* self, intptr_t slot);
+void KCategoryDrawer_OnRightMargin(KCategoryDrawer* self, intptr_t slot);
 int KCategoryDrawer_SuperRightMargin(const KCategoryDrawer* self);
 void KCategoryDrawer_OnMouseButtonPressed(KCategoryDrawer* self, intptr_t slot);
 void KCategoryDrawer_SuperMouseButtonPressed(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
@@ -97,17 +97,9 @@ void KCategoryDrawer_DisconnectNotify(KCategoryDrawer* self, const QMetaMethod* 
 void KCategoryDrawer_OnDisconnectNotify(KCategoryDrawer* self, intptr_t slot);
 void KCategoryDrawer_SuperDisconnectNotify(KCategoryDrawer* self, const QMetaMethod* signal);
 QObject* KCategoryDrawer_Sender(const KCategoryDrawer* self);
-void KCategoryDrawer_OnSender(const KCategoryDrawer* self, intptr_t slot);
-QObject* KCategoryDrawer_SuperSender(const KCategoryDrawer* self);
 int KCategoryDrawer_SenderSignalIndex(const KCategoryDrawer* self);
-void KCategoryDrawer_OnSenderSignalIndex(const KCategoryDrawer* self, intptr_t slot);
-int KCategoryDrawer_SuperSenderSignalIndex(const KCategoryDrawer* self);
 int KCategoryDrawer_Receivers(const KCategoryDrawer* self, const char* signal);
-void KCategoryDrawer_OnReceivers(const KCategoryDrawer* self, intptr_t slot);
-int KCategoryDrawer_SuperReceivers(const KCategoryDrawer* self, const char* signal);
 bool KCategoryDrawer_IsSignalConnected(const KCategoryDrawer* self, const QMetaMethod* signal);
-void KCategoryDrawer_OnIsSignalConnected(const KCategoryDrawer* self, intptr_t slot);
-bool KCategoryDrawer_SuperIsSignalConnected(const KCategoryDrawer* self, const QMetaMethod* signal);
 void KCategoryDrawer_Delete(KCategoryDrawer* self);
 
 #ifdef __cplusplus

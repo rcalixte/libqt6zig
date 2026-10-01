@@ -111,7 +111,7 @@ void QBarSet_Connect_SelectedBarsChanged(QBarSet* self, intptr_t slot);
 libqt_string QBarSet_Tr2(const char* s, const char* c);
 libqt_string QBarSet_Tr3(const char* s, const char* c, int n);
 void QBarSet_Remove2(QBarSet* self, const int index, const int count);
-void QBarSet_OnMetaObject(const QBarSet* self, intptr_t slot);
+void QBarSet_OnMetaObject(QBarSet* self, intptr_t slot);
 QMetaObject* QBarSet_SuperMetaObject(const QBarSet* self);
 void QBarSet_OnMetacast(QBarSet* self, intptr_t slot);
 void* QBarSet_SuperMetacast(QBarSet* self, const char* param1);
@@ -139,17 +139,9 @@ void QBarSet_DisconnectNotify(QBarSet* self, const QMetaMethod* signal);
 void QBarSet_OnDisconnectNotify(QBarSet* self, intptr_t slot);
 void QBarSet_SuperDisconnectNotify(QBarSet* self, const QMetaMethod* signal);
 QObject* QBarSet_Sender(const QBarSet* self);
-void QBarSet_OnSender(const QBarSet* self, intptr_t slot);
-QObject* QBarSet_SuperSender(const QBarSet* self);
 int QBarSet_SenderSignalIndex(const QBarSet* self);
-void QBarSet_OnSenderSignalIndex(const QBarSet* self, intptr_t slot);
-int QBarSet_SuperSenderSignalIndex(const QBarSet* self);
 int QBarSet_Receivers(const QBarSet* self, const char* signal);
-void QBarSet_OnReceivers(const QBarSet* self, intptr_t slot);
-int QBarSet_SuperReceivers(const QBarSet* self, const char* signal);
 bool QBarSet_IsSignalConnected(const QBarSet* self, const QMetaMethod* signal);
-void QBarSet_OnIsSignalConnected(const QBarSet* self, intptr_t slot);
-bool QBarSet_SuperIsSignalConnected(const QBarSet* self, const QMetaMethod* signal);
 void QBarSet_Delete(QBarSet* self);
 
 #ifdef __cplusplus

@@ -166,9 +166,9 @@ pub const QWidget = extern struct {
     ///
     /// ` self: QWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QWidget, callback: *const fn (QWidget) callconv(.c) QMetaObject) void {
         qtc.QWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -339,9 +339,9 @@ pub const QWidget = extern struct {
     ///
     /// ` self: QWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QWidget, callback: *const fn (QWidget) callconv(.c) i32) void {
         qtc.QWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3585,11 +3585,11 @@ pub const QWidget = extern struct {
     ///
     /// ` self: QWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QWidget, callback: *const fn (QWidget) callconv(.c) QSize) void {
         qtc.QWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3635,11 +3635,11 @@ pub const QWidget = extern struct {
     ///
     /// ` self: QWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QWidget, callback: *const fn (QWidget) callconv(.c) QSize) void {
         qtc.QWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3786,9 +3786,9 @@ pub const QWidget = extern struct {
     ///
     /// ` self: QWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QWidget, callback: *const fn (QWidget) callconv(.c) bool) void {
         qtc.QWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4514,9 +4514,9 @@ pub const QWidget = extern struct {
     ///
     /// ` self: QWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QWidget, callback: *const fn (QWidget) callconv(.c) QPaintEngine) void {
         qtc.QWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6467,9 +6467,9 @@ pub const QWidget = extern struct {
     ///
     /// ` self: QWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QWidget, callback: *const fn (QWidget) callconv(.c) QPainter) void {
         qtc.QWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6645,40 +6645,6 @@ pub const QWidget = extern struct {
         qtc.QWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: QWidget) void {
-        qtc.QWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -6693,40 +6659,6 @@ pub const QWidget = extern struct {
         qtc.QWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    pub fn superCreate(self: QWidget) void {
-        qtc.QWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -6739,40 +6671,6 @@ pub const QWidget = extern struct {
     ///
     pub fn destroy(self: QWidget) void {
         qtc.QWidget_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    pub fn superDestroy(self: QWidget) void {
-        qtc.QWidget_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `focusNextPrevChild` instead
@@ -6841,40 +6739,6 @@ pub const QWidget = extern struct {
         return qtc.QWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    pub fn superFocusNextChild(self: QWidget) bool {
-        return qtc.QWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -6887,40 +6751,6 @@ pub const QWidget = extern struct {
     ///
     pub fn focusPreviousChild(self: QWidget) bool {
         return qtc.QWidget_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    pub fn superFocusPreviousChild(self: QWidget) bool {
-        return qtc.QWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -7296,42 +7126,6 @@ pub const QWidget = extern struct {
         qtc.QWidget_UpdateMicroFocus1(@ptrCast(self.ptr), @bitCast(query));
     }
 
-    /// ### DEPRECATED: Use `onUpdateMicroFocus1` instead
-    ///
-    pub const OnUpdateMicroFocus1 = onUpdateMicroFocus1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` callback: *const fn (self: QWidget, query: qnamespace_enums.InputMethodQuery) callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus1(self: QWidget, callback: *const fn (QWidget, i32) callconv(.c) void) void {
-        qtc.QWidget_OnUpdateMicroFocus1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus1` instead
-    ///
-    pub const SuperUpdateMicroFocus1 = superUpdateMicroFocus1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` query: qnamespace_enums.InputMethodQuery `
-    ///
-    pub fn superUpdateMicroFocus1(self: QWidget, query: i32) void {
-        qtc.QWidget_SuperUpdateMicroFocus1(@ptrCast(self.ptr), @bitCast(query));
-    }
-
     /// ### DEPRECATED: Use `create1` instead
     ///
     pub const Create1 = create1;
@@ -7346,42 +7140,6 @@ pub const QWidget = extern struct {
     ///
     pub fn create1(self: QWidget, param1: usize) void {
         qtc.QWidget_Create1(@ptrCast(self.ptr), @bitCast(param1));
-    }
-
-    /// ### DEPRECATED: Use `onCreate1` instead
-    ///
-    pub const OnCreate1 = onCreate1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` callback: *const fn (self: QWidget, param1: usize) callconv(.c) void `
-    ///
-    pub fn onCreate1(self: QWidget, callback: *const fn (QWidget, usize) callconv(.c) void) void {
-        qtc.QWidget_OnCreate1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreate1` instead
-    ///
-    pub const SuperCreate1 = superCreate1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` param1: usize `
-    ///
-    pub fn superCreate1(self: QWidget, param1: usize) void {
-        qtc.QWidget_SuperCreate1(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `create2` instead
@@ -7400,44 +7158,6 @@ pub const QWidget = extern struct {
     ///
     pub fn create2(self: QWidget, param1: usize, initializeWindow: bool) void {
         qtc.QWidget_Create2(@ptrCast(self.ptr), @bitCast(param1), initializeWindow);
-    }
-
-    /// ### DEPRECATED: Use `onCreate2` instead
-    ///
-    pub const OnCreate2 = onCreate2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` callback: *const fn (self: QWidget, param1: usize, initializeWindow: bool) callconv(.c) void `
-    ///
-    pub fn onCreate2(self: QWidget, callback: *const fn (QWidget, usize, bool) callconv(.c) void) void {
-        qtc.QWidget_OnCreate2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreate2` instead
-    ///
-    pub const SuperCreate2 = superCreate2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` param1: usize `
-    ///
-    /// ` initializeWindow: bool `
-    ///
-    pub fn superCreate2(self: QWidget, param1: usize, initializeWindow: bool) void {
-        qtc.QWidget_SuperCreate2(@ptrCast(self.ptr), @bitCast(param1), initializeWindow);
     }
 
     /// ### DEPRECATED: Use `create3` instead
@@ -7460,46 +7180,6 @@ pub const QWidget = extern struct {
         qtc.QWidget_Create3(@ptrCast(self.ptr), @bitCast(param1), initializeWindow, destroyOldWindow);
     }
 
-    /// ### DEPRECATED: Use `onCreate3` instead
-    ///
-    pub const OnCreate3 = onCreate3;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` callback: *const fn (self: QWidget, param1: usize, initializeWindow: bool, destroyOldWindow: bool) callconv(.c) void `
-    ///
-    pub fn onCreate3(self: QWidget, callback: *const fn (QWidget, usize, bool, bool) callconv(.c) void) void {
-        qtc.QWidget_OnCreate3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreate3` instead
-    ///
-    pub const SuperCreate3 = superCreate3;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` param1: usize `
-    ///
-    /// ` initializeWindow: bool `
-    ///
-    /// ` destroyOldWindow: bool `
-    ///
-    pub fn superCreate3(self: QWidget, param1: usize, initializeWindow: bool, destroyOldWindow: bool) void {
-        qtc.QWidget_SuperCreate3(@ptrCast(self.ptr), @bitCast(param1), initializeWindow, destroyOldWindow);
-    }
-
     /// ### DEPRECATED: Use `destroy1` instead
     ///
     pub const Destroy1 = destroy1;
@@ -7514,42 +7194,6 @@ pub const QWidget = extern struct {
     ///
     pub fn destroy1(self: QWidget, destroyWindow: bool) void {
         qtc.QWidget_Destroy1(@ptrCast(self.ptr), destroyWindow);
-    }
-
-    /// ### DEPRECATED: Use `onDestroy1` instead
-    ///
-    pub const OnDestroy1 = onDestroy1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` callback: *const fn (self: QWidget, destroyWindow: bool) callconv(.c) void `
-    ///
-    pub fn onDestroy1(self: QWidget, callback: *const fn (QWidget, bool) callconv(.c) void) void {
-        qtc.QWidget_OnDestroy1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy1` instead
-    ///
-    pub const SuperDestroy1 = superDestroy1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` destroyWindow: bool `
-    ///
-    pub fn superDestroy1(self: QWidget, destroyWindow: bool) void {
-        qtc.QWidget_SuperDestroy1(@ptrCast(self.ptr), destroyWindow);
     }
 
     /// ### DEPRECATED: Use `destroy2` instead
@@ -7568,44 +7212,6 @@ pub const QWidget = extern struct {
     ///
     pub fn destroy2(self: QWidget, destroyWindow: bool, destroySubWindows: bool) void {
         qtc.QWidget_Destroy2(@ptrCast(self.ptr), destroyWindow, destroySubWindows);
-    }
-
-    /// ### DEPRECATED: Use `onDestroy2` instead
-    ///
-    pub const OnDestroy2 = onDestroy2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` callback: *const fn (self: QWidget, destroyWindow: bool, destroySubWindows: bool) callconv(.c) void `
-    ///
-    pub fn onDestroy2(self: QWidget, callback: *const fn (QWidget, bool, bool) callconv(.c) void) void {
-        qtc.QWidget_OnDestroy2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy2` instead
-    ///
-    pub const SuperDestroy2 = superDestroy2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` destroyWindow: bool `
-    ///
-    /// ` destroySubWindows: bool `
-    ///
-    pub fn superDestroy2(self: QWidget, destroyWindow: bool, destroySubWindows: bool) void {
-        qtc.QWidget_SuperDestroy2(@ptrCast(self.ptr), destroyWindow, destroySubWindows);
     }
 
     /// ### DEPRECATED: Use `objectName` instead
@@ -9156,44 +8762,6 @@ pub const QWidget = extern struct {
         return .{ .ptr = qtc.QWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    pub fn superSender(self: QWidget) QObject {
-        return .{ .ptr = qtc.QWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -9210,44 +8778,6 @@ pub const QWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: QWidget) i32 {
         return qtc.QWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    pub fn superSenderSignalIndex(self: QWidget) i32 {
-        return qtc.QWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -9271,47 +8801,6 @@ pub const QWidget = extern struct {
         return qtc.QWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget`
-    ///
-    /// ` callback: *const fn (self: QWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QWidget, callback: *const fn (QWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -9331,47 +8820,6 @@ pub const QWidget = extern struct {
     pub fn isSignalConnected(self: QWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget`
-    ///
-    /// ` callback: *const fn (self: QWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QWidget, callback: *const fn (QWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.QWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -9394,48 +8842,6 @@ pub const QWidget = extern struct {
     ///
     pub fn getDecodedMetricF(self: QWidget, metricA: i32, metricB: i32) f64 {
         return qtc.QWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.QWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWidget`
-    ///
-    /// ` callback: *const fn (self: QWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QWidget, callback: *const fn (QWidget, i32, i32) callconv(.c) f64) void {
-        qtc.QWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

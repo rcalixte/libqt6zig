@@ -42,7 +42,7 @@ void QVideoFrameInput_ReadyToSendVideoFrame(QVideoFrameInput* self);
 void QVideoFrameInput_Connect_ReadyToSendVideoFrame(QVideoFrameInput* self, intptr_t slot);
 libqt_string QVideoFrameInput_Tr2(const char* s, const char* c);
 libqt_string QVideoFrameInput_Tr3(const char* s, const char* c, int n);
-void QVideoFrameInput_OnMetaObject(const QVideoFrameInput* self, intptr_t slot);
+void QVideoFrameInput_OnMetaObject(QVideoFrameInput* self, intptr_t slot);
 QMetaObject* QVideoFrameInput_SuperMetaObject(const QVideoFrameInput* self);
 void QVideoFrameInput_OnMetacast(QVideoFrameInput* self, intptr_t slot);
 void* QVideoFrameInput_SuperMetacast(QVideoFrameInput* self, const char* param1);
@@ -70,17 +70,9 @@ void QVideoFrameInput_DisconnectNotify(QVideoFrameInput* self, const QMetaMethod
 void QVideoFrameInput_OnDisconnectNotify(QVideoFrameInput* self, intptr_t slot);
 void QVideoFrameInput_SuperDisconnectNotify(QVideoFrameInput* self, const QMetaMethod* signal);
 QObject* QVideoFrameInput_Sender(const QVideoFrameInput* self);
-void QVideoFrameInput_OnSender(const QVideoFrameInput* self, intptr_t slot);
-QObject* QVideoFrameInput_SuperSender(const QVideoFrameInput* self);
 int QVideoFrameInput_SenderSignalIndex(const QVideoFrameInput* self);
-void QVideoFrameInput_OnSenderSignalIndex(const QVideoFrameInput* self, intptr_t slot);
-int QVideoFrameInput_SuperSenderSignalIndex(const QVideoFrameInput* self);
 int QVideoFrameInput_Receivers(const QVideoFrameInput* self, const char* signal);
-void QVideoFrameInput_OnReceivers(const QVideoFrameInput* self, intptr_t slot);
-int QVideoFrameInput_SuperReceivers(const QVideoFrameInput* self, const char* signal);
 bool QVideoFrameInput_IsSignalConnected(const QVideoFrameInput* self, const QMetaMethod* signal);
-void QVideoFrameInput_OnIsSignalConnected(const QVideoFrameInput* self, intptr_t slot);
-bool QVideoFrameInput_SuperIsSignalConnected(const QVideoFrameInput* self, const QMetaMethod* signal);
 void QVideoFrameInput_Delete(QVideoFrameInput* self);
 
 #ifdef __cplusplus

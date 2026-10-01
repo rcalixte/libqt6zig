@@ -82,9 +82,9 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
     ///
     /// ` self: QVirtualKeyboardAbstractInputMethod `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QVirtualKeyboardAbstractInputMethod) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn (QVirtualKeyboardAbstractInputMethod) callconv(.c) QMetaObject) void {
         qtc.QVirtualKeyboardAbstractInputMethod_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -263,6 +263,8 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvirtualkeyboardabstractinputmethod.html#inputModes)
     ///
+    /// This method must be implemented with `onInputModes` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QVirtualKeyboardAbstractInputMethod `
@@ -312,44 +314,13 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
         qtc.QVirtualKeyboardAbstractInputMethod_OnInputModes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superInputModes` instead
-    ///
-    pub const SuperInputModes = superInputModes;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvirtualkeyboardabstractinputmethod.html#inputModes)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVirtualKeyboardAbstractInputMethod `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` locale: []const u8 `
-    ///
-    /// ## Returns:
-    ///
-    /// ` []qvirtualkeyboardinputengine_enums.InputMode `
-    ///
-    pub fn superInputModes(self: QVirtualKeyboardAbstractInputMethod, allocator: std.mem.Allocator, locale: []const u8) []i32 {
-        const locale_str = qtc.libqt_string{
-            .len = locale.len,
-            .data = locale.ptr,
-        };
-        const _arr: qtc.libqt_list = qtc.QVirtualKeyboardAbstractInputMethod_SuperInputModes(@ptrCast(self.ptr), locale_str);
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QVirtualKeyboardAbstractInputMethod.inputModes: Memory allocation failed");
-        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data_val[0.._arr.len]);
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `setInputMode` instead
     ///
     pub const SetInputMode = setInputMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvirtualkeyboardabstractinputmethod.html#setInputMode)
+    ///
+    /// This method must be implemented with `onSetInputMode` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -385,35 +356,13 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
         qtc.QVirtualKeyboardAbstractInputMethod_OnSetInputMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetInputMode` instead
-    ///
-    pub const SuperSetInputMode = superSetInputMode;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvirtualkeyboardabstractinputmethod.html#setInputMode)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVirtualKeyboardAbstractInputMethod `
-    ///
-    /// ` locale: []const u8 `
-    ///
-    /// ` inputMode: qvirtualkeyboardinputengine_enums.InputMode `
-    ///
-    pub fn superSetInputMode(self: QVirtualKeyboardAbstractInputMethod, locale: []const u8, inputMode: i32) bool {
-        const locale_str = qtc.libqt_string{
-            .len = locale.len,
-            .data = locale.ptr,
-        };
-        return qtc.QVirtualKeyboardAbstractInputMethod_SuperSetInputMode(@ptrCast(self.ptr), locale_str, @bitCast(inputMode));
-    }
-
     /// ### DEPRECATED: Use `setTextCase` instead
     ///
     pub const SetTextCase = setTextCase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvirtualkeyboardabstractinputmethod.html#setTextCase)
+    ///
+    /// This method must be implemented with `onSetTextCase` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -443,29 +392,13 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
         qtc.QVirtualKeyboardAbstractInputMethod_OnSetTextCase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetTextCase` instead
-    ///
-    pub const SuperSetTextCase = superSetTextCase;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvirtualkeyboardabstractinputmethod.html#setTextCase)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVirtualKeyboardAbstractInputMethod `
-    ///
-    /// ` textCase: qvirtualkeyboardinputengine_enums.TextCase `
-    ///
-    pub fn superSetTextCase(self: QVirtualKeyboardAbstractInputMethod, textCase: i32) bool {
-        return qtc.QVirtualKeyboardAbstractInputMethod_SuperSetTextCase(@ptrCast(self.ptr), @bitCast(textCase));
-    }
-
     /// ### DEPRECATED: Use `keyEvent` instead
     ///
     pub const KeyEvent = keyEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvirtualkeyboardabstractinputmethod.html#keyEvent)
+    ///
+    /// This method must be implemented with `onKeyEvent` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -501,32 +434,6 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
     ///
     pub fn onKeyEvent(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn (QVirtualKeyboardAbstractInputMethod, i32, [*:0]const u8, i32) callconv(.c) bool) void {
         qtc.QVirtualKeyboardAbstractInputMethod_OnKeyEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superKeyEvent` instead
-    ///
-    pub const SuperKeyEvent = superKeyEvent;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvirtualkeyboardabstractinputmethod.html#keyEvent)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVirtualKeyboardAbstractInputMethod `
-    ///
-    /// ` key: qnamespace_enums.Key `
-    ///
-    /// ` text: []const u8 `
-    ///
-    /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
-    ///
-    pub fn superKeyEvent(self: QVirtualKeyboardAbstractInputMethod, key: i32, text: []const u8, modifiers: i32) bool {
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        return qtc.QVirtualKeyboardAbstractInputMethod_SuperKeyEvent(@ptrCast(self.ptr), @bitCast(key), text_str, @bitCast(modifiers));
     }
 
     /// ### DEPRECATED: Use `selectionLists` instead
@@ -568,13 +475,13 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
     ///
     /// ` self: QVirtualKeyboardAbstractInputMethod `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QVirtualKeyboardAbstractInputMethod) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []i32 `
     ///
-    pub fn onSelectionLists(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectionLists(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn (QVirtualKeyboardAbstractInputMethod) callconv(.c) qtc.libqt_list) void {
         qtc.QVirtualKeyboardAbstractInputMethod_OnSelectionLists(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -870,13 +777,13 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
     ///
     /// ` self: QVirtualKeyboardAbstractInputMethod `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QVirtualKeyboardAbstractInputMethod) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []i32 `
     ///
-    pub fn onPatternRecognitionModes(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onPatternRecognitionModes(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn (QVirtualKeyboardAbstractInputMethod) callconv(.c) qtc.libqt_list) void {
         qtc.QVirtualKeyboardAbstractInputMethod_OnPatternRecognitionModes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1339,9 +1246,9 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
     ///
     /// ` self: QVirtualKeyboardAbstractInputMethod `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QVirtualKeyboardAbstractInputMethod) callconv(.c) void `
     ///
-    pub fn onReset(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn (QVirtualKeyboardAbstractInputMethod) callconv(.c) void) void {
         qtc.QVirtualKeyboardAbstractInputMethod_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1387,9 +1294,9 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
     ///
     /// ` self: QVirtualKeyboardAbstractInputMethod `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QVirtualKeyboardAbstractInputMethod) callconv(.c) void `
     ///
-    pub fn onUpdate(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdate(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn (QVirtualKeyboardAbstractInputMethod) callconv(.c) void) void {
         qtc.QVirtualKeyboardAbstractInputMethod_OnUpdate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1435,9 +1342,9 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
     ///
     /// ` self: QVirtualKeyboardAbstractInputMethod `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QVirtualKeyboardAbstractInputMethod) callconv(.c) void `
     ///
-    pub fn onClearInputMode(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn () callconv(.c) void) void {
+    pub fn onClearInputMode(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn (QVirtualKeyboardAbstractInputMethod) callconv(.c) void) void {
         qtc.QVirtualKeyboardAbstractInputMethod_OnClearInputMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2934,44 +2841,6 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
         return .{ .ptr = qtc.QVirtualKeyboardAbstractInputMethod_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVirtualKeyboardAbstractInputMethod `
-    ///
-    pub fn superSender(self: QVirtualKeyboardAbstractInputMethod) QObject {
-        return .{ .ptr = qtc.QVirtualKeyboardAbstractInputMethod_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVirtualKeyboardAbstractInputMethod`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QVirtualKeyboardAbstractInputMethod_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2988,44 +2857,6 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
     ///
     pub fn senderSignalIndex(self: QVirtualKeyboardAbstractInputMethod) i32 {
         return qtc.QVirtualKeyboardAbstractInputMethod_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVirtualKeyboardAbstractInputMethod `
-    ///
-    pub fn superSenderSignalIndex(self: QVirtualKeyboardAbstractInputMethod) i32 {
-        return qtc.QVirtualKeyboardAbstractInputMethod_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVirtualKeyboardAbstractInputMethod`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVirtualKeyboardAbstractInputMethod_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3049,47 +2880,6 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
         return qtc.QVirtualKeyboardAbstractInputMethod_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVirtualKeyboardAbstractInputMethod `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QVirtualKeyboardAbstractInputMethod, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QVirtualKeyboardAbstractInputMethod_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVirtualKeyboardAbstractInputMethod`
-    ///
-    /// ` callback: *const fn (self: QVirtualKeyboardAbstractInputMethod, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn (QVirtualKeyboardAbstractInputMethod, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QVirtualKeyboardAbstractInputMethod_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3109,47 +2899,6 @@ pub const QVirtualKeyboardAbstractInputMethod = extern struct {
     pub fn isSignalConnected(self: QVirtualKeyboardAbstractInputMethod, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QVirtualKeyboardAbstractInputMethod_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVirtualKeyboardAbstractInputMethod `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QVirtualKeyboardAbstractInputMethod, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QVirtualKeyboardAbstractInputMethod_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QVirtualKeyboardAbstractInputMethod`
-    ///
-    /// ` callback: *const fn (self: QVirtualKeyboardAbstractInputMethod, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QVirtualKeyboardAbstractInputMethod, callback: *const fn (QVirtualKeyboardAbstractInputMethod, QMetaMethod) callconv(.c) bool) void {
-        qtc.QVirtualKeyboardAbstractInputMethod_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

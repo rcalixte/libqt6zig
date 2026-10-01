@@ -35,7 +35,7 @@ QPixmap* KQuickIconProvider_RequestPixmap(KQuickIconProvider* self, const libqt_
 void KQuickIconProvider_OnRequestPixmap(KQuickIconProvider* self, intptr_t slot);
 QPixmap* KQuickIconProvider_SuperRequestPixmap(KQuickIconProvider* self, const libqt_string id, QSize* size, const QSize* requestedSize);
 QMetaObject* KQuickIconProvider_MetaObject(const KQuickIconProvider* self);
-void KQuickIconProvider_OnMetaObject(const KQuickIconProvider* self, intptr_t slot);
+void KQuickIconProvider_OnMetaObject(KQuickIconProvider* self, intptr_t slot);
 QMetaObject* KQuickIconProvider_SuperMetaObject(const KQuickIconProvider* self);
 void* KQuickIconProvider_Metacast(KQuickIconProvider* self, const char* param1);
 void KQuickIconProvider_OnMetacast(KQuickIconProvider* self, intptr_t slot);
@@ -44,10 +44,10 @@ int KQuickIconProvider_Metacall(KQuickIconProvider* self, int param1, int param2
 void KQuickIconProvider_OnMetacall(KQuickIconProvider* self, intptr_t slot);
 int KQuickIconProvider_SuperMetacall(KQuickIconProvider* self, int param1, int param2, void** param3);
 int KQuickIconProvider_ImageType(const KQuickIconProvider* self);
-void KQuickIconProvider_OnImageType(const KQuickIconProvider* self, intptr_t slot);
+void KQuickIconProvider_OnImageType(KQuickIconProvider* self, intptr_t slot);
 int KQuickIconProvider_SuperImageType(const KQuickIconProvider* self);
 int KQuickIconProvider_Flags(const KQuickIconProvider* self);
-void KQuickIconProvider_OnFlags(const KQuickIconProvider* self, intptr_t slot);
+void KQuickIconProvider_OnFlags(KQuickIconProvider* self, intptr_t slot);
 int KQuickIconProvider_SuperFlags(const KQuickIconProvider* self);
 QImage* KQuickIconProvider_RequestImage(KQuickIconProvider* self, const libqt_string id, QSize* size, const QSize* requestedSize);
 void KQuickIconProvider_OnRequestImage(KQuickIconProvider* self, intptr_t slot);
@@ -77,17 +77,9 @@ void KQuickIconProvider_DisconnectNotify(KQuickIconProvider* self, const QMetaMe
 void KQuickIconProvider_OnDisconnectNotify(KQuickIconProvider* self, intptr_t slot);
 void KQuickIconProvider_SuperDisconnectNotify(KQuickIconProvider* self, const QMetaMethod* signal);
 QObject* KQuickIconProvider_Sender(const KQuickIconProvider* self);
-void KQuickIconProvider_OnSender(const KQuickIconProvider* self, intptr_t slot);
-QObject* KQuickIconProvider_SuperSender(const KQuickIconProvider* self);
 int KQuickIconProvider_SenderSignalIndex(const KQuickIconProvider* self);
-void KQuickIconProvider_OnSenderSignalIndex(const KQuickIconProvider* self, intptr_t slot);
-int KQuickIconProvider_SuperSenderSignalIndex(const KQuickIconProvider* self);
 int KQuickIconProvider_Receivers(const KQuickIconProvider* self, const char* signal);
-void KQuickIconProvider_OnReceivers(const KQuickIconProvider* self, intptr_t slot);
-int KQuickIconProvider_SuperReceivers(const KQuickIconProvider* self, const char* signal);
 bool KQuickIconProvider_IsSignalConnected(const KQuickIconProvider* self, const QMetaMethod* signal);
-void KQuickIconProvider_OnIsSignalConnected(const KQuickIconProvider* self, intptr_t slot);
-bool KQuickIconProvider_SuperIsSignalConnected(const KQuickIconProvider* self, const QMetaMethod* signal);
 void KQuickIconProvider_Delete(KQuickIconProvider* self);
 
 #ifdef __cplusplus

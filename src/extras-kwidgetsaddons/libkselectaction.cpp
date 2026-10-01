@@ -277,40 +277,40 @@ void KSelectAction_Connect_TextTriggered(KSelectAction* self, intptr_t slot) {
 
 void KSelectAction_SlotActionTriggered(KSelectAction* self, QAction* action) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction) {
         vkselectaction->slotActionTriggered(action);
     }
 }
 
 QWidget* KSelectAction_CreateWidget(KSelectAction* self, QWidget* parent) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction) {
         return vkselectaction->createWidget(parent);
     }
-    return {};
+    qFatal("Error: Protected method KSelectAction::createWidget called without a directly constructed type");
 }
 
 void KSelectAction_DeleteWidget(KSelectAction* self, QWidget* widget) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction) {
         vkselectaction->deleteWidget(widget);
     }
 }
 
 bool KSelectAction_Event(KSelectAction* self, QEvent* event) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction) {
         return vkselectaction->event(event);
     }
-    return {};
+    qFatal("Error: Protected method KSelectAction::event called without a directly constructed type");
 }
 
 bool KSelectAction_EventFilter(KSelectAction* self, QObject* watched, QEvent* event) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction) {
         return vkselectaction->eventFilter(watched, event);
     }
-    return {};
+    qFatal("Error: Protected method KSelectAction::eventFilter called without a directly constructed type");
 }
 
 libqt_string KSelectAction_Tr2(const char* s, const char* c) {
@@ -349,357 +349,261 @@ bool KSelectAction_SetCurrentAction22(KSelectAction* self, const libqt_string te
 
 // Base class handler implementation
 QMetaObject* KSelectAction_SuperMetaObject(const KSelectAction* self) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_MetaObject_IsBase(true);
-        return (QMetaObject*)vkselectaction->metaObject();
-    } else {
-        return (QMetaObject*)self->KSelectAction::metaObject();
-    }
+    return (QMetaObject*)self->KSelectAction::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSelectAction_OnMetaObject(const KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_MetaObject_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_MetaObject_Callback>(slot));
+void KSelectAction_OnMetaObject(KSelectAction* self, intptr_t slot) {
+    if (auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self)))
+        vkselectaction->kselectaction_metaobject_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KSelectAction_SuperMetacast(KSelectAction* self, const char* param1) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_Metacast_IsBase(true);
-        return vkselectaction->qt_metacast(param1);
-    } else {
-        return self->KSelectAction::qt_metacast(param1);
-    }
+    return self->KSelectAction::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnMetacast(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_Metacast_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_Metacast_Callback>(slot));
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self))
+        vkselectaction->kselectaction_metacast_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KSelectAction_SuperMetacall(KSelectAction* self, int param1, int param2, void** param3) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_Metacall_IsBase(true);
-        return vkselectaction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KSelectAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KSelectAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnMetacall(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_Metacall_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_Metacall_Callback>(slot));
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self))
+        vkselectaction->kselectaction_metacall_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QAction* KSelectAction_SuperRemoveAction(KSelectAction* self, QAction* action) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_RemoveAction_IsBase(true);
-        return vkselectaction->removeAction(action);
-    } else {
-        return self->KSelectAction::removeAction(action);
-    }
+    return self->KSelectAction::removeAction(action);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnRemoveAction(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_RemoveAction_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_RemoveAction_Callback>(slot));
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self))
+        vkselectaction->kselectaction_removeaction_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_RemoveAction_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSelectAction_SuperInsertAction(KSelectAction* self, QAction* before, QAction* action) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_InsertAction_IsBase(true);
-        vkselectaction->insertAction(before, action);
-    } else {
-        self->KSelectAction::insertAction(before, action);
-    }
+    self->KSelectAction::insertAction(before, action);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnInsertAction(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_InsertAction_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_InsertAction_Callback>(slot));
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self))
+        vkselectaction->kselectaction_insertaction_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_InsertAction_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSelectAction_SuperSlotActionTriggered(KSelectAction* self, QAction* action) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_SlotActionTriggered_IsBase(true);
-        vkselectaction->slotActionTriggered(action);
-    } else {
-        ((VirtualKSelectAction*)self)->slotActionTriggered(action);
-    }
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self)) {
+        vkselectaction->KSelectAction::slotActionTriggered(action);
+    } else
+        qFatal("Error: Protected virtual method KSelectAction::slotActionTriggered called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnSlotActionTriggered(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_SlotActionTriggered_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_SlotActionTriggered_Callback>(slot));
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self))
+        vkselectaction->kselectaction_slotactiontriggered_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_SlotActionTriggered_Callback>(slot);
 }
 
 // Base class handler implementation
 QWidget* KSelectAction_SuperCreateWidget(KSelectAction* self, QWidget* parent) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_CreateWidget_IsBase(true);
-        return vkselectaction->createWidget(parent);
-    } else {
-        return ((VirtualKSelectAction*)self)->createWidget(parent);
-    }
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self)) {
+        return vkselectaction->KSelectAction::createWidget(parent);
+    } else
+        qFatal("Error: Protected virtual method KSelectAction::createWidget called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnCreateWidget(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_CreateWidget_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_CreateWidget_Callback>(slot));
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self))
+        vkselectaction->kselectaction_createwidget_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_CreateWidget_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSelectAction_SuperDeleteWidget(KSelectAction* self, QWidget* widget) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_DeleteWidget_IsBase(true);
-        vkselectaction->deleteWidget(widget);
-    } else {
-        ((VirtualKSelectAction*)self)->deleteWidget(widget);
-    }
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self)) {
+        vkselectaction->KSelectAction::deleteWidget(widget);
+    } else
+        qFatal("Error: Protected virtual method KSelectAction::deleteWidget called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnDeleteWidget(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_DeleteWidget_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_DeleteWidget_Callback>(slot));
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self))
+        vkselectaction->kselectaction_deletewidget_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_DeleteWidget_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KSelectAction_SuperEvent(KSelectAction* self, QEvent* event) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_Event_IsBase(true);
-        return vkselectaction->event(event);
-    } else {
-        return ((VirtualKSelectAction*)self)->event(event);
-    }
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self)) {
+        return vkselectaction->KSelectAction::event(event);
+    } else
+        qFatal("Error: Protected virtual method KSelectAction::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnEvent(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_Event_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_Event_Callback>(slot));
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self))
+        vkselectaction->kselectaction_event_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KSelectAction_SuperEventFilter(KSelectAction* self, QObject* watched, QEvent* event) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_EventFilter_IsBase(true);
-        return vkselectaction->eventFilter(watched, event);
-    } else {
-        return ((VirtualKSelectAction*)self)->eventFilter(watched, event);
-    }
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self)) {
+        return vkselectaction->KSelectAction::eventFilter(watched, event);
+    } else
+        qFatal("Error: Protected virtual method KSelectAction::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnEventFilter(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_EventFilter_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_EventFilter_Callback>(slot));
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self))
+        vkselectaction->kselectaction_eventfilter_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelectAction_TimerEvent(KSelectAction* self, QTimerEvent* event) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction) {
         vkselectaction->timerEvent(event);
     } else {
-        ((VirtualKSelectAction*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KSelectAction::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelectAction_SuperTimerEvent(KSelectAction* self, QTimerEvent* event) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_TimerEvent_IsBase(true);
-        vkselectaction->timerEvent(event);
-    } else {
-        ((VirtualKSelectAction*)self)->timerEvent(event);
-    }
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self)) {
+        vkselectaction->KSelectAction::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelectAction::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnTimerEvent(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_TimerEvent_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_TimerEvent_Callback>(slot));
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self))
+        vkselectaction->kselectaction_timerevent_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelectAction_ChildEvent(KSelectAction* self, QChildEvent* event) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction) {
         vkselectaction->childEvent(event);
     } else {
-        ((VirtualKSelectAction*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KSelectAction::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelectAction_SuperChildEvent(KSelectAction* self, QChildEvent* event) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_ChildEvent_IsBase(true);
-        vkselectaction->childEvent(event);
-    } else {
-        ((VirtualKSelectAction*)self)->childEvent(event);
-    }
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self)) {
+        vkselectaction->KSelectAction::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelectAction::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnChildEvent(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_ChildEvent_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_ChildEvent_Callback>(slot));
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self))
+        vkselectaction->kselectaction_childevent_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelectAction_CustomEvent(KSelectAction* self, QEvent* event) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction) {
         vkselectaction->customEvent(event);
     } else {
-        ((VirtualKSelectAction*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KSelectAction::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelectAction_SuperCustomEvent(KSelectAction* self, QEvent* event) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_CustomEvent_IsBase(true);
-        vkselectaction->customEvent(event);
-    } else {
-        ((VirtualKSelectAction*)self)->customEvent(event);
-    }
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self)) {
+        vkselectaction->KSelectAction::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSelectAction::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnCustomEvent(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_CustomEvent_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_CustomEvent_Callback>(slot));
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self))
+        vkselectaction->kselectaction_customevent_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelectAction_ConnectNotify(KSelectAction* self, const QMetaMethod* signal) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction) {
         vkselectaction->connectNotify(*signal);
     } else {
-        ((VirtualKSelectAction*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KSelectAction::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelectAction_SuperConnectNotify(KSelectAction* self, const QMetaMethod* signal) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_ConnectNotify_IsBase(true);
-        vkselectaction->connectNotify(*signal);
-    } else {
-        ((VirtualKSelectAction*)self)->connectNotify(*signal);
-    }
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self)) {
+        vkselectaction->KSelectAction::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSelectAction::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnConnectNotify(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_ConnectNotify_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_ConnectNotify_Callback>(slot));
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self))
+        vkselectaction->kselectaction_connectnotify_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSelectAction_DisconnectNotify(KSelectAction* self, const QMetaMethod* signal) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction) {
         vkselectaction->disconnectNotify(*signal);
     } else {
-        ((VirtualKSelectAction*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KSelectAction::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSelectAction_SuperDisconnectNotify(KSelectAction* self, const QMetaMethod* signal) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_DisconnectNotify_IsBase(true);
-        vkselectaction->disconnectNotify(*signal);
-    } else {
-        ((VirtualKSelectAction*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self)) {
+        vkselectaction->KSelectAction::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSelectAction::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnDisconnectNotify(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_DisconnectNotify_Callback>(slot));
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self))
+        vkselectaction->kselectaction_disconnectnotify_callback = reinterpret_cast<VirtualKSelectAction::KSelectAction_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSelectAction_SlotToggled(KSelectAction* self, bool param1) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->slotToggled(param1);
-    } else {
-        ((VirtualKSelectAction*)self)->slotToggled(param1);
-    }
+    if (auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self)) {
+        vkselectaction->VirtualKSelectAction::slotToggled(param1);
+    } else
+        qFatal("Error: Protected method KSelectAction::slotToggled called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSelectAction_SuperSlotToggled(KSelectAction* self, bool param1) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_SlotToggled_IsBase(true);
-        vkselectaction->slotToggled(param1);
-    } else {
-        ((VirtualKSelectAction*)self)->slotToggled(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelectAction_OnSlotToggled(KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_SlotToggled_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_SlotToggled_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of QWidget* */ KSelectAction_CreatedWidgets(const KSelectAction* self) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        QList<QWidget*> _ret = vkselectaction->createdWidgets();
+    if (auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self))) {
+        QList<QWidget*> _ret = vkselectaction->VirtualKSelectAction::createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
         QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -709,166 +613,40 @@ libqt_list /* of QWidget* */ KSelectAction_CreatedWidgets(const KSelectAction* s
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QWidget*> _ret = ((VirtualKSelectAction*)self)->createdWidgets();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KSelectAction::createdWidgets called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of QWidget* */ KSelectAction_SuperCreatedWidgets(const KSelectAction* self) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_CreatedWidgets_IsBase(true);
-        QList<QWidget*> _ret = vkselectaction->createdWidgets();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QWidget*> _ret = ((VirtualKSelectAction*)self)->createdWidgets();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelectAction_OnCreatedWidgets(const KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_CreatedWidgets_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_CreatedWidgets_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KSelectAction_Sender(const KSelectAction* self) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        return vkselectaction->sender();
-    } else {
-        return ((VirtualKSelectAction*)self)->sender();
-    }
+    if (auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self))) {
+        return vkselectaction->VirtualKSelectAction::sender();
+    } else
+        qFatal("Error: Protected method KSelectAction::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KSelectAction_SuperSender(const KSelectAction* self) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_Sender_IsBase(true);
-        return vkselectaction->sender();
-    } else {
-        return ((VirtualKSelectAction*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelectAction_OnSender(const KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_Sender_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSelectAction_SenderSignalIndex(const KSelectAction* self) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        return vkselectaction->senderSignalIndex();
-    } else {
-        return ((VirtualKSelectAction*)self)->senderSignalIndex();
-    }
+    if (auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self))) {
+        return vkselectaction->VirtualKSelectAction::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KSelectAction::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSelectAction_SuperSenderSignalIndex(const KSelectAction* self) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_SenderSignalIndex_IsBase(true);
-        return vkselectaction->senderSignalIndex();
-    } else {
-        return ((VirtualKSelectAction*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelectAction_OnSenderSignalIndex(const KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSelectAction_Receivers(const KSelectAction* self, const char* signal) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        return vkselectaction->receivers(signal);
-    } else {
-        return ((VirtualKSelectAction*)self)->receivers(signal);
-    }
+    if (auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self))) {
+        return vkselectaction->VirtualKSelectAction::receivers(signal);
+    } else
+        qFatal("Error: Protected method KSelectAction::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSelectAction_SuperReceivers(const KSelectAction* self, const char* signal) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_Receivers_IsBase(true);
-        return vkselectaction->receivers(signal);
-    } else {
-        return ((VirtualKSelectAction*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelectAction_OnReceivers(const KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_Receivers_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSelectAction_IsSignalConnected(const KSelectAction* self, const QMetaMethod* signal) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        return vkselectaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSelectAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KSelectAction_SuperIsSignalConnected(const KSelectAction* self, const QMetaMethod* signal) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        vkselectaction->setKSelectAction_IsSignalConnected_IsBase(true);
-        return vkselectaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSelectAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSelectAction_OnIsSignalConnected(const KSelectAction* self, intptr_t slot) {
-    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
-        vkselectaction->setKSelectAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_IsSignalConnected_Callback>(slot));
+    if (auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self))) {
+        return vkselectaction->VirtualKSelectAction::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KSelectAction::isSignalConnected called without a directly constructed type");
 }
 
 void KSelectAction_Delete(KSelectAction* self) {

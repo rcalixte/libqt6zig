@@ -83,32 +83,32 @@ void KBookmarkMenu_SlotBookmarksChanged(KBookmarkMenu* self, const libqt_string 
 
 void KBookmarkMenu_Clear(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
+    if (vkbookmarkmenu) {
         vkbookmarkmenu->clear();
     }
 }
 
 void KBookmarkMenu_Refill(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
+    if (vkbookmarkmenu) {
         vkbookmarkmenu->refill();
     }
 }
 
 QAction* KBookmarkMenu_ActionForBookmark(KBookmarkMenu* self, const KBookmark* bm) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
+    if (vkbookmarkmenu) {
         return vkbookmarkmenu->actionForBookmark(*bm);
     }
-    return {};
+    qFatal("Error: Protected method KBookmarkMenu::actionForBookmark called without a directly constructed type");
 }
 
 QMenu* KBookmarkMenu_ContextMenu(KBookmarkMenu* self, QAction* action) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
+    if (vkbookmarkmenu) {
         return vkbookmarkmenu->contextMenu(action);
     }
-    return {};
+    qFatal("Error: Protected method KBookmarkMenu::contextMenu called without a directly constructed type");
 }
 
 libqt_string KBookmarkMenu_Tr2(const char* s, const char* c) {
@@ -137,723 +137,361 @@ libqt_string KBookmarkMenu_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KBookmarkMenu_SuperMetaObject(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_MetaObject_IsBase(true);
-        return (QMetaObject*)vkbookmarkmenu->metaObject();
-    } else {
-        return (QMetaObject*)self->KBookmarkMenu::metaObject();
-    }
+    return (QMetaObject*)self->KBookmarkMenu::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnMetaObject(const KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_MetaObject_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_MetaObject_Callback>(slot));
+void KBookmarkMenu_OnMetaObject(KBookmarkMenu* self, intptr_t slot) {
+    if (auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self)))
+        vkbookmarkmenu->kbookmarkmenu_metaobject_callback = reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KBookmarkMenu_SuperMetacast(KBookmarkMenu* self, const char* param1) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_Metacast_IsBase(true);
-        return vkbookmarkmenu->qt_metacast(param1);
-    } else {
-        return self->KBookmarkMenu::qt_metacast(param1);
-    }
+    return self->KBookmarkMenu::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkMenu_OnMetacast(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_Metacast_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_Metacast_Callback>(slot));
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self))
+        vkbookmarkmenu->kbookmarkmenu_metacast_callback = reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KBookmarkMenu_SuperMetacall(KBookmarkMenu* self, int param1, int param2, void** param3) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_Metacall_IsBase(true);
-        return vkbookmarkmenu->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KBookmarkMenu::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KBookmarkMenu::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkMenu_OnMetacall(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_Metacall_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_Metacall_Callback>(slot));
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self))
+        vkbookmarkmenu->kbookmarkmenu_metacall_callback = reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KBookmarkMenu_SuperClear(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_Clear_IsBase(true);
-        vkbookmarkmenu->clear();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->clear();
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->KBookmarkMenu::clear();
+    } else
+        qFatal("Error: Protected virtual method KBookmarkMenu::clear called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkMenu_OnClear(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_Clear_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_Clear_Callback>(slot));
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self))
+        vkbookmarkmenu->kbookmarkmenu_clear_callback = reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_Clear_Callback>(slot);
 }
 
 // Base class handler implementation
 void KBookmarkMenu_SuperRefill(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_Refill_IsBase(true);
-        vkbookmarkmenu->refill();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->refill();
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->KBookmarkMenu::refill();
+    } else
+        qFatal("Error: Protected virtual method KBookmarkMenu::refill called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkMenu_OnRefill(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_Refill_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_Refill_Callback>(slot));
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self))
+        vkbookmarkmenu->kbookmarkmenu_refill_callback = reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_Refill_Callback>(slot);
 }
 
 // Base class handler implementation
 QAction* KBookmarkMenu_SuperActionForBookmark(KBookmarkMenu* self, const KBookmark* bm) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_ActionForBookmark_IsBase(true);
-        return vkbookmarkmenu->actionForBookmark(*bm);
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->actionForBookmark(*bm);
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        return vkbookmarkmenu->KBookmarkMenu::actionForBookmark(*bm);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkMenu::actionForBookmark called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkMenu_OnActionForBookmark(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_ActionForBookmark_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_ActionForBookmark_Callback>(slot));
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self))
+        vkbookmarkmenu->kbookmarkmenu_actionforbookmark_callback = reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_ActionForBookmark_Callback>(slot);
 }
 
 // Base class handler implementation
 QMenu* KBookmarkMenu_SuperContextMenu(KBookmarkMenu* self, QAction* action) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_ContextMenu_IsBase(true);
-        return vkbookmarkmenu->contextMenu(action);
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->contextMenu(action);
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        return vkbookmarkmenu->KBookmarkMenu::contextMenu(action);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkMenu::contextMenu called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkMenu_OnContextMenu(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_ContextMenu_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_ContextMenu_Callback>(slot));
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self))
+        vkbookmarkmenu->kbookmarkmenu_contextmenu_callback = reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_ContextMenu_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KBookmarkMenu_Event(KBookmarkMenu* self, QEvent* event) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        return vkbookmarkmenu->event(event);
-    } else {
-        return self->KBookmarkMenu::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KBookmarkMenu_SuperEvent(KBookmarkMenu* self, QEvent* event) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_Event_IsBase(true);
-        return vkbookmarkmenu->event(event);
-    } else {
-        return self->KBookmarkMenu::event(event);
-    }
+    return self->KBookmarkMenu::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkMenu_OnEvent(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_Event_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_Event_Callback>(slot));
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self))
+        vkbookmarkmenu->kbookmarkmenu_event_callback = reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KBookmarkMenu_EventFilter(KBookmarkMenu* self, QObject* watched, QEvent* event) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        return vkbookmarkmenu->eventFilter(watched, event);
-    } else {
-        return self->KBookmarkMenu::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KBookmarkMenu_SuperEventFilter(KBookmarkMenu* self, QObject* watched, QEvent* event) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_EventFilter_IsBase(true);
-        return vkbookmarkmenu->eventFilter(watched, event);
-    } else {
-        return self->KBookmarkMenu::eventFilter(watched, event);
-    }
+    return self->KBookmarkMenu::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkMenu_OnEventFilter(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_EventFilter_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_EventFilter_Callback>(slot));
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self))
+        vkbookmarkmenu->kbookmarkmenu_eventfilter_callback = reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkMenu_TimerEvent(KBookmarkMenu* self, QTimerEvent* event) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
+    if (vkbookmarkmenu) {
         vkbookmarkmenu->timerEvent(event);
     } else {
-        ((VirtualKBookmarkMenu*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkMenu::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkMenu_SuperTimerEvent(KBookmarkMenu* self, QTimerEvent* event) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_TimerEvent_IsBase(true);
-        vkbookmarkmenu->timerEvent(event);
-    } else {
-        ((VirtualKBookmarkMenu*)self)->timerEvent(event);
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->KBookmarkMenu::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkMenu::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkMenu_OnTimerEvent(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_TimerEvent_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_TimerEvent_Callback>(slot));
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self))
+        vkbookmarkmenu->kbookmarkmenu_timerevent_callback = reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkMenu_ChildEvent(KBookmarkMenu* self, QChildEvent* event) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
+    if (vkbookmarkmenu) {
         vkbookmarkmenu->childEvent(event);
     } else {
-        ((VirtualKBookmarkMenu*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkMenu::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkMenu_SuperChildEvent(KBookmarkMenu* self, QChildEvent* event) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_ChildEvent_IsBase(true);
-        vkbookmarkmenu->childEvent(event);
-    } else {
-        ((VirtualKBookmarkMenu*)self)->childEvent(event);
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->KBookmarkMenu::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkMenu::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkMenu_OnChildEvent(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_ChildEvent_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_ChildEvent_Callback>(slot));
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self))
+        vkbookmarkmenu->kbookmarkmenu_childevent_callback = reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkMenu_CustomEvent(KBookmarkMenu* self, QEvent* event) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
+    if (vkbookmarkmenu) {
         vkbookmarkmenu->customEvent(event);
     } else {
-        ((VirtualKBookmarkMenu*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KBookmarkMenu::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkMenu_SuperCustomEvent(KBookmarkMenu* self, QEvent* event) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_CustomEvent_IsBase(true);
-        vkbookmarkmenu->customEvent(event);
-    } else {
-        ((VirtualKBookmarkMenu*)self)->customEvent(event);
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->KBookmarkMenu::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkMenu::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkMenu_OnCustomEvent(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_CustomEvent_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_CustomEvent_Callback>(slot));
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self))
+        vkbookmarkmenu->kbookmarkmenu_customevent_callback = reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkMenu_ConnectNotify(KBookmarkMenu* self, const QMetaMethod* signal) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
+    if (vkbookmarkmenu) {
         vkbookmarkmenu->connectNotify(*signal);
     } else {
-        ((VirtualKBookmarkMenu*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KBookmarkMenu::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkMenu_SuperConnectNotify(KBookmarkMenu* self, const QMetaMethod* signal) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_ConnectNotify_IsBase(true);
-        vkbookmarkmenu->connectNotify(*signal);
-    } else {
-        ((VirtualKBookmarkMenu*)self)->connectNotify(*signal);
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->KBookmarkMenu::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkMenu::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkMenu_OnConnectNotify(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_ConnectNotify_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_ConnectNotify_Callback>(slot));
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self))
+        vkbookmarkmenu->kbookmarkmenu_connectnotify_callback = reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KBookmarkMenu_DisconnectNotify(KBookmarkMenu* self, const QMetaMethod* signal) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
+    if (vkbookmarkmenu) {
         vkbookmarkmenu->disconnectNotify(*signal);
     } else {
-        ((VirtualKBookmarkMenu*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KBookmarkMenu::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KBookmarkMenu_SuperDisconnectNotify(KBookmarkMenu* self, const QMetaMethod* signal) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_DisconnectNotify_IsBase(true);
-        vkbookmarkmenu->disconnectNotify(*signal);
-    } else {
-        ((VirtualKBookmarkMenu*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->KBookmarkMenu::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KBookmarkMenu::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkMenu_OnDisconnectNotify(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_DisconnectNotify_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_DisconnectNotify_Callback>(slot));
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self))
+        vkbookmarkmenu->kbookmarkmenu_disconnectnotify_callback = reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkMenu_SlotAboutToShow(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->slotAboutToShow();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->slotAboutToShow();
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->VirtualKBookmarkMenu::slotAboutToShow();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::slotAboutToShow called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkMenu_SuperSlotAboutToShow(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_SlotAboutToShow_IsBase(true);
-        vkbookmarkmenu->slotAboutToShow();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->slotAboutToShow();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnSlotAboutToShow(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_SlotAboutToShow_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_SlotAboutToShow_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkMenu_SlotAddBookmarksList(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->slotAddBookmarksList();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->slotAddBookmarksList();
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->VirtualKBookmarkMenu::slotAddBookmarksList();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::slotAddBookmarksList called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkMenu_SuperSlotAddBookmarksList(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_SlotAddBookmarksList_IsBase(true);
-        vkbookmarkmenu->slotAddBookmarksList();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->slotAddBookmarksList();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnSlotAddBookmarksList(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_SlotAddBookmarksList_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_SlotAddBookmarksList_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkMenu_SlotAddBookmark(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->slotAddBookmark();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->slotAddBookmark();
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->VirtualKBookmarkMenu::slotAddBookmark();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::slotAddBookmark called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkMenu_SuperSlotAddBookmark(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_SlotAddBookmark_IsBase(true);
-        vkbookmarkmenu->slotAddBookmark();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->slotAddBookmark();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnSlotAddBookmark(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_SlotAddBookmark_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_SlotAddBookmark_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkMenu_SlotNewFolder(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->slotNewFolder();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->slotNewFolder();
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->VirtualKBookmarkMenu::slotNewFolder();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::slotNewFolder called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkMenu_SuperSlotNewFolder(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_SlotNewFolder_IsBase(true);
-        vkbookmarkmenu->slotNewFolder();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->slotNewFolder();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnSlotNewFolder(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_SlotNewFolder_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_SlotNewFolder_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkMenu_SlotOpenFolderInTabs(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->slotOpenFolderInTabs();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->slotOpenFolderInTabs();
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->VirtualKBookmarkMenu::slotOpenFolderInTabs();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::slotOpenFolderInTabs called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkMenu_SuperSlotOpenFolderInTabs(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_SlotOpenFolderInTabs_IsBase(true);
-        vkbookmarkmenu->slotOpenFolderInTabs();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->slotOpenFolderInTabs();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnSlotOpenFolderInTabs(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_SlotOpenFolderInTabs_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_SlotOpenFolderInTabs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkMenu_AddActions(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->addActions();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->addActions();
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->VirtualKBookmarkMenu::addActions();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::addActions called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkMenu_SuperAddActions(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_AddActions_IsBase(true);
-        vkbookmarkmenu->addActions();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->addActions();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnAddActions(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_AddActions_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_AddActions_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkMenu_FillBookmarks(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->fillBookmarks();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->fillBookmarks();
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->VirtualKBookmarkMenu::fillBookmarks();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::fillBookmarks called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkMenu_SuperFillBookmarks(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_FillBookmarks_IsBase(true);
-        vkbookmarkmenu->fillBookmarks();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->fillBookmarks();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnFillBookmarks(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_FillBookmarks_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_FillBookmarks_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkMenu_AddAddBookmark(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->addAddBookmark();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->addAddBookmark();
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->VirtualKBookmarkMenu::addAddBookmark();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::addAddBookmark called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkMenu_SuperAddAddBookmark(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_AddAddBookmark_IsBase(true);
-        vkbookmarkmenu->addAddBookmark();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->addAddBookmark();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnAddAddBookmark(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_AddAddBookmark_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_AddAddBookmark_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkMenu_AddAddBookmarksList(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->addAddBookmarksList();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->addAddBookmarksList();
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->VirtualKBookmarkMenu::addAddBookmarksList();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::addAddBookmarksList called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkMenu_SuperAddAddBookmarksList(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_AddAddBookmarksList_IsBase(true);
-        vkbookmarkmenu->addAddBookmarksList();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->addAddBookmarksList();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnAddAddBookmarksList(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_AddAddBookmarksList_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_AddAddBookmarksList_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkMenu_AddEditBookmarks(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->addEditBookmarks();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->addEditBookmarks();
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->VirtualKBookmarkMenu::addEditBookmarks();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::addEditBookmarks called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkMenu_SuperAddEditBookmarks(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_AddEditBookmarks_IsBase(true);
-        vkbookmarkmenu->addEditBookmarks();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->addEditBookmarks();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnAddEditBookmarks(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_AddEditBookmarks_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_AddEditBookmarks_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkMenu_AddNewFolder(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->addNewFolder();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->addNewFolder();
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->VirtualKBookmarkMenu::addNewFolder();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::addNewFolder called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkMenu_SuperAddNewFolder(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_AddNewFolder_IsBase(true);
-        vkbookmarkmenu->addNewFolder();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->addNewFolder();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnAddNewFolder(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_AddNewFolder_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_AddNewFolder_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KBookmarkMenu_AddOpenInTabs(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->addOpenInTabs();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->addOpenInTabs();
-    }
+    if (auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self)) {
+        vkbookmarkmenu->VirtualKBookmarkMenu::addOpenInTabs();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::addOpenInTabs called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KBookmarkMenu_SuperAddOpenInTabs(KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_AddOpenInTabs_IsBase(true);
-        vkbookmarkmenu->addOpenInTabs();
-    } else {
-        ((VirtualKBookmarkMenu*)self)->addOpenInTabs();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnAddOpenInTabs(KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_AddOpenInTabs_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_AddOpenInTabs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KBookmarkMenu_IsRoot(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        return vkbookmarkmenu->isRoot();
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->isRoot();
-    }
+    if (auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self))) {
+        return vkbookmarkmenu->VirtualKBookmarkMenu::isRoot();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::isRoot called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KBookmarkMenu_SuperIsRoot(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_IsRoot_IsBase(true);
-        return vkbookmarkmenu->isRoot();
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->isRoot();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnIsRoot(const KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_IsRoot_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_IsRoot_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KBookmarkMenu_IsDirty(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        return vkbookmarkmenu->isDirty();
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->isDirty();
-    }
+    if (auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self))) {
+        return vkbookmarkmenu->VirtualKBookmarkMenu::isDirty();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::isDirty called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KBookmarkMenu_SuperIsDirty(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_IsDirty_IsBase(true);
-        return vkbookmarkmenu->isDirty();
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->isDirty();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnIsDirty(const KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_IsDirty_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_IsDirty_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string KBookmarkMenu_ParentAddress(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        auto _ret = vkbookmarkmenu->parentAddress();
+    if (auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self))) {
+        auto _ret = vkbookmarkmenu->VirtualKBookmarkMenu::parentAddress();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -862,247 +500,64 @@ libqt_string KBookmarkMenu_ParentAddress(const KBookmarkMenu* self) {
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualKBookmarkMenu*)self)->parentAddress();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::parentAddress called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string KBookmarkMenu_SuperParentAddress(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_ParentAddress_IsBase(true);
-        auto _ret = vkbookmarkmenu->parentAddress();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKBookmarkMenu*)self)->parentAddress();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnParentAddress(const KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_ParentAddress_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_ParentAddress_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 KBookmarkManager* KBookmarkMenu_Manager(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        return vkbookmarkmenu->manager();
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->manager();
-    }
+    if (auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self))) {
+        return vkbookmarkmenu->VirtualKBookmarkMenu::manager();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::manager called without a directly constructed type");
 }
 
-// Base class handler implementation
-KBookmarkManager* KBookmarkMenu_SuperManager(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_Manager_IsBase(true);
-        return vkbookmarkmenu->manager();
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->manager();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnManager(const KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_Manager_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_Manager_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 KBookmarkOwner* KBookmarkMenu_Owner(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        return vkbookmarkmenu->owner();
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->owner();
-    }
+    if (auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self))) {
+        return vkbookmarkmenu->VirtualKBookmarkMenu::owner();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::owner called without a directly constructed type");
 }
 
-// Base class handler implementation
-KBookmarkOwner* KBookmarkMenu_SuperOwner(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_Owner_IsBase(true);
-        return vkbookmarkmenu->owner();
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->owner();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnOwner(const KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_Owner_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_Owner_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QMenu* KBookmarkMenu_ParentMenu(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        return vkbookmarkmenu->parentMenu();
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->parentMenu();
-    }
+    if (auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self))) {
+        return vkbookmarkmenu->VirtualKBookmarkMenu::parentMenu();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::parentMenu called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMenu* KBookmarkMenu_SuperParentMenu(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_ParentMenu_IsBase(true);
-        return vkbookmarkmenu->parentMenu();
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->parentMenu();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnParentMenu(const KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_ParentMenu_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_ParentMenu_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KBookmarkMenu_Sender(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        return vkbookmarkmenu->sender();
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->sender();
-    }
+    if (auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self))) {
+        return vkbookmarkmenu->VirtualKBookmarkMenu::sender();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KBookmarkMenu_SuperSender(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_Sender_IsBase(true);
-        return vkbookmarkmenu->sender();
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnSender(const KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_Sender_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KBookmarkMenu_SenderSignalIndex(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        return vkbookmarkmenu->senderSignalIndex();
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->senderSignalIndex();
-    }
+    if (auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self))) {
+        return vkbookmarkmenu->VirtualKBookmarkMenu::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KBookmarkMenu_SuperSenderSignalIndex(const KBookmarkMenu* self) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_SenderSignalIndex_IsBase(true);
-        return vkbookmarkmenu->senderSignalIndex();
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnSenderSignalIndex(const KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_SenderSignalIndex_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KBookmarkMenu_Receivers(const KBookmarkMenu* self, const char* signal) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        return vkbookmarkmenu->receivers(signal);
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->receivers(signal);
-    }
+    if (auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self))) {
+        return vkbookmarkmenu->VirtualKBookmarkMenu::receivers(signal);
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KBookmarkMenu_SuperReceivers(const KBookmarkMenu* self, const char* signal) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_Receivers_IsBase(true);
-        return vkbookmarkmenu->receivers(signal);
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnReceivers(const KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_Receivers_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KBookmarkMenu_IsSignalConnected(const KBookmarkMenu* self, const QMetaMethod* signal) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        return vkbookmarkmenu->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KBookmarkMenu_SuperIsSignalConnected(const KBookmarkMenu* self, const QMetaMethod* signal) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        vkbookmarkmenu->setKBookmarkMenu_IsSignalConnected_IsBase(true);
-        return vkbookmarkmenu->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKBookmarkMenu*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KBookmarkMenu_OnIsSignalConnected(const KBookmarkMenu* self, intptr_t slot) {
-    auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
-    if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu)
-        vkbookmarkmenu->setKBookmarkMenu_IsSignalConnected_Callback(reinterpret_cast<VirtualKBookmarkMenu::KBookmarkMenu_IsSignalConnected_Callback>(slot));
+    if (auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self))) {
+        return vkbookmarkmenu->VirtualKBookmarkMenu::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KBookmarkMenu::isSignalConnected called without a directly constructed type");
 }
 
 void KBookmarkMenu_Delete(KBookmarkMenu* self) {

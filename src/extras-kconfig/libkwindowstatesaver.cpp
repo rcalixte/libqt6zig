@@ -70,308 +70,179 @@ libqt_string KWindowStateSaver_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KWindowStateSaver_SuperMetaObject(const KWindowStateSaver* self) {
-    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        vkwindowstatesaver->setKWindowStateSaver_MetaObject_IsBase(true);
-        return (QMetaObject*)vkwindowstatesaver->metaObject();
-    } else {
-        return (QMetaObject*)self->KWindowStateSaver::metaObject();
-    }
+    return (QMetaObject*)self->KWindowStateSaver::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KWindowStateSaver_OnMetaObject(const KWindowStateSaver* self, intptr_t slot) {
-    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
-        vkwindowstatesaver->setKWindowStateSaver_MetaObject_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_MetaObject_Callback>(slot));
+void KWindowStateSaver_OnMetaObject(KWindowStateSaver* self, intptr_t slot) {
+    if (auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self)))
+        vkwindowstatesaver->kwindowstatesaver_metaobject_callback = reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KWindowStateSaver_SuperMetacast(KWindowStateSaver* self, const char* param1) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        vkwindowstatesaver->setKWindowStateSaver_Metacast_IsBase(true);
-        return vkwindowstatesaver->qt_metacast(param1);
-    } else {
-        return self->KWindowStateSaver::qt_metacast(param1);
-    }
+    return self->KWindowStateSaver::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnMetacast(KWindowStateSaver* self, intptr_t slot) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
-        vkwindowstatesaver->setKWindowStateSaver_Metacast_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_Metacast_Callback>(slot));
+    if (auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self))
+        vkwindowstatesaver->kwindowstatesaver_metacast_callback = reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KWindowStateSaver_SuperMetacall(KWindowStateSaver* self, int param1, int param2, void** param3) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        vkwindowstatesaver->setKWindowStateSaver_Metacall_IsBase(true);
-        return vkwindowstatesaver->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KWindowStateSaver::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KWindowStateSaver::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnMetacall(KWindowStateSaver* self, intptr_t slot) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
-        vkwindowstatesaver->setKWindowStateSaver_Metacall_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_Metacall_Callback>(slot));
+    if (auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self))
+        vkwindowstatesaver->kwindowstatesaver_metacall_callback = reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KWindowStateSaver_Event(KWindowStateSaver* self, QEvent* event) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        return vkwindowstatesaver->event(event);
-    } else {
-        return self->KWindowStateSaver::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KWindowStateSaver_SuperEvent(KWindowStateSaver* self, QEvent* event) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        vkwindowstatesaver->setKWindowStateSaver_Event_IsBase(true);
-        return vkwindowstatesaver->event(event);
-    } else {
-        return self->KWindowStateSaver::event(event);
-    }
+    return self->KWindowStateSaver::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnEvent(KWindowStateSaver* self, intptr_t slot) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
-        vkwindowstatesaver->setKWindowStateSaver_Event_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_Event_Callback>(slot));
+    if (auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self))
+        vkwindowstatesaver->kwindowstatesaver_event_callback = reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWindowStateSaver_ChildEvent(KWindowStateSaver* self, QChildEvent* event) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver) {
         vkwindowstatesaver->childEvent(event);
     } else {
-        ((VirtualKWindowStateSaver*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KWindowStateSaver::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KWindowStateSaver_SuperChildEvent(KWindowStateSaver* self, QChildEvent* event) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        vkwindowstatesaver->setKWindowStateSaver_ChildEvent_IsBase(true);
-        vkwindowstatesaver->childEvent(event);
-    } else {
-        ((VirtualKWindowStateSaver*)self)->childEvent(event);
-    }
+    if (auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self)) {
+        vkwindowstatesaver->KWindowStateSaver::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KWindowStateSaver::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnChildEvent(KWindowStateSaver* self, intptr_t slot) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
-        vkwindowstatesaver->setKWindowStateSaver_ChildEvent_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_ChildEvent_Callback>(slot));
+    if (auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self))
+        vkwindowstatesaver->kwindowstatesaver_childevent_callback = reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWindowStateSaver_CustomEvent(KWindowStateSaver* self, QEvent* event) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver) {
         vkwindowstatesaver->customEvent(event);
     } else {
-        ((VirtualKWindowStateSaver*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KWindowStateSaver::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KWindowStateSaver_SuperCustomEvent(KWindowStateSaver* self, QEvent* event) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        vkwindowstatesaver->setKWindowStateSaver_CustomEvent_IsBase(true);
-        vkwindowstatesaver->customEvent(event);
-    } else {
-        ((VirtualKWindowStateSaver*)self)->customEvent(event);
-    }
+    if (auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self)) {
+        vkwindowstatesaver->KWindowStateSaver::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KWindowStateSaver::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnCustomEvent(KWindowStateSaver* self, intptr_t slot) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
-        vkwindowstatesaver->setKWindowStateSaver_CustomEvent_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_CustomEvent_Callback>(slot));
+    if (auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self))
+        vkwindowstatesaver->kwindowstatesaver_customevent_callback = reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWindowStateSaver_ConnectNotify(KWindowStateSaver* self, const QMetaMethod* signal) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver) {
         vkwindowstatesaver->connectNotify(*signal);
     } else {
-        ((VirtualKWindowStateSaver*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KWindowStateSaver::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KWindowStateSaver_SuperConnectNotify(KWindowStateSaver* self, const QMetaMethod* signal) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        vkwindowstatesaver->setKWindowStateSaver_ConnectNotify_IsBase(true);
-        vkwindowstatesaver->connectNotify(*signal);
-    } else {
-        ((VirtualKWindowStateSaver*)self)->connectNotify(*signal);
-    }
+    if (auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self)) {
+        vkwindowstatesaver->KWindowStateSaver::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KWindowStateSaver::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnConnectNotify(KWindowStateSaver* self, intptr_t slot) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
-        vkwindowstatesaver->setKWindowStateSaver_ConnectNotify_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_ConnectNotify_Callback>(slot));
+    if (auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self))
+        vkwindowstatesaver->kwindowstatesaver_connectnotify_callback = reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KWindowStateSaver_DisconnectNotify(KWindowStateSaver* self, const QMetaMethod* signal) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver) {
         vkwindowstatesaver->disconnectNotify(*signal);
     } else {
-        ((VirtualKWindowStateSaver*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KWindowStateSaver::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KWindowStateSaver_SuperDisconnectNotify(KWindowStateSaver* self, const QMetaMethod* signal) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        vkwindowstatesaver->setKWindowStateSaver_DisconnectNotify_IsBase(true);
-        vkwindowstatesaver->disconnectNotify(*signal);
-    } else {
-        ((VirtualKWindowStateSaver*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self)) {
+        vkwindowstatesaver->KWindowStateSaver::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KWindowStateSaver::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnDisconnectNotify(KWindowStateSaver* self, intptr_t slot) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
-        vkwindowstatesaver->setKWindowStateSaver_DisconnectNotify_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_DisconnectNotify_Callback>(slot));
+    if (auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self))
+        vkwindowstatesaver->kwindowstatesaver_disconnectnotify_callback = reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KWindowStateSaver_Sender(const KWindowStateSaver* self) {
-    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        return vkwindowstatesaver->sender();
-    } else {
-        return ((VirtualKWindowStateSaver*)self)->sender();
-    }
+    if (auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self))) {
+        return vkwindowstatesaver->VirtualKWindowStateSaver::sender();
+    } else
+        qFatal("Error: Protected method KWindowStateSaver::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KWindowStateSaver_SuperSender(const KWindowStateSaver* self) {
-    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        vkwindowstatesaver->setKWindowStateSaver_Sender_IsBase(true);
-        return vkwindowstatesaver->sender();
-    } else {
-        return ((VirtualKWindowStateSaver*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KWindowStateSaver_OnSender(const KWindowStateSaver* self, intptr_t slot) {
-    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
-        vkwindowstatesaver->setKWindowStateSaver_Sender_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KWindowStateSaver_SenderSignalIndex(const KWindowStateSaver* self) {
-    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        return vkwindowstatesaver->senderSignalIndex();
-    } else {
-        return ((VirtualKWindowStateSaver*)self)->senderSignalIndex();
-    }
+    if (auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self))) {
+        return vkwindowstatesaver->VirtualKWindowStateSaver::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KWindowStateSaver::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KWindowStateSaver_SuperSenderSignalIndex(const KWindowStateSaver* self) {
-    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        vkwindowstatesaver->setKWindowStateSaver_SenderSignalIndex_IsBase(true);
-        return vkwindowstatesaver->senderSignalIndex();
-    } else {
-        return ((VirtualKWindowStateSaver*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KWindowStateSaver_OnSenderSignalIndex(const KWindowStateSaver* self, intptr_t slot) {
-    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
-        vkwindowstatesaver->setKWindowStateSaver_SenderSignalIndex_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KWindowStateSaver_Receivers(const KWindowStateSaver* self, const char* signal) {
-    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        return vkwindowstatesaver->receivers(signal);
-    } else {
-        return ((VirtualKWindowStateSaver*)self)->receivers(signal);
-    }
+    if (auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self))) {
+        return vkwindowstatesaver->VirtualKWindowStateSaver::receivers(signal);
+    } else
+        qFatal("Error: Protected method KWindowStateSaver::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KWindowStateSaver_SuperReceivers(const KWindowStateSaver* self, const char* signal) {
-    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        vkwindowstatesaver->setKWindowStateSaver_Receivers_IsBase(true);
-        return vkwindowstatesaver->receivers(signal);
-    } else {
-        return ((VirtualKWindowStateSaver*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KWindowStateSaver_OnReceivers(const KWindowStateSaver* self, intptr_t slot) {
-    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
-        vkwindowstatesaver->setKWindowStateSaver_Receivers_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KWindowStateSaver_IsSignalConnected(const KWindowStateSaver* self, const QMetaMethod* signal) {
-    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        return vkwindowstatesaver->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKWindowStateSaver*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KWindowStateSaver_SuperIsSignalConnected(const KWindowStateSaver* self, const QMetaMethod* signal) {
-    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        vkwindowstatesaver->setKWindowStateSaver_IsSignalConnected_IsBase(true);
-        return vkwindowstatesaver->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKWindowStateSaver*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KWindowStateSaver_OnIsSignalConnected(const KWindowStateSaver* self, intptr_t slot) {
-    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
-        vkwindowstatesaver->setKWindowStateSaver_IsSignalConnected_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_IsSignalConnected_Callback>(slot));
+    if (auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self))) {
+        return vkwindowstatesaver->VirtualKWindowStateSaver::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KWindowStateSaver::isSignalConnected called without a directly constructed type");
 }
 
 void KWindowStateSaver_Delete(KWindowStateSaver* self) {

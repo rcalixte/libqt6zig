@@ -1585,9 +1585,9 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciPrinter) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QsciPrinter, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QsciPrinter, callback: *const fn (QsciPrinter) callconv(.c) i32) void {
         qtc.QsciPrinter_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1641,9 +1641,9 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciPrinter) callconv(.c) bool `
     ///
-    pub fn onNewPage(self: QsciPrinter, callback: *const fn () callconv(.c) bool) void {
+    pub fn onNewPage(self: QsciPrinter, callback: *const fn (QsciPrinter) callconv(.c) bool) void {
         qtc.QsciPrinter_OnNewPage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1697,9 +1697,9 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QsciPrinter) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QsciPrinter, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QsciPrinter, callback: *const fn (QsciPrinter) callconv(.c) QPaintEngine) void {
         qtc.QsciPrinter_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2249,9 +2249,9 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QsciPrinter) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QsciPrinter, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QsciPrinter, callback: *const fn (QsciPrinter) callconv(.c) QPainter) void {
         qtc.QsciPrinter_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2279,50 +2279,6 @@ pub const QsciPrinter = extern struct {
         qtc.QsciPrinter_SetEngines(@ptrCast(self.ptr), @ptrCast(_printEngine.ptr), @ptrCast(_paintEngine.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetEngines` instead
-    ///
-    pub const SuperSetEngines = superSetEngines;
-
-    /// Inherited from QPrinter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setEngines)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciPrinter `
-    ///
-    /// ` _printEngine: QPrintEngine `
-    ///
-    /// ` _paintEngine: QPaintEngine `
-    ///
-    pub fn superSetEngines(self: QsciPrinter, _printEngine: anytype, _paintEngine: anytype) void {
-        comptime _ = @TypeOf(_printEngine)._is_QPrintEngine;
-        comptime _ = @TypeOf(_paintEngine)._is_QPaintEngine;
-        qtc.QsciPrinter_SuperSetEngines(@ptrCast(self.ptr), @ptrCast(_printEngine.ptr), @ptrCast(_paintEngine.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetEngines` instead
-    ///
-    pub const OnSetEngines = onSetEngines;
-
-    /// Inherited from QPrinter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setEngines)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciPrinter`
-    ///
-    /// ` callback: *const fn (self: QsciPrinter, printEngine: QPrintEngine, paintEngine: QPaintEngine) callconv(.c) void `
-    ///
-    pub fn onSetEngines(self: QsciPrinter, callback: *const fn (QsciPrinter, QPrintEngine, QPaintEngine) callconv(.c) void) void {
-        qtc.QsciPrinter_OnSetEngines(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
     ///
     pub const GetDecodedMetricF = getDecodedMetricF;
@@ -2343,48 +2299,6 @@ pub const QsciPrinter = extern struct {
     ///
     pub fn getDecodedMetricF(self: QsciPrinter, metricA: i32, metricB: i32) f64 {
         return qtc.QsciPrinter_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciPrinter `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QsciPrinter, metricA: i32, metricB: i32) f64 {
-        return qtc.QsciPrinter_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciPrinter`
-    ///
-    /// ` callback: *const fn (self: QsciPrinter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QsciPrinter, callback: *const fn (QsciPrinter, i32, i32) callconv(.c) f64) void {
-        qtc.QsciPrinter_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

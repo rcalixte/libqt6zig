@@ -44,7 +44,7 @@ void KLinkItemSelectionModel_LinkedItemSelectionModelChanged(KLinkItemSelectionM
 void KLinkItemSelectionModel_Connect_LinkedItemSelectionModelChanged(KLinkItemSelectionModel* self, intptr_t slot);
 libqt_string KLinkItemSelectionModel_Tr2(const char* s, const char* c);
 libqt_string KLinkItemSelectionModel_Tr3(const char* s, const char* c, int n);
-void KLinkItemSelectionModel_OnMetaObject(const KLinkItemSelectionModel* self, intptr_t slot);
+void KLinkItemSelectionModel_OnMetaObject(KLinkItemSelectionModel* self, intptr_t slot);
 QMetaObject* KLinkItemSelectionModel_SuperMetaObject(const KLinkItemSelectionModel* self);
 void KLinkItemSelectionModel_OnMetacast(KLinkItemSelectionModel* self, intptr_t slot);
 void* KLinkItemSelectionModel_SuperMetacast(KLinkItemSelectionModel* self, const char* param1);
@@ -88,20 +88,10 @@ void KLinkItemSelectionModel_DisconnectNotify(KLinkItemSelectionModel* self, con
 void KLinkItemSelectionModel_OnDisconnectNotify(KLinkItemSelectionModel* self, intptr_t slot);
 void KLinkItemSelectionModel_SuperDisconnectNotify(KLinkItemSelectionModel* self, const QMetaMethod* signal);
 void KLinkItemSelectionModel_EmitSelectionChanged(KLinkItemSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
-void KLinkItemSelectionModel_OnEmitSelectionChanged(KLinkItemSelectionModel* self, intptr_t slot);
-void KLinkItemSelectionModel_SuperEmitSelectionChanged(KLinkItemSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
 QObject* KLinkItemSelectionModel_Sender(const KLinkItemSelectionModel* self);
-void KLinkItemSelectionModel_OnSender(const KLinkItemSelectionModel* self, intptr_t slot);
-QObject* KLinkItemSelectionModel_SuperSender(const KLinkItemSelectionModel* self);
 int KLinkItemSelectionModel_SenderSignalIndex(const KLinkItemSelectionModel* self);
-void KLinkItemSelectionModel_OnSenderSignalIndex(const KLinkItemSelectionModel* self, intptr_t slot);
-int KLinkItemSelectionModel_SuperSenderSignalIndex(const KLinkItemSelectionModel* self);
 int KLinkItemSelectionModel_Receivers(const KLinkItemSelectionModel* self, const char* signal);
-void KLinkItemSelectionModel_OnReceivers(const KLinkItemSelectionModel* self, intptr_t slot);
-int KLinkItemSelectionModel_SuperReceivers(const KLinkItemSelectionModel* self, const char* signal);
 bool KLinkItemSelectionModel_IsSignalConnected(const KLinkItemSelectionModel* self, const QMetaMethod* signal);
-void KLinkItemSelectionModel_OnIsSignalConnected(const KLinkItemSelectionModel* self, intptr_t slot);
-bool KLinkItemSelectionModel_SuperIsSignalConnected(const KLinkItemSelectionModel* self, const QMetaMethod* signal);
 void KLinkItemSelectionModel_Delete(KLinkItemSelectionModel* self);
 
 #ifdef __cplusplus

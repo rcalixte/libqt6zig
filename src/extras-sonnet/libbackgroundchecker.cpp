@@ -196,7 +196,7 @@ void Sonnet__BackgroundChecker_Connect_Done(Sonnet__BackgroundChecker* self, int
 
 libqt_string Sonnet__BackgroundChecker_FetchMoreText(Sonnet__BackgroundChecker* self) {
     auto* vsonnet__backgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnet__backgroundchecker && vsonnet__backgroundchecker->isVirtualSonnetBackgroundChecker) {
+    if (vsonnet__backgroundchecker) {
         auto _ret = vsonnet__backgroundchecker->fetchMoreText();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
@@ -207,12 +207,12 @@ libqt_string Sonnet__BackgroundChecker_FetchMoreText(Sonnet__BackgroundChecker* 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
-    return {};
+    qFatal("Error: Protected method Sonnet::BackgroundChecker::fetchMoreText called without a directly constructed type");
 }
 
 void Sonnet__BackgroundChecker_FinishedCurrentFeed(Sonnet__BackgroundChecker* self) {
     auto* vsonnet__backgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnet__backgroundchecker && vsonnet__backgroundchecker->isVirtualSonnetBackgroundChecker) {
+    if (vsonnet__backgroundchecker) {
         vsonnet__backgroundchecker->finishedCurrentFeed();
     }
 }
@@ -243,118 +243,74 @@ libqt_string Sonnet__BackgroundChecker_Tr3(const char* s, const char* c, int n) 
 
 // Base class handler implementation
 QMetaObject* Sonnet__BackgroundChecker_SuperMetaObject(const Sonnet__BackgroundChecker* self) {
-    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_MetaObject_IsBase(true);
-        return (QMetaObject*)vsonnetbackgroundchecker->metaObject();
-    } else {
-        return (QMetaObject*)self->Sonnet::BackgroundChecker::metaObject();
-    }
+    return (QMetaObject*)self->Sonnet::BackgroundChecker::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__BackgroundChecker_OnMetaObject(const Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_MetaObject_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_MetaObject_Callback>(slot));
+void Sonnet__BackgroundChecker_OnMetaObject(Sonnet__BackgroundChecker* self, intptr_t slot) {
+    if (auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self)))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_metaobject_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* Sonnet__BackgroundChecker_SuperMetacast(Sonnet__BackgroundChecker* self, const char* param1) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Metacast_IsBase(true);
-        return vsonnetbackgroundchecker->qt_metacast(param1);
-    } else {
-        return self->Sonnet::BackgroundChecker::qt_metacast(param1);
-    }
+    return self->Sonnet::BackgroundChecker::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__BackgroundChecker_OnMetacast(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Metacast_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_Metacast_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_metacast_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int Sonnet__BackgroundChecker_SuperMetacall(Sonnet__BackgroundChecker* self, int param1, int param2, void** param3) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Metacall_IsBase(true);
-        return vsonnetbackgroundchecker->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->Sonnet::BackgroundChecker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->Sonnet::BackgroundChecker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__BackgroundChecker_OnMetacall(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Metacall_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_Metacall_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_metacall_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void Sonnet__BackgroundChecker_SuperStart(Sonnet__BackgroundChecker* self) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Start_IsBase(true);
-        vsonnetbackgroundchecker->start();
-    } else {
-        self->Sonnet::BackgroundChecker::start();
-    }
+    self->Sonnet::BackgroundChecker::start();
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__BackgroundChecker_OnStart(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Start_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_Start_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_start_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_Start_Callback>(slot);
 }
 
 // Base class handler implementation
 void Sonnet__BackgroundChecker_SuperStop(Sonnet__BackgroundChecker* self) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Stop_IsBase(true);
-        vsonnetbackgroundchecker->stop();
-    } else {
-        self->Sonnet::BackgroundChecker::stop();
-    }
+    self->Sonnet::BackgroundChecker::stop();
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__BackgroundChecker_OnStop(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Stop_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_Stop_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_stop_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_Stop_Callback>(slot);
 }
 
 // Base class handler implementation
 void Sonnet__BackgroundChecker_SuperContinueChecking(Sonnet__BackgroundChecker* self) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_ContinueChecking_IsBase(true);
-        vsonnetbackgroundchecker->continueChecking();
-    } else {
-        self->Sonnet::BackgroundChecker::continueChecking();
-    }
+    self->Sonnet::BackgroundChecker::continueChecking();
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__BackgroundChecker_OnContinueChecking(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_ContinueChecking_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_ContinueChecking_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_continuechecking_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_ContinueChecking_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string Sonnet__BackgroundChecker_SuperFetchMoreText(Sonnet__BackgroundChecker* self) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_FetchMoreText_IsBase(true);
-        auto _ret = vsonnetbackgroundchecker->fetchMoreText();
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self)) {
+        auto _ret = vsonnetbackgroundchecker->Sonnet::BackgroundChecker::fetchMoreText();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -363,378 +319,220 @@ libqt_string Sonnet__BackgroundChecker_SuperFetchMoreText(Sonnet__BackgroundChec
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualSonnetBackgroundChecker*)self)->fetchMoreText();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected virtual method Sonnet::BackgroundChecker::fetchMoreText called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__BackgroundChecker_OnFetchMoreText(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_FetchMoreText_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_FetchMoreText_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_fetchmoretext_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_FetchMoreText_Callback>(slot);
 }
 
 // Base class handler implementation
 void Sonnet__BackgroundChecker_SuperFinishedCurrentFeed(Sonnet__BackgroundChecker* self) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_FinishedCurrentFeed_IsBase(true);
-        vsonnetbackgroundchecker->finishedCurrentFeed();
-    } else {
-        ((VirtualSonnetBackgroundChecker*)self)->finishedCurrentFeed();
-    }
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self)) {
+        vsonnetbackgroundchecker->Sonnet::BackgroundChecker::finishedCurrentFeed();
+    } else
+        qFatal("Error: Protected virtual method Sonnet::BackgroundChecker::finishedCurrentFeed called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__BackgroundChecker_OnFinishedCurrentFeed(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_FinishedCurrentFeed_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_FinishedCurrentFeed_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_finishedcurrentfeed_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_FinishedCurrentFeed_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__BackgroundChecker_Event(Sonnet__BackgroundChecker* self, QEvent* event) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        return vsonnetbackgroundchecker->event(event);
-    } else {
-        return self->Sonnet::BackgroundChecker::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool Sonnet__BackgroundChecker_SuperEvent(Sonnet__BackgroundChecker* self, QEvent* event) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Event_IsBase(true);
-        return vsonnetbackgroundchecker->event(event);
-    } else {
-        return self->Sonnet::BackgroundChecker::event(event);
-    }
+    return self->Sonnet::BackgroundChecker::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__BackgroundChecker_OnEvent(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Event_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_Event_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_event_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__BackgroundChecker_EventFilter(Sonnet__BackgroundChecker* self, QObject* watched, QEvent* event) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        return vsonnetbackgroundchecker->eventFilter(watched, event);
-    } else {
-        return self->Sonnet::BackgroundChecker::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool Sonnet__BackgroundChecker_SuperEventFilter(Sonnet__BackgroundChecker* self, QObject* watched, QEvent* event) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_EventFilter_IsBase(true);
-        return vsonnetbackgroundchecker->eventFilter(watched, event);
-    } else {
-        return self->Sonnet::BackgroundChecker::eventFilter(watched, event);
-    }
+    return self->Sonnet::BackgroundChecker::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__BackgroundChecker_OnEventFilter(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_EventFilter_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_EventFilter_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_eventfilter_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__BackgroundChecker_TimerEvent(Sonnet__BackgroundChecker* self, QTimerEvent* event) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
+    if (vsonnetbackgroundchecker) {
         vsonnetbackgroundchecker->timerEvent(event);
     } else {
-        ((VirtualSonnetBackgroundChecker*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::BackgroundChecker::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__BackgroundChecker_SuperTimerEvent(Sonnet__BackgroundChecker* self, QTimerEvent* event) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_TimerEvent_IsBase(true);
-        vsonnetbackgroundchecker->timerEvent(event);
-    } else {
-        ((VirtualSonnetBackgroundChecker*)self)->timerEvent(event);
-    }
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self)) {
+        vsonnetbackgroundchecker->Sonnet::BackgroundChecker::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::BackgroundChecker::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__BackgroundChecker_OnTimerEvent(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_TimerEvent_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_TimerEvent_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_timerevent_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__BackgroundChecker_ChildEvent(Sonnet__BackgroundChecker* self, QChildEvent* event) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
+    if (vsonnetbackgroundchecker) {
         vsonnetbackgroundchecker->childEvent(event);
     } else {
-        ((VirtualSonnetBackgroundChecker*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::BackgroundChecker::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__BackgroundChecker_SuperChildEvent(Sonnet__BackgroundChecker* self, QChildEvent* event) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_ChildEvent_IsBase(true);
-        vsonnetbackgroundchecker->childEvent(event);
-    } else {
-        ((VirtualSonnetBackgroundChecker*)self)->childEvent(event);
-    }
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self)) {
+        vsonnetbackgroundchecker->Sonnet::BackgroundChecker::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::BackgroundChecker::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__BackgroundChecker_OnChildEvent(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_ChildEvent_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_ChildEvent_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_childevent_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__BackgroundChecker_CustomEvent(Sonnet__BackgroundChecker* self, QEvent* event) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
+    if (vsonnetbackgroundchecker) {
         vsonnetbackgroundchecker->customEvent(event);
     } else {
-        ((VirtualSonnetBackgroundChecker*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::BackgroundChecker::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__BackgroundChecker_SuperCustomEvent(Sonnet__BackgroundChecker* self, QEvent* event) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_CustomEvent_IsBase(true);
-        vsonnetbackgroundchecker->customEvent(event);
-    } else {
-        ((VirtualSonnetBackgroundChecker*)self)->customEvent(event);
-    }
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self)) {
+        vsonnetbackgroundchecker->Sonnet::BackgroundChecker::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::BackgroundChecker::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__BackgroundChecker_OnCustomEvent(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_CustomEvent_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_CustomEvent_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_customevent_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__BackgroundChecker_ConnectNotify(Sonnet__BackgroundChecker* self, const QMetaMethod* signal) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
+    if (vsonnetbackgroundchecker) {
         vsonnetbackgroundchecker->connectNotify(*signal);
     } else {
-        ((VirtualSonnetBackgroundChecker*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method Sonnet::BackgroundChecker::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__BackgroundChecker_SuperConnectNotify(Sonnet__BackgroundChecker* self, const QMetaMethod* signal) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_ConnectNotify_IsBase(true);
-        vsonnetbackgroundchecker->connectNotify(*signal);
-    } else {
-        ((VirtualSonnetBackgroundChecker*)self)->connectNotify(*signal);
-    }
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self)) {
+        vsonnetbackgroundchecker->Sonnet::BackgroundChecker::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::BackgroundChecker::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__BackgroundChecker_OnConnectNotify(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_ConnectNotify_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_ConnectNotify_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_connectnotify_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__BackgroundChecker_DisconnectNotify(Sonnet__BackgroundChecker* self, const QMetaMethod* signal) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
+    if (vsonnetbackgroundchecker) {
         vsonnetbackgroundchecker->disconnectNotify(*signal);
     } else {
-        ((VirtualSonnetBackgroundChecker*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method Sonnet::BackgroundChecker::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__BackgroundChecker_SuperDisconnectNotify(Sonnet__BackgroundChecker* self, const QMetaMethod* signal) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_DisconnectNotify_IsBase(true);
-        vsonnetbackgroundchecker->disconnectNotify(*signal);
-    } else {
-        ((VirtualSonnetBackgroundChecker*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self)) {
+        vsonnetbackgroundchecker->Sonnet::BackgroundChecker::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::BackgroundChecker::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__BackgroundChecker_OnDisconnectNotify(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_DisconnectNotify_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_DisconnectNotify_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self))
+        vsonnetbackgroundchecker->sonnet__backgroundchecker_disconnectnotify_callback = reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Sonnet__BackgroundChecker_SlotEngineDone(Sonnet__BackgroundChecker* self) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->slotEngineDone();
-    } else {
-        ((VirtualSonnetBackgroundChecker*)self)->slotEngineDone();
-    }
+    if (auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self)) {
+        vsonnetbackgroundchecker->VirtualSonnetBackgroundChecker::slotEngineDone();
+    } else
+        qFatal("Error: Protected method Sonnet::BackgroundChecker::slotEngineDone called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Sonnet__BackgroundChecker_SuperSlotEngineDone(Sonnet__BackgroundChecker* self) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_SlotEngineDone_IsBase(true);
-        vsonnetbackgroundchecker->slotEngineDone();
-    } else {
-        ((VirtualSonnetBackgroundChecker*)self)->slotEngineDone();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__BackgroundChecker_OnSlotEngineDone(Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_SlotEngineDone_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_SlotEngineDone_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* Sonnet__BackgroundChecker_Sender(const Sonnet__BackgroundChecker* self) {
-    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        return vsonnetbackgroundchecker->sender();
-    } else {
-        return ((VirtualSonnetBackgroundChecker*)self)->sender();
-    }
+    if (auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self))) {
+        return vsonnetbackgroundchecker->VirtualSonnetBackgroundChecker::sender();
+    } else
+        qFatal("Error: Protected method Sonnet::BackgroundChecker::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* Sonnet__BackgroundChecker_SuperSender(const Sonnet__BackgroundChecker* self) {
-    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Sender_IsBase(true);
-        return vsonnetbackgroundchecker->sender();
-    } else {
-        return ((VirtualSonnetBackgroundChecker*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__BackgroundChecker_OnSender(const Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Sender_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Sonnet__BackgroundChecker_SenderSignalIndex(const Sonnet__BackgroundChecker* self) {
-    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        return vsonnetbackgroundchecker->senderSignalIndex();
-    } else {
-        return ((VirtualSonnetBackgroundChecker*)self)->senderSignalIndex();
-    }
+    if (auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self))) {
+        return vsonnetbackgroundchecker->VirtualSonnetBackgroundChecker::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method Sonnet::BackgroundChecker::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Sonnet__BackgroundChecker_SuperSenderSignalIndex(const Sonnet__BackgroundChecker* self) {
-    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_SenderSignalIndex_IsBase(true);
-        return vsonnetbackgroundchecker->senderSignalIndex();
-    } else {
-        return ((VirtualSonnetBackgroundChecker*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__BackgroundChecker_OnSenderSignalIndex(const Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_SenderSignalIndex_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Sonnet__BackgroundChecker_Receivers(const Sonnet__BackgroundChecker* self, const char* signal) {
-    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        return vsonnetbackgroundchecker->receivers(signal);
-    } else {
-        return ((VirtualSonnetBackgroundChecker*)self)->receivers(signal);
-    }
+    if (auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self))) {
+        return vsonnetbackgroundchecker->VirtualSonnetBackgroundChecker::receivers(signal);
+    } else
+        qFatal("Error: Protected method Sonnet::BackgroundChecker::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Sonnet__BackgroundChecker_SuperReceivers(const Sonnet__BackgroundChecker* self, const char* signal) {
-    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Receivers_IsBase(true);
-        return vsonnetbackgroundchecker->receivers(signal);
-    } else {
-        return ((VirtualSonnetBackgroundChecker*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__BackgroundChecker_OnReceivers(const Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Receivers_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Sonnet__BackgroundChecker_IsSignalConnected(const Sonnet__BackgroundChecker* self, const QMetaMethod* signal) {
-    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        return vsonnetbackgroundchecker->isSignalConnected(*signal);
-    } else {
-        return ((VirtualSonnetBackgroundChecker*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool Sonnet__BackgroundChecker_SuperIsSignalConnected(const Sonnet__BackgroundChecker* self, const QMetaMethod* signal) {
-    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_IsSignalConnected_IsBase(true);
-        return vsonnetbackgroundchecker->isSignalConnected(*signal);
-    } else {
-        return ((VirtualSonnetBackgroundChecker*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__BackgroundChecker_OnIsSignalConnected(const Sonnet__BackgroundChecker* self, intptr_t slot) {
-    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
-    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker)
-        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_IsSignalConnected_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_IsSignalConnected_Callback>(slot));
+    if (auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self))) {
+        return vsonnetbackgroundchecker->VirtualSonnetBackgroundChecker::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method Sonnet::BackgroundChecker::isSignalConnected called without a directly constructed type");
 }
 
 void Sonnet__BackgroundChecker_Delete(Sonnet__BackgroundChecker* self) {

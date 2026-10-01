@@ -64,9 +64,9 @@ pub const QSGTexture = extern struct {
     ///
     /// ` self: QSGTexture `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QSGTexture) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QSGTexture, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QSGTexture, callback: *const fn (QSGTexture) callconv(.c) QMetaObject) void {
         qtc.QSGTexture_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -217,6 +217,8 @@ pub const QSGTexture = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#comparisonKey)
     ///
+    /// This method must be implemented with `onComparisonKey` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGTexture `
@@ -237,26 +239,10 @@ pub const QSGTexture = extern struct {
     ///
     /// ` self: QSGTexture `
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QSGTexture) callconv(.c) i64 `
     ///
-    pub fn onComparisonKey(self: QSGTexture, callback: *const fn () callconv(.c) i64) void {
+    pub fn onComparisonKey(self: QSGTexture, callback: *const fn (QSGTexture) callconv(.c) i64) void {
         qtc.QSGTexture_OnComparisonKey(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superComparisonKey` instead
-    ///
-    pub const SuperComparisonKey = superComparisonKey;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#comparisonKey)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGTexture `
-    ///
-    pub fn superComparisonKey(self: QSGTexture) i64 {
-        return qtc.QSGTexture_SuperComparisonKey(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `textureSize` instead
@@ -264,6 +250,8 @@ pub const QSGTexture = extern struct {
     pub const TextureSize = textureSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#textureSize)
+    ///
+    /// This method must be implemented with `onTextureSize` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -285,28 +273,12 @@ pub const QSGTexture = extern struct {
     ///
     /// ` self: QSGTexture `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QSGTexture) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onTextureSize(self: QSGTexture, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onTextureSize(self: QSGTexture, callback: *const fn (QSGTexture) callconv(.c) QSize) void {
         qtc.QSGTexture_OnTextureSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTextureSize` instead
-    ///
-    pub const SuperTextureSize = superTextureSize;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#textureSize)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGTexture `
-    ///
-    pub fn superTextureSize(self: QSGTexture) QSize {
-        return .{ .ptr = qtc.QSGTexture_SuperTextureSize(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `hasAlphaChannel` instead
@@ -314,6 +286,8 @@ pub const QSGTexture = extern struct {
     pub const HasAlphaChannel = hasAlphaChannel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#hasAlphaChannel)
+    ///
+    /// This method must be implemented with `onHasAlphaChannel` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -335,26 +309,10 @@ pub const QSGTexture = extern struct {
     ///
     /// ` self: QSGTexture `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGTexture) callconv(.c) bool `
     ///
-    pub fn onHasAlphaChannel(self: QSGTexture, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasAlphaChannel(self: QSGTexture, callback: *const fn (QSGTexture) callconv(.c) bool) void {
         qtc.QSGTexture_OnHasAlphaChannel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHasAlphaChannel` instead
-    ///
-    pub const SuperHasAlphaChannel = superHasAlphaChannel;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#hasAlphaChannel)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGTexture `
-    ///
-    pub fn superHasAlphaChannel(self: QSGTexture) bool {
-        return qtc.QSGTexture_SuperHasAlphaChannel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `hasMipmaps` instead
@@ -362,6 +320,8 @@ pub const QSGTexture = extern struct {
     pub const HasMipmaps = hasMipmaps;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#hasMipmaps)
+    ///
+    /// This method must be implemented with `onHasMipmaps` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -383,26 +343,10 @@ pub const QSGTexture = extern struct {
     ///
     /// ` self: QSGTexture `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGTexture) callconv(.c) bool `
     ///
-    pub fn onHasMipmaps(self: QSGTexture, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasMipmaps(self: QSGTexture, callback: *const fn (QSGTexture) callconv(.c) bool) void {
         qtc.QSGTexture_OnHasMipmaps(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHasMipmaps` instead
-    ///
-    pub const SuperHasMipmaps = superHasMipmaps;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#hasMipmaps)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGTexture `
-    ///
-    pub fn superHasMipmaps(self: QSGTexture) bool {
-        return qtc.QSGTexture_SuperHasMipmaps(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `normalizedTextureSubRect` instead
@@ -431,11 +375,11 @@ pub const QSGTexture = extern struct {
     ///
     /// ` self: QSGTexture `
     ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
+    /// ` callback: *const fn (self: QSGTexture) callconv(.c) QRectF `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onNormalizedTextureSubRect(self: QSGTexture, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onNormalizedTextureSubRect(self: QSGTexture, callback: *const fn (QSGTexture) callconv(.c) QRectF) void {
         qtc.QSGTexture_OnNormalizedTextureSubRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -481,9 +425,9 @@ pub const QSGTexture = extern struct {
     ///
     /// ` self: QSGTexture `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGTexture) callconv(.c) bool `
     ///
-    pub fn onIsAtlasTexture(self: QSGTexture, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsAtlasTexture(self: QSGTexture, callback: *const fn (QSGTexture) callconv(.c) bool) void {
         qtc.QSGTexture_OnIsAtlasTexture(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -707,45 +651,6 @@ pub const QSGTexture = extern struct {
     pub fn resolveInterface(self: QSGTexture, name: [:0]const u8, revision: i32) ?*anyopaque {
         const name_Cstring = name.ptr;
         return qtc.QSGTexture_ResolveInterface(@ptrCast(self.ptr), name_Cstring, @bitCast(revision));
-    }
-
-    /// ### DEPRECATED: Use `onResolveInterface` instead
-    ///
-    pub const OnResolveInterface = onResolveInterface;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#resolveInterface)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSGTexture `
-    ///
-    /// ` callback: *const fn (self: QSGTexture, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque `
-    ///
-    pub fn onResolveInterface(self: QSGTexture, callback: *const fn (QSGTexture, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
-        qtc.QSGTexture_OnResolveInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superResolveInterface` instead
-    ///
-    pub const SuperResolveInterface = superResolveInterface;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#resolveInterface)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGTexture `
-    ///
-    /// ` name: [:0]const u8 `
-    ///
-    /// ` revision: i32 `
-    ///
-    pub fn superResolveInterface(self: QSGTexture, name: [:0]const u8, revision: i32) ?*anyopaque {
-        const name_Cstring = name.ptr;
-        return qtc.QSGTexture_SuperResolveInterface(@ptrCast(self.ptr), name_Cstring, @bitCast(revision));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2225,44 +2130,6 @@ pub const QSGTexture = extern struct {
         return .{ .ptr = qtc.QSGTexture_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGTexture `
-    ///
-    pub fn superSender(self: QSGTexture) QObject {
-        return .{ .ptr = qtc.QSGTexture_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSGTexture`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QSGTexture, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QSGTexture_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2279,44 +2146,6 @@ pub const QSGTexture = extern struct {
     ///
     pub fn senderSignalIndex(self: QSGTexture) i32 {
         return qtc.QSGTexture_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGTexture `
-    ///
-    pub fn superSenderSignalIndex(self: QSGTexture) i32 {
-        return qtc.QSGTexture_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSGTexture`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QSGTexture, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSGTexture_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2340,47 +2169,6 @@ pub const QSGTexture = extern struct {
         return qtc.QSGTexture_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGTexture `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QSGTexture, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QSGTexture_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSGTexture`
-    ///
-    /// ` callback: *const fn (self: QSGTexture, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QSGTexture, callback: *const fn (QSGTexture, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSGTexture_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2400,47 +2188,6 @@ pub const QSGTexture = extern struct {
     pub fn isSignalConnected(self: QSGTexture, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSGTexture_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGTexture `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QSGTexture, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QSGTexture_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSGTexture`
-    ///
-    /// ` callback: *const fn (self: QSGTexture, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QSGTexture, callback: *const fn (QSGTexture, QMetaMethod) callconv(.c) bool) void {
-        qtc.QSGTexture_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -2528,9 +2275,9 @@ pub const QSGDynamicTexture = extern struct {
     ///
     /// ` self: QSGDynamicTexture `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QSGDynamicTexture) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QSGDynamicTexture, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QSGDynamicTexture, callback: *const fn (QSGDynamicTexture) callconv(.c) QMetaObject) void {
         qtc.QSGDynamicTexture_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2681,6 +2428,8 @@ pub const QSGDynamicTexture = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgdynamictexture.html#updateTexture)
     ///
+    /// This method must be implemented with `onUpdateTexture` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGDynamicTexture `
@@ -2701,26 +2450,10 @@ pub const QSGDynamicTexture = extern struct {
     ///
     /// ` self: QSGDynamicTexture `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGDynamicTexture) callconv(.c) bool `
     ///
-    pub fn onUpdateTexture(self: QSGDynamicTexture, callback: *const fn () callconv(.c) bool) void {
+    pub fn onUpdateTexture(self: QSGDynamicTexture, callback: *const fn (QSGDynamicTexture) callconv(.c) bool) void {
         qtc.QSGDynamicTexture_OnUpdateTexture(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateTexture` instead
-    ///
-    pub const SuperUpdateTexture = superUpdateTexture;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgdynamictexture.html#updateTexture)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGDynamicTexture `
-    ///
-    pub fn superUpdateTexture(self: QSGDynamicTexture) bool {
-        return qtc.QSGDynamicTexture_SuperUpdateTexture(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -3961,30 +3694,14 @@ pub const QSGDynamicTexture = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onComparisonKey` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGDynamicTexture `
     ///
     pub fn comparisonKey(self: QSGDynamicTexture) i64 {
         return qtc.QSGDynamicTexture_ComparisonKey(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superComparisonKey` instead
-    ///
-    pub const SuperComparisonKey = superComparisonKey;
-
-    /// Inherited from QSGTexture
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#comparisonKey)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGDynamicTexture `
-    ///
-    pub fn superComparisonKey(self: QSGDynamicTexture) i64 {
-        return qtc.QSGDynamicTexture_SuperComparisonKey(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `onComparisonKey` instead
@@ -4001,9 +3718,9 @@ pub const QSGDynamicTexture = extern struct {
     ///
     /// ` self: QSGDynamicTexture`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QSGDynamicTexture) callconv(.c) i64 `
     ///
-    pub fn onComparisonKey(self: QSGDynamicTexture, callback: *const fn () callconv(.c) i64) void {
+    pub fn onComparisonKey(self: QSGDynamicTexture, callback: *const fn (QSGDynamicTexture) callconv(.c) i64) void {
         qtc.QSGDynamicTexture_OnComparisonKey(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4017,30 +3734,14 @@ pub const QSGDynamicTexture = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onTextureSize` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGDynamicTexture `
     ///
     pub fn textureSize(self: QSGDynamicTexture) QSize {
         return .{ .ptr = qtc.QSGDynamicTexture_TextureSize(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superTextureSize` instead
-    ///
-    pub const SuperTextureSize = superTextureSize;
-
-    /// Inherited from QSGTexture
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#textureSize)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGDynamicTexture `
-    ///
-    pub fn superTextureSize(self: QSGDynamicTexture) QSize {
-        return .{ .ptr = qtc.QSGDynamicTexture_SuperTextureSize(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `onTextureSize` instead
@@ -4057,11 +3758,11 @@ pub const QSGDynamicTexture = extern struct {
     ///
     /// ` self: QSGDynamicTexture`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QSGDynamicTexture) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onTextureSize(self: QSGDynamicTexture, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onTextureSize(self: QSGDynamicTexture, callback: *const fn (QSGDynamicTexture) callconv(.c) QSize) void {
         qtc.QSGDynamicTexture_OnTextureSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4075,30 +3776,14 @@ pub const QSGDynamicTexture = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onHasAlphaChannel` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGDynamicTexture `
     ///
     pub fn hasAlphaChannel(self: QSGDynamicTexture) bool {
         return qtc.QSGDynamicTexture_HasAlphaChannel(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superHasAlphaChannel` instead
-    ///
-    pub const SuperHasAlphaChannel = superHasAlphaChannel;
-
-    /// Inherited from QSGTexture
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#hasAlphaChannel)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGDynamicTexture `
-    ///
-    pub fn superHasAlphaChannel(self: QSGDynamicTexture) bool {
-        return qtc.QSGDynamicTexture_SuperHasAlphaChannel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `onHasAlphaChannel` instead
@@ -4115,9 +3800,9 @@ pub const QSGDynamicTexture = extern struct {
     ///
     /// ` self: QSGDynamicTexture`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGDynamicTexture) callconv(.c) bool `
     ///
-    pub fn onHasAlphaChannel(self: QSGDynamicTexture, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasAlphaChannel(self: QSGDynamicTexture, callback: *const fn (QSGDynamicTexture) callconv(.c) bool) void {
         qtc.QSGDynamicTexture_OnHasAlphaChannel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4131,30 +3816,14 @@ pub const QSGDynamicTexture = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onHasMipmaps` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGDynamicTexture `
     ///
     pub fn hasMipmaps(self: QSGDynamicTexture) bool {
         return qtc.QSGDynamicTexture_HasMipmaps(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superHasMipmaps` instead
-    ///
-    pub const SuperHasMipmaps = superHasMipmaps;
-
-    /// Inherited from QSGTexture
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#hasMipmaps)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGDynamicTexture `
-    ///
-    pub fn superHasMipmaps(self: QSGDynamicTexture) bool {
-        return qtc.QSGDynamicTexture_SuperHasMipmaps(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `onHasMipmaps` instead
@@ -4171,9 +3840,9 @@ pub const QSGDynamicTexture = extern struct {
     ///
     /// ` self: QSGDynamicTexture`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGDynamicTexture) callconv(.c) bool `
     ///
-    pub fn onHasMipmaps(self: QSGDynamicTexture, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasMipmaps(self: QSGDynamicTexture, callback: *const fn (QSGDynamicTexture) callconv(.c) bool) void {
         qtc.QSGDynamicTexture_OnHasMipmaps(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4227,11 +3896,11 @@ pub const QSGDynamicTexture = extern struct {
     ///
     /// ` self: QSGDynamicTexture`
     ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
+    /// ` callback: *const fn (self: QSGDynamicTexture) callconv(.c) QRectF `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onNormalizedTextureSubRect(self: QSGDynamicTexture, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onNormalizedTextureSubRect(self: QSGDynamicTexture, callback: *const fn (QSGDynamicTexture) callconv(.c) QRectF) void {
         qtc.QSGDynamicTexture_OnNormalizedTextureSubRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4285,9 +3954,9 @@ pub const QSGDynamicTexture = extern struct {
     ///
     /// ` self: QSGDynamicTexture`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSGDynamicTexture) callconv(.c) bool `
     ///
-    pub fn onIsAtlasTexture(self: QSGDynamicTexture, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsAtlasTexture(self: QSGDynamicTexture, callback: *const fn (QSGDynamicTexture) callconv(.c) bool) void {
         qtc.QSGDynamicTexture_OnIsAtlasTexture(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4754,49 +4423,6 @@ pub const QSGDynamicTexture = extern struct {
         return qtc.QSGDynamicTexture_ResolveInterface(@ptrCast(self.ptr), name_Cstring, @bitCast(revision));
     }
 
-    /// ### DEPRECATED: Use `superResolveInterface` instead
-    ///
-    pub const SuperResolveInterface = superResolveInterface;
-
-    /// Inherited from QSGTexture
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#resolveInterface)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGDynamicTexture `
-    ///
-    /// ` name: [:0]const u8 `
-    ///
-    /// ` revision: i32 `
-    ///
-    pub fn superResolveInterface(self: QSGDynamicTexture, name: [:0]const u8, revision: i32) ?*anyopaque {
-        const name_Cstring = name.ptr;
-        return qtc.QSGDynamicTexture_SuperResolveInterface(@ptrCast(self.ptr), name_Cstring, @bitCast(revision));
-    }
-
-    /// ### DEPRECATED: Use `onResolveInterface` instead
-    ///
-    pub const OnResolveInterface = onResolveInterface;
-
-    /// Inherited from QSGTexture
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtexture.html#resolveInterface)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSGDynamicTexture`
-    ///
-    /// ` callback: *const fn (self: QSGDynamicTexture, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque `
-    ///
-    pub fn onResolveInterface(self: QSGDynamicTexture, callback: *const fn (QSGDynamicTexture, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
-        qtc.QSGDynamicTexture_OnResolveInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -4815,44 +4441,6 @@ pub const QSGDynamicTexture = extern struct {
         return .{ .ptr = qtc.QSGDynamicTexture_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGDynamicTexture `
-    ///
-    pub fn superSender(self: QSGDynamicTexture) QObject {
-        return .{ .ptr = qtc.QSGDynamicTexture_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSGDynamicTexture`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QSGDynamicTexture, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QSGDynamicTexture_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4869,44 +4457,6 @@ pub const QSGDynamicTexture = extern struct {
     ///
     pub fn senderSignalIndex(self: QSGDynamicTexture) i32 {
         return qtc.QSGDynamicTexture_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGDynamicTexture `
-    ///
-    pub fn superSenderSignalIndex(self: QSGDynamicTexture) i32 {
-        return qtc.QSGDynamicTexture_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSGDynamicTexture`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QSGDynamicTexture, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSGDynamicTexture_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4930,47 +4480,6 @@ pub const QSGDynamicTexture = extern struct {
         return qtc.QSGDynamicTexture_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGDynamicTexture `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QSGDynamicTexture, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QSGDynamicTexture_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSGDynamicTexture`
-    ///
-    /// ` callback: *const fn (self: QSGDynamicTexture, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QSGDynamicTexture, callback: *const fn (QSGDynamicTexture, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSGDynamicTexture_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4990,47 +4499,6 @@ pub const QSGDynamicTexture = extern struct {
     pub fn isSignalConnected(self: QSGDynamicTexture, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSGDynamicTexture_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGDynamicTexture `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QSGDynamicTexture, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QSGDynamicTexture_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSGDynamicTexture`
-    ///
-    /// ` callback: *const fn (self: QSGDynamicTexture, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QSGDynamicTexture, callback: *const fn (QSGDynamicTexture, QMetaMethod) callconv(.c) bool) void {
-        qtc.QSGDynamicTexture_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

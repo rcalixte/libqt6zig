@@ -67,17 +67,9 @@ bool K7Zip_CreateDevice(K7Zip* self, int mode);
 void K7Zip_OnCreateDevice(K7Zip* self, intptr_t slot);
 bool K7Zip_SuperCreateDevice(K7Zip* self, int mode);
 void K7Zip_SetErrorString(K7Zip* self, const libqt_string errorStr);
-void K7Zip_OnSetErrorString(K7Zip* self, intptr_t slot);
-void K7Zip_SuperSetErrorString(K7Zip* self, const libqt_string errorStr);
 KArchiveDirectory* K7Zip_FindOrCreate(K7Zip* self, const libqt_string path);
-void K7Zip_OnFindOrCreate(K7Zip* self, intptr_t slot);
-KArchiveDirectory* K7Zip_SuperFindOrCreate(K7Zip* self, const libqt_string path);
 void K7Zip_SetDevice(K7Zip* self, QIODevice* dev);
-void K7Zip_OnSetDevice(K7Zip* self, intptr_t slot);
-void K7Zip_SuperSetDevice(K7Zip* self, QIODevice* dev);
 void K7Zip_SetRootDir(K7Zip* self, KArchiveDirectory* rootDir);
-void K7Zip_OnSetRootDir(K7Zip* self, intptr_t slot);
-void K7Zip_SuperSetRootDir(K7Zip* self, KArchiveDirectory* rootDir);
 void K7Zip_Delete(K7Zip* self);
 
 #ifdef __cplusplus

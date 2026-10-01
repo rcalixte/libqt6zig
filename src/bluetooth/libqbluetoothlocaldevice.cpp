@@ -222,364 +222,219 @@ libqt_string QBluetoothLocalDevice_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QBluetoothLocalDevice_SuperMetaObject(const QBluetoothLocalDevice* self) {
-    auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self));
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_MetaObject_IsBase(true);
-        return (QMetaObject*)vqbluetoothlocaldevice->metaObject();
-    } else {
-        return (QMetaObject*)self->QBluetoothLocalDevice::metaObject();
-    }
+    return (QMetaObject*)self->QBluetoothLocalDevice::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QBluetoothLocalDevice_OnMetaObject(const QBluetoothLocalDevice* self, intptr_t slot) {
-    auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self));
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice)
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_MetaObject_Callback(reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_MetaObject_Callback>(slot));
+void QBluetoothLocalDevice_OnMetaObject(QBluetoothLocalDevice* self, intptr_t slot) {
+    if (auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self)))
+        vqbluetoothlocaldevice->qbluetoothlocaldevice_metaobject_callback = reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QBluetoothLocalDevice_SuperMetacast(QBluetoothLocalDevice* self, const char* param1) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_Metacast_IsBase(true);
-        return vqbluetoothlocaldevice->qt_metacast(param1);
-    } else {
-        return self->QBluetoothLocalDevice::qt_metacast(param1);
-    }
+    return self->QBluetoothLocalDevice::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBluetoothLocalDevice_OnMetacast(QBluetoothLocalDevice* self, intptr_t slot) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice)
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_Metacast_Callback(reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_Metacast_Callback>(slot));
+    if (auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self))
+        vqbluetoothlocaldevice->qbluetoothlocaldevice_metacast_callback = reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QBluetoothLocalDevice_SuperMetacall(QBluetoothLocalDevice* self, int param1, int param2, void** param3) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_Metacall_IsBase(true);
-        return vqbluetoothlocaldevice->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QBluetoothLocalDevice::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QBluetoothLocalDevice::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBluetoothLocalDevice_OnMetacall(QBluetoothLocalDevice* self, intptr_t slot) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice)
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_Metacall_Callback(reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_Metacall_Callback>(slot));
+    if (auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self))
+        vqbluetoothlocaldevice->qbluetoothlocaldevice_metacall_callback = reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QBluetoothLocalDevice_Event(QBluetoothLocalDevice* self, QEvent* event) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        return vqbluetoothlocaldevice->event(event);
-    } else {
-        return self->QBluetoothLocalDevice::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QBluetoothLocalDevice_SuperEvent(QBluetoothLocalDevice* self, QEvent* event) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_Event_IsBase(true);
-        return vqbluetoothlocaldevice->event(event);
-    } else {
-        return self->QBluetoothLocalDevice::event(event);
-    }
+    return self->QBluetoothLocalDevice::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBluetoothLocalDevice_OnEvent(QBluetoothLocalDevice* self, intptr_t slot) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice)
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_Event_Callback(reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_Event_Callback>(slot));
+    if (auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self))
+        vqbluetoothlocaldevice->qbluetoothlocaldevice_event_callback = reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QBluetoothLocalDevice_EventFilter(QBluetoothLocalDevice* self, QObject* watched, QEvent* event) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        return vqbluetoothlocaldevice->eventFilter(watched, event);
-    } else {
-        return self->QBluetoothLocalDevice::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QBluetoothLocalDevice_SuperEventFilter(QBluetoothLocalDevice* self, QObject* watched, QEvent* event) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_EventFilter_IsBase(true);
-        return vqbluetoothlocaldevice->eventFilter(watched, event);
-    } else {
-        return self->QBluetoothLocalDevice::eventFilter(watched, event);
-    }
+    return self->QBluetoothLocalDevice::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBluetoothLocalDevice_OnEventFilter(QBluetoothLocalDevice* self, intptr_t slot) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice)
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_EventFilter_Callback(reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_EventFilter_Callback>(slot));
+    if (auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self))
+        vqbluetoothlocaldevice->qbluetoothlocaldevice_eventfilter_callback = reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBluetoothLocalDevice_TimerEvent(QBluetoothLocalDevice* self, QTimerEvent* event) {
     auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
+    if (vqbluetoothlocaldevice) {
         vqbluetoothlocaldevice->timerEvent(event);
     } else {
-        ((VirtualQBluetoothLocalDevice*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QBluetoothLocalDevice::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBluetoothLocalDevice_SuperTimerEvent(QBluetoothLocalDevice* self, QTimerEvent* event) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_TimerEvent_IsBase(true);
-        vqbluetoothlocaldevice->timerEvent(event);
-    } else {
-        ((VirtualQBluetoothLocalDevice*)self)->timerEvent(event);
-    }
+    if (auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self)) {
+        vqbluetoothlocaldevice->QBluetoothLocalDevice::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBluetoothLocalDevice::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBluetoothLocalDevice_OnTimerEvent(QBluetoothLocalDevice* self, intptr_t slot) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice)
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_TimerEvent_Callback(reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_TimerEvent_Callback>(slot));
+    if (auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self))
+        vqbluetoothlocaldevice->qbluetoothlocaldevice_timerevent_callback = reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBluetoothLocalDevice_ChildEvent(QBluetoothLocalDevice* self, QChildEvent* event) {
     auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
+    if (vqbluetoothlocaldevice) {
         vqbluetoothlocaldevice->childEvent(event);
     } else {
-        ((VirtualQBluetoothLocalDevice*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QBluetoothLocalDevice::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBluetoothLocalDevice_SuperChildEvent(QBluetoothLocalDevice* self, QChildEvent* event) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_ChildEvent_IsBase(true);
-        vqbluetoothlocaldevice->childEvent(event);
-    } else {
-        ((VirtualQBluetoothLocalDevice*)self)->childEvent(event);
-    }
+    if (auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self)) {
+        vqbluetoothlocaldevice->QBluetoothLocalDevice::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBluetoothLocalDevice::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBluetoothLocalDevice_OnChildEvent(QBluetoothLocalDevice* self, intptr_t slot) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice)
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_ChildEvent_Callback(reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_ChildEvent_Callback>(slot));
+    if (auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self))
+        vqbluetoothlocaldevice->qbluetoothlocaldevice_childevent_callback = reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBluetoothLocalDevice_CustomEvent(QBluetoothLocalDevice* self, QEvent* event) {
     auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
+    if (vqbluetoothlocaldevice) {
         vqbluetoothlocaldevice->customEvent(event);
     } else {
-        ((VirtualQBluetoothLocalDevice*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QBluetoothLocalDevice::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBluetoothLocalDevice_SuperCustomEvent(QBluetoothLocalDevice* self, QEvent* event) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_CustomEvent_IsBase(true);
-        vqbluetoothlocaldevice->customEvent(event);
-    } else {
-        ((VirtualQBluetoothLocalDevice*)self)->customEvent(event);
-    }
+    if (auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self)) {
+        vqbluetoothlocaldevice->QBluetoothLocalDevice::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBluetoothLocalDevice::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBluetoothLocalDevice_OnCustomEvent(QBluetoothLocalDevice* self, intptr_t slot) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice)
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_CustomEvent_Callback(reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_CustomEvent_Callback>(slot));
+    if (auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self))
+        vqbluetoothlocaldevice->qbluetoothlocaldevice_customevent_callback = reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBluetoothLocalDevice_ConnectNotify(QBluetoothLocalDevice* self, const QMetaMethod* signal) {
     auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
+    if (vqbluetoothlocaldevice) {
         vqbluetoothlocaldevice->connectNotify(*signal);
     } else {
-        ((VirtualQBluetoothLocalDevice*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QBluetoothLocalDevice::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBluetoothLocalDevice_SuperConnectNotify(QBluetoothLocalDevice* self, const QMetaMethod* signal) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_ConnectNotify_IsBase(true);
-        vqbluetoothlocaldevice->connectNotify(*signal);
-    } else {
-        ((VirtualQBluetoothLocalDevice*)self)->connectNotify(*signal);
-    }
+    if (auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self)) {
+        vqbluetoothlocaldevice->QBluetoothLocalDevice::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QBluetoothLocalDevice::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBluetoothLocalDevice_OnConnectNotify(QBluetoothLocalDevice* self, intptr_t slot) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice)
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_ConnectNotify_Callback(reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_ConnectNotify_Callback>(slot));
+    if (auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self))
+        vqbluetoothlocaldevice->qbluetoothlocaldevice_connectnotify_callback = reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBluetoothLocalDevice_DisconnectNotify(QBluetoothLocalDevice* self, const QMetaMethod* signal) {
     auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
+    if (vqbluetoothlocaldevice) {
         vqbluetoothlocaldevice->disconnectNotify(*signal);
     } else {
-        ((VirtualQBluetoothLocalDevice*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QBluetoothLocalDevice::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBluetoothLocalDevice_SuperDisconnectNotify(QBluetoothLocalDevice* self, const QMetaMethod* signal) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_DisconnectNotify_IsBase(true);
-        vqbluetoothlocaldevice->disconnectNotify(*signal);
-    } else {
-        ((VirtualQBluetoothLocalDevice*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self)) {
+        vqbluetoothlocaldevice->QBluetoothLocalDevice::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QBluetoothLocalDevice::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBluetoothLocalDevice_OnDisconnectNotify(QBluetoothLocalDevice* self, intptr_t slot) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice)
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_DisconnectNotify_Callback(reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_DisconnectNotify_Callback>(slot));
+    if (auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self))
+        vqbluetoothlocaldevice->qbluetoothlocaldevice_disconnectnotify_callback = reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QBluetoothLocalDevice_Sender(const QBluetoothLocalDevice* self) {
-    auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self));
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        return vqbluetoothlocaldevice->sender();
-    } else {
-        return ((VirtualQBluetoothLocalDevice*)self)->sender();
-    }
+    if (auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self))) {
+        return vqbluetoothlocaldevice->VirtualQBluetoothLocalDevice::sender();
+    } else
+        qFatal("Error: Protected method QBluetoothLocalDevice::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QBluetoothLocalDevice_SuperSender(const QBluetoothLocalDevice* self) {
-    auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self));
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_Sender_IsBase(true);
-        return vqbluetoothlocaldevice->sender();
-    } else {
-        return ((VirtualQBluetoothLocalDevice*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBluetoothLocalDevice_OnSender(const QBluetoothLocalDevice* self, intptr_t slot) {
-    auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self));
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice)
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_Sender_Callback(reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QBluetoothLocalDevice_SenderSignalIndex(const QBluetoothLocalDevice* self) {
-    auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self));
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        return vqbluetoothlocaldevice->senderSignalIndex();
-    } else {
-        return ((VirtualQBluetoothLocalDevice*)self)->senderSignalIndex();
-    }
+    if (auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self))) {
+        return vqbluetoothlocaldevice->VirtualQBluetoothLocalDevice::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QBluetoothLocalDevice::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QBluetoothLocalDevice_SuperSenderSignalIndex(const QBluetoothLocalDevice* self) {
-    auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self));
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_SenderSignalIndex_IsBase(true);
-        return vqbluetoothlocaldevice->senderSignalIndex();
-    } else {
-        return ((VirtualQBluetoothLocalDevice*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBluetoothLocalDevice_OnSenderSignalIndex(const QBluetoothLocalDevice* self, intptr_t slot) {
-    auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self));
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice)
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QBluetoothLocalDevice_Receivers(const QBluetoothLocalDevice* self, const char* signal) {
-    auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self));
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        return vqbluetoothlocaldevice->receivers(signal);
-    } else {
-        return ((VirtualQBluetoothLocalDevice*)self)->receivers(signal);
-    }
+    if (auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self))) {
+        return vqbluetoothlocaldevice->VirtualQBluetoothLocalDevice::receivers(signal);
+    } else
+        qFatal("Error: Protected method QBluetoothLocalDevice::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QBluetoothLocalDevice_SuperReceivers(const QBluetoothLocalDevice* self, const char* signal) {
-    auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self));
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_Receivers_IsBase(true);
-        return vqbluetoothlocaldevice->receivers(signal);
-    } else {
-        return ((VirtualQBluetoothLocalDevice*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBluetoothLocalDevice_OnReceivers(const QBluetoothLocalDevice* self, intptr_t slot) {
-    auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self));
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice)
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_Receivers_Callback(reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QBluetoothLocalDevice_IsSignalConnected(const QBluetoothLocalDevice* self, const QMetaMethod* signal) {
-    auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self));
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        return vqbluetoothlocaldevice->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQBluetoothLocalDevice*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QBluetoothLocalDevice_SuperIsSignalConnected(const QBluetoothLocalDevice* self, const QMetaMethod* signal) {
-    auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self));
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_IsSignalConnected_IsBase(true);
-        return vqbluetoothlocaldevice->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQBluetoothLocalDevice*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBluetoothLocalDevice_OnIsSignalConnected(const QBluetoothLocalDevice* self, intptr_t slot) {
-    auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self));
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice)
-        vqbluetoothlocaldevice->setQBluetoothLocalDevice_IsSignalConnected_Callback(reinterpret_cast<VirtualQBluetoothLocalDevice::QBluetoothLocalDevice_IsSignalConnected_Callback>(slot));
+    if (auto* vqbluetoothlocaldevice = const_cast<VirtualQBluetoothLocalDevice*>(dynamic_cast<const VirtualQBluetoothLocalDevice*>(self))) {
+        return vqbluetoothlocaldevice->VirtualQBluetoothLocalDevice::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QBluetoothLocalDevice::isSignalConnected called without a directly constructed type");
 }
 
 void QBluetoothLocalDevice_Delete(QBluetoothLocalDevice* self) {

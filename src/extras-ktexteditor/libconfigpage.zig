@@ -120,9 +120,9 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) QMetaObject) void {
         qtc.KTextEditor__ConfigPage_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -273,6 +273,8 @@ pub const KTextEditor__ConfigPage = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#name)
     ///
+    /// This method must be implemented with `onName` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__ConfigPage `
@@ -299,32 +301,10 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onName(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onName(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) [*:0]const u8) void {
         qtc.KTextEditor__ConfigPage_OnName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superName` instead
-    ///
-    pub const SuperName = superName;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#name)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superName(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KTextEditor__ConfigPage_SuperName(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.name: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `fullName` instead
@@ -359,9 +339,9 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onFullName(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onFullName(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) [*:0]const u8) void {
         qtc.KTextEditor__ConfigPage_OnFullName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -413,11 +393,11 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` callback: *const fn () callconv(.c) QIcon `
+    /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) QIcon `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onIcon(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QIcon) void {
+    pub fn onIcon(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) QIcon) void {
         qtc.KTextEditor__ConfigPage_OnIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -443,6 +423,8 @@ pub const KTextEditor__ConfigPage = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#apply)
     ///
+    /// This method must be implemented with `onApply` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__ConfigPage `
@@ -463,26 +445,10 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) void `
     ///
-    pub fn onApply(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
+    pub fn onApply(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnApply(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superApply` instead
-    ///
-    pub const SuperApply = superApply;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#apply)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    pub fn superApply(self: KTextEditor__ConfigPage) void {
-        qtc.KTextEditor__ConfigPage_SuperApply(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `reset` instead
@@ -490,6 +456,8 @@ pub const KTextEditor__ConfigPage = extern struct {
     pub const Reset = reset;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#reset)
+    ///
+    /// This method must be implemented with `onReset` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -511,26 +479,10 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) void `
     ///
-    pub fn onReset(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superReset` instead
-    ///
-    pub const SuperReset = superReset;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#reset)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    pub fn superReset(self: KTextEditor__ConfigPage) void {
-        qtc.KTextEditor__ConfigPage_SuperReset(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `defaults` instead
@@ -538,6 +490,8 @@ pub const KTextEditor__ConfigPage = extern struct {
     pub const Defaults = defaults;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#defaults)
+    ///
+    /// This method must be implemented with `onDefaults` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -559,26 +513,10 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) void `
     ///
-    pub fn onDefaults(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
+    pub fn onDefaults(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnDefaults(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDefaults` instead
-    ///
-    pub const SuperDefaults = superDefaults;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#defaults)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    pub fn superDefaults(self: KTextEditor__ConfigPage) void {
-        qtc.KTextEditor__ConfigPage_SuperDefaults(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `changed` instead
@@ -6921,9 +6859,9 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) i32) void {
         qtc.KTextEditor__ConfigPage_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7037,11 +6975,11 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) QSize) void {
         qtc.KTextEditor__ConfigPage_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7095,11 +7033,11 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) QSize) void {
         qtc.KTextEditor__ConfigPage_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7213,9 +7151,9 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) bool) void {
         qtc.KTextEditor__ConfigPage_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7269,9 +7207,9 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) QPaintEngine) void {
         qtc.KTextEditor__ConfigPage_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9197,9 +9135,9 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) QPainter) void {
         qtc.KTextEditor__ConfigPage_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9783,44 +9721,6 @@ pub const KTextEditor__ConfigPage = extern struct {
         qtc.KTextEditor__ConfigPage_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    pub fn superUpdateMicroFocus(self: KTextEditor__ConfigPage) void {
-        qtc.KTextEditor__ConfigPage_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__ConfigPage`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
-        qtc.KTextEditor__ConfigPage_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9837,44 +9737,6 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     pub fn create(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    pub fn superCreate(self: KTextEditor__ConfigPage) void {
-        qtc.KTextEditor__ConfigPage_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__ConfigPage`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
-        qtc.KTextEditor__ConfigPage_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9895,44 +9757,6 @@ pub const KTextEditor__ConfigPage = extern struct {
         qtc.KTextEditor__ConfigPage_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    pub fn superDestroy(self: KTextEditor__ConfigPage) void {
-        qtc.KTextEditor__ConfigPage_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__ConfigPage`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
-        qtc.KTextEditor__ConfigPage_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9949,44 +9773,6 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     pub fn focusNextChild(self: KTextEditor__ConfigPage) bool {
         return qtc.KTextEditor__ConfigPage_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    pub fn superFocusNextChild(self: KTextEditor__ConfigPage) bool {
-        return qtc.KTextEditor__ConfigPage_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__ConfigPage`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTextEditor__ConfigPage_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -10007,44 +9793,6 @@ pub const KTextEditor__ConfigPage = extern struct {
         return qtc.KTextEditor__ConfigPage_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    pub fn superFocusPreviousChild(self: KTextEditor__ConfigPage) bool {
-        return qtc.KTextEditor__ConfigPage_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__ConfigPage`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTextEditor__ConfigPage_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10063,44 +9811,6 @@ pub const KTextEditor__ConfigPage = extern struct {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    pub fn superSender(self: KTextEditor__ConfigPage) QObject {
-        return .{ .ptr = qtc.KTextEditor__ConfigPage_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__ConfigPage`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KTextEditor__ConfigPage_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10117,44 +9827,6 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     pub fn senderSignalIndex(self: KTextEditor__ConfigPage) i32 {
         return qtc.KTextEditor__ConfigPage_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    pub fn superSenderSignalIndex(self: KTextEditor__ConfigPage) i32 {
-        return qtc.KTextEditor__ConfigPage_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__ConfigPage`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) i32) void {
-        qtc.KTextEditor__ConfigPage_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10178,47 +9850,6 @@ pub const KTextEditor__ConfigPage = extern struct {
         return qtc.KTextEditor__ConfigPage_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KTextEditor__ConfigPage, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KTextEditor__ConfigPage_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__ConfigPage`
-    ///
-    /// ` callback: *const fn (self: KTextEditor__ConfigPage, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KTextEditor__ConfigPage_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10238,47 +9869,6 @@ pub const KTextEditor__ConfigPage = extern struct {
     pub fn isSignalConnected(self: KTextEditor__ConfigPage, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KTextEditor__ConfigPage_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KTextEditor__ConfigPage, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KTextEditor__ConfigPage_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__ConfigPage`
-    ///
-    /// ` callback: *const fn (self: KTextEditor__ConfigPage, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMetaMethod) callconv(.c) bool) void {
-        qtc.KTextEditor__ConfigPage_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10301,48 +9891,6 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     pub fn getDecodedMetricF(self: KTextEditor__ConfigPage, metricA: i32, metricB: i32) f64 {
         return qtc.KTextEditor__ConfigPage_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KTextEditor__ConfigPage, metricA: i32, metricB: i32) f64 {
-        return qtc.KTextEditor__ConfigPage_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__ConfigPage`
-    ///
-    /// ` callback: *const fn (self: KTextEditor__ConfigPage, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, i32, i32) callconv(.c) f64) void {
-        qtc.KTextEditor__ConfigPage_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

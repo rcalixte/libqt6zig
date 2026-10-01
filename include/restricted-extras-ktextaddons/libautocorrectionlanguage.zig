@@ -8098,9 +8098,9 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) QMetaObject) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8346,11 +8346,11 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) QSize) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8404,11 +8404,11 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) QSize) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8462,9 +8462,9 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) void `
     ///
-    pub fn onShowPopup(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowPopup(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnShowPopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8518,9 +8518,9 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) void `
     ///
-    pub fn onHidePopup(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) void) void {
+    pub fn onHidePopup(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnHidePopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9628,9 +9628,9 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) i32) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9804,9 +9804,9 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) bool) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9860,9 +9860,9 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) QPaintEngine) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10920,9 +10920,9 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionLanguage) callconv(.c) QPainter) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11382,44 +11382,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
-    ///
-    pub fn superUpdateMicroFocus(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) void) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -11436,44 +11398,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     ///
     pub fn create(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
-    ///
-    pub fn superCreate(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) void) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -11494,44 +11418,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
-    ///
-    pub fn superDestroy(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) void) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -11548,44 +11434,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     ///
     pub fn focusNextChild(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) bool {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
-    ///
-    pub fn superFocusNextChild(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) bool {
-        return qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -11606,44 +11454,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
-    ///
-    pub fn superFocusPreviousChild(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) bool {
-        return qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -11662,44 +11472,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
-    ///
-    pub fn superSender(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) QObject {
-        return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -11716,44 +11488,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     ///
     pub fn senderSignalIndex(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) i32 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
-    ///
-    pub fn superSenderSignalIndex(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) i32 {
-        return qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -11777,47 +11511,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
-    ///
-    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionLanguage, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -11837,47 +11530,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn isSignalConnected(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
-    ///
-    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionLanguage, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -11900,48 +11552,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     ///
     pub fn getDecodedMetricF(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, metricA: i32, metricB: i32) f64 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, metricA: i32, metricB: i32) f64 {
-        return qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage`
-    ///
-    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionLanguage, i32, i32) callconv(.c) f64) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

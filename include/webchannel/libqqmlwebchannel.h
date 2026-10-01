@@ -37,7 +37,7 @@ void QQmlWebChannel_ConnectTo(QQmlWebChannel* self, QObject* transport);
 void QQmlWebChannel_DisconnectFrom(QQmlWebChannel* self, QObject* transport);
 libqt_string QQmlWebChannel_Tr2(const char* s, const char* c);
 libqt_string QQmlWebChannel_Tr3(const char* s, const char* c, int n);
-void QQmlWebChannel_OnMetaObject(const QQmlWebChannel* self, intptr_t slot);
+void QQmlWebChannel_OnMetaObject(QQmlWebChannel* self, intptr_t slot);
 QMetaObject* QQmlWebChannel_SuperMetaObject(const QQmlWebChannel* self);
 void QQmlWebChannel_OnMetacast(QQmlWebChannel* self, intptr_t slot);
 void* QQmlWebChannel_SuperMetacast(QQmlWebChannel* self, const char* param1);
@@ -65,17 +65,9 @@ void QQmlWebChannel_DisconnectNotify(QQmlWebChannel* self, const QMetaMethod* si
 void QQmlWebChannel_OnDisconnectNotify(QQmlWebChannel* self, intptr_t slot);
 void QQmlWebChannel_SuperDisconnectNotify(QQmlWebChannel* self, const QMetaMethod* signal);
 QObject* QQmlWebChannel_Sender(const QQmlWebChannel* self);
-void QQmlWebChannel_OnSender(const QQmlWebChannel* self, intptr_t slot);
-QObject* QQmlWebChannel_SuperSender(const QQmlWebChannel* self);
 int QQmlWebChannel_SenderSignalIndex(const QQmlWebChannel* self);
-void QQmlWebChannel_OnSenderSignalIndex(const QQmlWebChannel* self, intptr_t slot);
-int QQmlWebChannel_SuperSenderSignalIndex(const QQmlWebChannel* self);
 int QQmlWebChannel_Receivers(const QQmlWebChannel* self, const char* signal);
-void QQmlWebChannel_OnReceivers(const QQmlWebChannel* self, intptr_t slot);
-int QQmlWebChannel_SuperReceivers(const QQmlWebChannel* self, const char* signal);
 bool QQmlWebChannel_IsSignalConnected(const QQmlWebChannel* self, const QMetaMethod* signal);
-void QQmlWebChannel_OnIsSignalConnected(const QQmlWebChannel* self, intptr_t slot);
-bool QQmlWebChannel_SuperIsSignalConnected(const QQmlWebChannel* self, const QMetaMethod* signal);
 void QQmlWebChannel_Delete(QQmlWebChannel* self);
 
 #ifdef __cplusplus

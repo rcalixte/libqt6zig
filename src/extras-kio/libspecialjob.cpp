@@ -92,803 +92,609 @@ libqt_string KIO__SpecialJob_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KIO__SpecialJob_SuperMetaObject(const KIO__SpecialJob* self) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_MetaObject_IsBase(true);
-        return (QMetaObject*)vkiospecialjob->metaObject();
-    } else {
-        return (QMetaObject*)self->KIO::SpecialJob::metaObject();
-    }
+    return (QMetaObject*)self->KIO::SpecialJob::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnMetaObject(const KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_MetaObject_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_MetaObject_Callback>(slot));
+void KIO__SpecialJob_OnMetaObject(KIO__SpecialJob* self, intptr_t slot) {
+    if (auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self)))
+        vkiospecialjob->kio__specialjob_metaobject_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KIO__SpecialJob_SuperMetacast(KIO__SpecialJob* self, const char* param1) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_Metacast_IsBase(true);
-        return vkiospecialjob->qt_metacast(param1);
-    } else {
-        return self->KIO::SpecialJob::qt_metacast(param1);
-    }
+    return self->KIO::SpecialJob::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnMetacast(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_Metacast_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Metacast_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_metacast_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KIO__SpecialJob_SuperMetacall(KIO__SpecialJob* self, int param1, int param2, void** param3) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_Metacall_IsBase(true);
-        return vkiospecialjob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KIO::SpecialJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KIO::SpecialJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnMetacall(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_Metacall_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Metacall_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_metacall_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__SpecialJob_DoResume(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         return vkiospecialjob->doResume();
     } else {
-        return ((VirtualKIOSpecialJob*)self)->doResume();
+        qFatal("Error: Protected virtual method KIO::SpecialJob::doResume called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__SpecialJob_SuperDoResume(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_DoResume_IsBase(true);
-        return vkiospecialjob->doResume();
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->doResume();
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        return vkiospecialjob->KIO::SpecialJob::doResume();
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::doResume called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnDoResume(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_DoResume_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_DoResume_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_doresume_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_DoResume_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_SlotRedirection(KIO__SpecialJob* self, const QUrl* url) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         vkiospecialjob->slotRedirection(*url);
     } else {
-        ((VirtualKIOSpecialJob*)self)->slotRedirection(*url);
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotRedirection called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperSlotRedirection(KIO__SpecialJob* self, const QUrl* url) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SlotRedirection_IsBase(true);
-        vkiospecialjob->slotRedirection(*url);
-    } else {
-        ((VirtualKIOSpecialJob*)self)->slotRedirection(*url);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->KIO::SpecialJob::slotRedirection(*url);
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotRedirection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotRedirection(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SlotRedirection_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotRedirection_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_slotredirection_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotRedirection_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_SlotFinished(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         vkiospecialjob->slotFinished();
     } else {
-        ((VirtualKIOSpecialJob*)self)->slotFinished();
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotFinished called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperSlotFinished(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SlotFinished_IsBase(true);
-        vkiospecialjob->slotFinished();
-    } else {
-        ((VirtualKIOSpecialJob*)self)->slotFinished();
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->KIO::SpecialJob::slotFinished();
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotFinished called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotFinished(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SlotFinished_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotFinished_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_slotfinished_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotFinished_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_SlotData(KIO__SpecialJob* self, const libqt_string data) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     QByteArray data_QByteArray(data.data, data.len);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
+    if (vkiospecialjob) {
         vkiospecialjob->slotData(data_QByteArray);
     } else {
-        ((VirtualKIOSpecialJob*)self)->slotData(data_QByteArray);
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperSlotData(KIO__SpecialJob* self, const libqt_string data) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     QByteArray data_QByteArray(data.data, data.len);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SlotData_IsBase(true);
-        vkiospecialjob->slotData(data_QByteArray);
-    } else {
-        ((VirtualKIOSpecialJob*)self)->slotData(data_QByteArray);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->KIO::SpecialJob::slotData(data_QByteArray);
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotData(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SlotData_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotData_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_slotdata_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_SlotDataReq(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         vkiospecialjob->slotDataReq();
     } else {
-        ((VirtualKIOSpecialJob*)self)->slotDataReq();
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotDataReq called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperSlotDataReq(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SlotDataReq_IsBase(true);
-        vkiospecialjob->slotDataReq();
-    } else {
-        ((VirtualKIOSpecialJob*)self)->slotDataReq();
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->KIO::SpecialJob::slotDataReq();
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotDataReq called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotDataReq(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SlotDataReq_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotDataReq_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_slotdatareq_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotDataReq_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_SlotMimetype(KIO__SpecialJob* self, const libqt_string mimetype) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     QString mimetype_QString = QString::fromUtf8(mimetype.data, mimetype.len);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
+    if (vkiospecialjob) {
         vkiospecialjob->slotMimetype(mimetype_QString);
     } else {
-        ((VirtualKIOSpecialJob*)self)->slotMimetype(mimetype_QString);
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotMimetype called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperSlotMimetype(KIO__SpecialJob* self, const libqt_string mimetype) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     QString mimetype_QString = QString::fromUtf8(mimetype.data, mimetype.len);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SlotMimetype_IsBase(true);
-        vkiospecialjob->slotMimetype(mimetype_QString);
-    } else {
-        ((VirtualKIOSpecialJob*)self)->slotMimetype(mimetype_QString);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->KIO::SpecialJob::slotMimetype(mimetype_QString);
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotMimetype called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotMimetype(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SlotMimetype_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotMimetype_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_slotmimetype_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotMimetype_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__SpecialJob_DoSuspend(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         return vkiospecialjob->doSuspend();
     } else {
-        return ((VirtualKIOSpecialJob*)self)->doSuspend();
+        qFatal("Error: Protected virtual method KIO::SpecialJob::doSuspend called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__SpecialJob_SuperDoSuspend(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_DoSuspend_IsBase(true);
-        return vkiospecialjob->doSuspend();
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->doSuspend();
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        return vkiospecialjob->KIO::SpecialJob::doSuspend();
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::doSuspend called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnDoSuspend(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_DoSuspend_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_DoSuspend_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_dosuspend_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_DoSuspend_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__SpecialJob_DoKill(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         return vkiospecialjob->doKill();
     } else {
-        return ((VirtualKIOSpecialJob*)self)->doKill();
+        qFatal("Error: Protected virtual method KIO::SpecialJob::doKill called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__SpecialJob_SuperDoKill(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_DoKill_IsBase(true);
-        return vkiospecialjob->doKill();
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->doKill();
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        return vkiospecialjob->KIO::SpecialJob::doKill();
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::doKill called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnDoKill(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_DoKill_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_DoKill_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_dokill_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_DoKill_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_PutOnHold(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->putOnHold();
-    } else {
-        self->KIO::SpecialJob::putOnHold();
-    }
+    self->putOnHold();
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperPutOnHold(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_PutOnHold_IsBase(true);
-        vkiospecialjob->putOnHold();
-    } else {
-        self->KIO::SpecialJob::putOnHold();
-    }
+    self->KIO::SpecialJob::putOnHold();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnPutOnHold(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_PutOnHold_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_PutOnHold_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_putonhold_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_PutOnHold_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_SlotWarning(KIO__SpecialJob* self, const libqt_string param1) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
+    if (vkiospecialjob) {
         vkiospecialjob->slotWarning(param1_QString);
     } else {
-        ((VirtualKIOSpecialJob*)self)->slotWarning(param1_QString);
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotWarning called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperSlotWarning(KIO__SpecialJob* self, const libqt_string param1) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SlotWarning_IsBase(true);
-        vkiospecialjob->slotWarning(param1_QString);
-    } else {
-        ((VirtualKIOSpecialJob*)self)->slotWarning(param1_QString);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->KIO::SpecialJob::slotWarning(param1_QString);
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotWarning called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotWarning(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SlotWarning_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotWarning_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_slotwarning_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotWarning_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_SlotMetaData(KIO__SpecialJob* self, const KIO__MetaData* _metaData) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         vkiospecialjob->slotMetaData(*_metaData);
     } else {
-        ((VirtualKIOSpecialJob*)self)->slotMetaData(*_metaData);
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotMetaData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperSlotMetaData(KIO__SpecialJob* self, const KIO__MetaData* _metaData) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SlotMetaData_IsBase(true);
-        vkiospecialjob->slotMetaData(*_metaData);
-    } else {
-        ((VirtualKIOSpecialJob*)self)->slotMetaData(*_metaData);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->KIO::SpecialJob::slotMetaData(*_metaData);
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotMetaData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotMetaData(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SlotMetaData_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotMetaData_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_slotmetadata_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotMetaData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_Start(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->start();
-    } else {
-        self->KIO::SpecialJob::start();
-    }
+    self->start();
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperStart(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_Start_IsBase(true);
-        vkiospecialjob->start();
-    } else {
-        self->KIO::SpecialJob::start();
-    }
+    self->KIO::SpecialJob::start();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnStart(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_Start_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Start_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_start_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Start_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KIO__SpecialJob_ErrorString(const KIO__SpecialJob* self) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        auto _ret = vkiospecialjob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KIO::SpecialJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KIO__SpecialJob_SuperErrorString(const KIO__SpecialJob* self) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_ErrorString_IsBase(true);
-        auto _ret = vkiospecialjob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KIO::SpecialJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KIO::SpecialJob::errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnErrorString(const KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_ErrorString_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_ErrorString_Callback>(slot));
+void KIO__SpecialJob_OnErrorString(KIO__SpecialJob* self, intptr_t slot) {
+    if (auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self)))
+        vkiospecialjob->kio__specialjob_errorstring_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_ErrorString_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__SpecialJob_AddSubjob(KIO__SpecialJob* self, KJob* job) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         return vkiospecialjob->addSubjob(job);
     } else {
-        return ((VirtualKIOSpecialJob*)self)->addSubjob(job);
+        qFatal("Error: Protected virtual method KIO::SpecialJob::addSubjob called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__SpecialJob_SuperAddSubjob(KIO__SpecialJob* self, KJob* job) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_AddSubjob_IsBase(true);
-        return vkiospecialjob->addSubjob(job);
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->addSubjob(job);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        return vkiospecialjob->KIO::SpecialJob::addSubjob(job);
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::addSubjob called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnAddSubjob(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_AddSubjob_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_AddSubjob_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_addsubjob_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_AddSubjob_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__SpecialJob_RemoveSubjob(KIO__SpecialJob* self, KJob* job) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         return vkiospecialjob->removeSubjob(job);
     } else {
-        return ((VirtualKIOSpecialJob*)self)->removeSubjob(job);
+        qFatal("Error: Protected virtual method KIO::SpecialJob::removeSubjob called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__SpecialJob_SuperRemoveSubjob(KIO__SpecialJob* self, KJob* job) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_RemoveSubjob_IsBase(true);
-        return vkiospecialjob->removeSubjob(job);
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->removeSubjob(job);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        return vkiospecialjob->KIO::SpecialJob::removeSubjob(job);
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::removeSubjob called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnRemoveSubjob(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_RemoveSubjob_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_RemoveSubjob_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_removesubjob_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_RemoveSubjob_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_SlotResult(KIO__SpecialJob* self, KJob* job) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         vkiospecialjob->slotResult(job);
     } else {
-        ((VirtualKIOSpecialJob*)self)->slotResult(job);
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotResult called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperSlotResult(KIO__SpecialJob* self, KJob* job) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SlotResult_IsBase(true);
-        vkiospecialjob->slotResult(job);
-    } else {
-        ((VirtualKIOSpecialJob*)self)->slotResult(job);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->KIO::SpecialJob::slotResult(job);
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotResult called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotResult(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SlotResult_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotResult_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_slotresult_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotResult_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_SlotInfoMessage(KIO__SpecialJob* self, KJob* job, const libqt_string message) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
+    if (vkiospecialjob) {
         vkiospecialjob->slotInfoMessage(job, message_QString);
     } else {
-        ((VirtualKIOSpecialJob*)self)->slotInfoMessage(job, message_QString);
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotInfoMessage called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperSlotInfoMessage(KIO__SpecialJob* self, KJob* job, const libqt_string message) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SlotInfoMessage_IsBase(true);
-        vkiospecialjob->slotInfoMessage(job, message_QString);
-    } else {
-        ((VirtualKIOSpecialJob*)self)->slotInfoMessage(job, message_QString);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->KIO::SpecialJob::slotInfoMessage(job, message_QString);
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::slotInfoMessage called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotInfoMessage(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SlotInfoMessage_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotInfoMessage_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_slotinfomessage_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotInfoMessage_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__SpecialJob_Event(KIO__SpecialJob* self, QEvent* event) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        return vkiospecialjob->event(event);
-    } else {
-        return self->KIO::SpecialJob::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KIO__SpecialJob_SuperEvent(KIO__SpecialJob* self, QEvent* event) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_Event_IsBase(true);
-        return vkiospecialjob->event(event);
-    } else {
-        return self->KIO::SpecialJob::event(event);
-    }
+    return self->KIO::SpecialJob::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnEvent(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_Event_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Event_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_event_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__SpecialJob_EventFilter(KIO__SpecialJob* self, QObject* watched, QEvent* event) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        return vkiospecialjob->eventFilter(watched, event);
-    } else {
-        return self->KIO::SpecialJob::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KIO__SpecialJob_SuperEventFilter(KIO__SpecialJob* self, QObject* watched, QEvent* event) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_EventFilter_IsBase(true);
-        return vkiospecialjob->eventFilter(watched, event);
-    } else {
-        return self->KIO::SpecialJob::eventFilter(watched, event);
-    }
+    return self->KIO::SpecialJob::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnEventFilter(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_EventFilter_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_EventFilter_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_eventfilter_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_TimerEvent(KIO__SpecialJob* self, QTimerEvent* event) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         vkiospecialjob->timerEvent(event);
     } else {
-        ((VirtualKIOSpecialJob*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KIO::SpecialJob::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperTimerEvent(KIO__SpecialJob* self, QTimerEvent* event) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_TimerEvent_IsBase(true);
-        vkiospecialjob->timerEvent(event);
-    } else {
-        ((VirtualKIOSpecialJob*)self)->timerEvent(event);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->KIO::SpecialJob::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnTimerEvent(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_TimerEvent_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_TimerEvent_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_timerevent_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_ChildEvent(KIO__SpecialJob* self, QChildEvent* event) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         vkiospecialjob->childEvent(event);
     } else {
-        ((VirtualKIOSpecialJob*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KIO::SpecialJob::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperChildEvent(KIO__SpecialJob* self, QChildEvent* event) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_ChildEvent_IsBase(true);
-        vkiospecialjob->childEvent(event);
-    } else {
-        ((VirtualKIOSpecialJob*)self)->childEvent(event);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->KIO::SpecialJob::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnChildEvent(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_ChildEvent_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_ChildEvent_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_childevent_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_CustomEvent(KIO__SpecialJob* self, QEvent* event) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         vkiospecialjob->customEvent(event);
     } else {
-        ((VirtualKIOSpecialJob*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KIO::SpecialJob::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperCustomEvent(KIO__SpecialJob* self, QEvent* event) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_CustomEvent_IsBase(true);
-        vkiospecialjob->customEvent(event);
-    } else {
-        ((VirtualKIOSpecialJob*)self)->customEvent(event);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->KIO::SpecialJob::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnCustomEvent(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_CustomEvent_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_CustomEvent_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_customevent_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_ConnectNotify(KIO__SpecialJob* self, const QMetaMethod* signal) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         vkiospecialjob->connectNotify(*signal);
     } else {
-        ((VirtualKIOSpecialJob*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::SpecialJob::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperConnectNotify(KIO__SpecialJob* self, const QMetaMethod* signal) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_ConnectNotify_IsBase(true);
-        vkiospecialjob->connectNotify(*signal);
-    } else {
-        ((VirtualKIOSpecialJob*)self)->connectNotify(*signal);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->KIO::SpecialJob::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnConnectNotify(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_ConnectNotify_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_connectnotify_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__SpecialJob_DisconnectNotify(KIO__SpecialJob* self, const QMetaMethod* signal) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob) {
         vkiospecialjob->disconnectNotify(*signal);
     } else {
-        ((VirtualKIOSpecialJob*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::SpecialJob::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__SpecialJob_SuperDisconnectNotify(KIO__SpecialJob* self, const QMetaMethod* signal) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_DisconnectNotify_IsBase(true);
-        vkiospecialjob->disconnectNotify(*signal);
-    } else {
-        ((VirtualKIOSpecialJob*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->KIO::SpecialJob::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::SpecialJob::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnDisconnectNotify(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_DisconnectNotify_Callback>(slot));
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self))
+        vkiospecialjob->kio__specialjob_disconnectnotify_callback = reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__SpecialJob_HasSubjobs(const KIO__SpecialJob* self) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        return vkiospecialjob->hasSubjobs();
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->hasSubjobs();
-    }
+    if (auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self))) {
+        return vkiospecialjob->VirtualKIOSpecialJob::hasSubjobs();
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::hasSubjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KIO__SpecialJob_SuperHasSubjobs(const KIO__SpecialJob* self) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_HasSubjobs_IsBase(true);
-        return vkiospecialjob->hasSubjobs();
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->hasSubjobs();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnHasSubjobs(const KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_HasSubjobs_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_HasSubjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of KJob* */ KIO__SpecialJob_Subjobs(const KIO__SpecialJob* self) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        const QList<KJob*>& _ret = vkiospecialjob->subjobs();
+    if (auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self))) {
+        const QList<KJob*>& _ret = vkiospecialjob->VirtualKIOSpecialJob::subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
         KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -898,532 +704,145 @@ libqt_list /* of KJob* */ KIO__SpecialJob_Subjobs(const KIO__SpecialJob* self) {
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        const QList<KJob*>& _ret = ((VirtualKIOSpecialJob*)self)->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::subjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of KJob* */ KIO__SpecialJob_SuperSubjobs(const KIO__SpecialJob* self) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_Subjobs_IsBase(true);
-        const QList<KJob*>& _ret = vkiospecialjob->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        const QList<KJob*>& _ret = ((VirtualKIOSpecialJob*)self)->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnSubjobs(const KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_Subjobs_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Subjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__SpecialJob_ClearSubjobs(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->clearSubjobs();
-    } else {
-        ((VirtualKIOSpecialJob*)self)->clearSubjobs();
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->VirtualKIOSpecialJob::clearSubjobs();
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::clearSubjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__SpecialJob_SuperClearSubjobs(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_ClearSubjobs_IsBase(true);
-        vkiospecialjob->clearSubjobs();
-    } else {
-        ((VirtualKIOSpecialJob*)self)->clearSubjobs();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnClearSubjobs(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_ClearSubjobs_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_ClearSubjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__SpecialJob_SetCapabilities(KIO__SpecialJob* self, int capabilities) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->VirtualKIOSpecialJob::setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::setCapabilities called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__SpecialJob_SuperSetCapabilities(KIO__SpecialJob* self, int capabilities) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SetCapabilities_IsBase(true);
-        vkiospecialjob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnSetCapabilities(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SetCapabilities_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__SpecialJob_IsFinished(const KIO__SpecialJob* self) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        return vkiospecialjob->isFinished();
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->isFinished();
-    }
+    if (auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self))) {
+        return vkiospecialjob->VirtualKIOSpecialJob::isFinished();
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::isFinished called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KIO__SpecialJob_SuperIsFinished(const KIO__SpecialJob* self) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_IsFinished_IsBase(true);
-        return vkiospecialjob->isFinished();
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->isFinished();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnIsFinished(const KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_IsFinished_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_IsFinished_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__SpecialJob_SetError(KIO__SpecialJob* self, int errorCode) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->setError(static_cast<int>(errorCode));
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->VirtualKIOSpecialJob::setError(static_cast<int>(errorCode));
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::setError called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__SpecialJob_SuperSetError(KIO__SpecialJob* self, int errorCode) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SetError_IsBase(true);
-        vkiospecialjob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->setError(static_cast<int>(errorCode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnSetError(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SetError_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SetError_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__SpecialJob_SetErrorText(KIO__SpecialJob* self, const libqt_string errorText) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKIOSpecialJob*)self)->setErrorText(errorText_QString);
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
+        vkiospecialjob->VirtualKIOSpecialJob::setErrorText(errorText_QString);
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::setErrorText called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__SpecialJob_SuperSetErrorText(KIO__SpecialJob* self, const libqt_string errorText) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SetErrorText_IsBase(true);
-        vkiospecialjob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKIOSpecialJob*)self)->setErrorText(errorText_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnSetErrorText(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SetErrorText_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SetErrorText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__SpecialJob_SetProcessedAmount(KIO__SpecialJob* self, int unit, unsigned long long amount) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->VirtualKIOSpecialJob::setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::setProcessedAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__SpecialJob_SuperSetProcessedAmount(KIO__SpecialJob* self, int unit, unsigned long long amount) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SetProcessedAmount_IsBase(true);
-        vkiospecialjob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnSetProcessedAmount(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SetProcessedAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__SpecialJob_SetTotalAmount(KIO__SpecialJob* self, int unit, unsigned long long amount) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->VirtualKIOSpecialJob::setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::setTotalAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__SpecialJob_SuperSetTotalAmount(KIO__SpecialJob* self, int unit, unsigned long long amount) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SetTotalAmount_IsBase(true);
-        vkiospecialjob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnSetTotalAmount(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SetTotalAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__SpecialJob_SetProgressUnit(KIO__SpecialJob* self, int unit) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->VirtualKIOSpecialJob::setProgressUnit(static_cast<KJob::Unit>(unit));
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::setProgressUnit called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__SpecialJob_SuperSetProgressUnit(KIO__SpecialJob* self, int unit) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SetProgressUnit_IsBase(true);
-        vkiospecialjob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnSetProgressUnit(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SetProgressUnit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__SpecialJob_SetPercent(KIO__SpecialJob* self, unsigned long percentage) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->VirtualKIOSpecialJob::setPercent(static_cast<unsigned long>(percentage));
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::setPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__SpecialJob_SuperSetPercent(KIO__SpecialJob* self, unsigned long percentage) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SetPercent_IsBase(true);
-        vkiospecialjob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnSetPercent(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SetPercent_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SetPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__SpecialJob_EmitResult(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->emitResult();
-    } else {
-        ((VirtualKIOSpecialJob*)self)->emitResult();
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->VirtualKIOSpecialJob::emitResult();
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::emitResult called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__SpecialJob_SuperEmitResult(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_EmitResult_IsBase(true);
-        vkiospecialjob->emitResult();
-    } else {
-        ((VirtualKIOSpecialJob*)self)->emitResult();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnEmitResult(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_EmitResult_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_EmitResult_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__SpecialJob_EmitPercent(KIO__SpecialJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->VirtualKIOSpecialJob::emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::emitPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__SpecialJob_SuperEmitPercent(KIO__SpecialJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_EmitPercent_IsBase(true);
-        vkiospecialjob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnEmitPercent(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_EmitPercent_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_EmitPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__SpecialJob_EmitSpeed(KIO__SpecialJob* self, unsigned long speed) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->VirtualKIOSpecialJob::emitSpeed(static_cast<unsigned long>(speed));
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::emitSpeed called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__SpecialJob_SuperEmitSpeed(KIO__SpecialJob* self, unsigned long speed) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_EmitSpeed_IsBase(true);
-        vkiospecialjob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKIOSpecialJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnEmitSpeed(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_EmitSpeed_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__SpecialJob_StartElapsedTimer(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->startElapsedTimer();
-    } else {
-        ((VirtualKIOSpecialJob*)self)->startElapsedTimer();
-    }
+    if (auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self)) {
+        vkiospecialjob->VirtualKIOSpecialJob::startElapsedTimer();
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::startElapsedTimer called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__SpecialJob_SuperStartElapsedTimer(KIO__SpecialJob* self) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_StartElapsedTimer_IsBase(true);
-        vkiospecialjob->startElapsedTimer();
-    } else {
-        ((VirtualKIOSpecialJob*)self)->startElapsedTimer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnStartElapsedTimer(KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_StartElapsedTimer_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KIO__SpecialJob_Sender(const KIO__SpecialJob* self) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        return vkiospecialjob->sender();
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->sender();
-    }
+    if (auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self))) {
+        return vkiospecialjob->VirtualKIOSpecialJob::sender();
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KIO__SpecialJob_SuperSender(const KIO__SpecialJob* self) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_Sender_IsBase(true);
-        return vkiospecialjob->sender();
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnSender(const KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_Sender_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__SpecialJob_SenderSignalIndex(const KIO__SpecialJob* self) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        return vkiospecialjob->senderSignalIndex();
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->senderSignalIndex();
-    }
+    if (auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self))) {
+        return vkiospecialjob->VirtualKIOSpecialJob::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__SpecialJob_SuperSenderSignalIndex(const KIO__SpecialJob* self) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_SenderSignalIndex_IsBase(true);
-        return vkiospecialjob->senderSignalIndex();
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnSenderSignalIndex(const KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__SpecialJob_Receivers(const KIO__SpecialJob* self, const char* signal) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        return vkiospecialjob->receivers(signal);
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->receivers(signal);
-    }
+    if (auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self))) {
+        return vkiospecialjob->VirtualKIOSpecialJob::receivers(signal);
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__SpecialJob_SuperReceivers(const KIO__SpecialJob* self, const char* signal) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_Receivers_IsBase(true);
-        return vkiospecialjob->receivers(signal);
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnReceivers(const KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_Receivers_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__SpecialJob_IsSignalConnected(const KIO__SpecialJob* self, const QMetaMethod* signal) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        return vkiospecialjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KIO__SpecialJob_SuperIsSignalConnected(const KIO__SpecialJob* self, const QMetaMethod* signal) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        vkiospecialjob->setKIO__SpecialJob_IsSignalConnected_IsBase(true);
-        return vkiospecialjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__SpecialJob_OnIsSignalConnected(const KIO__SpecialJob* self, intptr_t slot) {
-    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
-        vkiospecialjob->setKIO__SpecialJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_IsSignalConnected_Callback>(slot));
+    if (auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self))) {
+        return vkiospecialjob->VirtualKIOSpecialJob::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KIO::SpecialJob::isSignalConnected called without a directly constructed type");
 }
 
 void KIO__SpecialJob_Delete(KIO__SpecialJob* self) {

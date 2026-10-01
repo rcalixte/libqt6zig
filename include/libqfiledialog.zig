@@ -236,9 +236,9 @@ pub const QFileDialog = extern struct {
     ///
     /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QFileDialog) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QFileDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QFileDialog, callback: *const fn (QFileDialog) callconv(.c) QMetaObject) void {
         qtc.QFileDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1981,9 +1981,9 @@ pub const QFileDialog = extern struct {
     ///
     /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog) callconv(.c) void `
     ///
-    pub fn onAccept(self: QFileDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: QFileDialog, callback: *const fn (QFileDialog) callconv(.c) void) void {
         qtc.QFileDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9570,11 +9570,11 @@ pub const QFileDialog = extern struct {
     ///
     /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QFileDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QFileDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QFileDialog, callback: *const fn (QFileDialog) callconv(.c) QSize) void {
         qtc.QFileDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9628,11 +9628,11 @@ pub const QFileDialog = extern struct {
     ///
     /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QFileDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QFileDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QFileDialog, callback: *const fn (QFileDialog) callconv(.c) QSize) void {
         qtc.QFileDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9686,9 +9686,9 @@ pub const QFileDialog = extern struct {
     ///
     /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog) callconv(.c) void `
     ///
-    pub fn onOpen(self: QFileDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: QFileDialog, callback: *const fn (QFileDialog) callconv(.c) void) void {
         qtc.QFileDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9742,9 +9742,9 @@ pub const QFileDialog = extern struct {
     ///
     /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFileDialog) callconv(.c) i32 `
     ///
-    pub fn onExec(self: QFileDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: QFileDialog, callback: *const fn (QFileDialog) callconv(.c) i32) void {
         qtc.QFileDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9798,9 +9798,9 @@ pub const QFileDialog = extern struct {
     ///
     /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog) callconv(.c) void `
     ///
-    pub fn onReject(self: QFileDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: QFileDialog, callback: *const fn (QFileDialog) callconv(.c) void) void {
         qtc.QFileDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10232,9 +10232,9 @@ pub const QFileDialog = extern struct {
     ///
     /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFileDialog) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QFileDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QFileDialog, callback: *const fn (QFileDialog) callconv(.c) i32) void {
         qtc.QFileDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10348,9 +10348,9 @@ pub const QFileDialog = extern struct {
     ///
     /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QFileDialog) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QFileDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QFileDialog, callback: *const fn (QFileDialog) callconv(.c) bool) void {
         qtc.QFileDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10404,9 +10404,9 @@ pub const QFileDialog = extern struct {
     ///
     /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QFileDialog) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QFileDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QFileDialog, callback: *const fn (QFileDialog) callconv(.c) QPaintEngine) void {
         qtc.QFileDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11960,9 +11960,9 @@ pub const QFileDialog = extern struct {
     ///
     /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QFileDialog) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QFileDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QFileDialog, callback: *const fn (QFileDialog) callconv(.c) QPainter) void {
         qtc.QFileDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12481,47 +12481,6 @@ pub const QFileDialog = extern struct {
         qtc.QFileDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAdjustPosition` instead
-    ///
-    pub const SuperAdjustPosition = superAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFileDialog `
-    ///
-    /// ` param1: QWidget `
-    ///
-    pub fn superAdjustPosition(self: QFileDialog, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWidget;
-        qtc.QFileDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAdjustPosition` instead
-    ///
-    pub const OnAdjustPosition = onAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFileDialog`
-    ///
-    /// ` callback: *const fn (self: QFileDialog, param1: QWidget) callconv(.c) void `
-    ///
-    pub fn onAdjustPosition(self: QFileDialog, callback: *const fn (QFileDialog, QWidget) callconv(.c) void) void {
-        qtc.QFileDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -12538,44 +12497,6 @@ pub const QFileDialog = extern struct {
     ///
     pub fn updateMicroFocus(self: QFileDialog) void {
         qtc.QFileDialog_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFileDialog `
-    ///
-    pub fn superUpdateMicroFocus(self: QFileDialog) void {
-        qtc.QFileDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFileDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QFileDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -12596,44 +12517,6 @@ pub const QFileDialog = extern struct {
         qtc.QFileDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFileDialog `
-    ///
-    pub fn superCreate(self: QFileDialog) void {
-        qtc.QFileDialog_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFileDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QFileDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -12650,44 +12533,6 @@ pub const QFileDialog = extern struct {
     ///
     pub fn destroy(self: QFileDialog) void {
         qtc.QFileDialog_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFileDialog `
-    ///
-    pub fn superDestroy(self: QFileDialog) void {
-        qtc.QFileDialog_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFileDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QFileDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -12708,44 +12553,6 @@ pub const QFileDialog = extern struct {
         return qtc.QFileDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFileDialog `
-    ///
-    pub fn superFocusNextChild(self: QFileDialog) bool {
-        return qtc.QFileDialog_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFileDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QFileDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFileDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -12762,44 +12569,6 @@ pub const QFileDialog = extern struct {
     ///
     pub fn focusPreviousChild(self: QFileDialog) bool {
         return qtc.QFileDialog_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFileDialog `
-    ///
-    pub fn superFocusPreviousChild(self: QFileDialog) bool {
-        return qtc.QFileDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFileDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QFileDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFileDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -12820,44 +12589,6 @@ pub const QFileDialog = extern struct {
         return .{ .ptr = qtc.QFileDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFileDialog `
-    ///
-    pub fn superSender(self: QFileDialog) QObject {
-        return .{ .ptr = qtc.QFileDialog_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFileDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QFileDialog, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QFileDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -12874,44 +12605,6 @@ pub const QFileDialog = extern struct {
     ///
     pub fn senderSignalIndex(self: QFileDialog) i32 {
         return qtc.QFileDialog_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFileDialog `
-    ///
-    pub fn superSenderSignalIndex(self: QFileDialog) i32 {
-        return qtc.QFileDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFileDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QFileDialog, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFileDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -12935,47 +12628,6 @@ pub const QFileDialog = extern struct {
         return qtc.QFileDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFileDialog `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QFileDialog, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QFileDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFileDialog`
-    ///
-    /// ` callback: *const fn (self: QFileDialog, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QFileDialog, callback: *const fn (QFileDialog, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QFileDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -12995,47 +12647,6 @@ pub const QFileDialog = extern struct {
     pub fn isSignalConnected(self: QFileDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QFileDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFileDialog `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QFileDialog, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QFileDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFileDialog`
-    ///
-    /// ` callback: *const fn (self: QFileDialog, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QFileDialog, callback: *const fn (QFileDialog, QMetaMethod) callconv(.c) bool) void {
-        qtc.QFileDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -13058,48 +12669,6 @@ pub const QFileDialog = extern struct {
     ///
     pub fn getDecodedMetricF(self: QFileDialog, metricA: i32, metricB: i32) f64 {
         return qtc.QFileDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFileDialog `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QFileDialog, metricA: i32, metricB: i32) f64 {
-        return qtc.QFileDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFileDialog`
-    ///
-    /// ` callback: *const fn (self: QFileDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QFileDialog, callback: *const fn (QFileDialog, i32, i32) callconv(.c) f64) void {
-        qtc.QFileDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

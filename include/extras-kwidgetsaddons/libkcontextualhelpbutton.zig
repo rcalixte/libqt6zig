@@ -160,9 +160,9 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KContextualHelpButton) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KContextualHelpButton, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) QMetaObject) void {
         qtc.KContextualHelpButton_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -404,11 +404,11 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KContextualHelpButton) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KContextualHelpButton, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) QSize) void {
         qtc.KContextualHelpButton_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7670,11 +7670,11 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KContextualHelpButton) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KContextualHelpButton, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) QSize) void {
         qtc.KContextualHelpButton_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8348,9 +8348,9 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KContextualHelpButton) callconv(.c) void `
     ///
-    pub fn onCheckStateSet(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onCheckStateSet(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnCheckStateSet(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8404,9 +8404,9 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KContextualHelpButton) callconv(.c) void `
     ///
-    pub fn onNextCheckState(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onNextCheckState(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnNextCheckState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8832,9 +8832,9 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KContextualHelpButton) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KContextualHelpButton, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) i32) void {
         qtc.KContextualHelpButton_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9008,9 +9008,9 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KContextualHelpButton) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KContextualHelpButton, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) bool) void {
         qtc.KContextualHelpButton_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9064,9 +9064,9 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KContextualHelpButton) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KContextualHelpButton, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) QPaintEngine) void {
         qtc.KContextualHelpButton_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10186,9 +10186,9 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KContextualHelpButton) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KContextualHelpButton, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) QPainter) void {
         qtc.KContextualHelpButton_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10710,44 +10710,6 @@ pub const KContextualHelpButton = extern struct {
         qtc.KContextualHelpButton_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KContextualHelpButton `
-    ///
-    pub fn superUpdateMicroFocus(self: KContextualHelpButton) void {
-        qtc.KContextualHelpButton_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KContextualHelpButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
-        qtc.KContextualHelpButton_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -10764,44 +10726,6 @@ pub const KContextualHelpButton = extern struct {
     ///
     pub fn create(self: KContextualHelpButton) void {
         qtc.KContextualHelpButton_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KContextualHelpButton `
-    ///
-    pub fn superCreate(self: KContextualHelpButton) void {
-        qtc.KContextualHelpButton_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KContextualHelpButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
-        qtc.KContextualHelpButton_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -10822,44 +10746,6 @@ pub const KContextualHelpButton = extern struct {
         qtc.KContextualHelpButton_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KContextualHelpButton `
-    ///
-    pub fn superDestroy(self: KContextualHelpButton) void {
-        qtc.KContextualHelpButton_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KContextualHelpButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
-        qtc.KContextualHelpButton_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -10876,44 +10762,6 @@ pub const KContextualHelpButton = extern struct {
     ///
     pub fn focusNextChild(self: KContextualHelpButton) bool {
         return qtc.KContextualHelpButton_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KContextualHelpButton `
-    ///
-    pub fn superFocusNextChild(self: KContextualHelpButton) bool {
-        return qtc.KContextualHelpButton_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KContextualHelpButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KContextualHelpButton, callback: *const fn () callconv(.c) bool) void {
-        qtc.KContextualHelpButton_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -10934,44 +10782,6 @@ pub const KContextualHelpButton = extern struct {
         return qtc.KContextualHelpButton_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KContextualHelpButton `
-    ///
-    pub fn superFocusPreviousChild(self: KContextualHelpButton) bool {
-        return qtc.KContextualHelpButton_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KContextualHelpButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KContextualHelpButton, callback: *const fn () callconv(.c) bool) void {
-        qtc.KContextualHelpButton_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10990,44 +10800,6 @@ pub const KContextualHelpButton = extern struct {
         return .{ .ptr = qtc.KContextualHelpButton_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KContextualHelpButton `
-    ///
-    pub fn superSender(self: KContextualHelpButton) QObject {
-        return .{ .ptr = qtc.KContextualHelpButton_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KContextualHelpButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KContextualHelpButton, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KContextualHelpButton_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -11044,44 +10816,6 @@ pub const KContextualHelpButton = extern struct {
     ///
     pub fn senderSignalIndex(self: KContextualHelpButton) i32 {
         return qtc.KContextualHelpButton_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KContextualHelpButton `
-    ///
-    pub fn superSenderSignalIndex(self: KContextualHelpButton) i32 {
-        return qtc.KContextualHelpButton_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KContextualHelpButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KContextualHelpButton, callback: *const fn () callconv(.c) i32) void {
-        qtc.KContextualHelpButton_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -11105,47 +10839,6 @@ pub const KContextualHelpButton = extern struct {
         return qtc.KContextualHelpButton_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KContextualHelpButton `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KContextualHelpButton, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KContextualHelpButton_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KContextualHelpButton`
-    ///
-    /// ` callback: *const fn (self: KContextualHelpButton, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KContextualHelpButton_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -11165,47 +10858,6 @@ pub const KContextualHelpButton = extern struct {
     pub fn isSignalConnected(self: KContextualHelpButton, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KContextualHelpButton_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KContextualHelpButton `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KContextualHelpButton, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KContextualHelpButton_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KContextualHelpButton`
-    ///
-    /// ` callback: *const fn (self: KContextualHelpButton, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMetaMethod) callconv(.c) bool) void {
-        qtc.KContextualHelpButton_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -11228,48 +10880,6 @@ pub const KContextualHelpButton = extern struct {
     ///
     pub fn getDecodedMetricF(self: KContextualHelpButton, metricA: i32, metricB: i32) f64 {
         return qtc.KContextualHelpButton_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KContextualHelpButton `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KContextualHelpButton, metricA: i32, metricB: i32) f64 {
-        return qtc.KContextualHelpButton_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KContextualHelpButton`
-    ///
-    /// ` callback: *const fn (self: KContextualHelpButton, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, i32, i32) callconv(.c) f64) void {
-        qtc.KContextualHelpButton_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

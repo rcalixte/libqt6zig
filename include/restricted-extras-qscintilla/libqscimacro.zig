@@ -88,9 +88,9 @@ pub const QsciMacro = extern struct {
     ///
     /// ` self: QsciMacro `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QsciMacro) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QsciMacro, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QsciMacro, callback: *const fn (QsciMacro) callconv(.c) QMetaObject) void {
         qtc.QsciMacro_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -315,9 +315,9 @@ pub const QsciMacro = extern struct {
     ///
     /// ` self: QsciMacro `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QsciMacro) callconv(.c) void `
     ///
-    pub fn onPlay(self: QsciMacro, callback: *const fn () callconv(.c) void) void {
+    pub fn onPlay(self: QsciMacro, callback: *const fn (QsciMacro) callconv(.c) void) void {
         qtc.QsciMacro_OnPlay(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -363,9 +363,9 @@ pub const QsciMacro = extern struct {
     ///
     /// ` self: QsciMacro `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QsciMacro) callconv(.c) void `
     ///
-    pub fn onStartRecording(self: QsciMacro, callback: *const fn () callconv(.c) void) void {
+    pub fn onStartRecording(self: QsciMacro, callback: *const fn (QsciMacro) callconv(.c) void) void {
         qtc.QsciMacro_OnStartRecording(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -411,9 +411,9 @@ pub const QsciMacro = extern struct {
     ///
     /// ` self: QsciMacro `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QsciMacro) callconv(.c) void `
     ///
-    pub fn onEndRecording(self: QsciMacro, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndRecording(self: QsciMacro, callback: *const fn (QsciMacro) callconv(.c) void) void {
         qtc.QsciMacro_OnEndRecording(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1910,44 +1910,6 @@ pub const QsciMacro = extern struct {
         return .{ .ptr = qtc.QsciMacro_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciMacro `
-    ///
-    pub fn superSender(self: QsciMacro) QObject {
-        return .{ .ptr = qtc.QsciMacro_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciMacro`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QsciMacro, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QsciMacro_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1964,44 +1926,6 @@ pub const QsciMacro = extern struct {
     ///
     pub fn senderSignalIndex(self: QsciMacro) i32 {
         return qtc.QsciMacro_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciMacro `
-    ///
-    pub fn superSenderSignalIndex(self: QsciMacro) i32 {
-        return qtc.QsciMacro_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciMacro`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QsciMacro, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciMacro_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2025,47 +1949,6 @@ pub const QsciMacro = extern struct {
         return qtc.QsciMacro_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciMacro `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QsciMacro, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QsciMacro_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciMacro`
-    ///
-    /// ` callback: *const fn (self: QsciMacro, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QsciMacro, callback: *const fn (QsciMacro, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QsciMacro_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2085,47 +1968,6 @@ pub const QsciMacro = extern struct {
     pub fn isSignalConnected(self: QsciMacro, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QsciMacro_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciMacro `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QsciMacro, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QsciMacro_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciMacro`
-    ///
-    /// ` callback: *const fn (self: QsciMacro, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QsciMacro, callback: *const fn (QsciMacro, QMetaMethod) callconv(.c) bool) void {
-        qtc.QsciMacro_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

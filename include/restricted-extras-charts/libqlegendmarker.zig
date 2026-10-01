@@ -1,6 +1,5 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const QAbstractSeries = @import("libqt6").QAbstractSeries;
 const QBindingStorage = @import("libqt6").QBindingStorage;
 const QBrush = @import("libqt6").QBrush;
 const QEvent = @import("libqt6").QEvent;
@@ -13,7 +12,6 @@ const QPen = @import("libqt6").QPen;
 const QThread = @import("libqt6").QThread;
 const QVariant = @import("libqt6").QVariant;
 const qlegend_enums = @import("libqlegend.zig").enums;
-const qlegendmarker_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -97,26 +95,6 @@ pub const QLegendMarker = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QLegendMarker.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
-    }
-
-    /// ### DEPRECATED: Use `type0` instead
-    ///
-    pub const Type = type0;
-
-    pub const @"type" = type0;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#type)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLegendMarker `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qlegendmarker_enums.LegendMarkerType `
-    ///
-    pub fn type0(self: QLegendMarker) i32 {
-        return qtc.QLegendMarker_Type(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `label` instead
@@ -345,20 +323,6 @@ pub const QLegendMarker = extern struct {
     ///
     pub fn setShape(self: QLegendMarker, _shape: i32) void {
         qtc.QLegendMarker_SetShape(@ptrCast(self.ptr), @bitCast(_shape));
-    }
-
-    /// ### DEPRECATED: Use `series` instead
-    ///
-    pub const Series = series;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#series)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLegendMarker `
-    ///
-    pub fn series(self: QLegendMarker) QAbstractSeries {
-        return .{ .ptr = qtc.QLegendMarker_Series(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `clicked` instead

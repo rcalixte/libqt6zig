@@ -79,9 +79,9 @@ pub const QHPieModelMapper = extern struct {
     ///
     /// ` self: QHPieModelMapper `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QHPieModelMapper) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QHPieModelMapper, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QHPieModelMapper, callback: *const fn (QHPieModelMapper) callconv(.c) QMetaObject) void {
         qtc.QHPieModelMapper_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2065,44 +2065,6 @@ pub const QHPieModelMapper = extern struct {
         return qtc.QHPieModelMapper_First(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFirst` instead
-    ///
-    pub const SuperFirst = superFirst;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#first)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHPieModelMapper `
-    ///
-    pub fn superFirst(self: QHPieModelMapper) i32 {
-        return qtc.QHPieModelMapper_SuperFirst(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFirst` instead
-    ///
-    pub const OnFirst = onFirst;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#first)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHPieModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onFirst(self: QHPieModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHPieModelMapper_OnFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setFirst` instead
     ///
     pub const SetFirst = setFirst;
@@ -2123,46 +2085,6 @@ pub const QHPieModelMapper = extern struct {
         qtc.QHPieModelMapper_SetFirst(@ptrCast(self.ptr), @bitCast(_first));
     }
 
-    /// ### DEPRECATED: Use `superSetFirst` instead
-    ///
-    pub const SuperSetFirst = superSetFirst;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setFirst)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHPieModelMapper `
-    ///
-    /// ` _first: i32 `
-    ///
-    pub fn superSetFirst(self: QHPieModelMapper, _first: i32) void {
-        qtc.QHPieModelMapper_SuperSetFirst(@ptrCast(self.ptr), @bitCast(_first));
-    }
-
-    /// ### DEPRECATED: Use `onSetFirst` instead
-    ///
-    pub const OnSetFirst = onSetFirst;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setFirst)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHPieModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHPieModelMapper, first: i32) callconv(.c) void `
-    ///
-    pub fn onSetFirst(self: QHPieModelMapper, callback: *const fn (QHPieModelMapper, i32) callconv(.c) void) void {
-        qtc.QHPieModelMapper_OnSetFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `count` instead
     ///
     pub const Count = count;
@@ -2179,44 +2101,6 @@ pub const QHPieModelMapper = extern struct {
     ///
     pub fn count(self: QHPieModelMapper) i32 {
         return qtc.QHPieModelMapper_Count(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCount` instead
-    ///
-    pub const SuperCount = superCount;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#count)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHPieModelMapper `
-    ///
-    pub fn superCount(self: QHPieModelMapper) i32 {
-        return qtc.QHPieModelMapper_SuperCount(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCount` instead
-    ///
-    pub const OnCount = onCount;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#count)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHPieModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onCount(self: QHPieModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHPieModelMapper_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setCount` instead
@@ -2239,46 +2123,6 @@ pub const QHPieModelMapper = extern struct {
         qtc.QHPieModelMapper_SetCount(@ptrCast(self.ptr), @bitCast(_count));
     }
 
-    /// ### DEPRECATED: Use `superSetCount` instead
-    ///
-    pub const SuperSetCount = superSetCount;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setCount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHPieModelMapper `
-    ///
-    /// ` _count: i32 `
-    ///
-    pub fn superSetCount(self: QHPieModelMapper, _count: i32) void {
-        qtc.QHPieModelMapper_SuperSetCount(@ptrCast(self.ptr), @bitCast(_count));
-    }
-
-    /// ### DEPRECATED: Use `onSetCount` instead
-    ///
-    pub const OnSetCount = onSetCount;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setCount)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHPieModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHPieModelMapper, count: i32) callconv(.c) void `
-    ///
-    pub fn onSetCount(self: QHPieModelMapper, callback: *const fn (QHPieModelMapper, i32) callconv(.c) void) void {
-        qtc.QHPieModelMapper_OnSetCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `valuesSection` instead
     ///
     pub const ValuesSection = valuesSection;
@@ -2295,44 +2139,6 @@ pub const QHPieModelMapper = extern struct {
     ///
     pub fn valuesSection(self: QHPieModelMapper) i32 {
         return qtc.QHPieModelMapper_ValuesSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superValuesSection` instead
-    ///
-    pub const SuperValuesSection = superValuesSection;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#valuesSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHPieModelMapper `
-    ///
-    pub fn superValuesSection(self: QHPieModelMapper) i32 {
-        return qtc.QHPieModelMapper_SuperValuesSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onValuesSection` instead
-    ///
-    pub const OnValuesSection = onValuesSection;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#valuesSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHPieModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onValuesSection(self: QHPieModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHPieModelMapper_OnValuesSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setValuesSection` instead
@@ -2355,46 +2161,6 @@ pub const QHPieModelMapper = extern struct {
         qtc.QHPieModelMapper_SetValuesSection(@ptrCast(self.ptr), @bitCast(_valuesSection));
     }
 
-    /// ### DEPRECATED: Use `superSetValuesSection` instead
-    ///
-    pub const SuperSetValuesSection = superSetValuesSection;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setValuesSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHPieModelMapper `
-    ///
-    /// ` _valuesSection: i32 `
-    ///
-    pub fn superSetValuesSection(self: QHPieModelMapper, _valuesSection: i32) void {
-        qtc.QHPieModelMapper_SuperSetValuesSection(@ptrCast(self.ptr), @bitCast(_valuesSection));
-    }
-
-    /// ### DEPRECATED: Use `onSetValuesSection` instead
-    ///
-    pub const OnSetValuesSection = onSetValuesSection;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setValuesSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHPieModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHPieModelMapper, valuesSection: i32) callconv(.c) void `
-    ///
-    pub fn onSetValuesSection(self: QHPieModelMapper, callback: *const fn (QHPieModelMapper, i32) callconv(.c) void) void {
-        qtc.QHPieModelMapper_OnSetValuesSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `labelsSection` instead
     ///
     pub const LabelsSection = labelsSection;
@@ -2411,44 +2177,6 @@ pub const QHPieModelMapper = extern struct {
     ///
     pub fn labelsSection(self: QHPieModelMapper) i32 {
         return qtc.QHPieModelMapper_LabelsSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superLabelsSection` instead
-    ///
-    pub const SuperLabelsSection = superLabelsSection;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#labelsSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHPieModelMapper `
-    ///
-    pub fn superLabelsSection(self: QHPieModelMapper) i32 {
-        return qtc.QHPieModelMapper_SuperLabelsSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onLabelsSection` instead
-    ///
-    pub const OnLabelsSection = onLabelsSection;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#labelsSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHPieModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onLabelsSection(self: QHPieModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHPieModelMapper_OnLabelsSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setLabelsSection` instead
@@ -2469,46 +2197,6 @@ pub const QHPieModelMapper = extern struct {
     ///
     pub fn setLabelsSection(self: QHPieModelMapper, _labelsSection: i32) void {
         qtc.QHPieModelMapper_SetLabelsSection(@ptrCast(self.ptr), @bitCast(_labelsSection));
-    }
-
-    /// ### DEPRECATED: Use `superSetLabelsSection` instead
-    ///
-    pub const SuperSetLabelsSection = superSetLabelsSection;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setLabelsSection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHPieModelMapper `
-    ///
-    /// ` _labelsSection: i32 `
-    ///
-    pub fn superSetLabelsSection(self: QHPieModelMapper, _labelsSection: i32) void {
-        qtc.QHPieModelMapper_SuperSetLabelsSection(@ptrCast(self.ptr), @bitCast(_labelsSection));
-    }
-
-    /// ### DEPRECATED: Use `onSetLabelsSection` instead
-    ///
-    pub const OnSetLabelsSection = onSetLabelsSection;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setLabelsSection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHPieModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHPieModelMapper, labelsSection: i32) callconv(.c) void `
-    ///
-    pub fn onSetLabelsSection(self: QHPieModelMapper, callback: *const fn (QHPieModelMapper, i32) callconv(.c) void) void {
-        qtc.QHPieModelMapper_OnSetLabelsSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `orientation` instead
@@ -2533,48 +2221,6 @@ pub const QHPieModelMapper = extern struct {
         return qtc.QHPieModelMapper_Orientation(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superOrientation` instead
-    ///
-    pub const SuperOrientation = superOrientation;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#orientation)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHPieModelMapper `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qnamespace_enums.Orientation `
-    ///
-    pub fn superOrientation(self: QHPieModelMapper) i32 {
-        return qtc.QHPieModelMapper_SuperOrientation(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onOrientation` instead
-    ///
-    pub const OnOrientation = onOrientation;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#orientation)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHPieModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onOrientation(self: QHPieModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHPieModelMapper_OnOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setOrientation` instead
     ///
     pub const SetOrientation = setOrientation;
@@ -2595,46 +2241,6 @@ pub const QHPieModelMapper = extern struct {
         qtc.QHPieModelMapper_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
 
-    /// ### DEPRECATED: Use `superSetOrientation` instead
-    ///
-    pub const SuperSetOrientation = superSetOrientation;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setOrientation)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHPieModelMapper `
-    ///
-    /// ` _orientation: qnamespace_enums.Orientation `
-    ///
-    pub fn superSetOrientation(self: QHPieModelMapper, _orientation: i32) void {
-        qtc.QHPieModelMapper_SuperSetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
-    }
-
-    /// ### DEPRECATED: Use `onSetOrientation` instead
-    ///
-    pub const OnSetOrientation = onSetOrientation;
-
-    /// Inherited from QPieModelMapper
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setOrientation)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHPieModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHPieModelMapper, orientation: qnamespace_enums.Orientation) callconv(.c) void `
-    ///
-    pub fn onSetOrientation(self: QHPieModelMapper, callback: *const fn (QHPieModelMapper, i32) callconv(.c) void) void {
-        qtc.QHPieModelMapper_OnSetOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -2653,44 +2259,6 @@ pub const QHPieModelMapper = extern struct {
         return .{ .ptr = qtc.QHPieModelMapper_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHPieModelMapper `
-    ///
-    pub fn superSender(self: QHPieModelMapper) QObject {
-        return .{ .ptr = qtc.QHPieModelMapper_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHPieModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QHPieModelMapper, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QHPieModelMapper_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2707,44 +2275,6 @@ pub const QHPieModelMapper = extern struct {
     ///
     pub fn senderSignalIndex(self: QHPieModelMapper) i32 {
         return qtc.QHPieModelMapper_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHPieModelMapper `
-    ///
-    pub fn superSenderSignalIndex(self: QHPieModelMapper) i32 {
-        return qtc.QHPieModelMapper_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHPieModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QHPieModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHPieModelMapper_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2768,47 +2298,6 @@ pub const QHPieModelMapper = extern struct {
         return qtc.QHPieModelMapper_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHPieModelMapper `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QHPieModelMapper, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QHPieModelMapper_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHPieModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHPieModelMapper, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QHPieModelMapper, callback: *const fn (QHPieModelMapper, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QHPieModelMapper_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2828,47 +2317,6 @@ pub const QHPieModelMapper = extern struct {
     pub fn isSignalConnected(self: QHPieModelMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QHPieModelMapper_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHPieModelMapper `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QHPieModelMapper, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QHPieModelMapper_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHPieModelMapper`
-    ///
-    /// ` callback: *const fn (self: QHPieModelMapper, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QHPieModelMapper, callback: *const fn (QHPieModelMapper, QMetaMethod) callconv(.c) bool) void {
-        qtc.QHPieModelMapper_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

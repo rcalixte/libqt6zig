@@ -57,9 +57,9 @@ pub const QSGOpaqueTextureMaterial = extern struct {
     ///
     /// ` self: QSGOpaqueTextureMaterial `
     ///
-    /// ` callback: *const fn () callconv(.c) QSGMaterialType `
+    /// ` callback: *const fn (self: QSGOpaqueTextureMaterial) callconv(.c) QSGMaterialType `
     ///
-    pub fn onType(self: QSGOpaqueTextureMaterial, callback: *const fn () callconv(.c) QSGMaterialType) void {
+    pub fn onType(self: QSGOpaqueTextureMaterial, callback: *const fn (QSGOpaqueTextureMaterial) callconv(.c) QSGMaterialType) void {
         qtc.QSGOpaqueTextureMaterial_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -527,9 +527,9 @@ pub const QSGTextureMaterial = extern struct {
     ///
     /// ` self: QSGTextureMaterial `
     ///
-    /// ` callback: *const fn () callconv(.c) QSGMaterialType `
+    /// ` callback: *const fn (self: QSGTextureMaterial) callconv(.c) QSGMaterialType `
     ///
-    pub fn onType(self: QSGTextureMaterial, callback: *const fn () callconv(.c) QSGMaterialType) void {
+    pub fn onType(self: QSGTextureMaterial, callback: *const fn (QSGTextureMaterial) callconv(.c) QSGMaterialType) void {
         qtc.QSGTextureMaterial_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

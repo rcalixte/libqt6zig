@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KConfigViewStateSaver so that we can call protected methods
+// This class is a subclass of KConfigViewStateSaver
 class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKConfigViewStateSaver = true;
-
-    // Virtual class public types (including callbacks)
-    using KConfigViewStateSaver_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KConfigViewStateSaver_MetaObject_Callback = QMetaObject* (*)(const KConfigViewStateSaver*);
     using KConfigViewStateSaver_Metacast_Callback = void* (*)(KConfigViewStateSaver*, const char*);
     using KConfigViewStateSaver_Metacall_Callback = int (*)(KConfigViewStateSaver*, int, int, void**);
     using KConfigViewStateSaver_IndexFromConfigString_Callback = QModelIndex* (*)(const KConfigViewStateSaver*, QAbstractItemModel*, const char*);
@@ -29,12 +25,11 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
     using KConfigViewStateSaver_CustomEvent_Callback = void (*)(KConfigViewStateSaver*, QEvent*);
     using KConfigViewStateSaver_ConnectNotify_Callback = void (*)(KConfigViewStateSaver*, QMetaMethod*);
     using KConfigViewStateSaver_DisconnectNotify_Callback = void (*)(KConfigViewStateSaver*, QMetaMethod*);
-    using KConfigViewStateSaver_Sender_Callback = QObject* (*)();
-    using KConfigViewStateSaver_SenderSignalIndex_Callback = int (*)();
-    using KConfigViewStateSaver_Receivers_Callback = int (*)(const KConfigViewStateSaver*, const char*);
-    using KConfigViewStateSaver_IsSignalConnected_Callback = bool (*)(const KConfigViewStateSaver*, QMetaMethod*);
+    using KConfigViewStateSaver::isSignalConnected;
+    using KConfigViewStateSaver::receivers;
+    using KConfigViewStateSaver::sender;
+    using KConfigViewStateSaver::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KConfigViewStateSaver_MetaObject_Callback kconfigviewstatesaver_metaobject_callback = nullptr;
     KConfigViewStateSaver_Metacast_Callback kconfigviewstatesaver_metacast_callback = nullptr;
@@ -48,78 +43,25 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
     KConfigViewStateSaver_CustomEvent_Callback kconfigviewstatesaver_customevent_callback = nullptr;
     KConfigViewStateSaver_ConnectNotify_Callback kconfigviewstatesaver_connectnotify_callback = nullptr;
     KConfigViewStateSaver_DisconnectNotify_Callback kconfigviewstatesaver_disconnectnotify_callback = nullptr;
-    KConfigViewStateSaver_Sender_Callback kconfigviewstatesaver_sender_callback = nullptr;
-    KConfigViewStateSaver_SenderSignalIndex_Callback kconfigviewstatesaver_sendersignalindex_callback = nullptr;
-    KConfigViewStateSaver_Receivers_Callback kconfigviewstatesaver_receivers_callback = nullptr;
-    KConfigViewStateSaver_IsSignalConnected_Callback kconfigviewstatesaver_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kconfigviewstatesaver_metaobject_isbase = false;
-    mutable bool kconfigviewstatesaver_metacast_isbase = false;
-    mutable bool kconfigviewstatesaver_metacall_isbase = false;
-    mutable bool kconfigviewstatesaver_indexfromconfigstring_isbase = false;
-    mutable bool kconfigviewstatesaver_indextoconfigstring_isbase = false;
-    mutable bool kconfigviewstatesaver_event_isbase = false;
-    mutable bool kconfigviewstatesaver_eventfilter_isbase = false;
-    mutable bool kconfigviewstatesaver_timerevent_isbase = false;
-    mutable bool kconfigviewstatesaver_childevent_isbase = false;
-    mutable bool kconfigviewstatesaver_customevent_isbase = false;
-    mutable bool kconfigviewstatesaver_connectnotify_isbase = false;
-    mutable bool kconfigviewstatesaver_disconnectnotify_isbase = false;
-    mutable bool kconfigviewstatesaver_sender_isbase = false;
-    mutable bool kconfigviewstatesaver_sendersignalindex_isbase = false;
-    mutable bool kconfigviewstatesaver_receivers_isbase = false;
-    mutable bool kconfigviewstatesaver_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KConfigViewStateSaver {
+        using KConfigViewStateSaver::childEvent;
+        using KConfigViewStateSaver::connectNotify;
+        using KConfigViewStateSaver::customEvent;
+        using KConfigViewStateSaver::disconnectNotify;
+        using KConfigViewStateSaver::indexFromConfigString;
+        using KConfigViewStateSaver::indexToConfigString;
+        using KConfigViewStateSaver::timerEvent;
+    };
 
-  public:
     VirtualKConfigViewStateSaver() : KConfigViewStateSaver() {};
     VirtualKConfigViewStateSaver(QObject* parent) : KConfigViewStateSaver(parent) {};
 
-    // Callback setters
-    inline void setKConfigViewStateSaver_MetaObject_Callback(KConfigViewStateSaver_MetaObject_Callback cb) { kconfigviewstatesaver_metaobject_callback = cb; }
-    inline void setKConfigViewStateSaver_Metacast_Callback(KConfigViewStateSaver_Metacast_Callback cb) { kconfigviewstatesaver_metacast_callback = cb; }
-    inline void setKConfigViewStateSaver_Metacall_Callback(KConfigViewStateSaver_Metacall_Callback cb) { kconfigviewstatesaver_metacall_callback = cb; }
-    inline void setKConfigViewStateSaver_IndexFromConfigString_Callback(KConfigViewStateSaver_IndexFromConfigString_Callback cb) { kconfigviewstatesaver_indexfromconfigstring_callback = cb; }
-    inline void setKConfigViewStateSaver_IndexToConfigString_Callback(KConfigViewStateSaver_IndexToConfigString_Callback cb) { kconfigviewstatesaver_indextoconfigstring_callback = cb; }
-    inline void setKConfigViewStateSaver_Event_Callback(KConfigViewStateSaver_Event_Callback cb) { kconfigviewstatesaver_event_callback = cb; }
-    inline void setKConfigViewStateSaver_EventFilter_Callback(KConfigViewStateSaver_EventFilter_Callback cb) { kconfigviewstatesaver_eventfilter_callback = cb; }
-    inline void setKConfigViewStateSaver_TimerEvent_Callback(KConfigViewStateSaver_TimerEvent_Callback cb) { kconfigviewstatesaver_timerevent_callback = cb; }
-    inline void setKConfigViewStateSaver_ChildEvent_Callback(KConfigViewStateSaver_ChildEvent_Callback cb) { kconfigviewstatesaver_childevent_callback = cb; }
-    inline void setKConfigViewStateSaver_CustomEvent_Callback(KConfigViewStateSaver_CustomEvent_Callback cb) { kconfigviewstatesaver_customevent_callback = cb; }
-    inline void setKConfigViewStateSaver_ConnectNotify_Callback(KConfigViewStateSaver_ConnectNotify_Callback cb) { kconfigviewstatesaver_connectnotify_callback = cb; }
-    inline void setKConfigViewStateSaver_DisconnectNotify_Callback(KConfigViewStateSaver_DisconnectNotify_Callback cb) { kconfigviewstatesaver_disconnectnotify_callback = cb; }
-    inline void setKConfigViewStateSaver_Sender_Callback(KConfigViewStateSaver_Sender_Callback cb) { kconfigviewstatesaver_sender_callback = cb; }
-    inline void setKConfigViewStateSaver_SenderSignalIndex_Callback(KConfigViewStateSaver_SenderSignalIndex_Callback cb) { kconfigviewstatesaver_sendersignalindex_callback = cb; }
-    inline void setKConfigViewStateSaver_Receivers_Callback(KConfigViewStateSaver_Receivers_Callback cb) { kconfigviewstatesaver_receivers_callback = cb; }
-    inline void setKConfigViewStateSaver_IsSignalConnected_Callback(KConfigViewStateSaver_IsSignalConnected_Callback cb) { kconfigviewstatesaver_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKConfigViewStateSaver_MetaObject_IsBase(bool value) const { kconfigviewstatesaver_metaobject_isbase = value; }
-    inline void setKConfigViewStateSaver_Metacast_IsBase(bool value) const { kconfigviewstatesaver_metacast_isbase = value; }
-    inline void setKConfigViewStateSaver_Metacall_IsBase(bool value) const { kconfigviewstatesaver_metacall_isbase = value; }
-    inline void setKConfigViewStateSaver_IndexFromConfigString_IsBase(bool value) const { kconfigviewstatesaver_indexfromconfigstring_isbase = value; }
-    inline void setKConfigViewStateSaver_IndexToConfigString_IsBase(bool value) const { kconfigviewstatesaver_indextoconfigstring_isbase = value; }
-    inline void setKConfigViewStateSaver_Event_IsBase(bool value) const { kconfigviewstatesaver_event_isbase = value; }
-    inline void setKConfigViewStateSaver_EventFilter_IsBase(bool value) const { kconfigviewstatesaver_eventfilter_isbase = value; }
-    inline void setKConfigViewStateSaver_TimerEvent_IsBase(bool value) const { kconfigviewstatesaver_timerevent_isbase = value; }
-    inline void setKConfigViewStateSaver_ChildEvent_IsBase(bool value) const { kconfigviewstatesaver_childevent_isbase = value; }
-    inline void setKConfigViewStateSaver_CustomEvent_IsBase(bool value) const { kconfigviewstatesaver_customevent_isbase = value; }
-    inline void setKConfigViewStateSaver_ConnectNotify_IsBase(bool value) const { kconfigviewstatesaver_connectnotify_isbase = value; }
-    inline void setKConfigViewStateSaver_DisconnectNotify_IsBase(bool value) const { kconfigviewstatesaver_disconnectnotify_isbase = value; }
-    inline void setKConfigViewStateSaver_Sender_IsBase(bool value) const { kconfigviewstatesaver_sender_isbase = value; }
-    inline void setKConfigViewStateSaver_SenderSignalIndex_IsBase(bool value) const { kconfigviewstatesaver_sendersignalindex_isbase = value; }
-    inline void setKConfigViewStateSaver_Receivers_IsBase(bool value) const { kconfigviewstatesaver_receivers_isbase = value; }
-    inline void setKConfigViewStateSaver_IsSignalConnected_IsBase(bool value) const { kconfigviewstatesaver_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kconfigviewstatesaver_metaobject_isbase) {
-            kconfigviewstatesaver_metaobject_isbase = false;
-            return KConfigViewStateSaver::metaObject();
-        }
-        auto metaobject_cb = kconfigviewstatesaver_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kconfigviewstatesaver_metaobject_callback) {
+            QMetaObject* callback_ret = kconfigviewstatesaver_metaobject_callback(this);
             return callback_ret;
         }
         return KConfigViewStateSaver::metaObject();
@@ -127,14 +69,9 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kconfigviewstatesaver_metacast_isbase) {
-            kconfigviewstatesaver_metacast_isbase = false;
-            return KConfigViewStateSaver::qt_metacast(param1);
-        }
-        auto metacast_cb = kconfigviewstatesaver_metacast_callback;
-        if (metacast_cb) {
+        if (kconfigviewstatesaver_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kconfigviewstatesaver_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KConfigViewStateSaver::qt_metacast(param1);
@@ -142,16 +79,11 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kconfigviewstatesaver_metacall_isbase) {
-            kconfigviewstatesaver_metacall_isbase = false;
-            return KConfigViewStateSaver::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kconfigviewstatesaver_metacall_callback;
-        if (metacall_cb) {
+        if (kconfigviewstatesaver_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kconfigviewstatesaver_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KConfigViewStateSaver::qt_metacall(param1, param2, param3);
@@ -159,8 +91,7 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex indexFromConfigString(const QAbstractItemModel* model, const QString& key) const override {
-        auto indexfromconfigstring_cb = kconfigviewstatesaver_indexfromconfigstring_callback;
-        if (indexfromconfigstring_cb) {
+        if (kconfigviewstatesaver_indexfromconfigstring_callback) {
             QAbstractItemModel* cbval1 = (QAbstractItemModel*)model;
             const auto key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -170,39 +101,35 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
             memcpy((void*)key_str, key_b.data(), key_str_len);
             ((char*)key_str)[key_str_len] = '\0';
             const char* cbval2 = key_str;
-            QModelIndex* callback_ret = indexfromconfigstring_cb(this, cbval1, cbval2);
+            QModelIndex* callback_ret = kconfigviewstatesaver_indexfromconfigstring_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             libqt_free(key_str);
             return callback_ret_Value;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method KConfigViewStateSaver::indexFromConfigString called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString indexToConfigString(const QModelIndex& index) const override {
-        auto indextoconfigstring_cb = kconfigviewstatesaver_indextoconfigstring_callback;
-        if (indextoconfigstring_cb) {
+        if (kconfigviewstatesaver_indextoconfigstring_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            const char* callback_ret = indextoconfigstring_cb(this, cbval1);
+            const char* callback_ret = kconfigviewstatesaver_indextoconfigstring_callback(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method KConfigViewStateSaver::indexToConfigString called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kconfigviewstatesaver_event_isbase) {
-            kconfigviewstatesaver_event_isbase = false;
-            return KConfigViewStateSaver::event(event);
-        }
-        auto event_cb = kconfigviewstatesaver_event_callback;
-        if (event_cb) {
+        if (kconfigviewstatesaver_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kconfigviewstatesaver_event_callback(this, cbval1);
             return callback_ret;
         }
         return KConfigViewStateSaver::event(event);
@@ -210,15 +137,10 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kconfigviewstatesaver_eventfilter_isbase) {
-            kconfigviewstatesaver_eventfilter_isbase = false;
-            return KConfigViewStateSaver::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kconfigviewstatesaver_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kconfigviewstatesaver_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kconfigviewstatesaver_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KConfigViewStateSaver::eventFilter(watched, event);
@@ -226,15 +148,9 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kconfigviewstatesaver_timerevent_isbase) {
-            kconfigviewstatesaver_timerevent_isbase = false;
-            KConfigViewStateSaver::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kconfigviewstatesaver_timerevent_callback;
-        if (timerevent_cb) {
+        if (kconfigviewstatesaver_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kconfigviewstatesaver_timerevent_callback(this, cbval1);
             return;
         }
         KConfigViewStateSaver::timerEvent(event);
@@ -242,15 +158,9 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kconfigviewstatesaver_childevent_isbase) {
-            kconfigviewstatesaver_childevent_isbase = false;
-            KConfigViewStateSaver::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kconfigviewstatesaver_childevent_callback;
-        if (childevent_cb) {
+        if (kconfigviewstatesaver_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kconfigviewstatesaver_childevent_callback(this, cbval1);
             return;
         }
         KConfigViewStateSaver::childEvent(event);
@@ -258,15 +168,9 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kconfigviewstatesaver_customevent_isbase) {
-            kconfigviewstatesaver_customevent_isbase = false;
-            KConfigViewStateSaver::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kconfigviewstatesaver_customevent_callback;
-        if (customevent_cb) {
+        if (kconfigviewstatesaver_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kconfigviewstatesaver_customevent_callback(this, cbval1);
             return;
         }
         KConfigViewStateSaver::customEvent(event);
@@ -274,17 +178,11 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kconfigviewstatesaver_connectnotify_isbase) {
-            kconfigviewstatesaver_connectnotify_isbase = false;
-            KConfigViewStateSaver::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kconfigviewstatesaver_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kconfigviewstatesaver_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kconfigviewstatesaver_connectnotify_callback(this, cbval1);
             return;
         }
         KConfigViewStateSaver::connectNotify(signal);
@@ -292,105 +190,22 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kconfigviewstatesaver_disconnectnotify_isbase) {
-            kconfigviewstatesaver_disconnectnotify_isbase = false;
-            KConfigViewStateSaver::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kconfigviewstatesaver_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kconfigviewstatesaver_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kconfigviewstatesaver_disconnectnotify_callback(this, cbval1);
             return;
         }
         KConfigViewStateSaver::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kconfigviewstatesaver_sender_isbase) {
-            kconfigviewstatesaver_sender_isbase = false;
-            return KConfigViewStateSaver::sender();
-        }
-        auto sender_cb = kconfigviewstatesaver_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KConfigViewStateSaver::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kconfigviewstatesaver_sendersignalindex_isbase) {
-            kconfigviewstatesaver_sendersignalindex_isbase = false;
-            return KConfigViewStateSaver::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kconfigviewstatesaver_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KConfigViewStateSaver::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kconfigviewstatesaver_receivers_isbase) {
-            kconfigviewstatesaver_receivers_isbase = false;
-            return KConfigViewStateSaver::receivers(signal);
-        }
-        auto receivers_cb = kconfigviewstatesaver_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KConfigViewStateSaver::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kconfigviewstatesaver_issignalconnected_isbase) {
-            kconfigviewstatesaver_issignalconnected_isbase = false;
-            return KConfigViewStateSaver::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kconfigviewstatesaver_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KConfigViewStateSaver::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend QModelIndex* KConfigViewStateSaver_IndexFromConfigString(const KConfigViewStateSaver* self, const QAbstractItemModel* model, const libqt_string key);
-    friend QModelIndex* KConfigViewStateSaver_SuperIndexFromConfigString(const KConfigViewStateSaver* self, const QAbstractItemModel* model, const libqt_string key);
-    friend libqt_string KConfigViewStateSaver_IndexToConfigString(const KConfigViewStateSaver* self, const QModelIndex* index);
-    friend libqt_string KConfigViewStateSaver_SuperIndexToConfigString(const KConfigViewStateSaver* self, const QModelIndex* index);
-    friend void KConfigViewStateSaver_TimerEvent(KConfigViewStateSaver* self, QTimerEvent* event);
     friend void KConfigViewStateSaver_SuperTimerEvent(KConfigViewStateSaver* self, QTimerEvent* event);
-    friend void KConfigViewStateSaver_ChildEvent(KConfigViewStateSaver* self, QChildEvent* event);
     friend void KConfigViewStateSaver_SuperChildEvent(KConfigViewStateSaver* self, QChildEvent* event);
-    friend void KConfigViewStateSaver_CustomEvent(KConfigViewStateSaver* self, QEvent* event);
     friend void KConfigViewStateSaver_SuperCustomEvent(KConfigViewStateSaver* self, QEvent* event);
-    friend void KConfigViewStateSaver_ConnectNotify(KConfigViewStateSaver* self, const QMetaMethod* signal);
     friend void KConfigViewStateSaver_SuperConnectNotify(KConfigViewStateSaver* self, const QMetaMethod* signal);
-    friend void KConfigViewStateSaver_DisconnectNotify(KConfigViewStateSaver* self, const QMetaMethod* signal);
     friend void KConfigViewStateSaver_SuperDisconnectNotify(KConfigViewStateSaver* self, const QMetaMethod* signal);
-    friend QObject* KConfigViewStateSaver_Sender(const KConfigViewStateSaver* self);
-    friend QObject* KConfigViewStateSaver_SuperSender(const KConfigViewStateSaver* self);
-    friend int KConfigViewStateSaver_SenderSignalIndex(const KConfigViewStateSaver* self);
-    friend int KConfigViewStateSaver_SuperSenderSignalIndex(const KConfigViewStateSaver* self);
-    friend int KConfigViewStateSaver_Receivers(const KConfigViewStateSaver* self, const char* signal);
-    friend int KConfigViewStateSaver_SuperReceivers(const KConfigViewStateSaver* self, const char* signal);
-    friend bool KConfigViewStateSaver_IsSignalConnected(const KConfigViewStateSaver* self, const QMetaMethod* signal);
-    friend bool KConfigViewStateSaver_SuperIsSignalConnected(const KConfigViewStateSaver* self, const QMetaMethod* signal);
 };
 
 #endif

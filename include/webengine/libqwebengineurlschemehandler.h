@@ -34,14 +34,13 @@ libqt_string QWebEngineUrlSchemeHandler_Tr(const char* s);
 void QWebEngineUrlSchemeHandler_RequestStarted(QWebEngineUrlSchemeHandler* self, QWebEngineUrlRequestJob* param1);
 libqt_string QWebEngineUrlSchemeHandler_Tr2(const char* s, const char* c);
 libqt_string QWebEngineUrlSchemeHandler_Tr3(const char* s, const char* c, int n);
-void QWebEngineUrlSchemeHandler_OnMetaObject(const QWebEngineUrlSchemeHandler* self, intptr_t slot);
+void QWebEngineUrlSchemeHandler_OnMetaObject(QWebEngineUrlSchemeHandler* self, intptr_t slot);
 QMetaObject* QWebEngineUrlSchemeHandler_SuperMetaObject(const QWebEngineUrlSchemeHandler* self);
 void QWebEngineUrlSchemeHandler_OnMetacast(QWebEngineUrlSchemeHandler* self, intptr_t slot);
 void* QWebEngineUrlSchemeHandler_SuperMetacast(QWebEngineUrlSchemeHandler* self, const char* param1);
 void QWebEngineUrlSchemeHandler_OnMetacall(QWebEngineUrlSchemeHandler* self, intptr_t slot);
 int QWebEngineUrlSchemeHandler_SuperMetacall(QWebEngineUrlSchemeHandler* self, int param1, int param2, void** param3);
 void QWebEngineUrlSchemeHandler_OnRequestStarted(QWebEngineUrlSchemeHandler* self, intptr_t slot);
-void QWebEngineUrlSchemeHandler_SuperRequestStarted(QWebEngineUrlSchemeHandler* self, QWebEngineUrlRequestJob* param1);
 bool QWebEngineUrlSchemeHandler_Event(QWebEngineUrlSchemeHandler* self, QEvent* event);
 void QWebEngineUrlSchemeHandler_OnEvent(QWebEngineUrlSchemeHandler* self, intptr_t slot);
 bool QWebEngineUrlSchemeHandler_SuperEvent(QWebEngineUrlSchemeHandler* self, QEvent* event);
@@ -64,17 +63,9 @@ void QWebEngineUrlSchemeHandler_DisconnectNotify(QWebEngineUrlSchemeHandler* sel
 void QWebEngineUrlSchemeHandler_OnDisconnectNotify(QWebEngineUrlSchemeHandler* self, intptr_t slot);
 void QWebEngineUrlSchemeHandler_SuperDisconnectNotify(QWebEngineUrlSchemeHandler* self, const QMetaMethod* signal);
 QObject* QWebEngineUrlSchemeHandler_Sender(const QWebEngineUrlSchemeHandler* self);
-void QWebEngineUrlSchemeHandler_OnSender(const QWebEngineUrlSchemeHandler* self, intptr_t slot);
-QObject* QWebEngineUrlSchemeHandler_SuperSender(const QWebEngineUrlSchemeHandler* self);
 int QWebEngineUrlSchemeHandler_SenderSignalIndex(const QWebEngineUrlSchemeHandler* self);
-void QWebEngineUrlSchemeHandler_OnSenderSignalIndex(const QWebEngineUrlSchemeHandler* self, intptr_t slot);
-int QWebEngineUrlSchemeHandler_SuperSenderSignalIndex(const QWebEngineUrlSchemeHandler* self);
 int QWebEngineUrlSchemeHandler_Receivers(const QWebEngineUrlSchemeHandler* self, const char* signal);
-void QWebEngineUrlSchemeHandler_OnReceivers(const QWebEngineUrlSchemeHandler* self, intptr_t slot);
-int QWebEngineUrlSchemeHandler_SuperReceivers(const QWebEngineUrlSchemeHandler* self, const char* signal);
 bool QWebEngineUrlSchemeHandler_IsSignalConnected(const QWebEngineUrlSchemeHandler* self, const QMetaMethod* signal);
-void QWebEngineUrlSchemeHandler_OnIsSignalConnected(const QWebEngineUrlSchemeHandler* self, intptr_t slot);
-bool QWebEngineUrlSchemeHandler_SuperIsSignalConnected(const QWebEngineUrlSchemeHandler* self, const QMetaMethod* signal);
 void QWebEngineUrlSchemeHandler_Delete(QWebEngineUrlSchemeHandler* self);
 
 #ifdef __cplusplus

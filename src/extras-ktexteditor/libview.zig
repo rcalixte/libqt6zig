@@ -180,6 +180,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#document)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -193,6 +195,8 @@ pub const KTextEditor__View = extern struct {
     pub const ViewMode = viewMode;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewMode)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -211,6 +215,8 @@ pub const KTextEditor__View = extern struct {
     pub const ViewModeHuman = viewModeHuman;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewModeHuman)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -232,6 +238,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setViewInputMode)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -247,6 +255,8 @@ pub const KTextEditor__View = extern struct {
     pub const ViewInputMode = viewInputMode;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewInputMode)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -265,6 +275,8 @@ pub const KTextEditor__View = extern struct {
     pub const ViewInputModeHuman = viewInputModeHuman;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#viewInputModeHuman)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -285,6 +297,8 @@ pub const KTextEditor__View = extern struct {
     pub const MainWindow = mainWindow;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#mainWindow)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -478,6 +492,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setContextMenu)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -495,6 +511,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#contextMenu)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -508,6 +526,8 @@ pub const KTextEditor__View = extern struct {
     pub const DefaultContextMenu = defaultContextMenu;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#defaultContextMenu)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -562,6 +582,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setCursorPosition)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -599,6 +621,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPosition)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -635,6 +659,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPositionVirtual)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -648,6 +674,8 @@ pub const KTextEditor__View = extern struct {
     pub const CursorToCoordinate = cursorToCoordinate;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorToCoordinate)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -666,6 +694,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#cursorPositionCoordinates)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -679,6 +709,8 @@ pub const KTextEditor__View = extern struct {
     pub const CoordinatesToCursor = coordinatesToCursor;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#coordinatesToCursor)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -802,6 +834,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#mouseTrackingEnabled)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -815,6 +849,8 @@ pub const KTextEditor__View = extern struct {
     pub const SetMouseTrackingEnabled = setMouseTrackingEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setMouseTrackingEnabled)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -868,6 +904,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setSelection)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -905,6 +943,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#selection)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -918,6 +958,8 @@ pub const KTextEditor__View = extern struct {
     pub const SelectionRange = selectionRange;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#selectionRange)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -955,6 +997,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#selectionText)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -975,6 +1019,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#removeSelection)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -989,6 +1035,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#removeSelectionText)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1002,6 +1050,8 @@ pub const KTextEditor__View = extern struct {
     pub const SetBlockSelection = setBlockSelection;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setBlockSelection)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1018,6 +1068,8 @@ pub const KTextEditor__View = extern struct {
     pub const BlockSelection = blockSelection;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#blockSelection)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1198,6 +1250,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#verticalScrollBar)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1211,6 +1265,8 @@ pub const KTextEditor__View = extern struct {
     pub const HorizontalScrollBar = horizontalScrollBar;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#horizontalScrollBar)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1259,6 +1315,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#print)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1272,6 +1330,8 @@ pub const KTextEditor__View = extern struct {
     pub const PrintPreview = printPreview;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#printPreview)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1352,6 +1412,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#readSessionConfig)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1388,6 +1450,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#writeSessionConfig)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1423,6 +1487,8 @@ pub const KTextEditor__View = extern struct {
     pub const LineAttributes = lineAttributes;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#lineAttributes)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1481,6 +1547,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#configKeys)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1511,6 +1579,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#configValue)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1530,6 +1600,8 @@ pub const KTextEditor__View = extern struct {
     pub const SetConfigValue = setConfigValue;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setConfigValue)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1554,6 +1626,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAnnotationModel)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1571,6 +1645,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationModel)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1584,6 +1660,8 @@ pub const KTextEditor__View = extern struct {
     pub const SetAnnotationBorderVisible = setAnnotationBorderVisible;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAnnotationBorderVisible)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1601,6 +1679,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#isAnnotationBorderVisible)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1614,6 +1694,8 @@ pub const KTextEditor__View = extern struct {
     pub const SetAnnotationItemDelegate = setAnnotationItemDelegate;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAnnotationItemDelegate)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1632,6 +1714,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#annotationItemDelegate)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1645,6 +1729,8 @@ pub const KTextEditor__View = extern struct {
     pub const SetAnnotationUniformItemSizes = setAnnotationUniformItemSizes;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAnnotationUniformItemSizes)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1661,6 +1747,8 @@ pub const KTextEditor__View = extern struct {
     pub const UniformAnnotationItemSizes = uniformAnnotationItemSizes;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#uniformAnnotationItemSizes)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1784,6 +1872,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#registerInlineNoteProvider)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1800,6 +1890,8 @@ pub const KTextEditor__View = extern struct {
     pub const UnregisterInlineNoteProvider = unregisterInlineNoteProvider;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#unregisterInlineNoteProvider)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1818,6 +1910,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#registerTextHintProvider)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1834,6 +1928,8 @@ pub const KTextEditor__View = extern struct {
     pub const UnregisterTextHintProvider = unregisterTextHintProvider;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#unregisterTextHintProvider)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1852,6 +1948,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setTextHintDelay)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1868,6 +1966,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#textHintDelay)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1882,6 +1982,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#isCompletionActive)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1895,6 +1997,8 @@ pub const KTextEditor__View = extern struct {
     pub const StartCompletion = startCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#startCompletion)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1916,6 +2020,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#abortCompletion)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1930,6 +2036,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#forceCompletion)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1943,6 +2051,8 @@ pub const KTextEditor__View = extern struct {
     pub const RegisterCompletionModel = registerCompletionModel;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#registerCompletionModel)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1961,6 +2071,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#unregisterCompletionModel)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1978,6 +2090,8 @@ pub const KTextEditor__View = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#isAutomaticInvocationEnabled)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__View `
@@ -1991,6 +2105,8 @@ pub const KTextEditor__View = extern struct {
     pub const SetAutomaticInvocationEnabled = setAutomaticInvocationEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#setAutomaticInvocationEnabled)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -2007,6 +2123,8 @@ pub const KTextEditor__View = extern struct {
     pub const StartCompletion2 = startCompletion2;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#startCompletion)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -2032,6 +2150,8 @@ pub const KTextEditor__View = extern struct {
     pub const CodeCompletionModels = codeCompletionModels;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-view.html#codeCompletionModels)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

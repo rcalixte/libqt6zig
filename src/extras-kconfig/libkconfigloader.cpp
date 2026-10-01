@@ -78,560 +78,360 @@ libqt_list /* of libqt_string */ KConfigLoader_GroupList(const KConfigLoader* se
 
 bool KConfigLoader_UsrSave(KConfigLoader* self) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader) {
         return vkconfigloader->usrSave();
     }
-    return {};
+    qFatal("Error: Protected method KConfigLoader::usrSave called without a directly constructed type");
 }
 
 // Base class handler implementation
 bool KConfigLoader_SuperUsrSave(KConfigLoader* self) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_UsrSave_IsBase(true);
-        return vkconfigloader->usrSave();
-    } else {
-        return ((VirtualKConfigLoader*)self)->usrSave();
-    }
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self)) {
+        return vkconfigloader->KConfigLoader::usrSave();
+    } else
+        qFatal("Error: Protected virtual method KConfigLoader::usrSave called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnUsrSave(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_UsrSave_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrSave_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_usrsave_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrSave_Callback>(slot);
 }
 
 // Derived class handler implementation
 QMetaObject* KConfigLoader_MetaObject(const KConfigLoader* self) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        return (QMetaObject*)vkconfigloader->metaObject();
-    } else {
-        return (QMetaObject*)self->KConfigLoader::metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 // Base class handler implementation
 QMetaObject* KConfigLoader_SuperMetaObject(const KConfigLoader* self) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_MetaObject_IsBase(true);
-        return (QMetaObject*)vkconfigloader->metaObject();
-    } else {
-        return (QMetaObject*)self->KConfigLoader::metaObject();
-    }
+    return (QMetaObject*)self->KConfigLoader::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KConfigLoader_OnMetaObject(const KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_MetaObject_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_MetaObject_Callback>(slot));
+void KConfigLoader_OnMetaObject(KConfigLoader* self, intptr_t slot) {
+    if (auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self)))
+        vkconfigloader->kconfigloader_metaobject_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_MetaObject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void* KConfigLoader_Metacast(KConfigLoader* self, const char* param1) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        return vkconfigloader->qt_metacast(param1);
-    } else {
-        return self->KConfigLoader::qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 // Base class handler implementation
 void* KConfigLoader_SuperMetacast(KConfigLoader* self, const char* param1) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_Metacast_IsBase(true);
-        return vkconfigloader->qt_metacast(param1);
-    } else {
-        return self->KConfigLoader::qt_metacast(param1);
-    }
+    return self->KConfigLoader::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnMetacast(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_Metacast_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_Metacast_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_metacast_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_Metacast_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KConfigLoader_Metacall(KConfigLoader* self, int param1, int param2, void** param3) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        return vkconfigloader->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KConfigLoader::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Base class handler implementation
 int KConfigLoader_SuperMetacall(KConfigLoader* self, int param1, int param2, void** param3) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_Metacall_IsBase(true);
-        return vkconfigloader->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KConfigLoader::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KConfigLoader::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnMetacall(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_Metacall_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_Metacall_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_metacall_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KConfigLoader_SetDefaults(KConfigLoader* self) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setDefaults();
-    } else {
-        self->KConfigLoader::setDefaults();
-    }
+    self->setDefaults();
 }
 
 // Base class handler implementation
 void KConfigLoader_SuperSetDefaults(KConfigLoader* self) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_SetDefaults_IsBase(true);
-        vkconfigloader->setDefaults();
-    } else {
-        self->KConfigLoader::setDefaults();
-    }
+    self->KConfigLoader::setDefaults();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnSetDefaults(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_SetDefaults_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_SetDefaults_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_setdefaults_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_SetDefaults_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KConfigLoader_UseDefaults(KConfigLoader* self, bool b) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        return vkconfigloader->useDefaults(b);
-    } else {
-        return self->KConfigLoader::useDefaults(b);
-    }
+    return self->useDefaults(b);
 }
 
 // Base class handler implementation
 bool KConfigLoader_SuperUseDefaults(KConfigLoader* self, bool b) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_UseDefaults_IsBase(true);
-        return vkconfigloader->useDefaults(b);
-    } else {
-        return self->KConfigLoader::useDefaults(b);
-    }
+    return self->KConfigLoader::useDefaults(b);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnUseDefaults(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_UseDefaults_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UseDefaults_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_usedefaults_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UseDefaults_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KConfigLoader_UsrUseDefaults(KConfigLoader* self, bool b) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader) {
         return vkconfigloader->usrUseDefaults(b);
     } else {
-        return ((VirtualKConfigLoader*)self)->usrUseDefaults(b);
+        qFatal("Error: Protected virtual method KConfigLoader::usrUseDefaults called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KConfigLoader_SuperUsrUseDefaults(KConfigLoader* self, bool b) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_UsrUseDefaults_IsBase(true);
-        return vkconfigloader->usrUseDefaults(b);
-    } else {
-        return ((VirtualKConfigLoader*)self)->usrUseDefaults(b);
-    }
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self)) {
+        return vkconfigloader->KConfigLoader::usrUseDefaults(b);
+    } else
+        qFatal("Error: Protected virtual method KConfigLoader::usrUseDefaults called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnUsrUseDefaults(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_UsrUseDefaults_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrUseDefaults_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_usrusedefaults_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrUseDefaults_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KConfigLoader_UsrSetDefaults(KConfigLoader* self) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader) {
         vkconfigloader->usrSetDefaults();
     } else {
-        ((VirtualKConfigLoader*)self)->usrSetDefaults();
+        qFatal("Error: Protected virtual method KConfigLoader::usrSetDefaults called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KConfigLoader_SuperUsrSetDefaults(KConfigLoader* self) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_UsrSetDefaults_IsBase(true);
-        vkconfigloader->usrSetDefaults();
-    } else {
-        ((VirtualKConfigLoader*)self)->usrSetDefaults();
-    }
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self)) {
+        vkconfigloader->KConfigLoader::usrSetDefaults();
+    } else
+        qFatal("Error: Protected virtual method KConfigLoader::usrSetDefaults called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnUsrSetDefaults(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_UsrSetDefaults_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrSetDefaults_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_usrsetdefaults_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrSetDefaults_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KConfigLoader_UsrRead(KConfigLoader* self) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader) {
         vkconfigloader->usrRead();
     } else {
-        ((VirtualKConfigLoader*)self)->usrRead();
+        qFatal("Error: Protected virtual method KConfigLoader::usrRead called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KConfigLoader_SuperUsrRead(KConfigLoader* self) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_UsrRead_IsBase(true);
-        vkconfigloader->usrRead();
-    } else {
-        ((VirtualKConfigLoader*)self)->usrRead();
-    }
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self)) {
+        vkconfigloader->KConfigLoader::usrRead();
+    } else
+        qFatal("Error: Protected virtual method KConfigLoader::usrRead called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnUsrRead(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_UsrRead_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrRead_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_usrread_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrRead_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KConfigLoader_Event(KConfigLoader* self, QEvent* event) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        return vkconfigloader->event(event);
-    } else {
-        return self->KConfigLoader::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KConfigLoader_SuperEvent(KConfigLoader* self, QEvent* event) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_Event_IsBase(true);
-        return vkconfigloader->event(event);
-    } else {
-        return self->KConfigLoader::event(event);
-    }
+    return self->KConfigLoader::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnEvent(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_Event_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_Event_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_event_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KConfigLoader_EventFilter(KConfigLoader* self, QObject* watched, QEvent* event) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        return vkconfigloader->eventFilter(watched, event);
-    } else {
-        return self->KConfigLoader::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KConfigLoader_SuperEventFilter(KConfigLoader* self, QObject* watched, QEvent* event) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_EventFilter_IsBase(true);
-        return vkconfigloader->eventFilter(watched, event);
-    } else {
-        return self->KConfigLoader::eventFilter(watched, event);
-    }
+    return self->KConfigLoader::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnEventFilter(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_EventFilter_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_EventFilter_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_eventfilter_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KConfigLoader_TimerEvent(KConfigLoader* self, QTimerEvent* event) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader) {
         vkconfigloader->timerEvent(event);
     } else {
-        ((VirtualKConfigLoader*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KConfigLoader::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KConfigLoader_SuperTimerEvent(KConfigLoader* self, QTimerEvent* event) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_TimerEvent_IsBase(true);
-        vkconfigloader->timerEvent(event);
-    } else {
-        ((VirtualKConfigLoader*)self)->timerEvent(event);
-    }
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self)) {
+        vkconfigloader->KConfigLoader::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KConfigLoader::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnTimerEvent(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_TimerEvent_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_TimerEvent_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_timerevent_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KConfigLoader_ChildEvent(KConfigLoader* self, QChildEvent* event) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader) {
         vkconfigloader->childEvent(event);
     } else {
-        ((VirtualKConfigLoader*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KConfigLoader::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KConfigLoader_SuperChildEvent(KConfigLoader* self, QChildEvent* event) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_ChildEvent_IsBase(true);
-        vkconfigloader->childEvent(event);
-    } else {
-        ((VirtualKConfigLoader*)self)->childEvent(event);
-    }
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self)) {
+        vkconfigloader->KConfigLoader::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KConfigLoader::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnChildEvent(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_ChildEvent_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_ChildEvent_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_childevent_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KConfigLoader_CustomEvent(KConfigLoader* self, QEvent* event) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader) {
         vkconfigloader->customEvent(event);
     } else {
-        ((VirtualKConfigLoader*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KConfigLoader::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KConfigLoader_SuperCustomEvent(KConfigLoader* self, QEvent* event) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_CustomEvent_IsBase(true);
-        vkconfigloader->customEvent(event);
-    } else {
-        ((VirtualKConfigLoader*)self)->customEvent(event);
-    }
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self)) {
+        vkconfigloader->KConfigLoader::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KConfigLoader::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnCustomEvent(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_CustomEvent_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_CustomEvent_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_customevent_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KConfigLoader_ConnectNotify(KConfigLoader* self, const QMetaMethod* signal) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader) {
         vkconfigloader->connectNotify(*signal);
     } else {
-        ((VirtualKConfigLoader*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KConfigLoader::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KConfigLoader_SuperConnectNotify(KConfigLoader* self, const QMetaMethod* signal) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_ConnectNotify_IsBase(true);
-        vkconfigloader->connectNotify(*signal);
-    } else {
-        ((VirtualKConfigLoader*)self)->connectNotify(*signal);
-    }
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self)) {
+        vkconfigloader->KConfigLoader::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KConfigLoader::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnConnectNotify(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_ConnectNotify_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_ConnectNotify_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_connectnotify_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KConfigLoader_DisconnectNotify(KConfigLoader* self, const QMetaMethod* signal) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader) {
         vkconfigloader->disconnectNotify(*signal);
     } else {
-        ((VirtualKConfigLoader*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KConfigLoader::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KConfigLoader_SuperDisconnectNotify(KConfigLoader* self, const QMetaMethod* signal) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_DisconnectNotify_IsBase(true);
-        vkconfigloader->disconnectNotify(*signal);
-    } else {
-        ((VirtualKConfigLoader*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self)) {
+        vkconfigloader->KConfigLoader::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KConfigLoader::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnDisconnectNotify(KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_DisconnectNotify_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_DisconnectNotify_Callback>(slot));
+    if (auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self))
+        vkconfigloader->kconfigloader_disconnectnotify_callback = reinterpret_cast<VirtualKConfigLoader::KConfigLoader_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KConfigLoader_Sender(const KConfigLoader* self) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        return vkconfigloader->sender();
-    } else {
-        return ((VirtualKConfigLoader*)self)->sender();
-    }
+    if (auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self))) {
+        return vkconfigloader->VirtualKConfigLoader::sender();
+    } else
+        qFatal("Error: Protected method KConfigLoader::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KConfigLoader_SuperSender(const KConfigLoader* self) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_Sender_IsBase(true);
-        return vkconfigloader->sender();
-    } else {
-        return ((VirtualKConfigLoader*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigLoader_OnSender(const KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_Sender_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KConfigLoader_SenderSignalIndex(const KConfigLoader* self) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        return vkconfigloader->senderSignalIndex();
-    } else {
-        return ((VirtualKConfigLoader*)self)->senderSignalIndex();
-    }
+    if (auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self))) {
+        return vkconfigloader->VirtualKConfigLoader::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KConfigLoader::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KConfigLoader_SuperSenderSignalIndex(const KConfigLoader* self) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_SenderSignalIndex_IsBase(true);
-        return vkconfigloader->senderSignalIndex();
-    } else {
-        return ((VirtualKConfigLoader*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigLoader_OnSenderSignalIndex(const KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_SenderSignalIndex_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KConfigLoader_Receivers(const KConfigLoader* self, const char* signal) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        return vkconfigloader->receivers(signal);
-    } else {
-        return ((VirtualKConfigLoader*)self)->receivers(signal);
-    }
+    if (auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self))) {
+        return vkconfigloader->VirtualKConfigLoader::receivers(signal);
+    } else
+        qFatal("Error: Protected method KConfigLoader::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KConfigLoader_SuperReceivers(const KConfigLoader* self, const char* signal) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_Receivers_IsBase(true);
-        return vkconfigloader->receivers(signal);
-    } else {
-        return ((VirtualKConfigLoader*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigLoader_OnReceivers(const KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_Receivers_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KConfigLoader_IsSignalConnected(const KConfigLoader* self, const QMetaMethod* signal) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        return vkconfigloader->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKConfigLoader*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KConfigLoader_SuperIsSignalConnected(const KConfigLoader* self, const QMetaMethod* signal) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
-        vkconfigloader->setKConfigLoader_IsSignalConnected_IsBase(true);
-        return vkconfigloader->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKConfigLoader*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigLoader_OnIsSignalConnected(const KConfigLoader* self, intptr_t slot) {
-    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
-        vkconfigloader->setKConfigLoader_IsSignalConnected_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_IsSignalConnected_Callback>(slot));
+    if (auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self))) {
+        return vkconfigloader->VirtualKConfigLoader::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KConfigLoader::isSignalConnected called without a directly constructed type");
 }
 
 void KConfigLoader_Delete(KConfigLoader* self) {

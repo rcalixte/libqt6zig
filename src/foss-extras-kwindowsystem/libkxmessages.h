@@ -74,7 +74,7 @@ libqt_string KXMessages_Tr3(const char* s, const char* c, int n);
 void KXMessages_BroadcastMessage3(KXMessages* self, const char* msg_type, const libqt_string message, int screen);
 #endif
 #ifdef __linux__
-void KXMessages_OnMetaObject(const KXMessages* self, intptr_t slot);
+void KXMessages_OnMetaObject(KXMessages* self, intptr_t slot);
 #endif
 #ifdef __linux__
 QMetaObject* KXMessages_SuperMetaObject(const KXMessages* self);
@@ -113,17 +113,9 @@ void KXMessages_DisconnectNotify(KXMessages* self, const QMetaMethod* signal);
 void KXMessages_OnDisconnectNotify(KXMessages* self, intptr_t slot);
 void KXMessages_SuperDisconnectNotify(KXMessages* self, const QMetaMethod* signal);
 QObject* KXMessages_Sender(const KXMessages* self);
-void KXMessages_OnSender(const KXMessages* self, intptr_t slot);
-QObject* KXMessages_SuperSender(const KXMessages* self);
 int KXMessages_SenderSignalIndex(const KXMessages* self);
-void KXMessages_OnSenderSignalIndex(const KXMessages* self, intptr_t slot);
-int KXMessages_SuperSenderSignalIndex(const KXMessages* self);
 int KXMessages_Receivers(const KXMessages* self, const char* signal);
-void KXMessages_OnReceivers(const KXMessages* self, intptr_t slot);
-int KXMessages_SuperReceivers(const KXMessages* self, const char* signal);
 bool KXMessages_IsSignalConnected(const KXMessages* self, const QMetaMethod* signal);
-void KXMessages_OnIsSignalConnected(const KXMessages* self, intptr_t slot);
-bool KXMessages_SuperIsSignalConnected(const KXMessages* self, const QMetaMethod* signal);
 void KXMessages_Delete(KXMessages* self);
 
 #ifdef __cplusplus

@@ -35,7 +35,7 @@ libqt_string KToolBarSpacerAction_Tr(const char* s);
 QWidget* KToolBarSpacerAction_CreateWidget(KToolBarSpacerAction* self, QWidget* parent);
 libqt_string KToolBarSpacerAction_Tr2(const char* s, const char* c);
 libqt_string KToolBarSpacerAction_Tr3(const char* s, const char* c, int n);
-void KToolBarSpacerAction_OnMetaObject(const KToolBarSpacerAction* self, intptr_t slot);
+void KToolBarSpacerAction_OnMetaObject(KToolBarSpacerAction* self, intptr_t slot);
 QMetaObject* KToolBarSpacerAction_SuperMetaObject(const KToolBarSpacerAction* self);
 void KToolBarSpacerAction_OnMetacast(KToolBarSpacerAction* self, intptr_t slot);
 void* KToolBarSpacerAction_SuperMetacast(KToolBarSpacerAction* self, const char* param1);
@@ -68,20 +68,10 @@ void KToolBarSpacerAction_DisconnectNotify(KToolBarSpacerAction* self, const QMe
 void KToolBarSpacerAction_OnDisconnectNotify(KToolBarSpacerAction* self, intptr_t slot);
 void KToolBarSpacerAction_SuperDisconnectNotify(KToolBarSpacerAction* self, const QMetaMethod* signal);
 libqt_list /* of QWidget* */ KToolBarSpacerAction_CreatedWidgets(const KToolBarSpacerAction* self);
-void KToolBarSpacerAction_OnCreatedWidgets(const KToolBarSpacerAction* self, intptr_t slot);
-libqt_list /* of QWidget* */ KToolBarSpacerAction_SuperCreatedWidgets(const KToolBarSpacerAction* self);
 QObject* KToolBarSpacerAction_Sender(const KToolBarSpacerAction* self);
-void KToolBarSpacerAction_OnSender(const KToolBarSpacerAction* self, intptr_t slot);
-QObject* KToolBarSpacerAction_SuperSender(const KToolBarSpacerAction* self);
 int KToolBarSpacerAction_SenderSignalIndex(const KToolBarSpacerAction* self);
-void KToolBarSpacerAction_OnSenderSignalIndex(const KToolBarSpacerAction* self, intptr_t slot);
-int KToolBarSpacerAction_SuperSenderSignalIndex(const KToolBarSpacerAction* self);
 int KToolBarSpacerAction_Receivers(const KToolBarSpacerAction* self, const char* signal);
-void KToolBarSpacerAction_OnReceivers(const KToolBarSpacerAction* self, intptr_t slot);
-int KToolBarSpacerAction_SuperReceivers(const KToolBarSpacerAction* self, const char* signal);
 bool KToolBarSpacerAction_IsSignalConnected(const KToolBarSpacerAction* self, const QMetaMethod* signal);
-void KToolBarSpacerAction_OnIsSignalConnected(const KToolBarSpacerAction* self, intptr_t slot);
-bool KToolBarSpacerAction_SuperIsSignalConnected(const KToolBarSpacerAction* self, const QMetaMethod* signal);
 void KToolBarSpacerAction_Delete(KToolBarSpacerAction* self);
 
 #ifdef __cplusplus

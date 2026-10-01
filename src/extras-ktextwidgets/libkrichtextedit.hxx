@@ -9,28 +9,24 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KRichTextEdit so that we can call protected methods
+// This class is a subclass of KRichTextEdit
 class VirtualKRichTextEdit final : public KRichTextEdit {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKRichTextEdit = true;
-
-    // Virtual class public types (including callbacks)
-    using KRichTextEdit_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KRichTextEdit_MetaObject_Callback = QMetaObject* (*)(const KRichTextEdit*);
     using KRichTextEdit_Metacast_Callback = void* (*)(KRichTextEdit*, const char*);
     using KRichTextEdit_Metacall_Callback = int (*)(KRichTextEdit*, int, int, void**);
     using KRichTextEdit_KeyPressEvent_Callback = void (*)(KRichTextEdit*, QKeyEvent*);
     using KRichTextEdit_SetReadOnly_Callback = void (*)(KRichTextEdit*, bool);
     using KRichTextEdit_SetCheckSpellingEnabled_Callback = void (*)(KRichTextEdit*, bool);
-    using KRichTextEdit_CheckSpellingEnabled_Callback = bool (*)();
+    using KRichTextEdit_CheckSpellingEnabled_Callback = bool (*)(const KRichTextEdit*);
     using KRichTextEdit_ShouldBlockBeSpellChecked_Callback = bool (*)(const KRichTextEdit*, const char*);
-    using KRichTextEdit_CreateHighlighter_Callback = void (*)();
-    using KRichTextEdit_MousePopupMenu_Callback = QMenu* (*)();
+    using KRichTextEdit_CreateHighlighter_Callback = void (*)(KRichTextEdit*);
+    using KRichTextEdit_MousePopupMenu_Callback = QMenu* (*)(KRichTextEdit*);
     using KRichTextEdit_Event_Callback = bool (*)(KRichTextEdit*, QEvent*);
     using KRichTextEdit_FocusInEvent_Callback = void (*)(KRichTextEdit*, QFocusEvent*);
-    using KRichTextEdit_DeleteWordBack_Callback = void (*)();
-    using KRichTextEdit_DeleteWordForward_Callback = void (*)();
+    using KRichTextEdit_DeleteWordBack_Callback = void (*)(KRichTextEdit*);
+    using KRichTextEdit_DeleteWordForward_Callback = void (*)(KRichTextEdit*);
     using KRichTextEdit_ContextMenuEvent_Callback = void (*)(KRichTextEdit*, QContextMenuEvent*);
     using KRichTextEdit_LoadResource_Callback = QVariant* (*)(KRichTextEdit*, int, QUrl*);
     using KRichTextEdit_InputMethodQuery_Callback = QVariant* (*)(const KRichTextEdit*, int);
@@ -51,24 +47,24 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
     using KRichTextEdit_ShowEvent_Callback = void (*)(KRichTextEdit*, QShowEvent*);
     using KRichTextEdit_ChangeEvent_Callback = void (*)(KRichTextEdit*, QEvent*);
     using KRichTextEdit_WheelEvent_Callback = void (*)(KRichTextEdit*, QWheelEvent*);
-    using KRichTextEdit_CreateMimeDataFromSelection_Callback = QMimeData* (*)();
+    using KRichTextEdit_CreateMimeDataFromSelection_Callback = QMimeData* (*)(const KRichTextEdit*);
     using KRichTextEdit_CanInsertFromMimeData_Callback = bool (*)(const KRichTextEdit*, QMimeData*);
     using KRichTextEdit_InsertFromMimeData_Callback = void (*)(KRichTextEdit*, QMimeData*);
     using KRichTextEdit_InputMethodEvent_Callback = void (*)(KRichTextEdit*, QInputMethodEvent*);
     using KRichTextEdit_ScrollContentsBy_Callback = void (*)(KRichTextEdit*, int, int);
     using KRichTextEdit_DoSetTextCursor_Callback = void (*)(KRichTextEdit*, QTextCursor*);
-    using KRichTextEdit_MinimumSizeHint_Callback = QSize* (*)();
-    using KRichTextEdit_SizeHint_Callback = QSize* (*)();
+    using KRichTextEdit_MinimumSizeHint_Callback = QSize* (*)(const KRichTextEdit*);
+    using KRichTextEdit_SizeHint_Callback = QSize* (*)(const KRichTextEdit*);
     using KRichTextEdit_SetupViewport_Callback = void (*)(KRichTextEdit*, QWidget*);
     using KRichTextEdit_EventFilter_Callback = bool (*)(KRichTextEdit*, QObject*, QEvent*);
     using KRichTextEdit_ViewportEvent_Callback = bool (*)(KRichTextEdit*, QEvent*);
-    using KRichTextEdit_ViewportSizeHint_Callback = QSize* (*)();
+    using KRichTextEdit_ViewportSizeHint_Callback = QSize* (*)(const KRichTextEdit*);
     using KRichTextEdit_InitStyleOption_Callback = void (*)(const KRichTextEdit*, QStyleOptionFrame*);
-    using KRichTextEdit_DevType_Callback = int (*)();
+    using KRichTextEdit_DevType_Callback = int (*)(const KRichTextEdit*);
     using KRichTextEdit_SetVisible_Callback = void (*)(KRichTextEdit*, bool);
     using KRichTextEdit_HeightForWidth_Callback = int (*)(const KRichTextEdit*, int);
-    using KRichTextEdit_HasHeightForWidth_Callback = bool (*)();
-    using KRichTextEdit_PaintEngine_Callback = QPaintEngine* (*)();
+    using KRichTextEdit_HasHeightForWidth_Callback = bool (*)(const KRichTextEdit*);
+    using KRichTextEdit_PaintEngine_Callback = QPaintEngine* (*)(const KRichTextEdit*);
     using KRichTextEdit_EnterEvent_Callback = void (*)(KRichTextEdit*, QEnterEvent*);
     using KRichTextEdit_LeaveEvent_Callback = void (*)(KRichTextEdit*, QEvent*);
     using KRichTextEdit_MoveEvent_Callback = void (*)(KRichTextEdit*, QMoveEvent*);
@@ -80,35 +76,34 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
     using KRichTextEdit_Metric_Callback = int (*)(const KRichTextEdit*, int);
     using KRichTextEdit_InitPainter_Callback = void (*)(const KRichTextEdit*, QPainter*);
     using KRichTextEdit_Redirected_Callback = QPaintDevice* (*)(const KRichTextEdit*, QPoint*);
-    using KRichTextEdit_SharedPainter_Callback = QPainter* (*)();
+    using KRichTextEdit_SharedPainter_Callback = QPainter* (*)(const KRichTextEdit*);
     using KRichTextEdit_ChildEvent_Callback = void (*)(KRichTextEdit*, QChildEvent*);
     using KRichTextEdit_CustomEvent_Callback = void (*)(KRichTextEdit*, QEvent*);
     using KRichTextEdit_ConnectNotify_Callback = void (*)(KRichTextEdit*, QMetaMethod*);
     using KRichTextEdit_DisconnectNotify_Callback = void (*)(KRichTextEdit*, QMetaMethod*);
-    using KRichTextEdit_SlotDoReplace_Callback = void (*)();
-    using KRichTextEdit_SlotReplaceNext_Callback = void (*)();
-    using KRichTextEdit_SlotDoFind_Callback = void (*)();
-    using KRichTextEdit_SlotFind_Callback = void (*)();
-    using KRichTextEdit_SlotFindNext_Callback = void (*)();
-    using KRichTextEdit_SlotFindPrevious_Callback = void (*)();
-    using KRichTextEdit_SlotReplace_Callback = void (*)();
-    using KRichTextEdit_SlotSpeakText_Callback = void (*)();
-    using KRichTextEdit_ZoomInF_Callback = void (*)(KRichTextEdit*, float);
-    using KRichTextEdit_SetViewportMargins_Callback = void (*)(KRichTextEdit*, int, int, int, int);
-    using KRichTextEdit_ViewportMargins_Callback = QMargins* (*)();
-    using KRichTextEdit_DrawFrame_Callback = void (*)(KRichTextEdit*, QPainter*);
-    using KRichTextEdit_UpdateMicroFocus_Callback = void (*)();
-    using KRichTextEdit_Create_Callback = void (*)();
-    using KRichTextEdit_Destroy_Callback = void (*)();
-    using KRichTextEdit_FocusNextChild_Callback = bool (*)();
-    using KRichTextEdit_FocusPreviousChild_Callback = bool (*)();
-    using KRichTextEdit_Sender_Callback = QObject* (*)();
-    using KRichTextEdit_SenderSignalIndex_Callback = int (*)();
-    using KRichTextEdit_Receivers_Callback = int (*)(const KRichTextEdit*, const char*);
-    using KRichTextEdit_IsSignalConnected_Callback = bool (*)(const KRichTextEdit*, QMetaMethod*);
-    using KRichTextEdit_GetDecodedMetricF_Callback = double (*)(const KRichTextEdit*, int, int);
+    using KRichTextEdit::create;
+    using KRichTextEdit::destroy;
+    using KRichTextEdit::drawFrame;
+    using KRichTextEdit::focusNextChild;
+    using KRichTextEdit::focusPreviousChild;
+    using KRichTextEdit::getDecodedMetricF;
+    using KRichTextEdit::isSignalConnected;
+    using KRichTextEdit::receivers;
+    using KRichTextEdit::sender;
+    using KRichTextEdit::senderSignalIndex;
+    using KRichTextEdit::setViewportMargins;
+    using KRichTextEdit::slotDoFind;
+    using KRichTextEdit::slotDoReplace;
+    using KRichTextEdit::slotFind;
+    using KRichTextEdit::slotFindNext;
+    using KRichTextEdit::slotFindPrevious;
+    using KRichTextEdit::slotReplace;
+    using KRichTextEdit::slotReplaceNext;
+    using KRichTextEdit::slotSpeakText;
+    using KRichTextEdit::updateMicroFocus;
+    using KRichTextEdit::viewportMargins;
+    using KRichTextEdit::zoomInF;
 
-  protected:
     // Instance callback storage
     KRichTextEdit_MetaObject_Callback krichtextedit_metaobject_callback = nullptr;
     KRichTextEdit_Metacast_Callback krichtextedit_metacast_callback = nullptr;
@@ -178,320 +173,69 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
     KRichTextEdit_CustomEvent_Callback krichtextedit_customevent_callback = nullptr;
     KRichTextEdit_ConnectNotify_Callback krichtextedit_connectnotify_callback = nullptr;
     KRichTextEdit_DisconnectNotify_Callback krichtextedit_disconnectnotify_callback = nullptr;
-    KRichTextEdit_SlotDoReplace_Callback krichtextedit_slotdoreplace_callback = nullptr;
-    KRichTextEdit_SlotReplaceNext_Callback krichtextedit_slotreplacenext_callback = nullptr;
-    KRichTextEdit_SlotDoFind_Callback krichtextedit_slotdofind_callback = nullptr;
-    KRichTextEdit_SlotFind_Callback krichtextedit_slotfind_callback = nullptr;
-    KRichTextEdit_SlotFindNext_Callback krichtextedit_slotfindnext_callback = nullptr;
-    KRichTextEdit_SlotFindPrevious_Callback krichtextedit_slotfindprevious_callback = nullptr;
-    KRichTextEdit_SlotReplace_Callback krichtextedit_slotreplace_callback = nullptr;
-    KRichTextEdit_SlotSpeakText_Callback krichtextedit_slotspeaktext_callback = nullptr;
-    KRichTextEdit_ZoomInF_Callback krichtextedit_zoominf_callback = nullptr;
-    KRichTextEdit_SetViewportMargins_Callback krichtextedit_setviewportmargins_callback = nullptr;
-    KRichTextEdit_ViewportMargins_Callback krichtextedit_viewportmargins_callback = nullptr;
-    KRichTextEdit_DrawFrame_Callback krichtextedit_drawframe_callback = nullptr;
-    KRichTextEdit_UpdateMicroFocus_Callback krichtextedit_updatemicrofocus_callback = nullptr;
-    KRichTextEdit_Create_Callback krichtextedit_create_callback = nullptr;
-    KRichTextEdit_Destroy_Callback krichtextedit_destroy_callback = nullptr;
-    KRichTextEdit_FocusNextChild_Callback krichtextedit_focusnextchild_callback = nullptr;
-    KRichTextEdit_FocusPreviousChild_Callback krichtextedit_focuspreviouschild_callback = nullptr;
-    KRichTextEdit_Sender_Callback krichtextedit_sender_callback = nullptr;
-    KRichTextEdit_SenderSignalIndex_Callback krichtextedit_sendersignalindex_callback = nullptr;
-    KRichTextEdit_Receivers_Callback krichtextedit_receivers_callback = nullptr;
-    KRichTextEdit_IsSignalConnected_Callback krichtextedit_issignalconnected_callback = nullptr;
-    KRichTextEdit_GetDecodedMetricF_Callback krichtextedit_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool krichtextedit_metaobject_isbase = false;
-    mutable bool krichtextedit_metacast_isbase = false;
-    mutable bool krichtextedit_metacall_isbase = false;
-    mutable bool krichtextedit_keypressevent_isbase = false;
-    mutable bool krichtextedit_setreadonly_isbase = false;
-    mutable bool krichtextedit_setcheckspellingenabled_isbase = false;
-    mutable bool krichtextedit_checkspellingenabled_isbase = false;
-    mutable bool krichtextedit_shouldblockbespellchecked_isbase = false;
-    mutable bool krichtextedit_createhighlighter_isbase = false;
-    mutable bool krichtextedit_mousepopupmenu_isbase = false;
-    mutable bool krichtextedit_event_isbase = false;
-    mutable bool krichtextedit_focusinevent_isbase = false;
-    mutable bool krichtextedit_deletewordback_isbase = false;
-    mutable bool krichtextedit_deletewordforward_isbase = false;
-    mutable bool krichtextedit_contextmenuevent_isbase = false;
-    mutable bool krichtextedit_loadresource_isbase = false;
-    mutable bool krichtextedit_inputmethodquery_isbase = false;
-    mutable bool krichtextedit_timerevent_isbase = false;
-    mutable bool krichtextedit_keyreleaseevent_isbase = false;
-    mutable bool krichtextedit_resizeevent_isbase = false;
-    mutable bool krichtextedit_paintevent_isbase = false;
-    mutable bool krichtextedit_mousepressevent_isbase = false;
-    mutable bool krichtextedit_mousemoveevent_isbase = false;
-    mutable bool krichtextedit_mousereleaseevent_isbase = false;
-    mutable bool krichtextedit_mousedoubleclickevent_isbase = false;
-    mutable bool krichtextedit_focusnextprevchild_isbase = false;
-    mutable bool krichtextedit_dragenterevent_isbase = false;
-    mutable bool krichtextedit_dragleaveevent_isbase = false;
-    mutable bool krichtextedit_dragmoveevent_isbase = false;
-    mutable bool krichtextedit_dropevent_isbase = false;
-    mutable bool krichtextedit_focusoutevent_isbase = false;
-    mutable bool krichtextedit_showevent_isbase = false;
-    mutable bool krichtextedit_changeevent_isbase = false;
-    mutable bool krichtextedit_wheelevent_isbase = false;
-    mutable bool krichtextedit_createmimedatafromselection_isbase = false;
-    mutable bool krichtextedit_caninsertfrommimedata_isbase = false;
-    mutable bool krichtextedit_insertfrommimedata_isbase = false;
-    mutable bool krichtextedit_inputmethodevent_isbase = false;
-    mutable bool krichtextedit_scrollcontentsby_isbase = false;
-    mutable bool krichtextedit_dosettextcursor_isbase = false;
-    mutable bool krichtextedit_minimumsizehint_isbase = false;
-    mutable bool krichtextedit_sizehint_isbase = false;
-    mutable bool krichtextedit_setupviewport_isbase = false;
-    mutable bool krichtextedit_eventfilter_isbase = false;
-    mutable bool krichtextedit_viewportevent_isbase = false;
-    mutable bool krichtextedit_viewportsizehint_isbase = false;
-    mutable bool krichtextedit_initstyleoption_isbase = false;
-    mutable bool krichtextedit_devtype_isbase = false;
-    mutable bool krichtextedit_setvisible_isbase = false;
-    mutable bool krichtextedit_heightforwidth_isbase = false;
-    mutable bool krichtextedit_hasheightforwidth_isbase = false;
-    mutable bool krichtextedit_paintengine_isbase = false;
-    mutable bool krichtextedit_enterevent_isbase = false;
-    mutable bool krichtextedit_leaveevent_isbase = false;
-    mutable bool krichtextedit_moveevent_isbase = false;
-    mutable bool krichtextedit_closeevent_isbase = false;
-    mutable bool krichtextedit_tabletevent_isbase = false;
-    mutable bool krichtextedit_actionevent_isbase = false;
-    mutable bool krichtextedit_hideevent_isbase = false;
-    mutable bool krichtextedit_nativeevent_isbase = false;
-    mutable bool krichtextedit_metric_isbase = false;
-    mutable bool krichtextedit_initpainter_isbase = false;
-    mutable bool krichtextedit_redirected_isbase = false;
-    mutable bool krichtextedit_sharedpainter_isbase = false;
-    mutable bool krichtextedit_childevent_isbase = false;
-    mutable bool krichtextedit_customevent_isbase = false;
-    mutable bool krichtextedit_connectnotify_isbase = false;
-    mutable bool krichtextedit_disconnectnotify_isbase = false;
-    mutable bool krichtextedit_slotdoreplace_isbase = false;
-    mutable bool krichtextedit_slotreplacenext_isbase = false;
-    mutable bool krichtextedit_slotdofind_isbase = false;
-    mutable bool krichtextedit_slotfind_isbase = false;
-    mutable bool krichtextedit_slotfindnext_isbase = false;
-    mutable bool krichtextedit_slotfindprevious_isbase = false;
-    mutable bool krichtextedit_slotreplace_isbase = false;
-    mutable bool krichtextedit_slotspeaktext_isbase = false;
-    mutable bool krichtextedit_zoominf_isbase = false;
-    mutable bool krichtextedit_setviewportmargins_isbase = false;
-    mutable bool krichtextedit_viewportmargins_isbase = false;
-    mutable bool krichtextedit_drawframe_isbase = false;
-    mutable bool krichtextedit_updatemicrofocus_isbase = false;
-    mutable bool krichtextedit_create_isbase = false;
-    mutable bool krichtextedit_destroy_isbase = false;
-    mutable bool krichtextedit_focusnextchild_isbase = false;
-    mutable bool krichtextedit_focuspreviouschild_isbase = false;
-    mutable bool krichtextedit_sender_isbase = false;
-    mutable bool krichtextedit_sendersignalindex_isbase = false;
-    mutable bool krichtextedit_receivers_isbase = false;
-    mutable bool krichtextedit_issignalconnected_isbase = false;
-    mutable bool krichtextedit_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KRichTextEdit {
+        using KRichTextEdit::actionEvent;
+        using KRichTextEdit::canInsertFromMimeData;
+        using KRichTextEdit::changeEvent;
+        using KRichTextEdit::childEvent;
+        using KRichTextEdit::closeEvent;
+        using KRichTextEdit::connectNotify;
+        using KRichTextEdit::contextMenuEvent;
+        using KRichTextEdit::createMimeDataFromSelection;
+        using KRichTextEdit::customEvent;
+        using KRichTextEdit::deleteWordBack;
+        using KRichTextEdit::deleteWordForward;
+        using KRichTextEdit::disconnectNotify;
+        using KRichTextEdit::doSetTextCursor;
+        using KRichTextEdit::dragEnterEvent;
+        using KRichTextEdit::dragLeaveEvent;
+        using KRichTextEdit::dragMoveEvent;
+        using KRichTextEdit::dropEvent;
+        using KRichTextEdit::enterEvent;
+        using KRichTextEdit::event;
+        using KRichTextEdit::eventFilter;
+        using KRichTextEdit::focusInEvent;
+        using KRichTextEdit::focusNextPrevChild;
+        using KRichTextEdit::focusOutEvent;
+        using KRichTextEdit::hideEvent;
+        using KRichTextEdit::initPainter;
+        using KRichTextEdit::initStyleOption;
+        using KRichTextEdit::inputMethodEvent;
+        using KRichTextEdit::insertFromMimeData;
+        using KRichTextEdit::keyPressEvent;
+        using KRichTextEdit::keyReleaseEvent;
+        using KRichTextEdit::leaveEvent;
+        using KRichTextEdit::metric;
+        using KRichTextEdit::mouseDoubleClickEvent;
+        using KRichTextEdit::mouseMoveEvent;
+        using KRichTextEdit::mousePressEvent;
+        using KRichTextEdit::mouseReleaseEvent;
+        using KRichTextEdit::moveEvent;
+        using KRichTextEdit::nativeEvent;
+        using KRichTextEdit::paintEvent;
+        using KRichTextEdit::redirected;
+        using KRichTextEdit::resizeEvent;
+        using KRichTextEdit::scrollContentsBy;
+        using KRichTextEdit::sharedPainter;
+        using KRichTextEdit::showEvent;
+        using KRichTextEdit::tabletEvent;
+        using KRichTextEdit::timerEvent;
+        using KRichTextEdit::viewportEvent;
+        using KRichTextEdit::viewportSizeHint;
+        using KRichTextEdit::wheelEvent;
+    };
 
-  public:
     VirtualKRichTextEdit(QWidget* parent) : KRichTextEdit(parent) {};
     VirtualKRichTextEdit(const QString& text) : KRichTextEdit(text) {};
     VirtualKRichTextEdit() : KRichTextEdit() {};
     VirtualKRichTextEdit(const QString& text, QWidget* parent) : KRichTextEdit(text, parent) {};
 
-    // Callback setters
-    inline void setKRichTextEdit_MetaObject_Callback(KRichTextEdit_MetaObject_Callback cb) { krichtextedit_metaobject_callback = cb; }
-    inline void setKRichTextEdit_Metacast_Callback(KRichTextEdit_Metacast_Callback cb) { krichtextedit_metacast_callback = cb; }
-    inline void setKRichTextEdit_Metacall_Callback(KRichTextEdit_Metacall_Callback cb) { krichtextedit_metacall_callback = cb; }
-    inline void setKRichTextEdit_KeyPressEvent_Callback(KRichTextEdit_KeyPressEvent_Callback cb) { krichtextedit_keypressevent_callback = cb; }
-    inline void setKRichTextEdit_SetReadOnly_Callback(KRichTextEdit_SetReadOnly_Callback cb) { krichtextedit_setreadonly_callback = cb; }
-    inline void setKRichTextEdit_SetCheckSpellingEnabled_Callback(KRichTextEdit_SetCheckSpellingEnabled_Callback cb) { krichtextedit_setcheckspellingenabled_callback = cb; }
-    inline void setKRichTextEdit_CheckSpellingEnabled_Callback(KRichTextEdit_CheckSpellingEnabled_Callback cb) { krichtextedit_checkspellingenabled_callback = cb; }
-    inline void setKRichTextEdit_ShouldBlockBeSpellChecked_Callback(KRichTextEdit_ShouldBlockBeSpellChecked_Callback cb) { krichtextedit_shouldblockbespellchecked_callback = cb; }
-    inline void setKRichTextEdit_CreateHighlighter_Callback(KRichTextEdit_CreateHighlighter_Callback cb) { krichtextedit_createhighlighter_callback = cb; }
-    inline void setKRichTextEdit_MousePopupMenu_Callback(KRichTextEdit_MousePopupMenu_Callback cb) { krichtextedit_mousepopupmenu_callback = cb; }
-    inline void setKRichTextEdit_Event_Callback(KRichTextEdit_Event_Callback cb) { krichtextedit_event_callback = cb; }
-    inline void setKRichTextEdit_FocusInEvent_Callback(KRichTextEdit_FocusInEvent_Callback cb) { krichtextedit_focusinevent_callback = cb; }
-    inline void setKRichTextEdit_DeleteWordBack_Callback(KRichTextEdit_DeleteWordBack_Callback cb) { krichtextedit_deletewordback_callback = cb; }
-    inline void setKRichTextEdit_DeleteWordForward_Callback(KRichTextEdit_DeleteWordForward_Callback cb) { krichtextedit_deletewordforward_callback = cb; }
-    inline void setKRichTextEdit_ContextMenuEvent_Callback(KRichTextEdit_ContextMenuEvent_Callback cb) { krichtextedit_contextmenuevent_callback = cb; }
-    inline void setKRichTextEdit_LoadResource_Callback(KRichTextEdit_LoadResource_Callback cb) { krichtextedit_loadresource_callback = cb; }
-    inline void setKRichTextEdit_InputMethodQuery_Callback(KRichTextEdit_InputMethodQuery_Callback cb) { krichtextedit_inputmethodquery_callback = cb; }
-    inline void setKRichTextEdit_TimerEvent_Callback(KRichTextEdit_TimerEvent_Callback cb) { krichtextedit_timerevent_callback = cb; }
-    inline void setKRichTextEdit_KeyReleaseEvent_Callback(KRichTextEdit_KeyReleaseEvent_Callback cb) { krichtextedit_keyreleaseevent_callback = cb; }
-    inline void setKRichTextEdit_ResizeEvent_Callback(KRichTextEdit_ResizeEvent_Callback cb) { krichtextedit_resizeevent_callback = cb; }
-    inline void setKRichTextEdit_PaintEvent_Callback(KRichTextEdit_PaintEvent_Callback cb) { krichtextedit_paintevent_callback = cb; }
-    inline void setKRichTextEdit_MousePressEvent_Callback(KRichTextEdit_MousePressEvent_Callback cb) { krichtextedit_mousepressevent_callback = cb; }
-    inline void setKRichTextEdit_MouseMoveEvent_Callback(KRichTextEdit_MouseMoveEvent_Callback cb) { krichtextedit_mousemoveevent_callback = cb; }
-    inline void setKRichTextEdit_MouseReleaseEvent_Callback(KRichTextEdit_MouseReleaseEvent_Callback cb) { krichtextedit_mousereleaseevent_callback = cb; }
-    inline void setKRichTextEdit_MouseDoubleClickEvent_Callback(KRichTextEdit_MouseDoubleClickEvent_Callback cb) { krichtextedit_mousedoubleclickevent_callback = cb; }
-    inline void setKRichTextEdit_FocusNextPrevChild_Callback(KRichTextEdit_FocusNextPrevChild_Callback cb) { krichtextedit_focusnextprevchild_callback = cb; }
-    inline void setKRichTextEdit_DragEnterEvent_Callback(KRichTextEdit_DragEnterEvent_Callback cb) { krichtextedit_dragenterevent_callback = cb; }
-    inline void setKRichTextEdit_DragLeaveEvent_Callback(KRichTextEdit_DragLeaveEvent_Callback cb) { krichtextedit_dragleaveevent_callback = cb; }
-    inline void setKRichTextEdit_DragMoveEvent_Callback(KRichTextEdit_DragMoveEvent_Callback cb) { krichtextedit_dragmoveevent_callback = cb; }
-    inline void setKRichTextEdit_DropEvent_Callback(KRichTextEdit_DropEvent_Callback cb) { krichtextedit_dropevent_callback = cb; }
-    inline void setKRichTextEdit_FocusOutEvent_Callback(KRichTextEdit_FocusOutEvent_Callback cb) { krichtextedit_focusoutevent_callback = cb; }
-    inline void setKRichTextEdit_ShowEvent_Callback(KRichTextEdit_ShowEvent_Callback cb) { krichtextedit_showevent_callback = cb; }
-    inline void setKRichTextEdit_ChangeEvent_Callback(KRichTextEdit_ChangeEvent_Callback cb) { krichtextedit_changeevent_callback = cb; }
-    inline void setKRichTextEdit_WheelEvent_Callback(KRichTextEdit_WheelEvent_Callback cb) { krichtextedit_wheelevent_callback = cb; }
-    inline void setKRichTextEdit_CreateMimeDataFromSelection_Callback(KRichTextEdit_CreateMimeDataFromSelection_Callback cb) { krichtextedit_createmimedatafromselection_callback = cb; }
-    inline void setKRichTextEdit_CanInsertFromMimeData_Callback(KRichTextEdit_CanInsertFromMimeData_Callback cb) { krichtextedit_caninsertfrommimedata_callback = cb; }
-    inline void setKRichTextEdit_InsertFromMimeData_Callback(KRichTextEdit_InsertFromMimeData_Callback cb) { krichtextedit_insertfrommimedata_callback = cb; }
-    inline void setKRichTextEdit_InputMethodEvent_Callback(KRichTextEdit_InputMethodEvent_Callback cb) { krichtextedit_inputmethodevent_callback = cb; }
-    inline void setKRichTextEdit_ScrollContentsBy_Callback(KRichTextEdit_ScrollContentsBy_Callback cb) { krichtextedit_scrollcontentsby_callback = cb; }
-    inline void setKRichTextEdit_DoSetTextCursor_Callback(KRichTextEdit_DoSetTextCursor_Callback cb) { krichtextedit_dosettextcursor_callback = cb; }
-    inline void setKRichTextEdit_MinimumSizeHint_Callback(KRichTextEdit_MinimumSizeHint_Callback cb) { krichtextedit_minimumsizehint_callback = cb; }
-    inline void setKRichTextEdit_SizeHint_Callback(KRichTextEdit_SizeHint_Callback cb) { krichtextedit_sizehint_callback = cb; }
-    inline void setKRichTextEdit_SetupViewport_Callback(KRichTextEdit_SetupViewport_Callback cb) { krichtextedit_setupviewport_callback = cb; }
-    inline void setKRichTextEdit_EventFilter_Callback(KRichTextEdit_EventFilter_Callback cb) { krichtextedit_eventfilter_callback = cb; }
-    inline void setKRichTextEdit_ViewportEvent_Callback(KRichTextEdit_ViewportEvent_Callback cb) { krichtextedit_viewportevent_callback = cb; }
-    inline void setKRichTextEdit_ViewportSizeHint_Callback(KRichTextEdit_ViewportSizeHint_Callback cb) { krichtextedit_viewportsizehint_callback = cb; }
-    inline void setKRichTextEdit_InitStyleOption_Callback(KRichTextEdit_InitStyleOption_Callback cb) { krichtextedit_initstyleoption_callback = cb; }
-    inline void setKRichTextEdit_DevType_Callback(KRichTextEdit_DevType_Callback cb) { krichtextedit_devtype_callback = cb; }
-    inline void setKRichTextEdit_SetVisible_Callback(KRichTextEdit_SetVisible_Callback cb) { krichtextedit_setvisible_callback = cb; }
-    inline void setKRichTextEdit_HeightForWidth_Callback(KRichTextEdit_HeightForWidth_Callback cb) { krichtextedit_heightforwidth_callback = cb; }
-    inline void setKRichTextEdit_HasHeightForWidth_Callback(KRichTextEdit_HasHeightForWidth_Callback cb) { krichtextedit_hasheightforwidth_callback = cb; }
-    inline void setKRichTextEdit_PaintEngine_Callback(KRichTextEdit_PaintEngine_Callback cb) { krichtextedit_paintengine_callback = cb; }
-    inline void setKRichTextEdit_EnterEvent_Callback(KRichTextEdit_EnterEvent_Callback cb) { krichtextedit_enterevent_callback = cb; }
-    inline void setKRichTextEdit_LeaveEvent_Callback(KRichTextEdit_LeaveEvent_Callback cb) { krichtextedit_leaveevent_callback = cb; }
-    inline void setKRichTextEdit_MoveEvent_Callback(KRichTextEdit_MoveEvent_Callback cb) { krichtextedit_moveevent_callback = cb; }
-    inline void setKRichTextEdit_CloseEvent_Callback(KRichTextEdit_CloseEvent_Callback cb) { krichtextedit_closeevent_callback = cb; }
-    inline void setKRichTextEdit_TabletEvent_Callback(KRichTextEdit_TabletEvent_Callback cb) { krichtextedit_tabletevent_callback = cb; }
-    inline void setKRichTextEdit_ActionEvent_Callback(KRichTextEdit_ActionEvent_Callback cb) { krichtextedit_actionevent_callback = cb; }
-    inline void setKRichTextEdit_HideEvent_Callback(KRichTextEdit_HideEvent_Callback cb) { krichtextedit_hideevent_callback = cb; }
-    inline void setKRichTextEdit_NativeEvent_Callback(KRichTextEdit_NativeEvent_Callback cb) { krichtextedit_nativeevent_callback = cb; }
-    inline void setKRichTextEdit_Metric_Callback(KRichTextEdit_Metric_Callback cb) { krichtextedit_metric_callback = cb; }
-    inline void setKRichTextEdit_InitPainter_Callback(KRichTextEdit_InitPainter_Callback cb) { krichtextedit_initpainter_callback = cb; }
-    inline void setKRichTextEdit_Redirected_Callback(KRichTextEdit_Redirected_Callback cb) { krichtextedit_redirected_callback = cb; }
-    inline void setKRichTextEdit_SharedPainter_Callback(KRichTextEdit_SharedPainter_Callback cb) { krichtextedit_sharedpainter_callback = cb; }
-    inline void setKRichTextEdit_ChildEvent_Callback(KRichTextEdit_ChildEvent_Callback cb) { krichtextedit_childevent_callback = cb; }
-    inline void setKRichTextEdit_CustomEvent_Callback(KRichTextEdit_CustomEvent_Callback cb) { krichtextedit_customevent_callback = cb; }
-    inline void setKRichTextEdit_ConnectNotify_Callback(KRichTextEdit_ConnectNotify_Callback cb) { krichtextedit_connectnotify_callback = cb; }
-    inline void setKRichTextEdit_DisconnectNotify_Callback(KRichTextEdit_DisconnectNotify_Callback cb) { krichtextedit_disconnectnotify_callback = cb; }
-    inline void setKRichTextEdit_SlotDoReplace_Callback(KRichTextEdit_SlotDoReplace_Callback cb) { krichtextedit_slotdoreplace_callback = cb; }
-    inline void setKRichTextEdit_SlotReplaceNext_Callback(KRichTextEdit_SlotReplaceNext_Callback cb) { krichtextedit_slotreplacenext_callback = cb; }
-    inline void setKRichTextEdit_SlotDoFind_Callback(KRichTextEdit_SlotDoFind_Callback cb) { krichtextedit_slotdofind_callback = cb; }
-    inline void setKRichTextEdit_SlotFind_Callback(KRichTextEdit_SlotFind_Callback cb) { krichtextedit_slotfind_callback = cb; }
-    inline void setKRichTextEdit_SlotFindNext_Callback(KRichTextEdit_SlotFindNext_Callback cb) { krichtextedit_slotfindnext_callback = cb; }
-    inline void setKRichTextEdit_SlotFindPrevious_Callback(KRichTextEdit_SlotFindPrevious_Callback cb) { krichtextedit_slotfindprevious_callback = cb; }
-    inline void setKRichTextEdit_SlotReplace_Callback(KRichTextEdit_SlotReplace_Callback cb) { krichtextedit_slotreplace_callback = cb; }
-    inline void setKRichTextEdit_SlotSpeakText_Callback(KRichTextEdit_SlotSpeakText_Callback cb) { krichtextedit_slotspeaktext_callback = cb; }
-    inline void setKRichTextEdit_ZoomInF_Callback(KRichTextEdit_ZoomInF_Callback cb) { krichtextedit_zoominf_callback = cb; }
-    inline void setKRichTextEdit_SetViewportMargins_Callback(KRichTextEdit_SetViewportMargins_Callback cb) { krichtextedit_setviewportmargins_callback = cb; }
-    inline void setKRichTextEdit_ViewportMargins_Callback(KRichTextEdit_ViewportMargins_Callback cb) { krichtextedit_viewportmargins_callback = cb; }
-    inline void setKRichTextEdit_DrawFrame_Callback(KRichTextEdit_DrawFrame_Callback cb) { krichtextedit_drawframe_callback = cb; }
-    inline void setKRichTextEdit_UpdateMicroFocus_Callback(KRichTextEdit_UpdateMicroFocus_Callback cb) { krichtextedit_updatemicrofocus_callback = cb; }
-    inline void setKRichTextEdit_Create_Callback(KRichTextEdit_Create_Callback cb) { krichtextedit_create_callback = cb; }
-    inline void setKRichTextEdit_Destroy_Callback(KRichTextEdit_Destroy_Callback cb) { krichtextedit_destroy_callback = cb; }
-    inline void setKRichTextEdit_FocusNextChild_Callback(KRichTextEdit_FocusNextChild_Callback cb) { krichtextedit_focusnextchild_callback = cb; }
-    inline void setKRichTextEdit_FocusPreviousChild_Callback(KRichTextEdit_FocusPreviousChild_Callback cb) { krichtextedit_focuspreviouschild_callback = cb; }
-    inline void setKRichTextEdit_Sender_Callback(KRichTextEdit_Sender_Callback cb) { krichtextedit_sender_callback = cb; }
-    inline void setKRichTextEdit_SenderSignalIndex_Callback(KRichTextEdit_SenderSignalIndex_Callback cb) { krichtextedit_sendersignalindex_callback = cb; }
-    inline void setKRichTextEdit_Receivers_Callback(KRichTextEdit_Receivers_Callback cb) { krichtextedit_receivers_callback = cb; }
-    inline void setKRichTextEdit_IsSignalConnected_Callback(KRichTextEdit_IsSignalConnected_Callback cb) { krichtextedit_issignalconnected_callback = cb; }
-    inline void setKRichTextEdit_GetDecodedMetricF_Callback(KRichTextEdit_GetDecodedMetricF_Callback cb) { krichtextedit_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKRichTextEdit_MetaObject_IsBase(bool value) const { krichtextedit_metaobject_isbase = value; }
-    inline void setKRichTextEdit_Metacast_IsBase(bool value) const { krichtextedit_metacast_isbase = value; }
-    inline void setKRichTextEdit_Metacall_IsBase(bool value) const { krichtextedit_metacall_isbase = value; }
-    inline void setKRichTextEdit_KeyPressEvent_IsBase(bool value) const { krichtextedit_keypressevent_isbase = value; }
-    inline void setKRichTextEdit_SetReadOnly_IsBase(bool value) const { krichtextedit_setreadonly_isbase = value; }
-    inline void setKRichTextEdit_SetCheckSpellingEnabled_IsBase(bool value) const { krichtextedit_setcheckspellingenabled_isbase = value; }
-    inline void setKRichTextEdit_CheckSpellingEnabled_IsBase(bool value) const { krichtextedit_checkspellingenabled_isbase = value; }
-    inline void setKRichTextEdit_ShouldBlockBeSpellChecked_IsBase(bool value) const { krichtextedit_shouldblockbespellchecked_isbase = value; }
-    inline void setKRichTextEdit_CreateHighlighter_IsBase(bool value) const { krichtextedit_createhighlighter_isbase = value; }
-    inline void setKRichTextEdit_MousePopupMenu_IsBase(bool value) const { krichtextedit_mousepopupmenu_isbase = value; }
-    inline void setKRichTextEdit_Event_IsBase(bool value) const { krichtextedit_event_isbase = value; }
-    inline void setKRichTextEdit_FocusInEvent_IsBase(bool value) const { krichtextedit_focusinevent_isbase = value; }
-    inline void setKRichTextEdit_DeleteWordBack_IsBase(bool value) const { krichtextedit_deletewordback_isbase = value; }
-    inline void setKRichTextEdit_DeleteWordForward_IsBase(bool value) const { krichtextedit_deletewordforward_isbase = value; }
-    inline void setKRichTextEdit_ContextMenuEvent_IsBase(bool value) const { krichtextedit_contextmenuevent_isbase = value; }
-    inline void setKRichTextEdit_LoadResource_IsBase(bool value) const { krichtextedit_loadresource_isbase = value; }
-    inline void setKRichTextEdit_InputMethodQuery_IsBase(bool value) const { krichtextedit_inputmethodquery_isbase = value; }
-    inline void setKRichTextEdit_TimerEvent_IsBase(bool value) const { krichtextedit_timerevent_isbase = value; }
-    inline void setKRichTextEdit_KeyReleaseEvent_IsBase(bool value) const { krichtextedit_keyreleaseevent_isbase = value; }
-    inline void setKRichTextEdit_ResizeEvent_IsBase(bool value) const { krichtextedit_resizeevent_isbase = value; }
-    inline void setKRichTextEdit_PaintEvent_IsBase(bool value) const { krichtextedit_paintevent_isbase = value; }
-    inline void setKRichTextEdit_MousePressEvent_IsBase(bool value) const { krichtextedit_mousepressevent_isbase = value; }
-    inline void setKRichTextEdit_MouseMoveEvent_IsBase(bool value) const { krichtextedit_mousemoveevent_isbase = value; }
-    inline void setKRichTextEdit_MouseReleaseEvent_IsBase(bool value) const { krichtextedit_mousereleaseevent_isbase = value; }
-    inline void setKRichTextEdit_MouseDoubleClickEvent_IsBase(bool value) const { krichtextedit_mousedoubleclickevent_isbase = value; }
-    inline void setKRichTextEdit_FocusNextPrevChild_IsBase(bool value) const { krichtextedit_focusnextprevchild_isbase = value; }
-    inline void setKRichTextEdit_DragEnterEvent_IsBase(bool value) const { krichtextedit_dragenterevent_isbase = value; }
-    inline void setKRichTextEdit_DragLeaveEvent_IsBase(bool value) const { krichtextedit_dragleaveevent_isbase = value; }
-    inline void setKRichTextEdit_DragMoveEvent_IsBase(bool value) const { krichtextedit_dragmoveevent_isbase = value; }
-    inline void setKRichTextEdit_DropEvent_IsBase(bool value) const { krichtextedit_dropevent_isbase = value; }
-    inline void setKRichTextEdit_FocusOutEvent_IsBase(bool value) const { krichtextedit_focusoutevent_isbase = value; }
-    inline void setKRichTextEdit_ShowEvent_IsBase(bool value) const { krichtextedit_showevent_isbase = value; }
-    inline void setKRichTextEdit_ChangeEvent_IsBase(bool value) const { krichtextedit_changeevent_isbase = value; }
-    inline void setKRichTextEdit_WheelEvent_IsBase(bool value) const { krichtextedit_wheelevent_isbase = value; }
-    inline void setKRichTextEdit_CreateMimeDataFromSelection_IsBase(bool value) const { krichtextedit_createmimedatafromselection_isbase = value; }
-    inline void setKRichTextEdit_CanInsertFromMimeData_IsBase(bool value) const { krichtextedit_caninsertfrommimedata_isbase = value; }
-    inline void setKRichTextEdit_InsertFromMimeData_IsBase(bool value) const { krichtextedit_insertfrommimedata_isbase = value; }
-    inline void setKRichTextEdit_InputMethodEvent_IsBase(bool value) const { krichtextedit_inputmethodevent_isbase = value; }
-    inline void setKRichTextEdit_ScrollContentsBy_IsBase(bool value) const { krichtextedit_scrollcontentsby_isbase = value; }
-    inline void setKRichTextEdit_DoSetTextCursor_IsBase(bool value) const { krichtextedit_dosettextcursor_isbase = value; }
-    inline void setKRichTextEdit_MinimumSizeHint_IsBase(bool value) const { krichtextedit_minimumsizehint_isbase = value; }
-    inline void setKRichTextEdit_SizeHint_IsBase(bool value) const { krichtextedit_sizehint_isbase = value; }
-    inline void setKRichTextEdit_SetupViewport_IsBase(bool value) const { krichtextedit_setupviewport_isbase = value; }
-    inline void setKRichTextEdit_EventFilter_IsBase(bool value) const { krichtextedit_eventfilter_isbase = value; }
-    inline void setKRichTextEdit_ViewportEvent_IsBase(bool value) const { krichtextedit_viewportevent_isbase = value; }
-    inline void setKRichTextEdit_ViewportSizeHint_IsBase(bool value) const { krichtextedit_viewportsizehint_isbase = value; }
-    inline void setKRichTextEdit_InitStyleOption_IsBase(bool value) const { krichtextedit_initstyleoption_isbase = value; }
-    inline void setKRichTextEdit_DevType_IsBase(bool value) const { krichtextedit_devtype_isbase = value; }
-    inline void setKRichTextEdit_SetVisible_IsBase(bool value) const { krichtextedit_setvisible_isbase = value; }
-    inline void setKRichTextEdit_HeightForWidth_IsBase(bool value) const { krichtextedit_heightforwidth_isbase = value; }
-    inline void setKRichTextEdit_HasHeightForWidth_IsBase(bool value) const { krichtextedit_hasheightforwidth_isbase = value; }
-    inline void setKRichTextEdit_PaintEngine_IsBase(bool value) const { krichtextedit_paintengine_isbase = value; }
-    inline void setKRichTextEdit_EnterEvent_IsBase(bool value) const { krichtextedit_enterevent_isbase = value; }
-    inline void setKRichTextEdit_LeaveEvent_IsBase(bool value) const { krichtextedit_leaveevent_isbase = value; }
-    inline void setKRichTextEdit_MoveEvent_IsBase(bool value) const { krichtextedit_moveevent_isbase = value; }
-    inline void setKRichTextEdit_CloseEvent_IsBase(bool value) const { krichtextedit_closeevent_isbase = value; }
-    inline void setKRichTextEdit_TabletEvent_IsBase(bool value) const { krichtextedit_tabletevent_isbase = value; }
-    inline void setKRichTextEdit_ActionEvent_IsBase(bool value) const { krichtextedit_actionevent_isbase = value; }
-    inline void setKRichTextEdit_HideEvent_IsBase(bool value) const { krichtextedit_hideevent_isbase = value; }
-    inline void setKRichTextEdit_NativeEvent_IsBase(bool value) const { krichtextedit_nativeevent_isbase = value; }
-    inline void setKRichTextEdit_Metric_IsBase(bool value) const { krichtextedit_metric_isbase = value; }
-    inline void setKRichTextEdit_InitPainter_IsBase(bool value) const { krichtextedit_initpainter_isbase = value; }
-    inline void setKRichTextEdit_Redirected_IsBase(bool value) const { krichtextedit_redirected_isbase = value; }
-    inline void setKRichTextEdit_SharedPainter_IsBase(bool value) const { krichtextedit_sharedpainter_isbase = value; }
-    inline void setKRichTextEdit_ChildEvent_IsBase(bool value) const { krichtextedit_childevent_isbase = value; }
-    inline void setKRichTextEdit_CustomEvent_IsBase(bool value) const { krichtextedit_customevent_isbase = value; }
-    inline void setKRichTextEdit_ConnectNotify_IsBase(bool value) const { krichtextedit_connectnotify_isbase = value; }
-    inline void setKRichTextEdit_DisconnectNotify_IsBase(bool value) const { krichtextedit_disconnectnotify_isbase = value; }
-    inline void setKRichTextEdit_SlotDoReplace_IsBase(bool value) const { krichtextedit_slotdoreplace_isbase = value; }
-    inline void setKRichTextEdit_SlotReplaceNext_IsBase(bool value) const { krichtextedit_slotreplacenext_isbase = value; }
-    inline void setKRichTextEdit_SlotDoFind_IsBase(bool value) const { krichtextedit_slotdofind_isbase = value; }
-    inline void setKRichTextEdit_SlotFind_IsBase(bool value) const { krichtextedit_slotfind_isbase = value; }
-    inline void setKRichTextEdit_SlotFindNext_IsBase(bool value) const { krichtextedit_slotfindnext_isbase = value; }
-    inline void setKRichTextEdit_SlotFindPrevious_IsBase(bool value) const { krichtextedit_slotfindprevious_isbase = value; }
-    inline void setKRichTextEdit_SlotReplace_IsBase(bool value) const { krichtextedit_slotreplace_isbase = value; }
-    inline void setKRichTextEdit_SlotSpeakText_IsBase(bool value) const { krichtextedit_slotspeaktext_isbase = value; }
-    inline void setKRichTextEdit_ZoomInF_IsBase(bool value) const { krichtextedit_zoominf_isbase = value; }
-    inline void setKRichTextEdit_SetViewportMargins_IsBase(bool value) const { krichtextedit_setviewportmargins_isbase = value; }
-    inline void setKRichTextEdit_ViewportMargins_IsBase(bool value) const { krichtextedit_viewportmargins_isbase = value; }
-    inline void setKRichTextEdit_DrawFrame_IsBase(bool value) const { krichtextedit_drawframe_isbase = value; }
-    inline void setKRichTextEdit_UpdateMicroFocus_IsBase(bool value) const { krichtextedit_updatemicrofocus_isbase = value; }
-    inline void setKRichTextEdit_Create_IsBase(bool value) const { krichtextedit_create_isbase = value; }
-    inline void setKRichTextEdit_Destroy_IsBase(bool value) const { krichtextedit_destroy_isbase = value; }
-    inline void setKRichTextEdit_FocusNextChild_IsBase(bool value) const { krichtextedit_focusnextchild_isbase = value; }
-    inline void setKRichTextEdit_FocusPreviousChild_IsBase(bool value) const { krichtextedit_focuspreviouschild_isbase = value; }
-    inline void setKRichTextEdit_Sender_IsBase(bool value) const { krichtextedit_sender_isbase = value; }
-    inline void setKRichTextEdit_SenderSignalIndex_IsBase(bool value) const { krichtextedit_sendersignalindex_isbase = value; }
-    inline void setKRichTextEdit_Receivers_IsBase(bool value) const { krichtextedit_receivers_isbase = value; }
-    inline void setKRichTextEdit_IsSignalConnected_IsBase(bool value) const { krichtextedit_issignalconnected_isbase = value; }
-    inline void setKRichTextEdit_GetDecodedMetricF_IsBase(bool value) const { krichtextedit_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (krichtextedit_metaobject_isbase) {
-            krichtextedit_metaobject_isbase = false;
-            return KRichTextEdit::metaObject();
-        }
-        auto metaobject_cb = krichtextedit_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (krichtextedit_metaobject_callback) {
+            QMetaObject* callback_ret = krichtextedit_metaobject_callback(this);
             return callback_ret;
         }
         return KRichTextEdit::metaObject();
@@ -499,14 +243,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (krichtextedit_metacast_isbase) {
-            krichtextedit_metacast_isbase = false;
-            return KRichTextEdit::qt_metacast(param1);
-        }
-        auto metacast_cb = krichtextedit_metacast_callback;
-        if (metacast_cb) {
+        if (krichtextedit_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = krichtextedit_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KRichTextEdit::qt_metacast(param1);
@@ -514,16 +253,11 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (krichtextedit_metacall_isbase) {
-            krichtextedit_metacall_isbase = false;
-            return KRichTextEdit::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = krichtextedit_metacall_callback;
-        if (metacall_cb) {
+        if (krichtextedit_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = krichtextedit_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KRichTextEdit::qt_metacall(param1, param2, param3);
@@ -531,15 +265,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (krichtextedit_keypressevent_isbase) {
-            krichtextedit_keypressevent_isbase = false;
-            KRichTextEdit::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = krichtextedit_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (krichtextedit_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            krichtextedit_keypressevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::keyPressEvent(event);
@@ -547,15 +275,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void setReadOnly(bool readOnly) override {
-        if (krichtextedit_setreadonly_isbase) {
-            krichtextedit_setreadonly_isbase = false;
-            KRichTextEdit::setReadOnly(readOnly);
-            return;
-        }
-        auto setreadonly_cb = krichtextedit_setreadonly_callback;
-        if (setreadonly_cb) {
+        if (krichtextedit_setreadonly_callback) {
             bool cbval1 = readOnly;
-            setreadonly_cb(this, cbval1);
+            krichtextedit_setreadonly_callback(this, cbval1);
             return;
         }
         KRichTextEdit::setReadOnly(readOnly);
@@ -563,15 +285,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void setCheckSpellingEnabled(bool check) override {
-        if (krichtextedit_setcheckspellingenabled_isbase) {
-            krichtextedit_setcheckspellingenabled_isbase = false;
-            KRichTextEdit::setCheckSpellingEnabled(check);
-            return;
-        }
-        auto setcheckspellingenabled_cb = krichtextedit_setcheckspellingenabled_callback;
-        if (setcheckspellingenabled_cb) {
+        if (krichtextedit_setcheckspellingenabled_callback) {
             bool cbval1 = check;
-            setcheckspellingenabled_cb(this, cbval1);
+            krichtextedit_setcheckspellingenabled_callback(this, cbval1);
             return;
         }
         KRichTextEdit::setCheckSpellingEnabled(check);
@@ -579,13 +295,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool checkSpellingEnabled() const override {
-        if (krichtextedit_checkspellingenabled_isbase) {
-            krichtextedit_checkspellingenabled_isbase = false;
-            return KRichTextEdit::checkSpellingEnabled();
-        }
-        auto checkspellingenabled_cb = krichtextedit_checkspellingenabled_callback;
-        if (checkspellingenabled_cb) {
-            bool callback_ret = checkspellingenabled_cb();
+        if (krichtextedit_checkspellingenabled_callback) {
+            bool callback_ret = krichtextedit_checkspellingenabled_callback(this);
             return callback_ret;
         }
         return KRichTextEdit::checkSpellingEnabled();
@@ -593,12 +304,7 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool shouldBlockBeSpellChecked(const QString& block) const override {
-        if (krichtextedit_shouldblockbespellchecked_isbase) {
-            krichtextedit_shouldblockbespellchecked_isbase = false;
-            return KRichTextEdit::shouldBlockBeSpellChecked(block);
-        }
-        auto shouldblockbespellchecked_cb = krichtextedit_shouldblockbespellchecked_callback;
-        if (shouldblockbespellchecked_cb) {
+        if (krichtextedit_shouldblockbespellchecked_callback) {
             const auto block_ret = block;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray block_b = block_ret.toUtf8();
@@ -607,7 +313,7 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
             memcpy((void*)block_str, block_b.data(), block_str_len);
             ((char*)block_str)[block_str_len] = '\0';
             const char* cbval1 = block_str;
-            bool callback_ret = shouldblockbespellchecked_cb(this, cbval1);
+            bool callback_ret = krichtextedit_shouldblockbespellchecked_callback(this, cbval1);
             libqt_free(block_str);
             return callback_ret;
         }
@@ -616,14 +322,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void createHighlighter() override {
-        if (krichtextedit_createhighlighter_isbase) {
-            krichtextedit_createhighlighter_isbase = false;
-            KRichTextEdit::createHighlighter();
-            return;
-        }
-        auto createhighlighter_cb = krichtextedit_createhighlighter_callback;
-        if (createhighlighter_cb) {
-            createhighlighter_cb();
+        if (krichtextedit_createhighlighter_callback) {
+            krichtextedit_createhighlighter_callback(this);
             return;
         }
         KRichTextEdit::createHighlighter();
@@ -631,13 +331,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QMenu* mousePopupMenu() override {
-        if (krichtextedit_mousepopupmenu_isbase) {
-            krichtextedit_mousepopupmenu_isbase = false;
-            return KRichTextEdit::mousePopupMenu();
-        }
-        auto mousepopupmenu_cb = krichtextedit_mousepopupmenu_callback;
-        if (mousepopupmenu_cb) {
-            QMenu* callback_ret = mousepopupmenu_cb();
+        if (krichtextedit_mousepopupmenu_callback) {
+            QMenu* callback_ret = krichtextedit_mousepopupmenu_callback(this);
             return callback_ret;
         }
         return KRichTextEdit::mousePopupMenu();
@@ -645,14 +340,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* param1) override {
-        if (krichtextedit_event_isbase) {
-            krichtextedit_event_isbase = false;
-            return KRichTextEdit::event(param1);
-        }
-        auto event_cb = krichtextedit_event_callback;
-        if (event_cb) {
+        if (krichtextedit_event_callback) {
             QEvent* cbval1 = param1;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = krichtextedit_event_callback(this, cbval1);
             return callback_ret;
         }
         return KRichTextEdit::event(param1);
@@ -660,15 +350,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* param1) override {
-        if (krichtextedit_focusinevent_isbase) {
-            krichtextedit_focusinevent_isbase = false;
-            KRichTextEdit::focusInEvent(param1);
-            return;
-        }
-        auto focusinevent_cb = krichtextedit_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (krichtextedit_focusinevent_callback) {
             QFocusEvent* cbval1 = param1;
-            focusinevent_cb(this, cbval1);
+            krichtextedit_focusinevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::focusInEvent(param1);
@@ -676,14 +360,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void deleteWordBack() override {
-        if (krichtextedit_deletewordback_isbase) {
-            krichtextedit_deletewordback_isbase = false;
-            KRichTextEdit::deleteWordBack();
-            return;
-        }
-        auto deletewordback_cb = krichtextedit_deletewordback_callback;
-        if (deletewordback_cb) {
-            deletewordback_cb();
+        if (krichtextedit_deletewordback_callback) {
+            krichtextedit_deletewordback_callback(this);
             return;
         }
         KRichTextEdit::deleteWordBack();
@@ -691,14 +369,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void deleteWordForward() override {
-        if (krichtextedit_deletewordforward_isbase) {
-            krichtextedit_deletewordforward_isbase = false;
-            KRichTextEdit::deleteWordForward();
-            return;
-        }
-        auto deletewordforward_cb = krichtextedit_deletewordforward_callback;
-        if (deletewordforward_cb) {
-            deletewordforward_cb();
+        if (krichtextedit_deletewordforward_callback) {
+            krichtextedit_deletewordforward_callback(this);
             return;
         }
         KRichTextEdit::deleteWordForward();
@@ -706,15 +378,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* param1) override {
-        if (krichtextedit_contextmenuevent_isbase) {
-            krichtextedit_contextmenuevent_isbase = false;
-            KRichTextEdit::contextMenuEvent(param1);
-            return;
-        }
-        auto contextmenuevent_cb = krichtextedit_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (krichtextedit_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = param1;
-            contextmenuevent_cb(this, cbval1);
+            krichtextedit_contextmenuevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::contextMenuEvent(param1);
@@ -722,17 +388,12 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant loadResource(int typeVal, const QUrl& name) override {
-        if (krichtextedit_loadresource_isbase) {
-            krichtextedit_loadresource_isbase = false;
-            return KRichTextEdit::loadResource(typeVal, name);
-        }
-        auto loadresource_cb = krichtextedit_loadresource_callback;
-        if (loadresource_cb) {
+        if (krichtextedit_loadresource_callback) {
             int cbval1 = typeVal;
             const QUrl& name_ret = name;
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&name_ret);
-            QVariant* callback_ret = loadresource_cb(this, cbval1, cbval2);
+            QVariant* callback_ret = krichtextedit_loadresource_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -742,14 +403,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery property) const override {
-        if (krichtextedit_inputmethodquery_isbase) {
-            krichtextedit_inputmethodquery_isbase = false;
-            return KRichTextEdit::inputMethodQuery(property);
-        }
-        auto inputmethodquery_cb = krichtextedit_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (krichtextedit_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(property);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = krichtextedit_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -759,15 +415,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* e) override {
-        if (krichtextedit_timerevent_isbase) {
-            krichtextedit_timerevent_isbase = false;
-            KRichTextEdit::timerEvent(e);
-            return;
-        }
-        auto timerevent_cb = krichtextedit_timerevent_callback;
-        if (timerevent_cb) {
+        if (krichtextedit_timerevent_callback) {
             QTimerEvent* cbval1 = e;
-            timerevent_cb(this, cbval1);
+            krichtextedit_timerevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::timerEvent(e);
@@ -775,15 +425,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* e) override {
-        if (krichtextedit_keyreleaseevent_isbase) {
-            krichtextedit_keyreleaseevent_isbase = false;
-            KRichTextEdit::keyReleaseEvent(e);
-            return;
-        }
-        auto keyreleaseevent_cb = krichtextedit_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (krichtextedit_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = e;
-            keyreleaseevent_cb(this, cbval1);
+            krichtextedit_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::keyReleaseEvent(e);
@@ -791,15 +435,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* e) override {
-        if (krichtextedit_resizeevent_isbase) {
-            krichtextedit_resizeevent_isbase = false;
-            KRichTextEdit::resizeEvent(e);
-            return;
-        }
-        auto resizeevent_cb = krichtextedit_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (krichtextedit_resizeevent_callback) {
             QResizeEvent* cbval1 = e;
-            resizeevent_cb(this, cbval1);
+            krichtextedit_resizeevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::resizeEvent(e);
@@ -807,15 +445,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* e) override {
-        if (krichtextedit_paintevent_isbase) {
-            krichtextedit_paintevent_isbase = false;
-            KRichTextEdit::paintEvent(e);
-            return;
-        }
-        auto paintevent_cb = krichtextedit_paintevent_callback;
-        if (paintevent_cb) {
+        if (krichtextedit_paintevent_callback) {
             QPaintEvent* cbval1 = e;
-            paintevent_cb(this, cbval1);
+            krichtextedit_paintevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::paintEvent(e);
@@ -823,15 +455,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* e) override {
-        if (krichtextedit_mousepressevent_isbase) {
-            krichtextedit_mousepressevent_isbase = false;
-            KRichTextEdit::mousePressEvent(e);
-            return;
-        }
-        auto mousepressevent_cb = krichtextedit_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (krichtextedit_mousepressevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousepressevent_cb(this, cbval1);
+            krichtextedit_mousepressevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::mousePressEvent(e);
@@ -839,15 +465,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* e) override {
-        if (krichtextedit_mousemoveevent_isbase) {
-            krichtextedit_mousemoveevent_isbase = false;
-            KRichTextEdit::mouseMoveEvent(e);
-            return;
-        }
-        auto mousemoveevent_cb = krichtextedit_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (krichtextedit_mousemoveevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousemoveevent_cb(this, cbval1);
+            krichtextedit_mousemoveevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::mouseMoveEvent(e);
@@ -855,15 +475,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* e) override {
-        if (krichtextedit_mousereleaseevent_isbase) {
-            krichtextedit_mousereleaseevent_isbase = false;
-            KRichTextEdit::mouseReleaseEvent(e);
-            return;
-        }
-        auto mousereleaseevent_cb = krichtextedit_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (krichtextedit_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousereleaseevent_cb(this, cbval1);
+            krichtextedit_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::mouseReleaseEvent(e);
@@ -871,15 +485,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* e) override {
-        if (krichtextedit_mousedoubleclickevent_isbase) {
-            krichtextedit_mousedoubleclickevent_isbase = false;
-            KRichTextEdit::mouseDoubleClickEvent(e);
-            return;
-        }
-        auto mousedoubleclickevent_cb = krichtextedit_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (krichtextedit_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousedoubleclickevent_cb(this, cbval1);
+            krichtextedit_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::mouseDoubleClickEvent(e);
@@ -887,14 +495,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (krichtextedit_focusnextprevchild_isbase) {
-            krichtextedit_focusnextprevchild_isbase = false;
-            return KRichTextEdit::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = krichtextedit_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (krichtextedit_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = krichtextedit_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KRichTextEdit::focusNextPrevChild(next);
@@ -902,15 +505,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* e) override {
-        if (krichtextedit_dragenterevent_isbase) {
-            krichtextedit_dragenterevent_isbase = false;
-            KRichTextEdit::dragEnterEvent(e);
-            return;
-        }
-        auto dragenterevent_cb = krichtextedit_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (krichtextedit_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = e;
-            dragenterevent_cb(this, cbval1);
+            krichtextedit_dragenterevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::dragEnterEvent(e);
@@ -918,15 +515,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* e) override {
-        if (krichtextedit_dragleaveevent_isbase) {
-            krichtextedit_dragleaveevent_isbase = false;
-            KRichTextEdit::dragLeaveEvent(e);
-            return;
-        }
-        auto dragleaveevent_cb = krichtextedit_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (krichtextedit_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = e;
-            dragleaveevent_cb(this, cbval1);
+            krichtextedit_dragleaveevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::dragLeaveEvent(e);
@@ -934,15 +525,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* e) override {
-        if (krichtextedit_dragmoveevent_isbase) {
-            krichtextedit_dragmoveevent_isbase = false;
-            KRichTextEdit::dragMoveEvent(e);
-            return;
-        }
-        auto dragmoveevent_cb = krichtextedit_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (krichtextedit_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = e;
-            dragmoveevent_cb(this, cbval1);
+            krichtextedit_dragmoveevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::dragMoveEvent(e);
@@ -950,15 +535,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* e) override {
-        if (krichtextedit_dropevent_isbase) {
-            krichtextedit_dropevent_isbase = false;
-            KRichTextEdit::dropEvent(e);
-            return;
-        }
-        auto dropevent_cb = krichtextedit_dropevent_callback;
-        if (dropevent_cb) {
+        if (krichtextedit_dropevent_callback) {
             QDropEvent* cbval1 = e;
-            dropevent_cb(this, cbval1);
+            krichtextedit_dropevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::dropEvent(e);
@@ -966,15 +545,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* e) override {
-        if (krichtextedit_focusoutevent_isbase) {
-            krichtextedit_focusoutevent_isbase = false;
-            KRichTextEdit::focusOutEvent(e);
-            return;
-        }
-        auto focusoutevent_cb = krichtextedit_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (krichtextedit_focusoutevent_callback) {
             QFocusEvent* cbval1 = e;
-            focusoutevent_cb(this, cbval1);
+            krichtextedit_focusoutevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::focusOutEvent(e);
@@ -982,15 +555,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* param1) override {
-        if (krichtextedit_showevent_isbase) {
-            krichtextedit_showevent_isbase = false;
-            KRichTextEdit::showEvent(param1);
-            return;
-        }
-        auto showevent_cb = krichtextedit_showevent_callback;
-        if (showevent_cb) {
+        if (krichtextedit_showevent_callback) {
             QShowEvent* cbval1 = param1;
-            showevent_cb(this, cbval1);
+            krichtextedit_showevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::showEvent(param1);
@@ -998,15 +565,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* e) override {
-        if (krichtextedit_changeevent_isbase) {
-            krichtextedit_changeevent_isbase = false;
-            KRichTextEdit::changeEvent(e);
-            return;
-        }
-        auto changeevent_cb = krichtextedit_changeevent_callback;
-        if (changeevent_cb) {
+        if (krichtextedit_changeevent_callback) {
             QEvent* cbval1 = e;
-            changeevent_cb(this, cbval1);
+            krichtextedit_changeevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::changeEvent(e);
@@ -1014,15 +575,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* e) override {
-        if (krichtextedit_wheelevent_isbase) {
-            krichtextedit_wheelevent_isbase = false;
-            KRichTextEdit::wheelEvent(e);
-            return;
-        }
-        auto wheelevent_cb = krichtextedit_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (krichtextedit_wheelevent_callback) {
             QWheelEvent* cbval1 = e;
-            wheelevent_cb(this, cbval1);
+            krichtextedit_wheelevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::wheelEvent(e);
@@ -1030,13 +585,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QMimeData* createMimeDataFromSelection() const override {
-        if (krichtextedit_createmimedatafromselection_isbase) {
-            krichtextedit_createmimedatafromselection_isbase = false;
-            return KRichTextEdit::createMimeDataFromSelection();
-        }
-        auto createmimedatafromselection_cb = krichtextedit_createmimedatafromselection_callback;
-        if (createmimedatafromselection_cb) {
-            QMimeData* callback_ret = createmimedatafromselection_cb();
+        if (krichtextedit_createmimedatafromselection_callback) {
+            QMimeData* callback_ret = krichtextedit_createmimedatafromselection_callback(this);
             return callback_ret;
         }
         return KRichTextEdit::createMimeDataFromSelection();
@@ -1044,14 +594,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool canInsertFromMimeData(const QMimeData* source) const override {
-        if (krichtextedit_caninsertfrommimedata_isbase) {
-            krichtextedit_caninsertfrommimedata_isbase = false;
-            return KRichTextEdit::canInsertFromMimeData(source);
-        }
-        auto caninsertfrommimedata_cb = krichtextedit_caninsertfrommimedata_callback;
-        if (caninsertfrommimedata_cb) {
+        if (krichtextedit_caninsertfrommimedata_callback) {
             QMimeData* cbval1 = (QMimeData*)source;
-            bool callback_ret = caninsertfrommimedata_cb(this, cbval1);
+            bool callback_ret = krichtextedit_caninsertfrommimedata_callback(this, cbval1);
             return callback_ret;
         }
         return KRichTextEdit::canInsertFromMimeData(source);
@@ -1059,15 +604,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void insertFromMimeData(const QMimeData* source) override {
-        if (krichtextedit_insertfrommimedata_isbase) {
-            krichtextedit_insertfrommimedata_isbase = false;
-            KRichTextEdit::insertFromMimeData(source);
-            return;
-        }
-        auto insertfrommimedata_cb = krichtextedit_insertfrommimedata_callback;
-        if (insertfrommimedata_cb) {
+        if (krichtextedit_insertfrommimedata_callback) {
             QMimeData* cbval1 = (QMimeData*)source;
-            insertfrommimedata_cb(this, cbval1);
+            krichtextedit_insertfrommimedata_callback(this, cbval1);
             return;
         }
         KRichTextEdit::insertFromMimeData(source);
@@ -1075,15 +614,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (krichtextedit_inputmethodevent_isbase) {
-            krichtextedit_inputmethodevent_isbase = false;
-            KRichTextEdit::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = krichtextedit_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (krichtextedit_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            krichtextedit_inputmethodevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::inputMethodEvent(param1);
@@ -1091,16 +624,10 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void scrollContentsBy(int dx, int dy) override {
-        if (krichtextedit_scrollcontentsby_isbase) {
-            krichtextedit_scrollcontentsby_isbase = false;
-            KRichTextEdit::scrollContentsBy(dx, dy);
-            return;
-        }
-        auto scrollcontentsby_cb = krichtextedit_scrollcontentsby_callback;
-        if (scrollcontentsby_cb) {
+        if (krichtextedit_scrollcontentsby_callback) {
             int cbval1 = dx;
             int cbval2 = dy;
-            scrollcontentsby_cb(this, cbval1, cbval2);
+            krichtextedit_scrollcontentsby_callback(this, cbval1, cbval2);
             return;
         }
         KRichTextEdit::scrollContentsBy(dx, dy);
@@ -1108,17 +635,11 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void doSetTextCursor(const QTextCursor& cursor) override {
-        if (krichtextedit_dosettextcursor_isbase) {
-            krichtextedit_dosettextcursor_isbase = false;
-            KRichTextEdit::doSetTextCursor(cursor);
-            return;
-        }
-        auto dosettextcursor_cb = krichtextedit_dosettextcursor_callback;
-        if (dosettextcursor_cb) {
+        if (krichtextedit_dosettextcursor_callback) {
             const QTextCursor& cursor_ret = cursor;
             // Cast returned reference into pointer
             QTextCursor* cbval1 = const_cast<QTextCursor*>(&cursor_ret);
-            dosettextcursor_cb(this, cbval1);
+            krichtextedit_dosettextcursor_callback(this, cbval1);
             return;
         }
         KRichTextEdit::doSetTextCursor(cursor);
@@ -1126,13 +647,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (krichtextedit_minimumsizehint_isbase) {
-            krichtextedit_minimumsizehint_isbase = false;
-            return KRichTextEdit::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = krichtextedit_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (krichtextedit_minimumsizehint_callback) {
+            QSize* callback_ret = krichtextedit_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1142,13 +658,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (krichtextedit_sizehint_isbase) {
-            krichtextedit_sizehint_isbase = false;
-            return KRichTextEdit::sizeHint();
-        }
-        auto sizehint_cb = krichtextedit_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (krichtextedit_sizehint_callback) {
+            QSize* callback_ret = krichtextedit_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1158,15 +669,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void setupViewport(QWidget* viewport) override {
-        if (krichtextedit_setupviewport_isbase) {
-            krichtextedit_setupviewport_isbase = false;
-            KRichTextEdit::setupViewport(viewport);
-            return;
-        }
-        auto setupviewport_cb = krichtextedit_setupviewport_callback;
-        if (setupviewport_cb) {
+        if (krichtextedit_setupviewport_callback) {
             QWidget* cbval1 = viewport;
-            setupviewport_cb(this, cbval1);
+            krichtextedit_setupviewport_callback(this, cbval1);
             return;
         }
         KRichTextEdit::setupViewport(viewport);
@@ -1174,15 +679,10 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (krichtextedit_eventfilter_isbase) {
-            krichtextedit_eventfilter_isbase = false;
-            return KRichTextEdit::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = krichtextedit_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (krichtextedit_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = krichtextedit_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KRichTextEdit::eventFilter(param1, param2);
@@ -1190,14 +690,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool viewportEvent(QEvent* param1) override {
-        if (krichtextedit_viewportevent_isbase) {
-            krichtextedit_viewportevent_isbase = false;
-            return KRichTextEdit::viewportEvent(param1);
-        }
-        auto viewportevent_cb = krichtextedit_viewportevent_callback;
-        if (viewportevent_cb) {
+        if (krichtextedit_viewportevent_callback) {
             QEvent* cbval1 = param1;
-            bool callback_ret = viewportevent_cb(this, cbval1);
+            bool callback_ret = krichtextedit_viewportevent_callback(this, cbval1);
             return callback_ret;
         }
         return KRichTextEdit::viewportEvent(param1);
@@ -1205,13 +700,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize viewportSizeHint() const override {
-        if (krichtextedit_viewportsizehint_isbase) {
-            krichtextedit_viewportsizehint_isbase = false;
-            return KRichTextEdit::viewportSizeHint();
-        }
-        auto viewportsizehint_cb = krichtextedit_viewportsizehint_callback;
-        if (viewportsizehint_cb) {
-            QSize* callback_ret = viewportsizehint_cb();
+        if (krichtextedit_viewportsizehint_callback) {
+            QSize* callback_ret = krichtextedit_viewportsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1221,15 +711,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionFrame* option) const override {
-        if (krichtextedit_initstyleoption_isbase) {
-            krichtextedit_initstyleoption_isbase = false;
-            KRichTextEdit::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = krichtextedit_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (krichtextedit_initstyleoption_callback) {
             QStyleOptionFrame* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            krichtextedit_initstyleoption_callback(this, cbval1);
             return;
         }
         KRichTextEdit::initStyleOption(option);
@@ -1237,13 +721,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (krichtextedit_devtype_isbase) {
-            krichtextedit_devtype_isbase = false;
-            return KRichTextEdit::devType();
-        }
-        auto devtype_cb = krichtextedit_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (krichtextedit_devtype_callback) {
+            int callback_ret = krichtextedit_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KRichTextEdit::devType();
@@ -1251,15 +730,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (krichtextedit_setvisible_isbase) {
-            krichtextedit_setvisible_isbase = false;
-            KRichTextEdit::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = krichtextedit_setvisible_callback;
-        if (setvisible_cb) {
+        if (krichtextedit_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            krichtextedit_setvisible_callback(this, cbval1);
             return;
         }
         KRichTextEdit::setVisible(visible);
@@ -1267,14 +740,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (krichtextedit_heightforwidth_isbase) {
-            krichtextedit_heightforwidth_isbase = false;
-            return KRichTextEdit::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = krichtextedit_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (krichtextedit_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = krichtextedit_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KRichTextEdit::heightForWidth(param1);
@@ -1282,13 +750,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (krichtextedit_hasheightforwidth_isbase) {
-            krichtextedit_hasheightforwidth_isbase = false;
-            return KRichTextEdit::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = krichtextedit_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (krichtextedit_hasheightforwidth_callback) {
+            bool callback_ret = krichtextedit_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KRichTextEdit::hasHeightForWidth();
@@ -1296,13 +759,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (krichtextedit_paintengine_isbase) {
-            krichtextedit_paintengine_isbase = false;
-            return KRichTextEdit::paintEngine();
-        }
-        auto paintengine_cb = krichtextedit_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (krichtextedit_paintengine_callback) {
+            QPaintEngine* callback_ret = krichtextedit_paintengine_callback(this);
             return callback_ret;
         }
         return KRichTextEdit::paintEngine();
@@ -1310,15 +768,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (krichtextedit_enterevent_isbase) {
-            krichtextedit_enterevent_isbase = false;
-            KRichTextEdit::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = krichtextedit_enterevent_callback;
-        if (enterevent_cb) {
+        if (krichtextedit_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            krichtextedit_enterevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::enterEvent(event);
@@ -1326,15 +778,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (krichtextedit_leaveevent_isbase) {
-            krichtextedit_leaveevent_isbase = false;
-            KRichTextEdit::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = krichtextedit_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (krichtextedit_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            krichtextedit_leaveevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::leaveEvent(event);
@@ -1342,15 +788,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (krichtextedit_moveevent_isbase) {
-            krichtextedit_moveevent_isbase = false;
-            KRichTextEdit::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = krichtextedit_moveevent_callback;
-        if (moveevent_cb) {
+        if (krichtextedit_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            krichtextedit_moveevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::moveEvent(event);
@@ -1358,15 +798,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (krichtextedit_closeevent_isbase) {
-            krichtextedit_closeevent_isbase = false;
-            KRichTextEdit::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = krichtextedit_closeevent_callback;
-        if (closeevent_cb) {
+        if (krichtextedit_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            krichtextedit_closeevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::closeEvent(event);
@@ -1374,15 +808,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (krichtextedit_tabletevent_isbase) {
-            krichtextedit_tabletevent_isbase = false;
-            KRichTextEdit::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = krichtextedit_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (krichtextedit_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            krichtextedit_tabletevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::tabletEvent(event);
@@ -1390,15 +818,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (krichtextedit_actionevent_isbase) {
-            krichtextedit_actionevent_isbase = false;
-            KRichTextEdit::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = krichtextedit_actionevent_callback;
-        if (actionevent_cb) {
+        if (krichtextedit_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            krichtextedit_actionevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::actionEvent(event);
@@ -1406,15 +828,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (krichtextedit_hideevent_isbase) {
-            krichtextedit_hideevent_isbase = false;
-            KRichTextEdit::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = krichtextedit_hideevent_callback;
-        if (hideevent_cb) {
+        if (krichtextedit_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            krichtextedit_hideevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::hideEvent(event);
@@ -1422,12 +838,7 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (krichtextedit_nativeevent_isbase) {
-            krichtextedit_nativeevent_isbase = false;
-            return KRichTextEdit::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = krichtextedit_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (krichtextedit_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1437,7 +848,7 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = krichtextedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1446,14 +857,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (krichtextedit_metric_isbase) {
-            krichtextedit_metric_isbase = false;
-            return KRichTextEdit::metric(param1);
-        }
-        auto metric_cb = krichtextedit_metric_callback;
-        if (metric_cb) {
+        if (krichtextedit_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = krichtextedit_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KRichTextEdit::metric(param1);
@@ -1461,15 +867,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (krichtextedit_initpainter_isbase) {
-            krichtextedit_initpainter_isbase = false;
-            KRichTextEdit::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = krichtextedit_initpainter_callback;
-        if (initpainter_cb) {
+        if (krichtextedit_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            krichtextedit_initpainter_callback(this, cbval1);
             return;
         }
         KRichTextEdit::initPainter(painter);
@@ -1477,14 +877,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (krichtextedit_redirected_isbase) {
-            krichtextedit_redirected_isbase = false;
-            return KRichTextEdit::redirected(offset);
-        }
-        auto redirected_cb = krichtextedit_redirected_callback;
-        if (redirected_cb) {
+        if (krichtextedit_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = krichtextedit_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KRichTextEdit::redirected(offset);
@@ -1492,13 +887,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (krichtextedit_sharedpainter_isbase) {
-            krichtextedit_sharedpainter_isbase = false;
-            return KRichTextEdit::sharedPainter();
-        }
-        auto sharedpainter_cb = krichtextedit_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (krichtextedit_sharedpainter_callback) {
+            QPainter* callback_ret = krichtextedit_sharedpainter_callback(this);
             return callback_ret;
         }
         return KRichTextEdit::sharedPainter();
@@ -1506,15 +896,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (krichtextedit_childevent_isbase) {
-            krichtextedit_childevent_isbase = false;
-            KRichTextEdit::childEvent(event);
-            return;
-        }
-        auto childevent_cb = krichtextedit_childevent_callback;
-        if (childevent_cb) {
+        if (krichtextedit_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            krichtextedit_childevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::childEvent(event);
@@ -1522,15 +906,9 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (krichtextedit_customevent_isbase) {
-            krichtextedit_customevent_isbase = false;
-            KRichTextEdit::customEvent(event);
-            return;
-        }
-        auto customevent_cb = krichtextedit_customevent_callback;
-        if (customevent_cb) {
+        if (krichtextedit_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            krichtextedit_customevent_callback(this, cbval1);
             return;
         }
         KRichTextEdit::customEvent(event);
@@ -1538,17 +916,11 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (krichtextedit_connectnotify_isbase) {
-            krichtextedit_connectnotify_isbase = false;
-            KRichTextEdit::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = krichtextedit_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (krichtextedit_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            krichtextedit_connectnotify_callback(this, cbval1);
             return;
         }
         KRichTextEdit::connectNotify(signal);
@@ -1556,501 +928,66 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (krichtextedit_disconnectnotify_isbase) {
-            krichtextedit_disconnectnotify_isbase = false;
-            KRichTextEdit::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = krichtextedit_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (krichtextedit_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            krichtextedit_disconnectnotify_callback(this, cbval1);
             return;
         }
         KRichTextEdit::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void slotDoReplace() {
-        if (krichtextedit_slotdoreplace_isbase) {
-            krichtextedit_slotdoreplace_isbase = false;
-            KRichTextEdit::slotDoReplace();
-            return;
-        }
-        auto slotdoreplace_cb = krichtextedit_slotdoreplace_callback;
-        if (slotdoreplace_cb) {
-            slotdoreplace_cb();
-            return;
-        }
-        KRichTextEdit::slotDoReplace();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotReplaceNext() {
-        if (krichtextedit_slotreplacenext_isbase) {
-            krichtextedit_slotreplacenext_isbase = false;
-            KRichTextEdit::slotReplaceNext();
-            return;
-        }
-        auto slotreplacenext_cb = krichtextedit_slotreplacenext_callback;
-        if (slotreplacenext_cb) {
-            slotreplacenext_cb();
-            return;
-        }
-        KRichTextEdit::slotReplaceNext();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotDoFind() {
-        if (krichtextedit_slotdofind_isbase) {
-            krichtextedit_slotdofind_isbase = false;
-            KRichTextEdit::slotDoFind();
-            return;
-        }
-        auto slotdofind_cb = krichtextedit_slotdofind_callback;
-        if (slotdofind_cb) {
-            slotdofind_cb();
-            return;
-        }
-        KRichTextEdit::slotDoFind();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotFind() {
-        if (krichtextedit_slotfind_isbase) {
-            krichtextedit_slotfind_isbase = false;
-            KRichTextEdit::slotFind();
-            return;
-        }
-        auto slotfind_cb = krichtextedit_slotfind_callback;
-        if (slotfind_cb) {
-            slotfind_cb();
-            return;
-        }
-        KRichTextEdit::slotFind();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotFindNext() {
-        if (krichtextedit_slotfindnext_isbase) {
-            krichtextedit_slotfindnext_isbase = false;
-            KRichTextEdit::slotFindNext();
-            return;
-        }
-        auto slotfindnext_cb = krichtextedit_slotfindnext_callback;
-        if (slotfindnext_cb) {
-            slotfindnext_cb();
-            return;
-        }
-        KRichTextEdit::slotFindNext();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotFindPrevious() {
-        if (krichtextedit_slotfindprevious_isbase) {
-            krichtextedit_slotfindprevious_isbase = false;
-            KRichTextEdit::slotFindPrevious();
-            return;
-        }
-        auto slotfindprevious_cb = krichtextedit_slotfindprevious_callback;
-        if (slotfindprevious_cb) {
-            slotfindprevious_cb();
-            return;
-        }
-        KRichTextEdit::slotFindPrevious();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotReplace() {
-        if (krichtextedit_slotreplace_isbase) {
-            krichtextedit_slotreplace_isbase = false;
-            KRichTextEdit::slotReplace();
-            return;
-        }
-        auto slotreplace_cb = krichtextedit_slotreplace_callback;
-        if (slotreplace_cb) {
-            slotreplace_cb();
-            return;
-        }
-        KRichTextEdit::slotReplace();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotSpeakText() {
-        if (krichtextedit_slotspeaktext_isbase) {
-            krichtextedit_slotspeaktext_isbase = false;
-            KRichTextEdit::slotSpeakText();
-            return;
-        }
-        auto slotspeaktext_cb = krichtextedit_slotspeaktext_callback;
-        if (slotspeaktext_cb) {
-            slotspeaktext_cb();
-            return;
-        }
-        KRichTextEdit::slotSpeakText();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void zoomInF(float range) {
-        if (krichtextedit_zoominf_isbase) {
-            krichtextedit_zoominf_isbase = false;
-            KRichTextEdit::zoomInF(range);
-            return;
-        }
-        auto zoominf_cb = krichtextedit_zoominf_callback;
-        if (zoominf_cb) {
-            float cbval1 = range;
-            zoominf_cb(this, cbval1);
-            return;
-        }
-        KRichTextEdit::zoomInF(range);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setViewportMargins(int left, int top, int right, int bottom) {
-        if (krichtextedit_setviewportmargins_isbase) {
-            krichtextedit_setviewportmargins_isbase = false;
-            KRichTextEdit::setViewportMargins(left, top, right, bottom);
-            return;
-        }
-        auto setviewportmargins_cb = krichtextedit_setviewportmargins_callback;
-        if (setviewportmargins_cb) {
-            int cbval1 = left;
-            int cbval2 = top;
-            int cbval3 = right;
-            int cbval4 = bottom;
-            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
-            return;
-        }
-        KRichTextEdit::setViewportMargins(left, top, right, bottom);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QMargins viewportMargins() const {
-        if (krichtextedit_viewportmargins_isbase) {
-            krichtextedit_viewportmargins_isbase = false;
-            return KRichTextEdit::viewportMargins();
-        }
-        auto viewportmargins_cb = krichtextedit_viewportmargins_callback;
-        if (viewportmargins_cb) {
-            QMargins* callback_ret = viewportmargins_cb();
-            auto callback_ret_Value = std::move(*callback_ret);
-            delete callback_ret;
-            return callback_ret_Value;
-        }
-        return KRichTextEdit::viewportMargins();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void drawFrame(QPainter* param1) {
-        if (krichtextedit_drawframe_isbase) {
-            krichtextedit_drawframe_isbase = false;
-            KRichTextEdit::drawFrame(param1);
-            return;
-        }
-        auto drawframe_cb = krichtextedit_drawframe_callback;
-        if (drawframe_cb) {
-            QPainter* cbval1 = param1;
-            drawframe_cb(this, cbval1);
-            return;
-        }
-        KRichTextEdit::drawFrame(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (krichtextedit_updatemicrofocus_isbase) {
-            krichtextedit_updatemicrofocus_isbase = false;
-            KRichTextEdit::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = krichtextedit_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KRichTextEdit::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (krichtextedit_create_isbase) {
-            krichtextedit_create_isbase = false;
-            KRichTextEdit::create();
-            return;
-        }
-        auto create_cb = krichtextedit_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KRichTextEdit::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (krichtextedit_destroy_isbase) {
-            krichtextedit_destroy_isbase = false;
-            KRichTextEdit::destroy();
-            return;
-        }
-        auto destroy_cb = krichtextedit_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KRichTextEdit::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (krichtextedit_focusnextchild_isbase) {
-            krichtextedit_focusnextchild_isbase = false;
-            return KRichTextEdit::focusNextChild();
-        }
-        auto focusnextchild_cb = krichtextedit_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KRichTextEdit::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (krichtextedit_focuspreviouschild_isbase) {
-            krichtextedit_focuspreviouschild_isbase = false;
-            return KRichTextEdit::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = krichtextedit_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KRichTextEdit::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (krichtextedit_sender_isbase) {
-            krichtextedit_sender_isbase = false;
-            return KRichTextEdit::sender();
-        }
-        auto sender_cb = krichtextedit_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KRichTextEdit::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (krichtextedit_sendersignalindex_isbase) {
-            krichtextedit_sendersignalindex_isbase = false;
-            return KRichTextEdit::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = krichtextedit_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KRichTextEdit::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (krichtextedit_receivers_isbase) {
-            krichtextedit_receivers_isbase = false;
-            return KRichTextEdit::receivers(signal);
-        }
-        auto receivers_cb = krichtextedit_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KRichTextEdit::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (krichtextedit_issignalconnected_isbase) {
-            krichtextedit_issignalconnected_isbase = false;
-            return KRichTextEdit::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = krichtextedit_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KRichTextEdit::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (krichtextedit_getdecodedmetricf_isbase) {
-            krichtextedit_getdecodedmetricf_isbase = false;
-            return KRichTextEdit::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = krichtextedit_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KRichTextEdit::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void KRichTextEdit_KeyPressEvent(KRichTextEdit* self, QKeyEvent* event);
     friend void KRichTextEdit_SuperKeyPressEvent(KRichTextEdit* self, QKeyEvent* event);
-    friend bool KRichTextEdit_Event(KRichTextEdit* self, QEvent* param1);
     friend bool KRichTextEdit_SuperEvent(KRichTextEdit* self, QEvent* param1);
-    friend void KRichTextEdit_FocusInEvent(KRichTextEdit* self, QFocusEvent* param1);
     friend void KRichTextEdit_SuperFocusInEvent(KRichTextEdit* self, QFocusEvent* param1);
-    friend void KRichTextEdit_DeleteWordBack(KRichTextEdit* self);
     friend void KRichTextEdit_SuperDeleteWordBack(KRichTextEdit* self);
-    friend void KRichTextEdit_DeleteWordForward(KRichTextEdit* self);
     friend void KRichTextEdit_SuperDeleteWordForward(KRichTextEdit* self);
-    friend void KRichTextEdit_ContextMenuEvent(KRichTextEdit* self, QContextMenuEvent* param1);
     friend void KRichTextEdit_SuperContextMenuEvent(KRichTextEdit* self, QContextMenuEvent* param1);
-    friend void KRichTextEdit_TimerEvent(KRichTextEdit* self, QTimerEvent* e);
     friend void KRichTextEdit_SuperTimerEvent(KRichTextEdit* self, QTimerEvent* e);
-    friend void KRichTextEdit_KeyReleaseEvent(KRichTextEdit* self, QKeyEvent* e);
     friend void KRichTextEdit_SuperKeyReleaseEvent(KRichTextEdit* self, QKeyEvent* e);
-    friend void KRichTextEdit_ResizeEvent(KRichTextEdit* self, QResizeEvent* e);
     friend void KRichTextEdit_SuperResizeEvent(KRichTextEdit* self, QResizeEvent* e);
-    friend void KRichTextEdit_PaintEvent(KRichTextEdit* self, QPaintEvent* e);
     friend void KRichTextEdit_SuperPaintEvent(KRichTextEdit* self, QPaintEvent* e);
-    friend void KRichTextEdit_MousePressEvent(KRichTextEdit* self, QMouseEvent* e);
     friend void KRichTextEdit_SuperMousePressEvent(KRichTextEdit* self, QMouseEvent* e);
-    friend void KRichTextEdit_MouseMoveEvent(KRichTextEdit* self, QMouseEvent* e);
     friend void KRichTextEdit_SuperMouseMoveEvent(KRichTextEdit* self, QMouseEvent* e);
-    friend void KRichTextEdit_MouseReleaseEvent(KRichTextEdit* self, QMouseEvent* e);
     friend void KRichTextEdit_SuperMouseReleaseEvent(KRichTextEdit* self, QMouseEvent* e);
-    friend void KRichTextEdit_MouseDoubleClickEvent(KRichTextEdit* self, QMouseEvent* e);
     friend void KRichTextEdit_SuperMouseDoubleClickEvent(KRichTextEdit* self, QMouseEvent* e);
-    friend bool KRichTextEdit_FocusNextPrevChild(KRichTextEdit* self, bool next);
     friend bool KRichTextEdit_SuperFocusNextPrevChild(KRichTextEdit* self, bool next);
-    friend void KRichTextEdit_DragEnterEvent(KRichTextEdit* self, QDragEnterEvent* e);
     friend void KRichTextEdit_SuperDragEnterEvent(KRichTextEdit* self, QDragEnterEvent* e);
-    friend void KRichTextEdit_DragLeaveEvent(KRichTextEdit* self, QDragLeaveEvent* e);
     friend void KRichTextEdit_SuperDragLeaveEvent(KRichTextEdit* self, QDragLeaveEvent* e);
-    friend void KRichTextEdit_DragMoveEvent(KRichTextEdit* self, QDragMoveEvent* e);
     friend void KRichTextEdit_SuperDragMoveEvent(KRichTextEdit* self, QDragMoveEvent* e);
-    friend void KRichTextEdit_DropEvent(KRichTextEdit* self, QDropEvent* e);
     friend void KRichTextEdit_SuperDropEvent(KRichTextEdit* self, QDropEvent* e);
-    friend void KRichTextEdit_FocusOutEvent(KRichTextEdit* self, QFocusEvent* e);
     friend void KRichTextEdit_SuperFocusOutEvent(KRichTextEdit* self, QFocusEvent* e);
-    friend void KRichTextEdit_ShowEvent(KRichTextEdit* self, QShowEvent* param1);
     friend void KRichTextEdit_SuperShowEvent(KRichTextEdit* self, QShowEvent* param1);
-    friend void KRichTextEdit_ChangeEvent(KRichTextEdit* self, QEvent* e);
     friend void KRichTextEdit_SuperChangeEvent(KRichTextEdit* self, QEvent* e);
-    friend void KRichTextEdit_WheelEvent(KRichTextEdit* self, QWheelEvent* e);
     friend void KRichTextEdit_SuperWheelEvent(KRichTextEdit* self, QWheelEvent* e);
-    friend QMimeData* KRichTextEdit_CreateMimeDataFromSelection(const KRichTextEdit* self);
     friend QMimeData* KRichTextEdit_SuperCreateMimeDataFromSelection(const KRichTextEdit* self);
-    friend bool KRichTextEdit_CanInsertFromMimeData(const KRichTextEdit* self, const QMimeData* source);
     friend bool KRichTextEdit_SuperCanInsertFromMimeData(const KRichTextEdit* self, const QMimeData* source);
-    friend void KRichTextEdit_InsertFromMimeData(KRichTextEdit* self, const QMimeData* source);
     friend void KRichTextEdit_SuperInsertFromMimeData(KRichTextEdit* self, const QMimeData* source);
-    friend void KRichTextEdit_InputMethodEvent(KRichTextEdit* self, QInputMethodEvent* param1);
     friend void KRichTextEdit_SuperInputMethodEvent(KRichTextEdit* self, QInputMethodEvent* param1);
-    friend void KRichTextEdit_ScrollContentsBy(KRichTextEdit* self, int dx, int dy);
     friend void KRichTextEdit_SuperScrollContentsBy(KRichTextEdit* self, int dx, int dy);
-    friend void KRichTextEdit_DoSetTextCursor(KRichTextEdit* self, const QTextCursor* cursor);
     friend void KRichTextEdit_SuperDoSetTextCursor(KRichTextEdit* self, const QTextCursor* cursor);
-    friend bool KRichTextEdit_EventFilter(KRichTextEdit* self, QObject* param1, QEvent* param2);
     friend bool KRichTextEdit_SuperEventFilter(KRichTextEdit* self, QObject* param1, QEvent* param2);
-    friend bool KRichTextEdit_ViewportEvent(KRichTextEdit* self, QEvent* param1);
     friend bool KRichTextEdit_SuperViewportEvent(KRichTextEdit* self, QEvent* param1);
-    friend QSize* KRichTextEdit_ViewportSizeHint(const KRichTextEdit* self);
     friend QSize* KRichTextEdit_SuperViewportSizeHint(const KRichTextEdit* self);
-    friend void KRichTextEdit_InitStyleOption(const KRichTextEdit* self, QStyleOptionFrame* option);
     friend void KRichTextEdit_SuperInitStyleOption(const KRichTextEdit* self, QStyleOptionFrame* option);
-    friend void KRichTextEdit_EnterEvent(KRichTextEdit* self, QEnterEvent* event);
     friend void KRichTextEdit_SuperEnterEvent(KRichTextEdit* self, QEnterEvent* event);
-    friend void KRichTextEdit_LeaveEvent(KRichTextEdit* self, QEvent* event);
     friend void KRichTextEdit_SuperLeaveEvent(KRichTextEdit* self, QEvent* event);
-    friend void KRichTextEdit_MoveEvent(KRichTextEdit* self, QMoveEvent* event);
     friend void KRichTextEdit_SuperMoveEvent(KRichTextEdit* self, QMoveEvent* event);
-    friend void KRichTextEdit_CloseEvent(KRichTextEdit* self, QCloseEvent* event);
     friend void KRichTextEdit_SuperCloseEvent(KRichTextEdit* self, QCloseEvent* event);
-    friend void KRichTextEdit_TabletEvent(KRichTextEdit* self, QTabletEvent* event);
     friend void KRichTextEdit_SuperTabletEvent(KRichTextEdit* self, QTabletEvent* event);
-    friend void KRichTextEdit_ActionEvent(KRichTextEdit* self, QActionEvent* event);
     friend void KRichTextEdit_SuperActionEvent(KRichTextEdit* self, QActionEvent* event);
-    friend void KRichTextEdit_HideEvent(KRichTextEdit* self, QHideEvent* event);
     friend void KRichTextEdit_SuperHideEvent(KRichTextEdit* self, QHideEvent* event);
-    friend bool KRichTextEdit_NativeEvent(KRichTextEdit* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KRichTextEdit_SuperNativeEvent(KRichTextEdit* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int KRichTextEdit_Metric(const KRichTextEdit* self, int param1);
     friend int KRichTextEdit_SuperMetric(const KRichTextEdit* self, int param1);
-    friend void KRichTextEdit_InitPainter(const KRichTextEdit* self, QPainter* painter);
     friend void KRichTextEdit_SuperInitPainter(const KRichTextEdit* self, QPainter* painter);
-    friend QPaintDevice* KRichTextEdit_Redirected(const KRichTextEdit* self, QPoint* offset);
     friend QPaintDevice* KRichTextEdit_SuperRedirected(const KRichTextEdit* self, QPoint* offset);
-    friend QPainter* KRichTextEdit_SharedPainter(const KRichTextEdit* self);
     friend QPainter* KRichTextEdit_SuperSharedPainter(const KRichTextEdit* self);
-    friend void KRichTextEdit_ChildEvent(KRichTextEdit* self, QChildEvent* event);
     friend void KRichTextEdit_SuperChildEvent(KRichTextEdit* self, QChildEvent* event);
-    friend void KRichTextEdit_CustomEvent(KRichTextEdit* self, QEvent* event);
     friend void KRichTextEdit_SuperCustomEvent(KRichTextEdit* self, QEvent* event);
-    friend void KRichTextEdit_ConnectNotify(KRichTextEdit* self, const QMetaMethod* signal);
     friend void KRichTextEdit_SuperConnectNotify(KRichTextEdit* self, const QMetaMethod* signal);
-    friend void KRichTextEdit_DisconnectNotify(KRichTextEdit* self, const QMetaMethod* signal);
     friend void KRichTextEdit_SuperDisconnectNotify(KRichTextEdit* self, const QMetaMethod* signal);
-    friend void KRichTextEdit_SlotDoReplace(KRichTextEdit* self);
-    friend void KRichTextEdit_SuperSlotDoReplace(KRichTextEdit* self);
-    friend void KRichTextEdit_SlotReplaceNext(KRichTextEdit* self);
-    friend void KRichTextEdit_SuperSlotReplaceNext(KRichTextEdit* self);
-    friend void KRichTextEdit_SlotDoFind(KRichTextEdit* self);
-    friend void KRichTextEdit_SuperSlotDoFind(KRichTextEdit* self);
-    friend void KRichTextEdit_SlotFind(KRichTextEdit* self);
-    friend void KRichTextEdit_SuperSlotFind(KRichTextEdit* self);
-    friend void KRichTextEdit_SlotFindNext(KRichTextEdit* self);
-    friend void KRichTextEdit_SuperSlotFindNext(KRichTextEdit* self);
-    friend void KRichTextEdit_SlotFindPrevious(KRichTextEdit* self);
-    friend void KRichTextEdit_SuperSlotFindPrevious(KRichTextEdit* self);
-    friend void KRichTextEdit_SlotReplace(KRichTextEdit* self);
-    friend void KRichTextEdit_SuperSlotReplace(KRichTextEdit* self);
-    friend void KRichTextEdit_SlotSpeakText(KRichTextEdit* self);
-    friend void KRichTextEdit_SuperSlotSpeakText(KRichTextEdit* self);
-    friend void KRichTextEdit_ZoomInF(KRichTextEdit* self, float range);
-    friend void KRichTextEdit_SuperZoomInF(KRichTextEdit* self, float range);
-    friend void KRichTextEdit_SetViewportMargins(KRichTextEdit* self, int left, int top, int right, int bottom);
-    friend void KRichTextEdit_SuperSetViewportMargins(KRichTextEdit* self, int left, int top, int right, int bottom);
-    friend QMargins* KRichTextEdit_ViewportMargins(const KRichTextEdit* self);
-    friend QMargins* KRichTextEdit_SuperViewportMargins(const KRichTextEdit* self);
-    friend void KRichTextEdit_DrawFrame(KRichTextEdit* self, QPainter* param1);
-    friend void KRichTextEdit_SuperDrawFrame(KRichTextEdit* self, QPainter* param1);
-    friend void KRichTextEdit_UpdateMicroFocus(KRichTextEdit* self);
-    friend void KRichTextEdit_SuperUpdateMicroFocus(KRichTextEdit* self);
-    friend void KRichTextEdit_Create(KRichTextEdit* self);
-    friend void KRichTextEdit_SuperCreate(KRichTextEdit* self);
-    friend void KRichTextEdit_Destroy(KRichTextEdit* self);
-    friend void KRichTextEdit_SuperDestroy(KRichTextEdit* self);
-    friend bool KRichTextEdit_FocusNextChild(KRichTextEdit* self);
-    friend bool KRichTextEdit_SuperFocusNextChild(KRichTextEdit* self);
-    friend bool KRichTextEdit_FocusPreviousChild(KRichTextEdit* self);
-    friend bool KRichTextEdit_SuperFocusPreviousChild(KRichTextEdit* self);
-    friend QObject* KRichTextEdit_Sender(const KRichTextEdit* self);
-    friend QObject* KRichTextEdit_SuperSender(const KRichTextEdit* self);
-    friend int KRichTextEdit_SenderSignalIndex(const KRichTextEdit* self);
-    friend int KRichTextEdit_SuperSenderSignalIndex(const KRichTextEdit* self);
-    friend int KRichTextEdit_Receivers(const KRichTextEdit* self, const char* signal);
-    friend int KRichTextEdit_SuperReceivers(const KRichTextEdit* self, const char* signal);
-    friend bool KRichTextEdit_IsSignalConnected(const KRichTextEdit* self, const QMetaMethod* signal);
-    friend bool KRichTextEdit_SuperIsSignalConnected(const KRichTextEdit* self, const QMetaMethod* signal);
-    friend double KRichTextEdit_GetDecodedMetricF(const KRichTextEdit* self, int metricA, int metricB);
-    friend double KRichTextEdit_SuperGetDecodedMetricF(const KRichTextEdit* self, int metricA, int metricB);
 };
 
 #endif

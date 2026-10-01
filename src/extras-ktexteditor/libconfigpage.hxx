@@ -9,30 +9,26 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KTextEditor::ConfigPage so that we can call protected methods
+// This class is a subclass of KTextEditor::ConfigPage
 class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKTextEditorConfigPage = true;
-
-    // Virtual class public types (including callbacks)
-    using KTextEditor__ConfigPage_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KTextEditor__ConfigPage_MetaObject_Callback = QMetaObject* (*)(const KTextEditor__ConfigPage*);
     using KTextEditor__ConfigPage_Metacast_Callback = void* (*)(KTextEditor__ConfigPage*, const char*);
     using KTextEditor__ConfigPage_Metacall_Callback = int (*)(KTextEditor__ConfigPage*, int, int, void**);
-    using KTextEditor__ConfigPage_Name_Callback = const char* (*)();
-    using KTextEditor__ConfigPage_FullName_Callback = const char* (*)();
-    using KTextEditor__ConfigPage_Icon_Callback = QIcon* (*)();
-    using KTextEditor__ConfigPage_Apply_Callback = void (*)();
-    using KTextEditor__ConfigPage_Reset_Callback = void (*)();
-    using KTextEditor__ConfigPage_Defaults_Callback = void (*)();
-    using KTextEditor__ConfigPage_DevType_Callback = int (*)();
+    using KTextEditor__ConfigPage_Name_Callback = const char* (*)(const KTextEditor__ConfigPage*);
+    using KTextEditor__ConfigPage_FullName_Callback = const char* (*)(const KTextEditor__ConfigPage*);
+    using KTextEditor__ConfigPage_Icon_Callback = QIcon* (*)(const KTextEditor__ConfigPage*);
+    using KTextEditor__ConfigPage_Apply_Callback = void (*)(KTextEditor__ConfigPage*);
+    using KTextEditor__ConfigPage_Reset_Callback = void (*)(KTextEditor__ConfigPage*);
+    using KTextEditor__ConfigPage_Defaults_Callback = void (*)(KTextEditor__ConfigPage*);
+    using KTextEditor__ConfigPage_DevType_Callback = int (*)(const KTextEditor__ConfigPage*);
     using KTextEditor__ConfigPage_SetVisible_Callback = void (*)(KTextEditor__ConfigPage*, bool);
-    using KTextEditor__ConfigPage_SizeHint_Callback = QSize* (*)();
-    using KTextEditor__ConfigPage_MinimumSizeHint_Callback = QSize* (*)();
+    using KTextEditor__ConfigPage_SizeHint_Callback = QSize* (*)(const KTextEditor__ConfigPage*);
+    using KTextEditor__ConfigPage_MinimumSizeHint_Callback = QSize* (*)(const KTextEditor__ConfigPage*);
     using KTextEditor__ConfigPage_HeightForWidth_Callback = int (*)(const KTextEditor__ConfigPage*, int);
-    using KTextEditor__ConfigPage_HasHeightForWidth_Callback = bool (*)();
-    using KTextEditor__ConfigPage_PaintEngine_Callback = QPaintEngine* (*)();
+    using KTextEditor__ConfigPage_HasHeightForWidth_Callback = bool (*)(const KTextEditor__ConfigPage*);
+    using KTextEditor__ConfigPage_PaintEngine_Callback = QPaintEngine* (*)(const KTextEditor__ConfigPage*);
     using KTextEditor__ConfigPage_Event_Callback = bool (*)(KTextEditor__ConfigPage*, QEvent*);
     using KTextEditor__ConfigPage_MousePressEvent_Callback = void (*)(KTextEditor__ConfigPage*, QMouseEvent*);
     using KTextEditor__ConfigPage_MouseReleaseEvent_Callback = void (*)(KTextEditor__ConfigPage*, QMouseEvent*);
@@ -63,7 +59,7 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
     using KTextEditor__ConfigPage_Metric_Callback = int (*)(const KTextEditor__ConfigPage*, int);
     using KTextEditor__ConfigPage_InitPainter_Callback = void (*)(const KTextEditor__ConfigPage*, QPainter*);
     using KTextEditor__ConfigPage_Redirected_Callback = QPaintDevice* (*)(const KTextEditor__ConfigPage*, QPoint*);
-    using KTextEditor__ConfigPage_SharedPainter_Callback = QPainter* (*)();
+    using KTextEditor__ConfigPage_SharedPainter_Callback = QPainter* (*)(const KTextEditor__ConfigPage*);
     using KTextEditor__ConfigPage_InputMethodEvent_Callback = void (*)(KTextEditor__ConfigPage*, QInputMethodEvent*);
     using KTextEditor__ConfigPage_InputMethodQuery_Callback = QVariant* (*)(const KTextEditor__ConfigPage*, int);
     using KTextEditor__ConfigPage_FocusNextPrevChild_Callback = bool (*)(KTextEditor__ConfigPage*, bool);
@@ -73,18 +69,17 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
     using KTextEditor__ConfigPage_CustomEvent_Callback = void (*)(KTextEditor__ConfigPage*, QEvent*);
     using KTextEditor__ConfigPage_ConnectNotify_Callback = void (*)(KTextEditor__ConfigPage*, QMetaMethod*);
     using KTextEditor__ConfigPage_DisconnectNotify_Callback = void (*)(KTextEditor__ConfigPage*, QMetaMethod*);
-    using KTextEditor__ConfigPage_UpdateMicroFocus_Callback = void (*)();
-    using KTextEditor__ConfigPage_Create_Callback = void (*)();
-    using KTextEditor__ConfigPage_Destroy_Callback = void (*)();
-    using KTextEditor__ConfigPage_FocusNextChild_Callback = bool (*)();
-    using KTextEditor__ConfigPage_FocusPreviousChild_Callback = bool (*)();
-    using KTextEditor__ConfigPage_Sender_Callback = QObject* (*)();
-    using KTextEditor__ConfigPage_SenderSignalIndex_Callback = int (*)();
-    using KTextEditor__ConfigPage_Receivers_Callback = int (*)(const KTextEditor__ConfigPage*, const char*);
-    using KTextEditor__ConfigPage_IsSignalConnected_Callback = bool (*)(const KTextEditor__ConfigPage*, QMetaMethod*);
-    using KTextEditor__ConfigPage_GetDecodedMetricF_Callback = double (*)(const KTextEditor__ConfigPage*, int, int);
+    using KTextEditor::ConfigPage::create;
+    using KTextEditor::ConfigPage::destroy;
+    using KTextEditor::ConfigPage::focusNextChild;
+    using KTextEditor::ConfigPage::focusPreviousChild;
+    using KTextEditor::ConfigPage::getDecodedMetricF;
+    using KTextEditor::ConfigPage::isSignalConnected;
+    using KTextEditor::ConfigPage::receivers;
+    using KTextEditor::ConfigPage::sender;
+    using KTextEditor::ConfigPage::senderSignalIndex;
+    using KTextEditor::ConfigPage::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     KTextEditor__ConfigPage_MetaObject_Callback ktexteditor__configpage_metaobject_callback = nullptr;
     KTextEditor__ConfigPage_Metacast_Callback ktexteditor__configpage_metacast_callback = nullptr;
@@ -142,233 +137,55 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
     KTextEditor__ConfigPage_CustomEvent_Callback ktexteditor__configpage_customevent_callback = nullptr;
     KTextEditor__ConfigPage_ConnectNotify_Callback ktexteditor__configpage_connectnotify_callback = nullptr;
     KTextEditor__ConfigPage_DisconnectNotify_Callback ktexteditor__configpage_disconnectnotify_callback = nullptr;
-    KTextEditor__ConfigPage_UpdateMicroFocus_Callback ktexteditor__configpage_updatemicrofocus_callback = nullptr;
-    KTextEditor__ConfigPage_Create_Callback ktexteditor__configpage_create_callback = nullptr;
-    KTextEditor__ConfigPage_Destroy_Callback ktexteditor__configpage_destroy_callback = nullptr;
-    KTextEditor__ConfigPage_FocusNextChild_Callback ktexteditor__configpage_focusnextchild_callback = nullptr;
-    KTextEditor__ConfigPage_FocusPreviousChild_Callback ktexteditor__configpage_focuspreviouschild_callback = nullptr;
-    KTextEditor__ConfigPage_Sender_Callback ktexteditor__configpage_sender_callback = nullptr;
-    KTextEditor__ConfigPage_SenderSignalIndex_Callback ktexteditor__configpage_sendersignalindex_callback = nullptr;
-    KTextEditor__ConfigPage_Receivers_Callback ktexteditor__configpage_receivers_callback = nullptr;
-    KTextEditor__ConfigPage_IsSignalConnected_Callback ktexteditor__configpage_issignalconnected_callback = nullptr;
-    KTextEditor__ConfigPage_GetDecodedMetricF_Callback ktexteditor__configpage_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool ktexteditor__configpage_metaobject_isbase = false;
-    mutable bool ktexteditor__configpage_metacast_isbase = false;
-    mutable bool ktexteditor__configpage_metacall_isbase = false;
-    mutable bool ktexteditor__configpage_name_isbase = false;
-    mutable bool ktexteditor__configpage_fullname_isbase = false;
-    mutable bool ktexteditor__configpage_icon_isbase = false;
-    mutable bool ktexteditor__configpage_apply_isbase = false;
-    mutable bool ktexteditor__configpage_reset_isbase = false;
-    mutable bool ktexteditor__configpage_defaults_isbase = false;
-    mutable bool ktexteditor__configpage_devtype_isbase = false;
-    mutable bool ktexteditor__configpage_setvisible_isbase = false;
-    mutable bool ktexteditor__configpage_sizehint_isbase = false;
-    mutable bool ktexteditor__configpage_minimumsizehint_isbase = false;
-    mutable bool ktexteditor__configpage_heightforwidth_isbase = false;
-    mutable bool ktexteditor__configpage_hasheightforwidth_isbase = false;
-    mutable bool ktexteditor__configpage_paintengine_isbase = false;
-    mutable bool ktexteditor__configpage_event_isbase = false;
-    mutable bool ktexteditor__configpage_mousepressevent_isbase = false;
-    mutable bool ktexteditor__configpage_mousereleaseevent_isbase = false;
-    mutable bool ktexteditor__configpage_mousedoubleclickevent_isbase = false;
-    mutable bool ktexteditor__configpage_mousemoveevent_isbase = false;
-    mutable bool ktexteditor__configpage_wheelevent_isbase = false;
-    mutable bool ktexteditor__configpage_keypressevent_isbase = false;
-    mutable bool ktexteditor__configpage_keyreleaseevent_isbase = false;
-    mutable bool ktexteditor__configpage_focusinevent_isbase = false;
-    mutable bool ktexteditor__configpage_focusoutevent_isbase = false;
-    mutable bool ktexteditor__configpage_enterevent_isbase = false;
-    mutable bool ktexteditor__configpage_leaveevent_isbase = false;
-    mutable bool ktexteditor__configpage_paintevent_isbase = false;
-    mutable bool ktexteditor__configpage_moveevent_isbase = false;
-    mutable bool ktexteditor__configpage_resizeevent_isbase = false;
-    mutable bool ktexteditor__configpage_closeevent_isbase = false;
-    mutable bool ktexteditor__configpage_contextmenuevent_isbase = false;
-    mutable bool ktexteditor__configpage_tabletevent_isbase = false;
-    mutable bool ktexteditor__configpage_actionevent_isbase = false;
-    mutable bool ktexteditor__configpage_dragenterevent_isbase = false;
-    mutable bool ktexteditor__configpage_dragmoveevent_isbase = false;
-    mutable bool ktexteditor__configpage_dragleaveevent_isbase = false;
-    mutable bool ktexteditor__configpage_dropevent_isbase = false;
-    mutable bool ktexteditor__configpage_showevent_isbase = false;
-    mutable bool ktexteditor__configpage_hideevent_isbase = false;
-    mutable bool ktexteditor__configpage_nativeevent_isbase = false;
-    mutable bool ktexteditor__configpage_changeevent_isbase = false;
-    mutable bool ktexteditor__configpage_metric_isbase = false;
-    mutable bool ktexteditor__configpage_initpainter_isbase = false;
-    mutable bool ktexteditor__configpage_redirected_isbase = false;
-    mutable bool ktexteditor__configpage_sharedpainter_isbase = false;
-    mutable bool ktexteditor__configpage_inputmethodevent_isbase = false;
-    mutable bool ktexteditor__configpage_inputmethodquery_isbase = false;
-    mutable bool ktexteditor__configpage_focusnextprevchild_isbase = false;
-    mutable bool ktexteditor__configpage_eventfilter_isbase = false;
-    mutable bool ktexteditor__configpage_timerevent_isbase = false;
-    mutable bool ktexteditor__configpage_childevent_isbase = false;
-    mutable bool ktexteditor__configpage_customevent_isbase = false;
-    mutable bool ktexteditor__configpage_connectnotify_isbase = false;
-    mutable bool ktexteditor__configpage_disconnectnotify_isbase = false;
-    mutable bool ktexteditor__configpage_updatemicrofocus_isbase = false;
-    mutable bool ktexteditor__configpage_create_isbase = false;
-    mutable bool ktexteditor__configpage_destroy_isbase = false;
-    mutable bool ktexteditor__configpage_focusnextchild_isbase = false;
-    mutable bool ktexteditor__configpage_focuspreviouschild_isbase = false;
-    mutable bool ktexteditor__configpage_sender_isbase = false;
-    mutable bool ktexteditor__configpage_sendersignalindex_isbase = false;
-    mutable bool ktexteditor__configpage_receivers_isbase = false;
-    mutable bool ktexteditor__configpage_issignalconnected_isbase = false;
-    mutable bool ktexteditor__configpage_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KTextEditor::ConfigPage {
+        using KTextEditor::ConfigPage::actionEvent;
+        using KTextEditor::ConfigPage::changeEvent;
+        using KTextEditor::ConfigPage::childEvent;
+        using KTextEditor::ConfigPage::closeEvent;
+        using KTextEditor::ConfigPage::connectNotify;
+        using KTextEditor::ConfigPage::contextMenuEvent;
+        using KTextEditor::ConfigPage::customEvent;
+        using KTextEditor::ConfigPage::disconnectNotify;
+        using KTextEditor::ConfigPage::dragEnterEvent;
+        using KTextEditor::ConfigPage::dragLeaveEvent;
+        using KTextEditor::ConfigPage::dragMoveEvent;
+        using KTextEditor::ConfigPage::dropEvent;
+        using KTextEditor::ConfigPage::enterEvent;
+        using KTextEditor::ConfigPage::event;
+        using KTextEditor::ConfigPage::focusInEvent;
+        using KTextEditor::ConfigPage::focusNextPrevChild;
+        using KTextEditor::ConfigPage::focusOutEvent;
+        using KTextEditor::ConfigPage::hideEvent;
+        using KTextEditor::ConfigPage::initPainter;
+        using KTextEditor::ConfigPage::inputMethodEvent;
+        using KTextEditor::ConfigPage::keyPressEvent;
+        using KTextEditor::ConfigPage::keyReleaseEvent;
+        using KTextEditor::ConfigPage::leaveEvent;
+        using KTextEditor::ConfigPage::metric;
+        using KTextEditor::ConfigPage::mouseDoubleClickEvent;
+        using KTextEditor::ConfigPage::mouseMoveEvent;
+        using KTextEditor::ConfigPage::mousePressEvent;
+        using KTextEditor::ConfigPage::mouseReleaseEvent;
+        using KTextEditor::ConfigPage::moveEvent;
+        using KTextEditor::ConfigPage::nativeEvent;
+        using KTextEditor::ConfigPage::paintEvent;
+        using KTextEditor::ConfigPage::redirected;
+        using KTextEditor::ConfigPage::resizeEvent;
+        using KTextEditor::ConfigPage::sharedPainter;
+        using KTextEditor::ConfigPage::showEvent;
+        using KTextEditor::ConfigPage::tabletEvent;
+        using KTextEditor::ConfigPage::timerEvent;
+        using KTextEditor::ConfigPage::wheelEvent;
+    };
 
-  public:
     VirtualKTextEditorConfigPage(QWidget* parent) : KTextEditor::ConfigPage(parent) {};
-
-    // Callback setters
-    inline void setKTextEditor__ConfigPage_MetaObject_Callback(KTextEditor__ConfigPage_MetaObject_Callback cb) { ktexteditor__configpage_metaobject_callback = cb; }
-    inline void setKTextEditor__ConfigPage_Metacast_Callback(KTextEditor__ConfigPage_Metacast_Callback cb) { ktexteditor__configpage_metacast_callback = cb; }
-    inline void setKTextEditor__ConfigPage_Metacall_Callback(KTextEditor__ConfigPage_Metacall_Callback cb) { ktexteditor__configpage_metacall_callback = cb; }
-    inline void setKTextEditor__ConfigPage_Name_Callback(KTextEditor__ConfigPage_Name_Callback cb) { ktexteditor__configpage_name_callback = cb; }
-    inline void setKTextEditor__ConfigPage_FullName_Callback(KTextEditor__ConfigPage_FullName_Callback cb) { ktexteditor__configpage_fullname_callback = cb; }
-    inline void setKTextEditor__ConfigPage_Icon_Callback(KTextEditor__ConfigPage_Icon_Callback cb) { ktexteditor__configpage_icon_callback = cb; }
-    inline void setKTextEditor__ConfigPage_Apply_Callback(KTextEditor__ConfigPage_Apply_Callback cb) { ktexteditor__configpage_apply_callback = cb; }
-    inline void setKTextEditor__ConfigPage_Reset_Callback(KTextEditor__ConfigPage_Reset_Callback cb) { ktexteditor__configpage_reset_callback = cb; }
-    inline void setKTextEditor__ConfigPage_Defaults_Callback(KTextEditor__ConfigPage_Defaults_Callback cb) { ktexteditor__configpage_defaults_callback = cb; }
-    inline void setKTextEditor__ConfigPage_DevType_Callback(KTextEditor__ConfigPage_DevType_Callback cb) { ktexteditor__configpage_devtype_callback = cb; }
-    inline void setKTextEditor__ConfigPage_SetVisible_Callback(KTextEditor__ConfigPage_SetVisible_Callback cb) { ktexteditor__configpage_setvisible_callback = cb; }
-    inline void setKTextEditor__ConfigPage_SizeHint_Callback(KTextEditor__ConfigPage_SizeHint_Callback cb) { ktexteditor__configpage_sizehint_callback = cb; }
-    inline void setKTextEditor__ConfigPage_MinimumSizeHint_Callback(KTextEditor__ConfigPage_MinimumSizeHint_Callback cb) { ktexteditor__configpage_minimumsizehint_callback = cb; }
-    inline void setKTextEditor__ConfigPage_HeightForWidth_Callback(KTextEditor__ConfigPage_HeightForWidth_Callback cb) { ktexteditor__configpage_heightforwidth_callback = cb; }
-    inline void setKTextEditor__ConfigPage_HasHeightForWidth_Callback(KTextEditor__ConfigPage_HasHeightForWidth_Callback cb) { ktexteditor__configpage_hasheightforwidth_callback = cb; }
-    inline void setKTextEditor__ConfigPage_PaintEngine_Callback(KTextEditor__ConfigPage_PaintEngine_Callback cb) { ktexteditor__configpage_paintengine_callback = cb; }
-    inline void setKTextEditor__ConfigPage_Event_Callback(KTextEditor__ConfigPage_Event_Callback cb) { ktexteditor__configpage_event_callback = cb; }
-    inline void setKTextEditor__ConfigPage_MousePressEvent_Callback(KTextEditor__ConfigPage_MousePressEvent_Callback cb) { ktexteditor__configpage_mousepressevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_MouseReleaseEvent_Callback(KTextEditor__ConfigPage_MouseReleaseEvent_Callback cb) { ktexteditor__configpage_mousereleaseevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_MouseDoubleClickEvent_Callback(KTextEditor__ConfigPage_MouseDoubleClickEvent_Callback cb) { ktexteditor__configpage_mousedoubleclickevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_MouseMoveEvent_Callback(KTextEditor__ConfigPage_MouseMoveEvent_Callback cb) { ktexteditor__configpage_mousemoveevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_WheelEvent_Callback(KTextEditor__ConfigPage_WheelEvent_Callback cb) { ktexteditor__configpage_wheelevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_KeyPressEvent_Callback(KTextEditor__ConfigPage_KeyPressEvent_Callback cb) { ktexteditor__configpage_keypressevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_KeyReleaseEvent_Callback(KTextEditor__ConfigPage_KeyReleaseEvent_Callback cb) { ktexteditor__configpage_keyreleaseevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_FocusInEvent_Callback(KTextEditor__ConfigPage_FocusInEvent_Callback cb) { ktexteditor__configpage_focusinevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_FocusOutEvent_Callback(KTextEditor__ConfigPage_FocusOutEvent_Callback cb) { ktexteditor__configpage_focusoutevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_EnterEvent_Callback(KTextEditor__ConfigPage_EnterEvent_Callback cb) { ktexteditor__configpage_enterevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_LeaveEvent_Callback(KTextEditor__ConfigPage_LeaveEvent_Callback cb) { ktexteditor__configpage_leaveevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_PaintEvent_Callback(KTextEditor__ConfigPage_PaintEvent_Callback cb) { ktexteditor__configpage_paintevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_MoveEvent_Callback(KTextEditor__ConfigPage_MoveEvent_Callback cb) { ktexteditor__configpage_moveevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_ResizeEvent_Callback(KTextEditor__ConfigPage_ResizeEvent_Callback cb) { ktexteditor__configpage_resizeevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_CloseEvent_Callback(KTextEditor__ConfigPage_CloseEvent_Callback cb) { ktexteditor__configpage_closeevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_ContextMenuEvent_Callback(KTextEditor__ConfigPage_ContextMenuEvent_Callback cb) { ktexteditor__configpage_contextmenuevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_TabletEvent_Callback(KTextEditor__ConfigPage_TabletEvent_Callback cb) { ktexteditor__configpage_tabletevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_ActionEvent_Callback(KTextEditor__ConfigPage_ActionEvent_Callback cb) { ktexteditor__configpage_actionevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_DragEnterEvent_Callback(KTextEditor__ConfigPage_DragEnterEvent_Callback cb) { ktexteditor__configpage_dragenterevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_DragMoveEvent_Callback(KTextEditor__ConfigPage_DragMoveEvent_Callback cb) { ktexteditor__configpage_dragmoveevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_DragLeaveEvent_Callback(KTextEditor__ConfigPage_DragLeaveEvent_Callback cb) { ktexteditor__configpage_dragleaveevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_DropEvent_Callback(KTextEditor__ConfigPage_DropEvent_Callback cb) { ktexteditor__configpage_dropevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_ShowEvent_Callback(KTextEditor__ConfigPage_ShowEvent_Callback cb) { ktexteditor__configpage_showevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_HideEvent_Callback(KTextEditor__ConfigPage_HideEvent_Callback cb) { ktexteditor__configpage_hideevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_NativeEvent_Callback(KTextEditor__ConfigPage_NativeEvent_Callback cb) { ktexteditor__configpage_nativeevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_ChangeEvent_Callback(KTextEditor__ConfigPage_ChangeEvent_Callback cb) { ktexteditor__configpage_changeevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_Metric_Callback(KTextEditor__ConfigPage_Metric_Callback cb) { ktexteditor__configpage_metric_callback = cb; }
-    inline void setKTextEditor__ConfigPage_InitPainter_Callback(KTextEditor__ConfigPage_InitPainter_Callback cb) { ktexteditor__configpage_initpainter_callback = cb; }
-    inline void setKTextEditor__ConfigPage_Redirected_Callback(KTextEditor__ConfigPage_Redirected_Callback cb) { ktexteditor__configpage_redirected_callback = cb; }
-    inline void setKTextEditor__ConfigPage_SharedPainter_Callback(KTextEditor__ConfigPage_SharedPainter_Callback cb) { ktexteditor__configpage_sharedpainter_callback = cb; }
-    inline void setKTextEditor__ConfigPage_InputMethodEvent_Callback(KTextEditor__ConfigPage_InputMethodEvent_Callback cb) { ktexteditor__configpage_inputmethodevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_InputMethodQuery_Callback(KTextEditor__ConfigPage_InputMethodQuery_Callback cb) { ktexteditor__configpage_inputmethodquery_callback = cb; }
-    inline void setKTextEditor__ConfigPage_FocusNextPrevChild_Callback(KTextEditor__ConfigPage_FocusNextPrevChild_Callback cb) { ktexteditor__configpage_focusnextprevchild_callback = cb; }
-    inline void setKTextEditor__ConfigPage_EventFilter_Callback(KTextEditor__ConfigPage_EventFilter_Callback cb) { ktexteditor__configpage_eventfilter_callback = cb; }
-    inline void setKTextEditor__ConfigPage_TimerEvent_Callback(KTextEditor__ConfigPage_TimerEvent_Callback cb) { ktexteditor__configpage_timerevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_ChildEvent_Callback(KTextEditor__ConfigPage_ChildEvent_Callback cb) { ktexteditor__configpage_childevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_CustomEvent_Callback(KTextEditor__ConfigPage_CustomEvent_Callback cb) { ktexteditor__configpage_customevent_callback = cb; }
-    inline void setKTextEditor__ConfigPage_ConnectNotify_Callback(KTextEditor__ConfigPage_ConnectNotify_Callback cb) { ktexteditor__configpage_connectnotify_callback = cb; }
-    inline void setKTextEditor__ConfigPage_DisconnectNotify_Callback(KTextEditor__ConfigPage_DisconnectNotify_Callback cb) { ktexteditor__configpage_disconnectnotify_callback = cb; }
-    inline void setKTextEditor__ConfigPage_UpdateMicroFocus_Callback(KTextEditor__ConfigPage_UpdateMicroFocus_Callback cb) { ktexteditor__configpage_updatemicrofocus_callback = cb; }
-    inline void setKTextEditor__ConfigPage_Create_Callback(KTextEditor__ConfigPage_Create_Callback cb) { ktexteditor__configpage_create_callback = cb; }
-    inline void setKTextEditor__ConfigPage_Destroy_Callback(KTextEditor__ConfigPage_Destroy_Callback cb) { ktexteditor__configpage_destroy_callback = cb; }
-    inline void setKTextEditor__ConfigPage_FocusNextChild_Callback(KTextEditor__ConfigPage_FocusNextChild_Callback cb) { ktexteditor__configpage_focusnextchild_callback = cb; }
-    inline void setKTextEditor__ConfigPage_FocusPreviousChild_Callback(KTextEditor__ConfigPage_FocusPreviousChild_Callback cb) { ktexteditor__configpage_focuspreviouschild_callback = cb; }
-    inline void setKTextEditor__ConfigPage_Sender_Callback(KTextEditor__ConfigPage_Sender_Callback cb) { ktexteditor__configpage_sender_callback = cb; }
-    inline void setKTextEditor__ConfigPage_SenderSignalIndex_Callback(KTextEditor__ConfigPage_SenderSignalIndex_Callback cb) { ktexteditor__configpage_sendersignalindex_callback = cb; }
-    inline void setKTextEditor__ConfigPage_Receivers_Callback(KTextEditor__ConfigPage_Receivers_Callback cb) { ktexteditor__configpage_receivers_callback = cb; }
-    inline void setKTextEditor__ConfigPage_IsSignalConnected_Callback(KTextEditor__ConfigPage_IsSignalConnected_Callback cb) { ktexteditor__configpage_issignalconnected_callback = cb; }
-    inline void setKTextEditor__ConfigPage_GetDecodedMetricF_Callback(KTextEditor__ConfigPage_GetDecodedMetricF_Callback cb) { ktexteditor__configpage_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKTextEditor__ConfigPage_MetaObject_IsBase(bool value) const { ktexteditor__configpage_metaobject_isbase = value; }
-    inline void setKTextEditor__ConfigPage_Metacast_IsBase(bool value) const { ktexteditor__configpage_metacast_isbase = value; }
-    inline void setKTextEditor__ConfigPage_Metacall_IsBase(bool value) const { ktexteditor__configpage_metacall_isbase = value; }
-    inline void setKTextEditor__ConfigPage_Name_IsBase(bool value) const { ktexteditor__configpage_name_isbase = value; }
-    inline void setKTextEditor__ConfigPage_FullName_IsBase(bool value) const { ktexteditor__configpage_fullname_isbase = value; }
-    inline void setKTextEditor__ConfigPage_Icon_IsBase(bool value) const { ktexteditor__configpage_icon_isbase = value; }
-    inline void setKTextEditor__ConfigPage_Apply_IsBase(bool value) const { ktexteditor__configpage_apply_isbase = value; }
-    inline void setKTextEditor__ConfigPage_Reset_IsBase(bool value) const { ktexteditor__configpage_reset_isbase = value; }
-    inline void setKTextEditor__ConfigPage_Defaults_IsBase(bool value) const { ktexteditor__configpage_defaults_isbase = value; }
-    inline void setKTextEditor__ConfigPage_DevType_IsBase(bool value) const { ktexteditor__configpage_devtype_isbase = value; }
-    inline void setKTextEditor__ConfigPage_SetVisible_IsBase(bool value) const { ktexteditor__configpage_setvisible_isbase = value; }
-    inline void setKTextEditor__ConfigPage_SizeHint_IsBase(bool value) const { ktexteditor__configpage_sizehint_isbase = value; }
-    inline void setKTextEditor__ConfigPage_MinimumSizeHint_IsBase(bool value) const { ktexteditor__configpage_minimumsizehint_isbase = value; }
-    inline void setKTextEditor__ConfigPage_HeightForWidth_IsBase(bool value) const { ktexteditor__configpage_heightforwidth_isbase = value; }
-    inline void setKTextEditor__ConfigPage_HasHeightForWidth_IsBase(bool value) const { ktexteditor__configpage_hasheightforwidth_isbase = value; }
-    inline void setKTextEditor__ConfigPage_PaintEngine_IsBase(bool value) const { ktexteditor__configpage_paintengine_isbase = value; }
-    inline void setKTextEditor__ConfigPage_Event_IsBase(bool value) const { ktexteditor__configpage_event_isbase = value; }
-    inline void setKTextEditor__ConfigPage_MousePressEvent_IsBase(bool value) const { ktexteditor__configpage_mousepressevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_MouseReleaseEvent_IsBase(bool value) const { ktexteditor__configpage_mousereleaseevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_MouseDoubleClickEvent_IsBase(bool value) const { ktexteditor__configpage_mousedoubleclickevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_MouseMoveEvent_IsBase(bool value) const { ktexteditor__configpage_mousemoveevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_WheelEvent_IsBase(bool value) const { ktexteditor__configpage_wheelevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_KeyPressEvent_IsBase(bool value) const { ktexteditor__configpage_keypressevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_KeyReleaseEvent_IsBase(bool value) const { ktexteditor__configpage_keyreleaseevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_FocusInEvent_IsBase(bool value) const { ktexteditor__configpage_focusinevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_FocusOutEvent_IsBase(bool value) const { ktexteditor__configpage_focusoutevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_EnterEvent_IsBase(bool value) const { ktexteditor__configpage_enterevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_LeaveEvent_IsBase(bool value) const { ktexteditor__configpage_leaveevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_PaintEvent_IsBase(bool value) const { ktexteditor__configpage_paintevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_MoveEvent_IsBase(bool value) const { ktexteditor__configpage_moveevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_ResizeEvent_IsBase(bool value) const { ktexteditor__configpage_resizeevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_CloseEvent_IsBase(bool value) const { ktexteditor__configpage_closeevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_ContextMenuEvent_IsBase(bool value) const { ktexteditor__configpage_contextmenuevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_TabletEvent_IsBase(bool value) const { ktexteditor__configpage_tabletevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_ActionEvent_IsBase(bool value) const { ktexteditor__configpage_actionevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_DragEnterEvent_IsBase(bool value) const { ktexteditor__configpage_dragenterevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_DragMoveEvent_IsBase(bool value) const { ktexteditor__configpage_dragmoveevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_DragLeaveEvent_IsBase(bool value) const { ktexteditor__configpage_dragleaveevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_DropEvent_IsBase(bool value) const { ktexteditor__configpage_dropevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_ShowEvent_IsBase(bool value) const { ktexteditor__configpage_showevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_HideEvent_IsBase(bool value) const { ktexteditor__configpage_hideevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_NativeEvent_IsBase(bool value) const { ktexteditor__configpage_nativeevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_ChangeEvent_IsBase(bool value) const { ktexteditor__configpage_changeevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_Metric_IsBase(bool value) const { ktexteditor__configpage_metric_isbase = value; }
-    inline void setKTextEditor__ConfigPage_InitPainter_IsBase(bool value) const { ktexteditor__configpage_initpainter_isbase = value; }
-    inline void setKTextEditor__ConfigPage_Redirected_IsBase(bool value) const { ktexteditor__configpage_redirected_isbase = value; }
-    inline void setKTextEditor__ConfigPage_SharedPainter_IsBase(bool value) const { ktexteditor__configpage_sharedpainter_isbase = value; }
-    inline void setKTextEditor__ConfigPage_InputMethodEvent_IsBase(bool value) const { ktexteditor__configpage_inputmethodevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_InputMethodQuery_IsBase(bool value) const { ktexteditor__configpage_inputmethodquery_isbase = value; }
-    inline void setKTextEditor__ConfigPage_FocusNextPrevChild_IsBase(bool value) const { ktexteditor__configpage_focusnextprevchild_isbase = value; }
-    inline void setKTextEditor__ConfigPage_EventFilter_IsBase(bool value) const { ktexteditor__configpage_eventfilter_isbase = value; }
-    inline void setKTextEditor__ConfigPage_TimerEvent_IsBase(bool value) const { ktexteditor__configpage_timerevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_ChildEvent_IsBase(bool value) const { ktexteditor__configpage_childevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_CustomEvent_IsBase(bool value) const { ktexteditor__configpage_customevent_isbase = value; }
-    inline void setKTextEditor__ConfigPage_ConnectNotify_IsBase(bool value) const { ktexteditor__configpage_connectnotify_isbase = value; }
-    inline void setKTextEditor__ConfigPage_DisconnectNotify_IsBase(bool value) const { ktexteditor__configpage_disconnectnotify_isbase = value; }
-    inline void setKTextEditor__ConfigPage_UpdateMicroFocus_IsBase(bool value) const { ktexteditor__configpage_updatemicrofocus_isbase = value; }
-    inline void setKTextEditor__ConfigPage_Create_IsBase(bool value) const { ktexteditor__configpage_create_isbase = value; }
-    inline void setKTextEditor__ConfigPage_Destroy_IsBase(bool value) const { ktexteditor__configpage_destroy_isbase = value; }
-    inline void setKTextEditor__ConfigPage_FocusNextChild_IsBase(bool value) const { ktexteditor__configpage_focusnextchild_isbase = value; }
-    inline void setKTextEditor__ConfigPage_FocusPreviousChild_IsBase(bool value) const { ktexteditor__configpage_focuspreviouschild_isbase = value; }
-    inline void setKTextEditor__ConfigPage_Sender_IsBase(bool value) const { ktexteditor__configpage_sender_isbase = value; }
-    inline void setKTextEditor__ConfigPage_SenderSignalIndex_IsBase(bool value) const { ktexteditor__configpage_sendersignalindex_isbase = value; }
-    inline void setKTextEditor__ConfigPage_Receivers_IsBase(bool value) const { ktexteditor__configpage_receivers_isbase = value; }
-    inline void setKTextEditor__ConfigPage_IsSignalConnected_IsBase(bool value) const { ktexteditor__configpage_issignalconnected_isbase = value; }
-    inline void setKTextEditor__ConfigPage_GetDecodedMetricF_IsBase(bool value) const { ktexteditor__configpage_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (ktexteditor__configpage_metaobject_isbase) {
-            ktexteditor__configpage_metaobject_isbase = false;
-            return KTextEditor__ConfigPage::metaObject();
-        }
-        auto metaobject_cb = ktexteditor__configpage_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (ktexteditor__configpage_metaobject_callback) {
+            QMetaObject* callback_ret = ktexteditor__configpage_metaobject_callback(this);
             return callback_ret;
         }
         return KTextEditor__ConfigPage::metaObject();
@@ -376,14 +193,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (ktexteditor__configpage_metacast_isbase) {
-            ktexteditor__configpage_metacast_isbase = false;
-            return KTextEditor__ConfigPage::qt_metacast(param1);
-        }
-        auto metacast_cb = ktexteditor__configpage_metacast_callback;
-        if (metacast_cb) {
+        if (ktexteditor__configpage_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = ktexteditor__configpage_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KTextEditor__ConfigPage::qt_metacast(param1);
@@ -391,16 +203,11 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (ktexteditor__configpage_metacall_isbase) {
-            ktexteditor__configpage_metacall_isbase = false;
-            return KTextEditor__ConfigPage::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = ktexteditor__configpage_metacall_callback;
-        if (metacall_cb) {
+        if (ktexteditor__configpage_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = ktexteditor__configpage_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KTextEditor__ConfigPage::qt_metacall(param1, param2, param3);
@@ -408,24 +215,19 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual QString name() const override {
-        auto name_cb = ktexteditor__configpage_name_callback;
-        if (name_cb) {
-            const char* callback_ret = name_cb();
+        if (ktexteditor__configpage_name_callback) {
+            const char* callback_ret = ktexteditor__configpage_name_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method KTextEditor::ConfigPage::name called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QString fullName() const override {
-        if (ktexteditor__configpage_fullname_isbase) {
-            ktexteditor__configpage_fullname_isbase = false;
-            return KTextEditor__ConfigPage::fullName();
-        }
-        auto fullname_cb = ktexteditor__configpage_fullname_callback;
-        if (fullname_cb) {
-            const char* callback_ret = fullname_cb();
+        if (ktexteditor__configpage_fullname_callback) {
+            const char* callback_ret = ktexteditor__configpage_fullname_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -434,13 +236,8 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual QIcon icon() const override {
-        if (ktexteditor__configpage_icon_isbase) {
-            ktexteditor__configpage_icon_isbase = false;
-            return KTextEditor__ConfigPage::icon();
-        }
-        auto icon_cb = ktexteditor__configpage_icon_callback;
-        if (icon_cb) {
-            QIcon* callback_ret = icon_cb();
+        if (ktexteditor__configpage_icon_callback) {
+            QIcon* callback_ret = ktexteditor__configpage_icon_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -450,37 +247,38 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void apply() override {
-        auto apply_cb = ktexteditor__configpage_apply_callback;
-        if (apply_cb) {
-            apply_cb();
+        if (ktexteditor__configpage_apply_callback) {
+            ktexteditor__configpage_apply_callback(this);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method KTextEditor::ConfigPage::apply called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void reset() override {
-        auto reset_cb = ktexteditor__configpage_reset_callback;
-        if (reset_cb) {
-            reset_cb();
+        if (ktexteditor__configpage_reset_callback) {
+            ktexteditor__configpage_reset_callback(this);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method KTextEditor::ConfigPage::reset called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void defaults() override {
-        auto defaults_cb = ktexteditor__configpage_defaults_callback;
-        if (defaults_cb) {
-            defaults_cb();
+        if (ktexteditor__configpage_defaults_callback) {
+            ktexteditor__configpage_defaults_callback(this);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method KTextEditor::ConfigPage::defaults called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (ktexteditor__configpage_devtype_isbase) {
-            ktexteditor__configpage_devtype_isbase = false;
-            return KTextEditor__ConfigPage::devType();
-        }
-        auto devtype_cb = ktexteditor__configpage_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (ktexteditor__configpage_devtype_callback) {
+            int callback_ret = ktexteditor__configpage_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KTextEditor__ConfigPage::devType();
@@ -488,15 +286,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (ktexteditor__configpage_setvisible_isbase) {
-            ktexteditor__configpage_setvisible_isbase = false;
-            KTextEditor__ConfigPage::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = ktexteditor__configpage_setvisible_callback;
-        if (setvisible_cb) {
+        if (ktexteditor__configpage_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            ktexteditor__configpage_setvisible_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::setVisible(visible);
@@ -504,13 +296,8 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (ktexteditor__configpage_sizehint_isbase) {
-            ktexteditor__configpage_sizehint_isbase = false;
-            return KTextEditor__ConfigPage::sizeHint();
-        }
-        auto sizehint_cb = ktexteditor__configpage_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (ktexteditor__configpage_sizehint_callback) {
+            QSize* callback_ret = ktexteditor__configpage_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -520,13 +307,8 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (ktexteditor__configpage_minimumsizehint_isbase) {
-            ktexteditor__configpage_minimumsizehint_isbase = false;
-            return KTextEditor__ConfigPage::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = ktexteditor__configpage_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (ktexteditor__configpage_minimumsizehint_callback) {
+            QSize* callback_ret = ktexteditor__configpage_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -536,14 +318,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (ktexteditor__configpage_heightforwidth_isbase) {
-            ktexteditor__configpage_heightforwidth_isbase = false;
-            return KTextEditor__ConfigPage::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = ktexteditor__configpage_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (ktexteditor__configpage_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = ktexteditor__configpage_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KTextEditor__ConfigPage::heightForWidth(param1);
@@ -551,13 +328,8 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (ktexteditor__configpage_hasheightforwidth_isbase) {
-            ktexteditor__configpage_hasheightforwidth_isbase = false;
-            return KTextEditor__ConfigPage::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = ktexteditor__configpage_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (ktexteditor__configpage_hasheightforwidth_callback) {
+            bool callback_ret = ktexteditor__configpage_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KTextEditor__ConfigPage::hasHeightForWidth();
@@ -565,13 +337,8 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (ktexteditor__configpage_paintengine_isbase) {
-            ktexteditor__configpage_paintengine_isbase = false;
-            return KTextEditor__ConfigPage::paintEngine();
-        }
-        auto paintengine_cb = ktexteditor__configpage_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (ktexteditor__configpage_paintengine_callback) {
+            QPaintEngine* callback_ret = ktexteditor__configpage_paintengine_callback(this);
             return callback_ret;
         }
         return KTextEditor__ConfigPage::paintEngine();
@@ -579,14 +346,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (ktexteditor__configpage_event_isbase) {
-            ktexteditor__configpage_event_isbase = false;
-            return KTextEditor__ConfigPage::event(event);
-        }
-        auto event_cb = ktexteditor__configpage_event_callback;
-        if (event_cb) {
+        if (ktexteditor__configpage_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = ktexteditor__configpage_event_callback(this, cbval1);
             return callback_ret;
         }
         return KTextEditor__ConfigPage::event(event);
@@ -594,15 +356,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (ktexteditor__configpage_mousepressevent_isbase) {
-            ktexteditor__configpage_mousepressevent_isbase = false;
-            KTextEditor__ConfigPage::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = ktexteditor__configpage_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (ktexteditor__configpage_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            ktexteditor__configpage_mousepressevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::mousePressEvent(event);
@@ -610,15 +366,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (ktexteditor__configpage_mousereleaseevent_isbase) {
-            ktexteditor__configpage_mousereleaseevent_isbase = false;
-            KTextEditor__ConfigPage::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = ktexteditor__configpage_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (ktexteditor__configpage_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            ktexteditor__configpage_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::mouseReleaseEvent(event);
@@ -626,15 +376,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (ktexteditor__configpage_mousedoubleclickevent_isbase) {
-            ktexteditor__configpage_mousedoubleclickevent_isbase = false;
-            KTextEditor__ConfigPage::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = ktexteditor__configpage_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (ktexteditor__configpage_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            ktexteditor__configpage_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::mouseDoubleClickEvent(event);
@@ -642,15 +386,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (ktexteditor__configpage_mousemoveevent_isbase) {
-            ktexteditor__configpage_mousemoveevent_isbase = false;
-            KTextEditor__ConfigPage::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = ktexteditor__configpage_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (ktexteditor__configpage_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            ktexteditor__configpage_mousemoveevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::mouseMoveEvent(event);
@@ -658,15 +396,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (ktexteditor__configpage_wheelevent_isbase) {
-            ktexteditor__configpage_wheelevent_isbase = false;
-            KTextEditor__ConfigPage::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = ktexteditor__configpage_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (ktexteditor__configpage_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            ktexteditor__configpage_wheelevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::wheelEvent(event);
@@ -674,15 +406,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (ktexteditor__configpage_keypressevent_isbase) {
-            ktexteditor__configpage_keypressevent_isbase = false;
-            KTextEditor__ConfigPage::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = ktexteditor__configpage_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (ktexteditor__configpage_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            ktexteditor__configpage_keypressevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::keyPressEvent(event);
@@ -690,15 +416,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (ktexteditor__configpage_keyreleaseevent_isbase) {
-            ktexteditor__configpage_keyreleaseevent_isbase = false;
-            KTextEditor__ConfigPage::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = ktexteditor__configpage_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (ktexteditor__configpage_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            ktexteditor__configpage_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::keyReleaseEvent(event);
@@ -706,15 +426,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (ktexteditor__configpage_focusinevent_isbase) {
-            ktexteditor__configpage_focusinevent_isbase = false;
-            KTextEditor__ConfigPage::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = ktexteditor__configpage_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (ktexteditor__configpage_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            ktexteditor__configpage_focusinevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::focusInEvent(event);
@@ -722,15 +436,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (ktexteditor__configpage_focusoutevent_isbase) {
-            ktexteditor__configpage_focusoutevent_isbase = false;
-            KTextEditor__ConfigPage::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = ktexteditor__configpage_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (ktexteditor__configpage_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            ktexteditor__configpage_focusoutevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::focusOutEvent(event);
@@ -738,15 +446,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (ktexteditor__configpage_enterevent_isbase) {
-            ktexteditor__configpage_enterevent_isbase = false;
-            KTextEditor__ConfigPage::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = ktexteditor__configpage_enterevent_callback;
-        if (enterevent_cb) {
+        if (ktexteditor__configpage_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            ktexteditor__configpage_enterevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::enterEvent(event);
@@ -754,15 +456,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (ktexteditor__configpage_leaveevent_isbase) {
-            ktexteditor__configpage_leaveevent_isbase = false;
-            KTextEditor__ConfigPage::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = ktexteditor__configpage_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (ktexteditor__configpage_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            ktexteditor__configpage_leaveevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::leaveEvent(event);
@@ -770,15 +466,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (ktexteditor__configpage_paintevent_isbase) {
-            ktexteditor__configpage_paintevent_isbase = false;
-            KTextEditor__ConfigPage::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = ktexteditor__configpage_paintevent_callback;
-        if (paintevent_cb) {
+        if (ktexteditor__configpage_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            ktexteditor__configpage_paintevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::paintEvent(event);
@@ -786,15 +476,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (ktexteditor__configpage_moveevent_isbase) {
-            ktexteditor__configpage_moveevent_isbase = false;
-            KTextEditor__ConfigPage::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = ktexteditor__configpage_moveevent_callback;
-        if (moveevent_cb) {
+        if (ktexteditor__configpage_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            ktexteditor__configpage_moveevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::moveEvent(event);
@@ -802,15 +486,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (ktexteditor__configpage_resizeevent_isbase) {
-            ktexteditor__configpage_resizeevent_isbase = false;
-            KTextEditor__ConfigPage::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = ktexteditor__configpage_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (ktexteditor__configpage_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            ktexteditor__configpage_resizeevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::resizeEvent(event);
@@ -818,15 +496,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (ktexteditor__configpage_closeevent_isbase) {
-            ktexteditor__configpage_closeevent_isbase = false;
-            KTextEditor__ConfigPage::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = ktexteditor__configpage_closeevent_callback;
-        if (closeevent_cb) {
+        if (ktexteditor__configpage_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            ktexteditor__configpage_closeevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::closeEvent(event);
@@ -834,15 +506,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (ktexteditor__configpage_contextmenuevent_isbase) {
-            ktexteditor__configpage_contextmenuevent_isbase = false;
-            KTextEditor__ConfigPage::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = ktexteditor__configpage_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (ktexteditor__configpage_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            ktexteditor__configpage_contextmenuevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::contextMenuEvent(event);
@@ -850,15 +516,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (ktexteditor__configpage_tabletevent_isbase) {
-            ktexteditor__configpage_tabletevent_isbase = false;
-            KTextEditor__ConfigPage::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = ktexteditor__configpage_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (ktexteditor__configpage_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            ktexteditor__configpage_tabletevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::tabletEvent(event);
@@ -866,15 +526,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (ktexteditor__configpage_actionevent_isbase) {
-            ktexteditor__configpage_actionevent_isbase = false;
-            KTextEditor__ConfigPage::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = ktexteditor__configpage_actionevent_callback;
-        if (actionevent_cb) {
+        if (ktexteditor__configpage_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            ktexteditor__configpage_actionevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::actionEvent(event);
@@ -882,15 +536,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (ktexteditor__configpage_dragenterevent_isbase) {
-            ktexteditor__configpage_dragenterevent_isbase = false;
-            KTextEditor__ConfigPage::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = ktexteditor__configpage_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (ktexteditor__configpage_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            ktexteditor__configpage_dragenterevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::dragEnterEvent(event);
@@ -898,15 +546,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (ktexteditor__configpage_dragmoveevent_isbase) {
-            ktexteditor__configpage_dragmoveevent_isbase = false;
-            KTextEditor__ConfigPage::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = ktexteditor__configpage_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (ktexteditor__configpage_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            ktexteditor__configpage_dragmoveevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::dragMoveEvent(event);
@@ -914,15 +556,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (ktexteditor__configpage_dragleaveevent_isbase) {
-            ktexteditor__configpage_dragleaveevent_isbase = false;
-            KTextEditor__ConfigPage::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = ktexteditor__configpage_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (ktexteditor__configpage_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            ktexteditor__configpage_dragleaveevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::dragLeaveEvent(event);
@@ -930,15 +566,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (ktexteditor__configpage_dropevent_isbase) {
-            ktexteditor__configpage_dropevent_isbase = false;
-            KTextEditor__ConfigPage::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = ktexteditor__configpage_dropevent_callback;
-        if (dropevent_cb) {
+        if (ktexteditor__configpage_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            ktexteditor__configpage_dropevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::dropEvent(event);
@@ -946,15 +576,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (ktexteditor__configpage_showevent_isbase) {
-            ktexteditor__configpage_showevent_isbase = false;
-            KTextEditor__ConfigPage::showEvent(event);
-            return;
-        }
-        auto showevent_cb = ktexteditor__configpage_showevent_callback;
-        if (showevent_cb) {
+        if (ktexteditor__configpage_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            ktexteditor__configpage_showevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::showEvent(event);
@@ -962,15 +586,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (ktexteditor__configpage_hideevent_isbase) {
-            ktexteditor__configpage_hideevent_isbase = false;
-            KTextEditor__ConfigPage::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = ktexteditor__configpage_hideevent_callback;
-        if (hideevent_cb) {
+        if (ktexteditor__configpage_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            ktexteditor__configpage_hideevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::hideEvent(event);
@@ -978,12 +596,7 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (ktexteditor__configpage_nativeevent_isbase) {
-            ktexteditor__configpage_nativeevent_isbase = false;
-            return KTextEditor__ConfigPage::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = ktexteditor__configpage_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (ktexteditor__configpage_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -993,7 +606,7 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = ktexteditor__configpage_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1002,15 +615,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (ktexteditor__configpage_changeevent_isbase) {
-            ktexteditor__configpage_changeevent_isbase = false;
-            KTextEditor__ConfigPage::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = ktexteditor__configpage_changeevent_callback;
-        if (changeevent_cb) {
+        if (ktexteditor__configpage_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            ktexteditor__configpage_changeevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::changeEvent(param1);
@@ -1018,14 +625,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (ktexteditor__configpage_metric_isbase) {
-            ktexteditor__configpage_metric_isbase = false;
-            return KTextEditor__ConfigPage::metric(param1);
-        }
-        auto metric_cb = ktexteditor__configpage_metric_callback;
-        if (metric_cb) {
+        if (ktexteditor__configpage_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = ktexteditor__configpage_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KTextEditor__ConfigPage::metric(param1);
@@ -1033,15 +635,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (ktexteditor__configpage_initpainter_isbase) {
-            ktexteditor__configpage_initpainter_isbase = false;
-            KTextEditor__ConfigPage::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = ktexteditor__configpage_initpainter_callback;
-        if (initpainter_cb) {
+        if (ktexteditor__configpage_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            ktexteditor__configpage_initpainter_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::initPainter(painter);
@@ -1049,14 +645,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (ktexteditor__configpage_redirected_isbase) {
-            ktexteditor__configpage_redirected_isbase = false;
-            return KTextEditor__ConfigPage::redirected(offset);
-        }
-        auto redirected_cb = ktexteditor__configpage_redirected_callback;
-        if (redirected_cb) {
+        if (ktexteditor__configpage_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = ktexteditor__configpage_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KTextEditor__ConfigPage::redirected(offset);
@@ -1064,13 +655,8 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (ktexteditor__configpage_sharedpainter_isbase) {
-            ktexteditor__configpage_sharedpainter_isbase = false;
-            return KTextEditor__ConfigPage::sharedPainter();
-        }
-        auto sharedpainter_cb = ktexteditor__configpage_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (ktexteditor__configpage_sharedpainter_callback) {
+            QPainter* callback_ret = ktexteditor__configpage_sharedpainter_callback(this);
             return callback_ret;
         }
         return KTextEditor__ConfigPage::sharedPainter();
@@ -1078,15 +664,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (ktexteditor__configpage_inputmethodevent_isbase) {
-            ktexteditor__configpage_inputmethodevent_isbase = false;
-            KTextEditor__ConfigPage::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = ktexteditor__configpage_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (ktexteditor__configpage_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            ktexteditor__configpage_inputmethodevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::inputMethodEvent(param1);
@@ -1094,14 +674,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (ktexteditor__configpage_inputmethodquery_isbase) {
-            ktexteditor__configpage_inputmethodquery_isbase = false;
-            return KTextEditor__ConfigPage::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = ktexteditor__configpage_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (ktexteditor__configpage_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = ktexteditor__configpage_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1111,14 +686,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (ktexteditor__configpage_focusnextprevchild_isbase) {
-            ktexteditor__configpage_focusnextprevchild_isbase = false;
-            return KTextEditor__ConfigPage::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = ktexteditor__configpage_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (ktexteditor__configpage_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = ktexteditor__configpage_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KTextEditor__ConfigPage::focusNextPrevChild(next);
@@ -1126,15 +696,10 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (ktexteditor__configpage_eventfilter_isbase) {
-            ktexteditor__configpage_eventfilter_isbase = false;
-            return KTextEditor__ConfigPage::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = ktexteditor__configpage_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (ktexteditor__configpage_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = ktexteditor__configpage_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KTextEditor__ConfigPage::eventFilter(watched, event);
@@ -1142,15 +707,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (ktexteditor__configpage_timerevent_isbase) {
-            ktexteditor__configpage_timerevent_isbase = false;
-            KTextEditor__ConfigPage::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = ktexteditor__configpage_timerevent_callback;
-        if (timerevent_cb) {
+        if (ktexteditor__configpage_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            ktexteditor__configpage_timerevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::timerEvent(event);
@@ -1158,15 +717,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (ktexteditor__configpage_childevent_isbase) {
-            ktexteditor__configpage_childevent_isbase = false;
-            KTextEditor__ConfigPage::childEvent(event);
-            return;
-        }
-        auto childevent_cb = ktexteditor__configpage_childevent_callback;
-        if (childevent_cb) {
+        if (ktexteditor__configpage_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            ktexteditor__configpage_childevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::childEvent(event);
@@ -1174,15 +727,9 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (ktexteditor__configpage_customevent_isbase) {
-            ktexteditor__configpage_customevent_isbase = false;
-            KTextEditor__ConfigPage::customEvent(event);
-            return;
-        }
-        auto customevent_cb = ktexteditor__configpage_customevent_callback;
-        if (customevent_cb) {
+        if (ktexteditor__configpage_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            ktexteditor__configpage_customevent_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::customEvent(event);
@@ -1190,17 +737,11 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (ktexteditor__configpage_connectnotify_isbase) {
-            ktexteditor__configpage_connectnotify_isbase = false;
-            KTextEditor__ConfigPage::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = ktexteditor__configpage_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (ktexteditor__configpage_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            ktexteditor__configpage_connectnotify_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::connectNotify(signal);
@@ -1208,268 +749,55 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (ktexteditor__configpage_disconnectnotify_isbase) {
-            ktexteditor__configpage_disconnectnotify_isbase = false;
-            KTextEditor__ConfigPage::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = ktexteditor__configpage_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (ktexteditor__configpage_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            ktexteditor__configpage_disconnectnotify_callback(this, cbval1);
             return;
         }
         KTextEditor__ConfigPage::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (ktexteditor__configpage_updatemicrofocus_isbase) {
-            ktexteditor__configpage_updatemicrofocus_isbase = false;
-            KTextEditor__ConfigPage::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = ktexteditor__configpage_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KTextEditor__ConfigPage::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (ktexteditor__configpage_create_isbase) {
-            ktexteditor__configpage_create_isbase = false;
-            KTextEditor__ConfigPage::create();
-            return;
-        }
-        auto create_cb = ktexteditor__configpage_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KTextEditor__ConfigPage::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (ktexteditor__configpage_destroy_isbase) {
-            ktexteditor__configpage_destroy_isbase = false;
-            KTextEditor__ConfigPage::destroy();
-            return;
-        }
-        auto destroy_cb = ktexteditor__configpage_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KTextEditor__ConfigPage::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (ktexteditor__configpage_focusnextchild_isbase) {
-            ktexteditor__configpage_focusnextchild_isbase = false;
-            return KTextEditor__ConfigPage::focusNextChild();
-        }
-        auto focusnextchild_cb = ktexteditor__configpage_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KTextEditor__ConfigPage::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (ktexteditor__configpage_focuspreviouschild_isbase) {
-            ktexteditor__configpage_focuspreviouschild_isbase = false;
-            return KTextEditor__ConfigPage::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = ktexteditor__configpage_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KTextEditor__ConfigPage::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (ktexteditor__configpage_sender_isbase) {
-            ktexteditor__configpage_sender_isbase = false;
-            return KTextEditor__ConfigPage::sender();
-        }
-        auto sender_cb = ktexteditor__configpage_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KTextEditor__ConfigPage::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (ktexteditor__configpage_sendersignalindex_isbase) {
-            ktexteditor__configpage_sendersignalindex_isbase = false;
-            return KTextEditor__ConfigPage::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = ktexteditor__configpage_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KTextEditor__ConfigPage::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (ktexteditor__configpage_receivers_isbase) {
-            ktexteditor__configpage_receivers_isbase = false;
-            return KTextEditor__ConfigPage::receivers(signal);
-        }
-        auto receivers_cb = ktexteditor__configpage_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KTextEditor__ConfigPage::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (ktexteditor__configpage_issignalconnected_isbase) {
-            ktexteditor__configpage_issignalconnected_isbase = false;
-            return KTextEditor__ConfigPage::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = ktexteditor__configpage_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KTextEditor__ConfigPage::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (ktexteditor__configpage_getdecodedmetricf_isbase) {
-            ktexteditor__configpage_getdecodedmetricf_isbase = false;
-            return KTextEditor__ConfigPage::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = ktexteditor__configpage_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KTextEditor__ConfigPage::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool KTextEditor__ConfigPage_Event(KTextEditor::ConfigPage* self, QEvent* event);
     friend bool KTextEditor__ConfigPage_SuperEvent(KTextEditor::ConfigPage* self, QEvent* event);
-    friend void KTextEditor__ConfigPage_MousePressEvent(KTextEditor::ConfigPage* self, QMouseEvent* event);
     friend void KTextEditor__ConfigPage_SuperMousePressEvent(KTextEditor::ConfigPage* self, QMouseEvent* event);
-    friend void KTextEditor__ConfigPage_MouseReleaseEvent(KTextEditor::ConfigPage* self, QMouseEvent* event);
     friend void KTextEditor__ConfigPage_SuperMouseReleaseEvent(KTextEditor::ConfigPage* self, QMouseEvent* event);
-    friend void KTextEditor__ConfigPage_MouseDoubleClickEvent(KTextEditor::ConfigPage* self, QMouseEvent* event);
     friend void KTextEditor__ConfigPage_SuperMouseDoubleClickEvent(KTextEditor::ConfigPage* self, QMouseEvent* event);
-    friend void KTextEditor__ConfigPage_MouseMoveEvent(KTextEditor::ConfigPage* self, QMouseEvent* event);
     friend void KTextEditor__ConfigPage_SuperMouseMoveEvent(KTextEditor::ConfigPage* self, QMouseEvent* event);
-    friend void KTextEditor__ConfigPage_WheelEvent(KTextEditor::ConfigPage* self, QWheelEvent* event);
     friend void KTextEditor__ConfigPage_SuperWheelEvent(KTextEditor::ConfigPage* self, QWheelEvent* event);
-    friend void KTextEditor__ConfigPage_KeyPressEvent(KTextEditor::ConfigPage* self, QKeyEvent* event);
     friend void KTextEditor__ConfigPage_SuperKeyPressEvent(KTextEditor::ConfigPage* self, QKeyEvent* event);
-    friend void KTextEditor__ConfigPage_KeyReleaseEvent(KTextEditor::ConfigPage* self, QKeyEvent* event);
     friend void KTextEditor__ConfigPage_SuperKeyReleaseEvent(KTextEditor::ConfigPage* self, QKeyEvent* event);
-    friend void KTextEditor__ConfigPage_FocusInEvent(KTextEditor::ConfigPage* self, QFocusEvent* event);
     friend void KTextEditor__ConfigPage_SuperFocusInEvent(KTextEditor::ConfigPage* self, QFocusEvent* event);
-    friend void KTextEditor__ConfigPage_FocusOutEvent(KTextEditor::ConfigPage* self, QFocusEvent* event);
     friend void KTextEditor__ConfigPage_SuperFocusOutEvent(KTextEditor::ConfigPage* self, QFocusEvent* event);
-    friend void KTextEditor__ConfigPage_EnterEvent(KTextEditor::ConfigPage* self, QEnterEvent* event);
     friend void KTextEditor__ConfigPage_SuperEnterEvent(KTextEditor::ConfigPage* self, QEnterEvent* event);
-    friend void KTextEditor__ConfigPage_LeaveEvent(KTextEditor::ConfigPage* self, QEvent* event);
     friend void KTextEditor__ConfigPage_SuperLeaveEvent(KTextEditor::ConfigPage* self, QEvent* event);
-    friend void KTextEditor__ConfigPage_PaintEvent(KTextEditor::ConfigPage* self, QPaintEvent* event);
     friend void KTextEditor__ConfigPage_SuperPaintEvent(KTextEditor::ConfigPage* self, QPaintEvent* event);
-    friend void KTextEditor__ConfigPage_MoveEvent(KTextEditor::ConfigPage* self, QMoveEvent* event);
     friend void KTextEditor__ConfigPage_SuperMoveEvent(KTextEditor::ConfigPage* self, QMoveEvent* event);
-    friend void KTextEditor__ConfigPage_ResizeEvent(KTextEditor::ConfigPage* self, QResizeEvent* event);
     friend void KTextEditor__ConfigPage_SuperResizeEvent(KTextEditor::ConfigPage* self, QResizeEvent* event);
-    friend void KTextEditor__ConfigPage_CloseEvent(KTextEditor::ConfigPage* self, QCloseEvent* event);
     friend void KTextEditor__ConfigPage_SuperCloseEvent(KTextEditor::ConfigPage* self, QCloseEvent* event);
-    friend void KTextEditor__ConfigPage_ContextMenuEvent(KTextEditor::ConfigPage* self, QContextMenuEvent* event);
     friend void KTextEditor__ConfigPage_SuperContextMenuEvent(KTextEditor::ConfigPage* self, QContextMenuEvent* event);
-    friend void KTextEditor__ConfigPage_TabletEvent(KTextEditor::ConfigPage* self, QTabletEvent* event);
     friend void KTextEditor__ConfigPage_SuperTabletEvent(KTextEditor::ConfigPage* self, QTabletEvent* event);
-    friend void KTextEditor__ConfigPage_ActionEvent(KTextEditor::ConfigPage* self, QActionEvent* event);
     friend void KTextEditor__ConfigPage_SuperActionEvent(KTextEditor::ConfigPage* self, QActionEvent* event);
-    friend void KTextEditor__ConfigPage_DragEnterEvent(KTextEditor::ConfigPage* self, QDragEnterEvent* event);
     friend void KTextEditor__ConfigPage_SuperDragEnterEvent(KTextEditor::ConfigPage* self, QDragEnterEvent* event);
-    friend void KTextEditor__ConfigPage_DragMoveEvent(KTextEditor::ConfigPage* self, QDragMoveEvent* event);
     friend void KTextEditor__ConfigPage_SuperDragMoveEvent(KTextEditor::ConfigPage* self, QDragMoveEvent* event);
-    friend void KTextEditor__ConfigPage_DragLeaveEvent(KTextEditor::ConfigPage* self, QDragLeaveEvent* event);
     friend void KTextEditor__ConfigPage_SuperDragLeaveEvent(KTextEditor::ConfigPage* self, QDragLeaveEvent* event);
-    friend void KTextEditor__ConfigPage_DropEvent(KTextEditor::ConfigPage* self, QDropEvent* event);
     friend void KTextEditor__ConfigPage_SuperDropEvent(KTextEditor::ConfigPage* self, QDropEvent* event);
-    friend void KTextEditor__ConfigPage_ShowEvent(KTextEditor::ConfigPage* self, QShowEvent* event);
     friend void KTextEditor__ConfigPage_SuperShowEvent(KTextEditor::ConfigPage* self, QShowEvent* event);
-    friend void KTextEditor__ConfigPage_HideEvent(KTextEditor::ConfigPage* self, QHideEvent* event);
     friend void KTextEditor__ConfigPage_SuperHideEvent(KTextEditor::ConfigPage* self, QHideEvent* event);
-    friend bool KTextEditor__ConfigPage_NativeEvent(KTextEditor::ConfigPage* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KTextEditor__ConfigPage_SuperNativeEvent(KTextEditor::ConfigPage* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void KTextEditor__ConfigPage_ChangeEvent(KTextEditor::ConfigPage* self, QEvent* param1);
     friend void KTextEditor__ConfigPage_SuperChangeEvent(KTextEditor::ConfigPage* self, QEvent* param1);
-    friend int KTextEditor__ConfigPage_Metric(const KTextEditor::ConfigPage* self, int param1);
     friend int KTextEditor__ConfigPage_SuperMetric(const KTextEditor::ConfigPage* self, int param1);
-    friend void KTextEditor__ConfigPage_InitPainter(const KTextEditor::ConfigPage* self, QPainter* painter);
     friend void KTextEditor__ConfigPage_SuperInitPainter(const KTextEditor::ConfigPage* self, QPainter* painter);
-    friend QPaintDevice* KTextEditor__ConfigPage_Redirected(const KTextEditor::ConfigPage* self, QPoint* offset);
     friend QPaintDevice* KTextEditor__ConfigPage_SuperRedirected(const KTextEditor::ConfigPage* self, QPoint* offset);
-    friend QPainter* KTextEditor__ConfigPage_SharedPainter(const KTextEditor::ConfigPage* self);
     friend QPainter* KTextEditor__ConfigPage_SuperSharedPainter(const KTextEditor::ConfigPage* self);
-    friend void KTextEditor__ConfigPage_InputMethodEvent(KTextEditor::ConfigPage* self, QInputMethodEvent* param1);
     friend void KTextEditor__ConfigPage_SuperInputMethodEvent(KTextEditor::ConfigPage* self, QInputMethodEvent* param1);
-    friend bool KTextEditor__ConfigPage_FocusNextPrevChild(KTextEditor::ConfigPage* self, bool next);
     friend bool KTextEditor__ConfigPage_SuperFocusNextPrevChild(KTextEditor::ConfigPage* self, bool next);
-    friend void KTextEditor__ConfigPage_TimerEvent(KTextEditor::ConfigPage* self, QTimerEvent* event);
     friend void KTextEditor__ConfigPage_SuperTimerEvent(KTextEditor::ConfigPage* self, QTimerEvent* event);
-    friend void KTextEditor__ConfigPage_ChildEvent(KTextEditor::ConfigPage* self, QChildEvent* event);
     friend void KTextEditor__ConfigPage_SuperChildEvent(KTextEditor::ConfigPage* self, QChildEvent* event);
-    friend void KTextEditor__ConfigPage_CustomEvent(KTextEditor::ConfigPage* self, QEvent* event);
     friend void KTextEditor__ConfigPage_SuperCustomEvent(KTextEditor::ConfigPage* self, QEvent* event);
-    friend void KTextEditor__ConfigPage_ConnectNotify(KTextEditor::ConfigPage* self, const QMetaMethod* signal);
     friend void KTextEditor__ConfigPage_SuperConnectNotify(KTextEditor::ConfigPage* self, const QMetaMethod* signal);
-    friend void KTextEditor__ConfigPage_DisconnectNotify(KTextEditor::ConfigPage* self, const QMetaMethod* signal);
     friend void KTextEditor__ConfigPage_SuperDisconnectNotify(KTextEditor::ConfigPage* self, const QMetaMethod* signal);
-    friend void KTextEditor__ConfigPage_UpdateMicroFocus(KTextEditor::ConfigPage* self);
-    friend void KTextEditor__ConfigPage_SuperUpdateMicroFocus(KTextEditor::ConfigPage* self);
-    friend void KTextEditor__ConfigPage_Create(KTextEditor::ConfigPage* self);
-    friend void KTextEditor__ConfigPage_SuperCreate(KTextEditor::ConfigPage* self);
-    friend void KTextEditor__ConfigPage_Destroy(KTextEditor::ConfigPage* self);
-    friend void KTextEditor__ConfigPage_SuperDestroy(KTextEditor::ConfigPage* self);
-    friend bool KTextEditor__ConfigPage_FocusNextChild(KTextEditor::ConfigPage* self);
-    friend bool KTextEditor__ConfigPage_SuperFocusNextChild(KTextEditor::ConfigPage* self);
-    friend bool KTextEditor__ConfigPage_FocusPreviousChild(KTextEditor::ConfigPage* self);
-    friend bool KTextEditor__ConfigPage_SuperFocusPreviousChild(KTextEditor::ConfigPage* self);
-    friend QObject* KTextEditor__ConfigPage_Sender(const KTextEditor::ConfigPage* self);
-    friend QObject* KTextEditor__ConfigPage_SuperSender(const KTextEditor::ConfigPage* self);
-    friend int KTextEditor__ConfigPage_SenderSignalIndex(const KTextEditor::ConfigPage* self);
-    friend int KTextEditor__ConfigPage_SuperSenderSignalIndex(const KTextEditor::ConfigPage* self);
-    friend int KTextEditor__ConfigPage_Receivers(const KTextEditor::ConfigPage* self, const char* signal);
-    friend int KTextEditor__ConfigPage_SuperReceivers(const KTextEditor::ConfigPage* self, const char* signal);
-    friend bool KTextEditor__ConfigPage_IsSignalConnected(const KTextEditor::ConfigPage* self, const QMetaMethod* signal);
-    friend bool KTextEditor__ConfigPage_SuperIsSignalConnected(const KTextEditor::ConfigPage* self, const QMetaMethod* signal);
-    friend double KTextEditor__ConfigPage_GetDecodedMetricF(const KTextEditor::ConfigPage* self, int metricA, int metricB);
-    friend double KTextEditor__ConfigPage_SuperGetDecodedMetricF(const KTextEditor::ConfigPage* self, int metricA, int metricB);
 };
 
 #endif

@@ -89,224 +89,145 @@ QBitmap* QBitmap_FromData3(const QSize* size, const unsigned char* bits, int mon
 
 // Derived class handler implementation
 int QBitmap_DevType(const QBitmap* self) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
-        return vqbitmap->devType();
-    } else {
-        return self->QBitmap::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QBitmap_SuperDevType(const QBitmap* self) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
-        vqbitmap->setQBitmap_DevType_IsBase(true);
-        return vqbitmap->devType();
-    } else {
-        return self->QBitmap::devType();
-    }
+    return self->QBitmap::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QBitmap_OnDevType(const QBitmap* self, intptr_t slot) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap)
-        vqbitmap->setQBitmap_DevType_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_DevType_Callback>(slot));
+void QBitmap_OnDevType(QBitmap* self, intptr_t slot) {
+    if (auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self)))
+        vqbitmap->qbitmap_devtype_callback = reinterpret_cast<VirtualQBitmap::QBitmap_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QBitmap_PaintEngine(const QBitmap* self) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
-        return vqbitmap->paintEngine();
-    } else {
-        return self->QBitmap::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QBitmap_SuperPaintEngine(const QBitmap* self) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
-        vqbitmap->setQBitmap_PaintEngine_IsBase(true);
-        return vqbitmap->paintEngine();
-    } else {
-        return self->QBitmap::paintEngine();
-    }
+    return self->QBitmap::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QBitmap_OnPaintEngine(const QBitmap* self, intptr_t slot) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap)
-        vqbitmap->setQBitmap_PaintEngine_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_PaintEngine_Callback>(slot));
+void QBitmap_OnPaintEngine(QBitmap* self, intptr_t slot) {
+    if (auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self)))
+        vqbitmap->qbitmap_paintengine_callback = reinterpret_cast<VirtualQBitmap::QBitmap_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QBitmap_Metric(const QBitmap* self, int param1) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+    if (vqbitmap) {
         return vqbitmap->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQBitmap*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QBitmap::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QBitmap_SuperMetric(const QBitmap* self, int param1) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
-        vqbitmap->setQBitmap_Metric_IsBase(true);
-        return vqbitmap->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQBitmap*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self))) {
+        return vqbitmap->QBitmap::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QBitmap::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QBitmap_OnMetric(const QBitmap* self, intptr_t slot) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap)
-        vqbitmap->setQBitmap_Metric_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_Metric_Callback>(slot));
+void QBitmap_OnMetric(QBitmap* self, intptr_t slot) {
+    if (auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self)))
+        vqbitmap->qbitmap_metric_callback = reinterpret_cast<VirtualQBitmap::QBitmap_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBitmap_InitPainter(const QBitmap* self, QPainter* painter) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+    if (vqbitmap) {
         vqbitmap->initPainter(painter);
     } else {
-        ((VirtualQBitmap*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QBitmap::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBitmap_SuperInitPainter(const QBitmap* self, QPainter* painter) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
-        vqbitmap->setQBitmap_InitPainter_IsBase(true);
-        vqbitmap->initPainter(painter);
-    } else {
-        ((VirtualQBitmap*)self)->initPainter(painter);
-    }
+    if (auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self))) {
+        vqbitmap->QBitmap::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QBitmap::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QBitmap_OnInitPainter(const QBitmap* self, intptr_t slot) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap)
-        vqbitmap->setQBitmap_InitPainter_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_InitPainter_Callback>(slot));
+void QBitmap_OnInitPainter(QBitmap* self, intptr_t slot) {
+    if (auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self)))
+        vqbitmap->qbitmap_initpainter_callback = reinterpret_cast<VirtualQBitmap::QBitmap_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QBitmap_Redirected(const QBitmap* self, QPoint* offset) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+    if (vqbitmap) {
         return vqbitmap->redirected(offset);
     } else {
-        return ((VirtualQBitmap*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QBitmap::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QBitmap_SuperRedirected(const QBitmap* self, QPoint* offset) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
-        vqbitmap->setQBitmap_Redirected_IsBase(true);
-        return vqbitmap->redirected(offset);
-    } else {
-        return ((VirtualQBitmap*)self)->redirected(offset);
-    }
+    if (auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self))) {
+        return vqbitmap->QBitmap::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QBitmap::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QBitmap_OnRedirected(const QBitmap* self, intptr_t slot) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap)
-        vqbitmap->setQBitmap_Redirected_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_Redirected_Callback>(slot));
+void QBitmap_OnRedirected(QBitmap* self, intptr_t slot) {
+    if (auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self)))
+        vqbitmap->qbitmap_redirected_callback = reinterpret_cast<VirtualQBitmap::QBitmap_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QBitmap_SharedPainter(const QBitmap* self) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+    if (vqbitmap) {
         return vqbitmap->sharedPainter();
     } else {
-        return ((VirtualQBitmap*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QBitmap::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QBitmap_SuperSharedPainter(const QBitmap* self) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
-        vqbitmap->setQBitmap_SharedPainter_IsBase(true);
-        return vqbitmap->sharedPainter();
-    } else {
-        return ((VirtualQBitmap*)self)->sharedPainter();
-    }
+    if (auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self))) {
+        return vqbitmap->QBitmap::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QBitmap::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QBitmap_OnSharedPainter(const QBitmap* self, intptr_t slot) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap)
-        vqbitmap->setQBitmap_SharedPainter_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_SharedPainter_Callback>(slot));
+void QBitmap_OnSharedPainter(QBitmap* self, intptr_t slot) {
+    if (auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self)))
+        vqbitmap->qbitmap_sharedpainter_callback = reinterpret_cast<VirtualQBitmap::QBitmap_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPixmap* QBitmap_FromImageInPlace(QBitmap* self, QImage* image) {
-    auto* vqbitmap = dynamic_cast<VirtualQBitmap*>(self);
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+    if (auto* vqbitmap = dynamic_cast<VirtualQBitmap*>(self))
         return new QPixmap(vqbitmap->fromImageInPlace(*image));
-    }
-    return {};
+    qFatal("Error: Protected method QBitmap::fromImageInPlace called without a directly constructed type");
 }
 
-// Base class handler implementation
-QPixmap* QBitmap_SuperFromImageInPlace(QBitmap* self, QImage* image) {
-    auto* vqbitmap = dynamic_cast<VirtualQBitmap*>(self);
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
-        vqbitmap->setQBitmap_FromImageInPlace_IsBase(true);
-        return new QPixmap(vqbitmap->fromImageInPlace(*image));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBitmap_OnFromImageInPlace(QBitmap* self, intptr_t slot) {
-    auto* vqbitmap = dynamic_cast<VirtualQBitmap*>(self);
-    if (vqbitmap && vqbitmap->isVirtualQBitmap)
-        vqbitmap->setQBitmap_FromImageInPlace_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_FromImageInPlace_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QBitmap_GetDecodedMetricF(const QBitmap* self, int metricA, int metricB) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
-        return vqbitmap->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQBitmap*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QBitmap_SuperGetDecodedMetricF(const QBitmap* self, int metricA, int metricB) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
-        vqbitmap->setQBitmap_GetDecodedMetricF_IsBase(true);
-        return vqbitmap->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQBitmap*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBitmap_OnGetDecodedMetricF(const QBitmap* self, intptr_t slot) {
-    auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap)
-        vqbitmap->setQBitmap_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self))) {
+        return vqbitmap->VirtualQBitmap::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QBitmap::getDecodedMetricF called without a directly constructed type");
 }
 
 void QBitmap_Delete(QBitmap* self) {

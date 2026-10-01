@@ -47,23 +47,13 @@ void KCompletionBase_SuperSetHandleSignals(KCompletionBase* self, bool handle);
 void KCompletionBase_OnSetCompletionMode(KCompletionBase* self, intptr_t slot);
 void KCompletionBase_SuperSetCompletionMode(KCompletionBase* self, int mode);
 void KCompletionBase_OnSetCompletedText(KCompletionBase* self, intptr_t slot);
-void KCompletionBase_SuperSetCompletedText(KCompletionBase* self, const libqt_string text);
 void KCompletionBase_OnSetCompletedItems(KCompletionBase* self, intptr_t slot);
-void KCompletionBase_SuperSetCompletedItems(KCompletionBase* self, const libqt_list /* of libqt_string */ items, bool autoSuggest);
 void KCompletionBase_OnVirtualHook(KCompletionBase* self, intptr_t slot);
 void KCompletionBase_SuperVirtualHook(KCompletionBase* self, int id, void* data);
 libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_KeyBindingMap(const KCompletionBase* self);
-void KCompletionBase_OnKeyBindingMap(const KCompletionBase* self, intptr_t slot);
-libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_SuperKeyBindingMap(const KCompletionBase* self);
 void KCompletionBase_SetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
-void KCompletionBase_OnSetKeyBindingMap(KCompletionBase* self, intptr_t slot);
-void KCompletionBase_SuperSetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
 void KCompletionBase_SetDelegate(KCompletionBase* self, KCompletionBase* delegate);
-void KCompletionBase_OnSetDelegate(KCompletionBase* self, intptr_t slot);
-void KCompletionBase_SuperSetDelegate(KCompletionBase* self, KCompletionBase* delegate);
 KCompletionBase* KCompletionBase_Delegate(const KCompletionBase* self);
-void KCompletionBase_OnDelegate(const KCompletionBase* self, intptr_t slot);
-KCompletionBase* KCompletionBase_SuperDelegate(const KCompletionBase* self);
 void KCompletionBase_Delete(KCompletionBase* self);
 
 #ifdef __cplusplus

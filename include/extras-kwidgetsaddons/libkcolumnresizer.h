@@ -39,7 +39,7 @@ bool KColumnResizer_EventFilter(KColumnResizer* self, QObject* param1, QEvent* e
 libqt_string KColumnResizer_Tr2(const char* s, const char* c);
 libqt_string KColumnResizer_Tr3(const char* s, const char* c, int n);
 void KColumnResizer_AddWidgetsFromLayout2(KColumnResizer* self, QLayout* layout, int column);
-void KColumnResizer_OnMetaObject(const KColumnResizer* self, intptr_t slot);
+void KColumnResizer_OnMetaObject(KColumnResizer* self, intptr_t slot);
 QMetaObject* KColumnResizer_SuperMetaObject(const KColumnResizer* self);
 void KColumnResizer_OnMetacast(KColumnResizer* self, intptr_t slot);
 void* KColumnResizer_SuperMetacast(KColumnResizer* self, const char* param1);
@@ -66,17 +66,9 @@ void KColumnResizer_DisconnectNotify(KColumnResizer* self, const QMetaMethod* si
 void KColumnResizer_OnDisconnectNotify(KColumnResizer* self, intptr_t slot);
 void KColumnResizer_SuperDisconnectNotify(KColumnResizer* self, const QMetaMethod* signal);
 QObject* KColumnResizer_Sender(const KColumnResizer* self);
-void KColumnResizer_OnSender(const KColumnResizer* self, intptr_t slot);
-QObject* KColumnResizer_SuperSender(const KColumnResizer* self);
 int KColumnResizer_SenderSignalIndex(const KColumnResizer* self);
-void KColumnResizer_OnSenderSignalIndex(const KColumnResizer* self, intptr_t slot);
-int KColumnResizer_SuperSenderSignalIndex(const KColumnResizer* self);
 int KColumnResizer_Receivers(const KColumnResizer* self, const char* signal);
-void KColumnResizer_OnReceivers(const KColumnResizer* self, intptr_t slot);
-int KColumnResizer_SuperReceivers(const KColumnResizer* self, const char* signal);
 bool KColumnResizer_IsSignalConnected(const KColumnResizer* self, const QMetaMethod* signal);
-void KColumnResizer_OnIsSignalConnected(const KColumnResizer* self, intptr_t slot);
-bool KColumnResizer_SuperIsSignalConnected(const KColumnResizer* self, const QMetaMethod* signal);
 void KColumnResizer_Delete(KColumnResizer* self);
 
 #ifdef __cplusplus

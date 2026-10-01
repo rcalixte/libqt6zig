@@ -1033,14 +1033,14 @@ void PackageKit__Transaction_Connect_Transaction(PackageKit__Transaction* self, 
 
 void PackageKit__Transaction_ConnectNotify(PackageKit__Transaction* self, const QMetaMethod* signal) {
     auto* vpackagekit__transaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekit__transaction && vpackagekit__transaction->isVirtualPackageKitTransaction) {
+    if (vpackagekit__transaction) {
         vpackagekit__transaction->connectNotify(*signal);
     }
 }
 
 void PackageKit__Transaction_DisconnectNotify(PackageKit__Transaction* self, const QMetaMethod* signal) {
     auto* vpackagekit__transaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekit__transaction && vpackagekit__transaction->isVirtualPackageKitTransaction) {
+    if (vpackagekit__transaction) {
         vpackagekit__transaction->disconnectNotify(*signal);
     }
 }
@@ -1071,374 +1071,208 @@ libqt_string PackageKit__Transaction_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* PackageKit__Transaction_SuperMetaObject(const PackageKit__Transaction* self) {
-    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_MetaObject_IsBase(true);
-        return (QMetaObject*)vpackagekittransaction->metaObject();
-    } else {
-        return (QMetaObject*)self->PackageKit::Transaction::metaObject();
-    }
+    return (QMetaObject*)self->PackageKit::Transaction::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void PackageKit__Transaction_OnMetaObject(const PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_MetaObject_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_MetaObject_Callback>(slot));
+void PackageKit__Transaction_OnMetaObject(PackageKit__Transaction* self, intptr_t slot) {
+    if (auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self)))
+        vpackagekittransaction->packagekit__transaction_metaobject_callback = reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* PackageKit__Transaction_SuperMetacast(PackageKit__Transaction* self, const char* param1) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_Metacast_IsBase(true);
-        return vpackagekittransaction->qt_metacast(param1);
-    } else {
-        return self->PackageKit::Transaction::qt_metacast(param1);
-    }
+    return self->PackageKit::Transaction::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnMetacast(PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_Metacast_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_Metacast_Callback>(slot));
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self))
+        vpackagekittransaction->packagekit__transaction_metacast_callback = reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int PackageKit__Transaction_SuperMetacall(PackageKit__Transaction* self, int param1, int param2, void** param3) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_Metacall_IsBase(true);
-        return vpackagekittransaction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->PackageKit::Transaction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->PackageKit::Transaction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnMetacall(PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_Metacall_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_Metacall_Callback>(slot));
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self))
+        vpackagekittransaction->packagekit__transaction_metacall_callback = reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void PackageKit__Transaction_SuperConnectNotify(PackageKit__Transaction* self, const QMetaMethod* signal) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_ConnectNotify_IsBase(true);
-        vpackagekittransaction->connectNotify(*signal);
-    } else {
-        ((VirtualPackageKitTransaction*)self)->connectNotify(*signal);
-    }
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self)) {
+        vpackagekittransaction->PackageKit::Transaction::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method PackageKit::Transaction::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnConnectNotify(PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_ConnectNotify_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_ConnectNotify_Callback>(slot));
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self))
+        vpackagekittransaction->packagekit__transaction_connectnotify_callback = reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_ConnectNotify_Callback>(slot);
 }
 
 // Base class handler implementation
 void PackageKit__Transaction_SuperDisconnectNotify(PackageKit__Transaction* self, const QMetaMethod* signal) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_DisconnectNotify_IsBase(true);
-        vpackagekittransaction->disconnectNotify(*signal);
-    } else {
-        ((VirtualPackageKitTransaction*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self)) {
+        vpackagekittransaction->PackageKit::Transaction::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method PackageKit::Transaction::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnDisconnectNotify(PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_DisconnectNotify_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_DisconnectNotify_Callback>(slot));
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self))
+        vpackagekittransaction->packagekit__transaction_disconnectnotify_callback = reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool PackageKit__Transaction_Event(PackageKit__Transaction* self, QEvent* event) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        return vpackagekittransaction->event(event);
-    } else {
-        return self->PackageKit::Transaction::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool PackageKit__Transaction_SuperEvent(PackageKit__Transaction* self, QEvent* event) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_Event_IsBase(true);
-        return vpackagekittransaction->event(event);
-    } else {
-        return self->PackageKit::Transaction::event(event);
-    }
+    return self->PackageKit::Transaction::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnEvent(PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_Event_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_Event_Callback>(slot));
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self))
+        vpackagekittransaction->packagekit__transaction_event_callback = reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool PackageKit__Transaction_EventFilter(PackageKit__Transaction* self, QObject* watched, QEvent* event) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        return vpackagekittransaction->eventFilter(watched, event);
-    } else {
-        return self->PackageKit::Transaction::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool PackageKit__Transaction_SuperEventFilter(PackageKit__Transaction* self, QObject* watched, QEvent* event) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_EventFilter_IsBase(true);
-        return vpackagekittransaction->eventFilter(watched, event);
-    } else {
-        return self->PackageKit::Transaction::eventFilter(watched, event);
-    }
+    return self->PackageKit::Transaction::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnEventFilter(PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_EventFilter_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_EventFilter_Callback>(slot));
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self))
+        vpackagekittransaction->packagekit__transaction_eventfilter_callback = reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void PackageKit__Transaction_TimerEvent(PackageKit__Transaction* self, QTimerEvent* event) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction) {
         vpackagekittransaction->timerEvent(event);
     } else {
-        ((VirtualPackageKitTransaction*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method PackageKit::Transaction::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void PackageKit__Transaction_SuperTimerEvent(PackageKit__Transaction* self, QTimerEvent* event) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_TimerEvent_IsBase(true);
-        vpackagekittransaction->timerEvent(event);
-    } else {
-        ((VirtualPackageKitTransaction*)self)->timerEvent(event);
-    }
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self)) {
+        vpackagekittransaction->PackageKit::Transaction::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method PackageKit::Transaction::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnTimerEvent(PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_TimerEvent_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_TimerEvent_Callback>(slot));
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self))
+        vpackagekittransaction->packagekit__transaction_timerevent_callback = reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void PackageKit__Transaction_ChildEvent(PackageKit__Transaction* self, QChildEvent* event) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction) {
         vpackagekittransaction->childEvent(event);
     } else {
-        ((VirtualPackageKitTransaction*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method PackageKit::Transaction::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void PackageKit__Transaction_SuperChildEvent(PackageKit__Transaction* self, QChildEvent* event) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_ChildEvent_IsBase(true);
-        vpackagekittransaction->childEvent(event);
-    } else {
-        ((VirtualPackageKitTransaction*)self)->childEvent(event);
-    }
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self)) {
+        vpackagekittransaction->PackageKit::Transaction::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method PackageKit::Transaction::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnChildEvent(PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_ChildEvent_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_ChildEvent_Callback>(slot));
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self))
+        vpackagekittransaction->packagekit__transaction_childevent_callback = reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void PackageKit__Transaction_CustomEvent(PackageKit__Transaction* self, QEvent* event) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction) {
         vpackagekittransaction->customEvent(event);
     } else {
-        ((VirtualPackageKitTransaction*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method PackageKit::Transaction::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void PackageKit__Transaction_SuperCustomEvent(PackageKit__Transaction* self, QEvent* event) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_CustomEvent_IsBase(true);
-        vpackagekittransaction->customEvent(event);
-    } else {
-        ((VirtualPackageKitTransaction*)self)->customEvent(event);
-    }
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self)) {
+        vpackagekittransaction->PackageKit::Transaction::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method PackageKit::Transaction::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnCustomEvent(PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_CustomEvent_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_CustomEvent_Callback>(slot));
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self))
+        vpackagekittransaction->packagekit__transaction_customevent_callback = reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_CustomEvent_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 int PackageKit__Transaction_ParseError(PackageKit__Transaction* self, const libqt_string errorName) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    QString errorName_QString = QString::fromUtf8(errorName.data, errorName.len);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        return static_cast<int>(vpackagekittransaction->parseError(errorName_QString));
-    } else {
-        return static_cast<int>(((VirtualPackageKitTransaction*)self)->parseError(errorName_QString));
-    }
+    if (auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self)) {
+        QString errorName_QString = QString::fromUtf8(errorName.data, errorName.len);
+        return static_cast<int>(vpackagekittransaction->VirtualPackageKitTransaction::parseError(errorName_QString));
+    } else
+        qFatal("Error: Protected method PackageKit::Transaction::parseError called without a directly constructed type");
 }
 
-// Base class handler implementation
-int PackageKit__Transaction_SuperParseError(PackageKit__Transaction* self, const libqt_string errorName) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    QString errorName_QString = QString::fromUtf8(errorName.data, errorName.len);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_ParseError_IsBase(true);
-        return static_cast<int>(vpackagekittransaction->parseError(errorName_QString));
-    } else {
-        return static_cast<int>(((VirtualPackageKitTransaction*)self)->parseError(errorName_QString));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void PackageKit__Transaction_OnParseError(PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_ParseError_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_ParseError_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* PackageKit__Transaction_Sender(const PackageKit__Transaction* self) {
-    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        return vpackagekittransaction->sender();
-    } else {
-        return ((VirtualPackageKitTransaction*)self)->sender();
-    }
+    if (auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self))) {
+        return vpackagekittransaction->VirtualPackageKitTransaction::sender();
+    } else
+        qFatal("Error: Protected method PackageKit::Transaction::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* PackageKit__Transaction_SuperSender(const PackageKit__Transaction* self) {
-    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_Sender_IsBase(true);
-        return vpackagekittransaction->sender();
-    } else {
-        return ((VirtualPackageKitTransaction*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void PackageKit__Transaction_OnSender(const PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_Sender_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int PackageKit__Transaction_SenderSignalIndex(const PackageKit__Transaction* self) {
-    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        return vpackagekittransaction->senderSignalIndex();
-    } else {
-        return ((VirtualPackageKitTransaction*)self)->senderSignalIndex();
-    }
+    if (auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self))) {
+        return vpackagekittransaction->VirtualPackageKitTransaction::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method PackageKit::Transaction::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int PackageKit__Transaction_SuperSenderSignalIndex(const PackageKit__Transaction* self) {
-    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_SenderSignalIndex_IsBase(true);
-        return vpackagekittransaction->senderSignalIndex();
-    } else {
-        return ((VirtualPackageKitTransaction*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void PackageKit__Transaction_OnSenderSignalIndex(const PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_SenderSignalIndex_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int PackageKit__Transaction_Receivers(const PackageKit__Transaction* self, const char* signal) {
-    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        return vpackagekittransaction->receivers(signal);
-    } else {
-        return ((VirtualPackageKitTransaction*)self)->receivers(signal);
-    }
+    if (auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self))) {
+        return vpackagekittransaction->VirtualPackageKitTransaction::receivers(signal);
+    } else
+        qFatal("Error: Protected method PackageKit::Transaction::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int PackageKit__Transaction_SuperReceivers(const PackageKit__Transaction* self, const char* signal) {
-    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_Receivers_IsBase(true);
-        return vpackagekittransaction->receivers(signal);
-    } else {
-        return ((VirtualPackageKitTransaction*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void PackageKit__Transaction_OnReceivers(const PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_Receivers_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool PackageKit__Transaction_IsSignalConnected(const PackageKit__Transaction* self, const QMetaMethod* signal) {
-    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        return vpackagekittransaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualPackageKitTransaction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool PackageKit__Transaction_SuperIsSignalConnected(const PackageKit__Transaction* self, const QMetaMethod* signal) {
-    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
-        vpackagekittransaction->setPackageKit__Transaction_IsSignalConnected_IsBase(true);
-        return vpackagekittransaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualPackageKitTransaction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void PackageKit__Transaction_OnIsSignalConnected(const PackageKit__Transaction* self, intptr_t slot) {
-    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
-        vpackagekittransaction->setPackageKit__Transaction_IsSignalConnected_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_IsSignalConnected_Callback>(slot));
+    if (auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self))) {
+        return vpackagekittransaction->VirtualPackageKitTransaction::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method PackageKit::Transaction::isSignalConnected called without a directly constructed type");
 }
 
 void PackageKit__Transaction_Delete(PackageKit__Transaction* self) {

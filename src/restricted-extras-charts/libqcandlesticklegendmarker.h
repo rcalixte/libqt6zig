@@ -37,7 +37,7 @@ int QCandlestickLegendMarker_Type(QCandlestickLegendMarker* self);
 QCandlestickSeries* QCandlestickLegendMarker_Series(QCandlestickLegendMarker* self);
 libqt_string QCandlestickLegendMarker_Tr2(const char* s, const char* c);
 libqt_string QCandlestickLegendMarker_Tr3(const char* s, const char* c, int n);
-void QCandlestickLegendMarker_OnMetaObject(const QCandlestickLegendMarker* self, intptr_t slot);
+void QCandlestickLegendMarker_OnMetaObject(QCandlestickLegendMarker* self, intptr_t slot);
 QMetaObject* QCandlestickLegendMarker_SuperMetaObject(const QCandlestickLegendMarker* self);
 void QCandlestickLegendMarker_OnMetacast(QCandlestickLegendMarker* self, intptr_t slot);
 void* QCandlestickLegendMarker_SuperMetacast(QCandlestickLegendMarker* self, const char* param1);
@@ -69,17 +69,9 @@ void QCandlestickLegendMarker_DisconnectNotify(QCandlestickLegendMarker* self, c
 void QCandlestickLegendMarker_OnDisconnectNotify(QCandlestickLegendMarker* self, intptr_t slot);
 void QCandlestickLegendMarker_SuperDisconnectNotify(QCandlestickLegendMarker* self, const QMetaMethod* signal);
 QObject* QCandlestickLegendMarker_Sender(const QCandlestickLegendMarker* self);
-void QCandlestickLegendMarker_OnSender(const QCandlestickLegendMarker* self, intptr_t slot);
-QObject* QCandlestickLegendMarker_SuperSender(const QCandlestickLegendMarker* self);
 int QCandlestickLegendMarker_SenderSignalIndex(const QCandlestickLegendMarker* self);
-void QCandlestickLegendMarker_OnSenderSignalIndex(const QCandlestickLegendMarker* self, intptr_t slot);
-int QCandlestickLegendMarker_SuperSenderSignalIndex(const QCandlestickLegendMarker* self);
 int QCandlestickLegendMarker_Receivers(const QCandlestickLegendMarker* self, const char* signal);
-void QCandlestickLegendMarker_OnReceivers(const QCandlestickLegendMarker* self, intptr_t slot);
-int QCandlestickLegendMarker_SuperReceivers(const QCandlestickLegendMarker* self, const char* signal);
 bool QCandlestickLegendMarker_IsSignalConnected(const QCandlestickLegendMarker* self, const QMetaMethod* signal);
-void QCandlestickLegendMarker_OnIsSignalConnected(const QCandlestickLegendMarker* self, intptr_t slot);
-bool QCandlestickLegendMarker_SuperIsSignalConnected(const QCandlestickLegendMarker* self, const QMetaMethod* signal);
 void QCandlestickLegendMarker_Delete(QCandlestickLegendMarker* self);
 
 #ifdef __cplusplus

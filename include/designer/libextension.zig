@@ -18,6 +18,8 @@ pub const QAbstractExtensionFactory = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionfactory.html#extension)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractExtensionFactory `
@@ -79,77 +81,6 @@ pub const QAbstractExtensionManager = extern struct {
     ptr: QtC.QAbstractExtensionManager,
 
     pub const _is_QAbstractExtensionManager = {};
-
-    /// ### DEPRECATED: Use `registerExtensions` instead
-    ///
-    pub const RegisterExtensions = registerExtensions;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionmanager.html#registerExtensions)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractExtensionManager `
-    ///
-    /// ` factory: QAbstractExtensionFactory `
-    ///
-    /// ` iid: []const u8 `
-    ///
-    pub fn registerExtensions(self: QAbstractExtensionManager, factory: anytype, iid: []const u8) void {
-        comptime _ = @TypeOf(factory)._is_QAbstractExtensionFactory;
-        const factory_ = if (@hasDecl(@TypeOf(factory), "asQAbstractExtensionFactory")) factory.asQAbstractExtensionFactory() else factory;
-        const iid_str = qtc.libqt_string{
-            .len = iid.len,
-            .data = iid.ptr,
-        };
-        qtc.QAbstractExtensionManager_RegisterExtensions(@ptrCast(self.ptr), @ptrCast(factory_.ptr), iid_str);
-    }
-
-    /// ### DEPRECATED: Use `unregisterExtensions` instead
-    ///
-    pub const UnregisterExtensions = unregisterExtensions;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionmanager.html#unregisterExtensions)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractExtensionManager `
-    ///
-    /// ` factory: QAbstractExtensionFactory `
-    ///
-    /// ` iid: []const u8 `
-    ///
-    pub fn unregisterExtensions(self: QAbstractExtensionManager, factory: anytype, iid: []const u8) void {
-        comptime _ = @TypeOf(factory)._is_QAbstractExtensionFactory;
-        const factory_ = if (@hasDecl(@TypeOf(factory), "asQAbstractExtensionFactory")) factory.asQAbstractExtensionFactory() else factory;
-        const iid_str = qtc.libqt_string{
-            .len = iid.len,
-            .data = iid.ptr,
-        };
-        qtc.QAbstractExtensionManager_UnregisterExtensions(@ptrCast(self.ptr), @ptrCast(factory_.ptr), iid_str);
-    }
-
-    /// ### DEPRECATED: Use `extension` instead
-    ///
-    pub const Extension = extension;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionmanager.html#extension)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractExtensionManager `
-    ///
-    /// ` object: QObject `
-    ///
-    /// ` iid: []const u8 `
-    ///
-    pub fn extension(self: QAbstractExtensionManager, object: anytype, iid: []const u8) QObject {
-        comptime _ = @TypeOf(object)._is_QObject;
-        const iid_str = qtc.libqt_string{
-            .len = iid.len,
-            .data = iid.ptr,
-        };
-        return .{ .ptr = qtc.QAbstractExtensionManager_Extension(@ptrCast(self.ptr), @ptrCast(object.ptr), iid_str) };
-    }
 
     /// ### DEPRECATED: Use `operatorAssign` instead
     ///

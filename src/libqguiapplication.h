@@ -124,7 +124,7 @@ void QGuiApplication_Connect_FontChanged(QGuiApplication* self, intptr_t slot);
 bool QGuiApplication_Event(QGuiApplication* self, QEvent* param1);
 libqt_string QGuiApplication_Tr2(const char* s, const char* c);
 libqt_string QGuiApplication_Tr3(const char* s, const char* c, int n);
-void QGuiApplication_OnMetaObject(const QGuiApplication* self, intptr_t slot);
+void QGuiApplication_OnMetaObject(QGuiApplication* self, intptr_t slot);
 QMetaObject* QGuiApplication_SuperMetaObject(const QGuiApplication* self);
 void QGuiApplication_OnMetacast(QGuiApplication* self, intptr_t slot);
 void* QGuiApplication_SuperMetacast(QGuiApplication* self, const char* param1);
@@ -153,20 +153,10 @@ void QGuiApplication_DisconnectNotify(QGuiApplication* self, const QMetaMethod* 
 void QGuiApplication_OnDisconnectNotify(QGuiApplication* self, intptr_t slot);
 void QGuiApplication_SuperDisconnectNotify(QGuiApplication* self, const QMetaMethod* signal);
 void* QGuiApplication_ResolveInterface(const QGuiApplication* self, const char* name, int revision);
-void QGuiApplication_OnResolveInterface(const QGuiApplication* self, intptr_t slot);
-void* QGuiApplication_SuperResolveInterface(const QGuiApplication* self, const char* name, int revision);
 QObject* QGuiApplication_Sender(const QGuiApplication* self);
-void QGuiApplication_OnSender(const QGuiApplication* self, intptr_t slot);
-QObject* QGuiApplication_SuperSender(const QGuiApplication* self);
 int QGuiApplication_SenderSignalIndex(const QGuiApplication* self);
-void QGuiApplication_OnSenderSignalIndex(const QGuiApplication* self, intptr_t slot);
-int QGuiApplication_SuperSenderSignalIndex(const QGuiApplication* self);
 int QGuiApplication_Receivers(const QGuiApplication* self, const char* signal);
-void QGuiApplication_OnReceivers(const QGuiApplication* self, intptr_t slot);
-int QGuiApplication_SuperReceivers(const QGuiApplication* self, const char* signal);
 bool QGuiApplication_IsSignalConnected(const QGuiApplication* self, const QMetaMethod* signal);
-void QGuiApplication_OnIsSignalConnected(const QGuiApplication* self, intptr_t slot);
-bool QGuiApplication_SuperIsSignalConnected(const QGuiApplication* self, const QMetaMethod* signal);
 void QGuiApplication_Delete(QGuiApplication* self);
 
 #ifdef __cplusplus

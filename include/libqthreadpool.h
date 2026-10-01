@@ -57,7 +57,7 @@ libqt_string QThreadPool_Tr2(const char* s, const char* c);
 libqt_string QThreadPool_Tr3(const char* s, const char* c, int n);
 void QThreadPool_Start2(QThreadPool* self, QRunnable* runnable, int priority);
 bool QThreadPool_WaitForDone1(QThreadPool* self, QDeadlineTimer* deadline);
-void QThreadPool_OnMetaObject(const QThreadPool* self, intptr_t slot);
+void QThreadPool_OnMetaObject(QThreadPool* self, intptr_t slot);
 QMetaObject* QThreadPool_SuperMetaObject(const QThreadPool* self);
 void QThreadPool_OnMetacast(QThreadPool* self, intptr_t slot);
 void* QThreadPool_SuperMetacast(QThreadPool* self, const char* param1);
@@ -85,17 +85,9 @@ void QThreadPool_DisconnectNotify(QThreadPool* self, const QMetaMethod* signal);
 void QThreadPool_OnDisconnectNotify(QThreadPool* self, intptr_t slot);
 void QThreadPool_SuperDisconnectNotify(QThreadPool* self, const QMetaMethod* signal);
 QObject* QThreadPool_Sender(const QThreadPool* self);
-void QThreadPool_OnSender(const QThreadPool* self, intptr_t slot);
-QObject* QThreadPool_SuperSender(const QThreadPool* self);
 int QThreadPool_SenderSignalIndex(const QThreadPool* self);
-void QThreadPool_OnSenderSignalIndex(const QThreadPool* self, intptr_t slot);
-int QThreadPool_SuperSenderSignalIndex(const QThreadPool* self);
 int QThreadPool_Receivers(const QThreadPool* self, const char* signal);
-void QThreadPool_OnReceivers(const QThreadPool* self, intptr_t slot);
-int QThreadPool_SuperReceivers(const QThreadPool* self, const char* signal);
 bool QThreadPool_IsSignalConnected(const QThreadPool* self, const QMetaMethod* signal);
-void QThreadPool_OnIsSignalConnected(const QThreadPool* self, intptr_t slot);
-bool QThreadPool_SuperIsSignalConnected(const QThreadPool* self, const QMetaMethod* signal);
 void QThreadPool_Delete(QThreadPool* self);
 
 #ifdef __cplusplus

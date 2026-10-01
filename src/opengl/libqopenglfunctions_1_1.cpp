@@ -1354,104 +1354,37 @@ void QOpenGLFunctions_1_1_GlArrayElement(QOpenGLFunctions_1_1* self, int32_t i) 
 
 // Base class handler implementation
 bool QOpenGLFunctions_1_1_SuperInitializeOpenGLFunctions(QOpenGLFunctions_1_1* self) {
-    auto* vqopenglfunctions_1_1 = dynamic_cast<VirtualQOpenGLFunctions_1_1*>(self);
-    if (vqopenglfunctions_1_1 && vqopenglfunctions_1_1->isVirtualQOpenGLFunctions_1_1) {
-        vqopenglfunctions_1_1->setQOpenGLFunctions_1_1_InitializeOpenGLFunctions_IsBase(true);
-        return vqopenglfunctions_1_1->initializeOpenGLFunctions();
-    } else {
-        return self->QOpenGLFunctions_1_1::initializeOpenGLFunctions();
-    }
+    return self->QOpenGLFunctions_1_1::initializeOpenGLFunctions();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLFunctions_1_1_OnInitializeOpenGLFunctions(QOpenGLFunctions_1_1* self, intptr_t slot) {
-    auto* vqopenglfunctions_1_1 = dynamic_cast<VirtualQOpenGLFunctions_1_1*>(self);
-    if (vqopenglfunctions_1_1 && vqopenglfunctions_1_1->isVirtualQOpenGLFunctions_1_1)
-        vqopenglfunctions_1_1->setQOpenGLFunctions_1_1_InitializeOpenGLFunctions_Callback(reinterpret_cast<VirtualQOpenGLFunctions_1_1::QOpenGLFunctions_1_1_InitializeOpenGLFunctions_Callback>(slot));
+    if (auto* vqopenglfunctions_1_1 = dynamic_cast<VirtualQOpenGLFunctions_1_1*>(self))
+        vqopenglfunctions_1_1->qopenglfunctions_1_1_initializeopenglfunctions_callback = reinterpret_cast<VirtualQOpenGLFunctions_1_1::QOpenGLFunctions_1_1_InitializeOpenGLFunctions_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QOpenGLFunctions_1_1_IsInitialized(const QOpenGLFunctions_1_1* self) {
-    auto* vqopenglfunctions_1_1 = const_cast<VirtualQOpenGLFunctions_1_1*>(dynamic_cast<const VirtualQOpenGLFunctions_1_1*>(self));
-    if (vqopenglfunctions_1_1 && vqopenglfunctions_1_1->isVirtualQOpenGLFunctions_1_1) {
-        return vqopenglfunctions_1_1->isInitialized();
-    } else {
-        return ((VirtualQOpenGLFunctions_1_1*)self)->isInitialized();
-    }
+    if (auto* vqopenglfunctions_1_1 = const_cast<VirtualQOpenGLFunctions_1_1*>(dynamic_cast<const VirtualQOpenGLFunctions_1_1*>(self))) {
+        return vqopenglfunctions_1_1->VirtualQOpenGLFunctions_1_1::isInitialized();
+    } else
+        qFatal("Error: Protected method QOpenGLFunctions_1_1::isInitialized called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QOpenGLFunctions_1_1_SuperIsInitialized(const QOpenGLFunctions_1_1* self) {
-    auto* vqopenglfunctions_1_1 = const_cast<VirtualQOpenGLFunctions_1_1*>(dynamic_cast<const VirtualQOpenGLFunctions_1_1*>(self));
-    if (vqopenglfunctions_1_1 && vqopenglfunctions_1_1->isVirtualQOpenGLFunctions_1_1) {
-        vqopenglfunctions_1_1->setQOpenGLFunctions_1_1_IsInitialized_IsBase(true);
-        return vqopenglfunctions_1_1->isInitialized();
-    } else {
-        return ((VirtualQOpenGLFunctions_1_1*)self)->isInitialized();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLFunctions_1_1_OnIsInitialized(const QOpenGLFunctions_1_1* self, intptr_t slot) {
-    auto* vqopenglfunctions_1_1 = const_cast<VirtualQOpenGLFunctions_1_1*>(dynamic_cast<const VirtualQOpenGLFunctions_1_1*>(self));
-    if (vqopenglfunctions_1_1 && vqopenglfunctions_1_1->isVirtualQOpenGLFunctions_1_1)
-        vqopenglfunctions_1_1->setQOpenGLFunctions_1_1_IsInitialized_Callback(reinterpret_cast<VirtualQOpenGLFunctions_1_1::QOpenGLFunctions_1_1_IsInitialized_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QOpenGLFunctions_1_1_SetOwningContext(QOpenGLFunctions_1_1* self, const QOpenGLContext* context) {
-    auto* vqopenglfunctions_1_1 = dynamic_cast<VirtualQOpenGLFunctions_1_1*>(self);
-    if (vqopenglfunctions_1_1 && vqopenglfunctions_1_1->isVirtualQOpenGLFunctions_1_1) {
-        vqopenglfunctions_1_1->setOwningContext(context);
-    } else {
-        ((VirtualQOpenGLFunctions_1_1*)self)->setOwningContext(context);
-    }
+    if (auto* vqopenglfunctions_1_1 = dynamic_cast<VirtualQOpenGLFunctions_1_1*>(self)) {
+        vqopenglfunctions_1_1->VirtualQOpenGLFunctions_1_1::setOwningContext(context);
+    } else
+        qFatal("Error: Protected method QOpenGLFunctions_1_1::setOwningContext called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QOpenGLFunctions_1_1_SuperSetOwningContext(QOpenGLFunctions_1_1* self, const QOpenGLContext* context) {
-    auto* vqopenglfunctions_1_1 = dynamic_cast<VirtualQOpenGLFunctions_1_1*>(self);
-    if (vqopenglfunctions_1_1 && vqopenglfunctions_1_1->isVirtualQOpenGLFunctions_1_1) {
-        vqopenglfunctions_1_1->setQOpenGLFunctions_1_1_SetOwningContext_IsBase(true);
-        vqopenglfunctions_1_1->setOwningContext(context);
-    } else {
-        ((VirtualQOpenGLFunctions_1_1*)self)->setOwningContext(context);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLFunctions_1_1_OnSetOwningContext(QOpenGLFunctions_1_1* self, intptr_t slot) {
-    auto* vqopenglfunctions_1_1 = dynamic_cast<VirtualQOpenGLFunctions_1_1*>(self);
-    if (vqopenglfunctions_1_1 && vqopenglfunctions_1_1->isVirtualQOpenGLFunctions_1_1)
-        vqopenglfunctions_1_1->setQOpenGLFunctions_1_1_SetOwningContext_Callback(reinterpret_cast<VirtualQOpenGLFunctions_1_1::QOpenGLFunctions_1_1_SetOwningContext_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QOpenGLContext* QOpenGLFunctions_1_1_OwningContext(const QOpenGLFunctions_1_1* self) {
-    auto* vqopenglfunctions_1_1 = const_cast<VirtualQOpenGLFunctions_1_1*>(dynamic_cast<const VirtualQOpenGLFunctions_1_1*>(self));
-    if (vqopenglfunctions_1_1 && vqopenglfunctions_1_1->isVirtualQOpenGLFunctions_1_1) {
-        return vqopenglfunctions_1_1->owningContext();
-    } else {
-        return ((VirtualQOpenGLFunctions_1_1*)self)->owningContext();
-    }
-}
-
-// Base class handler implementation
-QOpenGLContext* QOpenGLFunctions_1_1_SuperOwningContext(const QOpenGLFunctions_1_1* self) {
-    auto* vqopenglfunctions_1_1 = const_cast<VirtualQOpenGLFunctions_1_1*>(dynamic_cast<const VirtualQOpenGLFunctions_1_1*>(self));
-    if (vqopenglfunctions_1_1 && vqopenglfunctions_1_1->isVirtualQOpenGLFunctions_1_1) {
-        vqopenglfunctions_1_1->setQOpenGLFunctions_1_1_OwningContext_IsBase(true);
-        return vqopenglfunctions_1_1->owningContext();
-    } else {
-        return ((VirtualQOpenGLFunctions_1_1*)self)->owningContext();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLFunctions_1_1_OnOwningContext(const QOpenGLFunctions_1_1* self, intptr_t slot) {
-    auto* vqopenglfunctions_1_1 = const_cast<VirtualQOpenGLFunctions_1_1*>(dynamic_cast<const VirtualQOpenGLFunctions_1_1*>(self));
-    if (vqopenglfunctions_1_1 && vqopenglfunctions_1_1->isVirtualQOpenGLFunctions_1_1)
-        vqopenglfunctions_1_1->setQOpenGLFunctions_1_1_OwningContext_Callback(reinterpret_cast<VirtualQOpenGLFunctions_1_1::QOpenGLFunctions_1_1_OwningContext_Callback>(slot));
+    if (auto* vqopenglfunctions_1_1 = const_cast<VirtualQOpenGLFunctions_1_1*>(dynamic_cast<const VirtualQOpenGLFunctions_1_1*>(self))) {
+        return vqopenglfunctions_1_1->VirtualQOpenGLFunctions_1_1::owningContext();
+    } else
+        qFatal("Error: Protected method QOpenGLFunctions_1_1::owningContext called without a directly constructed type");
 }
 
 void QOpenGLFunctions_1_1_Delete(QOpenGLFunctions_1_1* self) {

@@ -136,2253 +136,1162 @@ libqt_string KRearrangeColumnsProxyModel_Tr3(const char* s, const char* c, int n
 
 // Base class handler implementation
 QMetaObject* KRearrangeColumnsProxyModel_SuperMetaObject(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MetaObject_IsBase(true);
-        return (QMetaObject*)vkrearrangecolumnsproxymodel->metaObject();
-    } else {
-        return (QMetaObject*)self->KRearrangeColumnsProxyModel::metaObject();
-    }
+    return (QMetaObject*)self->KRearrangeColumnsProxyModel::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnMetaObject(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MetaObject_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MetaObject_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnMetaObject(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_metaobject_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KRearrangeColumnsProxyModel_SuperMetacast(KRearrangeColumnsProxyModel* self, const char* param1) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Metacast_IsBase(true);
-        return vkrearrangecolumnsproxymodel->qt_metacast(param1);
-    } else {
-        return self->KRearrangeColumnsProxyModel::qt_metacast(param1);
-    }
+    return self->KRearrangeColumnsProxyModel::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnMetacast(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Metacast_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Metacast_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_metacast_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KRearrangeColumnsProxyModel_SuperMetacall(KRearrangeColumnsProxyModel* self, int param1, int param2, void** param3) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Metacall_IsBase(true);
-        return vkrearrangecolumnsproxymodel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KRearrangeColumnsProxyModel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KRearrangeColumnsProxyModel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnMetacall(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Metacall_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Metacall_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_metacall_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int KRearrangeColumnsProxyModel_SuperColumnCount(const KRearrangeColumnsProxyModel* self, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ColumnCount_IsBase(true);
-        return vkrearrangecolumnsproxymodel->columnCount(*parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::columnCount(*parent);
-    }
+    return self->KRearrangeColumnsProxyModel::columnCount(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnColumnCount(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ColumnCount_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_ColumnCount_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnColumnCount(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_columncount_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_ColumnCount_Callback>(slot);
 }
 
 // Base class handler implementation
 int KRearrangeColumnsProxyModel_SuperRowCount(const KRearrangeColumnsProxyModel* self, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_RowCount_IsBase(true);
-        return vkrearrangecolumnsproxymodel->rowCount(*parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::rowCount(*parent);
-    }
+    return self->KRearrangeColumnsProxyModel::rowCount(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnRowCount(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_RowCount_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_RowCount_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnRowCount(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_rowcount_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_RowCount_Callback>(slot);
 }
 
 // Base class handler implementation
 QModelIndex* KRearrangeColumnsProxyModel_SuperIndex(const KRearrangeColumnsProxyModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Index_IsBase(true);
-        return new QModelIndex(vkrearrangecolumnsproxymodel->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualKRearrangeColumnsProxyModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->KRearrangeColumnsProxyModel::index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnIndex(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Index_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Index_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnIndex(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_index_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Index_Callback>(slot);
 }
 
 // Base class handler implementation
 QModelIndex* KRearrangeColumnsProxyModel_SuperParent(const KRearrangeColumnsProxyModel* self, const QModelIndex* child) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Parent_IsBase(true);
-        return new QModelIndex(vkrearrangecolumnsproxymodel->parent(*child));
-    } else {
-        return new QModelIndex(((VirtualKRearrangeColumnsProxyModel*)self)->parent(*child));
-    }
+    return new QModelIndex(self->KRearrangeColumnsProxyModel::parent(*child));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnParent(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Parent_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Parent_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnParent(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_parent_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Parent_Callback>(slot);
 }
 
 // Base class handler implementation
 QModelIndex* KRearrangeColumnsProxyModel_SuperMapFromSource(const KRearrangeColumnsProxyModel* self, const QModelIndex* sourceIndex) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MapFromSource_IsBase(true);
-        return new QModelIndex(vkrearrangecolumnsproxymodel->mapFromSource(*sourceIndex));
-    } else {
-        return new QModelIndex(((VirtualKRearrangeColumnsProxyModel*)self)->mapFromSource(*sourceIndex));
-    }
+    return new QModelIndex(self->KRearrangeColumnsProxyModel::mapFromSource(*sourceIndex));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnMapFromSource(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MapFromSource_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MapFromSource_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnMapFromSource(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_mapfromsource_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MapFromSource_Callback>(slot);
 }
 
 // Base class handler implementation
 QModelIndex* KRearrangeColumnsProxyModel_SuperMapToSource(const KRearrangeColumnsProxyModel* self, const QModelIndex* proxyIndex) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MapToSource_IsBase(true);
-        return new QModelIndex(vkrearrangecolumnsproxymodel->mapToSource(*proxyIndex));
-    } else {
-        return new QModelIndex(((VirtualKRearrangeColumnsProxyModel*)self)->mapToSource(*proxyIndex));
-    }
+    return new QModelIndex(self->KRearrangeColumnsProxyModel::mapToSource(*proxyIndex));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnMapToSource(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MapToSource_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MapToSource_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnMapToSource(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_maptosource_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MapToSource_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* KRearrangeColumnsProxyModel_SuperHeaderData(const KRearrangeColumnsProxyModel* self, int section, int orientation, int role) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_HeaderData_IsBase(true);
-        return new QVariant(vkrearrangecolumnsproxymodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKRearrangeColumnsProxyModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->KRearrangeColumnsProxyModel::headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnHeaderData(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_HeaderData_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_HeaderData_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnHeaderData(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_headerdata_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_HeaderData_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperHasChildren(const KRearrangeColumnsProxyModel* self, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_HasChildren_IsBase(true);
-        return vkrearrangecolumnsproxymodel->hasChildren(*parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::hasChildren(*parent);
-    }
+    return self->KRearrangeColumnsProxyModel::hasChildren(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnHasChildren(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_HasChildren_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_HasChildren_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnHasChildren(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_haschildren_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_HasChildren_Callback>(slot);
 }
 
 // Base class handler implementation
 QModelIndex* KRearrangeColumnsProxyModel_SuperSibling(const KRearrangeColumnsProxyModel* self, int row, int column, const QModelIndex* idx) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Sibling_IsBase(true);
-        return new QModelIndex(vkrearrangecolumnsproxymodel->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    } else {
-        return new QModelIndex(((VirtualKRearrangeColumnsProxyModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    }
+    return new QModelIndex(self->KRearrangeColumnsProxyModel::sibling(static_cast<int>(row), static_cast<int>(column), *idx));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnSibling(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Sibling_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Sibling_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnSibling(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_sibling_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Sibling_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_DropMimeData(KRearrangeColumnsProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperDropMimeData(KRearrangeColumnsProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_DropMimeData_IsBase(true);
-        return vkrearrangecolumnsproxymodel->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->KRearrangeColumnsProxyModel::dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnDropMimeData(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_DropMimeData_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_DropMimeData_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_dropmimedata_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_DropMimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 QItemSelection* KRearrangeColumnsProxyModel_MapSelectionFromSource(const KRearrangeColumnsProxyModel* self, const QItemSelection* selection) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return new QItemSelection(vkrearrangecolumnsproxymodel->mapSelectionFromSource(*selection));
-    } else {
-        return new QItemSelection(((VirtualKRearrangeColumnsProxyModel*)self)->mapSelectionFromSource(*selection));
-    }
+    return new QItemSelection(self->mapSelectionFromSource(*selection));
 }
 
 // Base class handler implementation
 QItemSelection* KRearrangeColumnsProxyModel_SuperMapSelectionFromSource(const KRearrangeColumnsProxyModel* self, const QItemSelection* selection) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MapSelectionFromSource_IsBase(true);
-        return new QItemSelection(vkrearrangecolumnsproxymodel->mapSelectionFromSource(*selection));
-    } else {
-        return new QItemSelection(((VirtualKRearrangeColumnsProxyModel*)self)->mapSelectionFromSource(*selection));
-    }
+    return new QItemSelection(self->KRearrangeColumnsProxyModel::mapSelectionFromSource(*selection));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnMapSelectionFromSource(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MapSelectionFromSource_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MapSelectionFromSource_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnMapSelectionFromSource(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_mapselectionfromsource_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MapSelectionFromSource_Callback>(slot);
 }
 
 // Derived class handler implementation
 QItemSelection* KRearrangeColumnsProxyModel_MapSelectionToSource(const KRearrangeColumnsProxyModel* self, const QItemSelection* selection) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return new QItemSelection(vkrearrangecolumnsproxymodel->mapSelectionToSource(*selection));
-    } else {
-        return new QItemSelection(((VirtualKRearrangeColumnsProxyModel*)self)->mapSelectionToSource(*selection));
-    }
+    return new QItemSelection(self->mapSelectionToSource(*selection));
 }
 
 // Base class handler implementation
 QItemSelection* KRearrangeColumnsProxyModel_SuperMapSelectionToSource(const KRearrangeColumnsProxyModel* self, const QItemSelection* selection) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MapSelectionToSource_IsBase(true);
-        return new QItemSelection(vkrearrangecolumnsproxymodel->mapSelectionToSource(*selection));
-    } else {
-        return new QItemSelection(((VirtualKRearrangeColumnsProxyModel*)self)->mapSelectionToSource(*selection));
-    }
+    return new QItemSelection(self->KRearrangeColumnsProxyModel::mapSelectionToSource(*selection));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnMapSelectionToSource(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MapSelectionToSource_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MapSelectionToSource_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnMapSelectionToSource(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_mapselectiontosource_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MapSelectionToSource_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of QModelIndex* */ KRearrangeColumnsProxyModel_Match(const KRearrangeColumnsProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        QList<QModelIndex> _ret = vkrearrangecolumnsproxymodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = self->KRearrangeColumnsProxyModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QModelIndex> _ret = self->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QModelIndex(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of QModelIndex* */ KRearrangeColumnsProxyModel_SuperMatch(const KRearrangeColumnsProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Match_IsBase(true);
-        QList<QModelIndex> _ret = vkrearrangecolumnsproxymodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = self->KRearrangeColumnsProxyModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QModelIndex> _ret = self->KRearrangeColumnsProxyModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QModelIndex(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnMatch(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Match_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Match_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnMatch(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_match_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Match_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRearrangeColumnsProxyModel_SetSourceModel(KRearrangeColumnsProxyModel* self, QAbstractItemModel* sourceModel) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setSourceModel(sourceModel);
-    } else {
-        self->KRearrangeColumnsProxyModel::setSourceModel(sourceModel);
-    }
+    self->setSourceModel(sourceModel);
 }
 
 // Base class handler implementation
 void KRearrangeColumnsProxyModel_SuperSetSourceModel(KRearrangeColumnsProxyModel* self, QAbstractItemModel* sourceModel) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SetSourceModel_IsBase(true);
-        vkrearrangecolumnsproxymodel->setSourceModel(sourceModel);
-    } else {
-        self->KRearrangeColumnsProxyModel::setSourceModel(sourceModel);
-    }
+    self->KRearrangeColumnsProxyModel::setSourceModel(sourceModel);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnSetSourceModel(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SetSourceModel_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SetSourceModel_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_setsourcemodel_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SetSourceModel_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_InsertColumns(KRearrangeColumnsProxyModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperInsertColumns(KRearrangeColumnsProxyModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_InsertColumns_IsBase(true);
-        return vkrearrangecolumnsproxymodel->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->KRearrangeColumnsProxyModel::insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnInsertColumns(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_InsertColumns_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_InsertColumns_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_insertcolumns_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_InsertColumns_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_InsertRows(KRearrangeColumnsProxyModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperInsertRows(KRearrangeColumnsProxyModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_InsertRows_IsBase(true);
-        return vkrearrangecolumnsproxymodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->KRearrangeColumnsProxyModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnInsertRows(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_InsertRows_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_InsertRows_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_insertrows_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_InsertRows_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_RemoveColumns(KRearrangeColumnsProxyModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperRemoveColumns(KRearrangeColumnsProxyModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_RemoveColumns_IsBase(true);
-        return vkrearrangecolumnsproxymodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->KRearrangeColumnsProxyModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnRemoveColumns(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_RemoveColumns_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_RemoveColumns_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_removecolumns_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_RemoveColumns_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_RemoveRows(KRearrangeColumnsProxyModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperRemoveRows(KRearrangeColumnsProxyModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_RemoveRows_IsBase(true);
-        return vkrearrangecolumnsproxymodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->KRearrangeColumnsProxyModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnRemoveRows(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_RemoveRows_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_RemoveRows_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_removerows_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_RemoveRows_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_MoveRows(KRearrangeColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->KRearrangeColumnsProxyModel::moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperMoveRows(KRearrangeColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MoveRows_IsBase(true);
-        return vkrearrangecolumnsproxymodel->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->KRearrangeColumnsProxyModel::moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->KRearrangeColumnsProxyModel::moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnMoveRows(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MoveRows_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MoveRows_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_moverows_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MoveRows_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_MoveColumns(KRearrangeColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->KRearrangeColumnsProxyModel::moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperMoveColumns(KRearrangeColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MoveColumns_IsBase(true);
-        return vkrearrangecolumnsproxymodel->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->KRearrangeColumnsProxyModel::moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->KRearrangeColumnsProxyModel::moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnMoveColumns(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MoveColumns_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MoveColumns_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_movecolumns_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MoveColumns_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_Submit(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->submit();
-    } else {
-        return self->KRearrangeColumnsProxyModel::submit();
-    }
+    return self->submit();
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperSubmit(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Submit_IsBase(true);
-        return vkrearrangecolumnsproxymodel->submit();
-    } else {
-        return self->KRearrangeColumnsProxyModel::submit();
-    }
+    return self->KRearrangeColumnsProxyModel::submit();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnSubmit(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Submit_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Submit_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_submit_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Submit_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRearrangeColumnsProxyModel_Revert(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->revert();
-    } else {
-        self->KRearrangeColumnsProxyModel::revert();
-    }
+    self->revert();
 }
 
 // Base class handler implementation
 void KRearrangeColumnsProxyModel_SuperRevert(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Revert_IsBase(true);
-        vkrearrangecolumnsproxymodel->revert();
-    } else {
-        self->KRearrangeColumnsProxyModel::revert();
-    }
+    self->KRearrangeColumnsProxyModel::revert();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnRevert(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Revert_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Revert_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_revert_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Revert_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KRearrangeColumnsProxyModel_Data(const KRearrangeColumnsProxyModel* self, const QModelIndex* proxyIndex, int role) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return new QVariant(vkrearrangecolumnsproxymodel->data(*proxyIndex, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKRearrangeColumnsProxyModel*)self)->data(*proxyIndex, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*proxyIndex, static_cast<int>(role)));
 }
 
 // Base class handler implementation
 QVariant* KRearrangeColumnsProxyModel_SuperData(const KRearrangeColumnsProxyModel* self, const QModelIndex* proxyIndex, int role) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Data_IsBase(true);
-        return new QVariant(vkrearrangecolumnsproxymodel->data(*proxyIndex, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKRearrangeColumnsProxyModel*)self)->data(*proxyIndex, static_cast<int>(role)));
-    }
+    return new QVariant(self->KRearrangeColumnsProxyModel::data(*proxyIndex, static_cast<int>(role)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnData(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Data_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Data_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnData(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_data_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Data_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_map /* of int to QVariant* */ KRearrangeColumnsProxyModel_ItemData(const KRearrangeColumnsProxyModel* self, const QModelIndex* index) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        QMap<int, QVariant> _ret = vkrearrangecolumnsproxymodel->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<int, QVariant> _ret = self->KRearrangeColumnsProxyModel::itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QMap<int, QVariant> _ret = self->itemData(*index);
+    // Convert QMap<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        _varr[_ctr] = new QVariant(_itr->second);
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_map /* of int to QVariant* */ KRearrangeColumnsProxyModel_SuperItemData(const KRearrangeColumnsProxyModel* self, const QModelIndex* index) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ItemData_IsBase(true);
-        QMap<int, QVariant> _ret = vkrearrangecolumnsproxymodel->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<int, QVariant> _ret = self->KRearrangeColumnsProxyModel::itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QMap<int, QVariant> _ret = self->KRearrangeColumnsProxyModel::itemData(*index);
+    // Convert QMap<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        _varr[_ctr] = new QVariant(_itr->second);
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnItemData(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ItemData_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_ItemData_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnItemData(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_itemdata_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_ItemData_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRearrangeColumnsProxyModel_Flags(const KRearrangeColumnsProxyModel* self, const QModelIndex* index) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return static_cast<int>(vkrearrangecolumnsproxymodel->flags(*index));
-    } else {
-        return static_cast<int>(self->KRearrangeColumnsProxyModel::flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 // Base class handler implementation
 int KRearrangeColumnsProxyModel_SuperFlags(const KRearrangeColumnsProxyModel* self, const QModelIndex* index) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Flags_IsBase(true);
-        return static_cast<int>(vkrearrangecolumnsproxymodel->flags(*index));
-    } else {
-        return static_cast<int>(self->KRearrangeColumnsProxyModel::flags(*index));
-    }
+    return static_cast<int>(self->KRearrangeColumnsProxyModel::flags(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnFlags(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Flags_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Flags_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnFlags(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_flags_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Flags_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_SetData(KRearrangeColumnsProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return self->KRearrangeColumnsProxyModel::setData(*index, *value, static_cast<int>(role));
-    }
+    return self->setData(*index, *value, static_cast<int>(role));
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperSetData(KRearrangeColumnsProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SetData_IsBase(true);
-        return vkrearrangecolumnsproxymodel->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return self->KRearrangeColumnsProxyModel::setData(*index, *value, static_cast<int>(role));
-    }
+    return self->KRearrangeColumnsProxyModel::setData(*index, *value, static_cast<int>(role));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnSetData(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SetData_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SetData_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_setdata_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SetData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_SetItemData(KRearrangeColumnsProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->setItemData(*index, roles_QMap);
-    } else {
-        return self->KRearrangeColumnsProxyModel::setItemData(*index, roles_QMap);
-    }
+    return self->setItemData(*index, roles_QMap);
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperSetItemData(KRearrangeColumnsProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SetItemData_IsBase(true);
-        return vkrearrangecolumnsproxymodel->setItemData(*index, roles_QMap);
-    } else {
-        return self->KRearrangeColumnsProxyModel::setItemData(*index, roles_QMap);
-    }
+    return self->KRearrangeColumnsProxyModel::setItemData(*index, roles_QMap);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnSetItemData(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SetItemData_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SetItemData_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_setitemdata_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SetItemData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_SetHeaderData(KRearrangeColumnsProxyModel* self, int section, int orientation, const QVariant* value, int role) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    } else {
-        return self->KRearrangeColumnsProxyModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    }
+    return self->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperSetHeaderData(KRearrangeColumnsProxyModel* self, int section, int orientation, const QVariant* value, int role) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SetHeaderData_IsBase(true);
-        return vkrearrangecolumnsproxymodel->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    } else {
-        return self->KRearrangeColumnsProxyModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    }
+    return self->KRearrangeColumnsProxyModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnSetHeaderData(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SetHeaderData_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SetHeaderData_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_setheaderdata_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SetHeaderData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_ClearItemData(KRearrangeColumnsProxyModel* self, const QModelIndex* index) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->clearItemData(*index);
-    } else {
-        return self->KRearrangeColumnsProxyModel::clearItemData(*index);
-    }
+    return self->clearItemData(*index);
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperClearItemData(KRearrangeColumnsProxyModel* self, const QModelIndex* index) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ClearItemData_IsBase(true);
-        return vkrearrangecolumnsproxymodel->clearItemData(*index);
-    } else {
-        return self->KRearrangeColumnsProxyModel::clearItemData(*index);
-    }
+    return self->KRearrangeColumnsProxyModel::clearItemData(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnClearItemData(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ClearItemData_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_ClearItemData_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_clearitemdata_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_ClearItemData_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* KRearrangeColumnsProxyModel_Buddy(const KRearrangeColumnsProxyModel* self, const QModelIndex* index) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return new QModelIndex(vkrearrangecolumnsproxymodel->buddy(*index));
-    } else {
-        return new QModelIndex(((VirtualKRearrangeColumnsProxyModel*)self)->buddy(*index));
-    }
+    return new QModelIndex(self->buddy(*index));
 }
 
 // Base class handler implementation
 QModelIndex* KRearrangeColumnsProxyModel_SuperBuddy(const KRearrangeColumnsProxyModel* self, const QModelIndex* index) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Buddy_IsBase(true);
-        return new QModelIndex(vkrearrangecolumnsproxymodel->buddy(*index));
-    } else {
-        return new QModelIndex(((VirtualKRearrangeColumnsProxyModel*)self)->buddy(*index));
-    }
+    return new QModelIndex(self->KRearrangeColumnsProxyModel::buddy(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnBuddy(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Buddy_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Buddy_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnBuddy(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_buddy_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Buddy_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_CanFetchMore(const KRearrangeColumnsProxyModel* self, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->canFetchMore(*parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::canFetchMore(*parent);
-    }
+    return self->canFetchMore(*parent);
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperCanFetchMore(const KRearrangeColumnsProxyModel* self, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_CanFetchMore_IsBase(true);
-        return vkrearrangecolumnsproxymodel->canFetchMore(*parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::canFetchMore(*parent);
-    }
+    return self->KRearrangeColumnsProxyModel::canFetchMore(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnCanFetchMore(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_CanFetchMore_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_CanFetchMore_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnCanFetchMore(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_canfetchmore_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_CanFetchMore_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRearrangeColumnsProxyModel_FetchMore(KRearrangeColumnsProxyModel* self, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->fetchMore(*parent);
-    } else {
-        self->KRearrangeColumnsProxyModel::fetchMore(*parent);
-    }
+    self->fetchMore(*parent);
 }
 
 // Base class handler implementation
 void KRearrangeColumnsProxyModel_SuperFetchMore(KRearrangeColumnsProxyModel* self, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_FetchMore_IsBase(true);
-        vkrearrangecolumnsproxymodel->fetchMore(*parent);
-    } else {
-        self->KRearrangeColumnsProxyModel::fetchMore(*parent);
-    }
+    self->KRearrangeColumnsProxyModel::fetchMore(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnFetchMore(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_FetchMore_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_FetchMore_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_fetchmore_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_FetchMore_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRearrangeColumnsProxyModel_Sort(KRearrangeColumnsProxyModel* self, int column, int order) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        self->KRearrangeColumnsProxyModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
+    self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
 }
 
 // Base class handler implementation
 void KRearrangeColumnsProxyModel_SuperSort(KRearrangeColumnsProxyModel* self, int column, int order) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Sort_IsBase(true);
-        vkrearrangecolumnsproxymodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        self->KRearrangeColumnsProxyModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
+    self->KRearrangeColumnsProxyModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnSort(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Sort_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Sort_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_sort_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Sort_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KRearrangeColumnsProxyModel_Span(const KRearrangeColumnsProxyModel* self, const QModelIndex* index) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return new QSize(vkrearrangecolumnsproxymodel->span(*index));
-    } else {
-        return new QSize(((VirtualKRearrangeColumnsProxyModel*)self)->span(*index));
-    }
+    return new QSize(self->span(*index));
 }
 
 // Base class handler implementation
 QSize* KRearrangeColumnsProxyModel_SuperSpan(const KRearrangeColumnsProxyModel* self, const QModelIndex* index) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Span_IsBase(true);
-        return new QSize(vkrearrangecolumnsproxymodel->span(*index));
-    } else {
-        return new QSize(((VirtualKRearrangeColumnsProxyModel*)self)->span(*index));
-    }
+    return new QSize(self->KRearrangeColumnsProxyModel::span(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnSpan(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Span_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Span_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnSpan(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_span_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Span_Callback>(slot);
 }
 
 // Derived class handler implementation
 QMimeData* KRearrangeColumnsProxyModel_MimeData(const KRearrangeColumnsProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
         indexes_QList.push_back(*(indexes_arr[i]));
     }
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->mimeData(indexes_QList);
-    } else {
-        return self->KRearrangeColumnsProxyModel::mimeData(indexes_QList);
-    }
+    return self->mimeData(indexes_QList);
 }
 
 // Base class handler implementation
 QMimeData* KRearrangeColumnsProxyModel_SuperMimeData(const KRearrangeColumnsProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
         indexes_QList.push_back(*(indexes_arr[i]));
     }
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MimeData_IsBase(true);
-        return vkrearrangecolumnsproxymodel->mimeData(indexes_QList);
-    } else {
-        return self->KRearrangeColumnsProxyModel::mimeData(indexes_QList);
-    }
+    return self->KRearrangeColumnsProxyModel::mimeData(indexes_QList);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnMimeData(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MimeData_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MimeData_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnMimeData(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_mimedata_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_CanDropMimeData(const KRearrangeColumnsProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperCanDropMimeData(const KRearrangeColumnsProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_CanDropMimeData_IsBase(true);
-        return vkrearrangecolumnsproxymodel->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->KRearrangeColumnsProxyModel::canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->KRearrangeColumnsProxyModel::canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnCanDropMimeData(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_CanDropMimeData_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_CanDropMimeData_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnCanDropMimeData(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_candropmimedata_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_CanDropMimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of libqt_string */ KRearrangeColumnsProxyModel_MimeTypes(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        QList<QString> _ret = vkrearrangecolumnsproxymodel->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->KRearrangeColumnsProxyModel::mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->mimeTypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ KRearrangeColumnsProxyModel_SuperMimeTypes(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MimeTypes_IsBase(true);
-        QList<QString> _ret = vkrearrangecolumnsproxymodel->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->KRearrangeColumnsProxyModel::mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->KRearrangeColumnsProxyModel::mimeTypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnMimeTypes(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MimeTypes_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MimeTypes_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnMimeTypes(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_mimetypes_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MimeTypes_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRearrangeColumnsProxyModel_SupportedDragActions(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return static_cast<int>(vkrearrangecolumnsproxymodel->supportedDragActions());
-    } else {
-        return static_cast<int>(self->KRearrangeColumnsProxyModel::supportedDragActions());
-    }
+    return static_cast<int>(self->supportedDragActions());
 }
 
 // Base class handler implementation
 int KRearrangeColumnsProxyModel_SuperSupportedDragActions(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SupportedDragActions_IsBase(true);
-        return static_cast<int>(vkrearrangecolumnsproxymodel->supportedDragActions());
-    } else {
-        return static_cast<int>(self->KRearrangeColumnsProxyModel::supportedDragActions());
-    }
+    return static_cast<int>(self->KRearrangeColumnsProxyModel::supportedDragActions());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnSupportedDragActions(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SupportedDragActions_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SupportedDragActions_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnSupportedDragActions(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_supporteddragactions_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SupportedDragActions_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRearrangeColumnsProxyModel_SupportedDropActions(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return static_cast<int>(vkrearrangecolumnsproxymodel->supportedDropActions());
-    } else {
-        return static_cast<int>(self->KRearrangeColumnsProxyModel::supportedDropActions());
-    }
+    return static_cast<int>(self->supportedDropActions());
 }
 
 // Base class handler implementation
 int KRearrangeColumnsProxyModel_SuperSupportedDropActions(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SupportedDropActions_IsBase(true);
-        return static_cast<int>(vkrearrangecolumnsproxymodel->supportedDropActions());
-    } else {
-        return static_cast<int>(self->KRearrangeColumnsProxyModel::supportedDropActions());
-    }
+    return static_cast<int>(self->KRearrangeColumnsProxyModel::supportedDropActions());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnSupportedDropActions(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SupportedDropActions_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SupportedDropActions_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnSupportedDropActions(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_supporteddropactions_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SupportedDropActions_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_map /* of int to libqt_string */ KRearrangeColumnsProxyModel_RoleNames(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        QHash<int, QByteArray> _ret = vkrearrangecolumnsproxymodel->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = self->KRearrangeColumnsProxyModel::roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_map /* of int to libqt_string */ KRearrangeColumnsProxyModel_SuperRoleNames(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_RoleNames_IsBase(true);
-        QHash<int, QByteArray> _ret = vkrearrangecolumnsproxymodel->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = self->KRearrangeColumnsProxyModel::roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->KRearrangeColumnsProxyModel::roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnRoleNames(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_RoleNames_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_RoleNames_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnRoleNames(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_rolenames_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_RoleNames_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRearrangeColumnsProxyModel_MultiData(const KRearrangeColumnsProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->multiData(*index, *roleDataSpan);
-    } else {
-        self->KRearrangeColumnsProxyModel::multiData(*index, *roleDataSpan);
-    }
+    self->multiData(*index, *roleDataSpan);
 }
 
 // Base class handler implementation
 void KRearrangeColumnsProxyModel_SuperMultiData(const KRearrangeColumnsProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MultiData_IsBase(true);
-        vkrearrangecolumnsproxymodel->multiData(*index, *roleDataSpan);
-    } else {
-        self->KRearrangeColumnsProxyModel::multiData(*index, *roleDataSpan);
-    }
+    self->KRearrangeColumnsProxyModel::multiData(*index, *roleDataSpan);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnMultiData(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_MultiData_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MultiData_Callback>(slot));
+void KRearrangeColumnsProxyModel_OnMultiData(KRearrangeColumnsProxyModel* self, intptr_t slot) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_multidata_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_MultiData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRearrangeColumnsProxyModel_ResetInternalData(KRearrangeColumnsProxyModel* self) {
     auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
+    if (vkrearrangecolumnsproxymodel) {
         vkrearrangecolumnsproxymodel->resetInternalData();
     } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->resetInternalData();
+        qFatal("Error: Protected virtual method KRearrangeColumnsProxyModel::resetInternalData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRearrangeColumnsProxyModel_SuperResetInternalData(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ResetInternalData_IsBase(true);
-        vkrearrangecolumnsproxymodel->resetInternalData();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->resetInternalData();
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->KRearrangeColumnsProxyModel::resetInternalData();
+    } else
+        qFatal("Error: Protected virtual method KRearrangeColumnsProxyModel::resetInternalData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnResetInternalData(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ResetInternalData_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_ResetInternalData_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_resetinternaldata_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_ResetInternalData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_Event(KRearrangeColumnsProxyModel* self, QEvent* event) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->event(event);
-    } else {
-        return self->KRearrangeColumnsProxyModel::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperEvent(KRearrangeColumnsProxyModel* self, QEvent* event) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Event_IsBase(true);
-        return vkrearrangecolumnsproxymodel->event(event);
-    } else {
-        return self->KRearrangeColumnsProxyModel::event(event);
-    }
+    return self->KRearrangeColumnsProxyModel::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnEvent(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Event_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Event_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_event_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRearrangeColumnsProxyModel_EventFilter(KRearrangeColumnsProxyModel* self, QObject* watched, QEvent* event) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->eventFilter(watched, event);
-    } else {
-        return self->KRearrangeColumnsProxyModel::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KRearrangeColumnsProxyModel_SuperEventFilter(KRearrangeColumnsProxyModel* self, QObject* watched, QEvent* event) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EventFilter_IsBase(true);
-        return vkrearrangecolumnsproxymodel->eventFilter(watched, event);
-    } else {
-        return self->KRearrangeColumnsProxyModel::eventFilter(watched, event);
-    }
+    return self->KRearrangeColumnsProxyModel::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnEventFilter(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EventFilter_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_EventFilter_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_eventfilter_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRearrangeColumnsProxyModel_TimerEvent(KRearrangeColumnsProxyModel* self, QTimerEvent* event) {
     auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
+    if (vkrearrangecolumnsproxymodel) {
         vkrearrangecolumnsproxymodel->timerEvent(event);
     } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KRearrangeColumnsProxyModel::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRearrangeColumnsProxyModel_SuperTimerEvent(KRearrangeColumnsProxyModel* self, QTimerEvent* event) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_TimerEvent_IsBase(true);
-        vkrearrangecolumnsproxymodel->timerEvent(event);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->timerEvent(event);
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->KRearrangeColumnsProxyModel::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRearrangeColumnsProxyModel::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnTimerEvent(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_TimerEvent_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_TimerEvent_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_timerevent_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRearrangeColumnsProxyModel_ChildEvent(KRearrangeColumnsProxyModel* self, QChildEvent* event) {
     auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
+    if (vkrearrangecolumnsproxymodel) {
         vkrearrangecolumnsproxymodel->childEvent(event);
     } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KRearrangeColumnsProxyModel::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRearrangeColumnsProxyModel_SuperChildEvent(KRearrangeColumnsProxyModel* self, QChildEvent* event) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ChildEvent_IsBase(true);
-        vkrearrangecolumnsproxymodel->childEvent(event);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->childEvent(event);
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->KRearrangeColumnsProxyModel::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRearrangeColumnsProxyModel::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnChildEvent(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ChildEvent_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_ChildEvent_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_childevent_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRearrangeColumnsProxyModel_CustomEvent(KRearrangeColumnsProxyModel* self, QEvent* event) {
     auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
+    if (vkrearrangecolumnsproxymodel) {
         vkrearrangecolumnsproxymodel->customEvent(event);
     } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KRearrangeColumnsProxyModel::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRearrangeColumnsProxyModel_SuperCustomEvent(KRearrangeColumnsProxyModel* self, QEvent* event) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_CustomEvent_IsBase(true);
-        vkrearrangecolumnsproxymodel->customEvent(event);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->customEvent(event);
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->KRearrangeColumnsProxyModel::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRearrangeColumnsProxyModel::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnCustomEvent(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_CustomEvent_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_CustomEvent_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_customevent_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRearrangeColumnsProxyModel_ConnectNotify(KRearrangeColumnsProxyModel* self, const QMetaMethod* signal) {
     auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
+    if (vkrearrangecolumnsproxymodel) {
         vkrearrangecolumnsproxymodel->connectNotify(*signal);
     } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KRearrangeColumnsProxyModel::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRearrangeColumnsProxyModel_SuperConnectNotify(KRearrangeColumnsProxyModel* self, const QMetaMethod* signal) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ConnectNotify_IsBase(true);
-        vkrearrangecolumnsproxymodel->connectNotify(*signal);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->connectNotify(*signal);
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->KRearrangeColumnsProxyModel::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KRearrangeColumnsProxyModel::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnConnectNotify(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ConnectNotify_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_ConnectNotify_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_connectnotify_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRearrangeColumnsProxyModel_DisconnectNotify(KRearrangeColumnsProxyModel* self, const QMetaMethod* signal) {
     auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
+    if (vkrearrangecolumnsproxymodel) {
         vkrearrangecolumnsproxymodel->disconnectNotify(*signal);
     } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KRearrangeColumnsProxyModel::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRearrangeColumnsProxyModel_SuperDisconnectNotify(KRearrangeColumnsProxyModel* self, const QMetaMethod* signal) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_DisconnectNotify_IsBase(true);
-        vkrearrangecolumnsproxymodel->disconnectNotify(*signal);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->KRearrangeColumnsProxyModel::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KRearrangeColumnsProxyModel::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRearrangeColumnsProxyModel_OnDisconnectNotify(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_DisconnectNotify_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self))
+        vkrearrangecolumnsproxymodel->krearrangecolumnsproxymodel_disconnectnotify_callback = reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_SetHandleSourceLayoutChanges(KRearrangeColumnsProxyModel* self, bool handleSourceLayoutChanges) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setHandleSourceLayoutChanges(handleSourceLayoutChanges);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->setHandleSourceLayoutChanges(handleSourceLayoutChanges);
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::setHandleSourceLayoutChanges(handleSourceLayoutChanges);
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::setHandleSourceLayoutChanges called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperSetHandleSourceLayoutChanges(KRearrangeColumnsProxyModel* self, bool handleSourceLayoutChanges) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SetHandleSourceLayoutChanges_IsBase(true);
-        vkrearrangecolumnsproxymodel->setHandleSourceLayoutChanges(handleSourceLayoutChanges);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->setHandleSourceLayoutChanges(handleSourceLayoutChanges);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnSetHandleSourceLayoutChanges(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SetHandleSourceLayoutChanges_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SetHandleSourceLayoutChanges_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_SetHandleSourceDataChanges(KRearrangeColumnsProxyModel* self, bool handleSourceDataChanges) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setHandleSourceDataChanges(handleSourceDataChanges);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->setHandleSourceDataChanges(handleSourceDataChanges);
-    }
-}
-
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperSetHandleSourceDataChanges(KRearrangeColumnsProxyModel* self, bool handleSourceDataChanges) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SetHandleSourceDataChanges_IsBase(true);
-        vkrearrangecolumnsproxymodel->setHandleSourceDataChanges(handleSourceDataChanges);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->setHandleSourceDataChanges(handleSourceDataChanges);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnSetHandleSourceDataChanges(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SetHandleSourceDataChanges_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SetHandleSourceDataChanges_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::setHandleSourceDataChanges(handleSourceDataChanges);
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::setHandleSourceDataChanges called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QModelIndex* KRearrangeColumnsProxyModel_CreateSourceIndex(const KRearrangeColumnsProxyModel* self, int row, int col, void* internalPtr) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
         return new QModelIndex(vkrearrangecolumnsproxymodel->createSourceIndex(static_cast<int>(row), static_cast<int>(col), internalPtr));
-    }
-    return {};
-}
-
-// Base class handler implementation
-QModelIndex* KRearrangeColumnsProxyModel_SuperCreateSourceIndex(const KRearrangeColumnsProxyModel* self, int row, int col, void* internalPtr) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_CreateSourceIndex_IsBase(true);
-        return new QModelIndex(vkrearrangecolumnsproxymodel->createSourceIndex(static_cast<int>(row), static_cast<int>(col), internalPtr));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnCreateSourceIndex(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_CreateSourceIndex_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_CreateSourceIndex_Callback>(slot));
+    qFatal("Error: Protected method KRearrangeColumnsProxyModel::createSourceIndex called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QModelIndex* KRearrangeColumnsProxyModel_CreateIndex(const KRearrangeColumnsProxyModel* self, int row, int column) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self)))
         return new QModelIndex(vkrearrangecolumnsproxymodel->createIndex(static_cast<int>(row), static_cast<int>(column)));
-    }
-    return {};
+    qFatal("Error: Protected method KRearrangeColumnsProxyModel::createIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-QModelIndex* KRearrangeColumnsProxyModel_SuperCreateIndex(const KRearrangeColumnsProxyModel* self, int row, int column) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_CreateIndex_IsBase(true);
-        return new QModelIndex(vkrearrangecolumnsproxymodel->createIndex(static_cast<int>(row), static_cast<int>(column)));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnCreateIndex(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_CreateIndex_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_CreateIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_EncodeData(const KRearrangeColumnsProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    QList<QModelIndex> indexes_QList;
-    indexes_QList.reserve(indexes.len);
-    QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
-    for (size_t i = 0; i < indexes.len; ++i) {
-        indexes_QList.push_back(*(indexes_arr[i]));
-    }
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->encodeData(indexes_QList, *stream);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->encodeData(indexes_QList, *stream);
-    }
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self))) {
+        QList<QModelIndex> indexes_QList;
+        indexes_QList.reserve(indexes.len);
+        QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
+        for (size_t i = 0; i < indexes.len; ++i) {
+            indexes_QList.push_back(*(indexes_arr[i]));
+        }
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::encodeData(indexes_QList, *stream);
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::encodeData called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperEncodeData(const KRearrangeColumnsProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    QList<QModelIndex> indexes_QList;
-    indexes_QList.reserve(indexes.len);
-    QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
-    for (size_t i = 0; i < indexes.len; ++i) {
-        indexes_QList.push_back(*(indexes_arr[i]));
-    }
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EncodeData_IsBase(true);
-        vkrearrangecolumnsproxymodel->encodeData(indexes_QList, *stream);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->encodeData(indexes_QList, *stream);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnEncodeData(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EncodeData_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_EncodeData_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRearrangeColumnsProxyModel_DecodeData(KRearrangeColumnsProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        return vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::decodeData called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRearrangeColumnsProxyModel_SuperDecodeData(KRearrangeColumnsProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_DecodeData_IsBase(true);
-        return vkrearrangecolumnsproxymodel->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnDecodeData(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_DecodeData_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_DecodeData_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_BeginInsertRows(KRearrangeColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::beginInsertRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperBeginInsertRows(KRearrangeColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_BeginInsertRows_IsBase(true);
-        vkrearrangecolumnsproxymodel->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnBeginInsertRows(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_BeginInsertRows_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_BeginInsertRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_EndInsertRows(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->endInsertRows();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->endInsertRows();
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::endInsertRows();
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::endInsertRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperEndInsertRows(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EndInsertRows_IsBase(true);
-        vkrearrangecolumnsproxymodel->endInsertRows();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->endInsertRows();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnEndInsertRows(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EndInsertRows_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_EndInsertRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_BeginRemoveRows(KRearrangeColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::beginRemoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperBeginRemoveRows(KRearrangeColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_BeginRemoveRows_IsBase(true);
-        vkrearrangecolumnsproxymodel->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnBeginRemoveRows(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_BeginRemoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_EndRemoveRows(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->endRemoveRows();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->endRemoveRows();
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::endRemoveRows();
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::endRemoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperEndRemoveRows(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EndRemoveRows_IsBase(true);
-        vkrearrangecolumnsproxymodel->endRemoveRows();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->endRemoveRows();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnEndRemoveRows(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EndRemoveRows_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_EndRemoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRearrangeColumnsProxyModel_BeginMoveRows(KRearrangeColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        return vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::beginMoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRearrangeColumnsProxyModel_SuperBeginMoveRows(KRearrangeColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_BeginMoveRows_IsBase(true);
-        return vkrearrangecolumnsproxymodel->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnBeginMoveRows(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_BeginMoveRows_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_BeginMoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_EndMoveRows(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->endMoveRows();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->endMoveRows();
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::endMoveRows();
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::endMoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperEndMoveRows(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EndMoveRows_IsBase(true);
-        vkrearrangecolumnsproxymodel->endMoveRows();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->endMoveRows();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnEndMoveRows(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EndMoveRows_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_EndMoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_BeginInsertColumns(KRearrangeColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::beginInsertColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperBeginInsertColumns(KRearrangeColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_BeginInsertColumns_IsBase(true);
-        vkrearrangecolumnsproxymodel->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnBeginInsertColumns(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_BeginInsertColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_EndInsertColumns(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->endInsertColumns();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->endInsertColumns();
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::endInsertColumns();
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::endInsertColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperEndInsertColumns(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EndInsertColumns_IsBase(true);
-        vkrearrangecolumnsproxymodel->endInsertColumns();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->endInsertColumns();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnEndInsertColumns(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EndInsertColumns_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_EndInsertColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_BeginRemoveColumns(KRearrangeColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::beginRemoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperBeginRemoveColumns(KRearrangeColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_BeginRemoveColumns_IsBase(true);
-        vkrearrangecolumnsproxymodel->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnBeginRemoveColumns(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_BeginRemoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_EndRemoveColumns(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->endRemoveColumns();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->endRemoveColumns();
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::endRemoveColumns();
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::endRemoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperEndRemoveColumns(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EndRemoveColumns_IsBase(true);
-        vkrearrangecolumnsproxymodel->endRemoveColumns();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->endRemoveColumns();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnEndRemoveColumns(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_EndRemoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRearrangeColumnsProxyModel_BeginMoveColumns(KRearrangeColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        return vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::beginMoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRearrangeColumnsProxyModel_SuperBeginMoveColumns(KRearrangeColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_BeginMoveColumns_IsBase(true);
-        return vkrearrangecolumnsproxymodel->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnBeginMoveColumns(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_BeginMoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_EndMoveColumns(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->endMoveColumns();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->endMoveColumns();
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::endMoveColumns();
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::endMoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperEndMoveColumns(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EndMoveColumns_IsBase(true);
-        vkrearrangecolumnsproxymodel->endMoveColumns();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->endMoveColumns();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnEndMoveColumns(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EndMoveColumns_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_EndMoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_BeginResetModel(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->beginResetModel();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->beginResetModel();
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::beginResetModel();
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::beginResetModel called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperBeginResetModel(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_BeginResetModel_IsBase(true);
-        vkrearrangecolumnsproxymodel->beginResetModel();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->beginResetModel();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnBeginResetModel(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_BeginResetModel_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_BeginResetModel_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_EndResetModel(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->endResetModel();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->endResetModel();
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::endResetModel();
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::endResetModel called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperEndResetModel(KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EndResetModel_IsBase(true);
-        vkrearrangecolumnsproxymodel->endResetModel();
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->endResetModel();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnEndResetModel(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_EndResetModel_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_EndResetModel_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_ChangePersistentIndex(KRearrangeColumnsProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->changePersistentIndex(*from, *to);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->changePersistentIndex(*from, *to);
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::changePersistentIndex(*from, *to);
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::changePersistentIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperChangePersistentIndex(KRearrangeColumnsProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ChangePersistentIndex_IsBase(true);
-        vkrearrangecolumnsproxymodel->changePersistentIndex(*from, *to);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->changePersistentIndex(*from, *to);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnChangePersistentIndex(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_ChangePersistentIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRearrangeColumnsProxyModel_ChangePersistentIndexList(KRearrangeColumnsProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    QList<QModelIndex> from_QList;
-    from_QList.reserve(from.len);
-    QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
-    for (size_t i = 0; i < from.len; ++i) {
-        from_QList.push_back(*(from_arr[i]));
-    }
-    QList<QModelIndex> to_QList;
-    to_QList.reserve(to.len);
-    QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
-    for (size_t i = 0; i < to.len; ++i) {
-        to_QList.push_back(*(to_arr[i]));
-    }
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->changePersistentIndexList(from_QList, to_QList);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->changePersistentIndexList(from_QList, to_QList);
-    }
+    if (auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self)) {
+        QList<QModelIndex> from_QList;
+        from_QList.reserve(from.len);
+        QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
+        for (size_t i = 0; i < from.len; ++i) {
+            from_QList.push_back(*(from_arr[i]));
+        }
+        QList<QModelIndex> to_QList;
+        to_QList.reserve(to.len);
+        QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
+        for (size_t i = 0; i < to.len; ++i) {
+            to_QList.push_back(*(to_arr[i]));
+        }
+        vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::changePersistentIndexList(from_QList, to_QList);
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::changePersistentIndexList called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRearrangeColumnsProxyModel_SuperChangePersistentIndexList(KRearrangeColumnsProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    QList<QModelIndex> from_QList;
-    from_QList.reserve(from.len);
-    QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
-    for (size_t i = 0; i < from.len; ++i) {
-        from_QList.push_back(*(from_arr[i]));
-    }
-    QList<QModelIndex> to_QList;
-    to_QList.reserve(to.len);
-    QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
-    for (size_t i = 0; i < to.len; ++i) {
-        to_QList.push_back(*(to_arr[i]));
-    }
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ChangePersistentIndexList_IsBase(true);
-        vkrearrangecolumnsproxymodel->changePersistentIndexList(from_QList, to_QList);
-    } else {
-        ((VirtualKRearrangeColumnsProxyModel*)self)->changePersistentIndexList(from_QList, to_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnChangePersistentIndexList(KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_ChangePersistentIndexList_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of QModelIndex* */ KRearrangeColumnsProxyModel_PersistentIndexList(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        QList<QModelIndex> _ret = vkrearrangecolumnsproxymodel->persistentIndexList();
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self))) {
+        QList<QModelIndex> _ret = vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -2392,166 +1301,40 @@ libqt_list /* of QModelIndex* */ KRearrangeColumnsProxyModel_PersistentIndexList
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualKRearrangeColumnsProxyModel*)self)->persistentIndexList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::persistentIndexList called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of QModelIndex* */ KRearrangeColumnsProxyModel_SuperPersistentIndexList(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_PersistentIndexList_IsBase(true);
-        QList<QModelIndex> _ret = vkrearrangecolumnsproxymodel->persistentIndexList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualKRearrangeColumnsProxyModel*)self)->persistentIndexList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnPersistentIndexList(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_PersistentIndexList_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_PersistentIndexList_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KRearrangeColumnsProxyModel_Sender(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->sender();
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->sender();
-    }
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self))) {
+        return vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::sender();
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KRearrangeColumnsProxyModel_SuperSender(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Sender_IsBase(true);
-        return vkrearrangecolumnsproxymodel->sender();
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnSender(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Sender_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KRearrangeColumnsProxyModel_SenderSignalIndex(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->senderSignalIndex();
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->senderSignalIndex();
-    }
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self))) {
+        return vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KRearrangeColumnsProxyModel_SuperSenderSignalIndex(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SenderSignalIndex_IsBase(true);
-        return vkrearrangecolumnsproxymodel->senderSignalIndex();
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnSenderSignalIndex(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KRearrangeColumnsProxyModel_Receivers(const KRearrangeColumnsProxyModel* self, const char* signal) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->receivers(signal);
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->receivers(signal);
-    }
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self))) {
+        return vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::receivers(signal);
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KRearrangeColumnsProxyModel_SuperReceivers(const KRearrangeColumnsProxyModel* self, const char* signal) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Receivers_IsBase(true);
-        return vkrearrangecolumnsproxymodel->receivers(signal);
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnReceivers(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_Receivers_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRearrangeColumnsProxyModel_IsSignalConnected(const KRearrangeColumnsProxyModel* self, const QMetaMethod* signal) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return vkrearrangecolumnsproxymodel->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KRearrangeColumnsProxyModel_SuperIsSignalConnected(const KRearrangeColumnsProxyModel* self, const QMetaMethod* signal) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_IsSignalConnected_IsBase(true);
-        return vkrearrangecolumnsproxymodel->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRearrangeColumnsProxyModel_OnIsSignalConnected(const KRearrangeColumnsProxyModel* self, intptr_t slot) {
-    auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self));
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel)
-        vkrearrangecolumnsproxymodel->setKRearrangeColumnsProxyModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKRearrangeColumnsProxyModel::KRearrangeColumnsProxyModel_IsSignalConnected_Callback>(slot));
+    if (auto* vkrearrangecolumnsproxymodel = const_cast<VirtualKRearrangeColumnsProxyModel*>(dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self))) {
+        return vkrearrangecolumnsproxymodel->VirtualKRearrangeColumnsProxyModel::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KRearrangeColumnsProxyModel::isSignalConnected called without a directly constructed type");
 }
 
 void KRearrangeColumnsProxyModel_Delete(KRearrangeColumnsProxyModel* self) {

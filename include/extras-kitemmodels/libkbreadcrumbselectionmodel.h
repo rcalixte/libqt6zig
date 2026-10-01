@@ -43,7 +43,7 @@ void KBreadcrumbSelectionModel_Select(KBreadcrumbSelectionModel* self, const QMo
 void KBreadcrumbSelectionModel_Select2(KBreadcrumbSelectionModel* self, const QItemSelection* selection, int command);
 libqt_string KBreadcrumbSelectionModel_Tr2(const char* s, const char* c);
 libqt_string KBreadcrumbSelectionModel_Tr3(const char* s, const char* c, int n);
-void KBreadcrumbSelectionModel_OnMetaObject(const KBreadcrumbSelectionModel* self, intptr_t slot);
+void KBreadcrumbSelectionModel_OnMetaObject(KBreadcrumbSelectionModel* self, intptr_t slot);
 QMetaObject* KBreadcrumbSelectionModel_SuperMetaObject(const KBreadcrumbSelectionModel* self);
 void KBreadcrumbSelectionModel_OnMetacast(KBreadcrumbSelectionModel* self, intptr_t slot);
 void* KBreadcrumbSelectionModel_SuperMetacast(KBreadcrumbSelectionModel* self, const char* param1);
@@ -87,20 +87,10 @@ void KBreadcrumbSelectionModel_DisconnectNotify(KBreadcrumbSelectionModel* self,
 void KBreadcrumbSelectionModel_OnDisconnectNotify(KBreadcrumbSelectionModel* self, intptr_t slot);
 void KBreadcrumbSelectionModel_SuperDisconnectNotify(KBreadcrumbSelectionModel* self, const QMetaMethod* signal);
 void KBreadcrumbSelectionModel_EmitSelectionChanged(KBreadcrumbSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
-void KBreadcrumbSelectionModel_OnEmitSelectionChanged(KBreadcrumbSelectionModel* self, intptr_t slot);
-void KBreadcrumbSelectionModel_SuperEmitSelectionChanged(KBreadcrumbSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
 QObject* KBreadcrumbSelectionModel_Sender(const KBreadcrumbSelectionModel* self);
-void KBreadcrumbSelectionModel_OnSender(const KBreadcrumbSelectionModel* self, intptr_t slot);
-QObject* KBreadcrumbSelectionModel_SuperSender(const KBreadcrumbSelectionModel* self);
 int KBreadcrumbSelectionModel_SenderSignalIndex(const KBreadcrumbSelectionModel* self);
-void KBreadcrumbSelectionModel_OnSenderSignalIndex(const KBreadcrumbSelectionModel* self, intptr_t slot);
-int KBreadcrumbSelectionModel_SuperSenderSignalIndex(const KBreadcrumbSelectionModel* self);
 int KBreadcrumbSelectionModel_Receivers(const KBreadcrumbSelectionModel* self, const char* signal);
-void KBreadcrumbSelectionModel_OnReceivers(const KBreadcrumbSelectionModel* self, intptr_t slot);
-int KBreadcrumbSelectionModel_SuperReceivers(const KBreadcrumbSelectionModel* self, const char* signal);
 bool KBreadcrumbSelectionModel_IsSignalConnected(const KBreadcrumbSelectionModel* self, const QMetaMethod* signal);
-void KBreadcrumbSelectionModel_OnIsSignalConnected(const KBreadcrumbSelectionModel* self, intptr_t slot);
-bool KBreadcrumbSelectionModel_SuperIsSignalConnected(const KBreadcrumbSelectionModel* self, const QMetaMethod* signal);
 void KBreadcrumbSelectionModel_Delete(KBreadcrumbSelectionModel* self);
 
 #ifdef __cplusplus

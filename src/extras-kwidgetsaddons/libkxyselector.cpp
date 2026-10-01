@@ -124,42 +124,42 @@ void KXYSelector_Connect_ValueChanged(KXYSelector* self, intptr_t slot) {
 
 void KXYSelector_DrawContents(KXYSelector* self, QPainter* param1) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->drawContents(param1);
     }
 }
 
 void KXYSelector_DrawMarker(KXYSelector* self, QPainter* p, int xp, int yp) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->drawMarker(p, static_cast<int>(xp), static_cast<int>(yp));
     }
 }
 
 void KXYSelector_PaintEvent(KXYSelector* self, QPaintEvent* e) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->paintEvent(e);
     }
 }
 
 void KXYSelector_MousePressEvent(KXYSelector* self, QMouseEvent* e) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->mousePressEvent(e);
     }
 }
 
 void KXYSelector_MouseMoveEvent(KXYSelector* self, QMouseEvent* e) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->mouseMoveEvent(e);
     }
 }
 
 void KXYSelector_WheelEvent(KXYSelector* self, QWheelEvent* param1) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->wheelEvent(param1);
     }
 }
@@ -190,1668 +190,1164 @@ libqt_string KXYSelector_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KXYSelector_SuperMetaObject(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_MetaObject_IsBase(true);
-        return (QMetaObject*)vkxyselector->metaObject();
-    } else {
-        return (QMetaObject*)self->KXYSelector::metaObject();
-    }
+    return (QMetaObject*)self->KXYSelector::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXYSelector_OnMetaObject(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_MetaObject_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MetaObject_Callback>(slot));
+void KXYSelector_OnMetaObject(KXYSelector* self, intptr_t slot) {
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self)))
+        vkxyselector->kxyselector_metaobject_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KXYSelector_SuperMetacast(KXYSelector* self, const char* param1) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_Metacast_IsBase(true);
-        return vkxyselector->qt_metacast(param1);
-    } else {
-        return self->KXYSelector::qt_metacast(param1);
-    }
+    return self->KXYSelector::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMetacast(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_Metacast_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Metacast_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_metacast_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KXYSelector_SuperMetacall(KXYSelector* self, int param1, int param2, void** param3) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_Metacall_IsBase(true);
-        return vkxyselector->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KXYSelector::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KXYSelector::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMetacall(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_Metacall_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Metacall_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_metacall_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KXYSelector_SuperMinimumSizeHint(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_MinimumSizeHint_IsBase(true);
-        return new QSize(vkxyselector->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKXYSelector*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KXYSelector::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXYSelector_OnMinimumSizeHint(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_MinimumSizeHint_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MinimumSizeHint_Callback>(slot));
+void KXYSelector_OnMinimumSizeHint(KXYSelector* self, intptr_t slot) {
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self)))
+        vkxyselector->kxyselector_minimumsizehint_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void KXYSelector_SuperDrawContents(KXYSelector* self, QPainter* param1) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_DrawContents_IsBase(true);
-        vkxyselector->drawContents(param1);
-    } else {
-        ((VirtualKXYSelector*)self)->drawContents(param1);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::drawContents(param1);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::drawContents called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDrawContents(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_DrawContents_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DrawContents_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_drawcontents_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_DrawContents_Callback>(slot);
 }
 
 // Base class handler implementation
 void KXYSelector_SuperDrawMarker(KXYSelector* self, QPainter* p, int xp, int yp) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_DrawMarker_IsBase(true);
-        vkxyselector->drawMarker(p, static_cast<int>(xp), static_cast<int>(yp));
-    } else {
-        ((VirtualKXYSelector*)self)->drawMarker(p, static_cast<int>(xp), static_cast<int>(yp));
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::drawMarker(p, static_cast<int>(xp), static_cast<int>(yp));
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::drawMarker called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDrawMarker(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_DrawMarker_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DrawMarker_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_drawmarker_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_DrawMarker_Callback>(slot);
 }
 
 // Base class handler implementation
 void KXYSelector_SuperPaintEvent(KXYSelector* self, QPaintEvent* e) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_PaintEvent_IsBase(true);
-        vkxyselector->paintEvent(e);
-    } else {
-        ((VirtualKXYSelector*)self)->paintEvent(e);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnPaintEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_PaintEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_PaintEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_paintevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KXYSelector_SuperMousePressEvent(KXYSelector* self, QMouseEvent* e) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_MousePressEvent_IsBase(true);
-        vkxyselector->mousePressEvent(e);
-    } else {
-        ((VirtualKXYSelector*)self)->mousePressEvent(e);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMousePressEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_MousePressEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MousePressEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_mousepressevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KXYSelector_SuperMouseMoveEvent(KXYSelector* self, QMouseEvent* e) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_MouseMoveEvent_IsBase(true);
-        vkxyselector->mouseMoveEvent(e);
-    } else {
-        ((VirtualKXYSelector*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMouseMoveEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_MouseMoveEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MouseMoveEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_mousemoveevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KXYSelector_SuperWheelEvent(KXYSelector* self, QWheelEvent* param1) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_WheelEvent_IsBase(true);
-        vkxyselector->wheelEvent(param1);
-    } else {
-        ((VirtualKXYSelector*)self)->wheelEvent(param1);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::wheelEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnWheelEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_WheelEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_WheelEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_wheelevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KXYSelector_DevType(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return vkxyselector->devType();
-    } else {
-        return self->KXYSelector::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KXYSelector_SuperDevType(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_DevType_IsBase(true);
-        return vkxyselector->devType();
-    } else {
-        return self->KXYSelector::devType();
-    }
+    return self->KXYSelector::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXYSelector_OnDevType(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_DevType_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DevType_Callback>(slot));
+void KXYSelector_OnDevType(KXYSelector* self, intptr_t slot) {
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self)))
+        vkxyselector->kxyselector_devtype_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_SetVisible(KXYSelector* self, bool visible) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setVisible(visible);
-    } else {
-        self->KXYSelector::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KXYSelector_SuperSetVisible(KXYSelector* self, bool visible) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_SetVisible_IsBase(true);
-        vkxyselector->setVisible(visible);
-    } else {
-        self->KXYSelector::setVisible(visible);
-    }
+    self->KXYSelector::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnSetVisible(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_SetVisible_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_SetVisible_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_setvisible_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KXYSelector_SizeHint(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return new QSize(vkxyselector->sizeHint());
-    } else {
-        return new QSize(((VirtualKXYSelector*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KXYSelector_SuperSizeHint(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_SizeHint_IsBase(true);
-        return new QSize(vkxyselector->sizeHint());
-    } else {
-        return new QSize(((VirtualKXYSelector*)self)->sizeHint());
-    }
+    return new QSize(self->KXYSelector::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXYSelector_OnSizeHint(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_SizeHint_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_SizeHint_Callback>(slot));
+void KXYSelector_OnSizeHint(KXYSelector* self, intptr_t slot) {
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self)))
+        vkxyselector->kxyselector_sizehint_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KXYSelector_HeightForWidth(const KXYSelector* self, int param1) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return vkxyselector->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KXYSelector::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KXYSelector_SuperHeightForWidth(const KXYSelector* self, int param1) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_HeightForWidth_IsBase(true);
-        return vkxyselector->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KXYSelector::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KXYSelector::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXYSelector_OnHeightForWidth(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_HeightForWidth_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_HeightForWidth_Callback>(slot));
+void KXYSelector_OnHeightForWidth(KXYSelector* self, intptr_t slot) {
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self)))
+        vkxyselector->kxyselector_heightforwidth_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KXYSelector_HasHeightForWidth(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return vkxyselector->hasHeightForWidth();
-    } else {
-        return self->KXYSelector::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KXYSelector_SuperHasHeightForWidth(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_HasHeightForWidth_IsBase(true);
-        return vkxyselector->hasHeightForWidth();
-    } else {
-        return self->KXYSelector::hasHeightForWidth();
-    }
+    return self->KXYSelector::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXYSelector_OnHasHeightForWidth(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_HasHeightForWidth_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_HasHeightForWidth_Callback>(slot));
+void KXYSelector_OnHasHeightForWidth(KXYSelector* self, intptr_t slot) {
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self)))
+        vkxyselector->kxyselector_hasheightforwidth_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KXYSelector_PaintEngine(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return vkxyselector->paintEngine();
-    } else {
-        return self->KXYSelector::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KXYSelector_SuperPaintEngine(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_PaintEngine_IsBase(true);
-        return vkxyselector->paintEngine();
-    } else {
-        return self->KXYSelector::paintEngine();
-    }
+    return self->KXYSelector::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXYSelector_OnPaintEngine(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_PaintEngine_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_PaintEngine_Callback>(slot));
+void KXYSelector_OnPaintEngine(KXYSelector* self, intptr_t slot) {
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self)))
+        vkxyselector->kxyselector_paintengine_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KXYSelector_Event(KXYSelector* self, QEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         return vkxyselector->event(event);
     } else {
-        return ((VirtualKXYSelector*)self)->event(event);
+        qFatal("Error: Protected virtual method KXYSelector::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KXYSelector_SuperEvent(KXYSelector* self, QEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_Event_IsBase(true);
-        return vkxyselector->event(event);
-    } else {
-        return ((VirtualKXYSelector*)self)->event(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        return vkxyselector->KXYSelector::event(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_Event_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Event_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_event_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_MouseReleaseEvent(KXYSelector* self, QMouseEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->mouseReleaseEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperMouseReleaseEvent(KXYSelector* self, QMouseEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_MouseReleaseEvent_IsBase(true);
-        vkxyselector->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMouseReleaseEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_mousereleaseevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_MouseDoubleClickEvent(KXYSelector* self, QMouseEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperMouseDoubleClickEvent(KXYSelector* self, QMouseEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_MouseDoubleClickEvent_IsBase(true);
-        vkxyselector->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMouseDoubleClickEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_mousedoubleclickevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_KeyPressEvent(KXYSelector* self, QKeyEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->keyPressEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperKeyPressEvent(KXYSelector* self, QKeyEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_KeyPressEvent_IsBase(true);
-        vkxyselector->keyPressEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->keyPressEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnKeyPressEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_KeyPressEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_KeyPressEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_keypressevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_KeyReleaseEvent(KXYSelector* self, QKeyEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->keyReleaseEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperKeyReleaseEvent(KXYSelector* self, QKeyEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_KeyReleaseEvent_IsBase(true);
-        vkxyselector->keyReleaseEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnKeyReleaseEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_keyreleaseevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_FocusInEvent(KXYSelector* self, QFocusEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->focusInEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperFocusInEvent(KXYSelector* self, QFocusEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_FocusInEvent_IsBase(true);
-        vkxyselector->focusInEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->focusInEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnFocusInEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_FocusInEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_FocusInEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_focusinevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_FocusOutEvent(KXYSelector* self, QFocusEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->focusOutEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperFocusOutEvent(KXYSelector* self, QFocusEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_FocusOutEvent_IsBase(true);
-        vkxyselector->focusOutEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->focusOutEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnFocusOutEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_FocusOutEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_FocusOutEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_focusoutevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_EnterEvent(KXYSelector* self, QEnterEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->enterEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperEnterEvent(KXYSelector* self, QEnterEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_EnterEvent_IsBase(true);
-        vkxyselector->enterEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->enterEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnEnterEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_EnterEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_EnterEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_enterevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_LeaveEvent(KXYSelector* self, QEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->leaveEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperLeaveEvent(KXYSelector* self, QEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_LeaveEvent_IsBase(true);
-        vkxyselector->leaveEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->leaveEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnLeaveEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_LeaveEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_LeaveEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_leaveevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_MoveEvent(KXYSelector* self, QMoveEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->moveEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperMoveEvent(KXYSelector* self, QMoveEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_MoveEvent_IsBase(true);
-        vkxyselector->moveEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->moveEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMoveEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_MoveEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MoveEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_moveevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_ResizeEvent(KXYSelector* self, QResizeEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->resizeEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperResizeEvent(KXYSelector* self, QResizeEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_ResizeEvent_IsBase(true);
-        vkxyselector->resizeEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->resizeEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnResizeEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_ResizeEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ResizeEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_resizeevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_CloseEvent(KXYSelector* self, QCloseEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->closeEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperCloseEvent(KXYSelector* self, QCloseEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_CloseEvent_IsBase(true);
-        vkxyselector->closeEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->closeEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnCloseEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_CloseEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_CloseEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_closeevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_ContextMenuEvent(KXYSelector* self, QContextMenuEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->contextMenuEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperContextMenuEvent(KXYSelector* self, QContextMenuEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_ContextMenuEvent_IsBase(true);
-        vkxyselector->contextMenuEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnContextMenuEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_ContextMenuEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ContextMenuEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_contextmenuevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_TabletEvent(KXYSelector* self, QTabletEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->tabletEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperTabletEvent(KXYSelector* self, QTabletEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_TabletEvent_IsBase(true);
-        vkxyselector->tabletEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->tabletEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnTabletEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_TabletEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_TabletEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_tabletevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_ActionEvent(KXYSelector* self, QActionEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->actionEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperActionEvent(KXYSelector* self, QActionEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_ActionEvent_IsBase(true);
-        vkxyselector->actionEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->actionEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnActionEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_ActionEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ActionEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_actionevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_DragEnterEvent(KXYSelector* self, QDragEnterEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->dragEnterEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperDragEnterEvent(KXYSelector* self, QDragEnterEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_DragEnterEvent_IsBase(true);
-        vkxyselector->dragEnterEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDragEnterEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_DragEnterEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DragEnterEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_dragenterevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_DragMoveEvent(KXYSelector* self, QDragMoveEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->dragMoveEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperDragMoveEvent(KXYSelector* self, QDragMoveEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_DragMoveEvent_IsBase(true);
-        vkxyselector->dragMoveEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDragMoveEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_DragMoveEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DragMoveEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_dragmoveevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_DragLeaveEvent(KXYSelector* self, QDragLeaveEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->dragLeaveEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperDragLeaveEvent(KXYSelector* self, QDragLeaveEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_DragLeaveEvent_IsBase(true);
-        vkxyselector->dragLeaveEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDragLeaveEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_DragLeaveEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DragLeaveEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_dragleaveevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_DropEvent(KXYSelector* self, QDropEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->dropEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperDropEvent(KXYSelector* self, QDropEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_DropEvent_IsBase(true);
-        vkxyselector->dropEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->dropEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDropEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_DropEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DropEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_dropevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_ShowEvent(KXYSelector* self, QShowEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->showEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperShowEvent(KXYSelector* self, QShowEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_ShowEvent_IsBase(true);
-        vkxyselector->showEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->showEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnShowEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_ShowEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ShowEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_showevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_HideEvent(KXYSelector* self, QHideEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->hideEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperHideEvent(KXYSelector* self, QHideEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_HideEvent_IsBase(true);
-        vkxyselector->hideEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->hideEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnHideEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_HideEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_HideEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_hideevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KXYSelector_NativeEvent(KXYSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector) {
         return vkxyselector->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKXYSelector*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KXYSelector::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KXYSelector_SuperNativeEvent(KXYSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_NativeEvent_IsBase(true);
-        return vkxyselector->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKXYSelector*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        return vkxyselector->KXYSelector::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnNativeEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_NativeEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_NativeEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_nativeevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_ChangeEvent(KXYSelector* self, QEvent* param1) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->changeEvent(param1);
     } else {
-        ((VirtualKXYSelector*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KXYSelector::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperChangeEvent(KXYSelector* self, QEvent* param1) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_ChangeEvent_IsBase(true);
-        vkxyselector->changeEvent(param1);
-    } else {
-        ((VirtualKXYSelector*)self)->changeEvent(param1);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnChangeEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_ChangeEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ChangeEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_changeevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KXYSelector_Metric(const KXYSelector* self, int param1) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         return vkxyselector->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKXYSelector*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KXYSelector::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KXYSelector_SuperMetric(const KXYSelector* self, int param1) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_Metric_IsBase(true);
-        return vkxyselector->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKXYSelector*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self))) {
+        return vkxyselector->KXYSelector::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXYSelector_OnMetric(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_Metric_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Metric_Callback>(slot));
+void KXYSelector_OnMetric(KXYSelector* self, intptr_t slot) {
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self)))
+        vkxyselector->kxyselector_metric_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_InitPainter(const KXYSelector* self, QPainter* painter) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->initPainter(painter);
     } else {
-        ((VirtualKXYSelector*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KXYSelector::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperInitPainter(const KXYSelector* self, QPainter* painter) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_InitPainter_IsBase(true);
-        vkxyselector->initPainter(painter);
-    } else {
-        ((VirtualKXYSelector*)self)->initPainter(painter);
-    }
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self))) {
+        vkxyselector->KXYSelector::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXYSelector_OnInitPainter(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_InitPainter_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_InitPainter_Callback>(slot));
+void KXYSelector_OnInitPainter(KXYSelector* self, intptr_t slot) {
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self)))
+        vkxyselector->kxyselector_initpainter_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KXYSelector_Redirected(const KXYSelector* self, QPoint* offset) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         return vkxyselector->redirected(offset);
     } else {
-        return ((VirtualKXYSelector*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KXYSelector::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KXYSelector_SuperRedirected(const KXYSelector* self, QPoint* offset) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_Redirected_IsBase(true);
-        return vkxyselector->redirected(offset);
-    } else {
-        return ((VirtualKXYSelector*)self)->redirected(offset);
-    }
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self))) {
+        return vkxyselector->KXYSelector::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXYSelector_OnRedirected(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_Redirected_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Redirected_Callback>(slot));
+void KXYSelector_OnRedirected(KXYSelector* self, intptr_t slot) {
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self)))
+        vkxyselector->kxyselector_redirected_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KXYSelector_SharedPainter(const KXYSelector* self) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         return vkxyselector->sharedPainter();
     } else {
-        return ((VirtualKXYSelector*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KXYSelector::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KXYSelector_SuperSharedPainter(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_SharedPainter_IsBase(true);
-        return vkxyselector->sharedPainter();
-    } else {
-        return ((VirtualKXYSelector*)self)->sharedPainter();
-    }
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self))) {
+        return vkxyselector->KXYSelector::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXYSelector_OnSharedPainter(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_SharedPainter_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_SharedPainter_Callback>(slot));
+void KXYSelector_OnSharedPainter(KXYSelector* self, intptr_t slot) {
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self)))
+        vkxyselector->kxyselector_sharedpainter_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_InputMethodEvent(KXYSelector* self, QInputMethodEvent* param1) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->inputMethodEvent(param1);
     } else {
-        ((VirtualKXYSelector*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KXYSelector::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperInputMethodEvent(KXYSelector* self, QInputMethodEvent* param1) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_InputMethodEvent_IsBase(true);
-        vkxyselector->inputMethodEvent(param1);
-    } else {
-        ((VirtualKXYSelector*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnInputMethodEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_InputMethodEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_InputMethodEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_inputmethodevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KXYSelector_InputMethodQuery(const KXYSelector* self, int param1) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return new QVariant(vkxyselector->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKXYSelector*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KXYSelector_SuperInputMethodQuery(const KXYSelector* self, int param1) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_InputMethodQuery_IsBase(true);
-        return new QVariant(vkxyselector->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKXYSelector*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KXYSelector::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXYSelector_OnInputMethodQuery(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_InputMethodQuery_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_InputMethodQuery_Callback>(slot));
+void KXYSelector_OnInputMethodQuery(KXYSelector* self, intptr_t slot) {
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self)))
+        vkxyselector->kxyselector_inputmethodquery_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KXYSelector_FocusNextPrevChild(KXYSelector* self, bool next) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         return vkxyselector->focusNextPrevChild(next);
     } else {
-        return ((VirtualKXYSelector*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KXYSelector::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KXYSelector_SuperFocusNextPrevChild(KXYSelector* self, bool next) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_FocusNextPrevChild_IsBase(true);
-        return vkxyselector->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKXYSelector*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        return vkxyselector->KXYSelector::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnFocusNextPrevChild(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_focusnextprevchild_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KXYSelector_EventFilter(KXYSelector* self, QObject* watched, QEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return vkxyselector->eventFilter(watched, event);
-    } else {
-        return self->KXYSelector::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KXYSelector_SuperEventFilter(KXYSelector* self, QObject* watched, QEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_EventFilter_IsBase(true);
-        return vkxyselector->eventFilter(watched, event);
-    } else {
-        return self->KXYSelector::eventFilter(watched, event);
-    }
+    return self->KXYSelector::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnEventFilter(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_EventFilter_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_EventFilter_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_eventfilter_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_TimerEvent(KXYSelector* self, QTimerEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->timerEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperTimerEvent(KXYSelector* self, QTimerEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_TimerEvent_IsBase(true);
-        vkxyselector->timerEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->timerEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnTimerEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_TimerEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_TimerEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_timerevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_ChildEvent(KXYSelector* self, QChildEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->childEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperChildEvent(KXYSelector* self, QChildEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_ChildEvent_IsBase(true);
-        vkxyselector->childEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->childEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnChildEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_ChildEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ChildEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_childevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_CustomEvent(KXYSelector* self, QEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->customEvent(event);
     } else {
-        ((VirtualKXYSelector*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KXYSelector::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperCustomEvent(KXYSelector* self, QEvent* event) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_CustomEvent_IsBase(true);
-        vkxyselector->customEvent(event);
-    } else {
-        ((VirtualKXYSelector*)self)->customEvent(event);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnCustomEvent(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_CustomEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_CustomEvent_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_customevent_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_ConnectNotify(KXYSelector* self, const QMetaMethod* signal) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->connectNotify(*signal);
     } else {
-        ((VirtualKXYSelector*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KXYSelector::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperConnectNotify(KXYSelector* self, const QMetaMethod* signal) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_ConnectNotify_IsBase(true);
-        vkxyselector->connectNotify(*signal);
-    } else {
-        ((VirtualKXYSelector*)self)->connectNotify(*signal);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnConnectNotify(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_ConnectNotify_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ConnectNotify_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_connectnotify_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXYSelector_DisconnectNotify(KXYSelector* self, const QMetaMethod* signal) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector) {
         vkxyselector->disconnectNotify(*signal);
     } else {
-        ((VirtualKXYSelector*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KXYSelector::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXYSelector_SuperDisconnectNotify(KXYSelector* self, const QMetaMethod* signal) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_DisconnectNotify_IsBase(true);
-        vkxyselector->disconnectNotify(*signal);
-    } else {
-        ((VirtualKXYSelector*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->KXYSelector::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KXYSelector::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDisconnectNotify(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_DisconnectNotify_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DisconnectNotify_Callback>(slot));
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self))
+        vkxyselector->kxyselector_disconnectnotify_callback = reinterpret_cast<VirtualKXYSelector::KXYSelector_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KXYSelector_ValuesFromPosition(const KXYSelector* self, int x, int y, int* xVal, int* yVal) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->valuesFromPosition(static_cast<int>(x), static_cast<int>(y), static_cast<int&>(*xVal), static_cast<int&>(*yVal));
-    } else {
-        ((VirtualKXYSelector*)self)->valuesFromPosition(static_cast<int>(x), static_cast<int>(y), static_cast<int&>(*xVal), static_cast<int&>(*yVal));
-    }
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self))) {
+        vkxyselector->VirtualKXYSelector::valuesFromPosition(static_cast<int>(x), static_cast<int>(y), static_cast<int&>(*xVal), static_cast<int&>(*yVal));
+    } else
+        qFatal("Error: Protected method KXYSelector::valuesFromPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KXYSelector_SuperValuesFromPosition(const KXYSelector* self, int x, int y, int* xVal, int* yVal) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_ValuesFromPosition_IsBase(true);
-        vkxyselector->valuesFromPosition(static_cast<int>(x), static_cast<int>(y), static_cast<int&>(*xVal), static_cast<int&>(*yVal));
-    } else {
-        ((VirtualKXYSelector*)self)->valuesFromPosition(static_cast<int>(x), static_cast<int>(y), static_cast<int&>(*xVal), static_cast<int&>(*yVal));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXYSelector_OnValuesFromPosition(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_ValuesFromPosition_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ValuesFromPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KXYSelector_UpdateMicroFocus(KXYSelector* self) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->updateMicroFocus();
-    } else {
-        ((VirtualKXYSelector*)self)->updateMicroFocus();
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->VirtualKXYSelector::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KXYSelector::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KXYSelector_SuperUpdateMicroFocus(KXYSelector* self) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_UpdateMicroFocus_IsBase(true);
-        vkxyselector->updateMicroFocus();
-    } else {
-        ((VirtualKXYSelector*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXYSelector_OnUpdateMicroFocus(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KXYSelector_Create(KXYSelector* self) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->create();
-    } else {
-        ((VirtualKXYSelector*)self)->create();
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->VirtualKXYSelector::create();
+    } else
+        qFatal("Error: Protected method KXYSelector::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KXYSelector_SuperCreate(KXYSelector* self) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_Create_IsBase(true);
-        vkxyselector->create();
-    } else {
-        ((VirtualKXYSelector*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXYSelector_OnCreate(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_Create_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KXYSelector_Destroy(KXYSelector* self) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->destroy();
-    } else {
-        ((VirtualKXYSelector*)self)->destroy();
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        vkxyselector->VirtualKXYSelector::destroy();
+    } else
+        qFatal("Error: Protected method KXYSelector::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KXYSelector_SuperDestroy(KXYSelector* self) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_Destroy_IsBase(true);
-        vkxyselector->destroy();
-    } else {
-        ((VirtualKXYSelector*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXYSelector_OnDestroy(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_Destroy_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KXYSelector_FocusNextChild(KXYSelector* self) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return vkxyselector->focusNextChild();
-    } else {
-        return ((VirtualKXYSelector*)self)->focusNextChild();
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        return vkxyselector->VirtualKXYSelector::focusNextChild();
+    } else
+        qFatal("Error: Protected method KXYSelector::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KXYSelector_SuperFocusNextChild(KXYSelector* self) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_FocusNextChild_IsBase(true);
-        return vkxyselector->focusNextChild();
-    } else {
-        return ((VirtualKXYSelector*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXYSelector_OnFocusNextChild(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_FocusNextChild_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KXYSelector_FocusPreviousChild(KXYSelector* self) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return vkxyselector->focusPreviousChild();
-    } else {
-        return ((VirtualKXYSelector*)self)->focusPreviousChild();
-    }
+    if (auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self)) {
+        return vkxyselector->VirtualKXYSelector::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KXYSelector::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KXYSelector_SuperFocusPreviousChild(KXYSelector* self) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_FocusPreviousChild_IsBase(true);
-        return vkxyselector->focusPreviousChild();
-    } else {
-        return ((VirtualKXYSelector*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXYSelector_OnFocusPreviousChild(KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_FocusPreviousChild_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KXYSelector_Sender(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return vkxyselector->sender();
-    } else {
-        return ((VirtualKXYSelector*)self)->sender();
-    }
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self))) {
+        return vkxyselector->VirtualKXYSelector::sender();
+    } else
+        qFatal("Error: Protected method KXYSelector::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KXYSelector_SuperSender(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_Sender_IsBase(true);
-        return vkxyselector->sender();
-    } else {
-        return ((VirtualKXYSelector*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXYSelector_OnSender(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_Sender_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KXYSelector_SenderSignalIndex(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return vkxyselector->senderSignalIndex();
-    } else {
-        return ((VirtualKXYSelector*)self)->senderSignalIndex();
-    }
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self))) {
+        return vkxyselector->VirtualKXYSelector::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KXYSelector::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KXYSelector_SuperSenderSignalIndex(const KXYSelector* self) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_SenderSignalIndex_IsBase(true);
-        return vkxyselector->senderSignalIndex();
-    } else {
-        return ((VirtualKXYSelector*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXYSelector_OnSenderSignalIndex(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_SenderSignalIndex_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KXYSelector_Receivers(const KXYSelector* self, const char* signal) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return vkxyselector->receivers(signal);
-    } else {
-        return ((VirtualKXYSelector*)self)->receivers(signal);
-    }
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self))) {
+        return vkxyselector->VirtualKXYSelector::receivers(signal);
+    } else
+        qFatal("Error: Protected method KXYSelector::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KXYSelector_SuperReceivers(const KXYSelector* self, const char* signal) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_Receivers_IsBase(true);
-        return vkxyselector->receivers(signal);
-    } else {
-        return ((VirtualKXYSelector*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXYSelector_OnReceivers(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_Receivers_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KXYSelector_IsSignalConnected(const KXYSelector* self, const QMetaMethod* signal) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return vkxyselector->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKXYSelector*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self))) {
+        return vkxyselector->VirtualKXYSelector::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KXYSelector::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KXYSelector_SuperIsSignalConnected(const KXYSelector* self, const QMetaMethod* signal) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_IsSignalConnected_IsBase(true);
-        return vkxyselector->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKXYSelector*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXYSelector_OnIsSignalConnected(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_IsSignalConnected_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KXYSelector_GetDecodedMetricF(const KXYSelector* self, int metricA, int metricB) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return vkxyselector->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKXYSelector*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KXYSelector_SuperGetDecodedMetricF(const KXYSelector* self, int metricA, int metricB) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        vkxyselector->setKXYSelector_GetDecodedMetricF_IsBase(true);
-        return vkxyselector->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKXYSelector*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXYSelector_OnGetDecodedMetricF(const KXYSelector* self, intptr_t slot) {
-    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
-        vkxyselector->setKXYSelector_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self))) {
+        return vkxyselector->VirtualKXYSelector::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KXYSelector::getDecodedMetricF called without a directly constructed type");
 }
 
 void KXYSelector_Delete(KXYSelector* self) {

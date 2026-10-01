@@ -148,7 +148,7 @@ void TextGrammarCheck__GrammarResultWidget_Connect_Configure(TextGrammarCheck__G
 
 void TextGrammarCheck__GrammarResultWidget_AddExtraWidget(TextGrammarCheck__GrammarResultWidget* self) {
     auto* vtextgrammarcheck__grammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheck__grammarresultwidget && vtextgrammarcheck__grammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheck__grammarresultwidget) {
         vtextgrammarcheck__grammarresultwidget->addExtraWidget();
     }
 }
@@ -179,1690 +179,1193 @@ libqt_string TextGrammarCheck__GrammarResultWidget_Tr3(const char* s, const char
 
 // Base class handler implementation
 QMetaObject* TextGrammarCheck__GrammarResultWidget_SuperMetaObject(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vtextgrammarcheckgrammarresultwidget->metaObject();
-    } else {
-        return (QMetaObject*)self->TextGrammarCheck::GrammarResultWidget::metaObject();
-    }
+    return (QMetaObject*)self->TextGrammarCheck::GrammarResultWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnMetaObject(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_MetaObject_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_MetaObject_Callback>(slot));
+void TextGrammarCheck__GrammarResultWidget_OnMetaObject(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self)))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_metaobject_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextGrammarCheck__GrammarResultWidget_SuperMetacast(TextGrammarCheck__GrammarResultWidget* self, const char* param1) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Metacast_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->qt_metacast(param1);
-    } else {
-        return self->TextGrammarCheck::GrammarResultWidget::qt_metacast(param1);
-    }
+    return self->TextGrammarCheck::GrammarResultWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnMetacast(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Metacast_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_Metacast_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_metacast_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextGrammarCheck__GrammarResultWidget_SuperMetacall(TextGrammarCheck__GrammarResultWidget* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Metacall_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextGrammarCheck::GrammarResultWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextGrammarCheck::GrammarResultWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnMetacall(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Metacall_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-void TextGrammarCheck__GrammarResultWidget_SuperCheckGrammar(TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_CheckGrammar_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->checkGrammar();
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->checkGrammar();
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_metacall_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnCheckGrammar(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_CheckGrammar_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_CheckGrammar_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_checkgrammar_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_CheckGrammar_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperAddExtraWidget(TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_AddExtraWidget_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->addExtraWidget();
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->addExtraWidget();
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::addExtraWidget();
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::addExtraWidget called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnAddExtraWidget(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_AddExtraWidget_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_AddExtraWidget_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_addextrawidget_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_AddExtraWidget_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextGrammarCheck__GrammarResultWidget_DevType(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return vtextgrammarcheckgrammarresultwidget->devType();
-    } else {
-        return self->TextGrammarCheck::GrammarResultWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int TextGrammarCheck__GrammarResultWidget_SuperDevType(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_DevType_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->devType();
-    } else {
-        return self->TextGrammarCheck::GrammarResultWidget::devType();
-    }
+    return self->TextGrammarCheck::GrammarResultWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnDevType(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_DevType_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_DevType_Callback>(slot));
+void TextGrammarCheck__GrammarResultWidget_OnDevType(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self)))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_devtype_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SetVisible(TextGrammarCheck__GrammarResultWidget* self, bool visible) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setVisible(visible);
-    } else {
-        self->TextGrammarCheck::GrammarResultWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperSetVisible(TextGrammarCheck__GrammarResultWidget* self, bool visible) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_SetVisible_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->setVisible(visible);
-    } else {
-        self->TextGrammarCheck::GrammarResultWidget::setVisible(visible);
-    }
+    self->TextGrammarCheck::GrammarResultWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnSetVisible(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_SetVisible_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_SetVisible_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_setvisible_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextGrammarCheck__GrammarResultWidget_SizeHint(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return new QSize(vtextgrammarcheckgrammarresultwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualTextGrammarCheckGrammarResultWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* TextGrammarCheck__GrammarResultWidget_SuperSizeHint(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_SizeHint_IsBase(true);
-        return new QSize(vtextgrammarcheckgrammarresultwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualTextGrammarCheckGrammarResultWidget*)self)->sizeHint());
-    }
+    return new QSize(self->TextGrammarCheck::GrammarResultWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnSizeHint(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_SizeHint_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_SizeHint_Callback>(slot));
+void TextGrammarCheck__GrammarResultWidget_OnSizeHint(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self)))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_sizehint_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextGrammarCheck__GrammarResultWidget_MinimumSizeHint(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return new QSize(vtextgrammarcheckgrammarresultwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextGrammarCheckGrammarResultWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* TextGrammarCheck__GrammarResultWidget_SuperMinimumSizeHint(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vtextgrammarcheckgrammarresultwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextGrammarCheckGrammarResultWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->TextGrammarCheck::GrammarResultWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnMinimumSizeHint(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_MinimumSizeHint_Callback>(slot));
+void TextGrammarCheck__GrammarResultWidget_OnMinimumSizeHint(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self)))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_minimumsizehint_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextGrammarCheck__GrammarResultWidget_HeightForWidth(const TextGrammarCheck__GrammarResultWidget* self, int param1) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return vtextgrammarcheckgrammarresultwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextGrammarCheck::GrammarResultWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int TextGrammarCheck__GrammarResultWidget_SuperHeightForWidth(const TextGrammarCheck__GrammarResultWidget* self, int param1) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_HeightForWidth_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextGrammarCheck::GrammarResultWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->TextGrammarCheck::GrammarResultWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnHeightForWidth(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_HeightForWidth_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_HeightForWidth_Callback>(slot));
+void TextGrammarCheck__GrammarResultWidget_OnHeightForWidth(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self)))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_heightforwidth_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammarResultWidget_HasHeightForWidth(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return vtextgrammarcheckgrammarresultwidget->hasHeightForWidth();
-    } else {
-        return self->TextGrammarCheck::GrammarResultWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammarResultWidget_SuperHasHeightForWidth(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_HasHeightForWidth_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->hasHeightForWidth();
-    } else {
-        return self->TextGrammarCheck::GrammarResultWidget::hasHeightForWidth();
-    }
+    return self->TextGrammarCheck::GrammarResultWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnHasHeightForWidth(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_HasHeightForWidth_Callback>(slot));
+void TextGrammarCheck__GrammarResultWidget_OnHasHeightForWidth(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self)))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_hasheightforwidth_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* TextGrammarCheck__GrammarResultWidget_PaintEngine(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return vtextgrammarcheckgrammarresultwidget->paintEngine();
-    } else {
-        return self->TextGrammarCheck::GrammarResultWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* TextGrammarCheck__GrammarResultWidget_SuperPaintEngine(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_PaintEngine_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->paintEngine();
-    } else {
-        return self->TextGrammarCheck::GrammarResultWidget::paintEngine();
-    }
+    return self->TextGrammarCheck::GrammarResultWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnPaintEngine(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_PaintEngine_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_PaintEngine_Callback>(slot));
+void TextGrammarCheck__GrammarResultWidget_OnPaintEngine(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self)))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_paintengine_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammarResultWidget_Event(TextGrammarCheck__GrammarResultWidget* self, QEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         return vtextgrammarcheckgrammarresultwidget->event(event);
     } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->event(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammarResultWidget_SuperEvent(TextGrammarCheck__GrammarResultWidget* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Event_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->event(event);
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->event(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        return vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::event(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Event_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_Event_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_event_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_MousePressEvent(TextGrammarCheck__GrammarResultWidget* self, QMouseEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->mousePressEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperMousePressEvent(TextGrammarCheck__GrammarResultWidget* self, QMouseEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_MousePressEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->mousePressEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnMousePressEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_MousePressEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_MousePressEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_mousepressevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_MouseReleaseEvent(TextGrammarCheck__GrammarResultWidget* self, QMouseEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperMouseReleaseEvent(TextGrammarCheck__GrammarResultWidget* self, QMouseEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_MouseReleaseEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnMouseReleaseEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_mousereleaseevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_MouseDoubleClickEvent(TextGrammarCheck__GrammarResultWidget* self, QMouseEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperMouseDoubleClickEvent(TextGrammarCheck__GrammarResultWidget* self, QMouseEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_MouseDoubleClickEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnMouseDoubleClickEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_MouseMoveEvent(TextGrammarCheck__GrammarResultWidget* self, QMouseEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->mouseMoveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperMouseMoveEvent(TextGrammarCheck__GrammarResultWidget* self, QMouseEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_MouseMoveEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnMouseMoveEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_mousemoveevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_WheelEvent(TextGrammarCheck__GrammarResultWidget* self, QWheelEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->wheelEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperWheelEvent(TextGrammarCheck__GrammarResultWidget* self, QWheelEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_WheelEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->wheelEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnWheelEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_WheelEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_WheelEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_wheelevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_KeyPressEvent(TextGrammarCheck__GrammarResultWidget* self, QKeyEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->keyPressEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperKeyPressEvent(TextGrammarCheck__GrammarResultWidget* self, QKeyEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_KeyPressEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->keyPressEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnKeyPressEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_keypressevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_KeyReleaseEvent(TextGrammarCheck__GrammarResultWidget* self, QKeyEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->keyReleaseEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperKeyReleaseEvent(TextGrammarCheck__GrammarResultWidget* self, QKeyEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_KeyReleaseEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnKeyReleaseEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_keyreleaseevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_FocusInEvent(TextGrammarCheck__GrammarResultWidget* self, QFocusEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->focusInEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperFocusInEvent(TextGrammarCheck__GrammarResultWidget* self, QFocusEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_FocusInEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->focusInEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnFocusInEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_FocusInEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_FocusInEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_focusinevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_FocusOutEvent(TextGrammarCheck__GrammarResultWidget* self, QFocusEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->focusOutEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperFocusOutEvent(TextGrammarCheck__GrammarResultWidget* self, QFocusEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_FocusOutEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->focusOutEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnFocusOutEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_focusoutevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_EnterEvent(TextGrammarCheck__GrammarResultWidget* self, QEnterEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->enterEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperEnterEvent(TextGrammarCheck__GrammarResultWidget* self, QEnterEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_EnterEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->enterEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->enterEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnEnterEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_EnterEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_EnterEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_enterevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_LeaveEvent(TextGrammarCheck__GrammarResultWidget* self, QEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->leaveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperLeaveEvent(TextGrammarCheck__GrammarResultWidget* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_LeaveEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->leaveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnLeaveEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_LeaveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_LeaveEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_leaveevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_PaintEvent(TextGrammarCheck__GrammarResultWidget* self, QPaintEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->paintEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperPaintEvent(TextGrammarCheck__GrammarResultWidget* self, QPaintEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_PaintEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->paintEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->paintEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnPaintEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_PaintEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_PaintEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_paintevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_MoveEvent(TextGrammarCheck__GrammarResultWidget* self, QMoveEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->moveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperMoveEvent(TextGrammarCheck__GrammarResultWidget* self, QMoveEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_MoveEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->moveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->moveEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnMoveEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_MoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_MoveEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_moveevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_ResizeEvent(TextGrammarCheck__GrammarResultWidget* self, QResizeEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->resizeEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperResizeEvent(TextGrammarCheck__GrammarResultWidget* self, QResizeEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_ResizeEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->resizeEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnResizeEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_ResizeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_ResizeEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_resizeevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_CloseEvent(TextGrammarCheck__GrammarResultWidget* self, QCloseEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->closeEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperCloseEvent(TextGrammarCheck__GrammarResultWidget* self, QCloseEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_CloseEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->closeEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->closeEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnCloseEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_CloseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_CloseEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_closeevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_ContextMenuEvent(TextGrammarCheck__GrammarResultWidget* self, QContextMenuEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->contextMenuEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperContextMenuEvent(TextGrammarCheck__GrammarResultWidget* self, QContextMenuEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_ContextMenuEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->contextMenuEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnContextMenuEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_contextmenuevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_TabletEvent(TextGrammarCheck__GrammarResultWidget* self, QTabletEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->tabletEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperTabletEvent(TextGrammarCheck__GrammarResultWidget* self, QTabletEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_TabletEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->tabletEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnTabletEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_TabletEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_TabletEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_tabletevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_ActionEvent(TextGrammarCheck__GrammarResultWidget* self, QActionEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->actionEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperActionEvent(TextGrammarCheck__GrammarResultWidget* self, QActionEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_ActionEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->actionEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->actionEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnActionEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_ActionEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_ActionEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_actionevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_DragEnterEvent(TextGrammarCheck__GrammarResultWidget* self, QDragEnterEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->dragEnterEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperDragEnterEvent(TextGrammarCheck__GrammarResultWidget* self, QDragEnterEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_DragEnterEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->dragEnterEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnDragEnterEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_dragenterevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_DragMoveEvent(TextGrammarCheck__GrammarResultWidget* self, QDragMoveEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->dragMoveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperDragMoveEvent(TextGrammarCheck__GrammarResultWidget* self, QDragMoveEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_DragMoveEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->dragMoveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnDragMoveEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_dragmoveevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_DragLeaveEvent(TextGrammarCheck__GrammarResultWidget* self, QDragLeaveEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->dragLeaveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperDragLeaveEvent(TextGrammarCheck__GrammarResultWidget* self, QDragLeaveEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_DragLeaveEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnDragLeaveEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_dragleaveevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_DropEvent(TextGrammarCheck__GrammarResultWidget* self, QDropEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->dropEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperDropEvent(TextGrammarCheck__GrammarResultWidget* self, QDropEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_DropEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->dropEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->dropEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnDropEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_DropEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_DropEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_dropevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_ShowEvent(TextGrammarCheck__GrammarResultWidget* self, QShowEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->showEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperShowEvent(TextGrammarCheck__GrammarResultWidget* self, QShowEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_ShowEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->showEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->showEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnShowEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_ShowEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_ShowEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_showevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_HideEvent(TextGrammarCheck__GrammarResultWidget* self, QHideEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->hideEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperHideEvent(TextGrammarCheck__GrammarResultWidget* self, QHideEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_HideEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->hideEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->hideEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnHideEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_HideEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_HideEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_hideevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammarResultWidget_NativeEvent(TextGrammarCheck__GrammarResultWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
+    if (vtextgrammarcheckgrammarresultwidget) {
         return vtextgrammarcheckgrammarresultwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammarResultWidget_SuperNativeEvent(TextGrammarCheck__GrammarResultWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_NativeEvent_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        return vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnNativeEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_NativeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_NativeEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_nativeevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_ChangeEvent(TextGrammarCheck__GrammarResultWidget* self, QEvent* param1) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->changeEvent(param1);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperChangeEvent(TextGrammarCheck__GrammarResultWidget* self, QEvent* param1) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_ChangeEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->changeEvent(param1);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnChangeEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_ChangeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_ChangeEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_changeevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextGrammarCheck__GrammarResultWidget_Metric(const TextGrammarCheck__GrammarResultWidget* self, int param1) {
     auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         return vtextgrammarcheckgrammarresultwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int TextGrammarCheck__GrammarResultWidget_SuperMetric(const TextGrammarCheck__GrammarResultWidget* self, int param1) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Metric_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self))) {
+        return vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnMetric(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Metric_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_Metric_Callback>(slot));
+void TextGrammarCheck__GrammarResultWidget_OnMetric(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self)))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_metric_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_InitPainter(const TextGrammarCheck__GrammarResultWidget* self, QPainter* painter) {
     auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->initPainter(painter);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperInitPainter(const TextGrammarCheck__GrammarResultWidget* self, QPainter* painter) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_InitPainter_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->initPainter(painter);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->initPainter(painter);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self))) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnInitPainter(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_InitPainter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_InitPainter_Callback>(slot));
+void TextGrammarCheck__GrammarResultWidget_OnInitPainter(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self)))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_initpainter_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* TextGrammarCheck__GrammarResultWidget_Redirected(const TextGrammarCheck__GrammarResultWidget* self, QPoint* offset) {
     auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         return vtextgrammarcheckgrammarresultwidget->redirected(offset);
     } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* TextGrammarCheck__GrammarResultWidget_SuperRedirected(const TextGrammarCheck__GrammarResultWidget* self, QPoint* offset) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Redirected_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->redirected(offset);
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->redirected(offset);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self))) {
+        return vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnRedirected(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Redirected_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_Redirected_Callback>(slot));
+void TextGrammarCheck__GrammarResultWidget_OnRedirected(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self)))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_redirected_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* TextGrammarCheck__GrammarResultWidget_SharedPainter(const TextGrammarCheck__GrammarResultWidget* self) {
     auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         return vtextgrammarcheckgrammarresultwidget->sharedPainter();
     } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* TextGrammarCheck__GrammarResultWidget_SuperSharedPainter(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_SharedPainter_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->sharedPainter();
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->sharedPainter();
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self))) {
+        return vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnSharedPainter(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_SharedPainter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_SharedPainter_Callback>(slot));
+void TextGrammarCheck__GrammarResultWidget_OnSharedPainter(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self)))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_sharedpainter_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_InputMethodEvent(TextGrammarCheck__GrammarResultWidget* self, QInputMethodEvent* param1) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->inputMethodEvent(param1);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperInputMethodEvent(TextGrammarCheck__GrammarResultWidget* self, QInputMethodEvent* param1) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_InputMethodEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnInputMethodEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_inputmethodevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* TextGrammarCheck__GrammarResultWidget_InputMethodQuery(const TextGrammarCheck__GrammarResultWidget* self, int param1) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return new QVariant(vtextgrammarcheckgrammarresultwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextGrammarCheckGrammarResultWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* TextGrammarCheck__GrammarResultWidget_SuperInputMethodQuery(const TextGrammarCheck__GrammarResultWidget* self, int param1) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vtextgrammarcheckgrammarresultwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextGrammarCheckGrammarResultWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->TextGrammarCheck::GrammarResultWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnInputMethodQuery(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_InputMethodQuery_Callback>(slot));
+void TextGrammarCheck__GrammarResultWidget_OnInputMethodQuery(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self)))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_inputmethodquery_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammarResultWidget_FocusNextPrevChild(TextGrammarCheck__GrammarResultWidget* self, bool next) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         return vtextgrammarcheckgrammarresultwidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammarResultWidget_SuperFocusNextPrevChild(TextGrammarCheck__GrammarResultWidget* self, bool next) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_FocusNextPrevChild_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        return vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnFocusNextPrevChild(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_focusnextprevchild_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammarResultWidget_EventFilter(TextGrammarCheck__GrammarResultWidget* self, QObject* watched, QEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return vtextgrammarcheckgrammarresultwidget->eventFilter(watched, event);
-    } else {
-        return self->TextGrammarCheck::GrammarResultWidget::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammarResultWidget_SuperEventFilter(TextGrammarCheck__GrammarResultWidget* self, QObject* watched, QEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_EventFilter_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->eventFilter(watched, event);
-    } else {
-        return self->TextGrammarCheck::GrammarResultWidget::eventFilter(watched, event);
-    }
+    return self->TextGrammarCheck::GrammarResultWidget::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnEventFilter(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_EventFilter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_EventFilter_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_eventfilter_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_TimerEvent(TextGrammarCheck__GrammarResultWidget* self, QTimerEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->timerEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperTimerEvent(TextGrammarCheck__GrammarResultWidget* self, QTimerEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_TimerEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->timerEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->timerEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnTimerEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_TimerEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_TimerEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_timerevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_ChildEvent(TextGrammarCheck__GrammarResultWidget* self, QChildEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->childEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperChildEvent(TextGrammarCheck__GrammarResultWidget* self, QChildEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_ChildEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->childEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->childEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnChildEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_ChildEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_ChildEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_childevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_CustomEvent(TextGrammarCheck__GrammarResultWidget* self, QEvent* event) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->customEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperCustomEvent(TextGrammarCheck__GrammarResultWidget* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_CustomEvent_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->customEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->customEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnCustomEvent(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_CustomEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_CustomEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_customevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_ConnectNotify(TextGrammarCheck__GrammarResultWidget* self, const QMetaMethod* signal) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->connectNotify(*signal);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperConnectNotify(TextGrammarCheck__GrammarResultWidget* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_ConnectNotify_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->connectNotify(*signal);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnConnectNotify(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_ConnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_ConnectNotify_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_connectnotify_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammarResultWidget_DisconnectNotify(TextGrammarCheck__GrammarResultWidget* self, const QMetaMethod* signal) {
     auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
+    if (vtextgrammarcheckgrammarresultwidget) {
         vtextgrammarcheckgrammarresultwidget->disconnectNotify(*signal);
     } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarResultWidget_SuperDisconnectNotify(TextGrammarCheck__GrammarResultWidget* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_DisconnectNotify_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->TextGrammarCheck::GrammarResultWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammarResultWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultWidget_OnDisconnectNotify(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self))
+        vtextgrammarcheckgrammarresultwidget->textgrammarcheck__grammarresultwidget_disconnectnotify_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextGrammarCheck__GrammarResultWidget_UpdateMicroFocus(TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->updateMicroFocus();
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->VirtualTextGrammarCheckGrammarResultWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammarResultWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextGrammarCheck__GrammarResultWidget_SuperUpdateMicroFocus(TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_UpdateMicroFocus_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->updateMicroFocus();
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnUpdateMicroFocus(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextGrammarCheck__GrammarResultWidget_Create(TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->create();
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->create();
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->VirtualTextGrammarCheckGrammarResultWidget::create();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammarResultWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextGrammarCheck__GrammarResultWidget_SuperCreate(TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Create_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->create();
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnCreate(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Create_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextGrammarCheck__GrammarResultWidget_Destroy(TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->destroy();
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->destroy();
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        vtextgrammarcheckgrammarresultwidget->VirtualTextGrammarCheckGrammarResultWidget::destroy();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammarResultWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextGrammarCheck__GrammarResultWidget_SuperDestroy(TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Destroy_IsBase(true);
-        vtextgrammarcheckgrammarresultwidget->destroy();
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnDestroy(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Destroy_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextGrammarCheck__GrammarResultWidget_FocusNextChild(TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return vtextgrammarcheckgrammarresultwidget->focusNextChild();
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->focusNextChild();
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        return vtextgrammarcheckgrammarresultwidget->VirtualTextGrammarCheckGrammarResultWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammarResultWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextGrammarCheck__GrammarResultWidget_SuperFocusNextChild(TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_FocusNextChild_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->focusNextChild();
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnFocusNextChild(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_FocusNextChild_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextGrammarCheck__GrammarResultWidget_FocusPreviousChild(TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return vtextgrammarcheckgrammarresultwidget->focusPreviousChild();
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self)) {
+        return vtextgrammarcheckgrammarresultwidget->VirtualTextGrammarCheckGrammarResultWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammarResultWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextGrammarCheck__GrammarResultWidget_SuperFocusPreviousChild(TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_FocusPreviousChild_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->focusPreviousChild();
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnFocusPreviousChild(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextGrammarCheck__GrammarResultWidget_Sender(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return vtextgrammarcheckgrammarresultwidget->sender();
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->sender();
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self))) {
+        return vtextgrammarcheckgrammarresultwidget->VirtualTextGrammarCheckGrammarResultWidget::sender();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammarResultWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextGrammarCheck__GrammarResultWidget_SuperSender(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Sender_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->sender();
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnSender(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Sender_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextGrammarCheck__GrammarResultWidget_SenderSignalIndex(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return vtextgrammarcheckgrammarresultwidget->senderSignalIndex();
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self))) {
+        return vtextgrammarcheckgrammarresultwidget->VirtualTextGrammarCheckGrammarResultWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammarResultWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextGrammarCheck__GrammarResultWidget_SuperSenderSignalIndex(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_SenderSignalIndex_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->senderSignalIndex();
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnSenderSignalIndex(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextGrammarCheck__GrammarResultWidget_Receivers(const TextGrammarCheck__GrammarResultWidget* self, const char* signal) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return vtextgrammarcheckgrammarresultwidget->receivers(signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->receivers(signal);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self))) {
+        return vtextgrammarcheckgrammarresultwidget->VirtualTextGrammarCheckGrammarResultWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammarResultWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextGrammarCheck__GrammarResultWidget_SuperReceivers(const TextGrammarCheck__GrammarResultWidget* self, const char* signal) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Receivers_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->receivers(signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnReceivers(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_Receivers_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextGrammarCheck__GrammarResultWidget_IsSignalConnected(const TextGrammarCheck__GrammarResultWidget* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return vtextgrammarcheckgrammarresultwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self))) {
+        return vtextgrammarcheckgrammarresultwidget->VirtualTextGrammarCheckGrammarResultWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammarResultWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextGrammarCheck__GrammarResultWidget_SuperIsSignalConnected(const TextGrammarCheck__GrammarResultWidget* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_IsSignalConnected_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnIsSignalConnected(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double TextGrammarCheck__GrammarResultWidget_GetDecodedMetricF(const TextGrammarCheck__GrammarResultWidget* self, int metricA, int metricB) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return vtextgrammarcheckgrammarresultwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double TextGrammarCheck__GrammarResultWidget_SuperGetDecodedMetricF(const TextGrammarCheck__GrammarResultWidget* self, int metricA, int metricB) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_GetDecodedMetricF_IsBase(true);
-        return vtextgrammarcheckgrammarresultwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarResultWidget_OnGetDecodedMetricF(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self));
-    if (vtextgrammarcheckgrammarresultwidget && vtextgrammarcheckgrammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget)
-        vtextgrammarcheckgrammarresultwidget->setTextGrammarCheck__GrammarResultWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultWidget::TextGrammarCheck__GrammarResultWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarresultwidget = const_cast<VirtualTextGrammarCheckGrammarResultWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self))) {
+        return vtextgrammarcheckgrammarresultwidget->VirtualTextGrammarCheckGrammarResultWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammarResultWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void TextGrammarCheck__GrammarResultWidget_Delete(TextGrammarCheck__GrammarResultWidget* self) {

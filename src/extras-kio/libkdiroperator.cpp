@@ -446,46 +446,46 @@ bool KDirOperator_UsingKeyNavigation(KDirOperator* self) {
 
 QAbstractItemView* KDirOperator_CreateView(KDirOperator* self, QWidget* parent, int viewKind) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         return vkdiroperator->createView(parent, static_cast<KFile::FileView>(viewKind));
     }
-    return {};
+    qFatal("Error: Protected method KDirOperator::createView called without a directly constructed type");
 }
 
 void KDirOperator_SetDirLister(KDirOperator* self, KDirLister* lister) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->setDirLister(lister);
     }
 }
 
 void KDirOperator_ResizeEvent(KDirOperator* self, QResizeEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->resizeEvent(event);
     }
 }
 
 void KDirOperator_ActivatedMenu(KDirOperator* self, const KFileItem* item, const QPoint* pos) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->activatedMenu(*item, *pos);
     }
 }
 
 void KDirOperator_ChangeEvent(KDirOperator* self, QEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->changeEvent(event);
     }
 }
 
 bool KDirOperator_EventFilter(KDirOperator* self, QObject* watched, QEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         return vkdiroperator->eventFilter(watched, event);
     }
-    return {};
+    qFatal("Error: Protected method KDirOperator::eventFilter called without a directly constructed type");
 }
 
 void KDirOperator_Back(KDirOperator* self) {
@@ -575,7 +575,7 @@ void KDirOperator_SetSupportedSchemes(KDirOperator* self, const libqt_list /* of
 
 void KDirOperator_SelectDir(KDirOperator* self, const KFileItem* item) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->selectDir(*item);
     }
 }
@@ -843,2562 +843,1572 @@ libqt_string KDirOperator_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KDirOperator_SuperMetaObject(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_MetaObject_IsBase(true);
-        return (QMetaObject*)vkdiroperator->metaObject();
-    } else {
-        return (QMetaObject*)self->KDirOperator::metaObject();
-    }
+    return (QMetaObject*)self->KDirOperator::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirOperator_OnMetaObject(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_MetaObject_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MetaObject_Callback>(slot));
+void KDirOperator_OnMetaObject(KDirOperator* self, intptr_t slot) {
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self)))
+        vkdiroperator->kdiroperator_metaobject_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KDirOperator_SuperMetacast(KDirOperator* self, const char* param1) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Metacast_IsBase(true);
-        return vkdiroperator->qt_metacast(param1);
-    } else {
-        return self->KDirOperator::qt_metacast(param1);
-    }
+    return self->KDirOperator::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMetacast(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Metacast_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Metacast_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_metacast_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KDirOperator_SuperMetacall(KDirOperator* self, int param1, int param2, void** param3) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Metacall_IsBase(true);
-        return vkdiroperator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KDirOperator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KDirOperator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMetacall(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Metacall_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Metacall_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_metacall_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperSetShowHiddenFiles(KDirOperator* self, bool s) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SetShowHiddenFiles_IsBase(true);
-        vkdiroperator->setShowHiddenFiles(s);
-    } else {
-        self->KDirOperator::setShowHiddenFiles(s);
-    }
+    self->KDirOperator::setShowHiddenFiles(s);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetShowHiddenFiles(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SetShowHiddenFiles_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetShowHiddenFiles_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_setshowhiddenfiles_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_SetShowHiddenFiles_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperSetUrl(KDirOperator* self, const QUrl* url, bool clearforward) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SetUrl_IsBase(true);
-        vkdiroperator->setUrl(*url, clearforward);
-    } else {
-        self->KDirOperator::setUrl(*url, clearforward);
-    }
+    self->KDirOperator::setUrl(*url, clearforward);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetUrl(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SetUrl_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetUrl_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_seturl_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_SetUrl_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperSetMode(KDirOperator* self, int m) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SetMode_IsBase(true);
-        vkdiroperator->setMode(static_cast<KFile::Modes>(m));
-    } else {
-        self->KDirOperator::setMode(static_cast<KFile::Modes>(m));
-    }
+    self->KDirOperator::setMode(static_cast<KFile::Modes>(m));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetMode(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SetMode_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetMode_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_setmode_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_SetMode_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperSetPreviewWidget(KDirOperator* self, KPreviewWidgetBase* w) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SetPreviewWidget_IsBase(true);
-        vkdiroperator->setPreviewWidget(w);
-    } else {
-        self->KDirOperator::setPreviewWidget(w);
-    }
+    self->KDirOperator::setPreviewWidget(w);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetPreviewWidget(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SetPreviewWidget_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetPreviewWidget_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_setpreviewwidget_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_SetPreviewWidget_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperSetViewConfig(KDirOperator* self, KConfigGroup* configGroup) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SetViewConfig_IsBase(true);
-        vkdiroperator->setViewConfig(*configGroup);
-    } else {
-        self->KDirOperator::setViewConfig(*configGroup);
-    }
+    self->KDirOperator::setViewConfig(*configGroup);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetViewConfig(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SetViewConfig_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetViewConfig_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_setviewconfig_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_SetViewConfig_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperReadConfig(KDirOperator* self, const KConfigGroup* configGroup) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_ReadConfig_IsBase(true);
-        vkdiroperator->readConfig(*configGroup);
-    } else {
-        self->KDirOperator::readConfig(*configGroup);
-    }
+    self->KDirOperator::readConfig(*configGroup);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnReadConfig(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_ReadConfig_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ReadConfig_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_readconfig_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_ReadConfig_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperWriteConfig(KDirOperator* self, KConfigGroup* configGroup) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_WriteConfig_IsBase(true);
-        vkdiroperator->writeConfig(*configGroup);
-    } else {
-        self->KDirOperator::writeConfig(*configGroup);
-    }
+    self->KDirOperator::writeConfig(*configGroup);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnWriteConfig(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_WriteConfig_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_WriteConfig_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_writeconfig_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_WriteConfig_Callback>(slot);
 }
 
 // Base class handler implementation
 KIO__DeleteJob* KDirOperator_SuperDel(KDirOperator* self, const KFileItemList* items, QWidget* parent, bool ask, bool showProgress) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Del_IsBase(true);
-        return vkdiroperator->del(*items, parent, ask, showProgress);
-    } else {
-        return self->KDirOperator::del(*items, parent, ask, showProgress);
-    }
+    return self->KDirOperator::del(*items, parent, ask, showProgress);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDel(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Del_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Del_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_del_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_Del_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperSetEnableDirHighlighting(KDirOperator* self, bool enable) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SetEnableDirHighlighting_IsBase(true);
-        vkdiroperator->setEnableDirHighlighting(enable);
-    } else {
-        self->KDirOperator::setEnableDirHighlighting(enable);
-    }
+    self->KDirOperator::setEnableDirHighlighting(enable);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetEnableDirHighlighting(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SetEnableDirHighlighting_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetEnableDirHighlighting_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_setenabledirhighlighting_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_SetEnableDirHighlighting_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperSetAcceptDrops(KDirOperator* self, bool b) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SetAcceptDrops_IsBase(true);
-        vkdiroperator->setAcceptDrops(b);
-    } else {
-        self->KDirOperator::setAcceptDrops(b);
-    }
+    self->KDirOperator::setAcceptDrops(b);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetAcceptDrops(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SetAcceptDrops_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetAcceptDrops_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_setacceptdrops_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_SetAcceptDrops_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperSetDropOptions(KDirOperator* self, int options) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SetDropOptions_IsBase(true);
-        vkdiroperator->setDropOptions(static_cast<int>(options));
-    } else {
-        self->KDirOperator::setDropOptions(static_cast<int>(options));
-    }
+    self->KDirOperator::setDropOptions(static_cast<int>(options));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetDropOptions(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SetDropOptions_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetDropOptions_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_setdropoptions_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_SetDropOptions_Callback>(slot);
 }
 
 // Base class handler implementation
 KIO__CopyJob* KDirOperator_SuperTrash(KDirOperator* self, const KFileItemList* items, QWidget* parent, bool ask, bool showProgress) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Trash_IsBase(true);
-        return vkdiroperator->trash(*items, parent, ask, showProgress);
-    } else {
-        return self->KDirOperator::trash(*items, parent, ask, showProgress);
-    }
+    return self->KDirOperator::trash(*items, parent, ask, showProgress);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnTrash(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Trash_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Trash_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_trash_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_Trash_Callback>(slot);
 }
 
 // Base class handler implementation
 QAbstractItemView* KDirOperator_SuperCreateView(KDirOperator* self, QWidget* parent, int viewKind) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_CreateView_IsBase(true);
-        return vkdiroperator->createView(parent, static_cast<KFile::FileView>(viewKind));
-    } else {
-        return ((VirtualKDirOperator*)self)->createView(parent, static_cast<KFile::FileView>(viewKind));
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        return vkdiroperator->KDirOperator::createView(parent, static_cast<KFile::FileView>(viewKind));
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::createView called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnCreateView(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_CreateView_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_CreateView_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_createview_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_CreateView_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperSetDirLister(KDirOperator* self, KDirLister* lister) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SetDirLister_IsBase(true);
-        vkdiroperator->setDirLister(lister);
-    } else {
-        ((VirtualKDirOperator*)self)->setDirLister(lister);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::setDirLister(lister);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::setDirLister called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetDirLister(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SetDirLister_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetDirLister_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_setdirlister_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_SetDirLister_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperResizeEvent(KDirOperator* self, QResizeEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_ResizeEvent_IsBase(true);
-        vkdiroperator->resizeEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->resizeEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnResizeEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_ResizeEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ResizeEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_resizeevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperActivatedMenu(KDirOperator* self, const KFileItem* item, const QPoint* pos) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_ActivatedMenu_IsBase(true);
-        vkdiroperator->activatedMenu(*item, *pos);
-    } else {
-        ((VirtualKDirOperator*)self)->activatedMenu(*item, *pos);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::activatedMenu(*item, *pos);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::activatedMenu called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnActivatedMenu(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_ActivatedMenu_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ActivatedMenu_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_activatedmenu_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_ActivatedMenu_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperChangeEvent(KDirOperator* self, QEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_ChangeEvent_IsBase(true);
-        vkdiroperator->changeEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->changeEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::changeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnChangeEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_ChangeEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ChangeEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_changeevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_ChangeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KDirOperator_SuperEventFilter(KDirOperator* self, QObject* watched, QEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_EventFilter_IsBase(true);
-        return vkdiroperator->eventFilter(watched, event);
-    } else {
-        return ((VirtualKDirOperator*)self)->eventFilter(watched, event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        return vkdiroperator->KDirOperator::eventFilter(watched, event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnEventFilter(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_EventFilter_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_EventFilter_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_eventfilter_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperBack(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Back_IsBase(true);
-        vkdiroperator->back();
-    } else {
-        self->KDirOperator::back();
-    }
+    self->KDirOperator::back();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnBack(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Back_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Back_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_back_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_Back_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperForward(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Forward_IsBase(true);
-        vkdiroperator->forward();
-    } else {
-        self->KDirOperator::forward();
-    }
+    self->KDirOperator::forward();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnForward(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Forward_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Forward_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_forward_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_Forward_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperHome(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Home_IsBase(true);
-        vkdiroperator->home();
-    } else {
-        self->KDirOperator::home();
-    }
+    self->KDirOperator::home();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnHome(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Home_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Home_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_home_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_Home_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperCdUp(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_CdUp_IsBase(true);
-        vkdiroperator->cdUp();
-    } else {
-        self->KDirOperator::cdUp();
-    }
+    self->KDirOperator::cdUp();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnCdUp(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_CdUp_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_CdUp_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_cdup_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_CdUp_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperRereadDir(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_RereadDir_IsBase(true);
-        vkdiroperator->rereadDir();
-    } else {
-        self->KDirOperator::rereadDir();
-    }
+    self->KDirOperator::rereadDir();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnRereadDir(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_RereadDir_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_RereadDir_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_rereaddir_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_RereadDir_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperMkdir(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Mkdir_IsBase(true);
-        vkdiroperator->mkdir();
-    } else {
-        self->KDirOperator::mkdir();
-    }
+    self->KDirOperator::mkdir();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMkdir(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Mkdir_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Mkdir_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_mkdir_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_Mkdir_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperDeleteSelected(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_DeleteSelected_IsBase(true);
-        vkdiroperator->deleteSelected();
-    } else {
-        self->KDirOperator::deleteSelected();
-    }
+    self->KDirOperator::deleteSelected();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDeleteSelected(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_DeleteSelected_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_DeleteSelected_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_deleteselected_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_DeleteSelected_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperTrashSelected(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_TrashSelected_IsBase(true);
-        vkdiroperator->trashSelected();
-    } else {
-        self->KDirOperator::trashSelected();
-    }
+    self->KDirOperator::trashSelected();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnTrashSelected(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_TrashSelected_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_TrashSelected_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_trashselected_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_TrashSelected_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperSelectDir(KDirOperator* self, const KFileItem* item) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SelectDir_IsBase(true);
-        vkdiroperator->selectDir(*item);
-    } else {
-        ((VirtualKDirOperator*)self)->selectDir(*item);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::selectDir(*item);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::selectDir called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSelectDir(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SelectDir_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SelectDir_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_selectdir_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_SelectDir_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KDirOperator_DevType(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return vkdiroperator->devType();
-    } else {
-        return self->KDirOperator::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KDirOperator_SuperDevType(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_DevType_IsBase(true);
-        return vkdiroperator->devType();
-    } else {
-        return self->KDirOperator::devType();
-    }
+    return self->KDirOperator::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirOperator_OnDevType(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_DevType_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_DevType_Callback>(slot));
+void KDirOperator_OnDevType(KDirOperator* self, intptr_t slot) {
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self)))
+        vkdiroperator->kdiroperator_devtype_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_SetVisible(KDirOperator* self, bool visible) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setVisible(visible);
-    } else {
-        self->KDirOperator::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KDirOperator_SuperSetVisible(KDirOperator* self, bool visible) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SetVisible_IsBase(true);
-        vkdiroperator->setVisible(visible);
-    } else {
-        self->KDirOperator::setVisible(visible);
-    }
+    self->KDirOperator::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetVisible(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SetVisible_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetVisible_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_setvisible_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KDirOperator_SizeHint(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return new QSize(vkdiroperator->sizeHint());
-    } else {
-        return new QSize(((VirtualKDirOperator*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KDirOperator_SuperSizeHint(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SizeHint_IsBase(true);
-        return new QSize(vkdiroperator->sizeHint());
-    } else {
-        return new QSize(((VirtualKDirOperator*)self)->sizeHint());
-    }
+    return new QSize(self->KDirOperator::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirOperator_OnSizeHint(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SizeHint_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SizeHint_Callback>(slot));
+void KDirOperator_OnSizeHint(KDirOperator* self, intptr_t slot) {
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self)))
+        vkdiroperator->kdiroperator_sizehint_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KDirOperator_MinimumSizeHint(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return new QSize(vkdiroperator->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKDirOperator*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KDirOperator_SuperMinimumSizeHint(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_MinimumSizeHint_IsBase(true);
-        return new QSize(vkdiroperator->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKDirOperator*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KDirOperator::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirOperator_OnMinimumSizeHint(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_MinimumSizeHint_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MinimumSizeHint_Callback>(slot));
+void KDirOperator_OnMinimumSizeHint(KDirOperator* self, intptr_t slot) {
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self)))
+        vkdiroperator->kdiroperator_minimumsizehint_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KDirOperator_HeightForWidth(const KDirOperator* self, int param1) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return vkdiroperator->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KDirOperator::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KDirOperator_SuperHeightForWidth(const KDirOperator* self, int param1) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_HeightForWidth_IsBase(true);
-        return vkdiroperator->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KDirOperator::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KDirOperator::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirOperator_OnHeightForWidth(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_HeightForWidth_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_HeightForWidth_Callback>(slot));
+void KDirOperator_OnHeightForWidth(KDirOperator* self, intptr_t slot) {
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self)))
+        vkdiroperator->kdiroperator_heightforwidth_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirOperator_HasHeightForWidth(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return vkdiroperator->hasHeightForWidth();
-    } else {
-        return self->KDirOperator::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KDirOperator_SuperHasHeightForWidth(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_HasHeightForWidth_IsBase(true);
-        return vkdiroperator->hasHeightForWidth();
-    } else {
-        return self->KDirOperator::hasHeightForWidth();
-    }
+    return self->KDirOperator::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirOperator_OnHasHeightForWidth(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_HasHeightForWidth_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_HasHeightForWidth_Callback>(slot));
+void KDirOperator_OnHasHeightForWidth(KDirOperator* self, intptr_t slot) {
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self)))
+        vkdiroperator->kdiroperator_hasheightforwidth_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KDirOperator_PaintEngine(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return vkdiroperator->paintEngine();
-    } else {
-        return self->KDirOperator::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KDirOperator_SuperPaintEngine(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_PaintEngine_IsBase(true);
-        return vkdiroperator->paintEngine();
-    } else {
-        return self->KDirOperator::paintEngine();
-    }
+    return self->KDirOperator::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirOperator_OnPaintEngine(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_PaintEngine_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_PaintEngine_Callback>(slot));
+void KDirOperator_OnPaintEngine(KDirOperator* self, intptr_t slot) {
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self)))
+        vkdiroperator->kdiroperator_paintengine_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirOperator_Event(KDirOperator* self, QEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         return vkdiroperator->event(event);
     } else {
-        return ((VirtualKDirOperator*)self)->event(event);
+        qFatal("Error: Protected virtual method KDirOperator::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KDirOperator_SuperEvent(KDirOperator* self, QEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Event_IsBase(true);
-        return vkdiroperator->event(event);
-    } else {
-        return ((VirtualKDirOperator*)self)->event(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        return vkdiroperator->KDirOperator::event(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Event_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Event_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_event_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_MousePressEvent(KDirOperator* self, QMouseEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->mousePressEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperMousePressEvent(KDirOperator* self, QMouseEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_MousePressEvent_IsBase(true);
-        vkdiroperator->mousePressEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->mousePressEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMousePressEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_MousePressEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MousePressEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_mousepressevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_MouseReleaseEvent(KDirOperator* self, QMouseEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->mouseReleaseEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperMouseReleaseEvent(KDirOperator* self, QMouseEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_MouseReleaseEvent_IsBase(true);
-        vkdiroperator->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMouseReleaseEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_mousereleaseevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_MouseDoubleClickEvent(KDirOperator* self, QMouseEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperMouseDoubleClickEvent(KDirOperator* self, QMouseEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_MouseDoubleClickEvent_IsBase(true);
-        vkdiroperator->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMouseDoubleClickEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_mousedoubleclickevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_MouseMoveEvent(KDirOperator* self, QMouseEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->mouseMoveEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperMouseMoveEvent(KDirOperator* self, QMouseEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_MouseMoveEvent_IsBase(true);
-        vkdiroperator->mouseMoveEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMouseMoveEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_MouseMoveEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MouseMoveEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_mousemoveevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_WheelEvent(KDirOperator* self, QWheelEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->wheelEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperWheelEvent(KDirOperator* self, QWheelEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_WheelEvent_IsBase(true);
-        vkdiroperator->wheelEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->wheelEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnWheelEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_WheelEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_WheelEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_wheelevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_KeyPressEvent(KDirOperator* self, QKeyEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->keyPressEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperKeyPressEvent(KDirOperator* self, QKeyEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_KeyPressEvent_IsBase(true);
-        vkdiroperator->keyPressEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->keyPressEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnKeyPressEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_KeyPressEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_KeyPressEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_keypressevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_KeyReleaseEvent(KDirOperator* self, QKeyEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->keyReleaseEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperKeyReleaseEvent(KDirOperator* self, QKeyEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_KeyReleaseEvent_IsBase(true);
-        vkdiroperator->keyReleaseEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnKeyReleaseEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_keyreleaseevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_FocusInEvent(KDirOperator* self, QFocusEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->focusInEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperFocusInEvent(KDirOperator* self, QFocusEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_FocusInEvent_IsBase(true);
-        vkdiroperator->focusInEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->focusInEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnFocusInEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_FocusInEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_FocusInEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_focusinevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_FocusOutEvent(KDirOperator* self, QFocusEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->focusOutEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperFocusOutEvent(KDirOperator* self, QFocusEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_FocusOutEvent_IsBase(true);
-        vkdiroperator->focusOutEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->focusOutEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnFocusOutEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_FocusOutEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_FocusOutEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_focusoutevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_EnterEvent(KDirOperator* self, QEnterEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->enterEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperEnterEvent(KDirOperator* self, QEnterEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_EnterEvent_IsBase(true);
-        vkdiroperator->enterEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->enterEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnEnterEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_EnterEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_EnterEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_enterevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_LeaveEvent(KDirOperator* self, QEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->leaveEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperLeaveEvent(KDirOperator* self, QEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_LeaveEvent_IsBase(true);
-        vkdiroperator->leaveEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->leaveEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnLeaveEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_LeaveEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_LeaveEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_leaveevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_PaintEvent(KDirOperator* self, QPaintEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->paintEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperPaintEvent(KDirOperator* self, QPaintEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_PaintEvent_IsBase(true);
-        vkdiroperator->paintEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->paintEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnPaintEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_PaintEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_PaintEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_paintevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_MoveEvent(KDirOperator* self, QMoveEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->moveEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperMoveEvent(KDirOperator* self, QMoveEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_MoveEvent_IsBase(true);
-        vkdiroperator->moveEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->moveEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMoveEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_MoveEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MoveEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_moveevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_CloseEvent(KDirOperator* self, QCloseEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->closeEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperCloseEvent(KDirOperator* self, QCloseEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_CloseEvent_IsBase(true);
-        vkdiroperator->closeEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->closeEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnCloseEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_CloseEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_CloseEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_closeevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_ContextMenuEvent(KDirOperator* self, QContextMenuEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->contextMenuEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperContextMenuEvent(KDirOperator* self, QContextMenuEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_ContextMenuEvent_IsBase(true);
-        vkdiroperator->contextMenuEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnContextMenuEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_ContextMenuEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ContextMenuEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_contextmenuevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_TabletEvent(KDirOperator* self, QTabletEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->tabletEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperTabletEvent(KDirOperator* self, QTabletEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_TabletEvent_IsBase(true);
-        vkdiroperator->tabletEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->tabletEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnTabletEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_TabletEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_TabletEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_tabletevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_ActionEvent(KDirOperator* self, QActionEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->actionEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperActionEvent(KDirOperator* self, QActionEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_ActionEvent_IsBase(true);
-        vkdiroperator->actionEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->actionEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnActionEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_ActionEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ActionEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_actionevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_DragEnterEvent(KDirOperator* self, QDragEnterEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->dragEnterEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperDragEnterEvent(KDirOperator* self, QDragEnterEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_DragEnterEvent_IsBase(true);
-        vkdiroperator->dragEnterEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDragEnterEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_DragEnterEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_DragEnterEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_dragenterevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_DragMoveEvent(KDirOperator* self, QDragMoveEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->dragMoveEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperDragMoveEvent(KDirOperator* self, QDragMoveEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_DragMoveEvent_IsBase(true);
-        vkdiroperator->dragMoveEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDragMoveEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_DragMoveEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_DragMoveEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_dragmoveevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_DragLeaveEvent(KDirOperator* self, QDragLeaveEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->dragLeaveEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperDragLeaveEvent(KDirOperator* self, QDragLeaveEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_DragLeaveEvent_IsBase(true);
-        vkdiroperator->dragLeaveEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDragLeaveEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_DragLeaveEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_DragLeaveEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_dragleaveevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_DropEvent(KDirOperator* self, QDropEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->dropEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperDropEvent(KDirOperator* self, QDropEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_DropEvent_IsBase(true);
-        vkdiroperator->dropEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->dropEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDropEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_DropEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_DropEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_dropevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_ShowEvent(KDirOperator* self, QShowEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->showEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperShowEvent(KDirOperator* self, QShowEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_ShowEvent_IsBase(true);
-        vkdiroperator->showEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->showEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnShowEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_ShowEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ShowEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_showevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_HideEvent(KDirOperator* self, QHideEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->hideEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperHideEvent(KDirOperator* self, QHideEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_HideEvent_IsBase(true);
-        vkdiroperator->hideEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->hideEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnHideEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_HideEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_HideEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_hideevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirOperator_NativeEvent(KDirOperator* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
+    if (vkdiroperator) {
         return vkdiroperator->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKDirOperator*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KDirOperator::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KDirOperator_SuperNativeEvent(KDirOperator* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_NativeEvent_IsBase(true);
-        return vkdiroperator->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKDirOperator*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        return vkdiroperator->KDirOperator::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnNativeEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_NativeEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_NativeEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_nativeevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KDirOperator_Metric(const KDirOperator* self, int param1) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         return vkdiroperator->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKDirOperator*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KDirOperator::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KDirOperator_SuperMetric(const KDirOperator* self, int param1) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Metric_IsBase(true);
-        return vkdiroperator->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKDirOperator*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self))) {
+        return vkdiroperator->KDirOperator::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirOperator_OnMetric(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Metric_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Metric_Callback>(slot));
+void KDirOperator_OnMetric(KDirOperator* self, intptr_t slot) {
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self)))
+        vkdiroperator->kdiroperator_metric_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_InitPainter(const KDirOperator* self, QPainter* painter) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->initPainter(painter);
     } else {
-        ((VirtualKDirOperator*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KDirOperator::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperInitPainter(const KDirOperator* self, QPainter* painter) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_InitPainter_IsBase(true);
-        vkdiroperator->initPainter(painter);
-    } else {
-        ((VirtualKDirOperator*)self)->initPainter(painter);
-    }
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self))) {
+        vkdiroperator->KDirOperator::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirOperator_OnInitPainter(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_InitPainter_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_InitPainter_Callback>(slot));
+void KDirOperator_OnInitPainter(KDirOperator* self, intptr_t slot) {
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self)))
+        vkdiroperator->kdiroperator_initpainter_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KDirOperator_Redirected(const KDirOperator* self, QPoint* offset) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         return vkdiroperator->redirected(offset);
     } else {
-        return ((VirtualKDirOperator*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KDirOperator::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KDirOperator_SuperRedirected(const KDirOperator* self, QPoint* offset) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Redirected_IsBase(true);
-        return vkdiroperator->redirected(offset);
-    } else {
-        return ((VirtualKDirOperator*)self)->redirected(offset);
-    }
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self))) {
+        return vkdiroperator->KDirOperator::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirOperator_OnRedirected(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Redirected_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Redirected_Callback>(slot));
+void KDirOperator_OnRedirected(KDirOperator* self, intptr_t slot) {
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self)))
+        vkdiroperator->kdiroperator_redirected_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KDirOperator_SharedPainter(const KDirOperator* self) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         return vkdiroperator->sharedPainter();
     } else {
-        return ((VirtualKDirOperator*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KDirOperator::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KDirOperator_SuperSharedPainter(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SharedPainter_IsBase(true);
-        return vkdiroperator->sharedPainter();
-    } else {
-        return ((VirtualKDirOperator*)self)->sharedPainter();
-    }
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self))) {
+        return vkdiroperator->KDirOperator::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirOperator_OnSharedPainter(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SharedPainter_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SharedPainter_Callback>(slot));
+void KDirOperator_OnSharedPainter(KDirOperator* self, intptr_t slot) {
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self)))
+        vkdiroperator->kdiroperator_sharedpainter_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_InputMethodEvent(KDirOperator* self, QInputMethodEvent* param1) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->inputMethodEvent(param1);
     } else {
-        ((VirtualKDirOperator*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KDirOperator::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperInputMethodEvent(KDirOperator* self, QInputMethodEvent* param1) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_InputMethodEvent_IsBase(true);
-        vkdiroperator->inputMethodEvent(param1);
-    } else {
-        ((VirtualKDirOperator*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnInputMethodEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_InputMethodEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_InputMethodEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_inputmethodevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KDirOperator_InputMethodQuery(const KDirOperator* self, int param1) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return new QVariant(vkdiroperator->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKDirOperator*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KDirOperator_SuperInputMethodQuery(const KDirOperator* self, int param1) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_InputMethodQuery_IsBase(true);
-        return new QVariant(vkdiroperator->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKDirOperator*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KDirOperator::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDirOperator_OnInputMethodQuery(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_InputMethodQuery_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_InputMethodQuery_Callback>(slot));
+void KDirOperator_OnInputMethodQuery(KDirOperator* self, intptr_t slot) {
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self)))
+        vkdiroperator->kdiroperator_inputmethodquery_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDirOperator_FocusNextPrevChild(KDirOperator* self, bool next) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         return vkdiroperator->focusNextPrevChild(next);
     } else {
-        return ((VirtualKDirOperator*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KDirOperator::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KDirOperator_SuperFocusNextPrevChild(KDirOperator* self, bool next) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_FocusNextPrevChild_IsBase(true);
-        return vkdiroperator->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKDirOperator*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        return vkdiroperator->KDirOperator::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnFocusNextPrevChild(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_focusnextprevchild_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_TimerEvent(KDirOperator* self, QTimerEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->timerEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperTimerEvent(KDirOperator* self, QTimerEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_TimerEvent_IsBase(true);
-        vkdiroperator->timerEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->timerEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnTimerEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_TimerEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_TimerEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_timerevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_ChildEvent(KDirOperator* self, QChildEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->childEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperChildEvent(KDirOperator* self, QChildEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_ChildEvent_IsBase(true);
-        vkdiroperator->childEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->childEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnChildEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_ChildEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ChildEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_childevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_CustomEvent(KDirOperator* self, QEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->customEvent(event);
     } else {
-        ((VirtualKDirOperator*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KDirOperator::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperCustomEvent(KDirOperator* self, QEvent* event) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_CustomEvent_IsBase(true);
-        vkdiroperator->customEvent(event);
-    } else {
-        ((VirtualKDirOperator*)self)->customEvent(event);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnCustomEvent(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_CustomEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_CustomEvent_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_customevent_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_ConnectNotify(KDirOperator* self, const QMetaMethod* signal) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->connectNotify(*signal);
     } else {
-        ((VirtualKDirOperator*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KDirOperator::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperConnectNotify(KDirOperator* self, const QMetaMethod* signal) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_ConnectNotify_IsBase(true);
-        vkdiroperator->connectNotify(*signal);
-    } else {
-        ((VirtualKDirOperator*)self)->connectNotify(*signal);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnConnectNotify(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_ConnectNotify_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ConnectNotify_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_connectnotify_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDirOperator_DisconnectNotify(KDirOperator* self, const QMetaMethod* signal) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator) {
         vkdiroperator->disconnectNotify(*signal);
     } else {
-        ((VirtualKDirOperator*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KDirOperator::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDirOperator_SuperDisconnectNotify(KDirOperator* self, const QMetaMethod* signal) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_DisconnectNotify_IsBase(true);
-        vkdiroperator->disconnectNotify(*signal);
-    } else {
-        ((VirtualKDirOperator*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->KDirOperator::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KDirOperator::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDisconnectNotify(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_DisconnectNotify_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_DisconnectNotify_Callback>(slot));
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self))
+        vkdiroperator->kdiroperator_disconnectnotify_callback = reinterpret_cast<VirtualKDirOperator::KDirOperator_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_SetupActions(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setupActions();
-    } else {
-        ((VirtualKDirOperator*)self)->setupActions();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::setupActions();
+    } else
+        qFatal("Error: Protected method KDirOperator::setupActions called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperSetupActions(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SetupActions_IsBase(true);
-        vkdiroperator->setupActions();
-    } else {
-        ((VirtualKDirOperator*)self)->setupActions();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnSetupActions(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SetupActions_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetupActions_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_UpdateSortActions(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->updateSortActions();
-    } else {
-        ((VirtualKDirOperator*)self)->updateSortActions();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::updateSortActions();
+    } else
+        qFatal("Error: Protected method KDirOperator::updateSortActions called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperUpdateSortActions(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_UpdateSortActions_IsBase(true);
-        vkdiroperator->updateSortActions();
-    } else {
-        ((VirtualKDirOperator*)self)->updateSortActions();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnUpdateSortActions(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_UpdateSortActions_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_UpdateSortActions_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_UpdateViewActions(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->updateViewActions();
-    } else {
-        ((VirtualKDirOperator*)self)->updateViewActions();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::updateViewActions();
+    } else
+        qFatal("Error: Protected method KDirOperator::updateViewActions called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperUpdateViewActions(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_UpdateViewActions_IsBase(true);
-        vkdiroperator->updateViewActions();
-    } else {
-        ((VirtualKDirOperator*)self)->updateViewActions();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnUpdateViewActions(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_UpdateViewActions_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_UpdateViewActions_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_SetupMenu2(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setupMenu();
-    } else {
-        ((VirtualKDirOperator*)self)->setupMenu();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::setupMenu();
+    } else
+        qFatal("Error: Protected method KDirOperator::setupMenu2 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperSetupMenu2(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SetupMenu2_IsBase(true);
-        vkdiroperator->setupMenu();
-    } else {
-        ((VirtualKDirOperator*)self)->setupMenu();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnSetupMenu2(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SetupMenu2_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetupMenu2_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_PrepareCompletionObjects(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->prepareCompletionObjects();
-    } else {
-        ((VirtualKDirOperator*)self)->prepareCompletionObjects();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::prepareCompletionObjects();
+    } else
+        qFatal("Error: Protected method KDirOperator::prepareCompletionObjects called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperPrepareCompletionObjects(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_PrepareCompletionObjects_IsBase(true);
-        vkdiroperator->prepareCompletionObjects();
-    } else {
-        ((VirtualKDirOperator*)self)->prepareCompletionObjects();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnPrepareCompletionObjects(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_PrepareCompletionObjects_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_PrepareCompletionObjects_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KDirOperator_CheckPreviewSupport(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return vkdiroperator->checkPreviewSupport();
-    } else {
-        return ((VirtualKDirOperator*)self)->checkPreviewSupport();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        return vkdiroperator->VirtualKDirOperator::checkPreviewSupport();
+    } else
+        qFatal("Error: Protected method KDirOperator::checkPreviewSupport called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KDirOperator_SuperCheckPreviewSupport(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_CheckPreviewSupport_IsBase(true);
-        return vkdiroperator->checkPreviewSupport();
-    } else {
-        return ((VirtualKDirOperator*)self)->checkPreviewSupport();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnCheckPreviewSupport(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_CheckPreviewSupport_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_CheckPreviewSupport_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_ResetCursor(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->resetCursor();
-    } else {
-        ((VirtualKDirOperator*)self)->resetCursor();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::resetCursor();
+    } else
+        qFatal("Error: Protected method KDirOperator::resetCursor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperResetCursor(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_ResetCursor_IsBase(true);
-        vkdiroperator->resetCursor();
-    } else {
-        ((VirtualKDirOperator*)self)->resetCursor();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnResetCursor(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_ResetCursor_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ResetCursor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_PathChanged(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->pathChanged();
-    } else {
-        ((VirtualKDirOperator*)self)->pathChanged();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::pathChanged();
+    } else
+        qFatal("Error: Protected method KDirOperator::pathChanged called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperPathChanged(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_PathChanged_IsBase(true);
-        vkdiroperator->pathChanged();
-    } else {
-        ((VirtualKDirOperator*)self)->pathChanged();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnPathChanged(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_PathChanged_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_PathChanged_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_SelectFile(KDirOperator* self, const KFileItem* item) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->selectFile(*item);
-    } else {
-        ((VirtualKDirOperator*)self)->selectFile(*item);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::selectFile(*item);
+    } else
+        qFatal("Error: Protected method KDirOperator::selectFile called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperSelectFile(KDirOperator* self, const KFileItem* item) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SelectFile_IsBase(true);
-        vkdiroperator->selectFile(*item);
-    } else {
-        ((VirtualKDirOperator*)self)->selectFile(*item);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnSelectFile(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SelectFile_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SelectFile_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_HighlightFile(KDirOperator* self, const KFileItem* item) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->highlightFile(*item);
-    } else {
-        ((VirtualKDirOperator*)self)->highlightFile(*item);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::highlightFile(*item);
+    } else
+        qFatal("Error: Protected method KDirOperator::highlightFile called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperHighlightFile(KDirOperator* self, const KFileItem* item) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_HighlightFile_IsBase(true);
-        vkdiroperator->highlightFile(*item);
-    } else {
-        ((VirtualKDirOperator*)self)->highlightFile(*item);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnHighlightFile(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_HighlightFile_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_HighlightFile_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_SortByName(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->sortByName();
-    } else {
-        ((VirtualKDirOperator*)self)->sortByName();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::sortByName();
+    } else
+        qFatal("Error: Protected method KDirOperator::sortByName called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperSortByName(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SortByName_IsBase(true);
-        vkdiroperator->sortByName();
-    } else {
-        ((VirtualKDirOperator*)self)->sortByName();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnSortByName(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SortByName_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SortByName_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_SortBySize(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->sortBySize();
-    } else {
-        ((VirtualKDirOperator*)self)->sortBySize();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::sortBySize();
+    } else
+        qFatal("Error: Protected method KDirOperator::sortBySize called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperSortBySize(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SortBySize_IsBase(true);
-        vkdiroperator->sortBySize();
-    } else {
-        ((VirtualKDirOperator*)self)->sortBySize();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnSortBySize(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SortBySize_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SortBySize_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_SortByDate(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->sortByDate();
-    } else {
-        ((VirtualKDirOperator*)self)->sortByDate();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::sortByDate();
+    } else
+        qFatal("Error: Protected method KDirOperator::sortByDate called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperSortByDate(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SortByDate_IsBase(true);
-        vkdiroperator->sortByDate();
-    } else {
-        ((VirtualKDirOperator*)self)->sortByDate();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnSortByDate(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SortByDate_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SortByDate_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_SortByType(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->sortByType();
-    } else {
-        ((VirtualKDirOperator*)self)->sortByType();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::sortByType();
+    } else
+        qFatal("Error: Protected method KDirOperator::sortByType called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperSortByType(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SortByType_IsBase(true);
-        vkdiroperator->sortByType();
-    } else {
-        ((VirtualKDirOperator*)self)->sortByType();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnSortByType(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SortByType_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SortByType_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_SortReversed(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->sortReversed();
-    } else {
-        ((VirtualKDirOperator*)self)->sortReversed();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::sortReversed();
+    } else
+        qFatal("Error: Protected method KDirOperator::sortReversed called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperSortReversed(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SortReversed_IsBase(true);
-        vkdiroperator->sortReversed();
-    } else {
-        ((VirtualKDirOperator*)self)->sortReversed();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnSortReversed(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SortReversed_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SortReversed_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_ToggleDirsFirst(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->toggleDirsFirst();
-    } else {
-        ((VirtualKDirOperator*)self)->toggleDirsFirst();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::toggleDirsFirst();
+    } else
+        qFatal("Error: Protected method KDirOperator::toggleDirsFirst called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperToggleDirsFirst(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_ToggleDirsFirst_IsBase(true);
-        vkdiroperator->toggleDirsFirst();
-    } else {
-        ((VirtualKDirOperator*)self)->toggleDirsFirst();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnToggleDirsFirst(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_ToggleDirsFirst_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ToggleDirsFirst_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_ToggleIgnoreCase(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->toggleIgnoreCase();
-    } else {
-        ((VirtualKDirOperator*)self)->toggleIgnoreCase();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::toggleIgnoreCase();
+    } else
+        qFatal("Error: Protected method KDirOperator::toggleIgnoreCase called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperToggleIgnoreCase(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_ToggleIgnoreCase_IsBase(true);
-        vkdiroperator->toggleIgnoreCase();
-    } else {
-        ((VirtualKDirOperator*)self)->toggleIgnoreCase();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnToggleIgnoreCase(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_ToggleIgnoreCase_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ToggleIgnoreCase_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_SlotCompletionMatch(KDirOperator* self, const libqt_string match) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    QString match_QString = QString::fromUtf8(match.data, match.len);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->slotCompletionMatch(match_QString);
-    } else {
-        ((VirtualKDirOperator*)self)->slotCompletionMatch(match_QString);
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        QString match_QString = QString::fromUtf8(match.data, match.len);
+        vkdiroperator->VirtualKDirOperator::slotCompletionMatch(match_QString);
+    } else
+        qFatal("Error: Protected method KDirOperator::slotCompletionMatch called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperSlotCompletionMatch(KDirOperator* self, const libqt_string match) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    QString match_QString = QString::fromUtf8(match.data, match.len);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SlotCompletionMatch_IsBase(true);
-        vkdiroperator->slotCompletionMatch(match_QString);
-    } else {
-        ((VirtualKDirOperator*)self)->slotCompletionMatch(match_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnSlotCompletionMatch(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SlotCompletionMatch_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SlotCompletionMatch_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_UpdateMicroFocus(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->updateMicroFocus();
-    } else {
-        ((VirtualKDirOperator*)self)->updateMicroFocus();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KDirOperator::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperUpdateMicroFocus(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_UpdateMicroFocus_IsBase(true);
-        vkdiroperator->updateMicroFocus();
-    } else {
-        ((VirtualKDirOperator*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnUpdateMicroFocus(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_Create(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->create();
-    } else {
-        ((VirtualKDirOperator*)self)->create();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::create();
+    } else
+        qFatal("Error: Protected method KDirOperator::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperCreate(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Create_IsBase(true);
-        vkdiroperator->create();
-    } else {
-        ((VirtualKDirOperator*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnCreate(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Create_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KDirOperator_Destroy(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->destroy();
-    } else {
-        ((VirtualKDirOperator*)self)->destroy();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        vkdiroperator->VirtualKDirOperator::destroy();
+    } else
+        qFatal("Error: Protected method KDirOperator::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KDirOperator_SuperDestroy(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Destroy_IsBase(true);
-        vkdiroperator->destroy();
-    } else {
-        ((VirtualKDirOperator*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnDestroy(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Destroy_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KDirOperator_FocusNextChild(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return vkdiroperator->focusNextChild();
-    } else {
-        return ((VirtualKDirOperator*)self)->focusNextChild();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        return vkdiroperator->VirtualKDirOperator::focusNextChild();
+    } else
+        qFatal("Error: Protected method KDirOperator::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KDirOperator_SuperFocusNextChild(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_FocusNextChild_IsBase(true);
-        return vkdiroperator->focusNextChild();
-    } else {
-        return ((VirtualKDirOperator*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnFocusNextChild(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_FocusNextChild_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KDirOperator_FocusPreviousChild(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return vkdiroperator->focusPreviousChild();
-    } else {
-        return ((VirtualKDirOperator*)self)->focusPreviousChild();
-    }
+    if (auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self)) {
+        return vkdiroperator->VirtualKDirOperator::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KDirOperator::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KDirOperator_SuperFocusPreviousChild(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_FocusPreviousChild_IsBase(true);
-        return vkdiroperator->focusPreviousChild();
-    } else {
-        return ((VirtualKDirOperator*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnFocusPreviousChild(KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_FocusPreviousChild_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KDirOperator_Sender(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return vkdiroperator->sender();
-    } else {
-        return ((VirtualKDirOperator*)self)->sender();
-    }
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self))) {
+        return vkdiroperator->VirtualKDirOperator::sender();
+    } else
+        qFatal("Error: Protected method KDirOperator::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KDirOperator_SuperSender(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Sender_IsBase(true);
-        return vkdiroperator->sender();
-    } else {
-        return ((VirtualKDirOperator*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnSender(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Sender_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KDirOperator_SenderSignalIndex(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return vkdiroperator->senderSignalIndex();
-    } else {
-        return ((VirtualKDirOperator*)self)->senderSignalIndex();
-    }
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self))) {
+        return vkdiroperator->VirtualKDirOperator::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KDirOperator::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KDirOperator_SuperSenderSignalIndex(const KDirOperator* self) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_SenderSignalIndex_IsBase(true);
-        return vkdiroperator->senderSignalIndex();
-    } else {
-        return ((VirtualKDirOperator*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnSenderSignalIndex(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KDirOperator_Receivers(const KDirOperator* self, const char* signal) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return vkdiroperator->receivers(signal);
-    } else {
-        return ((VirtualKDirOperator*)self)->receivers(signal);
-    }
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self))) {
+        return vkdiroperator->VirtualKDirOperator::receivers(signal);
+    } else
+        qFatal("Error: Protected method KDirOperator::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KDirOperator_SuperReceivers(const KDirOperator* self, const char* signal) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_Receivers_IsBase(true);
-        return vkdiroperator->receivers(signal);
-    } else {
-        return ((VirtualKDirOperator*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnReceivers(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_Receivers_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KDirOperator_IsSignalConnected(const KDirOperator* self, const QMetaMethod* signal) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return vkdiroperator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKDirOperator*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self))) {
+        return vkdiroperator->VirtualKDirOperator::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KDirOperator::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KDirOperator_SuperIsSignalConnected(const KDirOperator* self, const QMetaMethod* signal) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_IsSignalConnected_IsBase(true);
-        return vkdiroperator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKDirOperator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnIsSignalConnected(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_IsSignalConnected_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KDirOperator_GetDecodedMetricF(const KDirOperator* self, int metricA, int metricB) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return vkdiroperator->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKDirOperator*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KDirOperator_SuperGetDecodedMetricF(const KDirOperator* self, int metricA, int metricB) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        vkdiroperator->setKDirOperator_GetDecodedMetricF_IsBase(true);
-        return vkdiroperator->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKDirOperator*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDirOperator_OnGetDecodedMetricF(const KDirOperator* self, intptr_t slot) {
-    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
-        vkdiroperator->setKDirOperator_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self))) {
+        return vkdiroperator->VirtualKDirOperator::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KDirOperator::getDecodedMetricF called without a directly constructed type");
 }
 
 void KDirOperator_Delete(KDirOperator* self) {

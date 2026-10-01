@@ -9,48 +9,24 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KParts::GUIActivateEvent so that we can call protected methods
+// This class is a subclass of KParts::GUIActivateEvent
 class VirtualKPartsGUIActivateEvent final : public KParts::GUIActivateEvent {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKPartsGUIActivateEvent = true;
-
-    // Virtual class public types (including callbacks)
+    // Virtual class public types (including callbacks and access types)
     using KParts__GUIActivateEvent_SetAccepted_Callback = void (*)(KParts__GUIActivateEvent*, bool);
-    using KParts__GUIActivateEvent_Clone_Callback = QEvent* (*)();
+    using KParts__GUIActivateEvent_Clone_Callback = QEvent* (*)(const KParts__GUIActivateEvent*);
 
-  protected:
     // Instance callback storage
     KParts__GUIActivateEvent_SetAccepted_Callback kparts__guiactivateevent_setaccepted_callback = nullptr;
     KParts__GUIActivateEvent_Clone_Callback kparts__guiactivateevent_clone_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kparts__guiactivateevent_setaccepted_isbase = false;
-    mutable bool kparts__guiactivateevent_clone_isbase = false;
-
-  public:
     VirtualKPartsGUIActivateEvent(bool activated) : KParts::GUIActivateEvent(activated) {};
-
-    // Callback setters
-    inline void setKParts__GUIActivateEvent_SetAccepted_Callback(KParts__GUIActivateEvent_SetAccepted_Callback cb) { kparts__guiactivateevent_setaccepted_callback = cb; }
-    inline void setKParts__GUIActivateEvent_Clone_Callback(KParts__GUIActivateEvent_Clone_Callback cb) { kparts__guiactivateevent_clone_callback = cb; }
-
-    // Base flag setters
-    inline void setKParts__GUIActivateEvent_SetAccepted_IsBase(bool value) const { kparts__guiactivateevent_setaccepted_isbase = value; }
-    inline void setKParts__GUIActivateEvent_Clone_IsBase(bool value) const { kparts__guiactivateevent_clone_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void setAccepted(bool accepted) override {
-        if (kparts__guiactivateevent_setaccepted_isbase) {
-            kparts__guiactivateevent_setaccepted_isbase = false;
-            KParts__GUIActivateEvent::setAccepted(accepted);
-            return;
-        }
-        auto setaccepted_cb = kparts__guiactivateevent_setaccepted_callback;
-        if (setaccepted_cb) {
+        if (kparts__guiactivateevent_setaccepted_callback) {
             bool cbval1 = accepted;
-            setaccepted_cb(this, cbval1);
+            kparts__guiactivateevent_setaccepted_callback(this, cbval1);
             return;
         }
         KParts__GUIActivateEvent::setAccepted(accepted);
@@ -58,13 +34,8 @@ class VirtualKPartsGUIActivateEvent final : public KParts::GUIActivateEvent {
 
     // Virtual method for C ABI access and custom callback
     virtual QEvent* clone() const override {
-        if (kparts__guiactivateevent_clone_isbase) {
-            kparts__guiactivateevent_clone_isbase = false;
-            return KParts__GUIActivateEvent::clone();
-        }
-        auto clone_cb = kparts__guiactivateevent_clone_callback;
-        if (clone_cb) {
-            QEvent* callback_ret = clone_cb();
+        if (kparts__guiactivateevent_clone_callback) {
+            QEvent* callback_ret = kparts__guiactivateevent_clone_callback(this);
             return callback_ret;
         }
         return KParts__GUIActivateEvent::clone();
